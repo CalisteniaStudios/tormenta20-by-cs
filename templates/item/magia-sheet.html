@@ -1,0 +1,68 @@
+<form class="tormenta20" autocomplete="off">
+    <header class="sheet-header">
+        <div class="header-fields">
+            <div class="resource col-75"><input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
+            </div>
+            <div class="resource  col-24">
+                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+                <label>PM</label>
+            </div>
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String"/>
+                	<label>Tipo</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.circulo" value="{{data.circulo}}" data-dtype="Number"/>
+                	<label>Circulo</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.escola" value="{{data.escola}}" data-dtype="String"/>
+                    <label>Escola</label>
+                </div>
+            </div>
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String"/>
+                    <label>Execução</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String"/>
+                    <label>Alcance</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String"/>
+                    <label>Duração</label>
+                </div>
+            </div>
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String"/>
+                    <label>Alvo</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.area" value="{{data.area}}" data-dtype="String"/>
+                    <label>Area</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String"/>
+                    <label>Resistência</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="full">
+            <br><label>Efeito</label>
+            <input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String"/>
+        </div>
+
+        <div class="full border">
+            <label>Descrição</label>
+            <textarea name="data.description" value="{{data.description}}" data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
+        </div>
+
+    </section>
+</form>

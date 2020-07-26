@@ -1,0 +1,29 @@
+{
+  "name": "tormenta20",
+  "title": "Tormenta20",
+  "description": "Tormenta20 for FoundryVTT!",
+  "version": "0.9.0",
+  "minimumCoreVersion": "0.5.5",
+  "compatibleCoreVersion": "0.5.5",
+  "templateVersion": 1,
+  "author": "Vizael",
+  "esmodules": ["module/tormenta20.js"],
+  "styles": ["css/tormenta20.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 1.5,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "Pontos de Vida",
+  "secondaryTokenAttribute": "Pontos de Mana",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}

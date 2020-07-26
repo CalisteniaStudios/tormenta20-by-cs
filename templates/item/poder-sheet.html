@@ -1,0 +1,34 @@
+<form class="tormenta20" autocomplete="off">
+    <header class="sheet-header">
+        <div class="header-fields">
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
+                    <label>Nome</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String"/>
+                    <label>Tipo</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+                    <label>PM</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="full">
+            <br><label>Formula</label>
+            <input type="text" name="data.roll" value="{{data.roll}}" data-dtype="String"/>
+        </div>
+
+        <div class="full border">
+            <label>Descrição</label>
+            <textarea name="data.description" data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
+        </div>
+
+    </section>
+</form>

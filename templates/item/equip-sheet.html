@@ -1,0 +1,25 @@
+<form class="tormenta20" autocomplete="off">
+    <header class="sheet-header">
+        <div class="header-fields">
+           <table>
+               <tr>
+                    <th>Nome</th>
+                    <th>Qtd</th>
+                    <th>Peso</th>
+               </tr>
+               <tr>
+                   <td><input name="name" type="text" value="{{item.name}}" placeholder="Nome"/></td>
+                   <td><input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number"/></td>
+                   <td><input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/></td>
+               </tr>
+           </table>
+        </div>
+    </header>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{editor content=data.base.description target="data.base.description" button=true owner=owner editable=editable}}
+
+    </section>
+</form>

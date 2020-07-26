@@ -1,0 +1,21 @@
+<section class="t20-chat-card">
+  <div class="cell cell--chat">
+    <div class="dice-roll">
+      {{#if flavor}}<div class="row"><em>{{flavor}}</em></div>{{/if}}
+      <h2 class="cell__title">{{title}} {{#if custo}}<span class="custo" style="float: right;">{{{custo}}} PM</span>{{/if}}</h2> 
+      {{#if spell}}
+          <div class="spellheader" style="flex: auto">
+              <h4>{{~#if spell.tipo}}{{spell.tipo}}{{~/if}}<i> </i>{{~#if spell.circulo}}{{spell.circulo}} {{~/if}}<i> </i>{{~#if spell.escola}}({{spell.escola}}){{~/if}}</h4>
+              <p>{{~#if spell.execucao}}<b>Execução:</b> {{{spell.execucao}}}{{~/if}} {{~#if spell.alcance}}<b> Alcance:</b> {{{spell.alcance}}}{{~/if}} {{~#if spell.alvo}}<b> Alvo:</b> {{{spell.alvo}}}{{~/if}} {{~#if spell.area}}<b> Área:</b> {{{spell.area}}}{{~/if}} {{~#if spell.duracao}}<b> Duração:</b> {{{spell.duracao}}}{{~/if}} {{~#if spell.resistencia}}<b> Resistência:</b> {{{spell.resistencia}}}{{~/if}}</p>
+          </div>
+      {{/if}}
+      <div class="dice-tooltip">
+        <section class="tooltip-part">
+          {{#if details}}<div class="row">{{{details}}}</div>{{/if}}
+        </section>
+      </div>
+    </div>
+    {{#if roll}}<div class="roll">{{{roll}}}</div>{{/if}}
+    {{#if rollDano}}<hr><div class="roll">{{{rollDano}}}</div>{{/if}}
+  </div>
+</section>

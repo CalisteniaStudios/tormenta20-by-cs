@@ -1,0 +1,93 @@
+<form class="tormenta20" autocomplete="off">
+    <header class="sheet-header">
+        <div class="header-fields">
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
+                    <label>Nome</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.bonusAtq" value="{{data.bonusAtq}}" data-dtype="Number"/>
+                    <label>Bônus de Ataque</label>
+                </div>
+                <div class="field sel-center flex-group-center">
+                    <select  class="selectatr"  name="data.perAtq" value={{data.perAtq}} data-type="String">
+                        {{#select data.perAtq}}
+                        <option  value="lut">Luta</option>
+                        <option  value="pon">Pontaria</option>
+                        <option  value="atu">Atuação</option>
+                        {{/select}}
+                    </select>
+                    <br><label>Pericia</label>
+                </div>
+            </div>
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input type="text" name="data.dano" value="{{data.dano}}" data-dtype="String"  placeholder="ex.: 1d6"/>
+                    <label>Dano</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.bonusDano" value="{{data.bonusDano}}" data-dtype="String"/>
+                    <label>Bônus de Dano</label>
+                </div>
+                <div class="field sel-center flex-group-center">
+                    <select  class="selectatr"  name="data.atrDan" value={{data.atrDan}} data-type="String">
+                        {{#select data.atrDan}}
+                        <option  value="for">For</option>
+                        <option  value="des">Des</option>
+                        <option  value="con">Con</option>
+                        <option  value="int">Int</option>
+                        <option  value="sab">Sab</option>
+                        <option  value="car">Car</option>
+                        {{/select}}
+                    </select>
+                    <br><label>Atributo de Dano</label>
+                </div>
+            </div>
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input type="text" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number"placeholder="ex.: 19"/>
+                    <label>Margem de Crítico</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number"/>
+                    <label>Multiplicador de Crítico</label>
+                </div>
+                <div class="field flex-group-center">
+                    {{#if data.lancinante}}
+                    <input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" checked data-dtype="Boolean"/>
+                    {{else}}
+                    <input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" data-dtype="Boolean"/>
+                    {{/if}}
+                    <label>Lancinante?</label>
+                </div>
+            </div>
+            <div class="resources flex grid-3col">
+                <div class="field flex-group-center">
+                    <input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String"/>
+                    <label>Alcance</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.municao" value="{{data.municao}}" data-dtype="Number"/>
+                    <label>Munição</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+                    <label>PM</label>
+                </div>
+                <div class="field flex-group-center">
+                    <input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String"/>
+                    <label>Tipo</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="full">
+            <br><label>Descrição</label>
+            <textarea name="data.description" data-dtype="String">{{data.description}}</textarea>
+        </div>
+    </section>
+</form>
