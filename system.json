@@ -22,8 +22,8 @@
   "gridUnits": "m",
   "primaryTokenAttribute": "Pontos de Vida",
   "secondaryTokenAttribute": "Pontos de Mana",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://gitlab.com/vizael/Tormenta20-FoundryVTT",
+  "manifest": "https://gitlab.com/vizael/Tormenta20-FoundryVTT/-/raw/master/system.json",
+  "download": "https://gitlab.com/vizael/Tormenta20-FoundryVTT/-/archive/master/Tormenta20-FoundryVTT-master.zip",
   "license": "LICENSE.txt"
 }
