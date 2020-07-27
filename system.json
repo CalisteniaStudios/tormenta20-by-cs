@@ -1,8 +1,8 @@
 {
   "name": "tormenta20",
   "title": "Tormenta20",
-  "description": "Tormenta20 for FoundryVTT!",
-  "version": "0.9.0",
+  "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
+  "version": "0.9.1",
   "minimumCoreVersion": "0.5.5",
   "compatibleCoreVersion": "0.5.5",
   "templateVersion": 1,
@@ -24,6 +24,6 @@
   "secondaryTokenAttribute": "Pontos de Mana",
   "url": "https://gitlab.com/vizael/Tormenta20",
   "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/master/system.json",
-  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/master/Tormenta20-FoundryVTT-master.zip",
+  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/master/Tormenta20-master.zip",
   "license": "LICENSE.txt"
 }
