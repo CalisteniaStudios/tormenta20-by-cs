@@ -9,9 +9,9 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 ## TODOS
 
 * Sheet Layout
-* Spell memorized check
 * Add Oficios variations
 * Add tab for bio and picture
+* Alter attacks to include extra attacks
 
 ## Special Thanks
 
