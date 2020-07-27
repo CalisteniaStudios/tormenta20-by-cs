@@ -74,17 +74,12 @@ export class tormenta20ActorSheet extends ActorSheet {
         equipamentos.push(i);
       }
       else if (i.type === 'ataque') {
-        // console.log(i);
-        // console.log(actorData);
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
         let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
-        // console.log(tempatq);
-        // console.log(tempdmg);
+
         i.data.atq = (tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1) + (b*1), 0) + (tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '');
         i.data.dmg = (tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => '+'+(a*1) + (b*1), '') || '');
 
-        // console.log(i.data.atq);
-        // console.log(i.data.dmg);
         ataques.push(i);
       }
     }
@@ -253,7 +248,7 @@ export class tormenta20ActorSheet extends ActorSheet {
       let multiroll = (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1];
       let newdano = item.data.data.dano.replace(baseroll, multiroll);
       formula.crit = `${newdano} + ${actorData.atributos[item.data.data.atrDan].mod} + ${item.data.data.bonusDano}`;
-      console.log(item.data.data.lancinante);
+      
       if(item.data.data.lancinante) {
         let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * "+item.data.data.criticoX+")");
         formula.crit = `${lacinante}`;
