@@ -211,7 +211,7 @@
   list-style: none;
   margin: 7px 0;
   padding: 0;
-  overflow-y: auto;
+  overflow-y: unset;
 }
 
 .tormenta20 .items-list .item-header {

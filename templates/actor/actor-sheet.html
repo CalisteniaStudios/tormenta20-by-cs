@@ -188,140 +188,34 @@
         </ol>
       </div>
       <div class="magias">
+        {{#each actor.magias as |circulo i|}}
         <ol class="items-list">
         <li class="item flexrow item-header">
           <div class="item-prep">Prep</div>
-          <div class="item-name">1º Círculo (1 PM)</div>
+          <div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
           <div class="item-controls">
-
-          <a class="item-control item-create" title="Create item" data-type="magia" data-circulo="1"><i class="fas fa-plus"></i> Novo</a>
+           
+          <a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}"><i class="fas fa-plus"></i> Novo</a>
           </div>
         </li>
-        {{#each actor.magias.[1] as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-prep">
-            {{#if flags.[item._id].preparada}}
-              <input type="checkbox" name="flags.[item._id].preparada" value="{{flags.[item._id].preparada}}" checked data-dtype="Boolean"  />
-            {{else}}
-              <input type="checkbox" name="flags.[item._id].preparada" value="{{flags.[item._id].preparada}}" data-dtype="Boolean"  />
-            {{/if}}
-          </div>
-          <h4 class="item-name"><span class="rollable magia-rollable" data-label="{{item.name}}">{{item.name}}</span></h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Deletar"><i class="fas fa-trash"></i></a>
-          </div>
-          </li>
-        {{/each}}
+            {{#each circulo.spells as |m index|}}
+            <li class="item flexrow" data-item-id="{{m._id}}">
+              <div class="item-prep">
+                {{#if m.data.preparada}}
+                  <input type="checkbox" class="preparada" value="{{m.data.preparada}}" checked data-dtype="Boolean" />
+                {{else}}
+                  <input type="checkbox" class="preparada" value="{{m.data.preparada}}"  data-dtype="Boolean" />
+                {{/if}}
+              </div>
+              <h4 class="item-name"><span class="rollable magia-rollable" data-label="{{m.name}}">{{m.name}}</span></h4>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Deletar"><i class="fas fa-trash"></i></a>
+              </div>
+              </li>
+            {{/each}}
         </ol>
-
-        <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-prep">Prep</div>
-          <div class="item-name">2º Círculo (3 PM)</div>
-          <div class="item-controls">
-
-          <a class="item-control item-create" title="Create item" data-type="magia" data-circulo="2"><i class="fas fa-plus"></i> Novo</a>
-          </div>
-        </li>
-        {{#each actor.magias.[2] as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-prep"> 
-            {{#if flags.[item._id].preparada}}
-              <input type="checkbox" name="flags.[item._id].preparada" checked data-dtype="Number"  />
-            {{else }}
-              <input type="checkbox" name="flags.[item._id].preparada" data-dtype="Number"  />
-            {{/if}}
-          </div>
-          <h4 class="item-name"><span class="rollable magia-rollable" data-label="{{item.name}}">{{item.name}}</span></h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-          </li>
         {{/each}}
-        </ol>
-
-        <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-prep">Prep</div>
-          <div class="item-name">3º Círculo (6 PM)</div>
-          <div class="item-controls">
-
-          <a class="item-control item-create" title="Create item" data-type="magia" data-circulo="3"><i class="fas fa-plus"></i> Novo</a>
-          </div>
-        </li>
-        {{#each actor.magias.[3] as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-prep">
-            {{#if flags.[item._id].preparada}}
-              <input type="checkbox" name="flags.[item._id].preparada" checked data-dtype="Number"  />
-            {{else }}
-              <input type="checkbox" name="flags.[item._id].preparada" data-dtype="Number"  />
-            {{/if}}
-          </div>
-          <h4 class="item-name"><span class="rollable magia-rollable" data-label="{{item.name}}">{{item.name}}</span></h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-          </li>
-        {{/each}}
-        </ol>
-
-        <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-prep">Prep</div>
-          <div class="item-name">4º Círculo (10 PM)</div>
-          <div class="item-controls">
-
-          <a class="item-control item-create" title="Create item" data-type="magia" data-circulo="4"><i class="fas fa-plus"></i> Novo</a>
-          </div>
-        </li>
-        {{#each actor.magias.[4] as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-prep">
-            {{#if flags.[item._id].preparada}}
-              <input type="checkbox" name="flags.[item._id].preparada" checked data-dtype="Number"  />
-            {{else }}
-              <input type="checkbox" name="flags.[item._id].preparada" data-dtype="Number"  />
-            {{/if}}
-          </div>
-          <h4 class="item-name"><span class="rollable magia-rollable" data-label="{{item.name}}">{{item.name}}</span></h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-          </li>
-        {{/each}}
-        </ol>
-
-        <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-prep">Prep</div>
-          <div class="item-name">5º Círculo (15 PM)</div>
-          <div class="item-controls">
-
-          <a class="item-control item-create" title="Create item" data-type="magia" data-circulo="5"><i class="fas fa-plus"></i> Novo</a>
-          </div>
-        </li>
-        {{#each actor.magias.[5] as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-prep">
-            {{#if flags.[item._id].preparada}}
-              <input type="checkbox" name="flags.[item._id].preparada" data-dtype="Number"  />
-            {{else}}
-              <input type="checkbox" name="flags.[item._id].preparada" data-dtype="Number"  />
-            {{/if}}
-          </div>
-          <h4 class="item-name">{{item.name}}</h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-          </li>
-        {{/each}}
-        </ol>
       </div>
 
       <div class="outros">

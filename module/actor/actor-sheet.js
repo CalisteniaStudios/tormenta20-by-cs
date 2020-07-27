@@ -48,25 +48,41 @@ export class tormenta20ActorSheet extends ActorSheet {
     const equipamentos = [];
     const ataques = [];
     const magias = {
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: []
+      1: {
+          spells: [],
+          custo: 1
+        },
+      2: {
+          spells: [],
+          custo: 3
+        },
+      3: {
+          spells: [],
+          custo: 6
+        },
+      4: {
+          spells: [],
+          custo: 10
+        },
+      5: {
+          spells: [],
+          custo: 15
+        }
     };
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
+    let x = 0;
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
-      // If this is a move, sort into various arrays.
+      // Sort into various arrays.
       if (i.type === 'poder') {
         poderes.push(i);
       }
       else if (i.type === 'magia') {
         if (i.data.circulo != undefined) {
-          magias[i.data.circulo].push(i);
+          magias[i.data.circulo].spells.push(i);
         }
       }
       // If this is equipment, we currently lump it together.
@@ -84,14 +100,37 @@ export class tormenta20ActorSheet extends ActorSheet {
       }
     }
 
-    // Assign and return
+    // Assign and return powers
     actorData.poderes = poderes;
     // Spells
     actorData.magias = magias;
     // Equipment
     actorData.equipamentos = equipamentos;
-    // Bonds
+    // Attacks
     actorData.ataques = ataques;
+  }
+
+  /**
+   * Listen for click events on spells.
+   * @param {MouseEvent} event
+   */
+  async _onPrepareSpell(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const data = a.dataset;
+    const actorData = this.actor.data.data;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.getOwnedItem(itemId);
+
+    if (item) {
+      let $self = $(a);
+
+      let updatedItem = duplicate(item);
+      updatedItem.data.preparada = !updatedItem.data.preparada;
+
+      this.actor.updateOwnedItem(updatedItem);
+      this.render();
+    }
   }
 
   /* -------------------------------------------- */
@@ -122,6 +161,9 @@ export class tormenta20ActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+    
+    // Prepare spells
+    html.find('.preparada').click(this._onPrepareSpell.bind(this));
 
     // Drag events for macros.
     if (this.actor.owner) {
