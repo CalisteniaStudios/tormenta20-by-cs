@@ -355,7 +355,7 @@
           "outros": 0,
           "notes": "",
           "mod": 0,
-          "background": true
+          "mais": {}
         },
         "per": {
           "label": "Percepção",
@@ -442,6 +442,7 @@
           "mod": 0
         }
       },
+      "periciasCustom": {},
       "resistencias": "",
       "detalhes": {
         "biografia": "",

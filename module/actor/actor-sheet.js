@@ -11,7 +11,7 @@ export class tormenta20ActorSheet extends ActorSheet {
       template: "systems/tormenta20/templates/actor/actor-sheet.html",
       width: 900,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }]
     });
   }
 
@@ -29,6 +29,16 @@ export class tormenta20ActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
+
+    // TODO Migrate function to initialize new json data;
+    // console.log(this.actor.data.data.pericias.ofi.more);
+    if(this.actor.data.data.pericias.ofi.mais === undefined){
+      this.actor.update({"data.pericias.ofi.mais":{}});
+    }
+    if(this.actor.data.data.periciasCustom === undefined){
+      this.actor.update({"data.periciasCustom":{}});
+    }
+
 
     return data;
   }
@@ -108,6 +118,7 @@ export class tormenta20ActorSheet extends ActorSheet {
     actorData.equipamentos = equipamentos;
     // Attacks
     actorData.ataques = ataques;
+
   }
 
   /**
@@ -139,8 +150,15 @@ export class tormenta20ActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    // Tooltips TODO DEBUG
+    html.mousemove(ev => this._moveTooltips(ev));
+    
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
+
+    // Add pericias/oficios
+    html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
+    html.find('.oficios-create').click(this._onPericiaCustomCreate.bind(this));
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
@@ -174,6 +192,59 @@ export class tormenta20ActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+  }
+
+  /* -------------------------------------------- */
+  _moveTooltips(event) {
+    $(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
+  }
+
+  /**
+   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  _onPericiaCustomCreate(event) {
+    event.preventDefault();
+
+    const a = event.currentTarget;
+    const tipo = a.dataset.tipo;
+    const pericia = {
+          label: "",
+          nome: "",
+          value: 0,
+          atributo: "for",
+          st: false,
+          pda: false,
+          treinado: false,
+          treino: 0,
+          outros: 0,
+          mod: 0
+        } ;
+
+    let actorData = duplicate(this.actor);
+    let oficios = actorData.data.pericias.ofi.mais;
+    let periciasCustom = actorData.data.periciasCustom;
+
+
+    if(tipo == 'oficio'){
+      pericia.label = "Oficio";
+      pericia.atributo = 'int';
+      let c = Object.keys(this.actor.data.data.pericias.ofi.mais).length;
+
+      oficios[c] = pericia;
+
+      this.actor.update({"data.pericias.ofi.mais": oficios});
+    } else {
+      let c = Object.keys(this.actor.data.data.periciasCustom).length;
+
+      periciasCustom[c] = pericia;
+      
+      this.actor.update({"data.periciasCustom": periciasCustom});
+      // this.actor.data.data.periciasCustom[] = pericia;
+    }
+
+    this.render();
   }
 
   /**
@@ -210,22 +281,6 @@ export class tormenta20ActorSheet extends ActorSheet {
    * @private
    */
   _onRoll(event, actor = null) {
-    /*
-      event.preventDefault();
-      const element = event.currentTarget;
-      const dataset = element.dataset;
-      let template = 'systems/tormenta20/templates/chat/chat-move.html';
-
-      if (dataset.roll) {
-        let roll = new Roll(dataset.roll, this.actor.data.data);
-        let label = dataset.label ? `Rolando ${dataset.label}` : '';
-        roll.roll().toMessage({
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          flavor: label
-        });
-      }
-    */
-
     actor = !actor ? this.actor : actor;
 
     // Initialize variables.

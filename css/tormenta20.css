@@ -191,16 +191,16 @@
   text-transform: uppercase;
 }
 
-.tormenta20 .tabs {
-  height: 40px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
+.tormenta20 nav.sheet-tabs {
+  text-align: center;
+  font-size: 18px;
 }
 
 .tormenta20 .tabs .item {
   line-height: 40px;
   font-weight: bold;
 }
+
 
 .tormenta20 .tabs .item.active {
   text-decoration: underline;
@@ -474,4 +474,32 @@
 
 .t20-chat-card span.custo {
   color: red;
+}
+
+/* Tooltip text */
+.tooltip .tooltipcontent {
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  line-height: 13px;
+  min-width: 128px;
+  width: 240px;
+  /* Position the tooltip text */
+  position: fixed;
+  z-index: 1;
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltipcontent {
+  visibility: visible;
+  pointer-events: none;
+  opacity: 1;
 }
