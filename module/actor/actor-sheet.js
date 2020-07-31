@@ -38,7 +38,18 @@ export class tormenta20ActorSheet extends ActorSheet {
     if(this.actor.data.data.periciasCustom === undefined){
       this.actor.update({"data.periciasCustom":{}});
     }
-
+    if(this.actor.data.data.periciasCustom === undefined){
+      this.actor.update({"data.periciasCustom":{}});
+    }
+    if(this.actor.data.data.armadura.equipado === undefined){
+      this.actor.update({"data.armadura.equipado":true});
+    }
+    if(this.actor.data.data.escudo.equipado === undefined){
+      this.actor.update({"data.escudo.equipado":true});
+    }
+    if(this.actor.data.data.pericias.atl.pda === true){
+      this.actor.update({"data.pericias.atl.pda":false});
+    }
 
     return data;
   }
@@ -98,13 +109,26 @@ export class tormenta20ActorSheet extends ActorSheet {
       // If this is equipment, we currently lump it together.
       else if (i.type === 'equip') {
         equipamentos.push(i);
+        // carga = [];
+        // carga.push(i.peso);
+        // carga.reduce((a,b) => a+b,0);
+        // actorData.data.detalhes.carga = carga;
       }
       else if (i.type === 'ataque') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
-        let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
+        tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+        // let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
+        let tempdmg = '';
+        tempdmg = i.data.dano !='' ? tempdmg+`${i.data.dano}` : tempdmg;
+        tempdmg = actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg+`+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
+        tempdmg = i.data.bonusDano!='' ? tempdmg+` + ${i.data.bonusDano}` : tempdmg;
+        tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
 
-        i.data.atq = (tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1) + (b*1), 0) + (tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '');
-        i.data.dmg = (tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => '+'+(a*1) + (b*1), '') || '');
+        i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1) + (b*1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '');
+
+        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1+b*1>=0 ? '+'+(a*1+b*1) : ''+(a*1+b*1)), '') || '');
+
+
 
         ataques.push(i);
       }
@@ -340,17 +364,24 @@ export class tormenta20ActorSheet extends ActorSheet {
     } else if ($(a).hasClass('ataque-rollable')) {
       formula = {};
       formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value} + ${item.data.data.bonusAtq}`;
-      formula.dano = `${item.data.data.dano} + ${actorData.atributos[item.data.data.atrDan].mod} + ${item.data.data.bonusDano}`;
-      let baseroll = item.data.data.dano.match(/(\d*)d\d+/g)[0];
-      let multiroll = (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1];
-      let newdano = item.data.data.dano.replace(baseroll, multiroll);
-      formula.crit = `${newdano} + ${actorData.atributos[item.data.data.atrDan].mod} + ${item.data.data.bonusDano}`;
-      
-      if(item.data.data.lancinante) {
-        let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * "+item.data.data.criticoX+")");
-        formula.crit = `${lacinante}`;
 
+      if(item.data.data.dano.match(/(\d*)d\d+/g)){
+        formula.dano = `${item.data.data.dano} + ${actorData.atributos[item.data.data.atrDan].mod} + ${item.data.data.bonusDano}`;
+        let baseroll = item.data.data.dano.match(/(\d*)d\d+/g)? item.data.data.dano.match(/(\d*)d\d+/g)[0] : '';
+        let multiroll = item.data.data.dano.match(/(\d*)d\d+/g)? (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
+        let newdano = item.data.data.dano.replace(baseroll, multiroll);
+        formula.crit = `${newdano} + ${actorData.atributos[item.data.data.atrDan].mod} + ${item.data.data.bonusDano}`;
+        if(item.data.data.lancinante) {
+          let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * "+item.data.data.criticoX+")");
+          formula.crit = `${lacinante}`;
+        }
+
+      } else {
+        formula.dano = null;
+        formula.crit = null;
       }
+
+      
       flavorText = item.name;
       detailText = item.data.data.description;
 
@@ -419,11 +450,14 @@ export class tormenta20ActorSheet extends ActorSheet {
     // Handle dice rolls.
     let danoFormula = false;
     let critFormula = false;
+    let rollArr = [];
     
     if(typeof roll === 'object'){
       // remove signs from end of sting
-      danoFormula = roll.dano.trim().replace(/([\+\-]+$)/g, '');
-      critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, '');
+      if(roll.dano != null){
+        danoFormula = roll.dano.trim().replace(/([\+\-]+$)/g, '');
+        critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, '');
+      }
       roll = roll.atq.trim().replace(/([\+\-]+$)/g, '');
     }
 
@@ -437,9 +471,9 @@ export class tormenta20ActorSheet extends ActorSheet {
       }
 
       if (formula != null) {
-        // Do the roll.
         let roll = new Roll(`${formula}`);
         roll.roll();
+        rollArr.push(roll);
         let result = roll._dice[0].rolls[0].roll;
 
         // Check if there are dmg rolls and what critical math to use
@@ -452,21 +486,21 @@ export class tormenta20ActorSheet extends ActorSheet {
           dmgroll.roll();
           dmgroll.render().then(r => {
             templateData.rollDano = r;
-            if (game.dice3d) {
-              game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
-            }
-            else {
-              chatData.sound = CONFIG.sounds.dice;
-            }
           });
+          
+          rollArr.push(dmgroll);
         }
         // Render it.
+
         roll.render().then(r => {
           templateData.roll = r;
+
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {
-              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              game.dice3d.showForRoll(rollArr, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              // game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              // game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
             }
             else {
               chatData.sound = CONFIG.sounds.dice;

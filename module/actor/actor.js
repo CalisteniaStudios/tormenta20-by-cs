@@ -24,6 +24,7 @@ export class tormenta20Actor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
+    // console.log(data);
     // Make modifications to data here. For example:
     var nivel = data.attributes.nivel.value;
     // Loop through ability scores, and add their modifiers to our sheet output.
@@ -42,7 +43,7 @@ export class tormenta20Actor extends Actor {
 
       var atributo = pericia.atributo;
       pericia.mod = data.atributos[atributo].mod;
-      pericia.value = Math.floor(nivel/2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? Math.abs(data.armadura.penalidade) + Math.abs(data.escudo.penalidade) : 0));
+      pericia.value = Math.floor(nivel/2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
 
     for (let [key, pericia] of Object.entries(data.pericias.ofi.mais)) {
@@ -52,14 +53,15 @@ export class tormenta20Actor extends Actor {
       } else {
         pericia.treino = 0;
       }
-      pericia.nome = pericia.label.match(/\w+([\s\w]+)?\b/g)[0];
+
+      pericia.nome = pericia.label.match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
       
       pericia.st = (pericia.label.match(/\+/g) ? true : false);
       pericia.pda = (pericia.label.match(/\*/g) ? true : false);
       
       var atributo = pericia.atributo;
       pericia.mod = data.atributos[atributo].mod;
-      pericia.value = Math.floor(nivel/2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? Math.abs(data.armadura.penalidade) + Math.abs(data.escudo.penalidade) : 0));
+      pericia.value = Math.floor(nivel/2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
 
     for (let [key, pericia] of Object.entries(data.periciasCustom)) {
@@ -69,20 +71,21 @@ export class tormenta20Actor extends Actor {
       } else {
         pericia.treino = 0;
       }
-      pericia.nome = pericia.label.match(/\w+([\s\w]+)?\b/g)[0];
+
+      pericia.nome = pericia.label.match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
       
       pericia.st = (pericia.label.match(/\+/g) ? true : false);
       pericia.pda = (pericia.label.match(/\*/g) ? true : false);
       
       var atributo = pericia.atributo;
       pericia.mod = data.atributos[atributo].mod;
-      pericia.value = Math.floor(nivel/2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? Math.abs(data.armadura.penalidade) + Math.abs(data.escudo.penalidade) : 0));
+      pericia.value = Math.floor(nivel/2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
-
-    data.defesa.armad = Number(data.armadura.defesa);
-    data.defesa.escud = Number(data.escudo.defesa);
+    
+    data.defesa.armad = data.armadura.equipado ? Number(data.armadura.defesa) : 0;
+    data.defesa.escud = data.escudo.equipado ? Number(data.escudo.defesa) : 0;
     data.defesa.value = 10 + Number((data.defesa.des ? data.atributos.des.mod : 0))
-                        + Number(data.armadura.defesa) + Number(data.escudo.defesa)
+                        + Number(data.defesa.armad) + Number(data.defesa.escud)
                         + Number(data.defesa.outro);
 
     
