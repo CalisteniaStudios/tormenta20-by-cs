@@ -154,16 +154,31 @@
         <div class="armadura">
           <table>
             <tr>
+              <th>Equipado</th>
               <th>Armadura & Escudo</th>
               <th>Defesa</th>
               <th>Penalidade</th>
             </tr>
             <tr>
+              <td>
+                {{#if data.armadura.equipado }}
+                   <input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}" checked data-dtype="Boolean" />
+                {{else}}
+                  <input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}" data-dtype="Boolean" />
+                {{/if}}
+              </td>
               <td><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String"  /></td>
               <td><input type="text" name="data.armadura.defesa" value="{{data.armadura.defesa}}" data-dtype="Number"  /></td>
               <td><input type="text" name="data.armadura.penalidade" value="{{data.armadura.penalidade}}" data-dtype="Number"  /></td>
             </tr>
             <tr>
+              <td>
+                {{#if data.escudo.equipado }}
+                   <input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}" checked data-dtype="Boolean" />
+                {{else}}
+                  <input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}" data-dtype="Boolean" />
+                {{/if}}
+              </td>
               <td><input type="text" name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String"  /></td>
               <td><input type="text" name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number"  /></td>
               <td><input type="text" name="data.escudo.penalidade" value="{{data.escudo.penalidade}}" data-dtype="Number"  /></td>
