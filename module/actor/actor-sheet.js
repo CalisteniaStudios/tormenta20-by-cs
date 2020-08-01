@@ -63,7 +63,7 @@ export class tormenta20ActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
-    console.log(actorData);
+    
     // Initialize containers.
     const poderes = [];
     const equipamentos = [];
@@ -318,7 +318,7 @@ export class tormenta20ActorSheet extends ActorSheet {
     const actorData = actor.data.data;
     const itemId = $(a).parents('.item').attr('data-item-id');
     const item = actor.getOwnedItem(itemId);
-    console.log(item);
+    
     let formula = null;
     let titleText = null;
     let flavorText = null;
@@ -365,8 +365,7 @@ export class tormenta20ActorSheet extends ActorSheet {
     } else if ($(a).hasClass('ataque-rollable')) {
       formula = {};
       formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value} + ${item.data.data.bonusAtq}`;
-      console.log(item.data.data.pericia);
-      console.log(actorData.pericias[item.data.data.pericia].value);
+      
       let atributoDano = item.data.data.atrDan != '0' ? actorData.atributos[item.data.data.atrDan].mod : 0;
       if(item.data.data.dano.match(/(\d*)d\d+/g)){
         formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data.bonusDano}`;
