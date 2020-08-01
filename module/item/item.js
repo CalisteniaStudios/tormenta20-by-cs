@@ -52,12 +52,13 @@ export class tormenta20Item extends Item {
       formula = {};
       formula.atq = `1d20+ ${actorData.pericias[itemData.pericia].value} + ${itemData.bonusAtq}`;
 
+      let atributoDano = itemData.atrDan != '0' ? actorData.atributos[itemData.atrDan].mod : 0;
       if(itemData.dano.match(/(\d*)d\d+/g)){
-        formula.dano = `${itemData.dano} + ${actorData.atributos[itemData.atrDan].mod} + ${itemData.bonusDano}`;
+        formula.dano = `${itemData.dano} + ${atributoDano} + ${itemData.bonusDano}`;
         let baseroll = itemData.dano.match(/(\d*)d\d+/g)? itemData.dano.match(/(\d*)d\d+/g)[0] : '';
         let multiroll = itemData.dano.match(/(\d*)d\d+/g)? (itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * itemData.criticoX + 'd' + itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
         let newdano = itemData.dano.replace(baseroll, multiroll);
-        formula.crit = `${newdano} + ${actorData.atributos[itemData.atrDan].mod} + ${itemData.bonusDano}`;
+        formula.crit = `${newdano} + ${atributoDano} + ${itemData.bonusDano}`;
         if(itemData.lancinante) {
           let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * "+itemData.criticoX+")");
           formula.crit = `${lacinante}`;
