@@ -263,6 +263,9 @@
   -ms-flex: 0 0 50px;
   flex: 0 0 50px;
 }
+.tormenta20 .items-list .item-custo {
+  max-width: 50px;
+}
 
 .tormenta20 .items-list .item-controls {
   -webkit-box-flex: 0;
@@ -296,10 +299,7 @@
 }
 
 .tormenta20 textarea {
-/*  height: -webkit-fill-available;
-  max-height: 180px;
-  max-width: 175px;
-  overflow: auto;*/
+  max-width: 100%!important;
 }
 
 .tormenta20 .full textarea {

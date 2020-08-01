@@ -69,13 +69,24 @@ Hooks.once("ready", async function() {
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
+
+export const getItemOwner = function(item) {
+  if (item.actor) return item.actor;
+  if (item._id) {
+    return game.actors.entities.filter(o => {
+      return o.items.filter(i => i._id === item._id).length > 0;
+    })[0];
+  }
+  return null;
+};
 async function createtormenta20Macro(data, slot) {
   if (data.type !== "Item") return;
   if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
   const item = data.data;
-
+  // const actor = getItemOwner(item);
   // Create the macro command
   const command = `game.tormenta20.rollItemMacro("${item.name}");`;
+ 
   let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -102,8 +113,8 @@ function rollItemMacro(itemName) {
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
   const item = actor ? actor.items.find(i => i.name === itemName) : null;
-  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+  if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
 
   // Trigger the item roll
-  return item.roll();
+  return item.roll(actor);
 }

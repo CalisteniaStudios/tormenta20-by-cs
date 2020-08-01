@@ -12,8 +12,10 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Corrigir caixa de magias preparadas~~ (v0.9.2)
 * ~~Adicionar novos ofícios e novas perícias~~ (v0.9.3)
 * ~~Adicionar aba de biografia e imagem~~ (v0.9.3)
+* ~~Equipar e desequipar itens~~ (v0.9.4)
+* ~~Correção de bugs~~ (v0.9.4)
+* ~~Arrumar macros~~ (v0.9.5)
 * Separar armas de ataques?
-* Equipar e desequipar itens
 * Melhorar ataques, dar suporte a ataques multiplos, etc
 * Melhorar magias, dar suporte a aprimoramentos, etc
 * Layout da ficha

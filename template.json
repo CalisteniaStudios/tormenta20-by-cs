@@ -40,12 +40,14 @@
       "armadura": {
         "nome": "",
         "defesa": 0,
-        "penalidade": 0
+        "penalidade": 0,
+        "equipado": true
       },
       "escudo": {
         "nome": "",
         "defesa": 0,
-        "penalidade": 0
+        "penalidade": 0,
+        "equipado": true
       },
       "atributos": {
         "for": {
@@ -121,7 +123,7 @@
           "value": 0,
           "atributo": "for",
           "st": false,
-          "pda": true,
+          "pda": false,
           "treinado": false,
           "treino": 0,
           "outros": 0,
