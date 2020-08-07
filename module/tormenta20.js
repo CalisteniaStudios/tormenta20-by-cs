@@ -1,16 +1,19 @@
 // Import Modules
-import { tormenta20Actor } from "./actor/actor.js";
-import { tormenta20ActorSheet } from "./actor/actor-sheet.js";
-import { tormenta20Item } from "./item/item.js";
-import { tormenta20ItemSheet } from "./item/item-sheet.js";
+import { T20Actor } from "./actor/actor.js";
+import { T20ActorSheet } from "./actor/actor-sheet.js";
+import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
+import { T20Item } from "./item/item.js";
+import { T20ItemSheet } from "./item/item-sheet.js";
+import { T20Utility } from "./utility.js";
 
 Hooks.once('init', async function() {
 
   game.tormenta20 = {
-    tormenta20Actor,
-    tormenta20Item,
+    T20Actor,
+    T20Item,
     rollItemMacro
   };
+  
 
   /**
    * Set an initiative formula for the system
@@ -22,14 +25,15 @@ Hooks.once('init', async function() {
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = tormenta20Actor;
-  CONFIG.Item.entityClass = tormenta20Item;
+  CONFIG.Actor.entityClass = T20Actor;
+  CONFIG.Item.entityClass = T20Item;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("tormenta20", tormenta20ActorSheet, { makeDefault: true });
+  Actors.registerSheet("tormenta20", T20ActorSheet, {types:['character'], makeDefault: true });
+  Actors.registerSheet("tormenta20", T20ActorNPCSheet, {types:['npc'], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("tormenta20", tormenta20ItemSheet, { makeDefault: true });
+  Items.registerSheet("tormenta20", T20ItemSheet, { makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {
@@ -49,13 +53,19 @@ Hooks.once('init', async function() {
     Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
       return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
     });
+
 });
 
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createtormenta20Macro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => createT20Macro(data, slot));
 });
 
+Hooks.on('renderDialog', (dialog, html, options) => {
+  if(dialog.title == 'Create New Item' || dialog.title == 'Criar Novo Item'){
+    $(html[0]).find('option[value=pericia]').remove();
+  }
+});
 
 
 /* -------------------------------------------- */
@@ -79,7 +89,7 @@ export const getItemOwner = function(item) {
   }
   return null;
 };
-async function createtormenta20Macro(data, slot) {
+async function createT20Macro(data, slot) {
   if (data.type !== "Item") return;
   if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
   const item = data.data;

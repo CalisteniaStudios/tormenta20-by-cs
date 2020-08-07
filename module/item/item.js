@@ -2,7 +2,7 @@
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-export class tormenta20Item extends Item {
+export class T20Item extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */
@@ -44,8 +44,8 @@ export class tormenta20Item extends Item {
         title: flavorText,
         details: detailText
       };
-      if(item.data.data.custo > 0){
-        templateData.custo  = item.data.data.custo;
+      if(itemData.custo && itemData.custo > 0){
+        templateData.custo  = itemData.custo;
       }
       this.rollT20(formula, actorData, templateData);
     } else if(item.type == 'ataque'){

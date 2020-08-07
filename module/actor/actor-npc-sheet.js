@@ -3,15 +3,15 @@ import { T20Utility } from '../utility.js';
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class T20ActorSheet extends ActorSheet {
+export class T20ActorNPCSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["tormenta20", "sheet", "actor"],
-      template: "systems/tormenta20/templates/actor/actor-sheet.html",
-      width: 900,
-      height: 600,
+      template: "systems/tormenta20/templates/actor/npc-sheet.html",
+      width: 500,
+      height: 700,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }]
     });
   }
@@ -27,26 +27,14 @@ export class T20ActorSheet extends ActorSheet {
     // }
     
     // Prepare items.
-    if (this.actor.data.type == 'character') {
+    if (this.actor.data.type == 'npc') {
       this._prepareCharacterItems(data);
     }
-
     // TODO Migrate function to initialize new json data;
     // console.log(this.actor.data.data.pericias.ofi.more);
-    if(this.actor.data.data.pericias.ofi.mais === undefined){
-      this.actor.update({"data.pericias.ofi.mais":{}});
-    }
+
     if(this.actor.data.data.periciasCustom === undefined){
       this.actor.update({"data.periciasCustom":{}});
-    }
-    if(this.actor.data.data.armadura.equipado === undefined){
-      this.actor.update({"data.armadura.equipado":true});
-    }
-    if(this.actor.data.data.escudo.equipado === undefined){
-      this.actor.update({"data.escudo.equipado":true});
-    }
-    if(this.actor.data.data.pericias.atl.pda === true){
-      this.actor.update({"data.pericias.atl.pda":false});
     }
 
     return data;
@@ -113,7 +101,7 @@ export class T20ActorSheet extends ActorSheet {
         // actorData.data.detalhes.carga = carga;
       }
       else if (i.type === 'ataque') {
-        let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
+        let tempatq = `${i.data.bonusAtq}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
         // let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
         let tempdmg = '';
@@ -140,33 +128,16 @@ export class T20ActorSheet extends ActorSheet {
     actorData.equipamentos = equipamentos;
     // Attacks
     actorData.ataques = ataques;
-
   }
 
   /**
    * Listen for click events on spells.
    * @param {MouseEvent} event
    */
-  async _onPrepareSpell(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const data = a.dataset;
-    const actorData = this.actor.data.data;
-    const itemId = $(a).parents('.item').attr('data-item-id');
-    const item = this.actor.getOwnedItem(itemId);
-
-    if (item) {
-      let $self = $(a);
-
-      let updatedItem = duplicate(item);
-      updatedItem.data.preparada = !updatedItem.data.preparada;
-
-      this.actor.updateOwnedItem(updatedItem);
-      this.render();
-    }
-  }
 
   /* -------------------------------------------- */
+
+
 
   /** @override */
   activateListeners(html) {
@@ -178,19 +149,26 @@ export class T20ActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Add pericias/oficios
-    html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
-    html.find('.oficios-create').click(this._onPericiaCustomCreate.bind(this));
-
-    html.find('.show-controls').click(this._toggleControls.bind(this));
+    // Add doubleclick edits
+    html.find('.dc-editable').dblclick(this._toggleDCedit.bind(this));
+    html.find('.dc-editing').focusout(this._toggleDCedit.bind(this));
     
+
+    // Add pericias
+    html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
     // Update Inventory Item
+    html.find('.show-controls').click(this._toggleControls.bind(this));
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
+      item.sheet.render(true);
+    });
+    html.find('.il-item-edit').click(ev => {
+      const t = $(ev.currentTarget);
+      const item = this.actor.getOwnedItem(t.data("itemId"));
       item.sheet.render(true);
     });
 
@@ -200,33 +178,34 @@ export class T20ActorSheet extends ActorSheet {
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
-    html.find('.skill-delete').click(ev => {
-      const t = $(ev.currentTarget);
-      const l = ev.currentTarget.dataset.itemId;
-      const tipo = ev.currentTarget.dataset.tipo;
-      if(tipo == "oficios"){
-        // console.log("apagando oficios");
-        delete this.actor.data.data.pericias.ofi.mais[l];
-      } else {
-        // console.log("apagando custom");
-        delete this.actor.data.data.periciasCustom[l];
-      }
 
+    html.find('.il-item-delete').click(ev => {
+      const t = $(ev.currentTarget);
+      this.actor.deleteOwnedItem(t.data("itemId"));
       this.render();
     });
 
+    html.find('.il-skill-delete').click(ev => {
+      const t = $(ev.currentTarget);
+      const l = ev.currentTarget.dataset.itemId;
+
+      delete this.actor.data.data.periciasCustom[l];
+      this.render();
+    });
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
     
-    // Prepare spells
-    html.find('.preparada').click(this._onPrepareSpell.bind(this));
 
     // Drag events for macros.
     if (this.actor.owner) {
       let handler = ev => this._onDragItemStart(ev);
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
+      html.find('span.item').each((i, li) => {
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
@@ -238,23 +217,40 @@ export class T20ActorSheet extends ActorSheet {
     $(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
   }
 
-  _toggleControls(event) {
+  _toggleDCedit(event){
+
+
+    if(event.type == "dblclick"){
+      const target = event.currentTarget;
+      const input = $(target).parent('p').find('.dc-editing');
+      $(target).css('display', 'none');
+      $(input).css('display', 'inline-block');
+    }
+    if(event.type == "focusout"){
+      const target = event.currentTarget;
+      const span = $(target).parent('p').find('.dc-editable');
+      $(target).css('display', 'none');
+      $(span).css('display', 'inline');
+    }
+
+  }
+
+  _toggleControls(event){
     const target = event.currentTarget;
-    const controls = $(target).closest('table').find('.skill-delete');
-    const input = $(target).closest('table').find('.skill-outros');
-    console.log($(target).closest('table').find('.skill-tr'));
-    console.log($(target).closest('table').find('.skill-tr'));
+    const controls = $(target).closest('li').find('.item-name').find('.item-control');
+    const label = $(target).closest('li').find('.item-name').find('.skill-name');
     if($(target).hasClass('ativo')){
       $(controls).css('display', 'none');
-      $(input).css('display', 'inline');
+      $(label).css('display', 'inline');
       $(target).removeClass('ativo');
       
     } else {
       $(controls).css('display', 'inline');
-      $(input).css('display', 'none');
+      $(label).css('display', 'none');
       $(target).addClass('ativo');
     }
   }
+
 
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
@@ -267,39 +263,22 @@ export class T20ActorSheet extends ActorSheet {
     const a = event.currentTarget;
     const tipo = a.dataset.tipo;
     const pericia = {
-          label: "",
-          nome: "",
-          value: 0,
-          atributo: "for",
-          st: false,
-          pda: false,
-          treinado: false,
-          treino: 0,
-          outros: 0,
-          mod: 0
+          label: "pericia",
+          nome: "pericia",
+          value: 0
         } ;
 
     let actorData = duplicate(this.actor);
-    let oficios = actorData.data.pericias.ofi.mais;
     let periciasCustom = actorData.data.periciasCustom;
 
 
-    if(tipo == 'oficio'){
-      pericia.label = "Oficio";
-      pericia.atributo = 'int';
-      let c = Object.keys(this.actor.data.data.pericias.ofi.mais).length;
+    let c = Object.keys(this.actor.data.data.periciasCustom).length;
 
-      oficios[c] = pericia;
+    periciasCustom[c] = pericia;
+    
+    this.actor.update({"data.periciasCustom": periciasCustom});
+    // this.actor.data.data.periciasCustom[] = pericia;
 
-      this.actor.update({"data.pericias.ofi.mais": oficios});
-    } else {
-      let c = Object.keys(this.actor.data.data.periciasCustom).length;
-
-      periciasCustom[c] = pericia;
-      
-      this.actor.update({"data.periciasCustom": periciasCustom});
-      // this.actor.data.data.periciasCustom[] = pericia;
-    }
 
     this.render();
   }
@@ -407,7 +386,7 @@ export class T20ActorSheet extends ActorSheet {
     
     } else if ($(a).hasClass('ataque-rollable')) {
       formula = {};
-      formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value} + ${item.data.data.bonusAtq}`;
+      formula.atq = `1d20+${item.data.data.bonusAtq}`;
       
       let atributoDano = item.data.data.atrDan != '0' ? actorData.atributos[item.data.data.atrDan].mod : 0;
       if(item.data.data.dano.match(/(\d*)d\d+/g)){
@@ -441,6 +420,8 @@ export class T20ActorSheet extends ActorSheet {
       this.rollMove(formula, actor, data, templateData, item.data.data.criticoM);
     
     } else if ($(a).hasClass('magia-rollable')) {
+      const ilitemId = $(a).attr('data-item-id');
+      const item = actor.getOwnedItem(ilitemId);
       formula = item.data.data.efeito;
       flavorText = item.name;
       spellHeader = {};

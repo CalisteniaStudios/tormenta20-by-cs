@@ -1,0 +1,199 @@
+<form class="tormenta20 npc" autocomplete="off">
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+      <label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
+      <label><i class="fas fa-address-card"></i> <a class="item" data-tab="description" title="Biografia">Biografia</a></label>
+      <label>&nbsp;</label>
+  </nav>
+
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <div class="header-fields">
+        <label>
+        <h3 style="white-space: nowrap;"><input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
+        ND <input type="text" class="npc-nd" name="data.attributes.nd" value="{{data.attributes.nd}}"></h3></label>
+        <div class="infos">
+        <label>
+        <input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo" />
+        </label>
+        <label class="nivel">
+        <input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" />
+        </label>,
+          
+        <label>
+        <input type="text" name="data.attributes.tamanho" value="{{data.attributes.tamanho}}" data-dtype="String" placeholder="Tamanho" />
+        </label>
+
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="npc-line">
+          <p>
+            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.ini.value}}" data-label="Iniciativa"><label>Iniciativa</label></span>
+            <input type="text" name="data.pericias.ini.value" value="{{data.pericias.ini.value}}" data-dtype="Number" title="Iniciativa">
+            &nbsp;&nbsp;
+            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.per.value}}" data-label="Percepção"><label>Percepção</label></span>
+            <input type="text" name="data.pericias.per.value" value="{{data.pericias.per.value}}" data-dtype="Number" title="Percepção">
+            &nbsp;&nbsp;
+          
+            <span class="dc-editable" style="display: inline;">{{#if data.sentidos}}{{data.sentidos}}{{else}}<i>Sentidos (dois clicks para editar)</i>{{/if}}</span>
+          
+            <input type="text" class="dc-editing" style="display: none;" name="data.sentidos" value="{{data.sentidos}}" data-dtype="String" placeholder="Sentidos">
+            
+          </p>
+        </div>
+        <div class="npc-line">
+          <p>
+            <label>Defesa</label>
+            <input type="text" name="data.defesa.value" value="{{data.defesa.value}}" data-dtype="Number" title="Defesa">
+            &nbsp;&nbsp;
+            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.for.value}}" data-label="Percepção"><label>Fort</label></span>
+            <input type="text" name="data.pericias.for.value" value="{{data.pericias.for.value}}" data-dtype="Number" title="Fortitude">
+            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.ref.value}}" data-label="Percepção"><label>Ref</label></span>
+            <input type="text" name="data.pericias.ref.value" value="{{data.pericias.ref.value}}" data-dtype="Number" title="Reflexos">
+            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.von.value}}" data-label="Percepção"><label>Von</label></span>
+            <input type="text" name="data.pericias.von.value" value="{{data.pericias.von.value}}" data-dtype="Number" title="Vontade">
+            &nbsp;&nbsp;
+
+            <span class="dc-editable" style="display: inline;">{{#if data.resistencias}}{{data.resistencias}}{{else}}<i>Resistências (dois clicks para editar)</i>{{/if}}</span>
+              
+            <input type="text" class="dc-editing" style="display: none;" name="data.resistencias" value="{{data.resistencias}}" data-dtype="String" placeholder="Resistências">
+          </p>
+        </div>
+        <div class="npc-line">
+          <label>Pontos de Vida</label>
+          <input type="text" name="data.attributes.pv.value" value="{{data.attributes.pv.value}}" data-dtype="Number" title="PV Atuais" />
+          &nbsp; / &nbsp;
+          <input type="text" name="data.attributes.pv.max" value="{{data.attributes.pv.max}}" data-dtype="Number" title="PV Máximos"/>
+        </div>
+        <div class="npc-line">
+          <p>
+            <label>Deslocamento</label>
+            <span class="dc-editable" style="display: inline;">{{#if data.deslocamento}}{{data.deslocamento}}{{else}}<i>Deslocamento (dois clicks para editar)</i>{{/if}}</span>
+                
+            <input type="text" class="dc-editing" style="display: none;" name="data.deslocamento" value="{{data.deslocamento}}" data-dtype="String" title="Deslocamento" />
+          </p>
+        </div>
+        <hr>
+        <div class="npc-line">
+          <label>Pontos de Mana</label>
+          <input type="text" name="data.attributes.pm.value" value="{{data.attributes.pm.value}}" data-dtype="Number" title="PM Atuais" />
+          &nbsp; / &nbsp;
+          <input type="text" name="data.attributes.pm.max" value="{{data.attributes.pm.max}}" data-dtype="Number" title="PM Máximos"/>
+        </div>
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-name">Ataques:</div>
+            <div class="item-controls">
+              <a class="item-control item-create" title="Novo Ataque" data-type="ataque"><i class="fas fa-plus"></i> Novo Ataque</a>
+            </div>
+          </li>
+          {{#each actor.ataques as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-name"><span class="rollable ataque-rollable" data-roll="d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value" data-label="{{item.name}}"><label>{{item.name}} {{item.data.atq}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</label></span></div>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+          </li>
+          {{/each}}
+        </ol>
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-name">Habilidades:</div>
+            <div class="item-controls">
+              <a class="item-control item-create" title="Nova Habilidade" data-type="poder"><i class="fas fa-plus"></i> Nova Habilidade</a>
+            </div>
+          </li>
+          {{#each actor.poderes as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-name"><span class="rollable poder-rollable" data-label="{{item.name}}"><label>{{item.name}}:</label></span>  {{item.data.description}}</div>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+          </li>
+          {{/each}}
+
+          <li><div class="item-name magias"><label>Magias: </label>
+            {{#each actor.magias as |circulo i|}}
+              {{#if circulo.spells}}
+                {{i}}º —
+                {{#each circulo.spells as |m index|}}
+                  <span class="item rollable magia-rollable" data-item-id="{{m._id}}" data-label="{{m.name}}">{{m.name}};</span><span class="item-control" style="display: none;"><a class="item-control il-item-edit" data-item-id="{{m._id}}" title="Editar"><i class="fas fa-edit"></i></a>
+                  <a class="item-control il-item-delete" data-item-id="{{m._id}}" title="Deletar"><i class="fas fa-trash"></i></a></span>
+                {{/each}}
+              {{/if}}
+            {{/each}}
+            </div>
+            <div class="item-controls">
+              <a class="item-control show-controls" title="Editar Magias" data-type="magia" data-circulo="1"><i class="fas fa-cogs"></i> Editar Magias</a>
+              <a class="item-control item-create" title="Nova Magia" data-type="magia" data-circulo="1"><i class="fas fa-plus"></i> Nova Magia</a>
+            </div>
+          </li>
+        </ol>
+        <hr>
+        <div class="npc-line text-center">
+          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.for.mod}}" data-label="FORÇA"><label>FOR</label></span>
+          <input type="text" name="data.atributos.for.value" value="{{data.atributos.for.value}}" data-dtype="Number" title="Força" />
+          <input type="hidden" name="data.atributos.for.mod" value="{{data.atributos.for.mod}}" data-dtype="Number"/>
+          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.des.mod}}" data-label="DESTREZA"><label>DES</label></span>
+          <input type="text" name="data.atributos.des.value" value="{{data.atributos.des.value}}" data-dtype="Number" title="Destreza" />
+          <input type="hidden" name="data.atributos.des.mod" value="{{data.atributos.des.mod}}" data-dtype="Number"/>
+          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.con.mod}}" data-label="CONSTITUIÇÃO"><label>CON</label></span>
+          <input type="text" name="data.atributos.con.value" value="{{data.atributos.con.value}}" data-dtype="Number" title="Constituição" />
+          <input type="hidden" name="data.atributos.con.mod" value="{{data.atributos.con.mod}}" data-dtype="Number"/>
+          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.int.mod}}" data-label="INTELIGÊNCIA"><label>INT</label></span>
+          <input type="text" name="data.atributos.int.value" value="{{data.atributos.int.value}}" data-dtype="Number" title="Inteligência" />
+          <input type="hidden" name="data.atributos.int.mod" value="{{data.atributos.int.mod}}" data-dtype="Number"/>
+          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.sab.mod}}" data-label="SABEDORIA"><label>SAB</label></span>
+          <input type="text" name="data.atributos.sab.value" value="{{data.atributos.sab.value}}" data-dtype="Number" title="Sabedoria" />
+          <input type="hidden" name="data.atributos.sab.mod" value="{{data.atributos.sab.mod}}" data-dtype="Number"/>
+          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.car.mod}}" data-label="CARISMA"><label>CAR</label></span>
+          <input type="text" name="data.atributos.car.value" value="{{data.atributos.car.value}}" data-dtype="Number" title="Carisma" />
+          <input type="hidden" name="data.atributos.car.mod" value="{{data.atributos.car.mod}}" data-dtype="Number"/>
+        </div>
+        <hr>
+        <ol class="items-list">
+          <li><div class="item-name pericias"><label>Perícias: </label>
+            {{#each actor.data.periciasCustom as |skill key|}}
+              <span class="rollable pericia-rollable" data-roll="d20+{{skill.value}}" data-item-id="{{key}}" data-label="{{skill.nome}}" style="display: inline;"><label class="skill-name">{{skill.label}} +{{skill.value}}</label></span>
+              <span class="item-control" style="display: none;"><input type="text" name="data.periciasCustom.{{key}}.label" value="{{skill.label}}"  data-dtype="String" style="width:80px" /> <input type="text" style="width:40px" name="data.periciasCustom.{{key}}.value" value="{{skill.value}}"  data-dtype="Number" /><a class="item-control il-skill-delete" data-item-id="{{key}}" title="Deletar"><i class="fas fa-trash"></i></a></span>
+            {{/each}}
+            </div>
+            <div class="item-controls">
+              <a class="item-control show-controls" title="Editar Perícias"><i class="fas fa-cogs"></i> Editar Pericias</a>
+              <a class="item-control pericia-create" title="Nova Perícias" data-tipo="pericia" ><i class="fas fa-plus"></i> Nova Pericia</a>
+            </div>
+          </li>
+        </ol>
+        <div class="npc-line">
+          <p>
+            <label>Equipamento. </label>
+            <span class="dc-editable" style="display: inline;">{{#if data.equipament}}{{data.equipament}}{{else}}<i>Equipamentos (dois clicks para editar)</i>{{/if}}</span>
+                
+            <input type="text" class="dc-editing" style="display: none;" name="data.equipament" value="{{data.equipament}}" data-dtype="String" title="Equipamentos" />
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      <div class="flexrow flex-between">
+        <div style="max-width: 220px;">
+          <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200" width="200"/>
+        </div>
+
+        {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+      </div>
+    </div>
+
+  </section>
+</form>

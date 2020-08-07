@@ -2,7 +2,7 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class tormenta20ItemSheet extends ItemSheet {
+export class T20ItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {

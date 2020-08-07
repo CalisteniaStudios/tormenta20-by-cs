@@ -1,100 +1,7 @@
-{
-"Actor": {
-  "types": ["character","npc"],
-  "templates": {
-    "base": {
-      "attributes": {
-        "classe": "",
-        "raca": "",
-        "origem": "",
-        "pv": {
-          "value": 10,
-          "min": 0,
-          "max": 10,
-          "temp": 0
-        },
-        "pm": {
-          "value": 10,
-          "min": 0,
-          "max": 10,
-          "temp": 0
-        },
-        "nivel": {
-          "value": 1
-        },
-        "xp": {
-          "value": 0,
-          "min": 0,
-          "proximo": 1000
-        },
-        "info": ""
-      },
-      "defesa": {
-        "value": 10,
-        "des": true,
-        "armad": 0,
-        "escud": 0,
-        "outro": 0,
-        "temp": 0
-      },
-      "armadura": {
-        "nome": "",
-        "defesa": 0,
-        "penalidade": 0,
-        "equipado": true
-      },
-      "escudo": {
-        "nome": "",
-        "defesa": 0,
-        "penalidade": 0,
-        "equipado": true
-      },
-      "atributos": {
-        "for": {
-          "value": 10,
-          "raca": 0,
-          "bonus": 0,
-          "temp": 0,
-          "mod": 0
-        },
-        "des": {
-          "value": 10,
-          "raca": 0,
-          "bonus": 0,
-          "temp": 0,
-          "mod": 0
-        },
-        "con": {
-          "value": 10,
-          "raca": 0,
-          "bonus": 0,
-          "temp": 0,
-          "mod": 0
-        },
-        "int": {
-          "value": 10,
-          "raca": 0,
-          "bonus": 0,
-          "temp": 0,
-          "mod": 0
-        },
-        "sab": {
-          "value": 10,
-          "raca": 0,
-          "bonus": 0,
-          "temp": 0,
-          "mod": 0
-        },
-        "car": {
-          "value": 10,
-          "raca": 0,
-          "bonus": 0,
-          "temp": 0,
-          "mod": 0
-        }
-      },
-      "pericias": {
-        "acr": {
+export class T20Utility {
+	static getPericias(){
+		let pericias = {};
+        pericias["acr"] = {
           "label": "Acrobacia",
           "value": 0,
           "atributo": "des",
@@ -103,10 +10,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "ade": {
+        };
+        pericias["ade"] = {
           "label": "Adestramento",
           "value": 0,
           "atributo": "car",
@@ -115,10 +21,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "atl": {
+        };
+        pericias["atl"] = {
           "label": "Atletismo",
           "value": 0,
           "atributo": "for",
@@ -127,10 +32,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "atu": {
+        };
+        pericias["atu"] = {
           "label": "Atuação",
           "value": 0,
           "atributo": "car",
@@ -139,10 +43,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "cav": {
+        };
+        pericias["cav"] = {
           "label": "Cavalgar",
           "value": 0,
           "atributo": "des",
@@ -151,10 +54,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "con": {
+        };
+        pericias["con"] = {
           "label": "Conhecimento",
           "value": 0,
           "atributo": "int",
@@ -163,10 +65,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "cur": {
+        };
+        pericias["cur"] = {
           "label": "Cura",
           "value": 0,
           "atributo": "sab",
@@ -175,10 +76,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "dip": {
+        };
+        pericias["dip"] = {
           "label": "Diplomacia",
           "value": 0,
           "atributo": "car",
@@ -187,10 +87,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "eng": {
+        };
+        pericias["eng"] = {
           "label": "Enganação",
           "value": 0,
           "atributo": "car",
@@ -199,10 +98,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "for": {
+        };
+        pericias["for"] = {
           "label": "Fortitude",
           "value": 0,
           "atributo": "con",
@@ -211,10 +109,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "fur": {
+        };
+        pericias["fur"] = {
           "label": "Furtividade",
           "value": 0,
           "atributo": "des",
@@ -223,10 +120,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "gue": {
+        };
+        pericias["gue"] = {
           "label": "Guerra",
           "value": 0,
           "atributo": "int",
@@ -235,10 +131,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "ini": {
+        };
+        pericias["ini"] = {
           "label": "Iniciativa",
           "value": 0,
           "atributo": "des",
@@ -247,10 +142,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "int": {
+        };
+        pericias["int"] = {
           "label": "Intimidação",
           "value": 0,
           "atributo": "car",
@@ -259,10 +153,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "intu": {
+        };
+        pericias["intu"] = {
           "label": "Intuição",
           "value": 0,
           "atributo": "sab",
@@ -271,10 +164,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "inv": {
+        };
+        pericias["inv"] = {
           "label": "Investigação",
           "value": 0,
           "atributo": "int",
@@ -283,10 +175,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "jog": {
+        };
+        pericias["jog"] = {
           "label": "Jogatina",
           "value": 0,
           "atributo": "car",
@@ -295,10 +186,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "lad": {
+        };
+        pericias["lad"] = {
           "label": "Ladinagem",
           "value": 0,
           "atributo": "des",
@@ -307,10 +197,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "lut": {
+        };
+        pericias["lut"] = {
           "label": "Luta",
           "value": 0,
           "atributo": "for",
@@ -319,10 +208,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "mis": {
+        };
+        pericias["mis"] = {
           "label": "Misticismo",
           "value": 0,
           "atributo": "int",
@@ -331,10 +219,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "nob": {
+        };
+        pericias["nob"] = {
           "label": "Nobreza",
           "value": 0,
           "atributo": "int",
@@ -343,10 +230,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "ofi": {
+        };
+        pericias["ofi"] = {
           "label": "Oficios",
           "value": 0,
           "atributo": "int",
@@ -355,11 +241,10 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0,
           "mais": {}
-        },
-        "per": {
+        };
+        pericias["per"] = {
           "label": "Percepção",
           "value": 0,
           "atributo": "sab",
@@ -368,10 +253,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "pil": {
+        };
+        pericias["pil"] = {
           "label": "Pilotagem",
           "value": 0,
           "atributo": "des",
@@ -380,10 +264,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "pon": {
+        };
+        pericias["pon"] = {
           "label": "Pontaria",
           "value": 0,
           "atributo": "des",
@@ -392,10 +275,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "ref": {
+        };
+        pericias["ref"] = {
           "label": "Reflexos",
           "value": 0,
           "atributo": "des",
@@ -404,10 +286,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "rel": {
+        };
+        pericias["rel"] = {
           "label": "Religião",
           "value": 0,
           "atributo": "sab",
@@ -416,10 +297,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "sob": {
+        };
+        pericias["sob"] = {
           "label": "Sobrevivência",
           "value": 0,
           "atributo": "sab",
@@ -428,10 +308,9 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        },
-        "von": {
+        };
+        pericias["von"] = {
           "label": "Vontade",
           "value": 0,
           "atributo": "sab",
@@ -440,95 +319,10 @@
           "treinado": false,
           "treino": 0,
           "outros": 0,
-          "notes": "",
           "mod": 0
-        }
-      },
-      "periciasCustom": {},
-      "resistencias": "",
-      "tamanho": "",
-      "deslocamento":"",
-      "detalhes": {
-        "biografia": "",
-        "dinheiro": {
-          "tt": 0,
-          "to": 0,
-          "tp": 0,
-          "tc": 0
-        },
-        "carga": 0
-      }
+        };
+
+        return pericias;
     }
-  },
-  "character": {
-    "templates": ["base"],
-    "detalhes": {
-      "altura": 0,
-      "peso": 0,
-      "aparencia": "",
-      "personalidade": "",
-      "cargaa": {
-        "value": 0,
-        "medio": 3,
-        "max": 10
-      }
-    }
-  },
-  "npc": {
-    "templates": ["base"],
-    "attributes": {
-      "nd":""
-    }
-  }
-},
-"Item": {
-  "types": ["equip", "poder", "magia", "ataque"],
-  "templates": {
-    "base": {
-      "description": ""
-    }
-  },
-  "equip": {
-    "templates": ["base"],
-    "qtd": 1,
-    "peso": 0
-  },
-  "poder": {
-    "templates": ["base"],
-    "custo": "",
-    "roll": "",
-    "tipo": ""
-  },
-  "magia": {
-    "templates": ["base"],
-    "tipo": "",
-    "circulo": 1,
-    "custo": 1,
-    "preparada": false,
-    "escola": "",
-    "execucao": "",
-    "alcance": "",
-    "duracao": "",
-    "resistencia": "",
-    "alvo": "",
-    "area": "",
-    "efeito": ""
-  },
-  "ataque": {
-    "templates": ["base"],
-    "arma": "",
-    "pericia": "lut",
-    "bonusAtq": 0,
-    "dano": "1d6",
-    "bonusDano": "",
-    "atrDan": "for",
-    "criticoM": 20,
-    "criticoX": 2,
-    "lancinante":false,
-    "tipo": "",
-    "alcance": "",
-    "municao": 0,
-    "custo": 0
-  }
-}
+
 }

@@ -173,11 +173,13 @@
 }
 
 .tormenta20 .sheet-body,
-.tormenta20 .sheet-body .tab,
-.tormenta20 .sheet-body .tab .editor {
+.tormenta20 .sheet-body .tab {
   height: 100%;
 }
 
+.tormenta20 .sheet-body .tab .editor {
+  height:inherit;
+}
 .tormenta20 .tox .tox-editor-container {
   background: #fff;
 }
@@ -284,6 +286,9 @@
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 
 
@@ -502,4 +507,35 @@
   visibility: visible;
   pointer-events: none;
   opacity: 1;
+}
+
+
+.tormenta20.npc input.npc-name{
+  width: 85%; 
+}
+.tormenta20.npc input.npc-nd{
+  width: 10%; 
+}
+
+.tormenta20.npc .npc-line input{
+  display: inline-block;
+  max-width: 40px;
+}
+
+.tormenta20.npc .npc-line input.dc-editing{
+  max-width: 100%;
+}
+
+.tormenta20 .npc .items-list .item {
+  height: auto;
+  border: 0;
+}
+
+.tormenta20 .npc .items-list .item div.item-name {
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}
+
+.tormenta20 .npc .items-list .item div.item-controls {
+  white-space: nowrap;
 }
