@@ -108,6 +108,9 @@ export class T20Actor extends Actor {
 
     data.rd.value = data.rd.base + data.rd.temp
 
+    // for compatibility with dnd modules
+    data.attributes.hp = data.attributes.pv.value
+
   }
 
 

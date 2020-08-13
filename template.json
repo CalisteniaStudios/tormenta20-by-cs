@@ -30,7 +30,8 @@
             "min": 0,
             "proximo": 1000
           },
-          "info": ""
+          "info": "",
+          "hp": 0
         },
         "defesa": {
           "value": 10,
