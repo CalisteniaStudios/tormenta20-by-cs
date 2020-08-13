@@ -35,7 +35,7 @@ export class T20Item extends Item {
     let spellHeader = null;
     let templateData = {};
 
-    if(item.type == 'poder'){
+    if (item.type == 'poder') {
       formula = `${itemData.roll}`;
       flavorText = item.name;
       detailText = itemData.description.replace("\n", "<br/>");
@@ -44,23 +44,23 @@ export class T20Item extends Item {
         title: flavorText,
         details: detailText
       };
-      if(itemData.custo && itemData.custo > 0){
-        templateData.custo  = itemData.custo;
+      if (itemData.custo && itemData.custo > 0) {
+        templateData.custo = itemData.custo;
       }
       this.rollT20(formula, actorData, templateData);
-    } else if(item.type == 'ataque'){
+    } else if (item.type == 'ataque') {
       formula = {};
       formula.atq = `1d20+ ${actorData.pericias[itemData.pericia].value} + ${itemData.bonusAtq}`;
 
       let atributoDano = itemData.atrDan != '0' ? actorData.atributos[itemData.atrDan].mod : 0;
-      if(itemData.dano.match(/(\d*)d\d+/g)){
+      if (itemData.dano.match(/(\d*)d\d+/g)) {
         formula.dano = `${itemData.dano} + ${atributoDano} + ${itemData.bonusDano}`;
-        let baseroll = itemData.dano.match(/(\d*)d\d+/g)? itemData.dano.match(/(\d*)d\d+/g)[0] : '';
-        let multiroll = itemData.dano.match(/(\d*)d\d+/g)? (itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * itemData.criticoX + 'd' + itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
+        let baseroll = itemData.dano.match(/(\d*)d\d+/g) ? itemData.dano.match(/(\d*)d\d+/g)[0] : '';
+        let multiroll = itemData.dano.match(/(\d*)d\d+/g) ? (itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * itemData.criticoX + 'd' + itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
         let newdano = itemData.dano.replace(baseroll, multiroll);
         formula.crit = `${newdano} + ${atributoDano} + ${itemData.bonusDano}`;
-        if(itemData.lancinante) {
-          let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * "+itemData.criticoX+")");
+        if (itemData.lancinante) {
+          let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * " + itemData.criticoX + ")");
           formula.crit = `${lacinante}`;
         }
 
@@ -69,7 +69,7 @@ export class T20Item extends Item {
         formula.crit = null;
       }
 
-      
+
       flavorText = item.name;
       detailText = itemData.description;
 
@@ -78,12 +78,12 @@ export class T20Item extends Item {
         flavor: flavorDesc,
         details: detailText
       };
-      if(itemData.custo > 0){
-        templateData.custo  = itemData.custo;
+      if (itemData.custo > 0) {
+        templateData.custo = itemData.custo;
       }
       this.rollT20(formula, actorData, templateData, itemData.criticoM);
-    
-    } else if(item.type == 'magia'){
+
+    } else if (item.type == 'magia') {
       formula = itemData.efeito;
       flavorText = item.name;
       spellHeader = {};
@@ -106,24 +106,25 @@ export class T20Item extends Item {
         details: detailText
       };
 
-      if(itemData.custo > 0){
-        templateData.custo  = itemData.custo;
+      if (itemData.custo > 0) {
+        templateData.custo = itemData.custo;
       }
       this.rollT20(formula, actorData, templateData);
-    
-    } else {
 
+    } else {
       let roll = new Roll(itemData.roll, actorData);
       let label = `Rolando ${item.name}`;
       roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        speaker: ChatMessage.getSpeaker({
+          actor: this.actor
+        }),
         flavor: label
       });
     }
 
   }
 
-  rollT20(roll, actor, templateData, criticoM=null) {
+  rollT20(roll, actor, templateData, criticoM = null) {
     let actorData = actor;
     // Render the roll.
     let template = 'systems/tormenta20/templates/chat/chat-card.html';
@@ -131,21 +132,23 @@ export class T20Item extends Item {
     // GM rolls.
     let chatData = {
       user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: actor })
+      speaker: ChatMessage.getSpeaker({
+        actor: actor
+      })
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
     if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
     if (rollMode === "blindroll") chatData["blind"] = true;
-    
+
     // Handle dice rolls.
     let danoFormula = false;
     let critFormula = false;
     let rollArr = [];
-    
-    if(typeof roll === 'object'){
+
+    if (typeof roll === 'object') {
       // remove signs from end of sting
-      if(roll.dano != null){
+      if (roll.dano != null) {
         danoFormula = roll.dano.trim().replace(/([\+\-]+$)/g, '');
         critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, '');
       }
@@ -155,9 +158,9 @@ export class T20Item extends Item {
     if (roll) {
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
       let formula = '';
-      
+
       if (roll.match(/(\d*)d\d+/g)) {
-        
+
         formula = roll;
       }
 
@@ -168,8 +171,8 @@ export class T20Item extends Item {
         let result = roll._dice[0].rolls[0].roll;
 
         // Check if there are dmg rolls and what critical math to use
-        if(danoFormula){
-          if(result >= criticoM){
+        if (danoFormula) {
+          if (result >= criticoM) {
             dmgroll = new Roll(`${critFormula}`);
           } else {
             dmgroll = new Roll(`${danoFormula}`);
@@ -178,7 +181,7 @@ export class T20Item extends Item {
           dmgroll.render().then(r => {
             templateData.rollDano = r;
           });
-          
+
           rollArr.push(dmgroll);
         }
         // Render it.
@@ -192,16 +195,14 @@ export class T20Item extends Item {
               game.dice3d.showForRoll(rollArr, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
               // game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
               // game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
-            }
-            else {
+            } else {
               chatData.sound = CONFIG.sounds.dice;
               ChatMessage.create(chatData);
             }
           });
         });
       }
-    }
-    else {
+    } else {
       renderTemplate(template, templateData).then(content => {
         chatData.content = content;
         ChatMessage.create(chatData);

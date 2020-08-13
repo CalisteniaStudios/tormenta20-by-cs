@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
 }
 
-.rollable:hover, .rollable:focus {
+.rollable:hover,
+.rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
@@ -178,8 +180,9 @@
 }
 
 .tormenta20 .sheet-body .tab .editor {
-  height:inherit;
+  height: inherit;
 }
+
 .tormenta20 .tox .tox-editor-container {
   background: #fff;
 }
@@ -232,6 +235,10 @@
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
   margin-right: 5px;
+  height: 24px;
+  width: 24px;
+  background-size: 24px;
+  background-repeat: no-repeat
 }
 
 .tormenta20 .items-list .item img {
@@ -252,10 +259,12 @@
   min-height: 80px;
   text-transform: uppercase;
 }
+
 .tormenta20 .atributos .items-list .item {
   display: inline-block;
   width: 15%;
 }
+
 .tormenta20 .atributos .items-list .item label {
   width: 100%;
 }
@@ -265,6 +274,7 @@
   -ms-flex: 0 0 50px;
   flex: 0 0 50px;
 }
+
 .tormenta20 .items-list .item-custo {
   max-width: 50px;
 }
@@ -280,13 +290,18 @@
 .tormenta20 .poderes {
   min-height: 60px;
 }
-.tormenta20 h1, .tormenta20 h2, {
-  border: 0!important;
-  border-bottom:0!important;
+
+.tormenta20 h1,
+.tormenta20 h2,
+  {
+  border: 0 !important;
+  border-bottom: 0 !important;
 }
+
 .text-center {
   text-align: center;
 }
+
 .text-right {
   text-align: right;
 }
@@ -304,15 +319,15 @@
 }
 
 .tormenta20 textarea {
-  max-width: 100%!important;
+  max-width: 100% !important;
 }
 
 .tormenta20 .full textarea {
   width: 100%;
   height: 100%;
   min-height: 200px;
-  max-width: 100%!important;
-  max-height: unset!important;
+  max-width: 100% !important;
+  max-height: unset !important;
 }
 
 .tormenta20 .infos label {
@@ -320,7 +335,7 @@
   width: calc(30% - 2px);
 }
 
-.tormenta20 .bottom label > input {
+.tormenta20 .bottom label>input {
   width: 50%;
 }
 
@@ -349,6 +364,7 @@
 .col-5 {
   width: 5%;
 }
+
 .col-10 {
   width: 10%;
 }
@@ -356,19 +372,23 @@
 .col-15 {
   width: 15%;
 }
+
 .col-20 {
   width: 20%;
 }
+
 .col-24 {
   width: 24%;
   max-width: 24%
 }
+
 .col-25 {
   width: 25%;
 }
+
 .col-75 {
   width: 75% !important;
-  max-width: 75%!important;
+  max-width: 75% !important;
 }
 
 .full {
@@ -441,7 +461,7 @@
 
 .tormenta20 .resource {
   width: 50%;
-  height: unset!important;
+  height: unset !important;
   margin-top: 10px;
   float: left;
   text-align: center;
@@ -453,6 +473,7 @@
   display: inline-block;
   vertical-align: super;
 }
+
 .tormenta20 .dados .recursos input {
   width: 50px;
   height: 30px;
@@ -460,13 +481,14 @@
   font-size: 2em;
 }
 
-.tormenta20  .outros {
+.tormenta20 .outros {
   /*float: right;
   position: relative;*/
   width: 100%;
 }
 
 .tormenta20 .defesa,
+.tormenta20 .reducao_dano,
 .tormenta20 .armadura {
   /*float: left;*/
   width: 100%;
@@ -502,6 +524,7 @@
   opacity: 0;
   transition: opacity 0.3s;
 }
+
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltipcontent {
   visibility: visible;
@@ -510,19 +533,20 @@
 }
 
 
-.tormenta20.npc input.npc-name{
-  width: 85%; 
-}
-.tormenta20.npc input.npc-nd{
-  width: 10%; 
+.tormenta20.npc input.npc-name {
+  width: 85%;
 }
 
-.tormenta20.npc .npc-line input{
+.tormenta20.npc input.npc-nd {
+  width: 10%;
+}
+
+.tormenta20.npc .npc-line input {
   display: inline-block;
   max-width: 40px;
 }
 
-.tormenta20.npc .npc-line input.dc-editing{
+.tormenta20.npc .npc-line input.dc-editing {
   max-width: 100%;
 }
 
