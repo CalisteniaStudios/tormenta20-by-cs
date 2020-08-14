@@ -10,6 +10,7 @@
           "classe": "",
           "raca": "",
           "origem": "",
+          "divindade": "",
           "pv": {
             "value": 10,
             "min": 0,
@@ -33,17 +34,17 @@
           "info": "",
           "hp": 0
         },
+        "rd": {
+          "value": 0,
+          "base": 0,
+          "temp": 0
+        },
         "defesa": {
           "value": 10,
           "des": true,
           "armad": 0,
           "escud": 0,
           "outro": 0,
-          "temp": 0
-        },
-        "rd": {
-          "value": 0,
-          "base": 0,
           "temp": 0
         },
         "armadura": {
