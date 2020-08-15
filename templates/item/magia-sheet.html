@@ -1,51 +1,87 @@
 <form class="tormenta20" autocomplete="off">
     <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields">
-            <div class="resource col-75"><input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
+            <div class="resource col-75"><input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
             </div>
             <div class="resource  col-24">
-                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
                 <label>PM</label>
             </div>
             <div class="resources flex grid-3col">
                 <div class="field flex-group-center">
-                    <input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String"/>
-                	<label>Tipo</label>
+                    <label>Tipo</label>
+                    <select class="selectatr" name="data.tipo" value={{data.tipo}} data-type="Number">
+                        {{#select data.tipo}}
+                        <option value="Arcana">Arcana</option>
+                        <option value="Divina">Divina</option>
+                        {{/select}}
+                    </select>
                 </div>
                 <div class="field flex-group-center">
-                    <input type="text" name="data.circulo" value="{{data.circulo}}" data-dtype="Number"/>
-                	<label>Circulo</label>
+                    <select class="selectatr" name="data.circulo" value={{data.circulo}} data-type="Number">
+                        {{#select data.circulo}}
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        {{/select}}
+                    </select>
+                    <label>Circulo</label>
                 </div>
                 <div class="field flex-group-center">
-                    <input type="text" name="data.escola" value="{{data.escola}}" data-dtype="String"/>
                     <label>Escola</label>
+                    <select class="selectatr" name="data.escola" value={{data.escola}} data-type="String">
+                        {{#select data.escola}}
+                        <option value="Abjuração">Abjuração</option>
+                        <option value="Adivinhação">Adivinhação</option>
+                        <option value="Convocação">Convocação</option>
+                        <option value="Encantamento">Encantamento</option>
+                        <option value="Evocação">Evocação</option>
+                        <option value="Ilusão">Ilusão</option>
+                        <option value="Necromancia">Necromancia</option>
+                        <option value="Transmutação">Transmutação</option>
+                        {{/select}}
+                    </select>
+
                 </div>
             </div>
             <div class="resources flex grid-3col">
                 <div class="field flex-group-center">
-                    <input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String"/>
+                    <input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String" />
                     <label>Execução</label>
                 </div>
                 <div class="field flex-group-center">
-                    <input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String"/>
+                    <!-- <input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String" /> -->
                     <label>Alcance</label>
+                    <select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
+                        {{#select data.alcance}}
+                        <option value="Pessoal">Pessoal</option>
+                        <option value="Toque">Toque</option>
+                        <option value="Curto">Curto</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Longo">Longo</option>
+                        <option value="Ilimitado">Ilimitado</option>
+                        {{/select}}
+                    </select>
                 </div>
                 <div class="field flex-group-center">
-                    <input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String"/>
+                    <input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String" />
                     <label>Duração</label>
                 </div>
             </div>
             <div class="resources flex grid-3col">
                 <div class="field flex-group-center">
-                    <input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String"/>
+                    <input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String" />
                     <label>Alvo</label>
                 </div>
                 <div class="field flex-group-center">
-                    <input type="text" name="data.area" value="{{data.area}}" data-dtype="String"/>
+                    <input type="text" name="data.area" value="{{data.area}}" data-dtype="String" />
                     <label>Area</label>
                 </div>
                 <div class="field flex-group-center">
-                    <input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String"/>
+                    <input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
                     <label>Resistência</label>
                 </div>
             </div>
@@ -56,12 +92,13 @@
     <section class="sheet-body">
         <div class="full">
             <br><label>Efeito</label>
-            <input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String"/>
+            <input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" />
         </div>
 
         <div class="full border">
             <label>Descrição</label>
-            <textarea name="data.description" value="{{data.description}}" data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
+            <textarea name="data.description" value="{{data.description}}"
+                data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
         </div>
 
     </section>

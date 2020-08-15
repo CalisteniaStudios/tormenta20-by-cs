@@ -1,21 +1,32 @@
 <section class="t20-chat-card">
   <div class="cell cell--chat">
     <div class="dice-roll">
-      {{#if flavor}}<div class="row"><em>{{flavor}}</em></div>{{/if}}
-      <h2 class="cell__title">{{title}} {{#if custo}}<span class="custo" style="float: right;">{{{custo}}} PM</span>{{/if}}</h2> 
+      <h2 class="cell__title">{{title}} {{#if custo}}<span class="custo" style="float: right;">{{{custo}}}
+          PM</span>{{/if}}</h2>
+
+
       {{#if spell}}
-          <div class="spellheader" style="display:block;width:100%; flex: unset">
-              <h4>{{spell.tipo}}<i> </i>{{spell.circulo}}<i> </i>{{spell.escola}}</h4>
-              <p><b>Execução:</b> {{spell.execucao}} <b> Alcance:</b> {{{spell.alcance}}} {{~#if spell.alvo}}<b> Alvo:</b> {{{spell.alvo}}}{{~/if}} {{~#if spell.area}}<b> Área:</b> {{{spell.area}}}{{~/if}} <b> Duração:</b> {{{spell.duracao}}} {{~#if spell.resistencia}}<b> Resistência:</b> {{{spell.resistencia}}}{{~/if}}</p>
-          </div>
+      <div class="spellheader" style="display:block;width:100%; flex: unset">
+        <h4>{{spell.tipo}}<i> </i>{{spell.circulo}}<i> </i>{{spell.escola}}</h4>
+        <p><b>Execução:</b> {{spell.execucao}} <b> Alcance:</b> {{{spell.alcance}}} {{~#if spell.alvo}}<b> Alvo:</b>
+          {{{spell.alvo}}}{{~/if}} {{~#if spell.area}}<b> Área:</b> {{{spell.area}}}{{~/if}} <b> Duração:</b>
+          {{{spell.duracao}}} {{~#if spell.resistencia}}<b> Resistência:</b> {{{spell.resistencia}}}{{~/if}}</p>
+      </div>
       {{/if}}
+
       <div class="dice-tooltip">
         <section class="tooltip-part">
           {{#if details}}<div class="row">{{{details}}}</div>{{/if}}
         </section>
       </div>
+
     </div>
+    {{#if flavor}}<div class="row"><em>{{flavor}}</em></div>{{/if}}
+
     {{#if roll}}<div class="roll">{{{roll}}}</div>{{/if}}
-    {{#if rollDano}}<hr><div class="roll">{{{rollDano}}}</div>{{/if}}
+    {{#if rollDano}}
+    <hr>
+    {{#if danosDesc}}<div class="row"><em>{{danosDesc}}</em></div>{{/if}}
+    <div class="roll roll--dano">{{{rollDano}}}</div>{{/if}}
   </div>
 </section>

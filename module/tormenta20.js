@@ -1,19 +1,33 @@
 // Import Modules
-import { T20Actor } from "./actor/actor.js";
-import { T20ActorSheet } from "./actor/actor-sheet.js";
-import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
-import { T20Item } from "./item/item.js";
-import { T20ItemSheet } from "./item/item-sheet.js";
-import { T20Utility } from "./utility.js";
+import {
+  T20Actor
+} from "./actor/actor.js";
+import {
+  T20ActorSheet
+} from "./actor/actor-sheet.js";
+import {
+  T20ActorNPCSheet
+} from "./actor/actor-npc-sheet.js";
+import {
+  T20Item
+} from "./item/item.js";
+import {
+  T20ItemSheet
+} from "./item/item-sheet.js";
+import {
+  T20Utility
+} from "./utility.js";
 
-Hooks.once('init', async function() {
+import * as chat from "./chat.js";
+
+Hooks.once('init', async function () {
 
   game.tormenta20 = {
     T20Actor,
     T20Item,
     rollItemMacro
   };
-  
+
 
   /**
    * Set an initiative formula for the system
@@ -30,13 +44,21 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("tormenta20", T20ActorSheet, {types:['character'], makeDefault: true });
-  Actors.registerSheet("tormenta20", T20ActorNPCSheet, {types:['npc'], makeDefault: true });
+  Actors.registerSheet("tormenta20", T20ActorSheet, {
+    types: ['character'],
+    makeDefault: true
+  });
+  Actors.registerSheet("tormenta20", T20ActorNPCSheet, {
+    types: ['npc'],
+    makeDefault: true
+  });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("tormenta20", T20ItemSheet, { makeDefault: true });
+  Items.registerSheet("tormenta20", T20ItemSheet, {
+    makeDefault: true
+  });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function() {
+  Handlebars.registerHelper('concat', function () {
     var outStr = '';
     for (var arg in arguments) {
       if (typeof arguments[arg] != 'object') {
@@ -46,27 +68,29 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
-  Handlebars.registerHelper('toLowerCase', function(str) {
+  Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });
 
-    Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-      return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-    });
+  Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
 
 });
 
-Hooks.once("ready", async function() {
+Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createT20Macro(data, slot));
 });
 
 Hooks.on('renderDialog', (dialog, html, options) => {
-  if(dialog.title == 'Create New Item' || dialog.title == 'Criar Novo Item'){
+  if (dialog.title == 'Create New Item' || dialog.title == 'Criar Novo Item') {
     $(html[0]).find('option[value=pericia]').remove();
   }
 });
 
+/* Add hook for the context menu over the rolled damage */
+Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
@@ -80,7 +104,7 @@ Hooks.on('renderDialog', (dialog, html, options) => {
  * @returns {Promise}
  */
 
-export const getItemOwner = function(item) {
+export const getItemOwner = function (item) {
   if (item.actor) return item.actor;
   if (item._id) {
     return game.actors.entities.filter(o => {
@@ -89,6 +113,7 @@ export const getItemOwner = function(item) {
   }
   return null;
 };
+
 async function createT20Macro(data, slot) {
   if (data.type !== "Item") return;
   if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
@@ -96,7 +121,7 @@ async function createT20Macro(data, slot) {
   // const actor = getItemOwner(item);
   // Create the macro command
   const command = `game.tormenta20.rollItemMacro("${item.name}");`;
- 
+
   let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -104,7 +129,9 @@ async function createT20Macro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "tormenta20.itemMacro": true }
+      flags: {
+        "tormenta20.itemMacro": true
+      }
     });
   }
   game.user.assignHotbarMacro(macro, slot);

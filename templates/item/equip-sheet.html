@@ -1,18 +1,19 @@
 <form class="tormenta20" autocomplete="off">
     <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields">
-           <table>
-               <tr>
+            <table>
+                <tr>
                     <th>Nome</th>
                     <th>Qtd</th>
                     <th>Peso</th>
-               </tr>
-               <tr>
-                   <td><input name="name" type="text" value="{{item.name}}" placeholder="Nome"/></td>
-                   <td><input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number"/></td>
-                   <td><input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/></td>
-               </tr>
-           </table>
+                </tr>
+                <tr>
+                    <td><input name="name" type="text" value="{{item.name}}" placeholder="Nome" /></td>
+                    <td><input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number" /></td>
+                    <td><input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number" /></td>
+                </tr>
+            </table>
         </div>
     </header>
 
