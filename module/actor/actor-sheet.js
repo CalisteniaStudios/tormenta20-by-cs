@@ -1,6 +1,4 @@
-import {
-  T20Utility
-} from '../utility.js';
+import { T20Utility } from '../utility.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -64,6 +62,11 @@ export class T20ActorSheet extends ActorSheet {
         "data.pericias.atl.pda": false
       });
     }
+    if (this.actor.data.data.attributes.cd === undefined) {
+      this.actor.update({
+        "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value/2)
+      });
+    }
 
     return data;
   }
@@ -120,7 +123,7 @@ export class T20ActorSheet extends ActorSheet {
         }
       }
       // If this is equipment, we currently lump it together.
-      else if (i.type === 'equip') {
+      else if (i.type === 'equip' || i.type === 'arma' || i.type === 'consumivel' || i.type === 'tesouro') {
         equipamentos.push(i);
         // carga = [];
         // carga.push(i.peso);
@@ -131,6 +134,13 @@ export class T20ActorSheet extends ActorSheet {
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
         // let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
         let tempdmg = '';
+        if(i.data._bonusAtq == undefined || i.data._bonusAtq == ""){
+          i.data._bonusAtq = "0";
+        }
+        console.log(i.data._bonusAtq);
+        if(i.data._bonusDano == undefined || i.data._bonusDano == ""){
+          i.data._bonusDano = "0";
+        }
         tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
         tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg + `+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
         tempdmg = i.data.bonusDano != '' ? tempdmg + ` + ${i.data.bonusDano}` : tempdmg;
@@ -161,6 +171,30 @@ export class T20ActorSheet extends ActorSheet {
    * Listen for click events on spells.
    * @param {MouseEvent} event
    */
+  async _onUpdateItem(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const data = a.dataset;
+    const actorData = this.actor.data.data;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.getOwnedItem(itemId);
+
+    if (item) {
+      let value = a.value;
+      if(data.campo == "_bonusAtq"){
+        item.update({
+          "data._bonusAtq": value
+        });
+      } else if(data.campo == "_bonusDano"){
+        item.update({
+          "data._bonusDano": value
+        });
+      }
+    }
+    
+    this.render();
+  }
+
   async _onPrepareSpell(event) {
     event.preventDefault();
     const a = event.currentTarget;
@@ -235,7 +269,10 @@ export class T20ActorSheet extends ActorSheet {
 
     // Prepare spells
     html.find('.preparada').click(this._onPrepareSpell.bind(this));
+    // Update item
+    html.find('.upItem').change(this._onUpdateItem.bind(this));
 
+    
     // Drag events for macros.
     if (this.actor.owner) {
       let handler = ev => this._onDragItemStart(ev);
@@ -393,6 +430,10 @@ export class T20ActorSheet extends ActorSheet {
     // Handle rolls coming directly from the ability score.  && data.mod
     if ($(a).hasClass('poder-rollable')) {
       formula = `${item.data.data.roll}`;
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
+
       flavorText = item.name;
       detailText = item.data.data.description.replace("\n", "<br/>");
 
@@ -407,6 +448,9 @@ export class T20ActorSheet extends ActorSheet {
 
     } else if ($(a).hasClass('atributo-rollable')) {
       formula = data.roll;
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
       flavorText = data.label.toUpperCase();
 
       templateData = {
@@ -416,6 +460,9 @@ export class T20ActorSheet extends ActorSheet {
 
     } else if ($(a).hasClass('pericia-rollable')) {
       formula = data.roll;
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
       flavorText = data.label;
       templateData = {
         title: flavorText,
@@ -424,19 +471,29 @@ export class T20ActorSheet extends ActorSheet {
 
     } else if ($(a).hasClass('ataque-rollable')) {
       formula = {};
-      formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value} + ${item.data.data.bonusAtq}`;
+      formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value}+ ${item.data.data._bonusAtq}`;
+      formula.atq = formula.atq.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
 
       let atributoDano = item.data.data.atrDan != '0' ? actorData.atributos[item.data.data.atrDan].mod : 0;
       if (item.data.data.dano.match(/(\d*)d\d+/g)) {
-        formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data.bonusDano}`;
+        formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data._bonusDano}`;
         let baseroll = item.data.data.dano.match(/(\d*)d\d+/g) ? item.data.data.dano.match(/(\d*)d\d+/g)[0] : '';
         let multiroll = item.data.data.dano.match(/(\d*)d\d+/g) ? (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
         let newdano = item.data.data.dano.replace(baseroll, multiroll);
-        formula.crit = `${newdano} + ${atributoDano} + ${item.data.data.bonusDano}`;
+        formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
         if (item.data.data.lancinante) {
           let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * " + item.data.data.criticoX + ")");
           formula.crit = `${lacinante}`;
         }
+
+        formula.dano = formula.dano.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
+        formula.crit = formula.crit.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
 
       } else {
         formula.dano = null;
@@ -468,6 +525,9 @@ export class T20ActorSheet extends ActorSheet {
 
     } else if ($(a).hasClass('magia-rollable')) {
       formula = item.data.data.efeito;
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
       flavorText = item.name;
       spellHeader = {};
       spellHeader.tipo = item.data.data.tipo;

@@ -2,11 +2,23 @@
     <header class="sheet-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields">
-            <div class="resources flex grid-3col">
+            <div class="resources flex grid-2col">
                 <div class="field flex-group-center">
                     <input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
                     <label>Nome</label>
                 </div>
+                <div class="field sel-center flex-group-center">
+                    <select class="selectatr selArma" name="data.arma" value={{data.arma}} data-type="String">
+                        {{#select data.arma}}
+                        {{#each armas as |arma a|}}
+                            <option value="{{a}}" data-dano="{{arma.data.data.dano}}" data-atqBns="{{arma.data.data.atqBns}}" data-criticoM="{{arma.data.data.criticoM}}" data-criticoX="{{arma.data.data.criticoX}}" data-lancinante="{{arma.data.data.lancinante}}" data-tipo="{{arma.data.data.tipo}}" data-alcance="{{arma.data.data.alcance}}" data-municao="{{arma.data.data.municao}}">{{arma.name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                    <br><label>Arma</label>
+                </div>
+            </div>
+            <div class="resources flex grid-3col">
                 <div class="field flex-group-center">
                     <input type="text" name="data.bonusAtq" value="{{data.bonusAtq}}" data-dtype="Number" />
                     <label>Bônus de Ataque</label>
@@ -22,15 +34,11 @@
                     <br><label>Pericia</label>
                 </div>
             </div>
-            <div class="resources flex grid-3col">
+            <div class="resources flex grid-2col">
                 <div class="field flex-group-center">
                     <input type="text" name="data.dano" value="{{data.dano}}" data-dtype="String"
-                        placeholder="ex.: 1d6 ou 2" />
+                        placeholder="ex.: 1d6+2" />
                     <label>Dano</label>
-                </div>
-                <div class="field flex-group-center">
-                    <input type="text" name="data.bonusDano" value="{{data.bonusDano}}" data-dtype="String" />
-                    <label>Bônus de Dano</label>
                 </div>
                 <div class="field sel-center flex-group-center">
                     <select class="selectatr" name="data.atrDan" value={{data.atrDan}} data-type="String">
@@ -64,7 +72,7 @@
                     {{else}}
                     <input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" data-dtype="Boolean" />
                     {{/if}}
-                    <label class="tooltip">Lancinante <i class="fas fa-question-circle"></i>
+                    <br><label class="tooltip">Lancinante <i class="fas fa-question-circle"></i>
                         <div class="tooltipcontent">Crítico multiplica valores fíxos</div>
                     </label>
                 </div>

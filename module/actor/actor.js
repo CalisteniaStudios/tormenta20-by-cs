@@ -140,33 +140,31 @@ export class T20Actor extends Actor {
 
     const pv = this.data.data.attributes.pv;
     const totalRd = this.data.data.rd.value;
-
+    const tmpPV = parseInt(pv.temp) || 0;
     if (heal) {
-      tmpPVDamage = 0
-      newDmgAmount = amount
-      damageHealth = Math.clamped(pv.value - newDmgAmount, 0, pv.max)
-      chatMessage = `<i class="fas fa-medkit"></i> +${newDmgAmount} pontos PV`
-
+      tmpPVDamage = 0;
+      newDmgAmount = amount;
+      damageHealth = Math.clamped(pv.value + newDmgAmount, 0, pv.max);
+      chatMessage = `<i class="fas fa-medkit"></i> +${newDmgAmount} pontos PV`;
     } else {
       amount = Math.floor(parseInt(amount) * multiplier);
-      newDmgAmount = amount
+      newDmgAmount = amount;
       if (totalRd > 0) {
-        newDmgAmount = Math.max(newDmgAmount - totalRd, 0)
+        newDmgAmount = Math.max(newDmgAmount - totalRd, 0);
       }
 
       // Deduct damage from temp HP first
-      const tmpPV = parseInt(pv.temp) || 0;
+      
       tmpPVDamage = newDmgAmount > 0 ? Math.min(tmpPV, newDmgAmount) : 0;
 
-      chatMessage = `<i class="fas fa-user-minus"></i> ${newDmgAmount} pontos PV`
+      chatMessage = `<i class="fas fa-user-minus"></i> ${newDmgAmount} pontos PV`;
       if (totalRd > 0) {
-        chatMessage += `<br/>(${amount} - RD${totalRd})`
+        chatMessage += `<br/>(${amount} - RD${totalRd})`;
       }
 
+      // Remaining goes to health
+      damageHealth = Math.clamped(pv.value - (newDmgAmount - tmpPVDamage), 0, pv.max);
     }
-    // Remaining goes to health
-    damageHealth = Math.clamped(pv.value - (newDmgAmount - tmpPVDamage), 0, pv.max);
-
     toChat(this, chatMessage);
 
     // Update the Actor

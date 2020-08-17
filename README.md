@@ -16,10 +16,14 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Correção de bugs~~ (v0.9.4)
 * ~~Arrumar macros~~ (v0.9.5)
 * ~~Ficha de NPCS~~ (v0.9.6)
-* Separar armas de ataques?
-* Melhorar ataques, dar suporte a ataques multiplos, etc
+* ~~Separar equipamentos em armas, consumiveis e tesouro~~ (v0.9.7)
+* ~~Melhorar ataques~~ (v0.9.7)
+* ~~Aplicar dano/cura~~ (v0.9.7)
 * Melhorar magias, dar suporte a aprimoramentos, etc
 * Layout da ficha
+
+## Colaboradores
+* Roberto Caetano
 
 ## Special Thanks
 

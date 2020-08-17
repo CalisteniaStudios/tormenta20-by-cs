@@ -251,8 +251,8 @@
 
 .tormenta20 .ataques .items-list .item-name {
   margin: 0;
-  -ms-flex: 0 0 140px;
-  flex: 0 0 140px;
+  -ms-flex: 2;
+  flex: 2;
 }
 
 .tormenta20 .atributos .items-list {
@@ -403,7 +403,7 @@
 
 .field {
   display: inline-block;
-  max-width: 33%;
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -558,6 +558,11 @@
 .tormenta20 .npc .items-list .item div.item-name {
   text-indent: -1.5em;
   padding-left: 1.5em;
+}
+
+.tormenta20 .items-list .item div.item-atq,
+.tormenta20 .items-list .item div.item-dano {
+  max-width: 70px;
 }
 
 .tormenta20 .npc .items-list .item div.item-controls {

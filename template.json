@@ -13,7 +13,7 @@
           "divindade": "",
           "pv": {
             "value": 10,
-            "min": 0,
+            "min": -500,
             "max": 10,
             "temp": 0
           },
@@ -496,15 +496,14 @@
     }
   },
   "Item": {
-    "types": [
-      "equip",
-      "poder",
-      "magia",
-      "ataque"
-    ],
+    "types": ["equip", "poder", "magia", "ataque","_ataque","tesouro","consumivel","arma"],
     "templates": {
       "base": {
         "description": ""
+      },
+      "objeto":{
+        "peso": 0,
+        "qtd": 1
       }
     },
     "equip": {
@@ -537,6 +536,7 @@
       "resistencia": "",
       "alvo": "",
       "area": "",
+      "cd": 0,
       "efeito": ""
     },
     "ataque": {
@@ -546,8 +546,9 @@
       "arma": "",
       "pericia": "lut",
       "bonusAtq": 0,
+      "_bonusAtq": "0",
       "dano": "1d6",
-      "bonusDano": "",
+      "_bonusDano": "0",
       "atrDan": "for",
       "criticoM": 20,
       "criticoX": 2,
@@ -556,6 +557,26 @@
       "alcance": "",
       "municao": 0,
       "custo": 0
+    },
+    "tesouro": {
+      "templates": ["base","objeto"]
+    },
+    "arma": {
+      "templates": ["base","objeto"],
+      "dano": "1d6",
+      "atqBns": "",
+      "danoBns": "",
+      "criticoM": 20,
+      "criticoX": 2,
+      "lancinante": false,
+      "tipo": "",
+      "alcance": "",
+      "municao": ""
+    },
+    "consumivel": {
+      "templates": ["base","objeto"],
+      "efeito": ""
     }
+
   }
 }

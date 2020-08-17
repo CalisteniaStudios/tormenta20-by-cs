@@ -1,3 +1,4 @@
+import { T20Utility } from '../utility.js';
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -37,6 +38,10 @@ export class T20Item extends Item {
 
     if (item.type == 'poder') {
       formula = `${itemData.roll}`;
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
+
       flavorText = item.name;
       detailText = itemData.description.replace("\n", "<br/>");
 
@@ -50,19 +55,29 @@ export class T20Item extends Item {
       this.rollT20(formula, actorData, templateData);
     } else if (item.type == 'ataque') {
       formula = {};
-      formula.atq = `1d20+ ${actorData.pericias[itemData.pericia].value} + ${itemData.bonusAtq}`;
+      formula.atq = `1d20+ ${actorData.pericias[itemData.pericia].value} + ${itemData.bonusAtq} + ${itemData._bonusAtq}`;
+      formula.atq = formula.atq.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
 
       let atributoDano = itemData.atrDan != '0' ? actorData.atributos[itemData.atrDan].mod : 0;
       if (itemData.dano.match(/(\d*)d\d+/g)) {
-        formula.dano = `${itemData.dano} + ${atributoDano} + ${itemData.bonusDano}`;
+        formula.dano = `${itemData.dano} + ${atributoDano} + ${itemData.bonusDano} + ${itemData._bonusDano}`;
         let baseroll = itemData.dano.match(/(\d*)d\d+/g) ? itemData.dano.match(/(\d*)d\d+/g)[0] : '';
         let multiroll = itemData.dano.match(/(\d*)d\d+/g) ? (itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * itemData.criticoX + 'd' + itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
         let newdano = itemData.dano.replace(baseroll, multiroll);
-        formula.crit = `${newdano} + ${atributoDano} + ${itemData.bonusDano}`;
+        formula.crit = `${newdano} + ${atributoDano} + ${itemData.bonusDano} + ${itemData._bonusDano}`;
         if (itemData.lancinante) {
           let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * " + itemData.criticoX + ")");
           formula.crit = `${lacinante}`;
         }
+
+        formula.dano = formula.dano.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
+        formula.crit = formula.crit.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
 
       } else {
         formula.dano = null;
@@ -85,6 +100,9 @@ export class T20Item extends Item {
 
     } else if (item.type == 'magia') {
       formula = itemData.efeito;
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
       flavorText = item.name;
       spellHeader = {};
       spellHeader.tipo = itemData.tipo;

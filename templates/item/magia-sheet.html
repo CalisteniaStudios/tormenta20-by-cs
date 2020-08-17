@@ -2,23 +2,27 @@
     <header class="sheet-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields">
-            <div class="resource col-75"><input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
+            <div class="resource col-50"><input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
             </div>
             <div class="resource  col-24">
                 <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
                 <label>PM</label>
             </div>
+            <div class="resource  col-24">
+                <input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
+                <label>CD ({{data.totalCD}} : {{data.actorCD}}+{{data.cd}})</label>
+            </div>
             <div class="resources flex grid-3col">
-                <div class="field flex-group-center">
-                    <label>Tipo</label>
+                <div class="field flex-group-center" style="width: 100%">
                     <select class="selectatr" name="data.tipo" value={{data.tipo}} data-type="Number">
                         {{#select data.tipo}}
                         <option value="Arcana">Arcana</option>
                         <option value="Divina">Divina</option>
                         {{/select}}
                     </select>
+                    <br><label>Tipo</label>
                 </div>
-                <div class="field flex-group-center">
+                <div class="field flex-group-center" style="width: 100%">
                     <select class="selectatr" name="data.circulo" value={{data.circulo}} data-type="Number">
                         {{#select data.circulo}}
                         <option value="1">1</option>
@@ -28,10 +32,9 @@
                         <option value="5">5</option>
                         {{/select}}
                     </select>
-                    <label>Circulo</label>
+                    <br><label>Circulo</label>
                 </div>
-                <div class="field flex-group-center">
-                    <label>Escola</label>
+                <div class="field flex-group-center" style="width: 100%">
                     <select class="selectatr" name="data.escola" value={{data.escola}} data-type="String">
                         {{#select data.escola}}
                         <option value="Abjuração">Abjuração</option>
@@ -44,7 +47,7 @@
                         <option value="Transmutação">Transmutação</option>
                         {{/select}}
                     </select>
-
+                    <br><label>Escola</label>
                 </div>
             </div>
             <div class="resources flex grid-3col">

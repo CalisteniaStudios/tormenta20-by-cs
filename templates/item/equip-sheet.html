@@ -2,25 +2,79 @@
     <header class="sheet-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields">
-            <table>
-                <tr>
+           <table>
+               <tr>
                     <th>Nome</th>
                     <th>Qtd</th>
                     <th>Peso</th>
-                </tr>
-                <tr>
-                    <td><input name="name" type="text" value="{{item.name}}" placeholder="Nome" /></td>
-                    <td><input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number" /></td>
-                    <td><input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number" /></td>
-                </tr>
-            </table>
+               </tr>
+               <tr>
+                   <td><input type="text" name="name" value="{{item.name}}" placeholder="Nome"/></td>
+                   <td><input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number"/></td>
+                   <td><input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/></td>
+               </tr>
+           </table>
         </div>
     </header>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
+    {{#ifEquals item.type "arma"}}
+      <div class="resources flex grid-2col">
+        <div class="field flex-group-center">
+            <input type="text" name="data.dano" value="{{data.dano}}" data-dtype="String"  placeholder="ex.: 1d6+2"/>
+            <label>Dano</label>
+        </div>
+        <div class="field flex-group-center">
+            <input type="text" name="data.atqBns" value="{{data.atqBns}}" data-dtype="Number"/>
+            <label>Bônus de Ataque</label>
+        </div>
+      </div>
+      <div class="resources flex grid-3col">
+        <div class="field flex-group-center">
+            <input type="text" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number"placeholder="ex.: 19"/>
+            <label>Margem de Crítico</label>
+        </div>
+        <div class="field flex-group-center">
+            <input type="text" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number"/>
+            <label>Multiplicador de Crítico</label>
+        </div>
+        <div class="field flex-group-center" style="width: 100%;">
+            {{#if data.lancinante}}
+            <input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" checked data-dtype="Boolean"/>
+            {{else}}
+            <input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" data-dtype="Boolean"/>
+            {{/if}}
+            <br>
+            <label class="tooltip">Lancinante <i class="fas fa-question-circle"></i><div class="tooltipcontent">Crítico multiplica valores fíxos</div></label>
+        </div>
+      </div>
+      <div class="resources flex grid-3col">
+        <div class="field flex-group-center">
+            <input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String"/>
+            <label>Tipo</label>
+        </div>
+        <div class="field flex-group-center">
+            <input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String"/>
+            <label>Alcance</label>
+        </div>
+        <div class="field flex-group-center">
+            <input type="text" name="data.municao" value="{{data.municao}}" data-dtype="Number"/>
+            <label>Munição</label>
+        </div>
+      </div>
+    {{/ifEquals}}
 
-        {{editor content=data.base.description target="data.base.description" button=true owner=owner editable=editable}}
+    {{#ifEquals item.type "consumivel"}}
+      <div class="resources flex grid">
+        <div class="field flex-group-center">
+            <input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String"/>
+            <label>Rolagem</label>
+        </div>
+      </div>
+    {{/ifEquals}}
+
+        <textarea name="data.description" data-dtype="String">{{data.description}}</textarea>
 
     </section>
 </form>
