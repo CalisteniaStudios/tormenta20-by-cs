@@ -464,7 +464,7 @@
             </h2>
           <ol class="items-list">
             <li class="item flexrow item-header">
-              <div class="item-name">Nome</div>
+              <div class="item-name" style="flex: 5;">Nome</div>
               <div class="item-qtd">Qtd</div>
               <div class="item-peso">Peso</div>
               <div class="item-controls">
@@ -474,7 +474,7 @@
             {{#each actor.equipamentos as |item id|}}
             <li class="item flexrow" data-item-id="{{item._id}}">
               <div class="item-image" style="background-image: url('{{item.img}}')"></div>
-              <h4 class="item-name">{{item.name}}</h4>
+              <h4 class="item-name" style="flex: 5;">{{item.name}}</h4>
                 <div class="item-qtd">{{item.data.qtd}}</div>
                 <div class="item-peso">{{item.data.peso}}</div>
               <div class="item-controls">
@@ -484,14 +484,12 @@
               </li>
             {{/each}}
             <li class="item flexrow item-header">
-              <div class="item-name"></div>
-              <div class="item-controls">
+              <div class="item-name text-right">
+              
               <a class="item-control item-create" title="Criar arma" data-type="arma"><i class="fas fa-plus"></i> Arma</a>
-              </div>
-              <div class="item-controls">
+              &nbsp;&nbsp;
               <a class="item-control item-create" title="Criar consumivel" data-type="consumivel"><i class="fas fa-plus"></i> Consumível</a>
-              </div>
-              <div class="item-controls">
+              &nbsp;&nbsp;
               <a class="item-control item-create" title="Criar tesouro" data-type="tesouro"><i class="fas fa-plus"></i> Item</a>
               </div>
             </li>
