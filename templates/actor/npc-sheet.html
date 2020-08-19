@@ -132,7 +132,10 @@
             <div class="item-name"><span class="rollable ataque-rollable"
                 data-roll="d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value"
                 data-label="{{item.name}}"><label>{{item.name}} {{item.data.atq}} ({{item.data.dmg}},
-                  {{item.data.criticoM}}/x{{item.data.criticoX}})</label></span></div>
+                  {{item.data.criticoM}}/x{{item.data.criticoX}})</label></span>
+                  atq: <input class="upItem" type="text" data-campo="_bonusAtq" value="{{item.data._bonusAtq}}" style="max-width: 40px;" data-dtype="String" />
+                  dano: <input class="upItem" type="text" data-campo="_bonusDano" value="{{item.data._bonusDano}}" style="max-width: 40px;" data-dtype="String" />
+                </div>
             <div class="item-controls">
               <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

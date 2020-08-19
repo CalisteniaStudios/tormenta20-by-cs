@@ -496,7 +496,7 @@
     }
   },
   "Item": {
-    "types": ["equip", "poder", "magia", "ataque","_ataque","tesouro","consumivel","arma"],
+    "types": ["equip", "poder", "magia", "ataque","tesouro","consumivel","arma"],
     "templates": {
       "base": {
         "description": ""

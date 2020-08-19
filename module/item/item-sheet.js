@@ -35,22 +35,17 @@ export class T20ItemSheet extends ItemSheet {
   getData() {
     const data = super.getData();
     data.armas = [];
-    console.log(data);
     // console.log(this.object.options.actor);
     if (data.item.type == "magia") {
       data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
       data.data.totalCD = data.data.actorCD+data.data.cd;
-      console.log(data);
     }
     if (data.item.type == "ataque") {
       data.data.dano = data.data.dano + (data.data.bonusDano != ""? "+"+data.data.bonusDano : "");
       data.data.dano = data.data.dano.replace("+undefined","");
-      console.log("KAKAK");
-      console.log(data.data._bonusAtq == "");
       if(data.data._bonusAtq == ""){
         data.data._bonusAtq = "0";
       }
-      console.log(data.data._bonusAtq);
       if(data.data._bonusDano == ""){
         data.data._bonusDano = "0";
       }
@@ -60,7 +55,6 @@ export class T20ItemSheet extends ItemSheet {
         }
       }
     }
-    console.log(data);
     return data;
   }
 

@@ -55,18 +55,29 @@ export class T20Item extends Item {
       this.rollT20(formula, actorData, templateData);
     } else if (item.type == 'ataque') {
       formula = {};
-      formula.atq = `1d20+ ${actorData.pericias[itemData.pericia].value} + ${itemData.bonusAtq} + ${itemData._bonusAtq}`;
+      formula.atq = `1d20+ ${actorData.pericias[itemData.pericia].value}`
+                        + (itemData.bonusAtq!=undefined && itemData.bonusAtq!=0? `+ ${itemData.bonusAtq}`: ``)
+                        + (itemData._bonusAtq!=undefined && itemData._bonusAtq!=0? `+ ${itemData._bonusAtq}`: ``);
+
       formula.atq = formula.atq.replace(/\@\w+\b/g, function(match){
                     return "("+T20Utility.short(match, actorData)+")";
                 });
 
       let atributoDano = itemData.atrDan != '0' ? actorData.atributos[itemData.atrDan].mod : 0;
       if (itemData.dano.match(/(\d*)d\d+/g)) {
-        formula.dano = `${itemData.dano} + ${atributoDano} + ${itemData.bonusDano} + ${itemData._bonusDano}`;
+        // formula.dano = `${itemData.dano} + ${atributoDano} + ${itemData.bonusDano} + ${itemData._bonusDano}`;
+        formula.dano = `${itemData.dano}`
+                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
+                        + (itemData.bonusDano!=undefined && itemData.bonusDano!=0? `+ ${itemData.bonusDano}`: ``)
+                        + (itemData._bonusDano!=undefined && itemData._bonusDano!=0? `+ ${itemData._bonusDano}`: ``);
         let baseroll = itemData.dano.match(/(\d*)d\d+/g) ? itemData.dano.match(/(\d*)d\d+/g)[0] : '';
         let multiroll = itemData.dano.match(/(\d*)d\d+/g) ? (itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * itemData.criticoX + 'd' + itemData.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
         let newdano = itemData.dano.replace(baseroll, multiroll);
-        formula.crit = `${newdano} + ${atributoDano} + ${itemData.bonusDano} + ${itemData._bonusDano}`;
+        // formula.crit = `${newdano} + ${atributoDano} + ${itemData.bonusDano} + ${itemData._bonusDano}`;
+        formula.crit = `${newdano}`
+                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
+                        + (itemData.bonusDano!=undefined && itemData.bonusDano!=0? `+ ${itemData.bonusDano}`: ``)
+                        + (itemData._bonusDano!=undefined && itemData._bonusDano!=0? `+ ${itemData._bonusDano}`: ``);
         if (itemData.lancinante) {
           let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * " + itemData.criticoX + ")");
           formula.crit = `${lacinante}`;

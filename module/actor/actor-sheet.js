@@ -137,7 +137,6 @@ export class T20ActorSheet extends ActorSheet {
         if(i.data._bonusAtq == undefined || i.data._bonusAtq == ""){
           i.data._bonusAtq = "0";
         }
-        console.log(i.data._bonusAtq);
         if(i.data._bonusDano == undefined || i.data._bonusDano == ""){
           i.data._bonusDano = "0";
         }
@@ -293,8 +292,6 @@ export class T20ActorSheet extends ActorSheet {
     const target = event.currentTarget;
     const controls = $(target).closest('table').find('.skill-delete');
     const input = $(target).closest('table').find('.skill-outros');
-    console.log($(target).closest('table').find('.skill-tr'));
-    console.log($(target).closest('table').find('.skill-tr'));
     if ($(target).hasClass('ativo')) {
       $(controls).css('display', 'none');
       $(input).css('display', 'inline');
@@ -472,17 +469,28 @@ export class T20ActorSheet extends ActorSheet {
     } else if ($(a).hasClass('ataque-rollable')) {
       formula = {};
       formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value}+ ${item.data.data._bonusAtq}`;
+      formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value}`
+                    + (item.data.data.bonusAtq!=undefined && item.data.data.bonusAtq!=0? `+${item.data.data.bonusAtq}` : ``)
+                    + (item.data.data._bonusAtq!=undefined && item.data.data._bonusAtq!=0? `+${item.data.data._bonusAtq}` : ``);
       formula.atq = formula.atq.replace(/\@\w+\b/g, function(match){
                     return "("+T20Utility.short(match, actorData)+")";
                 });
 
       let atributoDano = item.data.data.atrDan != '0' ? actorData.atributos[item.data.data.atrDan].mod : 0;
       if (item.data.data.dano.match(/(\d*)d\d+/g)) {
-        formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data._bonusDano}`;
+        // formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data._bonusDano}`;
+        formula.dano = `${item.data.data.dano}`
+                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
+                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
+                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
         let baseroll = item.data.data.dano.match(/(\d*)d\d+/g) ? item.data.data.dano.match(/(\d*)d\d+/g)[0] : '';
         let multiroll = item.data.data.dano.match(/(\d*)d\d+/g) ? (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
         let newdano = item.data.data.dano.replace(baseroll, multiroll);
-        formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
+        // formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
+        formula.crit = `${newdano}`
+                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
+                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
+                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
         if (item.data.data.lancinante) {
           let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * " + item.data.data.criticoX + ")");
           formula.crit = `${lacinante}`;

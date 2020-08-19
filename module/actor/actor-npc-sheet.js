@@ -105,6 +105,13 @@ export class T20ActorNPCSheet extends ActorSheet {
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
         // let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
         let tempdmg = '';
+        if(i.data._bonusAtq == undefined || i.data._bonusAtq == ""){
+          i.data._bonusAtq = "0";
+        }
+        
+        if(i.data._bonusDano == undefined || i.data._bonusDano == ""){
+          i.data._bonusDano = "0";
+        }
         tempdmg = i.data.dano !='' ? tempdmg+`${i.data.dano}` : tempdmg;
         tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg+`+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
         tempdmg = i.data.bonusDano!='' ? tempdmg+` + ${i.data.bonusDano}` : tempdmg;
@@ -160,6 +167,7 @@ export class T20ActorNPCSheet extends ActorSheet {
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
     // Update Inventory Item
+    html.find('.upItem').change(this._onUpdateItem.bind(this));
     html.find('.show-controls').click(this._toggleControls.bind(this));
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -217,9 +225,37 @@ export class T20ActorNPCSheet extends ActorSheet {
     $(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
   }
 
+
+  /**
+   * Listen for click events on spells.
+   * @param {MouseEvent} event
+   */
+  async _onUpdateItem(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const data = a.dataset;
+    const actorData = this.actor.data.data;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.getOwnedItem(itemId);
+
+    if (item) {
+      let value = a.value;
+      if(data.campo == "_bonusAtq"){
+        item.update({
+          "data._bonusAtq": value
+        });
+      } else if(data.campo == "_bonusDano"){
+        item.update({
+          "data._bonusDano": value
+        });
+      }
+    }
+    
+    this.render();
+  }
+
+
   _toggleDCedit(event){
-
-
     if(event.type == "dblclick"){
       const target = event.currentTarget;
       const input = $(target).parent('p').find('.dc-editing');
@@ -386,15 +422,28 @@ export class T20ActorNPCSheet extends ActorSheet {
     
     } else if ($(a).hasClass('ataque-rollable')) {
       formula = {};
-      formula.atq = `1d20+${item.data.data.bonusAtq}`;
+      // formula.atq = `1d20+${item.data.data.bonusAtq}`;
+      formula.atq = `1d20`
+                    + (item.data.data.bonusAtq!=undefined && item.data.data.bonusAtq!=0? `+ ${item.data.data.bonusAtq}`: ``)
+                    + (item.data.data._bonusAtq!=undefined && item.data.data._bonusAtq!=0? `+ ${item.data.data._bonusAtq}`: ``);
       
       let atributoDano = item.data.data.atrDan != '0' ? actorData.atributos[item.data.data.atrDan].mod : 0;
       if(item.data.data.dano.match(/(\d*)d\d+/g)){
-        formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data.bonusDano}`;
+        // formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data._bonusDano}`;
+        formula.dano = `${item.data.data.dano}`
+                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
+                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
+                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
+
+
         let baseroll = item.data.data.dano.match(/(\d*)d\d+/g)? item.data.data.dano.match(/(\d*)d\d+/g)[0] : '';
         let multiroll = item.data.data.dano.match(/(\d*)d\d+/g)? (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
         let newdano = item.data.data.dano.replace(baseroll, multiroll);
-        formula.crit = `${newdano} + ${atributoDano} + ${item.data.data.bonusDano}`;
+        // formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
+        formula.crit = `${newdano}`
+                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
+                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
+                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
         if(item.data.data.lancinante) {
           let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * "+item.data.data.criticoX+")");
           formula.crit = `${lacinante}`;
