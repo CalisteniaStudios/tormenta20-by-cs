@@ -1,5 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 
+/** Edits by Ultra_Kev **/
+.border {
+  border-image-source: url(../assets/border.svg);
+  border-image-slice: 0 40 0 40;
+}
+
+.window-app .window-content {
+  background: url(../assets/parchment.jpg) repeat !important;
+  color: #2f290c !important; 
+}
+
+#sidebar {
+  color: #ffffff !important;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+table, .tormenta20 ol, .tormenta20 .resource, .tormenta20 .header-fields, .tormenta20 .atributos li.item.flexrow, .tormenta20 textarea, .tormenta20 textarea:focus {
+  border-style: solid;
+  border-color: none !important;
+  border-width: 9px;
+  border-image: url(../assets/border.svg) 4 4 4 4 fill repeat;
+  border-collapse: inherit !important;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tormenta20 h1, .tormenta20 h2, .outros h4 {
+  border-image: url(../assets/underline.svg) 2;
+  border-bottom: 5px solid transparent;
+  padding-left: 5px;
+}
+
+.app {
+  max-height: 100%;
+  background: url(../assets/side-bar.png) repeat;
+  border-radius: 5px;
+  box-shadow: 0 0 20px #000;
+  margin: 3px 0;
+  padding: 0.5em;
+  color: #c74b37 !important;
+  z-index: 30;
+}
+
+button {
+  color: #2f290c;
+}
+
+#sidebar button {
+  color: #fff;
+  /*#f18c17;*/
+}
+
+button {
+  width: 100%;
+  margin: 0 1px;
+  background: #0d0d0d;
+  border: 1px solid #782e22;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 28px;
+  font-family: "Signika", sans-serif;
+}
+
+#sidebar {
+  border: 1px solid #782e22;
+}
+
+/** End Ultra_Kev **/
+
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
@@ -149,6 +221,9 @@
   margin-right: 10px;
 }
 
+.tormenta20 .header-fields {
+  padding: 6px !important;
+}
 .tormenta20 .sheet-header .header-fields {
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -224,7 +299,7 @@
 }
 
 .tormenta20 .items-list .item {
-  height: 30px;
+  height: auto;/*30px;*/
   line-height: 24px;
   padding: 3px 0;
   border-bottom: 1px solid #BBB;
@@ -249,6 +324,10 @@
   margin: 0;
 }
 
+.tormenta20 .items-list .item-separator {
+  flex:0;
+}
+
 .tormenta20 .ataques .items-list .item-name {
   margin: 0;
   -ms-flex: 2;
@@ -258,11 +337,18 @@
 .tormenta20 .atributos .items-list {
   min-height: 80px;
   text-transform: uppercase;
+  border: none;
+  background-color: unset;
 }
 
 .tormenta20 .atributos .items-list .item {
   display: inline-block;
   width: 15%;
+}
+
+.tormenta20.tabbed .atributos .items-list .item{
+  display: block;
+  text-align: center;
 }
 
 .tormenta20 .atributos .items-list .item label {
@@ -428,12 +514,14 @@
   text-align: center;
 }
 
+.tormenta20 .tabbed .header-fields .recursos,
 .tormenta20 .dados .recursos,
 .tormenta20 .dados .atributos {
   font-size: 10px;
   text-align: center;
 }
 
+.tormenta20 .tabbed .header-fields .recursos,
 .tormenta20 .dados .recursos {
   min-height: 90px;
 }
@@ -453,6 +541,7 @@
   display: inline-block;
 }
 
+.tormenta20 .tabbed .header-fields .recursos label,
 .tormenta20 .dados .recursos label {
   display: inline-block;
   width: 30%;
@@ -467,6 +556,7 @@
   text-align: center;
 }
 
+.tormenta20 .tabbed .header-fields .recursos .vl,
 .tormenta20 .dados .recursos .vl {
   border-left: 1px solid black;
   height: 40px;
@@ -474,6 +564,7 @@
   vertical-align: super;
 }
 
+.tormenta20 .tabbed .header-fields .recursos input,
 .tormenta20 .dados .recursos input {
   width: 50px;
   height: 30px;
@@ -492,6 +583,15 @@
 .tormenta20 .armadura {
   /*float: left;*/
   width: 100%;
+}
+
+.tormenta20 .tabbed .defesa {
+  width: 60%;
+  display: inline-block;
+}
+.tormenta20 .tabbed .reducao_dano {
+  width: 39%;
+  display: inline-block;
 }
 
 .tormenta20 .sel-center {
@@ -567,4 +667,14 @@
 
 .tormenta20 .npc .items-list .item div.item-controls {
   white-space: nowrap;
+}
+
+.message-content div.dice-roll .dice-total .critico{
+  border: 1px solid green;
+  box-shadow: 0 0 2px green inset;
+}
+
+.message-content div.dice-roll .dice-total .falha{
+  border: 1px solid green;
+  box-shadow: 0 0 2px green inset;
 }

@@ -1,22 +1,11 @@
 // Import Modules
-import {
-  T20Actor
-} from "./actor/actor.js";
-import {
-  T20ActorSheet
-} from "./actor/actor-sheet.js";
-import {
-  T20ActorNPCSheet
-} from "./actor/actor-npc-sheet.js";
-import {
-  T20Item
-} from "./item/item.js";
-import {
-  T20ItemSheet
-} from "./item/item-sheet.js";
-import {
-  T20Utility
-} from "./utility.js";
+import { SystemSettings } from "./settings.js";
+import { T20Actor } from "./actor/actor.js";
+import { T20ActorSheet } from "./actor/actor-sheet.js";
+import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
+import { T20Item } from "./item/item.js";
+import { T20ItemSheet } from "./item/item-sheet.js";
+import { T20Utility } from "./utility.js";
 
 import * as chat from "./chat.js";
 
@@ -27,6 +16,9 @@ Hooks.once('init', async function () {
     T20Item,
     rollItemMacro
   };
+
+  // Register System Settings
+  SystemSettings();
 
 
   /**
@@ -48,6 +40,7 @@ Hooks.once('init', async function () {
     types: ['character'],
     makeDefault: true
   });
+
   Actors.registerSheet("tormenta20", T20ActorNPCSheet, {
     types: ['npc'],
     makeDefault: true
@@ -76,6 +69,18 @@ Hooks.once('init', async function () {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
 
+  Handlebars.registerHelper('ifGreater', function (arg1, arg2, options) {
+    if (v1 > v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+  Handlebars.registerHelper('ifEGreater', function (v1, v2, options) {
+    if (v1 >= v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+  });
 });
 
 Hooks.once("ready", async function () {

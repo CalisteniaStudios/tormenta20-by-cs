@@ -1,0 +1,604 @@
+<form class="tormenta20 tabbed" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header>
+    <div class="header-fields">
+      <div style="display: inline-block; width: 25%">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200" width="200" />
+      </div>
+
+      <div style="width: 75%; float: right;">
+          <div class="resources flexrow">
+            <label>
+              <h3 class="charname"><input name="name" type="text" value="{{actor.name}}" data-dtype="String" /></h3>
+              Nome
+            </label>
+          </div>
+
+          <div class="resources flexrow">
+            <div class="infos">
+              <label>
+                <input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" />
+                Raça</label>
+
+              <label>
+                <input type="text" name="data.attributes.origem" value="{{data.attributes.origem}}" data-dtype="String" />
+                Origem</label>
+              <label>
+                <input type="text" name="data.attributes.classe" value="{{data.attributes.classe}}" data-dtype="String" />
+                Classe</label>
+
+              <label class="nivel">
+                <input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" />
+                Nível</label>
+            </div>
+          </div>
+          <div class="recursos">
+            <div class="resource">
+              <h4>PONTOS DE VIDA</h4>
+              <label>
+                <input type="text" name="data.attributes.pv.value" value="{{data.attributes.pv.value}}" data-dtype="Number" />
+                <br>Atuais
+              </label>
+              <div class="vl"></div>
+              <label>
+                <input type="text" name="data.attributes.pv.max" value="{{data.attributes.pv.max}}" data-dtype="Number" />
+                <br>Máximos
+              </label>
+              <div class="vl"></div>
+              <label>
+                <input type="text" name="data.attributes.pv.temp" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
+                <br>Temporários
+              </label>
+            </div>
+
+            <div class="resource">
+              <h4>PONTOS DE MANA</h4>
+              <label>
+                <input type="text" name="data.attributes.pm.value" value="{{data.attributes.pm.value}}" data-dtype="Number" />
+                <br>Atuais
+              </label>
+              <div class="vl"></div>
+              <label>
+                <input type="text" name="data.attributes.pm.max" value="{{data.attributes.pm.max}}" data-dtype="Number" />
+                <br>Máximos
+              </label>
+              <div class="vl"></div>
+              <label>
+                <input type="text" name="data.attributes.pm.temp" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
+                <br>Temporários
+              </label>
+            </div>
+          </div>
+      </div>
+
+      </div>
+        <div class="dados">
+          <div class="resources flex grid-3col">
+
+
+
+          </div>
+
+          <div class="defesa">
+            <table>
+              <tr>
+                <th>DEFESA</th>
+                <th></th>
+                <th>Mod. Destreza</th>
+                <th></th>
+                <th>Bônus de Armadura</th>
+                <th></th>
+                <th>Bônus de Escudo</th>
+                <th></th>
+                <th>Outros</th>
+              </tr>
+              <tr class="text-center">
+                <td>{{data.defesa.value}}</td>
+                <td style="white-space: nowrap;">= 10 +</td>
+                <td>
+                  {{#if data.defesa.des }}
+                  <input type="checkbox" name="data.defesa.des" value="{{data.defesa.des}}" checked data-dtype="Boolean" />
+                  {{else}}
+                  <input type="checkbox" name="data.defesa.des" value="{{data.defesa.des}}" data-dtype="Boolean" />
+                  {{/if}}
+                </td>
+                <td>+</td>
+                <td>{{data.armadura.defesa}}</td>
+                <td>+</td>
+                <td>{{data.escudo.defesa}}</td>
+                <td>+</td>
+                <td><input type="text" name="data.defesa.outro" value="{{data.defesa.outro}}" data-dtype="Number" /></td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="reducao_dano">
+            <table>
+              <tr class="text-center">
+                <th>Redução de Dano</th>
+                <th></th>
+                <th>RD Base</th>
+                <th></th>
+                <th>RD Temporario</th>
+              </tr>
+              <tr class="text-center">
+                <td>{{data.rd.value}}</td>
+                <td></td>
+                <td><input type="text" name="data.rd.base" value="{{data.rd.base}}" data-dtype="Number" /></td>
+                <td>+</td>
+                <td><input type="text" name="data.rd.temp" value="{{data.rd.temp}}" data-dtype="Number" /></td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+
+</header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="atributos" title="Atributos">Atributos</a></label>
+      <label><i class="fas fa-book"></i> <a class="item" data-tab="pericias" title="Pericias">Pericias</a></label>
+      <label><i class="fas fa-running"></i> <a class="item" data-tab="poderes" title="Poderes">Poderes</a></label>
+      <label><i class="fas fa-magic"></i> <a class="item" data-tab="magias" title="Magias">Magias</a></label>
+      <label><i class="fas fa-briefcase"></i> <a class="item" data-tab="inventario" title="Inventario">Inventario</a></label>
+      <label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="outros" title="Outros">Outros</a></label>
+      <label><i class="fas fa-address-card"></i> <a class="item" data-tab="description" title="Biografia">Biografia</a></label>
+      <label>&nbsp;</label>
+    </nav>
+
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <div class="dados">
+        <div class="atributos">
+          <ol class="items-list">
+            {{#each data.atributos as |atr key|}}
+            <li class="item flexrow" data-item-id="{{key}}">
+              <span class="rollable atributo-rollable" data-roll="d20+{{atr.mod}}" data-label="{{key}}"><label>
+                  {{key}}
+                  <h1 style="border: 0!important">{{atr.mod}}</h1>
+                  <input type="hidden" name="data.atributos.{{key}}.mod" value="{{atr.mod}}" data-dtype="Number" />
+                </label></span>
+              <input type="text" name="data.atributos.{{key}}.value" value="{{atr.value}}" data-dtype="Number" />
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+
+      <div class="skills">
+        FUTUROS FAVORITOS
+      </div>
+    </div>
+
+    {{!-- Pericias Tab --}}
+    <div class="tab pericias" data-group="primary" data-tab="pericias">
+      <div class="flexrow flex-between">
+        <div class="skills">
+          <div class="pericias">
+
+            <ol class="items-list">
+              <li class="item flexrow item-header flex-center">
+                <div>PERICIAS</div>
+              </li>
+            </ol>
+
+            <table class="skl-tbl">
+              <tr>
+                <th class="col-5"></th>
+                <th class="col-15">Perícias</th>
+                <th class="col-10">TOTAL</th>
+                <th class="col-5">Mod. Atributo</th>
+                <th class="col-5">Treino</th>
+                <th class="col-5">Outros</th>
+              </tr>
+              {{#each actor.data.pericias as |skill key|}}
+              {{#ifEquals key "ofi"}}
+              <tr>
+                <td></td>
+                <td colspan="3" class="tooltip"><b>Ofícios</b> <i class="fas fa-question-circle"></i>
+                  <div class="tooltipcontent">Insira um '*' no nome para incluir penalidade de armadura. </div>
+                </td>
+                <td colspan="2" class="text-right">
+                  <a class="item-control oficios-create" title="Create item" data-tipo="oficio"><i class="fas fa-plus"></i> Novo</a>
+                  <a class="item-control show-controls" title="Editar Perícias"><i class="fas fa-cogs"></i></a>
+                </td>
+              </tr>
+
+              {{#each skill.mais as |ofi o|}}
+              <tr class="skill-tr">
+                <td class="col-5">
+                  {{#if ofi.treinado }}
+                  <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}" checked data-dtype="Boolean" /></td>
+                {{else}}
+                <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}" data-dtype="Boolean" /></td>
+                {{/if}}
+                <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{ofi.value}}" data-label="Ofício ({{ofi.nome}})" style="width: 30%;margin-right: 10px;"><i class="fas fa-dice-d20"></i></span> <input type="text" name="data.pericias.ofi.mais.{{o}}.label" value="{{ofi.label}}" data-dtype="String" style="width:65%" />
+                </td>
+                <td class='col-10'><input type="text" class="border" value="{{ofi.value}}" data-dtype="Number" disabled />
+                </td>
+                <td class="col-10 text-center">
+                  <select class="selectatr" name="data.pericias.ofi.mais.{{o}}.atributo" value={{ofi.atributo}} data-dtype="String">
+                    {{#select ofi.atributo}}
+                    <option value="for">For</option>
+                    <option value="des">Des</option>
+                    <option value="con">Con</option>
+                    <option value="int">Int</option>
+                    <option value="sab">Sab</option>
+                    <option value="car">Car</option>
+                    {{/select}}
+                  </select>
+                </td>
+                <input type="hidden" name="data.pericias.ofi.mais.{{o}}.treino" value="{{ofi.treino}}" data-dtype="Number" />
+
+                <td class="col-5 text-center">{{ofi.treino}} </td>
+                <td class="col-5 text-center skill-td"><input type="text" name="data.pericias.ofi.mais.{{o}}.outros" value="{{ofi.outros}}" class="skill-outros" style="display: inline;" data-dtype="Number" /> <a class="item-control skill-delete" style="display: none;" data-item-id="{{o}}" data-tipo="oficios" title="Delete Item"><i class="fas fa-trash"></i></a></td>
+              </tr>
+              {{/each}}
+              {{else}}
+              <tr>
+                <td class="col-5">
+                  {{#if skill.treinado }}
+                  <input type="checkbox" name="data.pericias.{{key}}.treinado" value="{{skill.treinado}}" checked data-dtype="Boolean" /></td>
+                {{else}}
+                <input type="checkbox" name="data.pericias.{{key}}.treinado" value="{{skill.treinado}}" data-dtype="Boolean" /></td>
+                {{/if}}
+                <td class="col-15"><span class="rollable pericia-rollable" data-per_id="{{key}}" data-roll="d20+{{skill.value}}" data-label="{{skill.label}}">{{skill.label}} {{#if skill.st}}+{{/if}} {{#if skill.pda}}*{{/if}}</span>
+                </td>
+                <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number" disabled /></td>
+                <td class="col-10 text-center">
+                  <select class="selectatr" name="data.pericias.{{key}}.atributo" value={{skill.atributo}} data-dtype="String">
+                    {{#select skill.atributo}}
+                    <option value="for">For</option>
+                    <option value="des">Des</option>
+                    <option value="con">Con</option>
+                    <option value="int">Int</option>
+                    <option value="sab">Sab</option>
+                    <option value="car">Car</option>
+                    {{/select}}
+                  </select>
+                </td>
+                <input type="hidden" name="data.pericias.{{key}}.treino" value="{{skill.treino}}" data-dtype="Number" />
+
+                <td class="col-5 text-center">{{skill.treino}} </td>
+                <td class="col-5 text-center"><input type="text" name="data.pericias.{{key}}.outros" value="{{skill.outros}}" data-dtype="Number" /></td>
+              </tr>
+              {{/ifEquals}}
+              {{/each}}
+
+              <tr>
+                <td></td>
+                <td colspan="3" class="tooltip"><b>Nova Perícia</b> <i class="fas fa-question-circle"></i>
+                  <div class="tooltipcontent">Insira um '*' no nome para incluir penalidade de armadura. </div>
+                </td>
+                <td colspan="2" class="text-right"><a class="item-control pericia-create" title="Criar Perícia" data-tipo="pericia"><i class="fas fa-plus"></i> Novo</a> <a class="item-control show-controls" title="Editar Perícias"><i class="fas fa-cogs"></i></a></td>
+              </tr>
+
+              {{#each actor.data.periciasCustom as |skill key|}}
+              <tr class="skill-tr">
+                <td class="col-5">
+                  {{#if skill.treinado }}
+                  <input type="checkbox" name="data.periciasCustom.{{key}}.treinado" value="{{skill.treinado}}" checked data-dtype="Boolean" /></td>
+                {{else}}
+                <input type="checkbox" name="data.periciasCustom.{{key}}.treinado" value="{{skill.treinado}}" data-dtype="Boolean" /></td>
+                {{/if}}
+
+                <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{skill.value}}" data-label="{{skill.nome}}" style="width: 30%;margin-right: 10px;"><i class="fas fa-dice-d20"></i></span> <input type="text" name="data.periciasCustom.{{key}}.label" value="{{skill.label}}" data-dtype="String" style="width:65%" />
+                </td>
+
+                <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number" disabled /></td>
+                <td class="col-10 text-center">
+                  <select class="selectatr" name="data.periciasCustom.{{key}}.atributo" value={{skill.atributo}} data-dtype="String">
+                    {{#select skill.atributo}}
+                    <option value="for">For</option>
+                    <option value="des">Des</option>
+                    <option value="con">Con</option>
+                    <option value="int">Int</option>
+                    <option value="sab">Sab</option>
+                    <option value="car">Car</option>
+                    {{/select}}
+                  </select>
+                </td>
+
+
+                <td class="col-5 text-center">{{skill.treino}} </td>
+                <td class="col-5 text-center skill-td"><input type="text" name="data.periciasCustom.{{key}}.outros" value="{{skill.outros}}" class="skill-outros" style="display: inline;" data-dtype="Number" /> <a class="item-control skill-delete" style="display: none;" data-item-id="{{key}}" data-tipo="custom" title="Excluir Perícia"><i class="fas fa-trash"></i></a></td>
+              </tr>
+              {{/each}}
+
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    {{!-- Poderes Tab --}}
+    <div class="tab Poderes" data-group="primary" data-tab="poderes">
+      <div class="flexrow flex-between">
+        <div class="magias">
+          <ol class="items-list">
+
+            <li class="item flexrow item-header flex-center">
+              <div>PODERES</div>
+            </li>
+
+            <li class="item flexrow item-header">
+              <div class="item-name">Nome</div>
+              <div class="item-tipo">Tipo</div>
+              <div class="item-custo">PM</div>
+              <div class="item-controls">
+
+                <a class="item-control item-create" title="Novo Poder" data-type="poder"><i class="fas fa-plus"></i>
+                  Novo</a>
+              </div>
+            </li>
+
+            {{#each actor.poderes as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+              <span class="rollable poder-rollable" data-label="{{item.name}}">
+                <h4 class="item-name">{{item.name}}</h4>
+              </span>
+              <div class="item-tipo">{{item.data.tipo}}</div>
+              <div class="item-custo">{{item.data.custo}}</div>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Magias Tab --}}
+    <div class="tab magias" data-group="primary" data-tab="magias">
+      <div class="flexrow flex-between">
+        <div class="magias">
+
+          <ol class="items-list">
+            <li class="item flexrow item-header flex-center">
+              <div>MAGIAS</div>
+            </li>
+          </ol>
+
+          {{#each actor.magias as |circulo i|}}
+          <ol class="items-list">
+            <li class="item flexrow item-header">
+              <div class="item-prep">Prep</div>
+              <div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
+              <div class="item-controls">
+
+                <a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}"><i class="fas fa-plus"></i> Novo</a>
+              </div>
+            </li>
+            {{#each circulo.spells as |m index|}}
+            <li class="item flexrow" data-item-id="{{m._id}}">
+              <div class="item-prep">
+                {{#if m.data.preparada}}
+                <input type="checkbox" class="preparada" value="{{m.data.preparada}}" checked data-dtype="Boolean" />
+                {{else}}
+                <input type="checkbox" class="preparada" value="{{m.data.preparada}}" data-dtype="Boolean" />
+                {{/if}}
+              </div>
+              <div class="item-image" style="background-image: url('{{m.img}}')"></div>
+              <h4 class="item-name"><span class="rollable magia-rollable" data-label="{{m.name}}">{{m.name}}</span></h4>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Deletar"><i class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+          </ol>
+          {{/each}}
+
+        </div>
+      </div>
+    </div>
+
+    {{!-- Inventario Tab --}}
+    <div class="tab inventario" data-group="primary" data-tab="inventario">
+      <div class="flexrow flex-between">
+        <div class="skills">
+
+          <!-- DINHEIRO -->
+          <ol class="items-list">
+            <li class="item flexrow item-header flex-right">
+              <div>DINHEIRO</div>
+            </li>
+            <li class="item flexrow item-header">
+              <div>T$: <input type="text" name="data.detalhes.dinheiro.TS" value="{{data.detalhes.dinheiro.TS}}" data-dtype="Number" /></div>
+              <div>TO: <input type="text" name="data.detalhes.dinheiro.TO" value="{{data.detalhes.dinheiro.TO}}" data-dtype="Number" /></div>
+              <div>CARGA: <input type="text" name="data.detalhes.carga" value="{{data.detalhes.carga}}" data-dtype="Number" /></div>
+            </li>
+          </ol>
+
+          <br />
+          <br />
+
+          <!-- ARMAS -->
+          <ol class="items-list">
+            <li class="item flexrow item-header flex-right">
+              <div>ARMAS</div>
+            </li>
+
+            <li class="item flexrow item-header">
+              <div class="item-image"></div>
+              <div class="item-equip">Equip</div>
+              <div class="item-name">Nome</div>
+              <div class="item-bonusAtq  text-center">ATQ</div>
+              <div class="item-dano  text-center">Dano</div>
+              <div class="item-controls">
+                <a class="item-control item-create" title="Create item" data-type="arma"><i class="fas fa-plus"></i>
+                  Novo</a>
+              </div>
+            </li>
+
+            {{#each actor.inventario.arma as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+              <div class="item-equip">
+                {{#if item.data.equipado }}
+                <input type="checkbox" class="equipado" value="{{item.data.equipado}}" checked data-dtype="Boolean" />
+                {{else}}
+                <input type="checkbox" class="equipado" value="{{item.data.equipado}}" data-dtype="Boolean" />
+                {{/if}}
+              </div>
+              <div class="item-name"><span class="rollable arma-rollable" data-roll="d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value" data-label="{{item.name}}">
+                  <h4 class="item-name">{{item.name}}</h4>
+                </span></div>
+              <div class="item-bonusAtq text-center"><input class="upItem" type="text" data-campo="bonusAtq" value="{{item.data.bonusAtq}}" style="max-width: 60px;" data-dtype="String" /></div>
+              <div class="item-dano text-center"><input class="upItem" type="text" data-campo="bonusDano" value="{{item.data.bonusDano}}" style="max-width: 60px;" data-dtype="String" /></div>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+          </ol>
+
+          <br />
+          <br />
+
+          <!-- ARMADURAS -->
+          <ol class="items-list">
+            <li class="item flexrow item-header flex-right">
+              <div>ARMADURAS</div>
+            </li>
+
+            <li class="item flexrow item-header">
+              <div class="item-image"></div>
+              <div class="item-equip">Equip</div>
+              <div class="item-type"></div>
+              <div class="item-name">Nome</div>
+              <div class="item-defesa text-center">Defesa</div>
+              <div class="item-penalidade text-center">Penalidade</div>
+              <div class="item-controls">
+                <a class="item-control item-create" title="Create item" data-type="armadura"><i class="fas fa-plus"></i>Novo</a>
+              </div>
+            </li>
+
+            {{#each actor.inventario.armadura as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+              <div class="item-equip">
+                {{#if item.data.equipado }}
+                <input type="checkbox" class="equipado" value="{{item.data.equipado}}" checked data-dtype="Boolean" />
+                {{else}}
+                <input type="checkbox" class="equipado" value="{{item.data.equipado}}" data-dtype="Boolean" />
+                {{/if}}
+              </div>
+              <div class="item-type">
+                {{#if item.data.escudo}}
+                <h4>Escudo</h4>
+                {{else}}
+                <h4>Armadura</h4>
+                {{/if}}
+              </div>
+              <div class="item-name">
+                <h4 class="item-name">{{item.name}}</h4>
+              </div>
+              <div class="item-defesa text-center">
+                <h3 class="text-center">{{item.data.bonusDefesa}}</h3>
+              </div>
+              <div class="item-penalidade text-center">
+                <h3 class="text-center">{{item.data.penalidadeArmadura}}</h3>
+              </div>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+
+          </ol>
+
+          <br />
+
+          <!-- ITEMS -->
+          <ol class="items-list">
+            <li class="item flexrow item-header flex-right">
+              <div>ITEMS</div>
+            </li>
+
+            <li class="item flexrow item-header">
+              <div class="item-image"></div>
+              <div class="item-name">Nome</div>
+              <div class="item-defesa text-center">Recupera</div>
+              <div class="item-penalidade text-center">Quantidade</div>
+              <div class="item-controls">
+                <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i>Novo</a>
+              </div>
+            </li>
+
+            {{#each actor.inventario.item as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+              <div class="item-name">
+                <h4 class="item-name">{{item.name}}</h4>
+              </div>
+
+              {{#if item.data.isPocaoPV }}
+              <div class="item-defesa text-center">
+                <h3 class="text-center">{{item.data.recuperaPV}} PV</h3>
+              </div>
+              {{else if item.data.isPocaoPM }}
+              <div class="item-defesa text-center">
+                <h3 class="text-center">{{item.data.recuperaPM}} PM</h3>
+              </div>
+              {{else}}
+              <div class="item-defesa text-center">
+                <h3 class="text-center"></h3>
+              </div>
+              {{/if}}
+
+              <div class="item-penalidade text-center">
+                <h3 class="text-center">{{item.data.qtd}}</h3>
+              </div>
+
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+          </ol>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    {{!-- Outros Tab --}}
+    <div class="tab outros" data-group="primary" data-tab="outros">
+      <div class="outros">
+        <h4>PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
+        <textarea name="data.attributes.info" rows="10" data-dtype="String">{{#if data.attributes.info}}{{data.attributes.info}}{{/if}}</textarea>
+      </div>
+
+    </div>
+
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      <br />
+      {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+
+    </div>
+
+
+
+    {{!-- Dev Tab --}}
+    <div class="tab dev" data-group="primary" data-tab="dev">
+
+    </div>
+
+  </section>
+</form>

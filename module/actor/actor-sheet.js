@@ -9,7 +9,7 @@ export class T20ActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["tormenta20", "sheet", "actor"],
-      template: "systems/tormenta20/templates/actor/actor-sheet.html",
+      // template: "systems/tormenta20/templates/actor/actor-sheet.html",
       width: 900,
       height: 600,
       tabs: [{
@@ -18,6 +18,15 @@ export class T20ActorSheet extends ActorSheet {
         initial: "attributes"
       }]
     });
+  }
+
+  get template() {
+    let layout = game.settings.get("tormenta20", "sheetTemplate");
+    if(layout == 'base'){
+      return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
+    } else if(layout == 'tabbed') {
+      return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
+    }
   }
 
   /* -------------------------------------------- */
@@ -64,7 +73,7 @@ export class T20ActorSheet extends ActorSheet {
     }
     if (this.actor.data.data.attributes.cd === undefined) {
       this.actor.update({
-        "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value/2)
+        "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
       });
     }
 
@@ -165,6 +174,7 @@ export class T20ActorSheet extends ActorSheet {
     actorData.ataques = ataques;
 
   }
+
 
   /**
    * Listen for click events on spells.
@@ -577,6 +587,9 @@ export class T20ActorSheet extends ActorSheet {
     let template = 'systems/tormenta20/templates/chat/chat-card.html';
     let dmgroll = null;
     // GM rolls.
+    console.log(actor);
+    let combate = game.combats.active;
+    // console.log();
     let chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({
@@ -617,6 +630,14 @@ export class T20ActorSheet extends ActorSheet {
         rollArr.push(roll);
         let result = roll._dice[0].rolls[0].roll;
 
+
+        if(dataset.label == "Iniciativa" && combate){
+          let combatente = combate.combatants.find(combatant => combatant.actor.id === actor.id);
+          if(combatente.iniciative == null){
+            combate.setInitiative(combatente._id,result);
+            console.log("Foundry VTT | Iniciativa Atualizada para "+combatente._id+" ("+combatente.actor.name+")");
+          }
+        }
         // Check if there are dmg rolls and what critical math to use
         if (danoFormula) {
           if (result >= criticoM) {
@@ -625,15 +646,20 @@ export class T20ActorSheet extends ActorSheet {
             dmgroll = new Roll(`${danoFormula}`);
           }
           dmgroll.roll();
-          dmgroll.render().then(r => {
+          let rollTemplate = {
+            template: "systems/tormenta20/templates/chat/t20roll.html"
+          };
+          dmgroll.render(rollTemplate).then(r => {
             templateData.rollDano = r;
           });
 
           rollArr.push(dmgroll);
         }
         // Render it.
-
-        roll.render().then(r => {
+        let rollTemplate = {
+          template: "systems/tormenta20/templates/chat/t20roll.html"
+        };
+        roll.render(rollTemplate).then(r => {
           templateData.roll = r;
 
           renderTemplate(template, templateData).then(content => {

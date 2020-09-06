@@ -559,15 +559,20 @@ export class T20ActorNPCSheet extends ActorSheet {
             dmgroll = new Roll(`${danoFormula}`);
           }
           dmgroll.roll();
-          dmgroll.render().then(r => {
+          let rollTemplate = {
+            template: "systems/tormenta20/templates/chat/t20roll.html"
+          };
+          dmgroll.render(rollTemplate).then(r => {
             templateData.rollDano = r;
           });
           
           rollArr.push(dmgroll);
         }
         // Render it.
-
-        roll.render().then(r => {
+        let rollTemplate = {
+          template: "systems/tormenta20/templates/chat/t20roll.html"
+        };
+        roll.render(rollTemplate).then(r => {
           templateData.roll = r;
 
           renderTemplate(template, templateData).then(content => {
