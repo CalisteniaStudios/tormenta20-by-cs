@@ -36,7 +36,7 @@ export class T20ItemSheet extends ItemSheet {
     const data = super.getData();
     data.armas = [];
     // console.log(this.object.options.actor);
-    if (data.item.type == "magia") {
+    if (data.item.type == "magia" && this.object.options.actor != undefined) {
       data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
       data.data.totalCD = data.data.actorCD+data.data.cd;
     }
