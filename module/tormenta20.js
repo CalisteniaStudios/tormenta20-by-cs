@@ -6,6 +6,7 @@ import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
 import { T20Item } from "./item/item.js";
 import { T20ItemSheet } from "./item/item-sheet.js";
 import { T20Utility } from "./utility.js";
+import { measureDistances } from "./canvas.js";
 
 import * as chat from "./chat.js";
 
@@ -92,6 +93,16 @@ Hooks.on('renderDialog', (dialog, html, options) => {
   if (dialog.title == 'Create New Item' || dialog.title == 'Criar Novo Item') {
     $(html[0]).find('option[value=pericia]').remove();
   }
+});
+
+/* -------------------------------------------- */
+/*  Canvas Initialization                       */
+/* -------------------------------------------- */
+
+Hooks.on("canvasInit", function() {
+
+  // Extend Diagonal Measurement
+  SquareGrid.prototype.measureDistances = measureDistances;
 });
 
 /* Add hook for the context menu over the rolled damage */
