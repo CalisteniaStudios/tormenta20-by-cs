@@ -207,7 +207,7 @@ export class T20ActorNPCSheet extends ActorSheet {
 
     // Drag events for macros.
     if (this.actor.owner) {
-      let handler = ev => this._onDragItemStart(ev);
+      let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
         li.setAttribute("draggable", true);
@@ -576,7 +576,9 @@ export class T20ActorNPCSheet extends ActorSheet {
             chatData.content = content;
             if (game.dice3d) {
               game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              if(dmgroll){
+                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              }
             }
             else {
               chatData.sound = CONFIG.sounds.dice;

@@ -132,7 +132,7 @@ export const getItemOwner = function (item) {
 
 async function createT20Macro(data, slot) {
   if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
+  if (!("data" in data)) return ui.notifications.warn("Você só pode criar Macros para Ataques, Magias e Poderes. Você pode referenciar atributos e perícias com @. Ex.: @for ou @luta");
   const item = data.data;
   // const actor = getItemOwner(item);
   // Create the macro command
@@ -160,14 +160,14 @@ async function createT20Macro(data, slot) {
  * @param {string} itemName
  * @return {Promise}
  */
-function rollItemMacro(itemName) {
+function rollItemMacro(itemName, extra) {
   const speaker = ChatMessage.getSpeaker();
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
   const item = actor ? actor.items.find(i => i.name === itemName) : null;
   if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
-
+  // console.log(item);
   // Trigger the item roll
-  return item.roll(actor);
+  return item.roll(actor, extra);
 }

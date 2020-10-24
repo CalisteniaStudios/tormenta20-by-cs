@@ -21,7 +21,7 @@ export class T20Item extends Item {
    * @param {Event} event   The originating click event
    * @private
    */
-  async roll() {
+  async roll(ac, extra = {}) {
     // Basic template rendering data
     const token = this.actor.token;
     const item = this.data;
@@ -35,7 +35,7 @@ export class T20Item extends Item {
     let danoFormula = null;
     let spellHeader = null;
     let templateData = {};
-
+    
     if (item.type == 'poder') {
       formula = `${itemData.roll}`;
       formula = formula.replace(/\@\w+\b/g, function(match){
@@ -219,7 +219,10 @@ export class T20Item extends Item {
             chatData.content = content;
             if (game.dice3d) {
               game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              if(dmgroll){
+                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              }
+
             } else {
               chatData.sound = CONFIG.sounds.dice;
               ChatMessage.create(chatData);
