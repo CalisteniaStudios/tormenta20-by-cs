@@ -173,7 +173,6 @@ export class T20Item extends Item {
     // Handle dice rolls.
     let danoFormula = false;
     let critFormula = false;
-    let rollArr = [];
 
     if (typeof roll === 'object') {
       // remove signs from end of sting
@@ -196,8 +195,7 @@ export class T20Item extends Item {
       if (formula != null) {
         let roll = new Roll(`${formula}`);
         roll.roll();
-        rollArr.push(roll);
-        let result = roll._dice[0].rolls[0].roll;
+        let result = roll.results[0];
 
         // Check if there are dmg rolls and what critical math to use
         if (danoFormula) {
@@ -211,7 +209,6 @@ export class T20Item extends Item {
             templateData.rollDano = r;
           });
 
-          rollArr.push(dmgroll);
         }
         // Render it.
 
@@ -221,9 +218,8 @@ export class T20Item extends Item {
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {
-              game.dice3d.showForRoll(rollArr, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              // game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              // game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
+              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
             } else {
               chatData.sound = CONFIG.sounds.dice;
               ChatMessage.create(chatData);
