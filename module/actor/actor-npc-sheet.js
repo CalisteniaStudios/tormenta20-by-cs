@@ -577,7 +577,7 @@ export class T20ActorNPCSheet extends ActorSheet {
             if (game.dice3d) {
               game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
               if(dmgroll){
-                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
               }
             }
             else {
