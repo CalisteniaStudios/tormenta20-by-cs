@@ -10,6 +10,7 @@
 export const addChatMessageContextOptions = function (html, options) {
     // let canApply = li => canvas.tokens.controlled.length && li.find(".dice-roll").length;
     let canApply = li => li.find(".roll--dano").length;
+    let canApplyMana = li => li.find(".mana-cost").length;
     options.push({
         name: 'Aplicar Dano',
         icon: '<i class="fas fa-user-minus"></i>',
@@ -30,6 +31,11 @@ export const addChatMessageContextOptions = function (html, options) {
         icon: '<i class="fas fa-user-shield"></i>',
         condition: canApply,
         callback: li => applyChatCardDamage(li, 0.5)
+    }, {
+        name: 'Gastar Mana',
+        icon: '<i class="fas fa-user-minus"></i>',
+        condition: canApplyMana,
+        callback: li => applyChatManaSpend(li, 0)
     });
     return options;
 };
@@ -52,5 +58,25 @@ function applyChatCardDamage(roll, multiplier, heal = false) {
         }));
     } else {
         ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
+    }
+}
+
+/**
+ * Apply mana points spent to the token or tokens which are currently controlled.
+ * This allows for damage to be adjusted due to reduced or expanded cost
+ *
+ * @param {HTMLElement} mana    The chat entry which contains the mana cost
+ * @param {Number} adjust   A adjust value to apply to the cost.
+ * @return {Promise}
+ */
+function applyChatManaSpend(mana, adjust, recover = false) {
+    if (canvas.tokens.controlled.length) {
+        const amount = mana.find('.mana-cost').text();
+        return Promise.all(canvas.tokens.controlled.map(t => {
+            const a = t.actor;
+            return a.spendMana(amount, adjust, recover);
+        }));
+    } else {
+        ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
     }
 }

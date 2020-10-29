@@ -145,7 +145,7 @@ export class T20Actor extends Actor {
       tmpPVDamage = 0;
       newDmgAmount = amount;
       damageHealth = Math.clamped(pv.value + newDmgAmount, 0, pv.max);
-      chatMessage = `<i class="fas fa-medkit"></i> +${newDmgAmount} pontos PV`;
+      chatMessage = `<i class="fas fa-user-plus"></i> +${newDmgAmount} pontos PV`;
     } else {
       amount = Math.floor(parseInt(amount) * multiplier);
       newDmgAmount = amount;
@@ -172,6 +172,59 @@ export class T20Actor extends Actor {
       "data.attributes.pv.temp": tmpPV - tmpPVDamage,
       "data.attributes.pv.value": damageHealth
     });
+  }
+
+
+
+  /**
+   * Spend or recover mana points for Actor
+   * @param {number} amount       An amount of spent (positive) or recover (negative) mana points
+   * @param {number} adjust       A adjust for the value due to specific conditions
+   * @return {Promise<Actor>}     A Promise which resolves once the damage has been applied
+   */
+  async spendMana(amount = 0, adjust = 0, recover) {
+
+    let toChat = (speaker, message) => {
+      let chatData = {
+        user: game.user.id,
+        content: message,
+        speaker: ChatMessage.getSpeaker(speaker),
+        type: CONST.CHAT_MESSAGE_TYPES.OTHER
+      }
+      ChatMessage.create(chatData, {})
+    }
+
+    let spendMana = 0
+    let tmpPMspend
+    let chatMessage = ''
+    let newSptAmount = amount
+
+    const pm = this.data.data.attributes.pm;
+    const tmpPM = parseInt(pm.temp) || 0;
+    if (recover) {
+      tmpPMspend = 0;
+      newSptAmount = amount;
+      spendMana = Math.clamped(pm.value + newSptAmount, 0, pm.max);
+      chatMessage = `<i class="fas fa-recover-mana"></i> +${newSptAmount} pontos PM`;
+    } else {
+      amount = Math.floor(parseInt(amount) + adjust);
+      newSptAmount = amount;
+
+      // Deduct damage from temp Mana first
+      
+      tmpPMspend = newSptAmount > 0 ? Math.min(tmpPM, newSptAmount) : 0;
+
+      chatMessage = `<i class="fas fa-user-minus"></i> ${newSptAmount} pontos PM`;
+
+      // Remaining goes to health
+      spendMana = Math.clamped(pm.value - (newSptAmount - tmpPMspend), 0, pm.max);
+    }
+    toChat(this, chatMessage);
+        // Update the Actor
+        return this.update({
+          "data.attributes.pm.temp": tmpPM - tmpPMspend,
+          "data.attributes.pm.value": spendMana
+        });
   }
 
 }
