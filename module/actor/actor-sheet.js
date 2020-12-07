@@ -582,6 +582,10 @@ export class T20ActorSheet extends ActorSheet {
    * @param {Object} templateData
    */
   rollMove(roll, actor, dataset, templateData, criticoM = null) {
+
+    if(roll.charAt(0) == "d")
+      roll = '1'.concat(roll);
+
     let actorData = actor.data.data;
     // Render the roll.
     let template = 'systems/tormenta20/templates/chat/chat-card.html';
