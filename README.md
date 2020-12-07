@@ -21,6 +21,7 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Aplicar dano/cura~~ (v0.9.7)
 * ~~Correção de medição de distância diagonal~~ (v0.9.8)
 * ~~Correções para atualização 0.7.5 do Foundry~~ (v0.9.82)
+* ~~Correções para atualização 0.7.8 do Foundry~~ (v0.9.84)
 * Melhorar macros, permitir alterar um ataque pela macro sem duplicar o ataque, etc
 * Melhorar magias, dar suporte a aprimoramentos, etc
 * Layout da ficha
