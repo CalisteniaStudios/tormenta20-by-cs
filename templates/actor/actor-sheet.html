@@ -43,7 +43,7 @@
           <ol class="items-list">
             {{#each data.atributos as |atr key|}}
             <li class="item flexrow" data-item-id="{{key}}">
-              <span class="rollable atributo-rollable" data-roll="d20+{{atr.mod}}" data-label="{{key}}"><label>
+              <span class="rollable atributo-rollable" data-roll="1d20+{{atr.mod}}" data-label="{{key}}"><label>
                   {{key}}
                   <h1 style="border: 0!important">{{atr.mod}}</h1>
                   <input type="hidden" name="data.atributos.{{key}}.mod" value="{{atr.mod}}" data-dtype="Number" />
@@ -114,7 +114,7 @@
             <li class="item flexrow" data-item-id="{{item._id}}">
               <div class="item-image" style="background-image: url('{{item.img}}')"></div>
               <div class="item-name"><span class="rollable ataque-rollable"
-                  data-roll="d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value" data-label="{{item.name}}">
+                  data-roll="1d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value" data-label="{{item.name}}">
                   <h4 class="item-name">{{item.name}}</h4>
                 </span></div>
               <div class="item-bonusAtq text-center"><input class="upItem" type="text" data-campo="_bonusAtq" value="{{item.data._bonusAtq}}" style="max-width: 60px;" data-dtype="String" /></div>
@@ -335,7 +335,7 @@
               <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{ofi.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{ofi.value}}"
                   data-label="Ofício ({{ofi.nome}})" style="width: 30%;margin-right: 10px;"><i
                     class="fas fa-dice-d20"></i></span> <input type="text" name="data.pericias.ofi.mais.{{o}}.label"
                   value="{{ofi.label}}" data-dtype="String" style="width:65%" />
@@ -375,7 +375,7 @@
               <input type="checkbox" name="data.pericias.{{key}}.treinado" value="{{skill.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{skill.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}"
                   data-label="{{skill.label}}">{{skill.label}} {{#if skill.st}}+{{/if}} {{#if skill.pda}}*{{/if}}</span>
               </td>
               <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number"
@@ -422,7 +422,7 @@
                 data-dtype="Boolean" /></td>
               {{/if}}
 
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{skill.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}"
                   data-label="{{skill.nome}}" style="width: 30%;margin-right: 10px;"><i
                     class="fas fa-dice-d20"></i></span> <input type="text" name="data.periciasCustom.{{key}}.label"
                   value="{{skill.label}}" data-dtype="String" style="width:65%" />
