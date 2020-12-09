@@ -8,7 +8,7 @@
 
 .window-app .window-content {
   background: url(../assets/parchment.jpg) repeat !important;
-  color: #2f290c !important; 
+  color: #2f290c !important;
 }
 
 #sidebar {
@@ -20,7 +20,13 @@ textarea:focus {
   box-shadow: none;
 }
 
-table, .tormenta20 ol, .tormenta20 .resource, .tormenta20 .header-fields, .tormenta20 .atributos li.item.flexrow, .tormenta20 textarea, .tormenta20 textarea:focus {
+table,
+.tormenta20 ol,
+.tormenta20 .resource,
+.tormenta20 .header-fields,
+.tormenta20 .atributos li.item.flexrow,
+.tormenta20 textarea,
+.tormenta20 textarea:focus {
   border-style: solid;
   border-color: none !important;
   border-width: 9px;
@@ -29,7 +35,9 @@ table, .tormenta20 ol, .tormenta20 .resource, .tormenta20 .header-fields, .torme
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.tormenta20 h1, .tormenta20 h2, .outros h4 {
+.tormenta20 h1,
+.tormenta20 h2,
+.outros h4 {
   border-image: url(../assets/underline.svg) 2;
   border-bottom: 5px solid transparent;
   padding-left: 5px;
@@ -281,7 +289,6 @@ button {
   font-weight: bold;
 }
 
-
 .tormenta20 .tabs .item.active {
   text-decoration: underline;
   text-shadow: none;
@@ -299,10 +306,10 @@ button {
 }
 
 .tormenta20 .items-list .item {
-  height: auto;/*30px;*/
+  height: auto; /*30px;*/
   line-height: 24px;
   padding: 3px 0;
-  border-bottom: 1px solid #BBB;
+  border-bottom: 1px solid #bbb;
 }
 
 .tormenta20 .items-list .item .item-image {
@@ -313,7 +320,7 @@ button {
   height: 24px;
   width: 24px;
   background-size: 24px;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
 }
 
 .tormenta20 .items-list .item img {
@@ -325,7 +332,7 @@ button {
 }
 
 .tormenta20 .items-list .item-separator {
-  flex:0;
+  flex: 0;
 }
 
 .tormenta20 .ataques .items-list .item-name {
@@ -346,7 +353,7 @@ button {
   width: 15%;
 }
 
-.tormenta20.tabbed .atributos .items-list .item{
+.tormenta20.tabbed .atributos .items-list .item {
   display: block;
   text-align: center;
 }
@@ -378,8 +385,7 @@ button {
 }
 
 .tormenta20 h1,
-.tormenta20 h2,
-  {
+.tormenta20 h2 {
   border: 0 !important;
   border-bottom: 0 !important;
 }
@@ -391,7 +397,6 @@ button {
 .text-right {
   text-align: right;
 }
-
 
 .tormenta20 input {
   border: 0;
@@ -421,10 +426,9 @@ button {
   width: calc(30% - 2px);
 }
 
-.tormenta20 .bottom label>input {
+.tormenta20 .bottom label > input {
   width: 50%;
 }
-
 
 .tormenta20 .infos label.nivel {
   width: calc(9% - 4px);
@@ -465,7 +469,7 @@ button {
 
 .col-24 {
   width: 24%;
-  max-width: 24%
+  max-width: 24%;
 }
 
 .col-25 {
@@ -480,7 +484,6 @@ button {
 .full {
   width: 100%;
 }
-
 
 .flex {
   display: flex;
@@ -497,7 +500,6 @@ button {
   padding: 0;
   margin: 2px;
 }
-
 
 .tormenta20 div.border {
   border: 1px solid black;
@@ -632,7 +634,6 @@ button {
   opacity: 1;
 }
 
-
 .tormenta20.npc input.npc-name {
   width: 85%;
 }
@@ -669,12 +670,22 @@ button {
   white-space: nowrap;
 }
 
-.message-content div.dice-roll .dice-total .critico{
+.message-content div.dice-roll .dice-total .critico {
   border: 1px solid green;
   box-shadow: 0 0 2px green inset;
 }
 
-.message-content div.dice-roll .dice-total .falha{
-  border: 1px solid green;
-  box-shadow: 0 0 2px green inset;
+.message-content div.dice-roll .dice-total .falha {
+  border: 1px solid red;
+  box-shadow: 0 0 2px red inset;
+}
+
+.critico {
+  border: 2px solid green;
+  box-shadow: 0 0 4px green inset;
+}
+
+.falha {
+  border: 2px solid red;
+  box-shadow: 0 0 4px red inset;
 }

@@ -526,7 +526,9 @@ export class T20ActorNPCSheet extends ActorSheet {
     // Handle dice rolls.
     let danoFormula = false;
     let critFormula = false;
-    
+    let tipoCritico = "";
+    let tipoFalha = "";
+
     if(typeof roll === 'object'){
       // remove signs from end of sting
       if(roll.dano != null){
@@ -550,10 +552,20 @@ export class T20ActorNPCSheet extends ActorSheet {
         roll.roll();
         let result = roll.results[0];
 
+        if(result == 20)
+        {
+          tipoCritico = "critico";
+        }
+        else if(result == 1)
+        {
+          tipoFalha = "falha";
+        }
+
         // Check if there are dmg rolls and what critical math to use
         if(danoFormula){
           if(result >= criticoM){
             dmgroll = new Roll(`${critFormula}`);
+            tipoCritico = "critico";
           } else {
             dmgroll = new Roll(`${danoFormula}`);
           }
@@ -563,6 +575,8 @@ export class T20ActorNPCSheet extends ActorSheet {
           };
           dmgroll.render(rollTemplate).then(r => {
             templateData.rollDano = r;
+            templateData.critico = tipoCritico;
+            templateData.falha = tipoFalha;
           });
           
         }
@@ -572,6 +586,8 @@ export class T20ActorNPCSheet extends ActorSheet {
         };
         roll.render(rollTemplate).then(r => {
           templateData.roll = r;
+          templateData.critico = tipoCritico;
+          templateData.falha = tipoFalha;
 
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
