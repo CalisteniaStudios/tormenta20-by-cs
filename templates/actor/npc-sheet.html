@@ -41,12 +41,12 @@
       <div>
         <div class="npc-line">
           <p>
-            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.ini.value}}"
+            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.ini.value}}"
               data-label="Iniciativa"><label>Iniciativa</label></span>
             <input type="text" name="data.pericias.ini.value" value="{{data.pericias.ini.value}}" data-dtype="Number"
               title="Iniciativa">
             &nbsp;&nbsp;
-            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.per.value}}"
+            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.per.value}}"
               data-label="Percepção"><label>Percepção</label></span>
             <input type="text" name="data.pericias.per.value" value="{{data.pericias.per.value}}" data-dtype="Number"
               title="Percepção">
@@ -69,15 +69,15 @@
             <label>RD</label>
             <input type="text" name="data.rd.value" value="{{data.rd.value}}" data-dtype="Number" title="RD">
             &nbsp;&nbsp;
-            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.for.value}}"
+            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.for.value}}"
               data-label="Fortitude"><label>Fort</label></span>
             <input type="text" name="data.pericias.for.value" value="{{data.pericias.for.value}}" data-dtype="Number"
               title="Fortitude">
-            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.ref.value}}"
+            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.ref.value}}"
               data-label="Reflexos"><label>Ref</label></span>
             <input type="text" name="data.pericias.ref.value" value="{{data.pericias.ref.value}}" data-dtype="Number"
               title="Reflexos">
-            <span class="rollable pericia-rollable" data-roll="d20+{{data.pericias.von.value}}"
+            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.von.value}}"
               data-label="Vontade"><label>Von</label></span>
             <input type="text" name="data.pericias.von.value" value="{{data.pericias.von.value}}" data-dtype="Number"
               title="Vontade">
@@ -130,7 +130,7 @@
           {{#each actor.ataques as |item id|}}
           <li class="item flexrow" data-item-id="{{item._id}}">
             <div class="item-name"><span class="rollable ataque-rollable"
-                data-roll="d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value"
+                data-roll="1d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value"
                 data-label="{{item.name}}"><label>{{item.name}} {{item.data.atq}} ({{item.data.dmg}},
                   {{item.data.criticoM}}/x{{item.data.criticoX}})</label></span>
                   atq: <input class="upItem" type="text" data-campo="_bonusAtq" value="{{item.data._bonusAtq}}" style="max-width: 40px;" data-dtype="String" />
@@ -188,32 +188,32 @@
         </ol>
         <hr>
         <div class="npc-line text-center">
-          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.for.mod}}"
+          <span class="rollable atributo-rollable" data-roll="1d20+{{data.atributos.for.mod}}"
             data-label="FORÇA"><label>FOR</label></span>
           <input type="text" name="data.atributos.for.value" value="{{data.atributos.for.value}}" data-dtype="Number"
             title="Força" />
           <input type="hidden" name="data.atributos.for.mod" value="{{data.atributos.for.mod}}" data-dtype="Number" />
-          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.des.mod}}"
+          <span class="rollable atributo-rollable" data-roll="1d20+{{data.atributos.des.mod}}"
             data-label="DESTREZA"><label>DES</label></span>
           <input type="text" name="data.atributos.des.value" value="{{data.atributos.des.value}}" data-dtype="Number"
             title="Destreza" />
           <input type="hidden" name="data.atributos.des.mod" value="{{data.atributos.des.mod}}" data-dtype="Number" />
-          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.con.mod}}"
+          <span class="rollable atributo-rollable" data-roll="1d20+{{data.atributos.con.mod}}"
             data-label="CONSTITUIÇÃO"><label>CON</label></span>
           <input type="text" name="data.atributos.con.value" value="{{data.atributos.con.value}}" data-dtype="Number"
             title="Constituição" />
           <input type="hidden" name="data.atributos.con.mod" value="{{data.atributos.con.mod}}" data-dtype="Number" />
-          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.int.mod}}"
+          <span class="rollable atributo-rollable" data-roll="1d20+{{data.atributos.int.mod}}"
             data-label="INTELIGÊNCIA"><label>INT</label></span>
           <input type="text" name="data.atributos.int.value" value="{{data.atributos.int.value}}" data-dtype="Number"
             title="Inteligência" />
           <input type="hidden" name="data.atributos.int.mod" value="{{data.atributos.int.mod}}" data-dtype="Number" />
-          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.sab.mod}}"
+          <span class="rollable atributo-rollable" data-roll="1d20+{{data.atributos.sab.mod}}"
             data-label="SABEDORIA"><label>SAB</label></span>
           <input type="text" name="data.atributos.sab.value" value="{{data.atributos.sab.value}}" data-dtype="Number"
             title="Sabedoria" />
           <input type="hidden" name="data.atributos.sab.mod" value="{{data.atributos.sab.mod}}" data-dtype="Number" />
-          <span class="rollable atributo-rollable" data-roll="d20+{{data.atributos.car.mod}}"
+          <span class="rollable atributo-rollable" data-roll="1d20+{{data.atributos.car.mod}}"
             data-label="CARISMA"><label>CAR</label></span>
           <input type="text" name="data.atributos.car.value" value="{{data.atributos.car.value}}" data-dtype="Number"
             title="Carisma" />
@@ -224,7 +224,7 @@
           <li>
             <div class="item-name pericias"><label>Perícias: </label>
               {{#each actor.data.periciasCustom as |skill key|}}
-              <span class="rollable pericia-rollable" data-roll="d20+{{skill.value}}" data-item-id="{{key}}"
+              <span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}" data-item-id="{{key}}"
                 data-label="{{skill.nome}}" style="display: inline;"><label class="skill-name">{{skill.label}}
                   +{{skill.value}}</label></span>
               <span class="item-control" style="display: none;"><input type="text"
