@@ -26,9 +26,17 @@
       {{#if spell}}
       <div class="roll roll--dano">{{{roll}}}</div>
       {{else}}
-      <div class="roll">{{{roll}}}</div>
+        {{#if critico}}
+          <div class="roll critico">{{{roll}}}</div>
+        {{else}}
+          {{#if falha}}
+            <div class="roll falha">{{{roll}}}</div>
+          {{else}}
+            <div class="roll">{{{roll}}}</div>
+          {{/if}}     
+        {{/if}}            
       {{/if}}
-      {{/if}}
+    {{/if}}
     {{#if rollDano}}
     <hr>
     {{#if danosDesc}}<div class="row"><em>{{danosDesc}}</em></div>{{/if}}

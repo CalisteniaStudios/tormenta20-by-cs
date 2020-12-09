@@ -583,9 +583,6 @@ export class T20ActorSheet extends ActorSheet {
    */
   rollMove(roll, actor, dataset, templateData, criticoM = null) {
 
-    if(roll.charAt(0) == "d")
-      roll = '1'.concat(roll);
-
     let actorData = actor.data.data;
     // Render the roll.
     let template = 'systems/tormenta20/templates/chat/chat-card.html';
@@ -607,6 +604,8 @@ export class T20ActorSheet extends ActorSheet {
     // Handle dice rolls.
     let danoFormula = false;
     let critFormula = false;
+    let tipoCritico = "";
+    let tipoFalha = "";
 
     if (typeof roll === 'object') {
       // remove signs from end of sting
@@ -631,6 +630,14 @@ export class T20ActorSheet extends ActorSheet {
         roll.roll();
         let result = roll.results[0];
 
+        if(result == 20)
+        {
+          tipoCritico = "critico";
+        }
+        else if(result == 1)
+        {
+          tipoFalha = "falha";
+        }
 
         if(dataset.label == "Iniciativa" && combate){
           let combatente = combate.combatants.find(combatant => combatant.actor.id === actor.id);
@@ -643,6 +650,7 @@ export class T20ActorSheet extends ActorSheet {
         if (danoFormula) {
           if (result >= criticoM) {
             dmgroll = new Roll(`${critFormula}`);
+            tipoCritico = "critico";
           } else {
             dmgroll = new Roll(`${danoFormula}`);
           }
@@ -652,6 +660,8 @@ export class T20ActorSheet extends ActorSheet {
           };
           dmgroll.render(rollTemplate).then(r => {
             templateData.rollDano = r;
+            templateData.critico = tipoCritico;
+            templateData.falha = tipoFalha;
           });
 
         }
@@ -661,6 +671,8 @@ export class T20ActorSheet extends ActorSheet {
         };
         roll.render(rollTemplate).then(r => {
           templateData.roll = r;
+          templateData.critico = tipoCritico;
+          templateData.falha = tipoFalha;
 
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
