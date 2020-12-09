@@ -563,6 +563,8 @@
     },
     "arma": {
       "templates": ["base","objeto"],
+      "pericia": "lut",
+      "atrDan": "for",
       "dano": "1d6",
       "atqBns": "",
       "danoBns": "",
@@ -571,7 +573,8 @@
       "lancinante": false,
       "tipo": "",
       "alcance": "",
-      "municao": ""
+      "municao": "",
+      "custo": 0
     },
     "consumivel": {
       "templates": ["base","objeto"],

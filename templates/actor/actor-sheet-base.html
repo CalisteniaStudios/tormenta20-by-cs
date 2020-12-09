@@ -334,7 +334,7 @@
               <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{ofi.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{ofi.value}}"
                   data-label="Ofício ({{ofi.nome}})" style="width: 30%;margin-right: 10px;"><i
                     class="fas fa-dice-d20"></i></span> <input type="text" name="data.pericias.ofi.mais.{{o}}.label"
                   value="{{ofi.label}}" data-dtype="String" style="width:65%" />
@@ -374,7 +374,7 @@
               <input type="checkbox" name="data.pericias.{{key}}.treinado" value="{{skill.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{skill.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}"
                   data-label="{{skill.label}}">{{skill.label}} {{#if skill.st}}+{{/if}} {{#if skill.pda}}*{{/if}}</span>
               </td>
               <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number"
@@ -421,7 +421,7 @@
                 data-dtype="Boolean" /></td>
               {{/if}}
 
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="d20+{{skill.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}"
                   data-label="{{skill.nome}}" style="width: 30%;margin-right: 10px;"><i
                     class="fas fa-dice-d20"></i></span> <input type="text" name="data.periciasCustom.{{key}}.label"
                   value="{{skill.label}}" data-dtype="String" style="width:65%" />

@@ -9,7 +9,7 @@ export class T20ItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["tormenta20", "sheet", "item"],
-      width: 520,
+      width: 620,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
@@ -36,7 +36,7 @@ export class T20ItemSheet extends ItemSheet {
     const data = super.getData();
     data.armas = [];
     // console.log(this.object.options.actor);
-    if (data.item.type == "magia") {
+    if (data.item.type == "magia" && this.object.options.actor != undefined) {
       data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
       data.data.totalCD = data.data.actorCD+data.data.cd;
     }
@@ -77,25 +77,60 @@ export class T20ItemSheet extends ItemSheet {
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
-
+    // Tooltips TODO DEBUG
+    html.mousemove(ev => this._moveTooltips(ev));
     // Roll handlers, click handlers, etc. would go here.
     
-    html.find('.selArma').change(this._getDataArama.bind(this));
-    // (ev => {
-      // console.log(this);
-      // const li = $(ev.currentTarget).parents(".item");
-      // this.actor.deleteOwnedItem(li.data("itemId"));
-      // li.slideUp(200, () => this.render(false));
-    // });
+    html.find('.selArma').change(this._getDataArma.bind(this));
+
+
+    // Add pericias
+    html.find('.aprimoramento-create').click(this._onAprimoramentoCreate.bind(this));
+    html.find('.aprimoramento-delete').click(this._onAprimoramentoDelete.bind(this));
+  }
+  _moveTooltips(event) {
+    $(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
+  }
+  async _onAprimoramentoDelete(event) {
+    const id = event.currentTarget.dataset.id;
+    let aprimoramentos = this.item.data.data.aprimoramentos;
+    delete aprimoramentos[id];
+    await this.item.update({'data.aprimoramentos':null});
+    await this.item.update({'data.aprimoramentos':aprimoramentos});
+    await this.render();
+  }
+  _onAprimoramentoCreate(event) {
+    event.preventDefault();
+
+    const a = event.currentTarget;
+    const tipo = a.dataset.tipo;
+    const aprimoramento = {
+          custo: "0",
+          tipo: "Truque",
+          efeito: ""
+        };
+
+    let itemData = duplicate(this.item);
+    if(!itemData.data.aprimoramentos){
+      itemData.data.aprimoramentos = [];
+    }
+    let aprimoramentos = itemData.data.aprimoramentos;
+
+    let c = Object.keys(itemData.data.aprimoramentos).length;
+
+    aprimoramentos[c] = aprimoramento;
+    
+    this.item.update({"data.aprimoramentos": aprimoramentos});
+    // this.actor.data.data.periciasCustom[] = pericia;
+
+
+    this.render();
   }
 
-  _getDataArama(event){
+  _getDataArma(event){
     let arma = $(event.target).find("option:selected")[0];
     let dados = $(arma)[0].dataset;
     let i = $(arma)[0].value;
-    console.log(dados);
-    console.log($(arma)[0].value);
-    console.log(this.item);
     this.item.update({
       "data.arma": i,
       "data.dano": dados.dano,

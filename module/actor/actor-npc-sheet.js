@@ -1,4 +1,5 @@
 import { T20Utility } from '../utility.js';
+import ConjurarDialog from "../apps/conjurar-dialog.js";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -161,8 +162,9 @@ export class T20ActorNPCSheet extends ActorSheet {
     html.find('.dc-editing').focusout(this._toggleDCedit.bind(this));
     
 
-    // Add pericias
+    // Add/Delete pericias
     html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
+    html.find('.il-skill-delete').click(this._onPericiaCustomDelete.bind(this));
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
@@ -193,13 +195,13 @@ export class T20ActorNPCSheet extends ActorSheet {
       this.render();
     });
 
-    html.find('.il-skill-delete').click(ev => {
-      const t = $(ev.currentTarget);
-      const l = ev.currentTarget.dataset.itemId;
+    // html.find('.il-skill-delete').click(ev => {
+    //   const t = $(ev.currentTarget);
+    //   const l = ev.currentTarget.dataset.itemId;
 
-      delete this.actor.data.data.periciasCustom[l];
-      this.render();
-    });
+    //   delete this.actor.data.data.periciasCustom[l];
+    //   this.render();
+    // });
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
@@ -207,7 +209,7 @@ export class T20ActorNPCSheet extends ActorSheet {
 
     // Drag events for macros.
     if (this.actor.owner) {
-      let handler = ev => this._onDragItemStart(ev);
+      let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
         li.setAttribute("draggable", true);
@@ -288,6 +290,38 @@ export class T20ActorNPCSheet extends ActorSheet {
   }
 
 
+
+  async _onPericiaCustomDelete(event) {
+    const id = event.currentTarget.dataset.itemId;
+    const a = event.currentTarget;
+    const tipo = a.dataset.tipo;
+    let c = 0;
+    if (tipo == 'oficios') {
+      // let oficios = this.actor.data.data.pericias.ofi.mais;
+      // delete oficios[id];
+      delete this.actor.data.data.pericias.ofi.mais[id];
+      let oficios = {};
+      for (var i in this.actor.data.data.pericias.ofi.mais) {
+          oficios[c]=this.actor.data.data.pericias.ofi.mais[i];
+          c++;
+      }
+      await this.actor.update({'data.pericias.ofi.mais': null});
+      await this.actor.update({"data.pericias.ofi.mais": oficios });
+    } else {
+      // let pericias = this.actor.data.data.periciasCustom;
+      // delete pericias[id];
+      delete this.actor.data.data.periciasCustom[id];
+      let pericias = {};
+      for (var i in this.actor.data.data.periciasCustom) {
+          pericias[c]=this.actor.data.data.periciasCustom[i];
+          c++;
+      }
+      await this.actor.update({'data.periciasCustom': null});
+      await this.actor.update({"data.periciasCustom": pericias });
+    }
+    await this.render();
+  }
+
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
    * @param {Event} event   The originating click event
@@ -362,7 +396,7 @@ export class T20ActorNPCSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event, actor = null) {
+  async _onRoll(event, actor = null) {
     actor = !actor ? this.actor : actor;
 
     // Initialize variables.
@@ -471,13 +505,75 @@ export class T20ActorNPCSheet extends ActorSheet {
     } else if ($(a).hasClass('magia-rollable')) {
       const ilitemId = $(a).attr('data-item-id');
       const item = actor.getOwnedItem(ilitemId);
-      formula = item.data.data.efeito;
+      /* -------------------------------------------- */
+      /*  APRIMORAMENTOS                              */
+      /* -------------------------------------------- */
+      let newFormula;
+      let newDado;
+      let PMTotal = 0;
+      let eTruque = false;
+      let aprimoramentos = [];
+      if(event.ctrlKey){
+        let aprimoramentoData = await ConjurarDialog.create(actor, item);
+        let aplicados = aprimoramentoData.getAll('aplica[]');
+        let custo = aprimoramentoData.getAll('custo[]');
+        let tipos = aprimoramentoData.getAll('tipo[]');
+        let descriptions = aprimoramentoData.getAll('description[]');
+        let formulas = aprimoramentoData.getAll('formula[]');
+        for (var i = 0; i < aplicados.length; i++) {
+          // console.log(i);
+          if(aplicados[i]>0){
+            let ap = {};
+            PMTotal = PMTotal +  parseInt(aplicados[i]);
+            ap.gasto = aplicados[i];
+            ap.qtd = aplicados[i]/custo[i];
+            ap.tipo = tipos[i];
+            ap.custo = custo[i];
+            ap.description = descriptions[i].replace(/§/g, ap.qtd);
+            if(formulas[i].match(/^d\d+$/)) {
+              newDado = formulas[i].match(/.*/)[0];
+            } else if(formulas[i]!=="") {
+              // ap.dado = formulas[i].replace(/§/g, ap.qtd).replace(/\([\d()+*-/]*\)/g, function(match){ return eval(match)});
+              // newFormula = ap.dado.replace(/^\+/,'');
+              let neoFormula = {
+                'qtd': parseInt((item.data.data.efeito.match(/^\d+d/)??[0])[0].replace('d',''))+parseInt((formulas[i].match(/^\d+d/)??[0])[0].replace('d',''))*ap.qtd,
+                'bonus': parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0])+parseInt((formulas[i].match(/\+\d+/)??[0])[0])*ap.qtd
+              };
+
+              let fnlFormula = item.data.data.efeito.replace(/^\d+d/, neoFormula['qtd']+'d').replace(/\+\d+/, '+'+neoFormula['bonus']);
+              newFormula = fnlFormula;
+              
+              if(newFormula.match(/(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/)){
+                //ok
+              } else {
+                newFormula = null;
+                console.log('Algo de errado com a formula inserida');
+                //Show error: Algo de errado com a formula inserida (newFormula).
+              }
+            }
+            if(tipos[i] === "Truque") {
+              eTruque = true;
+            }
+
+            aprimoramentos.push(ap);
+          }
+        }
+      }
+      /* -------------------------------------------- */
+      /*  //APRIMORAMENTOS                            */
+      /* -------------------------------------------- */
+
+      formula = !newFormula? item.data.data.efeito : newFormula;
+      formula = !newDado? formula : formula.replace(/d\d+/, newDado);
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
       flavorText = item.name;
       spellHeader = {};
       spellHeader.tipo = item.data.data.tipo;
       spellHeader.circulo = item.data.data.circulo;
       spellHeader.escola = item.data.data.escola;
-      spellHeader.custo = item.data.data.custo;
+      spellHeader.custo = (eTruque? 0: parseInt(item.data.data.custo) + PMTotal);
       spellHeader.execucao = item.data.data.execucao;
       spellHeader.alcance = item.data.data.alcance;
       spellHeader.alvo = item.data.data.alvo;
@@ -490,11 +586,14 @@ export class T20ActorNPCSheet extends ActorSheet {
         title: flavorText,
         flavor: flavorDesc,
         spell: spellHeader,
-        details: detailText
+        details: detailText,
+        aprimoramentos: aprimoramentos
       };
-
-      if(item.data.data.custo > 0){
-        templateData.custo  = item.data.data.custo;
+      if (!eTruque && item.data.data.custo > 0) {
+        templateData.custo = parseInt(item.data.data.custo) + PMTotal;
+      } else if(eTruque) {
+        templateData.custo = 0;
+        templateData.truque = 1;
       }
       this.rollMove(formula, actor, data, templateData);
     
@@ -515,7 +614,8 @@ export class T20ActorNPCSheet extends ActorSheet {
     // GM rolls.
     let chatData = {
       user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: actor })
+      speaker: ChatMessage.getSpeaker({ actor: actor }),
+      flags: {"core.canPopout": true}
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
@@ -525,7 +625,6 @@ export class T20ActorNPCSheet extends ActorSheet {
     // Handle dice rolls.
     let danoFormula = false;
     let critFormula = false;
-    let rollArr = [];
     
     if(typeof roll === 'object'){
       // remove signs from end of sting
@@ -548,8 +647,7 @@ export class T20ActorNPCSheet extends ActorSheet {
       if (formula != null) {
         let roll = new Roll(`${formula}`);
         roll.roll();
-        rollArr.push(roll);
-        let result = roll._dice[0].rolls[0].roll;
+        let result = roll.results[0];
 
         // Check if there are dmg rolls and what critical math to use
         if(danoFormula){
@@ -566,7 +664,6 @@ export class T20ActorNPCSheet extends ActorSheet {
             templateData.rollDano = r;
           });
           
-          rollArr.push(dmgroll);
         }
         // Render it.
         let rollTemplate = {
@@ -578,9 +675,10 @@ export class T20ActorNPCSheet extends ActorSheet {
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {
-              game.dice3d.showForRoll(rollArr, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              // game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              // game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
+              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              if(dmgroll){
+                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
+              }
             }
             else {
               chatData.sound = CONFIG.sounds.dice;

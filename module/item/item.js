@@ -1,4 +1,5 @@
 import { T20Utility } from '../utility.js';
+import ConjurarDialog from "../apps/conjurar-dialog.js";
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -21,7 +22,8 @@ export class T20Item extends Item {
    * @param {Event} event   The originating click event
    * @private
    */
-  async roll() {
+  async roll(ac, extra = {}) {
+
     // Basic template rendering data
     const token = this.actor.token;
     const item = this.data;
@@ -35,7 +37,6 @@ export class T20Item extends Item {
     let danoFormula = null;
     let spellHeader = null;
     let templateData = {};
-
     if (item.type == 'poder') {
       formula = `${itemData.roll}`;
       formula = formula.replace(/\@\w+\b/g, function(match){
@@ -110,7 +111,64 @@ export class T20Item extends Item {
       this.rollT20(formula, actorData, templateData, itemData.criticoM);
 
     } else if (item.type == 'magia') {
-      formula = itemData.efeito;
+      /* -------------------------------------------- */
+      /*  APRIMORAMENTOS                              */
+      /* -------------------------------------------- */
+      let newFormula;
+      let newDado;
+      let PMTotal = 0;
+      let eTruque = false;
+      let aprimoramentos = [];
+      if(event.ctrlKey){
+        let aprimoramentoData = await ConjurarDialog.create(this.actor, this);
+        let aplicados = aprimoramentoData.getAll('aplica[]');
+        let custo = aprimoramentoData.getAll('custo[]');
+        let tipos = aprimoramentoData.getAll('tipo[]');
+        let descriptions = aprimoramentoData.getAll('description[]');
+        let formulas = aprimoramentoData.getAll('formula[]');
+        for (var i = 0; i < aplicados.length; i++) {
+          // console.log(i);
+          if(aplicados[i]>0){
+            let ap = {};
+            PMTotal = PMTotal +  parseInt(aplicados[i]);
+            ap.gasto = aplicados[i];
+            ap.qtd = aplicados[i]/custo[i];
+            ap.tipo = tipos[i];
+            ap.custo = custo[i];
+            ap.description = descriptions[i].replace(/§/g, ap.qtd);
+            if(formulas[i].match(/^d\d+$/)) {
+              newDado = formulas[i].match(/.*/)[0];
+            } else if(formulas[i]!=="") {
+              // ap.dado = formulas[i].replace(/§/g, ap.qtd).replace(/\([\d()+*-/]*\)/g, function(match){ return eval(match)});
+              // newFormula = ap.dado.replace(/^\+/,'');
+              let neoFormula = {
+                'qtd': parseInt((itemData.efeito.match(/^\d+d/)??[0])[0].replace('d',''))+parseInt((formulas[i].match(/^\d+d/)??[0])[0].replace('d',''))*ap.qtd,
+                'bonus': parseInt((itemData.efeito.match(/\+\d+/)??[0])[0])+parseInt((formulas[i].match(/\+\d+/)??[0])[0])*ap.qtd
+              };
+              let fnlFormula = itemData.efeito.replace(/^\d+d/, neoFormula['qtd']+'d').replace(/\+\d+/, '+'+neoFormula['bonus']);
+              newFormula = fnlFormula;
+              
+              if(newFormula.match(/(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/)){
+                //ok
+              } else {
+                newFormula = null;
+                console.log('Algo de errado com a formula inserida');
+                //Show error: Algo de errado com a formula inserida (newFormula).
+              }
+            }
+            if(tipos[i] === "Truque") {
+              eTruque = true;
+            }
+
+            aprimoramentos.push(ap);
+          }
+        }
+      }
+      /* -------------------------------------------- */
+      /*  //APRIMORAMENTOS                            */
+      /* -------------------------------------------- */
+      formula = !newFormula? itemData.efeito : newFormula;
+      formula = !newDado? formula : formula.replace(/d\d+/, newDado);
       formula = formula.replace(/\@\w+\b/g, function(match){
                     return "("+T20Utility.short(match, actorData)+")";
                 });
@@ -119,7 +177,7 @@ export class T20Item extends Item {
       spellHeader.tipo = itemData.tipo;
       spellHeader.circulo = itemData.circulo;
       spellHeader.escola = itemData.escola;
-      spellHeader.custo = itemData.custo;
+      spellHeader.custo = (eTruque? 0: parseInt(itemData.custo) + PMTotal);
       spellHeader.execucao = itemData.execucao;
       spellHeader.alcance = itemData.alcance;
       spellHeader.alvo = itemData.alvo;
@@ -132,11 +190,15 @@ export class T20Item extends Item {
         title: flavorText,
         flavor: flavorDesc,
         spell: spellHeader,
-        details: detailText
+        details: detailText,
+        aprimoramentos: aprimoramentos
       };
 
-      if (itemData.custo > 0) {
-        templateData.custo = itemData.custo;
+      if (!eTruque && itemData.custo > 0) {
+        templateData.custo = parseInt(itemData.custo) + PMTotal;
+      } else if(eTruque) {
+        templateData.custo = 0;
+        templateData.truque = 1;
       }
       this.rollT20(formula, actorData, templateData);
 
@@ -163,7 +225,8 @@ export class T20Item extends Item {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({
         actor: actor
-      })
+      }),
+      flags: {"core.canPopout": true}
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
@@ -173,7 +236,6 @@ export class T20Item extends Item {
     // Handle dice rolls.
     let danoFormula = false;
     let critFormula = false;
-    let rollArr = [];
 
     if (typeof roll === 'object') {
       // remove signs from end of sting
@@ -196,8 +258,7 @@ export class T20Item extends Item {
       if (formula != null) {
         let roll = new Roll(`${formula}`);
         roll.roll();
-        rollArr.push(roll);
-        let result = roll._dice[0].rolls[0].roll;
+        let result = roll.results[0];
 
         // Check if there are dmg rolls and what critical math to use
         if (danoFormula) {
@@ -211,7 +272,6 @@ export class T20Item extends Item {
             templateData.rollDano = r;
           });
 
-          rollArr.push(dmgroll);
         }
         // Render it.
 
@@ -221,9 +281,11 @@ export class T20Item extends Item {
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {
-              game.dice3d.showForRoll(rollArr, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              // game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              // game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
+              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              if(dmgroll){
+                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
+              }
+
             } else {
               chatData.sound = CONFIG.sounds.dice;
               ChatMessage.create(chatData);

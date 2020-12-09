@@ -6,7 +6,8 @@ import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
 import { T20Item } from "./item/item.js";
 import { T20ItemSheet } from "./item/item-sheet.js";
 import { T20Utility } from "./utility.js";
-
+import { measureDistances, getBarAttribute } from "./canvas.js";
+import ConjurarDialog from "./apps/conjurar-dialog.js";
 import * as chat from "./chat.js";
 
 Hooks.once('init', async function () {
@@ -14,7 +15,8 @@ Hooks.once('init', async function () {
   game.tormenta20 = {
     T20Actor,
     T20Item,
-    rollItemMacro
+    rollItemMacro,
+    ConjurarDialog
   };
 
   // Register System Settings
@@ -94,6 +96,18 @@ Hooks.on('renderDialog', (dialog, html, options) => {
   }
 });
 
+/* -------------------------------------------- */
+/*  Canvas Initialization                       */
+/* -------------------------------------------- */
+
+Hooks.on("canvasInit", function() {
+
+  // Extend Diagonal Measurement
+  SquareGrid.prototype.measureDistances = measureDistances;
+
+  Token.prototype.getBarAttribute = getBarAttribute;
+});
+
 /* Add hook for the context menu over the rolled damage */
 Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 
@@ -121,7 +135,7 @@ export const getItemOwner = function (item) {
 
 async function createT20Macro(data, slot) {
   if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
+  if (!("data" in data)) return ui.notifications.warn("Você só pode criar Macros para Ataques, Magias e Poderes. Você pode referenciar atributos e perícias com @. Ex.: @for ou @luta");
   const item = data.data;
   // const actor = getItemOwner(item);
   // Create the macro command
@@ -149,14 +163,15 @@ async function createT20Macro(data, slot) {
  * @param {string} itemName
  * @return {Promise}
  */
-function rollItemMacro(itemName) {
+function rollItemMacro(itemName, extra) {
   const speaker = ChatMessage.getSpeaker();
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
   const item = actor ? actor.items.find(i => i.name === itemName) : null;
   if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
-
+  // console.log(item);
   // Trigger the item roll
-  return item.roll(actor);
+  return item.roll(actor, extra);
 }
+

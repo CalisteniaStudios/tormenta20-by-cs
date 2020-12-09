@@ -19,11 +19,15 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Separar equipamentos em armas, consumiveis e tesouro~~ (v0.9.7)
 * ~~Melhorar ataques~~ (v0.9.7)
 * ~~Aplicar dano/cura~~ (v0.9.7)
+* ~~Correção de medição de distância diagonal~~ (v0.9.8)
+* ~~Correções para atualização 0.7.5 do Foundry~~ (v0.9.82)
+* Melhorar macros, permitir alterar um ataque pela macro sem duplicar o ataque, etc
 * Melhorar magias, dar suporte a aprimoramentos, etc
 * Layout da ficha
 
 ## Colaboradores
 * Roberto Caetano
+* TheTruePortal
 
 ## Special Thanks
 

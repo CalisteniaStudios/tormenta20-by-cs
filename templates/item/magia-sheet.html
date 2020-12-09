@@ -18,6 +18,7 @@
                         {{#select data.tipo}}
                         <option value="Arcana">Arcana</option>
                         <option value="Divina">Divina</option>
+                        <option value="Universal">Universal</option>
                         {{/select}}
                     </select>
                     <br><label>Tipo</label>
@@ -98,67 +99,62 @@
             <br><label>Rolagem</label>
         </div>
 
+        <div class="full border">
+            <label>Descrição</label>
+            <textarea name="data.description" value="{{data.description}}"
+                data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
+        </div>
+
+
         <div class="aprimoramentos">
           <ol class="items-list">
             <li class="item flexrow item-header flex-center">
               <div>APRIMORAMENTOS</div>
             </li>
             <li class="item flexrow item-header">
-              <div class="item-tipo">Tipo</div>
-              <div class="item-campo">Altera</div>
-              <div class="item-name">Para</div>
               <div class="item-custo">Custo</div>
+              <div class="item-tipo">Tipo</div>
+              <div class="item-tipo tooltip">Rolagem <i class="fas fa-question-circle"></i>
+                <div class="tooltipcontent">Use este campo para alterar a rolagem da magia. Exemplos:
+                    <br><br>"d8": Mudará 2d6 para 2d8;
+                    <br><br>"1d8": Substituirá a rolagem padrão por 1d8
+                    <br><br>"1d8+1": (Aumenta) Aumentarará a quantidade de dados rolados para cada aplicação do aprimoramento. 
+                </div></div>
+              <div class="item-name" style="flex:2">Efeito</div>
               <div class="item-controls">
 
-                <a class="item-control item-create" title="Novo aprimoramento" data-type="aprimoramento"><i class="fas fa-plus"></i>
+                <a class="item-control aprimoramento-create" title="Novo aprimoramento" data-type="aprimoramento"><i class="fas fa-plus"></i>
                   Novo</a>
               </div>
             </li>
-            {{#each aprimoramentos as |ap id|}}
+            {{#each data.aprimoramentos as |ap id|}}
             <li class="item flexrow" data-item-id="{{id}}">
-              
+              <div class="item-custo"><input type="text" name="data.aprimoramentos.{{id}}.custo" value="{{ap.custo}}" data-dtype="Number" placeholder="" /></div>
               <div class="item-tipo">
-                    <select class="selectatr" name="ap.tipo" value={{ap.tipo}} data-type="Number">
+                    <select class="selectatr" name="data.aprimoramentos.{{id}}.tipo" value={{ap.tipo}} data-type="Number">
                         {{#select ap.tipo}}
+                        <option value="Truque">Truque</option>
                         <option value="Muda">Muda</option>
                         <option value="Aumenta">Aumenta</option>
-                        <option value="Truque">Truque</option>
                         <option value="Outros">Outros</option>
                         {{/select}}
                     </select>
               </div>
-              <div class="item-campo">
-                    <select class="selectatr" name="ap.campo" value={{ap.campo}} data-type="Number">
-                        {{#select ap.campo}}
-                        <option value="execucao">Execução</option>
-                        <option value="alcance">Alcance</option>
-                        <option value="duracao">Duração</option>
-                        <option value="alvo">Alvo</option>
-                        <option value="area">Area</option>
-                        <option value="efeito">Rolagem</option>
-                        <option value="cd">CD</option>
-                        <option value="description">Descrição</option>
-                        {{/select}}
-                    </select>
-              </div>
               <div class="item-name">
-                  <input type="text" name="ap.camponovo" value="{{ap.camponovo}}" data-dtype="String" placeholder="Ex: 6d6+6" />
+                  <input type="text" name="data.aprimoramentos.{{id}}.formula" value="{{ap.formula}}" data-dtype="String" placeholder="Ex: 2d8+2" />
               </div>
-              <div class="item-custo">{{item.data.custo}}</div>
+              <div class="item-name" style="flex:2">
+                  <textarea name="data.aprimoramentos.{{id}}.description" value="{{ap.description}}" data-dtype="String">{{#if ap.description}}{{ap.description}}{{/if}}</textarea>
+              </div>
+              
               <div class="item-controls">
-                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                <a class="item-control aprimoramento-delete" data-id="{{id}}" title="Deletar Aprimoramento"><i class="fas fa-trash"></i></a>
               </div>
             </li>
             {{/each}}
           </ol>
         </div>
 
-        <div class="full border">
-            <label>Descrição</label>
-            <textarea name="data.description" value="{{data.description}}"
-                data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
-        </div>
 
     </section>
 </form>
