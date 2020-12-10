@@ -164,7 +164,7 @@ export async function prepRoll(item, actor = null, extra = {}) {
           // console.log(i);
           if(aplicados[i]>0){
             let ap = {};
-            PMTotal = PMTotal +  parseInt(aplicados[i]);
+            PMTotal = PMTotal +  (parseInt(custo[i])*aplicados[i]);
             ap.gasto = aplicados[i];
             ap.qtd = aplicados[i]/custo[i];
             ap.tipo = tipos[i];
