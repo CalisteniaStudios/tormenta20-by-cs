@@ -9,6 +9,7 @@ export const measureDistances = function(segments, options={}) {
   // Iterate over measured segments
   return segments.map(s => {
     let r = s.ray;
+    let nDiagonal = 0;
 
     // Determine the total distance traveled
     let nx = Math.abs(Math.ceil(r.dx / d.size));
@@ -23,7 +24,6 @@ export const measureDistances = function(segments, options={}) {
     return (ns + nd + nDiagonal) * canvas.scene.data.gridDistance;
   });
 };
-
 /* -------------------------------------------- */
 
 /**

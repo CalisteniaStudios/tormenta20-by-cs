@@ -9,6 +9,7 @@ import { T20Utility } from "./utility.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 import * as chat from "./chat.js";
+import * as dice from "./dice.js";
 
 Hooks.once('init', async function () {
 
@@ -16,7 +17,9 @@ Hooks.once('init', async function () {
     T20Actor,
     T20Item,
     rollItemMacro,
-    ConjurarDialog
+    rollSkillMacro,
+    ConjurarDialog,
+    dice
   };
 
   // Register System Settings
@@ -133,28 +136,46 @@ export const getItemOwner = function (item) {
   return null;
 };
 
-async function createT20Macro(data, slot) {
-  if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("Você só pode criar Macros para Ataques, Magias e Poderes. Você pode referenciar atributos e perícias com @. Ex.: @for ou @luta");
-  const item = data.data;
-  // const actor = getItemOwner(item);
-  // Create the macro command
-  const command = `game.tormenta20.rollItemMacro("${item.name}");`;
 
-  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
-  if (!macro) {
-    macro = await Macro.create({
-      name: item.name,
-      type: "script",
-      img: item.img,
-      command: command,
-      flags: {
-        "tormenta20.itemMacro": true
-      }
-    });
+async function createT20Macro(data, slot) {
+  console.log(data);
+  if (data.type === "Pericia") {
+    const item = data.data;
+    const command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
+    let macro = game.macros.entities.find(m => (m.name === item.label) && (m.command === command));
+    if (!macro) {
+        macro = await Macro.create({
+        name: item.label,
+        type: "script",
+        command: command
+      });
+    }
+    game.user.assignHotbarMacro(macro, slot);
+    return false;
   }
-  game.user.assignHotbarMacro(macro, slot);
-  return false;
+  if (data.type === "Item") {
+    if (!("data" in data)) return ui.notifications.warn("Você só pode criar Macros para Ataques, Magias e Poderes. Você pode referenciar atributos e perícias com @. Ex.: @for ou @luta");
+    const item = data.data;
+    // const actor = getItemOwner(item);
+    // Create the macro command
+    const command = `game.tormenta20.rollItemMacro("${item.name}");`;
+
+    let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+    if (!macro) {
+      macro = await Macro.create({
+        name: item.name,
+        type: "script",
+        img: item.img,
+        command: command,
+        flags: {
+          "tormenta20.itemMacro": true
+        }
+      });
+    }
+    game.user.assignHotbarMacro(macro, slot);
+    return false;
+  }
+
 }
 
 /**
@@ -163,15 +184,53 @@ async function createT20Macro(data, slot) {
  * @param {string} itemName
  * @return {Promise}
  */
-function rollItemMacro(itemName, extra) {
+async function rollItemMacro(itemName, extra) {
   const speaker = ChatMessage.getSpeaker();
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
   const item = actor ? actor.items.find(i => i.name === itemName) : null;
+  if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
   if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
   // console.log(item);
   // Trigger the item roll
-  return item.roll(actor, extra);
+  await dice.prepRoll(item, actor);
 }
 
+async function rollSkillMacro(skillName, subtype) {
+  const speaker = ChatMessage.getSpeaker();
+  let actor;
+  let skill;
+  if (speaker.token) actor = game.actors.tokens[speaker.token];
+  if (!actor) actor = game.actors.get(speaker.actor);
+  if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
+  if(subtype == "oficios" ){
+    for ( let [t, sk] of Object.entries(actor.data.data.pericias["ofi"].mais) ) {
+      if(sk.label === skillName){
+        skill = sk;
+        break;
+      }
+    }
+  } else if(subtype == "custom" ) {
+    for ( let [t, sk] of Object.entries(actor.data.data.periciasCustom) ) {
+      if(sk.label === skillName){
+        skill = sk;
+        break;
+      }
+    }
+  } else {
+    for ( let [t, sk] of Object.entries(actor.data.data.pericias) ) {
+      if(sk.label === skillName){
+        skill = sk;
+        break;
+      }
+    }
+  }
+  const item = {
+    type:"pericia",
+    label: skill.label,
+    roll: `1d20+${skill.value}`
+  }
+  // Trigger the item roll
+  await dice.prepRoll(item, actor);
+}

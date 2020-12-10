@@ -1,5 +1,6 @@
 import { T20Utility } from '../utility.js';
 import ConjurarDialog from "../apps/conjurar-dialog.js";
+import { prepRoll } from "../dice.js";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -294,8 +295,60 @@ export class T20ActorSheet extends ActorSheet {
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
+      html.find('.pericia-rollable').each((i, li) => {
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
     }
   }
+
+
+  /** @override */
+  _onDragStart(event) {
+    const li = event.currentTarget;
+    if ( event.target.classList.contains("entity-link") ) return;
+
+    // Create drag data
+    const dragData = {
+      actorId: this.actor.id,
+      sceneId: this.actor.isToken ? canvas.scene?.id : null,
+      tokenId: this.actor.isToken ? this.actor.token.id : null
+    };
+
+    // Owned Items
+    if ( li.dataset.itemId ) {
+      const item = this.actor.items.get(li.dataset.itemId);
+      dragData.type = "Item";
+      dragData.data = item.data;
+    }
+
+    // Active Effect
+    if ( li.dataset.effectId ) {
+      const effect = this.actor.effects.get(li.dataset.effectId);
+      dragData.type = "ActiveEffect";
+      dragData.data = effect.data;
+    }
+    // Active Effect
+    if ( li.dataset.skill ) {
+      let skill;
+      if(li.dataset.ofi) {
+        skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.ofi];
+        dragData.subtype = "oficios";
+      } else if(li.dataset.custom) {
+        skill = this.actor.data.data.periciasCustom[li.dataset.custom];
+        dragData.subtype = "custom";
+      } else {
+        skill = this.actor.data.data.pericias[li.dataset.skill];
+        dragData.subtype = "base";
+      }
+      dragData.type = "Pericia";
+      dragData.data = skill;
+      dragData.roll = li.dataset.roll;
+    }
+    // Set data transfer
+    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+  }
+
 
   /* -------------------------------------------- */
   _moveTooltips(event) {
@@ -444,10 +497,6 @@ export class T20ActorSheet extends ActorSheet {
    */
   async _onRoll(event, actor = null) {
     actor = !actor ? this.actor : actor;
-
-    // Initialize variables.
-    event.preventDefault();
-
     if (!actor.data) {
       return;
     }
@@ -455,347 +504,29 @@ export class T20ActorSheet extends ActorSheet {
     const data = a.dataset;
     const actorData = actor.data.data;
     const itemId = $(a).parents('.item').attr('data-item-id');
-    const item = actor.getOwnedItem(itemId);
-
-    let formula = null;
-    let titleText = null;
-    let flavorText = null;
-    let flavorDesc = null;
-    let detailText = null;
-    let danoFormula = null;
-    let spellHeader = null;
-    let templateData = {};
-    let danoText = null;
-
-    // Handle rolls coming directly from the ability score.  && data.mod
-    if ($(a).hasClass('poder-rollable')) {
-      formula = `${item.data.data.roll}`;
-      formula = formula.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-
-      flavorText = item.name;
-      detailText = item.data.data.description.replace("\n", "<br/>");
-
-      templateData = {
-        title: flavorText,
-        details: detailText
+    let item = {
+        type: 'outros',
+        roll: data.roll,
+        label: data.label
       };
-      if (item.data.data.custo > 0) {
-        templateData.custo = item.data.data.custo;
-      }
-      this.rollMove(formula, actor, data, templateData);
-
-    } else if ($(a).hasClass('atributo-rollable')) {
-      formula = data.roll;
-      if(event.altKey){
-        formula = formula.replace('1d20','2d20kh');
-      }
-      if(event.ctrlKey){
-        formula = formula.replace('1d20','2d20kl');
-      }
-      formula = formula.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-      flavorText = data.label.toUpperCase();
-
-      templateData = {
-        title: flavorText,
-      };
-      this.rollMove(formula, actor, data, templateData);
-
+    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
+      item = actor.getOwnedItem(itemId);
     } else if ($(a).hasClass('pericia-rollable')) {
-      formula = data.roll;
-      if(event.altKey){
-        formula = formula.replace('1d20','2d20kh');
+      item = {
+        type: 'pericia',
+        roll: data.roll,
+        label: data.label
       }
-      if(event.ctrlKey){
-        formula = formula.replace('1d20','2d20kl');
+    } else if ($(a).hasClass('atributo-rollable')) {
+      const atrnames = {'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma"}
+      item = {
+        type: 'atributo',
+        roll: data.roll,
+        label: atrnames[data.label]
       }
-      formula = formula.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-      flavorText = data.label;
-      templateData = {
-        title: flavorText,
-      };
-      this.rollMove(formula, actor, data, templateData);
-
-    } else if ($(a).hasClass('ataque-rollable')) {
-      formula = {};
-      formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value}+ ${item.data.data._bonusAtq}`;
-      formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value}`
-                    + (item.data.data.bonusAtq!=undefined && item.data.data.bonusAtq!=0? `+${item.data.data.bonusAtq}` : ``)
-                    + (item.data.data._bonusAtq!=undefined && item.data.data._bonusAtq!=0? `+${item.data.data._bonusAtq}` : ``);
-      if(event.altKey){
-        formula.atq = formula.atq.replace('1d20','2d20kh');
-      }
-      if(event.ctrlKey){
-        formula.atq = formula.atq.replace('1d20','2d20kl');
-      }
-      formula.atq = formula.atq.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-
-      let atributoDano = item.data.data.atrDan != '0' ? actorData.atributos[item.data.data.atrDan].mod : 0;
-      if (item.data.data.dano.match(/(\d*)d\d+/g)) {
-        // formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data._bonusDano}`;
-        formula.dano = `${item.data.data.dano}`
-                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
-                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
-                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
-        let baseroll = item.data.data.dano.match(/(\d*)d\d+/g) ? item.data.data.dano.match(/(\d*)d\d+/g)[0] : '';
-        let multiroll = item.data.data.dano.match(/(\d*)d\d+/g) ? (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
-        let newdano = item.data.data.dano.replace(baseroll, multiroll);
-        // formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
-        formula.crit = `${newdano}`
-                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
-                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
-                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
-        if (item.data.data.lancinante) {
-          let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * " + item.data.data.criticoX + ")");
-          formula.crit = `${lacinante}`;
-        }
-
-        formula.dano = formula.dano.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-        formula.crit = formula.crit.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-
-      } else {
-        formula.dano = null;
-        formula.crit = null;
-      }
-
-      flavorText = item.name;
-      detailText = item.data.data.description;
-
-      flavorDesc = ""
-      flavorDesc += actorData.pericias[item.data.data.pericia].value > 0 ? "(" + actorData.pericias[item.data.data.pericia].label + " +" + actorData.pericias[item.data.data.pericia].value + ")" : "";
-      flavorDesc += item.data.data.bonusAtq > 0 ? " + (Bonus Ataque +" + item.data.data.bonusAtq + ")" : "";
-
-      danoText = '';
-      danoText += item.data.data.atrDan != '0' ? "(" + item.data.data.atrDan + " +" + atributoDano + ")" : "";
-      danoText += item.data.data.bonusDano > 0 ? " + (Bonus Dano +" + item.data.data.bonusDano + ")" : "";
-
-      templateData = {
-        title: flavorText,
-        flavor: flavorDesc,
-        danosDesc: danoText,
-        details: detailText
-      };
-
-      if (item.data.data.custo > 0) {
-        templateData.custo = item.data.data.custo;
-      }
-      this.rollMove(formula, actor, data, templateData, item.data.data.criticoM);
-
-    } else if ($(a).hasClass('magia-rollable')) {
-      /* -------------------------------------------- */
-      /*  APRIMORAMENTOS                              */
-      /* -------------------------------------------- */
-      let newFormula;
-      let newDado;
-      let PMTotal = 0;
-      let eTruque = false;
-      let aprimoramentos = [];
-      if(event.ctrlKey){
-        let aprimoramentoData = await ConjurarDialog.create(actor, item);
-        let aplicados = aprimoramentoData.getAll('aplica[]');
-        let custo = aprimoramentoData.getAll('custo[]');
-        let tipos = aprimoramentoData.getAll('tipo[]');
-        let descriptions = aprimoramentoData.getAll('description[]');
-        let formulas = aprimoramentoData.getAll('formula[]');
-        for (var i = 0; i < aplicados.length; i++) {
-          // console.log(i);
-          if(aplicados[i]>0){
-            let ap = {};
-            PMTotal = PMTotal +  parseInt(aplicados[i]);
-            ap.gasto = aplicados[i];
-            ap.qtd = aplicados[i]/custo[i];
-            ap.tipo = tipos[i];
-            ap.custo = custo[i];
-            ap.description = descriptions[i].replace(/§/g, ap.qtd);
-            if(formulas[i].match(/^d\d+$/)) {
-              newDado = formulas[i].match(/.*/)[0];
-            } else if(ap.tipo==="Aumenta" && formulas[i]!=="") {
-              // ap.dado = formulas[i].replace(/§/g, ap.qtd).replace(/\([\d()+*-/]*\)/g, function(match){ return eval(match)});
-              // newFormula = ap.dado.replace(/^\+/,'');
-              let neoFormula = {
-                'qtd': parseInt((item.data.data.efeito.match(/^\d+d/)??[0])[0].replace('d',''))+parseInt((formulas[i].match(/^\d+d/)??[0])[0].replace('d',''))*ap.qtd,
-                'bonus': parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0])+parseInt((formulas[i].match(/\+\d+/)??[0])[0])*ap.qtd
-              };
-              // console.log(parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0]));
-              // console.log(parseInt((formulas[i].match(/\+\d+/)??[0])[0]));
-              let fnlFormula = item.data.data.efeito.replace(/^\d+d/, neoFormula['qtd']+'d').replace(/\+\d+/, '+'+neoFormula['bonus']);
-              newFormula = fnlFormula;
-
-              if(newFormula.match(/(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/)){
-                //ok
-              } else {
-                newFormula = null;
-                console.log('Algo de errado com a formula inserida');
-                //Show error: Algo de errado com a formula inserida (newFormula).
-              }
-            } else if(formulas[i]!=="") {
-              newFormula = formulas[i];
-            }
-            if(tipos[i] === "Truque") {
-              eTruque = true;
-            }
-
-            aprimoramentos.push(ap);
-          }
-        }
-      }
-      /* -------------------------------------------- */
-      /*  //APRIMORAMENTOS                            */
-      /* -------------------------------------------- */
-      formula = !newFormula? item.data.data.efeito : newFormula;
-      formula = !newDado? formula : formula.replace(/d\d+/, newDado);
-      formula = formula.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-      
-      flavorText = item.name;
-      spellHeader = {};
-      spellHeader.tipo = item.data.data.tipo;
-      spellHeader.circulo = item.data.data.circulo;
-      spellHeader.escola = item.data.data.escola;
-      spellHeader.custo = (eTruque? 0: parseInt(item.data.data.custo) + PMTotal);
-      spellHeader.execucao = item.data.data.execucao;
-      spellHeader.alcance = item.data.data.alcance;
-      spellHeader.alvo = item.data.data.alvo;
-      spellHeader.area = item.data.data.area;
-      spellHeader.duracao = item.data.data.duracao;
-      spellHeader.resistencia = item.data.data.resistencia;
-      detailText = item.data.data.description;
-
-      templateData = {
-        title: flavorText,
-        flavor: flavorDesc,
-        spell: spellHeader,
-        details: detailText,
-        aprimoramentos: aprimoramentos
-      };
-
-      if (!eTruque && item.data.data.custo > 0) {
-        templateData.custo = parseInt(item.data.data.custo) + PMTotal;
-      } else if(eTruque) {
-        templateData.custo = 0;
-        templateData.truque = 1;
-      }
-      this.rollMove(formula, actor, data, templateData);
-
-    } else if (itemId != undefined) {
-      data.roll();
     }
-  }
+    await prepRoll(item, actor);
 
-  /**
-   * Roll using the chat card template.
-   * @param {Object} templateData
-   */
-  rollMove(roll, actor, dataset, templateData, criticoM = null) {
-    let actorData = actor.data.data;
-    // Render the roll.
-    let template = 'systems/tormenta20/templates/chat/chat-card.html';
-    let dmgroll = null;
-    // GM rolls.
-    let combate = game.combats.active;
-    // console.log();
-    let chatData = {
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({
-        actor: actor
-      }),
-      flags: {"core.canPopout": true}
-    };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
-
-    // Handle dice rolls.
-    let danoFormula = false;
-    let critFormula = false;
-
-    if (typeof roll === 'object') {
-      // remove signs from end of sting
-      if (roll.dano != null) {
-        danoFormula = roll.dano.trim().replace(/([\+\-]+$)/g, '');
-        critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, '');
-      }
-      roll = roll.atq.trim().replace(/([\+\-]+$)/g, '');
-    }
-
-    if (roll) {
-      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-      let formula = '';
-
-      if (roll.match(/(\d*)d\d+/g)) {
-
-        formula = roll;
-      }
-
-      if (formula != null) {
-        let roll = new Roll(`${formula}`);
-        roll.roll();
-        let result = roll.results[0];
-
-
-        if(dataset.label == "Iniciativa" && combate){
-          let combatente = combate.combatants.find(combatant => combatant.actor.id === actor.id);
-          if(combatente.iniciative == null){
-            combate.setInitiative(combatente._id,result);
-            console.log("Foundry VTT | Iniciativa Atualizada para "+combatente._id+" ("+combatente.actor.name+")");
-          }
-        }
-        // Check if there are dmg rolls and what critical math to use
-        if (danoFormula) {
-          if (result >= criticoM) {
-            dmgroll = new Roll(`${critFormula}`);
-          } else {
-            dmgroll = new Roll(`${danoFormula}`);
-          }
-          dmgroll.roll();
-          let rollTemplate = {
-            template: "systems/tormenta20/templates/chat/t20roll.html"
-          };
-          dmgroll.render(rollTemplate).then(r => {
-            templateData.rollDano = r;
-          });
-
-        }
-        // Render it.
-        let rollTemplate = {
-          template: "systems/tormenta20/templates/chat/t20roll.html"
-        };
-        roll.render(rollTemplate).then(r => {
-          templateData.roll = r;
-
-          renderTemplate(template, templateData).then(content => {
-            chatData.content = content;
-            if (game.dice3d) {
-              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              if(dmgroll){
-                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
-              }
-            } else {
-              chatData.sound = CONFIG.sounds.dice;
-              ChatMessage.create(chatData);
-            }
-          });
-        });
-      }
-    } else {
-      renderTemplate(template, templateData).then(content => {
-        chatData.content = content;
-        ChatMessage.create(chatData);
-      });
-    }
   }
 
 }

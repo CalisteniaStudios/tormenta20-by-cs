@@ -537,7 +537,8 @@
       "alvo": "",
       "area": "",
       "cd": 0,
-      "efeito": ""
+      "efeito": "",
+      "aprimoramentos": {}
     },
     "ataque": {
       "templates": [
