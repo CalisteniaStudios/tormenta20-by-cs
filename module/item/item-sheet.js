@@ -131,18 +131,19 @@ export class T20ItemSheet extends ItemSheet {
           description: ""
         };
 
-    let itemData = duplicate(this.item);
-    if(!itemData.data.aprimoramentos){
-      itemData.data.aprimoramentos = [];
-    }
-    let aprimoramentos = itemData.data.aprimoramentos;
+    let aprimoramentos = [];
 
-    let c = itemData.data.aprimoramentos.length;
+    if(this.item.data.aprimoramentos)
+    {  
+      aprimoramentos = this.item.data.aprimoramentos;
+    } else if(this.item.data.data.aprimoramentos)
+    {
+      aprimoramentos = this.item.data.data.aprimoramentos;
+    }
+
     aprimoramentos.push(aprimoramento);
-    // aprimoramentos[c] = aprimoramento;
-    
+
     this.item.update({"data.aprimoramentos": aprimoramentos});
-    // this.actor.data.data.periciasCustom[] = pericia;
     this.render();
   }
 
