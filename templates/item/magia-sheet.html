@@ -129,10 +129,10 @@
               </div>
             </li>
             {{#each data.aprimoramentos as |ap id|}}
-            <li class="item flexrow" data-item-id="{{id}}">
-              <div class="item-custo"><input type="text" name="data.aprimoramentos.{{id}}.custo" value="{{ap.custo}}" data-dtype="Number" placeholder="" /></div>
+            <li class="item flexrow aprimoramento" data-item-id="{{id}}">
+              <div class="item-custo"><input type="text" name="data.aprimoramentos[{{id}}].custo" value="{{ap.custo}}" data-dtype="Number" placeholder="" /></div>
               <div class="item-tipo">
-                    <select class="selectatr" name="data.aprimoramentos.{{id}}.tipo" value={{ap.tipo}} data-type="Number">
+                    <select class="selectatr" name="data.aprimoramentos[{{id}}].tipo" value={{ap.tipo}} data-type="Number">
                         {{#select ap.tipo}}
                         <option value="Truque">Truque</option>
                         <option value="Muda">Muda</option>
@@ -142,10 +142,10 @@
                     </select>
               </div>
               <div class="item-name">
-                  <input type="text" name="data.aprimoramentos.{{id}}.formula" value="{{ap.formula}}" data-dtype="String" placeholder="Ex: 2d8+2" />
+                  <input type="text" name="data.aprimoramentos[{{id}}].formula" value="{{ap.formula}}" data-dtype="String" placeholder="Ex: 2d8+2" />
               </div>
               <div class="item-name" style="flex:2">
-                  <textarea name="data.aprimoramentos.{{id}}.description" value="{{ap.description}}" data-dtype="String">{{#if ap.description}}{{ap.description}}{{/if}}</textarea>
+                  <textarea name="data.aprimoramentos[{{id}}].description" value="{{ap.description}}" data-dtype="String">{{#if ap.description}}{{ap.description}}{{/if}}</textarea>
               </div>
               
               <div class="item-controls">

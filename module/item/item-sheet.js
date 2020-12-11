@@ -84,20 +84,40 @@ export class T20ItemSheet extends ItemSheet {
     html.find('.selArma').change(this._getDataArma.bind(this));
 
 
-    // Add pericias
+    // Controle de Aprimoramentos
     html.find('.aprimoramento-create').click(this._onAprimoramentoCreate.bind(this));
     html.find('.aprimoramento-delete').click(this._onAprimoramentoDelete.bind(this));
+    html.find('.aprimoramento').find('input,textarea,select').change(this._onAprimoramentoUpdate.bind(this));
   }
   _moveTooltips(event) {
     $(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
   }
+  async _onAprimoramentoUpdate(event){
+    let index = $(event.currentTarget).closest('li')[0].dataset.itemId;
+    let data = "data.aprimoramentos."+index;
+    let inputs = $(event.currentTarget).closest('li').find('input,textarea,select');
+    
+    let aprimoramentos = this.item.data.data.aprimoramentos;
+    let ap = this.item.data.data.aprimoramentos[index];
+    for (let inp of inputs){
+      if(inp.name.match(/custo/)!==null){
+        ap.custo = inp.value;
+      } else if(inp.name.match(/tipo/)!==null) {
+        ap.tipo = inp.value;
+      } else if(inp.name.match(/formula/)!==null) {
+        ap.formula = inp.value;
+      } else if(inp.name.match(/description/)!==null) {
+        ap.description = inp.value;
+      }
+    }
+    aprimoramentos[index] = ap;
+    await this.item.update({"data.aprimoramentos":aprimoramentos});
+  }
   async _onAprimoramentoDelete(event) {
     const id = event.currentTarget.dataset.id;
     let aprimoramentos = this.item.data.data.aprimoramentos;
-    delete aprimoramentos[id];
-    await this.item.update({'data.aprimoramentos':null});
-    await this.item.update({'data.aprimoramentos':aprimoramentos});
-    await this.render();
+    aprimoramentos.pop(id);
+    await this.item.update({"data.aprimoramentos":aprimoramentos});
   }
   _onAprimoramentoCreate(event) {
     event.preventDefault();
@@ -107,7 +127,8 @@ export class T20ItemSheet extends ItemSheet {
     const aprimoramento = {
           custo: "0",
           tipo: "Truque",
-          efeito: ""
+          formula: "",
+          description: ""
         };
 
     let itemData = duplicate(this.item);
@@ -116,14 +137,12 @@ export class T20ItemSheet extends ItemSheet {
     }
     let aprimoramentos = itemData.data.aprimoramentos;
 
-    let c = Object.keys(itemData.data.aprimoramentos).length;
-
-    aprimoramentos[c] = aprimoramento;
+    let c = itemData.data.aprimoramentos.length;
+    aprimoramentos.push(aprimoramento);
+    // aprimoramentos[c] = aprimoramento;
     
     this.item.update({"data.aprimoramentos": aprimoramentos});
     // this.actor.data.data.periciasCustom[] = pericia;
-
-
     this.render();
   }
 
