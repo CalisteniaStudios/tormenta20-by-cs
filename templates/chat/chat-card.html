@@ -24,7 +24,7 @@
             <li>
               <div class="row">
                 <b>
-                {{#ifEquals ap.tipo "Truque"}} Truque: {{else}}  {{#ifGreater ap.custo 0}}+{{/ifGreater}}{{ap.custo}}PM: {{/ifEquals}}
+                {{#ifEquals ap.tipo "Truque"}} Truque: {{else}} +{{ap.custo}}PM: {{/ifEquals}}
                 {{#ifEquals ap.tipo "Aumenta"}} ({{ap.qtd}}x) {{/ifEquals}}
                 </b>
                 {{ap.description}}

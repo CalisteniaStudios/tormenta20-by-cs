@@ -35,6 +35,7 @@ export class T20ItemSheet extends ItemSheet {
   getData() {
     const data = super.getData();
     data.armas = [];
+    // console.log(this.object.options.actor);
     if (data.item.type == "magia" && this.object.options.actor != undefined) {
       data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
       data.data.totalCD = data.data.actorCD+data.data.cd;
@@ -86,49 +87,66 @@ export class T20ItemSheet extends ItemSheet {
     // Controle de Aprimoramentos
     html.find('.aprimoramento-create').click(this._onAprimoramentoCreate.bind(this));
     html.find('.aprimoramento-delete').click(this._onAprimoramentoDelete.bind(this));
-    html.find('.aprimoramento-edit').click(this._onAprimoramentoEdit.bind(this));
-    html.find('.aprimoramento-toggle').click(this._onAprimoramentoToggle.bind(this));
+    html.find('.aprimoramento').find('input,textarea,select').change(this._onAprimoramentoUpdate.bind(this));
   }
   _moveTooltips(event) {
     $(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
   }
-  async _onAprimoramentoCreate(event){
+  async _onAprimoramentoUpdate(event){
+    let index = $(event.currentTarget).closest('li')[0].dataset.itemId;
+    let data = "data.aprimoramentos."+index;
+    let inputs = $(event.currentTarget).closest('li').find('input,textarea,select');
+    
+    let aprimoramentos = this.item.data.data.aprimoramentos;
+    let ap = this.item.data.data.aprimoramentos[index];
+    for (let inp of inputs){
+      if(inp.name.match(/custo/)!==null){
+        ap.custo = inp.value;
+      } else if(inp.name.match(/tipo/)!==null) {
+        ap.tipo = inp.value;
+      } else if(inp.name.match(/formula/)!==null) {
+        ap.formula = inp.value;
+      } else if(inp.name.match(/description/)!==null) {
+        ap.description = inp.value;
+      }
+    }
+    aprimoramentos[index] = ap;
+    await this.item.update({"data.aprimoramentos":aprimoramentos});
+  }
+  async _onAprimoramentoDelete(event) {
+    const id = event.currentTarget.dataset.id;
+    let aprimoramentos = this.item.data.data.aprimoramentos;
+    aprimoramentos.pop(id);
+    await this.item.update({"data.aprimoramentos":aprimoramentos});
+  }
+  _onAprimoramentoCreate(event) {
     event.preventDefault();
-    const target = $(event.currentTarget);
 
-    this.item.addAprimoramento({
-        description: "Novo Aprimoramento"
-    });
+    const a = event.currentTarget;
+    const tipo = a.dataset.tipo;
+    const aprimoramento = {
+          custo: "0",
+          tipo: "Truque",
+          formula: "",
+          description: ""
+        };
+
+    let aprimoramentos = [];
+
+    if(this.item.data.aprimoramentos)
+    {  
+      aprimoramentos = this.item.data.aprimoramentos;
+    } else if(this.item.data.data.aprimoramentos)
+    {
+      aprimoramentos = this.item.data.data.aprimoramentos;
+    }
+
+    aprimoramentos.push(aprimoramento);
+
+    this.item.update({"data.aprimoramentos": aprimoramentos});
+    this.render();
   }
 
-  async _onAprimoramentoDelete(event){
-    event.preventDefault();
-    const target = $(event.currentTarget);
-    const aprimoramentoId = target.closest('.item.aprimoramento').data('itemId');
-    await this.item.deleteAprimoramento(aprimoramentoId);
-  }
-
-  async _onAprimoramentoEdit(event){
-    event.preventDefault();
-
-    const target = $(event.currentTarget);
-    const aprimoramentoId = target.closest('.item.aprimoramento').data('itemId');
-
-    this.item.editAprimoramento(aprimoramentoId);
-  }
-
-  async _onAprimoramentoToggle(event){
-    event.preventDefault();
-    const target = $(event.currentTarget);
-    const aprimoramentoId = target.closest('.item.aprimoramento').data('itemId');
-
-    const aprimoramentos = duplicate(this.item.data.data.aprimoramentos);
-    const aprimoramento = aprimoramentos.find(mod => mod.id === aprimoramentoId);
-    aprimoramento.ativo = !aprimoramento.ativo;
-
-    await this.item.update({'data.aprimoramentos': aprimoramentos});
-  }
-  
   _getDataArma(event){
     let arma = $(event.target).find("option:selected")[0];
     let dados = $(arma)[0].dataset;

@@ -114,14 +114,14 @@
             <li class="item flexrow item-header">
               <div class="item-custo">Custo</div>
               <div class="item-tipo">Tipo</div>
-              <div class="item-formula tooltip">Rolagem <i class="fas fa-question-circle"></i>
+              <div class="item-tipo tooltip">Rolagem <i class="fas fa-question-circle"></i>
                 <div class="tooltipcontent">Use este campo para alterar a rolagem da magia. Exemplos:
                     <br><br>"d8": Mudará 2d6 para 2d8;
                     <br><br>"1d8": Substituirá a rolagem padrão por 1d8
                     <br><br>"1d8+1": (Aumenta) Aumentarará a quantidade de dados rolados para cada aplicação do aprimoramento.
                     <br><br>"-": Não rolará dados.
                 </div></div>
-              <div class="item-description" style="flex:2">Efeito</div>
+              <div class="item-name" style="flex:2">Efeito</div>
               <div class="item-controls">
 
                 <a class="item-control aprimoramento-create" title="Novo aprimoramento" data-type="aprimoramento"><i class="fas fa-plus"></i>
@@ -129,18 +129,27 @@
               </div>
             </li>
             {{#each data.aprimoramentos as |ap id|}}
-            <li class="item flexrow aprimoramento" data-item-id="{{ap.id}}">
-              <div class="item-custo"><center>{{ap.custo}}</center></div>
-              <div class="item-tipo">{{ap.tipo}}</div>
-              <div class="item-formula">{{ap.formula}}</div>
-              <div class="item-description" style="flex:2">
-                    {{ap.description}}
+            <li class="item flexrow aprimoramento" data-item-id="{{id}}">
+              <div class="item-custo"><input type="text" name="data.aprimoramentos[{{id}}].custo" value="{{ap.custo}}" data-dtype="Number" placeholder="" /></div>
+              <div class="item-tipo">
+                    <select class="selectatr" name="data.aprimoramentos[{{id}}].tipo" value={{ap.tipo}} data-type="Number">
+                        {{#select ap.tipo}}
+                        <option value="Truque">Truque</option>
+                        <option value="Muda">Muda</option>
+                        <option value="Aumenta">Aumenta</option>
+                        <option value="Outros">Outros</option>
+                        {{/select}}
+                    </select>
+              </div>
+              <div class="item-name">
+                  <input type="text" name="data.aprimoramentos[{{id}}].formula" value="{{ap.formula}}" data-dtype="String" placeholder="Ex: 2d8+2" />
+              </div>
+              <div class="item-name" style="flex:2">
+                  <textarea name="data.aprimoramentos[{{id}}].description" value="{{ap.description}}" data-dtype="String">{{#if ap.description}}{{ap.description}}{{/if}}</textarea>
               </div>
               
               <div class="item-controls">
-                <a class="item-control aprimoramento-toggle" data-id="{{ap.id}}" title="Aplicar Sempre?">{{#if ap.ativo}}<i class="far fa-check-square"></i>{{else}}<i class="far fa-square"></i>{{/if}}</a>
-                <a class="item-control aprimoramento-edit" data-id="{{ap.id}}" title="Editar Aprimoramento"><i class="fas fa-edit"></i></a>
-                <a class="item-control aprimoramento-delete" data-id="{{ap.id}}" title="Deletar Aprimoramento"><i class="fas fa-trash"></i></a>
+                <a class="item-control aprimoramento-delete" data-id="{{id}}" title="Deletar Aprimoramento"><i class="fas fa-trash"></i></a>
               </div>
             </li>
             {{/each}}

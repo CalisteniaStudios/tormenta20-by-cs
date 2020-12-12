@@ -153,65 +153,57 @@ export async function prepRoll(item, actor = null, extra = {}) {
       let PMTotal = 0;
       let eTruque = false;
       let aprimoramentos = [];
-      let aplicados = [];
-      let aprimoramentoData = null;
-
       if(event.shiftKey){
-        aprimoramentoData = await ConjurarDialog.create(actor, item);
-        let aplicas = aprimoramentoData.getAll("aplica[]");
-        let ids = aprimoramentoData.getAll("id[]");
-        aprimoramentoData = {};
-        for (var i = 0; i < aplicas.length; i++){
-          if(aplicas[i]>0){
-            aprimoramentoData[ids[i]] = aplicas[i];
+        let aprimoramentoData = await ConjurarDialog.create(actor, item);
+        let aplicados = aprimoramentoData.getAll('aplica[]');
+        let custo = aprimoramentoData.getAll('custo[]');
+        let tipos = aprimoramentoData.getAll('tipo[]');
+        let descriptions = aprimoramentoData.getAll('description[]');
+        let formulas = aprimoramentoData.getAll('formula[]');
+        for (var i = 0; i < aplicados.length; i++) {
+          // console.log(i);
+          if(aplicados[i]>0){
+            let ap = {};
+            PMTotal = PMTotal +  (parseInt(custo[i])*aplicados[i]);
+            ap.gasto = aplicados[i];
+            ap.qtd = aplicados[i]/custo[i];
+            ap.tipo = tipos[i];
+            ap.custo = custo[i];
+            ap.description = descriptions[i].replace(/§/g, ap.qtd);
+            if(formulas[i].match(/^d\d+$/)) {
+              newDado = formulas[i].match(/.*/)[0];
+            } else if(ap.tipo==="Aumenta" && formulas[i]!=="") {
+              // ap.dado = formulas[i].replace(/?/g, ap.qtd).replace(/\([\d()+*-/]*\)/g, function(match){ return eval(match)});
+              // newFormula = ap.dado.replace(/^\+/,'');
+              let neoFormula = {
+                'qtd': parseInt((item.data.data.efeito.match(/^\d+d/)??[0])[0].replace('d',''))+parseInt((formulas[i].match(/^\d+d/)??[0])[0].replace('d',''))*ap.qtd,
+                'bonus': parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0])+parseInt((formulas[i].match(/\+\d+/)??[0])[0])*ap.qtd
+              };
+              // console.log(parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0]));
+              // console.log(parseInt((formulas[i].match(/\+\d+/)??[0])[0]));
+              let fnlFormula = item.data.data.efeito.replace(/^\d+d/, neoFormula['qtd']+'d').replace(/\+\d+/, '+'+neoFormula['bonus']);
+              newFormula = fnlFormula;
+
+              if(newFormula.match(/(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/)){
+                //ok
+              } else {
+                newFormula = null;
+                console.log('Algo de errado com a formula inserida');
+                //Show error: Algo de errado com a formula inserida (newFormula).
+              }
+            } else if(formulas[i]==="-") {
+              semFormula = 1;
+            } else if(formulas[i]!=="") {
+              newFormula = formulas[i];
+            }
+            if(tipos[i] === "Truque") {
+              eTruque = true;
+            }
+
+            aprimoramentos.push(ap);
           }
         }
-        aplicados = item.data.data.aprimoramentos.filter(ap => Object.keys(aprimoramentoData).indexOf(ap.id) !== -1);
-      } else {
-        aplicados = item.data.data.aprimoramentos.filter(ap => ap.ativo === true);
       }
-
-      aplicados.forEach(function(apr){
-        let ap = {};
-        if(aprimoramentoData){
-          ap.gasto = aprimoramentoData[apr.id]*apr.custo;
-        } else {
-          ap.gasto = apr.custo;
-        }
-        PMTotal = PMTotal + parseInt(ap.gasto);
-        ap.qtd = ap.gasto/apr.custo;
-        ap.tipo = apr.tipo;
-        ap.custo = apr.custo;
-        ap.description = apr.description.replace(/§/g, ap.qtd);
-
-        if(apr.formula.match(/^d\d+$/)) {
-          newDado = apr.formula.match(/.*/)[0];
-        } else if(ap.tipo==="Aumenta" && apr.formula!=="") {
-          let neoFormula = {
-            'qtd': parseInt((item.data.data.efeito.match(/^\d+d/)??[0])[0].replace('d',''))+parseInt((apr.formula.match(/^\d+d/)??[0])[0].replace('d',''))*ap.qtd,
-            'bonus': parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0])+parseInt((apr.formula.match(/\+\d+/)??[0])[0])*ap.qtd
-          };
-          let fnlFormula = item.data.data.efeito.replace(/^\d+d/, neoFormula['qtd']+'d').replace(/\+\d+/, '+'+neoFormula['bonus']);
-          newFormula = fnlFormula;
-        } else if(apr.formula==="-") {
-          semFormula = 1;
-        } else if(apr.formula!=="") {
-          newFormula = apr.formula;
-        }
-        if(newFormula){
-          if(newFormula.match(/(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/)){
-            //ok
-          } else {
-            newFormula = null;
-            console.log('Algo de errado com a formula inserida');
-          }
-        }
-        if(apr.tipo === "Truque") {
-          eTruque = true;
-        }
-
-        aprimoramentos.push(ap);
-      });
       /* -------------------------------------------- */
       /*  //APRIMORAMENTOS                            */
       /* -------------------------------------------- */
@@ -227,7 +219,7 @@ export async function prepRoll(item, actor = null, extra = {}) {
       spellHeader.tipo = item.data.data.tipo;
       spellHeader.circulo = item.data.data.circulo;
       spellHeader.escola = item.data.data.escola;
-      spellHeader.custo = (eTruque? 0: Math.max(parseInt(item.data.data.custo) + PMTotal,1));
+      spellHeader.custo = (eTruque? 0: parseInt(item.data.data.custo) + PMTotal);
       spellHeader.execucao = item.data.data.execucao;
       spellHeader.alcance = item.data.data.alcance;
       spellHeader.alvo = item.data.data.alvo;
@@ -245,7 +237,7 @@ export async function prepRoll(item, actor = null, extra = {}) {
       };
 
       if (!eTruque && item.data.data.custo > 0) {
-        templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal,1);
+        templateData.custo = parseInt(item.data.data.custo) + PMTotal;
       } else if(eTruque) {
         templateData.custo = 0;
         templateData.truque = 1;

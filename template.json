@@ -367,7 +367,7 @@
             "outros": 0,
             "notes": "",
             "mod": 0,
-            "mais": []
+            "mais": {}
           },
           "per": {
             "label": "Percepção",
@@ -496,7 +496,7 @@
     }
   },
   "Item": {
-    "types": ["equip", "poder", "magia", "ataque","tesouro","consumivel","arma","aprimoramento"],
+    "types": ["equip", "poder", "magia", "ataque","tesouro","consumivel","arma"],
     "templates": {
       "base": {
         "description": ""
@@ -504,9 +504,6 @@
       "objeto":{
         "peso": 0,
         "qtd": 1
-      },
-      "aprimoramento": {
-        "aprimoramentos": []
       }
     },
     "equip": {
@@ -526,8 +523,7 @@
     },
     "magia": {
       "templates": [
-        "base",
-        "aprimoramento"
+        "base"
       ],
       "tipo": "",
       "circulo": 1,
@@ -541,7 +537,8 @@
       "alvo": "",
       "area": "",
       "cd": 0,
-      "efeito": ""
+      "efeito": "",
+      "aprimoramentos": []
     },
     "ataque": {
       "templates": [
