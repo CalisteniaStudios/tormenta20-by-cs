@@ -1,6 +1,6 @@
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 /* Standardized Roll Script */
-export async function prepRoll(event, item, actor = null, extra = {}) {
+export async function prepRoll(item, actor = null, extra = {}) {
   actor = !actor ? this.actor : actor;
   const actorData = actor.data.data;
   // Initialize variables.
@@ -57,14 +57,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
         rollMode = html.find('[name="rollMode"]').val();
         if (item.data.data.custo > 0) {
           let custoAdic = html.find('[name="ajustecusto"]').val();
-          if (
-            custoAdic.length > 0 &&
-            custoAdic.trim().charAt(0) != "+" &&
-            custoAdic.trim().charAt(0) != "-"
-          )
+          if (custoAdic.length > 0 && custoAdic.trim().charAt(0) != "+" && custoAdic.trim().charAt(0) != "-"){
             custoAdic += "+";
-          templateData.custo =
-            parseInt(templateData.custo) + parseInt(custoAdic);
+          }
+          templateData.custo = parseInt(templateData.custo) + parseInt(custoAdic);
         }
 
         rollT20(formula, actor, templateData);
@@ -336,33 +332,25 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       let dialogCallback = (html) => {
         rollMode = html.find('[name="rollMode"]').val();
         let rollBonus = html.find('[name="bonus"]').val();
-        if (
-          rollBonus.length > 0 &&
-          rollBonus.trim().charAt(0) != "+" &&
-          rollBonus.trim().charAt(0) != "-"
-        )
-          rollBonus += "+";
+        if ( rollBonus.length > 0 && rollBonus.trim().charAt(0) != "+" && rollBonus.trim().charAt(0) != "-"){
+          console.log("entrou");
+          rollBonus = "+" + rollBonus;
+        }
         let rollBonusDano = html.find('[name="bonusdano"]').val();
-        if (
-          rollBonusDano.length > 0 &&
-          rollBonusDano.trim().charAt(0) != "+" &&
-          rollBonusDano.trim().charAt(0) != "-"
-        )
-          rollBonusDano += "+";
+        if (   rollBonusDano.length > 0 &&   rollBonusDano.trim().charAt(0) != "+" &&   rollBonusDano.trim().charAt(0) != "-" ){
+          rollBonusDano = "+" + rollBonusDano;
+        }
         if (item.data.data.custo > 0) {
           let custoAdic = html.find('[name="ajustecusto"]').val();
-          if (
-            custoAdic.length > 0 &&
-            custoAdic.trim().charAt(0) != "+" &&
-            custoAdic.trim().charAt(0) != "-"
-          )
-            custoAdic += "+";
-          templateData.custo =
-            parseInt(templateData.custo) + parseInt(custoAdic);
+          if ( custoAdic.length > 0 && custoAdic.trim().charAt(0) != "+" && custoAdic.trim().charAt(0) != "-" ){
+            custoAdic = "+"+custoAdic;
+          }
+          templateData.custo = parseInt(templateData.custo) + parseInt(custoAdic);
         }
         formula.atq += rollBonus;
         formula.dano += rollBonusDano;
         formula.crit += rollBonusDano;
+        
         rollT20(formula, actor, templateData, item.data.data.criticoM);;
       };
 
@@ -387,125 +375,116 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
         });
       });
     }
-  } else if (item.type == "magia") {
-    /* -------------------------------------------- */
-    /*  APRIMORAMENTOS                              */
-    /* -------------------------------------------- */
-    let semFormula;
-    let newFormula;
-    let newDado;
-    let PMTotal = 0;
-    let eTruque = false;
-    let aprimoramentos = [];
-    if (event.shiftKey) {
-      let aprimoramentoData = await ConjurarDialog.create(actor, item);
-      let aplicados = aprimoramentoData.getAll("aplica[]");
-      let custo = aprimoramentoData.getAll("custo[]");
-      let tipos = aprimoramentoData.getAll("tipo[]");
-      let descriptions = aprimoramentoData.getAll("description[]");
-      let formulas = aprimoramentoData.getAll("formula[]");
-      for (var i = 0; i < aplicados.length; i++) {
-        // console.log(i);
-        if (aplicados[i] > 0) {
-          let ap = {};
-          PMTotal = PMTotal + parseInt(custo[i]) * aplicados[i];
-          ap.gasto = aplicados[i];
-          ap.qtd = aplicados[i] / custo[i];
-          ap.tipo = tipos[i];
-          ap.custo = custo[i];
-          ap.description = descriptions[i].replace(/§/g, ap.qtd);
-          if (formulas[i].match(/^d\d+$/)) {
-            newDado = formulas[i].match(/.*/)[0];
-          } else if (ap.tipo === "Aumenta" && formulas[i] !== "") {
-            // ap.dado = formulas[i].replace(/?/g, ap.qtd).replace(/\([\d()+*-/]*\)/g, function(match){ return eval(match)});
-            // newFormula = ap.dado.replace(/^\+/,'');
-            let neoFormula = {
-              qtd:
-                parseInt(
-                  (item.data.data.efeito.match(/^\d+d/) ?? [0])[0].replace(
-                    "d",
-                    ""
-                  )
-                ) +
-                parseInt(
-                  (formulas[i].match(/^\d+d/) ?? [0])[0].replace("d", "")
-                ) *
-                  ap.qtd,
-              bonus:
-                parseInt((item.data.data.efeito.match(/\+\d+/) ?? [0])[0]) +
-                parseInt((formulas[i].match(/\+\d+/) ?? [0])[0]) * ap.qtd,
-            };
-            // console.log(parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0]));
-            // console.log(parseInt((formulas[i].match(/\+\d+/)??[0])[0]));
-            let fnlFormula = item.data.data.efeito
-              .replace(/^\d+d/, neoFormula["qtd"] + "d")
-              .replace(/\+\d+/, "+" + neoFormula["bonus"]);
-            newFormula = fnlFormula;
+  } else if (item.type == 'magia') {
+      /* -------------------------------------------- */
+      /*  APRIMORAMENTOS                              */
+      /* -------------------------------------------- */
+      let semFormula;
+      let newFormula;
+      let newDado;
+      let PMTotal = 0;
+      let eTruque = false;
+      let aprimoramentos = [];
+      let aplicados = [];
+      let aprimoramentoData = null;
 
-            if (
-              newFormula.match(
-                /(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/
-              )
-            ) {
-              //ok
-            } else {
-              newFormula = null;
-              console.log("Algo de errado com a formula inserida");
-              //Show error: Algo de errado com a formula inserida (newFormula).
-            }
-          } else if (formulas[i] === "-") {
-            semFormula = 1;
-          } else if (formulas[i] !== "") {
-            newFormula = formulas[i];
+      if(event.shiftKey){
+        aprimoramentoData = await ConjurarDialog.create(actor, item);
+        let aplicas = aprimoramentoData.getAll("aplica[]");
+        let ids = aprimoramentoData.getAll("id[]");
+        aprimoramentoData = {};
+        for (var i = 0; i < aplicas.length; i++){
+          if(aplicas[i]>0){
+            aprimoramentoData[ids[i]] = aplicas[i];
           }
-          if (tipos[i] === "Truque") {
-            eTruque = true;
-          }
-
-          aprimoramentos.push(ap);
         }
+        aplicados = item.data.data.aprimoramentos.filter(ap => Object.keys(aprimoramentoData).indexOf(ap.id) !== -1);
+      } else {
+        aplicados = item.data.data.aprimoramentos.filter(ap => ap.ativo === true);
       }
-    }
-    /* -------------------------------------------- */
-    /*  //APRIMORAMENTOS                            */
-    /* -------------------------------------------- */
-    formula = !newFormula ? item.data.data.efeito : newFormula;
-    formula = !semFormula ? formula : "";
-    formula = !newDado ? formula : formula.replace(/d\d+/, newDado);
-    formula = formula.replace(/\@\w+\b/g, function (match) {
-      return "(" + T20Utility.short(match, actorData) + ")";
-    });
 
-    flavorText = item.name;
-    spellHeader = {};
-    spellHeader.tipo = item.data.data.tipo;
-    spellHeader.circulo = item.data.data.circulo;
-    spellHeader.escola = item.data.data.escola;
-    spellHeader.custo = eTruque ? 0 : parseInt(item.data.data.custo) + PMTotal;
-    spellHeader.execucao = item.data.data.execucao;
-    spellHeader.alcance = item.data.data.alcance;
-    spellHeader.alvo = item.data.data.alvo;
-    spellHeader.area = item.data.data.area;
-    spellHeader.duracao = item.data.data.duracao;
-    spellHeader.resistencia = item.data.data.resistencia;
-    detailText = item.data.data.description;
+      aplicados.forEach(function(apr){
+        let ap = {};
+        if(aprimoramentoData){
+          ap.gasto = aprimoramentoData[apr.id]*apr.custo;
+        } else {
+          ap.gasto = apr.custo;
+        }
+        PMTotal = PMTotal + parseInt(ap.gasto);
+        ap.qtd = ap.gasto/apr.custo;
+        ap.tipo = apr.tipo;
+        ap.custo = apr.custo;
+        ap.description = apr.description.replace(/§/g, ap.qtd);
 
-    templateData = {
-      title: flavorText,
-      flavor: flavorDesc,
-      spell: spellHeader,
-      details: detailText,
-      aprimoramentos: aprimoramentos,
-    };
+        if(apr.formula.match(/^d\d+$/)) {
+          newDado = apr.formula.match(/.*/)[0];
+        } else if(ap.tipo==="Aumenta" && apr.formula!=="") {
+          let neoFormula = {
+            'qtd': parseInt((item.data.data.efeito.match(/^\d+d/)??[0])[0].replace('d',''))+parseInt((apr.formula.match(/^\d+d/)??[0])[0].replace('d',''))*ap.qtd,
+            'bonus': parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0])+parseInt((apr.formula.match(/\+\d+/)??[0])[0])*ap.qtd
+          };
+          let fnlFormula = item.data.data.efeito.replace(/^\d+d/, neoFormula['qtd']+'d').replace(/\+\d+/, '+'+neoFormula['bonus']);
+          newFormula = fnlFormula;
+        } else if(apr.formula==="-") {
+          semFormula = 1;
+        } else if(apr.formula!=="") {
+          newFormula = apr.formula;
+        }
+        if(newFormula){
+          if(newFormula.match(/(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/)){
+            //ok
+          } else {
+            newFormula = null;
+            console.log('Algo de errado com a formula inserida');
+          }
+        }
+        if(apr.tipo === "Truque") {
+          eTruque = true;
+        }
 
-    if (!eTruque && item.data.data.custo > 0) {
-      templateData.custo = parseInt(item.data.data.custo) + PMTotal;
-    } else if (eTruque) {
-      templateData.custo = 0;
-      templateData.truque = 1;
-    }
-    rollT20(formula, actor, templateData);
-  } else if (itemId != undefined) {
+        aprimoramentos.push(ap);
+      });
+      /* -------------------------------------------- */
+      /*  //APRIMORAMENTOS                            */
+      /* -------------------------------------------- */
+      formula = !newFormula? item.data.data.efeito : newFormula;
+      formula = !semFormula? formula : "";
+      formula = !newDado? formula : formula.replace(/d\d+/, newDado);
+      formula = formula.replace(/\@\w+\b/g, function(match){
+                    return "("+T20Utility.short(match, actorData)+")";
+                });
+      
+      flavorText = item.name;
+      spellHeader = {};
+      spellHeader.tipo = item.data.data.tipo;
+      spellHeader.circulo = item.data.data.circulo;
+      spellHeader.escola = item.data.data.escola;
+      spellHeader.custo = (eTruque? 0: Math.max(parseInt(item.data.data.custo) + PMTotal,1));
+      spellHeader.execucao = item.data.data.execucao;
+      spellHeader.alcance = item.data.data.alcance;
+      spellHeader.alvo = item.data.data.alvo;
+      spellHeader.area = item.data.data.area;
+      spellHeader.duracao = item.data.data.duracao;
+      spellHeader.resistencia = item.data.data.resistencia;
+      detailText = item.data.data.description;
+
+      templateData = {
+        title: flavorText,
+        flavor: flavorDesc,
+        spell: spellHeader,
+        details: detailText,
+        aprimoramentos: aprimoramentos
+      };
+
+      if (!eTruque && item.data.data.custo > 0) {
+        templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal,1);
+      } else if(eTruque) {
+        templateData.custo = 0;
+        templateData.truque = 1;
+      }
+      rollT20(formula, actor, templateData);
+
+    } else if (itemId != undefined) {
     data.roll();
   }
 }
