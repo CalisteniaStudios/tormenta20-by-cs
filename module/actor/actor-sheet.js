@@ -50,12 +50,12 @@ export class T20ActorSheet extends ActorSheet {
     // console.log(this.actor.data.data.pericias.ofi.more);
     if (this.actor.data.data.pericias.ofi.mais === undefined) {
       this.actor.update({
-        "data.pericias.ofi.mais": {}
+        "data.pericias.ofi.mais": []
       });
     }
     if (this.actor.data.data.periciasCustom === undefined) {
       this.actor.update({
-        "data.periciasCustom": {}
+        "data.periciasCustom": []
       });
     }
     if (this.actor.data.data.armadura.equipado === undefined) {
@@ -78,7 +78,25 @@ export class T20ActorSheet extends ActorSheet {
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
       });
     }
-
+    if (this.actor.data.data.periciasCustom.constructor === Object){
+      // console.log(this.actor.data.data.periciasCustom);
+      let newPericiasCustom = [];
+      for (let [pc, per] of Object.entries(this.actor.data.data.periciasCustom) ) {
+        newPericiasCustom.push(per);
+      }
+      // this.actor.data.data.periciasCustom = newPericiasCustom;
+      this.actor.update({"data.periciasCustom": newPericiasCustom});
+    }
+    if (this.actor.data.data.pericias.ofi.mais.constructor === Object){
+      // console.log(this.actor.data.data.pericias.ofi.mais);
+      let newOficios = [];
+      for (let [pc, per] of Object.entries(this.actor.data.data.pericias.ofi.mais) ) {
+        newOficios.push(per);
+      }
+      // this.actor.data.data.pericias.ofi.mais = newOficios;
+      this.actor.update({"data.pericias.ofi.mais": newOficios});
+    }
+    
     return data;
   }
 
@@ -241,6 +259,8 @@ export class T20ActorSheet extends ActorSheet {
     html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
     html.find('.oficios-create').click(this._onPericiaCustomCreate.bind(this));
     
+    html.find('.skill-tr').find('input,select').change(this._onPericiaCustomUpdate.bind(this));
+
     html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
     html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
 
@@ -370,32 +390,54 @@ export class T20ActorSheet extends ActorSheet {
       $(target).addClass('ativo');
     }
   }
+  async _onPericiaCustomUpdate(event){
+    let index = $(event.currentTarget).closest('.skill-tr')[0].dataset.itemId;
+    let tipo = $(event.currentTarget).closest('.skill-tr')[0].dataset.skill;
+    let inputs = $(event.currentTarget).closest('.skill-tr').find('input,textarea,select');
+    let pericias;
+    let sk;
+    if(tipo == "oficios"){
+      pericias = this.actor.data.data.pericias.ofi.mais;
+      sk = this.actor.data.data.pericias.ofi.mais[index];
+    } else if (tipo == "custom") {
+      pericias = this.actor.data.data.periciasCustom;
+      sk = this.actor.data.data.periciasCustom[index];
+    }
+    for (let inp of inputs){
+      if(inp.name.match(/treinado/)!==null){
+        sk.treinado = inp.checked;
+      } else if(inp.name.match(/label/)!==null) {
+        sk.label = inp.value;
+      } else if(inp.name.match(/atributo/)!==null) {
+        sk.atributo = inp.value;
+      } else if(inp.name.match(/treino/)!==null) {
+        sk.treino = inp.value;
+      } else if(inp.name.match(/outros/)!==null) {
+        sk.outros = inp.value;
+      }
+    }
+    if(tipo == "oficios"){
+      pericias[index] = sk;
+      await this.actor.update({"data.pericias.ofi.mais":pericias});
+    } else if (tipo == "custom") {
+      pericias[index] = sk;
+      await this.actor.update({"data.periciasCustom":pericias});
+    }
+  }
   async _onPericiaCustomDelete(event) {
     const id = event.currentTarget.dataset.itemId;
     const a = event.currentTarget;
     const tipo = a.dataset.tipo;
     let c = 0;
     if (tipo == 'oficios') {
-      // let oficios = this.actor.data.data.pericias.ofi.mais;
-      // delete oficios[id];
-      delete this.actor.data.data.pericias.ofi.mais[id];
-      let oficios = {};
-      for (var i in this.actor.data.data.pericias.ofi.mais) {
-          oficios[c]=this.actor.data.data.pericias.ofi.mais[i];
-          c++;
-      }
-      await this.actor.update({'data.pericias.ofi.mais': null});
+      let oficios = this.actor.data.data.pericias.ofi.mais;
+      oficios.pop(id);
+      
       await this.actor.update({"data.pericias.ofi.mais": oficios });
     } else {
-      // let pericias = this.actor.data.data.periciasCustom;
-      // delete pericias[id];
-      delete this.actor.data.data.periciasCustom[id];
-      let pericias = {};
-      for (var i in this.actor.data.data.periciasCustom) {
-          pericias[c]=this.actor.data.data.periciasCustom[i];
-          c++;
-      }
-      await this.actor.update({'data.periciasCustom': null});
+      let pericias = this.actor.data.data.periciasCustom;
+      pericias.pop(id);
+
       await this.actor.update({"data.periciasCustom": pericias });
     }
     await this.render();
@@ -431,18 +473,16 @@ export class T20ActorSheet extends ActorSheet {
     if (tipo == 'oficio') {
       pericia.label = "Oficio";
       pericia.atributo = 'int';
-      let c = Object.keys(this.actor.data.data.pericias.ofi.mais).length;
+      let c = oficios.length;
 
-      oficios[c] = pericia;
-
+      oficios.push(pericia);
       this.actor.update({
         "data.pericias.ofi.mais": oficios
       });
     } else {
-      let c = Object.keys(this.actor.data.data.periciasCustom).length;
+      let c = periciasCustom.length;
 
-      periciasCustom[c] = pericia;
-
+      periciasCustom.push(pericia);
       this.actor.update({
         "data.periciasCustom": periciasCustom
       });
