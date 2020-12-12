@@ -525,7 +525,7 @@ export class T20ActorSheet extends ActorSheet {
         label: atrnames[data.label]
       }
     }
-    await prepRoll(item, actor);
+    await prepRoll(event, item, actor);
 
   }
 
