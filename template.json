@@ -180,7 +180,7 @@
             "label": "Cura",
             "value": 0,
             "atributo": "sab",
-            "st": true,
+            "st": false,
             "pda": false,
             "treinado": false,
             "treino": 0,

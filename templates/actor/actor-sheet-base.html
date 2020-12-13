@@ -317,7 +317,7 @@
             <tr>
               <td></td>
               <td colspan="3" class="tooltip"><b>Ofícios</b> <i class="fas fa-question-circle"></i>
-                <div class="tooltipcontent">Insira um '*' no nome para incluir penalidade de armadura. </div>
+                <div class="tooltipcontent">Insira um '+' no nome para incluir penalidade de armadura. </div>
               </td>
               <td colspan="2" class="text-right"><a class="item-control oficios-create" title="Create item"
                   data-tipo="oficio"><i class="fas fa-plus"></i> Novo</a> <a class="item-control show-controls"
@@ -328,21 +328,21 @@
             <tr class="skill-tr" data-item-id="{{o}}" data-skill="oficios">
               <td class="col-5">
                 {{#if ofi.treinado }}
-                <input type="checkbox" name="data.pericias.ofi.mais[{{o}}].treinado" value="{{ofi.treinado}}" checked
+                <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}" checked
                   data-dtype="Boolean" /></td>
               {{else}}
-              <input type="checkbox" name="data.pericias.ofi.mais[{{o}}].treinado" value="{{ofi.treinado}}"
+              <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
               <td class="col-15"><span class="rollable pericia-rollable" data-skill="ofi" data-ofi="{{o}}" data-roll="1d20+{{ofi.value}}"
                   data-label="Ofício ({{ofi.nome}})" style="width: 30%;margin-right: 10px;"><i
-                    class="fas fa-dice-d20"></i></span> <input type="text" name="data.pericias.ofi.mais[{{o}}].label"
+                    class="fas fa-dice-d20"></i></span> <input type="text" name="data.pericias.ofi.mais.{{o}}.label"
                   value="{{ofi.label}}" data-dtype="String" style="width:65%" />
               </td>
               <td class='col-10'><input type="text" class="border" value="{{ofi.value}}" data-dtype="Number" disabled />
               </td>
               <td class="col-10 text-center">
-                <select class="selectatr" name="data.pericias.ofi.mais[{{o}}].atributo" value={{ofi.atributo}}
+                <select class="selectatr" name="data.pericias.ofi.mais.{{o}}.atributo" value={{ofi.atributo}}
                   data-dtype="String">
                   {{#select ofi.atributo}}
                   <option value="for">For</option>
@@ -354,11 +354,11 @@
                   {{/select}}
                 </select>
               </td>
-              <input type="hidden" name="data.pericias.ofi.mais[{{o}}].treino" value="{{ofi.treino}}"
+              <input type="hidden" name="data.pericias.ofi.mais.{{o}}.treino" value="{{ofi.treino}}"
                 data-dtype="Number" />
 
               <td class="col-5 text-center">{{ofi.treino}} </td>
-              <td class="col-5 text-center skill-td"><input type="text" name="data.pericias.ofi.mais[{{o}}].outros"
+              <td class="col-5 text-center skill-td"><input type="text" name="data.pericias.ofi.mais.{{o}}.outros"
                   value="{{ofi.outros}}" class="skill-outros" style="display: inline;" data-dtype="Number" /> <a
                   class="item-control skill-delete" style="display: none;" data-item-id="{{o}}" data-tipo="oficios"
                   title="Delete Item"><i class="fas fa-trash"></i></a></td>
@@ -375,7 +375,7 @@
                 data-dtype="Boolean" /></td>
               {{/if}}
               <td class="col-15"><span class="rollable pericia-rollable" data-skill="{{key}}" data-roll="1d20+{{skill.value}}"
-                  data-label="{{skill.label}}" >{{skill.label}} {{#if skill.st}}+{{/if}} {{#if skill.pda}}*{{/if}}</span>
+                  data-label="{{skill.label}}" >{{skill.label}} {{#if skill.st}}*{{/if}} {{#if skill.pda}}+{{/if}}</span>
               </td>
               <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number"
                   disabled /></td>
@@ -404,7 +404,7 @@
             <tr>
               <td></td>
               <td colspan="3" class="tooltip"><b>Nova Perícia</b> <i class="fas fa-question-circle"></i>
-                <div class="tooltipcontent">Insira um '*' no nome para incluir penalidade de armadura. </div>
+                <div class="tooltipcontent">Insira um '+' no nome para incluir penalidade de armadura.</div>
               </td>
               <td colspan="2" class="text-right"><a class="item-control pericia-create" title="Criar Perícia"
                   data-tipo="pericia"><i class="fas fa-plus"></i> Novo</a> <a class="item-control show-controls"
@@ -414,23 +414,23 @@
             <tr class="skill-tr" data-item-id="{{key}}" data-skill="custom">
               <td class="col-5">
                 {{#if skill.treinado }}
-                <input type="checkbox" name="data.periciasCustom[{{key}}].treinado" value="{{skill.treinado}}" checked
+                <input type="checkbox" name="data.periciasCustom.{{key}}.treinado" value="{{skill.treinado}}" checked
                   data-dtype="Boolean" /></td>
               {{else}}
-              <input type="checkbox" name="data.periciasCustom[{{key}}].treinado" value="{{skill.treinado}}"
+              <input type="checkbox" name="data.periciasCustom.{{key}}.treinado" value="{{skill.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
 
               <td class="col-15"><span class="rollable pericia-rollable" data-skill="custom" data-custom="{{key}}" data-roll="1d20+{{skill.value}}"
                   data-label="{{skill.nome}}" style="width: 30%;margin-right: 10px;"><i
-                    class="fas fa-dice-d20"></i></span> <input type="text" name="data.periciasCustom[{{key}}].label"
+                    class="fas fa-dice-d20"></i></span> <input type="text" name="data.periciasCustom.{{key}}.label"
                   value="{{skill.label}}" data-dtype="String" style="width:65%" />
               </td>
 
               <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number"
                   disabled /></td>
               <td class="col-10 text-center">
-                <select class="selectatr" name="data.periciasCustom[{{key}}].atributo" value={{skill.atributo}}
+                <select class="selectatr" name="data.periciasCustom.{{key}}.atributo" value={{skill.atributo}}
                   data-dtype="String">
                   {{#select skill.atributo}}
                   <option value="for">For</option>
@@ -445,7 +445,7 @@
 
 
               <td class="col-5 text-center">{{skill.treino}} </td>
-              <td class="col-5 text-center skill-td"><input type="text" name="data.periciasCustom[{{key}}].outros"
+              <td class="col-5 text-center skill-td"><input type="text" name="data.periciasCustom.{{key}}.outros"
                   value="{{skill.outros}}" class="skill-outros" style="display: inline;" data-dtype="Number" /> <a
                   class="item-control skill-delete" style="display: none;" data-item-id="{{key}}" data-tipo="custom"
                   title="Excluir Perícia"><i class="fas fa-trash"></i></a></td>

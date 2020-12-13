@@ -94,8 +94,8 @@ export class T20Actor extends Actor {
         pericia.nome = pericia.label.replace(/[\*\+]/g, '').trim();
         //match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
 
-        pericia.st = (pericia.label.match(/\+/g) ? true : false);
-        pericia.pda = (pericia.label.match(/\*/g) ? true : false);
+        pericia.st = (pericia.label.match(/\*/g) ? true : false);
+        pericia.pda = (pericia.label.match(/\+/g) ? true : false);
 
         var atributo = pericia.atributo;
         pericia.mod = data.atributos[atributo].mod;

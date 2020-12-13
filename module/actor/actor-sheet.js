@@ -45,7 +45,7 @@ export class T20ActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
-
+    console.log(this.actor);
     // TODO Migrate function to initialize new json data;
     // console.log(this.actor.data.data.pericias.ofi.more);
     if (this.actor.data.data.pericias.ofi.mais === undefined) {
@@ -71,6 +71,16 @@ export class T20ActorSheet extends ActorSheet {
     if (this.actor.data.data.pericias.atl.pda === true) {
       this.actor.update({
         "data.pericias.atl.pda": false
+      });
+    }
+    if (this.actor.data.data.pericias.cur.st === true) {
+      this.actor.update({
+        "data.pericias.cur.st": false
+      });
+    }
+    if (this.actor.data.data.pericias.jog.st === false) {
+      this.actor.update({
+        "data.pericias.jog.st": true
       });
     }
     if (this.actor.data.data.attributes.cd === undefined) {
@@ -281,20 +291,6 @@ export class T20ActorSheet extends ActorSheet {
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
-    // html.find('.skill-delete').click(ev => {
-    //   const t = $(ev.currentTarget);
-    //   const l = ev.currentTarget.dataset.itemId;
-    //   const tipo = ev.currentTarget.dataset.tipo;
-    //   if (tipo == "oficios") {
-    //     // console.log("apagando oficios");
-    //     delete this.actor.data.data.pericias.ofi.mais[l];
-    //   } else {
-    //     // console.log("apagando custom");
-    //     delete this.actor.data.data.periciasCustom[l];
-    //   }
-
-    //   this.render();
-    // });
 
 
     // Rollable abilities.
@@ -347,7 +343,7 @@ export class T20ActorSheet extends ActorSheet {
       dragData.type = "ActiveEffect";
       dragData.data = effect.data;
     }
-    // Active Effect
+    // Pericias
     if ( li.dataset.skill ) {
       let skill;
       if(li.dataset.ofi) {
@@ -564,7 +560,7 @@ export class T20ActorSheet extends ActorSheet {
         label: atrnames[data.label]
       }
     }
-    await prepRoll(event, item, actor);
+    await prepRoll(item, actor);
 
   }
 

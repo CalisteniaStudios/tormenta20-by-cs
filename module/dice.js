@@ -1,6 +1,6 @@
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 /* Standardized Roll Script */
-export async function prepRoll(event, item, actor = null, extra = {}) {
+export async function prepRoll(item, actor = null, extra = {}) {
   actor = !actor ? this.actor : actor;
   const actorData = actor.data.data;
   // Initialize variables.
@@ -57,7 +57,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
             custoAdic.trim().charAt(0) != "+" &&
             custoAdic.trim().charAt(0) != "-"
           ) {
-            custoAdic += "+";
+            custoAdic = "+"+custoAdic;
           }
           templateData.custo =
             parseInt(templateData.custo) + parseInt(custoAdic);
@@ -118,7 +118,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
           rollBonus.trim().charAt(0) != "+" &&
           rollBonus.trim().charAt(0) != "-"
         )
-          rollBonus += "+";
+          rollBonus = "+"+rollBonus;
         formula = formula + rollBonus;
         rollT20(formula, actor, templateData);
       };
@@ -173,7 +173,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
           rollBonus.trim().charAt(0) != "+" &&
           rollBonus.trim().charAt(0) != "-"
         )
-          rollBonus += "+";
+          rollBonus = "+"+rollBonus;
         formula = formula + rollBonus;
         rollT20(formula, actor, templateData);
       };
