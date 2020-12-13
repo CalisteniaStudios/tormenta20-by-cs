@@ -262,7 +262,6 @@ export class T20ActorSheet extends ActorSheet {
     html.find('.skill-tr').find('input,select').change(this._onPericiaCustomUpdate.bind(this));
 
     html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
-    html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
 
     html.find('.show-controls').click(this._toggleControls.bind(this));
 
@@ -431,12 +430,12 @@ export class T20ActorSheet extends ActorSheet {
     let c = 0;
     if (tipo == 'oficios') {
       let oficios = this.actor.data.data.pericias.ofi.mais;
-      oficios.pop(id);
+      oficios.splice(id,1);
       
       await this.actor.update({"data.pericias.ofi.mais": oficios });
     } else {
       let pericias = this.actor.data.data.periciasCustom;
-      pericias.pop(id);
+      pericias.splice(id,1);
 
       await this.actor.update({"data.periciasCustom": pericias });
     }
@@ -565,7 +564,7 @@ export class T20ActorSheet extends ActorSheet {
         label: atrnames[data.label]
       }
     }
-    await prepRoll(item, actor);
+    await prepRoll(event, item, actor);
 
   }
 

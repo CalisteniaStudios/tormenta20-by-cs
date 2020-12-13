@@ -1,6 +1,6 @@
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 /* Standardized Roll Script */
-export async function prepRoll(item, actor = null, extra = {}) {
+export async function prepRoll(event, item, actor = null, extra = {}) {
   actor = !actor ? this.actor : actor;
   const actorData = actor.data.data;
   // Initialize variables.
@@ -22,11 +22,6 @@ export async function prepRoll(item, actor = null, extra = {}) {
   let templateRollDialog = "systems/tormenta20/templates/chat/roll-dialog.html";
 
   let rollMode = game.settings.get("core", "rollMode");
-
-  if (["gmroll", "blindroll"].includes(rollMode))
-  chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-  if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-  if (rollMode === "blindroll") chatData["blind"] = true;
 
   // Handle rolls coming directly from the ability score.  && data.mod
 
@@ -52,15 +47,20 @@ export async function prepRoll(item, actor = null, extra = {}) {
     if (!event.shiftKey || !item.data.data.custo) {
       rollT20(formula, actor, templateData);
     } else {
-
       let dialogCallback = (html) => {
         rollMode = html.find('[name="rollMode"]').val();
+        templateData.rollMode = rollMode;
         if (item.data.data.custo > 0) {
           let custoAdic = html.find('[name="ajustecusto"]').val();
-          if (custoAdic.length > 0 && custoAdic.trim().charAt(0) != "+" && custoAdic.trim().charAt(0) != "-"){
+          if (
+            custoAdic.length > 0 &&
+            custoAdic.trim().charAt(0) != "+" &&
+            custoAdic.trim().charAt(0) != "-"
+          ) {
             custoAdic += "+";
           }
-          templateData.custo = parseInt(templateData.custo) + parseInt(custoAdic);
+          templateData.custo =
+            parseInt(templateData.custo) + parseInt(custoAdic);
         }
 
         rollT20(formula, actor, templateData);
@@ -86,7 +86,7 @@ export async function prepRoll(item, actor = null, extra = {}) {
           }).render(true);
         });
       });
-    }   
+    }
   } else if (item.type == "atributo") {
     formula = item.roll;
     if (event.altKey) {
@@ -105,14 +105,13 @@ export async function prepRoll(item, actor = null, extra = {}) {
       rollMode: rollMode,
       rollModes: CONFIG.Dice.rollModes
     };
-    if (!event.shiftKey ){
-    rollT20(formula, actor, templateData);
-    }
-    else
-    {
+    if (!event.shiftKey) {
+      rollT20(formula, actor, templateData);
+    } else {
       templateData.formula = formula;
       let dialogCallback = (html) => {
         rollMode = html.find('[name="rollMode"]').val();
+        templateData.rollMode = rollMode;
         let rollBonus = html.find('[name="bonus"]').val();
         if (
           rollBonus.length > 0 &&
@@ -120,8 +119,8 @@ export async function prepRoll(item, actor = null, extra = {}) {
           rollBonus.trim().charAt(0) != "-"
         )
           rollBonus += "+";
-          formula = formula + rollBonus;
-          rollT20(formula, actor, templateData);
+        formula = formula + rollBonus;
+        rollT20(formula, actor, templateData);
       };
       return new Promise((resolve) => {
         renderTemplate(templateRollDialog, templateData).then((dlg) => {
@@ -162,10 +161,10 @@ export async function prepRoll(item, actor = null, extra = {}) {
       rollModes: CONFIG.Dice.rollModes
     };
     if (!event.shiftKey) {
-    rollT20(formula, actor, templateData);
-    }
-    else{
+      rollT20(formula, actor, templateData);
+    } else {
       templateData.formula = formula;
+      templateData.rollMode = rollMode;
       let dialogCallback = (html) => {
         rollMode = html.find('[name="rollMode"]').val();
         let rollBonus = html.find('[name="bonus"]').val();
@@ -175,8 +174,8 @@ export async function prepRoll(item, actor = null, extra = {}) {
           rollBonus.trim().charAt(0) != "-"
         )
           rollBonus += "+";
-          formula = formula + rollBonus;
-          rollT20(formula, actor, templateData);
+        formula = formula + rollBonus;
+        rollT20(formula, actor, templateData);
       };
       return new Promise((resolve) => {
         renderTemplate(templateRollDialog, templateData).then((dlg) => {
@@ -321,37 +320,49 @@ export async function prepRoll(item, actor = null, extra = {}) {
       templateData.custo = item.data.data.custo;
     }
     if (!event.shiftKey) {
-    rollT20(formula, actor, templateData, item.data.data.criticoM);
-    }
-    else
-    {
+      rollT20(formula, actor, templateData, item.data.data.criticoM);
+    } else {
       templateData.formula = formula.atq;
       templateData.formuladano = formula.dano;
       templateData.formuladanocritico = formula.crit;
 
       let dialogCallback = (html) => {
         rollMode = html.find('[name="rollMode"]').val();
+        templateData.rollMode = rollMode;
         let rollBonus = html.find('[name="bonus"]').val();
-        if ( rollBonus.length > 0 && rollBonus.trim().charAt(0) != "+" && rollBonus.trim().charAt(0) != "-"){
+        if (
+          rollBonus.length > 0 &&
+          rollBonus.trim().charAt(0) != "+" &&
+          rollBonus.trim().charAt(0) != "-"
+        ) {
           console.log("entrou");
           rollBonus = "+" + rollBonus;
         }
         let rollBonusDano = html.find('[name="bonusdano"]').val();
-        if (   rollBonusDano.length > 0 &&   rollBonusDano.trim().charAt(0) != "+" &&   rollBonusDano.trim().charAt(0) != "-" ){
+        if (
+          rollBonusDano.length > 0 &&
+          rollBonusDano.trim().charAt(0) != "+" &&
+          rollBonusDano.trim().charAt(0) != "-"
+        ) {
           rollBonusDano = "+" + rollBonusDano;
         }
         if (item.data.data.custo > 0) {
           let custoAdic = html.find('[name="ajustecusto"]').val();
-          if ( custoAdic.length > 0 && custoAdic.trim().charAt(0) != "+" && custoAdic.trim().charAt(0) != "-" ){
-            custoAdic = "+"+custoAdic;
+          if (
+            custoAdic.length > 0 &&
+            custoAdic.trim().charAt(0) != "+" &&
+            custoAdic.trim().charAt(0) != "-"
+          ) {
+            custoAdic = "+" + custoAdic;
           }
-          templateData.custo = parseInt(templateData.custo) + parseInt(custoAdic);
+          templateData.custo =
+            parseInt(templateData.custo) + parseInt(custoAdic);
         }
         formula.atq += rollBonus;
         formula.dano += rollBonusDano;
         formula.crit += rollBonusDano;
-        
-        rollT20(formula, actor, templateData, item.data.data.criticoM);;
+
+        rollT20(formula, actor, templateData, item.data.data.criticoM);
       };
 
       return new Promise((resolve) => {
@@ -375,229 +386,272 @@ export async function prepRoll(item, actor = null, extra = {}) {
         });
       });
     }
-  } else if (item.type == 'magia') {
-      /* -------------------------------------------- */
-      /*  APRIMORAMENTOS                              */
-      /* -------------------------------------------- */
-      let semFormula;
-      let newFormula;
-      let newDado;
-      let PMTotal = 0;
-      let eTruque = false;
-      let aprimoramentos = [];
-      let aplicados = [];
-      let aprimoramentoData = null;
+  } else if (item.type == "magia") {
+    /* -------------------------------------------- */
+    /*  APRIMORAMENTOS                              */
+    /* -------------------------------------------- */
+    let semFormula;
+    let newFormula;
+    let newDado;
+    let PMTotal = 0;
+    let eTruque = false;
+    let aprimoramentos = [];
+    let aplicados = [];
+    let aprimoramentoData = null;
 
-      if(event.shiftKey){
-        aprimoramentoData = await ConjurarDialog.create(actor, item);
-        let aplicas = aprimoramentoData.getAll("aplica[]");
-        let ids = aprimoramentoData.getAll("id[]");
-        aprimoramentoData = {};
-        for (var i = 0; i < aplicas.length; i++){
-          if(aplicas[i]>0){
-            aprimoramentoData[ids[i]] = aplicas[i];
-          }
+    if (event.shiftKey) {
+      aprimoramentoData = await ConjurarDialog.create(actor, item);
+      let aplicas = aprimoramentoData.getAll("aplica[]");
+      let ids = aprimoramentoData.getAll("id[]");
+      aprimoramentoData = {};
+      for (var i = 0; i < aplicas.length; i++) {
+        if (aplicas[i] > 0) {
+          aprimoramentoData[ids[i]] = aplicas[i];
         }
-        aplicados = item.data.data.aprimoramentos.filter(ap => Object.keys(aprimoramentoData).indexOf(ap.id) !== -1);
+      }
+      aplicados = item.data.data.aprimoramentos.filter(
+        (ap) => Object.keys(aprimoramentoData).indexOf(ap.id) !== -1
+      );
+    } else {
+      aplicados = item.data.data.aprimoramentos.filter(
+        (ap) => ap.ativo === true
+      );
+    }
+
+    aplicados.forEach(function (apr) {
+      let ap = {};
+      if (aprimoramentoData) {
+        ap.gasto = aprimoramentoData[apr.id] * apr.custo;
       } else {
-        aplicados = item.data.data.aprimoramentos.filter(ap => ap.ativo === true);
+        ap.gasto = apr.custo;
       }
+      PMTotal = PMTotal + parseInt(ap.gasto);
+      ap.qtd = ap.gasto / apr.custo;
+      ap.tipo = apr.tipo;
+      ap.custo = apr.custo;
+      ap.description = apr.description.replace(/§/g, ap.qtd);
 
-      aplicados.forEach(function(apr){
-        let ap = {};
-        if(aprimoramentoData){
-          ap.gasto = aprimoramentoData[apr.id]*apr.custo;
+      if (apr.formula.match(/^d\d+$/)) {
+        newDado = apr.formula.match(/.*/)[0];
+      } else if (ap.tipo === "Aumenta" && apr.formula !== "") {
+        let neoFormula = {
+          qtd:
+            parseInt(
+              (item.data.data.efeito.match(/^\d+d/) ?? [0])[0].replace("d", "")
+            ) +
+            parseInt((apr.formula.match(/^\d+d/) ?? [0])[0].replace("d", "")) *
+              ap.qtd,
+          bonus:
+            parseInt((item.data.data.efeito.match(/\+\d+/) ?? [0])[0]) +
+            parseInt((apr.formula.match(/\+\d+/) ?? [0])[0]) * ap.qtd,
+        };
+        let fnlFormula = item.data.data.efeito
+          .replace(/^\d+d/, neoFormula["qtd"] + "d")
+          .replace(/\+\d+/, "+" + neoFormula["bonus"]);
+        newFormula = fnlFormula;
+      } else if (apr.formula === "-") {
+        semFormula = 1;
+      } else if (apr.formula !== "") {
+        newFormula = apr.formula;
+      }
+      if (newFormula) {
+        if (
+          newFormula.match(
+            /(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/
+          )
+        ) {
+          //ok
         } else {
-          ap.gasto = apr.custo;
+          newFormula = null;
+          console.log("Algo de errado com a formula inserida");
         }
-        PMTotal = PMTotal + parseInt(ap.gasto);
-        ap.qtd = ap.gasto/apr.custo;
-        ap.tipo = apr.tipo;
-        ap.custo = apr.custo;
-        ap.description = apr.description.replace(/§/g, ap.qtd);
-
-        if(apr.formula.match(/^d\d+$/)) {
-          newDado = apr.formula.match(/.*/)[0];
-        } else if(ap.tipo==="Aumenta" && apr.formula!=="") {
-          let neoFormula = {
-            'qtd': parseInt((item.data.data.efeito.match(/^\d+d/)??[0])[0].replace('d',''))+parseInt((apr.formula.match(/^\d+d/)??[0])[0].replace('d',''))*ap.qtd,
-            'bonus': parseInt((item.data.data.efeito.match(/\+\d+/)??[0])[0])+parseInt((apr.formula.match(/\+\d+/)??[0])[0])*ap.qtd
-          };
-          let fnlFormula = item.data.data.efeito.replace(/^\d+d/, neoFormula['qtd']+'d').replace(/\+\d+/, '+'+neoFormula['bonus']);
-          newFormula = fnlFormula;
-        } else if(apr.formula==="-") {
-          semFormula = 1;
-        } else if(apr.formula!=="") {
-          newFormula = apr.formula;
-        }
-        if(newFormula){
-          if(newFormula.match(/(\d+d\d+)([+-][\d]+|[+-]@[\w]{3}|(r|r<|x|x<|xo)[\d]+)*/)){
-            //ok
-          } else {
-            newFormula = null;
-            console.log('Algo de errado com a formula inserida');
-          }
-        }
-        if(apr.tipo === "Truque") {
-          eTruque = true;
-        }
-
-        aprimoramentos.push(ap);
-      });
-      /* -------------------------------------------- */
-      /*  //APRIMORAMENTOS                            */
-      /* -------------------------------------------- */
-      formula = !newFormula? item.data.data.efeito : newFormula;
-      formula = !semFormula? formula : "";
-      formula = !newDado? formula : formula.replace(/d\d+/, newDado);
-      formula = formula.replace(/\@\w+\b/g, function(match){
-                    return "("+T20Utility.short(match, actorData)+")";
-                });
-      
-      flavorText = item.name;
-      spellHeader = {};
-      spellHeader.tipo = item.data.data.tipo;
-      spellHeader.circulo = item.data.data.circulo;
-      spellHeader.escola = item.data.data.escola;
-      spellHeader.custo = (eTruque? 0: Math.max(parseInt(item.data.data.custo) + PMTotal,1));
-      spellHeader.execucao = item.data.data.execucao;
-      spellHeader.alcance = item.data.data.alcance;
-      spellHeader.alvo = item.data.data.alvo;
-      spellHeader.area = item.data.data.area;
-      spellHeader.duracao = item.data.data.duracao;
-      spellHeader.resistencia = item.data.data.resistencia;
-      detailText = item.data.data.description;
-
-      templateData = {
-        title: flavorText,
-        flavor: flavorDesc,
-        spell: spellHeader,
-        details: detailText,
-        aprimoramentos: aprimoramentos
-      };
-
-      if (!eTruque && item.data.data.custo > 0) {
-        templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal,1);
-      } else if(eTruque) {
-        templateData.custo = 0;
-        templateData.truque = 1;
       }
-      rollT20(formula, actor, templateData);
+      if (apr.tipo === "Truque") {
+        eTruque = true;
+      }
 
-    } else if (itemId != undefined) {
+      aprimoramentos.push(ap);
+    });
+    /* -------------------------------------------- */
+    /*  //APRIMORAMENTOS                            */
+    /* -------------------------------------------- */
+    formula = !newFormula ? item.data.data.efeito : newFormula;
+    formula = !semFormula ? formula : "";
+    formula = !newDado ? formula : formula.replace(/d\d+/, newDado);
+    formula = formula.replace(/\@\w+\b/g, function (match) {
+      return "(" + T20Utility.short(match, actorData) + ")";
+    });
+
+    flavorText = item.name;
+    spellHeader = {};
+    spellHeader.tipo = item.data.data.tipo;
+    spellHeader.circulo = item.data.data.circulo;
+    spellHeader.escola = item.data.data.escola;
+    spellHeader.custo = eTruque
+      ? 0
+      : Math.max(parseInt(item.data.data.custo) + PMTotal, 1);
+    spellHeader.execucao = item.data.data.execucao;
+    spellHeader.alcance = item.data.data.alcance;
+    spellHeader.alvo = item.data.data.alvo;
+    spellHeader.area = item.data.data.area;
+    spellHeader.duracao = item.data.data.duracao;
+    spellHeader.resistencia = item.data.data.resistencia;
+    detailText = item.data.data.description;
+
+    templateData = {
+      title: flavorText,
+      flavor: flavorDesc,
+      spell: spellHeader,
+      details: detailText,
+      aprimoramentos: aprimoramentos,
+    };
+
+    if (!eTruque && item.data.data.custo > 0) {
+      templateData.custo = Math.max(
+        parseInt(item.data.data.custo) + PMTotal,
+        1
+      );
+    } else if (eTruque) {
+      templateData.custo = 0;
+      templateData.truque = 1;
+    }
+    rollT20(formula, actor, templateData);
+  } else if (itemId != undefined) {
     data.roll();
   }
 }
 
 function rollT20(roll, actor, templateData, criticoM = null) {
-
   let actorData = actor.data.data;
-    // Render the roll.
-    let template = 'systems/tormenta20/templates/chat/chat-card.html';
-    let dmgroll = null;
-    // GM rolls.
-    let combate = game.combats.active;
+  // Render the roll.
+  let template = "systems/tormenta20/templates/chat/chat-card.html";
+  let dmgroll = null;
+  // GM rolls.
+  let combate = game.combats.active;
 
-    let chatData = {
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({
-        actor: actor
-      }),
-      flags: {"core.canPopout": true}
-    };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
+  let chatData = {
+    user: game.user._id,
+    speaker: ChatMessage.getSpeaker({
+      actor: actor,
+    }),
+    flags: { "core.canPopout": true },
+  };
 
-    // Handle dice rolls.
-    let danoFormula = false;
-    let critFormula = false;
-    let tipoCritico = "";
-    let tipoFalha = "";
+  let rollMode = game.settings.get("core", "rollMode");
+  if (templateData.rollMode) {
+    let rollMode = templateData.rollMode;
+  }
 
-    if (typeof roll === 'object') {
-      // remove signs from end of sting
-      if (roll.dano != null) {
-        danoFormula = roll.dano.trim().replace(/([\+\-]+$)/g, '');
-        critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, '');
-      }
-      roll = roll.atq.trim().replace(/([\+\-]+$)/g, '');
+  if (["gmroll", "blindroll"].includes(rollMode))
+    chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+  if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
+  if (rollMode === "blindroll") chatData["blind"] = true;
+
+  // Handle dice rolls.
+  let danoFormula = false;
+  let critFormula = false;
+  let tipoCritico = "";
+  let tipoFalha = "";
+
+  if (typeof roll === "object") {
+    // remove signs from end of sting
+    if (roll.dano != null) {
+      danoFormula = roll.dano.trim().replace(/([\+\-]+$)/g, "");
+      critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, "");
+    }
+    roll = roll.atq.trim().replace(/([\+\-]+$)/g, "");
+  }
+
+  if (roll) {
+    // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
+    let formula = "";
+
+    if (roll.match(/(\d*)d\d+/g)) {
+      formula = roll;
     }
 
-    if (roll) {
-      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-      let formula = '';
+    if (formula != null) {
+      let roll = new Roll(`${formula}`);
+      roll.roll();
+      let result = roll.results[0];
 
-      if (roll.match(/(\d*)d\d+/g)) {
-
-        formula = roll;
+      if (result == 20) {
+        tipoCritico = "critico";
+      } else if (result == 1) {
+        tipoFalha = "falha";
       }
-
-      if (formula != null) {
-        let roll = new Roll(`${formula}`);
-        roll.roll();
-        let result = roll.results[0];
-
-        if(result == 20)
-        {
+      if (templateData.title == "Iniciativa" && combate) {
+        let combatente = combate.combatants.find(
+          (combatant) => combatant.actor.id === actor.id
+        );
+        if (combatente && combatente.iniciative == null) {
+          combate.setInitiative(combatente._id, result);
+          console.log(
+            "Foundry VTT | Iniciativa Atualizada para " +
+              combatente._id +
+              " (" +
+              combatente.actor.name +
+              ")"
+          );
+        }
+      }
+      let rollTemplate = {
+        template: "systems/tormenta20/templates/chat/t20roll.html",
+      };
+      // Check if there are dmg rolls and what critical math to use
+      if (danoFormula) {
+        if (result >= criticoM) {
+          dmgroll = new Roll(`${critFormula}`);
           tipoCritico = "critico";
+        } else {
+          dmgroll = new Roll(`${danoFormula}`);
         }
-        else if(result == 1)
-        {
-          tipoFalha = "falha";
-        }
-        if(templateData.title == "Iniciativa" && combate){
-          let combatente = combate.combatants.find(combatant => combatant.actor.id === actor.id);
-          if(combatente && combatente.iniciative == null){
-            combate.setInitiative(combatente._id,result);
-            console.log("Foundry VTT | Iniciativa Atualizada para "+combatente._id+" ("+combatente.actor.name+")");
-          }
-        }
-        let rollTemplate = {
-            template: "systems/tormenta20/templates/chat/t20roll.html"
-          };
-        // Check if there are dmg rolls and what critical math to use
-        if (danoFormula) {
-          if (result >= criticoM) {
-            dmgroll = new Roll(`${critFormula}`);
-            tipoCritico = "critico";
-          } else {
-            dmgroll = new Roll(`${danoFormula}`);
-          }
-          dmgroll.roll();
-          dmgroll.render(rollTemplate).then(r => {
-            templateData.rollDano = r;
-            templateData.critico = tipoCritico;
-            templateData.falha = tipoFalha;
-          });
-
-        }
-        // Render it.
-
-        roll.render(rollTemplate).then(r => {
-          templateData.roll = r;
+        dmgroll.roll();
+        dmgroll.render(rollTemplate).then((r) => {
+          templateData.rollDano = r;
           templateData.critico = tipoCritico;
           templateData.falha = tipoFalha;
-
-          renderTemplate(template, templateData).then(content => {
-            chatData.content = content;
-            if (game.dice3d) {
-              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              if(dmgroll){
-                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
-              }
-            } else {
-              chatData.sound = CONFIG.sounds.dice;
-              ChatMessage.create(chatData);
-            }
-          });
         });
       }
-    } else {
-      renderTemplate(template, templateData).then(content => {
-        chatData.content = content;
-        ChatMessage.create(chatData);
+      // Render it.
+
+      roll.render(rollTemplate).then((r) => {
+        templateData.roll = r;
+        templateData.critico = tipoCritico;
+        templateData.falha = tipoFalha;
+
+        renderTemplate(template, templateData).then((content) => {
+          chatData.content = content;
+          if (game.dice3d) {
+            game.dice3d
+              .showForRoll(
+                roll,
+                game.user,
+                true,
+                chatData.whisper,
+                chatData.blind
+              )
+              .then((displayed) => ChatMessage.create(chatData));
+            if (dmgroll) {
+              game.dice3d.showForRoll(
+                dmgroll,
+                game.user,
+                true,
+                chatData.whisper,
+                chatData.blind
+              );
+            }
+          } else {
+            chatData.sound = CONFIG.sounds.dice;
+            ChatMessage.create(chatData);
+          }
+        });
       });
     }
+  } else {
+    renderTemplate(template, templateData).then((content) => {
+      chatData.content = content;
+      ChatMessage.create(chatData);
+    });
+  }
 }
