@@ -421,7 +421,7 @@ export async function prepRoll(item, actor = null, extra = {}) {
     aplicados.forEach(function (apr) {
       let ap = {};
       if (aprimoramentoData) {
-        ap.gasto = aprimoramentoData[apr.id] * apr.custo;
+        ap.gasto = aprimoramentoData[apr.id];
       } else {
         ap.gasto = apr.custo;
       }
