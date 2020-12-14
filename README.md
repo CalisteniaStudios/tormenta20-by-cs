@@ -23,9 +23,9 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Correções para atualização 0.7.5 do Foundry~~ (v0.9.82)
 * ~~Correções para atualização 0.7.8 do Foundry~~ (v0.9.84)
 * ~~Correções adicionais de ataques, medição de distância por etapas e melhor visualização de críticos~~ (v0.9.85)
-* ~~Melhorar macros, permitir alterar um ataque pela macro sem duplicar o ataque~~ (v0.9.9)
 * ~~Suporte a aprimoramentos das magias~~ (v0.9.9)
 * ~~Personalizar rolagens usando atalhos do teclado (SHIFT, CTRL, ALT)~~ (v0.9.9)
+* Melhorar macros, permitir alterar um ataque pela macro sem duplicar o ataque
 * Layout da ficha
 
 ## Colaboradores

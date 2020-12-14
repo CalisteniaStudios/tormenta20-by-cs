@@ -335,7 +335,6 @@ export async function prepRoll(item, actor = null, extra = {}) {
           rollBonus.trim().charAt(0) != "+" &&
           rollBonus.trim().charAt(0) != "-"
         ) {
-          console.log("entrou");
           rollBonus = "+" + rollBonus;
         }
         let rollBonusDano = html.find('[name="bonusdano"]').val();
@@ -398,7 +397,6 @@ export async function prepRoll(item, actor = null, extra = {}) {
     let aprimoramentos = [];
     let aplicados = [];
     let aprimoramentoData = null;
-
     if (event.shiftKey) {
       aprimoramentoData = await ConjurarDialog.create(actor, item);
       let aplicas = aprimoramentoData.getAll("aplica[]");
@@ -409,10 +407,12 @@ export async function prepRoll(item, actor = null, extra = {}) {
           aprimoramentoData[ids[i]] = aplicas[i];
         }
       }
-      aplicados = item.data.data.aprimoramentos.filter(
+      if(item.data.data.aprimoramentos !== undefined && Array.isArray(item.data.data.aprimoramentos)){
+        aplicados = item.data.data.aprimoramentos.filter(
         (ap) => Object.keys(aprimoramentoData).indexOf(ap.id) !== -1
       );
-    } else {
+        }
+    } else if(item.data.data.aprimoramentos !== undefined && Array.isArray(item.data.data.aprimoramentos)) {
       aplicados = item.data.data.aprimoramentos.filter(
         (ap) => ap.ativo === true
       );
