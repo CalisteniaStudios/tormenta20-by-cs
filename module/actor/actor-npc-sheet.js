@@ -454,7 +454,7 @@ export class T20ActorNPCSheet extends ActorSheet {
     const a = event.currentTarget;
     const data = a.dataset;
     const actorData = actor.data.data;
-    const itemId = $(a).attr('data-item-id');
+    const itemId = $(a).closest('li').attr('data-item-id');
     let item = {
         type: 'outros',
         roll: data.roll,
