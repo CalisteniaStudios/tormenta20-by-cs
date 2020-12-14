@@ -41,12 +41,12 @@
       <div>
         <div class="npc-line">
           <p>
-            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.ini.value}}"
+            <span class="rollable pericia-rollable" data-skill="ini" data-roll="1d20+{{data.pericias.ini.value}}"
               data-label="Iniciativa"><label>Iniciativa</label></span>
             <input type="text" name="data.pericias.ini.value" value="{{data.pericias.ini.value}}" data-dtype="Number"
               title="Iniciativa">
             &nbsp;&nbsp;
-            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.per.value}}"
+            <span class="rollable pericia-rollable" data-skill="per" data-roll="1d20+{{data.pericias.per.value}}"
               data-label="Percepção"><label>Percepção</label></span>
             <input type="text" name="data.pericias.per.value" value="{{data.pericias.per.value}}" data-dtype="Number"
               title="Percepção">
@@ -69,15 +69,15 @@
             <label>RD</label>
             <input type="text" name="data.rd.value" value="{{data.rd.value}}" data-dtype="Number" title="RD">
             &nbsp;&nbsp;
-            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.for.value}}"
+            <span class="rollable pericia-rollable" data-skill="for" data-roll="1d20+{{data.pericias.for.value}}"
               data-label="Fortitude"><label>Fort</label></span>
             <input type="text" name="data.pericias.for.value" value="{{data.pericias.for.value}}" data-dtype="Number"
               title="Fortitude">
-            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.ref.value}}"
+            <span class="rollable pericia-rollable" data-skill="ref" data-roll="1d20+{{data.pericias.ref.value}}"
               data-label="Reflexos"><label>Ref</label></span>
             <input type="text" name="data.pericias.ref.value" value="{{data.pericias.ref.value}}" data-dtype="Number"
               title="Reflexos">
-            <span class="rollable pericia-rollable" data-roll="1d20+{{data.pericias.von.value}}"
+            <span class="rollable pericia-rollable" data-skill="von" data-roll="1d20+{{data.pericias.von.value}}"
               data-label="Vontade"><label>Von</label></span>
             <input type="text" name="data.pericias.von.value" value="{{data.pericias.von.value}}" data-dtype="Number"
               title="Vontade">
@@ -224,8 +224,8 @@
           <li>
             <div class="item-name pericias"><label>Perícias: </label>
               {{#each actor.data.periciasCustom as |skill key|}}
-              <span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}" data-item-id="{{key}}"
-                data-label="{{skill.nome}}" style="display: inline;"><label class="skill-name">{{skill.label}}
+              <span class="rollable pericia-rollable" data-skill="custom" data-custom="{{key}}" data-roll="1d20+{{skill.value}}" 
+                data-label="{{skill.label}}" style="display: inline;"><label class="skill-name">{{skill.label}}
                   +{{skill.value}}</label></span>
               <span class="item-control" style="display: none;"><input type="text"
                   name="data.periciasCustom.{{key}}.label" value="{{skill.label}}" data-dtype="String"

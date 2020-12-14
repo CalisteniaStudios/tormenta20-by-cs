@@ -1,6 +1,4 @@
-import {
-  T20Utility
-} from '../utility.js';
+import { T20Utility } from '../utility.js';
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -63,43 +61,46 @@ export class T20Actor extends Actor {
       pericia.mod = data.atributos[atributo].mod;
       pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
+    
+    if(data.pericias.ofi.mais){
+      for (let [key, pericia] of Object.entries(data.pericias.ofi.mais)) {
+        // Calculate the pericias .
+        if (pericia.treinado) {
+          pericia.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2))
+        } else {
+          pericia.treino = 0;
+        }
 
-    for (let [key, pericia] of Object.entries(data.pericias.ofi.mais)) {
-      // Calculate the pericias .
-      if (pericia.treinado) {
-        pericia.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2))
-      } else {
-        pericia.treino = 0;
+        pericia.nome = pericia.label.replace(/[\*\+]/g, '').trim();
+        //.match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
+
+        pericia.st = (pericia.label.match(/\+/g) ? true : false);
+        pericia.pda = (pericia.label.match(/\*/g) ? true : false);
+
+        var atributo = pericia.atributo;
+        pericia.mod = data.atributos[atributo].mod;
+        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
       }
-
-      pericia.nome = pericia.label.replace(/[\*\+]/g, '').trim();
-      //.match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
-
-      pericia.st = (pericia.label.match(/\+/g) ? true : false);
-      pericia.pda = (pericia.label.match(/\*/g) ? true : false);
-
-      var atributo = pericia.atributo;
-      pericia.mod = data.atributos[atributo].mod;
-      pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
+    if(data.periciasCustom){
+      for (let [key, pericia] of Object.entries(data.periciasCustom)) {
+        // Calculate the pericias .
+        if (pericia.treinado) {
+          pericia.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2))
+        } else {
+          pericia.treino = 0;
+        }
 
-    for (let [key, pericia] of Object.entries(data.periciasCustom)) {
-      // Calculate the pericias .
-      if (pericia.treinado) {
-        pericia.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2))
-      } else {
-        pericia.treino = 0;
+        pericia.nome = pericia.label.replace(/[\*\+]/g, '').trim();
+        //match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
+
+        pericia.st = (pericia.label.match(/\*/g) ? true : false);
+        pericia.pda = (pericia.label.match(/\+/g) ? true : false);
+
+        var atributo = pericia.atributo;
+        pericia.mod = data.atributos[atributo].mod;
+        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
       }
-
-      pericia.nome = pericia.label.replace(/[\*\+]/g, '').trim();
-      //match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
-
-      pericia.st = (pericia.label.match(/\+/g) ? true : false);
-      pericia.pda = (pericia.label.match(/\*/g) ? true : false);
-
-      var atributo = pericia.atributo;
-      pericia.mod = data.atributos[atributo].mod;
-      pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
 
     data.defesa.armad = data.armadura.equipado ? Number(data.armadura.defesa) : 0;

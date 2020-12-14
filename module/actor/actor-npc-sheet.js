@@ -1,4 +1,6 @@
 import { T20Utility } from '../utility.js';
+import ConjurarDialog from "../apps/conjurar-dialog.js";
+import { prepRoll } from "../dice.js";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -161,8 +163,9 @@ export class T20ActorNPCSheet extends ActorSheet {
     html.find('.dc-editing').focusout(this._toggleDCedit.bind(this));
     
 
-    // Add pericias
+    // Add/Delete pericias
     html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
+    html.find('.il-skill-delete').click(this._onPericiaCustomDelete.bind(this));
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
@@ -193,13 +196,13 @@ export class T20ActorNPCSheet extends ActorSheet {
       this.render();
     });
 
-    html.find('.il-skill-delete').click(ev => {
-      const t = $(ev.currentTarget);
-      const l = ev.currentTarget.dataset.itemId;
+    // html.find('.il-skill-delete').click(ev => {
+    //   const t = $(ev.currentTarget);
+    //   const l = ev.currentTarget.dataset.itemId;
 
-      delete this.actor.data.data.periciasCustom[l];
-      this.render();
-    });
+    //   delete this.actor.data.data.periciasCustom[l];
+    //   this.render();
+    // });
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
@@ -217,7 +220,56 @@ export class T20ActorNPCSheet extends ActorSheet {
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
+      html.find('span.pericia-rollable').each((i, li) => {
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
     }
+  }
+
+  /** @override */
+  _onDragStart(event) {
+    const li = event.currentTarget;
+    if ( event.target.classList.contains("entity-link") ) return;
+
+    // Create drag data
+    const dragData = {
+      actorId: this.actor.id,
+      sceneId: this.actor.isToken ? canvas.scene?.id : null,
+      tokenId: this.actor.isToken ? this.actor.token.id : null
+    };
+
+    // Owned Items
+    if ( li.dataset.itemId ) {
+      const item = this.actor.items.get(li.dataset.itemId);
+      dragData.type = "Item";
+      dragData.data = item.data;
+    }
+
+    // Active Effect
+    if ( li.dataset.effectId ) {
+      const effect = this.actor.effects.get(li.dataset.effectId);
+      dragData.type = "ActiveEffect";
+      dragData.data = effect.data;
+    }
+    // Skills
+    if ( li.dataset.skill ) {
+      let skill;
+      if(li.dataset.ofi) {
+        skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.ofi];
+        dragData.subtype = "oficios";
+      } else if(li.dataset.custom) {
+        skill = this.actor.data.data.periciasCustom[li.dataset.custom];
+        dragData.subtype = "custom";
+      } else {
+        skill = this.actor.data.data.pericias[li.dataset.skill];
+      }
+      dragData.type = "Pericia";
+      dragData.data = skill;
+      dragData.roll = li.dataset.roll;
+    }
+    // Set data transfer
+    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
   }
 
   /* -------------------------------------------- */
@@ -287,6 +339,38 @@ export class T20ActorNPCSheet extends ActorSheet {
     }
   }
 
+
+
+  async _onPericiaCustomDelete(event) {
+    const id = event.currentTarget.dataset.itemId;
+    const a = event.currentTarget;
+    const tipo = a.dataset.tipo;
+    let c = 0;
+    if (tipo == 'oficios') {
+      // let oficios = this.actor.data.data.pericias.ofi.mais;
+      // delete oficios[id];
+      delete this.actor.data.data.pericias.ofi.mais[id];
+      let oficios = {};
+      for (var i in this.actor.data.data.pericias.ofi.mais) {
+          oficios[c]=this.actor.data.data.pericias.ofi.mais[i];
+          c++;
+      }
+      await this.actor.update({'data.pericias.ofi.mais': null});
+      await this.actor.update({"data.pericias.ofi.mais": oficios });
+    } else {
+      // let pericias = this.actor.data.data.periciasCustom;
+      // delete pericias[id];
+      delete this.actor.data.data.periciasCustom[id];
+      let pericias = {};
+      for (var i in this.actor.data.data.periciasCustom) {
+          pericias[c]=this.actor.data.data.periciasCustom[i];
+          c++;
+      }
+      await this.actor.update({'data.periciasCustom': null});
+      await this.actor.update({"data.periciasCustom": pericias });
+    }
+    await this.render();
+  }
 
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
@@ -362,255 +446,37 @@ export class T20ActorNPCSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event, actor = null) {
+  async _onRoll(event, actor = null) {
     actor = !actor ? this.actor : actor;
-
-    // Initialize variables.
-    event.preventDefault();
-
     if (!actor.data) {
       return;
     }
     const a = event.currentTarget;
     const data = a.dataset;
     const actorData = actor.data.data;
-    const itemId = $(a).parents('.item').attr('data-item-id');
-    const item = actor.getOwnedItem(itemId);
-    
-    let formula = null;
-    let titleText = null;
-    let flavorText = null;
-    let flavorDesc = null;
-    let detailText = null;
-    let danoFormula = null;
-    let spellHeader = null;
-    let templateData = {};
-
-    // Handle rolls coming directly from the ability score.  && data.mod
-    if ($(a).hasClass('poder-rollable')) {
-      formula = `${item.data.data.roll}`;
-      flavorText = item.name;
-      detailText = item.data.data.description.replace("\n", "<br/>");
-
-      templateData = {
-        title: flavorText,
-        details: detailText
+    const itemId = $(a).attr('data-item-id');
+    let item = {
+        type: 'outros',
+        roll: data.roll,
+        label: data.label
       };
-      if(item.data.data.custo > 0){
-        templateData.custo  = item.data.data.custo;
-      }
-      this.rollMove(formula, actor, data, templateData);
-    } else if ($(a).hasClass('atributo-rollable')) {
-      formula = data.roll;
-      flavorText = data.label.toUpperCase();
-
-      templateData = {
-        title: flavorText,
-      };
-      
-      this.rollMove(formula, actor, data, templateData);
-    
+    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
+      item = actor.getOwnedItem(itemId);
     } else if ($(a).hasClass('pericia-rollable')) {
-      formula = data.roll;
-      flavorText = data.label;
-
-      templateData = {
-        title: flavorText,
-      };
-      
-      this.rollMove(formula, actor, data, templateData);
-    
-    } else if ($(a).hasClass('ataque-rollable')) {
-      formula = {};
-      // formula.atq = `1d20+${item.data.data.bonusAtq}`;
-      formula.atq = `1d20`
-                    + (item.data.data.bonusAtq!=undefined && item.data.data.bonusAtq!=0? `+ ${item.data.data.bonusAtq}`: ``)
-                    + (item.data.data._bonusAtq!=undefined && item.data.data._bonusAtq!=0? `+ ${item.data.data._bonusAtq}`: ``);
-      
-      let atributoDano = item.data.data.atrDan != '0' ? actorData.atributos[item.data.data.atrDan].mod : 0;
-      if(item.data.data.dano.match(/(\d*)d\d+/g)){
-        // formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data._bonusDano}`;
-        formula.dano = `${item.data.data.dano}`
-                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
-                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
-                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
-
-
-        let baseroll = item.data.data.dano.match(/(\d*)d\d+/g)? item.data.data.dano.match(/(\d*)d\d+/g)[0] : '';
-        let multiroll = item.data.data.dano.match(/(\d*)d\d+/g)? (item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[0]) * item.data.data.criticoX + 'd' + item.data.data.dano.match(/(\d*)d\d+/g)[0].split('d')[1] : '';
-        let newdano = item.data.data.dano.replace(baseroll, multiroll);
-        // formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
-        formula.crit = `${newdano}`
-                        + (atributoDano!=undefined && atributoDano!=0? `+ ${atributoDano}`: ``)
-                        + (item.data.data.bonusDano!=undefined && item.data.data.bonusDano!=0? `+ ${item.data.data.bonusDano}`: ``)
-                        + (item.data.data._bonusDano!=undefined && item.data.data._bonusDano!=0? `+ ${item.data.data._bonusDano}`: ``);
-        if(item.data.data.lancinante) {
-          let lacinante = formula.crit.replace(/\s/g, '').replace(/(\b\d+\b)/g, "($& * "+item.data.data.criticoX+")");
-          formula.crit = `${lacinante}`;
-        }
-
-      } else {
-        formula.dano = null;
-        formula.crit = null;
+      item = {
+        type: 'pericia',
+        roll: data.roll,
+        label: data.label
       }
-
-      
-      flavorText = item.name;
-      detailText = item.data.data.description;
-
-      templateData = {
-        title: flavorText,
-        flavor: flavorDesc,
-        details: detailText
-      };
-      if(item.data.data.custo > 0){
-        templateData.custo  = item.data.data.custo;
-      }
-      this.rollMove(formula, actor, data, templateData, item.data.data.criticoM);
-    
-    } else if ($(a).hasClass('magia-rollable')) {
-      const ilitemId = $(a).attr('data-item-id');
-      const item = actor.getOwnedItem(ilitemId);
-      formula = item.data.data.efeito;
-      flavorText = item.name;
-      spellHeader = {};
-      spellHeader.tipo = item.data.data.tipo;
-      spellHeader.circulo = item.data.data.circulo;
-      spellHeader.escola = item.data.data.escola;
-      spellHeader.custo = item.data.data.custo;
-      spellHeader.execucao = item.data.data.execucao;
-      spellHeader.alcance = item.data.data.alcance;
-      spellHeader.alvo = item.data.data.alvo;
-      spellHeader.area = item.data.data.area;
-      spellHeader.duracao = item.data.data.duracao;
-      spellHeader.resistencia = item.data.data.resistencia;
-      detailText = item.data.data.description;
-
-      templateData = {
-        title: flavorText,
-        flavor: flavorDesc,
-        spell: spellHeader,
-        details: detailText
-      };
-
-      if(item.data.data.custo > 0){
-        templateData.custo  = item.data.data.custo;
-      }
-      this.rollMove(formula, actor, data, templateData);
-    
-    } else if (itemId != undefined) {
-      data.roll();
-    }
-  }
-
-  /**
-   * Roll using the chat card template.
-   * @param {Object} templateData
-   */
-  rollMove(roll, actor, dataset, templateData, criticoM=null) {
-
-    let actorData = actor.data.data;
-    // Render the roll.
-    let template = 'systems/tormenta20/templates/chat/chat-card.html';
-    let dmgroll = null;
-    // GM rolls.
-    let chatData = {
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: actor })
-    };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
-    
-    // Handle dice rolls.
-    let danoFormula = false;
-    let critFormula = false;
-    let tipoCritico = "";
-    let tipoFalha = "";
-
-    if(typeof roll === 'object'){
-      // remove signs from end of sting
-      if(roll.dano != null){
-        danoFormula = roll.dano.trim().replace(/([\+\-]+$)/g, '');
-        critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, '');
-      }
-      roll = roll.atq.trim().replace(/([\+\-]+$)/g, '');
-    }
-
-    if (roll) {
-      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-      let formula = '';
-      
-      if (roll.match(/(\d*)d\d+/g)) {
-        
-        formula = roll;
-      }
-
-      if (formula != null) {
-        let roll = new Roll(`${formula}`);
-        roll.roll();
-        let result = roll.results[0];
-
-        if(result == 20)
-        {
-          tipoCritico = "critico";
-        }
-        else if(result == 1)
-        {
-          tipoFalha = "falha";
-        }
-
-        // Check if there are dmg rolls and what critical math to use
-        if(danoFormula){
-          if(result >= criticoM){
-            dmgroll = new Roll(`${critFormula}`);
-            tipoCritico = "critico";
-          } else {
-            dmgroll = new Roll(`${danoFormula}`);
-          }
-          dmgroll.roll();
-          let rollTemplate = {
-            template: "systems/tormenta20/templates/chat/t20roll.html"
-          };
-          dmgroll.render(rollTemplate).then(r => {
-            templateData.rollDano = r;
-            templateData.critico = tipoCritico;
-            templateData.falha = tipoFalha;
-          });
-          
-        }
-        // Render it.
-        let rollTemplate = {
-          template: "systems/tormenta20/templates/chat/t20roll.html"
-        };
-        roll.render(rollTemplate).then(r => {
-          templateData.roll = r;
-          templateData.critico = tipoCritico;
-          templateData.falha = tipoFalha;
-
-          renderTemplate(template, templateData).then(content => {
-            chatData.content = content;
-            if (game.dice3d) {
-              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-              if(dmgroll){
-                game.dice3d.showForRoll(dmgroll, game.user, true, chatData.whisper, chatData.blind);
-              }
-            }
-            else {
-              chatData.sound = CONFIG.sounds.dice;
-              ChatMessage.create(chatData);
-            }
-          });
-        });
+    } else if ($(a).hasClass('atributo-rollable')) {
+      const atrnames = {'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma"}
+      item = {
+        type: 'atributo',
+        roll: data.roll,
+        label: atrnames[data.label]
       }
     }
-    else {
-      renderTemplate(template, templateData).then(content => {
-        chatData.content = content;
-        ChatMessage.create(chatData);
-      });
-    }
+    await prepRoll(item, actor);
   }
 
 }

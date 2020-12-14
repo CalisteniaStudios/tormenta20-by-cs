@@ -317,7 +317,7 @@
             <tr>
               <td></td>
               <td colspan="3" class="tooltip"><b>Ofícios</b> <i class="fas fa-question-circle"></i>
-                <div class="tooltipcontent">Insira um '*' no nome para incluir penalidade de armadura. </div>
+                <div class="tooltipcontent">Insira um '+' no nome para incluir penalidade de armadura. </div>
               </td>
               <td colspan="2" class="text-right"><a class="item-control oficios-create" title="Create item"
                   data-tipo="oficio"><i class="fas fa-plus"></i> Novo</a> <a class="item-control show-controls"
@@ -325,7 +325,7 @@
             </tr>
 
             {{#each skill.mais as |ofi o|}}
-            <tr class="skill-tr">
+            <tr class="skill-tr" data-item-id="{{o}}" data-skill="oficios">
               <td class="col-5">
                 {{#if ofi.treinado }}
                 <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}" checked
@@ -334,7 +334,7 @@
               <input type="checkbox" name="data.pericias.ofi.mais.{{o}}.treinado" value="{{ofi.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{ofi.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-skill="ofi" data-ofi="{{o}}" data-roll="1d20+{{ofi.value}}"
                   data-label="Ofício ({{ofi.nome}})" style="width: 30%;margin-right: 10px;"><i
                     class="fas fa-dice-d20"></i></span> <input type="text" name="data.pericias.ofi.mais.{{o}}.label"
                   value="{{ofi.label}}" data-dtype="String" style="width:65%" />
@@ -374,8 +374,8 @@
               <input type="checkbox" name="data.pericias.{{key}}.treinado" value="{{skill.treinado}}"
                 data-dtype="Boolean" /></td>
               {{/if}}
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}"
-                  data-label="{{skill.label}}">{{skill.label}} {{#if skill.st}}+{{/if}} {{#if skill.pda}}*{{/if}}</span>
+              <td class="col-15"><span class="rollable pericia-rollable" data-skill="{{key}}" data-roll="1d20+{{skill.value}}"
+                  data-label="{{skill.label}}" >{{skill.label}} {{#if skill.st}}*{{/if}} {{#if skill.pda}}+{{/if}}</span>
               </td>
               <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number"
                   disabled /></td>
@@ -404,14 +404,14 @@
             <tr>
               <td></td>
               <td colspan="3" class="tooltip"><b>Nova Perícia</b> <i class="fas fa-question-circle"></i>
-                <div class="tooltipcontent">Insira um '*' no nome para incluir penalidade de armadura. </div>
+                <div class="tooltipcontent">Insira um '+' no nome para incluir penalidade de armadura.</div>
               </td>
               <td colspan="2" class="text-right"><a class="item-control pericia-create" title="Criar Perícia"
                   data-tipo="pericia"><i class="fas fa-plus"></i> Novo</a> <a class="item-control show-controls"
                   title="Editar Perícias"><i class="fas fa-cogs"></i></a></td>
             </tr>
             {{#each actor.data.periciasCustom as |skill key|}}
-            <tr class="skill-tr">
+            <tr class="skill-tr" data-item-id="{{key}}" data-skill="custom">
               <td class="col-5">
                 {{#if skill.treinado }}
                 <input type="checkbox" name="data.periciasCustom.{{key}}.treinado" value="{{skill.treinado}}" checked
@@ -421,7 +421,7 @@
                 data-dtype="Boolean" /></td>
               {{/if}}
 
-              <td class="col-15"><span class="rollable pericia-rollable" data-roll="1d20+{{skill.value}}"
+              <td class="col-15"><span class="rollable pericia-rollable" data-skill="custom" data-custom="{{key}}" data-roll="1d20+{{skill.value}}"
                   data-label="{{skill.nome}}" style="width: 30%;margin-right: 10px;"><i
                     class="fas fa-dice-d20"></i></span> <input type="text" name="data.periciasCustom.{{key}}.label"
                   value="{{skill.label}}" data-dtype="String" style="width:65%" />

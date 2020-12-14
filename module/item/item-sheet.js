@@ -9,7 +9,7 @@ export class T20ItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["tormenta20", "sheet", "item"],
-      width: 520,
+      width: 620,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
@@ -35,7 +35,6 @@ export class T20ItemSheet extends ItemSheet {
   getData() {
     const data = super.getData();
     data.armas = [];
-    // console.log(this.object.options.actor);
     if (data.item.type == "magia" && this.object.options.actor != undefined) {
       data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
       data.data.totalCD = data.data.actorCD+data.data.cd;
@@ -77,25 +76,63 @@ export class T20ItemSheet extends ItemSheet {
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
-
+    // Tooltips TODO DEBUG
+    html.mousemove(ev => this._moveTooltips(ev));
     // Roll handlers, click handlers, etc. would go here.
     
-    html.find('.selArma').change(this._getDataArama.bind(this));
-    // (ev => {
-      // console.log(this);
-      // const li = $(ev.currentTarget).parents(".item");
-      // this.actor.deleteOwnedItem(li.data("itemId"));
-      // li.slideUp(200, () => this.render(false));
-    // });
+    html.find('.selArma').change(this._getDataArma.bind(this));
+
+
+    // Controle de Aprimoramentos
+    html.find('.aprimoramento-create').click(this._onAprimoramentoCreate.bind(this));
+    html.find('.aprimoramento-delete').click(this._onAprimoramentoDelete.bind(this));
+    html.find('.aprimoramento-edit').click(this._onAprimoramentoEdit.bind(this));
+    html.find('.aprimoramento-toggle').click(this._onAprimoramentoToggle.bind(this));
+  }
+  _moveTooltips(event) {
+    $(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
+  }
+  async _onAprimoramentoCreate(event){
+    event.preventDefault();
+    const target = $(event.currentTarget);
+
+    this.item.addAprimoramento({
+        description: "Novo Aprimoramento"
+    });
   }
 
-  _getDataArama(event){
+  async _onAprimoramentoDelete(event){
+    event.preventDefault();
+    const target = $(event.currentTarget);
+    const aprimoramentoId = target.closest('.item.aprimoramento').data('itemId');
+    await this.item.deleteAprimoramento(aprimoramentoId);
+  }
+
+  async _onAprimoramentoEdit(event){
+    event.preventDefault();
+
+    const target = $(event.currentTarget);
+    const aprimoramentoId = target.closest('.item.aprimoramento').data('itemId');
+
+    this.item.editAprimoramento(aprimoramentoId);
+  }
+
+  async _onAprimoramentoToggle(event){
+    event.preventDefault();
+    const target = $(event.currentTarget);
+    const aprimoramentoId = target.closest('.item.aprimoramento').data('itemId');
+
+    const aprimoramentos = duplicate(this.item.data.data.aprimoramentos);
+    const aprimoramento = aprimoramentos.find(mod => mod.id === aprimoramentoId);
+    aprimoramento.ativo = !aprimoramento.ativo;
+
+    await this.item.update({'data.aprimoramentos': aprimoramentos});
+  }
+  
+  _getDataArma(event){
     let arma = $(event.target).find("option:selected")[0];
     let dados = $(arma)[0].dataset;
     let i = $(arma)[0].value;
-    console.log(dados);
-    console.log($(arma)[0].value);
-    console.log(this.item);
     this.item.update({
       "data.arma": i,
       "data.dano": dados.dano,

@@ -24,3 +24,22 @@ export const measureDistances = function(segments, options={}) {
     return (ns + nd + nDiagonal) * canvas.scene.data.gridDistance;
   });
 };
+/* -------------------------------------------- */
+
+/**
+ * Hijack Token health bar rendering to include temporary and temp-max health in the bar display
+ * TODO: This should probably be replaced with a formal Token class extension
+ */
+const _TokenGetBarAttribute = Token.prototype.getBarAttribute;
+export const getBarAttribute = function(...args) {
+  const data = _TokenGetBarAttribute.bind(this)(...args);
+  if ( data && (data.attribute === "attributes.pv") ) {
+    data.value += parseInt(getProperty(this.actor.data, "data.attributes.pv.temp") || 0);
+    data.max += parseInt(getProperty(this.actor.data, "data.attributes.pv.temp") || 0);
+  }
+  if ( data && (data.attribute === "attributes.pm") ) {
+    data.value += parseInt(getProperty(this.actor.data, "data.attributes.pm.temp") || 0);
+    data.max += parseInt(getProperty(this.actor.data, "data.attributes.pm.temp") || 0);
+  }
+  return data;
+};
