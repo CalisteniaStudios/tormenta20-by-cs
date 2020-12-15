@@ -428,6 +428,7 @@ export async function prepRoll(item, actor = null, extra = {}) {
       ap.qtd = (apr.tipo === "Aumenta" ? ap.gasto / apr.custo : 1); 
       PMTotal = PMTotal + parseInt((apr.custo*ap.qtd)); 
       ap.custo = apr.custo;
+      ap.tipo = apr.tipo;
       ap.description = apr.description.replace(/§/g, ap.qtd);
 
       if (apr.formula.match(/^d\d+$/)) {
