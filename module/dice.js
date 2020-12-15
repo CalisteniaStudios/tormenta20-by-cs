@@ -425,9 +425,8 @@ export async function prepRoll(item, actor = null, extra = {}) {
       } else {
         ap.gasto = apr.custo;
       }
-      PMTotal = PMTotal + parseInt(ap.gasto);
-      ap.qtd = ap.gasto / apr.custo;
-      ap.tipo = apr.tipo;
+      ap.qtd = (apr.tipo === "Aumenta" ? ap.gasto / apr.custo : 1); 
+      PMTotal = PMTotal + parseInt((apr.custo*ap.qtd)); 
       ap.custo = apr.custo;
       ap.description = apr.description.replace(/§/g, ap.qtd);
 

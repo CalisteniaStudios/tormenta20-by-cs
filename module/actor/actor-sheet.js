@@ -45,7 +45,6 @@ export class T20ActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
-    console.log(this.actor);
     // TODO Migrate function to initialize new json data;
     // console.log(this.actor.data.data.pericias.ofi.more);
     if (this.actor.data.data.pericias.ofi.mais === undefined) {
