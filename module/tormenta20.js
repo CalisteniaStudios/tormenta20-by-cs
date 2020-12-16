@@ -74,6 +74,10 @@ Hooks.once('init', async function () {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
 
+  Handlebars.registerHelper('ifNotEquals', function (arg1, arg2, options) {
+    return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+  });
+
   Handlebars.registerHelper('ifGreater', function (arg1, arg2, options) {
     if (arg1 > arg2) {
         return options.fn(this);

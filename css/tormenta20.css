@@ -35,6 +35,15 @@ table,
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.tormenta20 .atributos li.itematrib.flexrow{
+  border-style: dashed;
+  border-color: none !important;
+  border-width: 9px;
+  border-image: url(../assets/border.svg) 4 4 4 4 fill repeat;
+  border-collapse: inherit !important;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .tormenta20 h1,
 .tormenta20 h2,
 .outros h4 {
@@ -310,6 +319,16 @@ button {
   line-height: 24px;
   padding: 3px 0;
   border-bottom: 1px solid #bbb;
+}
+
+.tormenta20 .items-list .item .atributo-list
+{
+  display: inline-block;
+}
+
+.tormenta20 .item-tab
+{
+  font-size: large;
 }
 
 .tormenta20 .items-list .item .item-image {
