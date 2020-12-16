@@ -82,9 +82,23 @@ export class T20ActorSheet extends ActorSheet {
         "data.pericias.jog.st": true
       });
     }
-    if (this.actor.data.data.attributes.cd === undefined) {
+    if (this.actor.data.data.attributes.cd === undefined || this.actor.data.data.attributes.cd === 0) {
       this.actor.update({
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
+      });
+    }
+    if (this.actor.data.data.tamanho === undefined || this.actor.data.data.tamanho === "")
+    {
+      this.actor.update({
+        "data.tamanho": "Médio"
+      });
+    }
+    if (this.actor.data.data.deslocamento === undefined
+      || this.actor.data.data.deslocamento === 0
+      || this.actor.data.data.deslocamento === "")
+    {
+      this.actor.update({
+        "data.deslocamento": 9
       });
     }
     if (this.actor.data.data.periciasCustom.constructor === Object){

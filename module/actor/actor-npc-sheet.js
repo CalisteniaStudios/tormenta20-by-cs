@@ -38,6 +38,11 @@ export class T20ActorNPCSheet extends ActorSheet {
     if(this.actor.data.data.periciasCustom === undefined){
       this.actor.update({"data.periciasCustom":{}});
     }
+    if (this.actor.data.data.attributes.cd === undefined || this.actor.data.data.attributes.cd === 0) {
+      this.actor.update({
+        "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
+      });
+    }
 
     return data;
   }

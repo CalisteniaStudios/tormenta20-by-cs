@@ -496,6 +496,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     spellHeader.area = item.data.data.area;
     spellHeader.duracao = item.data.data.duracao;
     spellHeader.resistencia = item.data.data.resistencia;
+    spellHeader.cd = item.data.data.cd + actor.data.data.attributes.cd;
     detailText = item.data.data.description;
 
     templateData = {

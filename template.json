@@ -32,7 +32,7 @@
             "proximo": 1000
           },
           "info": "",
-          "hp": 0
+          "cd": 0
         },
         "rd": {
           "value": 0,
@@ -456,7 +456,7 @@
         },
         "periciasCustom": {},
         "resistencias": "",
-        "tamanho": "",
+        "tamanho": 9,
         "deslocamento": "",
         "detalhes": {
           "biografia": "",

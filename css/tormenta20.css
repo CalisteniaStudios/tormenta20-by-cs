@@ -434,6 +434,10 @@ button {
   width: calc(9% - 4px);
 }
 
+.tormenta20 .infos label.info {
+  width: calc(20% - 5px);
+}
+
 .tormenta20 .sheet-body .dados {
   width: 55%;
   position: relative;
@@ -548,6 +552,12 @@ button {
   display: inline-block;
   width: 30%;
   max-width: 30%;
+}
+
+.tormenta20 .header-fields .label
+{
+  margin-top: 1px;
+  margin-bottom: 10px;
 }
 
 .tormenta20 .resource {
