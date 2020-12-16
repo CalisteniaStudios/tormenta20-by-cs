@@ -10,7 +10,7 @@
 export const addChatMessageContextOptions = function (html, options) {
     // let canApply = li => canvas.tokens.controlled.length && li.find(".dice-roll").length;
     let canApply = li => li.find(".roll--dano").length;
-    let canApplyMana = li => li.find(".mana-cost").length;
+    let canApplyMana = li => li.find(".mana-cost").length && !game.settings.get("tormenta20", "automaticManaSpend");
     options.push({
         name: 'Aplicar Dano',
         icon: '<i class="fas fa-user-minus"></i>',

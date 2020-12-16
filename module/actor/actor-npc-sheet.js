@@ -476,7 +476,7 @@ export class T20ActorNPCSheet extends ActorSheet {
         label: atrnames[data.label]
       }
     }
-    await prepRoll(item, actor);
+    await prepRoll(event, item, actor);
   }
 
 }

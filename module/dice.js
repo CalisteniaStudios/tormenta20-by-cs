@@ -1,6 +1,6 @@
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 /* Standardized Roll Script */
-export async function prepRoll(item, actor = null, extra = {}) {
+export async function prepRoll(event, item, actor = null, extra = {}) {
   actor = !actor ? this.actor : actor;
   const actorData = actor.data.data;
   // Initialize variables.
@@ -560,6 +560,12 @@ function rollT20(roll, actor, templateData, criticoM = null) {
       critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, "");
     }
     roll = roll.atq.trim().replace(/([\+\-]+$)/g, "");
+  }
+
+  // Automatic Mana Spend
+  if (actor && templateData.custo && game.settings.get("tormenta20", "automaticManaSpend"))
+  {
+    actor.spendMana(templateData.custo, 0, false);
   }
 
   if (roll) {

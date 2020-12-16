@@ -14,4 +14,17 @@ export const SystemSettings = function() {
     }
   });
 
+  /**
+   * Gasto Automático de Mana
+   */
+  game.settings.register("tormenta20", "automaticManaSpend", {
+    name: "Gasto de Mana",
+    hint: "Ao utilizar um poder ou magia, a mana do personagem é gasta automaticamente",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
+
 }
