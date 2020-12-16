@@ -42,7 +42,7 @@
         <div class="atributos">
           <ol class="items-list">
             {{#each data.atributos as |atr key|}}
-            <li class="item flexrow" data-item-id="{{key}}">
+            <li class="item flexrow" id="atributo" data-item-id="{{key}}">
               <span class="rollable atributo-rollable" data-roll="1d20+{{atr.mod}}" data-label="{{key}}"><label>
                   {{key}}
                   <h1 style="border: 0!important">{{atr.mod}}</h1>
@@ -186,7 +186,7 @@
           <ol class="items-list">
             <li class="item flexrow item-header flex-center">
               <div>Equipado</div>
-              <div>Armadura & Escudo</div>
+              <div>Item</div>
               <div>Defesa</div>
               <div>Penalidade</div>
             </li>
@@ -200,7 +200,7 @@
                   data-dtype="Boolean" />
                 {{/if}}
               </div>
-              <div><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" />
+              <div><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" placeholder="Armadura" />
               </div>
               <div><input type="text" name="data.armadura.defesa" value="{{data.armadura.defesa}}" data-dtype="Number" />
               </div>
@@ -217,7 +217,7 @@
                   data-dtype="Boolean" />
                 {{/if}}
               </div>
-              <div><input type="text" name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" /></div>
+              <div><input type="text" name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" placeholder="Escudo" /></div>
               <div><input type="text" name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number" />
               </div>
               <div><input type="text" name="data.escudo.penalidade" value="{{data.escudo.penalidade}}"
