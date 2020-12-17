@@ -162,7 +162,27 @@ async function createT20Macro(data, slot) {
     const item = data.data;
     // const actor = getItemOwner(item);
     // Create the macro command
-    const command = `game.tormenta20.rollItemMacro("${item.name}");`;
+    let command = '';
+    if(item.type === "arma"){
+      command = `
+//UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
+//VALORES SERÃO SOMADOS A CARACTEÍSTICA.
+//INICIAR COM "=" SUBSTITUIRÁ O BÔNUS NA FICHA DA ARMA
+game.tormenta20.rollItemMacro("${item.name}",{
+           'atq' : "0",
+      'dadoDano' : "",
+          'dano' : "0", 
+ 'margemCritico' : "0",
+   'multCritico' : "0",
+       'pericia' : "",
+      'atributo' : "",
+          'tipo' : "",
+       'alcance' : "",
+         'custo' : "0"
+});`;
+    }  else {
+      command = `game.tormenta20.rollItemMacro("${item.name}");`;
+    }
 
     let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
     if (!macro) {
@@ -198,7 +218,7 @@ async function rollItemMacro(itemName, extra) {
   if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
   // console.log(item);
   // Trigger the item roll
-  await dice.prepRoll(event, item, actor);
+  await dice.prepRoll(event, item, actor, extra);
 }
 
 async function rollSkillMacro(skillName, subtype) {
