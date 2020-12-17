@@ -62,7 +62,7 @@
         <div class="atributos">
           <ol class="items-list">
             {{#each data.atributos as |atr key|}}
-            <li class="item flexrow" data-item-id="{{key}}">
+            <li class="item flexrow" id="atributo" data-item-id="{{key}}">
               <span class="rollable atributo-rollable" data-roll="1d20+{{atr.mod}}" data-label="{{key}}"><label>
                   {{key}}
                   <h1 style="border: 0!important">{{atr.mod}}</h1>
@@ -151,7 +151,6 @@
           </ol>
         </div>
 
-
         <div class="defesa">
           <ol class="items-list">
             <li class="item flexrow item-header flex-center">
@@ -184,11 +183,6 @@
               <div class="item-name"><input type="text" name="data.defesa.outro" value="{{data.defesa.outro}}"
                   data-dtype="Number" /></div>
             </li>
-          </ol>
-        </div>
-
-        <div class="reducao_dano">
-          <ol class="items-list">
             <li class="item flexrow item-header flex-center">
               <div class="item-name">Redução de Dano</div>
               <div class="item-separator"></div>
@@ -203,51 +197,6 @@
                   data-dtype="Number" /></div>
               <div class="item-separator">+</div>
               <div class="item-name"><input type="text" name="data.rd.temp" value="{{data.rd.temp}}"
-                  data-dtype="Number" /></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="armadura">
-          <ol class="items-list">
-            <li class="item flexrow item-header flex-center">
-              <div>Equipado</div>
-              <div>Armadura & Escudo</div>
-              <div>Defesa</div>
-              <div>Penalidade</div>
-            </li>
-            <li class="item flexrow text-center">
-              <div>
-                {{#if data.armadura.equipado }}
-                <input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}" checked
-                  data-dtype="Boolean" />
-                {{else}}
-                <input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}"
-                  data-dtype="Boolean" />
-                {{/if}}
-              </div>
-              <div><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" />
-              </div>
-              <div><input type="text" name="data.armadura.defesa" value="{{data.armadura.defesa}}"
-                  data-dtype="Number" />
-              </div>
-              <div><input type="text" name="data.armadura.penalidade" value="{{data.armadura.penalidade}}"
-                  data-dtype="Number" /></div>
-            </li>
-            <li class="item flexrow text-center">
-              <div>
-                {{#if data.escudo.equipado }}
-                <input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}" checked
-                  data-dtype="Boolean" />
-                {{else}}
-                <input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}"
-                  data-dtype="Boolean" />
-                {{/if}}
-              </div>
-              <div><input type="text" name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" /></div>
-              <div><input type="text" name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number" />
-              </div>
-              <div><input type="text" name="data.escudo.penalidade" value="{{data.escudo.penalidade}}"
                   data-dtype="Number" /></div>
             </li>
           </ol>
@@ -289,9 +238,8 @@
             <li class="item flexrow item-header flex-center">
               <div>MAGIAS</div>
             </li>
-          </ol>
           {{#each actor.magias as |circulo i|}}
-          <ol class="items-list">
+          <ol class="items-list" style="border-style:none;">
             <li class="item flexrow item-header">
               <div class="item-prep">Prep</div>
               <div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
@@ -320,6 +268,7 @@
             {{/each}}
           </ol>
           {{/each}}
+          </ol>
         </div>
 
         <div class="outros">
@@ -494,19 +443,60 @@
             <h2 class="cell__title">
               <label>Equipamentos</label>
             </h2>
-            <ol class="items-list">
-              <li class="item flexrow item-header">
-                <div class="item-name" style="flex: 5;">Nome</div>
-                <div class="item-qtd">Qtd</div>
-                <div class="item-peso">Peso</div>
-                <div class="item-controls">
-
-                </div>
-              </li>
-              {{#each actor.equipamentos as |item id|}}
-              <li class="item flexrow" data-item-id="{{item._id}}">
-                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
-                <h4 class="item-name" style="flex: 5;">{{item.name}}</h4>
+			<ol class="items-list">
+				<li class="item flexrow item-header flex-center">
+				  <div>Equipado</div>
+				  <div>Item</div>
+				  <div>Defesa</div>
+				  <div>Penalidade</div>
+				</li>
+				<li class="item flexrow text-center">
+				  <div>
+					{{#if data.armadura.equipado }}
+					<input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}" checked
+					  data-dtype="Boolean" />
+					{{else}}
+					<input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}"
+					  data-dtype="Boolean" />
+					{{/if}}
+				  </div>
+				  <div><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" placeholder="Armadura" />
+				  </div>
+				  <div><input type="text" name="data.armadura.defesa" value="{{data.armadura.defesa}}" data-dtype="Number" />
+				  </div>
+				  <div><input type="text" name="data.armadura.penalidade" value="{{data.armadura.penalidade}}"
+					  data-dtype="Number" /></div>
+				</li>
+				<li class="item flexrow text-center">
+				  <div>
+					{{#if data.escudo.equipado }}
+					<input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}" checked
+					  data-dtype="Boolean" />
+					{{else}}
+					<input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}"
+					  data-dtype="Boolean" />
+					{{/if}}
+				  </div>
+				  <div><input type="text" name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" placeholder="Escudo" /></div>
+				  <div><input type="text" name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number" />
+				  </div>
+				  <div><input type="text" name="data.escudo.penalidade" value="{{data.escudo.penalidade}}"
+					  data-dtype="Number" /></div>
+				</li>
+			</ol>
+          <ol class="items-list">
+            <li class="item flexrow item-header">
+              <div class="item-name" style="flex: 5;">Nome</div>
+              <div class="item-qtd">Qtd</div>
+              <div class="item-peso">Peso</div>
+              <div class="item-controls">
+              
+              </div>
+            </li>
+            {{#each actor.equipamentos as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+              <h4 class="item-name" style="flex: 5;">{{item.name}}</h4>
                 <div class="item-qtd">{{item.data.qtd}}</div>
                 <div class="item-peso">{{item.data.peso}}</div>
                 <div class="item-controls">

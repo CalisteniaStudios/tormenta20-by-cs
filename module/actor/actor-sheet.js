@@ -320,10 +320,8 @@ export class T20ActorSheet extends ActorSheet {
       let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
-      });
-      html.find('.pericia-rollable').each((i, li) => {
+        if (li.id === "atributo") return;
+        if (!li.hasAttribute("data-item-id")) return;
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
