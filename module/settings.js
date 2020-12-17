@@ -26,5 +26,20 @@ export const SystemSettings = function() {
     type: Boolean
   });
 
-
+  /**
+   * Register diagonal movement rule setting
+   */
+  game.settings.register("tormenta20", "diagonalMovement", {
+    name: "Movimento Diagonal",
+    hint: "Configura qual regra de movimento diagonal será usada no sistema.",
+    scope: "world",
+    config: true,
+    default: "MANHATTAN",
+    type: String,
+    choices: {
+	  "MANHATTAN": "Padrão (3m)",
+	  "EQUIDISTANT": "Equidistante (1,5m)",
+    },
+    onChange: rule => canvas.grid.diagonalRule = rule
+  });
 }
