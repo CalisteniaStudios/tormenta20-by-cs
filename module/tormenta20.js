@@ -1,5 +1,6 @@
 // Import Modules
 import { SystemSettings } from "./settings.js";
+import { T20Config } from "./config.js";
 import { T20Actor } from "./actor/actor.js";
 import { T20ActorSheet } from "./actor/actor-sheet.js";
 import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
@@ -22,10 +23,13 @@ Hooks.once('init', async function () {
     dice
   };
 
-  // Register System Settings
-  SystemSettings();
+  // Define custom Entity classes
+  CONFIG.Actor.entityClass = T20Actor;
+  CONFIG.Item.entityClass = T20Item;
+  CONFIG.statusEffects = T20Config.statusEffectIcons;
 
-
+  console.log('111 dsfdfs');
+   
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -35,9 +39,10 @@ Hooks.once('init', async function () {
     decimals: 2
   };
 
-  // Define custom Entity classes
-  CONFIG.Actor.entityClass = T20Actor;
-  CONFIG.Item.entityClass = T20Item;
+  // Register System Settings
+  SystemSettings();
+
+
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -70,6 +75,10 @@ Hooks.once('init', async function () {
     return str.toLowerCase();
   });
 
+  Handlebars.registerHelper('toJSONString', function (str) {
+    return JSON.stringify(str);
+  });
+
   Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
@@ -80,13 +89,13 @@ Hooks.once('init', async function () {
 
   Handlebars.registerHelper('ifGreater', function (arg1, arg2, options) {
     if (arg1 > arg2) {
-        return options.fn(this);
+      return options.fn(this);
     }
     return options.inverse(this);
   });
   Handlebars.registerHelper('ifEGreater', function (arg1, arg2, options) {
     if (arg1 >= arg2) {
-        return options.fn(this);
+      return options.fn(this);
     }
     return options.inverse(this);
   });
@@ -107,7 +116,7 @@ Hooks.on('renderDialog', (dialog, html, options) => {
 /*  Canvas Initialization                       */
 /* -------------------------------------------- */
 
-Hooks.on("canvasInit", function() {
+Hooks.on("canvasInit", function () {
 
   // Extend Diagonal Measurement
   SquareGrid.prototype.measureDistances = measureDistances;
@@ -148,7 +157,7 @@ async function createT20Macro(data, slot) {
     const command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
     let macro = game.macros.entities.find(m => (m.name === item.label) && (m.command === command));
     if (!macro) {
-        macro = await Macro.create({
+      macro = await Macro.create({
         name: item.label,
         type: "script",
         command: command
@@ -208,30 +217,30 @@ async function rollSkillMacro(skillName, subtype) {
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
   if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
-  if(subtype == "oficios" ){
-    for ( let [t, sk] of Object.entries(actor.data.data.pericias["ofi"].mais) ) {
-      if(sk.label === skillName){
+  if (subtype == "oficios") {
+    for (let [t, sk] of Object.entries(actor.data.data.pericias["ofi"].mais)) {
+      if (sk.label === skillName) {
         skill = sk;
         break;
       }
     }
-  } else if(subtype == "custom" ) {
-    for ( let [t, sk] of Object.entries(actor.data.data.periciasCustom) ) {
-      if(sk.label === skillName){
+  } else if (subtype == "custom") {
+    for (let [t, sk] of Object.entries(actor.data.data.periciasCustom)) {
+      if (sk.label === skillName) {
         skill = sk;
         break;
       }
     }
   } else {
-    for ( let [t, sk] of Object.entries(actor.data.data.pericias) ) {
-      if(sk.label === skillName){
+    for (let [t, sk] of Object.entries(actor.data.data.pericias)) {
+      if (sk.label === skillName) {
         skill = sk;
         break;
       }
     }
   }
   const item = {
-    type:"pericia",
+    type: "pericia",
     label: skill.label,
     roll: `1d20+${skill.value}`
   }

@@ -21,6 +21,12 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
   let danoText = null;
   let templateRollDialog = "systems/tormenta20/templates/chat/roll-dialog.html";
 
+  // Condições 
+  if(actor)
+  {
+    item = conditionEval(actor, item);
+  }
+
   let rollMode = game.settings.get("core", "rollMode");
 
   // Handle rolls coming directly from the ability score.  && data.mod
@@ -520,6 +526,22 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
   } else if (itemId != undefined) {
     data.roll();
   }
+}
+
+function conditionEval(actor, item)
+{
+
+  actor.effects.forEach(function (eff) {
+    if(eff.data.flags.core.statusId == "abalado")
+    {
+      if(item.type == "pericia")
+      {
+        item.roll += "-2"
+      }
+    }
+  });
+
+  return item;
 }
 
 function rollT20(roll, actor, templateData, criticoM = null) {

@@ -24,9 +24,9 @@ export class T20ActorSheet extends ActorSheet {
 
   get template() {
     let layout = game.settings.get("tormenta20", "sheetTemplate");
-    if(layout == 'base'){
-      return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
-    } else if(layout == 'tabbed') {
+    if (layout == 'base') {
+      return "systems/tormenta20/templates/actor/actor-sheet-base.html";
+    } else if (layout == 'tabbed') {
       return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
     }
   }
@@ -87,39 +87,37 @@ export class T20ActorSheet extends ActorSheet {
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
       });
     }
-    if (this.actor.data.data.tamanho === undefined || this.actor.data.data.tamanho === "")
-    {
+    if (this.actor.data.data.tamanho === undefined || this.actor.data.data.tamanho === "") {
       this.actor.update({
         "data.tamanho": "Médio"
       });
     }
     if (this.actor.data.data.deslocamento === undefined
       || this.actor.data.data.deslocamento === 0
-      || this.actor.data.data.deslocamento === "")
-    {
+      || this.actor.data.data.deslocamento === "") {
       this.actor.update({
         "data.deslocamento": 9
       });
     }
-    if (this.actor.data.data.periciasCustom.constructor === Object){
+    if (this.actor.data.data.periciasCustom.constructor === Object) {
       // console.log(this.actor.data.data.periciasCustom);
       let newPericiasCustom = [];
-      for (let [pc, per] of Object.entries(this.actor.data.data.periciasCustom) ) {
+      for (let [pc, per] of Object.entries(this.actor.data.data.periciasCustom)) {
         newPericiasCustom.push(per);
       }
       // this.actor.data.data.periciasCustom = newPericiasCustom;
-      this.actor.update({"data.periciasCustom": newPericiasCustom});
+      this.actor.update({ "data.periciasCustom": newPericiasCustom });
     }
-    if (this.actor.data.data.pericias.ofi.mais.constructor === Object){
+    if (this.actor.data.data.pericias.ofi.mais.constructor === Object) {
       // console.log(this.actor.data.data.pericias.ofi.mais);
       let newOficios = [];
-      for (let [pc, per] of Object.entries(this.actor.data.data.pericias.ofi.mais) ) {
+      for (let [pc, per] of Object.entries(this.actor.data.data.pericias.ofi.mais)) {
         newOficios.push(per);
       }
       // this.actor.data.data.pericias.ofi.mais = newOficios;
-      this.actor.update({"data.pericias.ofi.mais": newOficios});
+      this.actor.update({ "data.pericias.ofi.mais": newOficios });
     }
-    
+
     return data;
   }
 
@@ -159,6 +157,7 @@ export class T20ActorSheet extends ActorSheet {
         custo: 15
       }
     };
+    const condicoesPadrao = CONFIG.statusEffects ;
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -186,10 +185,10 @@ export class T20ActorSheet extends ActorSheet {
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
         // let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
         let tempdmg = '';
-        if(i.data._bonusAtq == undefined || i.data._bonusAtq == ""){
+        if (i.data._bonusAtq == undefined || i.data._bonusAtq == "") {
           i.data._bonusAtq = "0";
         }
-        if(i.data._bonusDano == undefined || i.data._bonusDano == ""){
+        if (i.data._bonusDano == undefined || i.data._bonusDano == "") {
           i.data._bonusDano = "0";
         }
         tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
@@ -215,6 +214,7 @@ export class T20ActorSheet extends ActorSheet {
     actorData.equipamentos = equipamentos;
     // Attacks
     actorData.ataques = ataques;
+    actorData.condicoesPadrao = condicoesPadrao;
 
   }
 
@@ -233,17 +233,17 @@ export class T20ActorSheet extends ActorSheet {
 
     if (item) {
       let value = a.value;
-      if(data.campo == "_bonusAtq"){
+      if (data.campo == "_bonusAtq") {
         item.update({
           "data._bonusAtq": value
         });
-      } else if(data.campo == "_bonusDano"){
+      } else if (data.campo == "_bonusDano") {
         item.update({
           "data._bonusDano": value
         });
       }
     }
-    
+
     this.render();
   }
 
@@ -281,7 +281,7 @@ export class T20ActorSheet extends ActorSheet {
     // Add pericias/oficios
     html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
     html.find('.oficios-create').click(this._onPericiaCustomCreate.bind(this));
-    
+
     html.find('.skill-tr').find('input,select').change(this._onPericiaCustomUpdate.bind(this));
 
     html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
@@ -314,7 +314,7 @@ export class T20ActorSheet extends ActorSheet {
     // Update item
     html.find('.upItem').change(this._onUpdateItem.bind(this));
 
-    
+
     // Drag events for macros.
     if (this.actor.owner) {
       let handler = ev => this._onDragStart(ev);
@@ -326,13 +326,14 @@ export class T20ActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
   }
 
 
   /** @override */
   _onDragStart(event) {
     const li = event.currentTarget;
-    if ( event.target.classList.contains("entity-link") ) return;
+    if (event.target.classList.contains("entity-link")) return;
 
     // Create drag data
     const dragData = {
@@ -342,25 +343,25 @@ export class T20ActorSheet extends ActorSheet {
     };
 
     // Owned Items
-    if ( li.dataset.itemId ) {
+    if (li.dataset.itemId) {
       const item = this.actor.items.get(li.dataset.itemId);
       dragData.type = "Item";
       dragData.data = item.data;
     }
 
     // Active Effect
-    if ( li.dataset.effectId ) {
+    if (li.dataset.effectId) {
       const effect = this.actor.effects.get(li.dataset.effectId);
       dragData.type = "ActiveEffect";
       dragData.data = effect.data;
     }
     // Pericias
-    if ( li.dataset.skill ) {
+    if (li.dataset.skill) {
       let skill;
-      if(li.dataset.ofi) {
+      if (li.dataset.ofi) {
         skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.ofi];
         dragData.subtype = "oficios";
-      } else if(li.dataset.custom) {
+      } else if (li.dataset.custom) {
         skill = this.actor.data.data.periciasCustom[li.dataset.custom];
         dragData.subtype = "custom";
       } else {
@@ -396,38 +397,38 @@ export class T20ActorSheet extends ActorSheet {
       $(target).addClass('ativo');
     }
   }
-  async _onPericiaCustomUpdate(event){
+  async _onPericiaCustomUpdate(event) {
     let index = $(event.currentTarget).closest('.skill-tr')[0].dataset.itemId;
     let tipo = $(event.currentTarget).closest('.skill-tr')[0].dataset.skill;
     let inputs = $(event.currentTarget).closest('.skill-tr').find('input,textarea,select');
     let pericias;
     let sk;
-    if(tipo == "oficios"){
+    if (tipo == "oficios") {
       pericias = this.actor.data.data.pericias.ofi.mais;
       sk = this.actor.data.data.pericias.ofi.mais[index];
     } else if (tipo == "custom") {
       pericias = this.actor.data.data.periciasCustom;
       sk = this.actor.data.data.periciasCustom[index];
     }
-    for (let inp of inputs){
-      if(inp.name.match(/treinado/)!==null){
+    for (let inp of inputs) {
+      if (inp.name.match(/treinado/) !== null) {
         sk.treinado = inp.checked;
-      } else if(inp.name.match(/label/)!==null) {
+      } else if (inp.name.match(/label/) !== null) {
         sk.label = inp.value;
-      } else if(inp.name.match(/atributo/)!==null) {
+      } else if (inp.name.match(/atributo/) !== null) {
         sk.atributo = inp.value;
-      } else if(inp.name.match(/treino/)!==null) {
+      } else if (inp.name.match(/treino/) !== null) {
         sk.treino = inp.value;
-      } else if(inp.name.match(/outros/)!==null) {
+      } else if (inp.name.match(/outros/) !== null) {
         sk.outros = inp.value;
       }
     }
-    if(tipo == "oficios"){
+    if (tipo == "oficios") {
       pericias[index] = sk;
-      await this.actor.update({"data.pericias.ofi.mais":pericias});
+      await this.actor.update({ "data.pericias.ofi.mais": pericias });
     } else if (tipo == "custom") {
       pericias[index] = sk;
-      await this.actor.update({"data.periciasCustom":pericias});
+      await this.actor.update({ "data.periciasCustom": pericias });
     }
   }
   async _onPericiaCustomDelete(event) {
@@ -437,14 +438,14 @@ export class T20ActorSheet extends ActorSheet {
     let c = 0;
     if (tipo == 'oficios') {
       let oficios = this.actor.data.data.pericias.ofi.mais;
-      oficios.splice(id,1);
-      
-      await this.actor.update({"data.pericias.ofi.mais": oficios });
+      oficios.splice(id, 1);
+
+      await this.actor.update({ "data.pericias.ofi.mais": oficios });
     } else {
       let pericias = this.actor.data.data.periciasCustom;
-      pericias.splice(id,1);
+      pericias.splice(id, 1);
 
-      await this.actor.update({"data.periciasCustom": pericias });
+      await this.actor.update({ "data.periciasCustom": pericias });
     }
     await this.render();
   }
@@ -551,11 +552,11 @@ export class T20ActorSheet extends ActorSheet {
     const actorData = actor.data.data;
     const itemId = $(a).parents('.item').attr('data-item-id');
     let item = {
-        type: 'outros',
-        roll: data.roll,
-        label: data.label
-      };
-    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
+      type: 'outros',
+      roll: data.roll,
+      label: data.label
+    };
+    if (itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
       item = actor.getOwnedItem(itemId);
     } else if ($(a).hasClass('pericia-rollable')) {
       item = {
@@ -564,7 +565,7 @@ export class T20ActorSheet extends ActorSheet {
         label: data.label
       }
     } else if ($(a).hasClass('atributo-rollable')) {
-      const atrnames = {'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma"}
+      const atrnames = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }
       item = {
         type: 'atributo',
         roll: data.roll,
@@ -574,5 +575,16 @@ export class T20ActorSheet extends ActorSheet {
     await prepRoll(event, item, actor);
 
   }
+
+
+//   /**
+//  * Toggles condition modifiers on or off.
+//  * 
+//  * @param {Event} event The triggering event.
+//  */
+//   async _onToggleConditions(event) {
+//     alert(event);
+//   }
+
 
 }
