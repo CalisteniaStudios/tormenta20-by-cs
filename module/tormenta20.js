@@ -198,7 +198,7 @@ async function rollItemMacro(itemName, extra) {
   if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
   // console.log(item);
   // Trigger the item roll
-  await dice.prepRoll(item, actor);
+  await dice.prepRoll(event, item, actor);
 }
 
 async function rollSkillMacro(skillName, subtype) {
@@ -236,5 +236,5 @@ async function rollSkillMacro(skillName, subtype) {
     roll: `1d20+${skill.value}`
   }
   // Trigger the item roll
-  await dice.prepRoll(item, actor);
+  await dice.prepRoll(event, item, actor);
 }
