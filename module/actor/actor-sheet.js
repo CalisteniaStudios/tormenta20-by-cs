@@ -45,7 +45,6 @@ export class T20ActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
-    console.log(this.actor);
     // TODO Migrate function to initialize new json data;
     // console.log(this.actor.data.data.pericias.ofi.more);
     if (this.actor.data.data.pericias.ofi.mais === undefined) {
@@ -83,9 +82,23 @@ export class T20ActorSheet extends ActorSheet {
         "data.pericias.jog.st": true
       });
     }
-    if (this.actor.data.data.attributes.cd === undefined) {
+    if (this.actor.data.data.attributes.cd === undefined || this.actor.data.data.attributes.cd === 0) {
       this.actor.update({
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
+      });
+    }
+    if (this.actor.data.data.tamanho === undefined || this.actor.data.data.tamanho === "")
+    {
+      this.actor.update({
+        "data.tamanho": "Médio"
+      });
+    }
+    if (this.actor.data.data.deslocamento === undefined
+      || this.actor.data.data.deslocamento === 0
+      || this.actor.data.data.deslocamento === "")
+    {
+      this.actor.update({
+        "data.deslocamento": 9
       });
     }
     if (this.actor.data.data.periciasCustom.constructor === Object){
@@ -307,10 +320,8 @@ export class T20ActorSheet extends ActorSheet {
       let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
-      });
-      html.find('.pericia-rollable').each((i, li) => {
+        if (li.id === "atributo") return;
+        if (!li.hasAttribute("data-item-id")) return;
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
@@ -560,7 +571,7 @@ export class T20ActorSheet extends ActorSheet {
         label: atrnames[data.label]
       }
     }
-    await prepRoll(item, actor);
+    await prepRoll(event, item, actor);
 
   }
 

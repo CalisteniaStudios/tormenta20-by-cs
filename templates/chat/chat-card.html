@@ -11,7 +11,7 @@
         <h4>{{spell.tipo}}<i> </i>{{spell.circulo}}<i> </i>{{spell.escola}}</h4>
         <p><b>Execução:</b> {{spell.execucao}} <b> Alcance:</b> {{{spell.alcance}}} {{~#if spell.alvo}}<b> Alvo:</b>
           {{{spell.alvo}}}{{~/if}} {{~#if spell.area}}<b> Área:</b> {{{spell.area}}}{{~/if}} <b> Duração:</b>
-          {{{spell.duracao}}} {{~#if spell.resistencia}}<b> Resistência:</b> {{{spell.resistencia}}}{{~/if}}</p>
+          {{{spell.duracao}}} {{~#if spell.resistencia}}<b> Resistência:</b> {{{spell.resistencia}}} (CD {{{spell.cd}}}){{~/if}}</p>
       </div>
       {{/if}}
 

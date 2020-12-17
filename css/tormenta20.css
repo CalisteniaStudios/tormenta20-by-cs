@@ -35,6 +35,15 @@ table,
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.tormenta20 .atributos li.itematrib.flexrow{
+  border-style: dashed;
+  border-color: none !important;
+  border-width: 9px;
+  border-image: url(../assets/border.svg) 4 4 4 4 fill repeat;
+  border-collapse: inherit !important;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .tormenta20 h1,
 .tormenta20 h2,
 .outros h4 {
@@ -312,6 +321,16 @@ button {
   border-bottom: 1px solid #bbb;
 }
 
+.tormenta20 .items-list .item .atributo-list
+{
+  display: inline-block;
+}
+
+.tormenta20 .item-tab
+{
+  font-size: large;
+}
+
 .tormenta20 .items-list .item .item-image {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
@@ -434,6 +453,10 @@ button {
   width: calc(9% - 4px);
 }
 
+.tormenta20 .infos label.info {
+  width: calc(20% - 5px);
+}
+
 .tormenta20 .sheet-body .dados {
   width: 55%;
   position: relative;
@@ -548,6 +571,12 @@ button {
   display: inline-block;
   width: 30%;
   max-width: 30%;
+}
+
+.tormenta20 .header-fields .label
+{
+  margin-top: 1px;
+  margin-bottom: 10px;
 }
 
 .tormenta20 .resource {

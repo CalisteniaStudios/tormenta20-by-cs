@@ -1,6 +1,6 @@
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 /* Standardized Roll Script */
-export async function prepRoll(item, actor = null, extra = {}) {
+export async function prepRoll(event, item, actor = null, extra = {}) {
   actor = !actor ? this.actor : actor;
   const actorData = actor.data.data;
   // Initialize variables.
@@ -421,14 +421,14 @@ export async function prepRoll(item, actor = null, extra = {}) {
     aplicados.forEach(function (apr) {
       let ap = {};
       if (aprimoramentoData) {
-        ap.gasto = aprimoramentoData[apr.id] * apr.custo;
+        ap.gasto = aprimoramentoData[apr.id];
       } else {
         ap.gasto = apr.custo;
       }
-      PMTotal = PMTotal + parseInt(ap.gasto);
-      ap.qtd = ap.gasto / apr.custo;
-      ap.tipo = apr.tipo;
+      ap.qtd = (apr.tipo === "Aumenta" ? ap.gasto / apr.custo : 1); 
+      PMTotal = PMTotal + parseInt((apr.custo*ap.qtd)); 
       ap.custo = apr.custo;
+      ap.tipo = apr.tipo;
       ap.description = apr.description.replace(/§/g, ap.qtd);
 
       if (apr.formula.match(/^d\d+$/)) {
@@ -496,6 +496,7 @@ export async function prepRoll(item, actor = null, extra = {}) {
     spellHeader.area = item.data.data.area;
     spellHeader.duracao = item.data.data.duracao;
     spellHeader.resistencia = item.data.data.resistencia;
+    spellHeader.cd = item.data.data.cd + actor.data.data.attributes.cd;
     detailText = item.data.data.description;
 
     templateData = {
@@ -560,6 +561,12 @@ function rollT20(roll, actor, templateData, criticoM = null) {
       critFormula = roll.crit.trim().replace(/([\+\-]+$)/g, "");
     }
     roll = roll.atq.trim().replace(/([\+\-]+$)/g, "");
+  }
+
+  // Automatic Mana Spend
+  if (actor && templateData.custo && game.settings.get("tormenta20", "automaticManaSpend"))
+  {
+    actor.spendMana(templateData.custo, 0, false);
   }
 
   if (roll) {
