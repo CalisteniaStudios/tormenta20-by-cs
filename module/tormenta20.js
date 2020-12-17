@@ -7,7 +7,7 @@ import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
 import { T20Item } from "./item/item.js";
 import { T20ItemSheet } from "./item/item-sheet.js";
 import { T20Utility } from "./utility.js";
-import { measureDistances, getBarAttribute } from "./canvas.js";
+import { measureDistances, getBarAttribute, toggleEffect } from "./canvas.js";
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 import * as chat from "./chat.js";
 import * as dice from "./dice.js";
@@ -29,7 +29,7 @@ Hooks.once('init', async function () {
   CONFIG.statusEffects = T20Config.statusEffectIcons;
 
   console.log('111 dsfdfs');
-   
+
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -122,6 +122,7 @@ Hooks.on("canvasInit", function () {
   SquareGrid.prototype.measureDistances = measureDistances;
 
   Token.prototype.getBarAttribute = getBarAttribute;
+  Token.prototype.toggleEffect = toggleEffect;
 });
 
 /* Add hook for the context menu over the rolled damage */
