@@ -74,6 +74,10 @@ Hooks.once('init', async function () {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
 
+  Handlebars.registerHelper('ifNotEquals', function (arg1, arg2, options) {
+    return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+  });
+
   Handlebars.registerHelper('ifGreater', function (arg1, arg2, options) {
     if (arg1 > arg2) {
         return options.fn(this);
@@ -194,7 +198,7 @@ async function rollItemMacro(itemName, extra) {
   if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
   // console.log(item);
   // Trigger the item roll
-  await dice.prepRoll(item, actor);
+  await dice.prepRoll(event, item, actor);
 }
 
 async function rollSkillMacro(skillName, subtype) {
@@ -232,5 +236,5 @@ async function rollSkillMacro(skillName, subtype) {
     roll: `1d20+${skill.value}`
   }
   // Trigger the item roll
-  await dice.prepRoll(item, actor);
+  await dice.prepRoll(event, item, actor);
 }
