@@ -59,7 +59,7 @@ export class T20Actor extends Actor {
 
       var atributo = pericia.atributo;
       pericia.mod = data.atributos[atributo].mod;
-      pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
+      pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.temp ?? 0) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
     
     if(data.pericias.ofi.mais){
@@ -71,7 +71,7 @@ export class T20Actor extends Actor {
           pericia.treino = 0;
         }
 
-        pericia.nome = pericia.label.replace(/[\*\+]/g, '').trim();
+        pericia.nome = String(pericia.label).replace(/[\*\+]/g, '').trim();
         //.match(/\w+([\s\w]+)?\b/g)?  pericia.label.match(/\w+([\s\w]+)?\b/g)[0] : '';
 
         pericia.st = (pericia.label.match(/\+/g) ? true : false);
@@ -79,7 +79,7 @@ export class T20Actor extends Actor {
 
         var atributo = pericia.atributo;
         pericia.mod = data.atributos[atributo].mod;
-        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
+        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod)  + Number(pericia.temp ?? 0) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
       }
     }
     if(data.periciasCustom){
@@ -99,7 +99,7 @@ export class T20Actor extends Actor {
 
         var atributo = pericia.atributo;
         pericia.mod = data.atributos[atributo].mod;
-        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
+        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod)  + Number(pericia.temp ?? 0) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
       }
     }
 

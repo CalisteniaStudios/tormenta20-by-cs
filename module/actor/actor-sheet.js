@@ -421,6 +421,8 @@ export class T20ActorSheet extends ActorSheet {
         sk.treino = inp.value;
       } else if (inp.name.match(/outros/) !== null) {
         sk.outros = inp.value;
+      } else if (inp.name.match(/temp/) !== null) {
+        sk.temp = inp.value;
       }
     }
     if (tipo == "oficios") {
@@ -469,7 +471,8 @@ export class T20ActorSheet extends ActorSheet {
       treinado: false,
       treino: 0,
       outros: 0,
-      mod: 0
+      mod: 0,
+      temp: 0
     };
 
     let actorData = duplicate(this.actor);

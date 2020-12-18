@@ -115,7 +115,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "ade": {
             "label": "Adestramento",
@@ -127,7 +128,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "atl": {
             "label": "Atletismo",
@@ -139,7 +141,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "atu": {
             "label": "Atuação",
@@ -151,7 +154,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "cav": {
             "label": "Cavalgar",
@@ -163,7 +167,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "con": {
             "label": "Conhecimento",
@@ -175,7 +180,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "cur": {
             "label": "Cura",
@@ -187,7 +193,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "dip": {
             "label": "Diplomacia",
@@ -199,7 +206,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "eng": {
             "label": "Enganação",
@@ -211,7 +219,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "for": {
             "label": "Fortitude",
@@ -223,7 +232,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "fur": {
             "label": "Furtividade",
@@ -235,7 +245,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "gue": {
             "label": "Guerra",
@@ -247,7 +258,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "ini": {
             "label": "Iniciativa",
@@ -259,7 +271,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "int": {
             "label": "Intimidação",
@@ -271,7 +284,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "intu": {
             "label": "Intuição",
@@ -283,7 +297,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "inv": {
             "label": "Investigação",
@@ -295,7 +310,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "jog": {
             "label": "Jogatina",
@@ -307,7 +323,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "lad": {
             "label": "Ladinagem",
@@ -319,7 +336,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "lut": {
             "label": "Luta",
@@ -331,7 +349,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "mis": {
             "label": "Misticismo",
@@ -343,7 +362,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "nob": {
             "label": "Nobreza",
@@ -355,7 +375,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "ofi": {
             "label": "Oficios",
@@ -368,6 +389,7 @@
             "outros": 0,
             "notes": "",
             "mod": 0,
+            "temp": 0,
             "mais": []
           },
           "per": {
@@ -380,7 +402,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "pil": {
             "label": "Pilotagem",
@@ -392,7 +415,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "pon": {
             "label": "Pontaria",
@@ -404,7 +428,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "ref": {
             "label": "Reflexos",
@@ -416,7 +441,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "rel": {
             "label": "Religião",
@@ -428,7 +454,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "sob": {
             "label": "Sobrevivência",
@@ -440,7 +467,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           },
           "von": {
             "label": "Vontade",
@@ -452,7 +480,8 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0
           }
         },
         "periciasCustom": {},

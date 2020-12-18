@@ -390,7 +390,8 @@ export class T20ActorNPCSheet extends ActorSheet {
     const pericia = {
           label: "pericia",
           nome: "pericia",
-          value: 0
+          value: 0,
+          temp: 0
         } ;
 
     let actorData = duplicate(this.actor);

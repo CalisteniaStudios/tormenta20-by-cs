@@ -44,8 +44,3 @@ export const getBarAttribute = function(...args) {
   return data;
 };
 
-const _TokenToggleEffect = Token.prototype.toggleEffect;
-export const toggleEffect = function(...args) {
-  const data = _TokenToggleEffect.bind(this)(...args);
-  return data;
-};

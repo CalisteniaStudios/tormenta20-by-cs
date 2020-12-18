@@ -531,15 +531,15 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
 function conditionEval(actor, item)
 {
 
-  actor.effects.forEach(function (eff) {
-    if(eff.data.flags.core.statusId == "abalado")
-    {
-      if(item.type == "pericia")
-      {
-        item.roll += "-2"
-      }
-    }
-  });
+  // actor.effects.forEach(function (eff) {
+  //   if(eff.data.flags.core.statusId == "abalado")
+  //   {
+  //     if(item.type == "pericia")
+  //     {
+  //       item.roll += "-2"
+  //     }
+  //   }
+  // });
 
   return item;
 }
