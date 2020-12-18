@@ -30,7 +30,7 @@ export class T20Actor extends Actor {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.atributos)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
+      ability.mod = Math.floor((ability.value - 10) / 2) + (ability.temp ?? 0);
     }
   }
 
@@ -46,7 +46,7 @@ export class T20Actor extends Actor {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.atributos)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
+      ability.mod = Math.floor((ability.value - 10) / 2) + (ability.temp ?? 0);
     }
 
     for (let [key, pericia] of Object.entries(data.pericias)) {
@@ -107,7 +107,7 @@ export class T20Actor extends Actor {
     data.defesa.escud = data.escudo.equipado ? Number(data.escudo.defesa) : 0;
     data.defesa.value = 10 + Number((data.defesa.des ? data.atributos.des.mod : 0)) +
       Number(data.defesa.armad) + Number(data.defesa.escud) +
-      Number(data.defesa.outro);
+      Number(data.defesa.outro) + Number(data.defesa.temp ?? 0);;
 
     data.rd.value = data.rd.base + data.rd.temp
 
