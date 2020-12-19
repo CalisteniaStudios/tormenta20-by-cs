@@ -38,6 +38,11 @@ export class T20ActorNPCSheet extends ActorSheet {
     if(this.actor.data.data.periciasCustom === undefined){
       this.actor.update({"data.periciasCustom":{}});
     }
+    if (this.actor.data.data.attributes.cd === undefined || this.actor.data.data.attributes.cd === 0) {
+      this.actor.update({
+        "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
+      });
+    }
 
     return data;
   }
@@ -56,6 +61,7 @@ export class T20ActorNPCSheet extends ActorSheet {
     const poderes = [];
     const equipamentos = [];
     const ataques = [];
+    const armas = [];
     const magias = {
       1: {
           spells: [],
@@ -101,8 +107,23 @@ export class T20ActorNPCSheet extends ActorSheet {
         // carga.push(i.peso);
         // carga.reduce((a,b) => a+b,0);
         // actorData.data.detalhes.carga = carga;
-      }
-      else if (i.type === 'ataque') {
+      } else if (i.type === 'arma') {
+        let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
+        tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+        let tempdmg = '';
+        tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
+        tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg + `+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
+        tempdmg = i.data.bonusDano != '' ? tempdmg + ` + ${i.data.bonusDano}` : tempdmg;
+        tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+
+        i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
+
+        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+
+
+        armas.push(i);
+
+      } else if (i.type === 'ataque') {
         let tempatq = `${i.data.bonusAtq}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
         // let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
@@ -137,6 +158,7 @@ export class T20ActorNPCSheet extends ActorSheet {
     actorData.equipamentos = equipamentos;
     // Attacks
     actorData.ataques = ataques;
+    actorData.armas = armas;
   }
 
   /**
@@ -454,13 +476,13 @@ export class T20ActorNPCSheet extends ActorSheet {
     const a = event.currentTarget;
     const data = a.dataset;
     const actorData = actor.data.data;
-    const itemId = $(a).closest('li').attr('data-item-id');
+    const itemId = $(a).closest('li').attr('data-item-id') ?? $(a).attr('data-item-id');
     let item = {
         type: 'outros',
         roll: data.roll,
         label: data.label
       };
-    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
+    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('arma-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
       item = actor.getOwnedItem(itemId);
     } else if ($(a).hasClass('pericia-rollable')) {
       item = {
@@ -476,7 +498,7 @@ export class T20ActorNPCSheet extends ActorSheet {
         label: atrnames[data.label]
       }
     }
-    await prepRoll(item, actor);
+    await prepRoll(event, item, actor);
   }
 
 }

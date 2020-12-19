@@ -25,13 +25,14 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Correções adicionais de ataques, medição de distância por etapas e melhor visualização de críticos~~ (v0.9.85)
 * ~~Suporte a aprimoramentos das magias~~ (v0.9.9)
 * ~~Personalizar rolagens usando atalhos do teclado (SHIFT, CTRL, ALT)~~ (v0.9.9)
-* Melhorar macros, permitir alterar um ataque pela macro sem duplicar o ataque
+* ~~Melhorias diversas~~ (v0.9.92)
+* ~~Reformulação das armas e Macros de para Armas~~ (v0.9.93)
+* ~~Itens Roláveis~~ (v0.9.93)
+* Melhorar Poderes e Itens num geral
+* Condições e efeitos ativos.
 * Layout da ficha
 
 ## Colaboradores
-* Roberto Caetano
 * TheTruePortal
-
-## Special Thanks
-
-Special Thanks to Asacolips for his System Development Tutorial and DungeonWorld system, and Furyspark for Pathfinder 1 system which I used as reference during the development of this system.
+* Mateus Clemente
+* Roberto Caetano

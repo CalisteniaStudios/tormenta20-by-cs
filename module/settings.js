@@ -14,4 +14,32 @@ export const SystemSettings = function() {
     }
   });
 
+  /**
+   * Gasto Automático de Mana
+   */
+  game.settings.register("tormenta20", "automaticManaSpend", {
+    name: "Gasto de Mana",
+    hint: "Ao utilizar um poder ou magia, a mana do personagem é gasta automaticamente",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
+  /**
+   * Register diagonal movement rule setting
+   */
+  game.settings.register("tormenta20", "diagonalMovement", {
+    name: "Movimento Diagonal",
+    hint: "Configura qual regra de movimento diagonal será usada no sistema.",
+    scope: "world",
+    config: true,
+    default: "MANHATTAN",
+    type: String,
+    choices: {
+	  "MANHATTAN": "Padrão (3m)",
+	  "EQUIDISTANT": "Equidistante (1,5m)",
+    },
+    onChange: rule => canvas.grid.diagonalRule = rule
+  });
 }
