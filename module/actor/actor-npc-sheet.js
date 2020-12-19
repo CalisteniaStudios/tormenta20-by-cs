@@ -108,21 +108,22 @@ export class T20ActorNPCSheet extends ActorSheet {
         // carga.reduce((a,b) => a+b,0);
         // actorData.data.detalhes.carga = carga;
       } else if (i.type === 'arma') {
-        let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
-        tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+        let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
+        tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+          return "(" + T20Utility.short(match, actorData.data) + ")";
+        });
         let tempdmg = '';
         tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
         tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg + `+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
-        tempdmg = i.data.bonusDano != '' ? tempdmg + ` + ${i.data.bonusDano}` : tempdmg;
-        tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+        tempdmg = i.data.danoBns != '' ? tempdmg + ` + ${i.data.danoBns}` : tempdmg;
+        tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+          return "(" + T20Utility.short(match, actorData.data) + ")";
+        });
 
         i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
 
         i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
-
-
         armas.push(i);
-
       } else if (i.type === 'ataque') {
         let tempatq = `${i.data.bonusAtq}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');

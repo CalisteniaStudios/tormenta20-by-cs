@@ -432,39 +432,26 @@
 
             <li class="item flexrow item-header">
               <div class="item-image"></div>
-              <div class="item-equip">Equip</div>
               <div class="item-name">Nome</div>
-              <div class="item-bonusAtq  text-center">ATQ</div>
-              <div class="item-dano  text-center">Dano</div>
+              <div class="item-bonusAtq"></div>
               <div class="item-controls">
-                <a class="item-control item-create" title="Create item" data-type="arma"><i class="fas fa-plus"></i>
-                  Novo</a>
+                <a class="item-control item-create" title="Nova Arma" data-type="arma"><i class="fas fa-plus"></i>
+                  Nova</a>
               </div>
             </li>
 
-            {{#each actor.equipamentos as |item id|}}
-
-            {{#ifEquals item.type "arma"}}
-            <li class="item flexrow" data-item-id="{{item._id}}">
-              <div class="item-image" style="background-image: url('{{item.img}}')"></div>
-              <div class="item-equip">
-                {{#if item.data.equipado }}
-                <input type="checkbox" class="equipado" value="{{item.data.equipado}}" checked data-dtype="Boolean" />
-                {{else}}
-                <input type="checkbox" class="equipado" value="{{item.data.equipado}}" data-dtype="Boolean" />
-                {{/if}}
-              </div>
-              <div class="item-name"><span class="rollable arma-rollable" data-roll="1d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value" data-label="{{item.name}}">
-                  <h4 class="item-name">{{item.name}}</h4>
-                </span></div>
-              <div class="item-bonusAtq text-center"><input class="upItem" type="text" data-campo="bonusAtq" value="{{item.data.bonusAtq}}" style="max-width: 60px;" data-dtype="String" /></div>
-              <div class="item-dano text-center"><input class="upItem" type="text" data-campo="bonusDano" value="{{item.data.bonusDano}}" style="max-width: 60px;" data-dtype="String" /></div>
-              <div class="item-controls">
-                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-            </li>
-            {{/ifEquals}}
+            {{#each actor.armas as |item id|}}
+              <li class="item flexrow" data-item-id="{{item._id}}">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <div class="item-name"><span class="rollable arma-rollable" data-roll="1d20+{{item.data.bonusAtq}}+@data.pericias.{{item.data.pericia}}.value" data-label="{{item.name}}">
+                    <h4 class="item-name">{{item.name}}</h4>
+                  </span></div>
+                  <div>+{{item.data.atq}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
+                <div class="item-controls">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+              </li>
             {{/each}}
           </ol>
 
@@ -481,8 +468,8 @@
             <li class="item flexrow item-header">
               <div class="item-image"></div>
               <div class="item-name">Nome</div>
-              <div class="item-defesa text-center">Recupera</div>
-              <div class="item-penalidade text-center">Quantidade</div>
+              <div class="item-quantidade text-center">Quantidade</div>
+              <div class="item-peso text-center">Peso</div>
               <div class="item-controls">
                 <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i>Novo</a>
               </div>
@@ -490,38 +477,29 @@
 
             {{#each actor.equipamentos as |item id|}}
 
-            {{#ifNotEquals item.type "arma"}}
 
             <li class="item flexrow" data-item-id="{{item._id}}">
               <div class="item-image" style="background-image: url('{{item.img}}')"></div>
               <div class="item-name">
-                <h4 class="item-name">{{item.name}}</h4>
+                {{#ifEquals item.type "consumivel"}}
+                <h4 class="item-name" style="flex: 5;"><span class="rollable consumivel-rollable" data-roll="{{item.data.efeito}}" data-label="{{item.name}}">{{item.name}}</span></h4>
+                {{else}}
+                <h4 class="item-name" style="flex: 5;">{{item.name}}</h4>
+                {{/ifEquals}}
               </div>
 
-              {{#if item.data.isPocaoPV }}
-              <div class="item-defesa text-center">
-                <h3 class="text-center">{{item.data.recuperaPV}} PV</h3>
-              </div>
-              {{else if item.data.isPocaoPM }}
-              <div class="item-defesa text-center">
-                <h3 class="text-center">{{item.data.recuperaPM}} PM</h3>
-              </div>
-              {{else}}
-              <div class="item-defesa text-center">
-                <h3 class="text-center"></h3>
-              </div>
-              {{/if}}
 
-              <div class="item-penalidade text-center">
+              <div class="item-quantidade text-center">
                 <h3 class="text-center">{{item.data.qtd}}</h3>
               </div>
-
+              <div class="item-peso text-center">
+                <h3 class="text-center">{{item.peso}}</h3>
+              </div>
               <div class="item-controls">
                 <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                 <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
               </div>
             </li>
-            {{/ifNotEquals}}
             {{/each}}
           </ol>
 
