@@ -153,7 +153,6 @@ export const getItemOwner = function (item) {
 
 
 async function createT20Macro(data, slot) {
-  console.log(data);
   if (data.type === "Pericia") {
     const item = data.data;
     const command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
@@ -173,7 +172,27 @@ async function createT20Macro(data, slot) {
     const item = data.data;
     // const actor = getItemOwner(item);
     // Create the macro command
-    const command = `game.tormenta20.rollItemMacro("${item.name}");`;
+    let command = '';
+    if(item.type === "arma"){
+      command = `
+//UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
+//VALORES SERÃO SOMADOS A CARACTEÍSTICA.
+//INICIAR COM "=" SUBSTITUIRÁ O BÔNUS DA FICHA DA ARMA
+game.tormenta20.rollItemMacro("${item.name}",{
+           'atq' : "0",
+      'dadoDano' : "",
+          'dano' : "0", 
+ 'margemCritico' : "0",
+   'multCritico' : "0",
+       'pericia' : "",
+      'atributo' : "",
+          'tipo' : "",
+       'alcance' : "",
+         'custo' : "0"
+});`;
+    }  else {
+      command = `game.tormenta20.rollItemMacro("${item.name}");`;
+    }
 
     let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
     if (!macro) {
@@ -199,17 +218,22 @@ async function createT20Macro(data, slot) {
  * @param {string} itemName
  * @return {Promise}
  */
-async function rollItemMacro(itemName, extra) {
+async function rollItemMacro(itemName, extra = null) {
   const speaker = ChatMessage.getSpeaker();
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
-  const item = actor ? actor.items.find(i => i.name === itemName) : null;
+  let item = null;
+  if(extra){
+    item = actor ? actor.items.find(i => i.name === itemName && (extra && i.type!=="ataque")) : null;
+  } else {
+    item = actor ? actor.items.find(i => i.name === itemName) : null;
+  }
   if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
   if (!item) return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
   // console.log(item);
   // Trigger the item roll
-  await dice.prepRoll(event, item, actor);
+  await dice.prepRoll(event, item, actor, extra);
 }
 
 async function rollSkillMacro(skillName, subtype) {

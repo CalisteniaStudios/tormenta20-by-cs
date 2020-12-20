@@ -24,9 +24,11 @@ export class T20ActorSheet extends ActorSheet {
 
   get template() {
     let layout = game.settings.get("tormenta20", "sheetTemplate");
-    if (layout == 'base') {
-      return "systems/tormenta20/templates/actor/actor-sheet-base.html";
-    } else if (layout == 'tabbed') {
+    if ( !game.user.isGM && this.actor.limited ) {
+      return "systems/tormenta20/templates/actor/actor-sheet-limited.html";
+    } else if(layout == 'base'){
+      return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
+    } else if(layout == 'tabbed') {
       return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
     }
   }
@@ -135,6 +137,12 @@ export class T20ActorSheet extends ActorSheet {
     const poderes = [];
     const equipamentos = [];
     const ataques = [];
+    const armas = [];
+    let carga = [];
+    let cargaPesada = actorData.data.atributos.for.value * 3;
+    let cargaMax = actorData.data.atributos.for.value * 10;
+    actorData.cargaPesada = cargaPesada;
+    actorData.cargaMax = cargaMax;
     const magias = {
       1: {
         spells: [],
@@ -174,12 +182,34 @@ export class T20ActorSheet extends ActorSheet {
         }
       }
       // If this is equipment, we currently lump it together.
-      else if (i.type === 'equip' || i.type === 'arma' || i.type === 'consumivel' || i.type === 'tesouro') {
+      else if (i.type === 'equip'  || i.type === 'consumivel' || i.type === 'tesouro') {
+        i.peso = Number(i.data.peso)*Number(i.data.qtd);
         equipamentos.push(i);
-        // carga = [];
-        // carga.push(i.peso);
-        // carga.reduce((a,b) => a+b,0);
-        // actorData.data.detalhes.carga = carga;
+        carga.push(i.peso);
+
+        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
+
+      } else if (i.type === 'arma') {
+        let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
+        tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+          return "(" + T20Utility.short(match, actorData.data) + ")";
+        });
+        let tempdmg = '';
+        tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
+        tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg + `+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
+        tempdmg = i.data.danoBns != '' ? tempdmg + ` + ${i.data.danoBns}` : tempdmg;
+        tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+          return "(" + T20Utility.short(match, actorData.data) + ")";
+        });
+
+        i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
+
+        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+        armas.push(i);
+        i.peso = Number(i.data.peso)*Number(i.data.qtd);
+        carga.push(i.peso);
+        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
+
       } else if (i.type === 'ataque') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
@@ -214,6 +244,8 @@ export class T20ActorSheet extends ActorSheet {
     actorData.equipamentos = equipamentos;
     // Attacks
     actorData.ataques = ataques;
+    actorData.armas = armas;
+    // Conditions
     actorData.condicoesPadrao = condicoesPadrao;
 
   }
@@ -555,11 +587,11 @@ export class T20ActorSheet extends ActorSheet {
     const actorData = actor.data.data;
     const itemId = $(a).parents('.item').attr('data-item-id');
     let item = {
-      type: 'outros',
-      roll: data.roll,
-      label: data.label
-    };
-    if (itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
+        type: 'outros',
+        roll: data.roll,
+        label: data.label
+      };
+    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('arma-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
       item = actor.getOwnedItem(itemId);
     } else if ($(a).hasClass('pericia-rollable')) {
       item = {

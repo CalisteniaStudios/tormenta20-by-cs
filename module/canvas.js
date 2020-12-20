@@ -4,6 +4,7 @@ export const measureDistances = function(segments, options={}) {
 
   // Track the total number of diagonals
   let nDiagonal = 0;
+  const rule = this.parent.diagonalRule;
   const d = canvas.dimensions;
 
   // Iterate over measured segments
@@ -19,6 +20,10 @@ export const measureDistances = function(segments, options={}) {
     let nd = Math.min(nx, ny);
     let ns = Math.abs(ny - nx);
     nDiagonal += nd;
+  
+    if (rule === "EQUIDISTANT") {
+      return (ns + nd) * canvas.scene.data.gridDistance;
+    }
 
     // Standard Manhattan Movement
     return (ns + nd + nDiagonal) * canvas.scene.data.gridDistance;
