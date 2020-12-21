@@ -512,6 +512,14 @@
           "pericias" : {
             "bonus" : 0,
             "penalidade" : 0
+          },
+          "ataques" : {
+            "bonus" : 0,
+            "penalidade" : 0
+          },
+          "custosPM": {
+            "bonus": 0,
+            "penalidade": 0
           }
         }
       }

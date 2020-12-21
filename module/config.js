@@ -45,9 +45,24 @@ T20Config.conditions = {
         "tooltip": "<strong>Abalado</strong><br><br>O personagem sofre –2 em testes de perícia. Se ficar abalado novamente, em vez disso fica apavorado. <i>Condição de medo.</i>"
     },
     "agarrado": {
-        "modifiers": [ { "modificadores.pericias.penalidade" : -2 }],
+        "modifiers": [ { "modificadores.ataques.penalidade" : -2 }],
         "childrenConditions": ["desprevenido", "imovel"],
         "tooltip": "<strong>Agarrado</strong><br><br>O personagem fica desprevenido e imóvel, sofre –2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. <i>Condição de paralisia.</i>"
+    },
+    "alquebrado": {
+        "modifiers": [ { "modificadores.custosPM.bonus" : +1 }],
+        "childrenConditions": [],
+        "tooltip": "<strong>Alquebrado</strong><br><br> O custo em pontos de mana das habilidades e magias do personagem aumenta em +1. <i>Condição mental.</i>"
+    },
+    "apavorado": {
+        "modifiers": [ { "modificadores.pericias.penalidade" : -5 }],
+        "childrenConditions": [],
+        "tooltip": "<strong>Apavorado</strong><br><br>O personagem sofre –5 em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível. Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. <i>Condição de medo.</i>"
+    },
+    "atordoado": {
+        "modifiers": [],
+        "childrenConditions": ["desprevenido"],
+        "tooltip": "<strong>Atordoado</strong><br><br> O personagem fica desprevenido e não pode fazer ações. <i>Condição mental.</i>"
     },
     "desprevenido": {
         "modifiers": [ { "defesa.penalidade" : -5 }],

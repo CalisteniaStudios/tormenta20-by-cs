@@ -1,5 +1,5 @@
 import ConjurarDialog from "./apps/conjurar-dialog.js";
-import { T20Utility } from './utility.js';
+import { T20Utility } from "./utility.js";
 /* Standardized Roll Script */
 export async function prepRoll(event, item, actor = null, extra = {}) {
   actor = !actor ? this.actor : actor;
@@ -22,12 +22,6 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
   let danoText = null;
   let templateRollDialog = "systems/tormenta20/templates/chat/roll-dialog.html";
 
-  // Condições 
-  if(actor)
-  {
-    item = conditionEval(actor, item);
-  }
-
   let rollMode = game.settings.get("core", "rollMode");
 
   // Handle rolls coming directly from the ability score.  && data.mod
@@ -45,12 +39,20 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       title: flavorText,
       details: detailText,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes
+      rollModes: CONFIG.Dice.rollModes,
     };
     if (item.data.data.custo > 0) {
-      templateData.custo = item.data.data.custo;
+      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+      if (templateData.custo <= 0)
+      {
+        templateData.custo = 1;
+      }
     }
-    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula = formula
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
     if (!event.shiftKey || !item.data.data.custo) {
       rollT20(formula, actor, templateData);
     } else {
@@ -64,7 +66,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
             custoAdic.trim().charAt(0) != "+" &&
             custoAdic.trim().charAt(0) != "-"
           ) {
-            custoAdic = "+"+custoAdic;
+            custoAdic = "+" + custoAdic;
           }
           templateData.custo =
             parseInt(templateData.custo) + parseInt(custoAdic);
@@ -110,9 +112,13 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     templateData = {
       title: flavorText,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes
+      rollModes: CONFIG.Dice.rollModes,
     };
-    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula = formula
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData);
     } else {
@@ -126,7 +132,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
           rollBonus.trim().charAt(0) != "+" &&
           rollBonus.trim().charAt(0) != "-"
         )
-          rollBonus = "+"+rollBonus;
+          rollBonus = "+" + rollBonus;
         formula = formula + rollBonus;
         rollT20(formula, actor, templateData);
       };
@@ -166,9 +172,13 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     templateData = {
       title: flavorText,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes
+      rollModes: CONFIG.Dice.rollModes,
     };
-    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula = formula
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData);
     } else {
@@ -182,7 +192,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
           rollBonus.trim().charAt(0) != "+" &&
           rollBonus.trim().charAt(0) != "-"
         )
-          rollBonus = "+"+rollBonus;
+          rollBonus = "+" + rollBonus;
         formula = formula + rollBonus;
         rollT20(formula, actor, templateData);
       };
@@ -208,19 +218,38 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       });
     }
   } else if (item.type == "arma") {
-    let ex = {'atq':"0", 'dadoDano':"",'dano':"0", 'margemCritico':"0",'multCritico':"0", 'pericia':"", 'atributo':"", 'tipo':"", 'alcance':"",'custo':""};
-    
-    extra = mergeObject(ex,extra);
+    let ex = {
+      atq: "0",
+      dadoDano: "",
+      dano: "0",
+      margemCritico: "0",
+      multCritico: "0",
+      pericia: "",
+      atributo: "",
+      tipo: "",
+      alcance: "",
+      custo: "",
+    };
+
+    extra = mergeObject(ex, extra);
     // let periciaAtq = (actorData.pericias[extra.pericia].value ?? actorData.pericias[item.data.data.pericia].value);
     extra.pericia = extra.pericia.toLowerCase();
     extra.atributo = extra.atributo.toLowerCase();
-    let periciaAtq = actorData.pericias[extra.pericia] ? actorData.pericias[extra.pericia].value : actorData.pericias[item.data.data.pericia].value
-    
-     // actorData.pericias[( ? extra.pericia : )].value;
-    let bonusAtq = (extra.atq.match(/^\=/) ? extra.atq.replace('=','') : `${item.data.data.atqBns} + ${extra.atq}`);
-    
+    let periciaAtq = actorData.pericias[extra.pericia]
+      ? actorData.pericias[extra.pericia].value
+      : actorData.pericias[item.data.data.pericia].value;
+
+    // actorData.pericias[( ? extra.pericia : )].value;
+    let bonusAtq = extra.atq.match(/^\=/)
+      ? extra.atq.replace("=", "")
+      : `${item.data.data.atqBns} + ${extra.atq}`;
+
+    let modificadorAtq =
+      (actorData.modificadores.ataques.bonus ?? 0) +
+      (actorData.modificadores.ataques.penalidade ?? 0);
+
     formula = {};
-    formula.atq = `1d20+ ${periciaAtq}+ ${bonusAtq}`;
+    formula.atq = `1d20+ ${periciaAtq}+ ${bonusAtq}+ ${modificadorAtq}`;
 
     if (event.altKey) {
       formula.atq = formula.atq.replace("1d20", "2d20kh");
@@ -232,17 +261,34 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       return "(" + T20Utility.short(match, actorData) + ")";
     });
 
-    let atributoDano = (extra.atributo ? `@${extra.atributo}` : (item.data.data.atrDan ? `@${item.data.data.atrDan}` : 0));
-    let danoBonus = (extra.dano && extra.dano.match(/^\=/)  ? extra.dano.replace('=','') : `${item.data.data.danoBns}+ ${extra.dano}`) ;
-    let danoBase = (extra.dadoDano != "" ? extra.dadoDano.replace('=','') : item.data.data.dano);
-    let critX = (extra.multCritico.match(/^\=/) ? extra.multCritico.replace('=','') : Number(item.data.data.criticoX) + Number(extra.multCritico));
+    let atributoDano = extra.atributo
+      ? `@${extra.atributo}`
+      : item.data.data.atrDan
+      ? `@${item.data.data.atrDan}`
+      : 0;
+    let danoBonus =
+      extra.dano && extra.dano.match(/^\=/)
+        ? extra.dano.replace("=", "")
+        : `${item.data.data.danoBns}+ ${extra.dano}`;
+    let danoBase =
+      extra.dadoDano != ""
+        ? extra.dadoDano.replace("=", "")
+        : item.data.data.dano;
+    let critX = extra.multCritico.match(/^\=/)
+      ? extra.multCritico.replace("=", "")
+      : Number(item.data.data.criticoX) + Number(extra.multCritico);
 
     if (danoBase.match(/(\d*)d\d+/g)) {
       formula.dano = `${danoBase}  + ${atributoDano} +  ${danoBonus}`;
-      let baseroll = danoBase.match(/(\d*)d\d+/g) ? danoBase.match(/(\d*)d\d+/g)[0] : "";
-      let multiroll = danoBase.match(/(\d*)d\d+/g) ?
-            Number(danoBase.match(/(\d*)d\d+/g)[0].split("d")[0]) * Number(critX) + "d" + danoBase.match(/(\d*)d\d+/g)[0].split("d")[1]
-            : "";
+      let baseroll = danoBase.match(/(\d*)d\d+/g)
+        ? danoBase.match(/(\d*)d\d+/g)[0]
+        : "";
+      let multiroll = danoBase.match(/(\d*)d\d+/g)
+        ? Number(danoBase.match(/(\d*)d\d+/g)[0].split("d")[0]) *
+            Number(critX) +
+          "d" +
+          danoBase.match(/(\d*)d\d+/g)[0].split("d")[1]
+        : "";
       let newdano = danoBase.replace(baseroll, multiroll);
       // formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
       formula.crit = `${newdano} + ${atributoDano} + ${danoBonus}`;
@@ -253,12 +299,13 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula.crit = formula.crit.replace(/\@\w+\b/g, function (match) {
         return "(" + T20Utility.short(match, actorData) + ")";
       });
-      
+
       if (item.data.data.lancinante) {
-        let lacinante = formula.crit.replace(/\s/g, "").replace(/(\b\d+\b)/g, "($& * " + critX + ")");
+        let lacinante = formula.crit
+          .replace(/\s/g, "")
+          .replace(/(\b\d+\b)/g, "($& * " + critX + ")");
         formula.crit = `${lacinante}`;
       }
-
     } else {
       formula.dano = null;
       formula.crit = null;
@@ -271,9 +318,19 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     danoText = "";
 
     let properties = [];
-    (extra.tipo ? properties.push(extra.tipo) : (item.data.data.tipo ? properties.push(item.data.data.tipo) : undefined));
-    (extra.alcance ? properties.push(extra.alcance) : (item.data.data.alcance ? properties.push(item.data.data.alcance)  : undefined) );
-    (item.data.data.municao ? properties.push(item.data.data.municao) : undefined);
+    extra.tipo
+      ? properties.push(extra.tipo)
+      : item.data.data.tipo
+      ? properties.push(item.data.data.tipo)
+      : undefined;
+    extra.alcance
+      ? properties.push(extra.alcance)
+      : item.data.data.alcance
+      ? properties.push(item.data.data.alcance)
+      : undefined;
+    item.data.data.municao
+      ? properties.push(item.data.data.municao)
+      : undefined;
 
     templateData = {
       title: flavorText,
@@ -282,16 +339,32 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       details: detailText,
       properties: properties,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes
+      rollModes: CONFIG.Dice.rollModes,
     };
 
-    if (item.data.data.custo > 0 || (extra.custo && extra.custo != "0") ) {
-      templateData.custo = extra.custo.match(/^\=/) ? extra.custo.replace('=','') : Number(item.data.data.custo)+Number(extra.custo);
+    if (item.data.data.custo > 0 || (extra.custo && extra.custo != "0")) {
+      templateData.custo = extra.custo.match(/^\=/)
+        ? extra.custo.replace("=", "")
+        : Number(item.data.data.custo) + Number(extra.custo);
     }
-    let margemCrit = (extra.margemCritico.match(/^\=/) ? extra.margemCritico.replace('=','')  : Number(item.data.data.criticoM)-Number(extra.margemCritico));
-    formula.atq = formula.atq.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
-    formula.dano = formula.dano.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
-    formula.crit = formula.crit.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    let margemCrit = extra.margemCritico.match(/^\=/)
+      ? extra.margemCritico.replace("=", "")
+      : Number(item.data.data.criticoM) - Number(extra.margemCritico);
+    formula.atq = formula.atq
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
+    formula.dano = formula.dano
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
+    formula.crit = formula.crit
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData, margemCrit);
     } else {
@@ -358,8 +431,6 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
         });
       });
     }
-
-
   } else if (item.type == "ataque") {
     formula = {};
     formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value}+ ${
@@ -372,7 +443,9 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
         : ``) +
       (item.data.data._bonusAtq != undefined && item.data.data._bonusAtq != 0
         ? `+${item.data.data._bonusAtq}`
-        : ``);
+        : ``) +
+      `+${(actorData.modificadores.ataques.bonus ?? 0)}` +
+      `+${(actorData.modificadores.ataques.penalidade ?? 0)}`;
     if (event.altKey) {
       formula.atq = formula.atq.replace("1d20", "2d20kh");
     }
@@ -475,16 +548,32 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       danosDesc: danoText,
       details: detailText,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes
+      rollModes: CONFIG.Dice.rollModes,
     };
 
     if (item.data.data.custo > 0) {
-      templateData.custo = item.data.data.custo;
+      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+      if (templateData.custo <= 0)
+      {
+        templateData.custo = 1;
+      }
     }
 
-    formula.atq = formula.atq.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
-    formula.dano = formula.dano.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
-    formula.crit = formula.crit.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula.atq = formula.atq
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
+    formula.dano = formula.dano
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
+    formula.crit = formula.crit
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData, item.data.data.criticoM);
     } else {
@@ -572,12 +661,18 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
           aprimoramentoData[ids[i]] = aplicas[i];
         }
       }
-      if(item.data.data.aprimoramentos !== undefined && Array.isArray(item.data.data.aprimoramentos)){
+      if (
+        item.data.data.aprimoramentos !== undefined &&
+        Array.isArray(item.data.data.aprimoramentos)
+      ) {
         aplicados = item.data.data.aprimoramentos.filter(
-        (ap) => Object.keys(aprimoramentoData).indexOf(ap.id) !== -1
-      );
-        }
-    } else if(item.data.data.aprimoramentos !== undefined && Array.isArray(item.data.data.aprimoramentos)) {
+          (ap) => Object.keys(aprimoramentoData).indexOf(ap.id) !== -1
+        );
+      }
+    } else if (
+      item.data.data.aprimoramentos !== undefined &&
+      Array.isArray(item.data.data.aprimoramentos)
+    ) {
       aplicados = item.data.data.aprimoramentos.filter(
         (ap) => ap.ativo === true
       );
@@ -590,8 +685,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       } else {
         ap.gasto = apr.custo;
       }
-      ap.qtd = (apr.tipo === "Aumenta" ? ap.gasto / apr.custo : 1); 
-      PMTotal = PMTotal + parseInt((apr.custo*ap.qtd)); 
+      ap.qtd = apr.tipo === "Aumenta" ? ap.gasto / apr.custo : 1;
+      PMTotal = PMTotal + parseInt(apr.custo * ap.qtd);
       ap.custo = apr.custo;
       ap.tipo = apr.tipo;
       ap.description = apr.description.replace(/§/g, ap.qtd);
@@ -677,41 +772,39 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
         parseInt(item.data.data.custo) + PMTotal,
         1
       );
-    } else if (eTruque) {
-      templateData.custo = 0;
-      templateData.truque = 1;
+      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+      if (templateData.custo <= 0)
+      {
+        templateData.custo = 1;
+      }
+      } else if (eTruque) {
+        templateData.custo = 0;
+        templateData.truque = 1;
+        templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
     }
-    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+
+    formula = formula
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
 
     rollT20(formula, actor, templateData);
   } else if (item.type == "consumivel") {
-    
     formula = item.data.data.efeito;
     templateData = {
       title: item.name,
-      details: item.description
+      details: item.description,
     };
-    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula = formula
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
     rollT20(formula, actor, templateData, item.data.data.criticoM);
   } else if (itemId != undefined) {
     data.roll();
   }
-}
-
-function conditionEval(actor, item)
-{
-
-  // actor.effects.forEach(function (eff) {
-  //   if(eff.data.flags.core.statusId == "abalado")
-  //   {
-  //     if(item.type == "pericia")
-  //     {
-  //       item.roll += "-2"
-  //     }
-  //   }
-  // });
-
-  return item;
 }
 
 function rollT20(roll, actor, templateData, criticoM = null) {
@@ -756,8 +849,11 @@ function rollT20(roll, actor, templateData, criticoM = null) {
   }
 
   // Automatic Mana Spend
-  if (actor && templateData.custo && game.settings.get("tormenta20", "automaticManaSpend"))
-  {
+  if (
+    actor &&
+    templateData.custo &&
+    game.settings.get("tormenta20", "automaticManaSpend")
+  ) {
     actor.spendMana(templateData.custo, 0, false);
   }
 
@@ -767,13 +863,13 @@ function rollT20(roll, actor, templateData, criticoM = null) {
     let result;
     if (roll.match(/(\d*)d\d+/g)) {
       formula = roll;
-    } else if (Number(roll)!==NaN){
+    } else if (Number(roll) !== NaN) {
       formula = null;
       result = new Roll(roll).roll();
     }
     let rollTemplate = {
-        template: "systems/tormenta20/templates/chat/t20roll.html",
-      };
+      template: "systems/tormenta20/templates/chat/t20roll.html",
+    };
     if (formula != null) {
       let roll = new Roll(`${formula}`);
       roll.roll();
@@ -799,7 +895,7 @@ function rollT20(roll, actor, templateData, criticoM = null) {
           );
         }
       }
-      
+
       // Check if there are dmg rolls and what critical math to use
       if (danoFormula) {
         if (result >= criticoM) {
@@ -858,7 +954,6 @@ function rollT20(roll, actor, templateData, criticoM = null) {
       });
     }
   } else {
-    
     renderTemplate(template, templateData).then((content) => {
       chatData.content = content;
       ChatMessage.create(chatData);

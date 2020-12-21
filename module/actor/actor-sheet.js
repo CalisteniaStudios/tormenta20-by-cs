@@ -119,13 +119,23 @@ export class T20ActorSheet extends ActorSheet {
       || this.actor.data.data.modificadores.atributos.penalidade === undefined
       || this.actor.data.data.modificadores.pericias === undefined
       || this.actor.data.data.modificadores.pericias.bonus === undefined
-      || this.actor.data.data.modificadores.pericias.penalidade === undefined)
+      || this.actor.data.data.modificadores.pericias.penalidade === undefined
+      || this.actor.data.data.modificadores.ataques === undefined
+      || this.actor.data.data.modificadores.ataques.bonus === undefined
+      || this.actor.data.data.modificadores.ataques.penalidade === undefined
+      || this.actor.data.data.modificadores.custosPM === undefined
+      || this.actor.data.data.modificadores.custosPM.bonus === undefined
+      || this.actor.data.data.modificadores.custosPM.penalidade === undefined)
       {
         this.actor.update({
           "data.modificadores.atributos.bonus": 0,
           "data.modificadores.atributos.penalidade": 0,
           "data.modificadores.pericias.bonus": 0,
-          "data.modificadores.pericias.penalidade": 0
+          "data.modificadores.pericias.penalidade": 0,
+          "data.modificadores.ataques.bonus": 0,
+          "data.modificadores.ataques.penalidade": 0,
+          "data.modificadores.custosPM.bonus": 0,
+          "data.modificadores.custosPM.penalidade": 0
         });
   
       }

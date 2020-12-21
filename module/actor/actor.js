@@ -26,10 +26,24 @@ export class T20Actor extends Actor {
     const data = this.data.data;
 
     //Zerar Condições
-    data.modificadores.atributos.bonus = 0;
-    data.modificadores.atributos.penalidade = 0;
-    data.modificadores.pericias.bonus = 0;
-    data.modificadores.pericias.penalidade = 0;
+    data.modificadores = {
+      "atributos": {
+        "bonus": 0,
+        "penalidade": 0
+      },
+      "pericias": {
+        "bonus": 0,
+        "penalidade": 0
+      },
+      "ataques": {
+        "bonus": 0,
+        "penalidade": 0
+      },
+      "custosPM": {
+        "bonus": 0,
+        "penalidade": 0
+      }
+    };
     data.deslocamento.bonus = 0;
     data.deslocamento.penalidade = 0;
     data.defesa.bonus = 0;
