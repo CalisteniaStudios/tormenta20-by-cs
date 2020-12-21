@@ -2,7 +2,7 @@ const _TokenToggleEffect = Token.prototype.toggleEffect;
 export const toggleEffect = async function (...args) {
   const data = _TokenToggleEffect.bind(this)(...args);
   let condicao = args[0].id;
-  await resolveConditions(this.actor, condicao);
+  //await resolveConditions(this.actor, condicao);
   return data;
 };
 

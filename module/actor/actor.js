@@ -11,6 +11,9 @@ export class T20Actor extends Actor {
   prepareData() {
     super.prepareData();
 
+    //Verify Conditions
+    this._evalConditions();
+
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
@@ -39,7 +42,7 @@ export class T20Actor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
-    // console.log(data);
+
     // Make modifications to data here. For example:
     var nivel = data.attributes.nivel.value;
 
@@ -59,7 +62,15 @@ export class T20Actor extends Actor {
 
       var atributo = pericia.atributo;
       pericia.mod = data.atributos[atributo].mod;
-      pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) + Number(pericia.temp ?? 0) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
+      pericia.value = Math.floor(nivel / 2) 
+                    + Number(pericia.treino) 
+                    + Number(pericia.mod) 
+                    + Number(pericia.temp ?? 0) 
+                    + Number(data.pericias.modifBonus ?? 0)
+                    + Number(data.pericias.modifPenal ?? 0)
+                    + Number(pericia.outros) 
+                    - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) 
+                    + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
     }
     
     if(data.pericias.ofi.mais){
@@ -79,7 +90,15 @@ export class T20Actor extends Actor {
 
         var atributo = pericia.atributo;
         pericia.mod = data.atributos[atributo].mod;
-        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod)  + Number(pericia.temp ?? 0) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
+        pericia.value = Math.floor(nivel / 2) 
+                      + Number(pericia.treino) 
+                      + Number(pericia.mod)  
+                      + Number(pericia.temp ?? 0) 
+                      + Number(data.pericias.modifBonus ?? 0)
+                      + Number(data.pericias.modifPenal ?? 0)  
+                      + Number(pericia.outros) 
+                      - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) 
+                      + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
       }
     }
     if(data.periciasCustom){
@@ -99,7 +118,15 @@ export class T20Actor extends Actor {
 
         var atributo = pericia.atributo;
         pericia.mod = data.atributos[atributo].mod;
-        pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod)  + Number(pericia.temp ?? 0) + Number(pericia.outros) - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
+        pericia.value = Math.floor(nivel / 2) 
+                      + Number(pericia.treino) 
+                      + Number(pericia.mod)  
+                      + Number(pericia.temp ?? 0) 
+                      + Number(data.pericias.modifBonus ?? 0)
+                      + Number(data.pericias.modifPenal ?? 0)  
+                      + Number(pericia.outros) 
+                      - Number((pericia.pda ? (data.armadura.equipado ? Math.abs(data.armadura.penalidade) : 0) 
+                      + (data.escudo.equipado ? Math.abs(data.escudo.penalidade) : 0) : 0));
       }
     }
 
@@ -113,6 +140,23 @@ export class T20Actor extends Actor {
 
     // for compatibility with dnd modules
     data.attributes.hp = data.attributes.pv.value
+
+  }
+
+  _evalConditions()
+  {
+    const condicoes = this.data.effects;
+
+    //Condições
+    condicoes.forEach(condicao => {
+      let condicaoDados = CONFIG.conditions[condicao.flags.core.statusId];
+      // console.log(condicao);
+      // console.log(condicaoDados);
+      condicaoDados.modifiers.forEach(modif =>{
+        this.update(modif);
+      });
+    });
+
 
   }
 

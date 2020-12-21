@@ -27,6 +27,7 @@ T20Config.statusEffectIcons = [
     { "id": "inconsciente", "label": "Inconsciente", "icon": "systems/tormenta20/icons/conditions/inconsciente.svg" },
     { "id": "indefeso", "label": "Indefeso", "icon": "systems/tormenta20/icons/conditions/indefeso.svg" },
     { "id": "lento", "label": "Lento", "icon": "systems/tormenta20/icons/conditions/lento.svg" },
+    { "id": "morto", "label": "Morto", "icon": "systems/tormenta20/icons/conditions/morto.svg" },
     { "id": "ofuscado", "label": "Ofuscado", "icon": "systems/tormenta20/icons/conditions/ofuscado.svg" },
     { "id": "paralisado", "label": "Paralisado", "icon": "systems/tormenta20/icons/conditions/paralisado.svg" },
     { "id": "pasmo", "label": "Pasmo", "icon": "systems/tormenta20/icons/conditions/pasmo.svg" },
@@ -36,3 +37,14 @@ T20Config.statusEffectIcons = [
     { "id": "surpreendido", "label": "Surpreendido", "icon": "systems/tormenta20/icons/conditions/surpreendido.svg" },
     { "id": "vulneravel", "label": "Vulnerável", "icon": "systems/tormenta20/icons/conditions/vulneravel.svg" }
 ];
+
+T20Config.conditions = {
+    "abalado": {
+        "modifiers": [ { "data.modificadores.pericias.penal" : -2 }],
+        "tooltip": "<strong>Abalado</strong><br><br>O personagem sofre –2 em testes de perícia. Se ficar abalado novamente, em vez disso fica apavorado. <i>Condição de medo.</i>"
+    },
+    "agarrado": {
+        "modifiers": [ '{ "data.modificadores.pericias.penal" : -2 }'],
+        "tooltip": "<strong>Agarrado</strong><br><br>O personagem fica desprevenido e imóvel, sofre –2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. <i>Condição de paralisia.</i>"
+    }    
+}

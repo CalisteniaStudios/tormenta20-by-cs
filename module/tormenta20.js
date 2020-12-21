@@ -28,8 +28,7 @@ Hooks.once('init', async function () {
   CONFIG.Actor.entityClass = T20Actor;
   CONFIG.Item.entityClass = T20Item;
   CONFIG.statusEffects = T20Config.statusEffectIcons;
-
-  console.log('111 dsfdfs');
+  CONFIG.conditions = T20Config.conditions;
 
   /**
    * Set an initiative formula for the system
