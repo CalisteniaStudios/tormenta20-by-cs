@@ -94,13 +94,42 @@ export class T20ActorSheet extends ActorSheet {
         "data.tamanho": "Médio"
       });
     }
+    if(this.actor.data.data.defesa.bonus === undefined)
+    {
+      this.actor.update({"data.defesa.bonus": 0});
+    }
+    if(this.actor.data.data.defesa.penalidade === undefined)
+    {
+      this.actor.update({"data.defesa.penalidade": 0});
+    }
     if (this.actor.data.data.deslocamento === undefined
-      || this.actor.data.data.deslocamento === 0
-      || this.actor.data.data.deslocamento === "") {
+      || this.actor.data.data.deslocamento.base === undefined
+      || this.actor.data.data.deslocamento.base === 0      
+      || this.actor.data.data.deslocamento.base === "") {
       this.actor.update({
-        "data.deslocamento": 9
+        "data.deslocamento.base": 9, 
+        "data.deslocamento.bonus": 0, 
+        "data.deslocamento.penalidade": 0,
+        "data.deslocamento.total": 9
       });
     }
+    if( this.actor.data.data.modificadores === undefined
+      || this.actor.data.data.modificadores.atributos === undefined
+      || this.actor.data.data.modificadores.atributos.bonus === undefined
+      || this.actor.data.data.modificadores.atributos.penalidade === undefined
+      || this.actor.data.data.modificadores.pericias === undefined
+      || this.actor.data.data.modificadores.pericias.bonus === undefined
+      || this.actor.data.data.modificadores.pericias.penalidade === undefined)
+      {
+        this.actor.update({
+          "data.modificadores.atributos.bonus": 0,
+          "data.modificadores.atributos.penalidade": 0,
+          "data.modificadores.pericias.bonus": 0,
+          "data.modificadores.pericias.penalidade": 0
+        });
+  
+      }
+
     if (this.actor.data.data.periciasCustom.constructor === Object) {
       // console.log(this.actor.data.data.periciasCustom);
       let newPericiasCustom = [];

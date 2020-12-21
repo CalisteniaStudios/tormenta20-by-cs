@@ -40,11 +40,23 @@ T20Config.statusEffectIcons = [
 
 T20Config.conditions = {
     "abalado": {
-        "modifiers": [ { "data.modificadores.pericias.penal" : -2 }],
+        "modifiers": [ { "modificadores.pericias.penalidade" : -2 }],
+        "childrenConditions": [],
         "tooltip": "<strong>Abalado</strong><br><br>O personagem sofre –2 em testes de perícia. Se ficar abalado novamente, em vez disso fica apavorado. <i>Condição de medo.</i>"
     },
     "agarrado": {
-        "modifiers": [ '{ "data.modificadores.pericias.penal" : -2 }'],
+        "modifiers": [ { "modificadores.pericias.penalidade" : -2 }],
+        "childrenConditions": ["desprevenido", "imovel"],
         "tooltip": "<strong>Agarrado</strong><br><br>O personagem fica desprevenido e imóvel, sofre –2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. <i>Condição de paralisia.</i>"
-    }    
+    },
+    "desprevenido": {
+        "modifiers": [ { "defesa.penalidade" : -5 }],
+        "childrenConditions": [],
+        "tooltip": "<strong>Desprevenido</strong><br><br>Despreparado para reagir. O personagem sofre –5 na Defesa e em Reflexos. Você fica desprevenido contra inimigos que não possa ver."
+    },
+    "imovel": {
+        "modifiers": [ { "deslocamento.penalidade" : -999 }],
+        "childrenConditions": [],
+        "tooltip": "<strong>Imóvel</strong><br><br>Todas as formas de deslocamento do personagem são reduzidas a 0m. <i>Condição de paralisia.</i>"
+    }   
 }

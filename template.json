@@ -46,7 +46,8 @@
           "armad": 0,
           "escud": 0,
           "outro": 0,
-          "temp": 0
+          "bonus": 0,
+          "penalidade": 0
         },
         "armadura": {
           "nome": "",
@@ -487,7 +488,12 @@
         "periciasCustom": {},
         "resistencias": "",
         "tamanho": "Médio",
-        "deslocamento": 9,
+        "deslocamento": {
+          "base": 9,
+          "bonus": 0,
+          "penalidade": 0,
+          "total": 9
+        },
         "detalhes": {
           "biografia": "",
           "dinheiro": {
@@ -497,6 +503,16 @@
             "tc": 0
           },
           "carga": 0
+        },
+        "modificadores": {
+          "atributos" : {
+            "bonus" : 0,
+            "penalidade" : 0
+          },
+          "pericias" : {
+            "bonus" : 0,
+            "penalidade" : 0
+          }
         }
       }
     },

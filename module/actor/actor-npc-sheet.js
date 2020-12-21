@@ -43,7 +43,47 @@ export class T20ActorNPCSheet extends ActorSheet {
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
       });
     }
-
+    if(this.actor.data.data.defesa.value === undefined ||
+      this.actor.data.data.defesa.value === 0)
+   {
+     this.actor.update({"data.defesa.value": 10});
+   }
+   if(this.actor.data.data.defesa.bonus === undefined)
+    {
+      this.actor.update({"data.defesa.bonus": 0});
+    }
+    if(this.actor.data.data.defesa.penalidade === undefined)
+    {
+      this.actor.update({"data.defesa.penalidade": 0});
+    }
+    if (this.actor.data.data.deslocamento === undefined
+      || this.actor.data.data.deslocamento.base === undefined
+      || this.actor.data.data.deslocamento.base === 0      
+      || this.actor.data.data.deslocamento.base === "") {
+        this.actor.update({
+          "data.deslocamento.base": 9, 
+          "data.deslocamento.bonus": 0, 
+          "data.deslocamento.penalidade": 0,
+          "data.deslocamento.total": 9
+        });
+    }
+    if( this.actor.data.data.modificadores === undefined
+      || this.actor.data.data.modificadores.atributos === undefined
+      || this.actor.data.data.modificadores.atributos.bonus === undefined
+      || this.actor.data.data.modificadores.atributos.penalidade === undefined
+      || this.actor.data.data.modificadores.pericias === undefined
+      || this.actor.data.data.modificadores.pericias.bonus === undefined
+      || this.actor.data.data.modificadores.pericias.penalidade === undefined)
+      {
+        this.actor.update({
+          "data.modificadores.atributos.bonus": 0,
+          "data.modificadores.atributos.penalidade": 0,
+          "data.modificadores.pericias.bonus": 0,
+          "data.modificadores.pericias.penalidade": 0
+        });
+  
+      }
+          
     return data;
   }
 

@@ -50,8 +50,9 @@
             <input type="text" name="data.tamanho" value="{{data.tamanho}}" data-dtype="String" />
             Tamanho</label>
           <label class="info">
-            <input type="text" name="data.deslocamento" value="{{data.deslocamento}}" data-dtype="Number" />
-            Deslocamento (m)</label>
+            <input type="text" style="width: 40%;" name="data.deslocamento.base" value="{{data.deslocamento.base}}" data-dtype="Number" />
+            <input type="text" readonly style="width: 40%;" name="data.deslocamento.total" value="{{data.deslocamento.total}}" data-dtype="Number" />
+            Deslocamento Base / Atual (m)</label>
           <label class="info">
             <input type="text" name="data.attributes.cd" value="{{data.attributes.cd}}" data-dtype="Number" />
             CD base</label>

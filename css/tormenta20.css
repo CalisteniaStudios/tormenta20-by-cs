@@ -442,7 +442,7 @@ button {
 
 .tormenta20 .infos label {
   display: inline-block;
-  width: calc(30% - 2px);
+  width: calc(25% - 2px);
 }
 
 .tormenta20 .bottom label > input {

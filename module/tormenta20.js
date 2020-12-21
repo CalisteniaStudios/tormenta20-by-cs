@@ -8,7 +8,7 @@ import { T20Item } from "./item/item.js";
 import { T20ItemSheet } from "./item/item-sheet.js";
 import { T20Utility } from "./utility.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
-import { toggleEffect } from "./actor/condicoes.js";
+//import { toggleEffect } from "./actor/condicoes.js";
 import ConjurarDialog from "./apps/conjurar-dialog.js";
 import * as chat from "./chat.js";
 import * as dice from "./dice.js";
@@ -122,7 +122,7 @@ Hooks.on("canvasInit", function () {
   SquareGrid.prototype.measureDistances = measureDistances;
 
   Token.prototype.getBarAttribute = getBarAttribute;
-  Token.prototype.toggleEffect = toggleEffect;
+  //Token.prototype.toggleEffect = toggleEffect;
 });
 
 /* Add hook for the context menu over the rolled damage */
