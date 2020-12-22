@@ -46,8 +46,24 @@ export class T20Actor extends Actor {
     };
     data.deslocamento.bonus = 0;
     data.deslocamento.penalidade = 0;
+    data.deslocamento.subst = 0;
+    data.deslocamento.cond = "nao";
     data.defesa.bonus = 0;
     data.defesa.penalidade = 0;
+    data.rd.bonus = 0;
+    data.rd.penalidade = 0;
+
+    for (let [key, atrib] of Object.entries(data.atributos)) 
+    {
+      atrib.bonus = 0;
+      atrib.penalidade = 0;
+    }
+
+    for (let [key, atrib] of Object.entries(data.pericias)) 
+    {
+      atrib.bonus = 0;
+      atrib.penalidade = 0;
+    }
 
     const condicoes = this.data.effects;
 
@@ -71,7 +87,8 @@ export class T20Actor extends Actor {
           }
           if (
             (last == "bonus" && temp[last] < value) ||
-            (last == "penalidade" && temp[last] > value)
+            (last == "penalidade" && temp[last] > value) ||
+            (last != "bonus" && last != "penalidade")
           ) {
             temp[last] = value;
           }
@@ -92,7 +109,13 @@ export class T20Actor extends Actor {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.atributos)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2) + (ability.temp ?? 0);
+      ability.mod = Math.floor((ability.value - 10) / 2) + 
+      (ability.temp ?? 0) +        
+      (ability.bonus ?? 0) +        
+      (ability.penalidade ?? 0) +        
+      Number(data.modificadores?.atributos?.bonus ?? 0) +
+      Number(data.modificadores?.atributos?.penalidade ?? 0);
+
     }
 
     if (isNaN(data.deslocamento)) {
@@ -105,9 +128,23 @@ export class T20Actor extends Actor {
         base: parseInt(data.deslocamento, 10),
         bonus: 0,
         penalidade: 0,
+        subst: 0,
+        cond: "nao",
         total: data.deslocamento + (data.deslocamento.bonus ?? 0) + (data.deslocamento.penalidade ?? 0)
       };
       data.deslocamento = deslocamento;
+    }
+    if(data.deslocamento.cond == "metade")
+    {
+      data.deslocamento.total = data.deslocamento.total / 2;
+    }
+    if(data.deslocamento.subst > 0)
+    {
+      data.deslocamento.total = data.deslocamento.subst;
+    }
+    if(data.deslocamento.cond == "zerado")
+    {
+      data.deslocamento.total = 0;
     }
     if (data.deslocamento.total < 0) {
       data.deslocamento.total = 0;
@@ -139,6 +176,8 @@ export class T20Actor extends Actor {
       ability.mod =
         Math.floor((ability.value - 10) / 2) +
         (ability.temp ?? 0) +
+        (ability.bonus ?? 0) +        
+        (ability.penalidade ?? 0) +        
         Number(data.modificadores?.atributos?.bonus ?? 0) +
         Number(data.modificadores?.atributos?.penalidade ?? 0);
     }
@@ -257,7 +296,7 @@ export class T20Actor extends Actor {
       Number(data.defesa.bonus ?? 0) +
       Number(data.defesa.penalidade ?? 0);
 
-    data.rd.value = data.rd.base + data.rd.temp;
+    data.rd.value = data.rd.base + data.rd.temp + (data.rd.bonus ?? 0) + (data.rd.penalidade ?? 0);
 
     if (isNaN(data.deslocamento)) {
       data.deslocamento.total =
@@ -269,14 +308,27 @@ export class T20Actor extends Actor {
         base: data.deslocamento,
         bonus: 0,
         penalidade: 0,
+        subst: 0,
+        cond: "nao",
         total: data.deslocamento + (data.deslocamento.bonus ?? 0) + (data.deslocamento.penalidade ?? 0)
       };
       data.deslocamento = deslocamento;
     }
+    if(data.deslocamento.cond == "metade")
+    {
+      data.deslocamento.total = data.deslocamento.total / 2;
+    }
+    if(data.deslocamento.subst > 0)
+    {
+      data.deslocamento.total = data.deslocamento.subst;
+    }
+    if(data.deslocamento.cond == "zerado")
+    {
+      data.deslocamento.total = 0;
+    }
     if (data.deslocamento.total < 0) {
       data.deslocamento.total = 0;
     }
-
 
     // for compatibility with dnd modules
     data.attributes.hp = data.attributes.pv.value;

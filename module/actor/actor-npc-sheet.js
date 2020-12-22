@@ -34,7 +34,24 @@ export class T20ActorNPCSheet extends ActorSheet {
     }
     // TODO Migrate function to initialize new json data;
     // console.log(this.actor.data.data.pericias.ofi.more);
-
+    for (let [pc, per] of Object.entries(this.actor.data.data.atributos)) {
+      if(per.bonus === undefined ||
+         per.penalidade === undefined)
+      {
+        let perB ="data.atributos." + pc + ".bonus";
+        let perP ="data.atributos." + pc + ".penalidade";
+        this.actor.update({ [perB] : 0, [perP]: 0});
+      }
+    }
+    for (let [pc, per] of Object.entries(this.actor.data.data.pericias)) {
+      if(per.bonus === undefined ||
+         per.penalidade === undefined)
+      {
+        let perB ="data.pericias." + pc + ".bonus";
+        let perP ="data.pericias." + pc + ".penalidade";
+        this.actor.update({ [perB] : 0, [perP]: 0});
+      }
+    }
     if(this.actor.data.data.periciasCustom === undefined){
       this.actor.update({"data.periciasCustom":{}});
     }
@@ -56,6 +73,14 @@ export class T20ActorNPCSheet extends ActorSheet {
     {
       this.actor.update({"data.defesa.penalidade": 0});
     }
+    if(this.actor.data.data.rd.bonus === undefined)
+    {
+      this.actor.update({"data.rd.bonus": 0});
+    }
+    if(this.actor.data.data.rd.penalidade === undefined)
+    {
+      this.actor.update({"data.rd.penalidade": 0});
+    }
     if (this.actor.data.data.deslocamento === undefined
       || this.actor.data.data.deslocamento.base === undefined
       || this.actor.data.data.deslocamento.base === 0      
@@ -64,7 +89,9 @@ export class T20ActorNPCSheet extends ActorSheet {
           "data.deslocamento.base": 9, 
           "data.deslocamento.bonus": 0, 
           "data.deslocamento.penalidade": 0,
-          "data.deslocamento.total": 9
+          "data.deslocamento.total": 9,
+          "data.deslocamento.subst": 0,
+          "data.deslocamento.cond": "nao"
         });
     }
     if( this.actor.data.data.modificadores === undefined
