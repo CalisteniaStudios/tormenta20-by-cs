@@ -140,10 +140,11 @@ export class T20ActorSheet extends ActorSheet {
     const equipamentos = [];
     const ataques = [];
     const armas = [];
-    let carga = 0;
-    //actorData.data.detalhes.carga.medio = actorData.data.atributos.for.value * 3;
-    //actorData.data.detalhes.carga.max = actorData.data.atributos.for.value * 10;
-    
+    let carga = [];
+    let cargaPesada = actorData.data.atributos.for.value * 3;
+    let cargaMax = actorData.data.atributos.for.value * 10;
+    actorData.cargaPesada = cargaPesada;
+    actorData.cargaMax = cargaMax;
     const magias = {
       1: {
         spells: [],
@@ -185,6 +186,10 @@ export class T20ActorSheet extends ActorSheet {
       else if (i.type === 'equip'  || i.type === 'consumivel' || i.type === 'tesouro') {
         i.peso = Number(i.data.peso)*Number(i.data.qtd);
         equipamentos.push(i);
+        carga.push(i.peso);
+
+        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
+
       } else if (i.type === 'arma') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
@@ -198,11 +203,13 @@ export class T20ActorSheet extends ActorSheet {
           return "(" + T20Utility.short(match, actorData.data) + ")";
         });
 
-        i.data.atq = (tempatq.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
+        i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
 
-        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
         armas.push(i);
         i.peso = Number(i.data.peso)*Number(i.data.qtd);
+        carga.push(i.peso);
+        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
 
       } else if (i.type === 'ataque') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
@@ -228,7 +235,6 @@ export class T20ActorSheet extends ActorSheet {
 
         ataques.push(i);
       }
-      carga += i.peso;
     }
 
     // Assign and return powers
@@ -237,7 +243,6 @@ export class T20ActorSheet extends ActorSheet {
     actorData.magias = magias;
     // Equipment
     actorData.equipamentos = equipamentos;
-    actorData.data.detalhes.carga.value = carga;
     // Attacks
     actorData.ataques = ataques;
     actorData.armas = armas;
