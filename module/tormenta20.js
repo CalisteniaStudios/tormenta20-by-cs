@@ -1,4 +1,5 @@
 // Import Modules
+import { TORMENTA20 } from "./config.js";
 import { SystemSettings } from "./settings.js";
 import { T20Actor } from "./actor/actor.js";
 import { T20ActorSheet } from "./actor/actor-sheet.js";
@@ -25,7 +26,7 @@ Hooks.once('init', async function () {
   // Register System Settings
   SystemSettings();
 
-
+  CONFIG.TORMENTA20 = TORMENTA20;
   /**
    * Set an initiative formula for the system
    * @type {String}

@@ -480,7 +480,7 @@
         "peso": 0,
         "aparencia": "",
         "personalidade": "",
-        "cargaa": {
+        "carga": {
           "value": 0,
           "medio": 3,
           "max": 10
@@ -512,10 +512,15 @@
     },
     "equip": {
       "templates": [
-        "base"
+        "base", "objeto"
       ],
-      "qtd": 1,
-      "peso": 0
+      "equipado": false,
+      "tipo": "armadura",
+      "subtipo": "leve",
+      "armadura": {
+        "value": 0,
+        "penalidade": 0
+      }
     },
     "poder": {
       "templates": [
