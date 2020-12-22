@@ -34,5 +34,5 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 
 ## Colaboradores
 * TheTruePortal
-* Mateus Clemente
+* Matheus Clemente
 * Roberto Caetano
