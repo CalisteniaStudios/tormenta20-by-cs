@@ -186,6 +186,11 @@ export class T20ActorSheet extends ActorSheet {
         equipamentos.push(i);
         carga += i.peso;
       } 
+      else if (i.type === 'armadura') {
+        i.peso = Number(i.data.peso)*Number(i.data.qtd);
+        equipamentos.push(i);
+        carga += i.peso;
+      }
       else if (i.type === 'arma') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
@@ -318,7 +323,7 @@ export class T20ActorSheet extends ActorSheet {
     html.find('.item-create').click(this._onItemCreate.bind(this));
     
     // Update Inventory Item
-    html.find('.toggle-equip').click(this._onToggleEquip.bind(this));
+    html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
@@ -331,7 +336,7 @@ export class T20ActorSheet extends ActorSheet {
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
-      if(item.data.type === "equip" && item.data.data.equipado) {
+      if(item.data.type === "armadura" && item.data.data.equipado) {
         const armadura = {
           nome: "",
           defesa:  0,
@@ -377,7 +382,7 @@ export class T20ActorSheet extends ActorSheet {
     }
   }
 
-  _onToggleEquip(ev) {
+  _onToggleArmor(ev) {
     const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.data.data.equipado = !item.data.data.equipado;
@@ -386,7 +391,7 @@ export class T20ActorSheet extends ActorSheet {
 
       if (item.data.data.equipado) {
         let unequipped = items.some(element => { //some() === forEach() with a return
-          if(element.type === "equip" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
+          if(element.type === "armadura" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
             element.data.equipado = false;
             return true;
           }

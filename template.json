@@ -497,7 +497,7 @@
     }
   },
   "Item": {
-    "types": ["equip", "poder", "magia", "ataque","tesouro","consumivel","arma","aprimoramento"],
+    "types": ["equip","poder","magia","ataque","tesouro","consumivel","arma","armadura","aprimoramento"],
     "templates": {
       "base": {
         "description": ""
@@ -513,14 +513,7 @@
     "equip": {
       "templates": [
         "base", "objeto"
-      ],
-      "equipado": false,
-      "tipo": "armadura",
-      "subtipo": "leve",
-      "armadura": {
-        "value": 0,
-        "penalidade": 0
-      }
+      ]
     },
     "poder": {
       "templates": [
@@ -528,7 +521,8 @@
       ],
       "custo": "",
       "roll": "",
-      "tipo": ""
+      "tipo": "",
+      "subtipo": ""
     },
     "magia": {
       "templates": [
@@ -586,10 +580,21 @@
       "municao": "",
       "custo": 0
     },
+    "armadura": {
+      "templates": [
+        "base", "objeto"
+      ],
+      "equipado": false,
+      "tipo": "armadura",
+      "subtipo": "leve",
+      "armadura": {
+        "value": 0,
+        "penalidade": 0
+      }
+    },
     "consumivel": {
       "templates": ["base","objeto"],
       "efeito": ""
     }
-
   }
 }

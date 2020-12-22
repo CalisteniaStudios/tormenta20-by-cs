@@ -19,7 +19,7 @@
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-	{{#ifEquals item.type "equip"}}
+	{{#ifEquals item.type "armadura"}}
 		<div class="form-group">
 			<label>Tipo:</label>
 			<div class="form-fields">
@@ -32,6 +32,7 @@
 				</select>
 			</div>
 		</div>
+		{{#ifNotEquals data.tipo "outro"}}
 		<div class="form-group">
 			<label>Subtipo:</label>
 			<div class="form-fields">
@@ -43,6 +44,7 @@
 				</select>
 			</div>
 		</div>
+		{{/ifNotEquals}}
 		<div class="form-group">
 			<label>Bônus na Defesa:</label>
 			<div class="form-fields">
@@ -146,7 +148,7 @@
       </div>
     {{/ifEquals}}
 		<label>Descrição</label>
-        <textarea name="data.description" style="height:100%" data-dtype="String">{{data.description}}</textarea>
+        <textarea name="data.description" data-dtype="String" rows=10>{{data.description}}</textarea>
 
     </section>
 </form>
