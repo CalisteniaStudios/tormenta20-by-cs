@@ -566,6 +566,7 @@
           },
           "carga": 0
         },
+        "referencias": {},
         "modificadores": {
           "atributos" : {
             "bonus" : 0,

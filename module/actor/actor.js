@@ -24,6 +24,7 @@ export class T20Actor extends Actor {
 
   _EvaluateConditions() {
     const data = this.data.data;
+    let condicoesDet = [];
 
     //Zerar Condições
     data.modificadores = {
@@ -52,6 +53,7 @@ export class T20Actor extends Actor {
     data.defesa.penalidade = 0;
     data.rd.bonus = 0;
     data.rd.penalidade = 0;
+    data.referencias = this.data.effects;
 
     for (let [key, atrib] of Object.entries(data.atributos)) 
     {
@@ -70,6 +72,9 @@ export class T20Actor extends Actor {
     //Aplicar Condições
     condicoes.forEach((condicao) => {
       let condicaoDados = CONFIG.conditions[condicao.flags.core.statusId];
+      let condicaoDet = condicao;
+      condicaoDet.tooltip = condicaoDados.tooltip;
+      condicoesDet.push(condicaoDet);
       let modificadores = condicaoDados.modifiers;
       CONFIG.conditions[condicao.flags.core.statusId].childrenConditions.forEach((cond) => {
         modificadores.push(CONFIG.conditions[cond].modifiers);
@@ -95,6 +100,7 @@ export class T20Actor extends Actor {
         }
       });
     });
+    data.referencias = condicoesDet;
   }
 
   /**
@@ -454,7 +460,4 @@ export class T20Actor extends Actor {
     });
   }
 
-  //assignObjValue(obj, prop, value) {
-
-  assignObjValue(obj, objUpd) {}
 }

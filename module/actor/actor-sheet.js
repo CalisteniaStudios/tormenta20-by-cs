@@ -232,7 +232,7 @@ export class T20ActorSheet extends ActorSheet {
         custo: 15
       }
     };
-
+    
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -312,8 +312,7 @@ export class T20ActorSheet extends ActorSheet {
     // Attacks
     actorData.ataques = ataques;
     actorData.armas = armas;
-
-
+    actorData.referencias  = sheetData.actor.effects;
   }
 
 
