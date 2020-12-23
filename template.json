@@ -554,7 +554,9 @@
           "base": 9,
           "bonus": 0,
           "penalidade": 0,
-          "total": 9
+          "total": 9,
+          "cond": "nao",
+          "subst": 0
         },
         "detalhes": {
           "biografia": "",

@@ -38,6 +38,8 @@ Hooks.once("init", async function () {
     decimals: 2,
   };
 
+  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'morto')[0].icon;
+
   // Register System Settings
   SystemSettings();
 
