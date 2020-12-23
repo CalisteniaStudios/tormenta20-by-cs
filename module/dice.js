@@ -229,6 +229,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       tipo: "",
       alcance: "",
       custo: "",
+      nome: "",
+      descricao:"",
     };
 
     extra = mergeObject(ex, extra);
@@ -311,8 +313,17 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula.crit = null;
     }
 
-    flavorText = item.name;
-    detailText = item.data.data.description;
+    if(!ex.nome){
+      flavorText = item.name;
+    } else {
+      flavorText = ex.nome; 
+    }
+
+    if(!ex.descricao){
+      detailText = item.data.data.description;
+    } else {
+      detailText = ex.descricao;
+    }
 
     flavorDesc = "";
     danoText = "";

@@ -130,6 +130,7 @@ Hooks.on("renderDialog", (dialog, html, options) => {
 
 Hooks.on("canvasInit", function () {
   // Extend Diagonal Measurement
+  canvas.grid.diagonalRule = game.settings.get("tormenta20", "diagonalMovement");
   SquareGrid.prototype.measureDistances = measureDistances;
 
   Token.prototype.getBarAttribute = getBarAttribute;
@@ -202,7 +203,9 @@ game.tormenta20.rollItemMacro("${item.name}",{
       'atributo' : "",
           'tipo' : "",
        'alcance' : "",
-         'custo' : "0"
+         'custo' : "0",
+          'nome' : "",
+     'descricao' : ""
 });`;
     } else {
       command = `game.tormenta20.rollItemMacro("${item.name}");`;

@@ -39,6 +39,7 @@ export const SystemSettings = function() {
     choices: {
 	  "MANHATTAN": "Padrão (3m)",
 	  "EQUIDISTANT": "Equidistante (1,5m)",
+    "PATHFINDER": "Pathfinder/3.5 (1,5m/3m/1,5m)",
     },
     onChange: rule => canvas.grid.diagonalRule = rule
   });
