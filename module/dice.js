@@ -44,7 +44,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     if (item.data.data.custo > 0) {
       templateData.custo = item.data.data.custo;
     }
-
+    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
     if (!event.shiftKey || !item.data.data.custo) {
       rollT20(formula, actor, templateData);
     } else {
@@ -106,6 +106,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       rollMode: rollMode,
       rollModes: CONFIG.Dice.rollModes
     };
+    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData);
     } else {
@@ -161,6 +162,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       rollMode: rollMode,
       rollModes: CONFIG.Dice.rollModes
     };
+    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData);
     } else {
@@ -280,8 +282,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     if (item.data.data.custo > 0 || (extra.custo && extra.custo != "0") ) {
       templateData.custo = extra.custo.match(/^\=/) ? extra.custo.replace('=','') : Number(item.data.data.custo)+Number(extra.custo);
     }
-
     let margemCrit = (extra.margemCritico.match(/^\=/) ? extra.margemCritico.replace('=','')  : Number(item.data.data.criticoM)-Number(extra.margemCritico));
+    formula.atq = formula.atq.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula.dano = formula.dano.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula.crit = formula.crit.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData, margemCrit);
     } else {
@@ -471,6 +475,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     if (item.data.data.custo > 0) {
       templateData.custo = item.data.data.custo;
     }
+
+    formula.atq = formula.atq.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula.dano = formula.dano.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    formula.crit = formula.crit.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData, item.data.data.criticoM);
     } else {
@@ -512,7 +520,6 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
         formula.atq += rollBonus;
         formula.dano += rollBonusDano;
         formula.crit += rollBonusDano;
-
         rollT20(formula, actor, templateData, item.data.data.criticoM);
       };
 
@@ -668,7 +675,18 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       templateData.custo = 0;
       templateData.truque = 1;
     }
+    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+
     rollT20(formula, actor, templateData);
+  } else if (item.type == "consumivel") {
+    
+    formula = item.data.data.efeito;
+    templateData = {
+      title: item.name,
+      details: item.description
+    };
+    formula = formula.replace(/ /g,'').replace(/\+0/g,'').replace(/\-0/g,'').replace(/\++/g,'+');
+    rollT20(formula, actor, templateData, item.data.data.criticoM);
   } else if (itemId != undefined) {
     data.roll();
   }
@@ -676,7 +694,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
 
 function rollT20(roll, actor, templateData, criticoM = null) {
   let actorData = actor.data.data;
-  // Render the roll.
+  // Render the roll
   let template = "systems/tormenta20/templates/chat/chat-card.html";
   let dmgroll = null;
   // GM rolls.
@@ -724,15 +742,20 @@ function rollT20(roll, actor, templateData, criticoM = null) {
   if (roll) {
     // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
     let formula = "";
-
+    let result;
     if (roll.match(/(\d*)d\d+/g)) {
       formula = roll;
+    } else if (Number(roll)!==NaN){
+      formula = null;
+      result = new Roll(roll).roll();
     }
-
+    let rollTemplate = {
+        template: "systems/tormenta20/templates/chat/t20roll.html",
+      };
     if (formula != null) {
       let roll = new Roll(`${formula}`);
       roll.roll();
-      let result = roll.results[0];
+      result = roll.results[0];
 
       if (result == 20) {
         tipoCritico = "critico";
@@ -754,9 +777,7 @@ function rollT20(roll, actor, templateData, criticoM = null) {
           );
         }
       }
-      let rollTemplate = {
-        template: "systems/tormenta20/templates/chat/t20roll.html",
-      };
+      
       // Check if there are dmg rolls and what critical math to use
       if (danoFormula) {
         if (result >= criticoM) {
@@ -778,7 +799,6 @@ function rollT20(roll, actor, templateData, criticoM = null) {
         templateData.roll = r;
         templateData.critico = tipoCritico;
         templateData.falha = tipoFalha;
-
         renderTemplate(template, templateData).then((content) => {
           chatData.content = content;
           if (game.dice3d) {
@@ -806,8 +826,17 @@ function rollT20(roll, actor, templateData, criticoM = null) {
           }
         });
       });
+    } else {
+      result.render(rollTemplate).then((r) => {
+        templateData.roll = r;
+        renderTemplate(template, templateData).then((content) => {
+          chatData.content = content;
+          ChatMessage.create(chatData);
+        });
+      });
     }
   } else {
+    
     renderTemplate(template, templateData).then((content) => {
       chatData.content = content;
       ChatMessage.create(chatData);
