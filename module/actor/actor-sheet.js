@@ -128,7 +128,9 @@ export class T20ActorSheet extends ActorSheet {
     {
       this.actor.update({"data.rd.penalidade": 0});
     }
-    if (this.actor.data.data.deslocamento === undefined
+    
+    if (!this.actor.data.data.deslocamento
+      || this.actor.data.data.deslocamento === undefined
       || this.actor.data.data.deslocamento.base === undefined
       || this.actor.data.data.deslocamento.base === 0      
       || this.actor.data.data.deslocamento.base === "") {
@@ -231,7 +233,7 @@ export class T20ActorSheet extends ActorSheet {
       }
     };
     
-
+    actorData.data.attributes.conjurador = false;
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     let x = 0;
@@ -245,6 +247,8 @@ export class T20ActorSheet extends ActorSheet {
         if (i.data.circulo != undefined) {
           magias[i.data.circulo].spells.push(i);
         }
+
+        actorData.data.attributes.conjurador = true;
       }
       // If this is equipment, we currently lump it together.
       else if (i.type === 'equip'  || i.type === 'consumivel' || i.type === 'tesouro') {
@@ -717,7 +721,7 @@ export class T20ActorSheet extends ActorSheet {
         roll: data.roll,
         label: data.label
       };
-    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('arma-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
+    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('arma-rollable') || $(a).hasClass('consumivel-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
       item = actor.getOwnedItem(itemId);
     } else if ($(a).hasClass('pericia-rollable')) {
       item = {

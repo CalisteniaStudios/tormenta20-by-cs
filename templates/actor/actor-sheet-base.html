@@ -139,7 +139,6 @@
               <div class="item-name">DEFESA</div>
             </li>
             <li class="item flexrow text-center" >
-              <!-- <div class="item-name" title="10{{#if data.defesa.des}} + {{data.atributos.des.mod}}{{/if}}{{#if data.armadura.defesa}} + {{data.armadura.defesa}}{{/if}}{{#if data.escudo.defesa}} + {{data.escudo.defesa}}{{/if}}{{#if data.defesa.outro}} + {{data.defesa.outro}}{{/if}}">{{data.defesa.value}}</div> -->
               <div class="item-name" style="height:70px;">
 				<div class="tooltip">
 					<div class="tooltipcontent">
@@ -213,7 +212,7 @@
         </div>
         
 		{{#if data.attributes.conjurador}}
-		<div class="magias">
+		  <div class="magias">
           <ol class="items-list">
             <li class="item flexrow item-header flex-center">
               <div>MAGIAS</div>
@@ -231,11 +230,11 @@
             </li>
             {{#each circulo.spells as |m index|}}
             <li class="item flexrow" data-item-id="{{m._id}}">
-              {{#if data.attributes.mago}}
-			  <div class="item-prep">
+            {{#if data.attributes.mago}}
+              <div class="item-prep">
                 <input type="checkbox" class="preparada" value="{{m.data.preparada}}" {{#if m.data.preparada}}checked{{/if}} data-dtype="Boolean" />
               </div>
-			  {{/if}}
+            {{/if}}
               <div class="item-image" style="background-image: url('{{m.img}}')"></div>
               <h4 class="item-name"><span class="rollable magia-rollable" data-label="{{m.name}}">{{m.name}}</span></h4>
               <div class="item-controls">
@@ -244,8 +243,10 @@
               </div>
             </li>
             {{/each}}
+            </ol>
+            {{/each}}
           </ol>
-        </div>
+      </div>
 		{{/if}}
         <div class="outros">
           <h4>PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
@@ -461,9 +462,6 @@
                   <a class="item-control item-create" title="Criar armadura" data-type="armadura"><i
                       class="fas fa-plus"></i> Armadura</a>
 				  &nbsp;&nbsp;
-                  <a class="item-control item-create" title="Criar equip" data-type="equip"><i
-                      class="fas fa-plus"></i> Equipamento</a>
-                  &nbsp;&nbsp;
                   <a class="item-control item-create" title="Criar consumivel" data-type="consumivel"><i
                       class="fas fa-plus"></i> Consumível</a>
                   &nbsp;&nbsp;

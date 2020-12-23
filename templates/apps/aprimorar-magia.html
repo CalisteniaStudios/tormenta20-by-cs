@@ -1,16 +1,20 @@
 <form id="spell-config-form">
-  <p>
-    Selecione os Aprimoramentos para a magia <strong>{{item.name}}</strong>.
-  </p>
+  <p> Selecione os Aprimoramentos para a magia <strong>{{item.name}}</strong>.</p>
 
   <div class="form-group">
     <div class="form-fields">
-        <p>Custo Original em PM: {{item.custo}}</p>
+        <p><strong>Custo Original:</strong> {{item.data.custo}}</p>
     </div>
   </div>
-
+  
+  {{#if item.data.description}}
+  <p><strong>Descrição da Magia:</strong> {{item.data.description}}</p>
+  {{/if}}
+  
   <div class="form-group">
     <div class="form-fields">
+      <ol class="items-list">
+
       <ol class="items-list">
         <li class="item flexrow item-header flex-center">
           <div>APRIMORAMENTOS</div>
