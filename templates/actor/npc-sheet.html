@@ -20,7 +20,7 @@
               data-dtype="String" placeholder="Nome" />
             ND <input type="text" class="npc-nd" name="data.attributes.nd" value="{{data.attributes.nd}}"></h3>
         </label>
-        <div class="infos">
+        <div class="infos2">
           <label>
             <input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String"
               placeholder="Tipo" />
@@ -63,8 +63,9 @@
         <div class="npc-line">
           <p>
             <label>Defesa</label>
-            <input type="text" name="data.defesa.value" value="{{data.defesa.value}}" data-dtype="Number"
-              title="Defesa">
+            <input type="text" name="data.defesa.outro" value="{{data.defesa.outro}}" data-dtype="Number"
+              title="Defesa"><input type="text" readonly name="data.defesa.value" value="{{data.defesa.value}}" data-dtype="Number"
+              title="Defesa Atual">
             &nbsp;&nbsp;
             <label>RD</label>
             <input type="text" name="data.rd.value" value="{{data.rd.value}}" data-dtype="Number" title="RD">
@@ -103,11 +104,11 @@
           <p>
             <label>Deslocamento</label>
             <span class="dc-editable"
-              style="display: inline;">{{#if data.deslocamento}}{{data.deslocamento}}{{else}}<i>Deslocamento (dois
-                clicks para editar)</i>{{/if}}</span>
+              style="display: inline;">{{#if data.deslocamento.total}}{{data.deslocamento.total}}{{else}}<i>Deslocamento (dois
+                clicks para editar)</i>{{/if}}</span>:
 
-            <input type="text" class="dc-editing" style="display: none;" name="data.deslocamento"
-              value="{{data.deslocamento}}" data-dtype="String" title="Deslocamento" />
+            <input type="text" class="dc-editing" style="display: none;" name="data.deslocamento.base"
+              value="{{data.deslocamento.base}}" data-dtype="String" title="Deslocamento Bse" />
           </p>
         </div>
         <hr>

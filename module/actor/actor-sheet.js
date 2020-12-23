@@ -43,12 +43,33 @@ export class T20ActorSheet extends ActorSheet {
     //   attr.isCheckbox = attr.dtype === "Boolean";
     // }
 
+    // Experience Tracking
+    data["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
+    
     // Prepare items.
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
     // TODO Migrate function to initialize new json data;
     // console.log(this.actor.data.data.pericias.ofi.more);
+    for (let [pc, per] of Object.entries(this.actor.data.data.atributos)) {
+      if(per.bonus === undefined ||
+         per.penalidade === undefined)
+      {
+        let perB ="data.atributos." + pc + ".bonus";
+        let perP ="data.atributos." + pc + ".penalidade";
+        this.actor.update({ [perB] : 0, [perP]: 0});
+      }
+    }
+    for (let [pc, per] of Object.entries(this.actor.data.data.pericias)) {
+      if(per.bonus === undefined ||
+         per.penalidade === undefined)
+      {
+        let perB ="data.pericias." + pc + ".bonus";
+        let perP ="data.pericias." + pc + ".penalidade";
+        this.actor.update({ [perB] : 0, [perP]: 0});
+      }
+    }
     if (this.actor.data.data.pericias.ofi.mais === undefined) {
       this.actor.update({
         "data.pericias.ofi.mais": []
@@ -61,12 +82,12 @@ export class T20ActorSheet extends ActorSheet {
     }
     if (this.actor.data.data.armadura.equipado === undefined) {
       this.actor.update({
-        "data.armadura.equipado": true
+        "data.armadura.equipado": false
       });
     }
     if (this.actor.data.data.escudo.equipado === undefined) {
       this.actor.update({
-        "data.escudo.equipado": true
+        "data.escudo.equipado": false
       });
     }
     if (this.actor.data.data.pericias.atl.pda === true) {
@@ -89,39 +110,95 @@ export class T20ActorSheet extends ActorSheet {
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
       });
     }
-    if (this.actor.data.data.tamanho === undefined || this.actor.data.data.tamanho === "")
-    {
+    if (this.actor.data.data.attributes.conjurador === undefined) {
+      this.actor.update({
+        "data.attributes.conjurador": true,
+        "data.attributes.mago": true
+      });
+    }
+    
+    if (this.actor.data.data.tamanho === undefined || this.actor.data.data.tamanho === "") {
       this.actor.update({
         "data.tamanho": "Médio"
       });
     }
-    if (this.actor.data.data.deslocamento === undefined
-      || this.actor.data.data.deslocamento === 0
-      || this.actor.data.data.deslocamento === "")
+    if(this.actor.data.data.defesa.bonus === undefined)
     {
+      this.actor.update({"data.defesa.bonus": 0});
+    }
+    if(this.actor.data.data.defesa.penalidade === undefined)
+    {
+      this.actor.update({"data.defesa.penalidade": 0});
+    }
+    if(this.actor.data.data.rd.bonus === undefined)
+    {
+      this.actor.update({"data.rd.bonus": 0});
+    }
+    if(this.actor.data.data.rd.penalidade === undefined)
+    {
+      this.actor.update({"data.rd.penalidade": 0});
+    }
+    
+    if (!this.actor.data.data.deslocamento
+      || this.actor.data.data.deslocamento === undefined
+      || this.actor.data.data.deslocamento.base === undefined
+      || this.actor.data.data.deslocamento.base === 0      
+      || this.actor.data.data.deslocamento.base === "") {
       this.actor.update({
-        "data.deslocamento": 9
+        "data.deslocamento.base": 9, 
+        "data.deslocamento.bonus": 0, 
+        "data.deslocamento.penalidade": 0,
+        "data.deslocamento.total": 9,
+        "data.deslocamento.subst": 0,
+        "data.deslocamento.cond": "nao"
       });
     }
-    if (this.actor.data.data.periciasCustom.constructor === Object){
+    if( this.actor.data.data.modificadores === undefined
+      || this.actor.data.data.modificadores.atributos === undefined
+      || this.actor.data.data.modificadores.atributos.bonus === undefined
+      || this.actor.data.data.modificadores.atributos.penalidade === undefined
+      || this.actor.data.data.modificadores.pericias === undefined
+      || this.actor.data.data.modificadores.pericias.bonus === undefined
+      || this.actor.data.data.modificadores.pericias.penalidade === undefined
+      || this.actor.data.data.modificadores.ataques === undefined
+      || this.actor.data.data.modificadores.ataques.bonus === undefined
+      || this.actor.data.data.modificadores.ataques.penalidade === undefined
+      || this.actor.data.data.modificadores.custosPM === undefined
+      || this.actor.data.data.modificadores.custosPM.bonus === undefined
+      || this.actor.data.data.modificadores.custosPM.penalidade === undefined)
+      {
+        this.actor.update({
+          "data.modificadores.atributos.bonus": 0,
+          "data.modificadores.atributos.penalidade": 0,
+          "data.modificadores.pericias.bonus": 0,
+          "data.modificadores.pericias.penalidade": 0,
+          "data.modificadores.ataques.bonus": 0,
+          "data.modificadores.ataques.penalidade": 0,
+          "data.modificadores.custosPM.bonus": 0,
+          "data.modificadores.custosPM.penalidade": 0
+        });
+  
+      }
+
+    if (this.actor.data.data.periciasCustom.constructor === Object) {
       // console.log(this.actor.data.data.periciasCustom);
       let newPericiasCustom = [];
-      for (let [pc, per] of Object.entries(this.actor.data.data.periciasCustom) ) {
+      for (let [pc, per] of Object.entries(this.actor.data.data.periciasCustom)) {
         newPericiasCustom.push(per);
       }
       // this.actor.data.data.periciasCustom = newPericiasCustom;
-      this.actor.update({"data.periciasCustom": newPericiasCustom});
+      this.actor.update({ "data.periciasCustom": newPericiasCustom });
     }
-    if (this.actor.data.data.pericias.ofi.mais.constructor === Object){
+    if (this.actor.data.data.pericias.ofi.mais.constructor === Object) {
       // console.log(this.actor.data.data.pericias.ofi.mais);
       let newOficios = [];
-      for (let [pc, per] of Object.entries(this.actor.data.data.pericias.ofi.mais) ) {
+      for (let [pc, per] of Object.entries(this.actor.data.data.pericias.ofi.mais)) {
         newOficios.push(per);
       }
       // this.actor.data.data.pericias.ofi.mais = newOficios;
-      this.actor.update({"data.pericias.ofi.mais": newOficios});
+      this.actor.update({ "data.pericias.ofi.mais": newOficios });
     }
-    
+
     return data;
   }
 
@@ -140,11 +217,9 @@ export class T20ActorSheet extends ActorSheet {
     const equipamentos = [];
     const ataques = [];
     const armas = [];
-    let carga = [];
-    let cargaPesada = actorData.data.atributos.for.value * 3;
-    let cargaMax = actorData.data.atributos.for.value * 10;
-    actorData.cargaPesada = cargaPesada;
-    actorData.cargaMax = cargaMax;
+    let carga = 0;
+    // actorData.data.detalhes.cargaa.medio = actorData.data.atributos.for.value * 3;
+    // actorData.data.detalhes.cargaa.max = actorData.data.atributos.for.value * 10;
     const magias = {
       1: {
         spells: [],
@@ -167,7 +242,7 @@ export class T20ActorSheet extends ActorSheet {
         custo: 15
       }
     };
-
+    
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     let x = 0;
@@ -177,20 +252,25 @@ export class T20ActorSheet extends ActorSheet {
       // Sort into various arrays.
       if (i.type === 'poder') {
         poderes.push(i);
-      } else if (i.type === 'magia') {
+      }
+      else if (i.type === 'magia') {
         if (i.data.circulo != undefined) {
           magias[i.data.circulo].spells.push(i);
         }
+        actorData.data.attributes.conjurador = true;
       }
       // If this is equipment, we currently lump it together.
       else if (i.type === 'equip'  || i.type === 'consumivel' || i.type === 'tesouro') {
         i.peso = Number(i.data.peso)*Number(i.data.qtd);
         equipamentos.push(i);
-        carga.push(i.peso);
-
-        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
-
-      } else if (i.type === 'arma') {
+        carga += i.peso;
+      } 
+      else if (i.type === 'armadura') {
+        i.peso = Number(i.data.peso)*Number(i.data.qtd);
+        equipamentos.push(i);
+        carga += i.peso;
+      }
+      else if (i.type === 'arma') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
           return "(" + T20Utility.short(match, actorData.data) + ")";
@@ -203,23 +283,22 @@ export class T20ActorSheet extends ActorSheet {
           return "(" + T20Utility.short(match, actorData.data) + ")";
         });
 
-        i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
+        i.data.atq = (tempatq.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
 
-        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
         armas.push(i);
         i.peso = Number(i.data.peso)*Number(i.data.qtd);
-        carga.push(i.peso);
-        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
+        carga += i.peso;
 
       } else if (i.type === 'ataque') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
         // let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
         let tempdmg = '';
-        if(i.data._bonusAtq == undefined || i.data._bonusAtq == ""){
+        if (i.data._bonusAtq == undefined || i.data._bonusAtq == "") {
           i.data._bonusAtq = "0";
         }
-        if(i.data._bonusDano == undefined || i.data._bonusDano == ""){
+        if (i.data._bonusDano == undefined || i.data._bonusDano == "") {
           i.data._bonusDano = "0";
         }
         tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
@@ -243,9 +322,11 @@ export class T20ActorSheet extends ActorSheet {
     actorData.magias = magias;
     // Equipment
     actorData.equipamentos = equipamentos;
+    actorData.data.detalhes.carga = carga;
     // Attacks
     actorData.ataques = ataques;
     actorData.armas = armas;
+    actorData.referencias  = sheetData.actor.effects;
   }
 
 
@@ -263,17 +344,17 @@ export class T20ActorSheet extends ActorSheet {
 
     if (item) {
       let value = a.value;
-      if(data.campo == "_bonusAtq"){
+      if (data.campo == "_bonusAtq") {
         item.update({
           "data._bonusAtq": value
         });
-      } else if(data.campo == "_bonusDano"){
+      } else if (data.campo == "_bonusDano") {
         item.update({
           "data._bonusDano": value
         });
       }
     }
-    
+
     this.render();
   }
 
@@ -311,7 +392,7 @@ export class T20ActorSheet extends ActorSheet {
     // Add pericias/oficios
     html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
     html.find('.oficios-create').click(this._onPericiaCustomCreate.bind(this));
-    
+
     html.find('.skill-tr').find('input,select').change(this._onPericiaCustomUpdate.bind(this));
 
     html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
@@ -320,6 +401,9 @@ export class T20ActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
+    
+    // Update Inventory Item
+    html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
@@ -331,6 +415,26 @@ export class T20ActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      if(item.data.type === "armadura" && item.data.data.equipado) {
+        const armadura = {
+          nome: "",
+          defesa:  0,
+          penalidade: 0,
+          equipado: false
+        };
+        if (item.data.data.tipo === "armadura") {
+          this.actor.update({
+            "data.armadura": armadura,
+            "data.defesa.des": true
+          });
+        }
+        else if (item.data.data.tipo === "escudo") {
+          this.actor.update({
+            "data.escudo": armadura,
+          });
+        }
+      }
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
@@ -344,7 +448,7 @@ export class T20ActorSheet extends ActorSheet {
     // Update item
     html.find('.upItem').change(this._onUpdateItem.bind(this));
 
-    
+
     // Drag events for macros.
     if (this.actor.owner) {
       let handler = ev => this._onDragStart(ev);
@@ -356,13 +460,51 @@ export class T20ActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
   }
 
+  _onToggleArmor(ev) {
+    const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      item.data.data.equipado = !item.data.data.equipado;
+      let current = $(ev.currentTarget)[0];
+      let items = this.actor.data.items;
 
+      if (item.data.data.equipado) {
+        let unequipped = items.some(element => { //some() === forEach() with a return
+          if(element.type === "armadura" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
+            element.data.equipado = false;
+            return true;
+          }
+        });
+        if (unequipped) {
+          this.actor.update({"items": items });
+        }
+      }
+      
+      const armadura = {
+        nome: item.data.data.equipado ? item.data.name : "",
+        defesa: item.data.data.equipado ? item.data.data.armadura.value : 0,
+        penalidade: item.data.data.equipado ? item.data.data.armadura.penalidade : 0,
+        equipado: item.data.data.equipado
+      };
+      if (item.data.data.tipo === "armadura") {
+        this.actor.update({
+          "data.armadura": armadura,
+          "data.defesa.des": item.data.data.equipado ? item.data.data.subtipo === "leve" ? true : false : true //if ((equipado && leve) || desequipado) return true
+        });
+      }
+      else if (item.data.data.tipo === "escudo") {
+        this.actor.update({
+          "data.escudo": armadura
+        });
+      }
+      item.update({"data.equipado": item.data.data.equipado});
+  }
   /** @override */
   _onDragStart(event) {
     const li = event.currentTarget;
-    if ( event.target.classList.contains("entity-link") ) return;
+    if (event.target.classList.contains("entity-link")) return;
 
     // Create drag data
     const dragData = {
@@ -372,25 +514,25 @@ export class T20ActorSheet extends ActorSheet {
     };
 
     // Owned Items
-    if ( li.dataset.itemId ) {
+    if (li.dataset.itemId) {
       const item = this.actor.items.get(li.dataset.itemId);
       dragData.type = "Item";
       dragData.data = item.data;
     }
 
     // Active Effect
-    if ( li.dataset.effectId ) {
+    if (li.dataset.effectId) {
       const effect = this.actor.effects.get(li.dataset.effectId);
       dragData.type = "ActiveEffect";
       dragData.data = effect.data;
     }
     // Pericias
-    if ( li.dataset.skill ) {
+    if (li.dataset.skill) {
       let skill;
-      if(li.dataset.ofi) {
+      if (li.dataset.ofi) {
         skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.ofi];
         dragData.subtype = "oficios";
-      } else if(li.dataset.custom) {
+      } else if (li.dataset.custom) {
         skill = this.actor.data.data.periciasCustom[li.dataset.custom];
         dragData.subtype = "custom";
       } else {
@@ -426,38 +568,40 @@ export class T20ActorSheet extends ActorSheet {
       $(target).addClass('ativo');
     }
   }
-  async _onPericiaCustomUpdate(event){
+  async _onPericiaCustomUpdate(event) {
     let index = $(event.currentTarget).closest('.skill-tr')[0].dataset.itemId;
     let tipo = $(event.currentTarget).closest('.skill-tr')[0].dataset.skill;
     let inputs = $(event.currentTarget).closest('.skill-tr').find('input,textarea,select');
     let pericias;
     let sk;
-    if(tipo == "oficios"){
+    if (tipo == "oficios") {
       pericias = this.actor.data.data.pericias.ofi.mais;
       sk = this.actor.data.data.pericias.ofi.mais[index];
     } else if (tipo == "custom") {
       pericias = this.actor.data.data.periciasCustom;
       sk = this.actor.data.data.periciasCustom[index];
     }
-    for (let inp of inputs){
-      if(inp.name.match(/treinado/)!==null){
+    for (let inp of inputs) {
+      if (inp.name.match(/treinado/) !== null) {
         sk.treinado = inp.checked;
-      } else if(inp.name.match(/label/)!==null) {
+      } else if (inp.name.match(/label/) !== null) {
         sk.label = inp.value;
-      } else if(inp.name.match(/atributo/)!==null) {
+      } else if (inp.name.match(/atributo/) !== null) {
         sk.atributo = inp.value;
-      } else if(inp.name.match(/treino/)!==null) {
+      } else if (inp.name.match(/treino/) !== null) {
         sk.treino = inp.value;
-      } else if(inp.name.match(/outros/)!==null) {
+      } else if (inp.name.match(/outros/) !== null) {
         sk.outros = inp.value;
+      } else if (inp.name.match(/temp/) !== null) {
+        sk.temp = inp.value;
       }
     }
-    if(tipo == "oficios"){
+    if (tipo == "oficios") {
       pericias[index] = sk;
-      await this.actor.update({"data.pericias.ofi.mais":pericias});
+      await this.actor.update({ "data.pericias.ofi.mais": pericias });
     } else if (tipo == "custom") {
       pericias[index] = sk;
-      await this.actor.update({"data.periciasCustom":pericias});
+      await this.actor.update({ "data.periciasCustom": pericias });
     }
   }
   async _onPericiaCustomDelete(event) {
@@ -467,14 +611,14 @@ export class T20ActorSheet extends ActorSheet {
     let c = 0;
     if (tipo == 'oficios') {
       let oficios = this.actor.data.data.pericias.ofi.mais;
-      oficios.splice(id,1);
-      
-      await this.actor.update({"data.pericias.ofi.mais": oficios });
+      oficios.splice(id, 1);
+
+      await this.actor.update({ "data.pericias.ofi.mais": oficios });
     } else {
       let pericias = this.actor.data.data.periciasCustom;
-      pericias.splice(id,1);
+      pericias.splice(id, 1);
 
-      await this.actor.update({"data.periciasCustom": pericias });
+      await this.actor.update({ "data.periciasCustom": pericias });
     }
     await this.render();
   }
@@ -498,7 +642,8 @@ export class T20ActorSheet extends ActorSheet {
       treinado: false,
       treino: 0,
       outros: 0,
-      mod: 0
+      mod: 0,
+      temp: 0
     };
 
     let actorData = duplicate(this.actor);
@@ -585,7 +730,7 @@ export class T20ActorSheet extends ActorSheet {
         roll: data.roll,
         label: data.label
       };
-    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('arma-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
+    if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('arma-rollable') || $(a).hasClass('consumivel-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
       item = actor.getOwnedItem(itemId);
     } else if ($(a).hasClass('pericia-rollable')) {
       item = {
@@ -594,7 +739,7 @@ export class T20ActorSheet extends ActorSheet {
         label: data.label
       }
     } else if ($(a).hasClass('atributo-rollable')) {
-      const atrnames = {'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma"}
+      const atrnames = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }
       item = {
         type: 'atributo',
         roll: data.roll,
@@ -604,5 +749,16 @@ export class T20ActorSheet extends ActorSheet {
     await prepRoll(event, item, actor);
 
   }
+
+
+//   /**
+//  * Toggles condition modifiers on or off.
+//  * 
+//  * @param {Event} event The triggering event.
+//  */
+//   async _onToggleConditions(event) {
+//     alert(event);
+//   }
+
 
 }

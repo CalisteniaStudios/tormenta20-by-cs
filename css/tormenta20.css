@@ -6,6 +6,37 @@
   border-image-slice: 0 40 0 40;
 }
 
+.tormenta20 .item-control.toggle-armor.active {
+  /* color: #171f69; */
+  color: #1d2890;
+}
+
+.tormenta20 .header-exp {
+  flex: 0 0 150px;
+  margin-right: 3px;
+  height: 60px;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.tormenta20 .xpbar {
+  flex: 0 0 8px;
+  width: 100%;
+  margin-bottom: 5px;
+  background: #7a7971;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+.tormenta20 .xpbar .bar {
+  height: 4px;
+  margin: 1px;
+  display: block;
+  background: #afebff;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+
 .window-app .window-content {
   background: url(../assets/parchment.jpg) repeat !important;
   color: #2f290c !important;
@@ -418,12 +449,12 @@ button {
 }
 
 .tormenta20 input {
-  border: 0;
-  border-bottom: 2px solid black;
   border-radius: 0;
   margin-bottom: 5px;
 }
-
+.tormenta20 input[type=button] {
+  font-family: monospace;
+}
 .tormenta20 .container {
   display: inline-block;
 }
@@ -440,9 +471,20 @@ button {
   max-height: unset !important;
 }
 
-.tormenta20 .infos label {
+.tormenta20 .infos label,
+.tormenta20 .infos input {
   display: inline-block;
-  width: calc(30% - 2px);
+  width: calc(25% - 2px);
+}
+
+.tormenta20 .infos2 label {
+  display: inline-block;
+  width: calc(20% - 3px);
+}
+
+.tormenta20 .infos-tabbed input {
+  display: inline-block;
+  width: calc(20% - 2px);
 }
 
 .tormenta20 .bottom label > input {
@@ -566,6 +608,18 @@ button {
   display: inline-block;
 }
 
+.tormenta20 .dados .atributos input {
+  width: 60%;
+  height: 20px;
+  /* border: 0; */
+  font-size: 2em;
+}
+
+.tormenta20 .tabbed .dados .atributos input {
+  display: block;
+  margin-left: calc(50% - 14px);
+}
+
 .tormenta20 .tabbed .header-fields .recursos label,
 .tormenta20 .dados .recursos label {
   display: inline-block;
@@ -587,7 +641,12 @@ button {
   text-align: center;
 }
 
+.tormenta20 .tabbed .resource {
+  margin-top: 0;
+}
+
 .tormenta20 .tabbed .header-fields .recursos .vl,
+.tormenta20 .atributos .vl,
 .tormenta20 .dados .recursos .vl {
   border-left: 1px solid black;
   height: 40px;
@@ -599,7 +658,7 @@ button {
 .tormenta20 .dados .recursos input {
   width: 50px;
   height: 30px;
-  border: 0;
+  /* border: 0; */
   font-size: 2em;
 }
 
@@ -614,15 +673,6 @@ button {
 .tormenta20 .armadura {
   /*float: left;*/
   width: 100%;
-}
-
-.tormenta20 .tabbed .defesa {
-  width: 60%;
-  display: inline-block;
-}
-.tormenta20 .tabbed .reducao_dano {
-  width: 39%;
-  display: inline-block;
 }
 
 .tormenta20 .sel-center {
@@ -642,12 +692,13 @@ button {
   visibility: hidden;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
-  text-align: center;
+  text-align: left;
   padding: 5px;
   border-radius: 6px;
   line-height: 13px;
-  min-width: 128px;
-  width: 240px;
+  /* min-width: 128px; */
+  /* width: 240px; */
+  max-width: 240px;
   /* Position the tooltip text */
   position: fixed;
   z-index: 1;

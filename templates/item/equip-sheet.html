@@ -1,7 +1,7 @@
 <form class="tormenta20" autocomplete="off">
     <header class="sheet-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        <div class="header-fields">
+        <div class="">
            <table>
                <tr>
                     <th>Nome</th>
@@ -19,11 +19,50 @@
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
+	{{#ifEquals item.type "armadura"}}
+		<div class="form-group">
+			<label>Tipo:</label>
+			<div class="form-fields">
+				<select class="selectatr" name="data.tipo" value={{data.tipo}} data-type="String">
+				{{#select data.tipo}}
+				<option value="armadura">Armadura</option>
+				<option value="escudo">Escudo</option>
+        <option value="outro">Outro</option>
+				{{/select}}
+				</select>
+			</div>
+		</div>
+		{{#ifNotEquals data.tipo "outro"}}
+		<div class="form-group">
+			<label>Subtipo:</label>
+			<div class="form-fields">
+				<select class="selectatr" name="data.subtipo" value={{data.subtipo}} data-type="String">
+				{{#select data.subtipo}}
+				<option value="leve">{{#ifEquals data.tipo "armadura"}}Armadura{{else}}Escudo{{/ifEquals}} Leve</option>
+				<option value="pesado">{{#ifEquals data.tipo "armadura"}}Armadura Pesada{{else}}Escudo Pesado{{/ifEquals}}</option>
+				{{/select}}
+				</select>
+			</div>
+		</div>
+		{{/ifNotEquals}}
+		<div class="form-group">
+			<label>Bônus na Defesa:</label>
+			<div class="form-fields">
+				<input type="text" name="data.armadura.value" value="{{data.armadura.value}}" data-dtype="Number"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Penalidade de Armadura:</label>
+			<div class="form-fields">
+				<input type="text" name="data.armadura.penalidade" value="{{data.armadura.penalidade}}" data-dtype="Number"/>
+			</div>
+		</div>
+	{{/ifEquals}}
     {{#ifEquals item.type "arma"}}
       <div class="form-group">
         <label>Ataque: 1d20+</label>
         <div class="form-fields">
-            <input type="text" name="data.atqBns" value="{{data.atqBns}}" data-dtype="String"/>
+            <input type="text" name="data.atqBns" value="{{#ifEquals data.atqBns ''}}0{{else}}{{data.atqBns}}{{/ifEquals}}" data-dtype="String"/>
             <select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
               {{#select data.pericia}}
               <option value="lut">Luta</option>
@@ -108,8 +147,11 @@
         </div>
       </div>
     {{/ifEquals}}
+		<div class="full border">
+            <label>Descrição</label>
+          <textarea name="data.description" data-dtype="String">{{data.description}}</textarea>
+    </div>
 
-        <textarea name="data.description" data-dtype="String">{{data.description}}</textarea>
 
     </section>
 </form>

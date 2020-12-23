@@ -1,0 +1,43 @@
+<div class="spell-browser browser flexrow">
+    <div class="control-area">
+        <div class="filtercontainer" id="tagfilter">            
+            <div class="filter"  data-type="text" data-path="name">
+                <input class="" name="textFilter" type="text" value="" data-dtype="String" placeholder="Nome"/>
+            </div>
+            <!-- <dl id="sorter">
+                <dt>"Classificar por":</dt>
+                <dd><select class="null" name="sortorder">
+                    <option value="true" selected>Nome</option>
+                    <option value="false">Nível</option>
+                </select></dd>
+            </dl>  -->
+            <button id="reset-spell-filter">Resetar Filtros</button>
+        </div>
+        {{> "systems/tormenta20/templates/compendium-browser/filter-container.html" filters=spellFilters}}
+    </div>
+    <ul>
+        <li class="spell flexrow item-header">
+            <div style="font-weight: 900;">Nome</div>
+            <div class="spell-tags">Círculo</div>
+        </li>
+        {{#each spells as |spell id|}}
+        <li class="spell flexrow draggable" data-entry-compendium="{{spell.compendium}}" data-entry-id="{{spell._id}}">
+            <div class="item-image">
+                <img class="" data-src="{{spell.img}}" title="{{spell.name}}" width="32" height="32"/>
+            </div>  
+            <div class="item-name">
+                <span class="item-edit" ><a>{{spell.name}}</a></span>
+            </div>
+            <div class="spell-tags">
+                <span title="Spell level">{{#if spell.data.circulo}}{{spell.data.circulo}}{{else}}C{{/if}}</span>
+            </div>
+            <div class="filter-tags">                
+                <input type="hidden" name="circulo" value="{{spell.data.circulo}}">
+                <input type="hidden" name="escola" value="{{spell.data.escola}}">
+                <input type="hidden" name="tipo" value="{{spell.data.tipo}}">
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+</div>

@@ -21,7 +21,11 @@ export const measureDistances = function(segments, options={}) {
     let ns = Math.abs(ny - nx);
     nDiagonal += nd;
   
-    if (rule === "EQUIDISTANT") {
+    if (rule === "PATHFINDER") {
+      let nd10 = Math.floor(nDiagonal / 2) - Math.floor((nDiagonal - nd) / 2);
+      let spaces = (nd10 * 2) + (nd - nd10) + ns;
+      return spaces * canvas.dimensions.distance;
+    } else if (rule === "EQUIDISTANT") {
       return (ns + nd) * canvas.scene.data.gridDistance;
     }
 
@@ -48,3 +52,4 @@ export const getBarAttribute = function(...args) {
   }
   return data;
 };
+

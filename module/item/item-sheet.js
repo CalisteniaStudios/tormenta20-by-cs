@@ -23,7 +23,7 @@ export class T20ItemSheet extends ItemSheet {
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    if (this.item.data.type == "arma" || this.item.data.type == "consumivel" || this.item.data.type == "tesouro") {
+    if (this.item.data.type == "arma" || this.item.data.type == "consumivel" || this.item.data.type == "tesouro" || this.item.data.type == "armadura") {
       return `${path}/equip-sheet.html`;
     }
     return `${path}/${this.item.data.type}-sheet.html`;
@@ -38,6 +38,10 @@ export class T20ItemSheet extends ItemSheet {
     if (data.item.type == "magia" && this.object.options.actor != undefined) {
       data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
       data.data.totalCD = data.data.actorCD+data.data.cd;
+    }
+    if (data.item.type == "arma") {
+      if(data.data.atqBns == "") data.data.atqBns = 0;
+      if(data.data.danoBns == "") data.data.danoBns = 0;
     }
     if (data.item.type == "ataque") {
       data.data.dano = data.data.dano + (data.data.bonusDano != ""? "+"+data.data.bonusDano : "");

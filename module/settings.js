@@ -39,7 +39,21 @@ export const SystemSettings = function() {
     choices: {
 	  "MANHATTAN": "Padrão (3m)",
 	  "EQUIDISTANT": "Equidistante (1,5m)",
+    "PATHFINDER": "Pathfinder/3.5 (1,5m/3m/1,5m)",
     },
     onChange: rule => canvas.grid.diagonalRule = rule
   });
+  
+  /**
+   * Option to disable XP bar for session-based or story-based advancement.
+   */
+  game.settings.register("tormenta20", "disableExperience", {
+    name: "Avanço por Marcos",
+    hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+  });
+
 }
