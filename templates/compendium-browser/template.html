@@ -1,0 +1,17 @@
+<div class="parent">
+    <div class="tabs">
+        {{#if showSpellBrowser}}<a class="item" data-tab="spell">Navegador de Magias</a>{{/if}}
+        {{#if showFeatBrowser}}<a class="item" data-tab="feat">Navegador de Poderes</a>{{/if}}
+        {{#if showItemBrowser}}<a class="item" data-tab="item">Navegador de Itens</a>{{/if}}
+        {{#if showNpcBrowser}}<a class="item" data-tab="npc">Navegador de NPC</a>{{/if}}
+        {{#if isGM}}<a class="item" data-tab="setting">Configurações</a>{{/if}}
+    </div>
+
+    <div class="content">
+            <div class="tab" data-tab="spell">{{#if showSpellBrowser}}{{> "systems/tormenta20/templates/compendium-browser/spell-browser.html"}}{{/if}}</div>
+            <div class="tab" data-tab="feat">{{#if showFeatBrowser}}{{> "systems/tormenta20/templates/compendium-browser/feat-browser.html"}}{{/if}}</div>
+            <div class="tab" data-tab="item">{{#if showItemBrowser}}{{> "systems/tormenta20/templates/compendium-browser/item-browser.html"}}{{/if}}</div>
+            <div class="tab" data-tab="npc">{{#if showNpcBrowser}}  {{> "systems/tormenta20/templates/compendium-browser/npc-browser.html"}}{{/if}}</div>
+            <div class="tab" data-tab="setting">{{#if isGM}}            {{> "systems/tormenta20/templates/compendium-browser/settings.html"}}{{/if}}</div>
+    </div>
+</div>

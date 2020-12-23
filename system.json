@@ -7,9 +7,9 @@
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 1,
   "author": "Vizael",
-  "esmodules": ["module/tormenta20.js"],
+  "esmodules": ["module/tormenta20.js", "css/compendium-browser.css"],
   "styles": ["css/tormenta20.css"],
-  "scripts": [],
+  "scripts": ["module/compendium-browser.js"],
   "packs": [],
   "languages": [
     {
