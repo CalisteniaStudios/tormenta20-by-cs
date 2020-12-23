@@ -13,19 +13,18 @@
   
   <div class="form-group">
     <div class="form-fields">
-      <ol class="items-list">
 
       <ol class="items-list">
         <li class="item flexrow item-header flex-center">
           <div>APRIMORAMENTOS</div>
         </li>
         <li class="item flexrow item-header">
-          <div class="item-Aplicar">Aplicar</div>
+          <div class="item-aplicar">Aplicar</div>
           <div class="item-efeito">Efeito</div>
         </li>
         {{#each aprimoramentos as |ap id|}}
         <li class="item flexrow" data-item-id="{{id}}">
-          <div class="item-quantidade" style="max-width: 100px">
+          <div class="item-quantidade" style="max-width: 100px; text-align: center;">
             {{#ifEquals ap.tipo "Truque"}}
             <input
               type="checkbox"
@@ -64,10 +63,10 @@
               step="{{ap.custo}}"
               class="numInp"
               data-dtype="Number"
-              style="max-width: 50px"
+              style="max-width: 25px"
               onkeydown="return false"
             />
-            <input type="button" value="+" class="numCtrl" />
+            <input type="button" value="+" class="numCtrl" /><br>
             {{ap.custo}} PM {{/ifEquals}} {{#ifEquals ap.tipo "Outros"}}
             <input
               type="checkbox"

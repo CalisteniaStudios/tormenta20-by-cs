@@ -62,7 +62,7 @@
       <div class="form-group">
         <label>Ataque: 1d20+</label>
         <div class="form-fields">
-            <input type="text" name="data.atqBns" value="{{data.atqBns}}" data-dtype="String"/>
+            <input type="text" name="data.atqBns" value="{{#ifEquals data.atqBns ''}}0{{else}}{{data.atqBns}}{{/ifEquals}}" data-dtype="String"/>
             <select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
               {{#select data.pericia}}
               <option value="lut">Luta</option>

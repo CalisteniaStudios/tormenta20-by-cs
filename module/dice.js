@@ -740,7 +740,6 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       if (apr.tipo === "Truque") {
         eTruque = true;
       }
-
       aprimoramentos.push(ap);
     });
     /* -------------------------------------------- */
@@ -779,19 +778,11 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     };
 
     if (!eTruque && item.data.data.custo > 0) {
-      templateData.custo = Math.max(
-        parseInt(item.data.data.custo) + PMTotal,
-        1
-      );
-      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
-      if (templateData.custo <= 0)
-      {
-        templateData.custo = 1;
-      }
+      templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0), 1);
       } else if (eTruque) {
         templateData.custo = 0;
         templateData.truque = 1;
-        templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+        //templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
     }
 
     formula = formula
