@@ -48,17 +48,20 @@
         </div>
       </div>
 
-      <div class="dados">
+      <div class="dados" style="width:61%">
         <div class="atributos">
           <ol class="items-list">
             {{#each data.atributos as |atr key|}}
-            <li class="item flexrow" id="atributo" data-item-id="{{key}}">
+            <li class="item flexrow" style="width: 16%;" id="atributo" data-item-id="{{key}}">
               <span class="rollable atributo-rollable" data-roll="1d20+{{atr.mod}}" data-label="{{key}}"><label>
-                  {{key}}
+                  <label style="font-size: 2em">{{key}}</label>
                   <h1 style="border: 0!important; padding:0;">{{#ifGreater atr.mod 0}}+{{/ifGreater}}{{atr.mod}}</h1>
                   <input type="hidden" name="data.atributos.{{key}}.mod" value="{{atr.mod}}" data-dtype="Number" />
                 </label></span>
-              <input type="text" name="data.atributos.{{key}}.value" value="{{atr.value}}" data-dtype="Number" />
+              <label style="width:calc(50% - 2px); display:inline-block;"><input style="width:100%" type="text" name="data.atributos.{{key}}.value" value="{{atr.value}}" data-dtype="Number" placeholder="0" />
+			  Total</label>
+			  <label style="width:calc(50% - 2px); display:inline-block;"><input style="width:100%" type="text" name="data.atributos.{{key}}.temp"  value="{{atr.temp}}" data-dtype="Number" placeholder="0" />
+			  Temp.</label>
             </li>
             {{/each}}
           </ol>
@@ -134,12 +137,12 @@
         </div>
 
         <div class="defesa">
-          <ol class="items-list" style="width:20%; height:125px; display:inline-block;">
+          <ol class="items-list" style="width:25%; height:135px; display:inline-block;">
             <li class="item flexrow item-header flex-center">
               <div class="item-name">DEFESA</div>
             </li>
             <li class="item flexrow text-center" >
-              <div class="item-name" style="height:70px;">
+              <div class="item-name" style="height:80px;">
 				<div class="tooltip">
 					<div class="tooltipcontent">
 					Fontes:<br/>
@@ -148,15 +151,24 @@
 					{{#if data.armadura.equipado}}{{data.armadura.nome}}: {{data.armadura.defesa}}<br />{{/if}}
 					{{#if data.escudo.equipado}}{{data.escudo.nome}}: {{data.escudo.defesa}}<br />{{/if}}
 					{{#if data.defesa.outro}}Outros: {{data.defesa.outro}}{{/if}}
+					{{#if data.defesa.temp}}Temporário: {{data.defesa.temp}}{{/if}}
 					</div>
 				<h1 style="padding:0">{{data.defesa.value}}</h1>
 				</div>
-				<input type="text" style="width:50%" name="data.defesa.outro" value="{{data.defesa.outro}}"
-                  data-dtype="Number" placeholder="0" />
+				<div>
+					<label style="width:calc(50% - 2px); display:inline-block;">
+						<input type="text" name="data.defesa.outro" value="{{data.defesa.outro}}" data-dtype="Number" placeholder="0" />
+						Outros
+					</label>
+					<label style="width:calc(50% - 2px); display:inline-block;">
+						<input type="text" name="data.defesa.temp" value="{{data.defesa.temp}}" data-dtype="Number" placeholder="0" />
+						Temp
+					</label>
+				</div>
 			  </div>
             </li>
 			</ol>
-			<ol class="items-list" style="width: calc(80% - 4px); display:inline-block; vertical-align:top;">
+			<ol class="items-list" style="width: calc(75% - 4px); height:135px; display:inline-block; vertical-align:top;">
             <li class="item flexrow item-header flex-center">
               <div class="item-name">Redução de Dano</div>
               <div class="item-separator"></div>
@@ -167,11 +179,9 @@
             <li class="item flexrow text-center">
               <div class="item-name">{{data.rd.value}}</div>
               <div class="item-separator"></div>
-              <div class="item-name"><input type="text" name="data.rd.base" value="{{data.rd.base}}"
-                  data-dtype="Number" /></div>
+              <div class="item-name"><input type="text" name="data.rd.base" value="{{data.rd.base}}" data-dtype="Number" placeholder="0" /></div>
               <div class="item-separator">+</div>
-              <div class="item-name"><input type="text" name="data.rd.temp" value="{{data.rd.temp}}"
-                  data-dtype="Number" /></div>
+              <div class="item-name"><input type="text" name="data.rd.temp" value="{{data.rd.temp}}" data-dtype="Number" placeholder="0" /></div>
             </li>
 			      <li class="item flexrow item-header flex-center">
               <div class="item-name">Resistências</div><input name="data.resistencias" style="text-align: left;" type="text" value="{{data.resistencias}}" data-dtype="String" />
@@ -220,7 +230,7 @@
           {{#each actor.magias as |circulo i|}}
           <ol class="items-list" style="border-style:none;">
             <li class="item flexrow item-header">
-              {{#if data.attributes.mago}}<div class="item-prep">Prep</div>{{/if}}
+              {{#if ../data.attributes.mago}}<div class="item-prep">Prep</div>{{/if}}
               <div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
               <div class="item-controls">
 
@@ -230,7 +240,7 @@
             </li>
             {{#each circulo.spells as |m index|}}
             <li class="item flexrow" data-item-id="{{m._id}}">
-            {{#if data.attributes.mago}}
+            {{#if ../../data.attributes.mago}}
               <div class="item-prep">
                 <input type="checkbox" class="preparada" value="{{m.data.preparada}}" {{#if m.data.preparada}}checked{{/if}} data-dtype="Boolean" />
               </div>
@@ -276,7 +286,7 @@
 
       </div>
 
-      <div class="skills">
+      <div class="skills" style="width:38%">
         <div class="pericias">
           <table class="skl-tbl">
             <tr>
@@ -285,14 +295,14 @@
               <th class="col-15">Perícias</th>
               <th class="col-10">TOTAL</th>
               <th class="col-5">Mod. Atributo</th>
-              <th class="col-5">Treino</th>
+              <!-- <th class="col-5">Treino</th> -->
               <th class="col-5">Outros</th>
             </tr>
             {{#each actor.data.pericias as |skill key|}}
             {{#ifEquals key "ofi"}}
             <tr>
               <td></td>
-              <td colspan="3" class="tooltip"><b>Ofícios</b> <i class="fas fa-question-circle"></i>
+              <td colspan="2" class="tooltip"><b>Ofícios</b> <i class="fas fa-question-circle"></i>
                 <div class="tooltipcontent">Insira um '+' no nome para incluir penalidade de armadura.</div>
               </td>
               <td colspan="2" class="text-right"><a class="item-control oficios-create" title="Create item"
@@ -333,7 +343,7 @@
               </td>
               <input type="hidden" name="data.pericias.ofi.mais.{{o}}.treino" value="{{ofi.treino}}" data-dtype="Number" />
 
-              <td class="col-5 text-center">{{ofi.treino}} </td>
+              <!-- <td class="col-5 text-center">{{ofi.treino}} </td> -->
               <td class="col-5 text-center skill-td"><input type="text" name="data.pericias.ofi.mais.{{o}}.outros"
                   value="{{ofi.outros}}" class="skill-outros" style="display: inline;" data-dtype="Number" /> <a
                   class="item-control skill-delete" style="display: none;" data-item-id="{{o}}" data-tipo="oficios"
@@ -346,7 +356,7 @@
                 <input type="checkbox" name="data.pericias.{{key}}.treinado" value="{{skill.treinado}}" {{#if skill.treinado}}checked{{/if}} data-dtype="Boolean" />
               </td>
               <td class="col-15"><span {{#if skill.st}}{{#if skill.treinado}}class="rollable pericia-rollable"{{/if}}{{else}}class="rollable pericia-rollable"{{/if}} data-skill="{{key}}"
-                  data-roll="1d20+{{skill.value}}" data-label="{{skill.label}}">{{skill.label}}{{#if skill.st}} *{{/if}}{{#if skill.pda}} +{{/if}}</span>
+                  data-roll="1d20+{{skill.value}}" data-label="{{skill.label}}">{{skill.label}}{{#if skill.st}}<sup>*</sup>{{/if}}{{#if skill.pda}}<sup>+</sup>{{/if}}</span>
               </td>
               <td class='col-10'><input type="text" class="border" value="{{skill.value}}" data-dtype="Number" disabled /></td>
               <td class="col-10 text-center">
@@ -362,8 +372,8 @@
                   {{/select}}
                 </select>
               </td>
-              <input type="hidden" name="data.pericias.{{key}}.treino" value="{{skill.treino}}" data-dtype="Number" />
-              <td class="col-5 text-center">{{skill.treino}} </td>
+              <!-- <input type="hidden" name="data.pericias.{{key}}.treino" value="{{skill.treino}}" data-dtype="Number" /> -->
+              <!-- <td class="col-5 text-center">{{skill.treino}} </td> -->
               <td class="col-5 text-center"><input type="text" name="data.pericias.{{key}}.outros" value="{{skill.outros}}" data-dtype="Number" /></td>
             </tr>
             {{/ifEquals}}
@@ -371,7 +381,7 @@
 
             <tr>
               <td></td>
-              <td colspan="3" class="tooltip"><b>Nova Perícia</b> <i class="fas fa-question-circle"></i>
+              <td colspan="2" class="tooltip"><b>Nova Perícia</b> <i class="fas fa-question-circle"></i>
                 <div class="tooltipcontent">Insira um '+' no nome para incluir penalidade de armadura.</div>
               </td>
               <td colspan="2" class="text-right"><a class="item-control pericia-create" title="Criar Perícia"
@@ -413,13 +423,16 @@
               </td>
 
 
-              <td class="col-5 text-center">{{skill.treino}} </td>
+              <!-- <td class="col-5 text-center">{{skill.treino}} </td> -->
               <td class="col-5 text-center skill-td"><input type="text" name="data.periciasCustom.{{key}}.outros"
                   value="{{skill.outros}}" class="skill-outros" style="display: inline;" data-dtype="Number" /> <a
                   class="item-control skill-delete" style="display: none;" data-item-id="{{key}}" data-tipo="custom"
                   title="Excluir Perícia"><i class="fas fa-trash"></i></a></td>
             </tr>
             {{/each}}
+			<tr>
+				<td colspan="5" style="text-align:center; font-size:0.9em;">+ <i>Penalidade de armadura</i>. * <i>Somente treinado</i>.</td>
+			</tr>
           </table>
         </div>
 
@@ -547,24 +560,24 @@
 				</li>
 				<li class="item flexrow text-center">
 				  <div>
-					<input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}" {{#if data.armadura.equipado }}checked{{/if}} data-dtype="Boolean" />					
+					<input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}" {{#if data.armadura.equipado }}checked{{/if}} data-dtype="Boolean" disabled />					
 				  </div>
-				  <div><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" placeholder="Armadura" />
+				  <div><input type="text" readonly name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" placeholder="Armadura" />
 				  </div>
-				  <div><input type="text" name="data.armadura.defesa" value="{{data.armadura.defesa}}" data-dtype="Number" />
+				  <div><input type="text" readonly name="data.armadura.defesa" value="{{data.armadura.defesa}}" data-dtype="Number" />
 				  </div>
-				  <div><input type="text" name="data.armadura.penalidade" value="{{data.armadura.penalidade}}" data-dtype="Number" /></div>
+				  <div><input type="text" readonly name="data.armadura.penalidade" value="{{data.armadura.penalidade}}" data-dtype="Number" /></div>
 				</li>
 				<li class="item flexrow text-center">
 				  <div>
 					
-					<input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}" {{#if data.escudo.equipado }}checked{{/if}} data-dtype="Boolean" />
+					<input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}" {{#if data.escudo.equipado }}checked{{/if}} data-dtype="Boolean" readonly />
 					
 				  </div>
-				  <div><input type="text" name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" placeholder="Escudo" /></div>
-				  <div><input type="text" name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number" />
+				  <div><input type="text" readonly name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" placeholder="Escudo" /></div>
+				  <div><input type="text" readonly name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number" />
 				  </div>
-				  <div><input type="text" name="data.escudo.penalidade" value="{{data.escudo.penalidade}}" data-dtype="Number" /></div>
+				  <div><input type="text" readonly name="data.escudo.penalidade" value="{{data.escudo.penalidade}}" data-dtype="Number" /></div>
 				</li>
 				<li><center><b>Aviso: Estes campos serão descontinuados. Converta-os para equipamentos.</b></center></li>
 			</ol>

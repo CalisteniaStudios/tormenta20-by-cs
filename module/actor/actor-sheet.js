@@ -110,6 +110,13 @@ export class T20ActorSheet extends ActorSheet {
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
       });
     }
+    if (this.actor.data.data.attributes.conjurador === undefined) {
+      this.actor.update({
+        "data.attributes.conjurador": true,
+        "data.attributes.mago": true
+      });
+    }
+    
     if (this.actor.data.data.tamanho === undefined || this.actor.data.data.tamanho === "") {
       this.actor.update({
         "data.tamanho": "Médio"
@@ -236,7 +243,6 @@ export class T20ActorSheet extends ActorSheet {
       }
     };
     
-    actorData.data.attributes.conjurador = false;
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     let x = 0;
@@ -246,11 +252,11 @@ export class T20ActorSheet extends ActorSheet {
       // Sort into various arrays.
       if (i.type === 'poder') {
         poderes.push(i);
-      } else if (i.type === 'magia') {
+      }
+      else if (i.type === 'magia') {
         if (i.data.circulo != undefined) {
           magias[i.data.circulo].spells.push(i);
         }
-
         actorData.data.attributes.conjurador = true;
       }
       // If this is equipment, we currently lump it together.

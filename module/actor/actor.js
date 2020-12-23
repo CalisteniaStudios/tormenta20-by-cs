@@ -309,6 +309,7 @@ export class T20Actor extends Actor {
       Number(data.defesa.armad) +
       Number(data.defesa.escud) +
       Number(data.defesa.outro) +
+      Number(data.defesa.temp) +
       Number(data.defesa.bonus ?? 0) +
       Number(data.defesa.penalidade ?? 0);
 

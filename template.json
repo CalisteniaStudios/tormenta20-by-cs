@@ -33,7 +33,9 @@
           },
           "info": "",
           "cd": 0,
-          "hp": 0
+          "hp": 0,
+          "conjurador": true,
+          "mago": true
         },
         "rd": {
           "value": 0,
