@@ -38,7 +38,9 @@
         "rd": {
           "value": 0,
           "base": 0,
-          "temp": 0
+          "temp": 0,
+          "bonus": 0,
+          "penalidade": 0
         },
         "defesa": {
           "value": 10,
@@ -46,7 +48,8 @@
           "armad": 0,
           "escud": 0,
           "outro": 0,
-          "temp": 0
+          "bonus": 0,
+          "penalidade": 0
         },
         "armadura": {
           "nome": "",
@@ -66,7 +69,9 @@
             "raca": 0,
             "bonus": 0,
             "temp": 0,
-            "mod": 0
+            "mod": 0,
+            "penalidade": 0
+
           },
           "des": {
             "value": 10,
@@ -115,7 +120,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "ade": {
             "label": "Adestramento",
@@ -127,7 +135,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "atl": {
             "label": "Atletismo",
@@ -139,7 +150,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "atu": {
             "label": "Atuação",
@@ -151,7 +165,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "cav": {
             "label": "Cavalgar",
@@ -163,7 +180,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "con": {
             "label": "Conhecimento",
@@ -175,7 +195,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "cur": {
             "label": "Cura",
@@ -187,7 +210,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "dip": {
             "label": "Diplomacia",
@@ -199,7 +225,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "eng": {
             "label": "Enganação",
@@ -211,7 +240,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "for": {
             "label": "Fortitude",
@@ -223,7 +255,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "fur": {
             "label": "Furtividade",
@@ -235,7 +270,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "gue": {
             "label": "Guerra",
@@ -247,7 +285,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "ini": {
             "label": "Iniciativa",
@@ -259,7 +300,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "int": {
             "label": "Intimidação",
@@ -271,7 +315,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "intu": {
             "label": "Intuição",
@@ -283,7 +330,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "inv": {
             "label": "Investigação",
@@ -295,7 +345,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "jog": {
             "label": "Jogatina",
@@ -307,7 +360,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "lad": {
             "label": "Ladinagem",
@@ -319,7 +375,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "lut": {
             "label": "Luta",
@@ -331,7 +390,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "mis": {
             "label": "Misticismo",
@@ -343,7 +405,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "nob": {
             "label": "Nobreza",
@@ -355,7 +420,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "ofi": {
             "label": "Oficios",
@@ -368,7 +436,10 @@
             "outros": 0,
             "notes": "",
             "mod": 0,
-            "mais": []
+            "temp": 0,
+            "mais": [],
+            "bonus": 0,
+            "penalidade": 0
           },
           "per": {
             "label": "Percepção",
@@ -380,7 +451,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "pil": {
             "label": "Pilotagem",
@@ -392,7 +466,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "pon": {
             "label": "Pontaria",
@@ -404,7 +481,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "ref": {
             "label": "Reflexos",
@@ -416,7 +496,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "rel": {
             "label": "Religião",
@@ -428,7 +511,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "sob": {
             "label": "Sobrevivência",
@@ -440,7 +526,10 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           },
           "von": {
             "label": "Vontade",
@@ -452,13 +541,21 @@
             "treino": 0,
             "outros": 0,
             "notes": "",
-            "mod": 0
+            "mod": 0,
+            "temp": 0,
+            "bonus": 0,
+            "penalidade": 0
           }
         },
         "periciasCustom": {},
         "resistencias": "",
         "tamanho": "Médio",
-        "deslocamento": 9,
+        "deslocamento": {
+          "base": 9,
+          "bonus": 0,
+          "penalidade": 0,
+          "total": 9
+        },
         "detalhes": {
           "biografia": "",
           "dinheiro": {
@@ -468,6 +565,25 @@
             "tc": 0
           },
           "carga": 0
+        },
+        "referencias": {},
+        "modificadores": {
+          "atributos" : {
+            "bonus" : 0,
+            "penalidade" : 0
+          },
+          "pericias" : {
+            "bonus" : 0,
+            "penalidade" : 0
+          },
+          "ataques" : {
+            "bonus" : 0,
+            "penalidade" : 0
+          },
+          "custosPM": {
+            "bonus": 0,
+            "penalidade": 0
+          }
         }
       }
     },

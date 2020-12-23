@@ -28,8 +28,9 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Melhorias diversas~~ (v0.9.92)
 * ~~Reformulação das armas e Macros de para Armas~~ (v0.9.93)
 * ~~Itens Roláveis~~ (v0.9.93)
+* ~~Condições de T20 aplicadas como efeitos ativos~~ (v0.9.94)
 * Melhorar Poderes e Itens num geral
-* Condições e efeitos ativos.
+* Melhoras Condições e efeitos ativos.
 * Layout da ficha
 
 ## Colaboradores

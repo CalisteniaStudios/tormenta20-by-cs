@@ -48,3 +48,4 @@ export const getBarAttribute = function(...args) {
   }
   return data;
 };
+

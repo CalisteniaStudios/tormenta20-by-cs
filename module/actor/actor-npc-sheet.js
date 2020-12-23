@@ -34,7 +34,24 @@ export class T20ActorNPCSheet extends ActorSheet {
     }
     // TODO Migrate function to initialize new json data;
     // console.log(this.actor.data.data.pericias.ofi.more);
-
+    for (let [pc, per] of Object.entries(this.actor.data.data.atributos)) {
+      if(per.bonus === undefined ||
+         per.penalidade === undefined)
+      {
+        let perB ="data.atributos." + pc + ".bonus";
+        let perP ="data.atributos." + pc + ".penalidade";
+        this.actor.update({ [perB] : 0, [perP]: 0});
+      }
+    }
+    for (let [pc, per] of Object.entries(this.actor.data.data.pericias)) {
+      if(per.bonus === undefined ||
+         per.penalidade === undefined)
+      {
+        let perB ="data.pericias." + pc + ".bonus";
+        let perP ="data.pericias." + pc + ".penalidade";
+        this.actor.update({ [perB] : 0, [perP]: 0});
+      }
+    }
     if(this.actor.data.data.periciasCustom === undefined){
       this.actor.update({"data.periciasCustom":{}});
     }
@@ -43,7 +60,67 @@ export class T20ActorNPCSheet extends ActorSheet {
         "data.attributes.cd": 10 + Math.floor(this.actor.data.data.attributes.nivel.value / 2)
       });
     }
-
+    if(this.actor.data.data.defesa.value === undefined ||
+      this.actor.data.data.defesa.value === 0)
+   {
+     this.actor.update({"data.defesa.value": 10});
+   }
+   if(this.actor.data.data.defesa.bonus === undefined)
+    {
+      this.actor.update({"data.defesa.bonus": 0});
+    }
+    if(this.actor.data.data.defesa.penalidade === undefined)
+    {
+      this.actor.update({"data.defesa.penalidade": 0});
+    }
+    if(this.actor.data.data.rd.bonus === undefined)
+    {
+      this.actor.update({"data.rd.bonus": 0});
+    }
+    if(this.actor.data.data.rd.penalidade === undefined)
+    {
+      this.actor.update({"data.rd.penalidade": 0});
+    }
+    if (this.actor.data.data.deslocamento === undefined
+      || this.actor.data.data.deslocamento.base === undefined
+      || this.actor.data.data.deslocamento.base === 0      
+      || this.actor.data.data.deslocamento.base === "") {
+        this.actor.update({
+          "data.deslocamento.base": 9, 
+          "data.deslocamento.bonus": 0, 
+          "data.deslocamento.penalidade": 0,
+          "data.deslocamento.total": 9,
+          "data.deslocamento.subst": 0,
+          "data.deslocamento.cond": "nao"
+        });
+    }
+    if( this.actor.data.data.modificadores === undefined
+      || this.actor.data.data.modificadores.atributos === undefined
+      || this.actor.data.data.modificadores.atributos.bonus === undefined
+      || this.actor.data.data.modificadores.atributos.penalidade === undefined
+      || this.actor.data.data.modificadores.pericias === undefined
+      || this.actor.data.data.modificadores.pericias.bonus === undefined
+      || this.actor.data.data.modificadores.pericias.penalidade === undefined
+      || this.actor.data.data.modificadores.ataques === undefined
+      || this.actor.data.data.modificadores.ataques.bonus === undefined
+      || this.actor.data.data.modificadores.ataques.penalidade === undefined
+      || this.actor.data.data.modificadores.custosPM === undefined
+      || this.actor.data.data.modificadores.custosPM.bonus === undefined
+      || this.actor.data.data.modificadores.custosPM.penalidade === undefined)
+      {
+        this.actor.update({
+          "data.modificadores.atributos.bonus": 0,
+          "data.modificadores.atributos.penalidade": 0,
+          "data.modificadores.pericias.bonus": 0,
+          "data.modificadores.pericias.penalidade": 0,
+          "data.modificadores.ataques.bonus": 0,
+          "data.modificadores.ataques.penalidade": 0,
+          "data.modificadores.custosPM.bonus": 0,
+          "data.modificadores.custosPM.penalidade": 0
+        });
+  
+      }
+          
     return data;
   }
 
@@ -408,7 +485,8 @@ export class T20ActorNPCSheet extends ActorSheet {
     const pericia = {
           label: "pericia",
           nome: "pericia",
-          value: 0
+          value: 0,
+          temp: 0
         } ;
 
     let actorData = duplicate(this.actor);
