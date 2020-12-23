@@ -61,12 +61,12 @@ export class T20ActorSheet extends ActorSheet {
     }
     if (this.actor.data.data.armadura.equipado === undefined) {
       this.actor.update({
-        "data.armadura.equipado": true
+        "data.armadura.equipado": false
       });
     }
     if (this.actor.data.data.escudo.equipado === undefined) {
       this.actor.update({
-        "data.escudo.equipado": true
+        "data.escudo.equipado": false
       });
     }
     if (this.actor.data.data.pericias.atl.pda === true) {
@@ -140,11 +140,9 @@ export class T20ActorSheet extends ActorSheet {
     const equipamentos = [];
     const ataques = [];
     const armas = [];
-    let carga = [];
-    let cargaPesada = actorData.data.atributos.for.value * 3;
-    let cargaMax = actorData.data.atributos.for.value * 10;
-    actorData.cargaPesada = cargaPesada;
-    actorData.cargaMax = cargaMax;
+    let carga = 0;
+    // actorData.data.detalhes.cargaa.medio = actorData.data.atributos.for.value * 3;
+    // actorData.data.detalhes.cargaa.max = actorData.data.atributos.for.value * 10;
     const magias = {
       1: {
         spells: [],
@@ -186,11 +184,14 @@ export class T20ActorSheet extends ActorSheet {
       else if (i.type === 'equip'  || i.type === 'consumivel' || i.type === 'tesouro') {
         i.peso = Number(i.data.peso)*Number(i.data.qtd);
         equipamentos.push(i);
-        carga.push(i.peso);
-
-        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
-
-      } else if (i.type === 'arma') {
+        carga += i.peso;
+      } 
+      else if (i.type === 'armadura') {
+        i.peso = Number(i.data.peso)*Number(i.data.qtd);
+        equipamentos.push(i);
+        carga += i.peso;
+      }
+      else if (i.type === 'arma') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
         tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
           return "(" + T20Utility.short(match, actorData.data) + ")";
@@ -203,13 +204,12 @@ export class T20ActorSheet extends ActorSheet {
           return "(" + T20Utility.short(match, actorData.data) + ")";
         });
 
-        i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
+        i.data.atq = (tempatq.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
 
-        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+        i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
         armas.push(i);
         i.peso = Number(i.data.peso)*Number(i.data.qtd);
-        carga.push(i.peso);
-        actorData.carga = carga.reduce((a,b) => Number(a)+Number(b),0);
+        carga += i.peso;
 
       } else if (i.type === 'ataque') {
         let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.bonusAtq}`;
@@ -243,6 +243,7 @@ export class T20ActorSheet extends ActorSheet {
     actorData.magias = magias;
     // Equipment
     actorData.equipamentos = equipamentos;
+    actorData.data.detalhes.carga = carga;
     // Attacks
     actorData.ataques = ataques;
     actorData.armas = armas;
@@ -320,6 +321,9 @@ export class T20ActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
+    
+    // Update Inventory Item
+    html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
@@ -331,6 +335,26 @@ export class T20ActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      if(item.data.type === "armadura" && item.data.data.equipado) {
+        const armadura = {
+          nome: "",
+          defesa:  0,
+          penalidade: 0,
+          equipado: false
+        };
+        if (item.data.data.tipo === "armadura") {
+          this.actor.update({
+            "data.armadura": armadura,
+            "data.defesa.des": true
+          });
+        }
+        else if (item.data.data.tipo === "escudo") {
+          this.actor.update({
+            "data.escudo": armadura,
+          });
+        }
+      }
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
@@ -358,7 +382,44 @@ export class T20ActorSheet extends ActorSheet {
     }
   }
 
+  _onToggleArmor(ev) {
+    const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      item.data.data.equipado = !item.data.data.equipado;
+      let current = $(ev.currentTarget)[0];
+      let items = this.actor.data.items;
 
+      if (item.data.data.equipado) {
+        let unequipped = items.some(element => { //some() === forEach() with a return
+          if(element.type === "armadura" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
+            element.data.equipado = false;
+            return true;
+          }
+        });
+        if (unequipped) {
+          this.actor.update({"items": items });
+        }
+      }
+      
+      const armadura = {
+        nome: item.data.data.equipado ? item.data.name : "",
+        defesa: item.data.data.equipado ? item.data.data.armadura.value : 0,
+        penalidade: item.data.data.equipado ? item.data.data.armadura.penalidade : 0,
+        equipado: item.data.data.equipado
+      };
+      if (item.data.data.tipo === "armadura") {
+        this.actor.update({
+          "data.armadura": armadura,
+          "data.defesa.des": item.data.data.equipado ? item.data.data.subtipo === "leve" ? true : false : true //if ((equipado && leve) || desequipado) return true
+        });
+      }
+      else if (item.data.data.tipo === "escudo") {
+        this.actor.update({
+          "data.escudo": armadura
+        });
+      }
+      item.update({"data.equipado": item.data.data.equipado});
+  }
   /** @override */
   _onDragStart(event) {
     const li = event.currentTarget;
