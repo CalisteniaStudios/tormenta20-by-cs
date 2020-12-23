@@ -127,8 +127,7 @@ export class T20Actor extends Actor {
     for (let [key, ability] of Object.entries(data.atributos)) {
       // Calculate the modifier using d20 rules.
       ability.mod =
-        Math.floor((ability.value - 10) / 2) +
-        (ability.temp ?? 0) +
+        Math.floor((ability.value + (ability.temp ?? 0) - 10) / 2) +
         (ability.bonus ?? 0) +
         (ability.penalidade ?? 0) +
         Number(data.modificadores?.atributos?.bonus ?? 0) +
@@ -190,8 +189,7 @@ export class T20Actor extends Actor {
     for (let [key, ability] of Object.entries(data.atributos)) {
       // Calculate the modifier using d20 rules.
       ability.mod =
-        Math.floor((ability.value - 10) / 2) +
-        (ability.temp ?? 0) +
+        Math.floor((ability.value + (ability.temp ?? 0) - 10) / 2) +
         (ability.bonus ?? 0) +
         (ability.penalidade ?? 0) +
         Number(data.modificadores?.atributos?.bonus ?? 0) +
