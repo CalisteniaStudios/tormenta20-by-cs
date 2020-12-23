@@ -43,6 +43,9 @@ export class T20ActorSheet extends ActorSheet {
     //   attr.isCheckbox = attr.dtype === "Boolean";
     // }
 
+    // Experience Tracking
+    data["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
+    
     // Prepare items.
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
