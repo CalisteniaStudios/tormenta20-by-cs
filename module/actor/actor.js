@@ -47,12 +47,14 @@ export class T20Actor extends Actor {
     };
     if (typeof data.deslocamento !== "object" || data.deslocamento === null) {
       data.deslocamento = {
+        value: data.deslocamento,
         base: data.deslocamento,
         bonus: 0,
         penalidade: 0,
         total: data.deslocamento,
         cond: "nao",
-        subst: 0
+        subst: 0,
+        descricao: ""
       };
     } else {
       data.deslocamento.bonus = 0;
@@ -146,6 +148,7 @@ export class T20Actor extends Actor {
         penalidade: 0,
         subst: 0,
         cond: "nao",
+        descricao: "",
         total:
           data.deslocamento +
           (data.deslocamento.bonus ?? 0) +
@@ -155,18 +158,21 @@ export class T20Actor extends Actor {
     }
     if (data.deslocamento.cond == "metade") {
       data.deslocamento.total = data.deslocamento.total / 2;
+      data.deslocamento.descricao = "Reduzido à metade";
     }
     if (data.deslocamento.subst > 0) {
       data.deslocamento.total = data.deslocamento.subst;
+      data.deslocamento.descricao = "Apenas " + data.deslocamento.subst + "m";
     }
     if (data.deslocamento.cond == "zerado") {
       data.deslocamento.total = 0;
+      data.deslocamento.descricao = "Reduzido à zero";
     }
     if (data.deslocamento.total < 0) {
       data.deslocamento.total = 0;
     }
-    data.defesa.value =
-      Number(data.defesa.outro) +
+    data.defesa.final =
+      Number(data.defesa.value) +
       Number(data.defesa.bonus ?? 0) +
       Number(data.defesa.penalidade ?? 0);
   }
