@@ -499,6 +499,13 @@ export class T20ActorSheet extends ActorSheet {
           "data.escudo": armadura
         });
       }
+      else if (item.data.data.tipo === "outro") {
+        let atual = this.actor.data.data.defesa.outro ? this.actor.data.data.defesa.outro : 0;
+        let nova = item.data.data.equipado ? atual + item.data.data.armadura.value : atual - item.data.data.armadura.value;
+        this.actor.update({
+          "data.defesa.outro": nova
+        });
+      }
       item.update({"data.equipado": item.data.data.equipado});
   }
   /** @override */
