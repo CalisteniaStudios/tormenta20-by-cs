@@ -63,8 +63,8 @@
         <div class="npc-line">
           <p>
             <label>Defesa</label>
-            <input type="text" name="data.defesa.outro" value="{{data.defesa.outro}}" data-dtype="Number"
-              title="Defesa"><input type="text" readonly name="data.defesa.value" value="{{data.defesa.value}}" data-dtype="Number"
+            <input type="text" name="data.defesa.value" value="{{data.defesa.value}}" data-dtype="Number"
+              title="Defesa"><input type="text" readonly name="data.defesa.final" value="{{data.defesa.final}}" data-dtype="Number"
               title="Defesa Atual">
             &nbsp;&nbsp;
             <label>RD</label>
@@ -102,14 +102,15 @@
         </div>
         <div class="npc-line">
           <p>
-            <label>Deslocamento</label>
+            <label>Deslocamento :</label>
             <span class="dc-editable"
-              style="display: inline;">{{#if data.deslocamento.total}}{{data.deslocamento.total}}{{else}}<i>Deslocamento (dois
-                clicks para editar)</i>{{/if}}</span>:
+              style="display: inline;">{{#if data.deslocamento.value}}{{data.deslocamento.value}}{{else}}<i>Deslocamento (dois
+                clicks para editar)</i>{{/if}}</span>
 
-            <input type="text" class="dc-editing" style="display: none;" name="data.deslocamento.base"
-              value="{{data.deslocamento.base}}" data-dtype="String" title="Deslocamento Bse" />
-          </p>
+            <input type="text" class="dc-editing" style="display: none;" name="data.deslocamento.value"
+              value="{{data.deslocamento.value}}" data-dtype="String" title="Deslocamento" />
+            {{#if data.deslocamento.descricao}} <span>{{data.deslocamento.descricao}}</span> {{/if}}
+            </p>
         </div>
         <hr>
         <div class="npc-line">
