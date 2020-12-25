@@ -56,7 +56,7 @@
                     </footer>
 				</li>
 				<li class="attribute">
-					<h4 class="attribute-name box-title">Defesa</h4>
+					<h4 class="attribute-name box-title" title="{{data.defesa.value}} = 10 (Base){{#if data.defesa.des}} +{{data.atributos.des.mod}} (Destreza){{/if}}{{#if data.armadura.equipado}} +{{data.armadura.defesa}} ({{data.armadura.nome}}){{/if}}{{#if data.escudo.equipado}} +{{data.escudo.defesa}} ({{data.escudo.nome}}){{/if}}{{#if data.defesa.outro}} +{{data.defesa.outro}} (Outros){{/if}}{{#if data.defesa.temp}} +{{data.defesa.temp}} (Temporário) {{/if}}">Defesa</h4>
                     <div class="attribute-value">
                         <input name="data.defesa.value" type="text" value="{{data.defesa.value}}" data-dtype="Number" placeholder="10">
                     </div>
