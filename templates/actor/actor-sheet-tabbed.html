@@ -125,7 +125,7 @@
 			{{!-- Skills --}}
 			<!-- <div class="skills"> -->
 				<!-- <div class="pericias" style="width:38%"> -->
-					<table class="skl-tbl" style="width:38%; margin:0">
+					<table class="skl-tbl" style="margin:0">
 					<tr>
 						
 						<th class="col-5"></th>
@@ -182,7 +182,7 @@
 							value="{{ofi.outros}}" class="skill-outros" style="display: inline;" data-dtype="Number" /> <a
 							class="item-control skill-delete" style="display: none;" data-item-id="{{o}}" data-tipo="oficios"
 							title="Excluir"><i class="fas fa-trash"></i></a></td>
-						<td class='col-10'><input type="text" style="width:80%" class="border" value="{{numberFormat ofi.value sign=true}}" data-dtype="Number" disabled /></td>
+						<td class='col-10'><input type="text" style="width:60%; border-color: black;" class="border" value="{{numberFormat ofi.value sign=true}}" data-dtype="Number" disabled /></td>
 					</tr>
 					{{/each}}
 					{{else}}
@@ -209,7 +209,7 @@
 						<!-- <input type="hidden" name="data.pericias.{{key}}.treino" value="{{skill.treino}}" data-dtype="Number" /> -->
 						<!-- <td class="col-5 text-center">{{skill.treino}} </td> -->
 						<td class="col-5 text-center"><input type="text" style="width:60%;" name="data.pericias.{{key}}.outros" value="{{skill.outros}}" data-dtype="Number" /></td>
-						<td class='col-10'><input type="text" style="width:80%" class="border" value="{{numberFormat skill.value sign=true}}" data-dtype="Number" disabled /></td>
+						<td class='col-10'><input type="text" style="width:60%; border-color: black;" class="border" value="{{numberFormat skill.value sign=true}}" data-dtype="Number" disabled /></td>
 					</tr>
 					{{/ifEquals}}
 					{{/each}}
@@ -258,7 +258,7 @@
 							value="{{skill.outros}}" class="skill-outros" data-dtype="Number" /> <a
 							class="item-control skill-delete" style="display: none;" data-item-id="{{key}}" data-tipo="custom"
 							title="Excluir Perícia"><i class="fas fa-trash"></i></a></td>
-						<td class='col-10'><input type="text" style="width:80%" class="border" value="{{numberFormat skill.value sign=true}}" data-dtype="Number" disabled /></td>
+						<td class='col-10'><input type="text" style="width:60%; border-color: black;" class="border" value="{{numberFormat skill.value sign=true}}" data-dtype="Number" disabled /></td>
 					</tr>
 					{{/each}}
 					<tr>
@@ -337,7 +337,7 @@
 		
 		<div class="tab equips" data-group="primary" data-tab="equips">
 			<div class="cell cell--equips">
-          <ol class="items-list">
+          <ul class="items-list">
             <li class="item flexrow item-header">
               <div class="item-name" style="flex: 5;">Nome</div>
               <div class="item-qtd">Qtd</div>
@@ -376,7 +376,7 @@
                       class="fas fa-plus"></i> Item</a>
                 </div>
               </li>
-            </ol>
+            </ul>
           </div>
           <div class="infos bottom">
             <label>T$: <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}"
@@ -389,7 +389,7 @@
 		</div>
 		
 		<div class="tab poderes" data-group="primary" data-tab="poderes">
-			<ol class="items-list">
+			<ul class="items-list">
 				<li class="item flexrow item-header">
 				  <div class="item-name">Nome</div>
 				  <div class="item-tipo">Tipo</div>
@@ -414,11 +414,11 @@
 				  </div>
 				</li>
 				{{/each}}
-          </ol>
+          </ul>
 		</div>
 		
 		<div class="tab magias" data-group="primary" data-tab="magias">
-			<ol class="items-list">
+			<ul class="items-list">
 				{{#each actor.magias as |circulo i|}}
 				<ol class="items-list" style="border-style:none;">
 					<li class="item flexrow item-header">
@@ -447,7 +447,7 @@
 					{{/each}}
 				</ol>
 				{{/each}}
-			</ol>
+			</ul>
 		</div>
 
 		{{!-- Biography Tab --}}
@@ -519,7 +519,7 @@
 					</div>
 					<div><input type="text" readonly name="data.escudo.penalidade" value="{{data.escudo.penalidade}}" data-dtype="Number" /></div>
 					</li>
-					<li><center><b>Aviso: Estes campos serão descontinuados. Converta-os para equipamentos.</b></center></li>
+					<li><center><b>Aviso: Estes campos serão descontinuados. Converta-os para armaduras.</b></center></li>
 				</ol>
 			<ol class="items-list">
 					<li class="item flexrow item-header flex-center">
