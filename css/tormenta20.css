@@ -403,11 +403,6 @@ button {
   width: 15%;
 }
 
-.tormenta20.tabbed .atributos .items-list .item {
-  display: block;
-  text-align: center;
-}
-
 .tormenta20 .atributos .items-list .item label {
   width: 100%;
 }
@@ -480,11 +475,6 @@ button {
 .tormenta20 .infos2 label {
   display: inline-block;
   width: calc(20% - 3px);
-}
-
-.tormenta20 .infos-tabbed input {
-  display: inline-block;
-  width: calc(20% - 2px);
 }
 
 .tormenta20 .bottom label > input {
@@ -581,14 +571,12 @@ button {
   text-align: center;
 }
 
-.tormenta20 .tabbed .header-fields .recursos,
 .tormenta20 .dados .recursos,
 .tormenta20 .dados .atributos {
   font-size: 10px;
   text-align: center;
 }
 
-.tormenta20 .tabbed .header-fields .recursos,
 .tormenta20 .dados .recursos {
   min-height: 90px;
 }
@@ -615,12 +603,6 @@ button {
   font-size: 2em;
 }
 
-.tormenta20 .tabbed .dados .atributos input {
-  display: block;
-  margin-left: calc(50% - 14px);
-}
-
-.tormenta20 .tabbed .header-fields .recursos label,
 .tormenta20 .dados .recursos label {
   display: inline-block;
   width: 30%;
@@ -641,11 +623,6 @@ button {
   text-align: center;
 }
 
-.tormenta20 .tabbed .resource {
-  margin-top: 0;
-}
-
-.tormenta20 .tabbed .header-fields .recursos .vl,
 .tormenta20 .atributos .vl,
 .tormenta20 .dados .recursos .vl {
   border-left: 1px solid black;
@@ -654,7 +631,6 @@ button {
   vertical-align: super;
 }
 
-.tormenta20 .tabbed .header-fields .recursos input,
 .tormenta20 .dados .recursos input {
   width: 50px;
   height: 30px;

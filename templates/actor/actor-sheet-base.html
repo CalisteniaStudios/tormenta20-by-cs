@@ -55,7 +55,7 @@
             <li class="item flexrow" style="width: 16%;" id="atributo" data-item-id="{{key}}">
               <span class="rollable atributo-rollable" data-roll="1d20+{{atr.mod}}" data-label="{{key}}"><label>
                   <label style="font-size: 2em">{{key}}</label>
-                  <h1 style="border: 0!important; padding:0;">{{#ifGreater atr.mod 0}}+{{/ifGreater}}{{atr.mod}}</h1>
+                  <h1 style="border: 0!important; padding:0;">{{numberFormat atr.mod decimals=0 sign=true}}</h1>
                   <input type="hidden" name="data.atributos.{{key}}.mod" value="{{atr.mod}}" data-dtype="Number" />
                 </label></span>
               <label style="width:calc(50% - 2px); display:inline-block;"><input style="width:100%" type="text" name="data.atributos.{{key}}.value" value="{{atr.value}}" data-dtype="Number" placeholder="0" />
@@ -126,7 +126,7 @@
               <div class="item-name"> <span class="rollable arma-rollable"
                       data-roll="1d20+{{item.data.atqBns}}+@data.pericias.{{item.data.pericia}}.value" data-label="{{item.name}}"><h4 class="item-name" style="flex: 5;">{{item.name}}</h4></span>
                     </div>
-              <div class="itam-rolls flex2">{{#ifGreater item.data.atq -1}}+{{/ifGreater}}{{item.data.atq}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
+              <div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
               <div class="item-controls">
                 <a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
                 <a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
@@ -156,10 +156,10 @@
 				<h1 style="padding:0">{{data.defesa.value}}</h1>
 				</div>
 				<div>
-					<label style="width:calc(50% - 2px); display:inline-block;">
-						<input type="text" name="data.defesa.outro" value="{{data.defesa.outro}}" data-dtype="Number" placeholder="0" />
-						Outros
-					</label>
+					<!-- <label style="width:calc(50% - 2px); display:inline-block;"> -->
+						<!-- <input type="text" name="data.defesa.outro" value="{{data.defesa.outro}}" data-dtype="Number" placeholder="0" /> -->
+						<!-- Outros -->
+					<!-- </label> -->
 					<label style="width:calc(50% - 2px); display:inline-block;">
 						<input type="text" name="data.defesa.temp" value="{{data.defesa.temp}}" data-dtype="Number" placeholder="0" />
 						Temp
@@ -260,8 +260,7 @@
 		{{/if}}
         <div class="outros">
           <h4>PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
-          <textarea name="data.attributes.info" style="resize:vertical;" rows="10"
-            data-dtype="String">{{data.attributes.info}}</textarea>
+          <textarea name="data.attributes.info" style="resize:vertical;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
         </div>
 
 

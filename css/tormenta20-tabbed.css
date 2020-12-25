@@ -1,0 +1,72 @@
+/* Original */
+.tormenta20.tabbed .atributos .items-list .item {
+  display: block;
+  text-align: center;
+}
+
+.tormenta20 .infos-tabbed input {
+  display: inline-block;
+  width: calc(20% - 2px);
+}
+
+.tormenta20 .tabbed .header-fields .recursos {
+  font-size: 10px;
+  text-align: center;
+}
+
+.tormenta20 .tabbed .header-fields .recursos {
+  min-height: 90px;
+}
+
+.tormenta20 .tabbed .dados .atributos input {
+  display: block;
+  margin-left: calc(50% - 14px);
+}
+
+.tormenta20 .tabbed .header-fields .recursos label {
+  display: inline-block;
+  width: 30%;
+  max-width: 30%;
+}
+
+.tormenta20 .tabbed .resource {
+  margin-top: 0;
+}
+
+.tormenta20 .tabbed .header-fields .recursos .vl {
+  border-left: 1px solid black;
+  height: 40px;
+  display: inline-block;
+  vertical-align: super;
+}
+
+.tormenta20 .tabbed .header-fields .recursos input {
+  width: 50px;
+  height: 30px;
+  /* border: 0; */
+  font-size: 2em;
+}
+
+/* Novo */
+.tormenta20 .tabbed input[type="text"],
+.tormenta20 .tabbed select {
+  height: calc(100% - 2px);
+  border: 1px solid #7a7971;
+  background: rgba(0, 0, 0, 0.05);
+  color: #191813;
+}
+
+.tormenta20 .tabbed .experience span.sep {
+  flex: none;
+  margin: 0 1px;
+  display: inline;
+  position: relative;
+  color: #7a7971;
+  font-weight: normal;
+}
+
+.tormenta20 .tabbed .experience span.max {
+  color: #7a7971;
+  flex: none;
+  margin-left: 3px;
+}
