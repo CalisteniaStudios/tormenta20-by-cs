@@ -470,7 +470,7 @@ export class T20ActorSheet extends ActorSheet {
       let current = $(ev.currentTarget)[0];
       let items = this.actor.data.items;
 
-      if (item.data.data.equipado) {
+      if (item.data.data.equipado && item.data.data.tipo != "outro") {
         let unequipped = items.some(element => { //some() === forEach() with a return
           if(element.type === "armadura" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
             element.data.equipado = false;

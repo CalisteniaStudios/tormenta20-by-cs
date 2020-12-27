@@ -462,7 +462,7 @@
                 <div class="item-qtd">{{item.data.qtd}}</div>
                 <div class="item-peso">{{item.peso}}</div>
                 <div class="item-controls">
-				  {{#ifEquals item.type "armadura"}}<a class="item-control toggle-armor{{#if item.data.equipado}} active{{/if}}" title="Equipar"><i class="fas fa-{{#ifEquals item.data.tipo "armadura"}}tshirt{{/ifEquals}}{{#ifEquals item.data.tipo "escudo"}}shield-alt{{/ifEquals}}{{#ifEquals item.data.tipo "outro"}}ring{{/ifEquals}}"></i></a>{{/ifEquals}}
+				  {{#ifEquals item.type "armadura"}}<a class="item-control toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Equipar{{else}}Desequipar{{/if}}"><i class="fas fa-{{#ifEquals item.data.tipo "armadura"}}tshirt{{/ifEquals}}{{#ifEquals item.data.tipo "escudo"}}shield-alt{{/ifEquals}}{{#ifEquals item.data.tipo "outro"}}ring{{/ifEquals}}"></i></a>{{/ifEquals}}
                   <a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
                   <a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
                 </div>
