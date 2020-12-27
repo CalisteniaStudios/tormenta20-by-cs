@@ -125,7 +125,7 @@
 			{{!-- Skills --}}
 			<!-- <div class="skills"> -->
 				<!-- <div class="pericias" style="width:38%"> -->
-					<table class="skl-tbl" style="margin:0">
+					<table class="skl-tbl" style="margin:0; border-image: none; border-width: 1px;">
 					<tr>
 						
 						<th class="col-5"></th>
@@ -268,9 +268,9 @@
 				<!-- </div> -->
 			<!-- </div> -->
 			
-			<div>
-				<div class="ataques" >
-					<ol class="items-list" style="margin:0;">
+			<div style="margin:1px;">
+				<div class="ataques">
+					<ol class="items-list" style="margin:0; border-image: none; border-width: 1px;">
 						<li class="item flexrow item-header flex-center">
 							<div>ARMAS</div>
 						</li>
@@ -297,9 +297,9 @@
 						{{/each}}
 					</ol>
 				</div>
-			
+				<hr>			
 				<div class="outros">
-					<h4>PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
+					<h3 style="text-align:center">PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h3>
 					<div>
 						<label class="info">Tamanho:
 							<input type="text" style="width:82%;" name="data.tamanho" value="{{data.tamanho}}" data-dtype="String" placeholder="Tamanho" />
@@ -315,7 +315,7 @@
 							<input style="width:77%;" name="data.resistencias" type="text" value="{{data.resistencias}}" data-dtype="String" />
 						</label>
 					</div>
-					<textarea name="data.attributes.info" style="resize:vertical;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
+					<textarea name="data.attributes.info" style="resize:vertical; border-image: none; border-width: 1px;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
 			</div>
 		
