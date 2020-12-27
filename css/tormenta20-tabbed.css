@@ -70,3 +70,7 @@
   flex: none;
   margin-left: 3px;
 }
+
+.tormenta20 .tabbed input[readonly]:hover {
+  box-shadow: none !important;
+}
