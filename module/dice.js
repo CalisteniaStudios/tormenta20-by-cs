@@ -1,4 +1,5 @@
 import ConjurarDialog from "./apps/conjurar-dialog.js";
+import AbilityUseDialog from "./apps/ability-use-dialog.js";
 import { T20Utility } from "./utility.js";
 /* Standardized Roll Script */
 export async function prepRoll(event, item, actor = null, extra = {}) {
@@ -34,9 +35,15 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
 
     flavorText = item.name;
     detailText = item.data.data.description.replace("\n", "<br/>");
-
+    let poder = {
+      resistencia: item.data.data.resistencia,
+      cd: actor.data.data.attributes.cd + (actor.data.data.atributos[item.data.data.atrRes]?.mod ?? 0) + item.data.data.cd
+    }
     templateData = {
+      actor: actor,
+      item: item,
       title: flavorText,
+      power: poder,
       details: detailText,
       rollMode: rollMode,
       rollModes: CONFIG.Dice.rollModes,
@@ -53,50 +60,25 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       .replace(/\+0/g, "")
       .replace(/\-0/g, "")
       .replace(/\++/g, "+");
-    if (!event.shiftKey || !item.data.data.custo) {
+    if (!event.shiftKey) {
       rollT20(formula, actor, templateData);
     } else {
-      let dialogCallback = (html) => {
-        rollMode = html.find('[name="rollMode"]').val();
-        templateData.rollMode = rollMode;
-        if (item.data.data.custo > 0) {
-          let custoAdic = html.find('[name="ajustecusto"]').val();
-          if (
-            custoAdic.length > 0 &&
-            custoAdic.trim().charAt(0) != "+" &&
-            custoAdic.trim().charAt(0) != "-"
-          ) {
-            custoAdic = "+" + custoAdic;
-          }
-          templateData.custo =
-            parseInt(templateData.custo) + parseInt(custoAdic);
-        }
-
-        rollT20(formula, actor, templateData);
-      };
-
-      return new Promise((resolve) => {
-        renderTemplate(templateRollDialog, templateData).then((dlg) => {
-          new Dialog({
-            title: "Uso de Poder: " + flavorText,
-            content: dlg,
-            buttons: {
-              normal: {
-                label: "Confirmar",
-                callback: (html) => {
-                  resolve(dialogCallback(html));
-                },
-              },
-            },
-            default: "normal",
-            close: () => {
-              // noop
-            },
-          }).render(true);
-        });
-      });
+      const configuration = await AbilityUseDialog.create(item);
+      templateData.rollMode = configuration.rollMode;
+      templateData.custo = (parseInt(templateData.custo) ?? 0) + parseInt(configuration.ajustecusto);
+      formula = `${formula} + ${configuration.bonus}`;
+      rollT20(formula, actor, templateData);
     }
   } else if (item.type == "atributo") {
+    /* GAMBIARRA */
+    item.isOwned = true;
+    item.name = item.label;
+    item.actor = actor;
+    item.data = {
+      data: item
+    }
+    /* GAMBIARRA */
+
     formula = item.roll;
     if (event.altKey) {
       formula = formula.replace("1d20", "2d20kh");
@@ -110,7 +92,9 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     flavorText = item.label;
 
     templateData = {
-      title: flavorText,
+      actor: actor,
+      item: item,
+      title: item.label,
       rollMode: rollMode,
       rollModes: CONFIG.Dice.rollModes,
     };
@@ -122,42 +106,52 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData);
     } else {
-      templateData.formula = formula;
-      let dialogCallback = (html) => {
-        rollMode = html.find('[name="rollMode"]').val();
-        templateData.rollMode = rollMode;
-        let rollBonus = html.find('[name="bonus"]').val();
-        if (
-          rollBonus.length > 0 &&
-          rollBonus.trim().charAt(0) != "+" &&
-          rollBonus.trim().charAt(0) != "-"
-        )
-          rollBonus = "+" + rollBonus;
-        formula = formula + rollBonus;
-        rollT20(formula, actor, templateData);
-      };
-      return new Promise((resolve) => {
-        renderTemplate(templateRollDialog, templateData).then((dlg) => {
-          new Dialog({
-            title: "Teste de Atributo: " + flavorText,
-            content: dlg,
-            buttons: {
-              normal: {
-                label: "Rolar",
-                callback: (html) => {
-                  resolve(dialogCallback(html));
-                },
-              },
-            },
-            default: "normal",
-            close: () => {
-              // noop
-            },
-          }).render(true);
-        });
-      });
+      // TODO Atributo não é item
+      const configuration = await AbilityUseDialog.create(item);
+      templateData.rollMode = configuration.rollMode;
+      formula = `${formula} + ${configuration.bonus}`;
+      rollT20(formula, actor, templateData);
+    }
+  } else if (item.type == "skill") {
+    let formula = `1d20+${item.data.data.total}`;
+    if (event.altKey) {
+      formula = formula.replace("1d20", "2d20kh");
+    }
+    if (event.ctrlKey) {
+      formula = formula.replace("1d20", "2d20kl");
+    }
+
+    templateData = {
+      actor: actor,
+      item: item,
+      title: item.data.name,
+      toIniciative: item.data.data.toIniciative,
+      rollMode: rollMode,
+      rollModes: CONFIG.Dice.rollModes,
+    };
+    formula = formula
+      .replace(/ /g, "")
+      .replace(/\+0/g, "")
+      .replace(/\-0/g, "")
+      .replace(/\++/g, "+");
+
+    if (!event.shiftKey) {
+      rollT20(formula, actor, templateData);
+    } else {
+      const configuration = await AbilityUseDialog.create(item);
+      templateData.rollMode = configuration.rollMode;
+      formula = `${formula} + ${configuration.bonus}`;
+      rollT20(formula, actor, templateData);
     }
   } else if (item.type == "pericia") {
+    /* GAMBIARRA */
+    item.isOwned = true;
+    item.name = item.label;
+    item.actor = actor;
+    item.data = {
+      data: item
+    }
+    /* GAMBIARRA */
     formula = item.roll;
     if (event.altKey) {
       formula = formula.replace("1d20", "2d20kh");
@@ -170,7 +164,9 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     });
     flavorText = item.label;
     templateData = {
-      title: flavorText,
+      actor: actor,
+      item: item,
+      title: item.label,
       rollMode: rollMode,
       rollModes: CONFIG.Dice.rollModes,
     };
@@ -182,40 +178,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     if (!event.shiftKey) {
       rollT20(formula, actor, templateData);
     } else {
-      templateData.formula = formula;
-      templateData.rollMode = rollMode;
-      let dialogCallback = (html) => {
-        rollMode = html.find('[name="rollMode"]').val();
-        let rollBonus = html.find('[name="bonus"]').val();
-        if (
-          rollBonus.length > 0 &&
-          rollBonus.trim().charAt(0) != "+" &&
-          rollBonus.trim().charAt(0) != "-"
-        )
-          rollBonus = "+" + rollBonus;
-        formula = formula + rollBonus;
-        rollT20(formula, actor, templateData);
-      };
-      return new Promise((resolve) => {
-        renderTemplate(templateRollDialog, templateData).then((dlg) => {
-          new Dialog({
-            title: "Teste de Perícia: " + flavorText,
-            content: dlg,
-            buttons: {
-              normal: {
-                label: "Rolar",
-                callback: (html) => {
-                  resolve(dialogCallback(html));
-                },
-              },
-            },
-            default: "normal",
-            close: () => {
-              // noop
-            },
-          }).render(true);
-        });
-      });
+      const configuration = await AbilityUseDialog.create(item);
+      templateData.rollMode = configuration.rollMode;
+      formula = `${formula} + ${configuration.bonus}`;
+      rollT20(formula, actor, templateData);
     }
   } else if (item.type == "arma") {
     let ex = {
@@ -235,13 +201,18 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
 
     extra = mergeObject(ex, extra);
     // let periciaAtq = (actorData.pericias[extra.pericia].value ?? actorData.pericias[item.data.data.pericia].value);
-    extra.pericia = extra.pericia.toLowerCase();
     extra.atributo = extra.atributo.toLowerCase();
-    let periciaAtq = actorData.pericias[extra.pericia]
-      ? actorData.pericias[extra.pericia].value
-      : actorData.pericias[item.data.data.pericia].value;
-
-    // actorData.pericias[( ? extra.pericia : )].value;
+    let periciaAtq = "0";
+    if(actorData.pericias){
+      extra.pericia = extra.pericia.toLowerCase();
+      periciaAtq = actorData.pericias[extra.pericia]
+        ? actorData.pericias[extra.pericia].value
+        : actorData.pericias[item.data.data.pericia].value;
+    } else {
+      extra.pericia = extra.pericia.charAt(0).toUpperCase() + extra.pericia.slice(1);
+      periciaAtq = extra.pericia ? actor.items.filter(s=> s.type==="skill" && s.name === extra.pericia)[0] : actor.getOwnedItem(item.data.data.skill)?.data.data.total ?? 0;
+    }
+    
     let bonusAtq = extra.atq.match(/^\=/)
       ? extra.atq.replace("=", "")
       : `${item.data.data.atqBns} + ${extra.atq}`;
@@ -344,6 +315,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       : undefined;
 
     templateData = {
+      actor: actor,
+      item: item,
       title: flavorText,
       flavor: flavorDesc,
       danosDesc: danoText,
@@ -383,272 +356,13 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       templateData.formuladano = formula.dano;
       templateData.formuladanocritico = formula.crit;
 
-      let dialogCallback = (html) => {
-        rollMode = html.find('[name="rollMode"]').val();
-        templateData.rollMode = rollMode;
-        let rollBonus = html.find('[name="bonus"]').val();
-        if (
-          rollBonus.length > 0 &&
-          rollBonus.trim().charAt(0) != "+" &&
-          rollBonus.trim().charAt(0) != "-"
-        ) {
-          rollBonus = "+" + rollBonus;
-        }
-        let rollBonusDano = html.find('[name="bonusdano"]').val();
-        if (
-          rollBonusDano.length > 0 &&
-          rollBonusDano.trim().charAt(0) != "+" &&
-          rollBonusDano.trim().charAt(0) != "-"
-        ) {
-          rollBonusDano = "+" + rollBonusDano;
-        }
-        if (item.data.data.custo > 0) {
-          let custoAdic = html.find('[name="ajustecusto"]').val();
-          if (
-            custoAdic.length > 0 &&
-            custoAdic.trim().charAt(0) != "+" &&
-            custoAdic.trim().charAt(0) != "-"
-          ) {
-            custoAdic = "+" + custoAdic;
-          }
-          templateData.custo =
-            parseInt(templateData.custo) + parseInt(custoAdic);
-        }
-        formula.atq += rollBonus;
-        formula.dano += rollBonusDano;
-        formula.crit += rollBonusDano;
-
-        rollT20(formula, actor, templateData, item.data.data.criticoM);
-      };
-
-      return new Promise((resolve) => {
-        renderTemplate(templateRollDialog, templateData).then((dlg) => {
-          new Dialog({
-            title: "Ataque - " + flavorText + " " + flavorDesc,
-            content: dlg,
-            buttons: {
-              normal: {
-                label: "Rolar",
-                callback: (html) => {
-                  resolve(dialogCallback(html));
-                },
-              },
-            },
-            default: "normal",
-            close: () => {
-              // noop
-            },
-          }).render(true);
-        });
-      });
-    }
-  } else if (item.type == "ataque") {
-    formula = {};
-    formula.atq = `1d20+ ${actorData.pericias[item.data.data.pericia].value}+ ${
-      item.data.data._bonusAtq
-    }`;
-    formula.atq =
-      `1d20+ ${actorData.pericias[item.data.data.pericia].value}` +
-      (item.data.data.bonusAtq != undefined && item.data.data.bonusAtq != 0
-        ? `+${item.data.data.bonusAtq}`
-        : ``) +
-      (item.data.data._bonusAtq != undefined && item.data.data._bonusAtq != 0
-        ? `+${item.data.data._bonusAtq}`
-        : ``) +
-      `+${(actorData.modificadores.ataques.bonus ?? 0)}` +
-      `+${(actorData.modificadores.ataques.penalidade ?? 0)}`;
-    if (event.altKey) {
-      formula.atq = formula.atq.replace("1d20", "2d20kh");
-    }
-    if (event.ctrlKey) {
-      formula.atq = formula.atq.replace("1d20", "2d20kl");
-    }
-    formula.atq = formula.atq.replace(/\@\w+\b/g, function (match) {
-      return "(" + T20Utility.short(match, actorData) + ")";
-    });
-
-    let atributoDano =
-      item.data.data.atrDan != "0"
-        ? actorData.atributos[item.data.data.atrDan].mod
-        : 0;
-    if (item.data.data.dano.match(/(\d*)d\d+/g)) {
-      // formula.dano = `${item.data.data.dano} + ${atributoDano} + ${item.data.data._bonusDano}`;
-      formula.dano =
-        `${item.data.data.dano}` +
-        (atributoDano != undefined && atributoDano != 0
-          ? `+ ${atributoDano}`
-          : ``) +
-        (item.data.data.bonusDano != undefined && item.data.data.bonusDano != 0
-          ? `+ ${item.data.data.bonusDano}`
-          : ``) +
-        (item.data.data._bonusDano != undefined &&
-        item.data.data._bonusDano != 0
-          ? `+ ${item.data.data._bonusDano}`
-          : ``);
-      let baseroll = item.data.data.dano.match(/(\d*)d\d+/g)
-        ? item.data.data.dano.match(/(\d*)d\d+/g)[0]
-        : "";
-      let multiroll = item.data.data.dano.match(/(\d*)d\d+/g)
-        ? item.data.data.dano.match(/(\d*)d\d+/g)[0].split("d")[0] *
-            item.data.data.criticoX +
-          "d" +
-          item.data.data.dano.match(/(\d*)d\d+/g)[0].split("d")[1]
-        : "";
-      let newdano = item.data.data.dano.replace(baseroll, multiroll);
-      // formula.crit = `${newdano} + ${atributoDano} + ${item.data.data._bonusDano}`;
-      formula.crit =
-        `${newdano}` +
-        (atributoDano != undefined && atributoDano != 0
-          ? `+ ${atributoDano}`
-          : ``) +
-        (item.data.data.bonusDano != undefined && item.data.data.bonusDano != 0
-          ? `+ ${item.data.data.bonusDano}`
-          : ``) +
-        (item.data.data._bonusDano != undefined &&
-        item.data.data._bonusDano != 0
-          ? `+ ${item.data.data._bonusDano}`
-          : ``);
-      if (item.data.data.lancinante) {
-        let lacinante = formula.crit
-          .replace(/\s/g, "")
-          .replace(/(\b\d+\b)/g, "($& * " + item.data.data.criticoX + ")");
-        formula.crit = `${lacinante}`;
-      }
-
-      formula.dano = formula.dano.replace(/\@\w+\b/g, function (match) {
-        return "(" + T20Utility.short(match, actorData) + ")";
-      });
-      formula.crit = formula.crit.replace(/\@\w+\b/g, function (match) {
-        return "(" + T20Utility.short(match, actorData) + ")";
-      });
-    } else {
-      formula.dano = null;
-      formula.crit = null;
-    }
-
-    flavorText = item.name;
-    detailText = item.data.data.description;
-
-    flavorDesc = "";
-    flavorDesc +=
-      actorData.pericias[item.data.data.pericia].value > 0
-        ? "(" +
-          actorData.pericias[item.data.data.pericia].label +
-          " +" +
-          actorData.pericias[item.data.data.pericia].value +
-          ")"
-        : "";
-    flavorDesc +=
-      item.data.data.bonusAtq > 0
-        ? " + (Bonus Ataque +" + item.data.data.bonusAtq + ")"
-        : "";
-
-    danoText = "";
-    danoText +=
-      item.data.data.atrDan != "0"
-        ? "(" + item.data.data.atrDan + " +" + atributoDano + ")"
-        : "";
-    danoText +=
-      item.data.data.bonusDano > 0
-        ? " + (Bonus Dano +" + item.data.data.bonusDano + ")"
-        : "";
-
-    templateData = {
-      title: flavorText,
-      flavor: flavorDesc,
-      danosDesc: danoText,
-      details: detailText,
-      rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
-    };
-
-    if (item.data.data.custo > 0) {
-      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
-      if (templateData.custo <= 0)
-      {
-        templateData.custo = 1;
-      }
-    }
-
-    formula.atq = formula.atq
-      .replace(/ /g, "")
-      .replace(/\+0/g, "")
-      .replace(/\-0/g, "")
-      .replace(/\++/g, "+");
-    formula.dano = formula.dano
-      .replace(/ /g, "")
-      .replace(/\+0/g, "")
-      .replace(/\-0/g, "")
-      .replace(/\++/g, "+");
-    formula.crit = formula.crit
-      .replace(/ /g, "")
-      .replace(/\+0/g, "")
-      .replace(/\-0/g, "")
-      .replace(/\++/g, "+");
-    if (!event.shiftKey) {
-      rollT20(formula, actor, templateData, item.data.data.criticoM);
-    } else {
-      templateData.formula = formula.atq;
-      templateData.formuladano = formula.dano;
-      templateData.formuladanocritico = formula.crit;
-
-      let dialogCallback = (html) => {
-        rollMode = html.find('[name="rollMode"]').val();
-        templateData.rollMode = rollMode;
-        let rollBonus = html.find('[name="bonus"]').val();
-        if (
-          rollBonus.length > 0 &&
-          rollBonus.trim().charAt(0) != "+" &&
-          rollBonus.trim().charAt(0) != "-"
-        ) {
-          rollBonus = "+" + rollBonus;
-        }
-        let rollBonusDano = html.find('[name="bonusdano"]').val();
-        if (
-          rollBonusDano.length > 0 &&
-          rollBonusDano.trim().charAt(0) != "+" &&
-          rollBonusDano.trim().charAt(0) != "-"
-        ) {
-          rollBonusDano = "+" + rollBonusDano;
-        }
-        if (item.data.data.custo > 0) {
-          let custoAdic = html.find('[name="ajustecusto"]').val();
-          if (
-            custoAdic.length > 0 &&
-            custoAdic.trim().charAt(0) != "+" &&
-            custoAdic.trim().charAt(0) != "-"
-          ) {
-            custoAdic = "+" + custoAdic;
-          }
-          templateData.custo =
-            parseInt(templateData.custo) + parseInt(custoAdic);
-        }
-        formula.atq += rollBonus;
-        formula.dano += rollBonusDano;
-        formula.crit += rollBonusDano;
-        rollT20(formula, actor, templateData, item.data.data.criticoM);
-      };
-
-      return new Promise((resolve) => {
-        renderTemplate(templateRollDialog, templateData).then((dlg) => {
-          new Dialog({
-            title: "Ataque - " + flavorText + " " + flavorDesc,
-            content: dlg,
-            buttons: {
-              normal: {
-                label: "Rolar",
-                callback: (html) => {
-                  resolve(dialogCallback(html));
-                },
-              },
-            },
-            default: "normal",
-            close: () => {
-              // noop
-            },
-          }).render(true);
-        });
-      });
+      const configuration = await AbilityUseDialog.create(item);
+      templateData.rollMode = configuration.rollMode;
+      templateData.custo = (parseInt(templateData.custo) ?? 0) + parseInt(configuration.ajustecusto);
+      formula.atq = `${formula.atq} + ${configuration.bonus}`;
+      formula.dano = `${formula.dano} + ${configuration.bonusdano}`;
+      formula.crit = `${formula.crit} + ${configuration.bonusdano}`;
+      rollT20(formula, actor, templateData);
     }
   } else if (item.type == "magia") {
     /* -------------------------------------------- */
@@ -766,10 +480,12 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     spellHeader.area = item.data.data.area;
     spellHeader.duracao = item.data.data.duracao;
     spellHeader.resistencia = item.data.data.resistencia;
-    spellHeader.cd = item.data.data.cd + actor.data.data.attributes.cd;
+    spellHeader.cd = actor.data.data.attributes.cd + (actor.data.data.atributos[item.data.data.atrRes]?.mod ?? 0) + item.data.data.cd ;
     detailText = item.data.data.description;
 
     templateData = {
+      actor: actor,
+      item: item,
       title: flavorText,
       flavor: flavorDesc,
       spell: spellHeader,
@@ -795,6 +511,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
   } else if (item.type == "consumivel") {
     formula = item.data.data.efeito;
     templateData = {
+      actor: actor,
+      item: item,
       title: item.name,
       details: item.description,
     };
@@ -803,7 +521,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       .replace(/\+0/g, "")
       .replace(/\-0/g, "")
       .replace(/\++/g, "+");
-    rollT20(formula, actor, templateData, item.data.data.criticoM);
+    rollT20(formula, actor, templateData);
   } else if (itemId != undefined) {
     data.roll();
   }
@@ -876,18 +594,18 @@ function rollT20(roll, actor, templateData, criticoM = null) {
       let roll = new Roll(`${formula}`);
       roll.roll();
       result = roll.results[0];
-
+      
       if (result == 20) {
         tipoCritico = "critico";
       } else if (result == 1) {
         tipoFalha = "falha";
       }
-      if (templateData.title == "Iniciativa" && combate) {
+      if ((templateData.toIniciative || templateData.title == "Iniciativa") && combate) {
         let combatente = combate.combatants.find(
           (combatant) => combatant.actor.id === actor.id
         );
         if (combatente && combatente.iniciative == null) {
-          combate.setInitiative(combatente._id, result);
+          combate.setInitiative(combatente._id, roll.total);
           console.log(
             "Foundry VTT | Iniciativa Atualizada para " +
               combatente._id +
@@ -907,15 +625,15 @@ function rollT20(roll, actor, templateData, criticoM = null) {
           dmgroll = new Roll(`${danoFormula}`);
         }
         dmgroll.roll();
-        dmgroll.render(rollTemplate).then((r) => {
+        //dmgroll.render(rollTemplate)
+        dmgroll.render().then((r) => {
           templateData.rollDano = r;
           templateData.critico = tipoCritico;
           templateData.falha = tipoFalha;
         });
       }
       // Render it.
-
-      roll.render(rollTemplate).then((r) => {
+      roll.render().then((r) => {
         templateData.roll = r;
         templateData.critico = tipoCritico;
         templateData.falha = tipoFalha;
@@ -947,7 +665,8 @@ function rollT20(roll, actor, templateData, criticoM = null) {
         });
       });
     } else {
-      result.render(rollTemplate).then((r) => {
+      //result.render(rollTemplate)
+      result.render().then((r) => {
         templateData.roll = r;
         renderTemplate(template, templateData).then((content) => {
           chatData.content = content;

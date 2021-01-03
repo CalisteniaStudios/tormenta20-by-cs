@@ -52,8 +52,23 @@ export const SystemSettings = function() {
     hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
     scope: "world",
     config: true,
-    default: false,
+    default: true,
     type: Boolean,
+  });
+
+  /**
+   * Option to automatically collapse Item Card descriptions
+   */
+  game.settings.register("tormenta20", "autoCollapseItemCards", {
+    name: "Esconder Descrições No Chat",
+    hint: "Esconder Descrições No Chat",
+    scope: "client",
+    config: true,
+    default: true,
+    type: Boolean,
+    onChange: s => {
+      ui.chat.render();
+    }
   });
 
 }

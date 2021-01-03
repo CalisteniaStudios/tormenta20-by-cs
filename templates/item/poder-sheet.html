@@ -1,36 +1,58 @@
 <form class="tormenta20" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        <div class="header-fields">
-            <div class="resources flex grid-3col">
-                <div class="field flex-group-center">
-                    <input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
-                    <label>Nome</label>
-                </div>
-                <div class="field flex-group-center">
-                    <input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String" />
-                    <label>Tipo</label>
-                </div>
-                <div class="field flex-group-center">
-                    <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
-                    <label>PM</label>
-                </div>
-            </div>
-        </div>
-    </header>
+	<header class="sheet-header">
+		<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+		<div class="">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Tipo</th>
+					<th>Custo</th>
+				</tr>
+				<tr>
+					<td><input type="text" name="name" value="{{item.name}}" placeholder="Nome"/></td>
+					<td>
+						<input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String" />
+					</td>
+					<td>
+						<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
+					</td>
+				</tr>
+			</table>
+		</div>
+	</header>
 
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-        <div class="full">
-            <br><label>Formula</label>
-            <input type="text" name="data.roll" value="{{data.roll}}" data-dtype="String" />
-        </div>
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
+		<div class="form-group">
+			<label>Rolagem</label>
+			<div class="form-fields">
+				<input type="text" name="data.roll" value="{{data.roll}}" data-dtype="String" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Resistência</label>
+			<div class="form-fields">
+				<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
+				
+				<select class="selectatr" name="data.atrRes" value={{data.atrRes}} data-type="String">
+					{{#select data.atrRes}}
+					<option value=""></option>
+					<option value="for">Força</option>
+					<option value="des">Des</option>
+					<option value="con">Constituição</option>
+					<option value="int">Inteligência</option>
+					<option value="sab">Sabedoria</option>
+					<option value="car">Carisma</option>
+					{{/select}}
+				</select>
+				<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
+			</div>
+		</div>
+		<div class="full border">
+			<label>Descrição</label>
+			<textarea name="data.description"
+			data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
+		</div>
 
-        <div class="full border">
-            <label>Descrição</label>
-            <textarea name="data.description"
-                data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
-        </div>
-
-    </section>
+	</section>
 </form>

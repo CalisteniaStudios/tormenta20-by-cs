@@ -470,7 +470,7 @@ export class T20ActorSheet extends ActorSheet {
       let current = $(ev.currentTarget)[0];
       let items = this.actor.data.items;
 
-      if (item.data.data.equipado) {
+      if (item.data.data.equipado && item.data.data.tipo != "outro") {
         let unequipped = items.some(element => { //some() === forEach() with a return
           if(element.type === "armadura" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
             element.data.equipado = false;
@@ -497,6 +497,13 @@ export class T20ActorSheet extends ActorSheet {
       else if (item.data.data.tipo === "escudo") {
         this.actor.update({
           "data.escudo": armadura
+        });
+      }
+      else if (item.data.data.tipo === "outro") {
+        let atual = this.actor.data.data.defesa.outro ? this.actor.data.data.defesa.outro : 0;
+        let nova = item.data.data.equipado ? atual + item.data.data.armadura.value : atual - item.data.data.armadura.value;
+        this.actor.update({
+          "data.defesa.outro": nova
         });
       }
       item.update({"data.equipado": item.data.data.equipado});

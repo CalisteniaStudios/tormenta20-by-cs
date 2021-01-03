@@ -1,9 +1,6 @@
 {
   "Actor": {
-    "types": [
-      "character",
-      "npc"
-    ],
+    "types": ["character","npc"],
     "templates": {
       "base": {
         "attributes": {
@@ -31,11 +28,28 @@
             "min": 0,
             "proximo": 1000
           },
+          "movement": {
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "swim": 0,
+            "walk": 30,
+            "units": "m",
+            "hover": false
+          },
+          "senses": {
+            "darkvision": 0,
+            "blindsight": 0,
+            "tremorsense": 0,
+            "truesight": 0,
+            "units": "m",
+            "special": ""
+          },
           "info": "",
           "cd": 0,
           "hp": 0,
-          "conjurador": true,
-          "mago": true
+          "conjurador": false,
+          "mago": false
         },
         "rd": {
           "value": 0,
@@ -51,7 +65,8 @@
           "escud": 0,
           "outro": 0,
           "bonus": 0,
-          "penalidade": 0
+          "penalidade": 0,
+          "final": 0
         },
         "armadura": {
           "nome": "",
@@ -73,7 +88,6 @@
             "temp": 0,
             "mod": 0,
             "penalidade": 0
-
           },
           "des": {
             "value": 10,
@@ -558,7 +572,8 @@
           "penalidade": 0,
           "total": 9,
           "cond": "nao",
-          "subst": 0
+          "subst": 0,
+          "descricao": ""
         },
         "detalhes": {
           "biografia": "",
@@ -592,9 +607,7 @@
       }
     },
     "character": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "detalhes": {
         "altura": 0,
         "peso": 0,
@@ -608,17 +621,23 @@
       }
     },
     "npc": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "attributes": {
         "nd": ""
       }
     }
   },
   "Item": {
-    "types": ["equip","poder","magia","ataque","tesouro","consumivel","arma","armadura","aprimoramento"],
+    "types": ["equip","poder","magia","ataque","tesouro","consumivel","arma","armadura"],
     "templates": {
+      "itemDescription": {
+        "description": {
+          "value": "",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": ""
+      },
       "base": {
         "description": ""
       },
@@ -631,23 +650,19 @@
       }
     },
     "equip": {
-      "templates": [
-        "base", "objeto"
-      ]
+      "templates": ["base", "objeto"]
     },
     "poder": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "custo": "",
       "roll": "",
-      "tipo": ""
+      "tipo": "",
+      "cd": 0,
+      "resistencia": "",
+      "atrRes": ""
     },
     "magia": {
-      "templates": [
-        "base",
-        "aprimoramento"
-      ],
+      "templates": ["base","aprimoramento"],
       "tipo": "",
       "circulo": 1,
       "custo": 1,
@@ -657,15 +672,17 @@
       "alcance": "",
       "duracao": "",
       "resistencia": "",
+      "atrRes": "int",
       "alvo": "",
       "area": "",
       "cd": 0,
       "efeito": ""
     },
+    "tesouro": {
+      "templates": ["base","objeto"]
+    },
     "ataque": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "arma": "",
       "pericia": "lut",
       "bonusAtq": 0,
@@ -680,9 +697,6 @@
       "alcance": "",
       "municao": 0,
       "custo": 0
-    },
-    "tesouro": {
-      "templates": ["base","objeto"]
     },
     "arma": {
       "templates": ["base","objeto"],
@@ -700,9 +714,7 @@
       "custo": 0
     },
     "armadura": {
-      "templates": [
-        "base", "objeto"
-      ],
+      "templates": ["base", "objeto"],
       "equipado": false,
       "tipo": "armadura",
       "subtipo": "leve",
@@ -714,6 +726,17 @@
     "consumivel": {
       "templates": ["base","objeto"],
       "efeito": ""
+    },
+    "skill":{
+      "templates": ["itemDescription"],
+      "total":0,
+      "bonus":0,
+      "ability":"",
+      "trained":false,
+      "reqTraining":false,
+      "armorPenalty":false,
+      "toIniciative":false,
+      "groups": {}
     }
   }
 }

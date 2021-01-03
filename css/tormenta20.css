@@ -403,11 +403,6 @@ button {
   width: 15%;
 }
 
-.tormenta20.tabbed .atributos .items-list .item {
-  display: block;
-  text-align: center;
-}
-
 .tormenta20 .atributos .items-list .item label {
   width: 100%;
 }
@@ -581,14 +576,12 @@ button {
   text-align: center;
 }
 
-.tormenta20 .tabbed .header-fields .recursos,
 .tormenta20 .dados .recursos,
 .tormenta20 .dados .atributos {
   font-size: 10px;
   text-align: center;
 }
 
-.tormenta20 .tabbed .header-fields .recursos,
 .tormenta20 .dados .recursos {
   min-height: 90px;
 }
@@ -654,7 +647,6 @@ button {
   vertical-align: super;
 }
 
-.tormenta20 .tabbed .header-fields .recursos input,
 .tormenta20 .dados .recursos input {
   width: 50px;
   height: 30px;
@@ -768,4 +760,99 @@ button {
 .falha {
   border: 2px solid red;
   box-shadow: 0 0 4px red inset;
+}
+
+
+/*chat*/
+
+.tormenta20.chat-card {
+  font-style: normal;
+  font-size: 12px;
+}
+
+.tormenta20.chat-card .card-header {
+  padding: 3px 0;
+  border-top: 2px groove #FFF;
+  border-bottom: 2px groove #FFF;
+}
+.tormenta20.chat-card .card-header img {
+  flex: 0 0 36px;
+  margin-right: 5px;
+}
+
+.tormenta20.chat-card .card-header  h3 {
+  flex: 1;
+  margin: 0;
+  line-height: 36px;
+}
+.tormenta20.chat-card .card-header  h3.item-name {
+  min-width: 190px;
+  max-width: 190px;
+}
+
+.tormenta20.chat-card .card-header span.custo div,
+.tormenta20.chat-card .card-header h3.item-name div  {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: normal;
+}
+
+.tormenta20.chat-card .card-header .custo {
+  text-align: center;
+  line-height: 36px;
+}
+
+
+.tormenta20.chat-card .card-header  h3:hover {
+  color: #111;
+  text-shadow: 0 0 10px red;
+}
+
+
+.tormenta20.chat-card .card-content {
+  margin: 5px 0;
+}
+.tormenta20.chat-card .card-content h3 {
+  font-size: 12px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.tormenta20.chat-card .card-content > * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.tormenta20.chat-card ol.dice-rolls {
+  border: none;
+}
+
+.tormenta20.chat-card .card-footer {
+  padding: 3px 0 0;
+  border-top: 2px groove #FFF;
+}
+
+.tormenta20.chat-card .card-footer span {
+  border-right: 2px groove #FFF;
+  padding: 0 3px 0 0;
+  font-size: 10px;
+}
+
+.tormenta20.chat-card .card-footer span:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0 3px;
+  font-size: 10px;
+  line-height: 16px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
 }

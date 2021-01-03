@@ -44,4 +44,4 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * Alexandre Galdino
 
 ## Atribuições
-- [syl3r86](https://github.com/syl3r86) por criar o [Compendium Browser](https://github.com/syl3r86/compendium-browser) que foi adaptado neste sistema.
+- [syl3r86](https://github.com/syl3r86) pelo [Compendium Browser](https://github.com/syl3r86/compendium-browser) que foi adaptado neste sistema.

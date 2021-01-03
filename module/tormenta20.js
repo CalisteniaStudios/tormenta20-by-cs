@@ -1,61 +1,93 @@
 // Import Modules
-import { SystemSettings } from "./settings.js";
 import { T20Config } from "./config.js";
-import { T20Actor } from "./actor/actor.js";
-import { T20ActorSheet } from "./actor/actor-sheet.js";
-import { T20ActorNPCSheet } from "./actor/actor-npc-sheet.js";
-import { T20Item } from "./item/item.js";
-import { T20ItemSheet } from "./item/item-sheet.js";
-import { T20Utility } from "./utility.js";
+import { SystemSettings } from "./settings.js";
+/* handlebarstemplates [templates.js] */
+import { _getInitiativeFormula } from "./combat.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
-import { toggleEffect } from "./actor/condicoes.js";
+
+// Import Entities
+import ActorT20 from "./actor/entity.js";
+import ItemT20 from "./item/entity.js";
+
+// Import Applications
+import ActorSettings from "./apps/actor-settings.js";
+import AbilityUseDialog from "./apps/ability-use-dialog.js";
 import ConjurarDialog from "./apps/conjurar-dialog.js";
+import { T20Utility } from "./utility.js";
+import ActorSheetT20Character from "./actor/sheet/character.js";
+import ActorSheetT20NPC from "./actor/sheet/npc.js";
+import ItemSheetT20 from "./item/sheet.js";
+import { toggleEffect } from "./actor/condicoes.js";
+
+// Import Helpers
 import * as chat from "./chat.js";
 import * as dice from "./dice.js";
+import * as macros from "./macros.js";
+// TODO megration
+
+/* -------------------------------------------- */
+/*  Foundry VTT Initialization                  */
+/* -------------------------------------------- */
 
 Hooks.once("init", async function () {
+  // console.log(`T20 | Initializing the Tormenta20 Game System\n T20.ASCII`);
+ 
   game.tormenta20 = {
-    T20Actor,
-    T20Item,
-    rollItemMacro,
-    rollSkillMacro,
-    ConjurarDialog,
-    dice,
-  };
+    applications: {
+      AbilityUseDialog,
+      ActorSheetT20Character,
+      ActorSheetT20NPC,
+      ItemSheetT20,
+      ConjurarDialog,
+      ActorSettings
+    },
+    config: T20Config,
+    dice: dice,
+    entities: {
+      ActorT20,
+      ItemT20
+    },
+    macros: macros,
+    rollItemMacro: macros.rollItemMacro,
+    rollSkillMacro: macros.rollSkillMacro
+  }
+  /**/
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = T20Actor;
-  CONFIG.Item.entityClass = T20Item;
+  CONFIG.Actor.entityClass = ActorT20;
+  CONFIG.Item.entityClass = ItemT20;
   CONFIG.statusEffects = T20Config.statusEffectIcons;
   CONFIG.conditions = T20Config.conditions;
-
-  /**
-   * Set an initiative formula for the system
-   * @type {String}
-   */
-  CONFIG.Combat.initiative = {
-    formula: "1d20 + @pericias.ini.value",
-    decimals: 2,
-  };
-
-  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'morto')[0].icon;
 
   // Register System Settings
   SystemSettings();
 
+  // Patch Core Functions
+  CONFIG.Combat.initiative = {
+    formula: "1d20 + @pericias.ini.value",
+    decimals: 2,
+  };
+  Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
+
+  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'morto')[0].icon;
+
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("tormenta20", T20ActorSheet, {
+  // Actors.registerSheet("tormenta20", T20ActorSheet, {
+  Actors.registerSheet("tormenta20", ActorSheetT20Character, {
     types: ["character"],
     makeDefault: true,
   });
 
-  Actors.registerSheet("tormenta20", T20ActorNPCSheet, {
+  // Actors.registerSheet("tormenta20", T20ActorNPCSheet, {
+  Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
     types: ["npc"],
     makeDefault: true,
   });
+
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("tormenta20", T20ItemSheet, {
+  // Items.registerSheet("tormenta20", T20ItemSheet, {
+  Items.registerSheet("tormenta20", ItemSheetT20, {
     makeDefault: true,
   });
 
@@ -113,16 +145,26 @@ Hooks.once("init", async function () {
   );
 });
 
+/* -------------------------------------------- */
+/*  Foundry VTT Setup                           */
+/* -------------------------------------------- */
+  
+  // localization && sort
+
+/* -------------------------------------------- */
+
+/**
+ * Once the entire VTT framework is initialized, check to see if we should perform a data migration
+ */
 Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createT20Macro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => macros.createT20Macro(data, slot));
+
+  // TODO implement Migration
+  // Determine whether a system migration is required and feasible
+
 });
 
-Hooks.on("renderDialog", (dialog, html, options) => {
-  if (dialog.title == "Create New Item" || dialog.title == "Criar Novo Item") {
-    $(html[0]).find("option[value=pericia]").remove();
-  }
-});
 
 /* -------------------------------------------- */
 /*  Canvas Initialization                       */
@@ -137,13 +179,35 @@ Hooks.on("canvasInit", function () {
   Token.prototype.toggleEffect = toggleEffect;
 });
 
+
+/* -------------------------------------------- */
+/*  Other Hooks                                 */
+/* -------------------------------------------- */
+
+Hooks.on("renderChatMessage", (app, html, data) => {
+
+  // Display action buttons
+  //chat.displayChatActionButtons(app, html, data);
+
+  // Highlight critical success or failure die
+  //chat.highlightCriticalSuccessFailure(app, html, data);
+
+  // Optionally collapse the content
+  if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
+});
 /* Add hook for the context menu over the rolled damage */
 Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
+// Hooks.on("renderChatLog", (app, html, data) => T20Item.chatListeners(html));
+// Hooks.on("renderChatPopout", (app, html, data) => T20Item.chatListeners(html));
+Hooks.on("renderChatLog", (app, html, data) => ItemT20.chatListeners(html));
+Hooks.on("renderChatPopout", (app, html, data) => ItemT20.chatListeners(html));
+
+
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
-
+// TODO Create macro.js
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
@@ -162,139 +226,3 @@ export const getItemOwner = function (item) {
   return null;
 };
 
-async function createT20Macro(data, slot) {
-  if (data.type === "Pericia") {
-    const item = data.data;
-    const command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
-    let macro = game.macros.entities.find(
-      (m) => m.name === item.label && m.command === command
-    );
-    if (!macro) {
-      macro = await Macro.create({
-        name: item.label,
-        type: "script",
-        command: command,
-      });
-    }
-    game.user.assignHotbarMacro(macro, slot);
-    return false;
-  }
-  if (data.type === "Item") {
-    if (!("data" in data))
-      return ui.notifications.warn(
-        "Você só pode criar Macros para Ataques, Magias e Poderes. Você pode referenciar atributos e perícias com @. Ex.: @for ou @luta"
-      );
-    const item = data.data;
-    // const actor = getItemOwner(item);
-    // Create the macro command
-    let command = "";
-    if (item.type === "arma") {
-      command = `
-//UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
-//VALORES SERÃO SOMADOS A CARACTEÍSTICA.
-//INICIAR COM "=" SUBSTITUIRÁ O BÔNUS DA FICHA DA ARMA
-game.tormenta20.rollItemMacro("${item.name}",{
-           'atq' : "0",
-      'dadoDano' : "",
-          'dano' : "0", 
- 'margemCritico' : "0",
-   'multCritico' : "0",
-       'pericia' : "",
-      'atributo' : "",
-          'tipo' : "",
-       'alcance' : "",
-         'custo' : "0",
-          'nome' : "",
-     'descricao' : ""
-});`;
-    } else {
-      command = `game.tormenta20.rollItemMacro("${item.name}");`;
-    }
-
-    let macro = game.macros.entities.find(
-      (m) => m.name === item.name && m.command === command
-    );
-    if (!macro) {
-      macro = await Macro.create({
-        name: item.name,
-        type: "script",
-        img: item.img,
-        command: command,
-        flags: {
-          "tormenta20.itemMacro": true,
-        },
-      });
-    }
-    game.user.assignHotbarMacro(macro, slot);
-    return false;
-  }
-}
-
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemName
- * @return {Promise}
- */
-async function rollItemMacro(itemName, extra = null) {
-  const speaker = ChatMessage.getSpeaker();
-  let actor;
-  if (speaker.token) actor = game.actors.tokens[speaker.token];
-  if (!actor) actor = game.actors.get(speaker.actor);
-  let item = null;
-  if (extra) {
-    item = actor
-      ? actor.items.find(
-          (i) => i.name === itemName && extra && i.type !== "ataque"
-        )
-      : null;
-  } else {
-    item = actor ? actor.items.find((i) => i.name === itemName) : null;
-  }
-  if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
-  if (!item)
-    return ui.notifications.warn(
-      `O personagem selecionado não possui um Item chamado ${itemName}`
-    );
-  // console.log(item);
-  // Trigger the item roll
-  await dice.prepRoll(event, item, actor, extra);
-}
-
-async function rollSkillMacro(skillName, subtype) {
-  const speaker = ChatMessage.getSpeaker();
-  let actor;
-  let skill;
-  if (speaker.token) actor = game.actors.tokens[speaker.token];
-  if (!actor) actor = game.actors.get(speaker.actor);
-  if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
-  if (subtype == "oficios") {
-    for (let [t, sk] of Object.entries(actor.data.data.pericias["ofi"].mais)) {
-      if (sk.label === skillName) {
-        skill = sk;
-        break;
-      }
-    }
-  } else if (subtype == "custom") {
-    for (let [t, sk] of Object.entries(actor.data.data.periciasCustom)) {
-      if (sk.label === skillName) {
-        skill = sk;
-        break;
-      }
-    }
-  } else {
-    for (let [t, sk] of Object.entries(actor.data.data.pericias)) {
-      if (sk.label === skillName) {
-        skill = sk;
-        break;
-      }
-    }
-  }
-  const item = {
-    type: "pericia",
-    label: skill.label,
-    roll: `1d20+${skill.value}`,
-  };
-  // Trigger the item roll
-  await dice.prepRoll(event, item, actor);
-}
