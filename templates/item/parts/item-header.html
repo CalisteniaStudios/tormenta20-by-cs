@@ -1,0 +1,12 @@
+<header class="sheet-header flexrow">
+	<img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+
+	<div class="header-details flexrow">
+		<h1 class="charname">
+			<input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
+		</h1>
+	</div>
+	<aside style="text-align: right; flex: 0 80px;">
+		{{#if data.custo}}<h2>{{data.custo}} PM</h2>{{/if}}
+	</aside>
+</header>

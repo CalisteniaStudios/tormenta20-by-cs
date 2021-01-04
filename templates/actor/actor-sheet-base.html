@@ -234,7 +234,7 @@
               <div class="item-controls"></div>
             </li>
             {{#each actor.equipamentos as |item id|}}
-            {{#ifEquals item.type "armadura"}}
+            {{#ifEquals item.type "equip"}}
             <li class="item flexrow" data-item-id="{{item._id}}">
               <div class="item-image" style="background-image: url('{{item.img}}')"></div>
               <h4 class="item-name" style="flex: 5;">{{item.name}}</h4>
@@ -245,7 +245,7 @@
               <div class="item-controls">
                 
                 <a class="item-control toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Equipar{{else}}Desequipar{{/if}}">
-                  <i class="fas fa-{{#ifEquals item.data.tipo "armadura"}}tshirt{{/ifEquals}}{{#ifEquals item.data.tipo "escudo"}}shield-alt{{/ifEquals}}{{#ifEquals item.data.tipo "outro"}}ring{{/ifEquals}}"></i>
+                  <i class="fas fa-{{#ifEquals item.data.tipo "escudo"}}shield-alt{{else}}{{#ifEquals item.data.tipo "acessorio"}}ring{{else}}{{#ifEquals item.data.tipo "bonus"}}ring{{else}}tshirt{{/ifEquals}}{{/ifEquals}}{{/ifEquals}}"></i>
                 </a>
 
                 <a class="item-control item-edit" title="Editar">
@@ -261,8 +261,8 @@
 
             <li class="item flexrow item-header">
               <div class="item-name text-right">
-                <a class="item-control item-create" title="Criar armadura" data-type="armadura">
-                  <i class="fas fa-plus"></i> Armadura
+                <a class="item-control item-create" title="Criar Equipamento" data-type="equip">
+                  <i class="fas fa-plus"></i> Equipamento
                 </a>
               </div>
             </li>

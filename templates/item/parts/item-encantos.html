@@ -1,0 +1,10 @@
+<div class="tab encantos" data-group="primary" data-tab="encantos">
+	{{#ifEquals item.type "arma"}}
+	<div class="form-group">
+		<label class="tooltip">Lancinante <i class="fas fa-question-circle"></i><div class="tooltipcontent">Cr�tico multiplica valores f�xos</div></label>
+		<div class="form-fields">
+			<input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" {{#if data.lancinante}}checked{{/if}} data-dtype="Boolean"/>
+		</div>
+	</div>
+	{{/ifEquals}}
+</div>

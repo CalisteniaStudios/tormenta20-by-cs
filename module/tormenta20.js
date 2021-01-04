@@ -1,7 +1,7 @@
 // Import Modules
 import { T20Config } from "./config.js";
 import { SystemSettings } from "./settings.js";
-/* handlebarstemplates [templates.js] */
+import { preloadHandlebarsTemplates } from "./templates.js";
 import { _getInitiativeFormula } from "./combat.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
 
@@ -23,7 +23,7 @@ import { toggleEffect } from "./actor/condicoes.js";
 import * as chat from "./chat.js";
 import * as dice from "./dice.js";
 import * as macros from "./macros.js";
-// TODO megration
+import * as migrations from "./migration.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -48,6 +48,7 @@ Hooks.once("init", async function () {
       ItemT20
     },
     macros: macros,
+    migrations: migrations,
     rollItemMacro: macros.rollItemMacro,
     rollSkillMacro: macros.rollSkillMacro
   }
@@ -143,6 +144,7 @@ Hooks.once("init", async function () {
       return ret;
     }
   );
+  preloadHandlebarsTemplates();
 });
 
 /* -------------------------------------------- */
@@ -162,7 +164,19 @@ Hooks.once("ready", async function () {
 
   // TODO implement Migration
   // Determine whether a system migration is required and feasible
+  if ( !game.user.isGM ) return;
+  const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion");
+  const NEEDS_MIGRATION_VERSION = "1.0.0";
+  const COMPATIBLE_MIGRATION_VERSION = "1.0.0";
+  const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  if ( !needsMigration ) return;
 
+  // Perform the migration
+  if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
+    const warning = `Your Tormenta20 system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`;
+    ui.notifications.error(warning, {permanent: true});
+  }
+  migrations.migrateWorld();
 });
 
 

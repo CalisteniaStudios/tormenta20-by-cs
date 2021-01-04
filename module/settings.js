@@ -1,6 +1,17 @@
 
 /*Classe para configurar opções do sistema*/
 export const SystemSettings = function() {
+  /**
+  * Track the system version upon which point a migration was last applied
+  */
+  game.settings.register("tormenta20", "systemMigrationVersion", {
+    name: "System Migration Version",
+    scope: "world",
+    config: false,
+    type: String,
+    default: ""
+  });
+  
   game.settings.register("tormenta20", "sheetTemplate", {
     name: "Ficha",
     hint: "Opção de layout da ficha, padrão ou com abas",
