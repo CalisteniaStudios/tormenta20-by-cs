@@ -329,11 +329,11 @@
 					{{#each actor.referencias as |item index|}}
 					<div>
 						<label class="tooltip">
-						<input type="checkbox" name="condition-{{item.flags.core.statusId}}"
-							value="condition-{{item.flags.core.statusId}}" checked data-dtype="Boolean" onclick="return false;" />
-						{{item.label}} <i class="fas fa-question-circle"></i>
-						<div class="tooltipcontent"> {{{item.tooltip}}} </div></label>
-					</div>
+						  <img class="invert" src="{{item.icon}}" width="36" height="36" /> {{item.label}} 
+						  <i class="fas fa-question-circle"></i>
+						  <div class="tooltipcontent"> <img src="{{item.icon}}" width="120" height="120" /> {{{item.tooltip}}} </div>
+						</label>
+					  </div>
 					{{/each}}
 				</div>
 			</div>

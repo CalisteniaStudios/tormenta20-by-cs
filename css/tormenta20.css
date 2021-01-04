@@ -933,3 +933,8 @@ button {
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.05);
 }
+
+.invert {
+  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+          filter: invert(100%);
+}
