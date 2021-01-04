@@ -18,7 +18,10 @@ export default class ItemSheetT20 extends ItemSheet {
 	/** @override */
 	get template() {
 		const path = "systems/tormenta20/templates/item";
-		if (this.item.data.type == "arma" || this.item.data.type == "consumivel" || this.item.data.type == "tesouro" || this.item.data.type == "armadura") {
+		if (this.item.data.type == "consumivel" || this.item.data.type == "tesouro") {
+			return `${path}/item-sheet.html`;
+		}
+		else if (this.item.data.type == "armadura") {
 			return `${path}/equip-sheet.html`;
 		}
 		return `${path}/${this.item.data.type}-sheet.html`;
@@ -35,7 +38,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			data.data.totalCD = data.data.actorCD+data.data.cd;
 		}
 		if (data.item.type == "arma") {
-			data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
+			//data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
 
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
