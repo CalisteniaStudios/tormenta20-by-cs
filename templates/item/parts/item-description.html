@@ -12,6 +12,14 @@
             <input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/>
         </div>
 		{{/if}}
+		{{#ifEquals item.type "arma"}}
+		<ul class="properties-list">
+		{{#each config.weaponProperties as |name prop|}}
+			{{#if (lookup ../data.propriedades prop)}}<li>{{name}}{{#ifEquals prop "arremesso"}} ({{../data.alcance}}){{/ifEquals}}</li>{{/if}}
+			<!-- <input type="checkbox" name="data.propriedades.{{prop}}" {{checked (lookup ../data.propriedades prop)}}/> {{ name }} -->
+		{{/each}}
+		</ul>
+		{{/ifEquals}}
 		{{#ifEquals item.type "equip"}}
 		<ul class="properties-list">
 			{{#if item.data.armadura.value}}<li>Defesa: {{item.data.armadura.value}}</li>{{/if}}

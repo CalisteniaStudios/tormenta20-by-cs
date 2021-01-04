@@ -18,29 +18,30 @@
 
         {{!-- Details Tab --}}
         <div class="tab details" data-group="primary" data-tab="details">
-            <!-- <h3 class="form-header">{{ localize "DND5E.ItemWeaponDetails" }}</h3> -->
 
-            <!-- {{!-- Weapon Type --}} -->
-            <!-- <div class="form-group"> -->
-                <!-- <label>Tipo</label> -->
-                <!-- <select name="data.weaponType"> -->
-                    <!-- {{#select data.weaponType}} -->
-                    
-                    <!-- {{/select}} -->
-                <!-- </select> -->
-            <!-- </div> -->
+            {{!-- Weapon Type --}}
+            <div class="form-group">
+                <label>Tipo</label>
+                <select name="data.tipoUso">
+                    {{#select data.tipoUso}}
+                    {{#each config.weaponTypes as |name type|}}
+                    <option value="{{type}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
 
-            <!-- {{!-- Weapon Properties --}} -->
-            <!-- <div class="form-group stacked weapon-properties"> -->
-                <!-- <label>{{ localize "DND5E.ItemWeaponProperties" }}</label> -->
-                <!-- {{#each config.weaponProperties as |name prop|}} -->
-                <!-- <label class="checkbox"> -->
-                    <!-- <input type="checkbox" name="data.properties.{{prop}}" {{checked (lookup ../data.properties prop)}}/> {{ name }} -->
-                <!-- </label> -->
-                <!-- {{/each}} -->
-            <!-- </div> -->
+            {{!-- Weapon Properties --}}
+            <div class="form-group stacked weapon-properties">
+                <label>Propriedades</label>
+                {{#each config.weaponProperties as |name prop|}}
+                <label class="checkbox">
+                    <input type="checkbox" name="data.propriedades.{{prop}}" value="{{name}}" {{checked (lookup ../data.propriedades prop)}} data-dtype="Boolean" /> {{ name }}
+                </label>
+                {{/each}}
+            </div>
 
-            <!-- <h3 class="form-header">{{ localize "DND5E.ItemWeaponAttack" }}</h3> -->
+            <hr>
 
             <div class="form-group">
 				<label>Ataque: 1d20+</label>
@@ -77,24 +78,20 @@
 			<div class="form-group">
 				<label>Crítico</label>
 				<div class="form-fields">
-						<input type="text" title="Margem de Ameaça" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number" placeholder="ex.: 19"/>
-						<input type="text" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" placeholder="2" />
+					<input type="text" title="Margem de Ameaça" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number" placeholder="ex.: 19"/>
+					<input type="text" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" placeholder="2" />
 				</div>
 			</div>
+			{{#ifOr data.propriedades.arremesso data.propriedades.ataqueDistancia}}
 			<div class="form-group">
 				<label>Alcance</label>
 				<div class="form-fields">
 					<input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String"/>
 				</div>
 			</div>
+			{{/ifOr}}
 			<div class="form-group">
-				<label>Munição</label>
-				<div class="form-fields">
-					<input type="text" name="data.municao" value="{{data.municao}}" data-dtype="Number"/>
-				</div>
-			</div>
-			<div class="form-group">
-				<label>Custo</label>
+				<label>Custo (PM)</label>
 				<div class="form-fields">
 					<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
 				</div>

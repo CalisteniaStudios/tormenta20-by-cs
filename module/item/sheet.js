@@ -33,6 +33,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	getData() {
 		const data = super.getData();
 		data.atkSkills = [];
+		data.config = CONFIG.T20;
 		if (data.item.type == "magia" && this.object.options.actor != undefined) {
 			data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
 			data.data.totalCD = data.data.actorCD+data.data.cd;
@@ -43,8 +44,28 @@ export default class ItemSheetT20 extends ItemSheet {
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
 		}
+		if ( data.item.type === "arma" ) {
+			data["propriedades"] = this._getItemProperties(data.item);
+		}
 		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
 		return data;
+	}
+
+	  /**
+	 * Get the Array of item properties which are used in the small sidebar of the description tab
+	 * @return {Array}
+	 * @private
+	 */
+	_getItemProperties(item) {
+		const props = [];
+		const labels = this.item.labels;
+
+		if ( item.type === "arma" ) {
+		props.push(...Object.entries(item.data.propriedades)
+			.filter(e => e[1] === true)
+			.map(e => CONFIG.T20.weaponProperties[e[0]]));
+		}
+		return props.filter(p => !!p);
 	}
 
 	/* -------------------------------------------- */

@@ -274,10 +274,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       });
 
       if (item.data.data.lancinante) {
-        let lacinante = formula.crit
+        let lancinante = formula.crit
           .replace(/\s/g, "")
           .replace(/(\b\d+\b)/g, "($& * " + critX + ")");
-        formula.crit = `${lacinante}`;
+        formula.crit = `${lancinante}`;
       }
     } else {
       formula.dano = null;
