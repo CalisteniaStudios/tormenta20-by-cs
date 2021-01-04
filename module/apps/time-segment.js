@@ -30,7 +30,7 @@ export const endSegment = async function (app, html) {
         }
       }
       //
-      let toChat = (speaker, message) => {
+      let toChat = (message) => {
         let chatData = {
           user: game.user.id,
           content: message,
@@ -42,7 +42,7 @@ export const endSegment = async function (app, html) {
   
       let chatMessage = "A cena atual foi terminada pelo mestre. As seguintes condições foram terminadas:<BR>";
       chatMessage += historico;
-      toChat(game.user, chatMessage);
+      toChat(chatMessage);
     });
 
     html.find(".directory-footer").append(button);
