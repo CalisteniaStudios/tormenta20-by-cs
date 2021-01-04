@@ -1,0 +1,41 @@
+<div class="tab flexrow active" data-group="primary" data-tab="description">
+	
+    <div class="item-properties">
+		{{#if itemFisico}}
+        <div class="form-group">
+            <label>Quantidade</label>
+            <input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number"/>
+        </div>
+
+        <div class="form-group">
+            <label>Peso</label>
+            <input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/>
+        </div>
+		{{/if}}
+		{{#ifEquals item.type "equip"}}
+		<ul class="properties-list">
+			{{#if item.data.armadura.value}}<li>Defesa: {{item.data.armadura.value}}</li>{{/if}}
+			{{#if item.data.armadura.penalidade}}<li>Penalidade: {{item.data.armadura.penalidade}}</li>{{/if}}
+		</ul>
+		{{/ifEquals}}
+		{{#ifEquals item.type "poder"}}
+		<ul class="properties-list">
+			{{#if item.data.tipo}}<li>{{item.data.tipo}}</li>{{/if}}
+			{{#if item.data.custo}}<li>{{item.data.custo}} PM</li>{{/if}}
+		</ul>
+		{{/ifEquals}}
+		{{#ifEquals item.type "magia"}}
+		<ul class="properties-list">
+			{{#if item.data.custo}}<li>{{item.data.custo}} PM</li>{{/if}}
+			{{#if item.data.resistencia}}<li>{{item.data.resistencia}}{{#if item.data.totalCD}} (CD {{item.data.totalCD}}){{/if}}</li>{{/if}}
+			{{#if item.data.execucao}}<li>{{item.data.execucao}}</li>{{/if}}
+			{{#if item.data.alcance}}<li>{{item.data.alcance}}</li>{{/if}}
+			{{#if item.data.alvo}}<li>{{item.data.alvo}}</li>{{/if}}
+			{{#if item.data.area}}<li>{{item.data.area}}</li>{{/if}}
+			{{#if item.data.duracao}}<li>{{item.data.duracao}}</li>{{/if}}
+		</ul>
+		{{/ifEquals}}
+    </div>
+
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+</div>

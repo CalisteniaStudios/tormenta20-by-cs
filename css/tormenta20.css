@@ -297,6 +297,83 @@ button {
   flex: 0;
 }
 
+.tormenta20.sheet.item .sheet-header {
+  align-items: unset;
+  flex: none;
+}
+
+.tormenta20.sheet.item .sheet-header .charname input {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  height: 100%;
+  width: 100%;
+  font-family: var(--modesto);
+  background: transparent;
+  border: none;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties {
+  flex: 0 0 120px;
+  margin: 5px 5px 5px 0;
+  padding-right: 5px;
+  border-right: 2px groove #eeede0;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group {
+  margin: 0;
+  border-bottom: 1px solid var(--faint-color);
+  color: var(--secondary-color);
+  font-size: 13px;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group label {
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group input {
+  flex: 0 0 45px;
+  text-align: right;
+  background: none;
+  height: 16px;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group input[type="text"] {
+  border: none;
+  padding: 0 6px;
+  color: var(--primary-font);
+}
+
+.tormenta20.sheet.item .sheet-header .charname input:hover,
+.tormenta20.sheet.item .sheet-body .item-properties .form-group input:hover {
+  border: 1px solid #111;
+  box-shadow: 0 0 8px red;
+}
+
+.tormenta20.sheet.item .sheet-header .charname input:disabled:hover,
+.tormenta20.sheet.item .sheet-body .item-properties .form-group input:disabled:hover {
+  border: 0px solid transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties li {
+  margin: 0 0 2px 0;
+  border: 1px solid var(--faint-color);
+  border-radius: 5px;
+  /* font-size: 11px; */
+  line-height: 16px;
+  padding: 0 2px;
+  background: rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
 .tormenta20 .sheet-body,
 .tormenta20 .sheet-body .tab {
   height: 100%;

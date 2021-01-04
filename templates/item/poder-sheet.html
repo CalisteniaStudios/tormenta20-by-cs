@@ -1,58 +1,32 @@
-<form class="tormenta20" autocomplete="off">
-	<header class="sheet-header">
-		<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-		<div class="">
-			<table>
-				<tr>
-					<th>Nome</th>
-					<th>Tipo</th>
-					<th>Custo</th>
-				</tr>
-				<tr>
-					<td><input type="text" name="name" value="{{item.name}}" placeholder="Nome"/></td>
-					<td>
-						<input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String" />
-					</td>
-					<td>
-						<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
-					</td>
-				</tr>
-			</table>
-		</div>
-	</header>
+<form class="tormenta20 flexcol" autocomplete="off">
+    {{!-- Item Sheet Header --}}
+    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+	
+	{{!-- Item Sheet Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item active" data-tab="description">Descrição</a>
+        <a class="item" data-tab="details">Detalhes</a>
+    </nav>
 
-	{{!-- Sheet Body --}}
-	<section class="sheet-body">
-		<div class="form-group">
-			<label>Rolagem</label>
-			<div class="form-fields">
-				<input type="text" name="data.roll" value="{{data.roll}}" data-dtype="String" />
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+		{{!-- Description Tab --}}
+        {{> "systems/tormenta20/templates/item/parts/item-description.html"}}
+		
+		<div class="tab details" data-group="primary" data-tab="details">
+			<div class="form-group">
+				<label>Tipo</label>
+				<input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String" />
+			</div>
+			<div class="form-group">
+				<label>PM</label>
+				<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
+			</div>
+			<div class="form-group">
+				<label>Fórmula</label>
+				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String"/>
 			</div>
 		</div>
-		<div class="form-group">
-			<label>Resistência</label>
-			<div class="form-fields">
-				<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
-				
-				<select class="selectatr" name="data.atrRes" value={{data.atrRes}} data-type="String">
-					{{#select data.atrRes}}
-					<option value=""></option>
-					<option value="for">Força</option>
-					<option value="des">Des</option>
-					<option value="con">Constituição</option>
-					<option value="int">Inteligência</option>
-					<option value="sab">Sabedoria</option>
-					<option value="car">Carisma</option>
-					{{/select}}
-				</select>
-				<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
-			</div>
-		</div>
-		<div class="full border">
-			<label>Descrição</label>
-			<textarea name="data.description"
-			data-dtype="String">{{#if data.description}}{{data.description}}{{/if}}</textarea>
-		</div>
 
-	</section>
+    </section>
 </form>

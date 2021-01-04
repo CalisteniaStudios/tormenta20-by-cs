@@ -1,190 +1,141 @@
 <form class="tormenta20" autocomplete="off">
-	<header class="sheet-header">
-		<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-		<div class="">
-			<table>
-				<tr>
-					<th>Nome</th>
-					<th>Tipo</th>
-					<th>Circulo</th>
-				</tr>
-				<tr style="text-align: center;">
-					<td><input type="text" name="name" value="{{item.name}}" placeholder="Nome"/></td>
-					<td>
-						<select class="selectatr" name="data.tipo" value={{data.tipo}} data-type="Number">
-							{{#select data.tipo}}
-							<option value="Arcana">Arcana</option>
-							<option value="Divina">Divina</option>
-							<option value="Universal">Universal</option>
-							{{/select}}
-						</select>
-					</td>
-					<td>
-						<select class="selectatr" name="data.circulo" value={{data.circulo}} data-type="Number">
-							{{#select data.circulo}}
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							{{/select}}
-						</select>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</header>
-	{{!-- Sheet Tab Navigation --}}
+	{{!-- Item Sheet Header --}}
+    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+	
+	{{!-- Item Sheet Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item active" data-tab="description">Descrição</a>
+        <a class="item" data-tab="details">Detalhes</a>
+        <a class="item" data-tab="aprimoramentos">Aprimoramentos</a>
+    </nav>
 
-	<nav class="sheet-tabs tabs" data-group="primary">
-		<label>
-			<a class="item" data-tab="description" title="Descrição">Descrição</a>
-		</label>
-		<label>
-			<a class="item" data-tab="attributes" title="Detalhes">Detalhes</a>
-		</label>
-		<label>
-			<a class="item" data-tab="aprimoramentos" title="Aprimoramentos">Aprimoramentos</a>
-		</label>
-	</nav>
-
-
-	{{!-- Sheet Body --}}
-
-	<section class="sheet-body">
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
 		{{!-- Description Tab --}}
-		<div class="tab description" data-group="primary" data-tab="description">
-			{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-		</div>
-
-		{{!-- Attributes Tab --}}
-		<div class="tab attributes" data-group="primary" data-tab="attributes">
-			<div class="form-group">
-				<label>Escola</label>
-				<div class="form-fields">
-					<select class="selectatr" name="data.escola" value={{data.escola}} data-type="String">
-						{{#select data.escola}}
-						<option value="Abjuração">Abjuração</option>
-						<option value="Adivinhação">Adivinhação</option>
-						<option value="Convocação">Convocação</option>
-						<option value="Encantamento">Encantamento</option>
-						<option value="Evocação">Evocação</option>
-						<option value="Ilusão">Ilusão</option>
-						<option value="Necromancia">Necromancia</option>
-						<option value="Transmutação">Transmutação</option>
-						{{/select}}
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label>Execução</label>
-				<div class="form-fields">
-					<input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label>Alcance</label>
-				<div class="form-fields">
-					<select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
-						{{#select data.alcance}}
-						<option value=""></option>
-						<option value="Pessoal">Pessoal</option>
-						<option value="Toque">Toque</option>
-						<option value="Curto">Curto</option>
-						<option value="Médio">Médio</option>
-						<option value="Longo">Longo</option>
-						<option value="Ilimitado">Ilimitado</option>
-						{{/select}}
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label>Duração</label>
-				<div class="form-fields">
-					<input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label>Alvo</label>
-				<div class="form-fields">
-					<input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label>Area</label>
-				<div class="form-fields">
-					<input type="text" name="data.area" value="{{data.area}}" data-dtype="String" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label>Resistência</label>
-				<div class="form-fields">
-					<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
-				
-					<select class="selectatr" name="data.atrRes" value={{data.atrRes}} data-type="String">
-						{{#select data.atrRes}}
-						<option value=""></option>
-						<option value="for">Força</option>
-						<option value="des">Des</option>
-						<option value="con">Constituição</option>
-						<option value="int">Inteligência</option>
-						<option value="sab">Sabedoria</option>
-						<option value="car">Carisma</option>
-						{{/select}}
-					</select>
-					<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
-				</div>
-			</div>
+        {{> "systems/tormenta20/templates/item/parts/item-description.html"}}
+		
+		<div class="tab details" data-group="primary" data-tab="details">
 			<div class="form-group">
 				<label>Rolagem</label>
-				<div class="form-fields">
-					<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" placeholder="Ex: 6d6+6" />
-				</div>
+				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" placeholder="Ex: 6d6+6" />
 			</div>
+			<div class="form-group">
+                <label>Custo</label>
+                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+            </div>
+			<div class="form-group">
+				<label>Bônus na CD</label>
+				<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
+			</div>
+			<div class="form-group">
+                    <label>Tipo</label>
+                    <select class="selectatr" name="data.tipo" value={{data.tipo}} data-type="Number">
+                        {{#select data.tipo}}
+                        <option value="Arcana">Arcana</option>
+                        <option value="Divina">Divina</option>
+                        <option value="Universal">Universal</option>
+                        {{/select}}
+                    </select>
+			</div>
+            <div class="form-group">
+				<label>Circulo</label>
+				<select class="selectatr" name="data.circulo" value={{data.circulo}} data-type="Number">
+					{{#select data.circulo}}
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					{{/select}}
+				</select>
+			</div>
+            <div class="form-group">
+				<label>Escola</label>
+				<select class="selectatr" name="data.escola" value={{data.escola}} data-type="String">
+					{{#select data.escola}}
+					<option value="Abjuração">Abjuração</option>
+					<option value="Adivinhação">Adivinhação</option>
+					<option value="Convocação">Convocação</option>
+					<option value="Encantamento">Encantamento</option>
+					<option value="Evocação">Evocação</option>
+					<option value="Ilusão">Ilusão</option>
+					<option value="Necromancia">Necromancia</option>
+					<option value="Transmutação">Transmutação</option>
+					{{/select}}
+				</select>
+            </div>
+            <div class="form-group">
+				<label>Execução</label>
+				<input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String" />
+			</div>
+            <div class="form-group">
+				<label>Alcance</label>
+				<select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
+					{{#select data.alcance}}
+					<option value="Pessoal">Pessoal</option>
+					<option value="Toque">Toque</option>
+					<option value="Curto">Curto</option>
+					<option value="Médio">Médio</option>
+					<option value="Longo">Longo</option>
+					<option value="Ilimitado">Ilimitado</option>
+					{{/select}}
+				</select>
+			</div>
+            <div class="form-group">
+				<label>Duração</label>
+				<input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String" />
+            </div>
+            <div class="form-group">
+				<label>Alvo</label>
+				<input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String" />
+			</div>
+            <div class="form-group">
+				<label>Área</label>
+				<input type="text" name="data.area" value="{{data.area}}" data-dtype="String" />
+			</div>
+            <div class="form-group">
+				<label>Resistência</label>
+				<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
+            </div>
 		</div>
-		{{!-- Aprimoramentos Tab --}}
+
 		<div class="tab aprimoramentos" data-group="primary" data-tab="aprimoramentos">
-			<div class="aprimoramentos">
-				<ol class="items-list">
-					<li class="item flexrow item-header flex-center">
-						<div class="tooltip">APRIMORAMENTOS <div class="tooltipcontent">Segure SHIFT ao clicar na magia para abrir a janela de aprimoramentos.</div></div>
-					</li>
-					<li class="item flexrow item-header">
-						<div class="item-custo">Custo</div>
-						<div class="item-tipo">Tipo</div>
-						<div class="item-formula tooltip">Rolagem <i class="fas fa-question-circle"></i>
-							<div class="tooltipcontent">Use este campo para alterar a rolagem da magia. Exemplos:
-								<br><br>"d8": Mudará 2d6 para 2d8;
-								<br><br>"1d8": Substituirá a rolagem padrão por 1d8
-								<br><br>"1d8+1": (Aumenta) Aumentarará a quantidade de dados rolados para cada aplicação do aprimoramento.
-								<br><br>"-": Não rolará dados.
-							</div>
-						</div>
-						<div class="item-description" style="flex:2">Efeito</div>
-						<div class="item-controls">
+		  <ul class="items-list">
+			<li class="item flexrow item-header">
+			  <div class="item-custo">Custo</div>
+			  <div class="item-tipo">Tipo</div>
+			  <div class="item-formula tooltip">Rolagem <i class="fas fa-question-circle"></i>
+				<div class="tooltipcontent">Use este campo para alterar a rolagem da magia. Exemplos:
+					"d8": Mudará 2d6 para 2d8;
+					"1d8": Substituirá a rolagem padrão por 1d8
+					"1d8+1": (Aumenta) Aumentarará a quantidade de dados rolados para cada aplicação do aprimoramento.
+					"-": Não rolará dados.
+				</div></div>
+			  <div class="item-description" style="flex:2">Efeito</div>
+			  <div class="item-controls">
 
-							<a class="item-control aprimoramento-create" title="Novo aprimoramento" data-type="aprimoramento"><i class="fas fa-plus"></i>
-							Novo</a>
-						</div>
-					</li>
-					{{#each data.aprimoramentos as |ap id|}}
-					<li class="item flexrow aprimoramento" data-item-id="{{ap.id}}">
-						<div class="item-custo"><center>{{ap.custo}}</center></div>
-						<div class="item-tipo">{{ap.tipo}}</div>
-						<div class="item-formula">{{ap.formula}}</div>
-						<div class="item-description" style="flex:2">
-							{{ap.description}}
-						</div>
-
-						<div class="item-controls">
-							<a class="item-control aprimoramento-toggle" data-id="{{ap.id}}" title="Aplicar Sempre?">{{#if ap.ativo}}<i class="far fa-check-square"></i>{{else}}<i class="far fa-square"></i>{{/if}}</a>
-							<a class="item-control aprimoramento-edit" data-id="{{ap.id}}" title="Editar Aprimoramento"><i class="fas fa-edit"></i></a>
-							<a class="item-control aprimoramento-delete" data-id="{{ap.id}}" title="Deletar Aprimoramento"><i class="fas fa-trash"></i></a>
-						</div>
-					</li>
-					{{/each}}
-				</ol>
-			</div>
+				<a class="item-control aprimoramento-create" title="Novo aprimoramento" data-type="aprimoramento"><i class="fas fa-plus"></i>
+				  Novo</a>
+			  </div>
+			</li>
+			{{#each data.aprimoramentos as |ap id|}}
+			<li class="item flexrow aprimoramento" data-item-id="{{ap.id}}">
+			  <div class="item-custo"><center>{{ap.custo}}</center></div>
+			  <div class="item-tipo">{{ap.tipo}}</div>
+			  <div class="item-formula">{{ap.formula}}</div>
+			  <div class="item-description" style="flex:2">
+					{{ap.description}}
+			  </div>
+			  
+			  <div class="item-controls">
+				<a class="item-control aprimoramento-toggle" data-id="{{ap.id}}" title="Aplicar Sempre?">{{#if ap.ativo}}<i class="far fa-check-square"></i>{{else}}<i class="far fa-square"></i>{{/if}}</a>
+				<a class="item-control aprimoramento-edit" data-id="{{ap.id}}" title="Editar Aprimoramento"><i class="fas fa-edit"></i></a>
+				<a class="item-control aprimoramento-delete" data-id="{{ap.id}}" title="Deletar Aprimoramento"><i class="fas fa-trash"></i></a>
+			  </div>
+			</li>
+			{{/each}}
+		  </ul>
 		</div>
-	</section>
+
+    </section>
 </form>

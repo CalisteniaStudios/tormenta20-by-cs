@@ -23,7 +23,10 @@ export class T20ItemSheet extends ItemSheet {
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    if (this.item.data.type == "arma" || this.item.data.type == "consumivel" || this.item.data.type == "tesouro" || this.item.data.type == "armadura") {
+    if (this.item.data.type == "consumivel" || this.item.data.type == "tesouro") {
+      return `${path}/item-sheet.html`;
+    }
+    else if (this.item.data.type == "armadura") {
       return `${path}/equip-sheet.html`;
     }
     return `${path}/${this.item.data.type}-sheet.html`;
@@ -58,6 +61,7 @@ export class T20ItemSheet extends ItemSheet {
         }
       }
     }
+    data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
     return data;
   }
 

@@ -1,7 +1,7 @@
 // Import Modules
 import { T20Config } from "./config.js";
 import { SystemSettings } from "./settings.js";
-/* handlebarstemplates [templates.js] */
+import { preloadHandlebarsTemplates } from "./templates.js";
 import { _getInitiativeFormula } from "./combat.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
 
@@ -143,6 +143,7 @@ Hooks.once("init", async function () {
       return ret;
     }
   );
+  preloadHandlebarsTemplates();
 });
 
 /* -------------------------------------------- */

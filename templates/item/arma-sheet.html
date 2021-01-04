@@ -1,0 +1,107 @@
+<form class="tormenta20 flexcol" autocomplete="off">
+	{{!-- Item Sheet Header --}}
+    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+	
+	{{!-- Item Sheet Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item active" data-tab="description">Descrição</a>
+        <a class="item" data-tab="details">Detalhes</a>
+        <a class="item" data-tab="encantos">Encantos</a>
+        <!-- <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a> -->
+    </nav>
+
+	{{!-- Item Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        {{> "systems/tormenta20/templates/item/parts/item-description.html"}}
+
+        {{!-- Details Tab --}}
+        <div class="tab details" data-group="primary" data-tab="details">
+            <!-- <h3 class="form-header">{{ localize "DND5E.ItemWeaponDetails" }}</h3> -->
+
+            <!-- {{!-- Weapon Type --}} -->
+            <!-- <div class="form-group"> -->
+                <!-- <label>Tipo</label> -->
+                <!-- <select name="data.weaponType"> -->
+                    <!-- {{#select data.weaponType}} -->
+                    
+                    <!-- {{/select}} -->
+                <!-- </select> -->
+            <!-- </div> -->
+
+            <!-- {{!-- Weapon Properties --}} -->
+            <!-- <div class="form-group stacked weapon-properties"> -->
+                <!-- <label>{{ localize "DND5E.ItemWeaponProperties" }}</label> -->
+                <!-- {{#each config.weaponProperties as |name prop|}} -->
+                <!-- <label class="checkbox"> -->
+                    <!-- <input type="checkbox" name="data.properties.{{prop}}" {{checked (lookup ../data.properties prop)}}/> {{ name }} -->
+                <!-- </label> -->
+                <!-- {{/each}} -->
+            <!-- </div> -->
+
+            <!-- <h3 class="form-header">{{ localize "DND5E.ItemWeaponAttack" }}</h3> -->
+
+            <div class="form-group">
+				<label>Ataque: 1d20+</label>
+				<div class="form-fields">
+					<select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
+					  {{#select data.pericia}}
+					  <option value="lut">Luta</option>
+					  <option value="pon">Pontaria</option>
+					  <option value="atu">Atuação</option>
+					  {{/select}}
+					</select>
+					<input type="text" title="Bônus" name="data.atqBns" value="{{#ifEquals data.atqBns ''}}0{{else}}{{data.atqBns}}{{/ifEquals}}" data-dtype="String"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Dano: </label>
+				<div class="form-fields">
+					<input type="text" title="Dados de Dano" name="data.dano" value="{{data.dano}}" data-dtype="String"  placeholder="ex: 1d6" />
+					<select class="selectatr" name="data.atrDan" value={{data.atrDan}} data-type="String">
+						{{#select data.atrDan}}
+						<option value="0">Nenhum</option>
+						<option value="for">For</option>
+						<option value="des">Des</option>
+						<option value="con">Con</option>
+						<option value="int">Int</option>
+						<option value="sab">Sab</option>
+						<option value="car">Car</option>
+						{{/select}}
+					</select>
+					<input type="text" title="Bônus" name="data.danoBns" value="{{data.danoBns}}" data-dtype="String"  placeholder="ex.: +2 , +1d6+2"/>
+					<input type="text" title="Tipo de Dano" name="data.tipo" value="{{data.tipo}}" data-dtype="String" placeholder="Tipo" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Crítico</label>
+				<div class="form-fields">
+						<input type="text" title="Margem de Ameaça" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number" placeholder="ex.: 19"/>
+						<input type="text" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" placeholder="2" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Alcance</label>
+				<div class="form-fields">
+					<input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Munição</label>
+				<div class="form-fields">
+					<input type="text" name="data.municao" value="{{data.municao}}" data-dtype="Number"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Custo PM</label>
+				<div class="form-fields">
+					<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+				</div>
+			</div>
+        </div>
+		
+		{{!-- Description Tab --}}
+        {{> "systems/tormenta20/templates/item/parts/item-encantos.html"}}
+	</section>
+</form>
