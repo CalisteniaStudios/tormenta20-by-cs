@@ -60,8 +60,8 @@ export default class ActorT20 extends Actor {
 				// segunda e terceira array
 				if(k > 0){
 					pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
-					pericia.st = pericia.label.match(/\+/g) ? true : false;
-					pericia.pda = pericia.label.match(/\*/g) ? true : false;
+					pericia.st = pericia.label.match(/\*/g) ? true : false;
+					pericia.pda = pericia.label.match(/\+/g) ? true : false;
 				}
 
 				var atributo = pericia.atributo;
