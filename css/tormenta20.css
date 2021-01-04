@@ -367,7 +367,7 @@ button {
   margin: 0 0 2px 0;
   border: 1px solid var(--faint-color);
   border-radius: 5px;
-  /* font-size: 11px; */
+  font-size: 11px;
   line-height: 16px;
   padding: 0 2px;
   background: rgba(0, 0, 0, 0.05);
