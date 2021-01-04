@@ -43,6 +43,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
 		}
+		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
 		return data;
 	}
 
