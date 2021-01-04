@@ -1,14 +1,16 @@
-<form class="tormenta20 tabbed flexcol" autocomplete="off">
-
+<form class="{{cssClass}} tormenta20 tabbed flexcol" autocomplete="off">
+	
+	{{!-- Sheet Header --}}
 	<header class="sheet-header flexrow" style="flex:0 0 180px">
-		<img class="profile" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+		<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+		
 		<section class="header-details flexrow">
 			<h1 class="charname">
 				<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 			</h1>
 			
 			<aside class="header-exp flexcol" style="justify-content: normal;">
-				<h4>Nível: <input style="width: 20%; border-radius: 20px; text-align: center;" type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" /></h4>
+				<h4>Nível: <input style="width: 20%; border-radius: 20px; text-align: center;" type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="0" /></h4>
 				{{#unless disableExperience}}
 				<div class="experience flexrow">
 					<h4>Exp: <input style="width:50%; margin-bottom: 0px;" type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number" placeholder="0" /></h4>
@@ -20,6 +22,8 @@
 				</div>
 				{{/unless}}
 			</aside>
+
+			{{!-- Character Summary --}}
 			<ul class="attributes summary flexrow">
 				<li>
 					<input type="text" name="data.attributes.classe" value="{{data.attributes.classe}}" data-dtype="String" placeholder="Classe" />
@@ -31,8 +35,9 @@
 					<input type="text" name="data.attributes.origem" value="{{data.attributes.origem}}" data-dtype="String" placeholder="Origem" />
 				</li>
 			</ul>
-			<ul class="attributes flexrow">
 				
+			{{!-- Header Attributes --}}
+			<ul class="attributes flexrow">
 				<li class="attribute health">
 					<h4 class="attribute-name box-title">Pontos de Vida</h4>
 					<div class="attribute-value multiple">

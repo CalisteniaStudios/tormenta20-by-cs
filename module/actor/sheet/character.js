@@ -481,13 +481,13 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const a = event.currentTarget;
 		const tipo = a.dataset.tipo;
 		let c = 0;
-	if (tipo == 'oficios') {
-		let oficios = this.actor.data.data.pericias.ofi.mais;
-		oficios.splice(id, 1);
+		if (tipo == 'oficios') {
+			let oficios = Object.values(this.actor.data.data.pericias.ofi.mais);
+			oficios.splice(id, 1);
 
 			await this.actor.update({ "data.pericias.ofi.mais": oficios });
 		} else {
-			let pericias = this.actor.data.data.periciasCustom;
+			let pericias = Object.values(this.actor.data.data.periciasCustom);
 			pericias.splice(id, 1);
 
 			await this.actor.update({ "data.periciasCustom": pericias });
@@ -519,9 +519,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		};
 
 		let actorData = duplicate(this.actor);
-		let oficios = actorData.data.pericias.ofi.mais;
-		let periciasCustom = actorData.data.periciasCustom;
-
+		let oficios = Object.values(actorData.data.pericias.ofi.mais);
+		let periciasCustom = Object.values(actorData.data.periciasCustom);
 
 		if (tipo == 'oficio') {
 			pericia.label = "Oficio";
@@ -539,7 +538,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			this.actor.update({
 				"data.periciasCustom": periciasCustom
 			});
-			// this.actor.data.data.periciasCustom[] = pericia;
+			
 		}
 
 		this.render();
