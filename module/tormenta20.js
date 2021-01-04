@@ -18,6 +18,7 @@ import ActorSheetT20Character from "./actor/sheet/character.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
 import { toggleEffect } from "./actor/condicoes.js";
+import { endSegment } from "./apps/time-segment.js";
 
 // Import Helpers
 import * as chat from "./chat.js";
@@ -203,7 +204,8 @@ Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 Hooks.on("renderChatLog", (app, html, data) => ItemT20.chatListeners(html));
 Hooks.on("renderChatPopout", (app, html, data) => ItemT20.chatListeners(html));
 
-
+/* Add hook for End of Cena */
+Hooks.on("renderSidebarTab", async (app, html) => endSegment(app,html)) ;
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */

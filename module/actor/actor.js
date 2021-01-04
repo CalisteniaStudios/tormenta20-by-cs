@@ -85,6 +85,7 @@ export class T20Actor extends Actor {
       let condicaoDados = CONFIG.conditions[condicao.flags.core.statusId];
       let condicaoDet = condicao;
       condicaoDet.tooltip = condicaoDados.tooltip;
+      condicaoDet.durationType = condicaoDados.durationType;
       condicoesDet.push(condicaoDet);
       let modificadores = condicaoDados.modifiers;
       CONFIG.conditions[
