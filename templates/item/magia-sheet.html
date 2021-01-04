@@ -1,6 +1,20 @@
 <form class="tormenta20" autocomplete="off">
 	{{!-- Item Sheet Header --}}
-    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+    <header class="sheet-header flexrow">
+		<img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+
+		<div class="header-details flexcol">
+			<h1 class="charname" style="margin: 0;">
+				<input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
+			</h1>
+			<footer>
+				<label style="font-size: 11px">{{data.tipo}} {{data.circulo}} ({{data.escola}})</label>
+			</footer>
+		</div>
+		<aside style="text-align: right; flex: 0 80px;">
+			<h2>{{data.custo}} PM</h2>
+		</aside>
+	</header>
 	
 	{{!-- Item Sheet Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
@@ -15,18 +29,6 @@
         {{> "systems/tormenta20/templates/item/parts/item-description.html"}}
 		
 		<div class="tab details" data-group="primary" data-tab="details">
-			<div class="form-group">
-				<label>Rolagem</label>
-				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" placeholder="Ex: 6d6+6" />
-			</div>
-			<div class="form-group">
-                <label>Custo</label>
-                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
-            </div>
-			<div class="form-group">
-				<label>Bônus na CD</label>
-				<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
-			</div>
 			<div class="form-group">
                     <label>Tipo</label>
                     <select class="selectatr" name="data.tipo" value={{data.tipo}} data-type="Number">
@@ -64,6 +66,18 @@
 					{{/select}}
 				</select>
             </div>
+			<div class="form-group">
+                <label>Custo</label>
+                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+            </div>
+			<div class="form-group">
+				<label>Rolagem</label>
+				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" placeholder="Ex: 6d6+6" />
+			</div>
+			<div class="form-group">
+				<label>Bônus na CD</label>
+				<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
+			</div>
             <div class="form-group">
 				<label>Execução</label>
 				<input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String" />
@@ -82,10 +96,6 @@
 				</select>
 			</div>
             <div class="form-group">
-				<label>Duração</label>
-				<input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String" />
-            </div>
-            <div class="form-group">
 				<label>Alvo</label>
 				<input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String" />
 			</div>
@@ -93,6 +103,10 @@
 				<label>Área</label>
 				<input type="text" name="data.area" value="{{data.area}}" data-dtype="String" />
 			</div>
+            <div class="form-group">
+				<label>Duração</label>
+				<input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String" />
+            </div>
             <div class="form-group">
 				<label>Resistência</label>
 				<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
@@ -120,7 +134,7 @@
 			</li>
 			{{#each data.aprimoramentos as |ap id|}}
 			<li class="item flexrow aprimoramento" data-item-id="{{ap.id}}">
-			  <div class="item-custo"><center>{{ap.custo}}</center></div>
+			  <div class="item-custo"><center>{{ap.custo}} PM</center></div>
 			  <div class="item-tipo">{{ap.tipo}}</div>
 			  <div class="item-formula">{{ap.formula}}</div>
 			  <div class="item-description" style="flex:2">

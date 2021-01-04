@@ -21,18 +21,16 @@
 		{{#ifEquals item.type "poder"}}
 		<ul class="properties-list">
 			{{#if item.data.tipo}}<li>{{item.data.tipo}}</li>{{/if}}
-			{{#if item.data.custo}}<li>{{item.data.custo}} PM</li>{{/if}}
 		</ul>
 		{{/ifEquals}}
 		{{#ifEquals item.type "magia"}}
 		<ul class="properties-list">
-			{{#if item.data.custo}}<li>{{item.data.custo}} PM</li>{{/if}}
-			{{#if item.data.resistencia}}<li>{{item.data.resistencia}}{{#if item.data.totalCD}} (CD {{item.data.totalCD}}){{/if}}</li>{{/if}}
-			{{#if item.data.execucao}}<li>{{item.data.execucao}}</li>{{/if}}
-			{{#if item.data.alcance}}<li>{{item.data.alcance}}</li>{{/if}}
-			{{#if item.data.alvo}}<li>{{item.data.alvo}}</li>{{/if}}
-			{{#if item.data.area}}<li>{{item.data.area}}</li>{{/if}}
-			{{#if item.data.duracao}}<li>{{item.data.duracao}}</li>{{/if}}
+			{{#if item.data.execucao}}<li><strong>Execução:</strong> {{item.data.execucao}}</li>{{/if}}
+			{{#if item.data.alcance}}<li><strong>Alcance:</strong> {{item.data.alcance}}</li>{{/if}}
+			{{#if item.data.alvo}}<li><strong>Alvo:</strong> {{item.data.alvo}}</li>{{/if}}
+			{{#if item.data.area}}<li><strong>Área:</strong> {{item.data.area}}</li>{{/if}}
+			{{#if item.data.duracao}}<li><strong>Duração:</strong> {{item.data.duracao}}</li>{{/if}}
+			{{#if item.data.resistencia}}<li><strong>Resistência:</strong> {{item.data.resistencia}}{{#if item.data.totalCD}} (CD {{item.data.totalCD}}){{/if}}</li>{{/if}}
 		</ul>
 		{{/ifEquals}}
     </div>
