@@ -210,7 +210,8 @@ T20Config.conditions = {
     "pasmo": {
         "modifiers": [],
         "childrenConditions": [],
-        "tooltip": "<strong>Pasmo</strong><br><br> O personagem não pode fazer ações, exceto reações. <i>Condição mental.</i>"
+        "tooltip": "<strong>Pasmo</strong><br><br> O personagem não pode fazer ações, exceto reações. <i>Condição mental.</i>",
+        "durationType": "cena"
     },
     "petrificado": {
         "modifiers": [ { "rd.bonus" : 8 }],

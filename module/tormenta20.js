@@ -71,7 +71,7 @@ Hooks.once("init", async function () {
   };
   Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
-  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'morto')[0].icon;
+  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'inconsciente')[0].icon;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
