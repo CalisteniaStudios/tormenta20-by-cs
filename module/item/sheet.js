@@ -38,7 +38,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			data.data.totalCD = data.data.actorCD+data.data.cd;
 		}
 		if (data.item.type == "arma") {
-			//data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
+			// data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
 
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
