@@ -245,10 +245,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		item.data.data.equipado = !item.data.data.equipado;
 		let current = $(ev.currentTarget)[0];
 		let items = this.actor.data.items;
+    
+		const exclusiveSlot = item.data.data.tipo != "acessorio" ? item.data.data.tipo != "bonus" ? true : false : false; // exclusiveSlot = (item.data.data.tipo != "acessorio") && (item.data.data.tipo != "bonus"))
 
-		if (item.data.data.equipado && item.data.data.tipo != "outro") {
+		if (item.data.data.equipado && exclusiveSlot) {
 			let unequipped = items.some(element => { //some() === forEach() with a return
-				if(element.type === "armadura" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
+				if(element.type === "equip" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
 					element.data.equipado = false;
 					return true;
 				}
@@ -264,17 +266,17 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			penalidade: item.data.data.equipado ? item.data.data.armadura.penalidade : 0,
 			equipado: item.data.data.equipado
 		};
-		if (item.data.data.tipo === "armadura") {
+		if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
 			this.actor.update({
 				"data.armadura": armadura,
-				"data.defesa.des": item.data.data.equipado ? item.data.data.subtipo === "leve" ? true : false : true //if ((equipado && leve) || desequipado) return true
+				"data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true //if ((equipado && leve) || desequipado) return true
 			});
 		}
 		else if (item.data.data.tipo === "escudo") {
 			this.actor.update({ "data.escudo": armadura });
 		}
-		else if (item.data.data.tipo === "outro") {
-			let atual = this.actor.data.data.defesa.outro ? this.actor.data.data.defesa.outro : 0;
+		else {
+			let atual = this.actor.data.data.defesa.outro;
 			let nova = item.data.data.equipado ? atual + item.data.data.armadura.value : atual - item.data.data.armadura.value;
 			this.actor.update({ "data.defesa.outro": nova });
 		}
