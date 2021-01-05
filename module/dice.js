@@ -65,7 +65,9 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     } else {
       const configuration = await AbilityUseDialog.create(item);
       templateData.rollMode = configuration.rollMode;
-      templateData.custo = (parseInt(templateData.custo) ?? 0) + parseInt(configuration.ajustecusto);
+      templateData.custo = (parseInt(templateData.custo) ?? 0);
+      if(!isNaN(parseInt(configuration.ajustecusto)))
+        templateData.custo = parseInt(configuration.ajustecusto);
       formula = `${formula} + ${configuration.bonus}`;
       rollT20(formula, actor, templateData);
     }
@@ -358,11 +360,13 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
 
       const configuration = await AbilityUseDialog.create(item);
       templateData.rollMode = configuration.rollMode;
-      templateData.custo = (parseInt(templateData.custo) ?? 0) + parseInt(configuration.ajustecusto);
+      templateData.custo = (parseInt(templateData.custo) ?? 0);
+      if(!isNaN(parseInt(configuration.ajustecusto)))
+        templateData.custo = parseInt(configuration.ajustecusto);
       formula.atq = `${formula.atq} + ${configuration.bonus}`;
       formula.dano = `${formula.dano} + ${configuration.bonusdano}`;
       formula.crit = `${formula.crit} + ${configuration.bonusdano}`;
-      rollT20(formula, actor, templateData);
+      rollT20(formula, actor, templateData, margemCrit);
     }
   } else if (item.type == "magia") {
     /* -------------------------------------------- */
@@ -577,7 +581,7 @@ function rollT20(roll, actor, templateData, criticoM = null) {
     actor.spendMana(templateData.custo, 0, false);
   }
 
-  if (roll) {
+  if (roll && roll.includes('d')) {
     // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
     let formula = "";
     let result;

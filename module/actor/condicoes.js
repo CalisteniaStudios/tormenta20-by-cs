@@ -20,7 +20,8 @@ async function chatCondition(actor, condicao) {
     };
 
     let condicaoDados = CONFIG.conditions[condicao];
-    let chatMessage = condicaoDados.tooltip;
+    let condicaoDadosOrig = CONFIG.statusEffects.find(x => x.id == condicao);
+    let chatMessage = "<img class='invert' src='" + condicaoDadosOrig.icon + "' width='50' height='50' />" + condicaoDados.tooltip;
     toChat(this, chatMessage);
   }
 }
