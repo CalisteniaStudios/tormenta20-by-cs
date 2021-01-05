@@ -31,7 +31,7 @@
 		{{/ifEquals}}
 		{{#ifEquals item.type "poder"}}
 		<ul class="properties-list">
-			{{#if item.data.tipo}}<li>{{item.data.tipo}}</li>{{/if}}
+			<li style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</li>
 		</ul>
 		{{/ifEquals}}
 		{{#ifEquals item.type "magia"}}

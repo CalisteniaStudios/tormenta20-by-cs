@@ -876,26 +876,28 @@ Hooks.on('ready', async function() {
     game.compendiumBrowser.addSpellFilter("Geral", "Nível", 'data.circulo', 'select', {"1":"1", "2":"2", "3":"3", "4":"4", "5":"5"});
     game.compendiumBrowser.addSpellFilter("Geral", "Escola", 'data.escola', 'select', {"Abjuração":"Abjuração", "Adivinhação":"Adivinhação", "Convocação":"Convocação", "Encantamento":"Encantamento", "Evocação":"Evocação", "Ilusão":"Ilusão", "Necromancia":"Necromancia", "Transmutação":"Transmutação"});
     game.compendiumBrowser.addSpellFilter("Geral", "Execução", 'data.execucao', 'select',
-        {
-            "Padrão": "Padrão",
-            "Movimento": "Movimento",
-            "Reação": "Reação",
-            "Completa": "Completa",
-            "Livre": "Livre",
-        });
+    {
+        "Padrão": "Padrão",
+        "Movimento": "Movimento",
+        "Reação": "Reação",
+        "Completa": "Completa",
+        "Livre": "Livre",
+    });
     game.compendiumBrowser.addSpellFilter("Geral", "Tipo", 'data.tipo', 'select', {"Arcana":"Arcana", "Divina":"Divina", "Universal":"Universal"});
 
     // Feature Filters
     game.compendiumBrowser.addFeatFilter("Geral", "Tipo", 'data.tipo', 'select',
-        {
-            "P. Geral - Combate": "Poder de Combate", "P. Geral - Destino": "Poder de Destino", "P. Geral - Magia": "Poder de Magia",
-            "P. Concedido": "Poder Concedido", "P. Geral - Tormenta": "Poder da Tormenta", "Classe - Arcanista": "Arcanista",
-            "Classe - Bárbaro": "Bárbaro", "Classe - Bardo": "Bardo", "Classe - Bucaneiro": "Bucaneiro", "Classe - Caçador": "Caçador",
-            "Classe - Cavaleiro": "Cavaleiro", "Classe - Clérigo": "Clérigo", "Classe - Druida": "Druida", "Classe - Guerreiro": "Guerreiro",
-            "Classe - Inventor": "Inventor", "Classe - Ladino": "Ladino", "Classe - Lutador": "Lutador", "Classe - Nobre": "Nobre",
-            "Classe - Paladino": "Paladino",
-            // "Origem": "Origem"
-        });
+    {
+      "geral": "Poder Geral", "concedido": "Poder Concedido", "classe":"Classe", "origem": "Origem", "racial":"Racial"
+    });
+    game.compendiumBrowser.addFeatFilter("Geral", "Subtipo", 'data.subtipo', 'select',
+    {
+      "combate": "Combate", "destino": "Destino", "magia": "Magia", "tormenta": "Tormenta", "arcanista": "Arcanista",
+      "barbaro": "Bárbaro", "bardo": "Bardo", "bucaneiro": "Bucaneiro", "caaador": "Caçador",
+      "cavaleiro": "Cavaleiro", "clérigo": "Clérigo", "druida": "Druida", "guerreiro": "Guerreiro",
+      "inventor": "Inventor", "ladino": "Ladino", "lutador": "Lutador", "nobre": "Nobre", "paladino": "Paladino"
+    });
+    game.compendiumBrowser.addFeatFilter("Geral", "Custo", 'data.custo', 'numberCompare');
         
     game.compendiumBrowser.addItemFilter("Geral", "Tipo", "type", "select", {
       "arma":"Arma",
@@ -903,18 +905,41 @@ Hooks.on('ready', async function() {
       "equip": "Equipamento",
       "tesouro": "Tesouro"
     });
+    game.compendiumBrowser.addItemFilter("Geral", "Preço", "data.preco", "numberCompare");
+    
+    game.compendiumBrowser.addItemFilter("Armas", "Tipo", "data.tipoUso", "select", {
+      "simples": "Arma Simples",
+      "marcial": "Arma Marcial",
+      "exotica": "Arma Exótica",
+      "armaDeFogo": "Arma de Fogo",
+      "natural": "Arma Natural",
+      "improvisada": "Arma Improvisada"
+    });
+    
+    game.compendiumBrowser.addItemFilter("Armaduras", "Tipo", "data.tipo", "select", {
+      "leve":"Armadura Leve",
+      "pesada":"Armadura Pesada",
+      "escudo": "Escudo",
+      "traje": "Traje",
+      "bonus": "Bônus Mágico",
+      "natural": "Armadura Natural",
+      "acessorio": "Acessório"
+    });
+    
+    game.compendiumBrowser.addItemFilter("Armaduras", "Defesa", "data.armadura.value", "numberCompare");
+    game.compendiumBrowser.addItemFilter("Armaduras", "Penalidade de Armadura", "data.armadura.penalidade", "numberCompare");
 
     // NPC Filters
     game.compendiumBrowser.addNpcFilter("Geral", "Tamanho", 'data.attributes.tamanho', 'text', {"Colossal":"Colossal", "Enorme":"Enorme", "Grande":"Grande", "Médio":"Médio", "Pequeno":"Pequeno", "Minúsculo":"Minúsculo"});
     // game.compendiumBrowser.addNpcFilter("Geral", "Tem Magias", 'hasSpells', 'bool');
     game.compendiumBrowser.addNpcFilter("Geral", "Nível de Dificuldade", 'data.attributes.nd', 'numberCompare');
     game.compendiumBrowser.addNpcFilter("Geral", "Tipo de Criatura", 'data.attributes.raca', 'text', {
-        "Animal": "Animal",
-        "Construto": "Construto",
-        "Espírito": "Espírito",
-        "Humanóide": "Humanóide",
-        "Monstro": "Monstro",
-        "Morto-vivo": "Morto-vivo",
+      "Animal": "Animal",
+      "Construto": "Construto",
+      "Espírito": "Espírito",
+      "Humanóide": "Humanóide",
+      "Monstro": "Monstro",
+      "Morto-vivo": "Morto-vivo",
     });
 
     game.compendiumBrowser.addNpcFilter("Atributos", "Força", 'data.atributos.for.value', 'numberCompare');
