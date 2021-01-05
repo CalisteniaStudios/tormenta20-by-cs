@@ -58,6 +58,7 @@ Hooks.once("init", async function () {
   // Define custom Entity classes
   CONFIG.Actor.entityClass = ActorT20;
   CONFIG.Item.entityClass = ItemT20;
+  CONFIG.T20 = T20Config;
   CONFIG.statusEffects = T20Config.statusEffectIcons;
   CONFIG.conditions = T20Config.conditions;
 
@@ -128,6 +129,12 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("ifEGreater", function (arg1, arg2, options) {
     if (arg1 >= arg2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+  Handlebars.registerHelper("ifOr", function (arg1, arg2, options) {
+    if (arg1 || arg2) {
       return options.fn(this);
     }
     return options.inverse(this);

@@ -244,3 +244,46 @@ T20Config.conditions = {
         "durationType": "cena"
     }
 }
+
+/**
+ * Define the set of types which a weapon item can take
+ * @type {Object}
+ */
+T20Config.weaponTypes = {
+  "simples": "Simples",
+  "marcial": "Marcial",
+  "exotica": "Exótica",
+  "armaDeFogo": "Arma de Fogo",
+  "natural": "Natural",
+  "improvisada": "Improvisada"
+};
+
+/**
+ * Define the set of weapon property flags which can exist on a weapon
+ * @type {Object}
+ */
+T20Config.weaponProperties = {
+  "adaptavel": "Adaptável",
+  "agil": "Ágil",
+  "alongada": "Alongada",
+  "arremesso": "Arremesso",
+  "ataqueDistancia": "Ataque à Distância",
+  "duasMaos": "Duas Mãos",
+  "dupla": "Dupla",
+  "leve": "Leve",
+  "municao": "Munição",
+  "versatil": "Versátil"
+};
+
+T20Config.encantosArmas = { //Não Implementado
+  "arremesso": {
+    "id": "arremesso",
+    "name": "Arremesso",
+    "tooltip": "A arma pode ser arremessada em alcance curto. Caso já pudesse ser arremessada, seu alcance aumenta em uma categoria. No fim do seu turno, a arma volta voando para você. Pegar a arma é uma ação livre."
+  },
+  "lancinante": {
+      "id": "lancinante",
+      "name": "Lancinante",
+      "tooltip": "A arma inflige ferimentos mortais. Quando faz um acerto crítico com a arma, além de multiplicar os dados de dano, você também multiplica quaisquer bônus numéricos."
+  }
+}

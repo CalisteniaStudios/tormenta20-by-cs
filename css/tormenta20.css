@@ -374,6 +374,10 @@ button {
   text-align: center;
 }
 
+.tormenta20.sheet.item .weapon-properties label.checkbox {
+  flex: 0 0 115px;
+}
+
 .tormenta20 .sheet-body,
 .tormenta20 .sheet-body .tab {
   height: 100%;

@@ -899,7 +899,6 @@ Hooks.on('ready', async function() {
         
     game.compendiumBrowser.addItemFilter("Geral", "Tipo", "type", "select", {
       "arma":"Arma",
-      "armadura":"Armadura",
       "consumivel":"Consumível",
       "equip": "Equipamento",
       "tesouro": "Tesouro"

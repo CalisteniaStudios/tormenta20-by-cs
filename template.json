@@ -643,7 +643,8 @@
       },
       "objeto":{
         "peso": 0,
-        "qtd": 1
+        "qtd": 1,
+        "preco": 0
       },
       "aprimoramento": {
         "aprimoramentos": []
@@ -652,7 +653,7 @@
     "equip": {
       "templates": ["base", "objeto"],
       "equipado": false,
-      "tipo": "traje",
+      "tipo": "leve",
       "armadura": {
         "value": 0,
         "penalidade": 0
@@ -716,8 +717,9 @@
       "lancinante": false,
       "tipo": "",
       "alcance": "",
-      "municao": "",
-      "custo": 0
+      "custo": 0,
+      "tipoUso": "simples",
+      "propriedades": {"adaptavel":false,"agil":false,"alongada":false,"arremesso":false,"ataqueDistancia":false,"duasMaos":false,"dupla":false,"leve":false,"municao":false,"versatil":false}
     },
     "consumivel": {
       "templates": ["base","objeto"],
