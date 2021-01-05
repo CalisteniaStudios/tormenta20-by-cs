@@ -123,6 +123,23 @@ export default class ActorT20 extends Actor {
 		if (data.deslocamento.total < 0) {
 			data.deslocamento.total = 0;
 		}
+
+		if(data.pericias !== undefined && this.data.type !== "npc"){
+		data.defesa.armad = data.armadura.equipado
+		? Number(data.armadura.defesa)
+		: 0;
+		data.defesa.escud = data.escudo.equipado ? Number(data.escudo.defesa) : 0;
+		data.defesa.value =
+		10 +
+		Number(data.defesa.des ? data.atributos.des.mod : 0) +
+		Number(data.defesa.armad) +
+		Number(data.defesa.escud) +
+		Number(data.defesa.outro) +
+		Number(data.defesa.temp) +
+		Number(data.defesa.bonus ?? 0) +
+		Number(data.defesa.penalidade ?? 0);
+		}
+
 	}
 
 	/* -------------------------------------------- */
