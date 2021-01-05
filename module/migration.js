@@ -85,9 +85,26 @@ export const migrateCompendium = async function(pack) {
  */
 export const migrateItemData = function(item) {
   const updateData = {};
+  _migrateFeat(item, updateData);
   _migrateItemArmor(item, updateData);
+  _migrateItemWeapon(item, updateData);
   return updateData;
 };
+
+function _migrateFeat(item, updateData) {
+  if ( item.type != "poder" ) return;
+  let nome = item.data.tipo.split(" - ");
+  let subtipo = 0;
+  if (nome[0].includes("P. ")) {
+    nome[0] = nome[0].substring(3)
+  }
+  if (nome.length == 2) {
+    subtipo = nome[1];
+  }
+  updateData["data.tipo"] = nome[0].toLowerCase();
+  updateData["data.subtipo"] = subtipo;
+  return updateData;
+}
 
 /**
  * Replaces Armadura to Equip
@@ -98,5 +115,53 @@ function _migrateItemArmor(item, updateData) {
   updateData["type"] = "equip";
   updateData["data.tipo"] = item.data.data.subtipo != "outros" ? item.data.subtipo : "acessorio";
   updateData["data.-=subtipo"] = null;
+  return updateData;
+}
+
+function _migrateItemWeapon(item, updateData) {
+  if ( item.type != "arma" ) return;
+  if (item.data.description.includes("Arma Exótica")) {
+    updateData["data.tipoUso"] = "exotica"
+  }
+  else if (item.data.description.includes("Arma de Fogo")) {
+    updateData["data.tipoUso"] = "armaDeFogo"
+  }
+  else if (item.data.description.includes("Arma Marcial")) {
+    updateData["data.tipoUso"] = "marcial"
+  }
+  else if (item.data.description.includes("Arma Simples")) {
+    updateData["data.tipoUso"] = "simples"
+  }
+  
+  if (item.data.propriedades === undefined) {
+    updateData["data.propriedades"] = {"adaptavel":false,"agil":false,"alongada":false,"arremesso":false,"ataqueDistancia":false,"duasMaos":false,"dupla":false,"leve":false,"municao":false,"versatil":false}
+  }
+  
+  if(item.data.municao) {
+    updateData["data.propriedades.municao"] = true;
+  }
+  
+  if (item.data.description.includes("arma ágil")) {
+    updateData["data.propriedades.agil"] = true;
+  }
+  else if (item.data.description.includes("arma alongada")) {
+    updateData["data.propriedades.alongada"] = true;
+  }
+  if (item.data.description.includes("Ataque à Distância")) {
+    updateData["data.propriedades.ataqueDistancia"] = true;
+  }
+  if (item.data.description.includes("Duas Mãos")) {
+    updateData["data.propriedades.duasMaos"] = true;
+  }
+  else if (item.data.description.includes(" Leve")) {
+    updateData["data.propriedades.leve"] = true;
+  }
+  else if (item.data.description.includes("arma dupla")) {
+    updateData["data.propriedades.dupla"] = true;
+  }
+  if (item.data.description.includes("arma versátil")) {
+    updateData["data.propriedades.versatil"] = true;
+  }
+  updateData["data.-=municao"] = null;
   return updateData;
 }
