@@ -37,10 +37,6 @@
 					{{/select}}
 				</select>
 			</div>
-			<div class="form-group">
-                <label>Custo</label>
-                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
-            </div>
             <div class="form-group">
 				<label>Escola</label>
 				<select class="selectatr" name="data.escola" value={{data.escola}} data-type="String">
@@ -57,6 +53,13 @@
 				</select>
             </div>
 			<div class="form-group">
+                <label>Custo</label>
+                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+            </div>
+			
+			<hr>
+			
+			<div class="form-group">
 				<label>Rolagem</label>
 				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" placeholder="Ex: 6d6+6" />
 			</div>
@@ -64,6 +67,9 @@
 				<label>Bônus na CD</label>
 				<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
 			</div>
+			
+			<hr>
+			
             <div class="form-group">
 				<label>Execução</label>
 				<input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String" />

@@ -643,7 +643,8 @@
       },
       "objeto":{
         "peso": 0,
-        "qtd": 1
+        "qtd": 1,
+        "preco": 0
       },
       "aprimoramento": {
         "aprimoramentos": []
