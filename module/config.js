@@ -40,13 +40,13 @@ T20Config.statusEffectIcons = [
 
 T20Config.conditions = {
     "abalado": {
-        "modifiers": [ { "modificadores.pericias.penalidade" : -2 }],
+        "modifiers": [ { "modificadores.pericias.penalidade" : 2 }],
         "childrenConditions": [],
         "tooltip": "<strong>Abalado</strong><br><br>O personagem sofre –2 em testes de perícia. Se ficar abalado novamente, em vez disso fica apavorado. <i>Condição de medo.</i>",
         "durationType": "cena"
     },
     "agarrado": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : -2 }],
+        "modifiers": [ { "modificadores.ataques.penalidade" : 2 }],
         "childrenConditions": ["desprevenido", "imovel"],
         "tooltip": "<strong>Agarrado</strong><br><br>O personagem fica desprevenido e imóvel, sofre –2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. <i>Condição de paralisia.</i>",
         "durationType": "cena"
@@ -58,7 +58,7 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "apavorado": {
-        "modifiers": [ { "modificadores.pericias.penalidade" : -5 }],
+        "modifiers": [ { "modificadores.pericias.penalidade" : 5 }],
         "childrenConditions": [],
         "tooltip": "<strong>Apavorado</strong><br><br>O personagem sofre –5 em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível. Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. <i>Condição de medo.</i>",
         "durationType": "cena"
@@ -70,13 +70,13 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "caido": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : -5, "deslocamento.subst": 1.5 }],
+        "modifiers": [ { "modificadores.ataques.penalidade" : 5, "deslocamento.subst": 1.5 }],
         "childrenConditions": [],
         "tooltip": "<strong>Caído</strong><br><br> Deitado no chão. O personagem sofre –5 em ataques corpo a corpo e seu deslocamento é reduzido a 1,5m. Além disso, sofre –5 de Defesa contra ataques corpo a corpo, mas recebe +5 de Defesa contra ataques à distância.",
         "durationType": "cena"
     },
     "cego": {
-        "modifiers": [ { "atributos.for.penalidade": -5, "atributos.des.penalidade": -5 }],
+        "modifiers": [ { "atributos.for.penalidade": 5, "atributos.des.penalidade": 5 }],
         "childrenConditions": ["desprevenido", "lento"],
         "tooltip": "<strong>Cego</strong><br><br> O personagem fica desprevenido e lento, não pode fazer testes de Percepção para observar e sofre –5 em testes de perícias baseadas em Força ou Destreza. Todos os alvos de seus ataques recebem camuflagem total. <i>Condição de sentidos.</i>",
         "durationType": "cena"
@@ -88,13 +88,13 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "debilitado": {
-        "modifiers": [ { "atributos.for.penalidade": -5, "atributos.des.penalidade": -5, "atributos.con.penalidade": -5 }],
+        "modifiers": [ { "atributos.for.penalidade": 5, "atributos.des.penalidade": 5, "atributos.con.penalidade": 5 }],
         "childrenConditions": [],
         "tooltip": "<strong>Debilitado</strong><br><br> O personagem sofre –5 em testes de atributos físicos (Força, Destreza e Constituição) e de perícias baseadas nesses atributos. Se o personagem ficar debilitado novamente, em vez disso fica inconsciente.",
         "durationType": "cena"
     },
     "desprevenido": {
-        "modifiers": [ { "defesa.penalidade" : -5 }],
+        "modifiers": [ { "defesa.penalidade" : 5 }],
         "childrenConditions": [],
         "tooltip": "<strong>Desprevenido</strong><br><br> Despreparado para reagir. O personagem sofre –5 na Defesa e em Reflexos. Você fica desprevenido contra inimigos que não possa ver.",
         "durationType": "cena"
@@ -118,7 +118,7 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "enredado": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : -2 }],
+        "modifiers": [ { "modificadores.ataques.penalidade" : 2 }],
         "childrenConditions": ["lento", "vulneravel"],
         "tooltip": "<strong>Enredado</strong><br><br> O personagem fica lento, vulnerável e sofre –2 em testes de ataque. <i>Condição de paralisia.</i>",
         "durationType": "cena"
@@ -130,7 +130,7 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "esmorecido": {
-        "modifiers": [ { "atributos.int.penalidade": -5, "atributos.sab.penalidade": -5, "atributos.car.penalidade": -5 }],
+        "modifiers": [ { "atributos.int.penalidade": 5, "atributos.sab.penalidade": 5, "atributos.car.penalidade": 5 }],
         "childrenConditions": [],
         "tooltip": "<strong>Esmorecido</strong><br><br> O personagem sofre –5 em testes de atributos mentais (Inteligência, Sabedoria e Carisma) e de perícias baseadas nesses atributos. <i>Condição mental.</i>",
         "durationType": "cena"
@@ -142,7 +142,7 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "fascinado": {
-        "modifiers": [ {"pericias.per.penalidade" : -5}],
+        "modifiers": [ {"pericias.per.penalidade" : 5}],
         "childrenConditions": [],
         "tooltip": "<strong>Fascinado</strong><br><br> Com a atenção presa em alguma coisa. O personagem sofre –5 em Percepção e não pode fazer ações, exceto observar aquilo que o fascinou. Qualquer ação hostil contra o personagem anula esta condição. Balançar uma criatura fascinada para tirá-la desse estado gasta uma ação padrão. <i>Condição mental.</i>",
         "durationType": "cena"
@@ -154,13 +154,13 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "fraco": {
-        "modifiers": [ { "atributos.for.penalidade": -2, "atributos.des.penalidade": -2, "atributos.con.penalidade": -2 }],
+        "modifiers": [ { "atributos.for.penalidade": 2, "atributos.des.penalidade": 2, "atributos.con.penalidade": 2 }],
         "childrenConditions": [],
         "tooltip": "<strong>Fraco</strong><br><br>  O personagem sofre –2 em testes de atributos físicos (Força, Destreza e Constituição) e de perícias baseadas nesses atributos. Se ficar fraco novamente, em vez disso fica debilitado.",
         "durationType": "cena"
     },
     "frustrado": {
-        "modifiers": [ { "atributos.int.penalidade": -2, "atributos.sab.penalidade": -2, "atributos.car.penalidade": -2 }],
+        "modifiers": [ { "atributos.int.penalidade": 2, "atributos.sab.penalidade": 2, "atributos.car.penalidade": 2 }],
         "childrenConditions": [],
         "tooltip": "<strong>Frustrado</strong><br><br> O personagem sofre –2 em testes de atributos mentais (Inteligência, Sabedoria e Carisma) e de perícias baseadas nesses atributos. Se ficar frustrado novamente, em vez disso fica esmorecido. <i>Condição mental.</i>",
         "durationType": "cena"
@@ -178,7 +178,7 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "indefeso": {
-        "modifiers": [ { "defesa.penalidade" : -10, "pericias.ref.penalidade": -99 }],
+        "modifiers": [ { "defesa.penalidade" : 10, "pericias.ref.penalidade": 99 }],
         "childrenConditions": ["desprevenido"],
         "tooltip": "<strong>Indefeso</strong><br><br> O personagem é considerado desprevenido, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.",
         "durationType": "cena"
@@ -196,7 +196,7 @@ T20Config.conditions = {
         "durationType": "special"
     },
     "ofuscado": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : -2, "pericias.per.penalidade": -2 }],
+        "modifiers": [ { "modificadores.ataques.penalidade" : 2, "pericias.per.penalidade": 2 }],
         "childrenConditions": [],
         "tooltip": "<strong>Ofuscado</strong><br><br> O personagem sofre –2 em testes de ataque e de Percepção. <i>Condição de sentidos.</i>",
         "durationType": "cena"
@@ -226,7 +226,7 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "surdo": {
-        "modifiers": [ { "pericias.ini.penalidade": -5 }],
+        "modifiers": [ { "pericias.ini.penalidade": 5 }],
         "childrenConditions": [],
         "tooltip": "<strong>Surdo</strong><br><br> O personagem não pode fazer testes de Percepção para ouvir e sofre –5 em testes de Iniciativa. Além disso, é considerado em condição ruim para lançar magias. <i>Condição de sentidos.</i>",
         "durationType": "cena"
@@ -238,7 +238,7 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "vulneravel": {
-        "modifiers": [ { "defesa.penalidade" : -2 }],
+        "modifiers": [ { "defesa.penalidade" : 2 }],
         "childrenConditions": [],
         "tooltip": "<strong>Vulnerável</strong><br><br> O personagem sofre –2 na Defesa.",
         "durationType": "cena"

@@ -40,9 +40,9 @@ export default class ActorT20 extends Actor {
 			ability.ttl = ability.value + (ability.temp ?? 0);
 			ability.mod =
 			Math.floor((ability.value + (ability.temp ?? 0) - 10) / 2) +
-			(ability.bonus ?? 0) +
+			(ability.bonus ?? 0) -
 			(ability.penalidade ?? 0) +
-			Number(data.modificadores?.atributos?.bonus ?? 0) +
+			Number(data.modificadores?.atributos?.bonus ?? 0) -
 			Number(data.modificadores?.atributos?.penalidade ?? 0);
 		}
 
@@ -72,7 +72,7 @@ export default class ActorT20 extends Actor {
 					Number(pericia.treino) +
 					Number(pericia.mod) +
 					Number(pericia.temp ?? 0) +
-					Number(data.modificadores?.pericias?.bonus ?? 0) +
+					Number(data.modificadores?.pericias?.bonus ?? 0) -
 					Number(data.modificadores?.pericias?.penalidade ?? 0) +
 					Number(pericia.outros) -
 					Number(
@@ -95,7 +95,7 @@ export default class ActorT20 extends Actor {
 		if (isNaN(data.deslocamento)) {
 			data.deslocamento.total =
 				parseInt(data.deslocamento.base ?? 9, 10) +
-				(data.deslocamento.bonus ?? 0) +
+				(data.deslocamento.bonus ?? 0) -
 				(data.deslocamento.penalidade ?? 0);
 		} else {
 			let deslocamento = {
@@ -106,7 +106,7 @@ export default class ActorT20 extends Actor {
 				cond: "nao",
 				total:
 				data.deslocamento +
-				(data.deslocamento.bonus ?? 0) +
+				(data.deslocamento.bonus ?? 0) -
 				(data.deslocamento.penalidade ?? 0),
 			};
 			data.deslocamento = deslocamento;
@@ -136,7 +136,7 @@ export default class ActorT20 extends Actor {
 		Number(data.defesa.escud) +
 		Number(data.defesa.outro) +
 		Number(data.defesa.temp) +
-		Number(data.defesa.bonus ?? 0) +
+		Number(data.defesa.bonus ?? 0) -
 		Number(data.defesa.penalidade ?? 0);
 		}
 
@@ -195,19 +195,6 @@ export default class ActorT20 extends Actor {
 		const data = actorData.data;
 
 		/* TODO IMPLEMENT GET FROM ITEM */
-		data.defesa.armad = data.armadura.equipado
-			? Number(data.armadura.defesa)
-			: 0;
-		data.defesa.escud = data.escudo.equipado ? Number(data.escudo.defesa) : 0;
-			data.defesa.value =
-			10 +
-			Number(data.defesa.des ? data.atributos.des.mod : 0) +
-			Number(data.defesa.armad) +
-			Number(data.defesa.escud) +
-			Number(data.defesa.outro) +
-			Number(data.defesa.temp) +
-			Number(data.defesa.bonus ?? 0) +
-			Number(data.defesa.penalidade ?? 0);
 
 		data.rd.value =
 			data.rd.base +
@@ -237,7 +224,7 @@ export default class ActorT20 extends Actor {
 
 		data.defesa.final =
 			Number(data.defesa.value) +
-			Number(data.defesa.bonus ?? 0) +
+			Number(data.defesa.bonus ?? 0) -
 			Number(data.defesa.penalidade ?? 0);
 
 		// for compatibility with dnd modules
@@ -592,8 +579,7 @@ export default class ActorT20 extends Actor {
 						temp = temp[valuePath[ii]];
 					}
 					if (
-						(last == "bonus" && temp[last] < value) ||
-						(last == "penalidade" && temp[last] > value) ||
+						((last == "bonus" || last == "penalidade") && temp[last] < value) ||
 						(last != "bonus" && last != "penalidade")
 						) {
 						temp[last] = value;

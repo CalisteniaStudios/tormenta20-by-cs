@@ -49,7 +49,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       rollModes: CONFIG.Dice.rollModes,
     };
     if (item.data.data.custo > 0) {
-      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0);
       if (templateData.custo <= 0)
       {
         templateData.custo = 1;
@@ -220,7 +220,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       : `${item.data.data.atqBns} + ${extra.atq}`;
 
     let modificadorAtq =
-      (actorData.modificadores.ataques.bonus ?? 0) +
+      (actorData.modificadores.ataques.bonus ?? 0) -
       (actorData.modificadores.ataques.penalidade ?? 0);
 
     formula = {};
@@ -252,6 +252,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     let critX = extra.multCritico.match(/^\=/)
       ? extra.multCritico.replace("=", "")
       : Number(item.data.data.criticoX) + Number(extra.multCritico);
+    
+    let acertoDanoBonus
 
     if (danoBase.match(/(\d*)d\d+/g)) {
       formula.dano = `${danoBase}  + ${atributoDano} +  ${danoBonus}`;
@@ -269,10 +271,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula.crit = `${newdano} + ${atributoDano} + ${danoBonus}`;
 
       formula.dano = formula.dano.replace(/\@\w+\b/g, function (match) {
-        return "(" + T20Utility.short(match, actorData) + ")";
+        return "(" + T20Utility.short(match, actorData, true) + ")";
       });
       formula.crit = formula.crit.replace(/\@\w+\b/g, function (match) {
-        return "(" + T20Utility.short(match, actorData) + ")";
+        return "(" + T20Utility.short(match, actorData, true) + ")";
       });
 
       if (item.data.data.lancinante) {
@@ -498,11 +500,11 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     };
 
     if (!eTruque && item.data.data.custo > 0) {
-      templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0), 1);
+      templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0), 1);
       } else if (eTruque) {
         templateData.custo = 0;
         templateData.truque = 1;
-        //templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+        //templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0);
     }
 
     formula = formula
