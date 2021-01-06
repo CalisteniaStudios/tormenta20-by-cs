@@ -253,8 +253,6 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       ? extra.multCritico.replace("=", "")
       : Number(item.data.data.criticoX) + Number(extra.multCritico);
     
-    let acertoDanoBonus
-
     if (danoBase.match(/(\d*)d\d+/g)) {
       formula.dano = `${danoBase}  + ${atributoDano} +  ${danoBonus}`;
       let baseroll = danoBase.match(/(\d*)d\d+/g)
