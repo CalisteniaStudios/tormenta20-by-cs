@@ -173,8 +173,9 @@ Hooks.once("ready", async function () {
   // TODO implement Migration
   // Determine whether a system migration is required and feasible
   if ( !game.user.isGM ) return;
+  if (!game.settings.get("tormenta20", "systemMigrationVersion")) game.settings.set("tormenta20", "systemMigrationVersion", "1.0.02");
   const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion");
-  const NEEDS_MIGRATION_VERSION = "1.0.0";
+  const NEEDS_MIGRATION_VERSION = "1.0.3";
   const COMPATIBLE_MIGRATION_VERSION = "1.0.0";
   const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
   if ( !needsMigration ) return;

@@ -4,7 +4,21 @@
  */
 export const migrateWorld = async function() {
   ui.notifications.info(`Applying Tormenta20 System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
-
+  
+  // Migrate World Actors
+  for ( let a of game.actors.entities ) {
+    try {
+      const updateData = migrateActorData(a.data);
+      if ( !isObjectEmpty(updateData) ) {
+        console.log(`Migrating Actor entity ${a.name}`);
+        await a.update(updateData, {enforceTypes: false});
+      }
+    } catch(err) {
+      err.message = `Failed Tormenta20 system migration for Actor ${a.name}: ${err.message}`;
+      console.error(err);
+    }
+  }
+  
   // Migrate World Items
   for ( let i of game.items.entities ) {
     try {
@@ -14,7 +28,21 @@ export const migrateWorld = async function() {
         await i.update(updateData, {enforceTypes: false});
       }
     } catch(err) {
-      err.message = `Failed tormenta20 system migration for Item ${i.name}: ${err.message}`;
+      err.message = `Failed Tormenta20 system migration for Item ${i.name}: ${err.message}`;
+      console.error(err);
+    }
+  }
+  
+  // Migrate Actor Override Tokens
+  for ( let s of game.scenes.entities ) {
+    try {
+      const updateData = migrateSceneData(s.data);
+      if ( !isObjectEmpty(updateData) ) {
+        console.log(`Migrating Scene entity ${s.name}`);
+        await s.update(updateData, {enforceTypes: false});
+      }
+    } catch(err) {
+      err.message = `Failed Tormenta20 system migration for Scene ${s.name}: ${err.message}`;
       console.error(err);
     }
   }
@@ -55,8 +83,14 @@ export const migrateCompendium = async function(pack) {
     let updateData = {};
     try {
       switch (entity) {
+        case "Actor":
+          updateData = migrateActorData(ent.data);
+          break;
         case "Item":
           updateData = migrateItemData(ent.data);
+          break;
+        case "Scene":
+          updateData = migrateSceneData(ent.data);
           break;
       }
       if ( isObjectEmpty(updateData) ) continue;
@@ -69,7 +103,7 @@ export const migrateCompendium = async function(pack) {
 
     // Handle migration failures
     catch(err) {
-      err.message = `Failed dnd5e system migration for entity ${ent.name} in pack ${pack.collection}: ${err.message}`;
+      err.message = `Failed Tormenta20 system migration for entity ${ent.name} in pack ${pack.collection}: ${err.message}`;
       console.error(err);
     }
   }
@@ -78,6 +112,46 @@ export const migrateCompendium = async function(pack) {
   pack.configure({locked: wasLocked});
   console.log(`Migrated all ${entity} entities from Compendium ${pack.collection}`);
 };
+
+/* -------------------------------------------- */
+/*  Entity Type Migration Helpers               */
+/* -------------------------------------------- */
+
+/**
+ * Migrate a single Actor entity to incorporate latest data model changes
+ * Return an Object of updateData to be applied
+ * @param {Actor} actor   The actor to Update
+ * @return {Object}       The updateData to apply
+ */
+export const migrateActorData = function(actor) {
+  const updateData = {};
+  
+  // Migrate Owned Items
+  if (actor.img && actor.img.includes("modules/tormenta20-compendium")) {
+    updateData["img"] = actor.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
+    updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
+  }
+  if(actor.name == "Neclon Strack")  {
+    console.log("aqui");
+  }
+  if ( !actor.items ) return updateData;
+  let hasItemUpdates = false;
+  const items = actor.items.map(i => {
+
+    // Migrate the Owned Item
+    let itemUpdate = migrateItemData(i);
+
+    // Update the Owned Item
+    if ( !isObjectEmpty(itemUpdate) ) {
+      hasItemUpdates = true;
+      return mergeObject(i, itemUpdate, {enforceTypes: false, inplace: false});
+    } else return i;
+  });
+  if ( hasItemUpdates ) updateData.items = items;
+  return updateData;
+};
+
+/* -------------------------------------------- */
 
 /**
  * Migrate a single Item entity to incorporate latest data model changes
@@ -88,21 +162,62 @@ export const migrateItemData = function(item) {
   _migrateFeat(item, updateData);
   _migrateItemArmor(item, updateData);
   _migrateItemWeapon(item, updateData);
+  if (item.img && item.img.includes("modules/tormenta20-compendium")) {
+    updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
+  }
   return updateData;
 };
 
+/* -------------------------------------------- */
+
+/**
+ * Migrate a single Scene entity to incorporate changes to the data model of it's actor data overrides
+ * Return an Object of updateData to be applied
+ * @param {Object} scene  The Scene data to Update
+ * @return {Object}       The updateData to apply
+ */
+export const migrateSceneData = function(scene) {
+  const tokens = duplicate(scene.tokens);
+  return {
+    tokens: tokens.map(t => {
+      if (!t.actorId || t.actorLink || !t.actorData.data) {
+        t.actorData = {};
+        return t;
+      }
+      const token = new Token(t);
+      if ( !token.actor ) {
+        t.actorId = null;
+        t.actorData = {};
+      } else if ( !t.actorLink ) {
+        const updateData = migrateActorData(token.data.actorData);
+        t.actorData = mergeObject(token.data.actorData, updateData);
+      }
+      return t;
+    })
+  };
+};
+
+/* -------------------------------------------- */
+
+/**
+ * Reorganiza os poderes.
+ * @private
+ */
 function _migrateFeat(item, updateData) {
   if ( item.type != "poder" ) return;
-  let nome = item.data.tipo.split(" - ");
-  let subtipo = 0;
-  if (nome[0].includes("P. ")) {
-    nome[0] = nome[0].substring(3)
+  if (item.data.tipo != "") {
+    let nome = item.data.tipo.split(" - ");
+    let subtipo = nome.length == 2 ? nome[1] : "";
+    
+    if (nome[0].includes("P. ")) {
+      nome[0] = nome[0].substring(3)
+    }
+    updateData["data.tipo"] = nome[0].toLowerCase();
+    updateData["data.subtipo"] = subtipo;
   }
-  if (nome.length == 2) {
-    subtipo = nome[1];
+  else {
+    updateData["data.subtipo"] = "";
   }
-  updateData["data.tipo"] = nome[0].toLowerCase();
-  updateData["data.subtipo"] = subtipo;
   return updateData;
 }
 
@@ -113,11 +228,23 @@ function _migrateFeat(item, updateData) {
 function _migrateItemArmor(item, updateData) {
   if ( item.type != "armadura" ) return;
   updateData["type"] = "equip";
-  updateData["data.tipo"] = item.data.data.subtipo != "outros" ? item.data.subtipo : "acessorio";
+  if (item.data.tipo.includes("escudo")) {
+    updateData["data.tipo"] = "escudo"
+  }
+  else if (item.data.subtipo == "pesado") {
+    updateData["data.tipo"] = "pesada"
+  }
+  else {
+    updateData["data.tipo"] = item.data.subtipo != "outros" ? item.data.subtipo : "acessorio";
+  }
   updateData["data.-=subtipo"] = null;
   return updateData;
 }
 
+/**
+ * Adiciona os tipos e propriedades das armas.
+ * @private
+ */
 function _migrateItemWeapon(item, updateData) {
   if ( item.type != "arma" ) return;
   if (item.data.description.includes("Arma Exótica")) {
@@ -129,7 +256,7 @@ function _migrateItemWeapon(item, updateData) {
   else if (item.data.description.includes("Arma Marcial")) {
     updateData["data.tipoUso"] = "marcial"
   }
-  else if (item.data.description.includes("Arma Simples")) {
+  else { //if (item.data.description.includes("Arma Simples")) {
     updateData["data.tipoUso"] = "simples"
   }
   
@@ -149,8 +276,14 @@ function _migrateItemWeapon(item, updateData) {
   }
   if (item.data.description.includes("Ataque à Distância")) {
     updateData["data.propriedades.ataqueDistancia"] = true;
+    if(item.data.pericia === "lut") {
+      updateData["data.pericia"] = "pon";
+    }
   }
-  if (item.data.description.includes("Duas Mãos")) {
+  if (item.data.description.includes("Munição")) {
+    updateData["data.propriedades.municao"] = true;
+  }
+  if (item.data.description.includes("Duas Mãos" || "Exige as duas mãos")) {
     updateData["data.propriedades.duasMaos"] = true;
   }
   else if (item.data.description.includes(" Leve")) {
