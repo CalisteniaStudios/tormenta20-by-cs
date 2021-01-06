@@ -131,9 +131,6 @@ export const migrateActorData = function(actor) {
     updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
     updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
   }
-  if(actor.name == "Neclon Strack")  {
-    console.log("aqui");
-  }
   if ( !actor.items ) return updateData;
   let hasItemUpdates = false;
   const items = actor.items.map(i => {
