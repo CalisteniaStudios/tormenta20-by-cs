@@ -103,6 +103,25 @@ button {
   /*#f18c17;*/
 }
 
+#combat #combat-controls button.scene-segment {
+  background: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+#combat #combat-controls button.scene-segment:hover,
+#combat #combat-controls button.scene-segment:focus {
+  /* filter: invert(26%) sepia(98%) saturate(7028%) hue-rotate(357deg) brightness(98%) contrast(117%); */
+  filter: drop-shadow( 0px 0px 0px rgba(255, 0, 0, 1));
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#combat #combat-controls .scene-segment img {
+  border-color: transparent;
+}
+
 button {
   width: 100%;
   margin: 0 1px;

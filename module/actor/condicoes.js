@@ -21,7 +21,7 @@ async function chatCondition(actor, condicao) {
 
     let condicaoDados = CONFIG.conditions[condicao];
     let condicaoDadosOrig = CONFIG.statusEffects.find(x => x.id == condicao);
-    let chatMessage = "<img class='invert' src='" + condicaoDadosOrig.icon + "' width='50' height='50' />" + condicaoDados.tooltip;
+    let chatMessage = "<div class='tormenta20 chat-card item-card'><header class='card-header flexrow'><img class='invert' src='" + condicaoDadosOrig.icon + "' width='36' height='36' style='flex:0'><h3 class='item-name'><div>" + condicaoDadosOrig.label + "</div></h3></header><div class='card-content'>" + condicaoDados.tooltip.replace('<strong>' + condicaoDadosOrig.label + '</strong><br><br>','') + "</div></div>";
     toChat(this, chatMessage);
   }
 }
