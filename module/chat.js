@@ -33,7 +33,7 @@ export const addChatMessageContextOptions = function (html, options) {
         callback: li => applyChatCardDamage(li, 0.5)
     }, {
         name: 'Gastar Mana',
-        icon: '<i class="fas fa-user-minus"></i>',
+        icon: '<i class="fas fa-star"></i>',
         condition: canApplyMana,
         callback: li => applyChatManaSpend(li, 0)
     });
