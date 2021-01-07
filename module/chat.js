@@ -45,48 +45,51 @@ export const ApplyButtons = function (app, html, data)
   let chatHTML = new DOMParser().parseFromString(data.message.content, "text/xml");
   if(chatHTML.querySelectorAll(".mana-cost, .roll--dano").length > 0)
   {
-    const areaBotoes = $(`    <HR><div><table class="apply-area"><tbody><tr>`);
+    let areaBotoes = $(`<HR><div><table class="apply-area"><tbody><tr></tr></tbody></table></div>`);
     if(chatHTML.querySelectorAll(".roll--dano").length > 0)
     {
-        const botaoDanoAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-minus apply-button-img" title="Aplicar Dano"></i></button></td>`);
-        areaBotoes.append(botaoDanoAplicar);
+        const botaoDanoAplicar = $(`<td class="apply-button apply-button-dano"><button class="apply-button-b"><i class="fas fa-user-minus apply-button-img" title="Aplicar Dano"></i></button></td>`);
+        areaBotoes.find("tr").append(botaoDanoAplicar);
         botaoDanoAplicar.click(ev => {
             ev.stopPropagation();
             applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,1);
+            this.render(true);
         });
-        const botaoCuraAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-plus apply-button-img" title="Aplicar Cura"></i></button></td>`);
-        areaBotoes.append(botaoCuraAplicar);
+        const botaoCuraAplicar = $(`<td class="apply-button"><button class="apply-button-b apply-button-cura"><i class="fas fa-user-plus apply-button-img" title="Aplicar Cura"></i></button></td>`);
+        areaBotoes.find("tr").append(botaoCuraAplicar);
         botaoCuraAplicar.click(ev => {
             ev.stopPropagation();
             applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
+            this.render(true);
         });
-        const botaoDanoDobroAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-injured apply-button-img" title="Aplicar Dano em Dobro"></i></button></td>`);
-        areaBotoes.append(botaoDanoDobroAplicar);
+        const botaoDanoDobroAplicar = $(`<td class="apply-button"><button class="apply-button-b apply-button-dano-dobro"><i class="fas fa-user-injured apply-button-img" title="Aplicar Dano em Dobro"></i></button></td>`);
+        areaBotoes.find("tr").append(botaoDanoDobroAplicar);
         botaoDanoDobroAplicar.click(ev => {
             ev.stopPropagation();
             applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,2);
+            this.render(true);
         });
-        const botaoDanoMetadeAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-shield apply-button-img" title="Aplicar Dano pela Metade"></i></button></td>`);
-        areaBotoes.append(botaoDanoMetadeAplicar);
+        const botaoDanoMetadeAplicar = $(`<td class="apply-button"><button class="apply-button-b apply-button-dano-metade"><i class="fas fa-user-shield apply-button-img" title="Aplicar Dano pela Metade"></i></button></td>`);
+        areaBotoes.find("tr").append(botaoDanoMetadeAplicar);
         botaoDanoMetadeAplicar.click(ev => {
             ev.stopPropagation();
             applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,0.5);
+            this.render(true);
         });
     }
     if(chatHTML.querySelectorAll(".mana-cost").length > 0)
     {
-        const botaoGastoMana = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-star apply-button-img" title="Gastar Mana"></i></button></td>`);
-        areaBotoes.append(botaoGastoMana);
+        const botaoGastoMana = $(`<td class="apply-button"><button class="apply-button-b apply-button-mana"><i class="fas fa-star apply-button-img" title="Gastar Mana"></i></button></td>`);
+        areaBotoes.find("tr").append(botaoGastoMana);
         botaoGastoMana.click(ev => {
             ev.stopPropagation();
             applyInsideChatManaSpend(chatHTML.querySelectorAll(".mana-cost")[0].innerHTML);
+            this.render(true);
         });
 
     }
-    areaBotoes.append($(`</tr></tbody></table></div>`));
 
-    html.find('.item-card').append(areaBotoes);
-
+    html.find('.item-card').append(areaBotoes);    
   }
   
 }
