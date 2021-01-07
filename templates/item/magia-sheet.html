@@ -1,20 +1,6 @@
 <form class="tormenta20" autocomplete="off">
 	{{!-- Item Sheet Header --}}
-    <header class="sheet-header flexrow">
-		<img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
-
-		<div class="header-details flexcol">
-			<h1 class="charname" style="margin: 0;">
-				<input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
-			</h1>
-			<footer>
-				<label style="font-size: 11px">{{data.tipo}} {{data.circulo}} ({{data.escola}})</label>
-			</footer>
-		</div>
-		<aside style="text-align: right; flex: 0 80px;">
-			<h2>{{data.custo}} PM</h2>
-		</aside>
-	</header>
+    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
 	
 	{{!-- Item Sheet Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
@@ -70,6 +56,9 @@
                 <label>Custo</label>
                 <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
             </div>
+			
+			<hr>
+			
 			<div class="form-group">
 				<label>Rolagem</label>
 				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" placeholder="Ex: 6d6+6" />
@@ -78,6 +67,9 @@
 				<label>Bônus na CD</label>
 				<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
 			</div>
+			
+			<hr>
+			
             <div class="form-group">
 				<label>Execução</label>
 				<input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String" />
@@ -114,7 +106,7 @@
 		</div>
 
 		<div class="tab aprimoramentos" data-group="primary" data-tab="aprimoramentos">
-		  <ul class="items-list">
+		  <ul class="item-list">
 			<li class="item flexrow item-header">
 			  <div class="item-custo">Custo</div>
 			  <div class="item-tipo">Tipo</div>

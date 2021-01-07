@@ -201,7 +201,7 @@
 				{{/each}}
 			</ul>
 
-			<section class="center-pane flexcol">
+			<section class="center-pane">
 				
 				<div class="outros">
 					<h3 style="text-align:center">PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h3>
@@ -224,23 +224,22 @@
 					</div>
 					<textarea name="data.attributes.info" style="resize:vertical; border-image: none; border-width: 1px;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
+				<div class="conditions">
+					<li class="item flexrow item-header flex-center">
+						<div>CONDIÇÕES ATUAIS</div>
+					</li>
+					{{#each actor.referencias as |item index|}}
+					<div>
+						<label class="tooltip">
+						  <img class="invert" src="{{item.icon}}" width="36" height="36" /> {{item.label}} 
+						  <i class="fas fa-question-circle"></i>
+						  <div class="tooltipcontent"> <img src="{{item.icon}}" width="120" height="120" /> {{{item.tooltip}}} </div>
+						</label>
+					  </div>
+					{{/each}}
+				</div>
 			</section>
 
-			<div class="conditions" hidden>
-				<li class="item flexrow item-header flex-center">
-					<div>CONDIÇÕES ATUAIS</div>
-				</li>
-				{{#each actor.referencias as |item index|}}
-				<div>
-					<label class="tooltip">
-						<input type="checkbox" name="condition-{{item.flags.core.statusId}}"
-						value="condition-{{item.flags.core.statusId}}" checked data-dtype="Boolean" onclick="return false;" />
-						{{item.label}} <i class="fas fa-question-circle"></i>
-						<div class="tooltipcontent"> {{{item.tooltip}}} </div>
-					</label>
-				</div>
-				{{/each}}
-			</div>
 		</div>
 
 		

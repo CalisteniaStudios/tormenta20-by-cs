@@ -6,24 +6,35 @@
             <label>Quantidade</label>
             <input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number"/>
         </div>
-
         <div class="form-group">
             <label>Peso</label>
             <input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/>
         </div>
+		<div class="form-group">
+            <label>Preço</label>
+            <input type="text" name="data.preco" value="{{data.preco}}" data-dtype="Number" placeholder="0" data-dtype="Number"/>
+        </div>
 		{{/if}}
-		{{#ifEquals item.type "equip"}}
+		{{#if (eq item.type "arma")}}
+		<ul class="properties-list">
+		{{#each config.weaponProperties as |name prop|}}
+			{{#if (lookup ../data.propriedades prop)}}<li>{{name}}{{#ifEquals prop "arremesso"}} ({{../data.alcance}}){{/ifEquals}}</li>{{/if}}
+			<!-- <input type="checkbox" name="data.propriedades.{{prop}}" {{checked (lookup ../data.propriedades prop)}}/> {{ name }} -->
+		{{/each}}
+		</ul>
+		{{/if}}
+		{{#if (eq item.type "equip")}}
 		<ul class="properties-list">
 			{{#if item.data.armadura.value}}<li>Defesa: {{item.data.armadura.value}}</li>{{/if}}
 			{{#if item.data.armadura.penalidade}}<li>Penalidade: {{item.data.armadura.penalidade}}</li>{{/if}}
 		</ul>
-		{{/ifEquals}}
-		{{#ifEquals item.type "poder"}}
+		{{/if}}
+		{{#if (eq item.type "poder")}}
 		<ul class="properties-list">
-			{{#if item.data.tipo}}<li>{{item.data.tipo}}</li>{{/if}}
+			<li style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</li>
 		</ul>
-		{{/ifEquals}}
-		{{#ifEquals item.type "magia"}}
+		{{/if}}
+		{{#if (eq item.type "magia")}}
 		<ul class="properties-list">
 			{{#if item.data.execucao}}<li><strong>Execução:</strong> {{item.data.execucao}}</li>{{/if}}
 			{{#if item.data.alcance}}<li><strong>Alcance:</strong> {{item.data.alcance}}</li>{{/if}}
@@ -32,7 +43,7 @@
 			{{#if item.data.duracao}}<li><strong>Duração:</strong> {{item.data.duracao}}</li>{{/if}}
 			{{#if item.data.resistencia}}<li><strong>Resistência:</strong> {{item.data.resistencia}}{{#if item.data.totalCD}} (CD {{item.data.totalCD}}){{/if}}</li>{{/if}}
 		</ul>
-		{{/ifEquals}}
+		{{/if}}
     </div>
 
     {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}

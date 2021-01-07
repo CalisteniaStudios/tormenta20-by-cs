@@ -1,6 +1,7 @@
 import { prepRoll } from "../../dice.js";
 import ActorSheetT20 from "./base.js";
 import ActorT20 from "../entity.js";
+import { T20Utility } from "../../utility.js";
 /**
  * An Actor sheet for player character type actors.
  * Extends the base ActorSheetT20 class.
@@ -35,7 +36,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const sheetData = super.getData();
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
-		
+		console.log(this.actor);
 		// TODO Understand this
 		for (let [pc, per] of Object.entries(this.actor.data.data.atributos)) {
 			if(per.bonus === undefined || per.penalidade === undefined) {
@@ -286,10 +287,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		if (item.data.data.equipado && exclusiveSlot) {
 			let unequipped = items.some(element => { //some() === forEach() with a return
-				if(element.type === "equip" && element.data.tipo === item.data.data.tipo && element.data.equipado && element._id != item.data._id) {
-					element.data.equipado = false;
-					return true;
-				}
+        if(element.type === "equip" && element.data.equipado && element._id != item.data._id) {
+          if (element.data.tipo === item.data.data.tipo || ((element.data.tipo == "leve" || element.data.tipo == "pesada") && (item.data.data.tipo == "leve" || item.data.data.tipo == "pesada"))) {
+            element.data.equipado = false;
+            return true;
+          }
+        }
 			});
 			if (unequipped) {
 				this.actor.update({"items": items });

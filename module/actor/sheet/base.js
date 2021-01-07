@@ -215,7 +215,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		const a = event.currentTarget;
 		const data = a.dataset;
 		const id = a.parentElement.dataset.itemId;
-		console.log(id);
 		let item = {};
 		if(Object.keys(actorData.atributos).includes(id)){
 			item.type = "atributo";
@@ -377,6 +376,28 @@ export default class ActorSheetT20 extends ActorSheet {
 	_onItemDelete(event) {
 		event.preventDefault();
 		const li = event.currentTarget.closest(".item");
+
+		// const item = this.actor.getOwnedItem(li.data("itemId"));
+		const item = this.actor.items.get(li.dataset.itemId);
+		if(item.data.type === "armadura" && item.data.data.equipado) {
+			const armadura = {
+				nome: "",
+				defesa:  0,
+				penalidade: 0,
+				equipado: false
+			};
+			if (item.data.data.tipo === "armadura") {
+				this.actor.update({
+					"data.armadura": armadura,
+					"data.defesa.des": true
+				});
+			}
+			else if (item.data.data.tipo === "escudo") {
+				this.actor.update({
+					"data.escudo": armadura,
+				});
+			}
+		}
 		this.actor.deleteOwnedItem(li.dataset.itemId);
 	}
 

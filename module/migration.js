@@ -7,8 +7,8 @@ export const migrateWorld = async function() {
 
 	// Migrate World Actors
 	// TODO migrate npcs
-	// for ( let a of game.actors.entities ) {
-	for ( let a of game.actors.entities.filter(ac=> ac.data.type=="character") ) {
+	// for ( let a of game.actors.entities.filter(ac=> ac.data.type=="character") ) {
+	for ( let a of game.actors.entities ) {
 		try {
 			const updateData = migrateActorData(a.data);
 			if ( !isObjectEmpty(updateData) ) {
@@ -31,6 +31,20 @@ export const migrateWorld = async function() {
 			}
 		} catch(err) {
 			err.message = `Failed tormenta20 system migration for Item ${i.name}: ${err.message}`;
+			console.error(err);
+		}
+	}
+
+	// Migrate Actor Override Tokens
+	for ( let s of game.scenes.entities ) {
+		try {
+			const updateData = migrateSceneData(s.data);
+			if ( !isObjectEmpty(updateData) ) {
+				console.log(`Migrating Scene entity ${s.name}`);
+				await s.update(updateData, {enforceTypes: false});
+			}
+		} catch(err) {
+			err.message = `Failed Tormenta20 system migration for Scene ${s.name}: ${err.message}`;
 			console.error(err);
 		}
 	}
@@ -71,9 +85,15 @@ export const migrateCompendium = async function(pack) {
 		let updateData = {};
 		try {
 			switch (entity) {
+				case "Actor":
+					updateData = migrateActorData(ent.data);
+					break;
 				case "Item":
-				updateData = migrateItemData(ent.data);
-				break;
+					updateData = migrateItemData(ent.data);
+					break;
+				case "Scene":
+					updateData = migrateSceneData(ent.data);
+					break;
 			}
 			if ( isObjectEmpty(updateData) ) continue;
 
@@ -112,18 +132,22 @@ export const migrateActorData = function(actor) {
 	_migrateActorSkills(actor, updateData);
 
 	// Migrate Owned Items
+	if (actor.img && actor.img.includes("modules/tormenta20-compendium")) {
+		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
+		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
+	}
 	if ( !actor.items ) return updateData;
 	let hasItemUpdates = false;
 	const items = actor.items.map(i => {
 
 		// Migrate the Owned Item
 		// Descomentar para migrar os itens nos personagens
-		// let itemUpdate = migrateItemData(i);
-		let itemUpdate = {};
-		// Prepared, Equipped, and Proficient for NPC actors
-		if ( actor.type === "npc" ) {
-			
-		}
+		let itemUpdate = migrateItemData(i);
+		// let itemUpdate = {};
+		// NPC Only
+		// if ( actor.type === "npc" ) {
+		// }
+		
 
 		// Update the Owned Item
 		if ( !isObjectEmpty(itemUpdate) ) {
@@ -140,6 +164,33 @@ export const migrateActorData = function(actor) {
 	// TODO clean actor data
 
 /* -------------------------------------------- */
+
+/**
+* Migrate a single Scene entity to incorporate changes to the data model of it's actor data overrides
+* Return an Object of updateData to be applied
+* @param {Object} scene  The Scene data to Update
+* @return {Object}       The updateData to apply
+*/
+export const migrateSceneData = function(scene) {
+	const tokens = duplicate(scene.tokens);
+	return {
+		tokens: tokens.map(t => {
+			if (!t.actorId || t.actorLink || !t.actorData.data) {
+				t.actorData = {};
+				return t;
+			}
+			const token = new Token(t);
+			if ( !token.actor ) {
+				t.actorId = null;
+				t.actorData = {};
+			} else if ( !t.actorLink ) {
+				const updateData = migrateActorData(token.data.actorData);
+				t.actorData = mergeObject(token.data.actorData, updateData);
+			}
+			return t;
+		})
+	};
+};
 
 /* -------------------------------------------- */
 /*  Low level migration utilities
@@ -178,9 +229,38 @@ function _migrateActorSkills(actor, updateData) {
 */
 export const migrateItemData = function(item) {
 	const updateData = {};
+	_migratePower(item, updateData);
 	_migrateItemArmor(item, updateData);
+	_migrateItemWeapon(item, updateData);
+	if (item.img && item.img.includes("modules/tormenta20-compendium")) {
+		updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
+	}
 	return updateData;
 };
+
+/* -------------------------------------------- */
+
+/**
+* Reorganiza os poderes.
+* @private
+*/
+function _migratePower(item, updateData) {
+	if ( item.type != "poder" ) return;
+	if (item.data.tipo != "") {
+		let nome = item.data.tipo.split(" - ");
+		let subtipo = nome.length == 2 ? nome[1] : "";
+
+		if (nome[0].includes("P. ")) {
+			nome[0] = nome[0].substring(3)
+		}
+		updateData["data.tipo"] = nome[0].toLowerCase();
+		updateData["data.subtipo"] = subtipo;
+	}
+	else {
+		updateData["data.subtipo"] = "";
+	}
+	return updateData;
+}
 
 /**
 * Replaces Armadura to Equip
@@ -188,9 +268,75 @@ export const migrateItemData = function(item) {
 */
 function _migrateItemArmor(item, updateData) {
 	if ( item.type != "armadura" ) return;
-	console.log(item);
 	updateData["type"] = "equip";
-	updateData["data.tipo"] = item.data.subtipo != "outros" ? item.data.subtipo : "acessorio";
+	if (item.data.tipo.includes("escudo")) {
+		updateData["data.tipo"] = "escudo"
+	}
+	else if (item.data.subtipo == "pesado") {
+		updateData["data.tipo"] = "pesada"
+	}
+	else {
+		updateData["data.tipo"] = item.data.subtipo != "outros" ? item.data.subtipo : "acessorio";
+	}
 	updateData["data.-=subtipo"] = null;
+	return updateData;
+}
+
+
+/**
+* Adiciona os tipos e propriedades das armas.
+* @private
+*/
+function _migrateItemWeapon(item, updateData) {
+	if ( item.type != "arma" ) return;
+	if (item.data.description.includes("Arma Exótica")) {
+		updateData["data.tipoUso"] = "exotica"
+	}
+	else if (item.data.description.includes("Arma de Fogo")) {
+		updateData["data.tipoUso"] = "armaDeFogo"
+	}
+	else if (item.data.description.includes("Arma Marcial")) {
+		updateData["data.tipoUso"] = "marcial"
+	}
+	else { //if (item.data.description.includes("Arma Simples")) {
+		updateData["data.tipoUso"] = "simples"
+	}
+
+	if (item.data.propriedades === undefined) {
+		updateData["data.propriedades"] = {"adaptavel":false,"agil":false,"alongada":false,"arremesso":false,"ataqueDistancia":false,"duasMaos":false,"dupla":false,"leve":false,"municao":false,"versatil":false}
+	}
+
+	if(item.data.municao) {
+		updateData["data.propriedades.municao"] = true;
+	}
+
+	if (item.data.description.includes("arma ágil")) {
+		updateData["data.propriedades.agil"] = true;
+	}
+	else if (item.data.description.includes("arma alongada")) {
+		updateData["data.propriedades.alongada"] = true;
+	}
+	if (item.data.description.includes("Ataque à Distância")) {
+		updateData["data.propriedades.ataqueDistancia"] = true;
+		if(item.data.pericia === "lut") {
+			updateData["data.pericia"] = "pon";
+		}
+	}
+	if (item.data.description.includes("Munição")) {
+		updateData["data.propriedades.municao"] = true;
+	}
+	if (item.data.description.includes("Duas Mãos" || "Exige as duas mãos")) {
+		updateData["data.propriedades.duasMaos"] = true;
+	}
+	else if (item.data.description.includes(" Leve")) {
+		updateData["data.propriedades.leve"] = true;
+	}
+	else if (item.data.description.includes("arma dupla")) {
+		updateData["data.propriedades.dupla"] = true;
+	}
+	if (item.data.description.includes("arma versátil")) {
+		updateData["data.propriedades.versatil"] = true;
+	}
+	updateData["data.-=municao"] = null;
 	return updateData;
 }

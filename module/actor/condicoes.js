@@ -2,7 +2,6 @@ const _TokenToggleEffect = Token.prototype.toggleEffect;
 export const toggleEffect = async function (...args) {
   const data = _TokenToggleEffect.bind(this)(...args);
   let condicao = args[0].id;
-  //await resolveConditions(this.actor, condicao);
   await chatCondition(this.actor, condicao);
   return data;
 };
@@ -21,7 +20,8 @@ async function chatCondition(actor, condicao) {
     };
 
     let condicaoDados = CONFIG.conditions[condicao];
-    let chatMessage = condicaoDados.tooltip;
+    let condicaoDadosOrig = CONFIG.statusEffects.find(x => x.id == condicao);
+    let chatMessage = "<div class='tormenta20 chat-card item-card'><header class='card-header flexrow'><img class='invert' src='" + condicaoDadosOrig.icon + "' width='36' height='36' style='flex:0'><h3 class='item-name'><div>" + condicaoDadosOrig.label + "</div></h3></header><div class='card-content'>" + condicaoDados.tooltip.replace('<strong>' + condicaoDadosOrig.label + '</strong><br><br>','') + "</div></div>";
     toChat(this, chatMessage);
   }
 }

@@ -1,5 +1,5 @@
 export class T20Utility {
-    static short(curto, actor){
+    static short(curto, actor, noCond = false){
     let value = null;
     let atr = curto.replace("@","");
     if(value == null){
@@ -7,6 +7,9 @@ export class T20Utility {
         // Calculate the modifier using d20 rules.
         if(key == atr){
           value = ability.mod;
+          if(noCond){
+            value = ability.mod - ability.bonus + ability.penalidade;
+          }
         }
       }
     }
@@ -15,6 +18,9 @@ export class T20Utility {
         // Calculate the modifier using d20 rules.
         if(pericias.label.toLowerCase() == atr){
           value = pericias.value;
+          if(noCond){
+            value = pericias.mod - pericias.bonus + pericias.penalidade;
+          }
         }
       }
     }
@@ -24,6 +30,9 @@ export class T20Utility {
         // Calculate the modifier using d20 rules.
         if(pericias.label.toLowerCase() == atr){
           value = pericias.value;
+          if(noCond){
+            value = pericias.mod - pericias.bonus + pericias.penalidade;
+          }
         }
       }
     }
@@ -33,6 +42,9 @@ export class T20Utility {
         // Calculate the modifier using d20 rules.
         if(pericias.label.toLowerCase() == atr){
           value = pericias.value;
+          if(noCond){
+            value = pericias.mod - pericias.bonus + pericias.penalidade;
+          }
         }
       }
     }

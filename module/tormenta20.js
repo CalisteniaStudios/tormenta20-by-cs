@@ -18,6 +18,7 @@ import ActorSheetT20Character from "./actor/sheet/character.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
 import { toggleEffect } from "./actor/condicoes.js";
+import { endSegment } from "./apps/time-segment.js";
 
 // Import Helpers
 import * as chat from "./chat.js";
@@ -57,6 +58,7 @@ Hooks.once("init", async function () {
   // Define custom Entity classes
   CONFIG.Actor.entityClass = ActorT20;
   CONFIG.Item.entityClass = ItemT20;
+  CONFIG.T20 = T20Config;
   CONFIG.statusEffects = T20Config.statusEffectIcons;
   CONFIG.conditions = T20Config.conditions;
 
@@ -70,7 +72,7 @@ Hooks.once("init", async function () {
   };
   Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
-  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'morto')[0].icon;
+  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'inconsciente')[0].icon;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -94,7 +96,7 @@ Hooks.once("init", async function () {
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper("concat", function () {
-    var outStr = "";
+    var outStr = "";Chat
     for (var arg in arguments) {
       if (typeof arguments[arg] != "object") {
         outStr += arguments[arg];
@@ -127,6 +129,19 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("ifEGreater", function (arg1, arg2, options) {
     if (arg1 >= arg2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+  Handlebars.registerHelper("ifOr", function (arg1, arg2, options) {
+    if (arg1 || arg2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+
+  Handlebars.registerHelper("ifAny", function (arg1, arg2, arg3, options) {
+    if (arg1 || arg2 || arg3) {
       return options.fn(this);
     }
     return options.inverse(this);
@@ -165,13 +180,12 @@ Hooks.once("ready", async function () {
   // TODO implement Migration
   // Determine whether a system migration is required and feasible
   if ( !game.user.isGM ) return;
+  if (!game.settings.get("tormenta20", "systemMigrationVersion")) game.settings.set("tormenta20", "systemMigrationVersion", "1.0.02");
   const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion");
-  if(!currentVersion) game.settings.set("tormenta20", "systemMigrationVersion", "1.0.02");
-  
   const NEEDS_MIGRATION_VERSION = "1.0.3";
-  const COMPATIBLE_MIGRATION_VERSION = "1.0.02";
-  const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
-  
+  const COMPATIBLE_MIGRATION_VERSION = "1.0.0";
+  // const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  const needsMigration = true;
   if ( !needsMigration ) return;
   // Perform the migration
   if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
@@ -210,7 +224,13 @@ Hooks.on("renderChatMessage", (app, html, data) => {
 
   // Optionally collapse the content
   if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
+  if (game.settings.get("tormenta20", "applyButtonsInsideChat"))
+  {
+    chat.ApplyButtons(app, html, data);
+  }
+  
 });
+
 /* Add hook for the context menu over the rolled damage */
 Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 // Hooks.on("renderChatLog", (app, html, data) => T20Item.chatListeners(html));
@@ -218,7 +238,8 @@ Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 Hooks.on("renderChatLog", (app, html, data) => ItemT20.chatListeners(html));
 Hooks.on("renderChatPopout", (app, html, data) => ItemT20.chatListeners(html));
 
-
+/* Add hook for End of Cena */
+Hooks.on("renderSidebarTab", async (app, html) => endSegment(app,html)) ;
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */

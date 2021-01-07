@@ -45,10 +45,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       power: poder,
       details: detailText,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     if (item.data.data.custo > 0) {
-      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0);
       if (templateData.custo <= 0)
       {
         templateData.custo = 1;
@@ -64,7 +64,9 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     } else {
       const configuration = await AbilityUseDialog.create(item);
       templateData.rollMode = configuration.rollMode;
-      templateData.custo = (parseInt(templateData.custo) ?? 0) + parseInt(configuration.ajustecusto);
+      templateData.custo = (parseInt(templateData.custo) ?? 0);
+      if(!isNaN(parseInt(configuration.ajustecusto)))
+        templateData.custo = parseInt(configuration.ajustecusto);
       formula = `${formula} + ${configuration.bonus}`;
       rollT20(formula, actor, templateData);
     }
@@ -95,7 +97,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       item: item,
       title: item.label,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     formula = formula
       .replace(/ /g, "")
@@ -126,7 +128,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       title: item.data.name,
       toIniciative: item.data.data.toIniciative,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     formula = formula
       .replace(/ /g, "")
@@ -167,7 +169,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       item: item,
       title: item.label,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     formula = formula
       .replace(/ /g, "")
@@ -217,7 +219,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       : `${item.data.data.atqBns} + ${extra.atq}`;
 
     let modificadorAtq =
-      (actorData.modificadores.ataques.bonus ?? 0) +
+      (actorData.modificadores.ataques.bonus ?? 0) -
       (actorData.modificadores.ataques.penalidade ?? 0);
 
     formula = {};
@@ -249,7 +251,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     let critX = extra.multCritico.match(/^\=/)
       ? extra.multCritico.replace("=", "")
       : Number(item.data.data.criticoX) + Number(extra.multCritico);
-
+    
     if (danoBase.match(/(\d*)d\d+/g)) {
       formula.dano = `${danoBase}  + ${atributoDano} +  ${danoBonus}`;
       let baseroll = danoBase.match(/(\d*)d\d+/g)
@@ -266,17 +268,17 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula.crit = `${newdano} + ${atributoDano} + ${danoBonus}`;
 
       formula.dano = formula.dano.replace(/\@\w+\b/g, function (match) {
-        return "(" + T20Utility.short(match, actorData) + ")";
+        return "(" + T20Utility.short(match, actorData, true) + ")";
       });
       formula.crit = formula.crit.replace(/\@\w+\b/g, function (match) {
-        return "(" + T20Utility.short(match, actorData) + ")";
+        return "(" + T20Utility.short(match, actorData, true) + ")";
       });
 
       if (item.data.data.lancinante) {
-        let lacinante = formula.crit
+        let lancinante = formula.crit
           .replace(/\s/g, "")
           .replace(/(\b\d+\b)/g, "($& * " + critX + ")");
-        formula.crit = `${lacinante}`;
+        formula.crit = `${lancinante}`;
       }
     } else {
       formula.dano = null;
@@ -322,7 +324,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       details: detailText,
       properties: properties,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
 
     if (item.data.data.custo > 0 || (extra.custo && extra.custo != "0")) {
@@ -357,11 +359,13 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
 
       const configuration = await AbilityUseDialog.create(item);
       templateData.rollMode = configuration.rollMode;
-      templateData.custo = (parseInt(templateData.custo) ?? 0) + parseInt(configuration.ajustecusto);
+      templateData.custo = (parseInt(templateData.custo) ?? 0);
+      if(!isNaN(parseInt(configuration.ajustecusto)))
+        templateData.custo = parseInt(configuration.ajustecusto);
       formula.atq = `${formula.atq} + ${configuration.bonus}`;
       formula.dano = `${formula.dano} + ${configuration.bonusdano}`;
       formula.crit = `${formula.crit} + ${configuration.bonusdano}`;
-      rollT20(formula, actor, templateData);
+      rollT20(formula, actor, templateData, margemCrit);
     }
   } else if (item.type == "magia") {
     /* -------------------------------------------- */
@@ -489,15 +493,15 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       flavor: flavorDesc,
       spell: spellHeader,
       details: detailText,
-      aprimoramentos: aprimoramentos,
+      aprimoramentos: aprimoramentos
     };
 
     if (!eTruque && item.data.data.custo > 0) {
-      templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0), 1);
+      templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0), 1);
       } else if (eTruque) {
         templateData.custo = 0;
         templateData.truque = 1;
-        //templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) + (actorData.modificadores.custosPM.penalidades ?? 0);
+        //templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0);
     }
 
     formula = formula
@@ -576,7 +580,7 @@ function rollT20(roll, actor, templateData, criticoM = null) {
     actor.spendMana(templateData.custo, 0, false);
   }
 
-  if (roll) {
+  if (roll && roll.includes('d')) {
     // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
     let formula = "";
     let result;

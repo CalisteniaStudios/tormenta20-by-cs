@@ -12,14 +12,39 @@
   "scripts": ["module/compendium-browser.js"],
   "packs": [
     {
-      "name": "pericias",
-      "label": "Perícias",
+      "name": "poderes",
+      "label": "Poderes",
       "system": "tormenta20",
-      "path": "./packs/pericias.db",
-      "entity": "Item",
-      "tags": [
-          "skill"
-      ]
+      "path": "./packs/poderes.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipamentos",
+      "label": "Equipamentos",
+      "system": "tormenta20",
+      "path": "./packs/equipamentos.db",
+      "entity": "Item"
+    },
+    {
+      "name": "magias",
+      "label": "Magias",
+      "system": "tormenta20",
+      "path": "./packs/magias.db",
+      "entity": "Item"
+    },
+    {
+      "name": "ameacas",
+      "label": "Ameaças",
+      "system": "tormenta20",
+      "path": "./packs/ameacas.db",
+      "entity": "Actor"
+    },
+    {
+      "name": "condicoes",
+      "label": "Condições",
+      "system": "tormenta20",
+      "path": "./packs/condicoes.db",
+      "entity": "JournalEntry"
     }
   ],
   "languages": [

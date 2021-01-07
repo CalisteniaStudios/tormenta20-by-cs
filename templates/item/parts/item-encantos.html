@@ -1,10 +1,18 @@
 <div class="tab encantos" data-group="primary" data-tab="encantos">
-	{{#ifEquals item.type "arma"}}
+	{{#if (eq item.type "arma")}}
 	<div class="form-group">
-		<label class="tooltip">Lancinante <i class="fas fa-question-circle"></i><div class="tooltipcontent">Cr�tico multiplica valores f�xos</div></label>
+		<label class="tooltip">Lancinante <i class="fas fa-question-circle"></i><div class="tooltipcontent">Crítico multiplica valores fixos</div></label>
 		<div class="form-fields">
 			<input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" {{#if data.lancinante}}checked{{/if}} data-dtype="Boolean"/>
 		</div>
 	</div>
-	{{/ifEquals}}
+	<!-- <div class="form-group stacked weapon-properties"> -->
+		<!-- {{#each config.encantosArmas as |prop|}} -->
+		<!-- <label class="checkbox tooltip"> -->
+			<!-- <input type="checkbox" name="data.encantos.{{id}}" value="{{id}}" {{checked (lookup ../data.encantos prop)}} data-dtype="Boolean"/> {{ name }} -->
+			<!-- <i class="fas fa-question-circle"></i><div class="tooltipcontent">{{prop.tooltip}}</div> -->
+		<!-- </label> -->
+		<!-- {{/each}} -->
+	<!-- </div> -->
+	{{/if}}
 </div>

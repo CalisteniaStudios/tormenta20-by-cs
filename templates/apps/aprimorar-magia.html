@@ -1,95 +1,59 @@
 <form id="spell-config-form">
-  <p> Selecione os Aprimoramentos para a magia <strong>{{item.name}}</strong>.</p>
+	<p> Selecione os Aprimoramentos para a magia <strong>{{item.name}}</strong>.</p>
 
-  <div class="form-group">
-    <div class="form-fields">
-        <p><strong>Custo Original:</strong> {{item.data.custo}}</p>
-    </div>
-  </div>
-  
-  {{#if item.data.description}}
-  <p><strong>Descrição da Magia:</strong> {{item.data.description}}</p>
-  {{/if}}
-  
-  <div class="form-group">
-    <div class="form-fields">
+	<div class="form-group">
+		<div class="form-fields">
+			<p><strong>Custo Original:</strong> {{item.data.custo}}</p>
+		</div>
+	</div>
 
-      <ol class="items-list">
-        <li class="item flexrow item-header flex-center">
-          <div>APRIMORAMENTOS</div>
-        </li>
-        <li class="item flexrow item-header">
-          <div class="item-aplicar">Aplicar</div>
-          <div class="item-efeito">Efeito</div>
-        </li>
-        {{#each aprimoramentos as |ap id|}}
-        <li class="item flexrow" data-item-id="{{id}}">
-          <div class="item-quantidade" style="max-width: 100px; text-align: center;">
-            {{#ifEquals ap.tipo "Truque"}}
-            <input
-              type="checkbox"
-              name="aplica[]"
-              value="1"
-              class="dialogCheck"
-            />
-            Truque
-            <input
-              type="hidden"
-              name="aplica[]"
-              value="0"
-              class="dialogCheckHidden"
-            />
-            {{/ifEquals}} {{#ifEquals ap.tipo "Muda"}}
-            <input
-              type="checkbox"
-              name="aplica[]"
-              value="1"
-              class="dialogCheck"
-            />
-            {{ap.custo}} PM
-            <input
-              type="hidden"
-              name="aplica[]"
-              value="0"
-              class="dialogCheckHidden"
-            />
-            {{/ifEquals}} {{#ifEquals ap.tipo "Aumenta"}}
-            <input type="button" value="-" class="numCtrl" />
-            <input
-              type="number"
-              name="aplica[]"
-              min="0"
-              value="0"
-              step="{{ap.custo}}"
-              class="numInp"
-              data-dtype="Number"
-              style="max-width: 25px"
-              onkeydown="return false"
-            />
-            <input type="button" value="+" class="numCtrl" /><br>
-            {{ap.custo}} PM {{/ifEquals}} {{#ifEquals ap.tipo "Outros"}}
-            <input
-              type="checkbox"
-              name="aplica[]"
-              value="1"
-              class="dialogCheck"
-            />
-            {{ap.custo}} PM
-            <input
-              type="hidden"
-              name="aplica[]"
-              value="0"
-              class="dialogCheckHidden"
-            />
-            {{/ifEquals}}
-          </div>
-          <div class="item-efeito">
-            <input type="hidden" name="id[]" value="{{ap.id}}" />
-            <p>{{ap.description}}</p>
-          </div>
-        </li>
-        {{/each}}
-      </ol>
-    </div>
-  </div>
+	{{#if item.data.description}}
+	<p><strong>Descrição da Magia:</strong> {{item.data.description}}</p>
+	{{/if}}
+
+	<div class="form-group">
+		<div class="form-fields">
+
+			<ol class="item-list">
+				<li class="item flexrow item-header flex-center">
+					<div>APRIMORAMENTOS</div>
+				</li>
+				<li class="item flexrow item-header">
+					<div class="item-aplicar">Aplicar</div>
+					<div class="item-efeito">Efeito</div>
+				</li>
+				{{#each aprimoramentos as |ap id|}}
+				<li class="item flexrow" data-item-id="{{id}}">
+					<div class="item-quantidade" style="max-width: 100px; text-align: center;">
+						{{#if (eq ap.tipo "Truque")}}
+						<input  type="checkbox"  name="aplica[]"  value="1"  class="dialogCheck"/>
+						Truque
+						<input type="hidden" name="aplica[]" value="0" class="dialogCheckHidden" />
+						{{/if}}
+						{{#if (eq ap.tipo "Muda")}}
+						<input type="checkbox" name="aplica[]" value="1" class="dialogCheck" />
+						{{ap.custo}} PM
+						<input type="hidden" name="aplica[]" value="0" class="dialogCheckHidden" />
+						{{/if}}
+						{{#if (eq ap.tipo "Aumenta")}}
+						<input type="button" value="-" class="numCtrl" />
+						<input type="number" name="aplica[]" min="0" value="0" step="{{ap.custo}}" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
+						<input type="button" value="+" class="numCtrl" /><br>
+						{{ap.custo}} PM
+						{{/if}}
+						{{#if (eq ap.tipo "Outros")}}
+						<input type="checkbox" name="aplica[]" value="1" class="dialogCheck" />
+						{{ap.custo}} PM
+						<input  type="hidden" name="aplica[]" value="0" class="dialogCheckHidden" />
+						{{/if}}
+					</div>
+					<div class="item-efeito">
+						<input type="hidden" name="id[]" value="{{ap.id}}" />
+						<p>{{ap.description}}</p>
+					</div>
+				</li>
+				{{/each}}
+			</ol>
+		</div>
+	</div>
 </form>
