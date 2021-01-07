@@ -46,7 +46,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       power: poder,
       details: detailText,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     if (item.data.data.custo > 0) {
       templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0);
@@ -98,7 +98,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       item: item,
       title: item.label,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     formula = formula
       .replace(/ /g, "")
@@ -129,7 +129,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       title: item.data.name,
       toIniciative: item.data.data.toIniciative,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     formula = formula
       .replace(/ /g, "")
@@ -170,7 +170,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       item: item,
       title: item.label,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
     formula = formula
       .replace(/ /g, "")
@@ -325,7 +325,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       details: detailText,
       properties: properties,
       rollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes,
+      rollModes: CONFIG.Dice.rollModes
     };
 
     if (item.data.data.custo > 0 || (extra.custo && extra.custo != "0")) {
@@ -494,7 +494,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       flavor: flavorDesc,
       spell: spellHeader,
       details: detailText,
-      aprimoramentos: aprimoramentos,
+      aprimoramentos: aprimoramentos
     };
 
     if (!eTruque && item.data.data.custo > 0) {

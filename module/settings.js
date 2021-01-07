@@ -81,5 +81,19 @@ export const SystemSettings = function() {
       ui.chat.render();
     }
   });
+  /**
+   * Option to show apply buttons inside chat
+   */
+  game.settings.register("tormenta20", "applyButtonsInsideChat", {
+    name: "Botões de Dano/Gasto",
+    hint: "Ao selecionar esta opção, os botões de aplicar dano, cura, gastar mana, etc, serão exibidos embutidos dentro do chat",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: s => {
+      ui.chat.render();
+    }
+  });
 
 }

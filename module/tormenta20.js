@@ -96,7 +96,7 @@ Hooks.once("init", async function () {
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper("concat", function () {
-    var outStr = "";
+    var outStr = "";Chat
     for (var arg in arguments) {
       if (typeof arguments[arg] != "object") {
         outStr += arguments[arg];
@@ -135,6 +135,13 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("ifOr", function (arg1, arg2, options) {
     if (arg1 || arg2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+
+  Handlebars.registerHelper("ifAny", function (arg1, arg2, arg3, options) {
+    if (arg1 || arg2 || arg3) {
       return options.fn(this);
     }
     return options.inverse(this);
@@ -217,7 +224,13 @@ Hooks.on("renderChatMessage", (app, html, data) => {
 
   // Optionally collapse the content
   if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
+  if (game.settings.get("tormenta20", "applyButtonsInsideChat"))
+  {
+    chat.ApplyButtons(app, html, data);
+  }
+  
 });
+
 /* Add hook for the context menu over the rolled damage */
 Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 // Hooks.on("renderChatLog", (app, html, data) => T20Item.chatListeners(html));

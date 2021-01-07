@@ -1,7 +1,7 @@
 export const endSegment = async function (app, html) {
   if (app.options.id == "combat" && game.user.isGM) {
     let button = $(
-      "<button class='scene-segment' title='Terminar a Cena'><img src='systems/tormenta20/icons/clapperboard.svg' width='60' height='60' /></i></button>"
+      "<button class='scene-segment' title='Terminar a Cena'><img src='systems/tormenta20/icons/clapperboard.svg' width='32' height='32' /></i></button>"
     );
 
     button.click(async function () {
@@ -39,9 +39,12 @@ export const endSegment = async function (app, html) {
         };
         ChatMessage.create(chatData, {});
       };
+      let outputHistorico = ""
+      if (historico) {
+        outputHistorico = " As seguintes condições foram terminadas:" + historico;
+      }
   
-      let chatMessage = "<img class='invert' src='systems/tormenta20/icons/clapperboard.svg' width='70' height='70' />A cena atual foi terminada pelo mestre. As seguintes condições foram terminadas:<BR>";
-      chatMessage += historico;
+      let chatMessage = "<div class='tormenta20 chat-card item-card'><header class='card-header flexrow'><img class='invert' src='systems/tormenta20/icons/clapperboard.svg' width='36' height='36' style='flex:0'><h3 class='item-name'><div>Cena Finalizada</div></h3></header><div class='card-content'>A cena atual foi terminada pelo mestre." + outputHistorico + "</div></div>";
       toChat(chatMessage);
     });
 

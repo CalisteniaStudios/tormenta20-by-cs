@@ -65,23 +65,5 @@
     <div class="roll roll--dano">{{{rollDano}}}</div>
     {{/if}}
 
-    {{#ifOr rollDano custo}}
-    
-    <HR>
-      <div>
-        <table class="apply-area"><tr>
-        {{#if rollDano}}
-        <td class="apply-button"><i class="fas fa-user-minus apply-button-img" title="Aplicar Dano" onclick="alert('Aplicar Dano');"></i></td>
-        <td class="apply-button"><i class="fas fa-user-plus apply-button-img" title="Aplicar Cura" onclick="alert('Aplicar Cura');"></i></td>
-        <td class="apply-button"><i class="fas fa-user-injured apply-button-img" title="Aplicar Dano em Dobro" onclick="alert('Aplicar Dano em Dobro');"></i></td>
-        <td class="apply-button"><i class="fas fa-user-shield apply-button-img" title="Aplicar Dano pela Metade" onclick="alert('Aplicar Dano pela Metade');"></i></td>
-        {{/if}}
 
-        {{#if custo}}
-        <td class="apply-button"><i class="fas fa-star apply-button-img" title="Gastar Mana" onclick="alert('Gastar Mana');"></i></td>
-        {{/if}}
-      </tr></table>
-      </div>
-
-      {{/ifOr}}
 </div>

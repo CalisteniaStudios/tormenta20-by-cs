@@ -40,6 +40,57 @@ export const addChatMessageContextOptions = function (html, options) {
     return options;
 };
 
+export const ApplyButtons = function (app, html, data)
+{
+  let chatHTML = new DOMParser().parseFromString(data.message.content, "text/xml");
+  if(chatHTML.querySelectorAll(".mana-cost, .roll--dano").length > 0)
+  {
+    const areaBotoes = $(`    <HR><div><table class="apply-area"><tbody><tr>`);
+    if(chatHTML.querySelectorAll(".roll--dano").length > 0)
+    {
+        const botaoDanoAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-minus apply-button-img" title="Aplicar Dano"></i></button></td>`);
+        areaBotoes.append(botaoDanoAplicar);
+        botaoDanoAplicar.click(ev => {
+            ev.stopPropagation();
+            applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,1);
+        });
+        const botaoCuraAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-plus apply-button-img" title="Aplicar Cura"></i></button></td>`);
+        areaBotoes.append(botaoCuraAplicar);
+        botaoCuraAplicar.click(ev => {
+            ev.stopPropagation();
+            applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
+        });
+        const botaoDanoDobroAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-injured apply-button-img" title="Aplicar Dano em Dobro"></i></button></td>`);
+        areaBotoes.append(botaoDanoDobroAplicar);
+        botaoDanoDobroAplicar.click(ev => {
+            ev.stopPropagation();
+            applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,2);
+        });
+        const botaoDanoMetadeAplicar = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-user-shield apply-button-img" title="Aplicar Dano pela Metade"></i></button></td>`);
+        areaBotoes.append(botaoDanoMetadeAplicar);
+        botaoDanoMetadeAplicar.click(ev => {
+            ev.stopPropagation();
+            applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,0.5);
+        });
+    }
+    if(chatHTML.querySelectorAll(".mana-cost").length > 0)
+    {
+        const botaoGastoMana = $(`<td class="apply-button"><button class="apply-button-b"><i class="fas fa-star apply-button-img" title="Gastar Mana"></i></button></td>`);
+        areaBotoes.append(botaoGastoMana);
+        botaoGastoMana.click(ev => {
+            ev.stopPropagation();
+            applyInsideChatManaSpend(chatHTML.querySelectorAll(".mana-cost")[0].innerHTML);
+        });
+
+    }
+    areaBotoes.append($(`</tr></tbody></table></div>`));
+
+    html.find('.item-card').append(areaBotoes);
+
+  }
+  
+}
+
 /**
  * Apply rolled dice damage to the token or tokens which are currently controlled.
  * This allows for damage to be scaled by a multiplier to account for healing, critical hits, or resistance
@@ -61,6 +112,8 @@ function applyChatCardDamage(roll, multiplier, heal = false) {
     }
 }
 
+
+
 /**
  * Apply mana points spent to the token or tokens which are currently controlled.
  * This allows for damage to be adjusted due to reduced or expanded cost
@@ -78,5 +131,29 @@ function applyChatManaSpend(mana, adjust, recover = false) {
         }));
     } else {
         ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
+    }
+}
+
+function applyInsideChatManaSpend (mana)
+{
+    if (canvas.tokens.controlled.length) {
+        return Promise.all(canvas.tokens.controlled.map(t => {
+            const a = t.actor;
+            return a.spendMana(mana, 0, false);
+        }));
+    } else {
+        ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
+    }
+}
+
+function applyInsideChatCardDamage(amount, multiplier, heal = false) {
+    if (canvas.tokens.controlled.length) {
+        // const amount = roll.find('.dice-total').text();
+        return Promise.all(canvas.tokens.controlled.map(t => {
+            const a = t.actor;
+            return a.applyDamage(amount, multiplier, heal);
+        }));
+    } else {
+        ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
     }
 }
