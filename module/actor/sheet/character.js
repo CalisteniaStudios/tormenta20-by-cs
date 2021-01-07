@@ -270,9 +270,13 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			equipado: item.data.data.equipado
 		};
 		if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
+			let toggleDex = true;
+			if (item.data.data.equipado && item.data.data.tipo === "pesada" && this.actor.data.data.atributos.des.mod >= 0) {
+				toggleDex = false;
+			}
 			this.actor.update({
 				"data.armadura": armadura,
-				"data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true //if ((equipado && leve) || desequipado) return true
+				"data.defesa.des": toggleDex
 			});
 		}
 		else if (item.data.data.tipo === "escudo") {
