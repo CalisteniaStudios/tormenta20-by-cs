@@ -1,0 +1,795 @@
+#sidebar {
+  color:#ffffff!important;
+  border:1px solid #782e22;
+}
+
+textarea:focus {
+  outline:none;
+  box-shadow:none;
+}
+
+table,.tormenta20 ol,.tormenta20 .resource,.tormenta20 .header-fields,.tormenta20 .atributos li.item.flexrow,.tormenta20 textarea,.tormenta20 textarea:focus {
+  background-color:rgba(0,0,0,0.05);
+}
+
+.tormenta20 h1,.tormenta20 h2,.outros h4 {
+  border-image:url(../assets/underline.svg) 2;
+  border-bottom:5px solid transparent;
+  padding-left:5px;
+}
+
+.app {
+  max-height:100%;
+  background:url(../assets/side-bar.png) repeat;
+  border-radius:5px;
+  box-shadow:0 0 20px #000;
+  color:#c74b37!important;
+  z-index:30;
+  margin:3px 0;
+}
+
+button {
+  color:#2f290c;
+  width:100%;
+  background:#0d0d0d;
+  border:1px solid #782e22;
+  border-radius:3px;
+  font-size:14px;
+  line-height:28px;
+  font-family:Signika, sans-serif;
+  margin:0 1px;
+}
+
+#sidebar button {
+  color:#fff;
+}
+
+.window-app {
+  font-family:Roboto, sans-serif;
+}
+
+.rollable:hover,.rollable:focus {
+  color:#000;
+  text-shadow:0 0 10px red;
+  cursor:pointer;
+}
+
+.flex-center {
+  -webkit-box-align:center;
+  -ms-flex-align:center;
+  align-items:center;
+  -webkit-box-pack:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.flex-between {
+  -webkit-box-pack:justify;
+  -ms-flex-pack:justify;
+  justify-content:space-between;
+}
+
+.tormenta20 .sheet-header {
+  -webkit-box-flex:0;
+  -ms-flex:0 0 210px;
+  overflow:hidden;
+  display:flex;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:row;
+  flex-direction:row;
+  -ms-flex-wrap:wrap;
+  flex-wrap:wrap;
+  -webkit-box-pack:start;
+  -ms-flex-pack:start;
+  justify-content:flex-start;
+  margin-bottom:10px;
+  flex:0 0 100px;
+  border-bottom:2px groove #eeede0;
+  font-family:Nodesto, Signika, "Palatino Linotype", serif;
+  font-size:20px;
+}
+
+.tormenta20 .sheet-header h1.charname {
+  height:50px;
+  border-bottom:0;
+  margin:5px 0;
+  padding:0;
+}
+
+.tormenta20 .sheet-header h1.charname input {
+  width:100%;
+  height:100%;
+  margin:0;
+}
+
+.tormenta20 .sheet-tabs {
+  -webkit-box-flex:0;
+  -ms-flex:0;
+  flex:0;
+}
+
+.tormenta20.sheet.item .sheet-header {
+  align-items:unset;
+  flex:none;
+}
+
+.tormenta20.sheet.item .sheet-header .charname input {
+  font-size:24px;
+  height:100%;
+  width:100%;
+  font-family:var(--modesto);
+  background:transparent;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties {
+  flex:0 0 120px;
+  padding-right:5px;
+  border-right:2px groove #eeede0;
+  margin:5px 5px 5px 0;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group {
+  border-bottom:1px solid var(--faint-color);
+  color:var(--secondary-color);
+  font-size:13px;
+  margin:0;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group label {
+  font-weight:600;
+  line-height:20px;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group input {
+  flex:0 0 45px;
+  text-align:right;
+  background:none;
+  height:16px;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties .form-group input[type="text"] {
+  border:none;
+  color:var(--primary-font);
+  padding:0 6px;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties ul {
+  list-style:none;
+  padding:0;
+}
+
+.tormenta20.sheet.item .sheet-body .item-properties li {
+  border:1px solid var(--faint-color);
+  border-radius:5px;
+  line-height:16px;
+  background:rgba(0,0,0,0.05);
+  text-align:center;
+  margin:0 0 2px;
+  padding:0 2px;
+}
+
+.tormenta20 .sheet-body,.tormenta20 .sheet-body .tab {
+  height:100%;
+}
+
+.tormenta20 .sheet-body .tab .editor {
+  height:inherit;
+}
+
+.tormenta20 nav.sheet-tabs {
+  text-align:center;
+  font-size:18px;
+}
+
+.tormenta20 .tabs .item {
+  line-height:40px;
+  font-weight:bold;
+}
+
+.tormenta20 .tabs .item.active {
+  text-decoration:underline;
+  text-shadow:none;
+}
+
+.tormenta20 .item-list {
+  list-style:none;
+  overflow-y:unset;
+  margin:7px 0;
+  padding:0;
+}
+
+.tormenta20 .item-list .item-header {
+  font-weight:bold;
+}
+
+.tormenta20 .item-list .item {
+  height:auto;
+  line-height:24px;
+  border-bottom:1px solid #bbb;
+  padding:3px 0;
+}
+
+.tormenta20 .skills-list .item-header {
+  height:auto!important;
+  font-weight:bold;
+}
+
+.tormenta20 .skills-list .item-header .item-name,.tormenta20 .skills-list .item-header .item-total,.tormenta20 .skills-list .item-header .item-outros {
+  line-height:26px;
+}
+
+.tormenta20 .skills-list .item-header .item-mod {
+  font-size:12px;
+  line-height:auto;
+}
+
+.tormenta20 .skills-list .skill .item-image,.tormenta20 .item-list .item .item-image {
+  -webkit-box-flex:0;
+  -ms-flex:0 0 24px;
+  flex:0 0 24px;
+  margin-right:5px;
+  height:24px;
+  width:24px;
+  background-size:24px;
+  background-repeat:no-repeat;
+}
+
+.tormenta20 .skills-list .item-name {
+  flex:2;
+  text-align:left;
+  margin:0;
+}
+
+.tormenta20 .skills-list select,.tormenta20 .skills-list input {
+  width:80%;
+  height:auto!important;
+  font-size:12px;
+  margin:0;
+  padding:0;
+}
+
+.tormenta20 .skills-list select {
+  width:90%;
+}
+
+.tormenta20 .ataques .item-list .item-name {
+  -ms-flex:2;
+  flex:2;
+  margin:0;
+}
+
+.tormenta20 .item-list .item-custo {
+  max-width:50px;
+}
+
+.tormenta20 .item-list .item-controls {
+  -webkit-box-flex:0;
+  -ms-flex:0 0 56px;
+  flex:0 0 56px;
+  text-align:right;
+}
+
+.tormenta20 .ataques,.tormenta20 .poderes {
+  min-height:60px;
+}
+
+.tormenta20 h1,.tormenta20 h2 {
+  border:0!important;
+  border-bottom:0!important;
+}
+
+.text-right {
+  text-align:right;
+}
+
+.tormenta20 input {
+  border-radius:0;
+  margin-bottom:5px;
+}
+
+.tormenta20 input[type=button] {
+  font-family:monospace;
+}
+
+.tormenta20 textarea {
+  max-width:100%!important;
+}
+
+.tormenta20 .bottom label > input {
+  width:50%;
+}
+
+.tormenta20 .sheet-body .dados {
+  width:55%;
+  position:relative;
+  float:left;
+}
+
+.tormenta20 .sheet-body .skills {
+  width:44%;
+  position:relative;
+  float:right;
+}
+
+.tormenta20 .dados .recursos {
+  font-size:10px;
+  text-align:center;
+  margin:5px 0;
+}
+
+.tormenta20 .rollable:hover {
+  cursor:pointer;
+  color:red;
+}
+
+.tormenta20 .header-fields .recursos label,.tormenta20 .dados .recursos label {
+  display:inline-block;
+  width:30%;
+  max-width:30%;
+}
+
+.tormenta20 .dados .recursos input {
+  width:50px;
+  height:30px;
+  font-size:2em;
+}
+
+.tooltip .tooltipcontent {
+  font-family:sans-serif;
+  font-size:11px;
+  font-weight:normal;
+  visibility:hidden;
+  background-color:rgba(0,0,0,0.8);
+  color:#fff;
+  text-align:left;
+  border-radius:6px;
+  line-height:13px;
+  max-width:240px;
+  position:fixed;
+  z-index:1;
+  opacity:0;
+  transition:opacity .3s;
+  padding:5px;
+}
+
+.tooltip:hover .tooltipcontent {
+  visibility:visible;
+  pointer-events:none;
+  opacity:1;
+}
+
+.tormenta20 .item-list .item div.item-atq,.tormenta20 .item-list .item div.item-dano {
+  max-width:70px;
+}
+
+.tormenta20 .item-list .item-toggles {
+  flex:0 0 40px;
+  text-align:center;
+}
+
+.tormenta20 .item-list .item-toggles .item-toggle {
+  color:#b5b3a4;
+}
+
+.critico {
+  border:2px solid green;
+  box-shadow:0 0 4px green inset;
+}
+
+.falha {
+  border:2px solid red;
+  box-shadow:0 0 4px red inset;
+}
+
+.tormenta20.chat-card {
+  font-style:normal;
+  font-size:12px;
+}
+
+.tormenta20.chat-card .card-header {
+  border-top:2px groove #FFF;
+  border-bottom:2px groove #FFF;
+  padding:3px 0;
+}
+
+.tormenta20.chat-card .card-header img {
+  flex:0 0 36px;
+  margin-right:5px;
+}
+
+.tormenta20.chat-card .card-header h3 {
+  flex:1;
+  line-height:36px;
+  margin:0;
+}
+
+.tormenta20.chat-card .card-header h3.item-name {
+  min-width:190px;
+  max-width:190px;
+}
+
+.tormenta20.chat-card .card-header span.custo div,.tormenta20.chat-card .card-header h3.item-name div {
+  vertical-align:middle;
+  display:inline-block;
+  line-height:normal;
+}
+
+.tormenta20.chat-card .card-header .custo {
+  text-align:center;
+  line-height:36px;
+}
+
+.tormenta20.chat-card .card-header h3:hover {
+  color:#111;
+  text-shadow:0 0 10px red;
+}
+
+.tormenta20.chat-card .card-content {
+  margin:5px 0;
+}
+
+.tormenta20 .ability-scores {
+  list-style:none;
+  border:2px groove #eeede0;
+  border-radius:3px;
+  text-transform:uppercase;
+  margin:0;
+  padding:0;
+}
+
+.tormenta20 .tabbed .ability-scores {
+  flex:0 0 85px;
+  height:460px;
+  list-style:none;
+  border:2px groove #eeede0;
+  border-radius:3px;
+  text-transform:uppercase;
+  margin:0;
+  padding:0;
+}
+
+.tormenta20 .ability-scores .ability {
+  text-align:center;
+  margin:0 1px;
+}
+
+.tormenta20 .ability-scores .ability:not(:last-child) {
+  border-right:1px solid #c9c7b8;
+}
+
+.tormenta20 .tabbed .ability-scores .ability {
+  border:none;
+  height:50px;
+  text-align:center;
+  border-bottom:none;
+  margin:0;
+}
+
+.tormenta20 .tabbed .ability-scores .ability:last-child {
+  border-bottom:none;
+  margin-bottom:-1px;
+}
+
+.tormenta20 .recursos .attributes .attribute .attribute-value {
+  height:auto;
+  line-height:normal;
+}
+
+.tormenta20 .tabbed .sheet-header .attributes .attribute .attribute-value {
+  height:30px;
+  line-height:30px;
+}
+
+.tormenta20 span.sep {
+  flex:none;
+  display:inline;
+  position:relative;
+  color:#7a7971;
+  font-weight:normal;
+  font-size:24px;
+  margin:0 1px;
+}
+
+.tormenta20 .sheet-header h1 {
+  flex:1;
+  border-bottom:none;
+  height:60px;
+  margin:0;
+  padding:5px;
+}
+
+.tormenta20 .sheet-header h1 input {
+  display:block;
+  height:50px;
+  font-size:32px;
+  margin:0;
+}
+
+.tormenta20 .sheet-header img.profile {
+  flex:0 0 100px;
+  max-width:100px;
+  height:100px;
+  object-fit:cover;
+  border:none;
+  border-right:2px groove #eeede0;
+}
+
+.tormenta20 .sheet-header .summary {
+  flex:0 0 100%;
+  height:40px;
+  list-style:none;
+  border-top:2px groove #eeede0;
+  border-bottom:none;
+  margin:0;
+  padding:0;
+}
+
+.tormenta20 .sheet-header .summary li {
+  height:calc(100%-6px);
+  float:left;
+  border-right:2px groove #eeede0;
+  line-height:34px;
+  color:#4b4a44;
+  margin:2px 0;
+  padding:0;
+}
+
+.tormenta20 .tabbed input:disabled:hover,.tormenta20 .tabbed select:disabled:hover,.tormenta20 .tabbed textarea:disabled:hover,.tormenta20 .tabbed input:disabled:focus,.tormenta20 .tabbed select:disabled:focus,.tormenta20 .tabbed textarea:disabled:focus {
+  box-shadow:none!important;
+  border:1px solid transparent!important;
+  outline:none!important;
+}
+
+.tormenta20 .tabbed .form-group label {
+  flex:2;
+  color:#4b4a44;
+  font-weight:bold;
+}
+
+.tormenta20 .tabbed .sheet-header img.profile {
+  flex:0 0 160px;
+  max-width:160px;
+  height:160px;
+}
+
+.tormenta20 .tabbed .sheet-header h1.charname {
+  flex:1;
+  height:60px;
+  padding:0;
+}
+
+.tormenta20 .tabbed .sheet-header h1.charname input {
+  height:40px;
+  margin:10px 0;
+}
+
+.tormenta20 .tabbed .sheet-header .summary {
+  height:30px;
+  border-bottom:2px groove #eeede0;
+  font-size:18px;
+}
+
+.tormenta20 .tabbed .sheet-header .summary input,.tormenta20 .tabbed .sheet-header .summary span {
+  display:block;
+  height:24px;
+  line-height:24px;
+}
+
+.tormenta20 .tabbed .sheet-header .attributes {
+  flex:0 0 100%;
+  margin:0;
+}
+
+.tormenta20 .tabbed .attributes input.temphealth {
+  width:48%;
+}
+
+.tormenta20 .tabbed .tab.attributes {
+  overflow:hidden;
+}
+
+.tormenta20 .tabbed ul.attributes li.attribute {
+  height:60px;
+  border:2px groove #eeede0;
+  border-radius:4px;
+  font-family:Nodesto, Signika, "Palatino Linotype", serif;
+  font-size:20px;
+  text-align:center;
+  margin:0 5px 0 0;
+}
+
+.tormenta20 .tabbed ul.attributes li.attribute .attribute-value {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:28px;
+  line-height:28px;
+}
+
+.tormenta20 .tabbed ul.attributes li.attribute .attribute-value > * {
+  font-size:24px;
+}
+
+.tormenta20 .tabbed ul.attributes li.attribute .attribute-value.multiple input {
+  flex:0 0 33%;
+}
+
+.tormenta20 .tabbed ul.attributes li.attribute .attribute-footer {
+  flex:0 0 18px;
+  margin-top:-1px;
+  line-height:18px;
+  font-family:Signika, "Palatino Linotype", serif;
+  font-size:12px;
+}
+
+.tormenta20 .tabbed .center-pane {
+  height:100%;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  padding:0 5px 0 3px;
+}
+
+.tormenta20 .tabbed .tab.features,.tormenta20 .tabbed .tab.inventory,.tormenta20 .tabbed .tab.arsenal {
+  overflow-y:hidden;
+}
+
+.tormenta20 .tabbed .inventory-list {
+  list-style:none;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  margin:0;
+  padding:0 5px;
+}
+
+.tormenta20 .tabbed .inventory-list .item {
+  line-height:30px;
+  border-bottom:1px solid #c9c7b8;
+  padding:0 2px;
+}
+
+.tormenta20 .tabbed .inventory-list .item:last-child {
+  border-bottom:none;
+}
+
+.tormenta20 .tabbed .inventory-list .item .item-name {
+  cursor:pointer;
+  max-height:30px;
+  overflow:hidden;
+}
+
+.tormenta20 .tabbed .inventory-list .item .item-name h4 {
+  white-space:nowrap;
+  overflow-x:hidden;
+  margin:0;
+}
+
+.tormenta20 .tabbed .inventory-list .item-controls {
+  flex:0 0 44px;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.tormenta20 .tabbed .inventory-list .item-controls > * {
+  flex:1;
+}
+
+.tormenta20 .tabbed .inventory-list .item-controls a {
+  flex:0 0 22px;
+  font-size:12px;
+  text-align:center;
+  color:#7a7971;
+}
+
+.tormenta20 .tabbed .editor {
+  padding:0 8px;
+}
+
+.tormenta20 .tabbed .experience span.max {
+  color:#7a7971;
+  flex:none;
+  margin-left:3px;
+}
+
+.tormenta20 .tabbed input[readonly]:hover {
+  box-shadow:none!important;
+}
+
+.tormenta20 .header-exp,.tormenta20 .tabbed .sheet-header .header-exp {
+  flex:0 0 150px;
+  margin-right:3px;
+  height:60px;
+  justify-content:flex-end;
+  text-align:right;
+}
+
+.tormenta20.sheet.item .sheet-header .charname input:hover,.tormenta20.sheet.item .sheet-body .item-properties .form-group input:hover,.tormenta20 .tabbed input[type="text"]:hover,.tormenta20 .tabbed input[type="text"]:focus,.tormenta20 .tabbed input[type="number"]:hover,.tormenta20 .tabbed input[type="number"]:focus {
+  border:1px solid #111;
+  box-shadow:0 0 8px red;
+}
+
+.tormenta20 .skills-list,.text-center {
+  text-align:center;
+}
+
+.tormenta20 .item-list .item-name,.tormenta20 .tabbed ul.attributes li.attribute:last-child {
+  margin:0;
+}
+
+.tormenta20 .outros,.tormenta20 .defesa,.tormenta20 .reducao_dano,.tormenta20 .armadura {
+  width:100%;
+}
+
+.tormenta20 .item-list .item-toggles .item-toggle.active,.tormenta20 .tabbed input:disabled,.tormenta20 .tabbed select:disabled,.tormenta20 .tabbed textarea:disabled {
+  color:#4b4a44;
+}
+
+.tormenta20 ul.skills-list,.tormenta20 .tabbed ul.skills-list {
+  flex:0 0 300px;
+  height:auto;
+  list-style:none;
+  border:2px groove #eeede0;
+  border-radius:3px;
+  margin:0 5px;
+  padding:3px 0 2px;
+}
+
+.tormenta20 ul.skills-list li.skill,.tormenta20 .tabbed ul.skills-list li.skill {
+  height:21.5px;
+  padding:3px 2px;
+}
+
+.tormenta20 ul.skills-list li.skill:nth-child(even),.tormenta20 .tabbed ul.skills-list li.skill:nth-child(even) {
+  background:rgba(0,0,0,0.05);
+}
+
+.tormenta20 input[type="number"],.tormenta20 .tabbed input[type="number"]
+.tormenta20 .tabbed input[type="text"],.tormenta20 .tabbed select,.tormenta20 .tabbed input[type="number"],.tormenta20 .tabbed input[type="text"],.tormenta20 .tabbed select {
+  height:calc(100%-2px);
+  border:1px solid #7a7971;
+  background:rgba(0,0,0,0.05);
+  color:#191813;
+}
+
+.tormenta20 h4.box-title,.tormenta20 .tabbed h4.box-title {
+  height:18px;
+  line-height:16px;
+  font-size:18px;
+  color:#4b4a44;
+  border-bottom:1px solid #c9c7b8;
+  margin:4px 3px 2px;
+}
+
+.tormenta20 .recursos .attributes .attribute,.tormenta20 .tabbed .sheet-header .attributes .attribute,.tormenta20 .tabbed .sheet-header .attributes .attribute {
+  height:70px;
+  border:none;
+  border-right:2px groove #eeede0;
+  border-radius:0;
+  margin:0;
+}
+
+.tormenta20 .recursos .attributes .attributes .attribute:last-child,.tormenta20 .tabbed .sheet-header .attributes .attribute:last-child,.tormenta20 .sheet-header .summary li:last-child,.tormenta20 .tabbed .sheet-header .attributes .attribute:last-child {
+  border-right:none;
+}
+
+.tormenta20 .recursos ul.attributes,.tormenta20 .tabbed ul.attributes,.tormenta20 .tabbed ul.attributes {
+  flex:0 0 60px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.tormenta20 .tabbed span.sep,.tormenta20 .tabbed .experience span.sep {
+  flex:none;
+  display:inline;
+  position:relative;
+  color:#7a7971;
+  font-weight:normal;
+  margin:0 1px;
+}

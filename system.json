@@ -10,7 +10,18 @@
   "esmodules": ["module/tormenta20.js"],
   "styles": ["css/tormenta20.css", "css/compendium-browser.css","css/tormenta20-tabbed.css", "css/kryx_rpg.css"],
   "scripts": ["module/compendium-browser.js"],
-  "packs": [],
+  "packs": [
+    {
+      "name": "pericias",
+      "label": "Perícias",
+      "system": "tormenta20",
+      "path": "./packs/pericias.db",
+      "entity": "Item",
+      "tags": [
+          "skill"
+      ]
+    }
+  ],
   "languages": [
     {
       "lang": "en",

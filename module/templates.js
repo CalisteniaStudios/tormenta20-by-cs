@@ -1,20 +1,23 @@
 /**
- * Define a set of template paths to pre-load
- * Pre-loaded templates are compiled and cached for fast access when rendering
- * @return {Promise}
- */
+* Define a set of template paths to pre-load
+* Pre-loaded templates are compiled and cached for fast access when rendering
+* @return {Promise}
+*/
 export const preloadHandlebarsTemplates = async function() {
-  return loadTemplates([
+	return loadTemplates([
 
-    // Shared Partials
+		// Shared Partials
 
-    // Actor Sheet Partials
+		// Actor Sheet Partials
+		"systems/tormenta20/templates/actor/parts/actor-inventory.html",
+		"systems/tormenta20/templates/actor/parts/actor-powers.html",
+		"systems/tormenta20/templates/actor/parts/actor-spells.html",
 
-    // Item Sheet Partials
-    "systems/tormenta20/templates/item/parts/item-header.html",
-    "systems/tormenta20/templates/item/parts/item-action.html",
-    "systems/tormenta20/templates/item/parts/item-encantos.html",
-    "systems/tormenta20/templates/item/parts/item-description.html",
-    "systems/tormenta20/templates/item/parts/item-modificacoes.html"
-  ]);
+		// Item Sheet Partials
+		"systems/tormenta20/templates/item/parts/item-header.html",
+		"systems/tormenta20/templates/item/parts/item-action.html",
+		"systems/tormenta20/templates/item/parts/item-encantos.html",
+		"systems/tormenta20/templates/item/parts/item-description.html",
+		"systems/tormenta20/templates/item/parts/item-modificacoes.html"
+	]);
 };

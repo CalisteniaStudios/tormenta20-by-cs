@@ -786,7 +786,7 @@ class SpellBrowser extends Application {
         if (game.user.isGM) {
             game.settings.set('compendiumBrowser', 'settings', defaultSettings);
             console.log("New default settings set");
-            console.log(defaultSettings);
+            // console.log(defaultSettings);
         }   
         this.settings = defaultSettings;
     }

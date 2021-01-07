@@ -1,5 +1,5 @@
 /* Original */
-.tormenta20.tabbed .atributos .items-list .item {
+.tormenta20.tabbed .atributos .item-list .item {
   display: block;
   text-align: center;
 }
@@ -48,6 +48,7 @@
 }
 
 /* Novo */
+.tormenta20 .tabbed input[type="number"],
 .tormenta20 .tabbed input[type="text"],
 .tormenta20 .tabbed select {
   height: calc(100% - 2px);

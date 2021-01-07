@@ -56,17 +56,16 @@ export default class ActorSheetT20 extends ActorSheet {
 			isCharacter: this.entity.data.type === "character",
 			isNPC: this.entity.data.type === "npc"
 		};
-
+		
 		// The Actor and its Items
 		data.actor = duplicate(this.actor.data);
 		data.items = this.actor.items.map(i => {
 			i.data.labels = i.labels;
 			return i.data;
 		});
+		data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		
-		// Sort Items?
 		data.data = data.actor.data;
-
 		// Ability Scores
 		// Add icon, hover, label to Scores
 
@@ -129,18 +128,50 @@ export default class ActorSheetT20 extends ActorSheet {
 	*/
 
 	// TOTO refactor and standarize html listeners
-	// activateListeners(html) {
-		// if ( this.actor.owner ) {
+	activateListeners(html) {
 
-		// }
+		// Tooltips
+		html.mousemove(ev => this._moveTooltips(ev));
 
-		// // Otherwise remove rollable classes
-		// else {
-		// 	html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
-		// }
+		// Editable Only Listeners
+		if ( this.isEditable ) {
+
+			// TODO input Deltas
+
+			// Skills management
+			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
+			html.find('.skill-create').click(this._onPericiaCustomCreate.bind(this));
+			html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
+			html.find('.show-controls').click(this._toggleControls.bind(this));
+		
+
+			// Owned Item management
+			html.find('.item-create').click(this._onItemCreate.bind(this));
+			html.find('.item-edit').click(this._onItemEdit.bind(this));
+			html.find('.item-delete').click(this._onItemDelete.bind(this));
+
+			// Configure Special Flags
+			html.find("#configure-actor").click(ev => {
+				new game.tormenta20.applications.ActorSettings(this.actor).render(true);
+			});
+		}
+
+		if ( this.actor.owner ) {
+			// Rollable abilities.
+			html.find('.rollable').click(this._onRoll.bind(this));
+
+			// Update item
+			html.find('.upItem').change(this._onUpdateItem.bind(this));
+
+		}
+
+		// Otherwise remove rollable classes
+		else {
+			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
+		}
 		// Handle default listeners last so system listeners are triggered first
-    	// super.activateListeners(html);
-	// }
+    	super.activateListeners(html);
+	}
 
 	/* -------------------------------------------- */
 
@@ -162,6 +193,12 @@ export default class ActorSheetT20 extends ActorSheet {
 	// 	// Create the owned item as normal
 	// 	return super._onDropItemCreate(itemData);
 	// }
+	
+	/* -------------------------------------------- */
+
+	_moveTooltips(event) {
+		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
+	}
 
 	/* -------------------------------------------- */
 
@@ -169,13 +206,40 @@ export default class ActorSheetT20 extends ActorSheet {
 	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
 	* @private
 	*/
-	// TODO refactor Roll?
-	// _onItemRoll(event) {
-	// 	event.preventDefault();
-	// 	const itemId = event.currentTarget.closest(".item").dataset.itemId;
-	// 	const item = this.actor.getOwnedItem(itemId);
-	// 	return item.roll();
-	// }
+	async _onRoll(event, actor = null) {
+		actor = !actor ? this.actor : actor;
+		if (!actor.data) {
+			return;
+		}
+		const actorData = actor.data.data;
+		const a = event.currentTarget;
+		const data = a.dataset;
+		const id = a.parentElement.dataset.itemId;
+		console.log(id);
+		let item = {};
+		if(Object.keys(actorData.atributos).includes(id)){
+			item.type = "atributo";
+			item.roll = "1d20 +"+ actorData.atributos[id].mod;
+			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
+		}
+		// Roll pericias
+		else if ($(a).hasClass('pericia-rollable')) {
+			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
+			item = {
+				type: 'pericia',
+				roll: "1d20+" + skillData[id].value,
+				label: skillData[id].nome ?? skillData[id].label
+			}
+		}
+		// Roll items
+		else if (actor.items.get(id)){
+			item = actor.items.get(id);
+		}
+
+		if(!isObjectEmpty(item)){
+			await prepRoll(event, item, actor);
+		}
+	}
 
 	/* -------------------------------------------- */
 
@@ -191,13 +255,103 @@ export default class ActorSheetT20 extends ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
+	* Handle creating a Skill for the actor
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	_onPericiaCustomCreate(event) {
+		event.preventDefault();
+
+		const a = event.currentTarget;
+
+		const tipo = a.dataset.tipo;
+		const pericia = {
+			label: "Nova Pericia",
+			nome: "Nova Pericia",
+			value: 0,
+			atributo: "for",
+			st: false,
+			pda: false,
+			treinado: 0,
+			treino: 0,
+			outros: 0,
+			mod: 0,
+			temp: 0
+		};
+
+		let actorData = duplicate(this.actor);
+		let oficios = Object.values(actorData.data.pericias.ofi.mais);
+		let periciasCustom = Object.values(actorData.data.periciasCustom);
+
+		if (tipo == 'oficio') {
+			pericia.label = "Oficio";
+			pericia.atributo = 'int';
+
+			oficios.push(pericia);
+			this.actor.update({
+				"data.pericias.ofi.mais": oficios
+			});
+		} else {
+			periciasCustom.push(pericia);
+			this.actor.update({
+				"data.periciasCustom": periciasCustom
+			});
+		}
+		this.render();
+	}
+
+	async _onPericiaCustomDelete(event) {
+		const id = event.currentTarget.dataset.itemId;
+		const a = event.currentTarget;
+		const tipo = a.dataset.type;
+		if (tipo == 'oficios') {
+			let oficios = Object.values(this.actor.data.data.pericias.ofi.mais);
+			oficios.splice(id, 1);
+
+			await this.actor.update({ "data.pericias.ofi.mais": oficios });
+		} else {
+			let pericias = Object.values(this.actor.data.data.periciasCustom);
+			pericias.splice(id, 1);
+
+			await this.actor.update({ "data.periciasCustom": pericias });
+		}
+		await this.render();
+	}
+
+	_onToggleSkillTraining(event){
+		event.preventDefault();
+		const field = event.currentTarget.previousElementSibling;
+		this.actor.update({[field.name]: 1 - parseInt(field.value)});
+	}
+
+	/* -------------------------------------------- */
+
+	/**
 	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	// TOTO refactor and standarize html listeners
-	// _onItemCreate(event) {
-	// }
+	_onItemCreate(event) {
+		event.preventDefault();
+		const header = event.currentTarget;
+		// Get the type of item to create.
+		const type = header.dataset.type;
+		// Grab any data associated with this control.
+		const data = duplicate(header.dataset);
+		// Initialize a default name.
+		const name = `Novo ${type.capitalize()}`;
+		// Prepare the item object.
+		const itemData = {
+			name: name,
+			type: type,
+			data: data
+		};
+		// Remove the type from the dataset since it's in the itemData.type prop.
+		delete itemData.data["type"];
+
+		// Finally, create the item!
+		return this.actor.createOwnedItem(itemData);
+	}
 
 	/* -------------------------------------------- */
 
@@ -206,13 +360,12 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	// TOTO refactor and standarize html listeners
-	// _onItemEdit(event) {
-	// 	event.preventDefault();
-	// 	const li = event.currentTarget.closest(".item");
-	// 	const item = this.actor.getOwnedItem(li.dataset.itemId);
-	// 	item.sheet.render(true);
-	// }
+	_onItemEdit(event) {
+		event.preventDefault();
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.getOwnedItem(li.dataset.itemId);
+		item.sheet.render(true);
+	}
 
 	/* -------------------------------------------- */
 
@@ -221,12 +374,11 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	// TODO refactor and standarize html listeners
-	// _onItemDelete(event) {
-	// 	event.preventDefault();
-	// 	const li = event.currentTarget.closest(".item");
-	// 	this.actor.deleteOwnedItem(li.dataset.itemId);
-	// }
+	_onItemDelete(event) {
+		event.preventDefault();
+		const li = event.currentTarget.closest(".item");
+		this.actor.deleteOwnedItem(li.dataset.itemId);
+	}
 
 	/* -------------------------------------------- */
 

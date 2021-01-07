@@ -12,8 +12,6 @@ export default class ActorT20 extends Actor {
 				return this._prepareCharacterData(this.data);
 			case "npc":
 				return this._prepareNPCData(this.data);
-			case "vehicle":
-				return this._prepareVehicleData(this.data);
     	}
 	}
 
@@ -54,12 +52,11 @@ export default class ActorT20 extends Actor {
 			skillsArrays.push(data.periciasCustom);
 			for (let [k, arr] of Object.entries(skillsArrays)) {
 				for (let [key, pericia] of Object.entries(arr)) {
-				// Calculate the pericias .
+				// Calculate the skill values .
 				pericia.treino = !pericia.treinado ? 0 : (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2)) ;
 
 				// segunda e terceira array
 				if(k > 0){
-					console.log(pericia);
 					pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
 					pericia.st = pericia.label.match(/\*/g) ? true : false;
 					pericia.pda = pericia.label.match(/\+/g) ? true : false;

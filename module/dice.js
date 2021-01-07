@@ -7,7 +7,6 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
   const actorData = actor.data.data;
   // Initialize variables.
   event.preventDefault();
-
   // const a = event.currentTarget;
   // const itemId = $(a).parents('.item').attr('data-item-id');
   // const item = actor.getOwnedItem(itemId);

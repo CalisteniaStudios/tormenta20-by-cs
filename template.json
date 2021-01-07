@@ -147,7 +147,7 @@
             "atributo": "car",
             "st": true,
             "pda": false,
-            "treinado": false,
+            "treinado": 0,
             "treino": 0,
             "outros": 0,
             "notes": "",
