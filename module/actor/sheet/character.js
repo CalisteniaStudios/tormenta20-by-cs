@@ -306,13 +306,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			equipado: item.data.data.equipado
 		};
 		if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
-			let toggleDex = true;
-			if (item.data.data.equipado && item.data.data.tipo === "pesada" && this.actor.data.data.atributos.des.mod >= 0) {
-				toggleDex = false;
-			}
 			this.actor.update({
 				"data.armadura": armadura,
-				"data.defesa.des": toggleDex
+				"data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true //return ((equipado && leve) || !equipado)
 			});
 		}
 		else if (item.data.data.tipo === "escudo") {
@@ -334,34 +330,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
-
-		// Delete Inventory Item
-		// TODO teste if needed
-		// html.find('.item-delete').click(ev => {
-		// 	const li = $(ev.currentTarget).parents(".item");
-		// 	const item = this.actor.getOwnedItem(li.data("itemId"));
-		// 	if(item.data.type === "armadura" && item.data.data.equipado) {
-		// 		const armadura = {
-		// 			nome: "",
-		// 			defesa:  0,
-		// 			penalidade: 0,
-		// 			equipado: false
-		// 		};
-		// 		if (item.data.data.tipo === "armadura") {
-		// 			this.actor.update({
-		// 				"data.armadura": armadura,
-		// 				"data.defesa.des": true
-		// 			});
-		// 		}
-		// 		else if (item.data.data.tipo === "escudo") {
-		// 			this.actor.update({
-		// 				"data.escudo": armadura,
-		// 			});
-		// 		}
-		// 	}
-		// 	html.find('.item-delete').click(this._onItemDelete.bind(this));
-		// 	li.slideUp(200, () => this.render(false));
-		// });
 
 		if (this.actor.owner) {
 

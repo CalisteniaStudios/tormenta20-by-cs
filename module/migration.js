@@ -136,6 +136,9 @@ export const migrateActorData = function(actor) {
 		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 	}
+  if (actor.tamanho != "") {
+    updateData["tamanho"] = actor.tamanho.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //"Médio e Minúsculo" -> "Medio e Minusculo"
+  }
 	if ( !actor.items ) return updateData;
 	let hasItemUpdates = false;
 	const items = actor.items.map(i => {
