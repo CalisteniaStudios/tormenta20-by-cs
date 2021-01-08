@@ -184,8 +184,7 @@ Hooks.once("ready", async function () {
   const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion");
   const NEEDS_MIGRATION_VERSION = "1.0.3";
   const COMPATIBLE_MIGRATION_VERSION = "1.0.0";
-  // const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
-  const needsMigration = true;
+  const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
   if ( !needsMigration ) return;
   // Perform the migration
   if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
