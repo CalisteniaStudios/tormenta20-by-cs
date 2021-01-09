@@ -377,7 +377,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	_onToggleSkillTraining(event){
 		event.preventDefault();
 		const field = event.currentTarget.previousElementSibling;
-		this.actor.update({[field.name]: 1 - parseInt(field.value)});
+		this.actor.update({[field.name]: 1 - parseInt(field.value == "" ? 0 : field.value)});
 	}
 
 	/* -------------------------------------------- */

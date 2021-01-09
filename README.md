@@ -31,6 +31,7 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * ~~Condições de T20 aplicadas como efeitos ativos~~ (v0.9.94)
 * ~~Armaduras e Itens de defesa equipáveis.~~ (v1.0.0)
 * ~~Melhoras Condições.~~ (v1.0.0)
+* ~~Paridade de Fichas, Fim de Cena, melhorias gerais.~~ (v1.1.0)
 * Melhorar Poderes e Itens num geral
 * Efeitos ativos.
 * Layout da ficha
