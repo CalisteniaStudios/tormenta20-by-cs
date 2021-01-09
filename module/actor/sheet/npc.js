@@ -20,12 +20,16 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 	/** @override */
 	getData() {
-		const data = super.getData();
-
+		const sheetData = super.getData();
+		// FLAGS
+		sheetData["statblock"] = this.actor.data.flags.editing ? "statfields" : "";
+		sheetData["editing"] = this.actor.data.flags.editing;
+		
+		// data.teste = false;
 		// TODO find something to do here
 		// parse ND?
 
-		return data;
+		return sheetData;
 	}
 
 	/* -------------------------------------------- */
@@ -153,270 +157,85 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		// Tooltips TODO DEBUG
-		html.mousemove(ev => this._moveTooltips(ev));
+		// // Tooltips TODO DEBUG
+		// html.mousemove(ev => this._moveTooltips(ev));
 
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
 
-		// Add doubleclick edits
-		html.find('.dc-editable').dblclick(this._toggleDCedit.bind(this));
-		html.find('.dc-editing').focusout(this._toggleDCedit.bind(this));
+		if(this.object.data.flags.editing){
+			html.find('.npc-line').addClass("flexrow");
+		} else {
+			html.find('.npc-line').removeClass("flexrow");
+		}
 
-
-		// Add/Delete pericias
-		html.find('.pericia-create').click(this._onPericiaCustomCreate.bind(this));
-		html.find('.il-skill-delete').click(this._onPericiaCustomDelete.bind(this));
-		// Add Inventory Item
-		html.find('.item-create').click(this._onItemCreate.bind(this));
-
-		// Update Inventory Item
-		html.find('.upItem').change(this._onUpdateItem.bind(this));
-		html.find('.show-controls').click(this._toggleControls.bind(this));
-		html.find('.item-edit').click(ev => {
-			const li = $(ev.currentTarget).parents(".item");
-			const item = this.actor.getOwnedItem(li.data("itemId"));
-			item.sheet.render(true);
-		});
-		html.find('.il-item-edit').click(ev => {
-			const t = $(ev.currentTarget);
-			const item = this.actor.getOwnedItem(t.data("itemId"));
-			item.sheet.render(true);
-		});
-
-		// Delete Inventory Item
-		html.find('.item-delete').click(ev => {
-			const li = $(ev.currentTarget).parents(".item");
-			this.actor.deleteOwnedItem(li.data("itemId"));
-			li.slideUp(200, () => this.render(false));
-		});
-
-		html.find('.il-item-delete').click(ev => {
-			const t = $(ev.currentTarget);
-			this.actor.deleteOwnedItem(t.data("itemId"));
-			this.render();
-		});
-
-		// html.find('.il-skill-delete').click(ev => {
-		//   const t = $(ev.currentTarget);
-		//   const l = ev.currentTarget.dataset.itemId;
-
-		//   delete this.actor.data.data.periciasCustom[l];
-		//   this.render();
-		// });
-
-		// Rollable abilities.
-		html.find('.rollable').click(this._onRoll.bind(this));
-
+		// if ( this.actor.owner ) {
+		// 	html.find('.rollable').each((i, el) => el.setAttribute("draggable", true));
+		// } else {
+		// 	html.find('.rollable').each((i, el) => el.removeAttribute("draggable"));
+		// }
 
 		// Drag events for macros.
-		if (this.actor.owner) {
-			let handler = ev => this._onDragStart(ev);
-			html.find('li.item').each((i, li) => {
-				if (li.classList.contains("inventory-header")) return;
-				li.setAttribute("draggable", true);
-				li.addEventListener("dragstart", handler, false);
-			});
-			html.find('span.item').each((i, li) => {
-				li.setAttribute("draggable", true);
-				li.addEventListener("dragstart", handler, false);
-			});
-			html.find('span.pericia-rollable').each((i, li) => {
-				li.setAttribute("draggable", true);
-				li.addEventListener("dragstart", handler, false);
-			});
-		}
+		let handler = ev => this._onDragStart(ev);
+		html.find('.pericia-rollable').each((i, li) => {
+			// if (li.classList.contains("inventory-header")) return;
+			// if (li.id === "atributo") return;
+			if (!li.hasAttribute("data-item-id")) return;
+			if (!li.hasAttribute("data-type")) return;
+			li.setAttribute("draggable", true);
+			li.addEventListener("dragstart", handler, false);
+		});
+
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
-	_onDragStart(event) {
-		const li = event.currentTarget;
-		if ( event.target.classList.contains("entity-link") ) return;
+	// _onDragStart(event) {
+	// 	const li = event.currentTarget;
+	// 	if ( event.target.classList.contains("entity-link") ) return;
 
-	// Create drag data
-	const dragData = {
-		actorId: this.actor.id,
-		sceneId: this.actor.isToken ? canvas.scene?.id : null,
-		tokenId: this.actor.isToken ? this.actor.token.id : null
-	};
+	// 	// Create drag data
+	// 	const dragData = {
+	// 		actorId: this.actor.id,
+	// 		sceneId: this.actor.isToken ? canvas.scene?.id : null,
+	// 		tokenId: this.actor.isToken ? this.actor.token.id : null
+	// 	};
 
-	// Owned Items
-	if ( li.dataset.itemId ) {
-		const item = this.actor.items.get(li.dataset.itemId);
-		dragData.type = "Item";
-		dragData.data = item.data;
-	}
+	// 	// Owned Items
+	// 	if ( li.dataset.itemId ) {
+	// 		const item = this.actor.items.get(li.dataset.itemId);
+	// 		dragData.type = "Item";
+	// 		dragData.data = item.data;
+	// 	}
 
-	// Active Effect
-	if ( li.dataset.effectId ) {
-		const effect = this.actor.effects.get(li.dataset.effectId);
-		dragData.type = "ActiveEffect";
-		dragData.data = effect.data;
-	}
-	// Template Skills
-	if ( li.dataset.skill ) {
-		let skill;
-		if(li.dataset.ofi) {
-			skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.ofi];
-			dragData.subtype = "oficios";
-		} else if(li.dataset.custom) {
-			skill = this.actor.data.data.periciasCustom[li.dataset.custom];
-			dragData.subtype = "custom";
-		} else {
-			skill = this.actor.data.data.pericias[li.dataset.skill];
-		}
-		dragData.type = "Pericia";
-		dragData.data = skill;
-		dragData.roll = li.dataset.roll;
-	}
-	// Set data transfer
-	event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
-}
+	// 	// Active Effect
+	// 	if ( li.dataset.effectId ) {
+	// 		const effect = this.actor.effects.get(li.dataset.effectId);
+	// 		dragData.type = "ActiveEffect";
+	// 		dragData.data = effect.data;
+	// 	}
+	// 	// Template Skills
+	// 	if ( li.dataset.skill ) {
+	// 		let skill;
+	// 		if(li.dataset.ofi) {
+	// 			skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.ofi];
+	// 			dragData.subtype = "oficios";
+	// 		} else if(li.dataset.custom) {
+	// 			skill = this.actor.data.data.periciasCustom[li.dataset.custom];
+	// 			dragData.subtype = "custom";
+	// 		} else {
+	// 			skill = this.actor.data.data.pericias[li.dataset.skill];
+	// 		}
+	// 		dragData.type = "Pericia";
+	// 		dragData.data = skill;
+	// 		dragData.roll = li.dataset.roll;
+	// 	}
+	// 	// Set data transfer
+	// 	event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+	// }
 
 	/* -------------------------------------------- */
-	_moveTooltips(event) {
-		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
-	}
-
-
-	/**
-	* Listen for click events on spells.
-	* @param {MouseEvent} event
-	*/
-	async _onUpdateItem(event) {
-		event.preventDefault();
-		const a = event.currentTarget;
-		const data = a.dataset;
-		const actorData = this.actor.data.data;
-		const itemId = $(a).parents('.item').attr('data-item-id');
-		const item = this.actor.getOwnedItem(itemId);
-
-		if (item) {
-			let value = a.value;
-			if(data.campo == "_bonusAtq"){
-				item.update({
-					"data._bonusAtq": value
-				});
-			} else if(data.campo == "_bonusDano"){
-				item.update({
-					"data._bonusDano": value
-				});
-			}
-		}
-
-		this.render();
-	}
-
-
-	_toggleDCedit(event){
-		if(event.type == "dblclick"){
-			const target = event.currentTarget;
-			const input = $(target).parent('p').find('.dc-editing');
-			$(target).css('display', 'none');
-			$(input).css('display', 'inline-block');
-		}
-		if(event.type == "focusout"){
-			const target = event.currentTarget;
-			const span = $(target).parent('p').find('.dc-editable');
-			$(target).css('display', 'none');
-			$(span).css('display', 'inline');
-		}
-
-	}
-
-	_toggleControls(event){
-		const target = event.currentTarget;
-		const controls = $(target).closest('li').find('.item-name').find('.item-control');
-		const label = $(target).closest('li').find('.item-name').find('.skill-name');
-		if($(target).hasClass('ativo')){
-			$(controls).css('display', 'none');
-			$(label).css('display', 'inline');
-			$(target).removeClass('ativo');
-
-		} else {
-			$(controls).css('display', 'inline');
-			$(label).css('display', 'none');
-			$(target).addClass('ativo');
-		}
-	}
-
-
-
-	async _onPericiaCustomDelete(event) {
-		const id = event.currentTarget.dataset.itemId;
-		const a = event.currentTarget;
-		const tipo = a.dataset.tipo;
-		let c = 0;
-		delete this.actor.data.data.periciasCustom[id];
-		let pericias = {};
-		for (var i in this.actor.data.data.periciasCustom) {
-			pericias[c]=this.actor.data.data.periciasCustom[i];
-			c++;
-		}
-		await this.actor.update({'data.periciasCustom': null});
-		await this.actor.update({"data.periciasCustom": pericias });
-		await this.render();
-	}
-
-	/**
-	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onPericiaCustomCreate(event) {
-		event.preventDefault();
-
-		const a = event.currentTarget;
-		const tipo = a.dataset.tipo;
-		const pericia = {
-			label: "pericia",
-			nome: "pericia",
-			value: 0,
-			temp: 0
-		} ;
-
-		let actorData = duplicate(this.actor);
-		let periciasCustom = actorData.data.periciasCustom;
-
-
-		let c = Object.keys(this.actor.data.data.periciasCustom).length;
-
-		periciasCustom[c] = pericia;
-
-		this.actor.update({"data.periciasCustom": periciasCustom});
-		// this.actor.data.data.periciasCustom[] = pericia;
-
-		this.render();
-	}
-
-	/**
-	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onItemCreate(event) {
-		event.preventDefault();
-		const header = event.currentTarget;
-		// Get the type of item to create.
-		const type = header.dataset.type;
-		// Grab any data associated with this control.
-		const data = duplicate(header.dataset);
-		// Initialize a default name.
-		const name = `Novo ${type.capitalize()}`;
-		// Prepare the item object.
-		const itemData = {
-			name: name,
-			type: type,
-			data: data
-		};
-		// Remove the type from the dataset since it's in the itemData.type prop.
-		delete itemData.data["type"];
-
-		// Finally, create the item!
-		return this.actor.createOwnedItem(itemData);
-	}
 
 	/**
 	* Create skills as items?
@@ -430,8 +249,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	// }
 
 	/**
-	* Handle clickable rolls.
-	* @param {Event} event   The originating click event
+	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
 	* @private
 	*/
 	async _onRoll(event, actor = null) {
@@ -439,32 +257,37 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		if (!actor.data) {
 			return;
 		}
+		const actorData = actor.data.data;
 		const a = event.currentTarget;
 		const data = a.dataset;
-		const actorData = actor.data.data;
-		const itemId = $(a).closest('li').attr('data-item-id') ?? $(a).attr('data-item-id');
-		let item = {
-			type: 'outros',
-			roll: data.roll,
-			label: data.label
-		};
-		if(itemId && ($(a).hasClass('magia-rollable') || $(a).hasClass('arma-rollable') || $(a).hasClass('ataque-rollable') || $(a).hasClass('poder-rollable'))) {
-			item = actor.getOwnedItem(itemId);
-		} else if ($(a).hasClass('pericia-rollable')) {
+		const id = a.dataset.itemId;
+		let item = {};
+		if(Object.keys(actorData.atributos).includes(id)){
+			item.type = "atributo";
+			item.roll = "1d20 +"+ actorData.atributos[id].mod;
+			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
+		}
+		// Roll pericias
+		else if ($(a).hasClass('pericia-rollable')) {
+			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
+			console.log(data);
+			console.log(id);
+			console.log(skillData[id]);
 			item = {
 				type: 'pericia',
-				roll: data.roll,
-				label: data.label
-			}
-		} else if ($(a).hasClass('atributo-rollable')) {
-			const atrnames = {'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma"}
-			item = {
-				type: 'atributo',
-				roll: data.roll,
-				label: atrnames[data.label]
+				roll: "1d20+" + skillData[id].value,
+				label: skillData[id].label
 			}
 		}
-		await prepRoll(event, item, actor);
+		// Roll items
+		else if (actor.items.get(id)){
+			item = actor.items.get(id);
+			console.log(item);
+		}
+
+		if(!isObjectEmpty(item)){
+			await prepRoll(event, item, actor);
+		}
 	}
 
 }

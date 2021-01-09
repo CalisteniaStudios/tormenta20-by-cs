@@ -36,7 +36,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const sheetData = super.getData();
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
-		console.log(this.actor);
+
 		// TODO Understand this
 		for (let [pc, per] of Object.entries(this.actor.data.data.atributos)) {
 			if(per.bonus === undefined || per.penalidade === undefined) {
@@ -234,25 +234,25 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	* @param {MouseEvent} event
 	*/
 	// TODO Refactoring
-	async _onUpdateItem(event) {
-		event.preventDefault();
-		const a = event.currentTarget;
-		const data = a.dataset;
-		const actorData = this.actor.data.data;
-		const itemId = $(a).parents('.item').attr('data-item-id');
-		const item = this.actor.getOwnedItem(itemId);
+	// async _onUpdateItem(event) {
+	// 	event.preventDefault();
+	// 	const a = event.currentTarget;
+	// 	const data = a.dataset;
+	// 	const actorData = this.actor.data.data;
+	// 	const itemId = $(a).parents('.item').attr('data-item-id');
+	// 	const item = this.actor.getOwnedItem(itemId);
 
-		if (item) {
-			let value = a.value;
-			if (data.campo == "_bonusAtq") {
-				item.update({ "data._bonusAtq": value });
-			} else if (data.campo == "_bonusDano") {
-				item.update({ "data._bonusDano": value });
-			}
-		}
+	// 	if (item) {
+	// 		let value = a.value;
+	// 		if (data.campo == "_bonusAtq") {
+	// 			item.update({ "data._bonusAtq": value });
+	// 		} else if (data.campo == "_bonusDano") {
+	// 			item.update({ "data._bonusDano": value });
+	// 		}
+	// 	}
 
-		this.render();
-	}
+	// 	this.render();
+	// }
 
 	/* -------------------------------------------- */
 
@@ -306,13 +306,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			equipado: item.data.data.equipado
 		};
 		if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
-			let toggleDex = true;
-			if (item.data.data.equipado && item.data.data.tipo === "pesada" && this.actor.data.data.atributos.des.mod >= 0) {
-				toggleDex = false;
-			}
 			this.actor.update({
 				"data.armadura": armadura,
-				"data.defesa.des": toggleDex
+				"data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true //if ((equipado && leve) || desequipado) return true
 			});
 		}
 		else if (item.data.data.tipo === "escudo") {
@@ -385,65 +381,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		}
 
 	}
-
-	/* -------------------------------------------- */
-
-	/** @override */
-	_onDragStart(event) {
-		const li = event.currentTarget;
-		if(!$(li).hasClass("skill")){
-			super._onDragStart(event);
-		} else {
-			if (event.target.classList.contains("entity-link")) return;
-
-			// Create drag data
-			const dragData = {
-				actorId: this.actor.id,
-				sceneId: this.actor.isToken ? canvas.scene?.id : null,
-				tokenId: this.actor.isToken ? this.actor.token.id : null
-			};
-
-			// Pericias
-			if (li.dataset.itemId) {
-				let skill;
-				if (li.dataset.type=="oficios") {
-					skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.itemId];
-					dragData.subtype = li.dataset.type;
-				} else if (li.dataset.type=="custom") {
-					skill = this.actor.data.data.periciasCustom[li.dataset.itemId];
-					dragData.subtype = li.dataset.type;
-				} else {
-					skill = this.actor.data.data.pericias[li.dataset.itemId];
-					dragData.subtype = "base";
-				}
-				dragData.type = "Pericia";
-				dragData.data = skill;
-			}
-			// Set data transfer
-			event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
-		}
-	}
-
-
-	/* -------------------------------------------- */
-
-	_toggleControls(event) {
-		const target = event.currentTarget;
-		const controls = target.closest('ul').querySelectorAll('li.custom .skill-delete, li.oficios .skill-delete');
-		const input = target.closest('ul').querySelectorAll('li.custom .skill-outros, li.oficios .skill-outros');
-		if ($(target).hasClass('ativo')) {
-			$(controls).css('display', 'none');
-			$(input).css('display', 'inline');
-			$(target).removeClass('ativo');
-
-		} else {
-			$(controls).css('display', 'inline');
-			$(input).css('display', 'none');
-			$(target).addClass('ativo');
-		}
-	}
-
-
 
 	/**
 	* Create skills as items?

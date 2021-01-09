@@ -859,22 +859,6 @@ button {
   opacity: 1;
 }
 
-.tormenta20.npc input.npc-name {
-  width: 85%;
-}
-
-.tormenta20.npc input.npc-nd {
-  width: 10%;
-}
-
-.tormenta20.npc .npc-line input {
-  display: inline-block;
-  max-width: 40px;
-}
-
-.tormenta20.npc .npc-line input.dc-editing {
-  max-width: 100%;
-}
 
 
 .tormenta20 .npc .item-list .item {
@@ -1266,4 +1250,112 @@ button {
   -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
           filter: invert(100%);
 
+}
+
+.tormenta20 .npc input {
+  display: none;
+}
+.tormenta20 .npc .npc-line,
+.tormenta20 .npc .item-list .item {
+  line-height: 1.5em;
+}
+.tormenta20 .npc.statfields .npc-line,
+.tormenta20 .npc.statfields .item-list .item {
+  line-height: normal;
+}
+
+.tormenta20 .npc .item-controls {
+  display: none;
+  /*font-size: initial!important;*/
+}
+
+.tormenta20 .npc .statfields div {
+  font-size: 0px;
+}
+.tormenta20 .npc .statfields .item-controls {
+  display: block;
+  font-size: small;
+}
+.tormenta20 .npc .statfields span {
+  width: fit-content;
+  max-width: 30%;
+  text-align: center;
+}
+.tormenta20 .npc .editing * {
+  font-size: small;
+}
+
+
+.tormenta20 .npc .statfields ol.editing, 
+.tormenta20 .npc .statfields ul.editing {
+  column-count: 2;
+  column-gap: 5px;
+}
+
+.tormenta20 .npc .statfields input {
+   display: inline-flex;
+   font-size: initial;
+   width: auto;
+   height: auto;
+}
+
+.tormenta20 .npc .abl-line input {
+  font-size: 12px;
+  height: fit-content;
+  max-width: 30px;
+}
+
+.npc .editing .skill-line * {
+  font-size: 12px;
+  height: fit-content;
+  line-height: 1.5em;
+}
+
+.tormenta20 .npc .editing .skill-line .rollable,
+.tormenta20 .npc .editing .skill-line .item-controls {
+  flex: 0 0 30px;
+  text-align: center!important;
+}
+.npc .skill-line * {
+  font-size: 12px;
+  height: fit-content;
+}
+
+
+.tormenta20 .npc .title-row input {
+  width: 100%;
+  height: 25px;
+}
+
+.tormenta20 .npc label {
+  width: fit-content;
+  max-width: 30%;
+}
+.tormenta20 .npc ul * {
+  /*font-size: 14px!important;*/
+}
+.tormenta20 .npc span {
+  text-align: left!important;
+}
+
+.tormenta20 .npc .abl-line,
+.tormenta20 .npc .abl-line span {
+  text-transform: uppercase;
+  text-align: center!important;
+}
+.tormenta20 .npc label {
+  color:crimson;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tormenta20 .npc .title-row {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: crimson;
+}
+.tormenta20 .npc nav label{
+  color:black;
+  font-weight: bold;
+  font-size: 16px;
 }

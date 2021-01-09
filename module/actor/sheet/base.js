@@ -79,7 +79,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		// TODO Implement Senses Here?
 
 		// Prepare owned items
-		// Prepare items.
 		this._prepareItems(data);
 
 		// Prepare active effects
@@ -161,7 +160,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find('.rollable').click(this._onRoll.bind(this));
 
 			// Update item
-			html.find('.upItem').change(this._onUpdateItem.bind(this));
+			// html.find('.upItem').change(this._onUpdateItem.bind(this));
 
 		}
 
@@ -194,6 +193,66 @@ export default class ActorSheetT20 extends ActorSheet {
 	// 	return super._onDropItemCreate(itemData);
 	// }
 	
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	_onDragStart(event) {
+		const li = event.currentTarget;
+		console.log(li);
+		if(!$(li).hasClass("skill")){
+			super._onDragStart(event);
+		} else {
+			if (event.target.classList.contains("entity-link")) return;
+
+			// Create drag data
+			const dragData = {
+				actorId: this.actor.id,
+				sceneId: this.actor.isToken ? canvas.scene?.id : null,
+				tokenId: this.actor.isToken ? this.actor.token.id : null
+			};
+
+			// Pericias
+			if (li.dataset.itemId) {
+				let skill;
+				if (li.dataset.type=="oficios") {
+					skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.itemId];
+					dragData.subtype = li.dataset.type;
+				} else if (li.dataset.type=="custom") {
+					skill = this.actor.data.data.periciasCustom[li.dataset.itemId];
+					dragData.subtype = li.dataset.type;
+				} else {
+					skill = this.actor.data.data.pericias[li.dataset.itemId];
+					dragData.subtype = "base";
+				}
+				dragData.type = "Pericia";
+				dragData.data = skill;
+			}
+			// Set data transfer
+			console.log(dragData);
+			event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+		}
+	}
+
+
+	/* -------------------------------------------- */
+
+	_toggleControls(event) {
+		const target = event.currentTarget;
+		const controls = target.closest('ul').querySelectorAll('li.custom .skill-delete, li.oficios .skill-delete');
+		const input = target.closest('ul').querySelectorAll('li.custom .skill-outros, li.oficios .skill-outros');
+		if ($(target).hasClass('ativo')) {
+			$(controls).css('display', 'none');
+			$(input).css('display', 'inline');
+			$(target).removeClass('ativo');
+
+		} else {
+			$(controls).css('display', 'inline');
+			$(input).css('display', 'none');
+			$(target).addClass('ativo');
+		}
+	}
+
 	/* -------------------------------------------- */
 
 	_moveTooltips(event) {
@@ -224,6 +283,9 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Roll pericias
 		else if ($(a).hasClass('pericia-rollable')) {
 			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
+			console.log(data);
+			console.log(id);
+			console.log(skillData[id]);
 			item = {
 				type: 'pericia',
 				roll: "1d20+" + skillData[id].value,
@@ -303,6 +365,8 @@ export default class ActorSheetT20 extends ActorSheet {
 		const id = event.currentTarget.dataset.itemId;
 		const a = event.currentTarget;
 		const tipo = a.dataset.type;
+		console.log(tipo);
+		console.log(id);
 		if (tipo == 'oficios') {
 			let oficios = Object.values(this.actor.data.data.pericias.ofi.mais);
 			oficios.splice(id, 1);

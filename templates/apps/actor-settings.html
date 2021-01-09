@@ -1,7 +1,7 @@
 <form autocomplete="off" onsubmit="event.preventDefault();">
 
+    {{#if (eq object.type "character")}}
     {{#if displays.general}}
-    {{log object}}
     <div class="form-group">
         <label>Conjurador?</label>
         <input type="checkbox" name="flags.conjurador" data-dtype="Boolean" {{checked object.flags.conjurador}}>
@@ -11,7 +11,13 @@
         <label>Conjuração Preparada? (Mago)</label>
         <input type="checkbox" name="flags.mago" data-dtype="Boolean" {{checked object.flags.mago}}>
     </div>
-
+    {{/if}}
+    {{/if}}
+    {{#if (eq object.type "npc")}}
+    <div class="form-group">
+        <label>Editar?</label>
+        <input type="checkbox" name="flags.editing" data-dtype="Boolean" {{checked object.flags.editing}}>
+    </div>
     {{/if}}
 
     <button type="submit" name="submit">Submit</button>
