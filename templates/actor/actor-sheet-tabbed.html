@@ -61,9 +61,28 @@
 					</footer>
 				</li>
 				<li class="attribute">
-					<h4 class="attribute-name box-title" title="{{data.defesa.value}} = 10 (Base){{#if data.defesa.des}} +{{data.atributos.des.mod}} (Destreza){{/if}}{{#if data.armadura.equipado}} +{{data.armadura.defesa}} ({{data.armadura.nome}}){{/if}}{{#if data.escudo.equipado}} +{{data.escudo.defesa}} ({{data.escudo.nome}}){{/if}}{{#if data.defesa.outro}} +{{data.defesa.outro}} (Outros){{/if}}{{#if data.defesa.temp}} +{{data.defesa.temp}} (Temporário) {{/if}}">Defesa</h4>
-					<div class="attribute-value">
-						<h1>{{data.defesa.value}}</h1>
+					<h4 class="attribute-name box-title">Defesa</h4>
+					<div class="tooltip">
+						<div class="tooltipcontent">
+							<strong>Fontes:</strong>
+							<br/>
+							Base: 10
+							<br/>
+							{{#if data.defesa.des}} Destreza: {{data.atributos.des.mod}}{{else}}{{#ifGreater 0 data.atributos.des.mod}}Destreza: {{data.atributos.des.mod}}
+							<br /> {{/ifGreater}}{{/if}}
+							{{#if data.armadura.equipado}} {{data.armadura.nome}}: {{data.armadura.defesa}}
+							<br /> {{/if}}
+							{{#if data.escudo.equipado}} {{data.escudo.nome}}: {{data.escudo.defesa}}
+							<br /> {{/if}}
+							{{#if data.defesa.outro}} Outros: {{data.defesa.outro}}
+							<br /> {{/if}}
+							{{#if data.defesa.temp}} Temporário: {{data.defesa.temp}}
+							<br /> {{/if}}
+
+						</div>
+						<div class="attribute-value">
+							<h1 style="height:auto">{{data.defesa.value}}</h1>
+						</div>
 					</div>
 					<footer class="attribute-footer">
 						<input name="data.defesa.outro" title="Outros" type="number" class="temphealth" placeholder="+Outros" value="{{data.defesa.outro}}" />
@@ -73,7 +92,7 @@
 				<li class="attribute">
 					<h4 class="attribute-name box-title">Redução de Dano</h4>
 					<div class="attribute-value">
-						<h1>{{data.rd.value}}</h1>
+						<h1 style="height:auto">{{data.rd.value}}</h1>
 					</div>
 					<footer class="attribute-footer">
 						<input type="number" title="Valor Base" name="data.rd.base" class="temphealth" value="{{data.rd.base}}" placeholder="Base" data-dtype="Number" />

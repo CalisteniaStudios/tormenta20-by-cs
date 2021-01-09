@@ -128,7 +128,7 @@ export default class ActorT20 extends Actor {
 		data.defesa.escud = data.escudo.equipado ? Number(data.escudo.defesa) : 0;
 		data.defesa.value =
 		10 +
-		Number(data.defesa.des ? data.atributos.des.mod : 0) +
+		Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
 		Number(data.defesa.armad) +
 		Number(data.defesa.escud) +
 		Number(data.defesa.outro) +

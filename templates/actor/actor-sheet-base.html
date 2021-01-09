@@ -190,8 +190,8 @@
 										<br/>
 										Base: 10
 										<br/>
-										{{#if data.defesa.des}} Destreza: {{data.atributos.des.mod}}
-										<br /> {{/if}}
+										{{#if data.defesa.des}} Destreza: {{data.atributos.des.mod}}{{else}}{{#ifGreater 0 data.atributos.des.mod}}Destreza: {{data.atributos.des.mod}}
+										<br /> {{/ifGreater}}{{/if}}
 										{{#if data.armadura.equipado}} {{data.armadura.nome}}: {{data.armadura.defesa}}
 										<br /> {{/if}}
 										{{#if data.escudo.equipado}} {{data.escudo.nome}}: {{data.escudo.defesa}}
