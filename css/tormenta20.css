@@ -1269,14 +1269,14 @@ button {
   /*font-size: initial!important;*/
 }
 
-.tormenta20 .npc .statfields div {
+.tormenta20 .npc.statfields div {
   font-size: 0px;
 }
-.tormenta20 .npc .statfields .item-controls {
+.tormenta20 .npc.statfields .item-controls {
   display: block;
   font-size: small;
 }
-.tormenta20 .npc .statfields span {
+.tormenta20 .npc.statfields span {
   width: fit-content;
   max-width: 30%;
   text-align: center;
@@ -1286,13 +1286,13 @@ button {
 }
 
 
-.tormenta20 .npc .statfields ol.editing, 
-.tormenta20 .npc .statfields ul.editing {
+.tormenta20 .npc.statfields ol.editing, 
+.tormenta20 .npc.statfields ul.editing {
   column-count: 2;
   column-gap: 5px;
 }
 
-.tormenta20 .npc .statfields input {
+.tormenta20 .npc.statfields input {
    display: inline-flex;
    font-size: initial;
    width: auto;
