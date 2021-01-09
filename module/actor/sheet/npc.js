@@ -270,9 +270,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Roll pericias
 		else if ($(a).hasClass('pericia-rollable')) {
 			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
-			console.log(data);
-			console.log(id);
-			console.log(skillData[id]);
 			item = {
 				type: 'pericia',
 				roll: "1d20+" + skillData[id].value,
@@ -282,7 +279,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Roll items
 		else if (actor.items.get(id)){
 			item = actor.items.get(id);
-			console.log(item);
 		}
 
 		if(!isObjectEmpty(item)){

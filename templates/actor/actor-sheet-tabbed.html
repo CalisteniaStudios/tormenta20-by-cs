@@ -177,7 +177,7 @@
 				{{else}}
 				<li class="skill flexrow {{skill.type}}" data-item-id="{{skill.id}}" data-type="{{skill.type}}">
 					<div class="item-image">
-						<input type="hidden" name="{{skill.path}}.{{skill.id}}.treinado" value={{skill.treinado}} data-dtype="Number" />
+						<input type="hidden" name="{{skill.path}}.{{skill.id}}.treinado" value="{{skill.treinado}}" data-dtype="Number" />
 						<a class="training-toggle skill-training" title="Treinado"><i class="{{#if skill.treinado }}fas fa-check {{else}}far fa-circle{{/if}}"></i></a>
 					</div>
 					<div class="item-name" data-item-id="{{skill.id}}">

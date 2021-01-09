@@ -267,7 +267,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		if (item) {
 			let tempItem = duplicate(item);
 			updateItems.push({_id: item.id, "data.preparada": !item.data.data.preparada});
-			console.log(item.data.data.preparada);
+			
 			// this.actor.updateOwnedItem(updatedItem);
 			this.actor.updateEmbeddedEntity("OwnedItem", updateItems);
 			this.render();

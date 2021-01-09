@@ -127,7 +127,6 @@ export const migrateCompendium = async function(pack) {
  */
 export const migrateActorData = function(actor) {
 	const updateData = {};
-	console.log(actor);
 	// Actor Data Updates
 	_migrateActorSkills(actor, updateData);
 
@@ -136,9 +135,16 @@ export const migrateActorData = function(actor) {
 		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 	}
-  if (actor.tamanho != "") {
-    updateData["tamanho"] = actor.tamanho.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //"Médio e Minúsculo" -> "Medio e Minusculo"
-  }
+
+	if (actor.data.tamanho != "") {
+		if (actor.type == "npc") {
+			actor.data.tamanho = actor.data.attributes.tamanho.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+			// delete
+		} else {
+			updateData["tamanho"] = actor.data.tamanho.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //"Médio e Minúsculo" -> "Medio e Minusculo"
+		}
+	}
+		
 	if ( !actor.items ) return updateData;
 	let hasItemUpdates = false;
 	const items = actor.items.map(i => {
@@ -211,12 +217,12 @@ function _migrateActorSkills(actor, updateData) {
 	skillsArrays.push(ad.pericias.ofi.mais);
 	skillsArrays.push(ad.periciasCustom);
 	let ar = ["data.pericias", "data.pericias.ofi.mais", "data.periciasCustom"];
+	if (actor.type == "npc") ar = ["data.pericias", "data.periciasCustom"];
 	for (let [k, arr] of Object.entries(skillsArrays)) {
 		for (let [key, pericia] of Object.entries(arr)) {
 			
 			let temp = ["true",true,"1",1].includes(pericia.treinado) ? 1:0;
 			if(pericia.treinado !== temp){
-				console.log(`${ar[k]}.${key}.treinado`);
 				updateData[`${ar[k]}.${key}.treinado`] = temp;
 			}
 		}

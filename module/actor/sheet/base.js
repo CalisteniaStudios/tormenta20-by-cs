@@ -199,7 +199,6 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	_onDragStart(event) {
 		const li = event.currentTarget;
-		console.log(li);
 		if(!$(li).hasClass("skill")){
 			super._onDragStart(event);
 		} else {
@@ -229,7 +228,6 @@ export default class ActorSheetT20 extends ActorSheet {
 				dragData.data = skill;
 			}
 			// Set data transfer
-			console.log(dragData);
 			event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
 		}
 	}
@@ -283,9 +281,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Roll pericias
 		else if ($(a).hasClass('pericia-rollable')) {
 			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
-			console.log(data);
-			console.log(id);
-			console.log(skillData[id]);
 			item = {
 				type: 'pericia',
 				roll: "1d20+" + skillData[id].value,
@@ -365,8 +360,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		const id = event.currentTarget.dataset.itemId;
 		const a = event.currentTarget;
 		const tipo = a.dataset.type;
-		console.log(tipo);
-		console.log(id);
 		if (tipo == 'oficios') {
 			let oficios = Object.values(this.actor.data.data.pericias.ofi.mais);
 			oficios.splice(id, 1);
