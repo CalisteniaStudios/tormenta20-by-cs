@@ -312,12 +312,12 @@
 
 
 
+				{{#if isCaster}}
 				<div class="magias">
 					<ol class="item-list">
 						<li class="item flexrow item-header flex-center">
 							<div>MAGIAS</div>
 						</li>
-						{{#if isCaster}}
 						{{#each actor.magias as |circulo i|}}
 						<ol class="item-list">
 							<li class="item flexrow item-header">
@@ -345,9 +345,9 @@
 							{{/each}}
 						</ol>
 						{{/each}}
-						{{/if}}
 					</ol>
 				</div>
+				{{/if}}
 
 
 				<div class="outros">

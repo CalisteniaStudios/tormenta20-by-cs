@@ -24,7 +24,7 @@
 					<input type="text" class="npc-nd" name="data.attributes.nd" value="{{data.attributes.nd}}">
 				</aside>
 			</div>
-			<i>{{data.attributes.raca}} {{data.attributes.nivel.value}}, {{data.attributes.tamanho}}</i>
+			<i>{{data.attributes.raca}} {{data.attributes.nivel.value}}, {{data.tamanho}}</i>
 			<div class="flexrow">
 				
 				<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo/Raça" />
@@ -95,8 +95,8 @@
 				{{data.deslocamento.value}}
 				<input type="text" name="data.deslocamento.value" value="{{data.deslocamento.value}}" data-dtype="String" title="Deslocamento" />
 			</div>
-			<hr>
 			{{#if data.attributes.pm.value}}
+			<hr>
 			<div class="npc-line">
 				<label>Pontos de Mana: </label>
 				{{data.attributes.pm.value}} / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
@@ -112,6 +112,7 @@
 					<a class="item-control item-create" title="Nova Habilidade" data-type="poder"><i class="fas fa-plus"></i> Habilidade</a>
 					<a class="item-control item-create" title="Nova Magia" data-type="magia"><i class="fas fa-plus"></i> Magia</a>
 				</div>
+				{{#ifOr actor.ataques actor.armas}}<hr>{{/ifOr}}
 				<ul class="item-list editing">
 					{{#each actor.ataques as |item id|}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
@@ -141,6 +142,8 @@
 						</div>
 					</li>
 					{{/each}}
+					{{#if actor.poderes}}
+					{{#unless editing}}<hr>{{/unless}}
 					{{#each actor.poderes as |item id|}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div class="item-name">
@@ -155,9 +158,11 @@
 						</div>
 					</li>
 					{{/each}}
+					{{#unless editing}}<hr>{{/unless}}
+					{{/if}}
 				</ul>
+				{{#if actor.magias}}
 				<ul class="item-list">
-					{{#if actor.magias}}
 					<li class="item flexrow">
 						<div class="item-name magias"><label>Magias: </label>
 							{{#if editing}}
@@ -192,18 +197,18 @@
 									{{#if circulo.spells}}
 									{{i}}º —
 										{{#each circulo.spells as |m index|}}
-											<span class="item rollable magia-rollable" data-item-id="{{m._id}}">{{m.name}};</span>
+											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>,
 										{{/each}}
 									{{/if}}
 								{{/each}}
 							{{/if}}
 						</div>
 					</li>
-					{{/if}}
-					
+				{{/if}}
 				</ul>
+				<hr>
 			</div>
-			<hr>
+			<!-- <hr> -->
 			<div class="flexrow text-center abl-line">
 				{{#each data.atributos as |atr key|}}
 					<span class="rollable atributo-rollable" data-item-id="{{key}}">

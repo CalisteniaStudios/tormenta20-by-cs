@@ -73,6 +73,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Iterate through items, allocating to containers
 		// let totalWeight = 0;
 		let x = 0;
+		let temMagias = false;
 		for (let i of data.items) {
 			let item = i.data;
 			i.img = i.img || DEFAULT_TOKEN;
@@ -83,6 +84,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			else if (i.type === 'magia') {
 				if (i.data.circulo != undefined) {
 					magias[i.data.circulo].spells.push(i);
+					temMagias = true;
 				}
 			}
 			// If this is equipment, we currently lump it together.
@@ -137,14 +139,14 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		}
 
 		// Assign and return powers
-		actorData.poderes = poderes;
+		actorData.poderes = poderes.length ? poderes : null;
 		// Spells
-		actorData.magias = magias;
+		actorData.magias = temMagias ? magias : null;
 		// Equipment
 		actorData.equipamentos = equipamentos;
 		// Attacks
-		actorData.ataques = ataques;
-		actorData.armas = armas;
+		actorData.ataques = ataques.length ? ataques : null;
+		actorData.armas = armas.length ? armas : null;
 	}
 
 

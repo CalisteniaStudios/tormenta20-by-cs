@@ -275,7 +275,7 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	static async create(data, options={}) {
 
-		data.items = [];
+		data.items = data.items || [];
 		data.token = data.token || {};
 		/*/
 		// Item Skills [WIP]
