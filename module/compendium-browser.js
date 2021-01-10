@@ -873,7 +873,7 @@ Hooks.on('ready', async function() {
     }
 
     // Spellfilters
-    game.compendiumBrowser.addSpellFilter("Geral", "Nível", 'data.circulo', 'select', {"1":"1", "2":"2", "3":"3", "4":"4", "5":"5"});
+    game.compendiumBrowser.addSpellFilter("Geral", "Círculo", 'data.circulo', 'select', {"1":"1", "2":"2", "3":"3", "4":"4", "5":"5"});
     game.compendiumBrowser.addSpellFilter("Geral", "Escola", 'data.escola', 'select', {"Abjuração":"Abjuração", "Adivinhação":"Adivinhação", "Convocação":"Convocação", "Encantamento":"Encantamento", "Evocação":"Evocação", "Ilusão":"Ilusão", "Necromancia":"Necromancia", "Transmutação":"Transmutação"});
     game.compendiumBrowser.addSpellFilter("Geral", "Execução", 'data.execucao', 'select',
     {
