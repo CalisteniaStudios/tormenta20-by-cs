@@ -132,440 +132,91 @@
         },
         "pericias": {
           "acr": {
-            "label": "Acrobacia",
-            "value": 0,
-            "atributo": "des",
-            "st": false,
-            "pda": true,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Acrobacia","value": 0,"atributo": "des","st": false,"pda": true,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "ade": {
-            "label": "Adestramento",
-            "value": 0,
-            "atributo": "car",
-            "st": true,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Adestramento","value": 0,"atributo": "car","st": true,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "atl": {
-            "label": "Atletismo",
-            "value": 0,
-            "atributo": "for",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Atletismo","value": 0,"atributo": "for","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "atu": {
-            "label": "Atuação",
-            "value": 0,
-            "atributo": "car",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Atuação","value": 0,"atributo": "car","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "cav": {
-            "label": "Cavalgar",
-            "value": 0,
-            "atributo": "des",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Cavalgar","value": 0,"atributo": "des","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "con": {
-            "label": "Conhecimento",
-            "value": 0,
-            "atributo": "int",
-            "st": true,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Conhecimento","value": 0,"atributo": "int","st": true,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "cur": {
-            "label": "Cura",
-            "value": 0,
-            "atributo": "sab",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Cura","value": 0,"atributo": "sab","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "dip": {
-            "label": "Diplomacia",
-            "value": 0,
-            "atributo": "car",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Diplomacia","value": 0,"atributo": "car","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "eng": {
-            "label": "Enganação",
-            "value": 0,
-            "atributo": "car",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Enganação","value": 0,"atributo": "car","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "for": {
-            "label": "Fortitude",
-            "value": 0,
-            "atributo": "con",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Fortitude","value": 0,"atributo": "con","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "fur": {
-            "label": "Furtividade",
-            "value": 0,
-            "atributo": "des",
-            "st": false,
-            "pda": true,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Furtividade","value": 0,"atributo": "des","st": false,"pda": true,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "gue": {
-            "label": "Guerra",
-            "value": 0,
-            "atributo": "int",
-            "st": true,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Guerra","value": 0,"atributo": "int","st": true,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "ini": {
-            "label": "Iniciativa",
-            "value": 0,
-            "atributo": "des",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Iniciativa","value": 0,"atributo": "des","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "int": {
-            "label": "Intimidação",
-            "value": 0,
-            "atributo": "car",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Intimidação","value": 0,"atributo": "car","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "intu": {
-            "label": "Intuição",
-            "value": 0,
-            "atributo": "sab",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Intuição","value": 0,"atributo": "sab","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "inv": {
-            "label": "Investigação",
-            "value": 0,
-            "atributo": "int",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Investigação","value": 0,"atributo": "int","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "jog": {
-            "label": "Jogatina",
-            "value": 0,
-            "atributo": "car",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Jogatina","value": 0,"atributo": "car","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "lad": {
-            "label": "Ladinagem",
-            "value": 0,
-            "atributo": "des",
-            "st": true,
-            "pda": true,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Ladinagem","value": 0,"atributo": "des","st": true,"pda": true,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "lut": {
-            "label": "Luta",
-            "value": 0,
-            "atributo": "for",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Luta","value": 0,"atributo": "for","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "mis": {
-            "label": "Misticismo",
-            "value": 0,
-            "atributo": "int",
-            "st": true,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Misticismo","value": 0,"atributo": "int","st": true,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "nob": {
-            "label": "Nobreza",
-            "value": 0,
-            "atributo": "int",
-            "st": true,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Nobreza","value": 0,"atributo": "int","st": true,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "ofi": {
-            "label": "Oficios",
-            "value": 0,
-            "atributo": "int",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "mais": [],
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Oficios","value": 0,"atributo": "int","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"mais": [],"bonus": 0,"penalidade": 0
           },
           "per": {
-            "label": "Percepção",
-            "value": 0,
-            "atributo": "sab",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Percepção","value": 0,"atributo": "sab","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "pil": {
-            "label": "Pilotagem",
-            "value": 0,
-            "atributo": "des",
-            "st": true,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Pilotagem","value": 0,"atributo": "des","st": true,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "pon": {
-            "label": "Pontaria",
-            "value": 0,
-            "atributo": "des",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Pontaria","value": 0,"atributo": "des","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "ref": {
-            "label": "Reflexos",
-            "value": 0,
-            "atributo": "des",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Reflexos","value": 0,"atributo": "des","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "rel": {
-            "label": "Religião",
-            "value": 0,
-            "atributo": "sab",
-            "st": true,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Religião","value": 0,"atributo": "sab","st": true,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "sob": {
-            "label": "Sobrevivência",
-            "value": 0,
-            "atributo": "sab",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Sobrevivência","value": 0,"atributo": "sab","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           },
           "von": {
-            "label": "Vontade",
-            "value": 0,
-            "atributo": "sab",
-            "st": false,
-            "pda": false,
-            "treinado": 0,
-            "treino": 0,
-            "outros": 0,
-            "notes": "",
-            "mod": 0,
-            "temp": 0,
-            "bonus": 0,
-            "penalidade": 0
+            "label": "Vontade","value": 0,"atributo": "sab","st": false,"pda": false,"treinado": 0,"treino": 0,"outros": 0,"notes": "","mod": 0,"temp": 0,"bonus": 0,"penalidade": 0
           }
         },
         "periciasCustom": {},
@@ -581,14 +232,7 @@
           "descricao": ""
         },
         "detalhes": {
-          "biografia": "",
-          "dinheiro": {
-            "tt": 0,
-            "to": 0,
-            "tp": 0,
-            "tc": 0
-          },
-          "carga": 0
+          "biografia": ""
         },
         "referencias": {},
         "modificadores": {
@@ -618,7 +262,13 @@
         "peso": 0,
         "aparencia": "",
         "personalidade": "",
-        "cargaa": {
+        "dinheiro": {
+          "tt": 0,
+          "to": 0,
+          "tp": 0,
+          "tc": 0
+        },
+        "carga": {
           "value": 0,
           "medio": 3,
           "max": 10
@@ -633,7 +283,7 @@
     }
   },
   "Item": {
-    "types": ["arma","consumivel","equip","magia","poder","tesouro"],
+    "types": ["arma","equip","consumivel","magia","poder","tesouro"],
     "templates": {
       "itemDescription": {
         "description": {
