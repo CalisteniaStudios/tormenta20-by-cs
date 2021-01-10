@@ -1286,15 +1286,15 @@ button {
 }
 
 
-.tormenta20 .npc.statfields ol.editing, 
-.tormenta20 .npc.statfields ul.editing {
+.tormenta20 .npc.statfields ol.listcol, 
+.tormenta20 .npc.statfields ul.listcol {
   column-count: 2;
   column-gap: 5px;
 }
 
 .tormenta20 .npc.statfields input {
    display: inline-flex;
-   font-size: initial;
+   font-size: 14px;
    width: auto;
    height: auto;
 }
@@ -1305,22 +1305,22 @@ button {
   max-width: 30px;
 }
 
-.npc .editing .skill-line * {
+.npc .skill-line * {
   font-size: 12px;
   height: fit-content;
   line-height: 1.5em;
 }
 
-.tormenta20 .npc .editing .skill-line .rollable,
-.tormenta20 .npc .editing .skill-line .item-controls {
+.npc .skill-line {
+  max-width: 50%;
+  min-width: 50%;
+}
+
+.tormenta20 .npc .skill-line .rollable,
+.tormenta20 .npc .skill-line .item-controls {
   flex: 0 0 30px;
   text-align: center!important;
 }
-.npc .skill-line * {
-  font-size: 12px;
-  height: fit-content;
-}
-
 
 .tormenta20 .npc .title-row input {
   width: 100%;
