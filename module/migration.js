@@ -3,7 +3,7 @@
 * @return {Promise}      A Promise which resolves once the migration is completed
 */
 export const migrateWorld = async function() {
-	ui.notifications.info(`Applying Tormenta20 System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
+	ui.notifications.info(`Aplicando Migração de Sistema do Tormenta20 para a versão ${game.system.data.version}. Por favor, seja paciente e não feche o seu jogo ou desligue o servidor.`, {permanent: true});
 
 	// Migrate World Actors
 	// TODO migrate npcs
@@ -16,7 +16,7 @@ export const migrateWorld = async function() {
 				await a.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
-			err.message = `Failed tormenta20 system migration for Actor ${a.name}: ${err.message}`;
+			err.message = `Migração de sistema Tormenta20 falhou para o Ator ${a.name}: ${err.message}`;
 			console.error(err);
 		}
 	}
@@ -30,7 +30,7 @@ export const migrateWorld = async function() {
 				await i.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
-			err.message = `Failed tormenta20 system migration for Item ${i.name}: ${err.message}`;
+			err.message = `Migração de sistema Tormenta20 falhou para o Item ${i.name}: ${err.message}`;
 			console.error(err);
 		}
 	}
@@ -44,7 +44,7 @@ export const migrateWorld = async function() {
 				await s.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
-			err.message = `Failed Tormenta20 system migration for Scene ${s.name}: ${err.message}`;
+			err.message = `Migração de sistema Tormenta20 falhou para a Cena ${s.name}: ${err.message}`;
 			console.error(err);
 		}
 	}
@@ -58,7 +58,7 @@ export const migrateWorld = async function() {
 
 	// Set the migration as complete
 	game.settings.set("tormenta20", "systemMigrationVersion", game.system.data.version);
-	ui.notifications.info(`Tormenta20 System Migration to version ${game.system.data.version} completed!`, {permanent: true});
+	ui.notifications.info(`Migração de Sistema do Tormenta20 para a versão ${game.system.data.version} concluída!`, {permanent: true});
 };
 
 /* -------------------------------------------- */
