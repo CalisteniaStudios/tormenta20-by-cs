@@ -135,10 +135,6 @@ export const migrateActorData = function(actor) {
 		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 	}
-
-	if (actor.data.tamanho != "") {
-		updateData["tamanho"] = actor.data.tamanho.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //"Médio e Minúsculo" -> "Medio e Minusculo"
-	}
 	
 	if (actor.type === "character") {
 		updateData["detalhes.-=cargaa"] = null;
@@ -269,14 +265,12 @@ function _migrateSpell(item, updateData) {
 	}
 	if (item.data.ativacao === undefined) {
 		if (item.data.execucao.toLowerCase() == "duas rodadas" || item.data.execucao.toLowerCase() == "2 rodadas") {
-			let qtdAcoes = 2;
 			let execucao = item.data.execucao.split(" ")[1];
 		}
 		else {
-			let qtdAcoes = 1;
 			let execucao = item.data.execucao;
 		}
-		updateData["data.ativacao"] = {"qtdAcoes": qtdAcoes, "execucao": execucao, "custo": item.data.custo, "condicao": "" };
+		updateData["data.ativacao"] = {"execucao": execucao, "custo": item.data.custo, "condicao": "" };
 		updateData["data.-=execucao"] = null;
 		updateData["data.-=custo"] = null;
 	}
@@ -303,7 +297,7 @@ function _migratePower(item, updateData) {
 	}
 	
 	if (item.data.ativacao === undefined) {
-		updateData["data.ativacao"] = {"qtdAcoes": "", "execucao": "", "custo": item.data.custo, "condicao": "" };
+		updateData["data.ativacao"] = {"execucao": "", "custo": item.data.custo, "condicao": "" };
 		updateData["data.-=custo"] = null;
 	}
 	return updateData;
