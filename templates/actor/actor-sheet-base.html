@@ -11,7 +11,7 @@
 			<i class="fas fa-address-card"></i>
 			<a class="item" data-tab="description" title="Biografia">Biografia</a>
 		</label>
-		<label><i class="fas fa-wrench"></i> <a class="item" data-tab="aviso" title="Aviso">Aviso</a></label>
+		<!-- <label><i class="fas fa-wrench"></i> <a class="item" data-tab="aviso" title="Aviso">Aviso</a></label> -->
 		<label><a class="item" id="configure-actor" title="Configurar">Configurar</a></label>
 	</nav>
 
@@ -283,7 +283,7 @@
 						<li class="item flexrow item-header">
 							<div class="item-image"></div>
 							<div class="item-name">Poderes</div>
-							<div class="item-tipo" style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</div>
+							<div class="item-tipo">Tipo</div>
 							<div class="item-custo">PM</div>
 							{{#if owner}}
 							<div class="item-controls">
@@ -297,7 +297,7 @@
 							<span class="rollable poder-rollable" data-label="{{item.name}}">
 								<h4 class="item-name">{{item.name}}</h4>
 							</span>
-							<div class="item-tipo">{{item.data.tipo}}</div>
+							<div class="item-tipo" style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</div>
 							<div class="item-custo">{{item.data.custo}}</div>
 							{{#if ../owner}}
 							<div class="item-controls">
@@ -492,9 +492,7 @@
 						<label>TO: 
 							<input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" />
 						</label>
-						<label>CARGA: 
-							<input type="text" name="data.detalhes.carga" value="{{data.detalhes.carga}}" data-dtype="Number" />
-						</label>
+						<label>CARGA: {{data.detalhes.carga}}/{{multiply data.atributos.for.value 3}}/{{multiply data.atributos.for.value 10}}</label>
 					</div>
 				</div>
 			</div>

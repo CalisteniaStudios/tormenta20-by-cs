@@ -16,28 +16,33 @@
 		<div class="tab details" data-group="primary" data-tab="details">
 			<div class="form-group">
 				<label>Tipo</label>
-				<select name="data.tipo">
-                    {{#select data.tipo}}
-                    <option value="classe">Classe</option>
-                    <option value="concedido">Concedido</option>
-                    <option value="geral">Geral</option>
-                    <option value="origem">Origem</option>
-                    <option value="racial">Racial</option>
-                    {{/select}}
-                </select>
-			</div>
-			<div class="form-group">
-				<label>Subtipo</label>
-				<input type="text" name="data.subtipo" value="{{data.subtipo}}" data-dtype="String" />
-			</div>
-			<div class="form-group">
-				<label>PM</label>
-				<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
+				<div class="form-fields">
+					<select name="data.tipo">
+						{{#select data.tipo}}
+						<option value="classe">Classe</option>
+						<option value="concedido">Concedido</option>
+						<option value="geral">Geral</option>
+						<option value="origem">Origem</option>
+						<option value="racial">Racial</option>
+						{{/select}}
+					</select>
+					<input type="text" title="Subtipo" name="data.subtipo" value="{{data.subtipo}}" data-dtype="String" />
+				</div>
 			</div>
 			<div class="form-group">
 				<label>Fórmula</label>
 				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String"/>
 			</div>
+			
+			<hr>
+			<h3>Ativação</h3>
+			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
+			<div class="form-group">
+				<label>Resistência</label>
+				<div class="form-fields">
+					<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
+				</div>
+            </div>
 		</div>
 
     </section>

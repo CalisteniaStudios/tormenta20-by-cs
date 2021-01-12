@@ -15,7 +15,7 @@ export const preloadHandlebarsTemplates = async function() {
 
 		// Item Sheet Partials
 		"systems/tormenta20/templates/item/parts/item-header.html",
-		"systems/tormenta20/templates/item/parts/item-action.html",
+		"systems/tormenta20/templates/item/parts/item-ativacao.html",
 		"systems/tormenta20/templates/item/parts/item-encantos.html",
 		"systems/tormenta20/templates/item/parts/item-description.html",
 		"systems/tormenta20/templates/item/parts/item-modificacoes.html"

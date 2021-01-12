@@ -232,7 +232,14 @@
           "descricao": ""
         },
         "detalhes": {
-          "biografia": ""
+          "biografia": "",
+          "dinheiro": {
+            "tt": 0,
+            "to": 0,
+            "tp": 0,
+            "tc": 0
+          },
+          "carga": 0
         },
         "referencias": {},
         "modificadores": {
@@ -262,17 +269,7 @@
         "peso": 0,
         "aparencia": "",
         "personalidade": "",
-        "dinheiro": {
-          "tt": 0,
-          "to": 0,
-          "tp": 0,
-          "tc": 0
-        },
-        "carga": {
-          "value": 0,
-          "medio": 3,
-          "max": 10
-        }
+        "carga": 0
       }
     },
     "npc": {
@@ -292,6 +289,25 @@
           "unidentified": ""
         },
         "source": ""
+      },
+      "efeitoAtivado": {
+        "alcance": "",
+        "alvo": "",
+        "area": "",
+        "ativacao": {
+          "execucao": "",
+          "custo": 0,
+          "condicao": ""
+        },
+        "duracao": {
+          "valor": "",
+          "unidade": ""
+        }
+      },
+      "resistencia": {
+        "resistencia" : "",
+        "atrRes": "",
+        "cd": 0
       },
       "base": {
         "description": ""
@@ -315,30 +331,22 @@
       }
     },
     "poder": {
-      "templates": ["base"],
-      "custo": "",
+      "templates": ["base", "efeitoAtivado", "resistencia"],
       "roll": "",
       "tipo": "",
-      "subtipo": "",
-      "cd": 0,
-      "resistencia": "",
-      "atrRes": ""
+      "subtipo": ""
     },
     "magia": {
-      "templates": ["base","aprimoramento"],
+      "templates": ["base","aprimoramento", "efeitoAtivado", "resistencia"],
       "tipo": "",
       "circulo": 1,
-      "custo": 1,
+      "ativacao": {
+        "execucao": "padrao",
+        "custo": 1
+      },
       "preparada": false,
       "escola": "",
-      "execucao": "",
-      "alcance": "",
-      "duracao": "",
-      "resistencia": "",
       "atrRes": "int",
-      "alvo": "",
-      "area": "",
-      "cd": 0,
       "efeito": ""
     },
     "tesouro": {

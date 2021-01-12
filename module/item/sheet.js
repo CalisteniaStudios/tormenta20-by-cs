@@ -48,6 +48,17 @@ export default class ItemSheetT20 extends ItemSheet {
 			data["propriedades"] = this._getItemProperties(data.item);
 		}
 		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
+		if (data.item.data.hasOwnProperty("ativacao")) {
+			data["temAtivacao"] = data.item.data.ativacao.execucao != "";
+		}
+		if (data.item.data.hasOwnProperty("duracao")) {
+			const unidade = data.item.data.duracao.unidade;
+			const mostrarValorDuracao = unidade == "turno" ? true : unidade == "rodada" ? true : unidade == "outra" ? true : false;
+			if (mostrarValorDuracao && Number(data.item.data.duracao.valor) > 1) {
+				data["mostrarPluralDuracao"] = true;
+			}
+			data["mostrarValorDuracao"] = mostrarValorDuracao;
+		}
 		return data;
 	}
 

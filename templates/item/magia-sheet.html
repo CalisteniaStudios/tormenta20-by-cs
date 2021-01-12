@@ -52,10 +52,6 @@
 					{{/select}}
 				</select>
             </div>
-			<div class="form-group">
-                <label>Custo</label>
-                <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
-            </div>
 			
 			<hr>
 			
@@ -69,39 +65,13 @@
 			</div>
 			
 			<hr>
-			
-            <div class="form-group">
-				<label>Execução</label>
-				<input type="text" name="data.execucao" value="{{data.execucao}}" data-dtype="String" />
-			</div>
-            <div class="form-group">
-				<label>Alcance</label>
-				<select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
-					{{#select data.alcance}}
-					<option value="Pessoal">Pessoal</option>
-					<option value="Toque">Toque</option>
-					<option value="Curto">Curto</option>
-					<option value="Médio">Médio</option>
-					<option value="Longo">Longo</option>
-					<option value="Ilimitado">Ilimitado</option>
-					{{/select}}
-				</select>
-			</div>
-            <div class="form-group">
-				<label>Alvo</label>
-				<input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String" />
-			</div>
-            <div class="form-group">
-				<label>Área</label>
-				<input type="text" name="data.area" value="{{data.area}}" data-dtype="String" />
-			</div>
-            <div class="form-group">
-				<label>Duração</label>
-				<input type="text" name="data.duracao" value="{{data.duracao}}" data-dtype="String" />
-            </div>
+			<h3>Ativação</h3>
+			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
             <div class="form-group">
 				<label>Resistência</label>
-				<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
+				<div class="form-fields">
+					<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
+				</div>
             </div>
 		</div>
 

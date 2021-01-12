@@ -106,5 +106,5 @@
 <div class="bottom flexrow">
 	<label>T$: <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" /></label>
 	<label>TO: <input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" /></label>
-	<label>CARGA: <input type="text" name="data.detalhes.carga" value="{{data.detalhes.carga}}" data-dtype="Number" readonly /></label>
+	<label>CARGA: {{data.detalhes.carga}}/{{multiply data.atributos.for.value 3}}/{{multiply data.atributos.for.value 10}}</label>
 </div>

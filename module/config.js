@@ -246,6 +246,33 @@ T20Config.conditions = {
 }
 
 /**
+ * This Object defines the various lengths of time which can occur
+ * @type {Object}
+ */
+T20Config.listaDuracoes = {
+	"instant": "Instantânea",
+	"cena": "Cena",
+  "turno": "turno",
+  "rodada": "rodada",
+	"sust": "Sustentada",
+	"verTexto": "Ver Texto",
+	"outra": "Outra"
+};
+
+/**
+ * This describes the ways that an ability can be activated
+ * @type {Object}
+ */
+T20Config.tiposAtivacao = {
+  "padrao": "Padrão",
+  "movimento": "Movimento",
+	"completa": "Completa",
+  "reacao": "Reação",
+  "livre": "Livre"
+};
+/******************** ARMAS *************************/
+
+/**
  * Define the set of types which a weapon item can take
  * @type {Object}
  */

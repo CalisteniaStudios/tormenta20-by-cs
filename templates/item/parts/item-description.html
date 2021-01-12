@@ -34,13 +34,13 @@
 			<li style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</li>
 		</ul>
 		{{/if}}
-		{{#if (eq item.type "magia")}}
+		{{#if temAtivacao}}
 		<ul class="properties-list">
-			{{#if item.data.execucao}}<li><strong>Execução:</strong> {{item.data.execucao}}</li>{{/if}}
+			<li><strong>Execução:</strong> {{#each config.tiposAtivacao as |name prop|}}{{#ifEquals ../data.ativacao.execucao prop}}{{name}}{{/ifEquals}}{{/each}}</li>
 			{{#if item.data.alcance}}<li><strong>Alcance:</strong> {{item.data.alcance}}</li>{{/if}}
 			{{#if item.data.alvo}}<li><strong>Alvo:</strong> {{item.data.alvo}}</li>{{/if}}
 			{{#if item.data.area}}<li><strong>Área:</strong> {{item.data.area}}</li>{{/if}}
-			{{#if item.data.duracao}}<li><strong>Duração:</strong> {{item.data.duracao}}</li>{{/if}}
+			<li><strong>Duração:</strong> {{#if mostrarValorDuracao}}{{item.data.duracao.valor}} {{/if}}{{#each config.listaDuracoes as |name prop|}}{{#ifEquals ../data.duracao.unidade prop}}{{name}}{{/ifEquals}}{{/each}}{{#if mostrarPluralDuracao}}s{{/if}}</li>
 			{{#if item.data.resistencia}}<li><strong>Resistência:</strong> {{item.data.resistencia}}{{#if item.data.totalCD}} (CD {{item.data.totalCD}}){{/if}}</li>{{/if}}
 		</ul>
 		{{/if}}
