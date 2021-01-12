@@ -35,6 +35,23 @@
 				<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number" />
 			</div>
 			<div class="form-group">
+				<label>CD</label>
+				<div class="form-fields">
+					<select class="selectatr" name="data.atrRes" value={{data.atrRes}} data-type="String">
+						{{#select data.atrRes}}
+						<option value="">-</option>
+						<option value="for">Força</option>
+						<option value="des">Destreza</option>
+						<option value="con">Constituição</option>
+						<option value="int">Inteligência</option>
+						<option value="sab">Sabedoria</option>
+						<option value="car">Carisma</option>
+						{{/select}}
+					</select>
+					<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" title="Bônus" />
+				</div>
+			</div>
+			<div class="form-group">
 				<label>Fórmula</label>
 				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String"/>
 			</div>

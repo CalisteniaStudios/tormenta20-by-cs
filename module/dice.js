@@ -27,7 +27,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
   // Handle rolls coming directly from the ability score.  && data.mod
 
   if (item.type == "poder") {
-    formula = `${item.data.data.roll}`;
+    formula = `${item.data.data.efeito}`;
     formula = formula.replace(/\@\w+\b/g, function (match) {
       return "(" + T20Utility.short(match, actorData) + ")";
     });
@@ -548,7 +548,7 @@ function rollT20(roll, actor, templateData, criticoM = null) {
 
   let rollMode = game.settings.get("core", "rollMode");
   if (templateData.rollMode) {
-    let rollMode = templateData.rollMode;
+    rollMode = templateData.rollMode;
   }
 
   if (["gmroll", "blindroll"].includes(rollMode))
