@@ -27,7 +27,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
   // Handle rolls coming directly from the ability score.  && data.mod
 
   if (item.type == "poder") {
-    formula = `${item.data.data.efeito}`;
+    formula = `${item.data.data.roll}`;
     formula = formula.replace(/\@\w+\b/g, function (match) {
       return "(" + T20Utility.short(match, actorData) + ")";
     });
