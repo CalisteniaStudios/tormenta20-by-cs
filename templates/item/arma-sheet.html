@@ -91,7 +91,7 @@
 					<input type="text" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" placeholder="2" />
 				</div>
 			</div>
-			{{#ifOr data.propriedades.arremesso data.propriedades.ataqueDistancia}}
+			{{#if (or data.propriedades.arremesso data.propriedades.ataqueDistancia)}}
 			<div class="form-group">
 				<label>Alcance</label>
 				<div class="form-fields">
@@ -105,7 +105,7 @@
 					</select>
 				</div>
 			</div>
-			{{/ifOr}}
+			{{/if}}
         </div>
 		
 		{{!-- Description Tab --}}

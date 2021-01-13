@@ -18,6 +18,7 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/item/parts/item-ativacao.html",
 		"systems/tormenta20/templates/item/parts/item-encantos.html",
 		"systems/tormenta20/templates/item/parts/item-description.html",
-		"systems/tormenta20/templates/item/parts/item-modificacoes.html"
+		"systems/tormenta20/templates/item/parts/item-modificacoes.html",
+		"systems/tormenta20/templates/item/parts/item-resistencia.html"
 	]);
 };

@@ -245,6 +245,17 @@ T20Config.conditions = {
     }
 }
 
+T20Config.atributos = {
+	"for": "Força",
+	"des": "Destreza",
+	"con": "Constituição",
+	"int": "Inteligência",
+	"sab": "Sabedoria",
+	"car": "Carisma"
+};
+
+/******************** ITENS *************************/
+
 /**
  * This Object defines the various lengths of time which can occur
  * @type {Object}
@@ -252,8 +263,8 @@ T20Config.conditions = {
 T20Config.listaDuracoes = {
 	"instant": "Instantânea",
 	"cena": "Cena",
-  "turno": "turno",
-  "rodada": "rodada",
+  "turno": "Turno",
+  "rodada": "Rodada",
 	"sust": "Sustentada",
 	"verTexto": "Ver Texto",
 	"outra": "Outra"
@@ -270,6 +281,7 @@ T20Config.tiposAtivacao = {
   "reacao": "Reação",
   "livre": "Livre"
 };
+
 /******************** ARMAS *************************/
 
 /**

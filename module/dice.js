@@ -70,7 +70,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula = `${formula} + ${configuration.bonus}`;
       rollT20(formula, actor, templateData);
     }
-  } else if (item.type == "atributo") {
+	}
+	else if (item.type == "atributo") {
     /* GAMBIARRA */
     item.isOwned = true;
     item.name = item.label;
@@ -113,7 +114,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula = `${formula} + ${configuration.bonus}`;
       rollT20(formula, actor, templateData);
     }
-  } else if (item.type == "skill") {
+	}
+	else if (item.type == "skill") {
     let formula = `1d20+${item.data.data.total}`;
     if (event.altKey) {
       formula = formula.replace("1d20", "2d20kh");
@@ -144,7 +146,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula = `${formula} + ${configuration.bonus}`;
       rollT20(formula, actor, templateData);
     }
-  } else if (item.type == "pericia") {
+	}
+	else if (item.type == "pericia") {
     /* GAMBIARRA */
     item.isOwned = true;
     item.name = item.label;
@@ -184,7 +187,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula = `${formula} + ${configuration.bonus}`;
       rollT20(formula, actor, templateData);
     }
-  } else if (item.type == "arma") {
+	}
+	else if (item.type == "arma") {
     let ex = {
       atq: "0",
       dadoDano: "",
@@ -367,7 +371,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       formula.crit = `${formula.crit} + ${configuration.bonusdano}`;
       rollT20(formula, actor, templateData, margemCrit);
     }
-  } else if (item.type == "magia") {
+	}
+	else if (item.type == "magia") {
     /* -------------------------------------------- */
     /*  APRIMORAMENTOS                              */
     /* -------------------------------------------- */
@@ -474,14 +479,16 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     spellHeader.tipo = item.data.data.tipo;
     spellHeader.circulo = item.data.data.circulo;
     spellHeader.escola = item.data.data.escola;
-    spellHeader.custo = eTruque
-      ? 0
-      : Math.max(parseInt(item.data.data.custo) + PMTotal, 1);
-    spellHeader.execucao = item.data.data.execucao;
+		spellHeader.custo = eTruque ? 0 : Math.max(parseInt(item.data.data.ativacao.custo) + PMTotal, 1);
+		// spellHeader.execucao = item.data.data.ativacao.execucao;
+		const ativacao = CONFIG.T20.tiposAtivacao[item.data.data.ativacao.execucao];
+		spellHeader.execucao = ativacao || "Duas rodadas";
     spellHeader.alcance = item.data.data.alcance;
     spellHeader.alvo = item.data.data.alvo;
     spellHeader.area = item.data.data.area;
-    spellHeader.duracao = item.data.data.duracao;
+		const valorDuracao = item.data.data.duracao.unidade != "turno" ? item.data.data.duracao.unidade != "rodada" ? "" : item.data.data.duracao.valor : item.data.data.duracao.valor;
+		const unidadeDuracao = CONFIG.T20.listaDuracoes[item.data.data.duracao.unidade];
+		spellHeader.duracao = valorDuracao ? valorDuracao + " " + unidadeDuracao + (valorDuracao != 1 ? "s" : "") : unidadeDuracao;
     spellHeader.resistencia = item.data.data.resistencia;
     spellHeader.cd = actor.data.data.attributes.cd + (actor.data.data.atributos[item.data.data.atrRes]?.mod ?? 0) + item.data.data.cd ;
     detailText = item.data.data.description;
@@ -496,8 +503,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       aprimoramentos: aprimoramentos
     };
 
-    if (!eTruque && item.data.data.custo > 0) {
-      templateData.custo = Math.max(parseInt(item.data.data.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0), 1);
+		if (!eTruque && item.data.data.ativacao.custo > 0) {
+			templateData.custo = Math.max(parseInt(item.data.data.ativacao.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0), 1);
       } else if (eTruque) {
         templateData.custo = 0;
         templateData.truque = 1;
@@ -511,7 +518,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       .replace(/\++/g, "+");
 
     rollT20(formula, actor, templateData);
-  } else if (item.type == "consumivel") {
+	}
+	else if (item.type == "consumivel") {
     formula = item.data.data.efeito;
     templateData = {
       actor: actor,
@@ -525,7 +533,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       .replace(/\-0/g, "")
       .replace(/\++/g, "+");
     rollT20(formula, actor, templateData);
-  } else if (itemId != undefined) {
+	}
+	else if (itemId != undefined) {
     data.roll();
   }
 }

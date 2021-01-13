@@ -34,17 +34,15 @@ export default class ItemSheetT20 extends ItemSheet {
 		const data = super.getData();
 		data.atkSkills = [];
 		data.config = CONFIG.T20;
-		if (data.item.type == "magia" && this.object.options.actor != undefined) {
-			data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
-			data.data.totalCD = data.data.actorCD+data.data.cd;
+		if (data.item.data.hasOwnProperty("resistencia") && this.object.options.actor != undefined) {
+			data.data.actorCD = this.object.options.actor.data.data.attributes.cd > 0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
+			data.data.totalCD = data.data.actorCD + data.data.cd;
 		}
 		if (data.item.type == "arma") {
 			// data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
 
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
-		}
-		if ( data.item.type === "arma" ) {
 			data["propriedades"] = this._getItemProperties(data.item);
 		}
 		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");

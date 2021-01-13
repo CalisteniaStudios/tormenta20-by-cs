@@ -1,11 +1,13 @@
 {{!-- Filters --}}
 
+<div class="item item-header" style="text-align: center;"><label>CD Base:</label> <input style="max-width: 30px;" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number"></div>
 <ul class="item-list">
 	{{#each actor.magias as |circulo i|}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
 			<div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
+			<div class="item-tipo" style="text-align: center;">Ativação</div>
 			<div class="item-controls">
 
 				<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}"><i class="fas fa-plus"></i> Novo</a>
@@ -20,6 +22,7 @@
 			{{/if}}
 			<div class="item-image" style="background-image: url('{{m.img}}')"></div>
 			<span class="rollable magia-rollable" data-label="{{m.name}}"><h4 class="item-name">{{m.name}}</h4></span>
+			<div class="item-tipo" style="text-align: center;">{{#each ../../config.tiposAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#ifNotEquals ../data.ativacao.custo i}} ({{../data.ativacao.custo}} PM){{/ifNotEquals}}{{/if}}{{/each}}</div>
 			<div class="item-controls">
 				<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>

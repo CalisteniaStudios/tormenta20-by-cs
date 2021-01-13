@@ -2,7 +2,7 @@
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-image"></div>
-			<div class="item-name" >ARMAS</div>
+			<div class="item-name" >Armas</div>
 			<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
 			<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i>
 			Nova</a>
@@ -29,7 +29,7 @@
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-image"></div>
-			<div class="item-name">Armaduras e Acessórios</div>
+			<div class="item-name">Equipamentos</div>
 			<div class="item-def">Defesa</div>
 			<div class="item-pen">Penalidade</div>
 			<div class="item-toggles">
@@ -44,7 +44,7 @@
 			<div class="item-def">+{{item.data.armadura.value}}</div>
 			<div class="item-pen">-{{item.data.armadura.penalidade}}</div>
 			<div class="item-toggles">
-				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Equipar{{else}}Desequipar{{/if}}">
+				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desquipar{{else}}Equipar{{/if}}">
 					<i class="fas fa-shield-alt"></i>
 				</a>
 			</div>
@@ -65,7 +65,7 @@
 <div class="inventario">
 	<ol class="item-list inventory-list">
 		<li class="item flexrow item-header">
-			<div class="item-name" style="flex: 5;">Nome</div>
+			<div class="item-name" style="flex: 5;">Itens</div>
 			<div class="item-qtd">Qtd</div>
 			<div class="item-peso">Peso</div>
 			<div class="item-controls">
@@ -106,5 +106,5 @@
 <div class="bottom flexrow">
 	<label>T$: <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" /></label>
 	<label>TO: <input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" /></label>
-	<label>CARGA: {{data.detalhes.carga}}/{{multiply data.atributos.for.value 3}}/{{multiply data.atributos.for.value 10}}</label>
+	<label>CARGA: {{data.detalhes.carga}} / <label style="color:orange;">{{multiply data.atributos.for.value 3}}</label> / <label style="color:red;">{{multiply data.atributos.for.value 10}}</label></label>
 </div>

@@ -30,36 +30,16 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label>CD</label>
-				<div class="form-fields">
-					<select class="selectatr" name="data.atrRes" value={{data.atrRes}} data-type="String">
-						{{#select data.atrRes}}
-						<option value="">-</option>
-						<option value="for">Força</option>
-						<option value="des">Destreza</option>
-						<option value="con">Constituição</option>
-						<option value="int">Inteligência</option>
-						<option value="sab">Sabedoria</option>
-						<option value="car">Carisma</option>
-						{{/select}}
-					</select>
-					<input type="text" name="data.cd" value="{{data.cd}}" data-dtype="Number" title="Bônus" />
-				</div>
-			</div>
-			<div class="form-group">
 				<label>Fórmula</label>
+				<div class="form-fields">
 				<input type="text" name="data.roll" value="{{data.roll}}" data-dtype="String"/>
+				</div>
 			</div>
 			
 			<hr>
 			<h3>Ativação</h3>
 			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
-			<div class="form-group">
-				<label>Resistência</label>
-				<div class="form-fields">
-					<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
-				</div>
-            </div>
+			{{> "systems/tormenta20/templates/item/parts/item-resistencia.html"}}
 		</div>
 
     </section>

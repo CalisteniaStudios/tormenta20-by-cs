@@ -12,7 +12,7 @@ export const migrateWorld = async function() {
 		try {
 			const updateData = migrateActorData(a.data);
 			if ( !isObjectEmpty(updateData) ) {
-				console.log(`Migrating Actor entity ${a.name}`);
+				console.log(`Migrando entidade Ator ${a.name}`);
 				await a.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
@@ -26,7 +26,7 @@ export const migrateWorld = async function() {
 		try {
 			const updateData = migrateItemData(i.data);
 			if ( !isObjectEmpty(updateData) ) {
-				console.log(`Migrating Item entity ${i.name}`);
+				console.log(`Migrando entidade Item ${i.name}`);
 				await i.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
@@ -40,7 +40,7 @@ export const migrateWorld = async function() {
 		try {
 			const updateData = migrateSceneData(s.data);
 			if ( !isObjectEmpty(updateData) ) {
-				console.log(`Migrating Scene entity ${s.name}`);
+				console.log(`Migrando entidade Cena ${s.name}`);
 				await s.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
