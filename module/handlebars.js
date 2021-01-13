@@ -51,6 +51,9 @@ export function registerHandlebarsHelpers() {
       return ret;
     }
   );
+	Handlebars.registerHelper("stripTags", function (str) {
+    return str.replace(/<[^>]*>?/gm, '');
+  });
 
   Handlebars.registerHelper('multiply', (a, b) => {
     return a * b;
