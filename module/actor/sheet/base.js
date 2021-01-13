@@ -56,6 +56,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			isCharacter: this.entity.data.type === "character",
 			isNPC: this.entity.data.type === "npc"
 		};
+		data.config = CONFIG.T20;
 		
 		// The Actor and its Items
 		data.actor = duplicate(this.actor.data);
@@ -273,19 +274,19 @@ export default class ActorSheetT20 extends ActorSheet {
 		const data = a.dataset;
 		const id = a.parentElement.dataset.itemId;
 		let item = {};
-		if(Object.keys(actorData.atributos).includes(id)){
-			item.type = "atributo";
-			item.roll = "1d20 +"+ actorData.atributos[id].mod;
-			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
-		}
 		// Roll pericias
-		else if ($(a).hasClass('pericia-rollable')) {
+		if ($(a).hasClass('pericia-rollable')) {
 			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
 			item = {
 				type: 'pericia',
 				roll: "1d20+" + skillData[id].value,
 				label: skillData[id].nome ?? skillData[id].label
 			}
+		}
+		else if(Object.keys(actorData.atributos).includes(id)){
+			item.type = "atributo";
+			item.roll = "1d20 +"+ actorData.atributos[id].mod;
+			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
 		}
 		// Roll items
 		else if (actor.items.get(id)){
