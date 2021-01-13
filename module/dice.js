@@ -481,7 +481,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     spellHeader.escola = item.data.data.escola;
 		spellHeader.custo = eTruque ? 0 : Math.max(parseInt(item.data.data.ativacao.custo) + PMTotal, 1);
 		// spellHeader.execucao = item.data.data.ativacao.execucao;
-		const ativacao = CONFIG.T20.tiposAtivacao[item.data.data.ativacao.execucao];
+		const ativacao = CONFIG.T20.listaAtivacao[item.data.data.ativacao.execucao];
 		spellHeader.execucao = ativacao || "Duas rodadas";
     spellHeader.alcance = item.data.data.alcance;
     spellHeader.alvo = item.data.data.alvo;

@@ -36,7 +36,7 @@
 		{{/if}}
 		{{#if temAtivacao}}
 		<ul class="properties-list">
-			<li><strong>Execução:</strong> {{#each config.tiposAtivacao as |name prop|}}{{#ifEquals ../data.ativacao.execucao prop}}{{name}}{{/ifEquals}}{{/each}}</li>
+			<li><strong>Execução:</strong> {{#each config.listaAtivacao as |name prop|}}{{#ifEquals ../data.ativacao.execucao prop}}{{name}}{{/ifEquals}}{{/each}}</li>
 			{{#if item.data.alcance}}<li><strong>Alcance:</strong> {{item.data.alcance}}</li>{{/if}}
 			{{#if item.data.alvo}}<li><strong>Alvo:</strong> {{item.data.alvo}}</li>{{/if}}
 			{{#if item.data.area}}<li><strong>Área:</strong> {{item.data.area}}</li>{{/if}}

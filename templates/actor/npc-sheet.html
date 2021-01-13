@@ -149,7 +149,7 @@
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div class="item-name">
 							<span class="rollable poder-rollable" data-item-id="{{item._id}}">
-								<label>{{item.name}}{{#if item.data.ativacao.execucao}} ({{#each ../config.tiposAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{/if}}{{/each}}){{/if}}:</label>
+								<label>{{item.name}}{{#if item.data.ativacao.execucao}} ({{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{/if}}{{/each}}){{/if}}:</label>
 							</span>
 							{{item.data.description}}
 						</div>

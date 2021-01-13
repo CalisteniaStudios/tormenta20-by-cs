@@ -274,7 +274,7 @@ T20Config.listaDuracoes = {
  * This describes the ways that an ability can be activated
  * @type {Object}
  */
-T20Config.tiposAtivacao = {
+T20Config.listaAtivacao = {
   "padrao": "Padrão",
   "movimento": "Movimento",
 	"completa": "Completa",

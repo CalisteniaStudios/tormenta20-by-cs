@@ -12,7 +12,7 @@
         <select name="data.ativacao.execucao">
             {{#select data.ativacao.execucao}}
             {{#ifEquals item.type "poder"}}<option value=""></option>{{/ifEquals}}
-            {{#each config.tiposAtivacao as |name key|}}
+            {{#each config.listaAtivacao as |name key|}}
             <option value="{{key}}">{{name}}</option>
             {{/each}}
 			{{#ifEquals item.type "magia"}}<option value="2 rodadas">Duas Rodadas</option>{{/ifEquals}}

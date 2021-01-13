@@ -142,6 +142,10 @@ export const migrateActorData = function(actor) {
 	else {
 		updateData["detalhes.-=carga"] = null;
 	}
+	if (actor.data.attributes.conjurador != undefined) {
+		updateData["attributes.-=conjurador"] = null;
+		updateData["attributes.-=mago"] = null;
+	}
 		
 	if ( !actor.items ) return updateData;
 	let hasItemUpdates = false;
@@ -273,6 +277,20 @@ function _migrateSpell(item, updateData) {
 		updateData["data.ativacao"] = {"execucao": execucao, "custo": item.data.custo, "condicao": "" };
 		updateData["data.-=execucao"] = null;
 		updateData["data.-=custo"] = null;
+		let duracao = item.data.duracao.toLowerCase();
+		let duracoesSuportadas = ["instantânea", "cena", "sustentada", "ver texto"];
+		if (duracoesSuportadas.includes(duracao) {
+			if (duracao == "instantânea") {
+				duracao = "instant";
+			}
+			else if (duracao == "ver texto") {
+				duracao = "verTexto";
+			}
+			updateData["data.duracao"] = {"valor": "", "unidade": duracao};
+		}
+		else {
+			updateData["data.duracao"] = {"valor": duracao, "unidade": "outra"};
+		}
 	}
 }
 
