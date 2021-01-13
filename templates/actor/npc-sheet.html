@@ -95,7 +95,7 @@
 				{{data.deslocamento.value}}
 				<input type="text" name="data.deslocamento.value" value="{{data.deslocamento.value}}" data-dtype="String" title="Deslocamento" />
 			</div>
-			{{#if (or data.attributes.pm.value data.attributes.pm.max)}}
+			{{#if (or data.attributes.pm.value editing)}}
 			<hr>
 			{{/if}}
 			<div class="npc-line {{#unless (and data.attributes.pm.value data.attributes.pm.max)}}editing{{/unless}}">
