@@ -1255,6 +1255,18 @@ button {
 .tormenta20 .npc input {
   display: none;
 }
+
+.tormenta20 .npc .rd.editing,
+.tormenta20 .npc .npc-line.editing {
+  display: none;
+}
+
+.tormenta20 .npc.statfields .rd,
+.tormenta20 .npc.statfields .npc-line {
+  display: flex;
+}
+
+
 .tormenta20 .npc .npc-line,
 .tormenta20 .npc .item-list .item {
   line-height: 1.5em;

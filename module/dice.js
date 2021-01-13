@@ -548,7 +548,7 @@ function rollT20(roll, actor, templateData, criticoM = null) {
 
   let rollMode = game.settings.get("core", "rollMode");
   if (templateData.rollMode) {
-    let rollMode = templateData.rollMode;
+    rollMode = templateData.rollMode;
   }
 
   if (["gmroll", "blindroll"].includes(rollMode))
