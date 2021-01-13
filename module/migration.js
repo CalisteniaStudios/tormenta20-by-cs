@@ -268,6 +268,11 @@ function _migratePower(item, updateData) {
 	else {
 		updateData["data.subtipo"] = "";
 	}
+
+	if(item.data.roll == "" && item.data.efeito){
+		updateData["data.roll"] = item.data.efeito;
+		updateData["data.-=efeito"] = null;	
+	}
 	return updateData;
 }
 

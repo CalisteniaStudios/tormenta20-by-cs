@@ -159,6 +159,9 @@ Hooks.once("init", async function () {
       return ret;
     }
   );
+  Handlebars.registerHelper("stripTags", function (str) {
+    return str.replace(/<[^>]*>?/gm, '');
+  });
   preloadHandlebarsTemplates();
 });
 
@@ -184,7 +187,7 @@ Hooks.once("ready", async function () {
   
   const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion") ? game.settings.get("tormenta20", "systemMigrationVersion") : "1.0.02";
   
-  const NEEDS_MIGRATION_VERSION = "1.0.3";
+  const NEEDS_MIGRATION_VERSION = "1.1.1";
   const COMPATIBLE_MIGRATION_VERSION = "1.0.0";
   const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
   if ( !needsMigration ) return;

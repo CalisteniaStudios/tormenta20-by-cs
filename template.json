@@ -622,14 +622,19 @@
           "value": 0,
           "medio": 3,
           "max": 10
-        }
+        },
+        "biography":""
       }
     },
     "npc": {
       "templates": ["base"],
       "attributes": {
         "nd": ""
-      }
+      },
+      "sentidos":"",
+      "biography":"",
+      "equipament":"",
+      "treasure":""
     }
   },
   "Item": {
