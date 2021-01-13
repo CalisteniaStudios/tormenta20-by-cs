@@ -12,7 +12,7 @@ export const migrateWorld = async function() {
 		try {
 			const updateData = migrateActorData(a.data);
 			if ( !isObjectEmpty(updateData) ) {
-				console.log(`Migrating Actor entity ${a.name}`);
+				console.log(`Migrando entidade Ator ${a.name}`);
 				await a.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
@@ -26,7 +26,7 @@ export const migrateWorld = async function() {
 		try {
 			const updateData = migrateItemData(i.data);
 			if ( !isObjectEmpty(updateData) ) {
-				console.log(`Migrating Item entity ${i.name}`);
+				console.log(`Migrando entidade Item ${i.name}`);
 				await i.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
@@ -40,7 +40,7 @@ export const migrateWorld = async function() {
 		try {
 			const updateData = migrateSceneData(s.data);
 			if ( !isObjectEmpty(updateData) ) {
-				console.log(`Migrating Scene entity ${s.name}`);
+				console.log(`Migrando entidade Cena ${s.name}`);
 				await s.update(updateData, {enforceTypes: false});
 			}
 		} catch(err) {
@@ -135,14 +135,16 @@ export const migrateActorData = function(actor) {
 		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 	}
-
-	if (actor.data.tamanho != "" || actor.data.attributes.tamanho != "") {
-		if (actor.type == "npc") {
-			updateData["data.tamanho"] = actor.data.attributes.tamanho.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-			// delete
-		} else {
-			updateData["tamanho"] = actor.data.tamanho.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //"Médio e Minúsculo" -> "Medio e Minusculo"
-		}
+	
+	if (actor.type === "character") {
+		updateData["detalhes.-=cargaa"] = null;
+	}
+	else {
+		updateData["detalhes.-=carga"] = null;
+	}
+	if (actor.data.attributes.conjurador != undefined) {
+		updateData["attributes.-=conjurador"] = null;
+		updateData["attributes.-=mago"] = null;
 	}
 		
 	if ( !actor.items ) return updateData;
@@ -238,6 +240,7 @@ function _migrateActorSkills(actor, updateData) {
 */
 export const migrateItemData = function(item) {
 	const updateData = {};
+	_migrateSpell(item, updateData);
 	_migratePower(item, updateData);
 	_migrateItemArmor(item, updateData);
 	_migrateItemWeapon(item, updateData);
@@ -248,6 +251,48 @@ export const migrateItemData = function(item) {
 };
 
 /* -------------------------------------------- */
+
+function _migrateSpell(item, updateData) {
+	if ( item.type != "magia" ) return;
+	if (item.data.duracao.toLowerCase() === "cena") {
+		updateData["data.duracao"] = {"valor": null, "unidade": "cena"};
+	}
+	else {
+		if (item.data.duracao.toLowerCase() == "instantânea") {
+			let duracao = ["", "instant"];
+		}
+		else {
+			let duracao = item.data.duracao.split(" ");
+			duracao[0] = Number(duracao[0]);
+		}
+		updateData["data.duracao"] = {"valor": duracao[0], "unidade": duracao[1].toLowerCase()};
+	}
+	if (item.data.ativacao === undefined) {
+		if (item.data.execucao.toLowerCase() == "duas rodadas" || item.data.execucao.toLowerCase() == "2 rodadas") {
+			let execucao = item.data.execucao.split(" ")[1];
+		}
+		else {
+			let execucao = item.data.execucao;
+		}
+		updateData["data.ativacao"] = {"execucao": execucao, "custo": item.data.custo, "condicao": "" };
+		updateData["data.-=execucao"] = null;
+		updateData["data.-=custo"] = null;
+		let duracao = item.data.duracao.toLowerCase();
+		let duracoesSuportadas = ["instantânea", "cena", "sustentada", "ver texto"];
+		if (duracoesSuportadas.includes(duracao) {
+			if (duracao == "instantânea") {
+				duracao = "instant";
+			}
+			else if (duracao == "ver texto") {
+				duracao = "verTexto";
+			}
+			updateData["data.duracao"] = {"valor": "", "unidade": duracao};
+		}
+		else {
+			updateData["data.duracao"] = {"valor": duracao, "unidade": "outra"};
+		}
+	}
+}
 
 /**
 * Reorganiza os poderes.
@@ -265,13 +310,17 @@ function _migratePower(item, updateData) {
 		updateData["data.tipo"] = nome[0].toLowerCase();
 		updateData["data.subtipo"] = subtipo;
 	}
-	else {
+	else if (item.data.subtipo === undefined) {
 		updateData["data.subtipo"] = "";
 	}
 
-	if(item.data.roll == "" && item.data.efeito){
+	if(item.data.roll == "" && item.data.efeito) {
 		updateData["data.roll"] = item.data.efeito;
 		updateData["data.-=efeito"] = null;	
+	}
+	if (item.data.ativacao === undefined) {
+		updateData["data.ativacao"] = {"execucao": "", "custo": item.data.custo, "condicao": "" };
+		updateData["data.-=custo"] = null;
 	}
 	return updateData;
 }
@@ -303,54 +352,56 @@ function _migrateItemArmor(item, updateData) {
 */
 function _migrateItemWeapon(item, updateData) {
 	if ( item.type != "arma" ) return;
-	if (item.data.description.includes("Arma Exótica")) {
-		updateData["data.tipoUso"] = "exotica"
-	}
-	else if (item.data.description.includes("Arma de Fogo")) {
-		updateData["data.tipoUso"] = "armaDeFogo"
-	}
-	else if (item.data.description.includes("Arma Marcial")) {
-		updateData["data.tipoUso"] = "marcial"
-	}
-	else { //if (item.data.description.includes("Arma Simples")) {
-		updateData["data.tipoUso"] = "simples"
+	if (item.data.tipoUso === undefined) {
+		if (item.data.description.includes("Arma Exótica")) {
+			updateData["data.tipoUso"] = "exotica"
+		}
+		else if (item.data.description.includes("Arma de Fogo")) {
+			updateData["data.tipoUso"] = "armaDeFogo"
+		}
+		else if (item.data.description.includes("Arma Marcial")) {
+			updateData["data.tipoUso"] = "marcial"
+		}
+		else { //if (item.data.description.includes("Arma Simples")) {
+			updateData["data.tipoUso"] = "simples"
+		}
 	}
 
 	if (item.data.propriedades === undefined) {
 		updateData["data.propriedades"] = {"adaptavel":false,"agil":false,"alongada":false,"arremesso":false,"ataqueDistancia":false,"duasMaos":false,"dupla":false,"leve":false,"municao":false,"versatil":false}
-	}
-
-	if(item.data.municao) {
-		updateData["data.propriedades.municao"] = true;
-	}
-
-	if (item.data.description.includes("arma ágil")) {
-		updateData["data.propriedades.agil"] = true;
-	}
-	else if (item.data.description.includes("arma alongada")) {
-		updateData["data.propriedades.alongada"] = true;
-	}
-	if (item.data.description.includes("Ataque à Distância")) {
-		updateData["data.propriedades.ataqueDistancia"] = true;
-		if(item.data.pericia === "lut") {
-			updateData["data.pericia"] = "pon";
+		if(item.data.municao) {
+			updateData["data.propriedades.municao"] = true;
+		}
+		if (item.data.description.includes("arma ágil")) {
+			updateData["data.propriedades.agil"] = true;
+		}
+		else if (item.data.description.includes("arma alongada")) {
+			updateData["data.propriedades.alongada"] = true;
+		}
+		if (item.data.description.includes("Ataque à Distância")) {
+			updateData["data.propriedades.ataqueDistancia"] = true;
+			if(item.data.pericia === "lut") {
+				updateData["data.pericia"] = "pon";
+			}
+		}
+		if (item.data.description.includes("Munição")) {
+			updateData["data.propriedades.municao"] = true;
+		}
+		if (item.data.description.includes("Duas Mãos" || "Exige as duas mãos")) {
+			updateData["data.propriedades.duasMaos"] = true;
+		}
+		else if (item.data.description.includes(" Leve")) {
+			updateData["data.propriedades.leve"] = true;
+		}
+		else if (item.data.description.includes("arma dupla")) {
+			updateData["data.propriedades.dupla"] = true;
+		}
+		if (item.data.description.includes("arma versátil")) {
+			updateData["data.propriedades.versatil"] = true;
 		}
 	}
-	if (item.data.description.includes("Munição")) {
-		updateData["data.propriedades.municao"] = true;
+	if (item.data.municao != undefined) {
+		updateData["data.-=municao"] = null;
 	}
-	if (item.data.description.includes("Duas Mãos" || "Exige as duas mãos")) {
-		updateData["data.propriedades.duasMaos"] = true;
-	}
-	else if (item.data.description.includes(" Leve")) {
-		updateData["data.propriedades.leve"] = true;
-	}
-	else if (item.data.description.includes("arma dupla")) {
-		updateData["data.propriedades.dupla"] = true;
-	}
-	if (item.data.description.includes("arma versátil")) {
-		updateData["data.propriedades.versatil"] = true;
-	}
-	updateData["data.-=municao"] = null;
 	return updateData;
 }

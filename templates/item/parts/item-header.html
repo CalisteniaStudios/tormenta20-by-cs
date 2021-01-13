@@ -11,7 +11,7 @@
 		</footer>
 	</div>
 	<aside style="text-align: right; flex: 0 80px;">
-		<h2>{{data.custo}} PM</h2>
+		<h2>{{data.ativacao.custo}} PM</h2>
 	</aside>
 	{{else if (eq item.type "arma")}}
 	<img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
@@ -27,7 +27,7 @@
 		{{/if}}
 	</div>
 	<aside style="text-align: right; flex: 0 80px;">
-		{{#if data.custo}}<h2>{{data.custo}} PM</h2>{{/if}}
+		{{#if data.ativacao.custo}}<h2>{{data.ativacao.custo}} PM</h2>{{/if}}
 	</aside>
 	{{else}}
 	<img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
@@ -43,7 +43,7 @@
 		{{/if}}
 	</div>
 	<aside style="text-align: right; flex: 0 80px;">
-		{{#if data.custo}}<h2>{{data.custo}} PM</h2>{{/if}}
+		{{#if data.ativacao.custo}}<h2>{{data.ativacao.custo}} PM</h2>{{/if}}
 	</aside>
 	{{/if}}
 </header>

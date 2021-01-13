@@ -2,6 +2,7 @@
 import { T20Config } from "./config.js";
 import { SystemSettings } from "./settings.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
+import { registerHandlebarsHelpers } from './handlebars.js';
 import { _getInitiativeFormula } from "./combat.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
 
@@ -94,75 +95,8 @@ Hooks.once("init", async function () {
     makeDefault: true,
   });
 
-  // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper("concat", function () {
-    var outStr = "";Chat
-    for (var arg in arguments) {
-      if (typeof arguments[arg] != "object") {
-        outStr += arguments[arg];
-      }
-    }
-    return outStr;
-  });
-
-  Handlebars.registerHelper("toLowerCase", function (str) {
-    return str.toLowerCase();
-  });
-
-  Handlebars.registerHelper("toJSONString", function (str) {
-    return JSON.stringify(str);
-  });
-
-  Handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
-    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-  });
-
-  Handlebars.registerHelper("ifNotEquals", function (arg1, arg2, options) {
-    return arg1 != arg2 ? options.fn(this) : options.inverse(this);
-  });
-
-  Handlebars.registerHelper("ifGreater", function (arg1, arg2, options) {
-    if (arg1 > arg2) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
-  });
-  Handlebars.registerHelper("ifEGreater", function (arg1, arg2, options) {
-    if (arg1 >= arg2) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
-  });
-  Handlebars.registerHelper("ifOr", function (arg1, arg2, options) {
-    if (arg1 || arg2) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
-  });
-
-  Handlebars.registerHelper("ifAny", function (arg1, arg2, arg3, options) {
-    if (arg1 || arg2 || arg3) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
-  });
-
-  Handlebars.registerHelper(
-    "conditionTip",
-    function (context, condition, options) {
-      var ret = "";
-      for (var prop in context) {
-        if (condition == prop) {
-          ret = ret + " " + context[prop].tooltip;
-        }
-      }
-      return ret;
-    }
-  );
-  Handlebars.registerHelper("stripTags", function (str) {
-    return str.replace(/<[^>]*>?/gm, '');
-  });
   preloadHandlebarsTemplates();
+	registerHandlebarsHelpers();
 });
 
 /* -------------------------------------------- */

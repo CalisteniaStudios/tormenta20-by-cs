@@ -30,7 +30,7 @@ export default class ActorT20 extends Actor {
 		var nivel = data.attributes.nivel.value;
 
 		// Base CD
-		data.attributes.cd = 10 + Math.floor(data.attributes.nivel.value/2);
+		data.attributes.cd = data.attributes.cd ? data.attributes.cd : 10 + Math.floor(data.attributes.nivel.value/2);
 		
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (let [key, ability] of Object.entries(data.atributos)) {

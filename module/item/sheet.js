@@ -34,20 +34,29 @@ export default class ItemSheetT20 extends ItemSheet {
 		const data = super.getData();
 		data.atkSkills = [];
 		data.config = CONFIG.T20;
-		if (data.item.type == "magia" && this.object.options.actor != undefined) {
-			data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
-			data.data.totalCD = data.data.actorCD+data.data.cd;
+		if (data.item.data.hasOwnProperty("resistencia") && this.object.options.actor != undefined) {
+			data.data.actorCD = this.object.options.actor.data.data.attributes.cd > 0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
+			data.data.totalCD = data.data.actorCD + data.data.cd;
 		}
 		if (data.item.type == "arma") {
 			// data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
 
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
-		}
-		if ( data.item.type === "arma" ) {
 			data["propriedades"] = this._getItemProperties(data.item);
 		}
 		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
+		if (data.item.data.hasOwnProperty("ativacao")) {
+			data["temAtivacao"] = data.item.data.ativacao.execucao != "";
+		}
+		if (data.item.data.hasOwnProperty("duracao")) {
+			const unidade = data.item.data.duracao.unidade;
+			const mostrarValorDuracao = unidade == "turno" ? true : unidade == "rodada" ? true : unidade == "outra" ? true : false;
+			if (mostrarValorDuracao && Number(data.item.data.duracao.valor) > 1) {
+				data["mostrarPluralDuracao"] = true;
+			}
+			data["mostrarValorDuracao"] = mostrarValorDuracao;
+		}
 		return data;
 	}
 

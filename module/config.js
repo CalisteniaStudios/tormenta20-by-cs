@@ -245,6 +245,45 @@ T20Config.conditions = {
     }
 }
 
+T20Config.atributos = {
+	"for": "Força",
+	"des": "Destreza",
+	"con": "Constituição",
+	"int": "Inteligência",
+	"sab": "Sabedoria",
+	"car": "Carisma"
+};
+
+/******************** ITENS *************************/
+
+/**
+ * This Object defines the various lengths of time which can occur
+ * @type {Object}
+ */
+T20Config.listaDuracoes = {
+	"instant": "Instantânea",
+	"cena": "Cena",
+  "turno": "Turno",
+  "rodada": "Rodada",
+	"sust": "Sustentada",
+	"verTexto": "Ver Texto",
+	"outra": "Outra"
+};
+
+/**
+ * This describes the ways that an ability can be activated
+ * @type {Object}
+ */
+T20Config.listaAtivacao = {
+  "padrao": "Padrão",
+  "movimento": "Movimento",
+	"completa": "Completa",
+  "reacao": "Reação",
+  "livre": "Livre"
+};
+
+/******************** ARMAS *************************/
+
 /**
  * Define the set of types which a weapon item can take
  * @type {Object}

@@ -1,0 +1,80 @@
+<div class="form-group input-select">
+    <label>Custo</label>
+    <div class="form-fields">
+		<input type="text" name="data.ativacao.custo" value="{{data.ativacao.custo}}" data-dtype="Number" placeholder="0"/><label>PM</label>
+    </div>
+</div>
+
+{{!-- Activation Cost --}}
+<div class="form-group input-select">
+    <label>Ação</label>
+    <div class="form-fields">
+        <select name="data.ativacao.execucao">
+            {{#select data.ativacao.execucao}}
+            {{#ifEquals item.type "poder"}}<option value=""></option>{{/ifEquals}}
+            {{#each config.listaAtivacao as |name key|}}
+            <option value="{{key}}">{{name}}</option>
+            {{/each}}
+			{{#ifEquals item.type "magia"}}<option value="2 rodadas">Duas Rodadas</option>{{/ifEquals}}
+            {{/select}}
+        </select>
+    </div>
+</div>
+
+{{!-- Activation Condition --}}
+<div class="form-group">
+    <label>Condição de Ativação</label>
+    <div class="form-fields">
+        <input type="text" name="data.ativacao.condicao" value="{{data.ativacao.condicao}}"/>
+    </div>
+</div>
+
+{{#if data.ativacao.execucao}}
+{{!-- Ability Range --}}
+<div class="form-group input-select">
+    <label>Alcance</label>
+    <div class="form-fields">
+        <select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
+			{{#select data.alcance}}
+			<option value="Pessoal">Pessoal</option>
+			<option value="Toque">Toque</option>
+			<option value="Curto">Curto</option>
+			<option value="Médio">Médio</option>
+			<option value="Longo">Longo</option>
+			<option value="Ilimitado">Ilimitado</option>
+			{{/select}}
+		</select>
+    </div>
+</div>
+
+{{!-- Ability Target --}}
+<div class="form-group input-select-select">
+    <label>Alvo</label>
+    <div class="form-fields">
+        <input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String"/>
+    </div>
+</div>
+
+<div class="form-group">
+	<label>Área</label>
+	<div class="form-fields">
+		<input type="text" name="data.area" value="{{data.area}}" data-dtype="String" />
+	</div>
+</div>
+
+{{!-- Effect Duration --}}
+<div class="form-group input-select">
+    <label>Duração</label>
+    <div class="form-fields">
+		<input type="text" {{#if (or) "rodada" "turno" data.duracao.unidade)}}{{else}}hidden{{/if}} name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Quantidade" />
+        <select name="data.duracao.unidade">
+            {{#select data.duracao.unidade}}
+            {{#each config.listaDuracoes as |name key|}}
+            <option value="{{key}}">{{name}}</option>
+            {{/each}}
+            {{/select}}
+        </select>
+		{{#ifEquals data.duracao.unidade "outra"}}<input type="text" name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Descrição" />{{/ifEquals}}
+    </div>
+</div>
+{{/if}}
