@@ -34,7 +34,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		const data = super.getData();
 		data.atkSkills = [];
 		data.config = CONFIG.T20;
-		if (data.item.type == "magia" && this.object.options.actor != undefined) {
+		if (data.item.data.hasOwnProperty("resistencia") && this.object.options.actor != undefined) {
 			data.data.actorCD = this.object.options.actor.data.data.attributes.cd >0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
 			data.data.totalCD = data.data.actorCD+data.data.cd;
 		}
