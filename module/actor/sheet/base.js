@@ -394,9 +394,22 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Get the type of item to create.
 		const type = header.dataset.type;
 		// Grab any data associated with this control.
-		const data = duplicate(header.dataset);
+		let data = duplicate(header.dataset);
 		// Initialize a default name.
-		const name = `Novo ${type.capitalize()}`;
+		let name;
+		if (type == "arma") {
+			name = `Nova ${type.capitalize()}`;
+		}
+		else if (type == "magia") {
+			name = `Nova ${type.capitalize()}`;
+			data["ativacao.custo"] = data.custo;
+			data["atrRes"] = data.atrres;
+			data["-=custo"] = null;
+			data["-=atrres"] = null;
+		}
+		else {
+			name = `Novo ${type.capitalize()}`;
+		}
 		// Prepare the item object.
 		const itemData = {
 			name: name,
