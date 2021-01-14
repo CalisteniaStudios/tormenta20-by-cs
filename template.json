@@ -342,20 +342,19 @@
       "templates": ["base", "efeitoAtivado", "resistencia"],
       "roll": "",
       "tipo": "",
-      "subtipo": ""
+      "subtipo": "",
+      "custo": "_deprecated"
     },
     "magia": {
       "templates": ["base","aprimoramento", "efeitoAtivado", "resistencia"],
       "tipo": "",
       "circulo": 1,
-      "ativacao": {
-        "execucao": "padrao",
-        "custo": 1
-      },
       "preparada": false,
       "escola": "",
       "atrRes": "",
-      "efeito": ""
+      "efeito": "",
+      "execucao": "_deprecated",
+      "custo": "_deprecated"
     },
     "tesouro": {
       "templates": ["base","objeto"]

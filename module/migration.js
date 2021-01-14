@@ -287,16 +287,14 @@ function _migrateSpell(item, updateData) {
 		updateData["data.duracao"] = {"valor": null, "unidade": "cena"};
 	}
 	else {
-		let duracao;
 		if (item.data.duracao.toLowerCase() == "instantânea") {
-			duracao = ["", "instant"];
 			updateData["data.duracao"] = {"valor": "", "unidade": "instant"};
 		}
 		else if (item.data.duracao.toLowerCase() == "instantânea") {
 			updateData["data.duracao"] = {"valor": "", "unidade": "verTexto"};
 		}
 		else {
-			duracao = item.data.duracao.split(" ");
+			let duracao = item.data.duracao.split(" ");
 			if (duracao.length > 2) {
 				duracao[0] = Number(duracao[0]);
 				duracao[1] = duracao[1].toLowerCase();
@@ -307,7 +305,8 @@ function _migrateSpell(item, updateData) {
 			}
 		}
 	}
-	if (item.data.ativacao === undefined) {
+	if (item.data.ativacao === undefined || (item.data.ativacao.execucao == "" && item.data.ativacao.custo == 0)) {
+		if (item.data.execucao != undefined) {
 		let execucao = item.data.execucao.toLowerCase();
 		if (execucao == "duas rodadas" || execucao == "2 rodadas") {
 			execucao = "duasRodadas";
@@ -320,6 +319,7 @@ function _migrateSpell(item, updateData) {
 		}
 		updateData["data.ativacao"] = {"execucao": execucao, "custo": item.data.custo, "condicao": "" };
 		updateData["data.-=execucao"] = null;
+		}
 		updateData["data.-=custo"] = null;
 		let duracao = item.data.duracao.toLowerCase();
 		let duracoesSuportadas = ["instantânea", "cena", "sustentada", "ver texto"];
@@ -346,13 +346,14 @@ function _migratePower(item, updateData) {
 	if ( item.type != "poder" ) return;
 	if (item.data.tipo != "") {
 		let nome = item.data.tipo.split(" - ");
-		let subtipo = nome.length == 2 ? nome[1] : "";
 
 		if (nome[0].includes("P. ")) {
 			nome[0] = nome[0].substring(3)
 		}
 		updateData["data.tipo"] = nome[0].toLowerCase();
-		updateData["data.subtipo"] = subtipo;
+		if (item.data.subtipo == "" || item.data.subtipo === undefined) {
+			updateData["data.subtipo"] = nome.length == 2 ? nome[1] : "";
+		}
 	}
 	else if (item.data.subtipo === undefined) {
 		updateData["data.subtipo"] = "";
@@ -362,8 +363,8 @@ function _migratePower(item, updateData) {
 		updateData["data.roll"] = item.data.efeito;
 		updateData["data.-=efeito"] = null;	
 	}
-	if (item.data.ativacao === undefined) {
-		updateData["data.ativacao"] = {"execucao": "", "custo": item.data.custo, "condicao": "" };
+	if (item.data.ativacao === undefined || (item.data.ativacao.execucao == "" && item.data.ativacao.custo == 0)) {
+		updateData["data.ativacao"] = {"execucao": "", "custo": item.data.custo ? item.data.custo : 0, "condicao": "" };
 		updateData["data.-=custo"] = null;
 	}
 	return updateData;
