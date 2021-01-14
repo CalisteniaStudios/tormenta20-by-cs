@@ -622,9 +622,9 @@
           "value": 0,
           "medio": 3,
           "max": 10
-        },
-        "biography":""
-      }
+        }
+      },
+      "biography":""
     },
     "npc": {
       "templates": ["base"],
