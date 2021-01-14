@@ -142,7 +142,7 @@ export const migrateActorData = function(actor) {
 			updateData["defesa.-=armad"] = null;
 			updateData["defesa.-=escud"] = null;
 			updateData["defesa.armadura"] = actor.data.attributes.armadura;
-			updateData["defesa.armadura.value"] actor.data.attributes.armadura.defesa;
+			updateData["defesa.armadura.value"] = actor.data.attributes.armadura.defesa;
 			updateData["defesa.armadura.-=defesa"] = null;
 			updateData["defesa.escudo"] = actor.data.attributes.escudo;
 			updateData["defesa.escudo.value"] = actor.data.attributes.escudo.defesa;
