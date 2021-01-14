@@ -273,7 +273,8 @@
         "personalidade": "",
         "biography":"",
         "carga": 0
-      }
+      },
+      "biography":""
     },
     "npc": {
       "templates": ["base"],
