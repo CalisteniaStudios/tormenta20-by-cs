@@ -189,10 +189,12 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	/** @override */
 	// TODO Implement scroll consumable and onDrop creation
-	// async _onDropItemCreate(itemData) {
-	// 	// Create the owned item as normal
-	// 	return super._onDropItemCreate(itemData);
-	// }
+	async _onDropItemCreate(itemData) {
+		if (itemData.type === "magia" && this.actor.data.data.atributoChave != undefined) {
+			itemData.data.atrRes = this.actor.data.data.atributoChave;
+		}
+		return super._onDropItemCreate(itemData);
+	}
 	
 
 	/* -------------------------------------------- */

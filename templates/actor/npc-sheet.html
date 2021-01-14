@@ -149,7 +149,7 @@
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div class="item-name">
 							<span class="rollable poder-rollable" data-item-id="{{item._id}}">
-								<label>{{item.name}}{{#if item.data.ativacao.execucao}} ({{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{/if}}{{/each}}){{/if}}:</label>
+								<label>{{item.name}}{{#if item.data.ativacao.execucao}} ({{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{/if}}{{/each}}){{/if}}{{#unless ../editing}}:{{/unless}}</label>
 							</span>
 							{{{stripTags item.data.description}}}
 						</div>
@@ -179,7 +179,7 @@
 										{{#each circulo.spells as |m index|}}
 											<li class="item flexrow" data-item-id="{{m._id}}">
 												<div class="item-name">
-													<span class="item rollable magia-rollable" data-item-id="{{m._id}}">{{m.name}};</span>
+													<span class="item rollable magia-rollable" data-item-id="{{m._id}}">{{m.name}}</span>
 												</div>
 												<div class="item-controls">
 													<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
@@ -240,9 +240,7 @@
 				{{else}}
 					<label>Pericias: </label>
 						{{#each actor.data.periciasCustom as |skill key|}}
-						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom">
-							{{skill.label}} +{{skill.value}};
-						</span>
+						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom">{{skill.label}} +{{skill.value}}</span>,
 						{{/each}}
 					
 				{{/if}}
