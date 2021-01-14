@@ -168,8 +168,12 @@ export const migrateActorData = function(actor) {
 		updateData["data.-=escudo"] = null;
 	}
 	if (actor.data.attributes.conjurador != undefined) {
+		updateData["flags.mago"] = actor.data.attributes.mago;
 		updateData["data.attributes.-=conjurador"] = null;
 		updateData["data.attributes.-=mago"] = null;
+	}
+	else if (actor.flags.conjurador != undefined) {
+		updateData["flags.-=conjurador"] = null;
 	}
 		
 	if ( !actor.items ) return updateData;
@@ -304,18 +308,15 @@ function _migrateSpell(item, updateData) {
 		}
 	}
 	if (item.data.ativacao === undefined) {
-		let execucao;
-		if (item.data.execucao.toLowerCase() == "duas rodadas" || item.data.execucao.toLowerCase() == "2 rodadas") {
+		let execucao = item.data.execucao.toLowerCase();
+		if (execucao == "duas rodadas" || execucao == "2 rodadas") {
 			execucao = "duasRodadas";
 		}
-		else if (item.data.execucao.toLowerCase() = "padrão") {
+		else if (execucao == "padrão") {
 			execucao = "padrao";
 		}
-		else if (item.data.execucao.toLowerCase() = "reação") {
+		else if (execucao == "reação") {
 			execucao = "reacao";
-		}
-		else {
-			execucao = item.data.execucao.toLowerCase();
 		}
 		updateData["data.ativacao"] = {"execucao": execucao, "custo": item.data.custo, "condicao": "" };
 		updateData["data.-=execucao"] = null;

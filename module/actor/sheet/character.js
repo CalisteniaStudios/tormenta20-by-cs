@@ -47,7 +47,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		}
 
 		// FLAGS
-		sheetData["isCaster"] = this.actor.data.flags.conjurador;
 		sheetData["isPreparationCaster"] = this.actor.data.flags.mago;
 
 		/* Template SKILLS */
@@ -82,8 +81,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		let carga = 0;
 		const skills = [];
 		const skillset = [];
-		// actorData.data.detalhes.cargaa.medio = actorData.data.atributos.for.value * 3;
-		// actorData.data.detalhes.cargaa.max = actorData.data.atributos.for.value * 10;
 		const magias = {
 			1: {
 				spells: [],
@@ -106,9 +103,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				custo: 15
 			}
 		};
+		let maiorCirculo = 0;
 		// Iterate through items, allocating to containers
-		// let totalWeight = 0;
-		let x = 0;
 		for (let i of data.items) {
 			let item = i.data;
 			i.img = i.img || DEFAULT_TOKEN;
@@ -131,8 +127,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			else if (i.type === 'magia') {
 				if (i.data.circulo != undefined) {
 					magias[i.data.circulo].spells.push(i);
+					if (i.data.circulo > maiorCirculo) {
+						maiorCirculo = i.data.circulo;
+					}
 				}
-				this.actor.data.flags.conjurador = true;
 			}
 			// If this is equipment, we currently lump it together.
 			else if (i.type === 'consumivel' || i.type === 'tesouro') {
@@ -218,6 +216,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// actorData.skills = skills;
 		// Spells
 		actorData.magias = magias;
+		actorData.maiorCirculo = maiorCirculo;
 		// Equipment
 		actorData.equipamentos = equipamentos;
 		actorData.inventario = inventario;

@@ -12,6 +12,7 @@
 </div>
 <ul class="item-list">
 	{{#each actor.magias as |circulo i|}}
+	{{#if (lte i ../actor.maiorCirculo)}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
@@ -39,5 +40,6 @@
 		</li>
 		{{/each}}
 	</ol>
+	{{/if}}
 	{{/each}}
 </ul>
