@@ -301,18 +301,18 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		const armadura = {
 			nome: item.data.data.equipado ? item.data.name : "",
-			defesa: item.data.data.equipado ? item.data.data.armadura.value : 0,
+			value: item.data.data.equipado ? item.data.data.armadura.value : 0,
 			penalidade: item.data.data.equipado ? item.data.data.armadura.penalidade : 0,
 			equipado: item.data.data.equipado
 		};
 		if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
 			this.actor.update({
-				"data.armadura": armadura,
+				"data.defesa.armadura": armadura,
 				"data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true //return ((equipado && leve) || !equipado)
 			});
 		}
 		else if (item.data.data.tipo === "escudo") {
-			this.actor.update({ "data.escudo": armadura });
+			this.actor.update({ "data.defesa.escudo": armadura });
 		}
 		else {
 			let atual = this.actor.data.data.defesa.outro;

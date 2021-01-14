@@ -446,13 +446,13 @@ export default class ActorSheetT20 extends ActorSheet {
 			};
 			if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
 				this.actor.update({
-					"data.armadura": armadura,
+					"data.defesa.armadura": armadura,
 					"data.defesa.des": true
 				});
 			}
 			else if (item.data.data.tipo === "escudo") {
 				this.actor.update({
-					"data.escudo": armadura,
+					"data.defesa.escudo": armadura,
 				});
 			}
 		}

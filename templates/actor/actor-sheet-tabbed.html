@@ -15,7 +15,7 @@
 				<div class="experience flexrow">
 					<h4>Exp: <input style="width:50%; margin-bottom: 0px;" type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number" placeholder="0" /></h4>
 					<span class="sep">/</span>
-					<span class="max" />{{data.attributes.xp.proximo}}</span>
+					<span class="max">{{data.attributes.xp.proximo}}</span>
 				</div>
 				<div class="expbar">
 					<span class="bar" style="width: {{data.details.exp.pct}}%"></span>
@@ -70,9 +70,9 @@
 							<br/>
 							{{#if data.defesa.des}} Destreza: {{data.atributos.des.mod}}{{else}}{{#ifGreater 0 data.atributos.des.mod}}Destreza: {{data.atributos.des.mod}}
 							<br /> {{/ifGreater}}{{/if}}
-							{{#if data.armadura.equipado}} {{data.armadura.nome}}: {{data.armadura.defesa}}
+							{{#if data.defesa.armadura.equipado}} {{data.defesa.armadura.nome}}: {{data.defesa.armadura.value}}
 							<br /> {{/if}}
-							{{#if data.escudo.equipado}} {{data.escudo.nome}}: {{data.escudo.defesa}}
+							{{#if data.defesa.escudo.equipado}} {{data.defesa.escudo.nome}}: {{data.defesa.escudo.value}}
 							<br /> {{/if}}
 							{{#if data.defesa.outro}} Outros: {{data.defesa.outro}}
 							<br /> {{/if}}
@@ -324,7 +324,7 @@
 					</div>
 					<div><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" placeholder="Armadura" />
 					</div>
-					<div><input type="text" name="data.armadura.defesa" value="{{data.armadura.defesa}}" data-dtype="Number" />
+					<div><input type="text" name="data.armadura.value" value="{{data.armadura.value}}" data-dtype="Number" />
 					</div>
 					<div><input type="text" name="data.armadura.penalidade" value="{{data.armadura.penalidade}}" data-dtype="Number" /></div>
 				</li>
@@ -335,7 +335,7 @@
 
 					</div>
 					<div><input type="text" readonly name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" placeholder="Escudo" /></div>
-					<div><input type="text" readonly name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number" />
+					<div><input type="text" readonly name="data.escudo.value" value="{{data.escudo.value}}" data-dtype="Number" />
 					</div>
 					<div><input type="text" readonly name="data.escudo.penalidade" value="{{data.escudo.penalidade}}" data-dtype="Number" /></div>
 				</li>

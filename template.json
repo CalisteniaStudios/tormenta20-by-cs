@@ -4,10 +4,7 @@
     "templates": {
       "base": {
         "attributes": {
-          "classe": "",
           "raca": "",
-          "origem": "",
-          "divindade": "",
           "pv": {
             "value": 10,
             "min": -500,
@@ -22,11 +19,6 @@
           },
           "nivel": {
             "value": 1
-          },
-          "xp": {
-            "value": 0,
-            "min": 0,
-            "proximo": 1000
           },
           "movement": {
             "burrow": 0,
@@ -47,9 +39,7 @@
           },
           "info": "",
           "cd": 0,
-          "hp": 0,
-          "conjurador": false,
-          "mago": false
+          "hp": 0
         },
         "rd": {
           "value": 0,
@@ -60,25 +50,10 @@
         },
         "defesa": {
           "value": 10,
-          "des": true,
-          "armad": 0,
-          "escud": 0,
           "outro": 0,
           "bonus": 0,
           "penalidade": 0,
           "final": 0
-        },
-        "armadura": {
-          "nome": "",
-          "defesa": 0,
-          "penalidade": 0,
-          "equipado": true
-        },
-        "escudo": {
-          "nome": "",
-          "defesa": 0,
-          "penalidade": 0,
-          "equipado": true
         },
         "atributos": {
           "for": {
@@ -264,6 +239,33 @@
     },
     "character": {
       "templates": ["base"],
+      "attributes": {
+        "classe": "",
+        "divindade": "",
+        "origem": "",
+        "nivel": {
+          "xp": {
+            "value": 0,
+            "min": 0,
+            "proximo": 1000
+          }
+        }
+      },
+      "defesa": {
+        "des": true,
+        "armadura": {
+          "nome": "",
+          "value": 0,
+          "penalidade": 0,
+          "equipado": true
+        },
+        "escudo": {
+          "nome": "",
+          "value": 0,
+          "penalidade": 0,
+          "equipado": true
+        }
+      },
       "detalhes": {
         "altura": 0,
         "peso": 0,

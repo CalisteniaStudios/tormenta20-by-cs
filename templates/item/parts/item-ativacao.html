@@ -15,7 +15,7 @@
             {{#each config.listaAtivacao as |name key|}}
             <option value="{{key}}">{{name}}</option>
             {{/each}}
-			{{#ifEquals item.type "magia"}}<option value="2 rodadas">Duas Rodadas</option>{{/ifEquals}}
+			{{#ifEquals item.type "magia"}}<option value="duasRodadas">Duas Rodadas</option>{{/ifEquals}}
             {{/select}}
         </select>
     </div>
@@ -66,7 +66,7 @@
 <div class="form-group input-select">
     <label>Duração</label>
     <div class="form-fields">
-		<input type="text" {{#if (or) "rodada" "turno" data.duracao.unidade)}}{{else}}hidden{{/if}} name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Quantidade" />
+		<input type="text" {{#if (or "rodada" "turno" data.duracao.unidade)}}{{else}}hidden{{/if}} name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Quantidade" />
         <select name="data.duracao.unidade">
             {{#select data.duracao.unidade}}
             {{#each config.listaDuracoes as |name key|}}

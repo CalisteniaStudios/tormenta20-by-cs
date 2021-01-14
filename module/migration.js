@@ -138,9 +138,34 @@ export const migrateActorData = function(actor) {
 	
 	if (actor.type === "character") {
 		updateData["detalhes.-=cargaa"] = null;
+		if (actor.data.defesa.armad != undefined) {
+			updateData["defesa.-=armad"] = null;
+			updateData["defesa.-=escud"] = null;
+			updateData["defesa.armadura"] = actor.data.attributes.armadura;
+			updateData["defesa.armadura.value"] actor.data.attributes.armadura.defesa;
+			updateData["defesa.armadura.-=defesa"] = null;
+			updateData["defesa.escudo"] = actor.data.attributes.escudo;
+			updateData["defesa.escudo.value"] = actor.data.attributes.escudo.defesa;
+			updateData["defesa.escudo.-=defesa"] = null;
+			updateData["-=armadura"] = null;
+			updateData["-=escudo"] = null;
+		}
+		if (actor.data.attributes.xp != undefined) {
+			updateData["attributes.nivel.xp"] = {"value": actor.data.attributes.xp.value, "min": 0, "proximo": actor.data.attributes.xp.proximo}
+			updateData["attributes.-=xp"] = null;
+		}
 	}
 	else {
 		updateData["detalhes.-=carga"] = null;
+		updateData["attributes.-=xp"] = null;
+		updateData["attributes.-=classe"] = null;
+		updateData["attributes.-=divindade"] = null;
+		updateData["attributes.-=origem"] = null;
+		updateData["defesa.-=des"] = null;
+		updateData["defesa.-=armad"] = null;
+		updateData["defesa.-=escudo"] = null;
+		updateData["-=armadura"] = null;
+		updateData["-=escudo"] = null;
 	}
 	if (actor.data.attributes.conjurador != undefined) {
 		updateData["attributes.-=conjurador"] = null;
@@ -258,28 +283,46 @@ function _migrateSpell(item, updateData) {
 		updateData["data.duracao"] = {"valor": null, "unidade": "cena"};
 	}
 	else {
+		let duracao;
 		if (item.data.duracao.toLowerCase() == "instantânea") {
-			let duracao = ["", "instant"];
+			duracao = ["", "instant"];
+			updateData["data.duracao"] = {"valor": "", "unidade": "instant"};
+		}
+		else if (item.data.duracao.toLowerCase() == "instantânea") {
+			updateData["data.duracao"] = {"valor": "", "unidade": "verTexto"};
 		}
 		else {
-			let duracao = item.data.duracao.split(" ");
-			duracao[0] = Number(duracao[0]);
+			duracao = item.data.duracao.split(" ");
+			if (duracao.length > 2) {
+				duracao[0] = Number(duracao[0]);
+				duracao[1] = duracao[1].toLowerCase();
+				updateData["data.duracao"] = {"valor": duracao[0], "unidade": duracao[1]};
+			}
+			else {
+				updateData["data.duracao"] = {"valor": "", "unidade": duracao[0]};
+			}
 		}
-		updateData["data.duracao"] = {"valor": duracao[0], "unidade": duracao[1].toLowerCase()};
 	}
 	if (item.data.ativacao === undefined) {
+		let execucao;
 		if (item.data.execucao.toLowerCase() == "duas rodadas" || item.data.execucao.toLowerCase() == "2 rodadas") {
-			let execucao = item.data.execucao.split(" ")[1];
+			execucao = "duasRodadas";
+		}
+		else if (item.data.execucao.toLowerCase() = "padrão") {
+			execucao = "padrao";
+		}
+		else if (item.data.execucao.toLowerCase() = "reação") {
+			execucao = "reacao";
 		}
 		else {
-			let execucao = item.data.execucao;
+			execucao = item.data.execucao.toLowerCase();
 		}
 		updateData["data.ativacao"] = {"execucao": execucao, "custo": item.data.custo, "condicao": "" };
 		updateData["data.-=execucao"] = null;
 		updateData["data.-=custo"] = null;
 		let duracao = item.data.duracao.toLowerCase();
 		let duracoesSuportadas = ["instantânea", "cena", "sustentada", "ver texto"];
-		if (duracoesSuportadas.includes(duracao) {
+		if (duracoesSuportadas.includes(duracao)) {
 			if (duracao == "instantânea") {
 				duracao = "instant";
 			}
