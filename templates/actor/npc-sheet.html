@@ -87,7 +87,7 @@
 				{{data.attributes.pv.value}} / {{data.attributes.pv.max}} {{#if data.attributes.pv.temp}}/ {{data.attributes.pv.temp}} {{/if}}
 
 				<input type="text" name="data.attributes.pv.value" value="{{data.attributes.pv.value}}" data-dtype="Number" title="PV Atuais" />
-				<input type="text" value="/" readonly style="border:none;flex:0;background:none;">
+				<input type="text" value="/" disabled style="border:none;flex:0;background:none;">
 				<input type="text" name="data.attributes.pv.max" value="{{data.attributes.pv.max}}" data-dtype="Number" title="PV Máximos" />
 			</div>
 			<div class="npc-line">
@@ -102,7 +102,7 @@
 				<label>Pontos de Mana: </label>
 				{{data.attributes.pm.value}} / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
 				<input type="text" name="data.attributes.pm.value" value="{{data.attributes.pm.value}}" data-dtype="Number" title="PM Atuais" />
-				<input type="text" value="/" readonly style="border:none;flex:0;background:none;">
+				<input type="text" value="/" disabled style="border:none;flex:0;background:none;">
 				<input type="text" name="data.attributes.pm.max" value="{{data.attributes.pm.max}}" data-dtype="Number" title="PM Máximos" />
 			</div>
 			
