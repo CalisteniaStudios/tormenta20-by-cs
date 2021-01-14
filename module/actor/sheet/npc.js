@@ -170,9 +170,9 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		} else {
 			html.find('.npc-line').removeClass("flexrow");
 		}
-		html.find('.magia-rollable').on("click contextmenu", this._onItemEdit.bind(this));
-		html.find('.arma-rollable').on("click contextmenu", this._onItemEdit.bind(this));
-		html.find('.poder-rollable').on("click contextmenu", this._onItemEdit.bind(this));
+		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		// if ( this.actor.owner ) {
 		// 	html.find('.rollable').each((i, el) => el.setAttribute("draggable", true));
 		// } else {
