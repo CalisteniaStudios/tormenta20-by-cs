@@ -68,8 +68,10 @@
 							<br/>
 							Base: 10
 							<br/>
-							{{#if data.defesa.des}} Destreza: {{data.atributos.des.mod}}{{else}}{{#ifGreater 0 data.atributos.des.mod}}Destreza: {{data.atributos.des.mod}}
-							<br /> {{/ifGreater}}{{/if}}
+							{{#if data.defesa.des}}Destreza: {{data.atributos.des.mod}}
+							<br />{{else}}
+							{{#if (gt 0 data.atributos.des.mod)}}Destreza: {{data.atributos.des.mod}}
+							<br /> {{/if}}{{/if}}
 							{{#if data.defesa.armadura.equipado}} {{data.defesa.armadura.nome}}: {{data.defesa.armadura.value}}
 							<br /> {{/if}}
 							{{#if data.defesa.escudo.equipado}} {{data.defesa.escudo.nome}}: {{data.defesa.escudo.value}}

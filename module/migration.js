@@ -137,39 +137,39 @@ export const migrateActorData = function(actor) {
 	}
 	
 	if (actor.type === "character") {
-		updateData["detalhes.-=cargaa"] = null;
+		updateData["data.detalhes.-=cargaa"] = null;
 		if (actor.data.defesa.armad != undefined) {
-			updateData["defesa.-=armad"] = null;
-			updateData["defesa.-=escud"] = null;
-			updateData["defesa.armadura"] = actor.data.attributes.armadura;
-			updateData["defesa.armadura.value"] = actor.data.attributes.armadura.defesa;
-			updateData["defesa.armadura.-=defesa"] = null;
-			updateData["defesa.escudo"] = actor.data.attributes.escudo;
-			updateData["defesa.escudo.value"] = actor.data.attributes.escudo.defesa;
-			updateData["defesa.escudo.-=defesa"] = null;
-			updateData["-=armadura"] = null;
-			updateData["-=escudo"] = null;
+			updateData["data.defesa.-=armad"] = null;
+			updateData["data.defesa.-=escud"] = null;
+			updateData["data.defesa.armadura"] = actor.data.armadura;
+			updateData["data.defesa.armadura.value"] = actor.data.armadura.defesa;
+			updateData["data.defesa.armadura.-=defesa"] = null;
+			updateData["data.defesa.escudo"] = actor.data.escudo;
+			updateData["data.defesa.escudo.value"] = actor.data.escudo.defesa;
+			updateData["data.defesa.escudo.-=defesa"] = null;
+			updateData["data.-=armadura"] = null;
+			updateData["data.-=escudo"] = null;
 		}
 		if (actor.data.attributes.xp != undefined) {
-			updateData["attributes.nivel.xp"] = {"value": actor.data.attributes.xp.value, "min": 0, "proximo": actor.data.attributes.xp.proximo}
-			updateData["attributes.-=xp"] = null;
+			updateData["data.attributes.nivel.xp"] = {"value": actor.data.attributes.xp.value, "min": 0, "proximo": actor.data.attributes.xp.proximo}
+			updateData["data.attributes.-=xp"] = null;
 		}
 	}
 	else {
-		updateData["detalhes.-=carga"] = null;
-		updateData["attributes.-=xp"] = null;
-		updateData["attributes.-=classe"] = null;
-		updateData["attributes.-=divindade"] = null;
-		updateData["attributes.-=origem"] = null;
-		updateData["defesa.-=des"] = null;
-		updateData["defesa.-=armad"] = null;
-		updateData["defesa.-=escudo"] = null;
-		updateData["-=armadura"] = null;
-		updateData["-=escudo"] = null;
+		updateData["data.detalhes.-=carga"] = null;
+		updateData["data.attributes.-=xp"] = null;
+		updateData["data.attributes.-=classe"] = null;
+		updateData["data.attributes.-=divindade"] = null;
+		updateData["data.attributes.-=origem"] = null;
+		updateData["data.defesa.-=des"] = null;
+		updateData["data.defesa.-=armad"] = null;
+		updateData["data.defesa.-=escudo"] = null;
+		updateData["data.-=armadura"] = null;
+		updateData["data.-=escudo"] = null;
 	}
 	if (actor.data.attributes.conjurador != undefined) {
-		updateData["attributes.-=conjurador"] = null;
-		updateData["attributes.-=mago"] = null;
+		updateData["data.attributes.-=conjurador"] = null;
+		updateData["data.attributes.-=mago"] = null;
 	}
 		
 	if ( !actor.items ) return updateData;
