@@ -1,4 +1,5 @@
 import { prepRoll } from "../../dice.js";
+import { T20Utility } from '../../utility.js';
 import ActorSheetT20 from "./base.js";
 /**
  * An Actor sheet for NPC type characters.
