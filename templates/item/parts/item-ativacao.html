@@ -11,11 +11,12 @@
     <div class="form-fields">
         <select name="data.ativacao.execucao">
             {{#select data.ativacao.execucao}}
-            {{#ifEquals item.type "poder"}}<option value=""></option>{{/ifEquals}}
+            {{#if (eq item.type "poder")}}<option value=""></option>{{/if}}
             {{#each config.listaAtivacao as |name key|}}
             <option value="{{key}}">{{name}}</option>
             {{/each}}
-			{{#ifEquals item.type "magia"}}<option value="duasRodadas">Duas Rodadas</option>{{/ifEquals}}
+			{{#if (eq item.type "magia")}}<option value="duasRodadas">Duas Rodadas</option>{{/if}}
+			{{#if (eq item.type "consumivel")}}<option value="verTexto">Ver Texto</option>{{/if}}
             {{/select}}
         </select>
     </div>
@@ -74,7 +75,7 @@
             {{/each}}
             {{/select}}
         </select>
-		{{#ifEquals data.duracao.unidade "outra"}}<input type="text" name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Descrição" />{{/ifEquals}}
+		{{#if (eq data.duracao.unidade "outra")}}<input type="text" name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Descrição" />{{/if}}
     </div>
 </div>
 {{/if}}
