@@ -47,8 +47,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       rollMode: rollMode,
       rollModes: CONFIG.Dice.rollModes
     };
-    if (item.data.data.custo > 0) {
-      templateData.custo = item.data.data.custo + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0);
+    if (item.data.data.ativacao.custo > 0) {
+      templateData.custo = Number(item.data.data.ativacao.custo) + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0);
       if (templateData.custo <= 0)
       {
         templateData.custo = 1;
