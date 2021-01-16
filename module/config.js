@@ -254,7 +254,54 @@ T20Config.atributos = {
 	"car": "Carisma"
 };
 
-/******************** ITENS *************************/
+T20Config.atributosAbr = {
+	"for": "For",
+	"des": "Des",
+	"con": "Con",
+	"int": "Int",
+	"sab": "Sab",
+	"car": "Car"
+};
+
+/* ---------------- Proficiências ------------- */
+
+T20Config.tamanhos = {
+	"Minusculo":"Minúsculo",
+	"Pequeno":"Pequeno",
+	"Medio":"Médio",
+	"Grande":"Grande",
+	"Enorme":"Enorme",
+	"Colossal":"Colossal"
+}
+
+T20Config.idiomas = {
+	"comum": "Comum",
+	"anao": "Anão",
+	"elfico": "Élfico",
+	"goblin": "Goblin",
+	"hynne": "Hynne",
+	"silvestre": "Silvestre",
+	"taurico": "Táurico"
+}
+
+T20Config.profArmas = {
+  "sim": "Armas Simples",
+  "mar": "Armas Marciais",
+  "exo": "Armas Exóticas",
+  "fog": "Armas de Fogo"
+};
+
+/**
+ * The set of Armor Proficiencies which a character may have
+ * @type {Object}
+ */
+T20Config.profArmaduras = {
+  "leve": "Armaduras Leves",
+  "pesada": "Armaduras Pesadas",
+  "escudo": "Escudos"
+};
+
+/*------------------- Itens -------------------*/
 
 /**
  * This Object defines the various lengths of time which can occur
@@ -282,7 +329,7 @@ T20Config.listaAtivacao = {
   "livre": "Livre"
 };
 
-/******************** ARMAS *************************/
+/*------------------- Armas -------------------*/
 
 /**
  * Define the set of types which a weapon item can take

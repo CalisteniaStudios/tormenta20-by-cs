@@ -37,6 +37,31 @@ export const SystemSettings = function() {
     type: Boolean
   });
 
+  
+  /**
+   * Option to disable XP bar for session-based or story-based advancement.
+   */
+  game.settings.register("tormenta20", "disableExperience", {
+    name: "Avanço por Marcos",
+    hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+	
+	/**
+   * Option to disable XP bar for session-based or story-based advancement.
+   */
+  game.settings.register("tormenta20", "enableLanguages", {
+    name: "Idiomas",
+    hint: "Adiciona uma lista de idiomas à ficha de Personagens de Jogador. Opção cosmética, sem efeitos adicionais.",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+  });
+
   /**
    * Register diagonal movement rule setting
    */
@@ -54,19 +79,7 @@ export const SystemSettings = function() {
     },
     onChange: rule => canvas.grid.diagonalRule = rule
   });
-  
-  /**
-   * Option to disable XP bar for session-based or story-based advancement.
-   */
-  game.settings.register("tormenta20", "disableExperience", {
-    name: "Avanço por Marcos",
-    hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
-    scope: "world",
-    config: true,
-    default: true,
-    type: Boolean,
-  });
-
+	
   /**
    * Option to automatically collapse Item Card descriptions
    */

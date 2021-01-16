@@ -272,7 +272,16 @@
         "aparencia": "",
         "personalidade": "",
         "biography":"",
-        "carga": 0
+        "carga": 0,
+        "idiomas": {
+          "value": ["comum"]
+        },
+        "profArmas": {
+          "value": ["sim"]
+        },
+        "profArmaduras": {
+          "value": ["leve"]
+        }
       },
       "biography":""
     },

@@ -1,4 +1,5 @@
 import { prepRoll } from "../../dice.js";
+import TraitSelector from "../../apps/trait-selector.js";
 import { T20Utility } from '../../utility.js';
 import ConjurarDialog from "../../apps/conjurar-dialog.js";
 
@@ -78,6 +79,9 @@ export default class ActorSheetT20 extends ActorSheet {
 
 		// Senses
 		// TODO Implement Senses Here?
+		
+		// Update traits
+		this._prepareTraits(data.actor.data.detalhes);
 
 		// Prepare owned items
 		this._prepareItems(data);
@@ -106,6 +110,42 @@ export default class ActorSheetT20 extends ActorSheet {
 	// TODO Implement Senses
 	// _getSenses(actorData) {
 	// }
+	
+	/**
+   * Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
+   * @param {object} traits   The raw traits data object from the actor data
+   * @private
+   */
+  _prepareTraits(traits) {
+    const map = {
+      // "dr": CONFIG.DND5E.damageResistanceTypes,
+      // "di": CONFIG.DND5E.damageResistanceTypes,
+      // "dv": CONFIG.DND5E.damageResistanceTypes,
+      // "ci": CONFIG.DND5E.conditionTypes,
+      "idiomas": CONFIG.T20.idiomas,
+      "profArmas": CONFIG.T20.profArmas,
+      "profArmaduras": CONFIG.T20.profArmaduras,
+      // "toolProf": CONFIG.DND5E.toolProficiencies
+    };
+    for ( let [t, choices] of Object.entries(map) ) {
+      const trait = traits[t];
+      if ( !trait ) continue;
+      let values = [];
+      if ( trait.value ) {
+        values = trait.value instanceof Array ? trait.value : [trait.value];
+      }
+      trait.selected = values.reduce((obj, t) => {
+        obj[t] = choices[t];
+        return obj;
+      }, {});
+
+      // Add custom entry
+      if ( trait.custom ) {
+        trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
+      }
+      trait.cssClass = !isObjectEmpty(trait.selected) ? "" : "inactive";
+    }
+  }
 
 	/* -------------------------------------------- */
 
@@ -149,6 +189,9 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find('.item-create').click(this._onItemCreate.bind(this));
 			html.find('.item-edit').click(this._onItemEdit.bind(this));
 			html.find('.item-delete').click(this._onItemDelete.bind(this));
+			
+			// Trait Selector
+      html.find('.trait-selector').click(this._onTraitSelector.bind(this));
 
 			// Configure Special Flags
 			html.find("#configure-actor").click(ev => {
@@ -184,6 +227,20 @@ export default class ActorSheetT20 extends ActorSheet {
 	// _onConfigMenu(event) {
 	// 	event.preventDefault();
 	// }
+	
+	/**
+   * Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
+   * @param {Event} event   The click event which originated the selection
+   * @private
+   */
+  _onTraitSelector(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const label = a.parentElement.querySelector("label");
+    const choices = CONFIG.T20[a.dataset.options];
+    const options = { name: a.dataset.target, title: label.innerText, choices };
+    new TraitSelector(this.actor, options).render(true)
+  }
 
 	/* -------------------------------------------- */
 

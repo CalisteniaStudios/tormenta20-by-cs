@@ -17,9 +17,6 @@
 					<span class="sep">/</span>
 					<span class="max">{{data.attributes.xp.proximo}}</span>
 				</div>
-				<div class="expbar">
-					<span class="bar" style="width: {{data.details.exp.pct}}%"></span>
-				</div>
 				{{/unless}}
 			</aside>
 
@@ -99,17 +96,6 @@
 					<footer class="attribute-footer">
 						<input type="number" title="Valor Base" name="data.rd.base" class="temphealth" value="{{data.rd.base}}" placeholder="Base" data-dtype="Number" />
 						<input type="number" title="Bônus Temporário" name="data.rd.temp" class="temphealth" value="{{data.rd.temp}}" placeholder="Temp" data-dtype="Number" />
-					</footer>
-				</li>
-				<li class="attribute">
-					<h4 class="attribute-name box-title">Deslocamento</h4>
-					<div class="attribute-value">
-						<input name="data.deslocamento.base" title="Base" type="text" value="{{data.deslocamento.base}}" placeholder="0" data-dtype="Number" />
-						<span class="sep">/</span>
-						<input name="data.deslocamento.total" readonly title="Atual" type="text" value="{{data.deslocamento.total}}" placeholder="0" data-dtype="Number" />
-					</div>
-					<footer class="attribute-footer">
-						<input type="text" class="speed" name="data.deslocamento.especial" value="" placeholder="Deslocamento Adicional" />
 					</footer>
 				</li>
 			</ul>
@@ -226,23 +212,7 @@
 				
 				<div class="outros">
 					<h3 style="text-align:center">PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h3>
-					<div class="form-group">
-						<label class="info">Tamanho:</label>
-						<select class="selectatr" name="data.tamanho" value={{data.tamanho}} data-dtype="String">
-						{{#select data.tamanho}}
-							<option value="Minusculo">Minúsculo</option>
-							<option value="Pequeno">Pequeno</option>
-							<option value="Medio">Médio</option>
-							<option value="Grande">Grande</option>
-							<option value="Enorme">Enorme</option>
-							<option value="Colossal">Colossal</option>
-						{{/select}}
-						</select>
-					</div>
-					<div class="form-group">
-						<label class="info">Resistências:</label>
-						<input name="data.resistencias" type="text" value="{{data.resistencias}}" data-dtype="String" />
-					</div>
+					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
 					<textarea name="data.attributes.info" style="resize:vertical; border-image: none; border-width: 1px;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
 				<div class="conditions">

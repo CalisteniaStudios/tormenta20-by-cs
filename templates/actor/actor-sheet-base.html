@@ -41,43 +41,15 @@
 							<input type="text" name="data.attributes.classe" value="{{data.attributes.classe}}" data-dtype="String" placeholder="Classe" />
 							<input style="min-width: 20%; flex: 0; text-align: center;" type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" />
 						</li>
-					</ul>
-					<ul class="attributes summary flexrow">
+						{{#unless disableExperience}}
 						<li class="flexrow">
-							<label class="info">Tamanho:</label>
-							<select class="selectatr" name="data.tamanho" value={{data.tamanho}} data-dtype="String">
-							{{#select data.tamanho}}
-								<option value="Minusculo">Minúsculo</option>
-								<option value="Pequeno">Pequeno</option>
-								<option value="Medio">Médio</option>
-								<option value="Grande">Grande</option>
-								<option value="Enorme">Enorme</option>
-								<option value="Colossal">Colossal</option>
-							{{/select}}
-							</select>
+							<div class="experience flexrow">
+								<h4>Exp: <input style="width:50%; margin-bottom: 0px;" type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number" placeholder="0" /></h4>
+								<span class="sep">/</span>
+								<span class="max">{{data.attributes.xp.proximo}}</span>
+							</div>
 						</li>
-						<li class="flexrow">
-							<label class="info">Deslocamento</label>
-							<input name="data.deslocamento.base" title="Base" type="text" value="{{data.deslocamento.base}}" placeholder="0" data-dtype="Number" />
-							<span class="sep">/</span>
-							<input name="data.deslocamento.total" readonly title="Atual" type="text" value="{{data.deslocamento.total}}" placeholder="0" data-dtype="Number" />
-							
-						</li>
-						<li class="flexrow">
-							<sup>
-								{{#unless disableExperience}}
-								<div class="experience flexrow">
-									<h4>Exp: <input style="width:50%; margin-bottom: 0px;" type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number" placeholder="0" /></h4>
-									<span class="sep">/</span>
-									<span class="max">{{data.attributes.xp.proximo}}</span>
-								</div>
-								<div class="expbar">
-									<span class="bar" style="width: {{data.details.exp.pct}}%"></span>
-								</div>
-								{{/unless}}
-							</sup>
-							
-						</li>
+						{{/unless}}
 					</ul>
 				</section>
 			</header>
@@ -178,7 +150,7 @@
 					</ol>
 				</div>
 				<div class="defesa">
-					<ol class="ability-scores" style="width:25%; height:120px; display:inline-block;">
+					<ol class="ability-scores" style="width: calc(50% - 2px); height:120px; display:inline-block;">
 						<li class="flexrow item-header flex-center">
 							<h4 class="box-title">DEFESA</h4>
 						</li>
@@ -220,24 +192,25 @@
 							</div>
 						</li>
 					</ol>
-					<ol class="ability-scores" style="width: calc(75% - 4px); height:120px; display:inline-block; vertical-align:top;">
+					<ol class="ability-scores" style="width: calc(50% - 2px); height:120px; display:inline-block;">
 						<li class="flexrow item-header flex-center">
-							<div class="item-name">Resistência a Dano</div>
-							<div class="item-name">RD Base</div>
-							<div class="item-name">RD Temporario</div>
+							<h4 class="box-title">RESISTÊNCIA A DANO</h4>
 						</li>
-						<li class="flexrow text-center">
-							<div class="item-name">{{data.rd.value}}</div>
-							<div class="item-name">
-								<input type="text" name="data.rd.base" value="{{data.rd.base}}" data-dtype="Number" placeholder="0" />
+						<li class="flexrow text-center" >
+							<div class="item-name" style="height:80px;">
+								<h1 style="padding:0">{{data.rd.value}}</h1>
+								<div class="flexrow">
+									<label class="flexcol">
+										<input name="data.rd.base" title="Base" type="number" class="temphealth" placeholder="+Outros" value="{{data.rd.base}}" />
+										Base
+									</label>
+									<label class="flexcol">
+										<input name="data.rd.temp" title="Bônus Temporário" type="number"  class="temphealth" placeholder="+Temp" value="{{data.rd.temp}}" />
+										Temp
+									</label>
+										
+								</div>
 							</div>
-							<div class="item-name">
-								<input type="text" name="data.rd.temp" value="{{data.rd.temp}}" data-dtype="Number" placeholder="0" />
-							</div>
-						</li>
-						<li class="flexrow item-header flex-center">
-							<div class="item-name">Resistências</div>
-							<input name="data.resistencias" style="text-align: left;" type="text" value="{{data.resistencias}}" data-dtype="String" />
 						</li>
 					</ol>
 					<ol class="item-list">
@@ -370,6 +343,7 @@
 
 				<div class="outros">
 					<h4>PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
+					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
 					<textarea name="data.attributes.info" style="resize:vertical;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
 				<div class="conditions">

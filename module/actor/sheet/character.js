@@ -36,6 +36,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const sheetData = super.getData();
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
+		sheetData["enableLanguages"] = game.settings.get("tormenta20", "enableLanguages");
 
 		// TODO Understand this
 		for (let [pc, per] of Object.entries(this.actor.data.data.atributos)) {

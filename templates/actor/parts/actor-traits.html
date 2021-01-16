@@ -1,0 +1,122 @@
+<div class="traits">
+    <div class="form-group">
+        <label>Tamanho</label>
+        <select class="actor-size" name="data.tamanho">
+            {{#select data.tamanho}}
+            {{#each config.tamanhos as |label size|}}
+                <option value="{{size}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+        </select>
+    </div>
+	
+	<div class="form-group">
+		<label>Deslocamento</label>
+		<div class="flexrow">
+			<input name="data.deslocamento.base" style="max-width: 30px; height: 20px;" title="Base" type="text" value="{{data.deslocamento.base}}" placeholder="0" data-dtype="Number" />
+			<span class="sep" style="font-size: 20px;">/</span>
+			<input name="data.deslocamento.total" style="max-width: 30px; height: 20px; border: 1px solid #7a7971; color: #191813;" disabled title="Atual" type="text" value="{{data.deslocamento.total}}" placeholder="0" data-dtype="Number" />
+		</div>
+	</div>
+	
+	<div class="form-group">
+        <label>Resistências</label>
+        <input name="data.resistencias" style="text-align: left; height: 20px; margin: 0;" type="text" value="{{data.resistencias}}" data-dtype="String" />
+    </div>
+
+    <!-- <div class="form-group"> -->
+        <!-- <label>Imunidades a Dano</label> -->
+        <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.di"> -->
+            <!-- <i class="fas fa-edit"></i> -->
+        <!-- </a> -->
+        <!-- <ul class="traits-list"> -->
+        <!-- {{#each data.traits.di.selected as |v k|}} -->
+            <!-- <li class="tag {{k}}">{{v}}</li> -->
+        <!-- {{/each}} -->
+        <!-- </ul> -->
+    <!-- </div> -->
+
+    <!-- <div class="form-group"> -->
+        <!-- <label>Resistências a Dano</label> -->
+        <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dr"> -->
+            <!-- <i class="fas fa-edit"></i> -->
+        <!-- </a> -->
+        <!-- <ul class="traits-list"> -->
+        <!-- {{#each data.traits.dr.selected as |v k|}} -->
+            <!-- <li class="tag {{k}}">{{v}}</li> -->
+        <!-- {{/each}} -->
+        <!-- </ul> -->
+    <!-- </div> -->
+
+    <!-- <div class="form-group"> -->
+        <!-- <label>Vulnerabilidades à Dano</label> -->
+        <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dv"> -->
+            <!-- <i class="fas fa-edit"></i> -->
+        <!-- </a> -->
+        <!-- <ul class="traits-list"> -->
+        <!-- {{#each data.traits.dv.selected as |v k|}} -->
+            <!-- <li class="tag {{k}}">{{v}}</li> -->
+        <!-- {{/each}} -->
+        <!-- </ul> -->
+    <!-- </div> -->
+
+    <!-- <div class="form-group"> -->
+        <!-- <label>Imunidades à Condições</label> -->
+        <!-- <a class="trait-selector" data-options="conditionTypes" data-target="data.traits.ci"> -->
+            <!-- <i class="fas fa-edit"></i> -->
+        <!-- </a> -->
+        <!-- <ul class="traits-list"> -->
+        <!-- {{#each data.traits.ci.selected as |v k|}} -->
+            <!-- <li class="tag {{k}}">{{v}}</li> -->
+        <!-- {{/each}} -->
+        <!-- </ul> -->
+    <!-- </div> -->
+
+    {{#if isCharacter}}
+	<hr>
+	{{#if enableLanguages}}
+    <div class="form-group">
+        <a class="trait-selector" data-options="idiomas" data-target="data.detalhes.idiomas">
+            <label>Idiomas</label>
+        </a>
+		<ul class="traits-list">
+        {{#each data.detalhes.idiomas.selected as |v k|}}
+            <li class="tag {{k}}">{{v}}</li>
+        {{/each}}
+        </ul>
+    </div>
+	{{/if}}
+	
+    <div class="form-group">
+        <a class="trait-selector" data-options="profArmas" data-target="data.detalhes.profArmas">
+            <label>Proficiências em Armas</label>
+        </a>
+        <ul class="traits-list">
+        {{#each data.detalhes.profArmas.selected as |v k|}}
+            <li class="tag {{k}}">{{v}}</li>
+        {{/each}}
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <a class="trait-selector armaduras" data-options="profArmaduras" data-target="data.detalhes.profArmaduras">
+            <label>Proficiências em Armaduras</label>
+        </a>
+        <ul class="traits-list">
+        {{#each data.detalhes.profArmaduras.selected as |v k|}}
+            <li class="tag {{k}}">{{v}}</li>
+        {{/each}}
+        </ul>
+    </div>
+	
+	<div class="form-group">
+		<label>Bônus de Treinamento:</label>
+		<label style="flex: 1;">+{{#if (lt data.attributes.nivel.value 7)}}2{{else if (lt data.attributes.nivel.value 14)}}4{{else}}6{{/if}}</label>
+	</div>
+    {{/if}}
+
+    <!-- <div class="form-group"> -->
+        <!-- <label>{{localize "DND5E.SpecialTraits"}}</label> -->
+        <!-- <a class="config-button" data-action="flags" title="{{localize 'DND5E.SpecialTraits'}}"><i class="fas fa-cog"></i></a> -->
+    <!-- </div> -->
+</div>
