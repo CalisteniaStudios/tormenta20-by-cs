@@ -36,7 +36,8 @@ export default class ItemSheetT20 extends ItemSheet {
 		data.config = CONFIG.T20;
 		if (data.item.data.hasOwnProperty("resistencia") && this.object.options.actor != undefined) {
 			data.data.actorCD = this.object.options.actor.data.data.attributes.cd > 0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
-			data.data.totalCD = data.data.actorCD + this.object.options.actor.data.data.atributos[data.data.atrRes]?.mod + data.data.cd;
+			let atrRes = this.object.options.actor.data.data.atributos[data.data.atrRes]?.mod || 0; 
+			data.data.totalCD = data.data.actorCD + atrRes + data.data.cd;
 		}
 		if (data.item.type == "arma") {
 			// data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
