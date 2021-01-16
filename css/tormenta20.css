@@ -320,6 +320,17 @@ button {
   flex: 0;
 }
 
+.tormenta20.sheet .tox .tox-editor-container,
+.tormenta20.sheet .tox .tox-toolbar,
+.tormenta20.sheet .tox .tox-toolbar__overflow,
+.tormenta20.sheet .tox .tox-toolbar__primary {
+  background: unset;
+}
+
+.tormenta20.sheet .tox .tox-toolbar-overlord {
+  background-color: unset;
+}
+
 .tormenta20.sheet.item .sheet-header {
   align-items: unset;
   flex: none;
