@@ -26,9 +26,29 @@
 	
 			<header class="sheet-header flexrow" style="flex:0 0 180px">
 				<section class="header-details flexcol">
-					<h1 class="charname">
-						<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
-					</h1>
+					<section class="general-information">
+						<h1 class="charname" style="width:70%;">
+							<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
+						</h1>
+						<div class="level-information {{#if disableExperience}}noxp{{/if}}">
+							{{#unless disableExperience}}
+							<div class="xp-tracker">
+								<div class="experience">
+									<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7">
+									<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
+								</div>
+								<div class="xp-bar">
+									<div class="xp-bar-total">
+										<span class="xp-bar-current" style="width: {{data.attributes.nivel.xp.pct}}%"></span>
+									</div>
+								</div>
+							</div>
+							{{/unless}}
+							<input class="level" style="width: 35px; color: var(--primary-color); display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.value" type="text" value="{{data.attributes.nivel.value}}" data-dtype="Number" min="1" maxlength="2">
+								<label>Nível</label> <!-- É assim pq level-information tem o atributo "flex-direction: row-reverse" -->
+							</input>
+						</div>
+					</section>
 					{{!-- Character Summary --}}
 					<ul class="attributes summary flexrow">
 						<li class="flexrow">
@@ -39,17 +59,18 @@
 						</li>
 						<li class="flexrow">
 							<input type="text" name="data.attributes.classe" value="{{data.attributes.classe}}" data-dtype="String" placeholder="Classe" />
-							<input style="min-width: 20%; flex: 0; text-align: center;" type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" />
+							<!-- <input style="min-width: 20%; flex: 0; text-align: center;" type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" /> -->
 						</li>
-						{{#unless disableExperience}}
-						<li class="flexrow">
-							<div class="experience flexrow">
-								<h4>Exp: <input style="width:50%; margin-bottom: 0px;" type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number" placeholder="0" /></h4>
-								<span class="sep">/</span>
-								<span class="max">{{data.attributes.xp.proximo}}</span>
-							</div>
-						</li>
-						{{/unless}}
+						<!-- {{#unless disableExperience}} -->
+						<!-- <li class="flexrow"> -->
+							<!-- <div class="experience flexrow"> -->
+								<!-- <h4>Exp: <input style="width:50%; margin-bottom: 0px;" type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number" placeholder="0" /></h4> -->
+								<!-- <span class="sep">/</span> -->
+								<!-- <span class="max">{{data.attributes.xp.proximo}}</span> -->
+							<!-- </div> -->
+						<!-- </li> -->
+						<!-- {{/unless}} -->
+						
 					</ul>
 				</section>
 			</header>

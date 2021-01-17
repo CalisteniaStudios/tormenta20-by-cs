@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 
 /** Edits by Ultra_Kev **/
+.system-tormenta20 {
+  --faint-color: 							rgba(0,0,0,.1);
+  --light-color: 							rgba(0, 0, 0, .25);
+  --primary-color: 						rgba(0,0,0,.9);
+  --secondary-color: 					rgba(0,0,0,.65);
+  --tertiary-color: 					rgba(0,0,0,.4);
+  --xp-bar: 									rgba(94,225,146,1);
+}
 .border {
   border-image-source: url(../assets/border.svg);
   border-image-slice: 0 40 0 40;
@@ -312,6 +320,71 @@ button {
   width: 100%;
   height: 100%;
   margin: 0;
+}
+
+.tormenta20.sheet.actor .general-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tormenta20.sheet.actor .level-information {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.tormenta20.sheet.actor .level {
+  padding: 4px 6px;
+  border-radius: 3px;
+  background: var(--faint-color);
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  line-height: 1;
+  height: 25px;
+}
+
+.tormenta20.sheet.actor .experience {
+  display: flex;
+  align-items: center;
+}
+
+.tormenta20.sheet.actor .current-xp {
+  width: calc(7.5ch + .3rem);
+  height: 16px;
+  text-align: right;
+  padding: 0 4px;
+}
+
+.tormenta20.sheet.actor .max-xp::before {
+  content: '/';
+  margin-right: .15rem;
+}
+
+.tormenta20.sheet.actor .xp-tracker {
+  margin-right: .5rem;
+}
+
+.tormenta20.sheet.actor .noxp .xp-tracker {
+  display: none;
+}
+
+.tormenta20.sheet.actor .xp-bar-total {
+  width: 100%;
+  height: 5px;
+  border: 1px solid var(--tertiary-color);
+  border-radius: 2px;
+  background: var(--light-color);
+  position: relative;
+}
+
+.tormenta20.sheet.actor .xp-bar-current {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-width: 100%;
+  background: var(--xp-bar);
+  transition: width .3s ease;
 }
 
 .tormenta20 .sheet-tabs {

@@ -1,4 +1,5 @@
 import { T20Utility } from "../utility.js";
+import { T20Config } from '../config.js';
 
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -134,15 +135,14 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Return the amount of experience required to gain a certain character level.
-	* @param level {Number}  The desired level
-	* @return {Number}       The XP required
-	*/
-	/*/ TODO IMPLEMENT CONFIG T20
-	getLevelExp(level) {
-		const levels = CONFIG.T20.CHARACTER_EXP_LEVELS;
-		return levels[Math.min(level, levels.length - 1)];
-	}
+   * Return the amount of experience required to gain a certain character level.
+   * @param level {Number}  The desired level
+   * @return {Number}       The XP required
+   */
+  getLevelExp(nivel) {
+    const niveis = T20Config.xpPorNivel;
+    return niveis[Math.min(nivel, niveis.length - 1)];
+  }
 	/**/
 
 	/* -------------------------------------------- */
@@ -195,7 +195,13 @@ export default class ActorT20 extends Actor {
 		data.attributes.hp = data.attributes.pv.value;
 
 		// Experience required for next level
-		/* TODO IMPLEMENT AFTER CONFIG */
+		const nivel = data.attributes.nivel.value;
+		const xp = data.attributes.nivel.xp;
+    xp.proximo = this.getLevelExp(nivel || 1);
+    const anterior = this.getLevelExp(nivel - 1 || 0);
+    const necessario = xp.proximo - anterior;
+    const pct = Math.round((xp.value - anterior) * 100 / necessario);
+    xp.pct = Math.clamped(pct, 0, 100);
 	}
 
 	/* -------------------------------------------- */
