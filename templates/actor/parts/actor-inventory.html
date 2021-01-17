@@ -4,6 +4,8 @@
 			<div class="item-image"></div>
 			<div class="item-name" >Armas</div>
 			<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
+			<div class="item-qtd">Qtd</div>
+			<div class="item-peso">Peso</div>
 			<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i>
 			Nova</a>
 			</div>
@@ -16,6 +18,8 @@
 			</span>
 			
 			<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
+			<div class="item-qtd">{{item.data.qtd}}</div>
+			<div class="item-peso">{{item.peso}}</div>
 			<div class="item-controls">
 				<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
@@ -32,6 +36,8 @@
 			<div class="item-name">Equipamentos</div>
 			<div class="item-def">Defesa</div>
 			<div class="item-pen">Penalidade</div>
+			<div class="item-qtd">Qtd</div>
+			<div class="item-peso">Peso</div>
 			<div class="item-toggles">
 			</div>
 			<div class="item-controls"><a class="item-control item-create" title="Criar Equipável" data-type="equip"><i class="fas fa-plus"></i> Nova</a></div>
@@ -41,10 +47,12 @@
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			<h4 class="item-name">{{item.name}}</h4>
 
-			<div class="item-def">+{{item.data.armadura.value}}</div>
-			<div class="item-pen">-{{item.data.armadura.penalidade}}</div>
+			<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
+			<div class="item-pen">{{numberFormat item.data.armadura.penalidade sign=true}}</div>
+			<div class="item-qtd">{{item.data.qtd}}</div>
+			<div class="item-peso">{{item.peso}}</div>
 			<div class="item-toggles">
-				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desquipar{{else}}Equipar{{/if}}">
+				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
 					<i class="fas fa-shield-alt"></i>
 				</a>
 			</div>
@@ -73,6 +81,7 @@
 			</div>
 		</li>
 		{{#each actor.inventario as |item id|}}
+		{{#unless (eq item.type "equip")}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			{{#if (eq item.type "consumivel")}}
@@ -89,6 +98,7 @@
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
 		</li>
+		{{/unless}}
 		{{/each}}
 		<li class="item flexrow item-header">
 			<div class="item-name text-right">

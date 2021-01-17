@@ -171,7 +171,7 @@
 					</ol>
 				</div>
 				<div class="defesa">
-					<ol class="ability-scores" style="width: calc(50% - 2px); height:120px; display:inline-block;">
+					<ol class="ability-scores" style="width: calc(20% - 2px); height:120px; display:inline-block;">
 						<li class="flexrow item-header flex-center">
 							<h4 class="box-title">DEFESA</h4>
 						</li>
@@ -213,31 +213,10 @@
 							</div>
 						</li>
 					</ol>
-					<ol class="ability-scores" style="width: calc(50% - 2px); height:120px; display:inline-block;">
-						<li class="flexrow item-header flex-center">
-							<h4 class="box-title">RESISTÊNCIA A DANO</h4>
-						</li>
-						<li class="flexrow text-center" >
-							<div class="item-name" style="height:80px;">
-								<h1 style="padding:0">{{data.rd.value}}</h1>
-								<div class="flexrow">
-									<label class="flexcol">
-										<input name="data.rd.base" title="Base" type="number" class="temphealth" placeholder="+Outros" value="{{data.rd.base}}" />
-										Base
-									</label>
-									<label class="flexcol">
-										<input name="data.rd.temp" title="Bônus Temporário" type="number"  class="temphealth" placeholder="+Temp" value="{{data.rd.temp}}" />
-										Temp
-									</label>
-										
-								</div>
-							</div>
-						</li>
-					</ol>
-					<ol class="item-list">
+					<ol class="item-list" style="width: calc(80% - 2px); display:inline-block; vertical-align: top; margin:0;">
 						<li class="item flexrow item-header">
 							<div class="item-image"></div>
-							<div class="item-name flex2">Armaduras e Acessórios</div>
+							<div class="item-name flex2">Equipamentos</div>
 							<div class="item-def">Defesa</div>
 							<div class="item-pen">Penalidade</div>
 							<div class="item-toggles">
@@ -252,7 +231,7 @@
 							<div class="item-def">+{{item.data.armadura.value}}</div>
 							<div class="item-pen">-{{item.data.armadura.penalidade}}</div>
 							<div class="item-toggles">
-								<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Equipar{{else}}Desequipar{{/if}}">
+								<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
 									<i class="fas fa-shield-alt"></i>
 								</a>
 							</div>
@@ -269,7 +248,6 @@
 						</li>
 						{{/each}}
 					</ol>
-
 				</div>
 				<div class="poderes">
 					<ol class="item-list">
@@ -363,7 +341,7 @@
 
 
 				<div class="outros">
-					<h4>PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
+					<h4 style="font-weight: bold; text-align: center;">PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
 					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
 					<textarea name="data.attributes.info" style="resize:vertical;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
@@ -506,7 +484,7 @@
 							<input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" />
 						</label>
 					</div>
-					<div class="encumbrance" title="Carga">
+					<div class="encumbrance" style="margin:0;" title="Carga">
 						<span class="encumbrance-bar" style="width:{{data.detalhes.carga.pct}}%"></span>
 						<span class="encumbrance-label">{{data.detalhes.carga.value}} / {{multiply data.atributos.for.value 10}}</span>
 						<i class="encumbrance-breakpoint encumbrance-30 arrow-up"></i>

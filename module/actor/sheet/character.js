@@ -49,6 +49,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// FLAGS
 		sheetData["isPreparationCaster"] = this.actor.data.flags.mago;
+		sheetData["mostrarBonusTreino"] = this.actor.data.flags.mostrarTreino;
 
 		/* Template SKILLS */
 		// TODO Migration function to enforce template data
