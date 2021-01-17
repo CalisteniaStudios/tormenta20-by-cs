@@ -21,7 +21,7 @@
 		</span>
 		<div class="item-tipo" style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</div>
 		<!-- <div class="item-custo">{{item.data.custo}}</div> -->
-		<div class="item-tipo" style="text-align: center;">{{#if item.data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.custo}} ({{item.data.custo}} PM){{/if}}{{/if}}{{/each}}{{else}}{{#if item.data.custo}}{{item.data.custo}} PM{{/if}}{{/if}}</div>
+		<div class="item-tipo" style="text-align: center;">{{#if item.data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.ativacao.custo}} ({{item.data.ativacao.custo}} PM){{/if}}{{/if}}{{/each}}{{else}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{/if}}{{/if}}</div>
 		{{#if ../owner}}
 		<div class="item-controls">
 			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>

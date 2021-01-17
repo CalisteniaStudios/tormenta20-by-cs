@@ -4,7 +4,8 @@
 .system-tormenta20 {
   --faint-color: 							rgba(0,0,0,.1);
   --light-color: 							rgba(0, 0, 0, .25);
-  --primary-color: 						rgba(0,0,0,.9);
+  /* --primary-color: 						rgba(0,0,0,.9); */
+  --primary-color: 						rgba(25,24,19,1);
   --secondary-color: 					rgba(0,0,0,.65);
   --tertiary-color: 					rgba(0,0,0,.4);
   --xp-bar: 									rgba(94,225,146,1);
@@ -310,6 +311,16 @@ button {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+
+.tormenta20 .sheet-header input {
+  color: var(--primary-color);
+  display: block;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: none;
+  transition: background .3s ease, border-color .3s ease;
+  margin:0;
 }
 
 .tormenta20 .sheet-header h1.charname {

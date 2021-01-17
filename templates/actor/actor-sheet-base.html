@@ -26,52 +26,43 @@
 	
 			<header class="sheet-header flexrow" style="flex:0 0 180px">
 				<section class="header-details flexcol">
-					<section class="general-information">
-						<h1 class="charname" style="width:70%;">
+						<h1 class="charname" style="margin: 5px;">
 							<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 						</h1>
-						<div class="level-information {{#if disableExperience}}noxp{{/if}}">
-							{{#unless disableExperience}}
-							<div class="xp-tracker">
-								<div class="experience">
-									<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7">
-									<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
-								</div>
-								<div class="xp-bar">
-									<div class="xp-bar-total">
-										<span class="xp-bar-current" style="width: {{data.attributes.nivel.xp.pct}}%"></span>
-									</div>
-								</div>
-							</div>
-							{{/unless}}
-							<input class="level" style="width: 35px; color: var(--primary-color); display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.value" type="text" value="{{data.attributes.nivel.value}}" data-dtype="Number" min="1" maxlength="2">
-								<label>Nível</label> <!-- É assim pq level-information tem o atributo "flex-direction: row-reverse" -->
-							</input>
-						</div>
-					</section>
-					{{!-- Character Summary --}}
-					<ul class="attributes summary flexrow">
-						<li class="flexrow">
-							<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Raça" />
-						</li>
-						<li class="flexrow">
-							<input type="text" name="data.attributes.origem" value="{{data.attributes.origem}}" data-dtype="String" placeholder="Origem" />
-						</li>
-						<li class="flexrow">
-							<input type="text" name="data.attributes.classe" value="{{data.attributes.classe}}" data-dtype="String" placeholder="Classe" />
-							<!-- <input style="min-width: 20%; flex: 0; text-align: center;" type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" /> -->
-						</li>
-						<!-- {{#unless disableExperience}} -->
-						<!-- <li class="flexrow"> -->
-							<!-- <div class="experience flexrow"> -->
-								<!-- <h4>Exp: <input style="width:50%; margin-bottom: 0px;" type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number" placeholder="0" /></h4> -->
-								<!-- <span class="sep">/</span> -->
-								<!-- <span class="max">{{data.attributes.xp.proximo}}</span> -->
-							<!-- </div> -->
-						<!-- </li> -->
-						<!-- {{/unless}} -->
 						
-					</ul>
+					{{!-- Character Summary --}}
+					<section class="general-information summary">
+						<ul class="attributes flexrow" style="flex: 1; margin:0;">
+							<li class="flexrow">
+								<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Raça" />
+							</li>
+							<li class="flexrow">
+								<input type="text" name="data.attributes.origem" value="{{data.attributes.origem}}" data-dtype="String" placeholder="Origem" />
+							</li>
+							<li class="flexrow">
+								<input type="text" name="data.attributes.classe" value="{{data.attributes.classe}}" data-dtype="String" placeholder="Classe" />
+							</li>
+							<li class="flexrow">
+								<div class="level-information {{#if disableExperience}}noxp{{/if}}" style="height:26px; flex-direction: unset;">
+									<input class="level" style="width: 35px; color: var(--primary-color); background: none; display:inline-block;" name="data.attributes.nivel.value" type="text" value="{{data.attributes.nivel.value}}" data-dtype="Number" min="1" maxlength="2" />
+									{{#unless disableExperience}}
+									<div class="xp-tracker">
+										<div class="experience" style="height: 21px;">
+											<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7">
+											<span class="max-xp" style="width:75px;">{{data.attributes.nivel.xp.proximo}}</span>
+										</div>
+										<div class="xp-bar">
+											<div class="xp-bar-total">
+												<span class="xp-bar-current" style="width: {{data.attributes.nivel.xp.pct}}%"></span>
+											</div>
+										</div>
+									</div>
+									{{/unless}}
+								</div>
+							</li>
+						</ul>
+						
+					</section>
 				</section>
 			</header>
 			<div class="dados" style="width:61%">
@@ -145,15 +136,15 @@
 				</div>
 				<div class="ataques">
 					<ol class="item-list">
-						<li class="item flexrow item-header flex-center">ARMAS</li>
 						<li class="item flexrow item-header">
 							<div class="item-image"></div>
-							<div class="item-name" >ARMAS</div>
+							<div class="item-name" >Arma</div>
 							<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
 							<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i>
 							Nova</a>
 							</div>
 						</li>
+						<div style="max-height: 124px; overflow-y:scroll;">
 						{{#each actor.armas as |item id|}}
 						<li class="item flexrow" data-item-id="{{item._id}}">
 							<div class="item-image" style="background-image: url('{{item.img}}')"></div>
@@ -168,12 +159,13 @@
 							</div>
 						</li>
 						{{/each}}
+						</div>
 					</ol>
 				</div>
 				<div class="defesa">
-					<ol class="ability-scores" style="width: calc(20% - 2px); height:120px; display:inline-block;">
+					<ol class="ability-scores" style="width: calc(20% - 2px); height:124px; display:inline-block;">
 						<li class="flexrow item-header flex-center">
-							<h4 class="box-title">DEFESA</h4>
+							<h4 class="box-title">Defesa</h4>
 						</li>
 						<li class="flexrow text-center" >
 							<div class="item-name" style="height:80px;">
@@ -213,10 +205,10 @@
 							</div>
 						</li>
 					</ol>
-					<ol class="item-list" style="width: calc(80% - 2px); display:inline-block; vertical-align: top; margin:0;">
+					<ol class="item-list" style="width: calc(80% - 2px); max-height:124px; display:inline-block; vertical-align: top; margin:0; overflow-y:scroll;">
 						<li class="item flexrow item-header">
 							<div class="item-image"></div>
-							<div class="item-name flex2">Equipamentos</div>
+							<div class="item-name flex2">Equipamento</div>
 							<div class="item-def">Defesa</div>
 							<div class="item-pen">Penalidade</div>
 							<div class="item-toggles">
@@ -228,8 +220,8 @@
 							<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 							<h4 class="item-name flex2">{{item.name}}</h4>
 
-							<div class="item-def">+{{item.data.armadura.value}}</div>
-							<div class="item-pen">-{{item.data.armadura.penalidade}}</div>
+							<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
+							<div class="item-pen">{{numberFormat item.data.armadura.penalidade sign=true}}</div>
 							<div class="item-toggles">
 								<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
 									<i class="fas fa-shield-alt"></i>
@@ -252,11 +244,11 @@
 				<div class="poderes">
 					<ol class="item-list">
 						<li class="item flexrow item-header flex-center">
-						PODERES
+						Poderes
 						</li>
 						<li class="item flexrow item-header">
 							<div class="item-image"></div>
-							<div class="item-name">Poderes</div>
+							<div class="item-name">Poder</div>
 							<div class="item-tipo">Tipo</div>
 							<div class="item-tipo" style="text-align: center;">Ativação</div>
 							{{#if owner}}
@@ -265,6 +257,7 @@
 							</div>
 							{{/if}}
 						</li>
+						<div style="max-height:400px; overflow-y: scroll;">
 						{{#each actor.poderes as |item id|}}
 						<li class="item flexrow" data-item-id="{{item._id}}">
 							<div class="item-image" style="background-image: url('{{item.img}}')"></div>
@@ -281,6 +274,7 @@
 							{{/if}}
 						</li>
 						{{/each}}
+						</div>
 					</ol>
 				</div>
 
@@ -290,7 +284,7 @@
 				<div class="magias">
 					<ol class="item-list">
 						<li class="item flexrow item-header flex-center">
-							<div>MAGIAS</div>
+							<div>Magias</div>
 						</li>
 						<li class="item item-header" style="text-align: center;">
 							<div>
@@ -437,7 +431,7 @@
 				<div class="inventario">
 						
 					<ol class="item-list">
-						<li class="item flexrow item-header flex-center">INVENTÁRIO</li>
+						<li class="item flexrow item-header flex-center">Inventário</li>
 						<li class="item flexrow item-header">
 							<div class="item-name" style="flex: 5;">Nome</div>
 							<div class="item-qtd">Qtd</div>
@@ -446,16 +440,13 @@
 
 							</div>
 						</li>
+						<div style="max-height: 450px; overflow-y:scroll;">
 						{{#each actor.inventario as |item id|}}
 						<li class="item flexrow" data-item-id="{{item._id}}">
 							<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-							{{#if (eq item.type "consumivel")}}
-							<span class="item-name rollable consumivel-rollable" style="flex: 5;"><h4>{{item.name}}</h4></span>
-							{{else}}
-							<h4 class="item-name" style="flex: 5;">
+							<h4 class="item-name {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{/if}}" style="flex: 5;">
 								{{item.name}}
 							</h4>
-							{{/if}}
 							<div class="item-qtd">{{item.data.qtd}}</div>
 							<div class="item-peso">{{item.peso}}</div>
 							<div class="item-controls">
@@ -464,6 +455,7 @@
 							</div>
 						</li>
 						{{/each}}
+						</div>
 						<li class="item flexrow item-header">
 							<div class="item-name text-right">
 								&nbsp;&nbsp;
