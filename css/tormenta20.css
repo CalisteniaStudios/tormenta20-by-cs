@@ -8,6 +8,9 @@
   --secondary-color: 					rgba(0,0,0,.65);
   --tertiary-color: 					rgba(0,0,0,.4);
   --xp-bar: 									rgba(94,225,146,1);
+  --encumbrance-bar: 					rgba(108,138,165,1);
+  --encumbrance-bar-outline: rgba(205, 228, 255, 1);
+  --encumbrance-outline: 		 rgba(0, 0, 0, .9);
 }
 .border {
   border-image-source: url(../assets/border.svg);
@@ -385,6 +388,58 @@ button {
   max-width: 100%;
   background: var(--xp-bar);
   transition: width .3s ease;
+}
+
+.tormenta20.sheet.actor .encumbrance {
+  margin-right: 14px;
+  background: var(--light-color);
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 0 0 1px var(--encumbrance-outline) inset;
+}
+
+.tormenta20.sheet.actor .encumbrance .encumbrance-bar {
+  position: absolute;
+  top: 1px;
+  --count-font: rgba(0, 0, 0, .9);
+  left: 1px;
+  bottom: 1px;
+  max-width: calc(100% - 2px);
+  border: 1px solid var(--encumbrance-bar-outline);
+  background: var(--encumbrance-bar);
+  border-radius: 4px;
+}
+
+.tormenta20.sheet.actor .encumbrance .encumbrance-label {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  color: #EEE;
+  text-shadow: 0 0 2px #000;
+}
+
+.tormenta20.sheet.actor .encumbrance .encumbrance-breakpoint {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+}
+
+.tormenta20.sheet.actor .encumbrance .encumbrance-30 {
+  left: 30%;
+}
+
+.tormenta20.sheet.actor .encumbrance .arrow-up {
+  bottom: 0;
+  border-bottom-color: var(--encumbrance-outline);
+}
+
+.tormenta20.sheet.actor .encumbrance .arrow-down {
+  top: 0;
+  border-top-color: var(--encumbrance-outline);
 }
 
 .tormenta20 .sheet-tabs {

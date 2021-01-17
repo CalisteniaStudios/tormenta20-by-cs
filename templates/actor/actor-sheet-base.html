@@ -505,7 +505,12 @@
 						<label>TO: 
 							<input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" />
 						</label>
-						<label style="flex:2;">CARGA: {{data.detalhes.carga}} / <label style="color:orange;">{{multiply data.atributos.for.value 3}}</label> / <label style="color:red;">{{multiply data.atributos.for.value 10}}</label></label>
+					</div>
+					<div class="encumbrance" title="Carga">
+						<span class="encumbrance-bar" style="width:{{data.detalhes.carga.pct}}%"></span>
+						<span class="encumbrance-label">{{data.detalhes.carga.value}} / {{multiply data.atributos.for.value 10}}</span>
+						<i class="encumbrance-breakpoint encumbrance-30 arrow-up"></i>
+						<i class="encumbrance-breakpoint encumbrance-30 arrow-down"></i>
 					</div>
 				</div>
 			</div>

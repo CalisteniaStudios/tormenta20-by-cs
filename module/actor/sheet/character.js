@@ -221,7 +221,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Equipment
 		actorData.equipamentos = equipamentos;
 		actorData.inventario = inventario;
-		actorData.data.detalhes.carga = carga;
+		actorData.data.detalhes.carga = this._computeEncumbrance(actorData, carga);
 		// Attacks
 		actorData.ataques = ataques;
 		actorData.armas = armas;
@@ -273,6 +273,22 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			this.render();
 		}
 	}
+	
+	/**
+   * Compute the level and percentage of encumbrance for an Actor.
+   *
+   * Optionally include the weight of carried currency across all denominations by applying the standard rule
+   * from the PHB pg. 143
+   * @param {Object} actorData      The data object for the Actor being rendered
+   * @returns {{max: number, value: number, pct: number}}  An object describing the character's encumbrance level
+   * @private
+   */
+  _computeEncumbrance(actorData, carga) {
+    // Compute Encumbrance percentage
+    const max = actorData.data.atributos.for.value * 10;
+    const pct = Math.clamped((carga * 100) / max, 0, 100);
+    return { "value": carga, "pct": pct };
+  }
 
 	/* -------------------------------------------- */
 	//  
