@@ -313,7 +313,7 @@ button {
   flex: 1;
 }
 
-.tormenta20 .sheet-header input {
+.tormenta20 .base .sheet-header input {
   color: var(--primary-color);
   display: block;
   border: 1px solid transparent;
