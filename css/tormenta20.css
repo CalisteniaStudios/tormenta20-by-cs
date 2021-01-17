@@ -4,7 +4,6 @@
 .system-tormenta20 {
   --faint-color: 							rgba(0,0,0,.1);
   --light-color: 							rgba(0, 0, 0, .25);
-  /* --primary-color: 						rgba(0,0,0,.9); */
   --primary-color: 						rgba(25,24,19,1);
   --secondary-color: 					rgba(0,0,0,.65);
   --tertiary-color: 					rgba(0,0,0,.4);

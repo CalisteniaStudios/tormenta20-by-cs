@@ -15,7 +15,11 @@
 	{{#if (lte i ../actor.maiorCirculo)}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
-			{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
+			{{#if ../isPreparationCaster}}
+			<div class="item-toggles">Prep</div>
+			{{else}}
+			<div class="item-image"></div>
+			{{/if}}
 			<div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
 			<div class="item-tipo" style="text-align: center;">Ativação</div>
 			<div class="item-controls">

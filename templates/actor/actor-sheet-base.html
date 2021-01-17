@@ -80,10 +80,12 @@
 								<input style="margin-bottom: 0;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" placeholder="0" />
 								Base
 							</label>
+							{{#if ../actor.flags.mostrarAtributoTemp}}
 							<label class="flexcol">
 								<input style="margin-bottom: 0;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.temp"  value="{{atr.temp}}" placeholder="0" />
 								Temp
 							</label>
+							{{/if}}
 						</footer>
 					</li>
 					{{/each}}
@@ -302,7 +304,11 @@
 						{{#if (lte i ../actor.maiorCirculo)}}
 						<ol class="item-list">
 							<li class="item flexrow item-header">
-								{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
+								{{#if ../isPreparationCaster}}
+								<div class="item-toggles">Prep</div>
+								{{else}}
+								<div class="item-image"></div>
+								{{/if}}
 								<div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
 								<div class="item-tipo" style="text-align: center;">Ativação</div>
 								<div class="item-controls">
@@ -339,6 +345,7 @@
 					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
 					<textarea name="data.attributes.info" style="resize:vertical;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
+				{{#if actor.referencias}}
 				<div class="conditions">
 					<li class="item flexrow item-header flex-center">
 						<div>CONDIÇÕES ATUAIS</div>
@@ -353,6 +360,7 @@
 					  </div>
 					{{/each}}
 				</div>
+				{{/if}}
 			</div>
 			<div class="skills" style="width:38%">
 				{{!-- Skills --}}

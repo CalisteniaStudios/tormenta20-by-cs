@@ -134,7 +134,7 @@
 					</span>
 					<footer class="attribute-footer flexrow">
 						<input style="margin-bottom: 0;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" placeholder="0" />
-						<input style="margin-bottom: 0;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.temp"  value="{{atr.temp}}" placeholder="0" />
+						{{#if ../actor.flags.mostrarAtributoTemp}}<input style="margin-bottom: 0;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.temp"  value="{{atr.temp}}" placeholder="0" />{{/if}}
 					</footer>
 				</li>
 				{{/each}}
@@ -220,6 +220,7 @@
 					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
 					<textarea name="data.attributes.info" style="resize:vertical; border-image: none; border-width: 1px;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
+				{{#if actor.referencias}}
 				<div class="conditions">
 					<li class="item flexrow item-header flex-center">
 						<div>CONDIÇÕES ATUAIS</div>
@@ -234,6 +235,7 @@
 					  </div>
 					{{/each}}
 				</div>
+				{{/if}}
 			</section>
 
 		</div>

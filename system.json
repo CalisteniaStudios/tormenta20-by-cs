@@ -8,7 +8,7 @@
   "templateVersion": 1,
   "author": "Vizael",
   "esmodules": ["module/tormenta20.js"],
-  "styles": ["css/tormenta20.css", "css/compendium-browser.css","css/tormenta20-tabbed.css", "css/kryx_rpg.css"],
+  "styles": ["css/tormenta20.css", "css/compendium-browser.css","css/tormenta20-tabbed.css"],
   "scripts": ["module/compendium-browser.js"],
   "packs": [
     {

@@ -10,6 +10,10 @@
         <label>Mostrar Bônus de Treinamento</label>
         <input type="checkbox" name="flags.mostrarTreino" data-dtype="Boolean" {{checked object.flags.mostrarTreino}}>
     </div>
+	<div class="form-group">
+        <label>Mostrar Campo de Bônus de Atributo Temporário</label>
+        <input type="checkbox" name="flags.mostrarAtributoTemp" data-dtype="Boolean" {{checked object.flags.mostrarAtributoTemp}}>
+    </div>
     {{/if}}
     {{/if}}
     {{#if (eq object.type "npc")}}
