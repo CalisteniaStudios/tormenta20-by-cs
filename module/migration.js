@@ -180,13 +180,13 @@ export const migrateActorData = function(actor) {
 	let hasItemUpdates = false;
 	const items = actor.items.map(i => {
 
-		// Migrate the Owned Item
-		// Descomentar para migrar os itens nos personagens
-		let itemUpdate = migrateItemData(i);
-		// let itemUpdate = {};
-		// NPC Only
-		// if ( actor.type === "npc" ) {
-		// }
+	// Migrate the Owned Item
+	// Descomentar para migrar os itens nos personagens
+	let itemUpdate = migrateItemData(i);
+	// let itemUpdate = {};
+	// NPC Only
+	// if ( actor.type === "npc" ) {
+	// }
 		
 
 		// Update the Owned Item

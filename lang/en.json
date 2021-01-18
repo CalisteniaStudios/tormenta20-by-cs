@@ -3,6 +3,7 @@
   "ACTOR.TypeNpc": "Personagem de Mestre",
   "ITEM.TypeArma": "Arma",
   "ITEM.TypeEquip": "Armadura",
+  "ITEM.TypeClasse": "Classe",
   "ITEM.TypeConsumivel": "Consumível",
   "ITEM.TypeMagia": "Magia",
   "ITEM.TypePoder": "Poder",

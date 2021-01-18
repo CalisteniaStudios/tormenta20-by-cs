@@ -1,0 +1,124 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+    {{!-- Item Sheet Header --}}
+	{{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+    <!-- <header class="sheet-header flexrow"> -->
+        <!-- <img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/> -->
+
+        <!-- <div class="header-details flexrow"> -->
+            <!-- <h1 class="charname"> -->
+                <!-- <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'DND5E.ClassName' }}"/> -->
+            <!-- </h1> -->
+
+            <!-- <div class="item-subtitle"> -->
+                <!-- <h4 class="item-type">{{itemType}}</h4> -->
+                <!-- <span class="item-status">{{itemStatus}}</span> -->
+            <!-- </div> -->
+
+            <!-- <ul class="summary flexrow"> -->
+                <!-- <li> -->
+                    <!-- <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'DND5E.Source' }}"/> -->
+                <!-- </li> -->
+            <!-- </ul> -->
+        <!-- </div> -->
+    <!-- </header> -->
+
+    {{!-- Item Sheet Navigation --}}
+    <!-- <nav class="sheet-tabs tabs" data-group="primary"> -->
+        <!-- <a class="item active" data-tab="description">Descrição</a> -->
+        <!-- <a class="item active" data-tab="details">Detalhes</a> -->
+    <!-- </nav> -->
+
+    {{!-- Item Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <!-- <div class="tab flexrow active" data-group="primary" data-tab="description"> -->
+            <!-- {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} -->
+        <!-- </div> -->
+
+        {{!-- Details Tab --}}
+        <!-- <div class="tab details" data-group="primary" data-tab="details"> -->
+
+            {{!-- Class Levels --}}
+            <div class="form-group">
+                <label>Níveis de Classe</label>
+                <div class="form-fields">
+                    <input type="text" name="data.niveis" value="{{data.niveis}}" data-dtype="Number"/>
+                </div>
+            </div>
+
+            {{!-- Class Hit Dice --}}
+            <div class="form-group">
+                <label>Pontos de Vida por Nível</label>
+                <div class="form-fields">
+                    <select name="data.pvPorNivel">
+                        {{#select data.pvPorNivel}}
+                        {{#each config.pvPorNivel}}
+                        <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+			
+			<div class="form-group">
+                <label>Pontos de Mana por Nível</label>
+                <div class="form-fields">
+                    <select name="data.pmPorNivel">
+                        {{#select data.pmPorNivel}}
+                        {{#each config.pmPorNivel}}
+                        <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+
+            <!-- <div class="form-group"> -->
+                <!-- <label>Conjurador</label> -->
+                <!-- <div class="form-fields"> -->
+                    <!-- <select name="data.spellcasting"> -->
+                        <!-- {{#select data.spellcasting}} -->
+                            <!-- {{#each config.spellProgression}} -->
+                                <!-- <option value="{{@key}}">{{localize this}}</option> -->
+                            <!-- {{/each}} -->
+                        <!-- {{/select}} -->
+                    <!-- </select> -->
+                <!-- </div> -->
+            <!-- </div> -->
+
+            {{!-- Level 1 skills --}}
+			<div class="form-group">
+                <label>Perícias de Classe</label>
+                <div class="form-fields">
+					<input type="text" name="data.pericias.inatas" value="{{data.pericias.inatas}}" data-dtype="String" />
+                </div>
+            </div>
+			
+            <div class="form-group">
+                <label>Número de Perícias de Classe Adicionais</label>
+                <div class="form-fields">
+                    <input type="text" name="data.pericias.numero" value="{{data.pericias.numero}}" data-dtype="Number" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Perícias Escolhidas
+                    {{#if editable }}
+                    <a class="trait-selector class-skills" data-target="data.pericias" data-options="pericias">
+                        <i class="fas fa-edit"></i></a>
+                    {{/if}}
+                </label>
+                <div class="form-fields">
+                    <ul class="traits-list">
+                        {{#each data.pericias.value}}
+                            <li class="tag {{this}}">{{lookup ../config.pericias this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        <!-- </div> -->
+    </section>
+</form>

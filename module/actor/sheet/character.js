@@ -83,6 +83,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		let carga = 0;
 		const skills = [];
 		const skillset = [];
+		const classes = [];
 		const magias = {
 			1: {
 				spells: [],
@@ -146,6 +147,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				equipamentos.push(i);
 				carga += i.peso;
 
+			}
+			else if (i.type === "classe") {
+				classes.push(i);
 			}
 			else if (i.type === 'arma') {
 				let atqSkill;
@@ -213,6 +217,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Skillset
 		actorData.skillset = skillset;
 		// Assign and return powers
+		actorData.classes = classes;
 		actorData.poderes = poderes;
 		// Item Skills [WIP]
 		// actorData.skills = skills;
@@ -382,5 +387,22 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	//   }
 	// }
 
+	/** @override */
+  async _onDropItemCreate(itemData) {
+    // Increment the number of class levels a character instead of creating a new item
+    if ( itemData.type === "classe" ) {
+      const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
+      let priorLevel = cls?.data.data.niveis ?? 0;
+      if ( !!cls ) {
+        const next = Math.min(priorLevel + 1, 20 + priorLevel - this.actor.data.data.attributes.nivel.value);
+        if ( next > priorLevel ) {
+          itemData.niveis = next;
+          return cls.update({"data.niveis": next});
+        }
+      }
+    }
 
+    // Default drop handling if levels were not added
+    super._onDropItemCreate(itemData);
+  }
 }

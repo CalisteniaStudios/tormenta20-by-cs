@@ -44,7 +44,7 @@
 							</li>
 							<li class="flexrow">
 								<div class="level-information {{#if disableExperience}}noxp{{/if}}" style="height:26px; flex-direction: unset;">
-									<input class="level" style="width: 35px; color: var(--primary-color); background: none; display:inline-block;" name="data.attributes.nivel.value" type="text" value="{{data.attributes.nivel.value}}" data-dtype="Number" min="1" maxlength="2" />
+									<input class="level" disabled style="color: var(--primary-color); background: none; display:inline-block;" name="data.attributes.nivel.value" type="text" value="Nível {{data.attributes.nivel.value}}" data-dtype="String" />
 									{{#unless disableExperience}}
 									<div class="xp-tracker">
 										<div class="experience" style="height: 21px;">
@@ -230,8 +230,6 @@
 								</a>
 							</div>
 							<div class="item-controls">
-
-
 								<a class="item-control item-edit" title="Editar">
 									<i class="fas fa-edit"></i>
 								</a>
@@ -279,8 +277,6 @@
 						</div>
 					</ol>
 				</div>
-
-
 
 				{{#if actor.maiorCirculo}}
 				<div class="magias">

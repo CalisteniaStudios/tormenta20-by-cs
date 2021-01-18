@@ -45,6 +45,13 @@
       "system": "tormenta20",
       "path": "./packs/condicoes.db",
       "entity": "JournalEntry"
+    },
+    {
+      "name": "classes",
+      "label": "Classes",
+      "system": "tormenta20",
+      "path": "./packs/classes.db",
+      "entity": "Item"
     }
   ],
   "languages": [

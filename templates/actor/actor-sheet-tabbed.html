@@ -13,7 +13,7 @@
 					{{#unless disableExperience}}
 					<div class="xp-tracker">
 						<div class="experience">
-							<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7">
+							<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
 							<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
 						</div>
 						<div class="xp-bar">
@@ -23,9 +23,7 @@
 						</div>
 					</div>
 					{{/unless}}
-					<input class="level" style="width: 35px; color: var(--primary-color); display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.value" type="text" value="{{data.attributes.nivel.value}}" data-dtype="Number" maxlength="2">
-						<label>Nível</label> <!-- É assim pq level-information tem o atributo "flex-direction: row-reverse" -->
-					</input>
+					<input class="level" disabled style="color: var(--primary-color); border: 1px solid transparent; background: none; display:inline-block;" name="data.attributes.nivel.value" type="text" value="Nível {{data.attributes.nivel.value}}" data-dtype="String" />
 				</div>
 			</section>
 

@@ -263,6 +263,103 @@ T20Config.atributosAbr = {
 	"car": "Car"
 };
 
+/* ------------------ Classes ----------------- */
+
+T20Config.pvPorNivel = [2, 3, 4, 5, 6];
+T20Config.pmPorNivel = [3, 4, 5, 6];
+
+/* ------------------ Perícias ---------------- */
+
+T20Config.pericias = {
+	"acr": {
+		"label": "Acrobacia","atributo": "des","pda": true
+	},
+	"ade": {
+		"label": "Adestramento","atributo": "car","st": true
+	},
+	"atl": {
+		"label": "Atletismo","atributo": "for"
+	},
+	"atu": {
+		"label": "Atuação","atributo": "car"
+	},
+	"cav": {
+		"label": "Cavalgar","atributo": "des"
+	},
+	"con": {
+		"label": "Conhecimento","atributo": "int","st": true
+	},
+	"cur": {
+		"label": "Cura","atributo": "sab"
+	},
+	"dip": {
+		"label": "Diplomacia","atributo": "car"
+	},
+	"eng": {
+		"label": "Enganação","atributo": "car"
+	},
+	"for": {
+		"label": "Fortitude","atributo": "con"
+	},
+	"fur": {
+		"label": "Furtividade","atributo": "des","pda": true
+	},
+	"gue": {
+		"label": "Guerra","atributo": "int","st": true
+	},
+	"ini": {
+		"label": "Iniciativa","atributo": "des"
+	},
+	"int": {
+		"label": "Intimidação","atributo": "car"
+	},
+	"intu": {
+		"label": "Intuição","atributo": "sab"
+	},
+	"inv": {
+		"label": "Investigação","atributo": "int"
+	},
+	"jog": {
+		"label": "Jogatina","atributo": "car"
+	},
+	"lad": {
+		"label": "Ladinagem","atributo": "des","st": true,"pda": true
+	},
+	"lut": {
+		"label": "Luta","atributo": "for"
+	},
+	"mis": {
+		"label": "Misticismo","atributo": "int","st": true
+	},
+	"nob": {
+		"label": "Nobreza","atributo": "int","st": true
+	},
+	"ofi": {
+		"label": "Oficios","atributo": "int","mais": []
+	},
+	"per": {
+		"label": "Percepção","atributo": "sab"
+	},
+	"pil": {
+		"label": "Pilotagem","atributo": "des","st": true
+	},
+	"pon": {
+		"label": "Pontaria","atributo": "des"
+	},
+	"ref": {
+		"label": "Reflexos","atributo": "des"
+	},
+	"rel": {
+		"label": "Religião","atributo": "sab","st": true
+	},
+	"sob": {
+		"label": "Sobrevivência","atributo": "sab"
+	},
+	"von": {
+		"label": "Vontade","atributo": "sab"
+	}
+};
+
 /* ------------------- Níveis ----------------- */
 
 T20Config.xpPorNivel = [
@@ -279,7 +376,7 @@ T20Config.tamanhos = {
 	"Grande":"Grande",
 	"Enorme":"Enorme",
 	"Colossal":"Colossal"
-}
+};
 
 T20Config.idiomas = {
 	"comum": "Comum",
@@ -289,7 +386,7 @@ T20Config.idiomas = {
 	"hynne": "Hynne",
 	"silvestre": "Silvestre",
 	"taurico": "Táurico"
-}
+};
 
 T20Config.profArmas = {
   "sim": "Armas Simples",
@@ -379,4 +476,4 @@ T20Config.encantosArmas = { //Não Implementado
       "name": "Lancinante",
       "tooltip": "A arma inflige ferimentos mortais. Quando faz um acerto crítico com a arma, além de multiplicar os dados de dano, você também multiplica quaisquer bônus numéricos."
   }
-}
+};

@@ -297,7 +297,7 @@
     }
   },
   "Item": {
-    "types": ["arma","equip","consumivel","magia","poder","tesouro"],
+    "types": ["arma","equip","classe","consumivel","magia","poder","tesouro"],
     "templates": {
       "itemDescription": {
         "description": {
@@ -414,6 +414,18 @@
       "armorPenalty":false,
       "toIniciative":false,
       "groups": {}
+    },
+    "classe": {
+      "templates": ["base"],
+      "niveis": 1,
+      "pvPorNivel": "2",
+      "pmPorNivel": "3",
+      "pericias": {
+        "numero": 2,
+        "inatas": "",
+        "escolhas": [],
+        "value": []
+      }
     }
   }
 }

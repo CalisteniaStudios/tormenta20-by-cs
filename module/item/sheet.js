@@ -1,3 +1,4 @@
+import TraitSelector from "../apps/trait-selector.js";
 import { T20Utility } from '../utility.js';
 /**
 * Extend the basic ItemSheet with some very simple modifications
@@ -101,7 +102,9 @@ export default class ItemSheetT20 extends ItemSheet {
 		// Roll handlers, click handlers, etc. would go here.
 
 		//html.find('.selArma').change(this._getDataArma.bind(this));
-
+		if ( this.isEditable ) {
+      html.find('.trait-selector.class-skills').click(this._onConfigureClassSkills.bind(this));
+    }
 
 		// Controle de Aprimoramentos
 		html.find('.aprimoramento-create').click(this._onAprimoramentoCreate.bind(this));
@@ -161,6 +164,33 @@ export default class ItemSheetT20 extends ItemSheet {
 		await this.item.update({'data.aprimoramentos': aprimoramentos});
 	}
 
+  /* -------------------------------------------- */
+
+  /**
+   * Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
+   * @param {Event} event   The click event which originated the selection
+   * @private
+   */
+  _onConfigureClassSkills(event) {
+    event.preventDefault();
+    const skills = this.item.data.data.pericias;
+    const choices = skills.escolhas && skills.escolhas.length ? skills.escolhas : Object.keys(CONFIG.T20.pericias);
+    const a = event.currentTarget;
+    const label = a.parentElement;
+
+    // Render the Trait Selector dialog
+    new TraitSelector(this.item, {
+      name: a.dataset.target,
+      title: label.innerText,
+      choices: Object.entries(CONFIG.T20.pericias).reduce((obj, e) => {
+        if ( choices.includes(e[0] ) ) obj[e[0]] = e[1].label;
+        return obj;
+      }, {}),
+      minimum: skills.numero,
+      maximum: skills.numero
+    }).render(true)
+  }
+	
 	/* -------------------------------------------- */
 
 	_getDataArma(event){

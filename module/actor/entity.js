@@ -13,7 +13,7 @@ export default class ActorT20 extends Actor {
 				return this._prepareCharacterData(this.data);
 			case "npc":
 				return this._prepareNPCData(this.data);
-    	}
+			}
 	}
 
 	/* -------------------------------------------- */
@@ -22,13 +22,8 @@ export default class ActorT20 extends Actor {
 	prepareDerivedData() {
 		const actorData = this.data;
 		const data = actorData.data;
-		/* 
-		* Set data that requires other data to be prepared
-		* ie.: Encumbrance, Abl Mod, Skills Bonus, Defense
-		*/
-		this._EvaluateConditions();
-
-		var nivel = data.attributes.nivel.value;
+		
+		const nivel = data.attributes.nivel.value;
 
 		// Base CD
 		data.attributes.cd = data.attributes.cd ? data.attributes.cd : 10 + Math.floor(data.attributes.nivel.value/2);
@@ -135,22 +130,22 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-   * Return the amount of experience required to gain a certain character level.
-   * @param level {Number}  The desired level
-   * @return {Number}       The XP required
-   */
-  getLevelExp(nivel) {
-    const niveis = T20Config.xpPorNivel;
-    return niveis[Math.min(nivel, niveis.length - 1)];
-  }
+	 * Return the amount of experience required to gain a certain character level.
+	 * @param level {Number}	The desired level
+	 * @return {Number}			 The XP required
+	 */
+	getLevelExp(nivel) {
+		const niveis = T20Config.xpPorNivel;
+		return niveis[Math.min(nivel, niveis.length - 1)];
+	}
 	/**/
 
 	/* -------------------------------------------- */
 
 	/**
 	* Return the amount of experience granted by killing a creature of a certain CR.
-	* @param cr {Number}     The creature's challenge rating
-	* @return {Number}       The amount of experience granted per kill
+	* @param cr {Number}		 The creature's challenge rating
+	* @return {Number}			 The amount of experience granted per kill
 	*/
 	/*/ TODO IMPLEMENT CONFIG T20
 	getCRExp(cr) {
@@ -174,7 +169,7 @@ export default class ActorT20 extends Actor {
 	**/
 
 	/* -------------------------------------------- */
-	/*  Data Preparation Helpers                    */
+	/*	Data Preparation Helpers										*/
 	/* -------------------------------------------- */
 
 	/**
@@ -184,6 +179,21 @@ export default class ActorT20 extends Actor {
 		const data = actorData.data;
 
 		/* TODO IMPLEMENT GET FROM ITEM */
+		const classes = [];
+		/* 
+		* Set data that requires other data to be prepared
+		* ie.: Encumbrance, Abl Mod, Skills Bonus, Defense
+		*/
+		this._EvaluateConditions();
+		const nivel = actorData.items.reduce((arr, item) => {
+			if ( item.type === "classe" ) {
+				const classLevels = parseInt(item.data.niveis) || 1;
+				arr += classLevels;
+				classes.push(item.name + " " + item.data.niveis);
+			}
+			return arr;
+		}, 0);
+		data.attributes.nivel.value = nivel;
 
 		data.rd.value =
 			data.rd.base +
@@ -195,13 +205,14 @@ export default class ActorT20 extends Actor {
 		data.attributes.hp = data.attributes.pv.value;
 
 		// Experience required for next level
-		const nivel = data.attributes.nivel.value;
+		// const nivel = data.attributes.nivel.value;
+		data.attributes.nivel.value = nivel;
 		const xp = data.attributes.nivel.xp;
-    xp.proximo = this.getLevelExp(nivel || 1);
-    const anterior = this.getLevelExp(nivel - 1 || 0);
-    const necessario = xp.proximo - anterior;
-    const pct = Math.round((xp.value - anterior) * 100 / necessario);
-    xp.pct = Math.clamped(pct, 0, 100);
+		xp.proximo = this.getLevelExp(nivel || 1);
+		const anterior = this.getLevelExp(nivel - 1 || 0);
+		const necessario = xp.proximo - anterior;
+		const pct = Math.round((xp.value - anterior) * 100 / necessario);
+		xp.pct = Math.clamped(pct, 0, 100);
 	}
 
 	/* -------------------------------------------- */
@@ -255,8 +266,8 @@ export default class ActorT20 extends Actor {
 	*
 	* Optionally include the weight of carried currency across all denominations by applying the standard rule
 	* from the PHB pg. 143
-	* @param {Object} actorData      The data object for the Actor being rendered
-	* @returns {{max: number, value: number, pct: number}}  An object describing the character's encumbrance level
+	* @param {Object} actorData			The data object for the Actor being rendered
+	* @returns {{max: number, value: number, pct: number}}	An object describing the character's encumbrance level
 	* @private
 	*/
 	/*/
@@ -267,7 +278,7 @@ export default class ActorT20 extends Actor {
 	/**/
 
 	/* -------------------------------------------- */
-	/*  Socket Listeners and Handlers               */
+	/*	Socket Listeners and Handlers							 */
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -334,14 +345,14 @@ export default class ActorT20 extends Actor {
 
 
 	/**
-   * Apply a certain amount of damage or healing to the health pool for Actor
-   * @param {number} amount       An amount of damage (positive) or healing (negative) to sustain
-   * @param {number} multiplier   A multiplier which allows for resistance, vulnerability, or healing
-   * @return {Promise<Actor>}     A Promise which resolves once the damage has been applied
-   */
+	 * Apply a certain amount of damage or healing to the health pool for Actor
+	 * @param {number} amount			 An amount of damage (positive) or healing (negative) to sustain
+	 * @param {number} multiplier	 A multiplier which allows for resistance, vulnerability, or healing
+	 * @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
+	 */
 	async applyDamage(amount = 0, multiplier = 1, heal) {
-	    let toChat = (speaker, message) => {
-    		let chatData = {
+			let toChat = (speaker, message) => {
+				let chatData = {
 				user: game.user.id,
 				content: message,
 				speaker: ChatMessage.getSpeaker(speaker),
@@ -395,9 +406,9 @@ export default class ActorT20 extends Actor {
 
 	/**
 	* Spend or recover mana points for Actor
-	* @param {number} amount       An amount of spent (positive) or recover (negative) mana points
-	* @param {number} adjust       A adjust for the value due to specific conditions
-	* @return {Promise<Actor>}     A Promise which resolves once the damage has been applied
+	* @param {number} amount			 An amount of spent (positive) or recover (negative) mana points
+	* @param {number} adjust			 A adjust for the value due to specific conditions
+	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
 	async spendMana(amount = 0, adjust = 0, recover) {
 		let toChat = (speaker, message) => {
