@@ -18,7 +18,7 @@
 		{{#if (eq item.type "arma")}}
 		<ul class="properties-list">
 		{{#each config.weaponProperties as |name prop|}}
-			{{#if (lookup ../data.propriedades prop)}}<li>{{name}}{{#ifEquals prop "arremesso"}} ({{../data.alcance}}){{/ifEquals}}</li>{{/if}}
+			{{#if (lookup ../data.propriedades prop)}}<li>{{name}}{{#if (eq prop "arremesso")}} ({{../data.alcance}}){{/if}}</li>{{/if}}
 			<!-- <input type="checkbox" name="data.propriedades.{{prop}}" {{checked (lookup ../data.propriedades prop)}}/> {{ name }} -->
 		{{/each}}
 		</ul>
@@ -36,11 +36,11 @@
 		{{/if}}
 		{{#if temAtivacao}}
 		<ul class="properties-list">
-			<li><strong>Execução:</strong> {{#each config.listaAtivacao as |name prop|}}{{#ifEquals ../data.ativacao.execucao prop}}{{name}}{{/ifEquals}}{{/each}}</li>
+			<li><strong>Execução:</strong> {{#each config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{/if}}{{/each}}</li>
 			{{#if item.data.alcance}}<li><strong>Alcance:</strong> {{item.data.alcance}}</li>{{/if}}
 			{{#if item.data.alvo}}<li><strong>Alvo:</strong> {{item.data.alvo}}</li>{{/if}}
 			{{#if item.data.area}}<li><strong>Área:</strong> {{item.data.area}}</li>{{/if}}
-			<li><strong>Duração:</strong> {{#if mostrarValorDuracao}}{{item.data.duracao.valor}} {{/if}}{{#each config.listaDuracoes as |name prop|}}{{#ifEquals ../data.duracao.unidade prop}}{{name}}{{/ifEquals}}{{/each}}{{#if mostrarPluralDuracao}}s{{/if}}</li>
+			<li><strong>Duração:</strong> {{#if mostrarValorDuracao}}{{item.data.duracao.valor}} {{/if}}{{#each config.listaDuracoes as |name prop|}}{{#if (eq prop "outra")}}{{else if (eq ../data.duracao.unidade prop)}}{{name}}{{/if}}{{/each}}{{#if mostrarPluralDuracao}}s{{/if}}</li>
 			{{#if item.data.resistencia}}<li><strong>Resistência:</strong> {{item.data.resistencia}}{{#if item.data.totalCD}} (CD {{item.data.totalCD}}){{/if}}</li>{{/if}}
 		</ul>
 		{{/if}}
