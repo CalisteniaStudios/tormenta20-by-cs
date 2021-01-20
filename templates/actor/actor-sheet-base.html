@@ -289,9 +289,9 @@
 							<label>CD Base:</label> <input style="max-width: 30px;" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number">
 							<select title="Atributo-Chave" name="data.atributoChave">
 								{{#select data.atributoChave}}
-								{{#each config.atributos as |name key|}}
-								<option value="{{key}}">{{name}}</option>
-								{{/each}}
+								<option value="int">Inteligência</option>
+								<option value="sab">Sabedoria</option>
+								<option value="car">Carisma</option>
 								{{/select}}
 							</select>
 							</div>

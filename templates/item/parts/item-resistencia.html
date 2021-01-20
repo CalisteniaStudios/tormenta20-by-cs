@@ -11,9 +11,15 @@
 	<div class="form-fields">
 		<select title="Atributo-Chave" name="data.atrRes">
             {{#select data.atrRes}}
+			{{#if (eq item.type "magia")}}
+			<option value="int">Inteligência</option>
+			<option value="sab">Sabedoria</option>
+			<option value="car">Carisma</option>
+			{{else}}
 			{{#each config.atributos as |name key|}}
 			<option value="{{key}}">{{name}}</option>
 			{{/each}}
+			{{/if}}
 			{{/select}}
 		</select>
 		<input type="text" title="Bônus" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
