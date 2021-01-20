@@ -43,6 +43,8 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * Roberto Caetano
 * Victor Kullack
 * Alexandre Galdino
+* André Oliveira
 
 ## Atribuições
 - [syl3r86](https://github.com/syl3r86) pelo [Compendium Browser](https://github.com/syl3r86/compendium-browser) que foi adaptado neste sistema.
+- Arte de alguns ícones de magias: J. W. Bjerk (eleazzaar) -- www.jwbjerk.com/art -- find this and other open art at: http://opengameart.org
