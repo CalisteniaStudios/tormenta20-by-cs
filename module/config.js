@@ -271,93 +271,35 @@ T20Config.pmPorNivel = [3, 4, 5, 6];
 /* ------------------ Perícias ---------------- */
 
 T20Config.pericias = {
-	"acr": {
-		"label": "Acrobacia","atributo": "des","pda": true
-	},
-	"ade": {
-		"label": "Adestramento","atributo": "car","st": true
-	},
-	"atl": {
-		"label": "Atletismo","atributo": "for"
-	},
-	"atu": {
-		"label": "Atuação","atributo": "car"
-	},
-	"cav": {
-		"label": "Cavalgar","atributo": "des"
-	},
-	"con": {
-		"label": "Conhecimento","atributo": "int","st": true
-	},
-	"cur": {
-		"label": "Cura","atributo": "sab"
-	},
-	"dip": {
-		"label": "Diplomacia","atributo": "car"
-	},
-	"eng": {
-		"label": "Enganação","atributo": "car"
-	},
-	"for": {
-		"label": "Fortitude","atributo": "con"
-	},
-	"fur": {
-		"label": "Furtividade","atributo": "des","pda": true
-	},
-	"gue": {
-		"label": "Guerra","atributo": "int","st": true
-	},
-	"ini": {
-		"label": "Iniciativa","atributo": "des"
-	},
-	"int": {
-		"label": "Intimidação","atributo": "car"
-	},
-	"intu": {
-		"label": "Intuição","atributo": "sab"
-	},
-	"inv": {
-		"label": "Investigação","atributo": "int"
-	},
-	"jog": {
-		"label": "Jogatina","atributo": "car"
-	},
-	"lad": {
-		"label": "Ladinagem","atributo": "des","st": true,"pda": true
-	},
-	"lut": {
-		"label": "Luta","atributo": "for"
-	},
-	"mis": {
-		"label": "Misticismo","atributo": "int","st": true
-	},
-	"nob": {
-		"label": "Nobreza","atributo": "int","st": true
-	},
-	"ofi": {
-		"label": "Oficios","atributo": "int","mais": []
-	},
-	"per": {
-		"label": "Percepção","atributo": "sab"
-	},
-	"pil": {
-		"label": "Pilotagem","atributo": "des","st": true
-	},
-	"pon": {
-		"label": "Pontaria","atributo": "des"
-	},
-	"ref": {
-		"label": "Reflexos","atributo": "des"
-	},
-	"rel": {
-		"label": "Religião","atributo": "sab","st": true
-	},
-	"sob": {
-		"label": "Sobrevivência","atributo": "sab"
-	},
-	"von": {
-		"label": "Vontade","atributo": "sab"
-	}
+    "acr": "Acrobacia",
+    "ade": "Adestramento",
+    "atl": "Atletismo",
+    "atu": "Atuação",
+    "cav": "Cavalgar",
+    "con": "Conhecimento",
+    "cur": "Cura",
+    "dip": "Diplomacia",
+    "eng": "Enganação",
+    "for": "Fortitude",
+    "fur": "Furtividade",
+    "gue": "Guerra",
+    "ini": "Iniciativa",
+    "int": "Intimidação",
+    "intu": "Intuição",
+    "inv": "Investigação",
+    "jog": "Jogatina",
+    "lad": "Ladinagem",
+    "lut": "Luta",
+    "mis": "Misticismo",
+    "nob": "Nobreza",
+    "ofi": "Oficios",
+    "per": "Percepção",
+    "pil": "Pilotagem",
+    "pon": "Pontaria",
+    "ref": "Reflexos",
+    "rel": "Religião",
+    "sob": "Sobrevivência",
+    "von": "Vontade"
 };
 
 /* ------------------- Níveis ----------------- */
