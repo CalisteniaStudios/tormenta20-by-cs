@@ -135,7 +135,7 @@ export const migrateActorData = function(actor) {
 		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 	}
-	if (actor.img && actor.img.includes("systems/tormenta20/")) && actor.img.includes(".png")) {
+	if (actor.img && actor.img.includes("systems/tormenta20/") && actor.img.includes(".png")) {
 		updateData["img"] = actor.img.replace(".png", ".webp")
 		updateData["token.img"] = actor.token.img.replace(".png", ".webp")
 	}
