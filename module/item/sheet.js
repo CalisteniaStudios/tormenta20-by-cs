@@ -183,7 +183,7 @@ export default class ItemSheetT20 extends ItemSheet {
       name: a.dataset.target,
       title: label.innerText,
       choices: Object.entries(CONFIG.T20.pericias).reduce((obj, e) => {
-        if ( choices.includes(e[0] ) ) obj[e[0]] = e[1].label;
+        if ( choices.includes(e[0] ) ) obj[e[0]] = e[1]; //.label;
         return obj;
       }, {}),
       minimum: skills.numero,
