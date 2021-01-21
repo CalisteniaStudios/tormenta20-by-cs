@@ -276,6 +276,9 @@ export const migrateItemData = function(item) {
 	if (item.img && item.img.includes("modules/tormenta20-compendium")) {
 		updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
 	}
+	if (item.img && item.img.includes("systems/tormenta20/icons") && (item.img.includes(".jpg") || item.img.includes(".png"))) {
+		updateData["img"] = item.img.replace(".jpg", "webp").replace(".png", "webp");
+	}
 	return updateData;
 };
 
