@@ -183,16 +183,13 @@ export const migrateActorData = function(actor) {
 	if ( !actor.items ) return updateData;
 	let hasItemUpdates = false;
 	const items = actor.items.map(i => {
-
-	// Migrate the Owned Item
-	// Descomentar para migrar os itens nos personagens
-	let itemUpdate = migrateItemData(i);
-	// let itemUpdate = {};
-	// NPC Only
-	// if ( actor.type === "npc" ) {
-	// }
-		
-
+		// Migrate the Owned Item
+		// Descomentar para migrar os itens nos personagens
+		let itemUpdate = migrateItemData(i);
+		// let itemUpdate = {};
+		// NPC Only
+		// if ( actor.type === "npc" ) {
+		// }
 		// Update the Owned Item
 		if ( !isObjectEmpty(itemUpdate) ) {
 			hasItemUpdates = true;
@@ -277,6 +274,9 @@ export const migrateItemData = function(item) {
 	_migratePower(item, updateData);
 	_migrateItemArmor(item, updateData);
 	_migrateItemWeapon(item, updateData);
+	if ( item.type === "ataque" ) {
+		return {};
+	}
 	if (item.img && item.img.includes("modules/tormenta20-compendium")) {
 		updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
 	}
@@ -290,18 +290,19 @@ export const migrateItemData = function(item) {
 
 function _migrateSpell(item, updateData) {
 	if ( item.type != "magia" ) return;
-	if (item.data.duracao.toLowerCase() === "cena") {
+	let duracao = item.data.duracao.toLowerCase();
+	if (duracao === "cena") {
 		updateData["data.duracao"] = {"valor": null, "unidade": "cena"};
 	}
 	else {
-		if (item.data.duracao.toLowerCase() == "instantânea") {
+		if (duracao == "instantânea") {
 			updateData["data.duracao"] = {"valor": "", "unidade": "instant"};
 		}
-		else if (item.data.duracao.toLowerCase() == "instantânea") {
+		else if (duracao == "instantânea") {
 			updateData["data.duracao"] = {"valor": "", "unidade": "verTexto"};
 		}
 		else {
-			let duracao = item.data.duracao.split(" ");
+			duracao = duracao.split(" ");
 			if (duracao.length > 2) {
 				duracao[0] = Number(duracao[0]);
 				duracao[1] = duracao[1].toLowerCase();
