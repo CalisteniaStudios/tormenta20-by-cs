@@ -275,7 +275,7 @@ export const migrateItemData = function(item) {
 	_migrateItemArmor(item, updateData);
 	_migrateItemWeapon(item, updateData);
 	if ( item.type === "ataque" ) {
-		return {};
+		updateData["type"] = "arma";
 	}
 	if (item.img && item.img.includes("modules/tormenta20-compendium")) {
 		updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
