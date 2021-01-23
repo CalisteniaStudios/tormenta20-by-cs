@@ -30,13 +30,13 @@
     </div>
 </div>
 
-{{#if data.ativacao.execucao}}
 {{!-- Ability Range --}}
 <div class="form-group input-select">
     <label>Alcance</label>
     <div class="form-fields">
         <select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
 			{{#select data.alcance}}
+			{{#if (eq item.type "poder")}}<option value=""></option>{{/if}}
 			<option value="Pessoal">Pessoal</option>
 			<option value="Toque">Toque</option>
 			<option value="Curto">Curto</option>
@@ -70,6 +70,7 @@
 		{{#if (or (eq data.duracao.unidade "rodada") (eq data.duracao.unidade "turno"))}}<input type="text" name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Quantidade" />{{/if}}
         <select name="data.duracao.unidade">
             {{#select data.duracao.unidade}}
+			{{#if (eq item.type "poder")}}<option value=""></option>{{/if}}
             {{#each config.listaDuracoes as |name key|}}
             <option value="{{key}}">{{name}}</option>
             {{/each}}
@@ -78,4 +79,3 @@
 		{{#if (eq data.duracao.unidade "outra")}}<input type="text" name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Descrição" />{{/if}}
     </div>
 </div>
-{{/if}}
