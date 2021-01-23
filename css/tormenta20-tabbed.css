@@ -48,6 +48,11 @@
 }
 
 /* Novo */
+.tormenta20 .tabbed header.sheet-header input {
+  border: 1px solid transparent;
+  background: none;
+}
+
 .tormenta20 .tabbed input[type="number"],
 .tormenta20 .tabbed input[type="text"],
 .tormenta20 .tabbed select {
@@ -88,7 +93,7 @@
 .tormenta20 .tabbed input[type="text"]:hover,
 .tormenta20 .tabbed input[type="text"]:focus {
   border: 1px solid #111;
-  box-shadow: 0 0 8px red;
+  /* box-shadow: 0 0 8px red; */
 }
 .tormenta20 .tabbed input[type="number"]:hover,
 .tormenta20 .tabbed input[type="number"]:focus {
@@ -107,7 +112,7 @@
 .tormenta20 .tabbed select:disabled:focus,
 .tormenta20 .tabbed textarea:disabled:focus {
   box-shadow: none !important;
-  border: 1px solid transparent !important;
+  /* border: 1px solid transparent !important; */
   outline: none !important;
 }
 .tormenta20 .tabbed .form-group label {
