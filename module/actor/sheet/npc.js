@@ -267,7 +267,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		const data = a.dataset;
 		const id = a.dataset.itemId;
 		let item = {};
-		if(Object.keys(actorData.atributos).includes(id)){
+		if($(a).hasClass('atributo-rollable') && Object.keys(actorData.atributos).includes(id)){
 			item.type = "atributo";
 			item.roll = "1d20 +"+ actorData.atributos[id].mod;
 			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
