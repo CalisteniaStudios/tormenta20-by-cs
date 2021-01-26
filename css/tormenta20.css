@@ -1591,7 +1591,7 @@ button {
   font-size: 16px;
 }
 
-/* Tidy5e */
+/* tormenta20 */
 .tormenta20.sheet.actor .window-content {
   padding: 0;
 }
@@ -1772,4 +1772,49 @@ button {
 
 .tormenta20.sheet.actor .editor .tox-editor-header {
   border-bottom: 1px solid var(--faint-color);
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-header {
+  flex: 0 0 13px;
+  text-align: center;
+  align-items: center;
+  margin-right: .5rem;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-header i {
+  font-size: 20px;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item {
+  display: flex;
+  align-items: center;
+  background: var(--faint-color);
+  border-radius: 5px;
+  padding: 0 .5rem 0 0;
+  margin-right: .5rem;
+  line-height: 30px;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item input {
+  text-align: right;
+  flex: 1;
+  padding-left: .5rem;
+  border: 0;
+  background: none;
+  margin: 0;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item label {
+  margin-left: .25rem;
+  flex: unset;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item .denomination {
+  text-transform: uppercase;
 }

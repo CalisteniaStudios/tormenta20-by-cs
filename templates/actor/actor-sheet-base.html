@@ -419,13 +419,24 @@
 							</li>
 						</ol>
 
-						<div class="bottom flexrow">
-							<label>T$: 
-								<input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" />
-							</label>
-							<label>TO: 
-								<input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" />
-							</label>
+						<div class="inventory-currency">  
+						  <ul class="currency">
+							<li class="currency-header" title="Currency">
+							  <i class="fas fa-coins"></i>
+							</li>
+							<li class="currency-item" title="Ouro">
+							  <input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number">
+							  <label for="data.detalhes.dinheiro.to" class="denomination gp">to</label>
+							</li>
+							<li class="currency-item" title="Prata">
+							  <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number">
+							  <label for="data.detalhes.dinheiro.tp" class="denomination sp">t$</label>
+							</li>
+							<li class="currency-item" title="Cobre">
+							  <input type="text" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number">
+							  <label for="data.detalhes.dinheiro.tc" class="denomination cp">tc</label>
+							</li>
+						  </ul>
 						</div>
 						<div class="encumbrance" style="margin:0;" title="Carga">
 							<span class="encumbrance-bar" style="width:{{data.detalhes.carga.pct}}%"></span>
