@@ -9,6 +9,8 @@ export const preloadHandlebarsTemplates = async function() {
 		// Shared Partials
 
 		// Actor Sheet Partials
+		"systems/tormenta20/templates/actor/parts/actor-aviso.html",
+		"systems/tormenta20/templates/actor/parts/actor-diario.html",
 		"systems/tormenta20/templates/actor/parts/actor-inventory.html",
 		"systems/tormenta20/templates/actor/parts/actor-powers.html",
 		"systems/tormenta20/templates/actor/parts/actor-spells.html",

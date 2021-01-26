@@ -1,19 +1,15 @@
-<ul class="skills-list">
-	<li class="skill flexcol item-header">
-		<h3 style="font-weight:inherit;">Perícias</h3>
-		{{#if mostrarBonusTreino}}
-		<div style="font-weight: normal; font-size: 11px;">
-			<label>Bônus de Treinamento:</label>
-			<label style="flex: 1;">+{{#if (lt data.attributes.nivel.value 7)}}2{{else if (lt data.attributes.nivel.value 14)}}4{{else}}6{{/if}}</label>
-		</div>
-		{{/if}}
-	</li>
+<ul class="skills-list {{#if actor.flags.editarPericias}}editing{{/if}}">
 	<li class="skill flexrow item-header">
 		<div class="item-image"></div>
-		<div class="item-name" >Perícia</div>
+		<div class="item-name" >Perícias</div>
 		<div class="item-total">Total</div>
 		<div class="item-mod">Mod. Atributo</div>
-		{{#if ../actor.flags.editarPericias}}<div class="item-outros">Outros</div>{{/if}}
+		{{#if actor.flags.editarPericias}}<div class="item-outros">Outros</div>{{/if}}
+	</li>
+	<li>
+		{{#if mostrarBonusTreino}}
+		<label style="font-size: 11px;">Bônus de Treinamento: +{{#if (lt data.attributes.nivel.value 7)}}2{{else if (lt data.attributes.nivel.value 14)}}4{{else}}6{{/if}}</label>
+		{{/if}}
 	</li>
 	{{#each actor.skillset as |skill key|}}
 	{{#if (eq skill "ofi")}}
@@ -59,7 +55,7 @@
 			{{/if}}
 		</div>
 		<div class="item-total">
-			<input type="text" name="{{skill.path}}.{{skill.id}}.total" style="color: var(--primary-color); border: 1px solid #7a7971;" value="{{numberFormat skill.value sign=true}}" data-dtype="Number" disabled />
+			<input type="text" name="{{skill.path}}.{{skill.id}}.total" value="{{numberFormat skill.value sign=true}}" data-dtype="Number" disabled />
 			<input type="hidden" name="{{skill.path}}.{{skill.id}}.treino" value="{{skill.treino}}" data-dtype="Number" />
 		</div>
 		<div class="item-mod">
@@ -75,7 +71,7 @@
 			{{/select}}
 			</select>
 			{{else}}
-			<input type="text" name="{{skill.path}}.{{skill.id}}.atributo" style="color: var(--primary-color); border: 1px solid #7a7971; text-transform: capitalize;" value={{skill.atributo}} data-dtype="String" disabled />
+			<input type="text" name="{{skill.path}}.{{skill.id}}.atributo" style="text-transform: capitalize;" value={{skill.atributo}} data-dtype="String" disabled />
 			{{/if}}
 		</div>
 		{{#if ../actor.flags.editarPericias}}
