@@ -1,4 +1,3 @@
-import { prepRoll } from "../../dice.js";
 import ActorSheetT20 from "./base.js";
 import ActorT20 from "../entity.js";
 import { T20Utility } from "../../utility.js";

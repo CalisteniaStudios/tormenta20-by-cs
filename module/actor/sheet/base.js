@@ -1,7 +1,7 @@
-import { prepRoll } from "../../dice.js";
+import { d20Roll, damageRoll } from '../../dice.js';
+import AbilityUseDialog from "../../apps/ability-use-dialog.js";
 import TraitSelector from "../../apps/trait-selector.js";
 import { T20Utility } from '../../utility.js';
-import ConjurarDialog from "../../apps/conjurar-dialog.js";
 
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -191,7 +191,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find('.item-delete').click(this._onItemDelete.bind(this));
 			
 			// Trait Selector
-      html.find('.trait-selector').click(this._onTraitSelector.bind(this));
+			html.find('.trait-selector').click(this._onTraitSelector.bind(this));
 
 			// Configure Special Flags
 			html.find("#configure-actor").click(ev => {
@@ -201,7 +201,13 @@ export default class ActorSheetT20 extends ActorSheet {
 
 		if ( this.actor.owner ) {
 			// Rollable abilities.
-			html.find('.rollable').click(this._onRoll.bind(this));
+			// html.find('.rollable').click(this._onRoll.bind(this));
+			html.find('.atributo-rollable').click(this._onRollAtributo.bind(this));
+			html.find('.pericia-rollable').click(this._onRollPericia.bind(this));
+			html.find('.arma-rollable').click(this._onItemRoll.bind(this));
+			html.find('.magia-rollable').click(this._onItemRoll.bind(this));
+			html.find('.poder-rollable').click(this._onItemRoll.bind(this));
+			html.find('.consumivel-rollable').click(this._onItemRoll.bind(this));
 
 			// Update item
 			// html.find('.upItem').change(this._onUpdateItem.bind(this));
@@ -233,14 +239,14 @@ export default class ActorSheetT20 extends ActorSheet {
    * @param {Event} event   The click event which originated the selection
    * @private
    */
-  _onTraitSelector(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const label = a.parentElement.querySelector("label");
-    const choices = CONFIG.T20[a.dataset.options];
-    const options = { name: a.dataset.target, title: label.innerText, choices };
-    new TraitSelector(this.actor, options).render(true)
-  }
+	_onTraitSelector(event) {
+		event.preventDefault();
+		const a = event.currentTarget;
+		const label = a.parentElement.querySelector("label");
+		const choices = CONFIG.T20[a.dataset.options];
+		const options = { name: a.dataset.target, title: label.innerText, choices };
+		new TraitSelector(this.actor, options).render(true)
+	}
 
 	/* -------------------------------------------- */
 
@@ -318,43 +324,73 @@ export default class ActorSheetT20 extends ActorSheet {
 	}
 
 	/* -------------------------------------------- */
-
-	/**
-	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-	* @private
-	*/
-	async _onRoll(event, actor = null) {
-		actor = !actor ? this.actor : actor;
-		if (!actor.data) {
-			return;
-		}
-		const actorData = actor.data.data;
-		const a = event.currentTarget;
-		const data = a.dataset;
-		const id = a.parentElement.dataset.itemId;
-		let item = {};
-		// Roll pericias
-		if ($(a).hasClass('pericia-rollable')) {
-			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
-			item = {
-				type: 'pericia',
-				roll: "1d20+" + skillData[id].value,
-				label: skillData[id].nome ?? skillData[id].label
+	async _onRollAtributo(event) {
+		event.preventDefault();
+		let atributo = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
+										: event.currentTarget.parentElement.dataset.itemId;
+		let rolls={};
+		let rollMode = event;
+		let parts = [];
+		if(event.shiftKey){
+			let fakeItem = {
+				actor: this.actor,
+				type:"atributo",
+				name: CONFIG.T20.atributos[atributo],
+				data: {
+					formula:"1d20+@mod"
+				},
+				isOwned: true
 			}
-		}
-		else if(Object.keys(actorData.atributos).includes(id)){
-			item.type = "atributo";
-			item.roll = "1d20 +"+ actorData.atributos[id].mod;
-			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
-		}
-		// Roll items
-		else if (actor.items.get(id)){
-			item = actor.items.get(id);
+			const configuration = await AbilityUseDialog.create(fakeItem);
+			console.log(configuration);
+
+			if ( configuration.bonus ) parts.push(configuration.bonus);
+
+			rollMode = configuration.rollMode;
 		}
 
-		if(!isObjectEmpty(item)){
-			await prepRoll(event, item, actor);
+		rolls.atq = await this.actor.rollAtributo(atributo, {parts: parts,event: event});
+
+		let itemData = {
+			name: CONFIG.T20.atributos[atributo]
 		}
+		this.actor.displayCard({rolls, itemData, rollMode});
+	}
+
+	async _onRollPericia(event) {
+		event.preventDefault();
+		let pericia = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
+										: event.currentTarget.parentElement.dataset.itemId;
+		let type = event.currentTarget.dataset.type;
+		let rolls={};
+		let rollMode = event;
+		let parts = [];
+		let skillData = {padrao: this.actor.data.data.pericias, oficios: this.actor.data.data.pericias.ofi.mais, custom: this.actor.data.data.periciasCustom}[type];
+		skillData[pericia].formula = "1d20+@mod";
+		let itemData = {
+			actor: this.actor,
+			type:"pericia",
+			data: skillData[pericia],
+			name: skillData[pericia].label.replace(/[\*||\+]/g,"").trim(),
+			id: pericia,
+			isOwned: true
+		}
+		if(event.shiftKey){
+			const configuration = await AbilityUseDialog.create(itemData);
+			if ( configuration.bonus ) parts.push(configuration.bonus);
+			rollMode = configuration.rollMode;
+		}
+		rolls.atq = await this.actor.rollPericia(itemData, {parts: parts, event: event});
+		
+		this.actor.displayCard({rolls, itemData, rollMode});
+	}
+
+	_onItemRoll(event) {
+		event.preventDefault();
+		const itemId = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
+										: event.currentTarget.parentElement.dataset.itemId;
+		const item = this.actor.getOwnedItem(itemId);
+		return item.roll();
 	}
 
 	/* -------------------------------------------- */
@@ -531,31 +567,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		this.actor.deleteOwnedItem(li.dataset.itemId);
 	}
 
-	/* -------------------------------------------- */
-
-	/**
-	* Handle rolling an Ability check, either a test or a saving throw
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	// TODO refactor and standarize html listeners
-	// _onRollAbilityTest(event) {
-	// 	event.preventDefault();
-	// 	let ability = event.currentTarget.parentElement.dataset.ability;
-	// 	this.actor.rollAbility(ability, {event: event});
-	// }
-
-	/* -------------------------------------------- */
-
-	/**
-	* TODO onToggle for Skill Training, Spell Prepared, Item Equiped
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	// TODO refactor and standarize html listeners
-	// _onToggleXXX(event) {
-	// 	event.preventDefault();
-	// }
 
 	/* -------------------------------------------- */
 

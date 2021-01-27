@@ -220,19 +220,37 @@
         "modificadores": {
           "atributos" : {
             "bonus" : 0,
-            "penalidade" : 0
+            "penalidade" : 0,
+            "value": ""
           },
           "pericias" : {
             "bonus" : 0,
-            "penalidade" : 0
+            "penalidade" : 0,
+            "value":""
           },
           "ataques" : {
             "bonus" : 0,
-            "penalidade" : 0
+            "penalidade" : 0,
+            "dano": ""
           },
           "custosPM": {
             "bonus": 0,
             "penalidade": 0
+          }
+        },
+        "bonuses": {
+          "ataque":{
+            "ataque":"",
+            "dano":""
+          },
+          "atributos":{
+            "bonus":""
+          },
+          "pericias":{
+            "geral":"",
+            "semataque":"",
+            "ataque":"",
+            "resistencia":""
           }
         }
       }
@@ -348,7 +366,7 @@
       }
     },
     "poder": {
-      "templates": ["base", "efeitoAtivado", "resistencia"],
+      "templates": ["base", "efeitoAtivado", "resistencia","aprimoramento"],
       "roll": "",
       "tipo": "",
       "subtipo": "",

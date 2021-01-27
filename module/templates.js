@@ -13,6 +13,7 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/actor/parts/actor-powers.html",
 		"systems/tormenta20/templates/actor/parts/actor-spells.html",
 		"systems/tormenta20/templates/actor/parts/actor-traits.html",
+		"systems/tormenta20/templates/actor/parts/active-effects.html",
 
 		// Item Sheet Partials
 		"systems/tormenta20/templates/item/parts/item-header.html",

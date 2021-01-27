@@ -1,6 +1,6 @@
 import { T20Utility } from "../utility.js";
 import { T20Config } from '../config.js';
-
+import { d20Roll, damageRoll } from '../dice.js';
 /**
  * Extend the base Actor class to implement additional system-specific logic.
  */
@@ -159,6 +159,10 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	getRollData() {
 		const data = super.getRollData();
+		for ( let abl in data.atributos ) {
+			data[abl] = data.atributos[abl].mod
+		}
+
 		return data;
 	}
 
@@ -169,7 +173,7 @@ export default class ActorT20 extends Actor {
 	**/
 
 	/* -------------------------------------------- */
-	/*	Data Preparation Helpers										*/
+	/*	Data Preparation Helpers					*/
 	/* -------------------------------------------- */
 
 	/**
@@ -213,6 +217,9 @@ export default class ActorT20 extends Actor {
 		const necessario = xp.proximo - anterior;
 		const pct = Math.round((xp.value - anterior) * 100 / necessario);
 		xp.pct = Math.clamped(pct, 0, 100);
+
+		// Aprimoramentos Globais
+		// actorData._aprimoramentos = this.getGlobalAprimoramentos();
 	}
 
 	/* -------------------------------------------- */
@@ -286,16 +293,35 @@ export default class ActorT20 extends Actor {
 
 		data.items = data.items || [];
 		data.token = data.token || {};
+		if ( data.type === "character" ) {
+			mergeObject(data.token, {
+				vision: true,
+				actorLink: true,
+				disposition: 1,
+				displayName: 50,
+				displayBars: 40,
+				bar1: {attribute: "attributes.pv"},
+				bar2: {attribute: "attributes.pm"}
+			}, {overwrite: false});
 		/*/
 		// Item Skills [WIP]
-		if ( data.type === "character" ) {
 			// Add Basic Skills Items on creation
 			let basicSkills = await this.allBasicSkills("basic") || [];
 			data.items = data.items.concat(basicSkills);
 			// Senses TODO
-		}
 		/**/
-
+		}
+		if ( data.type === "npc" ) {
+			mergeObject(data.token, {
+				vision: true,
+				actorLink: false,
+				disposition: 0,
+				displayName: 40,
+				displayBars: 40,
+				bar1: {attribute: "attributes.pv"},
+				bar2: {attribute: "attributes.pm"}
+			}, {overwrite: false});
+		}
 		return super.create(data, options);
 	}
 
@@ -342,7 +368,25 @@ export default class ActorT20 extends Actor {
 	*/
 
 	/* -------------------------------------------- */
+	getGlobalAprimoramentos(){
+		let aprimoramentosGlobais = {
+			attack: [],
+			damage: [],
+			ability: [],
+			consumables: [],
+			spells: [],
+			skill: [],
+			powers: []
+		}
+		for( let [key, it] of Object.entries(this.data.items.filter(i=>i.type==="poder")) ) {
+			for( let [id, ap] of Object.entries(it.data.aprimoramentos??{}) ) {
+				if (ap.transferir !== "self") aprimoramentosGlobais[ap.transferir] = ap;
+			}
+		}
+		return aprimoramentosGlobais;
+	}
 
+	/* -------------------------------------------- */
 
 	/**
 	 * Apply a certain amount of damage or healing to the health pool for Actor
@@ -498,9 +542,147 @@ export default class ActorT20 extends Actor {
 		return allowed !== false ? this.update(updates) : this;
 	}
 
-	/**/
+	/* -------------------------------------------- */
+	/*	Roll Preparation							*/
+	/* -------------------------------------------- */
 
+	/**
+	 * Roll Teste de Atributo
+	 * @param {String} abilityId  The ability ID (e.g. "str")
+	 * @param {Object} options    Options which configure how ability tests are rolled
+	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
+	 */
+	async rollAtributo(atributoId, options={}) {
+		const label = T20Config.atributos[atributoId];
+		const abl = this.data.data.atributos[atributoId];
+		
+		// Construct parts
+		const parts = ["@mod"];
+		const data = {mod: abl.mod};
 
+		// Add global actor bonus
+		const bonuses = getProperty(this.data.data, "bonuses.atributos") || {};
+		if ( bonuses.bonus ) {
+			parts.push("@checkBonus");
+			data.checkBonus = bonuses.bonus;
+		}
+		
+		// Add provided extra roll parts now because they will get clobbered by mergeObject below
+		if (options.parts?.length > 0) {
+			parts.push(...options.parts);
+		}
+		// Roll and return
+		const rollData = mergeObject(options, {
+		  parts: parts,
+		  data: data,
+		  flavor: "Teste de Atributo",
+		  messageData: {"flags.tormenta20.roll": {type: "ability", atributoId }}
+		});
+		rollData.speaker = options.speaker || ChatMessage.getSpeaker({actor: this});
+		return d20Roll(rollData);
+	}
+
+	/**
+	 * Roll Teste de Perícia
+	 * @param {String} skillId  The skill ID (e.g. "cur")
+	 * @param {Object} options    Options which configure how skill tests are rolled
+	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
+	 */
+	async rollPericia(skillData, options={}) {
+		const label = skillData.name;// T20Config.atributos[skillId];
+		const skill = skillData.id;
+		// Construct parts
+		const parts = ["@value"];
+		const data = {value: skillData.data.value};
+		// Add global actor bonus
+		const bonuses = getProperty(this.data.data, "bonuses.pericias") || {};
+		if ( bonuses.geral ) {
+			parts.push("@geralBonus");
+			data.geralBonus = bonuses.geral;
+		}
+		if ( bonuses.semataque && !["lut","pon"].includes(skillData.id) ) {
+			parts.push("@semataqueBonus");
+			data.semataqueBonus = bonuses.semataque;
+		}
+		if ( bonuses.ataque  && ["lut","pon"].includes(skillData.id) ) {
+			parts.push("@ataqueBonus");
+			data.ataqueBonus = bonuses.ataque;
+		}
+		if ( bonuses.resistencia && ["for","ref","von"].includes(skillData.id) ) {
+			parts.push("@resistenciaBonus");
+			data.resistenciaBonus = bonuses.resistencia;
+		}
+
+		// Add provided extra roll parts now because they will get clobbered by mergeObject below
+		if (options.parts?.length > 0) {
+			parts.push(...options.parts);
+		}
+		// Roll and return
+		const rollData = mergeObject(options, {
+		  parts: parts,
+		  data: data,
+		  title: "Teste de Perícia",
+		  messageData: {"flags.tormenta20.roll": {type: "skill", skill }}
+		});
+		rollData.speaker = options.speaker || ChatMessage.getSpeaker({actor: this});
+		// Invoke the d20 roll helper
+		const roll = await d20Roll(rollData);
+		if ( roll === false ) return null;
+		return roll;
+	}
+
+	_onItemRoll(event) {
+		event.preventDefault();
+		const itemId = event.currentTarget.closest(".item").dataset.itemId;
+		const item = this.actor.getOwnedItem(itemId);
+		return item.roll();
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	* Display the chat card for an Item as a Chat Message
+	* @param {object} options          Options which configure the display of the item chat card
+	* @param {string} rollMode         The message visibility mode to apply to the created card
+	* @param {boolean} createMessage   Whether to automatically create a ChatMessage entity (if true), or only return
+	*                                  the prepared message data (if false)
+	*/
+	async displayCard({rolls, itemData, rollMode, createMessage=true}={}) {
+		// Basic template rendering data
+		const token = this.token;
+		const templateData = {
+			actor: this,
+			tokenId: token ? `${token.scene._id}.${token.id}` : null,
+			item: itemData
+		};
+		// Other Template Data
+
+		if(rolls.atq) {
+			await rolls.atq.render().then((r)=> {templateData.roll = r});
+		}
+		// Render the chat card template
+		let template = "systems/tormenta20/templates/chat/chat-card.html";
+		const html = await renderTemplate(template, templateData);
+		
+		// Create the ChatMessage data object
+		const chatData = {
+			user: game.user._id,
+			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+			content: html,
+			flavor: this.data.data.chatFlavor || "",
+			speaker: ChatMessage.getSpeaker({actor: this.actor, token}),
+			flags: {"core.canPopout": true}
+		};
+		
+		// Apply the roll mode to adjust message visibility
+		ChatMessage.applyRollMode(chatData, rollMode || game.settings.get("core", "rollMode"));
+
+		// Create the Chat Message or return its data
+		return createMessage ? ChatMessage.create(chatData) : chatData;
+	}
+
+	/* -------------------------------------------- */
+	/* TODO REFACTOR */
 	_EvaluateConditions() {
 		const data = this.data.data;
 		let condicoesDet = [];

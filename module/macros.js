@@ -91,24 +91,19 @@ export async function rollItemMacro(itemName, extra = null) {
 	let actor;
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
 	if (!actor) actor = game.actors.get(speaker.actor);
-	let item = null;
-	if (extra) {
-		item = actor
-		? actor.items.find(
-			(i) => i.name === itemName && extra && i.type !== "ataque"
-			)
-		: null;
-	} else {
-		item = actor ? actor.items.find((i) => i.name === itemName) : null;
+	
+	// Get matching items
+	const items = actor ? actor.items.filter(i => i.name === itemName) : [];
+	if ( items.length > 1 ) {
+		ui.notifications.warn(`O personagem ${actor.name} possui mais de um Item ${itemName}. O primeiro encontrado será usado.`);
+	} else if ( items.length === 0 ) {
+		return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
 	}
-	if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
-	if (!item)
-		return ui.notifications.warn(
-			`O personagem selecionado não possui um Item chamado ${itemName}`
-			);
-	// console.log(item);
+	
+	const item = items[0];
+
 	// Trigger the item roll
-	await game.tormenta20.dice.prepRoll(event, item, actor, extra);
+	return item.roll();
 }
 
 
@@ -120,10 +115,16 @@ export async function rollSkillMacro(skillName, subtype) {
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
 	if (!actor) actor = game.actors.get(speaker.actor);
 	if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
+
+	// let skillData = {padrao: actor.data.data.pericias, oficios: actor.data.data.pericias.ofi.mais, custom: actor.data.data.periciasCustom}[subtype];
+	// skillData[skillName].formula = "1d20+@mod";
+
+
 	if (subtype == "oficios") {
 		for (let [t, sk] of Object.entries(actor.data.data.pericias["ofi"].mais)) {
 			if (sk.label === skillName) {
 				skill = sk;
+				skill.id=t;
 				break;
 			}
 		}
@@ -131,6 +132,7 @@ export async function rollSkillMacro(skillName, subtype) {
 		for (let [t, sk] of Object.entries(actor.data.data.periciasCustom)) {
 			if (sk.label === skillName) {
 				skill = sk;
+				skill.id=t;
 				break;
 			}
 		}
@@ -138,15 +140,23 @@ export async function rollSkillMacro(skillName, subtype) {
 		for (let [t, sk] of Object.entries(actor.data.data.pericias)) {
 			if (sk.label === skillName) {
 				skill = sk;
+				skill.id=t;
 				break;
 			}
 		}
 	}
-	const item = {
+	const itemData = {
+		actor: actor,
+		isOwned: true,
 		type: "pericia",
-		label: skill.label,
+		data: skill,
 		roll: `1d20+${skill.value}`,
+		name: skillName.replace(/[\*||\+]/g,"").trim(),
+		id: skill.id
 	};
 	// Trigger the item roll
-	await game.tormenta20.dice.prepRoll(event, item, actor);
+	let rolls = {};
+	rolls.atq = await actor.rollPericia(itemData, {event: event});
+		
+	actor.displayCard({rolls, itemData});
 }

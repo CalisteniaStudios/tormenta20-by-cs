@@ -1,4 +1,4 @@
-import { prepRoll } from "../../dice.js";
+import { d20Roll, damageRoll } from '../../dice.js';
 import { T20Utility } from '../../utility.js';
 import ActorSheetT20 from "./base.js";
 /**
@@ -195,53 +195,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 	/* -------------------------------------------- */
 
-	/** @override */
-	// _onDragStart(event) {
-	// 	const li = event.currentTarget;
-	// 	if ( event.target.classList.contains("entity-link") ) return;
-
-	// 	// Create drag data
-	// 	const dragData = {
-	// 		actorId: this.actor.id,
-	// 		sceneId: this.actor.isToken ? canvas.scene?.id : null,
-	// 		tokenId: this.actor.isToken ? this.actor.token.id : null
-	// 	};
-
-	// 	// Owned Items
-	// 	if ( li.dataset.itemId ) {
-	// 		const item = this.actor.items.get(li.dataset.itemId);
-	// 		dragData.type = "Item";
-	// 		dragData.data = item.data;
-	// 	}
-
-	// 	// Active Effect
-	// 	if ( li.dataset.effectId ) {
-	// 		const effect = this.actor.effects.get(li.dataset.effectId);
-	// 		dragData.type = "ActiveEffect";
-	// 		dragData.data = effect.data;
-	// 	}
-	// 	// Template Skills
-	// 	if ( li.dataset.skill ) {
-	// 		let skill;
-	// 		if(li.dataset.ofi) {
-	// 			skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.ofi];
-	// 			dragData.subtype = "oficios";
-	// 		} else if(li.dataset.custom) {
-	// 			skill = this.actor.data.data.periciasCustom[li.dataset.custom];
-	// 			dragData.subtype = "custom";
-	// 		} else {
-	// 			skill = this.actor.data.data.pericias[li.dataset.skill];
-	// 		}
-	// 		dragData.type = "Pericia";
-	// 		dragData.data = skill;
-	// 		dragData.roll = li.dataset.roll;
-	// 	}
-	// 	// Set data transfer
-	// 	event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
-	// }
-
-	/* -------------------------------------------- */
-
 	/**
 	* Create skills as items?
 	*/
@@ -252,43 +205,5 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	//     name: 
 	//   }
 	// }
-
-	/**
-	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-	* @private
-	*/
-	async _onRoll(event, actor = null) {
-		actor = !actor ? this.actor : actor;
-		if (!actor.data) {
-			return;
-		}
-		const actorData = actor.data.data;
-		const a = event.currentTarget;
-		const data = a.dataset;
-		const id = a.dataset.itemId;
-		let item = {};
-		if(Object.keys(actorData.atributos).includes(id)){
-			item.type = "atributo";
-			item.roll = "1d20 +"+ actorData.atributos[id].mod;
-			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
-		}
-		// Roll pericias
-		else if ($(a).hasClass('pericia-rollable')) {
-			let skillData = {padrao: actorData.pericias, oficios: actorData.pericias.ofi.mais, custom: actorData.periciasCustom}[data.type];
-			item = {
-				type: 'pericia',
-				roll: "1d20+" + skillData[id].value,
-				label: skillData[id].label
-			}
-		}
-		// Roll items
-		else if (actor.items.get(id)){
-			item = actor.items.get(id);
-		}
-
-		if(!isObjectEmpty(item)){
-			await prepRoll(event, item, actor);
-		}
-	}
 
 }
