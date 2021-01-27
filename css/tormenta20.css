@@ -3,6 +3,7 @@
 /** Edits by Ultra_Kev **/
 .system-tormenta20 {
   --faint-color: 							rgba(0,0,0,.1);
+  --faintest-color: 					rgba(0,0,0,.05);
   --light-color: 							rgba(0, 0, 0, .25);
   --primary-color: 						rgba(25,24,19,1);
   --secondary-color: 					rgba(0,0,0,.65);
@@ -46,7 +47,6 @@
   border: 1px solid #000;
   border-radius: 2px;
 }
-
 
 .window-app .window-content {
   /*background: url(../assets/parchment.jpg) repeat !important;*/
@@ -657,7 +657,6 @@ button {
   text-shadow: none;
 }
 
-
 .tormenta20 .item-list {
   list-style: none;
   margin: 7px 0;
@@ -665,11 +664,9 @@ button {
   overflow-y: unset;
 }
 
-
 .tormenta20 .item-list .item-header {
   font-weight: bold;
 }
-
 
 .tormenta20 .item-list .item {
   height: auto; /*30px;*/
@@ -677,7 +674,6 @@ button {
   padding: 3px 0;
   border-bottom: 1px solid #bbb;
 }
-
 
 .tormenta20 .item-list .item .atributo-list {
   display: inline-block;
@@ -718,7 +714,6 @@ button {
   text-align: center;
 }
 
-
 .tormenta20 .item-list .item img {
   display: block;
 }
@@ -730,28 +725,41 @@ button {
 }
 
 .tormenta20 .skills-list select,
-.tormenta20 .skills-list input {
+.tormenta20 .skills-list input,
+.tormenta20 .skills-list input:disabled {
   width: 80%;
   height: auto!important;
   margin: 0;
   padding: 0;
   font-size: 12px;
+  color: var(--primary-color);
+  border: 0;
+  background: none;
+}
+
+.tormenta20 .skills-list .editing select,
+.tormenta20 .skills-list .editing input,
+.tormenta20 .skills-list .editing input:disabled {
+  width: 80%;
+  height: auto!important;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: var(--primary-color);
+  border: 1px solid #7a7971;
 }
 
 .tormenta20 .skills-list select{
   width: 90%;
 }
 
-
 .tormenta20 .item-list .item-name {
   margin: 0;
 }
 
-
 .tormenta20 .item-list .item-separator {
   flex: 0;
 }
-
 
 .tormenta20 .ataques .item-list .item-name {
   margin: 0;
@@ -768,17 +776,14 @@ button {
   background-color: unset;
 }
 
-
 .tormenta20 .atributos .item-list .item {
   display: inline-block;
   width: 15%;
 }
 
-
 .tormenta20 .atributos .item-list .item label {
   width: 100%;
 }*/
-
 
 .tormenta20 .item-list .item-prep {
   margin: 0;
@@ -786,11 +791,9 @@ button {
   flex: 0 0 50px;
 }
 
-
 .tormenta20 .item-list .item-custo {
   max-width: 50px;
 }
-
 
 .tormenta20 .item-list .item-controls {
   -webkit-box-flex: 0;
@@ -1022,7 +1025,8 @@ button {
 .tormenta20 .dados .recursos input {
   width: 50px;
   height: 30px;
-  /* border: 0; */
+  border: 0;
+  background: none;
   font-size: 2em;
 }
 
@@ -1078,19 +1082,15 @@ button {
   opacity: 1;
 }
 
-
-
 .tormenta20 .npc .item-list .item {
   height: auto;
   border: 0;
 }
 
-
 .tormenta20 .npc .item-list .item div.item-name {
   text-indent: -1.5em;
   padding-left: 1.5em;
 }
-
 
 .tormenta20 .item-list .item div.item-atq,
 
@@ -1098,17 +1098,14 @@ button {
   max-width: 70px;
 }
 
-
 .tormenta20 .npc .item-list .item div.item-controls {
   white-space: nowrap;
 }
-
 
 .tormenta20 .item-list .item-toggles{
   flex:0 0 40px;
   text-align: center;
 }
-
 
 .tormenta20 .item-list .item-toggles .item-toggle {
   /*color: #b5b3a4;*/
@@ -1140,7 +1137,6 @@ button {
   border: 2px solid red;
   box-shadow: 0 0 4px red inset;
 }
-
 
 /*chat*/
 
@@ -1181,12 +1177,10 @@ button {
   line-height: 36px;
 }
 
-
 .tormenta20.chat-card .card-header  h3:hover {
   color: #111;
   text-shadow: 0 0 10px red;
 }
-
 
 .tormenta20.chat-card .card-content {
   margin: 5px 0;
@@ -1235,7 +1229,6 @@ button {
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.05);
 }
-
 
 .tormenta20 ul.skills-list {
   flex: 0 0 300px;
@@ -1322,11 +1315,20 @@ button {
 }
 
 /* Novo */
+.tormenta20 .defesa input[type="number"] {
+  border: 0;
+  background: none;
+}
+
 .tormenta20 input[type="number"] {
   height: calc(100% - 2px);
   border: 1px solid #7a7971;
   background: rgba(0, 0, 0, 0.05);
   color: #191813;
+}
+
+.tormenta20 .attribute-footer input {
+  font-size: 18px;
 }
 
 .tormenta20 h4.box-title {
@@ -1485,7 +1487,6 @@ button {
   display: flex;
 }
 
-
 .tormenta20 .npc .npc-line,
 .tormenta20 .npc .item-list .item {
   line-height: 1.5em;
@@ -1515,7 +1516,6 @@ button {
 .tormenta20 .npc .editing * {
   font-size: small;
 }
-
 
 .tormenta20 .npc.statfields ol.listcol, 
 .tormenta20 .npc.statfields ul.listcol {
@@ -1589,4 +1589,232 @@ button {
   color:black;
   font-weight: bold;
   font-size: 16px;
+}
+
+/* tormenta20 */
+.tormenta20.sheet.actor .window-content {
+  padding: 0;
+}
+
+.tormenta20.sheet.actor .window-content form {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.tormenta20.sheet.actor .window-content .tab.journal.active {
+  display: flex;
+}
+
+.tormenta20.sheet.actor .sheet-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tormenta20.sheet.actor .sheet-body .tab {
+  overflow: hidden;
+}
+
+.tormenta20.sheet.actor .base .sheet-body .tab.attributes.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.tormenta20.sheet.actor .sheet-body .tab.attributes .attributes-body {
+  padding: 0 0.75em 1em 1rem;
+  overflow-y: auto;
+}
+
+.tormenta20.sheet.actor .tabbed .tab {
+  padding: 0;
+}
+
+.tormenta20.sheet.actor .sheet-body .tab.biography, 
+.tormenta20.sheet.actor .sheet-body .tab.journal {
+  padding: 1rem .25rem 1rem 1rem;
+}
+
+.tormenta20.sheet.actor input[type="text"]::placeholder {
+  color: var(--tertiary-color);
+}
+
+.tormenta20.sheet.actor .tabbed .tab,
+.tormenta20.sheet.actor .window-content .tab.biography,
+.tormenta20.sheet.actor .window-content .tab.journal {
+  padding-right: .75rem;
+  overflow-y: auto;
+}
+
+/* .tormenta20.sheet.actor .window-content .base .tab.attributes { */
+  /* overflow-y: hidden; */
+/* } */
+
+/* .tormenta20.sheet.actor .window-content .tab.attributes .attributes-body { */
+  /* overflow-y: auto; */
+/* } */
+
+.tormenta20.sheet.actor .window-content .tab.journal {
+  align-items: flex-start;
+  flex-direction: row;
+  /* padding-right: .75rem; */
+  /* overflow-y: auto; */
+  font-size: 13px;
+}
+
+.tormenta20.sheet.actor .left-notes,
+.tormenta20.sheet.actor .right-notes {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tormenta20.sheet.actor .left-notes {
+  margin-right: 1rem;
+}
+
+.tormenta20.sheet.actor .note-entries article {
+  background: var(--faintest-color);
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+  flex: 1;
+}
+
+.tormenta20.sheet.actor .note-entries article:last-child {
+  margin-bottom: 0;
+}
+
+.tormenta20.sheet.actor .note-entries article:hover .editor .editor-edit {
+  display: block;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.tormenta20.sheet.actor .note-entries article .section-titles {
+  font-weight: 700;
+  border-bottom: 1px solid var(--light-color);
+  padding-bottom: .25rem;
+  margin-bottom: .5rem;
+}
+
+.tormenta20.sheet.actor .note-entries article .section-titles input {
+  height: 16px;
+  width: calc(100% - 26px);
+  font-weight: 700;
+  border: 0;
+  background: transparent;
+  margin: 0;
+}
+
+.tormenta20.sheet.actor .note-entries article .editor,
+.tormenta20.sheet.actor .note-entries article .editor .editor-content {
+  min-height: 50px;
+  padding: 0;
+  position: static;
+}
+
+.tormenta20.sheet.actor .note-entries article .editor .tox .tox-tbtn {
+  width: 24px;
+  height: 24px;
+}
+
+.tormenta20.sheet.actor .note-entries article .editor .tox.tox-tinymce .tox-tbtn[title="Formats"] {
+  width: 90px;
+}
+
+.tormenta20.sheet.actor .note-entries article .editor .tox .tox-tbtn--select {
+  width: auto;
+}
+
+.tormenta20.sheet.actor .note-entries article .editor .editor-content ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.tormenta20.sheet.actor .note-entries article .editor .editor-content,
+.tormenta20.sheet.actor .note-entries article .editor .tox .tox-toolbar__group {
+  padding: 0;
+}
+
+.tormenta20.sheet.actor .note-entries article.biography-notes .editor {
+  min-height: 271px;
+}
+
+.tormenta20.sheet.actor .note-entries article.journal-notes .editor {
+  min-height: 382px;
+}
+
+.tormenta20.sheet.actor .editor ul,
+.tormenta20.sheet.actor .editor ol {
+  list-style: outside;
+  margin: 0.5em 0;
+  padding: 0 0 0 1.5em;
+}
+
+.tormenta20.sheet.actor .journal.editor {
+  min-height: 382px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 21px);
+}
+
+.tormenta20.sheet.actor .editor .editor-edit {
+  background: transparent;
+}
+
+.tormenta20.sheet.actor .editor .tox-editor-header {
+  border-bottom: 1px solid var(--faint-color);
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-header {
+  flex: 0 0 13px;
+  text-align: center;
+  align-items: center;
+  margin-right: .5rem;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-header i {
+  font-size: 20px;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item {
+  display: flex;
+  align-items: center;
+  background: var(--faint-color);
+  border-radius: 5px;
+  padding: 0 .5rem 0 0;
+  margin-right: .5rem;
+  line-height: 30px;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item input {
+  text-align: right;
+  flex: 1;
+  padding-left: .5rem;
+  border: 0;
+  background: none;
+  margin: 0;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item label {
+  margin-left: .25rem;
+  flex: unset;
+}
+
+.tormenta20.sheet.actor .inventory-currency .currency-item .denomination {
+  text-transform: uppercase;
 }

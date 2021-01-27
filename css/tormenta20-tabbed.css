@@ -48,13 +48,21 @@
 }
 
 /* Novo */
-.tormenta20 .tabbed input[type="number"],
-.tormenta20 .tabbed input[type="text"],
-.tormenta20 .tabbed select {
-  height: calc(100% - 2px);
-  border: 1px solid #7a7971;
-  background: rgba(0, 0, 0, 0.05);
-  color: #191813;
+.tormenta20 .tabbed .sheet-header {
+  margin-bottom: 0;
+}
+
+.tormenta20 .tabbed .sheet-tabs.tabs  {
+  margin-top: -2px;
+}
+
+.tormenta20 .tabbed ul.skills-list {
+  margin-left: -2px;
+}
+
+.tormenta20 .tabbed header.sheet-header input {
+  border: 1px solid transparent;
+  background: none;
 }
 
 .tormenta20 .tabbed .experience span.sep {
@@ -85,30 +93,10 @@
   background: rgba(0, 0, 0, 0.05);
   color: #191813;
 }
-.tormenta20 .tabbed input[type="text"]:hover,
-.tormenta20 .tabbed input[type="text"]:focus {
-  border: 1px solid #111;
-  box-shadow: 0 0 8px red;
-}
 .tormenta20 .tabbed input[type="number"]:hover,
 .tormenta20 .tabbed input[type="number"]:focus {
   border: 1px solid #111;
   box-shadow: 0 0 8px red;
-}
-.tormenta20 .tabbed input:disabled,
-.tormenta20 .tabbed select:disabled,
-.tormenta20 .tabbed textarea:disabled {
-  color: #4b4a44;
-}
-.tormenta20 .tabbed input:disabled:hover,
-.tormenta20 .tabbed select:disabled:hover,
-.tormenta20 .tabbed textarea:disabled:hover,
-.tormenta20 .tabbed input:disabled:focus,
-.tormenta20 .tabbed select:disabled:focus,
-.tormenta20 .tabbed textarea:disabled:focus {
-  box-shadow: none !important;
-  border: 1px solid transparent !important;
-  outline: none !important;
 }
 .tormenta20 .tabbed .form-group label {
   flex: 2;
@@ -175,6 +163,7 @@
 }
 .tormenta20 .tabbed .attributes input.temphealth {
   width: 48%;
+  height: 18px;
 }
 .tormenta20 .tabbed h4.box-title {
   height: 18px;
@@ -245,15 +234,6 @@
   border-bottom: none;
   margin-bottom: -1px;
 }
-.tormenta20 .tabbed ul.skills-list {
-  flex: 0 0 300px;
-  height: auto;
-  list-style: none;
-  margin: 0 5px 0;
-  padding: 3px 0 2px;
-  border: 2px groove #eeede0;
-  border-radius: 3px;
-}
 .tormenta20 .tabbed ul.skills-list li.skill {
   height: 21.5px;
   padding: 3px 2px;
@@ -262,10 +242,11 @@
   background: rgba(0, 0, 0, 0.05);
 }
 .tormenta20 .tabbed .center-pane {
-  height: 100%;
+  /* height: 100%; */
+  height: auto;
   padding: 0 5px 0 3px;
-  overflow-y: auto;
-  scrollbar-width: thin;
+  /* overflow-y: auto; */
+  /* scrollbar-width: thin; */
 }
 .tormenta20 .tabbed .tab.features,
 .tormenta20 .tabbed .tab.inventory,
@@ -273,10 +254,7 @@
   overflow-y: hidden;
 }
 .tormenta20 .tabbed .inventory-list {
-  list-style: none;
   margin: 0;
-  padding: 0 5px;
-  overflow-y: auto;
   scrollbar-width: thin;
 }
 .tormenta20 .tabbed .inventory-list .item {
@@ -288,9 +266,10 @@
   border-bottom: none;
 }
 .tormenta20 .tabbed .inventory-list .item .item-name {
-  cursor: pointer;
+  flex: 2;
+  /* cursor: pointer; */
   max-height: 30px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .tormenta20 .tabbed .inventory-list .item .item-name h4 {
   margin: 0;
@@ -309,7 +288,6 @@
   flex: 0 0 22px;
   font-size: 12px;
   text-align: center;
-  color: #7a7971;
 }
 .tormenta20 .tabbed .editor {
   padding: 0 8px;

@@ -1,14 +1,12 @@
-<div class="ataques">
-	<ol class="item-list">
+<div class="inventario">
+	<ol class="item-list inventory-list">
 		<li class="item flexrow item-header">
 			<div class="item-image"></div>
 			<div class="item-name" >Armas</div>
 			<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
 			<div class="item-qtd">Qtd</div>
 			<div class="item-peso">Peso</div>
-			<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i>
-			Nova</a>
-			</div>
+			<div class="item-controls"></div>
 		</li>
 		{{#each actor.armas as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
@@ -27,10 +25,7 @@
 		</li>
 		{{/each}}
 	</ol>
-</div>
-	
-<div class="armaduras">
-	<ol class="item-list">
+	<ol class="item-list inventory-list">
 		<li class="item flexrow item-header">
 			<div class="item-image"></div>
 			<div class="item-name">Equipamentos</div>
@@ -40,7 +35,7 @@
 			<div class="item-peso">Peso</div>
 			<div class="item-toggles">
 			</div>
-			<div class="item-controls"><a class="item-control item-create" title="Criar Equipável" data-type="equip"><i class="fas fa-plus"></i> Nova</a></div>
+			<div class="item-controls"></div>
 		</li>
 		{{#each actor.equipamentos as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
@@ -67,12 +62,9 @@
 		</li>
 		{{/each}}
 	</ol>
-</div>
-
-
-<div class="inventario">
 	<ol class="item-list inventory-list">
 		<li class="item flexrow item-header">
+			<div class="item-image"></div>
 			<div class="item-name" style="flex: 5;">Itens</div>
 			<div class="item-qtd">Qtd</div>
 			<div class="item-peso">Peso</div>
@@ -103,6 +95,8 @@
 		<li class="item flexrow item-header">
 			<div class="item-name text-right">
 				&nbsp;&nbsp;
+				<a class="item-control item-create" title="Criar arma" data-type="arma"><i class="fas fa-plus"></i> Arma</a>
+				&nbsp;&nbsp;
 				<a class="item-control item-create" title="Criar armadura" data-type="equip"><i class="fas fa-plus"></i> Equipamento</a>
 				&nbsp;&nbsp;
 				<a class="item-control item-create" title="Criar consumivel" data-type="consumivel"><i class="fas fa-plus"></i> Consumível</a>
@@ -113,9 +107,24 @@
 	</ol>
 </div>
 
-<div class="bottom flexrow">
-	<label>T$: <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" /></label>
-	<label>TO: <input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" /></label>
+<div class="inventory-currency">  
+  <ul class="currency">
+	<li class="currency-header" title="Currency">
+	  <i class="fas fa-coins"></i>
+	</li>
+	<li class="currency-item" title="Ouro">
+	  <input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number">
+	  <label for="data.detalhes.dinheiro.to" class="denomination gp">to</label>
+	</li>
+	<li class="currency-item" title="Prata">
+	  <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number">
+	  <label for="data.detalhes.dinheiro.tp" class="denomination sp">t$</label>
+	</li>
+	<li class="currency-item" title="Cobre">
+	  <input type="text" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number">
+	  <label for="data.detalhes.dinheiro.tc" class="denomination cp">tc</label>
+	</li>
+  </ul>
 </div>
 <div class="encumbrance" title="Carga">
 	<span class="encumbrance-bar" style="width:{{data.detalhes.carga.pct}}%"></span>

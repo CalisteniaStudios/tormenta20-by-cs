@@ -128,58 +128,12 @@ export const migrateCompendium = async function(pack) {
 export const migrateActorData = function(actor) {
 	const updateData = {};
 	// Actor Data Updates
-	_migrateActorSkills(actor, updateData);
-
-	// Migrate Owned Items
-	if (actor.img && actor.img.includes("modules/tormenta20-compendium")) {
-		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
-		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
-	}
-	if (actor.img && actor.img.includes("systems/tormenta20/") && actor.img.includes(".png")) {
-		updateData["img"] = actor.img.replace(".png", ".webp")
-		updateData["token.img"] = actor.token.img.replace(".png", ".webp")
-	}
-	
+	// _migrateActorSkills(actor, updateData);
 	if (actor.type === "character") {
-		updateData["data.detalhes.-=cargaa"] = null;
-		if (actor.data.defesa.armad != undefined) {
-			updateData["data.defesa.-=armad"] = null;
-			updateData["data.defesa.-=escud"] = null;
-			updateData["data.defesa.armadura"] = actor.data.armadura;
-			updateData["data.defesa.armadura.value"] = actor.data.armadura.defesa;
-			updateData["data.defesa.armadura.-=defesa"] = null;
-			updateData["data.defesa.escudo"] = actor.data.escudo;
-			updateData["data.defesa.escudo.value"] = actor.data.escudo.defesa;
-			updateData["data.defesa.escudo.-=defesa"] = null;
-			updateData["data.-=armadura"] = null;
-			updateData["data.-=escudo"] = null;
-		}
-		if (actor.data.attributes.xp != undefined) {
-			updateData["data.attributes.nivel.xp"] = {"value": actor.data.attributes.xp.value, "min": 0, "proximo": actor.data.attributes.xp.proximo}
-			updateData["data.attributes.-=xp"] = null;
-		}
 	}
-	else {
-		updateData["data.detalhes.-=carga"] = null;
-		updateData["data.attributes.-=xp"] = null;
-		updateData["data.attributes.-=classe"] = null;
-		updateData["data.attributes.-=divindade"] = null;
-		updateData["data.attributes.-=origem"] = null;
-		updateData["data.defesa.-=des"] = null;
-		updateData["data.defesa.-=armad"] = null;
-		updateData["data.defesa.-=escudo"] = null;
-		updateData["data.-=armadura"] = null;
-		updateData["data.-=escudo"] = null;
+	else if (actor.type === "npc") {
 	}
-	if (actor.data.attributes.conjurador != undefined) {
-		updateData["flags.mago"] = actor.data.attributes.mago;
-		updateData["data.attributes.-=conjurador"] = null;
-		updateData["data.attributes.-=mago"] = null;
-	}
-	else if (actor.flags.conjurador != undefined) {
-		updateData["flags.-=conjurador"] = null;
-	}
-		
+	// Migrate Owned Items
 	if ( !actor.items ) return updateData;
 	let hasItemUpdates = false;
 	const items = actor.items.map(i => {
@@ -270,23 +224,27 @@ function _migrateActorSkills(actor, updateData) {
 */
 export const migrateItemData = function(item) {
 	const updateData = {};
-	_migrateSpell(item, updateData);
-	_migratePower(item, updateData);
-	_migrateItemArmor(item, updateData);
-	_migrateItemWeapon(item, updateData);
-	if ( item.type === "ataque" ) {
-		updateData["type"] = "arma";
-	}
-	if (item.img && item.img.includes("modules/tormenta20-compendium")) {
-		updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
-	}
-	if (item.img && item.img.includes("systems/tormenta20/icons") && (item.img.includes(".jpg") || item.img.includes(".png"))) {
-		updateData["img"] = item.img.replace(".jpg", ".webp").replace(".png", ".webp");
+	_migrateClasse(item, updateData);
+	if ( item.type == "ataque" ) {
+		item.type = "arma";
 	}
 	return updateData;
 };
 
 /* -------------------------------------------- */
+
+function _migrateClasse(item, updateData) {
+	if ( item.type != "classe" ) return;
+	if (Array.isArray(item.data.pericias.escolhas)) {
+		let escolhas = item.data.pericias.escolhas;
+		let dictEscolhas = {}
+		escolhas.forEach(function(pericia) {
+			dictEscolhas[pericia] = true;
+		});
+		updateData["data.pericias.escolhas"] = dictEscolhas;
+	}
+	return updateData;
+}
 
 function _migrateSpell(item, updateData) {
 	if ( item.type != "magia" ) return;
@@ -397,7 +355,6 @@ function _migrateItemArmor(item, updateData) {
 	updateData["data.-=subtipo"] = null;
 	return updateData;
 }
-
 
 /**
 * Adiciona os tipos e propriedades das armas.

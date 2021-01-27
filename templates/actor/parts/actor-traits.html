@@ -1,21 +1,5 @@
 <div class="traits">
 	<div class="form-group">
-        <label style="flex: 1;">Classes</label>
-		<ul class="traits-list">
-        {{#each actor.classes as |item|}}
-			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
-				<a class="item-control item-edit" title="Editar">
-				{{this.name}} {{this.data.niveis}}
-				</a>
-				<a class="item-control item-delete" title="Excluir">
-					<i class="fas fa-trash" style="float:unset;"></i>
-				</a>
-			</li>
-		{{/each}}
-		</ul>
-    </div>
-
-    <div class="form-group">
         <label>Tamanho</label>
         <select class="actor-size" name="data.tamanho">
             {{#select data.tamanho}}
@@ -99,6 +83,22 @@
 
     {{#if isCharacter}}
 	<hr>
+	<div class="form-group">
+        <label style="flex: 1;">Classes</label>
+		<ul class="traits-list">
+        {{#each actor.classes as |item|}}
+			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
+				<a class="item-control item-edit" title="Editar">
+				{{this.name}} {{this.data.niveis}}
+				</a>
+				<a class="item-control item-delete" title="Excluir">
+					<i class="fas fa-trash" style="float:unset;"></i>
+				</a>
+			</li>
+		{{/each}}
+		</ul>
+    </div>
+	
 	{{#if enableLanguages}}
     <div class="form-group">
         <a class="trait-selector" data-options="idiomas" data-target="data.detalhes.idiomas">
@@ -133,13 +133,6 @@
         {{/each}}
         </ul>
     </div>
-	
-	{{#if mostrarBonusTreino}}
-	<div class="form-group">
-		<label>Bônus de Treinamento:</label>
-		<label style="flex: 1;">+{{#if (lt data.attributes.nivel.value 7)}}2{{else if (lt data.attributes.nivel.value 14)}}4{{else}}6{{/if}}</label>
-	</div>
-	{{/if}}
     {{/if}}
 
     <!-- <div class="form-group"> -->

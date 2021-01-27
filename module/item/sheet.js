@@ -52,6 +52,9 @@ export default class ItemSheetT20 extends ItemSheet {
 			if(data.data.danoBns == "") data.data.danoBns = 0;
 			data["propriedades"] = this._getItemProperties(data.item);
 		}
+		if (data.item.type == "classe") {
+			data.isGM = game.user.isGM;
+		}
 		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
 		if (data.item.data.hasOwnProperty("duracao")) {
 			const unidade = data.item.data.duracao.unidade;
@@ -176,7 +179,7 @@ export default class ItemSheetT20 extends ItemSheet {
   _onConfigureClassSkills(event) {
     event.preventDefault();
     const skills = this.item.data.data.pericias;
-    const choices = skills.escolhas && skills.escolhas.length ? skills.escolhas : Object.keys(CONFIG.T20.pericias);
+    const choices = skills.escolhas;
     const a = event.currentTarget;
     const label = a.parentElement;
 
@@ -185,7 +188,7 @@ export default class ItemSheetT20 extends ItemSheet {
       name: a.dataset.target,
       title: label.innerText,
       choices: Object.entries(CONFIG.T20.pericias).reduce((obj, e) => {
-        if ( choices.includes(e[0] ) ) obj[e[0]] = e[1]; //.label;
+        if (choices[e[0]]) obj[e[0]] = e[1];
         return obj;
       }, {}),
       minimum: skills.numero,
