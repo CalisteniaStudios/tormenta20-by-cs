@@ -109,10 +109,6 @@ table,
   z-index: 30;
 }
 
-button {
-  color: #2f290c;
-}
-
 #sidebar button {
   color: #fff;
   /*#f18c17;*/
@@ -140,7 +136,8 @@ button {
 button {
   width: 100%;
   margin: 0 1px;
-  background: #0d0d0d;
+  /* background: #0d0d0d; */
+  color: #2f290c;
   border: 1px solid #782e22;
   border-radius: 3px;
   font-size: 14px;
