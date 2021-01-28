@@ -348,8 +348,11 @@ export default class ItemT20 extends Item {
 				tempRoll.alter(1,formula.qtdDados);
 				tempRoll.terms[2] = formula.qtdBonus ? tempRoll.terms[2] + formula.qtdBonus : tempRoll.terms[2];
 
-				tempForm[0] = Die.fromExpression(tempForm[0]).alter(1,formula.qtdDados).formula;
-				tempForm[1] = tempForm[1].replace( /\d+/, (parseInt(tempForm[1].match(/\d+/)[0]) + formula.qtdBonus) );
+				if (tempForm[0])
+					tempForm[0] = Die.fromExpression(tempForm[0]).alter(1,formula.qtdDados).formula;
+				
+				if (tempForm[1])
+					tempForm[1] = tempForm[1].replace( /\d+/, (parseInt(tempForm[1].match(/\d+/)[0]) + formula.qtdBonus) );
 			} else if (apr.formula === "-") {
 				formula.override = " ";
 			} else if (apr.formula !== "") {
