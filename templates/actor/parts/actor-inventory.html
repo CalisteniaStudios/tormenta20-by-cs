@@ -1,5 +1,6 @@
 <div class="inventario">
-	<ol class="item-list inventory-list">
+	{{#if actor.armas}}
+	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-image"></div>
 			<div class="item-name" >Armas</div>
@@ -25,7 +26,9 @@
 		</li>
 		{{/each}}
 	</ol>
-	<ol class="item-list inventory-list">
+	{{/if}}
+	{{#if actor.equipamentos}}
+	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-image"></div>
 			<div class="item-name">Equipamentos</div>
@@ -62,7 +65,8 @@
 		</li>
 		{{/each}}
 	</ol>
-	<ol class="item-list inventory-list">
+	{{/if}}
+	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-image"></div>
 			<div class="item-name" style="flex: 5;">Itens</div>
@@ -109,7 +113,7 @@
 
 <div class="inventory-currency">  
   <ul class="currency">
-	<li class="currency-header" title="Currency">
+	<li class="currency-header" title="Moedas">
 	  <i class="fas fa-coins"></i>
 	</li>
 	<li class="currency-item" title="Ouro">

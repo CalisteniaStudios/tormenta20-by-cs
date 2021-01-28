@@ -13,7 +13,7 @@
 					<input class="level" disabled style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;" name="data.attributes.nivel.value" type="text" value="Nível {{data.attributes.nivel.value}}" data-dtype="String" />
 					{{#unless disableExperience}}
 					<div class="xp-tracker" title="Experiência">
-							<div class="experience" style="height: 16px; font-size: 11px;">
+							<div class="experience" style="height: 16px;">
 							<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
 							<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
 						</div>

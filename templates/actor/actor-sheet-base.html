@@ -36,11 +36,11 @@
 						<h1 class="charname"">
 							<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 						</h1>
-						<div class="level-information {{#if disableExperience}}noxp{{/if}}" style="margin-right: 0.5em;">
+						<div class="level-information" style="margin-right: 0.5em;">
 							<input class="level" disabled style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;" name="data.attributes.nivel.value" type="text" value="Nível {{data.attributes.nivel.value}}" data-dtype="String" />
 							{{#unless disableExperience}}
 							<div class="xp-tracker" title="Experiência">
-									<div class="experience" style="height: 16px; font-size: 11px;">
+									<div class="experience" style="height: 16px;">
 									<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
 									<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
 								</div>
@@ -161,7 +161,7 @@
 								Nova</a>
 								</div>
 							</li>
-							<div style="max-height: 124px; overflow-y: auto;">
+							<div style="max-height: 124px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							{{#each actor.armas as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
@@ -224,7 +224,7 @@
 								</div>
 							</li>
 						</ol>
-						<ol class="item-list" style="width: calc(80% - 2px); max-height:124px; display:inline-block; vertical-align: top; margin:0; overflow-y: auto;">
+						<ol class="item-list" style="width: calc(80% - 2px); max-height:124px; display:inline-block; vertical-align: top; margin:0; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							<li class="item flexrow item-header">
 								<div class="item-image"></div>
 								<div class="item-name flex2">Equipamento</div>
@@ -274,7 +274,7 @@
 								</div>
 								{{/if}}
 							</li>
-							<div style="max-height:400px; overflow-y: auto;">
+							<div style="max-height:400px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							{{#each actor.poderes as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
@@ -391,7 +391,7 @@
 
 								</div>
 							</li>
-							<div style="max-height: 450px; overflow-y: auto;">
+							<div style="max-height: 450px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							{{#each actor.inventario as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
@@ -421,7 +421,7 @@
 
 						<div class="inventory-currency">  
 						  <ul class="currency">
-							<li class="currency-header" title="Currency">
+							<li class="currency-header" title="Moedas">
 							  <i class="fas fa-coins"></i>
 							</li>
 							<li class="currency-item" title="Ouro">
