@@ -476,11 +476,6 @@ button {
   color: #7a7971;
 }
 
-.tormenta20 .sheet-body,
-.tormenta20 .sheet-body .tab {
-  height: 100%;
-}
-
 .tormenta20 .sheet-body .tab .editor {
   height: inherit;
 }
@@ -1171,19 +1166,15 @@ button {
   overflow: hidden;
 }
 
-.tormenta20.sheet.actor .sheet-body .tab {
-  overflow: hidden;
-}
-
 .tormenta20.sheet.actor .base .sheet-body .tab.attributes.active {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .tormenta20.sheet.actor .sheet-body .tab.attributes .attributes-body {
-  padding: 0 0.75em 1em 1rem;
-  overflow-y: auto;
-  scrollbar-width: thin;
+  padding-left: 1em;
 }
 
 .tormenta20.sheet.actor .tabbed .tab {
