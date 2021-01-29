@@ -68,6 +68,14 @@ table,
   padding-left: 5px;
 }
 
+.tormenta20 .npc .title-row h2 {
+  padding: 0;
+}
+
+.tormenta20 .npc hr {
+  margin: 7px -2px;
+}
+
 .app {
   max-height: 100%;
   background: url(../assets/side-bar.png) repeat;
@@ -1164,6 +1172,10 @@ button {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+}
+
+.tormenta20.sheet.actor .npc .sheet-body {
+  padding: 0 2px;
 }
 
 .tormenta20.sheet.actor .base .sheet-body .tab.attributes.active {
