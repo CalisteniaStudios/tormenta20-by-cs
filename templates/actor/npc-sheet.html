@@ -1,6 +1,6 @@
 <form class="tormenta20 npc {{statblock}}" autocomplete="off">
 	{{!-- Sheet Tab Navigation --}}
-	<nav class="sheet-tabs tabs" data-group="primary">
+	<nav class="sheet-tabs tabs" style="margin-top: 0;" data-group="primary">
 		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
 		<label><i class="fas fa-address-card"></i> <a class="item" data-tab="description" title="Biografia">Biografia</a></label>
 
@@ -13,24 +13,24 @@
 
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
-			<div class="flexrow title-row">
-				<h2 class="flex3">{{actor.name}}
-					<input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
-				</h2>
-				<aside class="text-right flexrow">
-					<h2>
-						<label>ND</label> {{data.attributes.nd}}
-					</h2>
-					<input type="text" class="npc-nd" name="data.attributes.nd" value="{{data.attributes.nd}}">
-				</aside>
-			</div>
+					<div class="flexrow title-row">
+						<h2 class="flex3">{{actor.name}}
+							<input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
+						</h2>
+						<aside class="text-right flexrow">
+							<h2>
+								<label>ND</label> {{data.attributes.nd}}
+							</h2>
+							<input type="text" class="npc-nd" name="data.attributes.nd" value="{{data.attributes.nd}}">
+						</aside>
+					</div>
 			<i>{{data.attributes.raca}} {{data.attributes.nivel.value}}, {{data.tamanho}}</i>
 			<div class="flexrow">
 				
-				<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo/Raça" />
-				<input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" style="flex:0 0 40px" />
-				<input type="text" name="data.tamanho" value="{{data.tamanho}}" data-dtype="String" title="Tamanho" />
-			</div>
+						<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo/Raça" />
+						<input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" style="flex:0 0 40px" />
+						<input type="text" name="data.tamanho" value="{{data.tamanho}}" data-dtype="String" title="Tamanho" />
+					</div>
 			<hr>
 			<div class="npc-line">
 				<span class="rollable pericia-rollable skill" data-item-id="ini" data-type="padrao">
@@ -205,9 +205,9 @@
 							{{/if}}
 						</div>
 					</li>
-				{{/if}}
 				</ul>
 				<hr>
+				{{/if}}
 			</div>
 			<!-- <hr> -->
 			<div class="flexrow text-center abl-line">

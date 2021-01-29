@@ -46,7 +46,7 @@ export const SystemSettings = function() {
     hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
     scope: "world",
     config: true,
-    default: true,
+    default: false,
     type: Boolean,
   });
 	

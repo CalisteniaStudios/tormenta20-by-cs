@@ -36,7 +36,12 @@ export default class ItemSheetT20 extends ItemSheet {
 		data.atkSkills = [];
 		data.config = CONFIG.T20;
 		if (data.item.data.hasOwnProperty("resistencia") && this.object.options.actor != undefined) {
-			data.data.actorCD = this.object.options.actor.data.data.attributes.cd > 0 ? this.object.options.actor.data.data.attributes.cd : 0 ;
+			if (data.item.type == "magia") {
+				data.data.actorCD = this.object.options.actor.data.data.attributes.cd ? this.object.options.actor.data.data.attributes.cd : 0 ;
+			}
+			else {
+				data.data.actorCD = 10 + this.object.options.actor.data.data.attributes.nivel.value/2;
+			}
 			let atrRes = this.object.options.actor.data.data.atributos[data.data.atrRes]?.mod || 0; 
 			data.data.totalCD = data.data.actorCD + atrRes + data.data.cd;
 		}
@@ -46,6 +51,9 @@ export default class ItemSheetT20 extends ItemSheet {
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
 			data["propriedades"] = this._getItemProperties(data.item);
+		}
+		if (data.item.type == "classe") {
+			data.isGM = game.user.isGM;
 		}
 		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
 		if (data.item.data.hasOwnProperty("duracao")) {
@@ -171,7 +179,7 @@ export default class ItemSheetT20 extends ItemSheet {
   _onConfigureClassSkills(event) {
     event.preventDefault();
     const skills = this.item.data.data.pericias;
-    const choices = skills.escolhas && skills.escolhas.length ? skills.escolhas : Object.keys(CONFIG.T20.pericias);
+    const choices = skills.escolhas;
     const a = event.currentTarget;
     const label = a.parentElement;
 
@@ -180,7 +188,7 @@ export default class ItemSheetT20 extends ItemSheet {
       name: a.dataset.target,
       title: label.innerText,
       choices: Object.entries(CONFIG.T20.pericias).reduce((obj, e) => {
-        if ( choices.includes(e[0] ) ) obj[e[0]] = e[1]; //.label;
+        if (choices[e[0]]) obj[e[0]] = e[1];
         return obj;
       }, {}),
       minimum: skills.numero,
