@@ -128,9 +128,7 @@ export const migrateCompendium = async function(pack) {
 export const migrateActorData = function(actor) {
 	const updateData = {};
 	// Actor Data Updates
-	_migrateActorSkills(actor, updateData);
-
-	// Migrate Owned Items
+	// _migrateActorSkills(actor, updateData);
 	if (actor.img && actor.img.includes("modules/tormenta20-compendium")) {
 		updateData["img"] = actor.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
 		updateData["token.img"] = actor.token.img.replace("modules/tormenta20-compendium/icons/perigos", "systems/tormenta20/icons/ameaças");
@@ -139,47 +137,11 @@ export const migrateActorData = function(actor) {
 		updateData["img"] = actor.img.replace(".png", ".webp")
 		updateData["token.img"] = actor.token.img.replace(".png", ".webp")
 	}
-	
 	if (actor.type === "character") {
-		updateData["data.detalhes.-=cargaa"] = null;
-		if (actor.data.defesa.armad != undefined) {
-			updateData["data.defesa.-=armad"] = null;
-			updateData["data.defesa.-=escud"] = null;
-			updateData["data.defesa.armadura"] = actor.data.armadura;
-			updateData["data.defesa.armadura.value"] = actor.data.armadura.defesa;
-			updateData["data.defesa.armadura.-=defesa"] = null;
-			updateData["data.defesa.escudo"] = actor.data.escudo;
-			updateData["data.defesa.escudo.value"] = actor.data.escudo.defesa;
-			updateData["data.defesa.escudo.-=defesa"] = null;
-			updateData["data.-=armadura"] = null;
-			updateData["data.-=escudo"] = null;
-		}
-		if (actor.data.attributes.xp != undefined) {
-			updateData["data.attributes.nivel.xp"] = {"value": actor.data.attributes.xp.value, "min": 0, "proximo": actor.data.attributes.xp.proximo}
-			updateData["data.attributes.-=xp"] = null;
-		}
 	}
-	else {
-		updateData["data.detalhes.-=carga"] = null;
-		updateData["data.attributes.-=xp"] = null;
-		updateData["data.attributes.-=classe"] = null;
-		updateData["data.attributes.-=divindade"] = null;
-		updateData["data.attributes.-=origem"] = null;
-		updateData["data.defesa.-=des"] = null;
-		updateData["data.defesa.-=armad"] = null;
-		updateData["data.defesa.-=escudo"] = null;
-		updateData["data.-=armadura"] = null;
-		updateData["data.-=escudo"] = null;
+	else if (actor.type === "npc") {
 	}
-	if (actor.data.attributes.conjurador != undefined) {
-		updateData["flags.mago"] = actor.data.attributes.mago;
-		updateData["data.attributes.-=conjurador"] = null;
-		updateData["data.attributes.-=mago"] = null;
-	}
-	else if (actor.flags.conjurador != undefined) {
-		updateData["flags.-=conjurador"] = null;
-	}
-		
+	// Migrate Owned Items
 	if ( !actor.items ) return updateData;
 	let hasItemUpdates = false;
 	const items = actor.items.map(i => {
@@ -270,12 +232,9 @@ function _migrateActorSkills(actor, updateData) {
 */
 export const migrateItemData = function(item) {
 	const updateData = {};
-	_migrateSpell(item, updateData);
-	_migratePower(item, updateData);
-	_migrateItemArmor(item, updateData);
-	_migrateItemWeapon(item, updateData);
-	if ( item.type === "ataque" ) {
-		updateData["type"] = "arma";
+	_migrateClasse(item, updateData);
+	if ( item.type == "ataque" ) {
+		item.type = "arma";
 	}
 	if (item.img && item.img.includes("modules/tormenta20-compendium")) {
 		updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
@@ -288,173 +247,15 @@ export const migrateItemData = function(item) {
 
 /* -------------------------------------------- */
 
-function _migrateSpell(item, updateData) {
-	if ( item.type != "magia" ) return;
-	let duracao = item.data.duracao.toLowerCase();
-	if (duracao === "cena") {
-		updateData["data.duracao"] = {"valor": null, "unidade": "cena"};
-	}
-	else {
-		if (duracao == "instantânea") {
-			updateData["data.duracao"] = {"valor": "", "unidade": "instant"};
-		}
-		else if (duracao == "instantânea") {
-			updateData["data.duracao"] = {"valor": "", "unidade": "verTexto"};
-		}
-		else {
-			duracao = duracao.split(" ");
-			if (duracao.length > 2) {
-				duracao[0] = Number(duracao[0]);
-				duracao[1] = duracao[1].toLowerCase();
-				updateData["data.duracao"] = {"valor": duracao[0], "unidade": duracao[1]};
-			}
-			else {
-				updateData["data.duracao"] = {"valor": "", "unidade": duracao[0]};
-			}
-		}
-	}
-	if (item.data.ativacao === undefined || (item.data.ativacao.execucao == "" && item.data.ativacao.custo == 0)) {
-		if (item.data.execucao != undefined) {
-		let execucao = item.data.execucao.toLowerCase();
-		if (execucao == "duas rodadas" || execucao == "2 rodadas") {
-			execucao = "duasRodadas";
-		}
-		else if (execucao == "padrão") {
-			execucao = "padrao";
-		}
-		else if (execucao == "reação") {
-			execucao = "reacao";
-		}
-		updateData["data.ativacao"] = {"execucao": execucao, "custo": item.data.custo, "condicao": "" };
-		updateData["data.-=execucao"] = null;
-		}
-		updateData["data.-=custo"] = null;
-		let duracao = item.data.duracao.toLowerCase();
-		let duracoesSuportadas = ["instantânea", "cena", "sustentada", "ver texto"];
-		if (duracoesSuportadas.includes(duracao)) {
-			if (duracao == "instantânea") {
-				duracao = "instant";
-			}
-			else if (duracao == "ver texto") {
-				duracao = "verTexto";
-			}
-			updateData["data.duracao"] = {"valor": "", "unidade": duracao};
-		}
-		else {
-			updateData["data.duracao"] = {"valor": duracao, "unidade": "outra"};
-		}
-	}
-}
-
-/**
-* Reorganiza os poderes.
-* @private
-*/
-function _migratePower(item, updateData) {
-	if ( item.type != "poder" ) return;
-	if (item.data.tipo != "") {
-		let nome = item.data.tipo.split(" - ");
-
-		if (nome[0].includes("P. ")) {
-			nome[0] = nome[0].substring(3)
-		}
-		updateData["data.tipo"] = nome[0].toLowerCase();
-		if (item.data.subtipo == "" || item.data.subtipo === undefined) {
-			updateData["data.subtipo"] = nome.length == 2 ? nome[1] : "";
-		}
-	}
-	else if (item.data.subtipo === undefined) {
-		updateData["data.subtipo"] = "";
-	}
-
-	if(item.data.roll == "" && item.data.efeito) {
-		updateData["data.roll"] = item.data.efeito;
-		updateData["data.-=efeito"] = null;	
-	}
-	if (item.data.ativacao === undefined || (item.data.ativacao.execucao == "" && item.data.ativacao.custo == 0)) {
-		updateData["data.ativacao"] = {"execucao": "", "custo": item.data.custo ? item.data.custo : 0, "condicao": "" };
-		updateData["data.-=custo"] = null;
-	}
-	return updateData;
-}
-
-/**
-* Replaces Armadura to Equip
-* @private
-*/
-function _migrateItemArmor(item, updateData) {
-	if ( item.type != "armadura" ) return;
-	updateData["type"] = "equip";
-	if (item.data.tipo.includes("escudo")) {
-		updateData["data.tipo"] = "escudo"
-	}
-	else if (item.data.subtipo == "pesado") {
-		updateData["data.tipo"] = "pesada"
-	}
-	else {
-		updateData["data.tipo"] = item.data.subtipo != "outros" ? item.data.subtipo : "acessorio";
-	}
-	updateData["data.-=subtipo"] = null;
-	return updateData;
-}
-
-
-/**
-* Adiciona os tipos e propriedades das armas.
-* @private
-*/
-function _migrateItemWeapon(item, updateData) {
-	if ( item.type != "arma" ) return;
-	if (item.data.tipoUso === undefined) {
-		if (item.data.description.includes("Arma Exótica")) {
-			updateData["data.tipoUso"] = "exotica"
-		}
-		else if (item.data.description.includes("Arma de Fogo")) {
-			updateData["data.tipoUso"] = "armaDeFogo"
-		}
-		else if (item.data.description.includes("Arma Marcial")) {
-			updateData["data.tipoUso"] = "marcial"
-		}
-		else { //if (item.data.description.includes("Arma Simples")) {
-			updateData["data.tipoUso"] = "simples"
-		}
-	}
-
-	if (item.data.propriedades === undefined) {
-		updateData["data.propriedades"] = {"adaptavel":false,"agil":false,"alongada":false,"arremesso":false,"ataqueDistancia":false,"duasMaos":false,"dupla":false,"leve":false,"municao":false,"versatil":false}
-		if(item.data.municao) {
-			updateData["data.propriedades.municao"] = true;
-		}
-		if (item.data.description.includes("arma ágil")) {
-			updateData["data.propriedades.agil"] = true;
-		}
-		else if (item.data.description.includes("arma alongada")) {
-			updateData["data.propriedades.alongada"] = true;
-		}
-		if (item.data.description.includes("Ataque à Distância")) {
-			updateData["data.propriedades.ataqueDistancia"] = true;
-			if(item.data.pericia === "lut") {
-				updateData["data.pericia"] = "pon";
-			}
-		}
-		if (item.data.description.includes("Munição")) {
-			updateData["data.propriedades.municao"] = true;
-		}
-		if (item.data.description.includes("Duas Mãos" || "Exige as duas mãos")) {
-			updateData["data.propriedades.duasMaos"] = true;
-		}
-		else if (item.data.description.includes(" Leve")) {
-			updateData["data.propriedades.leve"] = true;
-		}
-		else if (item.data.description.includes("arma dupla")) {
-			updateData["data.propriedades.dupla"] = true;
-		}
-		if (item.data.description.includes("arma versátil")) {
-			updateData["data.propriedades.versatil"] = true;
-		}
-	}
-	if (item.data.municao != undefined) {
-		updateData["data.-=municao"] = null;
+function _migrateClasse(item, updateData) {
+	if ( item.type != "classe" ) return;
+	if (Array.isArray(item.data.pericias.escolhas)) {
+		let escolhas = item.data.pericias.escolhas;
+		let dictEscolhas = {}
+		escolhas.forEach(function(pericia) {
+			dictEscolhas[pericia] = true;
+		});
+		updateData["data.pericias.escolhas"] = dictEscolhas;
 	}
 	return updateData;
 }

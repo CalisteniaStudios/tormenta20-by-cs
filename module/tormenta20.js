@@ -121,13 +121,13 @@ Hooks.once("ready", async function () {
   
   const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion") ? game.settings.get("tormenta20", "systemMigrationVersion") : "1.0.02";
   
-  const NEEDS_MIGRATION_VERSION = "1.1.30";
-  const COMPATIBLE_MIGRATION_VERSION = "1.0.0";
+  const NEEDS_MIGRATION_VERSION = "1.1.32";
+  const COMPATIBLE_MIGRATION_VERSION = "1.1.30";
   const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
   if ( !needsMigration ) return;
   // Perform the migration
   if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
-    const warning = `Your Tormenta20 system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`;
+    const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
     ui.notifications.error(warning, {permanent: true});
   }
   migrations.migrateWorld();

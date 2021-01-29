@@ -24,10 +24,11 @@
     <!-- </header> -->
 
     {{!-- Item Sheet Navigation --}}
-    <!-- <nav class="sheet-tabs tabs" data-group="primary"> -->
+    <nav class="sheet-tabs tabs" data-group="primary">
         <!-- <a class="item active" data-tab="description">Descrição</a> -->
-        <!-- <a class="item active" data-tab="details">Detalhes</a> -->
-    <!-- </nav> -->
+        <a class="item active" data-tab="details">Detalhes</a>
+        {{#if isGM}}<a class="item active" data-tab="config">Configuração (GM)</a>{{/if}}
+    </nav>
 
     {{!-- Item Sheet Body --}}
     <section class="sheet-body">
@@ -38,7 +39,7 @@
         <!-- </div> -->
 
         {{!-- Details Tab --}}
-        <!-- <div class="tab details" data-group="primary" data-tab="details"> -->
+        <div class="tab details" data-group="primary" data-tab="details">
 
             {{!-- Class Levels --}}
             <div class="form-group">
@@ -119,6 +120,19 @@
                     </ul>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
+		
+		 <div class="tab config" data-group="primary" data-tab="config">
+			{{#if isGM}}
+			<div class="form-group stacked weapon-properties">
+                <label>Perícias Adicionais</label>
+                {{#each config.pericias as |name prop|}}
+                <label class="checkbox">
+                    <input type="checkbox" name="data.pericias.escolhas.{{prop}}" value="{{name}}" {{checked (lookup ../data.pericias.escolhas prop)}} data-dtype="Boolean" /> {{ name }}
+                </label>
+                {{/each}}
+            </div>
+			{{/if}}
+		</div>
     </section>
 </form>

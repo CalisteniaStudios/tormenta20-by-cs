@@ -1,0 +1,59 @@
+<ol class="item-list">
+	<li class="item flexrow item-header flex-center">
+		<div>ATAQUES</div>
+	</li>
+	<li class="item flexrow item-header">
+		<div class="item-image"></div>
+		<div class="item-name">Nome</div>
+		<div class="item-bonusAtq flex2 text-center">ATQ</div>
+		<div class="item-dano flex2 text-center">Dano</div>
+		<div class="item-controls">
+			<a class="item-control item-create" title="Create item" data-type="ataque"><i class="fas fa-plus"></i>
+			Novo</a>
+		</div>
+	</li>
+	<li><center><b>Aviso: Ataques serão descontinuados. Converta-os para armas e macros.</b></center></li>
+	{{#each actor.ataques as |item id|}}
+	<li class="item flexrow" data-item-id="{{item._id}}">
+		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+		<span class="item-name rollable ataque-rollable">
+			<h4 class="item-name">{{item.name}}</h4>
+		</span>
+
+		<div class="item-controls">
+			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+			<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
+		</div>
+	</li>
+	{{/each}}
+</ol>
+<ol class="item-list">
+	<li class="item flexrow item-header flex-center">
+		<div>Equipado</div>
+		<div>Item</div>
+		<div>Defesa</div>
+		<div>Penalidade</div>
+	</li>
+	<li class="item flexrow text-center">
+		<div>
+			<input type="checkbox" name="data.armadura.equipado" value="{{data.armadura.equipado}}" {{#if data.armadura.equipado }}checked{{/if}} data-dtype="Boolean"  />          
+		</div>
+		<div><input type="text" name="data.armadura.nome" value="{{data.armadura.nome}}" data-dtype="String" placeholder="Armadura" />
+		</div>
+		<div><input type="text" name="data.armadura.value" value="{{data.armadura.value}}" data-dtype="Number" />
+		</div>
+		<div><input type="text" name="data.armadura.penalidade" value="{{data.armadura.penalidade}}" data-dtype="Number" /></div>
+	</li>
+	<li class="item flexrow text-center">
+		<div>
+
+			<input type="checkbox" name="data.escudo.equipado" value="{{data.escudo.equipado}}" {{#if data.escudo.equipado }}checked{{/if}} data-dtype="Boolean" readonly />
+
+		</div>
+		<div><input type="text" readonly name="data.escudo.nome" value="{{data.escudo.nome}}" data-dtype="String" placeholder="Escudo" /></div>
+		<div><input type="text" readonly name="data.escudo.defesa" value="{{data.escudo.defesa}}" data-dtype="Number" />
+		</div>
+		<div><input type="text" readonly name="data.escudo.penalidade" value="{{data.escudo.penalidade}}" data-dtype="Number" /></div>
+	</li>
+	<li><center><b>Aviso: Estes campos serão descontinuados. Converta-os para armaduras.</b></center></li>
+</ol>
