@@ -11,12 +11,12 @@
 			<i class="fas fa-address-card"></i>
 			<a class="item" data-tab="description" title="Biografia">Biografia</a>
 		</label>
-		{{#if owner }}
+		{{#unless disableJournal}}
 		<label>
 			<i class="fas fa-book"></i>
 			<a class="item" data-tab="journal">Diário</a>
 		</label>
-		{{/if}}
+		{{/unless}}
 		<!-- <label><i class="fas fa-wrench"></i> <a class="item" data-tab="aviso" title="Aviso">Aviso</a></label> -->
 		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
@@ -462,11 +462,13 @@
 			</div>
 		</div>
 		
+		{{#unless disableJournal}}
 		{{!-- Journal Tab --}}
 		<div class="tab journal" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}
 		</div>
-
+		{{/unless}}
+		
 		{{!-- Aviso Tab --}}
 		<!-- <div class="tab aviso" data-group="primary" data-tab="aviso"> -->
 			<!-- {{!> "systems/tormenta20/templates/actor/parts/actor-aviso.html"}} -->

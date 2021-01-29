@@ -117,7 +117,7 @@
 		<label><a class="item" data-tab="poderes">Poderes</a></label>
 		{{#if actor.maiorCirculo}}<label><a class="item" data-tab="magias">Magias</a></label>{{/if}}
 		<label><a class="item" data-tab="description">Biografia</a></label>
-		<label><a class="item" data-tab="journal">Diário</a></label>
+		{{#unless disableJournal}}<label><a class="item" data-tab="journal">Diário</a></label>{{/unless}}
 		<label><a class="item" data-tab="efeitos">Efeitos</a></label>
 		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
@@ -192,11 +192,13 @@
 			{{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
 		</div>
 		
+		{{#unless disableJournal}}
 		{{!-- Journal Tab --}}
 		<div class="tab journal" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}
 		</div>
-
+		{{/unless}}
+		
 		{{!-- Efeitos Tab --}}
 		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
 			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
