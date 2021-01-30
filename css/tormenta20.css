@@ -68,6 +68,14 @@ table,
   padding-left: 5px;
 }
 
+.tormenta20 .npc .title-row h2 {
+  padding: 0;
+}
+
+.tormenta20 .npc hr {
+  margin: 7px -2px;
+}
+
 .app {
   max-height: 100%;
   background: url(../assets/side-bar.png) repeat;
@@ -474,11 +482,6 @@ button {
 
 .tormenta20.sheet.actor .traits .inactive {
   color: #7a7971;
-}
-
-.tormenta20 .sheet-body,
-.tormenta20 .sheet-body .tab {
-  height: 100%;
 }
 
 .tormenta20 .sheet-body .tab .editor {
@@ -1171,19 +1174,19 @@ button {
   overflow: hidden;
 }
 
-.tormenta20.sheet.actor .sheet-body .tab {
-  overflow: hidden;
+.tormenta20.sheet.actor .npc .sheet-body {
+  padding: 0 2px;
 }
 
 .tormenta20.sheet.actor .base .sheet-body .tab.attributes.active {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .tormenta20.sheet.actor .sheet-body .tab.attributes .attributes-body {
-  padding: 0 0.75em 1em 1rem;
-  overflow-y: auto;
-  scrollbar-width: thin;
+  padding-left: 1em;
 }
 
 .tormenta20.sheet.actor .tabbed .tab {

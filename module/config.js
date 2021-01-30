@@ -327,7 +327,18 @@ T20Config.idiomas = {
 	"goblin": "Goblin",
 	"hynne": "Hynne",
 	"silvestre": "Silvestre",
-	"taurico": "Táurico"
+	"taurico": "Táurico",
+	"abissal": "Abissal",
+	"aquan": "Aquan",
+	"auran": "Auran",
+	"celestial": "Celestial",
+	"draconico": "Dracônico",
+	"gigante": "Gigante",
+	"gnoll": "Gnoll",
+	"ignan": "Ignan",
+	"infernal": "Infernal",
+	"orc": "Orc",
+	"terran": "Terran"
 };
 
 T20Config.profArmas = {
