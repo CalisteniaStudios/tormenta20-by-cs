@@ -649,6 +649,7 @@ export default class ActorT20 extends Actor {
 	*/
 	async displayCard({rolls, itemData, rollMode, createMessage=true}={}) {
 		// Basic template rendering data
+		rollMode = rollMode || game.settings.get("core", "rollMode");
 		const token = this.token;
 		const templateData = {
 			actor: this,
@@ -675,8 +676,16 @@ export default class ActorT20 extends Actor {
 		};
 		
 		// Apply the roll mode to adjust message visibility
-		ChatMessage.applyRollMode(chatData, rollMode || game.settings.get("core", "rollMode"));
+		ChatMessage.applyRollMode(chatData, rollMode);
 
+		if (game?.dice3d?.show) {
+			let wd = {
+				whisper:	(["gmroll", "blindroll"].includes(rollMode) ? ChatMessage.getWhisperRecipients("GM") 
+															: (rollMode === "selfroll" ? [game.user._id] : null)),
+				blind: rollMode === "blindroll"
+			}
+			if(rolls.atq) game.dice3d.showForRoll(rolls.atq, game.user, true, wd.whisper, wd.blind);
+		}
 		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;
 	}
