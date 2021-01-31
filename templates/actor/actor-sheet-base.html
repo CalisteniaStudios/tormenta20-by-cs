@@ -37,7 +37,7 @@
 							<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 						</h1>
 						<div class="level-information" style="margin-right: 0.5em;">
-							<input class="level" disabled style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;" name="data.attributes.nivel.value" type="text" value="Nível {{data.attributes.nivel.value}}" data-dtype="String" />
+							<a class="health-settings"><div class="level" style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
 							{{#unless disableExperience}}
 							<div class="xp-tracker" title="Experiência">
 									<div class="experience" style="height: 16px;">
@@ -118,7 +118,7 @@
 										<span class="sep">|</span>
 									
 									<label class="flexcol">
-										<input name="data.attributes.pv.max" type="text" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+										<input disabled style="color: #191813" name="data.attributes.pv.max" type="text" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 										Totais
 									</label>
 									
@@ -139,7 +139,7 @@
 									</label>
 									<span class="sep">|</span>
 									<label class="flexcol">
-										<input name="data.attributes.pm.max" type="text" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
+										<input disabled style="color: #191813" name="data.attributes.pm.max" type="text" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
 										Totais
 									</label>
 									<span class="sep">|</span>

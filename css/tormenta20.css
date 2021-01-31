@@ -497,6 +497,7 @@ button {
 }
 
 .tormenta20 nav.sheet-tabs {
+  align-content: center;
   text-align: center;
   font-size: 18px;
 }
@@ -535,6 +536,7 @@ button {
   align-items: center;
 }
 
+.tormenta20 .trait-list .item-header,
 .tormenta20 .skills-list .item-header {
   height: auto!important;
   font-weight: bold;
