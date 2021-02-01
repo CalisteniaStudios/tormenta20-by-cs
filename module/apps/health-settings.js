@@ -46,6 +46,11 @@ export default class HealthSettings extends FormApplication {
 		const nivel = this.object.data.data.attributes.nivel.value;
 		const config = this.options.config;
 		for ( let [k, v] of Object.entries(formData) ) {
+			if (Number.isInteger(v)) {
+				let chave = k.split(".")[1];
+				soma[chave] += v;
+			}
+			if (k.includes("pv.") || k.includes("pm.")) {
 				let chave = k.split(".")[0];
 				k = k.split(".")[1];
 				if (v) {
@@ -65,6 +70,7 @@ export default class HealthSettings extends FormApplication {
 					soma[chave] += valor;
 				}
 				flags[k] = v;
+			}
 		}
 		updateData["data.attributes.pv.max"] = soma.pv;
 		updateData["data.attributes.pm.max"] = soma.pm;
