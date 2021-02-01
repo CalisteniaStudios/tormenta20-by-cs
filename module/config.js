@@ -268,16 +268,6 @@ T20Config.atributosAbr = {
 T20Config.pvPorNivel = [2, 3, 4, 5, 6];
 T20Config.pmPorNivel = [3, 4, 5, 6];
 
-T20Config.listaAlteraPV = {
-	/* chave: [nome, total, porNivel] */
-	"anao": ["Raça: Anão (+3 e +1 por nível seguinte)", 2, 1], //tá certo, eu juro
-	"vitalidade": ["Poder: Vitalidade (+1 por nível)", 0, 1]
-}
-T20Config.listaAlteraPM = {
-	/* chave: [nome, total, porNivel] */
-	"elfo": ["Raça: Elfo (+1 por nível)", 0, 1],
-	"vontadeDeFerro": ["Poder: Vontade de Ferro (+1 por cada 2 níveis)", 0, 0.5]
-}
 T20Config.atributoPV = {
 	"forPV": "Força",
 	"desPV": "Destreza",

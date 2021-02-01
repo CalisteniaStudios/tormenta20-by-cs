@@ -1,11 +1,11 @@
-export default class HealthSettings extends FormApplication {
+export default class LevelSettings extends FormApplication {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			id: "trait-selector",
 			classes: ["tormenta20"],
 			title: "Configuração de Nível",
-			template: "systems/tormenta20/templates/apps/health-settings.html",
+			template: "systems/tormenta20/templates/apps/level-settings.html",
 			width: 500,
 			height: "auto",
 			choices: {},
@@ -54,22 +54,17 @@ export default class HealthSettings extends FormApplication {
 				let chave = k.split(".")[0];
 				k = k.split(".")[1];
 				if (v) {
-					let lista = (chave == "pv") ? config.listaAlteraPV : (chave == "pm" ? config.listaAlteraPM : {});
-					let valor = 0;
-					if (lista[k] != undefined) {
-						valor += lista[k][1];
-						valor += nivel * lista[k][2];
+						let valor = 0;
+						if (k.includes("PV") || k.includes("PM")) { //atributos
+							let chaveAtributo = k.replace("PV","").replace("PM","");
+							valor += this.object.data.data.atributos[chaveAtributo].mod;
+						}
+						else if (k.includes("pvBonus") || k.includes("pmBonus")) {
+							valor += parseFloat(v[0] || 0) + nivel * parseFloat(v[1] || 0);
+						}
+						soma[chave] += valor;
+						flags[k] = v;
 					}
-					else if (k.includes("PV") || k.includes("PM")) { //atributos
-						let chaveAtributo = k.replace("PV","").replace("PM","");
-						valor += this.object.data.data.atributos[chaveAtributo].mod;
-					}
-					else if (k.includes("pvBonus") || k.includes("pmBonus")) {
-						valor += parseFloat(v[0] || 0) + nivel * parseFloat(v[1] || 0);
-					}
-					soma[chave] += valor;
-				}
-				flags[k] = v;
 			}
 		}
 		updateData["data.attributes.pv.max"] = soma.pv;
