@@ -1,7 +1,7 @@
 import { d20Roll, damageRoll } from '../../dice.js';
 import AbilityUseDialog from "../../apps/ability-use-dialog.js";
 import TraitSelector from "../../apps/trait-selector.js";
-import HealthSettings from "../../apps/health-settings.js";
+import LevelSettings from "../../apps/level-settings.js";
 import { T20Utility } from '../../utility.js';
 
 /**
@@ -178,7 +178,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if ( this.isEditable ) {
 
 			// TODO input Deltas
-			html.find('.health-settings').click(this._onHealthSettings.bind(this));
+			html.find('.level-settings').click(this._onLevelSettings.bind(this));
 
 			// Skills management
 			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
@@ -250,7 +250,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		new TraitSelector(this.actor, options).render(true)
 	}
 
-	_onHealthSettings(event) {
+	_onLevelSettings(event) {
 		event.preventDefault();
 		const actorData = this.object.data;
 		const a = event.currentTarget;
@@ -262,7 +262,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			}
 		});
 		const options = {classes, config};
-		new HealthSettings(this.actor, options).render(true);
+		new LevelSettings(this.actor, options).render(true);
 	}
 
 	/* -------------------------------------------- */
