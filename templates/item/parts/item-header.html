@@ -5,11 +5,12 @@
 		<h1 class="charname" style="margin: 0;">
 			<input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>
 		</h1>
+		{{#if (or (eq item.type "magia") (eq item.type "arma"))}}
 		<footer>
 			{{#if (eq item.type "magia")}}<label style="font-size: 11px">{{data.tipo}} {{data.circulo}} ({{data.escola}})</label>{{/if}}
 			{{#if (eq item.type "arma")}}<label style="font-size: 11px">{{lookup config.weaponTypes data.tipoUso }} — {{#if data.propriedades.ataqueDistancia}}Ataque à Distância ({{data.alcance}}){{else}}Corpo a Corpo{{/if}} — {{#if data.propriedades.duasMaos}}Duas Mãos{{else}}{{#if data.propriedades.leve}}Leve{{else}}Uma Mão{{/if}}{{/if}}</label>{{/if}}
 		</footer>
-		
+		{{/if}}
 	</div>
 	<aside style="text-align: right; flex: 0 101px;">
 		{{#if data.ativacao.custo}}<h2>{{data.ativacao.custo}} PM</h2>{{/if}}
