@@ -9,11 +9,9 @@ import { T20Utility } from "../../utility.js";
 export default class ActorSheetT20Character extends ActorSheetT20 {
 	/** @override */
 	static get defaultOptions() {
-		let layout = game.settings.get("tormenta20", "sheetTemplate");
-		let width = layout == 'tabbed' ? 750 : 900
 		return mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "character"],
-			width: width,
+			width: 900,
 			height: 600
 		});
 	}
@@ -51,6 +49,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// FLAGS
 		sheetData["isPreparationCaster"] = this.actor.data.flags.mago;
 		sheetData["mostrarBonusTreino"] = this.actor.data.flags.mostrarTreino;
+		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
 		/* Template SKILLS */
 		// TODO Migration function to enforce template data
@@ -76,6 +75,19 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	_prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
+		const favoritos = {
+			"armas": [],
+			"itens": [],
+			"poderes": [],
+			"magias": {
+        1: {spells: [], custo: 1},
+				2: {spells: [], custo: 3},
+				3: {spells: [], custo: 6},
+				4: {spells: [], custo: 10},
+				5: { spells: [], custo: 15}
+			},
+			"qtdMagias": 0
+		};
 		const poderes = [];
 		const equipamentos = [];
 		const inventario = [];
@@ -112,9 +124,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		for (let i of data.items) {
 			let item = i.data;
 			i.img = i.img || DEFAULT_TOKEN;
+			let isFav = i.flags.favorito ?? false;
 			// Sort into various arrays.
 			if (i.type === 'poder') {
-				poderes.push(i);
+					poderes.push(i);
+					if (isFav) favoritos.poderes.push(i);
 			}
 			else if (i.type === 'skill') {
 
@@ -135,19 +149,24 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 						maiorCirculo = i.data.circulo;
 					}
 				}
+				if (isFav) {
+					favoritos.magias[i.data.circulo].spells.push(i);
+					favoritos["qtdMagias"] += 1;
+				}
 			}
 			// If this is equipment, we currently lump it together.
 			else if (i.type === 'consumivel' || i.type === 'tesouro') {
 				i.peso = Number(i.data.peso)*Number(i.data.qtd);
 				inventario.push(i);
 				carga += i.peso;
+				if (isFav) favoritos.itens.push(i);
 			}
 			else if (i.type === 'equip' || i.type === 'armadura') {
 				i.peso = Number(i.data.peso)*Number(i.data.qtd);
 				inventario.push(i);
 				equipamentos.push(i);
 				carga += i.peso;
-
+				if (isFav) favoritos.itens.push(i);
 			}
 			else if (i.type === "classe") {
 				classes.push(i);
@@ -160,8 +179,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 						atqSkill = actorData.data.atributos[i.data.atrAtq].mod + actorData.data.pericias[i.data.pericia].value - periciaMod;
 					}
 					else {
-					atqSkill = actorData.data.pericias[i.data.pericia].value;
-				}
+						atqSkill = actorData.data.pericias[i.data.pericia].value;
+					}
 				}
 				/*NEW SKILL*/
 				else if (i.data.skill) {
@@ -187,6 +206,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				armas.push(i);
 				i.peso = Number(i.data.peso)*Number(i.data.qtd);
 				carga += i.peso;
+				if (isFav) favoritos.armas.push(i);
 			}
 		}
 
@@ -220,7 +240,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			// skillset["cstm"+id] = cstm;
 			skillset.push(cstm);
 		}
-
+		
+		actorData.favoritos = favoritos;
 		// Skillset
 		actorData.skillset = skillset;
 		// Assign and return powers
@@ -238,7 +259,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Attacks
 		actorData.ataques = ataques;
 		actorData.armas = armas;
-		actorData.referencias  = data.actor.effects;
+		actorData.referencias	= data.actor.effects;
 	}
 
 	/* -------------------------------------------- */
@@ -288,40 +309,40 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	}
 	
 	/**
-   * Compute the level and percentage of encumbrance for an Actor.
-   *
-   * Optionally include the weight of carried currency across all denominations by applying the standard rule
-   * from the PHB pg. 143
-   * @param {Object} actorData      The data object for the Actor being rendered
-   * @returns {{max: number, value: number, pct: number}}  An object describing the character's encumbrance level
-   * @private
-   */
-  _computeEncumbrance(actorData, carga) {
-    // Compute Encumbrance percentage
-    const max = actorData.data.atributos.for.value * 10;
-    const pct = Math.clamped((carga * 100) / max, 0, 100);
-    return { "value": carga, "pct": pct };
-  }
+	 * Compute the level and percentage of encumbrance for an Actor.
+	 *
+	 * Optionally include the weight of carried currency across all denominations by applying the standard rule
+	 * from the PHB pg. 143
+	 * @param {Object} actorData			The data object for the Actor being rendered
+	 * @returns {{max: number, value: number, pct: number}}	An object describing the character's encumbrance level
+	 * @private
+	 */
+	_computeEncumbrance(actorData, carga) {
+		// Compute Encumbrance percentage
+		const max = actorData.data.atributos.for.value * 10;
+		const pct = Math.clamped((carga * 100) / max, 0, 100);
+		return { "value": carga, "pct": pct };
+	}
 
 	/* -------------------------------------------- */
-	//  
+	//	
 	_onToggleArmor(ev) {
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.getOwnedItem(li.data("itemId"));
 		item.data.data.equipado = !item.data.data.equipado;
 		let current = $(ev.currentTarget)[0];
 		let items = this.actor.data.items;
-    
+		
 		const exclusiveSlot = item.data.data.tipo != "acessorio" ? item.data.data.tipo != "bonus" ? true : false : false; // exclusiveSlot = (item.data.data.tipo != "acessorio") && (item.data.data.tipo != "bonus"))
 
 		if (item.data.data.equipado && exclusiveSlot) {
 			let unequipped = items.some(element => { //some() === forEach() with a return
-        if(element.type === "equip" && element.data.equipado && element._id != item.data._id) {
-          if (element.data.tipo === item.data.data.tipo || ((element.data.tipo == "leve" || element.data.tipo == "pesada") && (item.data.data.tipo == "leve" || item.data.data.tipo == "pesada"))) {
-            element.data.equipado = false;
-            return true;
-          }
-        }
+				if(element.type === "equip" && element.data.equipado && element._id != item.data._id) {
+					if (element.data.tipo === item.data.data.tipo || ((element.data.tipo == "leve" || element.data.tipo == "pesada") && (item.data.data.tipo == "leve" || item.data.data.tipo == "pesada"))) {
+						element.data.equipado = false;
+						return true;
+					}
+				}
 			});
 			if (unequipped) {
 				this.actor.update({"items": items });
@@ -361,13 +382,18 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		if (!this.options.editable) return;
 
 		if (this.actor.owner) {
+			
+			html.find('.item-fav').click(ev => {
+				const li = $(ev.currentTarget).parents(".item");
+				const item = this.actor.getOwnedItem(li.data("itemId"));
+				item.update({ "flags.favorito": !item.data.flags.favorito });
+			});
 
 			// Update Inventory Item
 			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
 
 			// Prepare spells
 			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
-
 
 			// Drag events for macros.
 			let handler = ev => this._onDragStart(ev);
@@ -387,30 +413,30 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	* Create skills as items?
 	*/
 	// _CreateDefaultSkill(){
-	//   const pericias = T20Utility.getPericias();
+	//	 const pericias = T20Utility.getPericias();
 
-	//   const itemData = {
-	//     name: 
-	//   }
+	//	 const itemData = {
+	//		 name: 
+	//	 }
 	// }
 
 	/** @override */
-  async _onDropItemCreate(itemData) {
-    // Increment the number of class levels a character instead of creating a new item
-    if ( itemData.type === "classe" ) {
-      const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
+	async _onDropItemCreate(itemData) {
+		// Increment the number of class levels a character instead of creating a new item
+		if ( itemData.type === "classe" ) {
+			const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
 			const actorData = this.actor.data;
-      let priorLevel = cls?.data.data.niveis ?? 0;
+			let priorLevel = cls?.data.data.niveis ?? 0;
 			if ( !!cls ) { // Novo nivel de classe preexistente
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.data.attributes.nivel.value);
-        if ( next > priorLevel ) {
+				if ( next > priorLevel ) {
 					const pvMax = actorData.data.attributes.pv.max + parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
 					const pmMax = actorData.data.attributes.pm.max +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
 					this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
-          itemData.niveis = next;
-          return cls.update({"data.niveis": next});
-        }
-      }
+					itemData.niveis = next;
+					return cls.update({"data.niveis": next});
+				}
+			}
 			else if (actorData.data.attributes.nivel.value) { // Novo nivel de classe
 				const pvMax = actorData.data.attributes.pv.max + parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
 				const pmMax = actorData.data.attributes.pm.max +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
@@ -423,9 +449,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const pmMax = somaPM +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
 				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
 			}
-    }
+		}
 
-    // Default drop handling if levels were not added
-    super._onDropItemCreate(itemData);
-  }
+		// Default drop handling if levels were not added
+		super._onDropItemCreate(itemData);
+	}
 }

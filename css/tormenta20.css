@@ -631,11 +631,24 @@ button {
   flex: 2;
 }
 
-.tormenta20 .item-list .item-controls {
+.tormenta20 .base .item-list .item-controls {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 56px;
-  flex: 0 0 56px;
+  -ms-flex: 0 0 42px;
+  flex: 0 0 42px;
   text-align: right;
+}
+
+.tormenta20 .tabbed .item-list .item-controls {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 51px;
+  flex: 0 0 51px;
+  text-align: right;
+}
+
+.tormenta20 .item-list .item-controls a {
+  flex: 0 0 17px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .tormenta20 .ataques,
