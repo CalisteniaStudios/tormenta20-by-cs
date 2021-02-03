@@ -581,6 +581,18 @@ export default class ActorSheetT20 extends ActorSheet {
 				});
 			}
 		}
+		if (item.data.type === "classe") {
+			const niveis = item.data.data.niveis;
+			const actorData = this.actor.data;
+			if (niveis === actorData.data.attributes.nivel.value) {
+				this.actor.update({"data.attributes.pv.max": 0, "data.attributes.pm.max": 0});
+			}
+			else {
+				const pvMax = actorData.data.attributes.pv.max - niveis * (parseInt(item.data.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0));
+				const pmMax = actorData.data.attributes.pm.max - niveis * (parseInt(item.data.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0));
+				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
+			}
+		}
 		this.actor.deleteOwnedItem(li.dataset.itemId);
 	}
 

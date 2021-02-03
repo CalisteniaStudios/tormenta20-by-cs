@@ -392,14 +392,30 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
     // Increment the number of class levels a character instead of creating a new item
     if ( itemData.type === "classe" ) {
       const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
+			const actorData = this.actor.data;
       let priorLevel = cls?.data.data.niveis ?? 0;
-      if ( !!cls ) {
-        const next = Math.min(priorLevel + 1, 20 + priorLevel - this.actor.data.data.attributes.nivel.value);
+			if ( !!cls ) { // Novo nivel de classe preexistente
+				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.data.attributes.nivel.value);
         if ( next > priorLevel ) {
+					const pvMax = actorData.data.attributes.pv.max + parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
+					const pmMax = actorData.data.attributes.pm.max +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
+					this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
           itemData.niveis = next;
           return cls.update({"data.niveis": next});
         }
       }
+			else if (actorData.data.attributes.nivel.value) { // Novo nivel de classe
+				const pvMax = actorData.data.attributes.pv.max + parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
+				const pmMax = actorData.data.attributes.pm.max +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
+				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
+			}
+			else { // Primeiro Nivel do Personagem
+				const somaPV = (actorData.flags.pvBonus[0] ? parseInt(actorData.flags.pvBonus[0]) : 0) + (actorData.flags.forPV ? actorData.data.atributos.for.mod : 0) + (actorData.flags.desPV ? actorData.data.atributos.des.mod : 0) + (actorData.flags.intPV ? actorData.data.atributos.int.mod : 0) + (actorData.flags.sabPV ? actorData.data.atributos.sab.mod : 0) + (actorData.flags.carPV ? actorData.data.atributos.car.mod : 0);
+				const somaPM = (actorData.flags.pmBonus[0] ? parseInt(actorData.flags.pmBonus[0]) : 0) + (actorData.flags.forPM ? actorData.data.atributos.for.mod : 0) + (actorData.flags.desPM ? actorData.data.atributos.des.mod : 0) + (actorData.flags.conPM ? actorData.data.atributos.con.mod : 0) + (actorData.flags.intPM ? actorData.data.atributos.int.mod : 0) + (actorData.flags.sabPM ? actorData.data.atributos.sab.mod : 0) + (actorData.flags.carPM ? actorData.data.atributos.car.mod : 0);
+				const pvMax = somaPV + 4 * parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
+				const pmMax = somaPM +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
+				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
+			}
     }
 
     // Default drop handling if levels were not added

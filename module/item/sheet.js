@@ -40,7 +40,7 @@ export default class ItemSheetT20 extends ItemSheet {
 				data.data.actorCD = this.object.options.actor.data.data.attributes.cd ? this.object.options.actor.data.data.attributes.cd : 0 ;
 			}
 			else {
-				data.data.actorCD = 10 + parseInt(this.object.options.actor.data.data.attributes.nivel.value/2);
+				data.data.actorCD = 10 + Math.floor(this.object.options.actor.data.data.attributes.nivel.value/2);
 			}
 			let atrRes = this.object.options.actor.data.data.atributos[data.data.atrRes]?.mod || 0; 
 			data.data.totalCD = data.data.actorCD + atrRes + data.data.cd;
