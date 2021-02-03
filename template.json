@@ -404,6 +404,7 @@
     },
     "arma": {
       "templates": ["base","objeto"],
+      "atrAtq": "for",
       "pericia": "lut",
       "atrDan": "for",
       "dano": "1d6",

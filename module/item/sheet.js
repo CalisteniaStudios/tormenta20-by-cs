@@ -48,9 +48,23 @@ export default class ItemSheetT20 extends ItemSheet {
 		if (data.item.type == "arma") {
 			// data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
 
+			if(data.data.atrAtq == undefined) {
+				switch (data.data.pericia) {
+					case "atu":
+						data.data.atrAtq = "car";
+						break;
+					case "pon":
+						data.data.atrAtq = "des";
+						break;
+					case "lut":
+					default:
+						data.data.atrAtq = "for";
+				}
+			}
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
 			data["propriedades"] = this._getItemProperties(data.item);
+			data["npc"] = this.object.options.actor?.data.type == "npc";
 		}
 		if (data.item.type == "classe") {
 			data.isGM = game.user.isGM;

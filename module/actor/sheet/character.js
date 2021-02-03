@@ -155,7 +155,13 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			else if (i.type === 'arma') {
 				let atqSkill;
 				if(actorData.data.pericias){
+					if (i.data.atrAtq && actorData.data.atributos[i.data.atrAtq].mod && actorData.data.pericias[i.data.pericia].atributo != i.data.atrAtq) {
+						let periciaMod = actorData.data.atributos[actorData.data.pericias[i.data.pericia].atributo].mod;
+						atqSkill = actorData.data.atributos[i.data.atrAtq].mod + actorData.data.pericias[i.data.pericia].value - periciaMod;
+					}
+					else {
 					atqSkill = actorData.data.pericias[i.data.pericia].value;
+				}
 				}
 				/*NEW SKILL*/
 				else if (i.data.skill) {
