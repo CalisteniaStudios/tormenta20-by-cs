@@ -140,7 +140,6 @@ export default class ItemT20 extends Item {
 		// TODO
 		// arma {ataque,dano,pericia,atributo,critico,multiplicador}
 		if(item.type === "arma"){
-			options.atrAtq = "";
 			options.pericia = "";
 			options.atqBns = "";
 			options.dano = "";
@@ -149,10 +148,10 @@ export default class ItemT20 extends Item {
 			options.multiplicador = "";
 			options.custo = "";
 		}
-		else if(item.type === "poder"){
+		if(item.type === "poder"){
 			options.custo = item.data.data.ativacao.custo
 		}
-		else if(item.type === "magia"){
+		if(item.type === "magia"){
 			options = mergeObject( options, this.getSpellData( id, actorData, configuration ) );
 			item.data.data.efeito = options.newFormula.trim();
 		}
@@ -188,11 +187,7 @@ export default class ItemT20 extends Item {
 
 		// Define Roll bonuses
 		const parts = [];
-		if( actorData.atributos[itemData.atrAtq].mod && actorData.pericias[itemData.pericia].atributo != itemData.atrAtq ) {
-			let periciaMod = actorData.atributos[actorData.pericias[itemData.pericia].atributo].mod;
-			parts.push(actorData.atributos[itemData.atrAtq].mod + actorData.pericias[itemData.pericia].value - periciaMod);
-		}
-		else if( actorData.pericias[itemData.pericia].value ) parts.push(actorData.pericias[itemData.pericia].value);
+		if( actorData.pericias[itemData.pericia].value ) parts.push(actorData.pericias[itemData.pericia].value);
 		if( itemData.atqBns ) parts.push(itemData.atqBns);
 		
 		const actorBonusPericia = actorData?.bonuses?.pericias || {};
