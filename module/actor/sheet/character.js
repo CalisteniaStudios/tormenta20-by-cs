@@ -9,9 +9,11 @@ import { T20Utility } from "../../utility.js";
 export default class ActorSheetT20Character extends ActorSheetT20 {
 	/** @override */
 	static get defaultOptions() {
+		let layout = game.settings.get("tormenta20", "sheetTemplate");
+		let width = layout == 'tabbed' ? 750 : 900
 		return mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "character"],
-			width: 900,
+			width: width,
 			height: 600
 		});
 	}
@@ -35,7 +37,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const sheetData = super.getData();
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
-		sheetData["enableLanguages"] = game.settings.get("tormenta20", "enableLanguages");
 		sheetData["disableJournal"] = game.settings.get("tormenta20", "disableJournal");
 
 		// TODO Understand this

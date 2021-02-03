@@ -56,7 +56,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			editable: this.isEditable,
 			cssClass: isOwner ? "editable" : "locked",
 			isCharacter: this.entity.data.type === "character",
-			isNPC: this.entity.data.type === "npc"
+			isNPC: this.entity.data.type === "npc",
+			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
 		data.config = CONFIG.T20;
 		

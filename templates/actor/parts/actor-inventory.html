@@ -46,7 +46,7 @@
 			<h4 class="item-name">{{item.name}}</h4>
 
 			<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
-			<div class="item-pen">{{numberFormat item.data.armadura.penalidade sign=true}}</div>
+			<div class="item-pen">{{item.data.armadura.penalidade}}</div>
 			<div class="item-qtd">{{item.data.qtd}}</div>
 			<div class="item-peso">{{item.peso}}</div>
 			<div class="item-toggles">
@@ -117,15 +117,15 @@
 	  <i class="fas fa-coins"></i>
 	</li>
 	<li class="currency-item" title="Ouro">
-	  <input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number">
+	  <input type="number" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" placeholder="0">
 	  <label for="data.detalhes.dinheiro.to" class="denomination gp">to</label>
 	</li>
 	<li class="currency-item" title="Prata">
-	  <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number">
+	  <input type="number" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" placeholder="0">
 	  <label for="data.detalhes.dinheiro.tp" class="denomination sp">t$</label>
 	</li>
 	<li class="currency-item" title="Cobre">
-	  <input type="text" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number">
+	  <input type="number" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number" placeholder="0">
 	  <label for="data.detalhes.dinheiro.tc" class="denomination cp">tc</label>
 	</li>
   </ul>

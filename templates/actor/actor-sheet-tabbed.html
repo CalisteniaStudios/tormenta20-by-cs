@@ -50,23 +50,23 @@
 				<li class="attribute health">
 					<h4 class="attribute-name box-title">Pontos de Vida</h4>
 					<div class="attribute-value multiple">
-						<input name="data.attributes.pv.value" type="text" value="{{data.attributes.pv.value}}" data-dtype="Number" placeholder="10">
+						<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" placeholder="10">
 						<span class="sep">/</span>
-						<input disabled style="color: #191813" name="data.attributes.pv.max" type="text" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+						<input disabled style="color: #191813" name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 					</div>
 					<footer class="attribute-footer">
-						<input name="data.attributes.pv.temp" title="Bônus Temporário" type="text" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
+						<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
 					</footer>
 				</li>
 				<li class="attribute mana">
 					<h4 class="attribute-name box-title">Pontos de Mana</h4>
 					<div class="attribute-value multiple">
-						<input name="data.attributes.pm.value" type="text" value="{{data.attributes.pm.value}}" data-dtype="Number" placeholder="10">
+						<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" placeholder="10">
 						<span class="sep">/</span>
-						<input disabled style="color: #191813" name="data.attributes.pm.max" type="text" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
+						<input disabled style="color: #191813" name="data.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
 					</div>
 					<footer class="attribute-footer">
-						<input name="data.attributes.pm.temp" title="Bônus Temporário" type="text" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
+						<input name="data.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
 					</footer>
 				</li>
 				<li class="attribute">
@@ -100,12 +100,6 @@
 						<input name="data.defesa.temp" title="Bônus Temporário" type="number"  class="temphealth" placeholder="0" value="{{data.defesa.temp}}" />
 					</footer>
 				</li>
-				<li class="attribute">
-					<h4 class="attribute-name box-title">Resistência a Dano</h4>
-					<div class="attribute-value">
-						<h1 style="height:auto">{{data.rd.value}}</h1>
-					</div>
-				</li>
 			</ul>
 		</section>
 	</header>
@@ -116,8 +110,8 @@
 		<label><a class="item" data-tab="inventory">Inventário</a></label>
 		<label><a class="item" data-tab="poderes">Poderes</a></label>
 		{{#if actor.maiorCirculo}}<label><a class="item" data-tab="magias">Magias</a></label>{{/if}}
-		<label><a class="item" data-tab="description">Biografia</a></label>
-		{{#unless disableJournal}}<label><a class="item" data-tab="journal">Diário</a></label>{{/unless}}
+		<!-- <label><a class="item" data-tab="description">Biografia</a></label> -->
+		<label><a class="item" data-tab="journal">Diário</a></label>
 		<label><a class="item" data-tab="efeitos">Efeitos</a></label>
 		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
@@ -143,13 +137,12 @@
 				</li>
 				{{/each}}
 			</ul>
-
+			
 			{{!-- Skills --}}
-
 			{{> "systems/tormenta20/templates/actor/parts/actor-skills.html"}}
 
-			<section class="center-pane">
-			
+			<section class="center-pane flexrow">
+				
 				<div class="outros">
 					<h3 style="text-align:center">PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h3>
 					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
@@ -178,26 +171,21 @@
 		<div class="tab poderes" data-group="primary" data-tab="poderes">
 			{{> "systems/tormenta20/templates/actor/parts/actor-powers.html" sections=power}}
 		</div>
-
+		
+		{{#if actor.maiorCirculo}}
 		<div class="tab magias" data-group="primary" data-tab="magias">
 			{{> "systems/tormenta20/templates/actor/parts/actor-spells.html" sections=spells}}
 		</div>
-
+		{{/if}}
+		
 		<div class="tab inventory" data-group="primary" data-tab="inventory">
 			{{> "systems/tormenta20/templates/actor/parts/actor-inventory.html" sections=inventory}}
 		</div>
 
-		{{!-- Biography Tab --}}
-		<div class="tab biography" data-group="primary" data-tab="description">
-			{{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
-		</div>
-		
-		{{#unless disableJournal}}
 		{{!-- Journal Tab --}}
 		<div class="tab journal" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}
 		</div>
-		{{/unless}}
 		
 		{{!-- Efeitos Tab --}}
 		<div class="tab efeitos" data-group="primary" data-tab="efeitos">

@@ -253,9 +253,42 @@
 			</div>
 			<div class="npc-line">
 				<label>Tesouro: </label>
-				{{data.treasure}}
-				<input type="text" name="data.treasure" value="{{data.treasure}}" data-dtype="String" title="Tesouro" />
+				{{#if data.treasure}}{{data.treasure}}{{else}}Nenhum{{/if}}
+				<input type="text" name="data.treasure" value="{{data.treasure}}" data-dtype="String" title="Tesouro" placeholder="Nenhum" />
 			</div>
+			{{#if (and enableLanguages (or data.detalhes.idiomas editing))}}
+			<div class="traits" style="margin:0;">
+				<a class="trait-selector" style="display:inline-block;" data-options="idiomas" data-target="data.detalhes.idiomas">
+					<label>Idiomas:</label>
+				</a>
+				<ul class="traits-list" style="display:inline-block;">
+				{{#each data.detalhes.idiomas.selected as |v k|}}
+					<li class="tag {{k}}">{{v}}</li>
+				{{/each}}
+				</ul>
+			</div>
+			{{/if}}
+			{{#if (or data.detalhes.dinheiro.to data.detalhes.dinheiro.tp data.detalhes.dinheiro.tc editing)}}
+			<div class="inventory-currency">  
+			  <ul class="currency">
+				<li class="currency-header" title="Moedas">
+				  <i class="fas fa-coins"></i>
+				</li>
+				<li class="currency-item" title="Ouro">
+				  <input type="number" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" placeholder="0">
+				  <label for="data.detalhes.dinheiro.to" class="denomination gp">to</label>
+				</li>
+				<li class="currency-item" title="Prata">
+				  <input type="number" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" placeholder="0">
+				  <label for="data.detalhes.dinheiro.tp" class="denomination sp">t$</label>
+				</li>
+				<li class="currency-item" title="Cobre">
+				  <input type="number" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number" placeholder="0">
+				  <label for="data.detalhes.dinheiro.tc" class="denomination cp">tc</label>
+				</li>
+			  </ul>
+			</div>
+			{{/if}}
 		</div>
 
 		{{!-- Biography Tab --}}

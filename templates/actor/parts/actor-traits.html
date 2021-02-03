@@ -1,6 +1,6 @@
 <div class="traits">
-	<div class="form-group">
-        <label>Tamanho</label>
+	<div>
+        <label style="display:inline-block;">Tamanho</label>
         <select class="actor-size" name="data.tamanho">
             {{#select data.tamanho}}
             {{#each config.tamanhos as |label size|}}
@@ -10,71 +10,71 @@
         </select>
     </div>
 	
-	<div class="form-group">
-		<label>Deslocamento</label>
-		<div class="flexrow">
+	<div>
+		<label style="display:inline-block;">Deslocamento</label>
+		<div style="display:inline-block;">
 			<input name="data.deslocamento.base" style="max-width: 30px; height: 20px;" title="Base" type="text" value="{{data.deslocamento.base}}" placeholder="0" data-dtype="Number" />
 			<span class="sep" style="font-size: 20px;">/</span>
-			<input name="data.deslocamento.total" style="max-width: 30px; height: 20px; border: 1px solid #7a7971; color: #191813;" disabled title="Atual" type="text" value="{{data.deslocamento.total}}" placeholder="0" data-dtype="Number" />
+			<input name="data.deslocamento.total" style="border: 1px solid #7a7971; background: rgba(0, 0, 0, 0.05); color: #191813;" disabled title="Atual" type="text" value="{{data.deslocamento.total}}" placeholder="0" data-dtype="Number" />
 		</div>
 	</div>
 	
-	<div class="form-group">
-		<label>Resistência a Dano</label>
+	<div>
+		<label style="display:inline-block;">Resistência a Dano</label>
 		<div>
-			<label>Total: <input name="data.rd.value" style="max-width: 30px; height: 20px; border: 1px solid transparent; background: none; color: #191813;" disabled title="Base" type="number" class="temphealth" placeholder="0" value="{{data.rd.value}}" /></label>
-			<label>Base: <input name="data.rd.base" style="max-width: 30px; height: 20px;" title="Base" type="number" class="temphealth" placeholder="0" value="{{data.rd.base}}" /></label>
-			<label>Temporário: <input name="data.rd.temp" style="max-width: 30px; height: 20px;" title="Bônus Temporário" type="number"  class="temphealth" placeholder="0" value="{{data.rd.temp}}" /></label>
+			<label style="display:inline-block;">Total: <input style="text-align:center;" name="data.rd.value" disabled title="Total" type="number" placeholder="0" value="{{data.rd.value}}" /></label>
+			<label style="display:inline-block;">Base: <input name="data.rd.base" style="max-width: 30px; height: 20px;" title="Base" type="number" placeholder="0" value="{{data.rd.base}}" /></label>
+			<label style="display:inline-block;">Temporário: <input name="data.rd.temp" style="max-width: 30px; height: 20px;" title="Bônus Temporário" type="number"  placeholder="0" value="{{data.rd.temp}}" /></label>
 		</div>
 	</div>
 	
-	<div class="form-group">
-        <label>Resistências</label>
-        <input name="data.resistencias" style="text-align: left; height: 20px; margin: 0;" type="text" value="{{data.resistencias}}" data-dtype="String" />
+	<div>
+        <label style="display:inline-block;">Resistências</label>
+        <input name="data.resistencias" style="text-align: left; height: 20px; margin: 0; width:auto;" type="text" value="{{data.resistencias}}" data-dtype="String" />
     </div>
 
-    <!-- <div class="form-group"> -->
-        <!-- <label>Imunidades a Dano</label> -->
+    <!-- <div> -->
+        <!-- <label style="display:inline-block;">Imunidades a Dano</label> -->
         <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.di"> -->
             <!-- <i class="fas fa-edit"></i> -->
         <!-- </a> -->
-        <!-- <ul class="traits-list"> -->
+        <!-- <ul class="trait-list" style="display:inline-block; padding:0; margin:0"> -->
         <!-- {{#each data.traits.di.selected as |v k|}} -->
             <!-- <li class="tag {{k}}">{{v}}</li> -->
         <!-- {{/each}} -->
         <!-- </ul> -->
     <!-- </div> -->
 
-    <!-- <div class="form-group"> -->
-        <!-- <label>Resistências a Dano</label> -->
+    <!-- <div> -->
+        <!-- <label style="display:inline-block;">Resistências a Dano</label> -->
         <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dr"> -->
             <!-- <i class="fas fa-edit"></i> -->
         <!-- </a> -->
-        <!-- <ul class="traits-list"> -->
+        <!-- <ul class="trait-list" style="display:inline-block; padding:0; margin:0"> -->
         <!-- {{#each data.traits.dr.selected as |v k|}} -->
             <!-- <li class="tag {{k}}">{{v}}</li> -->
         <!-- {{/each}} -->
         <!-- </ul> -->
     <!-- </div> -->
 
-    <!-- <div class="form-group"> -->
-        <!-- <label>Vulnerabilidades à Dano</label> -->
+    <!-- <div> -->
+        <!-- <label style="display:inline-block;">Vulnerabilidades à Dano</label> -->
         <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dv"> -->
             <!-- <i class="fas fa-edit"></i> -->
         <!-- </a> -->
-        <!-- <ul class="traits-list"> -->
+        <!-- <ul class="trait-list" style="display:inline-block; padding:0; margin:0"> -->
         <!-- {{#each data.traits.dv.selected as |v k|}} -->
             <!-- <li class="tag {{k}}">{{v}}</li> -->
         <!-- {{/each}} -->
         <!-- </ul> -->
     <!-- </div> -->
 
-    <!-- <div class="form-group"> -->
-        <!-- <label>Imunidades à Condições</label> -->
+    <!-- <div> -->
+        <!-- <label style="display:inline-block;">Imunidades à Condições</label> -->
         <!-- <a class="trait-selector" data-options="conditionTypes" data-target="data.traits.ci"> -->
             <!-- <i class="fas fa-edit"></i> -->
         <!-- </a> -->
-        <!-- <ul class="traits-list"> -->
+        <!-- <ul class="trait-list" style="display:inline-block; padding:0; margin:0"> -->
         <!-- {{#each data.traits.ci.selected as |v k|}} -->
             <!-- <li class="tag {{k}}">{{v}}</li> -->
         <!-- {{/each}} -->
@@ -83,9 +83,9 @@
 
     {{#if isCharacter}}
 	<hr>
-	<div class="form-group">
-        <label style="flex: 1;">Classes</label>
-		<ul class="traits-list">
+	<div>
+        <label style="display:inline-block;">Classes</label>
+		<ul class="trait-list" style="display:inline-block; padding:0; margin:0">
         {{#each actor.classes as |item|}}
 			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
 				<a class="item-control item-edit" title="Editar">
@@ -100,11 +100,11 @@
     </div>
 	
 	{{#if enableLanguages}}
-    <div class="form-group">
+    <div>
         <a class="trait-selector" data-options="idiomas" data-target="data.detalhes.idiomas">
-            <label>Idiomas</label>
+            <label style="display:inline-block;">Idiomas</label>
         </a>
-		<ul class="traits-list">
+		<ul class="trait-list" style="display:inline-block; padding:0; margin:0">
         {{#each data.detalhes.idiomas.selected as |v k|}}
             <li class="tag {{k}}">{{v}}</li>
         {{/each}}
@@ -112,22 +112,22 @@
     </div>
 	{{/if}}
 	
-    <div class="form-group">
+    <div>
         <a class="trait-selector" data-options="profArmas" data-target="data.detalhes.profArmas">
-            <label>Proficiências em Armas</label>
+            <label style="display:inline-block;">Proficiências em Armas</label>
         </a>
-        <ul class="traits-list">
+        <ul class="trait-list" style="display:inline-block; padding:0; margin:0">
         {{#each data.detalhes.profArmas.selected as |v k|}}
             <li class="tag {{k}}">{{v}}</li>
         {{/each}}
         </ul>
     </div>
 
-    <div class="form-group">
+    <div>
         <a class="trait-selector armaduras" data-options="profArmaduras" data-target="data.detalhes.profArmaduras">
-            <label>Proficiências em Armaduras</label>
+            <label style="display:inline-block;">Proficiências em Armaduras</label>
         </a>
-        <ul class="traits-list">
+        <ul class="trait-list" style="display:inline-block; padding:0; margin:0">
         {{#each data.detalhes.profArmaduras.selected as |v k|}}
             <li class="tag {{k}}">{{v}}</li>
         {{/each}}
@@ -135,8 +135,8 @@
     </div>
     {{/if}}
 
-    <!-- <div class="form-group"> -->
-        <!-- <label>{{localize "DND5E.SpecialTraits"}}</label> -->
+    <!-- <div> -->
+        <!-- <label style="display:inline-block;">{{localize "DND5E.SpecialTraits"}}</label> -->
         <!-- <a class="config-button" data-action="flags" title="{{localize 'DND5E.SpecialTraits'}}"><i class="fas fa-cog"></i></a> -->
     <!-- </div> -->
 </div>

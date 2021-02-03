@@ -41,6 +41,10 @@
   border: 1px solid #111;
   box-shadow: 0 0 8px red;
 }
+.tormenta20 .tabbed input:disabled:hover {
+  border: 0;
+  box-shadow: none;
+}
 .tormenta20 .tabbed .form-group label {
   flex: 2;
   color: #4b4a44;
@@ -160,6 +164,9 @@
   border-radius: 3px;
   text-transform: uppercase;
 }
+.tormenta20 .tabbed .ability-scores .ability:not(:last-child) {
+  border-right: 1px solid #c9c7b8;
+}
 .tormenta20 .tabbed .ability-scores .ability {
   height: 50px;
   text-align: center;
@@ -193,6 +200,10 @@
   /* line-height: 30px; */
   padding: 0 0 0 2px;
   border-bottom: 1px solid #c9c7b8;
+}
+.tormenta20 .tabbed .tab .item.tag {
+  padding: 0 3px;
+  border-bottom: 1px solid #999;
 }
 .tormenta20 .tabbed .tab.inventory .item:last-child {
   border-bottom: none;
