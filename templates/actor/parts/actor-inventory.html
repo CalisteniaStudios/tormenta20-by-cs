@@ -15,7 +15,7 @@
 			<span class="rollable arma-rollable item-name">
 				<h4 class="item-name" >{{item.name}}</h4>
 			</span>
-			{{#if (eq layout "tabbed")}}<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>{{/if}}
+			{{#if (eq ../layout "tabbed")}}<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>{{/if}}
 			<div class="item-qtd">{{item.data.qtd}}</div>
 			<div class="item-peso">{{item.peso}}</div>
 			<div class="item-controls">
@@ -46,7 +46,7 @@
 		<li class="item flexrow" data-item-id="{{item._id}}">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			<h4 class="item-name">{{item.name}}</h4>
-			{{#if (eq layout "tabbed")}}
+			{{#if (eq ../layout "tabbed")}}
 			<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
 			<div class="item-pen">{{item.data.armadura.penalidade}}</div>
 			{{/if}}
