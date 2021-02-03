@@ -55,6 +55,14 @@
             <div class="form-group">
 				<label>Ataque: 1d20+</label>
 				<div class="form-fields">
+					{{#unless actor.isNPC}}
+					<select class="selectatr" name="data.atrAtq" value={{data.atrAtq}} data-type="String">
+						{{#select data.atrAtq}}
+						{{#each config.atributos as |atr key|}}
+						<option value="{{key}}">{{atr}}</option>
+						{{/each}}
+						{{/select}}
+					</select>
 					<select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
 					  {{#select data.pericia}}
 					  <option value="lut">Luta</option>
@@ -62,6 +70,7 @@
 					  <option value="atu">Atuação</option>
 					  {{/select}}
 					</select>
+					{{/unless}}
 					<input type="text" title="Bônus" name="data.atqBns" value="{{#ifEquals data.atqBns ''}}0{{else}}{{data.atqBns}}{{/ifEquals}}" data-dtype="String"/>
 				</div>
 			</div>
