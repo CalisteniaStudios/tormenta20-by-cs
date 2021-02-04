@@ -500,6 +500,11 @@ button {
   height: inherit;
 }
 
+.tormenta20 .sheet-body .tab .item-description .editor,
+.tormenta20 .sheet-body .tab .item-description .editor .editor-content {
+  height: 100%;
+}
+
 .tormenta20 .tox .tox-editor-container {
   background: #fff;
 }
