@@ -74,10 +74,10 @@ export default class TraitSelector extends FormApplication {
 
     // Validate the number chosen
     if ( this.options.minimum && (chosen.length < this.options.minimum) ) {
-      return ui.notifications.error(`You must choose at least ${this.options.minimum} options`);
+      return ui.notifications.error(`Você precisa escolher no mínimo ${this.options.minimum} perícias`);
     }
     if ( this.options.maximum && (chosen.length > this.options.maximum) ) {
-      return ui.notifications.error(`You may choose no more than ${this.options.maximum} options`);
+      return ui.notifications.error(`Você pode escolher no máximo ${this.options.maximum} perícias`);
     }
 
     // Include custom

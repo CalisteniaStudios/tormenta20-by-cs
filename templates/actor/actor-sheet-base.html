@@ -7,16 +7,7 @@
 			<i class="fas fa-dice-d20"></i>
 			<a class="item" data-tab="attributes" title="Ficha">Ficha</a>
 		</label>
-		<label>
-			<i class="fas fa-address-card"></i>
-			<a class="item" data-tab="description" title="Biografia">Biografia</a>
-		</label>
-		{{#if owner }}
-		<label>
-			<i class="fas fa-book"></i>
-			<a class="item" data-tab="journal">Diário</a>
-		</label>
-		{{/if}}
+		<label><i class="fas fa-book"></i><a class="item" data-tab="journal">Diário</a></label>
 		<!-- <label><i class="fas fa-wrench"></i> <a class="item" data-tab="aviso" title="Aviso">Aviso</a></label> -->
 		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
@@ -31,13 +22,14 @@
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
 	
 			<header class="sheet-header flexrow" style="margin-bottom: -2px;">
+				<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
 				<section class="header-details flexcol">
 					<section class="general-information">
 						<h1 class="charname"">
 							<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 						</h1>
 						<div class="level-information" style="margin-right: 0.5em;">
-							<input class="level" disabled style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;" name="data.attributes.nivel.value" type="text" value="Nível {{data.attributes.nivel.value}}" data-dtype="String" />
+							<a class="level-settings"><div class="level" style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
 							{{#unless disableExperience}}
 							<div class="xp-tracker" title="Experiência">
 									<div class="experience" style="height: 16px;">
@@ -90,16 +82,10 @@
 								<h1 style="border: 0!important; padding:0;">{{numberFormat atr.mod decimals=0 sign=true}}</h1>
 							</label>
 							</span>
-							<footer class="attribute-footer flexrow">
-								<label class="flexcol">
-									<input style="margin-bottom: 0;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" placeholder="0" />
-									Base
-								</label>
+							<footer class="attribute-footer flexrow" style="justify-content: center;">
+								<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" placeholder="0" />
 								{{#if ../actor.flags.mostrarAtributoTemp}}
-								<label class="flexcol">
-									<input style="margin-bottom: 0;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.temp"  value="{{atr.temp}}" placeholder="0" />
-									Temp
-								</label>
+								<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.temp"  value="{{atr.temp}}" placeholder="0" />
 								{{/if}}
 							</footer>
 						</li>
@@ -109,45 +95,25 @@
 						<ul class="attributes flexrow">
 							<li class="attribute health">
 								<h4 class="attribute-name box-title">Pontos de Vida</h4>
-								<div class="attribute-value multiple flexrow" style="width: 70%;margin: auto;">
-									<label class="flexcol">
-										<input name="data.attributes.pv.value" type="text" value="{{data.attributes.pv.value}}" data-dtype="Number" placeholder="10">
-										<span>Atuais</span>
-									</label>
-									
-										<span class="sep">|</span>
-									
-									<label class="flexcol">
-										<input name="data.attributes.pv.max" type="text" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
-										Totais
-									</label>
-									
-										<span class="sep">|</span>
-									
-									<label class="flexcol">
-										<input name="data.attributes.pv.temp" title="Bônus Temporário" type="text" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
-										Temporários
-									</label>
+								<div class="attribute-value multiple">
+									<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" placeholder="10">
+									<span class="sep">/</span>
+									<input disabled style="color: #191813" name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 								</div>
+								<footer class="attribute-footer">
+									<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
+								</footer>
 							</li>
 							<li class="attribute mana">
 								<h4 class="attribute-name box-title">Pontos de Mana</h4>
-								<div class="attribute-value multiple flexrow" style="width: 70%;margin: auto;">
-									<label class="flexcol">
-										<input name="data.attributes.pm.value" type="text" value="{{data.attributes.pm.value}}" data-dtype="Number" placeholder="-">
-										Atuais
-									</label>
-									<span class="sep">|</span>
-									<label class="flexcol">
-										<input name="data.attributes.pm.max" type="text" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
-										Totais
-									</label>
-									<span class="sep">|</span>
-									<label class="flexcol">
-										<input name="data.attributes.pm.temp" title="Bônus Temporário" type="text" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
-										Temporários
-									</label>
+								<div class="attribute-value multiple">
+									<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" placeholder="10">
+									<span class="sep">/</span>
+									<input disabled style="color: #191813" name="data.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
 								</div>
+								<footer class="attribute-footer">
+									<input name="data.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
+								</footer>
 							</li>
 						</ul>
 					</div>
@@ -180,7 +146,7 @@
 						</ol>
 					</div>
 					<div class="defesa">
-						<ol class="ability-scores" style="width: calc(20% - 2px); height:124px; display:inline-block;">
+						<ol class="ability-scores" style="width: calc(20% - 2px); height:100px; display:inline-block;">
 							<li class="flexrow item-header flex-center">
 								<h4 class="box-title">Defesa</h4>
 							</li>
@@ -210,21 +176,14 @@
 									</div>
 									<div class="flexrow">
 										{{#if actor.flags.mostrarOutrosDefesa}}
-										<label class="flexcol">
 											<input name="data.defesa.outro" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.defesa.outro}}" />
-											Outros
-										</label>
 										{{/if}}
-										<label class="flexcol">
 											<input name="data.defesa.temp" title="Bônus Temporário" type="number"  class="temphealth" placeholder="0" value="{{data.defesa.temp}}" />
-											Temp
-										</label>
-											
 									</div>
 								</div>
 							</li>
 						</ol>
-						<ol class="item-list" style="width: calc(80% - 2px); max-height:124px; display:inline-block; vertical-align: top; margin:0; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
+						<ol class="item-list" style="width: calc(80% - 2px); max-height:100px; display:inline-block; vertical-align: top; margin:0; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							<li class="item flexrow item-header">
 								<div class="item-image"></div>
 								<div class="item-name flex2">Equipamento</div>
@@ -237,10 +196,10 @@
 							{{#each actor.equipamentos as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-								<h4 class="item-name flex2">{{item.name}}</h4>
+								<h4 class="item-name flex2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.name}}</h4>
 
 								<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
-								<div class="item-pen">{{numberFormat item.data.armadura.penalidade sign=true}}</div>
+								<div class="item-pen">{{item.data.armadura.penalidade}}</div>
 								<div class="item-toggles">
 									<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
 										<i class="fas fa-shield-alt"></i>
@@ -259,95 +218,14 @@
 						</ol>
 					</div>
 					<div class="poderes">
-						<ol class="item-list">
-							<li class="item flexrow item-header flex-center">
-							Poderes
-							</li>
-							<li class="item flexrow item-header">
-								<div class="item-image"></div>
-								<div class="item-name">Poder</div>
-								<div class="item-tipo">Tipo</div>
-								<div class="item-tipo">Ativação</div>
-								{{#if owner}}
-								<div class="item-controls">
-									<a class="item-control item-create" title="Novo Poder" data-type="poder"><i class="fas fa-plus"></i> Novo</a>
-								</div>
-								{{/if}}
-							</li>
-							<div style="max-height:400px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
-							{{#each actor.poderes as |item id|}}
-							<li class="item flexrow" data-item-id="{{item._id}}">
-								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-								<span class="rollable poder-rollable" data-label="{{item.name}}">
-									<h4 class="item-name">{{item.name}}</h4>
-								</span>
-								<div class="item-tipo" style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</div>
-								<div class="item-tipo">{{#if item.data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.ativacao.custo}} ({{item.data.ativacao.custo}} PM){{/if}}{{/if}}{{/each}}{{else}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{/if}}{{/if}}</div>
-								{{#if ../owner}}
-								<div class="item-controls">
-									<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
-									<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
-								</div>
-								{{/if}}
-							</li>
-							{{/each}}
-							</div>
-						</ol>
+						<h4 class="attribute-name poderes-title">Poderes</h4>
+						{{> "systems/tormenta20/templates/actor/parts/actor-powers.html"}}
 					</div>
 
 					{{#if actor.maiorCirculo}}
 					<div class="magias">
-						<ol class="item-list">
-							<li class="item flexrow item-header flex-center">
-								<div>Magias</div>
-							</li>
-							<li class="item item-header" style="text-align: center;">
-								<div>
-							<label>CD:</label> <input style="max-width: 30px;" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number">
-								<select title="Atributo-Chave" name="data.atributoChave">
-									{{#select data.atributoChave}}
-									<option value="int">Inteligência</option>
-									<option value="sab">Sabedoria</option>
-									<option value="car">Carisma</option>
-									{{/select}}
-								</select>
-								</div>
-							</li>
-							{{#each actor.magias as |circulo i|}}
-							{{#if (lte i ../actor.maiorCirculo)}}
-							<ol class="item-list">
-								<li class="item flexrow item-header">
-									{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
-									<div class="item-image"></div>
-									<div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
-									<div class="item-tipo">Escola</div>
-									<div class="item-tipo">Ativação</div>
-									<div class="item-controls">
-
-										<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}}" data-atrRes="{{../actor.data.atributoChave}}"><i class="fas fa-plus"></i> Nova</a>
-									</div>
-								</li>
-								{{#each circulo.spells as |m index|}}
-								<li class="item flexrow" data-item-id="{{m._id}}">
-									{{#if ../../isPreparationCaster}}
-									<div class="item-toggles">
-										<a class="item-toggle preparation-toggle {{#if m.data.preparada }}active{{/if}}" title="Preparada"><i class="fas fa-sun"></i></a>
-									</div>
-									{{/if}}
-									<div class="item-image" style="background-image: url('{{m.img}}')"></div>
-									<span class="rollable magia-rollable" data-label="{{m.name}}"><h4 class="item-name">{{m.name}}</h4></span>
-									<div class="item-tipo">{{m.data.escola}}</div>
-									<div class="item-tipo">{{#each ../../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#ifNotEquals ../data.ativacao.custo circulo.custo}} ({{../data.ativacao.custo}} PM){{/ifNotEquals}}{{/if}}{{/each}}</div>
-									<div class="item-controls">
-										<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
-										<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
-									</div>
-								</li>
-								{{/each}}
-							</ol>
-							{{/if}}
-							{{/each}}
-						</ol>
+						<h4 class="attribute-name poderes-title">Magias</h4>
+						{{> "systems/tormenta20/templates/actor/parts/actor-spells.html" sections=spells}}
 					</div>
 					{{/if}}
 
@@ -410,8 +288,6 @@
 							<li class="item flexrow item-header">
 								<div class="item-name text-right">
 									&nbsp;&nbsp;
-									<a class="item-control item-create" title="Criar armadura" data-type="equip"><i class="fas fa-plus"></i> Equipamento</a>
-									&nbsp;&nbsp;
 									<a class="item-control item-create" title="Criar consumivel" data-type="consumivel"><i class="fas fa-plus"></i> Consumível</a>
 									&nbsp;&nbsp;
 									<a class="item-control item-create" title="Criar tesouro" data-type="tesouro"><i class="fas fa-plus"></i> Item</a>
@@ -424,16 +300,20 @@
 							<li class="currency-header" title="Moedas">
 							  <i class="fas fa-coins"></i>
 							</li>
+							<li class="currency-item" title="Platina">
+							  <input type="number" name="data.detalhes.dinheiro.tl" value="{{data.detalhes.dinheiro.tl}}" data-dtype="Number" placeholder="0">
+							  <label for="data.detalhes.dinheiro.tl" class="denomination gp">tl</label>
+							</li>
 							<li class="currency-item" title="Ouro">
-							  <input type="text" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number">
+							  <input type="number" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" placeholder="0">
 							  <label for="data.detalhes.dinheiro.to" class="denomination gp">to</label>
 							</li>
 							<li class="currency-item" title="Prata">
-							  <input type="text" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number">
+							  <input type="number" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" placeholder="0">
 							  <label for="data.detalhes.dinheiro.tp" class="denomination sp">t$</label>
 							</li>
 							<li class="currency-item" title="Cobre">
-							  <input type="text" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number">
+							  <input type="number" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number" placeholder="0">
 							  <label for="data.detalhes.dinheiro.tc" class="denomination cp">tc</label>
 							</li>
 						  </ul>
@@ -449,19 +329,6 @@
 			</div>
 		</div>
 
-		{{!-- Biography Tab --}}
-
-		<div class="tab biography" data-group="primary" data-tab="description">
-			<div class="flexrow flex-between">
-				<div style="max-width: 220px;">
-					<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200" width="200" />
-				</div>
-
-				{{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
-
-			</div>
-		</div>
-		
 		{{!-- Journal Tab --}}
 		<div class="tab journal" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}

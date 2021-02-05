@@ -46,6 +46,6 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 * André Oliveira
 
 ## Atribuições
-- [sdenec](https://github.com/sdenec/) pelo [Tidy5e Sheet](https://github.com/sdenec/tidy5e-sheet), cujo código foi adaptado neste sistema.
-- [syl3r86](https://github.com/syl3r86) pelo [Compendium Browser](https://github.com/syl3r86/compendium-browser) que foi adaptado neste sistema.
+- [sdenec](https://github.com/sdenec/) pelo módulo [Tidy5e Sheet](https://github.com/sdenec/tidy5e-sheet), cujo código foi adaptado neste sistema.
+- [syl3r86](https://github.com/syl3r86) pelos módulos [Compendium Browser](https://github.com/syl3r86/compendium-browser) e [FavTab](https://github.com/syl3r86/favtab), que foram adaptados neste sistema.
 - Arte de alguns ícones de magias: J. W. Bjerk (eleazzaar) -- www.jwbjerk.com/art -- find this and other open art at: http://opengameart.org

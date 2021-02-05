@@ -268,6 +268,22 @@ T20Config.atributosAbr = {
 T20Config.pvPorNivel = [2, 3, 4, 5, 6];
 T20Config.pmPorNivel = [3, 4, 5, 6];
 
+T20Config.atributoPV = {
+	"forPV": "Força",
+	"desPV": "Destreza",
+	"intPV": "Inteligência",
+	"sabPV": "Sabedoria",
+	"carPV": "Carisma"
+}
+T20Config.atributoPM = {
+	"forPM": "Força",
+	"desPM": "Destreza",
+	"conPM": "Constituição",
+	"intPM": "Inteligência",
+	"sabPM": "Sabedoria",
+	"carPM": "Carisma"
+}
+
 /* ------------------ Perícias ---------------- */
 
 T20Config.pericias = {
@@ -327,7 +343,18 @@ T20Config.idiomas = {
 	"goblin": "Goblin",
 	"hynne": "Hynne",
 	"silvestre": "Silvestre",
-	"taurico": "Táurico"
+	"taurico": "Táurico",
+	"abissal": "Abissal",
+	"aquan": "Aquan",
+	"auran": "Auran",
+	"celestial": "Celestial",
+	"draconico": "Dracônico",
+	"gigante": "Gigante",
+	"gnoll": "Gnoll",
+	"ignan": "Ignan",
+	"infernal": "Infernal",
+	"orc": "Orc",
+	"terran": "Terran"
 };
 
 T20Config.profArmas = {

@@ -1,5 +1,6 @@
 import { prepRoll } from "../../dice.js";
 import TraitSelector from "../../apps/trait-selector.js";
+import LevelSettings from "../../apps/level-settings.js";
 import { T20Utility } from '../../utility.js';
 import ConjurarDialog from "../../apps/conjurar-dialog.js";
 
@@ -55,7 +56,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			editable: this.isEditable,
 			cssClass: isOwner ? "editable" : "locked",
 			isCharacter: this.entity.data.type === "character",
-			isNPC: this.entity.data.type === "npc"
+			isNPC: this.entity.data.type === "npc",
+			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
 		data.config = CONFIG.T20;
 		
@@ -177,6 +179,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if ( this.isEditable ) {
 
 			// TODO input Deltas
+			html.find('.level-settings').click(this._onLevelSettings.bind(this));
 
 			// Skills management
 			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
@@ -241,6 +244,21 @@ export default class ActorSheetT20 extends ActorSheet {
     const options = { name: a.dataset.target, title: label.innerText, choices };
     new TraitSelector(this.actor, options).render(true)
   }
+
+	_onLevelSettings(event) {
+		event.preventDefault();
+		const actorData = this.object.data;
+		const a = event.currentTarget;
+		const config = CONFIG.T20;
+		const classes = [];
+		actorData.items.forEach(item => {
+			if ( item.type === "classe" ) {
+				classes.push(item);
+			}
+		});
+		const options = {classes, config};
+		new LevelSettings(this.actor, options).render(true);
+	}
 
 	/* -------------------------------------------- */
 
@@ -526,6 +544,18 @@ export default class ActorSheetT20 extends ActorSheet {
 				this.actor.update({
 					"data.defesa.escudo": armadura,
 				});
+			}
+		}
+		if (item.data.type === "classe") {
+			const niveis = item.data.data.niveis;
+			const actorData = this.actor.data;
+			if (niveis === actorData.data.attributes.nivel.value) {
+				this.actor.update({"data.attributes.pv.max": 0, "data.attributes.pm.max": 0});
+			}
+			else {
+				const pvMax = actorData.data.attributes.pv.max - niveis * (parseInt(item.data.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0));
+				const pmMax = actorData.data.attributes.pm.max - niveis * (parseInt(item.data.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0));
+				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
 			}
 		}
 		this.actor.deleteOwnedItem(li.dataset.itemId);

@@ -40,7 +40,7 @@ export default class ItemSheetT20 extends ItemSheet {
 				data.data.actorCD = this.object.options.actor.data.data.attributes.cd ? this.object.options.actor.data.data.attributes.cd : 0 ;
 			}
 			else {
-				data.data.actorCD = 10 + this.object.options.actor.data.data.attributes.nivel.value/2;
+				data.data.actorCD = 10 + Math.floor(this.object.options.actor.data.data.attributes.nivel.value/2);
 			}
 			let atrRes = this.object.options.actor.data.data.atributos[data.data.atrRes]?.mod || 0; 
 			data.data.totalCD = data.data.actorCD + atrRes + data.data.cd;
@@ -48,9 +48,23 @@ export default class ItemSheetT20 extends ItemSheet {
 		if (data.item.type == "arma") {
 			// data.atkSkills = this.actor.data.items.filter(i => i.type == "skill" && i.data.groups.attack);
 
+			if(data.data.atrAtq == undefined) {
+				switch (data.data.pericia) {
+					case "atu":
+						data.data.atrAtq = "car";
+						break;
+					case "pon":
+						data.data.atrAtq = "des";
+						break;
+					case "lut":
+					default:
+						data.data.atrAtq = "for";
+				}
+			}
 			if(data.data.atqBns == "") data.data.atqBns = 0;
 			if(data.data.danoBns == "") data.data.danoBns = 0;
 			data["propriedades"] = this._getItemProperties(data.item);
+			data["npc"] = this.object.options.actor?.data.type == "npc";
 		}
 		if (data.item.type == "classe") {
 			data.isGM = game.user.isGM;

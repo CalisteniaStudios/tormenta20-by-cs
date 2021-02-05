@@ -1,3 +1,4 @@
+{{#unless disableJournal}}
 <div class="left-notes note-entries">
 	<article>
 		<div class="section-titles">
@@ -24,9 +25,16 @@
 		{{editor content=data.detalhes.diario4.value target="data.detalhes.diario4.value" button=true owner=owner editable=editable}}
 	</article>
 </div>
+{{/unless}}
 <div class="right-notes note-entries">
+	<article class="journal-notes">
+		<div class="section-titles">Biografia</div>
+		{{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+	</article>
+	{{#unless disableJournal}}
 	<article class="journal-notes">
 		<div class="section-titles">Entrada de Diário</div>
 		{{editor content=data.detalhes.diario.value target="data.detalhes.diario.value" button=true owner=owner editable=editable}}
 	</article>
+	{{/unless}}
 </div>
