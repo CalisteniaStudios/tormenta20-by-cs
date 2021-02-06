@@ -427,6 +427,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
     if ( itemData.type === "classe" ) {
       const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
 			const actorData = this.actor.data;
+			if (actorData.flags.pvBonus === undefined || actorData.flags.pmBonus === undefined) {
+				actorData.flags.pvBonus = [0,0];
+				actorData.flags.pmBonus = [0,0];
+				this.actor.update({"flags.pvBonus": [0, 0], "flags.pmBonus": [0, 0]});
+			}
       let priorLevel = cls?.data.data.niveis ?? 0;
 			if ( !!cls ) { // Novo nivel de classe preexistente
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.data.attributes.nivel.value);
