@@ -76,6 +76,29 @@ table,
   margin: 7px -2px;
 }
 
+.tormenta20 .npc .magias .item-list li.item,
+.tormenta20 .npc .magias .item-list:not(.editing)
+{
+  display: inline;
+}
+
+.tormenta20 .npc .magias .item-list.editing li.item {
+  display: flex;
+}
+
+.tormenta20 .npc span.item.rollable.magia-rollable:after {
+  content:",";
+  font-style: italic;
+}
+
+.tormenta20 .npc span.item.rollable.magia-rollable:last-child:after {
+  content:";\00a0"; /*\00a0 = espaço*/
+}
+
+.tormenta20 .npc .editing span.item.rollable.magia-rollable:last-child:after {
+  content:"";
+}
+
 .app {
   max-height: 100%;
   background: url(../assets/side-bar.png) repeat;
@@ -496,6 +519,7 @@ button {
   color: #7a7971;
 }
 
+.tormenta20 .item-description,
 .tormenta20 .sheet-body .tab.item-description,
 .tormenta20 .sheet-body .tab .editor,
 .tormenta20 .sheet-body .tab .item-description .editor,

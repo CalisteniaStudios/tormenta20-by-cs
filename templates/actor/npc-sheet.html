@@ -1,10 +1,10 @@
 <form class="tormenta20 npc {{statblock}}" autocomplete="off">
 	{{!-- Sheet Tab Navigation --}}
-	<nav class="sheet-tabs tabs" style="margin-top: 0;" data-group="primary">
+	<nav class="sheet-tabs tabs" data-group="primary">
 		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
 		<label><i class="fas fa-address-card"></i> <a class="item" data-tab="description" title="Biografia">Biografia</a></label>
 
-		<label><a class="item" id="configure-actor" title="Configurar">Configurar</a></label>
+		<label><i class="fas fa-cog"></i> <a class="item" id="configure-actor" title="Configurar">Configurar</a></label>
 	</nav>
 
 
@@ -26,7 +26,6 @@
 					</div>
 			<i>{{data.attributes.raca}} {{data.attributes.nivel.value}}, {{data.tamanho}}</i>
 			<div class="flexrow">
-				
 						<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo/Raça" />
 						<input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" style="flex:0 0 40px" />
 						<input type="text" name="data.tamanho" value="{{data.tamanho}}" data-dtype="String" title="Tamanho" />
@@ -57,29 +56,27 @@
 
 				<span class="rollable pericia-rollable skill" data-item-id="for" data-type="padrao">
 					<label>Fort: </label>
-					{{numberFormat data.pericias.for.value sign=true}}
+					{{~numberFormat data.pericias.for.value sign=true~}}
 				</span>
 				<input type="text" name="data.pericias.for.value" value="{{data.pericias.for.value}}" data-dtype="Number" title="Fortitude">
 
 				<span class="rollable pericia-rollable skill" data-item-id="ref" data-type="padrao">
 					<label>Ref: </label>
-					{{numberFormat data.pericias.ref.value sign=true}}
+					{{~numberFormat data.pericias.ref.value sign=true~}}
 				</span>
 				<input type="text" name="data.pericias.ref.value" value="{{data.pericias.ref.value}}" data-dtype="Number" title="Reflexos">
 
 				<span class="rollable pericia-rollable skill" data-item-id="von" data-type="padrao">
 					<label>Von: </label>
-					{{numberFormat data.pericias.von.value sign=true}}
+					{{~numberFormat data.pericias.von.value sign=true~}}{{#if (or data.rd.value data.resistencias)}};{{/if}} 
 				</span>
 				<input type="text" name="data.pericias.von.value" value="{{data.pericias.von.value}}" data-dtype="Number" title="Vontade">
-
 				<span class="rd {{#unless data.rd.value}}editing{{/unless}}">
 					<label>RD: </label>
-					{{data.rd.value}}
+					{{~data.rd.value~}}{{#if data.resistencias}},{{/if}}
 				</span>
 				<input type="text" name="data.rd.value" value="{{data.rd.value}}" data-dtype="Number" title="RD">
-
-				{{data.resistencias}}
+				{{~data.resistencias~}}
 				<input type="text" name="data.resistencias" value="{{data.resistencias}}" data-dtype="String" placeholder="Resistências" class="flex3">
 			</div>
 			<div class="npc-line">
@@ -123,7 +120,7 @@
 							</h4>
 							</span>
 						</div>
-						<div class="item-controls">
+						<div class="item-controls" style="flex: 0 0 30px;">
 							<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 							<a class="item-control item-delete" title="Deletar"><i class="fas fa-trash"></i></a>
 						</div>
@@ -137,7 +134,7 @@
 							</h4>
 							</span>
 						</div>
-						<div class="item-controls">
+						<div class="item-controls" style="flex: 0 0 30px;">
 							<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 							<a class="item-control item-delete" title="Deletar"><i class="fas fa-trash"></i></a>
 						</div>
@@ -153,7 +150,7 @@
 							</span>
 							{{{stripTags item.data.description}}}
 						</div>
-						<div class="item-controls">
+						<div class="item-controls" style="flex: 0 0 30px;">
 							<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 							<a class="item-control item-delete" title="Deletar"><i class="fas fa-trash"></i></a>
 						</div>
@@ -168,20 +165,19 @@
 						<div class="item-name magias"><label>Magias: </label>
 							{{#if editing}}
 								<ol class="item-list editing listcol">
-								{{#each actor.magias as |circulo i|}}
-									{{#if circulo.spells}}
+								{{~#each actor.magias as |circulo i|~}}
+									{{~#if circulo.spells~}}
 									<li>
-										{{i}}º Círculo
+										{{~i}}º Círculo
 									</li>
 									<li>
 										<ol class="item-list">
-										
-										{{#each circulo.spells as |m index|}}
+										{{~#each circulo.spells as |m index|~}}
 											<li class="item flexrow" data-item-id="{{m._id}}">
 												<div class="item-name">
-													<span class="item rollable magia-rollable" data-item-id="{{m._id}}">{{m.name}}</span>
+													<span class="item rollable magia-rollable" data-item-id="{{m._id}}">{{~m.name~}}</span>
 												</div>
-												<div class="item-controls">
+												<div class="item-controls" style="flex: 0 0 30px;">
 													<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 													<a class="item-control item-delete" title="Deletar"><i class="fas fa-trash"></i></a>
 												</div>
@@ -193,15 +189,21 @@
 									{{/if}}
 								{{/each}}
 								</ol>
-							{{else}}
-								{{#each actor.magias as |circulo i|}}
-									{{#if circulo.spells}}
-									{{i}}º —
-										{{#each circulo.spells as |m index|}}
-											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>,
+							{{~else~}}
+								<ol class="item-list">
+								{{~#each actor.magias as |circulo i|~}}
+									{{~#if circulo.spells~}}
+									<li class="item">
+										{{~i}}º —
+										<ol class="item-list" style="display: inline;">
+										{{~#each circulo.spells as |m index|~}}
+											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{~m.name~}}</i></span>
 										{{/each}}
+										</ol>
+									</li>
 									{{/if}}
 								{{/each}}
+								</ol>
 							{{/if}}
 						</div>
 					</li>
