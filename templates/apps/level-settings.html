@@ -34,7 +34,7 @@
 				Bônus Total <input style="height: 20px; width: 30px;" type="number" name="pv.pvBonus" value="{{actor.data.flags.pvBonus.[0]}}" data-dtype="Number" placeholder="0" />
 			</label>
 			<label class="checkbox">
-				Bônus por Nível <input style="height: 20px; width: 30px;" type="number" name="pv.pvBonus" value="{{actor.data.flags.pvBonus.[1]}}" data-dtype="Number" placeholder="0" />
+				Bônus por Nível <input style="height: 20px; width: 30px;" type="number" step="0.01" name="pv.pvBonus" value="{{actor.data.flags.pvBonus.[1]}}" data-dtype="Number" placeholder="0" />
 			</label>
 		</div>
 	<h2>Pontos de Mana</h2>
@@ -51,7 +51,7 @@
 				Bônus Total <input style="height: 20px; width: 30px;" type="number" name="pm.pmBonus" value="{{actor.data.flags.pmBonus.[0]}}" {{checked (lookup ../actor.data.flags prop)}} data-dtype="Number" placeholder="0" />
 			</label>
 			<label class="checkbox">
-				Bônus por Nível <input style="height: 20px; width: 30px;" type="number" name="pm.pmBonus" value="{{actor.data.flags.pmBonus.[1]}}" {{checked (lookup ../actor.data.flags prop)}} data-dtype="Number" placeholder="0" />
+				Bônus por Nível <input style="height: 20px; width: 30px;" type="number" step="0.01" name="pm.pmBonus" value="{{actor.data.flags.pmBonus.[1]}}" {{checked (lookup ../actor.data.flags prop)}} data-dtype="Number" placeholder="0" />
 			</label>
 		</div>
 		<br />
