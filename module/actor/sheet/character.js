@@ -80,7 +80,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			"itens": [],
 			"poderes": [],
 			"magias": {
-        1: {spells: [], custo: 1},
+		1: {spells: [], custo: 1},
 				2: {spells: [], custo: 3},
 				3: {spells: [], custo: 6},
 				4: {spells: [], custo: 10},
@@ -127,8 +127,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			let isFav = i.flags.favorito ?? false;
 			// Sort into various arrays.
 			if (i.type === 'poder') {
-					poderes.push(i);
-					if (isFav) favoritos.poderes.push(i);
+				poderes.push(i);
+				if (isFav) favoritos.poderes.push(i);
 			}
 			else if (i.type === 'skill') {
 
@@ -240,7 +240,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			// skillset["cstm"+id] = cstm;
 			skillset.push(cstm);
 		}
-		
 		actorData.favoritos = favoritos;
 		// Skillset
 		actorData.skillset = skillset;
@@ -259,7 +258,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Attacks
 		actorData.ataques = ataques;
 		actorData.armas = armas;
-		actorData.referencias	= data.actor.effects;
+		actorData.referencias = data.actor.effects;
 	}
 
 	/* -------------------------------------------- */
@@ -313,8 +312,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	 *
 	 * Optionally include the weight of carried currency across all denominations by applying the standard rule
 	 * from the PHB pg. 143
-	 * @param {Object} actorData			The data object for the Actor being rendered
-	 * @returns {{max: number, value: number, pct: number}}	An object describing the character's encumbrance level
+	 * @param {Object} actorData The data object for the Actor being rendered
+	 * @returns {{max: number, value: number, pct: number}} An object describing the character's encumbrance level
 	 * @private
 	 */
 	_computeEncumbrance(actorData, carga) {
@@ -389,6 +388,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				item.update({ "flags.favorito": !item.data.flags.favorito });
 			});
 
+			html.find('.item-fav').click(ev => {
+				const li = $(ev.currentTarget).parents(".item");
+				const item = this.actor.getOwnedItem(li.data("itemId"));
+				item.update({ "flags.favorito": !item.data.flags.favorito });
+			});
+			
 			// Update Inventory Item
 			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
 
@@ -422,16 +427,21 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 	/** @override */
 	async _onDropItemCreate(itemData) {
-		// Increment the number of class levels a character instead of creating a new item
-		if ( itemData.type === "classe" ) {
-			const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
+	// Increment the number of class levels a character instead of creating a new item
+	if ( itemData.type === "classe" ) {
+		const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
 			const actorData = this.actor.data;
-			let priorLevel = cls?.data.data.niveis ?? 0;
+			if (actorData.flags.pvBonus === undefined || actorData.flags.pmBonus === undefined) {
+				actorData.flags.pvBonus = [0,0];
+				actorData.flags.pmBonus = [0,0];
+				this.actor.update({"flags.pvBonus": [0, 0], "flags.pmBonus": [0, 0]});
+			}
+		let priorLevel = cls?.data.data.niveis ?? 0;
 			if ( !!cls ) { // Novo nivel de classe preexistente
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.data.attributes.nivel.value);
 				if ( next > priorLevel ) {
 					const pvMax = actorData.data.attributes.pv.max + parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
-					const pmMax = actorData.data.attributes.pm.max +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
+					const pmMax = actorData.data.attributes.pm.max + parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
 					this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
 					itemData.niveis = next;
 					return cls.update({"data.niveis": next});
@@ -439,14 +449,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			}
 			else if (actorData.data.attributes.nivel.value) { // Novo nivel de classe
 				const pvMax = actorData.data.attributes.pv.max + parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
-				const pmMax = actorData.data.attributes.pm.max +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
+				const pmMax = actorData.data.attributes.pm.max + parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
 				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
 			}
 			else { // Primeiro Nivel do Personagem
 				const somaPV = (actorData.flags.pvBonus[0] ? parseInt(actorData.flags.pvBonus[0]) : 0) + (actorData.flags.forPV ? actorData.data.atributos.for.mod : 0) + (actorData.flags.desPV ? actorData.data.atributos.des.mod : 0) + (actorData.flags.intPV ? actorData.data.atributos.int.mod : 0) + (actorData.flags.sabPV ? actorData.data.atributos.sab.mod : 0) + (actorData.flags.carPV ? actorData.data.atributos.car.mod : 0);
 				const somaPM = (actorData.flags.pmBonus[0] ? parseInt(actorData.flags.pmBonus[0]) : 0) + (actorData.flags.forPM ? actorData.data.atributos.for.mod : 0) + (actorData.flags.desPM ? actorData.data.atributos.des.mod : 0) + (actorData.flags.conPM ? actorData.data.atributos.con.mod : 0) + (actorData.flags.intPM ? actorData.data.atributos.int.mod : 0) + (actorData.flags.sabPM ? actorData.data.atributos.sab.mod : 0) + (actorData.flags.carPM ? actorData.data.atributos.car.mod : 0);
 				const pvMax = somaPV + 4 * parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
-				const pmMax = somaPM +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
+				const pmMax = somaPM + parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
 				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
 			}
 		}

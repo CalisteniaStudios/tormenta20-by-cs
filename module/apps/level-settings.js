@@ -62,9 +62,9 @@ export default class LevelSettings extends FormApplication {
 						else if (k.includes("pvBonus") || k.includes("pmBonus")) {
 							valor += parseFloat(v[0] || 0) + nivel * parseFloat(v[1] || 0);
 						}
-						soma[chave] += valor;
-						flags[k] = v;
-					}
+					soma[chave] += parseInt(valor);
+				}
+				flags[k] = v;
 			}
 		}
 		updateData["data.attributes.pv.max"] = soma.pv;

@@ -266,6 +266,21 @@ export default class ActorSheetT20 extends ActorSheet {
 		new LevelSettings(this.actor, options).render(true);
 	}
 
+	_onLevelSettings(event) {
+		event.preventDefault();
+		const actorData = this.object.data;
+		const a = event.currentTarget;
+		const config = CONFIG.T20;
+		const classes = [];
+		actorData.items.forEach(item => {
+			if ( item.type === "classe" ) {
+				classes.push(item);
+			}
+		});
+		const options = {classes, config};
+		new LevelSettings(this.actor, options).render(true);
+	}
+
 	/* -------------------------------------------- */
 
 	/** @override */
