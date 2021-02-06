@@ -1,4 +1,12 @@
 # Lista de Mudanças
+## Versão 1.1.36
+### Consertos de Bugs
+- Caixas de descrição vazias (por exemplo, de itens recém-criados) podem ser editadas.
+
+## Versão 1.1.35
+### Consertos de Bugs
+- Personagens com Bônus de PV/PM não definidos conseguem arrastar classes para a ficha.
+- As caixas de seleção de Atributos nas configurações de nível não se remarcam após serem desmarcadas.
 
 ## Versão 1.1.34
 ### Novidades
