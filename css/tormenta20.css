@@ -92,7 +92,7 @@ table,
 }
 
 .tormenta20 .npc span.item.rollable.magia-rollable:last-child:after {
-  content:";\00a0"; /*\00a0 = espa�o*/
+  content:";\00a0"; /*\00a0 = espaço*/
 }
 
 .tormenta20 .npc .editing span.item.rollable.magia-rollable:last-child:after {
