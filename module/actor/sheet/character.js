@@ -387,12 +387,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const item = this.actor.getOwnedItem(li.data("itemId"));
 				item.update({ "flags.favorito": !item.data.flags.favorito });
 			});
-
-			html.find('.item-fav').click(ev => {
-				const li = $(ev.currentTarget).parents(".item");
-				const item = this.actor.getOwnedItem(li.data("itemId"));
-				item.update({ "flags.favorito": !item.data.flags.favorito });
-			});
 			
 			// Update Inventory Item
 			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
