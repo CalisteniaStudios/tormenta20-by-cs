@@ -11,22 +11,25 @@
     </div>
 	
 	<div>
+		<a class="trait-selector" data-options="deslocamento" data-target="data.attributes.movement">
 		<label style="display:inline-block;">Deslocamento</label>
-		<div style="display:inline-block;">
-			<input name="data.deslocamento.base" style="max-width: 30px; height: 20px;" title="Base" type="text" value="{{data.deslocamento.base}}" placeholder="0" data-dtype="Number" />
-			<span class="sep" style="font-size: 20px;">/</span>
-			<input name="data.deslocamento.total" style="border: 1px solid #7a7971; background: rgba(0, 0, 0, 0.05); color: #191813;" disabled title="Atual" type="text" value="{{data.deslocamento.total}}" placeholder="0" data-dtype="Number" />
-		</div>
+        </a>
+		<ul class="trait-list" style="display:inline-block; padding:0; margin:0">
+		{{#if data.attributes.movement.walk}}<li class="tag walk">{{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
+		{{#if data.attributes.movement.climb}}<li class="tag climb">Escalar {{data.attributes.movement.climb}}m ({{divide data.attributes.movement.climb 1.5}}q)</li>{{/if}}
+		{{#if data.attributes.movement.burrow}}<li class="tag burrow">Escavar {{data.attributes.movement.burrow}}m ({{divide data.attributes.movement.burrow 1.5}}q)</li>{{/if}}
+		{{#if data.attributes.movement.swim}}<li class="tag swim">Natação {{data.attributes.movement.swim}}m ({{divide data.attributes.movement.swim 1.5}}q)</li>{{/if}}
+		{{#if data.attributes.movement.fly}}<li class="tag fly">Voo {{data.attributes.movement.fly}}m ({{divide data.attributes.movement.fly 1.5}}q)</li>{{/if}}
+		{{#if data.attributes.movement.hover}}<li class="tag hover">Pairar</li>{{/if}}
+        </ul>
 	</div>
 	
 	<div>
 		<label style="display:inline-block;">Resistência a Dano</label>
-		<div>
-			<label style="display:inline-block;">Total: <input style="text-align:center;" name="data.rd.value" disabled title="Total" type="number" placeholder="0" value="{{data.rd.value}}" /></label>
+		<input style="text-align:center;" name="data.rd.value" disabled title="Total" type="number" placeholder="0" value="{{data.rd.value}}" />
 			<label style="display:inline-block;">Base: <input name="data.rd.base" style="max-width: 30px; height: 20px;" title="Base" type="number" placeholder="0" value="{{data.rd.base}}" /></label>
 			<label style="display:inline-block;">Temporário: <input name="data.rd.temp" style="max-width: 30px; height: 20px;" title="Bônus Temporário" type="number"  placeholder="0" value="{{data.rd.temp}}" /></label>
 		</div>
-	</div>
 	
 	<div>
         <label style="display:inline-block;">Resistências</label>

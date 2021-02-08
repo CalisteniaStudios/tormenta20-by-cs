@@ -88,10 +88,25 @@
 				<input type="text" name="data.attributes.pv.max" value="{{data.attributes.pv.max}}" data-dtype="Number" title="PV Máximos" />
 			</div>
 			<div class="npc-line">
-				<label>Deslocamento: </label>
+				<a class="trait-selector" data-options="deslocamento" data-target="data.attributes.movement">
+					<label style="display:inline-block;">Deslocamento</label>
+				</a>
+				<ul class="trait-list" style="display:inline-block; padding:0; margin:0">
+					{{#if data.attributes.movement.walk}}<li class="speedtag">{{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
+					{{#if data.attributes.movement.climb}}<li class="speedtag">Escalar {{data.attributes.movement.climb}}m ({{divide data.attributes.movement.climb 1.5}}q)</li>{{/if}}
+					{{#if data.attributes.movement.burrow}}<li class="speedtag">Escavar {{data.attributes.movement.burrow}}m ({{divide data.attributes.movement.burrow 1.5}}q)</li>{{/if}}
+					{{#if data.attributes.movement.swim}}<li class="speedtag">Natação {{data.attributes.movement.swim}}m ({{divide data.attributes.movement.swim 1.5}}q)</li>{{/if}}
+					{{#if data.attributes.movement.fly}}<li class="speedtag">Voo {{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
+					{{#if data.attributes.movement.hover}}<li class="speedtag">Pairar</li>{{/if}}
+				</ul>
+			</div>
+			{{#if data.deslocamento.value}}
+			<div class="npc-line">
+				<label>Deslocamento (Antigo)</label>
 				{{data.deslocamento.value}}
 				<input type="text" name="data.deslocamento.value" value="{{data.deslocamento.value}}" data-dtype="String" title="Deslocamento" />
 			</div>
+			{{/if}}
 			{{#if (or data.attributes.pm.value editing)}}
 			<hr>
 			{{/if}}

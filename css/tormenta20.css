@@ -99,6 +99,19 @@ table,
   content:"";
 }
 
+.tormenta20 .npc .speedtag {
+  display:inline-block;
+  text-transform:lowercase;
+}
+
+.tormenta20 .npc .speedtag:after {
+  content: ","
+}
+
+.tormenta20 .npc .speedtag:last-child:after {
+  content: ""
+}
+
 .app {
   max-height: 100%;
   background: url(../assets/side-bar.png) repeat;

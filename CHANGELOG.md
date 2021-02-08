@@ -1,4 +1,8 @@
 # Lista de Mudanças
+## Versão 1.1.37
+### Novidades
+- Adicionado Menu de Deslocamento. Agora é possível adicionar outros tipos de deslocamento à ficha. Se você usa módulos como o Drag Ruler, o novo atributo para deslocamento é `actor.data.data.attributes.movement.walk`.
+
 ## Versão 1.1.36
 ### Consertos de Bugs
 - Caixas de descrição vazias (por exemplo, de itens recém-criados) podem ser editadas.

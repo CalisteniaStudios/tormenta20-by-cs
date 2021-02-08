@@ -248,22 +248,16 @@ export default class ActorSheetT20 extends ActorSheet {
 		const label = a.parentElement.querySelector("label");
 		const choices = CONFIG.T20[a.dataset.options];
 		const options = { name: a.dataset.target, title: label.innerText, choices };
-		new TraitSelector(this.actor, options).render(true)
-	}
-
-	_onLevelSettings(event) {
-		event.preventDefault();
-		const actorData = this.object.data;
-		const a = event.currentTarget;
-		const config = CONFIG.T20;
-		const classes = [];
-		actorData.items.forEach(item => {
-			if ( item.type === "classe" ) {
-				classes.push(item);
-			}
-		});
-		const options = {classes, config};
-		new LevelSettings(this.actor, options).render(true);
+		switch ( a.dataset.options ) {
+			case "idiomas":
+			case "profArmas":
+			case "profArmaduras":
+				new TraitSelector(this.actor, options).render(true);
+				break;
+			case "deslocamento":
+				new MovementConfig(this.actor, options).render(true);
+				break;
+		}
 	}
 
 	_onLevelSettings(event) {
