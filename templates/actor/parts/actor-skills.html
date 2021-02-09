@@ -52,6 +52,9 @@
 				<span class="rollable pericia-rollable" data-type="padrao" >
 					{{{skill.label}}} {{#if skill.st}}*{{/if}} {{#if skill.pda}}+{{/if}}
 				</span>
+				{{#if compendiumEntry}}
+				<a class="compendium-entry" data-compendium-entry="{{compendiumEntry}}"><i class="fas fa-book compendium-icon"></i></a>
+				{{/if}}
 			{{/if}}
 		</div>
 		<div class="item-total">

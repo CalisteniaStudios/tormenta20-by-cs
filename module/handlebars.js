@@ -58,6 +58,10 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper('add', (a, b) => {
     return a + b;
   });
+	
+	Handlebars.registerHelper('divide', (a, b) => {
+    return a / b;
+  });
 
   Handlebars.registerHelper('multiply', (a, b) => {
     return a * b;

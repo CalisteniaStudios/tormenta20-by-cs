@@ -76,6 +76,42 @@ table,
   margin: 7px -2px;
 }
 
+.tormenta20 .npc .magias .item-list li.item,
+.tormenta20 .npc .magias .item-list:not(.editing)
+{
+  display: inline;
+}
+
+.tormenta20 .npc .magias .item-list.editing li.item {
+  display: flex;
+}
+
+.tormenta20 .npc span.item.rollable.magia-rollable:after {
+  content:",";
+  font-style: italic;
+}
+
+.tormenta20 .npc span.item.rollable.magia-rollable:last-child:after {
+  content:";\00a0"; /*\00a0 = espaço*/
+}
+
+.tormenta20 .npc .editing span.item.rollable.magia-rollable:last-child:after {
+  content:"";
+}
+
+.tormenta20 .npc .speedtag {
+  display:inline-block;
+  text-transform:lowercase;
+}
+
+.tormenta20 .npc .speedtag:after {
+  content: ","
+}
+
+.tormenta20 .npc .speedtag:last-child:after {
+  content: ""
+}
+
 .app {
   max-height: 100%;
   background: url(../assets/side-bar.png) repeat;
@@ -1434,4 +1470,11 @@ button {
 
 .tormenta20.sheet.actor .inventory-currency .currency-item .denomination {
   text-transform: uppercase;
+}
+
+.tormenta20.sheet.actor ul.skills-list li.skill a.compendium-entry:hover .compendium-icon {
+  visibility: visible;
+}
+.tormenta20.sheet.actor ul.skills-list li.skill .compendium-icon {
+  visibility: hidden;
 }

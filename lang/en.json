@@ -1,6 +1,6 @@
 {
   "ACTOR.TypeCharacter": "Personagem de Jogador",
-  "ACTOR.TypeNpc": "Personagem de Mestre",
+  "ACTOR.TypeNpc": "Personagem do Mestre",
   "ITEM.TypeArma": "Arma",
   "ITEM.TypeEquip": "Armadura",
   "ITEM.TypeClasse": "Classe",

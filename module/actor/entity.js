@@ -86,34 +86,32 @@ export default class ActorT20 extends Actor {
 				parseInt(data.deslocamento.base ?? 9, 10) +
 				(data.deslocamento.bonus ?? 0) -
 				(data.deslocamento.penalidade ?? 0);
-		} else {
+		}
+		else {
 			let deslocamento = {
 				base: data.deslocamento,
 				bonus: 0,
 				penalidade: 0,
 				subst: 0,
 				cond: "nao",
-				total:
-				data.deslocamento +
-				(data.deslocamento.bonus ?? 0) -
-				(data.deslocamento.penalidade ?? 0),
+				total: data.deslocamento + (data.deslocamento.bonus ?? 0) - (data.deslocamento.penalidade ?? 0),
 			};
 			data.deslocamento = deslocamento;
 		}
 		if (data.deslocamento.cond == "metade") {
 			data.deslocamento.total = data.deslocamento.total / 2;
 		}
+		else if (data.deslocamento.cond == "zerado") {
+			data.deslocamento.total = 0;
+		}
 		if (data.deslocamento.subst > 0) {
 			data.deslocamento.total = data.deslocamento.subst;
-		}
-		if (data.deslocamento.cond == "zerado") {
-			data.deslocamento.total = 0;
 		}
 		if (data.deslocamento.total < 0) {
 			data.deslocamento.total = 0;
 		}
 
-		if(data.pericias !== undefined && this.data.type !== "npc"){
+		if(data.defesa !== undefined && this.data.type !== "npc"){
 			data.defesa.value =
 			10 +
 			Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
