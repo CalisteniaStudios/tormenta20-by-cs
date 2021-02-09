@@ -875,13 +875,13 @@ Hooks.on('ready', async function() {
 	// Spellfilters
 	game.compendiumBrowser.addSpellFilter("Geral", "Círculo", 'data.circulo', 'select', {"1":"1", "2":"2", "3":"3", "4":"4", "5":"5"});
 	game.compendiumBrowser.addSpellFilter("Geral", "Escola", 'data.escola', 'select', {"Abjuração":"Abjuração", "Adivinhação":"Adivinhação", "Convocação":"Convocação", "Encantamento":"Encantamento", "Evocação":"Evocação", "Ilusão":"Ilusão", "Necromancia":"Necromancia", "Transmutação":"Transmutação"});
-	game.compendiumBrowser.addSpellFilter("Geral", "Execução", 'data.execucao', 'select',
+	game.compendiumBrowser.addSpellFilter("Geral", "Execução", 'data.ativacao.execucao', 'select',
 	{
-		"Padrão": "Padrão",
-		"Movimento": "Movimento",
-		"Reação": "Reação",
-		"Completa": "Completa",
-		"Livre": "Livre",
+		"padrao": "Padrão",
+		"movimento": "Movimento",
+		"reacao": "Reação",
+		"completa": "Completa",
+		"livre": "Livre",
 	});
 	game.compendiumBrowser.addSpellFilter("Geral", "Tipo", 'data.tipo', 'select', {"Arcana":"Arcana", "Divina":"Divina", "Universal":"Universal"});
 
@@ -892,10 +892,10 @@ Hooks.on('ready', async function() {
 	});
 	game.compendiumBrowser.addFeatFilter("Geral", "Subtipo", 'data.subtipo', 'select',
 	{
-	  "combate": "Combate", "destino": "Destino", "magia": "Magia", "tormenta": "Tormenta", "arcanista": "Arcanista",
-	  "barbaro": "Bárbaro", "bardo": "Bardo", "bucaneiro": "Bucaneiro", "caaador": "Caçador",
-	  "cavaleiro": "Cavaleiro", "clérigo": "Clérigo", "druida": "Druida", "guerreiro": "Guerreiro",
-	  "inventor": "Inventor", "ladino": "Ladino", "lutador": "Lutador", "nobre": "Nobre", "paladino": "Paladino"
+	  "Combate": "Combate", "Destino": "Destino", "Magia": "Magia", "Tormenta": "Tormenta", "Arcanista": "Arcanista",
+	  "Bárbaro": "Bárbaro", "Bardo": "Bardo", "Bucaneiro": "Bucaneiro", "Caçador": "Caçador",
+	  "Cavaleiro": "Cavaleiro", "Clérigo": "Clérigo", "Druida": "Druida", "Guerreiro": "Guerreiro",
+	  "Inventor": "Inventor", "Ladino": "Ladino", "Lutador": "Lutador", "Nobre": "Nobre", "Paladino": "Paladino"
 	});
 	game.compendiumBrowser.addFeatFilter("Geral", "Custo", 'data.custo', 'numberCompare');
 		
