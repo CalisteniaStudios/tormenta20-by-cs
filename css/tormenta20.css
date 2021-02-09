@@ -1471,3 +1471,10 @@ button {
 .tormenta20.sheet.actor .inventory-currency .currency-item .denomination {
   text-transform: uppercase;
 }
+
+.tormenta20.sheet.actor ul.skills-list li.skill a.compendium-entry:hover .compendium-icon {
+  visibility: visible;
+}
+.tormenta20.sheet.actor ul.skills-list li.skill .compendium-icon {
+  visibility: hidden;
+}

@@ -2,6 +2,7 @@ import { d20Roll, damageRoll } from '../../dice.js';
 import AbilityUseDialog from "../../apps/ability-use-dialog.js";
 import TraitSelector from "../../apps/trait-selector.js";
 import LevelSettings from "../../apps/level-settings.js";
+import MovementConfig from "../../apps/movement-config.js";
 import { T20Utility } from '../../utility.js';
 
 /**
@@ -75,6 +76,11 @@ export default class ActorSheetT20 extends ActorSheet {
 
 		// Skills
 		// Add icon, hover, label to Scores
+		if (data.isCharacter && data.actor.data.pericias != undefined) {
+			for (let [s, skl] of Object.entries(data.actor.data.pericias)) {
+				skl.compendiumEntry = data.config.skillCompendiumEntries[s] ?? null;
+			}
+		}
 
 		// Movement speeds
 		// TODO Implement Movement Here?
@@ -221,6 +227,10 @@ export default class ActorSheetT20 extends ActorSheet {
 		else {
 			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
 		}
+		
+		// Open skill compendium entry
+		html.find("a.compendium-entry").click(this._onOpenCompendiumEntry.bind(this));
+		
 		// Handle default listeners last so system listeners are triggered first
     	super.activateListeners(html);
 	}
@@ -238,16 +248,31 @@ export default class ActorSheetT20 extends ActorSheet {
 	// }
 	
 	/**
+	 * Handle opening a skill's compendium entry
+	 * @param {Event} event	 The originating click event
+	 * @private
+	 */
+	async _onOpenCompendiumEntry(event) {
+		const entryKey = event.currentTarget.dataset.compendiumEntry;
+		const parts = entryKey.split(".");
+		const packKey = parts.slice(0, 2).join(".");
+		const entryId = parts.slice(-1)[0];
+		const pack = game.packs.get(packKey);
+		const entry = await pack.getEntity(entryId);
+		entry.sheet.render(true);
+	}
+	
+	/**
    * Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
    * @param {Event} event   The click event which originated the selection
    * @private
    */
-	_onTraitSelector(event) {
-		event.preventDefault();
-		const a = event.currentTarget;
-		const label = a.parentElement.querySelector("label");
-		const choices = CONFIG.T20[a.dataset.options];
-		const options = { name: a.dataset.target, title: label.innerText, choices };
+  _onTraitSelector(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const label = a.parentElement.querySelector("label");
+    const choices = CONFIG.T20[a.dataset.options];
+    const options = { name: a.dataset.target, title: label.innerText, choices };
 		switch ( a.dataset.options ) {
 			case "idiomas":
 			case "profArmas":
@@ -258,7 +283,7 @@ export default class ActorSheetT20 extends ActorSheet {
 				new MovementConfig(this.actor, options).render(true);
 				break;
 		}
-	}
+  }
 
 	_onLevelSettings(event) {
 		event.preventDefault();

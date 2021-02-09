@@ -1,7 +1,14 @@
 # Lista de Mudanças
 ## Versão 1.1.37
 ### Novidades
-- Adicionado Menu de Deslocamento. Agora é possível adicionar outros tipos de deslocamento à ficha. Se você usa módulos como o Drag Ruler, o novo atributo para deslocamento é `actor.data.data.attributes.movement.walk`.
+- Adicionado Menu de Deslocamento. Agora é possível adicionar outros tipos de deslocamento às fichas. NPCs ficarão com um campo "Deslocamento (Antigo)" até que a informação seja apagada.
+- Compêndio de Perícias. Passe o mouse do lado direito do nome de uma perícia e um ícone de livro aparecerá, clicar nele abrirá a entrada de diário com as informações da perícia.
+- Itens, magias e poderes não têm mais hífens no meio das palavras.
+- Suporte ao módulo Drag Ruler adicionado.
+
+### Consertos de Bugs
+- A magia Sopro das Uivantes agora tem rolagem de dano.
+- Aprimoramentos da magia Luz consertados.
 
 ## Versão 1.1.36
 ### Consertos de Bugs

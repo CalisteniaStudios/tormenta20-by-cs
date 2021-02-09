@@ -68,12 +68,12 @@
 
 				<span class="rollable pericia-rollable skill" data-item-id="von" data-type="padrao">
 					<label>Von: </label>
-					{{~numberFormat data.pericias.von.value sign=true~}}{{#if (or data.rd.value data.resistencias)}};{{/if}} 
+					{{numberFormat data.pericias.von.value sign=true}}{{#if (or data.rd.value data.resistencias)}};{{/if}} 
 				</span>
 				<input type="text" name="data.pericias.von.value" value="{{data.pericias.von.value}}" data-dtype="Number" title="Vontade">
 				<span class="rd {{#unless data.rd.value}}editing{{/unless}}">
 					<label>RD: </label>
-					{{~data.rd.value~}}{{#if data.resistencias}},{{/if}}
+					{{data.rd.value}}{{#if data.resistencias}},{{/if}}
 				</span>
 				<input type="text" name="data.rd.value" value="{{data.rd.value}}" data-dtype="Number" title="RD">
 				{{~data.resistencias~}}
@@ -187,7 +187,7 @@
 									</li>
 									<li>
 										<ol class="item-list">
-										{{~#each circulo.spells as |m index|~}}
+										{{#each circulo.spells as |m index|}}
 											<li class="item flexrow" data-item-id="{{m._id}}">
 												<div class="item-name">
 													<span class="item rollable magia-rollable" data-item-id="{{m._id}}">{{~m.name~}}</span>
@@ -204,15 +204,15 @@
 									{{/if}}
 								{{/each}}
 								</ol>
-							{{~else~}}
+							{{else}}
 								<ol class="item-list">
-								{{~#each actor.magias as |circulo i|~}}
-									{{~#if circulo.spells~}}
+								{{#each actor.magias as |circulo i|}}
+									{{#if circulo.spells}}
 									<li class="item">
-										{{~i}}º —
+										{{i}}º —
 										<ol class="item-list" style="display: inline;">
-										{{~#each circulo.spells as |m index|~}}
-											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{~m.name~}}</i></span>
+										{{#each circulo.spells as |m index|}}
+											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>
 										{{/each}}
 										</ol>
 									</li>

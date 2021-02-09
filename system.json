@@ -2,7 +2,7 @@
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.1.36",
+  "version": "1.1.37",
   "minimumCoreVersion": "0.6.5",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 1,
@@ -52,6 +52,13 @@
       "system": "tormenta20",
       "path": "./packs/classes.db",
       "entity": "Item"
+    },
+    {
+      "name": "pericias",
+      "label": "Perícias",
+      "system": "tormenta20",
+      "path": "./packs/pericias.db",
+      "entity": "JournalEntry"
     }
   ],
   "languages": [
