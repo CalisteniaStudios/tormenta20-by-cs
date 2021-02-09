@@ -59,6 +59,13 @@
       "system": "tormenta20",
       "path": "./packs/pericias.db",
       "entity": "JournalEntry"
+    },
+    {
+      "name": "pocoes",
+      "label": "Poções",
+      "system": "tormenta20",
+      "path": "./packs/pocoes.db",
+      "entity": "Item"
     }
   ],
   "languages": [
