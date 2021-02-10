@@ -26,6 +26,13 @@
       "entity": "Item"
     },
     {
+      "name": "equipamentos-magicos",
+      "label": "Itens Mágicos",
+      "system": "tormenta20",
+      "path": "./packs/equipamentos-magicos.db",
+      "entity": "Item"
+    },
+    {
       "name": "magias",
       "label": "Magias",
       "system": "tormenta20",
