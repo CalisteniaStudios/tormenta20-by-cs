@@ -62,15 +62,6 @@ export const SystemSettings = function() {
     type: Boolean,
   });
 
-  game.settings.register("tormenta20", "disableJournal", {
-    name: "Desabilitar Diário",
-    hint: "Desabilita a aba Diário das fichas de personagem de jogador.",
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean,
-  });
-
   /**
    * Register diagonal movement rule setting
    */

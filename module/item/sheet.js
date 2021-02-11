@@ -1,5 +1,7 @@
 import TraitSelector from "../apps/trait-selector.js";
 import { T20Utility } from '../utility.js';
+import {onManageActiveEffect, prepareActiveEffectCategories} from "../effects.js";
+
 /**
 * Extend the basic ItemSheet with some very simple modifications
 * @extends {ItemSheet}
@@ -64,6 +66,8 @@ export default class ItemSheetT20 extends ItemSheet {
 			}
 			data["mostrarValorDuracao"] = mostrarValorDuracao;
 		}
+		// Prepare Active Effects
+		data.effects = prepareActiveEffectCategories(this.entity.effects);
 		return data;
 	}
 
@@ -108,8 +112,13 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		//html.find('.selArma').change(this._getDataArma.bind(this));
 		if ( this.isEditable ) {
-      html.find('.trait-selector.class-skills').click(this._onConfigureClassSkills.bind(this));
-    }
+			html.find('.trait-selector.class-skills').click(this._onConfigureClassSkills.bind(this));
+
+			html.find(".effect-control").click(ev => {
+				if ( this.item.isOwned ) return ui.notifications.warn("Managing Active Effects within an Owned Item is not currently supported and will be added in a subsequent update.")
+				onManageActiveEffect(ev, this.item)
+			});
+		}
 
 		// Controle de Aprimoramentos
 		html.find('.aprimoramento-create').click(this._onAprimoramentoCreate.bind(this));

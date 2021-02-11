@@ -80,6 +80,7 @@ export default class ItemT20 extends Item {
 
 	static chatListeners(html) {
 		html.on('click', '.item-name', this._onChatCardToggleContent.bind(this));
+		html.on('click', '.apply-button-ef', this._onChatCardApplyEffect.bind(this));
 	}
 
 	/* -------------------------------------------- */
@@ -97,6 +98,27 @@ export default class ItemT20 extends Item {
 		content.style.display = content.style.display === "none" ? "block" : "none";
 	}
 
+	static _onChatCardApplyEffect(event) {
+		event.preventDefault();
+		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
+		const buttonId = event.currentTarget.dataset.effectIndex;
+		const actors = canvas.tokens.controlled;
+		// console.log(button);
+		// console.log(canvas.tokens.controlled);
+		console.log(game.messages.get(chatCardId).data.flags.t20.effects);
+		if ( actors && buttonId>=0){
+			const chatEffect = game.messages.get(chatCardId).data.flags.t20?.effects[buttonId];
+			console.log(chatEffect.data);
+			actors.forEach(function(ac){
+				// chatEffect.parent = ac;
+				ActiveEffect.create(chatEffect.data,ac.actor).create();
+				// .create();
+				// chatEffect.create();
+				console.log(ac.actor);
+			});
+		}
+
+	}
 	/* -------------------------------------------- */
 
 	/**
@@ -140,20 +162,17 @@ export default class ItemT20 extends Item {
 		// TODO
 		// arma {ataque,dano,pericia,atributo,critico,multiplicador}
 		if(item.type === "arma"){
-			options.pericia = "";
-			options.atqBns = "";
-			options.dano = "";
-			options.atributo = "";
-			options.critico = "";
-			options.multiplicador = "";
-			options.custo = "";
+			options = mergeObject( options, this.getWeaponData( id, actorData, configuration ) );
+			console.log(options);
 		}
 		if(item.type === "poder"){
-			options.custo = item.data.data.ativacao.custo
+			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
+			// options.custo = item.data.data.ativacao.custo
 		}
 		if(item.type === "magia"){
-			options = mergeObject( options, this.getSpellData( id, actorData, configuration ) );
-			item.data.data.efeito = options.newFormula.trim();
+			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
+			// item.data.data.efeito = options?.newFormula?.trim();
+
 		}
 
 		// Determine whether the item can be used by testing for resource consumption
@@ -162,8 +181,8 @@ export default class ItemT20 extends Item {
 		// Execute Rolls
 		switch ( item.type ) {
 			case "arma":
-				options.rolls.atq = await item.rollAttack({event});
-				options.rolls.dmg = await item.rollDamage({critical: options.rolls.atq._critical, event});
+				options.rolls.atq = await item.rollAttack({aeparts: options.atqparts, event});
+				options.rolls.dmg = await item.rollDamage({aeparts: options.dmgparts, critical: options.rolls.atq._critical, event});
 				break; 
 			case "magia":
 			case "poder":
@@ -190,23 +209,32 @@ export default class ItemT20 extends Item {
 		if( actorData.pericias[itemData.pericia].value ) parts.push(actorData.pericias[itemData.pericia].value);
 		if( itemData.atqBns ) parts.push(itemData.atqBns);
 		
-		const actorBonusPericia = actorData?.bonuses?.pericias || {};
-		if ( actorBonusPericia.geral ) parts.push(actorBonusPericia.geral);
-		if ( actorBonusPericia.ataque ) parts.push(actorBonusPericia.ataque);
-		const actorBonusAtaque = actorData?.bonuses?.ataque || {};
-		if ( actorBonusAtaque.ataque ) parts.push(actorBonusAtaque.ataque);
+		// const actorBonusPericia = actorData?.bonuses?.pericias || {};
+		// if ( actorBonusPericia.geral ) parts.push(actorBonusPericia.geral);
+		// if ( actorBonusPericia.ataque ) parts.push(actorBonusPericia.ataque);
+		// const actorBonusAtaque = actorData?.bonuses?.ataque || {};
+		// if ( actorBonusAtaque.ataque ) parts.push(actorBonusAtaque.ataque);
+		const actorMods = this.actor.data?.modificadores || {};
+		if ( actorMods.ataque ) parts.push(actorMods.ataque);
+		if ( actorMods.ataqueCaC ) parts.push(actorMods.ataqueCaC);
+		if ( actorMods.ataqueAD ) parts.push(actorMods.ataqueAD);
+
+		const actorBonusAtaque = this.actor.data?.bonuses || {};
+		if ( actorBonusAtaque.attack ) parts.push(actorBonusAtaque.attack);
+
+		if( options.aeparts?.length > 0 ) {
+			parts.push(...options.aeparts);
+		}
 
 		// Ammunition Bonus TODO
-		
-
 		// Compose roll options
-		const rollConfig = mergeObject({
+		const rollConfig = {
 			parts: parts,
 			actor: this.actor,
 			data: rollData,
 			title: title,
 			flavor: title
-		}, options);
+		};
 		rollConfig.event = options.event;
 
 		// Weapon Critical
@@ -222,16 +250,20 @@ export default class ItemT20 extends Item {
 		return roll;
 	}
 
-	async rollDamage({critical=false, event=null, versatil=false, options={}}={}) {
+	async rollDamage({critical=false, event=null, versatil=false, aeparts=[], options={}}={}) {
 		const itemData = this.data.data;
 		const actorData = this.actor.data.data;
 		// Get roll data
 		//Refactor item to have part : itemData.damage.parts.map(d => d[0]);
 		const parts = [itemData.dano, `@${itemData.atrDan}`, itemData.danoBns];
 		const rollData = this.getRollData();
-
+		console.log(aeparts);
 		// Configure the damage roll
 		const title = this.name;
+
+		if( aeparts?.length > 0 ) {
+			parts.push(...aeparts);
+		}
 		const rollConfig = {
 			actor: this.actor,
 			critical: critical ?? event?.altKey ?? false,
@@ -250,6 +282,11 @@ export default class ItemT20 extends Item {
 		if ( actorBonus.dano ) {
 			parts.push(actorBonus.dano);
 		}
+
+		const actorMods = this.actor.data?.modificadores || {};
+		if ( actorMods.dano ) parts.push(actorMods.dano);
+		if ( actorMods.danoCaC ) parts.push(actorMods.danoCaC);
+		if ( actorMods.danoAD ) parts.push(actorMods.danoAD);
 
 		// Add ammunition damage
 		// TODO
@@ -272,6 +309,114 @@ export default class ItemT20 extends Item {
 		if ( roll === false ) return null;
 		return roll;
 	}
+	/* -------------------------------------------- */
+	/*
+	* Prepare effects activated during an action instance (ie attack roll, skill roll)
+	* @param {effects} Object	Effect application data {effectId: applicationAmount}
+	* return {object} Object	Contains d20 and damage parts to include in roll
+	*							formula and data about cost and application
+	* @private
+	*/
+	getActiveEffectsParts(effects) {
+		let ret = {
+			atqparts:[],
+			dmgparts:[],
+			custo:0,
+			aprimoramentos: []
+		}
+		let campos = {
+			"$pericia": [],
+			"$ataque": [],
+			"$dano": [],
+			"$atributo": [],
+			"$custo": [],
+			"&pericia": [],
+			"&ataque": [],
+			"&dano": [],
+			"&atributo": [],
+			"&custo": [],
+			"_pericia": [],
+			"_ataque": [],
+			"_dano": [],
+			"_atributo": [],
+			"_custo": [],
+		}
+		const actor = this.actor;
+		// console.log(this);
+		for (var i = 0; i < Object.keys(effects).length; i++) {
+			let id = Object.keys(effects)[i];
+			let ae = this.actor.effects.get(id);
+			// console.log(ae);
+			const groups = ae.data.changes.reduce((acc, change) => {
+				if( !Object.keys(campos).includes(change.key) ) return acc;
+				// acc[change.key].push(change);
+				acc[change.key][i] = change;
+				return acc;
+			}, campos);
+			// console.log(groups);
+			let ap = {
+				description: ae._sourceName,
+				custo: 0,
+				qtd: Number(effects[id])-1 ? Number(effects[id])-1 : ""
+			}
+			// prepare MP cost
+			if( groups["$custo"][i] ) {				
+				if ( groups["$custo"][i] ) ap.custo += Number(groups["$custo"][i].value);
+				if ( groups["&custo"][i] && effects[id]>1 ) ap.custo += Number(groups["&custo"][i].value) * (Number(effects[id])-1);
+				ret.custo += ap.custo;
+			}
+			// prepare d20 parts for attack, skill, ability test
+			if( groups["$ataque"][i] ) {
+				// +X | +@x | +#dX | kh | kl
+				let bonus = "";
+				// console.log(groups["$ataque"][i]);
+				if ( groups["$ataque"][i] ) bonus += Number(groups["$ataque"][i].value) || `+${groups["$ataque"][i].value}`;
+				if ( groups["&ataque"][i] && effects[id]>1 ) bonus += Number(groups["&ataque"][i].value) * (Number(effects[id])-1);
+				if ( bonus ) ret.atqparts.push(bonus);
+			}
+			// prepare damage parts
+			if( groups["$dano"][i] ) {
+				let tempForm = [];
+				if ( Number.isNumeric(groups["$dano"][i].value) ){
+					tempForm.push(groups["$dano"][i].value);
+				} else if(groups["$dano"][i] && groups["$dano"][i].value==="_roll"){
+						let iid = ae.data.origin.split(".")[3];
+						let tempIt = actor.items.get(iid).data.data;
+						let rollPart = tempIt.roll ?? tempIt.efeito ?? tempIt.formula;
+						
+						tempForm.push(rollPart);
+				} else {
+					let broll = groups["$dano"][i].value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g);
+					broll.forEach(rt => tempForm.push(Number(rt)||rt));
+				}
+
+
+				if ( effects[id]>1 ) {
+
+					groups["&dano"].forEach( function(change){
+						// Aumenta passos/faces
+						if ( change.value.match(/^d\d+/)  ){
+							tempForm[2] = Number(change.value.match(/^d\d+/));
+						}
+						// Aumenta dados
+						else if( change.value.match(/\d+d\d+/) ) {
+							let aroll = change.value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)/g);
+							if(tempForm[0] && aroll[0]) tempForm[0] += Number(aroll[0]);
+							if(tempForm[4] && aroll[4]) tempForm[4] += Number(aroll[4]);
+						}
+						// TODO replace
+					});
+				}
+
+				if (new Roll(tempForm.join("")).evaluate() ) ret.dmgparts.push(tempForm.join(""));
+				ret.aprimoramentos.push(ap);
+			}
+
+			console.log(ret);
+		}
+
+		return ret;
+	}
 
 	/* -------------------------------------------- */
 
@@ -289,19 +434,241 @@ export default class ItemT20 extends Item {
 		return rollData;
 	}
 
-	getWeaponData(){
-		
-	}
-	getPowerData(){
-		
+	getWeaponData(id, actorData, configuration=null){
+		let options = {};
+		const rollData = this.getRollData();
+
+		/*		APRIMORAMENTOS		*/
+		let aplicados = {};
+
+		if( configuration ) {
+			console.log(configuration);
+			let aplica = [].concat(configuration?.aplica) ?? [];
+			let ids = [].concat(configuration?.id) ?? [];
+
+			const ae = this.actor.effects.filter(ef=> ids.includes(ef.id));
+			aplica.forEach(function(ap, ind){
+				if(ap && ap !== "0"){
+					aplicados[ids[ind]] = aplica[ind];
+				}
+			});
+
+			options = this.getActiveEffectsParts(aplicados);
+			if(configuration.bonus) options.atqparts.push(configuration.bonus);
+			if(configuration.bonusdano) options.dmgparts.push(configuration.bonusdano);
+		}
+		console.log(options);
+		return options;
 	}
 
-	getSpellData(id, actorData, configuration=null){
+	getArmaData(id, actorData, configuration=null){
+		let options = {};
+		const rollData = this.getRollData();
+		let ret = {
+			atqparts:[],
+			dmgparts:[],
+			custo:0,
+			aprimoramentos: []
+		}
+		/*		APRIMORAMENTOS		*/
+		let aplicados = {};
+
+		if( configuration ) {
+			console.log(configuration);
+			let aplica = [].concat(configuration?.aplica) ?? [];
+			let ids = [].concat(configuration?.id) ?? [];
+
+			const ae = this.actor.effects.filter(ef=> ids.includes(ef.id));
+			aplica.forEach(function(ap, ind){
+				if(ap && ap !== "0"){
+					aplicados[ids[ind]] = aplica[ind];
+				}
+			});
+			const actor = this.actor;
+			let aprimoramentos = this.effects.filter(ef => Object.keys(aplicados).includes(ef.id) );
+			let sae = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+			console.log(aprimoramentos);
+			console.log(sae);
+			sae.forEach(function(ef){
+				ef.data.changes.forEach(function(ch){
+					if(ch.key==="$dano" && ch.value==="_roll"){
+						let iid = ef.data.origin.split(".")[3];
+						let tempIt = actor.items.get(iid).data.data;
+						let rollPart = tempIt.roll ?? tempIt.efeito ?? tempIt.formula;
+						console.log(rollPart);
+					}
+
+				});
+			});
+			// options = this.getActiveEffectsParts(aplicados);
+			if(configuration.bonus) options.atqparts.push(configuration.bonus);
+			if(configuration.bonusdano) options.dmgparts.push(configuration.bonusdano);
+		}
+		console.log(options);
+		return options;
+	}
+	getPowerData(id, actorData, configuration=null){
 		const options = {};
 		const rollData = this.getRollData();
+
+		const valorDuracao = id.duracao.unidade != "turno" && id.duracao.unidade != "rodada" ? "" : id.duracao.valor;
+		const unidadeDuracao = CONFIG.T20.listaDuracoes[id.duracao.unidade];
+		let formula = [id.efeito];
+		// set Original spell header
+		options.spell = {
+			tipo: id.tipo,
+			circulo: id.circulo,
+			escola: id.escola,
+			execucao: CONFIG.T20.listaAtivacao[id.ativacao.execucao] || "Duas rodadas",
+			alcance: id.alcance,
+			alvo: id.alvo,
+			area: id.area,
+			duracao: valorDuracao ? valorDuracao + " " + unidadeDuracao + (valorDuracao != 1 ? "s" : "") : unidadeDuracao,
+			resistencia: id.resistencia,
+			cd: actorData.attributes.cd + (actorData.atributos[id.atrRes]?.mod ?? 0) + id.cd
+		};
+		
+		options.custo = id.ativacao.custo > 0 ? Number(id.ativacao.custo) + (actorData.modificadores.custosPM.bonus ?? 0) : 0;
+		options.truque = false;
+		options.aprimoramentos = [];
+		options.effects = [];
 		/* ------------------------ */
 		/*		APRIMORAMENTOS		*/
 		/* ------------------------ */
+		let aprimoramentos = [];
+		let aplicados = {};
+		let changes = [];
+		// get Active Effects from this spell
+		let effectList = this.effects.filter( ef => !ef.data.flags.onuse );
+		console.log(effectList);
+		if ( configuration ) {
+			let aplica = [].concat(configuration?.aplica) ?? [];
+			let ids = [].concat(configuration?.id) ?? [];
+			// let formula = [id.efeito].concat(configuration?.bonusdano) ?? [id.efeito];
+			if (configuration?.bonus) formula.push(configuration?.bonus);
+			if (configuration?.bonusdano) formula.push(configuration?.bonusdano);
+			// Set obj of applied effects
+			// key => ae.uuid	value => amount of aplications
+			aplica.forEach(function(ap, ind){
+				if(ap && ap !== "0"){
+					aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
+				}
+			});
+			// get Aprimoramentos from this spell
+			aprimoramentos = this.effects.filter(ef => Object.keys(aplicados).includes(ef.id) );
+			let ae = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+			if ( ae.length ) aprimoramentos = aprimoramentos.concat(ae);
+			
+			aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+			
+			
+
+			// create new Active Effect to concatenate changes
+			// let campos = [ "tipo", "circulo", "escola", "execucao", "alcance", "alvo", "area", "duracao", "resistencia", "cd" ];
+			let campos = ["alcance","alvo","area","execucao","duracao","resistencia","atrRes","cd","tipo","escola"];
+			
+			// changes.concat(effectList.data.changes);
+			console.log(effectList);
+			effectList.forEach(function(ef, index){
+				changes.push([]);
+				ef.data.changes.forEach(function(ch){
+					changes[index].push({
+						key: ch.key,
+						value: Number(ch.value),
+						mode: ch.mode
+					});
+				});
+			});
+			let _campos = {
+				custo: 0
+			};
+
+			aprimoramentos.forEach(function(ef){
+				ef.data.changes.forEach(function(ch){
+					if( campos.includes(ch.key) ){
+						_campos[ch.key] = ch.value;
+					}
+					// just adds new dice
+					else if( ch.key === "roll" && ch.mode === 2 ){
+						formula.push(ch.value);
+					}
+					else if( ch.key === "roll" && ch.mode === 5 ){
+						if(ch.value) formula[0] = ch.value;
+						else formula = [ch.value];
+					}
+					else if( ch.key === "roll" && ch.mode === 0 ){
+						// Customizing rolls , change faces, include modifiers
+						if(formula[0].match(/\d+d\d+/) && ch.value.match(/\d+d\d+/)){ //adds more dice
+							let tempOri = []; let tempAp = [];
+							formula[0].match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempOri.push(Number(rt)||rt));
+							ch.value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempAp.push(Number(rt) * aplicados[ef.id]||rt));
+							if (tempOri[0] && tempAp[0]) tempOri[0] = tempOri[0] + tempAp[0];
+							if (tempOri[4] && tempAp[4]) tempOri[4] = tempOri[4] + tempAp[4];
+							formula[0] = tempOri.join("");
+							console.log(formula[0]);
+							console.log("AUMENTA");
+						}else if(ch.value.match(/^d\d+$/)){ //change faces
+							formula[0] = formula[0].replace(/d\d+/, ch.value);
+						} else if ( ["max","min"].includes(ch.value.toLowerCase().trim()) ){ //make min/max
+							options.minmax = ch.value.toLowerCase().trim();
+						}
+						// TODO MODIFIERS "r": "x": "xo": "k": "kh": "kl": "d": "dh": "dl": "cs": "cf": "df": "sf": "ms"
+					} else if( ch.key !== "roll" ) {
+						changes.forEach(function(efch){
+							if( !ef.data.flags.t20.aumenta || ( ef.data.flags.t20.aumenta && efch.map(ch => ch.key).includes(ch.key) ) ) {
+								efch.push({
+									key: ch.key,
+									value: Number(ch.value) * aplicados[ef.id],
+									mode: ch.mode
+								});
+							}
+						});
+
+					}
+				});
+				if ( ef.data.flags.t20.custo === "Truque" ){
+					options.truque = true;
+				} else if ( ef.data.flags.t20.custo ) {
+					options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+				}
+
+				options.aprimoramentos.push({
+					description: ef.data.label,
+					custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+					qtd: Number(aplicados[ef.id])-1 ? Number(aplicados[ef.id])-1 : ""
+				});
+			}); 
+			// Merge objects to overwrite spellHeader data
+			mergeObject(options.spell, _campos);
+		}
+		// Create effects to appear at chat card.
+		// let cardEffects = [];
+		// options.effects = [];
+		console.log(changes);
+		console.log(effectList);
+		effectList.forEach(function(ef, index){
+			let tempEffect = ActiveEffect.create({
+				label: ef.data.label ?? this.data.name,
+				icon: ef.data.icon ?? this.data.img,
+				origin: ef.data.origin ?? this.data._id,
+				flags: { temp: true },
+				duration: ef.data.duration ?? undefined,
+				disabled: false,
+				changes: changes[index] ?? ef.data.changes
+			});
+			options.effects.push(tempEffect);
+		});
+		/* ------------------------ */
+		/*		APRIMORAMENTOS		*/
+		/* ------------------------ */
+		// options.aprimoramentos = aprimoramentos;
+		options.custo = options.truque ? 0 : Math.max(options.custo,1);
+		id.efeito = formula.join("+");
+		console.log(options.effects);
+		return options;
+	}
+
+	_oldAprimoramento(){
 		let aplicados = [];
 		let aprimoramentos = [];
 		let PMTotal = 0;
@@ -361,34 +728,322 @@ export default class ItemT20 extends Item {
 			aprimoramentos.push(ap);
 		});
 		options.newFormula = formula.override ? formula.override : tempForm.join("");
+	}
 
-		/* ------------------------ */
-		/*		APRIMORAMENTOS		*/
-		/* ------------------------ */
-		
-		
+	getSpellData(id, actorData, configuration=null){
+		const options = {};
+		const rollData = this.getRollData();
+
 		const valorDuracao = id.duracao.unidade != "turno" && id.duracao.unidade != "rodada" ? "" : id.duracao.valor;
 		const unidadeDuracao = CONFIG.T20.listaDuracoes[id.duracao.unidade];
-		options.spell = {
-			tipo: id.tipo,
-			circulo: id.circulo,
-			escola: id.escola,
-			execucao: CONFIG.T20.listaAtivacao[id.ativacao.execucao] || "Duas rodadas",
-			alcance: id.alcance,
-			alvo: id.alvo,
-			area: id.area,
-			duracao: valorDuracao ? valorDuracao + " " + unidadeDuracao + (valorDuracao != 1 ? "s" : "") : unidadeDuracao,
-			resistencia: id.resistencia,
-			cd: actorData.attributes.cd + (actorData.atributos[id.atrRes]?.mod ?? 0) + id.cd
-		};
-		options.aprimoramentos = aprimoramentos;
-		options.custo = !eTruque && id.ativacao.custo > 0
-							? Math.max(parseInt(id.ativacao.custo) + PMTotal + (actorData.modificadores.custosPM.bonus ?? 0) - (actorData.modificadores.custosPM.penalidades ?? 0), 1)
-							: 0;
-		options.truque = eTruque;
+		let formula = [];
+		formula.push(id.roll ?? id.dano ?? id.efeito);
+		
+		if(id.type === "magia"){
+			// set Original spell header
+			options.spell = {
+				tipo: id.tipo,
+				circulo: id.circulo,
+				escola: id.escola,
+				execucao: CONFIG.T20.listaAtivacao[id.ativacao.execucao] || "Duas rodadas",
+				alcance: id.alcance,
+				alvo: id.alvo,
+				area: id.area,
+				duracao: valorDuracao ? valorDuracao + " " + unidadeDuracao + (valorDuracao != 1 ? "s" : "") : unidadeDuracao,
+				resistencia: id.resistencia,
+				cd: actorData.attributes.cd + (actorData.atributos[id.atrRes]?.mod ?? 0) + id.cd
+			};
+		}
+		
+		options.custo = id.ativacao.custo > 0 ? Number(id.ativacao.custo) + (actorData.modificadores.custosPM.bonus ?? 0) : 0;
+		options.truque = false;
+		options.aprimoramentos = [];
+		options.effects = [];
+
+		let aprimoramentos = [];
+		let aplicados = {};
+		let changes = [];
+		// get Active Effects from this spell
+		let effectList = this.effects.filter( ef => !ef.data.flags.onuse );
+		if ( configuration ) {
+			let aplica = [].concat(configuration?.aplica) ?? [];
+			let ids = [].concat(configuration?.id) ?? [];
+			if (configuration?.bonus) formula.push(configuration?.bonus);
+			if (configuration?.bonusdano) formula.push(configuration?.bonusdano);
+			// Set obj of applied effects
+			// key => ae.uuid	value => amount of aplications
+			aplica.forEach(function(ap, ind){
+				if(ap && ap !== "0"){
+					aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
+				}
+			});
+			// get Aprimoramentos from this item
+			aprimoramentos = this.effects.filter(ef => Object.keys(aplicados).includes(ef.id) );
+			let ae = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+			if ( ae.length ) aprimoramentos = aprimoramentos.concat(ae);
+			
+			aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+			
+			// create new Active Effect to concatenate changes
+			let campos = ["alcance","alvo","area","execucao","duracao","resistencia","atrRes","cd","tipo","escola"];
+			effectList.forEach(function(ef, index){
+				changes.push([]);
+				ef.data.changes.forEach(function(ch){
+					changes[index].push({
+						key: ch.key,
+						value: Number(ch.value),
+						mode: ch.mode
+					});
+				});
+			});
+			let _campos = {
+				custo: 0
+			};
+
+			aprimoramentos.forEach(function(ef){
+				ef.data.changes.forEach(function(ch){
+					if( campos.includes(ch.key) ){
+						_campos[ch.key] = ch.value;
+					}
+					// adds new dice
+					else if( ch.key === "roll" && ch.mode === 2 ){
+						formula.push(ch.value);
+					}
+					// overwrite main roll
+					else if( ch.key === "roll" && ch.mode === 5 ){
+						if(ch.value) formula[0] = ch.value;
+						else formula = [ch.value];
+					}
+					// Customizing rolls , change faces, include modifiers
+					else if( ch.key === "roll" && ch.mode === 0 ){
+						if(formula[0].match(/\d+d\d+/) && ch.value.match(/\d+d\d+/)){ //adds more dice
+							let tempOri = []; let tempAp = [];
+							formula[0].match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempOri.push(Number(rt)||rt));
+							ch.value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempAp.push(Number(rt) * aplicados[ef.id]||rt));
+							if (tempOri[0] && tempAp[0]) tempOri[0] = tempOri[0] + tempAp[0];
+							if (tempOri[4] && tempAp[4]) tempOri[4] = tempOri[4] + tempAp[4];
+							formula[0] = tempOri.join("");
+						}else if(ch.value.match(/^d\d+$/)){ //change faces
+							formula[0] = formula[0].replace(/d\d+/, ch.value);
+						} else if ( ["max","min"].includes(ch.value.toLowerCase().trim()) ){ //make min/max
+							options.minmax = ch.value.toLowerCase().trim();
+						}
+						// TODO MODIFIERS "r" "x" "xo" "k" "kh" "kl" "d" "dh" "dl" "cs" "cf" "df" "sf" "ms"
+						// TODO "+1 pra cada dado"
+					} else if( ch.key !== "roll" ) {
+						changes.forEach(function(efch){
+							if( !ef.data.flags.t20.aumenta || ( ef.data.flags.t20.aumenta && efch.map(ch => ch.key).includes(ch.key) ) ) {
+								efch.push({
+									key: ch.key,
+									value: Number(ch.value) * aplicados[ef.id],
+									mode: ch.mode
+								});
+							}
+						});
+
+					}
+				});
+				if ( ef.data.flags.t20.custo === "Truque" ){
+					options.truque = true;
+				} else if ( ef.data.flags.t20.custo ) {
+					options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+				}
+
+				options.aprimoramentos.push({
+					description: ef.data.label,
+					custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+					qtd: Number(aplicados[ef.id])-1 ? Number(aplicados[ef.id])-1 : ""
+				});
+			}); 
+			// Merge objects to overwrite spellHeader data // TODO add header to everything?
+			if(id.type == "magia") mergeObject(options.spell, _campos);
+		}
+		// Create effects to embbed at chat card
+		effectList.forEach(function(ef, index){
+			let tempEffect = ActiveEffect.create({
+				label: ef.data.label ?? this.data.name,
+				icon: ef.data.icon ?? this.data.img,
+				origin: ef.data.origin ?? this.data._id,
+				flags: { temp: true },
+				duration: ef.data.duration ?? undefined,
+				disabled: false,
+				changes: changes[index] ?? ef.data.changes
+			});
+			options.effects.push(tempEffect);
+		});
+		options.custo = options.truque ? 0 : Math.max(options.custo,1);
+		id.efeito = formula.join("+");
 		return options;
 	}
-	
+
+	getItemData(id, actorData, configuration=null){
+		const options = {};
+		const rollData = this.getRollData();
+
+		const valorDuracao = id.duracao.unidade != "turno" && id.duracao.unidade != "rodada" ? "" : id.duracao.valor;
+		const unidadeDuracao = CONFIG.T20.listaDuracoes[id.duracao.unidade];
+		let formula = [];
+		formula.push(id.roll ?? id.dano ?? id.efeito);
+		let rollMods = {
+			dado:null,
+			passo:0,
+			override:null,
+			aumentaDado:0,
+			aumentaNum:0
+		}
+		if(id.type === "magia"){
+			// set Original spell header
+			options.spell = {
+				tipo: id.tipo,
+				circulo: id.circulo,
+				escola: id.escola,
+				execucao: CONFIG.T20.listaAtivacao[id.ativacao.execucao] || "Duas rodadas",
+				alcance: id.alcance,
+				alvo: id.alvo,
+				area: id.area,
+				duracao: valorDuracao ? valorDuracao + " " + unidadeDuracao + (valorDuracao != 1 ? "s" : "") : unidadeDuracao,
+				resistencia: id.resistencia,
+				cd: actorData.attributes.cd + (actorData.atributos[id.atrRes]?.mod ?? 0) + id.cd
+			};
+		}
+		
+		options.custo = id.ativacao.custo > 0 ? Number(id.ativacao.custo) + (actorData.modificadores.custosPM.bonus ?? 0) : 0;
+		options.truque = false;
+		options.aprimoramentos = [];
+		options.effects = [];
+
+		let aprimoramentos = [];
+		let aplicados = {};
+		let changes = [];
+		// get Active Effects from this spell
+		let effectList = this.effects.filter( ef => !ef.data.flags.onuse );
+		if ( configuration ) {
+			let aplica = [].concat(configuration?.aplica) ?? [];
+			let ids = [].concat(configuration?.id) ?? [];
+			if (configuration?.bonus) formula.push(configuration?.bonus);
+			if (configuration?.bonusdano) formula.push(configuration?.bonusdano);
+			// Set obj of applied effects
+			// key => ae.uuid	value => amount of aplications
+			aplica.forEach(function(ap, ind){
+				if(ap && ap !== "0"){
+					aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
+				}
+			});
+			// get Aprimoramentos from this item
+			aprimoramentos = this.effects.filter(ef => Object.keys(aplicados).includes(ef.id) );
+			let ae = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+			if ( ae.length ) aprimoramentos = aprimoramentos.concat(ae);
+			
+			aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+			
+			// create new Active Effect to concatenate changes
+			let campos = ["alcance","alvo","area","execucao","duracao","resistencia","atrRes","cd","tipo","escola"];
+			effectList.forEach(function(ef, index){
+				changes.push([]);
+				ef.data.changes.forEach(function(ch){
+					changes[index].push({
+						key: ch.key,
+						value: Number(ch.value),
+						mode: ch.mode
+					});
+				});
+			});
+			let _campos = {
+				custo: 0
+			};
+
+			aprimoramentos.forEach(function(ef){
+				ef.data.changes.forEach(function(ch){
+					if( campos.includes(ch.key) ){
+						_campos[ch.key] = ch.value;
+					}
+					// adds new dice
+					else if( ch.key === "roll" && ch.mode === 2 ){
+						formula.push(ch.value);
+					}
+					// overwrite main roll
+					else if( ch.key === "roll" && ch.mode === 5 ){
+						rollMods.override = ch.value;
+					}
+					// Customizing rolls , change faces, include modifiers
+					else if( ch.key === "roll" && ch.mode === 0 ){
+						if(formula[0].match(/\d+d\d+/) && ch.value.match(/\d+d\d+/)){ //adds more dice
+							let tempAp = [];
+							ch.value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempAp.push(Number(rt) * aplicados[ef.id]||rt));
+							if( tempAp[0] ) rollMods.aumentaDado += tempAp[0];
+							if( tempAp[4] ) rollMods.aumentaDado += tempAp[4];
+						}else if(ch.value.match(/^d\d+$/)){ //change faces
+							// formula[0] = formula[0].replace(/d\d+/, ch.value);
+							rollMods.dado = ch.value;
+						} else if ( ["max","min"].includes(ch.value.toLowerCase().trim()) ){ //make min/max
+							options.minmax = ch.value.toLowerCase().trim();
+						}
+						// TODO MODIFIERS "r" "x" "xo" "k" "kh" "kl" "d" "dh" "dl" "cs" "cf" "df" "sf" "ms"
+						// TODO "+1 pra cada dado"
+					} else if( ch.key !== "roll" ) {
+						changes.forEach(function(efch){
+							if( !ef.data.flags.t20.aumenta || ( ef.data.flags.t20.aumenta && efch.map(ch => ch.key).includes(ch.key) ) ) {
+								efch.push({
+									key: ch.key,
+									value: Number(ch.value) * aplicados[ef.id] || ch.value,
+									mode: ch.mode
+								});
+							}
+						});
+
+					}
+				});
+				if ( ef.data.flags.t20.custo === "Truque" ){
+					options.truque = true;
+				} else if ( ef.data.flags.t20.custo ) {
+					options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+				}
+
+				options.aprimoramentos.push({
+					description: ef.data.label,
+					custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+					qtd: Number(aplicados[ef.id])-1 ? Number(aplicados[ef.id])-1 : ""
+				});
+			}); 
+			// Merge objects to overwrite spellHeader data // TODO add header to everything?
+			if(id.type == "magia") mergeObject(options.spell, _campos);
+		}
+		// Create effects to embbed at chat card
+		effectList.forEach(function(ef, index){
+			let tempEffect = ActiveEffect.create({
+				label: ef.data.label ?? this.data.name,
+				icon: ef.data.icon ?? this.data.img,
+				origin: ef.data.origin ?? this.data._id,
+				flags: { temp: true },
+				duration: ef.data.duration ?? undefined,
+				disabled: false,
+				changes: changes[index] ?? ef.data.changes
+			});
+			options.effects.push(tempEffect);
+		});
+		options.custo = options.truque ? 0 : Math.max(options.custo,1);
+		
+		formula[0] = this.applyRollChanges(formula[0], rollMods)
+		id.efeito = formula.join("+");
+		return options;
+	}
+
+	/* -------------------------------------------- */
+	applyRollChanges(roll, rollMods){
+	    let r;
+	    if ( rollMods.override ) roll = rollMods.override;
+	    if ( typeof rollMods.dado === "string" ) roll = roll.replace(/d\d+/, rollMods.dado);
+	    // if ( rollMods.passo ) //TODO;
+	    if ( rollMods.aumentaDado ) roll = new Roll(roll).alter(1, rollMods.aumentaDado).formula;
+	    if ( rollMods.aumentaNum ) {
+	        r = new Roll(roll);
+	        if ( r.terms[2] ) r.terms[2] = r.terms[2] + rollMods.aumentaNum;
+	        else r.terms[2] = rollMods.aumentaNum;
+	        roll = r.formula
+	    };
+	    return roll;
+	}
+
 	/* -------------------------------------------- */
 
 	/**
@@ -415,7 +1070,8 @@ export default class ItemT20 extends Item {
 		if(options.rolls.dmg) await options.rolls.dmg.render().then((r)=> {templateData.rollDano = r});
 
 		let teste = mergeObject(templateData,options);
-		
+		console.log(templateData);
+		console.log(options);
 		// Render the chat card template
 		let template = "systems/tormenta20/templates/chat/chat-card.html";
 		const html = await renderTemplate(template, templateData);
@@ -427,22 +1083,23 @@ export default class ItemT20 extends Item {
 			content: html,
 			flavor: this.data.data.chatFlavor || "",
 			speaker: ChatMessage.getSpeaker({actor: this.actor, token}),
-			flags: {"core.canPopout": true}
+			flags: {"core.canPopout": true, "t20.effects": options.effects}
 		};
-		
+		console.log(chatData);
+		console.log(options.effects);
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode);
 
-		// Create the Chat Message or return its data
 		if (game?.dice3d?.show) {
 			let wd = {
-				whisper:	(["gmroll", "blindroll"].includes(rollMode) ? ChatMessage.getWhisperRecipients("GM") 
-															: (rollMode === "selfroll" ? [game.user._id] : null)),
+				whisper: (["gmroll", "blindroll"].includes(rollMode) ? ChatMessage.getWhisperRecipients("GM") 
+					: (rollMode === "selfroll" ? [game.user._id] : null)),
 				blind: rollMode === "blindroll"
 			}
 			if(options.rolls.atq) game.dice3d.showForRoll(options.rolls.atq, game.user, true, wd.whisper, wd.blind);
 			if(options.rolls.dmg) game.dice3d.showForRoll(options.rolls.dmg, game.user, true, wd.whisper, wd.blind);
 		}
+		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;
 	}
 

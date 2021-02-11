@@ -52,6 +52,13 @@
       "system": "tormenta20",
       "path": "./packs/classes.db",
       "entity": "Item"
+    },
+    {
+      "name": "teste",
+      "label": "Teste",
+      "system": "tormenta20",
+      "path": "./packs/teste.db",
+      "entity": "Item"
     }
   ],
   "languages": [

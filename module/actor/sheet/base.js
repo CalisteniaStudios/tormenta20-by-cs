@@ -2,6 +2,7 @@ import { d20Roll, damageRoll } from '../../dice.js';
 import AbilityUseDialog from "../../apps/ability-use-dialog.js";
 import TraitSelector from "../../apps/trait-selector.js";
 import { T20Utility } from '../../utility.js';
+import {onManageActiveEffect, prepareActiveEffectCategories} from "../../effects.js";
 
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -87,7 +88,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		this._prepareItems(data);
 
 		// Prepare active effects
-		// TODO Implement Active Effects
+		data.effects = prepareActiveEffectCategories(this.entity.effects);
 
 		return data;
 	}
@@ -112,40 +113,40 @@ export default class ActorSheetT20 extends ActorSheet {
 	// }
 	
 	/**
-   * Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
-   * @param {object} traits   The raw traits data object from the actor data
-   * @private
-   */
-  _prepareTraits(traits) {
-    const map = {
-      // "dr": CONFIG.DND5E.damageResistanceTypes,
-      // "di": CONFIG.DND5E.damageResistanceTypes,
-      // "dv": CONFIG.DND5E.damageResistanceTypes,
-      // "ci": CONFIG.DND5E.conditionTypes,
-      "idiomas": CONFIG.T20.idiomas,
-      "profArmas": CONFIG.T20.profArmas,
-      "profArmaduras": CONFIG.T20.profArmaduras,
-      // "toolProf": CONFIG.DND5E.toolProficiencies
-    };
-    for ( let [t, choices] of Object.entries(map) ) {
-      const trait = traits[t];
-      if ( !trait ) continue;
-      let values = [];
-      if ( trait.value ) {
-        values = trait.value instanceof Array ? trait.value : [trait.value];
-      }
-      trait.selected = values.reduce((obj, t) => {
-        obj[t] = choices[t];
-        return obj;
-      }, {});
+	* Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
+	* @param {object} traits   The raw traits data object from the actor data
+	* @private
+	*/
+	_prepareTraits(traits) {
+		const map = {
+			// "dr": CONFIG.DND5E.damageResistanceTypes,
+			// "di": CONFIG.DND5E.damageResistanceTypes,
+			// "dv": CONFIG.DND5E.damageResistanceTypes,
+			// "ci": CONFIG.DND5E.conditionTypes,
+			"idiomas": CONFIG.T20.idiomas,
+			"profArmas": CONFIG.T20.profArmas,
+			"profArmaduras": CONFIG.T20.profArmaduras,
+			// "toolProf": CONFIG.DND5E.toolProficiencies
+		};
+		for ( let [t, choices] of Object.entries(map) ) {
+			const trait = traits[t];
+			if ( !trait ) continue;
+			let values = [];
+			if ( trait.value ) {
+				values = trait.value instanceof Array ? trait.value : [trait.value];
+			}
+			trait.selected = values.reduce((obj, t) => {
+				obj[t] = choices[t];
+				return obj;
+			}, {});
 
-      // Add custom entry
-      if ( trait.custom ) {
-        trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
-      }
-      trait.cssClass = !isObjectEmpty(trait.selected) ? "" : "inactive";
-    }
-  }
+			// Add custom entry
+			if ( trait.custom ) {
+				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
+			}
+			trait.cssClass = !isObjectEmpty(trait.selected) ? "" : "inactive";
+		}
+	}
 
 	/* -------------------------------------------- */
 
@@ -197,6 +198,9 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find("#configure-actor").click(ev => {
 				new game.tormenta20.applications.ActorSettings(this.actor).render(true);
 			});
+
+			// Active Effect management
+			html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.entity));
 		}
 
 		if ( this.actor.owner ) {
@@ -392,17 +396,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		const item = this.actor.getOwnedItem(itemId);
 		return item.roll();
 	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-	* @private
-	*/
-	// TODO Implement summary [needed?]
-	// _onItemSummary(event) {
-	// 	event.preventDefault();
-	// }
 
 	/* -------------------------------------------- */
 

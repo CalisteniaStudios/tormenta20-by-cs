@@ -242,6 +242,12 @@ T20Config.conditions = {
         "childrenConditions": [],
         "tooltip": "<strong>Vulnerável</strong><br><br> O personagem sofre –2 na Defesa.",
         "durationType": "cena"
+    },
+    "flank": {
+        "modifiers": [ { "modificadores.ataques.bonus" : 2 }],
+        "childrenConditions": [],
+        "tooltip": "<strong>Flanqueando</strong><br><br> O personagem recebe +2 no Ataque.",
+        "durationType": "cena"
     }
 }
 
@@ -327,18 +333,7 @@ T20Config.idiomas = {
 	"goblin": "Goblin",
 	"hynne": "Hynne",
 	"silvestre": "Silvestre",
-	"taurico": "Táurico",
-	"abissal": "Abissal",
-	"aquan": "Aquan",
-	"auran": "Auran",
-	"celestial": "Celestial",
-	"draconico": "Dracônico",
-	"gigante": "Gigante",
-	"gnoll": "Gnoll",
-	"ignan": "Ignan",
-	"infernal": "Infernal",
-	"orc": "Orc",
-	"terran": "Terran"
+	"taurico": "Táurico"
 };
 
 T20Config.profArmas = {

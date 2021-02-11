@@ -71,4 +71,12 @@
 
     <div id="aditionalbutton"></div>
 
+    {{log effects}}
+    {{#if effects}}
+    <div id="activeEffectsbuttons">
+      {{#each effects as |ef i|}}
+      <button class="apply-button-ef" value="{{i}}" data-effect-index="{{i}}">{{{ef.data.label}}}</button>
+      {{/each}}
+    </div>
+    {{/if}}
 </div>

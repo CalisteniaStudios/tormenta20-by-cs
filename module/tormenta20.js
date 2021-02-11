@@ -18,6 +18,7 @@ import { T20Utility } from "./utility.js";
 import ActorSheetT20Character from "./actor/sheet/character.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
+import ActiveEffectConfigT20 from "./apps/ae-config.js";
 import { toggleEffect } from "./actor/condicoes.js";
 import { endSegment } from "./apps/time-segment.js";
 
@@ -62,6 +63,7 @@ Hooks.once("init", async function () {
   CONFIG.T20 = T20Config;
   CONFIG.statusEffects = T20Config.statusEffectIcons;
   CONFIG.conditions = T20Config.conditions;
+  CONFIG.ActiveEffect.sheetClass = ActiveEffectConfigT20;
 
   // Register System Settings
   SystemSettings();

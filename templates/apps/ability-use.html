@@ -33,7 +33,51 @@
 	</div>
 	{{/if}}
 
-	{{#if aprimoramentos.length}}
+
+	<div class="form-group">
+		<ul class="item-list">
+			<li class="item flexrow item-header">
+				<div>Aplicar</div>	
+				<h3 style="flex: 2">Nome</h3>
+			</li>
+		{{#each aprimoramentos as |ap|}}
+			<li class="item flexrow">
+				<div>
+
+				{{#if ap.data.flags.t20.aumenta}}
+					<input type="button" value="-" class="numCtrl" />
+					<input type="number" name="aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
+					<input type="button" value="+" class="numCtrl" />
+				{{else}}
+					<input  type="checkbox"  name="aplica"  value="1" {{#unless ap.data.disabled}}checked{{/unless}}/>
+				{{/if}}
+
+				
+				{{#if (eq ap.data.flags.t20.custo "Truque")}}
+					{{ap.data.flags.t20.custo}}
+				{{else if ap.data.flags.t20.custo}}
+					{{ap.data.flags.t20.custo}} PM
+				{{/if}}
+
+				{{#if (find ap.data.changes "key" "&custo")}}
+				{{#each ap.data.changes as |ch|}}
+				{{#if (eq ch.key "&custo")}}
+				<br>
+				<input type="button" value="-" class="numCtrl" />
+				<input type="number" name="aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
+				<input type="button" value="+" class="numCtrl" />
+				{{/if}}
+				{{/each}}
+				{{/if}}
+
+				<input type="hidden" name="id" value="{{ap.id}}" /></div>	
+				<h4 style="flex: 2">{{ap.data.label}}</h4>
+			</li>
+		{{/each}}
+		</ul>
+	</div>
+
+	{{#if (and (eq itype "magiaa") aprimoramentos.length)}}
 	<div class="form-group">
 		<div class="form-fields">
 

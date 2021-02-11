@@ -11,11 +11,13 @@ export function onManageActiveEffect(event, owner) {
 	switch ( a.dataset.action ) {
 		case "create":
 		return ActiveEffect.create({
-			label: "New Effect",
+			label: "Novo Efeito",
 			icon: "icons/svg/aura.svg",
 			origin: owner.uuid,
+			flags: { onuse: li.dataset.effectType=="onuse" },
 			"duration.rounds": li.dataset.effectType === "temporary" ? 1 : undefined,
-			disabled: li.dataset.effectType === "inactive"
+			"duration.seconds": li.dataset.effectType === "onuse" ? 1 : undefined,
+			disabled: ["inactive","onuse"].includes(li.dataset.effectType)
 		}, owner).create();
 		case "edit":
 		return effect.sheet.render(true);
@@ -60,7 +62,9 @@ export function prepareActiveEffectCategories(effects) {
 	// Iterate over active effects, classifying them into categories
 	for ( let e of effects ) {
 		e._getSourceName(); // Trigger a lookup for the source name
-		if ( e.data.disabled ) categories.inactive.effects.push(e);
+		// console.log(e.data.flags.t20);
+		if ( e.data.flags.onuse ) categories.onuse.effects.push(e);
+		else if ( e.data.disabled ) categories.inactive.effects.push(e);
 		else if ( e.isTemporary ) categories.temporary.effects.push(e);
 		else categories.passive.effects.push(e);
 	}
