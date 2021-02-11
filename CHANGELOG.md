@@ -1,4 +1,23 @@
 # Lista de Mudanças
+## Versão 1.1.39
+### Novidades
+- Novos ícones para Equipamentos.
+
+## Versão 1.1.38
+### Novidades
+- Compêndio: Poções adicionadas.
+- Compêndio: Itens Mágicos separados dos Equipamentos.
+- Ficha PJ: Fonte do Deslocamento aumentada.
+- ~~Novos ícones para Equipamentos.~~
+
+### Consertos de Bugs
+- Chat: A descrição de Consumíveis aparece normalmente.
+- A magia Chuva de Meteoro causa o dano corretamente (10d6 + 10d6 de dano em vez de 20d6).
+- Navegador de Compêndio: filtros de Execução das magias e de Subtipo de poderes consertado.
+- Compêndio: Alguns escudos estavam configurados como Armaduras em vez de Escudos.
+- Compêndio: Gema Elemental adicionada.
+- Ficha NPC: Deslocamento de Voo aparece corretamente em vez de mostrar o deslocamento normal.
+
 ## Versão 1.1.37
 ### Novidades
 - Adicionado Menu de Deslocamento. Agora é possível adicionar outros tipos de deslocamento às fichas. NPCs ficarão com um campo "Deslocamento (Antigo)" até que a informação seja apagada.

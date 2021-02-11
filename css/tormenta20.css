@@ -99,16 +99,22 @@ table,
   content:"";
 }
 
-.tormenta20 .npc .speedtag {
-  display:inline-block;
+.tormenta20.sheet .trait-list {
+  display:inline;
+  padding:0;
+  margin:0
+}
+
+.tormenta20.sheet .speedtag {
+  display:inline;
   text-transform:lowercase;
 }
 
-.tormenta20 .npc .speedtag:after {
+.tormenta20.sheet .speedtag:after {
   content: ","
 }
 
-.tormenta20 .npc .speedtag:last-child:after {
+.tormenta20.sheet .speedtag:last-child:after {
   content: ""
 }
 

@@ -89,14 +89,14 @@
 			</div>
 			<div class="npc-line">
 				<a class="trait-selector" data-options="deslocamento" data-target="data.attributes.movement">
-					<label style="display:inline-block;">Deslocamento</label>
+					<label>Deslocamento</label>
 				</a>
-				<ul class="trait-list" style="display:inline-block; padding:0; margin:0">
+				<ul class="trait-list">
 					{{#if data.attributes.movement.walk}}<li class="speedtag">{{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
 					{{#if data.attributes.movement.climb}}<li class="speedtag">Escalar {{data.attributes.movement.climb}}m ({{divide data.attributes.movement.climb 1.5}}q)</li>{{/if}}
 					{{#if data.attributes.movement.burrow}}<li class="speedtag">Escavar {{data.attributes.movement.burrow}}m ({{divide data.attributes.movement.burrow 1.5}}q)</li>{{/if}}
 					{{#if data.attributes.movement.swim}}<li class="speedtag">Natação {{data.attributes.movement.swim}}m ({{divide data.attributes.movement.swim 1.5}}q)</li>{{/if}}
-					{{#if data.attributes.movement.fly}}<li class="speedtag">Voo {{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
+					{{#if data.attributes.movement.fly}}<li class="speedtag">Voo {{data.attributes.movement.fly}}m ({{divide data.attributes.movement.fly 1.5}}q)</li>{{/if}}
 					{{#if data.attributes.movement.hover}}<li class="speedtag">Pairar</li>{{/if}}
 				</ul>
 			</div>
