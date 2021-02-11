@@ -16,7 +16,7 @@ export function onManageActiveEffect(event, owner) {
 			origin: owner.uuid,
 			flags: { onuse: li.dataset.effectType=="onuse" },
 			"duration.rounds": li.dataset.effectType === "temporary" ? 1 : undefined,
-			"duration.seconds": li.dataset.effectType === "onuse" ? 1 : undefined,
+			"duration.seconds": undefined,
 			disabled: ["inactive","onuse"].includes(li.dataset.effectType)
 		}, owner).create();
 		case "edit":

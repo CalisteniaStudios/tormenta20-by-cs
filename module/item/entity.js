@@ -162,7 +162,7 @@ export default class ItemT20 extends Item {
 		// TODO
 		// arma {ataque,dano,pericia,atributo,critico,multiplicador}
 		if(item.type === "arma"){
-			options = mergeObject( options, this.getWeaponData( id, actorData, configuration ) );
+			options = mergeObject( options, this.getArmaData( id, actorData, configuration ) );
 			console.log(options);
 		}
 		if(item.type === "poder"){
@@ -343,10 +343,15 @@ export default class ItemT20 extends Item {
 		}
 		const actor = this.actor;
 		// console.log(this);
+		let mods = {};
+
+		/*/
 		for (var i = 0; i < Object.keys(effects).length; i++) {
 			let id = Object.keys(effects)[i];
 			let ae = this.actor.effects.get(id);
-			// console.log(ae);
+			console.log(ae.sourceName);
+			mods[ae.sourceName] = {ata:null,dano:null};
+
 			const groups = ae.data.changes.reduce((acc, change) => {
 				if( !Object.keys(campos).includes(change.key) ) return acc;
 				// acc[change.key].push(change);
@@ -383,7 +388,6 @@ export default class ItemT20 extends Item {
 						let iid = ae.data.origin.split(".")[3];
 						let tempIt = actor.items.get(iid).data.data;
 						let rollPart = tempIt.roll ?? tempIt.efeito ?? tempIt.formula;
-						
 						tempForm.push(rollPart);
 				} else {
 					let broll = groups["$dano"][i].value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g);
@@ -414,7 +418,8 @@ export default class ItemT20 extends Item {
 
 			console.log(ret);
 		}
-
+		/**/
+		console.log(mods);
 		return ret;
 	}
 
@@ -470,11 +475,11 @@ export default class ItemT20 extends Item {
 			custo:0,
 			aprimoramentos: []
 		}
-		/*		APRIMORAMENTOS		*/
+		let passos = 0;
 		let aplicados = {};
 
+		/*		APRIMORAMENTOS		*/
 		if( configuration ) {
-			console.log(configuration);
 			let aplica = [].concat(configuration?.aplica) ?? [];
 			let ids = [].concat(configuration?.id) ?? [];
 
@@ -487,19 +492,74 @@ export default class ItemT20 extends Item {
 			const actor = this.actor;
 			let aprimoramentos = this.effects.filter(ef => Object.keys(aplicados).includes(ef.id) );
 			let sae = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
-			console.log(aprimoramentos);
-			console.log(sae);
-			sae.forEach(function(ef){
+			aprimoramentos = aprimoramentos.concat(sae);
+			let mods = {};
+			aprimoramentos.forEach(function(ef){
+				if( !mods[ef.sourceName] ) mods[ef.sourceName] = {ataque:[],dano:""};
+				if( Number(ef.data.flags.t20.custo) ) ret.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+				let ap = {
+					description: ef._sourceName,
+				}
+				if (Number(ef.data.flags.t20.custo)) ap.custo = ef.data.flags.t20.custo * aplicados[ef.id];
+
 				ef.data.changes.forEach(function(ch){
-					if(ch.key==="$dano" && ch.value==="_roll"){
-						let iid = ef.data.origin.split(".")[3];
-						let tempIt = actor.items.get(iid).data.data;
-						let rollPart = tempIt.roll ?? tempIt.efeito ?? tempIt.formula;
-						console.log(rollPart);
+					let key = ch.key;
+					let mode = ch.mode;
+					let value = ch.value;
+					let sourceName = ef.sourceName;
+					if (ch.key.match(/\@([^\#]+)\#/)){
+						sourceName = ch.key.match(/\@([^\#]+)\#/)[1];
+						key = ch.key.split("#")[1];
+						if( !mods[sourceName] ) mods[sourceName] = {ataque:[],dano:""};
 					}
+					if(key === "$ataque"){
+						if(mode === 2) mods[sourceName].ataque.push(value);
+						if(mode === 5) mods[sourceName].ataque = [value];
+					} else if(key === "$dano"){
+						// custom 1d8 > mods[].aumentadado = X * qtd
+						if(mode === 0 && value.match(/\d+d\d+/)){
+							let tempAp = [];
+							if ( !mods[sourceName].aumentaDado ) mods[sourceName].aumentaDado = 0;
+							if ( !mods[sourceName].aumentaNum ) mods[sourceName].aumentaNum = 0;
+							
+							value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempAp.push(Number(rt) * aplicados[ef.id]||rt));
+							if( tempAp[0] ) mods[sourceName].aumentaDado += tempAp[0];
+							if( tempAp[4] ) mods[sourceName].aumentaNum += tempAp[4];
+						}
+						// custom d12 > mods[].dado = d8
+						console.log(mods[sourceName]);
+						if(mode === 0 && value.match(/^d\d+$/)) mods[sourceName].dado = value; 
+						// adcion 1d8 > mods[sourceName].dano = 1d8
+						if(mode === 2 && ( Number(value) || value.match(/\d+d\d+/))) mods[sourceName].dano = value;
+						if(mode === 2 && (!Number(value) && value.match(/roll/))) {
+							let tempIt = actor.items.get(ef.data.origin.split(".")[3]).data.data;
+							mods[sourceName].dano = tempIt.roll ?? tempIt.efeito ?? tempIt.formula;
+						}
+						// subst 1d6 > mods[sourceName].dano = 1d6
+						if(mode === 5 && value.match(/\d+d\d+/)) mods[sourceName].override = value; 
+					} else if (key === "$passos"){
+						if(mode === 2) passos += Number(value) * aplicados[ef.id];
+						// if ( !mods[sourceName].passos ) mods[sourceName].passos = 0;
+						// if(mode === 2) mods[sourceName].passos += Number(value) * aplicados[ef.id];
+					}
+					// } else if (){
 
 				});
+				ret.aprimoramentos.push(ap);
+
 			});
+			for (var i = 0; i < Object.keys(mods).length; i++) {
+				let m = mods[Object.keys(mods)[i]];
+				if ( m.ataque.length ) ret.atqparts = ret.atqparts.concat(m.ataque);
+				if (m.dano && (m.aumentaDado || m.aumentaNum || m.dado || m.override)){
+					m.dano = this.applyRollChanges(m.dano, m);
+					// console.log(temp);
+				} 
+				ret.dmgparts.push( m.dano );
+			}
+			console.log(this.data);
+
+			mergeObject(options,ret);
 			// options = this.getActiveEffectsParts(aplicados);
 			if(configuration.bonus) options.atqparts.push(configuration.bonus);
 			if(configuration.bonusdano) options.dmgparts.push(configuration.bonusdano);
@@ -971,7 +1031,7 @@ export default class ItemT20 extends Item {
 							let tempAp = [];
 							ch.value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempAp.push(Number(rt) * aplicados[ef.id]||rt));
 							if( tempAp[0] ) rollMods.aumentaDado += tempAp[0];
-							if( tempAp[4] ) rollMods.aumentaDado += tempAp[4];
+							if( tempAp[4] ) rollMods.aumentaNum += tempAp[4];
 						}else if(ch.value.match(/^d\d+$/)){ //change faces
 							// formula[0] = formula[0].replace(/d\d+/, ch.value);
 							rollMods.dado = ch.value;
@@ -1023,7 +1083,7 @@ export default class ItemT20 extends Item {
 		});
 		options.custo = options.truque ? 0 : Math.max(options.custo,1);
 		
-		formula[0] = this.applyRollChanges(formula[0], rollMods)
+		formula[0] = this.applyRollChanges(formula[0], rollMods);
 		id.efeito = formula.join("+");
 		return options;
 	}
