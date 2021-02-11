@@ -1,10 +1,14 @@
 # Lista de Mudanças
+## Versão 1.1.39
+### Novidades
+- Novos ícones para Equipamentos.
+
 ## Versão 1.1.38
 ### Novidades
 - Compêndio: Poções adicionadas.
 - Compêndio: Itens Mágicos separados dos Equipamentos.
 - Ficha PJ: Fonte do Deslocamento aumentada.
-- Novos ícones para Equipamentos.
+- ~~Novos ícones para Equipamentos.~~
 
 ### Consertos de Bugs
 - Chat: A descrição de Consumíveis aparece normalmente.
