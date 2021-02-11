@@ -525,7 +525,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       actor: actor,
       item: item,
       title: item.name,
-      details: item.description,
+      details: item.data.data.description,
     };
     formula = formula
       .replace(/ /g, "")

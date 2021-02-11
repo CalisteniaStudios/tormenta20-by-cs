@@ -561,35 +561,37 @@ export default class ActorT20 extends Actor {
 		//Aplicar Condições
 		condicoes.forEach((condicao) => {
 			let condicaoDados = CONFIG.conditions[condicao.flags.core.statusId];
-			let condicaoDet = condicao;
-			condicaoDet.tooltip = condicaoDados.tooltip;
-			condicaoDet.durationType = condicaoDados.durationType;
-			condicoesDet.push(condicaoDet);
-			let modificadores = condicaoDados.modifiers;
-			CONFIG.conditions[
-			condicao.flags.core.statusId
-			].childrenConditions.forEach((cond) => {
-				modificadores.push(CONFIG.conditions[cond].modifiers);
-			});
-			modificadores = [].concat.apply([], modificadores);
-			modificadores.forEach((modif) => {
-				for (var i in modif) {
-					let prop = i;
-					let value = modif[i];
-					var valuePath = prop.split("."),
-					last = valuePath.pop(),
-					temp = data;
-					for (let ii = 0; ii < valuePath.length; ii++) {
-						temp = temp[valuePath[ii]];
+			if (condicaoDados != undefined) {
+				let condicaoDet = condicao;
+				condicaoDet.tooltip = condicaoDados.tooltip;
+				condicaoDet.durationType = condicaoDados.durationType;
+				condicoesDet.push(condicaoDet);
+				let modificadores = condicaoDados.modifiers;
+				CONFIG.conditions[
+				condicao.flags.core.statusId
+				].childrenConditions.forEach((cond) => {
+					modificadores.push(CONFIG.conditions[cond].modifiers);
+				});
+				modificadores = [].concat.apply([], modificadores);
+				modificadores.forEach((modif) => {
+					for (var i in modif) {
+						let prop = i;
+						let value = modif[i];
+						var valuePath = prop.split("."),
+						last = valuePath.pop(),
+						temp = data;
+						for (let ii = 0; ii < valuePath.length; ii++) {
+							temp = temp[valuePath[ii]];
+						}
+						if (
+							((last == "bonus" || last == "penalidade") && temp[last] < value) ||
+							(last != "bonus" && last != "penalidade")
+							) {
+								temp[last] = value;
+						}
 					}
-					if (
-						((last == "bonus" || last == "penalidade") && temp[last] < value) ||
-						(last != "bonus" && last != "penalidade")
-						) {
-						temp[last] = value;
-				}
+				});
 			}
-		});
 		});
 		data.referencias = condicoesDet;
 	}

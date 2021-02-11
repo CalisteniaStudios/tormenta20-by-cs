@@ -130,7 +130,7 @@
 					</label>
 					</span>
 					<footer class="attribute-footer flexrow">
-						<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" placeholder="0" />
+						<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
 						{{#if ../actor.flags.mostrarAtributoTemp}}<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.temp"  value="{{atr.temp}}" placeholder="0" />{{/if}}
 					</footer>
 				</li>

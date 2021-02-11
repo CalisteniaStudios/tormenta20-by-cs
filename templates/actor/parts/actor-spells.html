@@ -2,7 +2,8 @@
 
 <ul class="item-list">
 	<li class="item item-header" style="text-align: center;">
-		<label>CD:</label> <input style="max-width: 30px;" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number">
+		<label>CD:</label>
+		<input style="max-width: 30px;" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
 		<select title="Atributo-Chave" name="data.atributoChave">
 			{{#select data.atributoChave}}
 			<option value="int">Inteligência</option>
@@ -12,7 +13,7 @@
 		</select>
 	</li>
 	{{#each actor.magias as |circulo i|}}
-	{{#if (lte i ../actor.maiorCirculo)}}
+	{{#if circulo.spells.length}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}

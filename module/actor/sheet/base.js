@@ -427,7 +427,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	_onPericiaCustomCreate(event) {
+	async _onPericiaCustomCreate(event) {
 		event.preventDefault();
 
 		const a = event.currentTarget;
@@ -452,20 +452,22 @@ export default class ActorSheetT20 extends ActorSheet {
 		let periciasCustom = Object.values(actorData.data.periciasCustom);
 
 		if (tipo == 'oficio') {
-			pericia.label = "Oficio";
+			pericia.label = "Oficio +";
 			pericia.atributo = 'int';
+			pericia.st = true;
+			pericia.treinado = 1;
 
 			oficios.push(pericia);
-			this.actor.update({
+			await this.actor.update({
 				"data.pericias.ofi.mais": oficios
 			});
 		} else {
 			periciasCustom.push(pericia);
-			this.actor.update({
+			await this.actor.update({
 				"data.periciasCustom": periciasCustom
 			});
 		}
-		this.render();
+		await this.render();
 	}
 
 	async _onPericiaCustomDelete(event) {
