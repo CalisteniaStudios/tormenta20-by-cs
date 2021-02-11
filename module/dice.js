@@ -210,9 +210,10 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
     let periciaAtq = "0";
     if(actorData.pericias){
       extra.pericia = extra.pericia.toLowerCase();
-      periciaAtq = actorData.pericias[extra.pericia]
-        ? actorData.pericias[extra.pericia].value
-        : actorData.pericias[item.data.data.pericia].value;
+      periciaAtq = actorData.pericias[extra.pericia] ? actorData.pericias[extra.pericia].value : actorData.pericias[item.data.data.pericia].value;
+      if (actorData.atributos[item.data.data.atrAtq] != actorData.pericias[item.data.data.pericia].atributo) {
+        periciaAtq = periciaAtq - actorData.pericias[item.data.data.pericia].mod + actorData.atributos[item.data.data.atrAtq].mod;
+      }
     } else {
       extra.pericia = extra.pericia.charAt(0).toUpperCase() + extra.pericia.slice(1);
       periciaAtq = extra.pericia ? actor.items.filter(s=> s.type==="skill" && s.name === extra.pericia)[0] : actor.getOwnedItem(item.data.data.skill)?.data.data.total ?? 0;

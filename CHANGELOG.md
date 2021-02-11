@@ -1,4 +1,10 @@
 # Lista de Mudanças
+## Versão 1.1.40
+### Conserto de Bugs
+- Armas: O atributo certo será adicionado à rolagem de ataque.
+- Ícones da Língua do Deserto e Baluarte Anão aparecem normalmente.
+- Poções: Preços adicionados.
+
 ## Versão 1.1.39
 ### Novidades
 - Novos ícones para Equipamentos.
