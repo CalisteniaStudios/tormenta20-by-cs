@@ -1,4 +1,11 @@
 # Lista de Mudanças
+## Versão 1.1.41
+### Conserto de Bugs
+- Armaduras: Enquanto equipado com uma armadura natural ou traje, equipar outro do mesmo tipo não subtraía o bônus do item desequipado.
+- Armaduras: Personagens podem equipar mais de uma Armadura Natural (exemplo: Couro Rígido e Casca Grossa).
+- Poderes: Inspirar Glória (poder de Nobre) adicionado.
+- Nome de alguns poderes consertados.
+
 ## Versão 1.1.40
 ### Conserto de Bugs
 - Armas: O atributo certo será adicionado à rolagem de ataque.
