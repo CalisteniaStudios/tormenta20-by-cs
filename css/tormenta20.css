@@ -834,12 +834,10 @@ button {
 
 .tormenta20 .item-list .item-toggles .item-toggle {
   /*color: #b5b3a4;*/
-  color: #4b4a44;
   opacity: 0.5;
 }
 
 .tormenta20 .item-list .item-toggles .item-toggle.active {
-  /*color: #4b4a44;*/
   opacity: 1;
 }
 
@@ -1022,7 +1020,6 @@ button {
   line-height: 16px;
   margin: 4px 3px 2px;
   font-size: 18px;
-  /* color: #4b4a44; */
   border-bottom: 1px solid #c9c7b8;
 }
 
@@ -1128,7 +1125,6 @@ button {
   padding: 0;
   border-right: 2px groove #eeede0;
   line-height: 34px;
-  color: #4b4a44;
 }
 .tormenta20 .sheet-header .summary li:last-child {
   border-right: none;

@@ -47,7 +47,6 @@
 }
 .tormenta20 .tabbed .form-group label {
   flex: 2;
-  color: #4b4a44;
   font-weight: bold;
 }
 .tormenta20 .tabbed span.sep {
@@ -110,7 +109,6 @@
   line-height: 16px;
   margin: 4px 3px 2px;
   font-size: 18px;
-  color: #4b4a44;
   border-bottom: 1px solid #c9c7b8;
 }
 .tormenta20 .tabbed .tab.attributes {
