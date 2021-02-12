@@ -334,12 +334,16 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		let current = $(ev.currentTarget)[0];
 		let items = this.actor.data.items;
     
-		const exclusiveSlot = item.data.data.tipo != "acessorio" ? item.data.data.tipo != "bonus" ? true : false : false; // exclusiveSlot = (item.data.data.tipo != "acessorio") && (item.data.data.tipo != "bonus"))
+		const armor = ["leve", "pesada"]
+		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
 
-		if (item.data.data.equipado && exclusiveSlot) {
+		if (item.data.data.equipado && exclusiveSlot.includes(item.data.data.tipo)) {
 			let unequipped = items.some(element => { //some() === forEach() with a return
         if(element.type === "equip" && element.data.equipado && element._id != item.data._id) {
-          if (element.data.tipo === item.data.data.tipo || ((element.data.tipo == "leve" || element.data.tipo == "pesada") && (item.data.data.tipo == "leve" || item.data.data.tipo == "pesada"))) {
+					if (element.data.tipo === item.data.data.tipo || (armor.includes(element.data.tipo) && armor.includes(item.data.data.tipo))) {
+						if (item.data.data.tipo == "traje") {
+							this.actor.data.data.defesa.outro -= element.data.armadura.value;
+						}
             element.data.equipado = false;
             return true;
           }
@@ -356,7 +360,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			penalidade: item.data.data.equipado ? item.data.data.armadura.penalidade : 0,
 			equipado: item.data.data.equipado
 		};
-		if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
+		if (armor.includes(item.data.data.tipo)) {
 			this.actor.update({
 				"data.defesa.armadura": armadura,
 				"data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true //return ((equipado && leve) || !equipado)
