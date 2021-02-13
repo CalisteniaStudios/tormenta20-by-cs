@@ -578,7 +578,13 @@ export default class ActorSheetT20 extends ActorSheet {
 			}
 			else if (item.data.data.tipo === "escudo") {
 				this.actor.update({
-					"data.defesa.escudo": armadura,
+					"data.defesa.escudo": armadura
+				});
+			}
+			else {
+				let defesaOutros = this.actor.data.data.defesa.outro - item.data.data.armadura.value;
+				this.actor.update({
+					"data.defesa.outro": defesaOutros
 				});
 			}
 		}
