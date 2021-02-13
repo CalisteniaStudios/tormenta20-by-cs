@@ -1,4 +1,9 @@
 # Lista de Mudanças
+## Versão 1.1.42
+### Conserto de Bugs
+- Equipamentos que não eram armaduras leves/pesadas ou escudos não removiam seu bônus ao serem deletados.
+- Poções: Preços estão no lugar certo, não no custo em PM.
+
 ## Versão 1.1.41
 ### Conserto de Bugs
 - Armaduras: Enquanto equipado com uma armadura natural ou traje, equipar outro do mesmo tipo não subtraía o bônus do item desequipado.
