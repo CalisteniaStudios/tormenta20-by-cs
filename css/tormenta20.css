@@ -1480,3 +1480,9 @@ button {
 .tormenta20.sheet.actor ul.skills-list li.skill .compendium-icon {
   visibility: hidden;
 }
+
+/* Módulos */
+
+#dfcp-rt-buttons button { /*DF Chat Enhancement*/
+  background: rgba(255, 255, 240, 0.8);
+}
