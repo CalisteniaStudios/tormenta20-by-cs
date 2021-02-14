@@ -55,7 +55,6 @@
             <div class="form-group">
 				<label>Ataque: 1d20+</label>
 				<div class="form-fields">
-					{{#unless npc}}
 					<select class="selectatr" name="data.atrAtq" value={{data.atrAtq}} data-type="String">
 						{{#select data.atrAtq}}
 						{{#each config.atributos as |atr key|}}
@@ -63,6 +62,7 @@
 						{{/each}}
 						{{/select}}
 					</select>
+					{{#unless npc}}
 					<select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
 					  {{#select data.pericia}}
 					  <option value="lut">Luta</option>

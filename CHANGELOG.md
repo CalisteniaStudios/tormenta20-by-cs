@@ -3,6 +3,8 @@
 ### Conserto de Bugs
 - Equipamentos que não eram armaduras leves/pesadas ou escudos não removiam seu bônus ao serem deletados.
 - Poções: Preços estão no lugar certo, não no custo em PM.
+- Armas: Atributo pode ser selecionado em armas de NPCs.
+- Maça de guerra, Cajado de batalha e batata ambiciosa movidos de volta para o compêndio de Equipamentos.
 
 ## Versão 1.1.41
 ### Conserto de Bugs
