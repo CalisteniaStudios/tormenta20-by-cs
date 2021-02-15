@@ -96,7 +96,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 				// carga.reduce((a,b) => a+b,0);
 				// actorData.data.detalhes.carga = carga;
 			} else if (i.type === 'arma') {
-				let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
+				let tempatq = `${actorData.data.atributos[i.data.atrAtq].mod} + ${i.data.atqBns}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
