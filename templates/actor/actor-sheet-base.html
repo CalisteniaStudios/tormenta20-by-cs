@@ -29,11 +29,11 @@
 							<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 						</h1>
 						<div class="level-information" style="margin-right: 0.5em;">
-							<a class="level-settings"><div class="level" style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
+							<a class="level-settings"><div class="level" style="width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
 							{{#unless disableExperience}}
 							<div class="xp-tracker" title="Experiência">
-									<div class="experience" style="height: 16px;">
-									<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
+									<div class="experience">
+									<input class="current-xp" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
 									<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
 								</div>
 								<div class="xp-bar">
@@ -98,7 +98,7 @@
 								<div class="attribute-value multiple">
 									<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" placeholder="10">
 									<span class="sep">/</span>
-									<input disabled style="color: #191813" name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+									<input disabled name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 								</div>
 								<footer class="attribute-footer">
 									<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />

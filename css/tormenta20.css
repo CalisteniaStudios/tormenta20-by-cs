@@ -259,20 +259,27 @@ button {
   flex-direction: row-reverse;
 }
 
+.tormenta20.sheet.actor .level-information {
+  margin-right: 0.5em;
+}
+
 .tormenta20.sheet.actor .level {
   padding: 4px 6px;
+  border: 1px solid transparent;
   border-radius: 3px;
   background: var(--faint-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 1.25rem;
   line-height: 1;
   height: 25px;
+  display:inline-block;
 }
 
 .tormenta20.sheet.actor .experience {
   display: flex;
   align-items: center;
   font-size: 16px;
+  height: 16px;
 }
 
 .tormenta20.sheet.actor .current-xp {
@@ -280,6 +287,12 @@ button {
   height: 16px;
   text-align: right;
   padding: 0 4px;
+  display: block;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: none;
+  transition: background .3s ease, border-color .3s ease;
+  margin:0;
 }
 
 .tormenta20.sheet.actor .max-xp::before {
@@ -405,7 +418,7 @@ button {
 .tormenta20.sheet.item .sheet-body .item-properties .form-group {
   margin: 0;
   border-bottom: 1px solid var(--faint-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 13px;
 }
 
@@ -1050,9 +1063,12 @@ button {
 .tormenta20 .tabbed .sheet-header .attributes .attribute:last-child {
   border-right: none;
 }
-.tormenta20 .recursos  .attributes .attribute .attribute-value {
+.tormenta20 .recursos .attributes .attribute .attribute-value {
   height: auto;
   line-height: normal;
+}
+.tormenta20 .recursos .attributes .attribute .attribute-value:disabled {
+  color: #191813;
 }
 .tormenta20 .tabbed .sheet-header .attributes .attribute .attribute-value {
   height: 30px;
@@ -1479,6 +1495,16 @@ button {
 }
 .tormenta20.sheet.actor ul.skills-list li.skill .compendium-icon {
   visibility: hidden;
+}
+
+.tormenta20.sheet.actor .cdbase {
+  width: 30px;
+  margin: 0;
+  height: 19px;
+}
+
+.tormenta20.sheet.actor .selectAtr {
+  height: 19px;
 }
 
 /* Módulos */

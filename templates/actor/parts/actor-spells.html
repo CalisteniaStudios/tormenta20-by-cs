@@ -3,8 +3,8 @@
 <ul class="item-list">
 	<li class="item item-header" style="text-align: center;">
 		<label>CD:</label>
-		<input style="max-width: 30px;" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
-		<select title="Atributo-Chave" name="data.atributoChave">
+		<input class="cdbase" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
+		<select class="selectAtr" title="Atributo-Chave" name="data.atributoChave">
 			{{#select data.atributoChave}}
 			<option value="int">Inteligência</option>
 			<option value="sab">Sabedoria</option>
