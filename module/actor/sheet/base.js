@@ -566,7 +566,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if(item.data.type === "equip" && item.data.data.equipado) {
 			const armadura = {
 				nome: "",
-				defesa:  0,
+				value:  0,
 				penalidade: 0,
 				equipado: false
 			};
@@ -588,7 +588,7 @@ export default class ActorSheetT20 extends ActorSheet {
 				});
 			}
 		}
-		if (item.data.type === "classe") {
+		else if (item.data.type === "classe") {
 			const niveis = item.data.data.niveis;
 			const actorData = this.actor.data;
 			if (niveis === actorData.data.attributes.nivel.value) {
