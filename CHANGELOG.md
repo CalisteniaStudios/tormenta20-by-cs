@@ -1,4 +1,12 @@
 # Lista de Mudanças
+## Versão 1.1.44
+### Novidades
+- Novos ícones para vários itens.
+
+## Versão 1.1.43
+### Conserto de Bugs
+- Propriedades adicionadas à Katana.
+
 ## Versão 1.1.42
 ### Conserto de Bugs
 - Equipamentos que não eram armaduras leves/pesadas ou escudos não removiam seu bônus ao serem deletados.
