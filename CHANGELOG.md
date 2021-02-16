@@ -2,7 +2,6 @@
 ## Versão 1.1.45
 ### Novidades
 - Ameaças: Nomes de algumas criaturas trocados para versões OGL: Arauto dos Goblinóides, Sombra dos Goblinóides, Cultista da Traição, Supremacistas (Recruta, Soldado, e Cavaleiro) , Lobo-Crocodilo, Aberrantes (Formiga, Formiga Maior, Besouro e Assassino).
-- Ameaças: Otyugh agora é um Monstro (aberrante).
 - Ameaças: 3 variantes de Troll adicionadas.
 
 ### Conserto de Bugs
