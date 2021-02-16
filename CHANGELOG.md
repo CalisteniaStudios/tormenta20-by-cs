@@ -1,4 +1,12 @@
 # Lista de Mudanças
+## Versão 1.1.46
+### Novidades
+- As seguintes magias foram atualizadas: Adaga Mental, Amarras Etéreas, Anular a Luz, Controlar Fogo, Controlar Madeira, Legião, Roubar a Alma, Santuário e Transmutar Objetos.
+- As seguintes condições foram atualizadas: Enjoado e Sangrando.
+- Magias: Aprimoramento de 12 PM da magia Augúrio adicionado.
+- Magias e Poderes: Nomes de magias agora estão em itálico.
+- Poderes: Pré-requisitos agora estão em itálico.
+
 ## Versão 1.1.45
 ### Novidades
 - Ameaças: Nomes de algumas criaturas trocados para versões OGL: Arauto dos Goblinóides, Sombra dos Goblinóides, Cultista da Traição, Supremacistas (Recruta, Soldado, e Cavaleiro) , Lobo-Crocodilo, Aberrantes (Formiga, Formiga Maior, Besouro e Assassino).
