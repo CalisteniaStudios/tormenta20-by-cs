@@ -1,4 +1,12 @@
 # Lista de Mudanças
+## Versão 1.1.47
+### Novidades
+- Poções: Novas cores para Óleos e Granadas
+- Mais ícones para itens.
+
+### Conserto de Bugs
+- Ameaças: É possível puxar ameaças do compêndio novamente.
+
 ## Versão 1.1.46
 ### Novidades
 - As seguintes magias foram atualizadas: Adaga Mental, Amarras Etéreas, Anular a Luz, Controlar Fogo, Controlar Madeira, Legião, Roubar a Alma, Santuário e Transmutar Objetos.
