@@ -293,6 +293,9 @@ export default class ActorT20 extends Actor {
 			// Senses TODO
 		}
 		/**/
+		if (data.type == "character") {
+			data.flags = {"editarPericias": true};
+		}
 
 		return super.create(data, options);
 	}
