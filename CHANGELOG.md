@@ -1,4 +1,10 @@
 # Lista de Mudanças
+## Versão 1.1.48
+### Novidades
+- Ficha PJ: Fichas são criadas com o modo de edição de perícias ligado.
+- NPC: o botão Editar altera a ficha sem abrir uma segunda janela.
+- Ameaças: Visão adicionada a todas as ameaças.
+
 ## Versão 1.1.47
 ### Novidades
 - Poções: Novas cores para Óleos e Granadas
