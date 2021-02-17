@@ -206,6 +206,11 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find("#configure-actor").click(ev => {
 				new game.tormenta20.applications.ActorSettings(this.actor).render(true);
 			});
+			html.find("#npc-editing").click(ev => {
+				let flags = this.actor.data.flags ?? {"flags": {}};
+				flags["flags.editing"] = flags.editing ? !flags.editing : true;
+				this.actor.update(flags);
+			});
 		}
 
 		if ( this.actor.owner ) {

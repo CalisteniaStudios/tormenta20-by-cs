@@ -1,10 +1,10 @@
 <form class="tormenta20 npc {{statblock}}" autocomplete="off">
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
-		<label><i class="fas fa-address-card"></i> <a class="item" data-tab="description" title="Biografia">Biografia</a></label>
+		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes">Ficha</a></label>
+		<label><i class="fas fa-address-card"></i> <a class="item" data-tab="description">Biografia</a></label>
 
-		<label><i class="fas fa-cog"></i> <a class="item" id="configure-actor" title="Configurar">Configurar</a></label>
+		{{#if editable}}<label><i class="fas fa-cog"></i> <a class="item" id="npc-editing">Editar</a></label>{{/if}}
 	</nav>
 
 
