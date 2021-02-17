@@ -81,12 +81,9 @@
 					<select class="selectatr" name="data.atrDan" value={{data.atrDan}} data-type="String">
 						{{#select data.atrDan}}
 						<option value="0">Nenhum</option>
-						<option value="for">For</option>
-						<option value="des">Des</option>
-						<option value="con">Con</option>
-						<option value="int">Int</option>
-						<option value="sab">Sab</option>
-						<option value="car">Car</option>
+						{{#each config.atributos as |atr key|}}
+						<option value="{{key}}">{{atr}}</option>
+						{{/each}}
 						{{/select}}
 					</select>
 					<input type="text" title="Bônus" name="data.danoBns" value="{{data.danoBns}}" data-dtype="String"  placeholder="ex.: +2 , +1d6+2"/>
