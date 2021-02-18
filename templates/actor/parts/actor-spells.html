@@ -2,7 +2,11 @@
 
 <ul class="item-list">
 	<li class="item item-header" style="text-align: center;">
-		<label>CD:</label>
+		{{#each data.atributos as |atr key|}}
+		{{#if (eq key ../data.atributoChave)}}
+		<label>CD {{add ../data.attributes.cd atr.mod}} =</label>
+		{{/if}}
+		{{/each}}
 		<input class="cdbase" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
 		<select class="selectAtr" title="Atributo-Chave" name="data.atributoChave">
 			{{#select data.atributoChave}}
@@ -23,7 +27,7 @@
 			<div class="item-tipo">Ativação</div>
 			<div class="item-controls">
 
-				<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}} data-atrRes="{{../actor.data.atributoChave}}" data-><i class="fas fa-plus"></i> Nova</a>
+				<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}} data-atrRes="{{../actor.data.atributoChave}}"><i class="fas fa-plus"></i> Nova</a>
 			</div>
 		</li>
 		{{#each circulo.spells as |m index|}}

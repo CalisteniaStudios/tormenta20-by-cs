@@ -1,6 +1,7 @@
 # Lista de Mudanças
 ## Versão 1.1.49
 ### Novidades
+- Fichas: O total da CD base das magias (10 + metade do nível + atributo-chave) agora é mostrado nas fichas.
 - Ameaças: Tokens adicionados a algumas criaturas.
 - Ameaças: Centauro e Centauxo Xamã adicionados.
 

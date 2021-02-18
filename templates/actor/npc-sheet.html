@@ -124,7 +124,7 @@
 				<div class="item-controls {{#if editing}}editing{{/if}}">
 					<a class="item-control item-create" title="Nova Arma" data-type="arma"><i class="fas fa-plus"></i> Arma</a>
 					<a class="item-control item-create" title="Nova Habilidade" data-type="poder"><i class="fas fa-plus"></i> Habilidade</a>
-					<a class="item-control item-create" title="Nova Magia" data-type="magia"><i class="fas fa-plus"></i> Magia</a>
+					<a class="item-control item-create" title="Nova Magia" data-type="magia" data-atrRes="{{actor.data.atributoChave}}"><i class="fas fa-plus"></i> Magia</a>
 				</div>
 				{{#if (and (or actor.ataques actor.armas) (eq data.attributes.pm.max 0) (not editing))}}<hr>{{/if}}
 				<ul class="item-list {{#if editing}}editing{{/if}} listcol">
@@ -177,7 +177,16 @@
 				<ul class="item-list">
 					<li class="item flexrow">
 						<div class="item-name magias"><label>Magias: </label>
-							{{#if editing}}
+				{{#if editing}}
+							<br/><label>CD:</label>
+				<input class="cdbase" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
+				<select class="selectAtr" title="Atributo-Chave" name="data.atributoChave">
+					{{#select data.atributoChave}}
+					<option value="int">Inteligência</option>
+					<option value="sab">Sabedoria</option>
+					<option value="car">Carisma</option>
+					{{/select}}
+				</select>
 								<ol class="item-list editing listcol">
 								{{#each actor.magias as |circulo i|}}
 									{{#if circulo.spells}}
@@ -209,7 +218,7 @@
 									{{#if circulo.spells}}
 									<li class="item">
 										{{i}}º —
-										<ol class="item-list" style="display: inline;">
+										<ol class="item-list">
 										{{#each circulo.spells as |m index|}}
 											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>
 										{{/each}}
@@ -218,14 +227,18 @@
 									{{/if}}
 								{{/each}}
 								</ol>
+								{{#each data.atributos as |atr key|}}
+								{{#if (eq key ../data.atributoChave)}}
+								CD {{add ../data.attributes.cd atr.mod}}
+								{{/if}}
+								{{/each}}
 							{{/if}}
 						</div>
 					</li>
 				</ul>
-				<hr>
 				{{/if}}
+				<hr>
 			</div>
-			<!-- <hr> -->
 			<div class="flexrow text-center abl-line">
 				{{#each data.atributos as |atr key|}}
 					<span class="rollable atributo-rollable" data-item-id="{{key}}">
