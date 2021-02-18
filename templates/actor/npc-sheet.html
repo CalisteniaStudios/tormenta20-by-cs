@@ -28,7 +28,15 @@
 			<div class="flexrow">
 						<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo/Raça" />
 						<input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" style="flex:0 0 40px" />
-						<input type="text" name="data.tamanho" value="{{data.tamanho}}" data-dtype="String" title="Tamanho" />
+						{{#if editing}}
+						<select class="actor-size" name="data.tamanho" style="margin-bottom: 5px;">
+							{{#select data.tamanho}}
+							{{#each config.tamanhos as |label size|}}
+								<option value="{{size}}">{{label}}</option>
+							{{/each}}
+							{{/select}}
+						</select>
+						{{/if}}
 					</div>
 			<hr>
 			<div class="npc-line">
@@ -110,7 +118,6 @@
 			{{/if}}
 			{{#if (or data.attributes.pm.max editing)}}
 			<hr>
-			{{/if}}
 			<div class="npc-line">
 				<label>Pontos de Mana: </label>
 				{{data.attributes.pm.value}} / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
@@ -118,7 +125,7 @@
 				<input type="text" value="/" disabled style="border:none;flex:0;background:none;">
 				<input type="text" name="data.attributes.pm.max" value="{{data.attributes.pm.max}}" data-dtype="Number" title="PM Máximos" />
 			</div>
-			
+			{{/if}}
 			{{!-- eq, gt, gte, lt, lte, or, and --}}
 			<div>
 				<div class="item-controls {{#if editing}}editing{{/if}}">

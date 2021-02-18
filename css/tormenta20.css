@@ -1195,7 +1195,8 @@ button {
   column-gap: 5px;
 }
 
-.tormenta20 .npc.statfields input {
+.tormenta20 .npc.statfields input,
+.tormenta20 .npc.statfields select {
    display: inline-flex;
    font-size: 14px;
    width: auto;
