@@ -1,4 +1,9 @@
 # Lista de Mudanças
+## Versão 1.1.49
+### Novidades
+- Ameaças: Tokens adicionados a algumas criaturas.
+- Ameaças: Centauro e Centauxo Xamã adicionados.
+
 ## Versão 1.1.48
 ### Novidades
 - Ficha PJ: Fichas são criadas com o modo de edição de perícias ligado.
@@ -10,7 +15,7 @@
 - Poções: Novas cores para Óleos e Granadas
 - Mais ícones para itens.
 
-### Conserto de Bugs
+### Consertos de Bugs
 - Ameaças: É possível puxar ameaças do compêndio novamente.
 
 ## Versão 1.1.46
@@ -26,7 +31,7 @@
 - Ameaças: Nomes de algumas criaturas trocados para versões OGL: Arauto dos Goblinóides, Sombra dos Goblinóides, Cultista da Traição, Supremacistas (Recruta, Soldado, e Cavaleiro) , Lobo-Crocodilo, Aberrantes (Formiga, Formiga Maior, Besouro e Assassino).
 - Ameaças: 3 variantes de Troll adicionadas.
 
-### Conserto de Bugs
+### Consertos de Bugs
 - Deletar uma armadura ou escudo equipado atualiza a Defesa corretamente.
 
 ## Versão 1.1.44
@@ -34,25 +39,25 @@
 - Novos ícones para vários itens.
 
 ## Versão 1.1.43
-### Conserto de Bugs
+### Consertos de Bugs
 - Propriedades adicionadas à Katana.
 
 ## Versão 1.1.42
-### Conserto de Bugs
+### Consertos de Bugs
 - Equipamentos que não eram armaduras leves/pesadas ou escudos não removiam seu bônus ao serem deletados.
 - Poções: Preços estão no lugar certo, não no custo em PM.
 - Armas: Atributo pode ser selecionado em armas de NPCs.
 - Maça de guerra, Cajado de batalha e batata ambiciosa movidos de volta para o compêndio de Equipamentos.
 
 ## Versão 1.1.41
-### Conserto de Bugs
+### Consertos de Bugs
 - Armaduras: Enquanto equipado com uma armadura natural ou traje, equipar outro do mesmo tipo não subtraía o bônus do item desequipado.
 - Armaduras: Personagens podem equipar mais de uma Armadura Natural (exemplo: Couro Rígido e Casca Grossa).
 - Poderes: Inspirar Glória (poder de Nobre) adicionado.
 - Nome de alguns poderes consertados.
 
 ## Versão 1.1.40
-### Conserto de Bugs
+### Consertos de Bugs
 - Armas: O atributo certo será adicionado à rolagem de ataque.
 - Ícones da Língua do Deserto e Baluarte Anão aparecem normalmente.
 - Poções: Preços adicionados.

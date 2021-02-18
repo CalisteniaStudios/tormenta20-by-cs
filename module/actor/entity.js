@@ -296,6 +296,10 @@ export default class ActorT20 extends Actor {
 		if (data.type == "character") {
 			data.flags = {"editarPericias": true};
 		}
+		else if (data.type == "npc") {
+			data.img = "systems/Tormenta20/icons/ameaças/Monstro.webp";
+			data.token.img = "systems/Tormenta20/icons/ameaças/Monstro_token.webp";
+		}
 
 		return super.create(data, options);
 	}
