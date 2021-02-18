@@ -40,10 +40,9 @@
 
 				<span class="rollable pericia-rollable skill" data-item-id="per" data-type="padrao">
 					<label>Percepção: </label>
-					{{numberFormat data.pericias.per.value sign=true}}
+					{{numberFormat data.pericias.per.value sign=true}}{{#if data.sentidos}};{{/if}}
 				</span>
 				<input type="text" name="data.pericias.per.value" value="{{data.pericias.per.value}}" data-dtype="Number" title="Percepção">
-				
 				{{data.sentidos}}
 				<input type="text" name="data.sentidos" value="{{data.sentidos}}" data-dtype="String" placeholder="Sentidos" class="flex3">
 			</div>
@@ -71,13 +70,13 @@
 					{{numberFormat data.pericias.von.value sign=true}}{{#if (or data.rd.value data.resistencias)}};{{/if}} 
 				</span>
 				<input type="text" name="data.pericias.von.value" value="{{data.pericias.von.value}}" data-dtype="Number" title="Vontade">
-
-				<span class="rd {{#unless data.rd.value}}editing{{/unless}}">
+				{{#if (or data.rd.value editing)}}
+				<span class="rd {{#if editing}}editing{{/if}}">
 					<label>RD: </label>
 					{{data.rd.value}}{{#if data.resistencias}},{{/if}}
 				</span>
 				<input type="text" name="data.rd.value" value="{{data.rd.value}}" data-dtype="Number" title="RD">
-
+				{{/if}}
 				{{data.resistencias}}
 				<input type="text" name="data.resistencias" value="{{data.resistencias}}" data-dtype="String" placeholder="Resistências" class="flex3">
 			</div>
@@ -109,10 +108,10 @@
 				<input type="text" name="data.deslocamento.value" value="{{data.deslocamento.value}}" data-dtype="String" title="Deslocamento" />
 			</div>
 			{{/if}}
-			{{#if (or data.attributes.pm.value editing)}}
+			{{#if (or data.attributes.pm.max editing)}}
 			<hr>
 			{{/if}}
-			<div class="npc-line {{#unless (and data.attributes.pm.value data.attributes.pm.max)}}editing{{/unless}}">
+			<div class="npc-line">
 				<label>Pontos de Mana: </label>
 				{{data.attributes.pm.value}} / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
 				<input type="text" name="data.attributes.pm.value" value="{{data.attributes.pm.value}}" data-dtype="Number" title="PM Atuais" />
@@ -122,13 +121,13 @@
 			
 			{{!-- eq, gt, gte, lt, lte, or, and --}}
 			<div>
-				<div class="item-controls editing">
+				<div class="item-controls {{#if editing}}editing{{/if}}">
 					<a class="item-control item-create" title="Nova Arma" data-type="arma"><i class="fas fa-plus"></i> Arma</a>
 					<a class="item-control item-create" title="Nova Habilidade" data-type="poder"><i class="fas fa-plus"></i> Habilidade</a>
 					<a class="item-control item-create" title="Nova Magia" data-type="magia"><i class="fas fa-plus"></i> Magia</a>
 				</div>
-				{{#if (or actor.ataques actor.armas)}}<hr>{{/if}}
-				<ul class="item-list editing listcol">
+				{{#if (and (or actor.ataques actor.armas) (eq data.attributes.pm.max 0) (not editing))}}<hr>{{/if}}
+				<ul class="item-list {{#if editing}}editing{{/if}} listcol">
 					{{#each actor.ataques as |item id|}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div class="item-name">
@@ -158,7 +157,6 @@
 					</li>
 					{{/each}}
 					{{#if actor.poderes}}
-					{{#unless editing}}<hr>{{/unless}}
 					{{#each actor.poderes as |item id|}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div class="item-name">
@@ -173,7 +171,6 @@
 						</div>
 					</li>
 					{{/each}}
-					{{#unless editing}}<hr>{{/unless}}
 					{{/if}}
 				</ul>
 				{{#if actor.magias}}
