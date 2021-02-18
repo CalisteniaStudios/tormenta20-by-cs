@@ -177,16 +177,20 @@
 				<ul class="item-list">
 					<li class="item flexrow">
 						<div class="item-name magias"><label>Magias: </label>
-				{{#if editing}}
-							<br/><label>CD:</label>
-				<input class="cdbase" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
-				<select class="selectAtr" title="Atributo-Chave" name="data.atributoChave">
-					{{#select data.atributoChave}}
-					<option value="int">Inteligência</option>
-					<option value="sab">Sabedoria</option>
-					<option value="car">Carisma</option>
-					{{/select}}
-				</select>
+						{{#if editing}}
+						{{#each data.atributos as |atr key|}}
+						{{#if (eq key ../data.atributoChave)}}
+						<label style="color: #191813;">CD {{add ../data.attributes.cd atr.mod}} = </label>
+						{{/if}}
+						{{/each}}
+						<input class="cdbase" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
+						<select class="selectAtr" title="Atributo-Chave" name="data.atributoChave">
+							{{#select data.atributoChave}}
+							<option value="int">Inteligência</option>
+							<option value="sab">Sabedoria</option>
+							<option value="car">Carisma</option>
+							{{/select}}
+						</select>
 								<ol class="item-list editing listcol">
 								{{#each actor.magias as |circulo i|}}
 									{{#if circulo.spells}}
