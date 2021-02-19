@@ -141,7 +141,7 @@
 				</div>
 				{{/if}}
 				{{#if (and (or actor.ataques actor.armas) (eq data.attributes.pm.max 0))}}<hr>{{/if}}
-				<ul class="item-list {{#if editing}}editing{{/if}} listcol">
+				<ul class="item-list {{#if editing}}editing{{/if}} listcol" style="margin: 0;">
 					{{#each actor.ataques as |item id|}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div class="item-name">
@@ -188,7 +188,7 @@
 					{{/if}}
 				</ul>
 				{{#if actor.magias}}
-				<ul class="item-list">
+				<ul class="item-list" style="margin: 0;">
 					<li class="item flexrow">
 						<div class="item-name magias"><label>Magias: </label>
 						{{#if editing}}
@@ -238,7 +238,7 @@
 										{{i}}º —
 										<ol class="item-list">
 										{{#each circulo.spells as |m index|}}
-											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>
+											<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>{{#unless @last}},{{else}}<i>;</i>{{/unless}}
 										{{/each}}
 										</ol>
 									</li>
@@ -287,7 +287,7 @@
 				{{else}}
 					<label>Pericias: </label>
 						{{#each actor.data.periciasCustom as |skill key|}}
-						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom">{{skill.label}} +{{skill.value}}</span>,
+						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom">{{skill.label}} +{{skill.value}}</span>{{#unless @last}},{{/unless}}
 						{{/each}}
 					
 				{{/if}}

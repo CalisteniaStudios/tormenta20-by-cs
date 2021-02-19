@@ -86,19 +86,6 @@ table,
   display: flex;
 }
 
-.tormenta20 .npc span.item.rollable.magia-rollable:after {
-  content:",";
-  font-style: italic;
-}
-
-.tormenta20 .npc span.item.rollable.magia-rollable:last-child:after {
-  content:";\00a0"; /*\00a0 = espaço*/
-}
-
-.tormenta20 .npc .editing span.item.rollable.magia-rollable:last-child:after {
-  content:"";
-}
-
 .tormenta20.sheet .trait-list {
   display:inline;
   padding:0;
