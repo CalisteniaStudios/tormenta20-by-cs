@@ -133,6 +133,13 @@
 					<a class="item-control item-create" title="Nova Habilidade" data-type="poder"><i class="fas fa-plus"></i> Habilidade</a>
 					<a class="item-control item-create" title="Nova Magia" data-type="magia" data-atrRes="{{actor.data.atributoChave}}"><i class="fas fa-plus"></i> Magia</a>
 				</div>
+				{{#if (or data.attributes.info editing)}}
+				<div>
+				<label>Ataques: </label>
+				{{data.attributes.info}}
+				<input type="text" name="data.attributes.info" value="{{data.attributes.info}}" data-dtype="String" />
+				</div>
+				{{/if}}
 				{{#if (and (or actor.ataques actor.armas) (eq data.attributes.pm.max 0) (not editing))}}<hr>{{/if}}
 				<ul class="item-list {{#if editing}}editing{{/if}} listcol">
 					{{#each actor.ataques as |item id|}}
