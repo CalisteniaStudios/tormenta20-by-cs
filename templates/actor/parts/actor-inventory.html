@@ -15,7 +15,7 @@
 			<span class="rollable arma-rollable item-name">
 				<h4 class="item-name" >{{item.name}}</h4>
 			</span>
-			{{#if (eq ../layout "tabbed")}}<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>{{/if}}
+			{{#if (eq ../layout "tabbed")}}<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} {{#if item.data.dmg}}({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}}){{/if}}</div>{{/if}}
 			<div class="item-qtd">{{item.data.qtd}}</div>
 			<div class="item-peso">{{item.peso}}</div>
 			<div class="item-controls">

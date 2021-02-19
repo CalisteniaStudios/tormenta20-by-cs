@@ -245,6 +245,7 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
       : item.data.data.atrDan
       ? `@${item.data.data.atrDan}`
       : 0;
+		item.data.data.danoBns = item.data.data.danoBns ?? 0;
     let danoBonus =
       extra.dano && extra.dano.match(/^\=/)
         ? extra.dano.replace("=", "")
@@ -286,8 +287,8 @@ export async function prepRoll(event, item, actor = null, extra = {}) {
         formula.crit = `${lancinante}`;
       }
     } else {
-      formula.dano = null;
-      formula.crit = null;
+			formula.dano = "0";
+			formula.crit = "0";
     }
 
     if(!ex.nome){

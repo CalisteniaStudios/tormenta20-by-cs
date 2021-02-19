@@ -1,4 +1,20 @@
 # Lista de Mudanças
+## Versão 1.1.52
+### Novidades
+- Ficha NPC: Campos de descrição Corpo a Corpo e À Distância adicionados. Agora é possíve colocar coisas como "2 garras" no NPC.
+- Ficha NPC: Itens são listados na seção de Equipamentos.
+- Ameaças: Descrição Corpo a Corpo e À Distância adicionados a todas as ameaças.
+
+![image](/uploads/a6e1dd6fee00c5c7e39dcc3d38c479ba/image.png)
+
+### Consertos de Bugs
+- Rolagens com armas sem dano (ex: Rede) funcionam normalmente.
+- Armas sem dano (ex: Rede) não mostram mais o dano na descrição em fichas de personagens.
+
+## Versão 1.1.51
+### Consertos de Bugs
+- Ficha NPC: Conserto de um bug que não deixava fichas de NPCs serem abertas.
+
 ## Versão 1.1.50
 ### Novidades
 - Fichas: O total da CD base das magias (10 + metade do nível + atributo-chave) agora é mostrado nas fichas.
