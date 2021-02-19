@@ -140,7 +140,7 @@
 				<input type="text" name="data.attributes.info" value="{{data.attributes.info}}" data-dtype="String" />
 				</div>
 				{{/if}}
-				{{#if (and (or actor.ataques actor.armas) (eq data.attributes.pm.max 0) (not editing))}}<hr>{{/if}}
+				{{#if (and (or actor.ataques actor.armas) (eq data.attributes.pm.max 0))}}<hr>{{/if}}
 				<ul class="item-list {{#if editing}}editing{{/if}} listcol">
 					{{#each actor.ataques as |item id|}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
