@@ -1,4 +1,11 @@
 # Lista de Mudanças
+## Versão 1.1.53
+### Novidades
+- A descrição de dano das armas nas fichas de personagens agora não faz cálculos, mostrando a fórmula atual do dano.
+
+### Consertos de Bugs
+- Lobo-Crocodilo não tem mais deslocamento de voo.
+
 ## Versão 1.1.52
 ### Novidades
 - Ficha NPC: Campos de descrição Corpo a Corpo e À Distância adicionados. Agora é possíve colocar coisas como "2 garras" no NPC.
