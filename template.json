@@ -218,24 +218,36 @@
         },
         "referencias": {},
         "modificadores": {
-          "atributos" : {
-            "bonus" : 0,
-            "penalidade" : 0,
-            "value": ""
+          "atributos": {
+            "geral": 0,
+            "fisicos": 0,
+            "mentais": 0,
+            "for": 0,
+            "des": 0,
+            "con": 0,
+            "int": 0,
+            "sab": 0,
+            "car": 0
           },
-          "pericias" : {
-            "bonus" : 0,
-            "penalidade" : 0,
-            "value":""
+          "dano": {
+            "geral": 0,
+            "cac": 0,
+            "ad": 0,
+            "mag": 0
           },
-          "ataques" : {
-            "bonus" : 0,
-            "penalidade" : 0,
-            "dano": ""
-          },
-          "custosPM": {
-            "bonus": 0,
-            "penalidade": 0
+          "pericias": {
+            "geral": 0,
+            "semataque": 0, 
+            "ataque": 0, 
+            "resistencia": 0, 
+            "atr": {
+              "for": 0,
+              "des": 0,
+              "con": 0,
+              "int": 0,
+              "sab": 0,
+              "car": 0
+            }
           }
         },
         "bonuses": {
@@ -327,6 +339,12 @@
       },
       "efeitoAtivado": {
         "alcance": "",
+        "target": {
+          "value":null,
+          "comprimento":null,
+          "unidades":"",
+          "type":""
+        },
         "alvo": "",
         "area": "",
         "ativacao": {

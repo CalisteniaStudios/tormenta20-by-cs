@@ -72,37 +72,34 @@ export default class AbilityUseDialog extends Dialog {
 		
 		switch (item.type){
 			case "arma":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.onuse && (ae.data.flags.t20.attack ) );
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.onuse && ( ae.data.flags.t20.self )));
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && (ae.data.flags.t20.attack ) );
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
 				// add self  || ae.data.flags.t20.self
 				
 				aprimoramentos.forEach(function(ap){
-					console.log(ap.data.origin);
 					let iid = ap.data.origin.split(".")[3] || "";
-					apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.onuse && ownit.data.flags.t20.self);
+					apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.t20.onuse && ownit.data.flags.t20.self);
 
 				});
-				console.log(aprimoramentos);
-				console.log(apdeap);
 				
 				break;
 			case "atributo":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.onuse && ae.data.flags.t20.ability );
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ae.data.flags.t20.ability );
 
 				break;
 			case "pericia":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.onuse && ae.data.flags.t20.skill );
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ae.data.flags.t20.skill );
 				break;
 			case "magia":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.onuse && ( ae.data.flags.t20.spell ));
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.onuse && ( ae.data.flags.t20.self )));
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.spell ));
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
 				break;
 			case "poder":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.onuse && ( ae.data.flags.t20.power ) );
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.onuse && ( ae.data.flags.t20.self )));
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.power ) );
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
 				break;
 			case "consumivel":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.onuse && ( ae.data.flags.t20.consumable ) );
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.consumable ) );
 				break;
 		}
 

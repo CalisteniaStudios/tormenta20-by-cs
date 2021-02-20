@@ -60,9 +60,6 @@ export function registerHandlebarsHelpers() {
   });
 
   Handlebars.registerHelper("find", function (arr, key, value) {
-    console.log(arr);
-    console.log(key);
-    console.log(value);
     return arr.find(i => i[key] == value) ? true : false;
   });
 }

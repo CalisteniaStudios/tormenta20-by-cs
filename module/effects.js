@@ -14,7 +14,7 @@ export function onManageActiveEffect(event, owner) {
 			label: "Novo Efeito",
 			icon: "icons/svg/aura.svg",
 			origin: owner.uuid,
-			flags: { onuse: li.dataset.effectType=="onuse" },
+			flags: { t20: { onuse: li.dataset.effectType=="onuse" } },
 			"duration.rounds": li.dataset.effectType === "temporary" ? 1 : undefined,
 			"duration.seconds": undefined,
 			disabled: ["inactive","onuse"].includes(li.dataset.effectType)
@@ -63,7 +63,7 @@ export function prepareActiveEffectCategories(effects) {
 	for ( let e of effects ) {
 		e._getSourceName(); // Trigger a lookup for the source name
 		// console.log(e.data.flags.t20);
-		if ( e.data.flags.onuse ) categories.onuse.effects.push(e);
+		if ( e.data.flags.onuse || e.data.flags.t20?.onuse ) categories.onuse.effects.push(e);
 		else if ( e.data.disabled ) categories.inactive.effects.push(e);
 		else if ( e.isTemporary ) categories.temporary.effects.push(e);
 		else categories.passive.effects.push(e);

@@ -3,13 +3,13 @@
 	<!-- Effect Header -->
 	<header class="sheet-header">
 		<img class="effect-icon" src="{{ effect.icon }}" data-edit="icon">
-		<h1 class="effect-title">{{ effect.label }}</h1>
+		<h3 class="effect-title">{{ effect.label }}</h1>
 	</header>
 
 	<!-- Effect Configuration Tabs -->
 	<nav class="sheet-tabs tabs">
 		<a class="item" data-tab="details"><i class="fas fa-book"></i> Detalhes</a>
-		<a class="item" data-tab="duration"><i class="fas fa-clock"></i> Duração</a>
+		<!-- <a class="item" data-tab="duration"><i class="fas fa-clock"></i> Duração</a> -->
 		<a class="item" data-tab="effects"><i class="fas fa-cogs"></i> Efeitos</a>
 	</nav>
 
@@ -19,7 +19,7 @@
 		<div class="form-group">
 			<label>{{ localize "EFFECT.Label" }}</label>
 			<div class="form-fields">
-				<input type="text" name="label" value="{{ effect.label }}" />
+				<textarea name="label">{{ effect.label }}</textarea>
 			</div>
 		</div>
 
@@ -39,18 +39,17 @@
 			</div>
 		</div>
 
-		<div class="form-group">
+		<div class="form-group hidden">
 			<label>{{ localize "EFFECT.Disabled" }}</label>
-			<input type="checkbox" name="disabled" {{ checked effect.disabled }} />
+			<input type="checkbox" name="disabled" checked />
 		</div>
 		{{#if isItemEffect}}
-		<div class="form-group">
+		<div class="form-group hidden">
 			<label>{{ localize "EFFECT.Transfer" }}</label>
-			<input type="checkbox" name="transfer" {{ checked effect.transfer }} />
+			<input type="checkbox" name="transfer" />
 		</div>
 		{{/if}}
 
-		{{#if effect.flags.t20.onuse }}
 		<div class="form-group">
 			<label>Aplicavel em: </label>
 			<div class="form-fields">
@@ -73,13 +72,11 @@
 		<div class="form-group">
 			<label>Custo</label>
 			<div class="form-fields">
-				<input type="text" name="flags.t20.custo" value="{{ effect.flags.t20.custo }}" />
+				<input type="text" name="flags.t20.custo" value="{{ effect.flags.t20.custo }}" placeholder="Truque" />
 			</div>
 		</div>
 
-		{{/if}}
-
-		<div class="form-group">
+		<div class="form-group hidden">
 			<label>{{ localize "EFFECT.Origin" }} ({{ _sourceName }})</label>
 			<div class="form-fields">
 			<input type="text" name="origin" value="{{ effect.origin }}" disabled />

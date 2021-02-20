@@ -560,12 +560,11 @@ export default class ActorT20 extends Actor {
 		const parts = ["@mod"];
 		const data = {mod: abl.mod};
 
-		// Add global actor bonus
-		const bonuses = getProperty(this.data.data, "bonuses.atributos") || {};
-		if ( bonuses.bonus ) {
-			parts.push("@checkBonus");
-			data.checkBonus = bonuses.bonus;
-		}
+		// Add global actor bonus GERAL | FISICOS | MENTAIS | KEY
+		const bonuses = getProperty(this.data.data, "modificadores.atributos") || {};
+		if ( bonuses.geral ) parts.push(bonuses.geral);
+		if ( ["for","des","con"].includes(atributoId) && bonuses.fisicos ) parts.push(bonuses.fisicos);
+		if ( ["int","sab","car"].includes(atributoId) && bonuses.mentais ) parts.push(bonuses.mentais);
 		
 		// Add provided extra roll parts now because they will get clobbered by mergeObject below
 		if (options.parts?.length > 0) {
@@ -594,24 +593,14 @@ export default class ActorT20 extends Actor {
 		// Construct parts
 		const parts = ["@value"];
 		const data = {value: skillData.data.value};
-		// Add global actor bonus
-		const bonuses = getProperty(this.data.data, "bonuses.pericias") || {};
-		if ( bonuses.geral ) {
-			parts.push("@geralBonus");
-			data.geralBonus = bonuses.geral;
-		}
-		if ( bonuses.semataque && !["lut","pon"].includes(skillData.id) ) {
-			parts.push("@semataqueBonus");
-			data.semataqueBonus = bonuses.semataque;
-		}
-		if ( bonuses.ataque  && ["lut","pon"].includes(skillData.id) ) {
-			parts.push("@ataqueBonus");
-			data.ataqueBonus = bonuses.ataque;
-		}
-		if ( bonuses.resistencia && ["for","ref","von"].includes(skillData.id) ) {
-			parts.push("@resistenciaBonus");
-			data.resistenciaBonus = bonuses.resistencia;
-		}
+		// Add global actor bonus GERAL | ATQ | !ATQ | SAVES | KEY
+		const bonuses = getProperty(this.data.data, "modificadores.pericias") || {};
+		console.log(bonuses);
+		if ( bonuses.geral ) parts.push(bonuses.geral);
+		if ( !["lut","pon"].includes(skillData.id) && bonuses.semataque ) parts.push(bonuses.semataque);
+		if ( ["lut","pon"].includes(skillData.id) && bonuses.ataque ) parts.push(bonuses.ataque);
+		if ( ["for","ref","von"].includes(skillData.id) && bonuses.resistencia ) parts.push(bonuses.resistencia);
+		if ( bonuses.atr && bonuses.atr[skillData.data.atributo] ) parts.push(bonuses.atr[skillData.data.atributo]);
 
 		// Add provided extra roll parts now because they will get clobbered by mergeObject below
 		if (options.parts?.length > 0) {

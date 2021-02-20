@@ -125,8 +125,65 @@ export default class ItemSheetT20 extends ItemSheet {
 		html.find('.aprimoramento-delete').click(this._onAprimoramentoDelete.bind(this));
 		html.find('.aprimoramento-edit').click(this._onAprimoramentoEdit.bind(this));
 		html.find('.aprimoramento-toggle').click(this._onAprimoramentoToggle.bind(this));
+		html.find('.convert').click(this._onAprimoramentoToEffect.bind(this));
 	}
 
+	async _onAprimoramentoToEffect(event){
+		event.preventDefault();
+		let item = this.object;
+		let effects = [];
+		item.data.data.aprimoramentos.forEach(function(ap){
+			let changes = [];
+			let desc = ap.description.match(/[^.]+/i)[0].split(/\,|\se\s/);
+			desc.forEach(function(d){
+				let matches = d.match(/(alvo|alcance|duração|[a|á]rea|execução|resist[e|ê]ncia) para (.+)/);
+				console.log(d);
+				console.log(matches);
+				if ( matches ) changes.push({key:matches[1].slugify(),"mode":5,value: matches[2]});
+			});
+
+console.log(ap);
+if (ap.tipo==="Aumenta" && ap.formula.match(/\+?(\d+d\d+\+?\d?)/i)) {
+	changes.push({key:"roll","mode":0,value: ap.formula});
+}
+if (ap.tipo==="Muda" && ap.formula) {
+	if (ap.formula == "-") ap.formula = "";
+	let modo = ap.formula.match(/d\d+/i) ? 0 : 5;
+	changes.push({key:"roll",mode:modo,value: ap.formula});
+}
+console.log(ap.description.match(/(alvo para ([^,]+))/i));
+ap.description.match(/abalado|agarrado|alquebrado|apavorado|atordoado|ca[i|í]ido|cego|confuso|debilitado|desprevenido|doente|em chamas|enjoado|enredado|envenenado|esmorecido|exausto|fascinado|fatigado|fraco|frustrado|im[o|ó]vel|inconsciente|indefeso|lento|ofuscado|paralisado|pasmo|petrificado|sangrando|surdo|surpreendido|vulner[a|á]vel/gi)?.forEach(function(c){
+			changes.push({key:"condicao","mode":0,value: c});
+		})
+
+
+			effects.push({
+				label: ap.description.replace(/(\d)(o) círculo/,"$1º círculo"),
+				icon: "icons/svg/upgrade.svg",
+				origin: item.uuid,
+				changes: changes,
+				flags: { t20: { onuse: true, self: true, custo:ap.custo, aumenta: ap.tipo=="Aumenta" } },
+				"duration.rounds": undefined,
+				"duration.seconds": undefined,
+				disabled: true,
+				transfer: false
+			});
+		});
+		await item.createEmbeddedEntity("ActiveEffect", effects);
+	}
+
+	async _createEffect(item, ap){
+		return ActiveEffect.create({
+				label: ap.description,
+				icon: "icons/svg/upgrade.svg",
+				origin: item.uuid,
+				flags: { t20: { onuse: true, self: true, custo:ap.custo } },
+				"duration.rounds": undefined,
+				"duration.seconds": undefined,
+				disabled: true,
+				transfer: false
+			}, item);
+	}
 	/* -------------------------------------------- */
 
 	_moveTooltips(event) {

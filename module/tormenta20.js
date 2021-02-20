@@ -11,6 +11,7 @@ import ActorT20 from "./actor/entity.js";
 import ItemT20 from "./item/entity.js";
 
 // Import Applications
+import AbilityTemplate from "./pixi/ability-template.js";
 import ActorSettings from "./apps/actor-settings.js";
 import AbilityUseDialog from "./apps/ability-use-dialog.js";
 import ConjurarDialog from "./apps/conjurar-dialog.js";
@@ -22,7 +23,10 @@ import ActiveEffectConfigT20 from "./apps/ae-config.js";
 import { toggleEffect } from "./actor/condicoes.js";
 import { endSegment } from "./apps/time-segment.js";
 
+import { T20Conditions } from "./conditions/conditions.js";
+
 // Import Helpers
+import * as hooks from "./hooks.js";
 import * as chat from "./chat.js";
 import * as dice from "./dice.js";
 import * as macros from "./macros.js";
@@ -45,10 +49,14 @@ Hooks.once("init", async function () {
       ActorSettings
     },
     config: T20Config,
+    conditions: T20Conditions,
     dice: dice,
     entities: {
       ActorT20,
       ItemT20
+    },
+    canvas: {
+      AbilityTemplate
     },
     macros: macros,
     migrations: migrations,
@@ -109,78 +117,8 @@ Hooks.once("init", async function () {
 
 /* -------------------------------------------- */
 
-/**
- * Once the entire VTT framework is initialized, check to see if we should perform a data migration
- */
-Hooks.once("ready", async function () {
-  // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => macros.createT20Macro(data, slot));
-
-  // TODO implement Migration
-  // Determine whether a system migration is required and feasible
-  if ( !game.user.isGM ) return;
-  if (!game.settings.get("tormenta20", "systemMigrationVersion")) game.settings.set("tormenta20", "systemMigrationVersion", "1.0.02");
-  
-  const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion") ? game.settings.get("tormenta20", "systemMigrationVersion") : "1.0.02";
-  
-  const NEEDS_MIGRATION_VERSION = "1.1.32";
-  const COMPATIBLE_MIGRATION_VERSION = "1.1.30";
-  const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
-  if ( !needsMigration ) return;
-  // Perform the migration
-  if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
-    const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
-    ui.notifications.error(warning, {permanent: true});
-  }
-  migrations.migrateWorld();
-});
-
-
-/* -------------------------------------------- */
-/*  Canvas Initialization                       */
-/* -------------------------------------------- */
-
-Hooks.on("canvasInit", function () {
-  // Extend Diagonal Measurement
-  canvas.grid.diagonalRule = game.settings.get("tormenta20", "diagonalMovement");
-  SquareGrid.prototype.measureDistances = measureDistances;
-
-  Token.prototype.getBarAttribute = getBarAttribute;
-  Token.prototype.toggleEffect = toggleEffect;
-});
-
-
-/* -------------------------------------------- */
-/*  Other Hooks                                 */
-/* -------------------------------------------- */
-
-Hooks.on("renderChatMessage", (app, html, data) => {
-
-  // Display action buttons
-  //chat.displayChatActionButtons(app, html, data);
-
-  // Highlight critical success or failure die
-  //chat.highlightCriticalSuccessFailure(app, html, data);
-
-  // Optionally collapse the content
-  if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
-  if (game.settings.get("tormenta20", "applyButtonsInsideChat"))
-  {
-    chat.ApplyButtons(app, html, data);
-  }
-  
-});
-
-/* Add hook for the context menu over the rolled damage */
-Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
-// Hooks.on("renderChatLog", (app, html, data) => T20Item.chatListeners(html));
-// Hooks.on("renderChatPopout", (app, html, data) => T20Item.chatListeners(html));
-Hooks.on("renderChatLog", (app, html, data) => ItemT20.chatListeners(html));
-Hooks.on("renderChatPopout", (app, html, data) => ItemT20.chatListeners(html));
-
-/* Add hook for End of Cena */
-Hooks.on("renderSidebarTab", async (app, html) => endSegment(app,html)) ;
-
+// Load hooks
+hooks.default();
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */

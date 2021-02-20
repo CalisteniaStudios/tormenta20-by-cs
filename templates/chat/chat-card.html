@@ -37,8 +37,14 @@
         <li>
           <div class="row">
             <b>
-            {{#ifEquals ap.tipo "Truque"}} Truque: {{else}}  {{#ifGreater ap.custo 0}}+{{/ifGreater}}{{ap.custo}}PM: {{/ifEquals}}
-            {{#ifEquals ap.tipo "Aumenta"}} ({{ap.qtd}}x) {{/ifEquals}}
+              {{#if truque}}
+              Truque:
+              {{else if (gt ap.custo 0)}}
+              +{{ap.custo}}PM:
+              {{#if (gt ap.qtd 1)}}
+              ({{ap.qtd}}x)
+              {{/if}}
+              {{/if}}
             </b>
             {{ap.description}}
           </div>
@@ -71,7 +77,7 @@
 
     <div id="aditionalbutton"></div>
 
-    {{log effects}}
+    
     {{#if effects}}
     <div id="activeEffectsbuttons">
       {{#each effects as |ef i|}}
