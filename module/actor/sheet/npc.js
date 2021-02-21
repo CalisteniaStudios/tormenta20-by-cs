@@ -45,7 +45,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 		// Initialize containers.
 		const poderes = [];
-		const equipamentos = [];
 		const ataques = [];
 		const armas = [];
 		const inventario = []
@@ -76,6 +75,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// let totalWeight = 0;
 		let x = 0;
 		let temMagias = false;
+		let mostrarInventario = false;
 		for (let i of data.items) {
 			let item = i.data;
 			i.img = i.img || DEFAULT_TOKEN;
@@ -92,10 +92,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			// If this is equipment, we currently lump it together.
 			else if (i.type === 'equip') {
 				inventario.push(i);
-				// carga = [];
-				// carga.push(i.peso);
-				// carga.reduce((a,b) => a+b,0);
-				// actorData.data.detalhes.carga = carga;
+				mostrarInventario = true;
 			} else if (i.type === 'arma') {
 				let tempatq = `${actorData.data.atributos[i.data.atrAtq].mod} + ${i.data.atqBns}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
@@ -115,6 +112,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 				i.data.dmg = new Roll(tempdmg).formula;
 				armas.push(i);
 				inventario.push(i);
+				if (i.data.tipoUso != "natural") mostrarInventario = true;
 			} else if (i.type === 'ataque') {
 				let tempatq = `${i.data.bonusAtq}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
@@ -142,6 +140,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			}
 			else {
 				inventario.push(i);
+				mostrarInventario = true;
 			}
 		}
 
@@ -149,11 +148,10 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		actorData.poderes = poderes.length ? poderes : null;
 		// Spells
 		actorData.magias = temMagias ? magias : null;
-		// Equipment
-		actorData.equipamentos = equipamentos;
 		// Attacks
 		actorData.ataques = ataques.length ? ataques : null;
 		actorData.armas = armas.length ? armas : null;
+		actorData.mostrarInventario = mostrarInventario;
 		actorData.inventario = inventario.length ? inventario : null;
 	}
 
