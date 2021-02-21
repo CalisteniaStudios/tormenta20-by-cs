@@ -13,15 +13,20 @@
 	</li>
 	{{#each actor.skillset as |skill key|}}
 	{{#if (eq skill "ofi")}}
-	{{#if ../actor.flags.editarPericias}}
 	<li class="skill flexrow">
 		<div class="item-image"></div>
-		<div class="item-name">Ofícios</div>
+		<div class="item-name">
+			Ofício +
+			<a class="compendium-entry" data-compendium-entry="tormenta20.pericias.iviKBc19dNgZYBJ0"><i class="fas fa-book compendium-icon"></i></a>
+		</div>
 		<div class="item-total"></div>
+		{{#if ../actor.flags.editarPericias}}
 		<div class="item-mod"><a class="item-control skill-create" title="Criar Ofício" data-tipo="oficio"><i class="fas fa-plus"></i> Novo</a></div>
 		<div class="item-outros"> <a class="item-control show-controls" title="Editar Perícias"><i class="fas fa-cogs"></i></a></div>
+		{{else}}
+		<div class="item-mod"><input type="text" name="data.pericias.ofi.atributo" style="text-transform: capitalize;" value="int" data-dtype="String" disabled /></div>
+		{{/if}}
 	</li>
-	{{/if}}
 	{{else if (eq skill "cstm")}}
 	{{#if ../actor.flags.editarPericias}}
 	<li class="skill flexrow">
@@ -52,6 +57,9 @@
 				<span class="rollable pericia-rollable" data-type="padrao" >
 					{{{skill.label}}} {{#if skill.st}}*{{/if}} {{#if skill.pda}}+{{/if}}
 				</span>
+				{{#if compendiumEntry}}
+				<a class="compendium-entry" data-compendium-entry="{{compendiumEntry}}"><i class="fas fa-book compendium-icon"></i></a>
+				{{/if}}
 			{{/if}}
 		</div>
 		<div class="item-total">

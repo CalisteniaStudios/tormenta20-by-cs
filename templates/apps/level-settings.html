@@ -1,0 +1,59 @@
+<form class="" autocomplete="off" onsubmit="event.preventDefault();">
+	<h2>Classes</h2>
+    <ol class="trait-list">
+		<li class="flexrow">
+			<div style="font-weight: bold;">Classe</div>
+			<div style="font-weight: bold; text-align:center">PV por Nível</div>
+			<div style="font-weight: bold; text-align:center">PV Total</div>
+			<div style="font-weight: bold; text-align:center">PM por Nível</div>
+			<div style="font-weight: bold; text-align:center">PM Total</div>
+		</li>
+        {{#each classes as |data key|}}
+        <li class="flexrow">
+			<div>{{data.label}} {{data.niveis}}</div>
+			<div style="text-align:center">{{data.pvPorNivel}} + {{../con}}</div>
+			<div style="text-align:center">{{#if (eq key 0)}}{{add (multiply data.pvPorNivel 4) (add (multiply (add data.niveis -1) data.pvPorNivel) (multiply data.niveis ../con))}}{{else}}{{add (multiply data.niveis data.pvPorNivel) (multiply data.niveis ../con)}}{{/if}}</div>
+			<div style="text-align:center">{{data.pmPorNivel}}</div>
+			<div style="text-align:center">{{multiply data.niveis data.pmPorNivel}}</div>
+			<input hidden type="text" name="{{data.label}}.pv" data-dtype="Number" value="{{#if (eq key 0)}}{{add (multiply data.pvPorNivel 4) (add (multiply (add data.niveis -1) data.pvPorNivel) (multiply data.niveis ../con))}}{{else}}{{add (multiply data.niveis data.pvPorNivel) (multiply data.niveis ../con)}}{{/if}}" />
+			<input hidden type="text" name="{{data.label}}.pm" data-dtype="Number" value="{{multiply data.niveis data.pmPorNivel}}" />
+        </li>
+        {{/each}}
+    </ol>
+    <h2>Pontos de Vida</h2>
+		<div class="flexrow">
+			<label class="checkbox">Atributo:</label>
+			{{#each config.atributoPV as |name prop|}}
+			<label class="checkbox">
+				<input type="checkbox" name="pv.{{prop}}" value="{{name}}" {{checked (lookup ../actor.data.flags prop)}} data-dtype="Boolean" /> {{ name }}
+			</label>
+			{{/each}}
+		</div>
+		<div class="flexrow">
+			<label class="checkbox">
+				Bônus Total <input style="height: 20px; width: 30px;" type="number" name="pv.pvBonus" value="{{actor.data.flags.pvBonus.[0]}}" data-dtype="Number" placeholder="0" />
+			</label>
+			<label class="checkbox">
+				Bônus por Nível <input style="height: 20px; width: 30px;" type="number" step="0.01" name="pv.pvBonus" value="{{actor.data.flags.pvBonus.[1]}}" data-dtype="Number" placeholder="0" />
+			</label>
+		</div>
+	<h2>Pontos de Mana</h2>
+		<div class="flexrow">
+			<label class="checkbox">Atributo:</label>
+			{{#each config.atributoPM as |name prop|}}
+			<label class="checkbox">
+				<input type="checkbox" name="pm.{{prop}}" value="{{name}}" {{checked (lookup ../actor.data.flags prop)}} data-dtype="Boolean" /> {{ name }}
+			</label>
+			{{/each}}
+		</div>
+		<div class="flexrow">
+			<label class="checkbox">
+				Bônus Total <input style="height: 20px; width: 30px;" type="number" name="pm.pmBonus" value="{{actor.data.flags.pmBonus.[0]}}" {{checked (lookup ../actor.data.flags prop)}} data-dtype="Number" placeholder="0" />
+			</label>
+			<label class="checkbox">
+				Bônus por Nível <input style="height: 20px; width: 30px;" type="number" step="0.01" name="pm.pmBonus" value="{{actor.data.flags.pmBonus.[1]}}" {{checked (lookup ../actor.data.flags prop)}} data-dtype="Number" placeholder="0" />
+			</label>
+		</div>
+		<br />
+    <button type="submit" name="submit" value="1"><i class="far fa-save"></i> Salvar</button>
+</form>

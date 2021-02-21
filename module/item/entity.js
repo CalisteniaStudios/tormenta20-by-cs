@@ -849,6 +849,8 @@ export default class ItemT20 extends Item {
 		const templateData = {
 			actor: this.actor,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
+			critico: options.rolls.atq ? options.rolls.atq._critical : false ,
+			falha: options.rolls.dmg, 
 			item: this.data,
 			data: this.getChatData(),
 			labels: this.labels
@@ -871,6 +873,9 @@ export default class ItemT20 extends Item {
 			speaker: ChatMessage.getSpeaker({actor: this.actor, token}),
 			flags: {"core.canPopout": true, "t20.effects": options.effects}
 		};
+		console.log(options.rolls.atq);
+		console.log(options.rolls.dmg);
+
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode);
 

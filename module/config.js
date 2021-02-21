@@ -274,6 +274,22 @@ T20Config.atributosAbr = {
 T20Config.pvPorNivel = [2, 3, 4, 5, 6];
 T20Config.pmPorNivel = [3, 4, 5, 6];
 
+T20Config.atributoPV = {
+	"forPV": "Força",
+	"desPV": "Destreza",
+	"intPV": "Inteligência",
+	"sabPV": "Sabedoria",
+	"carPV": "Carisma"
+}
+T20Config.atributoPM = {
+	"forPM": "Força",
+	"desPM": "Destreza",
+	"conPM": "Constituição",
+	"intPM": "Inteligência",
+	"sabPM": "Sabedoria",
+	"carPM": "Carisma"
+}
+
 /* ------------------ Perícias ---------------- */
 
 T20Config.pericias = {
@@ -333,7 +349,18 @@ T20Config.idiomas = {
 	"goblin": "Goblin",
 	"hynne": "Hynne",
 	"silvestre": "Silvestre",
-	"taurico": "Táurico"
+	"taurico": "Táurico",
+	"abissal": "Abissal",
+	"aquan": "Aquan",
+	"auran": "Auran",
+	"celestial": "Celestial",
+	"draconico": "Dracônico",
+	"gigante": "Gigante",
+	"gnoll": "Gnoll",
+	"ignan": "Ignan",
+	"infernal": "Infernal",
+	"orc": "Orc",
+	"terran": "Terran"
 };
 
 T20Config.profArmas = {
@@ -352,6 +379,38 @@ T20Config.profArmaduras = {
   "pesada": "Armaduras Pesadas",
   "escudo": "Escudos"
 };
+
+T20Config.skillCompendiumEntries = {
+	'acr': 'tormenta20.pericias.hWto9ixrLcAV5Pg9',
+	'ade': 'tormenta20.pericias.3vNJgVz4DeSWUr2T',
+	'atl': 'tormenta20.pericias.ZMXVeEARJHe4WsWx',
+	'atu': 'tormenta20.pericias.eiKvnk0prKaG2rl0',
+	'cav': 'tormenta20.pericias.umGf2m2a517affYh',
+	'con': 'tormenta20.pericias.k4BBdUTIFCFMi6Tp',
+	'cur': 'tormenta20.pericias.f0Cvg9dhaAgVfjpU',
+	'dip': 'tormenta20.pericias.u3bLZxqLhvqQjlfz',
+	'eng': 'tormenta20.pericias.IAzI6D4Xj2vZa4ZK',
+	'for': 'tormenta20.pericias.efy0eGXTMnXZbXED',
+	'fur': 'tormenta20.pericias.u2FeyQUF5rSu9ec3',
+	'gue': 'tormenta20.pericias.7pA3UiVhl2H091zb',
+	'ini': 'tormenta20.pericias.W4V1ObkLtpxgRoBE',
+	'int': 'tormenta20.pericias.tGOSDh0RSh0Qewdv',
+	'intu': 'tormenta20.pericias.DLcZCk8c9KUyJ0Qk',
+	'inv': 'tormenta20.pericias.ZAS0zJaPRJWg15ib',
+	'jog': 'tormenta20.pericias.htoLZR83iKDkmc8j',
+	'lad': 'tormenta20.pericias.lcgrJelGuEGZ96C0',
+	'lut': 'tormenta20.pericias.6PwE0u0Nfr5VolzM',
+	'mis': 'tormenta20.pericias.oPAtmZ2vXGDjfCyt',
+	'nob': 'tormenta20.pericias.Uw4Edff5CDnPZgIF',
+	'ofi': 'tormenta20.pericias.iviKBc19dNgZYBJ0',
+	'per': 'tormenta20.pericias.hkTML0lqoOopGTLQ',
+	'pil': 'tormenta20.pericias.d7ia26SZqoFGzGrv',
+	'pon': 'tormenta20.pericias.rwDmhFebCtNIFzfy',
+	'ref': 'tormenta20.pericias.p9JngLpUrPFrqiTU',
+	'rel': 'tormenta20.pericias.VYEkUN1ITAQqn5y7',
+	'sob': 'tormenta20.pericias.dyePg3NS95So0yEJ',
+	'von': 'tormenta20.pericias.mBbMbDy7XnbkFzdR'
+}
 
 /*------------------- Itens -------------------*/
 

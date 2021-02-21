@@ -1,0 +1,99 @@
+{{#if actor.favoritos.armas}}
+<ol class="item-list fav-item">
+	<li class="item item-header flexrow">
+		<div class="item-image" ></div>
+		<div class="item-name flex2" >Arma</div>
+		<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
+		<div class="item-controls"></div>
+	</li>
+	{{#each actor.favoritos.armas as |item id|}}
+	<li class="item flexrow fav-item" data-item-id="{{item._id}}">
+		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+		<span class="rollable arma-rollable item-name flex2">
+			<h4 class="item-name" >{{item.name}}</h4>
+		</span>
+		
+		<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
+		<div class="item-detail item-controls">
+			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
+		</div>
+	</li>
+	{{/each}}
+</ol>
+{{/if}}
+{{#if actor.favoritos.itens}}
+<ol class="item-list fav-item">
+	<li class="item item-header flexrow">
+		<div class="item-image" ></div>
+		<div class="item-name flex2">Nome</div>
+		<div class="item-controls">
+	</li>
+	{{#each actor.favoritos.itens as |item id|}}
+	<li class="item flexrow fav-item" data-item-id="{{item._id}}">
+		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+		<h4 class="item-name flex2 {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{/if}}" style="flex: 5;">
+			{{item.name}}
+		</h4>
+		<div class="item-detail item-controls">
+			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
+		</div>
+	</li>
+	{{/each}}
+</ol>
+{{/if}}
+{{#if actor.favoritos.poderes}}
+<ol class="item-list fav-feat">
+	<li class="item item-header flexrow">
+		<div class="item-image" ></div>
+		<div class="item-name flex2">Poder</div>
+		<div class="item-tipo">Ativação</div>
+		<div class="item-controls"></div>
+	</li>
+	{{#each actor.favoritos.poderes as |item id|}}
+	<li class="item flexrow" data-item-id="{{item._id}}">
+		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+		<span class="rollable poder-rollable flex2" data-label="{{item.name}}">
+			<h4 class="item-name">{{item.name}}</h4>
+		</span>
+		<div class="item-tipo">{{#if item.data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.ativacao.custo}} ({{item.data.ativacao.custo}} PM){{/if}}{{/if}}{{/each}}{{else}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{/if}}{{/if}}</div>
+		<div class="item-detail item-controls">
+			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
+		</div>
+	</li>
+	{{/each}}
+</ol>
+{{/if}}
+{{#if actor.favoritos.qtdMagias}}
+<ol class="item-list fav-spell">
+	{{#each actor.favoritos.magias as |circulo i|}}
+		{{#if circulo.spells}}
+		<li class="item item-header flexrow">                        
+			{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
+			<div class="item-image" ></div>
+			<div class="item-name flex2">{{i}}º Círculo ({{circulo.custo}} PM)</div>
+			<div class="item-tipo">Ativação</div>
+			<div class="item-controls"></div>
+		</li>
+		{{#each circulo.spells as |m index|}}
+		<li class="item flexrow" data-item-id="{{m._id}}">
+			{{#if ../../isPreparationCaster}}
+			<div class="item-toggles">
+				<a class="item-toggle preparation-toggle {{#if m.data.preparada }}active{{/if}}" title="Preparada"><i class="fas fa-sun"></i></a>
+			</div>
+			{{/if}}
+			<div class="item-image" style="background-image: url('{{m.img}}')"></div>
+			<span class="rollable magia-rollable flex2" data-label="{{m.name}}"><h4 class="item-name">{{m.name}}</h4></span>
+			<div class="item-tipo">{{#each ../../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#ifNotEquals ../data.ativacao.custo circulo.custo}} ({{../data.ativacao.custo}} PM){{/ifNotEquals}}{{/if}}{{/each}}</div>
+			<div class="item-detail item-controls">
+				<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+				<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
+			</div>
+		</li>
+		{{/each}}
+		{{/if}}
+	{{/each}}
+</ol>
+{{/if}}

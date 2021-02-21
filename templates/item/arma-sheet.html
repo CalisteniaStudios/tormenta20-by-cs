@@ -55,6 +55,14 @@
             <div class="form-group">
 				<label>Ataque: 1d20+</label>
 				<div class="form-fields">
+					<select class="selectatr" name="data.atrAtq" value={{data.atrAtq}} data-type="String">
+						{{#select data.atrAtq}}
+						{{#each config.atributos as |atr key|}}
+						<option value="{{key}}">{{atr}}</option>
+						{{/each}}
+						{{/select}}
+					</select>
+					{{#unless npc}}
 					<select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
 					  {{#select data.pericia}}
 					  <option value="lut">Luta</option>
@@ -62,6 +70,7 @@
 					  <option value="atu">Atuação</option>
 					  {{/select}}
 					</select>
+					{{/unless}}
 					<input type="text" title="Bônus" name="data.atqBns" value="{{#ifEquals data.atqBns ''}}0{{else}}{{data.atqBns}}{{/ifEquals}}" data-dtype="String"/>
 				</div>
 			</div>
@@ -72,12 +81,9 @@
 					<select class="selectatr" name="data.atrDan" value={{data.atrDan}} data-type="String">
 						{{#select data.atrDan}}
 						<option value="0">Nenhum</option>
-						<option value="for">For</option>
-						<option value="des">Des</option>
-						<option value="con">Con</option>
-						<option value="int">Int</option>
-						<option value="sab">Sab</option>
-						<option value="car">Car</option>
+						{{#each config.atributos as |atr key|}}
+						<option value="{{key}}">{{atr}}</option>
+						{{/each}}
 						{{/select}}
 					</select>
 					<input type="text" title="Bônus" name="data.danoBns" value="{{data.danoBns}}" data-dtype="String"  placeholder="ex.: +2 , +1d6+2"/>

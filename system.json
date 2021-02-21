@@ -2,7 +2,7 @@
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.1.33",
+  "version": "1.1.53",
   "minimumCoreVersion": "0.6.5",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 1,
@@ -23,6 +23,13 @@
       "label": "Equipamentos",
       "system": "tormenta20",
       "path": "./packs/equipamentos.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipamentos-magicos",
+      "label": "Itens Mágicos",
+      "system": "tormenta20",
+      "path": "./packs/equipamentos-magicos.db",
       "entity": "Item"
     },
     {
@@ -54,10 +61,17 @@
       "entity": "Item"
     },
     {
-      "name": "teste",
-      "label": "Teste",
+      "name": "pericias",
+      "label": "Perícias",
       "system": "tormenta20",
-      "path": "./packs/teste.db",
+      "path": "./packs/pericias.db",
+      "entity": "JournalEntry"
+    },
+    {
+      "name": "pocoes",
+      "label": "Poções",
+      "system": "tormenta20",
+      "path": "./packs/pocoes.db",
       "entity": "Item"
     }
   ],

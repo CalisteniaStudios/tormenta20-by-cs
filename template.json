@@ -25,8 +25,7 @@
             "climb": 0,
             "fly": 0,
             "swim": 0,
-            "walk": 30,
-            "units": "m",
+            "walk": 9,
             "hover": false
           },
           "senses": {
@@ -209,7 +208,7 @@
         "detalhes": {
           "biografia": "",
           "dinheiro": {
-            "tt": 0,
+            "tl": 0,
             "to": 0,
             "tp": 0,
             "tc": 0
@@ -422,6 +421,7 @@
     },
     "arma": {
       "templates": ["base","objeto"],
+      "atrAtq": "for",
       "pericia": "lut",
       "atrDan": "for",
       "dano": "1d6",

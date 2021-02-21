@@ -48,6 +48,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		const equipamentos = [];
 		const ataques = [];
 		const armas = [];
+		const inventario = []
 		const magias = {
 			1: {
 				spells: [],
@@ -90,13 +91,13 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			}
 			// If this is equipment, we currently lump it together.
 			else if (i.type === 'equip') {
-				equipamentos.push(i);
+				inventario.push(i);
 				// carga = [];
 				// carga.push(i.peso);
 				// carga.reduce((a,b) => a+b,0);
 				// actorData.data.detalhes.carga = carga;
 			} else if (i.type === 'arma') {
-				let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
+				let tempatq = `${actorData.data.atributos[i.data.atrAtq].mod} + ${i.data.atqBns}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
@@ -109,9 +110,11 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 				});
 
 				i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
-				console.log(tempdmg);
-				i.data.dmg = new Roll(tempdmg).formula;// (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+
+				// i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+				i.data.dmg = new Roll(tempdmg).formula;
 				armas.push(i);
+				inventario.push(i);
 			} else if (i.type === 'ataque') {
 				let tempatq = `${i.data.bonusAtq}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
@@ -131,11 +134,14 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 				i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1) + (b*1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '');
 
-				i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1+b*1>=0 ? '+'+(a*1+b*1) : ''+(a*1+b*1)), '') || '');
-
+				// i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1+b*1>=0 ? '+'+(a*1+b*1) : ''+(a*1+b*1)), '') || '');
+				i.data.dmg = new Roll(tempdmg).formula;
 
 
 				ataques.push(i);
+			}
+			else {
+				inventario.push(i);
 			}
 		}
 
@@ -148,6 +154,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Attacks
 		actorData.ataques = ataques.length ? ataques : null;
 		actorData.armas = armas.length ? armas : null;
+		actorData.inventario = inventario.length ? inventario : null;
 	}
 
 

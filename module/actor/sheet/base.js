@@ -1,9 +1,10 @@
 import { d20Roll, damageRoll } from '../../dice.js';
 import AbilityUseDialog from "../../apps/ability-use-dialog.js";
 import TraitSelector from "../../apps/trait-selector.js";
+import LevelSettings from "../../apps/level-settings.js";
+import MovementConfig from "../../apps/movement-config.js";
 import { T20Utility } from '../../utility.js';
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../../effects.js";
-
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
  * This sheet is an Abstract layer which is not used.
@@ -56,7 +57,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			editable: this.isEditable,
 			cssClass: isOwner ? "editable" : "locked",
 			isCharacter: this.entity.data.type === "character",
-			isNPC: this.entity.data.type === "npc"
+			isNPC: this.entity.data.type === "npc",
+			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
 		data.config = CONFIG.T20;
 		
@@ -74,6 +76,11 @@ export default class ActorSheetT20 extends ActorSheet {
 
 		// Skills
 		// Add icon, hover, label to Scores
+		if (data.isCharacter && data.actor.data.pericias != undefined) {
+			for (let [s, skl] of Object.entries(data.actor.data.pericias)) {
+				skl.compendiumEntry = data.config.skillCompendiumEntries[s] ?? null;
+			}
+		}
 
 		// Movement speeds
 		// TODO Implement Movement Here?
@@ -178,6 +185,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if ( this.isEditable ) {
 
 			// TODO input Deltas
+			html.find('.level-settings').click(this._onLevelSettings.bind(this));
 
 			// Skills management
 			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
@@ -198,14 +206,17 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find("#configure-actor").click(ev => {
 				new game.tormenta20.applications.ActorSettings(this.actor).render(true);
 			});
-
+			html.find("#npc-editing").click(ev => {
+				let flags = this.actor.data.flags ?? {"flags": {}};
+				flags["flags.editing"] = flags.editing ? !flags.editing : true;
+				this.actor.update(flags);
+			});
 			// Active Effect management
 			html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.entity));
 		}
 
 		if ( this.actor.owner ) {
 			// Rollable abilities.
-			// html.find('.rollable').click(this._onRoll.bind(this));
 			html.find('.atributo-rollable').click(this._onRollAtributo.bind(this));
 			html.find('.pericia-rollable').click(this._onRollPericia.bind(this));
 			html.find('.arma-rollable').click(this._onItemRoll.bind(this));
@@ -222,6 +233,10 @@ export default class ActorSheetT20 extends ActorSheet {
 		else {
 			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
 		}
+		
+		// Open skill compendium entry
+		html.find("a.compendium-entry").click(this._onOpenCompendiumEntry.bind(this));
+		
 		// Handle default listeners last so system listeners are triggered first
     	super.activateListeners(html);
 	}
@@ -239,17 +254,56 @@ export default class ActorSheetT20 extends ActorSheet {
 	// }
 	
 	/**
-   * Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
-   * @param {Event} event   The click event which originated the selection
-   * @private
-   */
+	 * Handle opening a skill's compendium entry
+	 * @param {Event} event	 The originating click event
+	 * @private
+	 */
+	async _onOpenCompendiumEntry(event) {
+		const entryKey = event.currentTarget.dataset.compendiumEntry;
+		const parts = entryKey.split(".");
+		const packKey = parts.slice(0, 2).join(".");
+		const entryId = parts.slice(-1)[0];
+		const pack = game.packs.get(packKey);
+		const entry = await pack.getEntity(entryId);
+		entry.sheet.render(true);
+	}
+	
+	/**
+	* Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
+	* @param {Event} event   The click event which originated the selection
+	* @private
+	*/
 	_onTraitSelector(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
 		const label = a.parentElement.querySelector("label");
 		const choices = CONFIG.T20[a.dataset.options];
 		const options = { name: a.dataset.target, title: label.innerText, choices };
-		new TraitSelector(this.actor, options).render(true)
+			switch ( a.dataset.options ) {
+				case "idiomas":
+				case "profArmas":
+				case "profArmaduras":
+					new TraitSelector(this.actor, options).render(true);
+					break;
+				case "deslocamento":
+					new MovementConfig(this.actor, options).render(true);
+					break;
+			}
+	}
+
+	_onLevelSettings(event) {
+		event.preventDefault();
+		const actorData = this.object.data;
+		const a = event.currentTarget;
+		const config = CONFIG.T20;
+		const classes = [];
+		actorData.items.forEach(item => {
+			if ( item.type === "classe" ) {
+				classes.push(item);
+			}
+		});
+		const options = {classes, config};
+		new LevelSettings(this.actor, options).render(true);
 	}
 
 	/* -------------------------------------------- */
@@ -328,6 +382,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	}
 
 	/* -------------------------------------------- */
+
 	async _onRollAtributo(event) {
 		event.preventDefault();
 		let atributo = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
@@ -404,7 +459,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	_onPericiaCustomCreate(event) {
+	async _onPericiaCustomCreate(event) {
 		event.preventDefault();
 
 		const a = event.currentTarget;
@@ -429,20 +484,22 @@ export default class ActorSheetT20 extends ActorSheet {
 		let periciasCustom = Object.values(actorData.data.periciasCustom);
 
 		if (tipo == 'oficio') {
-			pericia.label = "Oficio";
+			pericia.label = "Oficio +";
 			pericia.atributo = 'int';
+			pericia.st = true;
+			pericia.treinado = 1;
 
 			oficios.push(pericia);
-			this.actor.update({
+			await this.actor.update({
 				"data.pericias.ofi.mais": oficios
 			});
 		} else {
 			periciasCustom.push(pericia);
-			this.actor.update({
+			await this.actor.update({
 				"data.periciasCustom": periciasCustom
 			});
 		}
-		this.render();
+		await this.render();
 	}
 
 	async _onPericiaCustomDelete(event) {
@@ -541,7 +598,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if(item.data.type === "equip" && item.data.data.equipado) {
 			const armadura = {
 				nome: "",
-				defesa:  0,
+				value:  0,
 				penalidade: 0,
 				equipado: false
 			};
@@ -553,13 +610,56 @@ export default class ActorSheetT20 extends ActorSheet {
 			}
 			else if (item.data.data.tipo === "escudo") {
 				this.actor.update({
-					"data.defesa.escudo": armadura,
+					"data.defesa.escudo": armadura
 				});
+			}
+			else {
+				let defesaOutros = this.actor.data.data.defesa.outro - item.data.data.armadura.value;
+				this.actor.update({
+					"data.defesa.outro": defesaOutros
+				});
+			}
+		}
+		else if (item.data.type === "classe") {
+			const niveis = item.data.data.niveis;
+			const actorData = this.actor.data;
+			if (niveis === actorData.data.attributes.nivel.value) {
+				this.actor.update({"data.attributes.pv.max": 0, "data.attributes.pm.max": 0});
+			}
+			else {
+				const pvMax = actorData.data.attributes.pv.max - niveis * (parseInt(item.data.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0));
+				const pmMax = actorData.data.attributes.pm.max - niveis * (parseInt(item.data.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0));
+				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
 			}
 		}
 		this.actor.deleteOwnedItem(li.dataset.itemId);
 	}
 
+	/* -------------------------------------------- */
+
+	/**
+	* Handle rolling an Ability check, either a test or a saving throw
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	// TODO refactor and standarize html listeners
+	// _onRollAbilityTest(event) {
+	// 	event.preventDefault();
+	// 	let ability = event.currentTarget.parentElement.dataset.ability;
+	// 	this.actor.rollAbility(ability, {event: event});
+	// }
+
+	/* -------------------------------------------- */
+
+	/**
+	* TODO onToggle for Skill Training, Spell Prepared, Item Equiped
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	// TODO refactor and standarize html listeners
+	// _onToggleXXX(event) {
+	// 	event.preventDefault();
+	// }
 
 	/* -------------------------------------------- */
 
