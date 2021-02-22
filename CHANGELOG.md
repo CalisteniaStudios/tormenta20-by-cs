@@ -1,12 +1,11 @@
 # Lista de Mudanças
-
 ## Versão 1.1.55
 ### Novidades
-- Agora todas as ameaças tem um icone de uso Creative Commons — Attribution-NonCommercial. 
+- Agora todas as ameaças têm tokens. Creative Commons — Attribution-NonCommercial.
 
 ### Consertos de Bugs
-- Ameaças: Ajustado ataques de algumas criaturas e adicionado habilidades inatas dos aberrantes e mortos-vivos. 
-
+- Ameaças: Ajustado ataques de algumas criaturas e adicionado habilidades inatas dos aberrantes e mortos-vivos.
+- Poções: Adicionado peso para as poções (0,5 kg).
 
 ## Versão 1.1.54
 ### Novidades

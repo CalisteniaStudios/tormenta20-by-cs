@@ -308,7 +308,7 @@ T20Config.pericias = {
     "lut": "Luta",
     "mis": "Misticismo",
     "nob": "Nobreza",
-    "ofi": "Oficios",
+    "ofi": "Ofício",
     "per": "Percepção",
     "pil": "Pilotagem",
     "pon": "Pontaria",
@@ -317,6 +317,12 @@ T20Config.pericias = {
     "sob": "Sobrevivência",
     "von": "Vontade"
 };
+
+T20Config.resistencias = {
+	"for": "Fortitude",
+	"ref": "Reflexos",
+	"von": "Vontade"
+}
 
 /* ------------------- Níveis ----------------- */
 
