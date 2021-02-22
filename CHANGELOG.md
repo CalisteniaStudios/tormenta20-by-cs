@@ -1,4 +1,13 @@
 # Lista de Mudanças
+
+## Versão 1.1.55
+### Novidades
+- Agora todas as ameaças tem um icone de uso Creative Commons — Attribution-NonCommercial. 
+
+### Consertos de Bugs
+- Ameaças: Ajustado ataques de algumas criaturas e adicionado habilidades inatas dos aberrantes e mortos-vivos. 
+
+
 ## Versão 1.1.54
 ### Novidades
 - Nome de habilidades do NPC indicam se a habilidade é Sustentada.
