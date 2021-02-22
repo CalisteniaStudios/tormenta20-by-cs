@@ -36,7 +36,7 @@
 			<div class="form-group">
 				<label>Custo (PM)</label>
 				<div class="form-fields">
-					<input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+					<input type="number" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
 				</div>
 			</div>
 			
@@ -93,8 +93,8 @@
 			<div class="form-group">
 				<label>Crítico</label>
 				<div class="form-fields">
-					<input type="text" title="Margem de Ameaça" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number" placeholder="ex.: 19"/>
-					<input type="text" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" placeholder="2" />
+					<input type="number" title="Margem de Ameaça" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number" min="1" max="20" placeholder="ex.: 19"/>
+					<input type="number" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
 			{{#if (or data.propriedades.arremesso data.propriedades.ataqueDistancia)}}
