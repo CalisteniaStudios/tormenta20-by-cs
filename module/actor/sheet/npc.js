@@ -151,8 +151,11 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Attacks
 		actorData.ataques = ataques.length ? ataques : null;
 		actorData.armas = armas.length ? armas : null;
+		//Inventário
 		actorData.mostrarInventario = mostrarInventario;
 		actorData.inventario = inventario.length ? inventario : null;
+		//Perícias
+		actorData.mostrarPericias = actorData.data.periciasCustom[0] ? true : false;
 	}
 
 
