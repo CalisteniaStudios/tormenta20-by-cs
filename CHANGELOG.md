@@ -1,7 +1,11 @@
 # Lista de Mudanças
+## Versão 1.1.56
+### Consertos de Bugs
+- Ficha NPC: Listas de perícias aparecem fora do modo de edição.
+
 ## Versão 1.1.55
 ### Novidades
-- Agora todas as ameaças têm tokens. Creative Commons — Attribution-NonCommercial.
+- Agora todas as ameaças têm tokens.
 
 ### Consertos de Bugs
 - Ameaças: Ajustado ataques de algumas criaturas e adicionado habilidades inatas dos aberrantes e mortos-vivos.
