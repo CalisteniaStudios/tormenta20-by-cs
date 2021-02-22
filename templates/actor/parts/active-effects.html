@@ -1,3 +1,4 @@
+
 <ol class="item-list effects-list">
 	{{#each effects as |section sid|}}
 	<li class="items-header flexrow" data-effect-type="{{section.type}}">
@@ -7,15 +8,11 @@
 		<div class="effect-source">Duração</div>
 		{{/unless}}
 		<div class="item-controls effect-controls flexrow">
-			<a class="convert">
-				<i class="fas fa-recycle"></i>
-			</a>
 			<a class="effect-control" data-action="create" title="Criar Efeito">
 				<i class="fas fa-plus"></i> Novo
 			</a>
 		</div>
 	</li>
-
 	<ol class="item-list">
 		{{#each section.effects as |effect|}}
 		<li class="item effect flexrow" data-effect-id="{{effect.id}}">
@@ -26,7 +23,10 @@
 				{{else}}
 				<p><b>
 				{{effect.data.flags.t20.custo}}
-				{{#if (eq effect.data.flags.t20.custo "")}}Truque{{else}}PM{{/if}}:
+
+				{{#if (and (eq effect.data.flags.t20.custo "") (eq ../../item.type "magia"))}}Truque:
+				{{else if (eq effect.data.flags.t20.custo "")}}—
+				{{else}}PM:{{/if}}
 				</b>
 				{{effect.data.label}}</p>
 				{{/unless}}

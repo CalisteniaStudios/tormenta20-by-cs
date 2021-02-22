@@ -390,6 +390,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		let rolls={};
 		let rollMode = event;
 		let parts = [];
+		let options = {event: event};
 		if(event.shiftKey){
 			let fakeItem = {
 				actor: this.actor,
@@ -401,14 +402,48 @@ export default class ActorSheetT20 extends ActorSheet {
 				isOwned: true
 			}
 			const configuration = await AbilityUseDialog.create(fakeItem);
-			console.log(configuration);
+			let aplicados = {};
+			if ( configuration ) {
+				console.log(configuration);
+				let aplica = [].concat(configuration?.aplica) ?? [];
+				let ids = [].concat(configuration?.id) ?? [];
+				if (configuration?.bonus) parts.push(configuration?.bonus);
+				
+				aplica.forEach(function(ap, ind){
+					if(ap && ap !== "0"){
+						aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
+					}
+				});
+				// get Aprimoramentos from this item
+				let aprimoramentos = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+				aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+				options.aprimoramentos = [];
+				aprimoramentos.forEach(function(ef){
+					console.log(ef);
+					ef.data.changes.forEach(function(ch){
+						if( ch.key === "roll" && ch.mode === 2 ){
+							parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
+						}
+					});
+					if ( ef.data.flags.t20.custo === "" ){
+						options.truque = true;
+					} else if ( ef.data.flags.t20.custo ) {
+						options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+					}
 
-			if ( configuration.bonus ) parts.push(configuration.bonus);
+					options.aprimoramentos.push({
+						description: ef.data.label,
+						custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+						qtd: aplicados[ef.id]
+					});
+				});
+			}
 
 			rollMode = configuration.rollMode;
 		}
-
-		rolls.atq = await this.actor.rollAtributo(atributo, {parts: parts,event: event});
+		options.parts = parts;
+		rolls.atq = await this.actor.rollAtributo(atributo, options);
+		//rolls.atq = await this.actor.rollAtributo(atributo, {parts: parts,event: event});
 
 		let itemData = {
 			name: CONFIG.T20.atributos[atributo]
@@ -434,12 +469,49 @@ export default class ActorSheetT20 extends ActorSheet {
 			id: pericia,
 			isOwned: true
 		}
+		let options = {event: event};
 		if(event.shiftKey){
 			const configuration = await AbilityUseDialog.create(itemData);
-			if ( configuration.bonus ) parts.push(configuration.bonus);
+			let aplicados = {};
+			if ( configuration ) {
+				console.log(configuration);
+				let aplica = [].concat(configuration?.aplica) ?? [];
+				let ids = [].concat(configuration?.id) ?? [];
+				if (configuration?.bonus) parts.push(configuration?.bonus);
+				
+				aplica.forEach(function(ap, ind){
+					if(ap && ap !== "0"){
+						aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
+					}
+				});
+				// get Aprimoramentos from this item
+				let aprimoramentos = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+				aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+				options.aprimoramentos = [];
+				aprimoramentos.forEach(function(ef){
+					console.log(ef);
+					ef.data.changes.forEach(function(ch){
+						if( ch.key === "roll" && ch.mode === 2 ){
+							parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
+						}
+					});
+					if ( ef.data.flags.t20.custo === "" ){
+						options.truque = true;
+					} else if ( ef.data.flags.t20.custo ) {
+						options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+					}
+
+					options.aprimoramentos.push({
+						description: ef.data.label,
+						custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+						qtd: aplicados[ef.id]
+					});
+				});
+			}
 			rollMode = configuration.rollMode;
 		}
-		rolls.atq = await this.actor.rollPericia(itemData, {parts: parts, event: event});
+		options.parts = parts;
+		rolls.atq = await this.actor.rollPericia(itemData, options);
 		
 		this.actor.displayCard({rolls, itemData, rollMode});
 	}

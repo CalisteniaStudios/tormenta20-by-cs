@@ -215,9 +215,6 @@ export default class ActorT20 extends Actor {
 		const necessario = xp.proximo - anterior;
 		const pct = Math.round((xp.value - anterior) * 100 / necessario);
 		xp.pct = Math.clamped(pct, 0, 100);
-
-		// Aprimoramentos Globais
-		// actorData._aprimoramentos = this.getGlobalAprimoramentos();
 	}
 
 	/* -------------------------------------------- */
@@ -369,25 +366,6 @@ export default class ActorT20 extends Actor {
 	/*
 	*	Methods for precreate owned item
 	*/
-
-	/* -------------------------------------------- */
-	getGlobalAprimoramentos(){
-		let aprimoramentosGlobais = {
-			attack: [],
-			damage: [],
-			ability: [],
-			consumables: [],
-			spells: [],
-			skill: [],
-			powers: []
-		}
-		for( let [key, it] of Object.entries(this.data.items.filter(i=>i.type==="poder")) ) {
-			for( let [id, ap] of Object.entries(it.data.aprimoramentos??{}) ) {
-				if (ap.transferir !== "self") aprimoramentosGlobais[ap.transferir] = ap;
-			}
-		}
-		return aprimoramentosGlobais;
-	}
 
 	/* -------------------------------------------- */
 
@@ -561,8 +539,7 @@ export default class ActorT20 extends Actor {
 		
 		// Construct parts
 		const parts = ["@mod"];
-		const data = {mod: abl.mod};
-
+		const data = mergeObject({mod: abl.mod}, this.getRollData());
 		// Add global actor bonus GERAL | FISICOS | MENTAIS | KEY
 		const bonuses = getProperty(this.data.data, "modificadores.atributos") || {};
 		if ( bonuses.geral ) parts.push(bonuses.geral);
@@ -595,7 +572,7 @@ export default class ActorT20 extends Actor {
 		const skill = skillData.id;
 		// Construct parts
 		const parts = ["@value"];
-		const data = {value: skillData.data.value};
+		const data = mergeObject({value: skillData.data.value}, this.getRollData());
 		// Add global actor bonus GERAL | ATQ | !ATQ | SAVES | KEY
 		const bonuses = getProperty(this.data.data, "modificadores.pericias") || {};
 		console.log(bonuses);

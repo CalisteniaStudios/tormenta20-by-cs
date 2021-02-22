@@ -46,14 +46,15 @@
 		{{#if isItemEffect}}
 		<div class="form-group hidden">
 			<label>{{ localize "EFFECT.Transfer" }}</label>
-			<input type="checkbox" name="transfer" />
+			<input type="checkbox" name="transfer" {{ checked effect.transfer }} />
+			
 		</div>
 		{{/if}}
 
 		<div class="form-group">
 			<label>Aplicavel em: </label>
 			<div class="form-fields">
-				<label><input type="checkbox" name="flags.t20.self" {{ checked effect.flags.t20.self }} /> Próprio Item</label>
+				<label><input type="checkbox" id="flagself" name="flags.t20.self" {{ checked effect.flags.t20.self }} /> Próprio Item</label>
 				<label><input type="checkbox" name="flags.t20.attack" {{ checked effect.flags.t20.attack }} /> Ataque</label>
 				<label><input type="checkbox" name="flags.t20.skill" {{ checked effect.flags.t20.skill }} /> Pericia</label>
 				<label><input type="checkbox" name="flags.t20.ability" {{ checked effect.flags.t20.ability }} /> Atributo</label>
