@@ -1,4 +1,5 @@
 import { T20Conditions } from "./conditions/conditions.js";
+import { toggleEffect } from "./actor/condicoes.js";
 import { endSegment } from "./apps/time-segment.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
 import ItemT20 from "./item/entity.js";
@@ -44,7 +45,7 @@ export default function () {
 		SquareGrid.prototype.measureDistances = measureDistances;
 
 		Token.prototype.getBarAttribute = getBarAttribute;
-		// Token.prototype.trueggleEffect = toggleEffect;
+		Token.prototype.toggleEffect  = toggleEffect;
 	});
 
 
@@ -54,6 +55,12 @@ export default function () {
 
 	/* Effects/Conditions Hooks*/
 	Hooks.on("preCreateActiveEffect", async (actor, effect, options) => {
+		let condi = effect["flags.core.statusId"] ?? false;
+		if(condi && !effect.flags?.t20?.condition){
+			effect = T20Conditions[effect["flags.core.statusId"]] || effect;
+			options.temporary = true;
+			ActiveEffect.create(effect,actor).create();
+		}
 		if(actor && effect && effect.flags?.t20?.condition){
 			// ignore condi if already applyed
 			if(actor.effects.find(i => i.data.label === effect.label)){
@@ -109,22 +116,4 @@ export default function () {
 	Hooks.on("renderSidebarTab", async (app, html) => endSegment(app,html)) ;
 
 	/* Measured Templates*/
-	Hooks.on("createMeasuredTemplate", async (scene, template) => {
-		console.log(scene);
-		console.log(template);
-		console.log(event);
-		console.log(isCtrl(event));
-		if( event.ctrlKey ){
-			console.log("keep placing");
-		}
-	});
-	// Hooks.on("_onClickLeft", async (scene, template) => {
-	// 	console.log(scene);
-	// 	console.log(template);
-	// 	console.log(event);
-	// 	console.log(isCtrl(event));
-	// 	if( event.ctrlKey ){
-	// 		console.log("keep placing");
-	// 	}
-	// });
 }

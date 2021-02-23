@@ -3,12 +3,9 @@
 	{{!-- Sheet Tab Navigation --}}
 
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<label>
-			<i class="fas fa-dice-d20"></i>
-			<a class="item" data-tab="attributes" title="Ficha">Ficha</a>
-		</label>
-		<label><i class="fas fa-book"></i><a class="item" data-tab="journal">Diário</a></label>
-		<!-- <label><i class="fas fa-wrench"></i> <a class="item" data-tab="aviso" title="Aviso">Aviso</a></label> -->
+		<label><i class="fas fa-dice-d20"></i><a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
+		<label><i class="fas fa-book"></i> <a class="item" data-tab="journal">Diário</a></label>
+		<label><i class="fas fa-bahai"></i> <a class="item" data-tab="efeitos" title="Efeitos">Efeitos</a></label>
 		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
 
@@ -334,9 +331,9 @@
 			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}
 		</div>
 
-		{{!-- Aviso Tab --}}
-		<!-- <div class="tab aviso" data-group="primary" data-tab="aviso"> -->
-			<!-- {{!> "systems/tormenta20/templates/actor/parts/actor-aviso.html"}} -->
-		<!-- </div> -->
+		{{!-- Efeitos Tab --}}
+		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
+			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
 	</section>
 </form>

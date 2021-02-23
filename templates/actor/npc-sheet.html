@@ -3,7 +3,9 @@
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes">Ficha</a></label>
 		<label><i class="fas fa-address-card"></i> <a class="item" data-tab="description">Biografia</a></label>
-
+		{{#if actor.token.actorLink}}
+		<label><i class="fas fa-bahai"></i> <a class="item" data-tab="efeitos" title="Efeitos">Efeitos</a></label>
+		{{/if}}
 		{{#if editable}}<label><i class="fas fa-cog"></i> <a class="item" id="npc-editing">Editar</a></label>{{/if}}
 	</nav>
 
@@ -13,31 +15,31 @@
 
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
-					<div class="flexrow title-row">
-						<h2 class="flex3">{{actor.name}}
-							<input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
-						</h2>
-						<aside class="text-right flexrow">
-							<h2>
-								<label>ND</label> {{data.attributes.nd}}
-							</h2>
-							<input type="text" class="npc-nd" name="data.attributes.nd" value="{{data.attributes.nd}}">
-						</aside>
-					</div>
+			<div class="flexrow title-row">
+				<h2 class="flex3">{{actor.name}}
+					<input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
+				</h2>
+				<aside class="text-right flexrow">
+					<h2>
+						<label>ND</label> {{data.attributes.nd}}
+					</h2>
+					<input type="text" class="npc-nd" name="data.attributes.nd" value="{{data.attributes.nd}}">
+				</aside>
+			</div>
 			<i>{{data.attributes.raca}} {{data.attributes.nivel.value}}, {{data.tamanho}}</i>
 			<div class="flexrow">
-						<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo/Raça" />
-						<input type="number" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" min="0" style="flex:0 0 40px" />
-						{{#if editing}}
-						<select class="actor-size" name="data.tamanho" style="margin-bottom: 5px;">
-							{{#select data.tamanho}}
-							{{#each config.tamanhos as |label size|}}
-								<option value="{{size}}">{{label}}</option>
-							{{/each}}
-							{{/select}}
-						</select>
-						{{/if}}
-					</div>
+				<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Tipo/Raça" />
+				<input type="number" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" data-dtype="Number" placeholder="Nível" min="0" style="flex:0 0 40px" />
+				{{#if editing}}
+				<select class="actor-size" name="data.tamanho" style="margin-bottom: 5px;">
+					{{#select data.tamanho}}
+					{{#each config.tamanhos as |label size|}}
+						<option value="{{size}}">{{label}}</option>
+					{{/each}}
+					{{/select}}
+				</select>
+				{{/if}}
+			</div>
 			<hr>
 			<div class="npc-line">
 				<span class="rollable pericia-rollable skill" data-item-id="ini" data-type="padrao">
@@ -388,5 +390,13 @@
 			</div>
 		</div>
 
+		{{!-- Efeitos Tab --}}
+
+		{{log actor.token.actorLink}}
+		{{#if actor.token.actorLink}}
+		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
+			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
+		{{/if}}
 	</section>
 </form>

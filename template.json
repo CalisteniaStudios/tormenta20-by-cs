@@ -234,6 +234,7 @@
             "ad": 0,
             "mag": 0
           },
+          "custoPM":0,
           "pericias": {
             "geral": 0,
             "semataque": 0, 
@@ -247,21 +248,6 @@
               "sab": 0,
               "car": 0
             }
-          }
-        },
-        "bonuses": {
-          "ataque":{
-            "ataque":"",
-            "dano":""
-          },
-          "atributos":{
-            "bonus":""
-          },
-          "pericias":{
-            "geral":"",
-            "semataque":"",
-            "ataque":"",
-            "resistencia":""
           }
         }
       }

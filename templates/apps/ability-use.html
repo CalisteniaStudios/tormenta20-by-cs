@@ -1,5 +1,4 @@
 <form id="ability-use-form">
-	<form>
 	{{#if formula}}
 	<div class="form-group">
 		<label>Aplicar Bônus ou Penalidade?</label>
@@ -23,21 +22,24 @@
 
 
 	<div class="form-group">
-		<ul class="item-list">
-			<li class="item flexrow item-header">
-				<div>Aplicar</div>	
+		<ul class="item-list effects-list aprimoramentos-list">
+			<li class="items-header item flexrow">
+				<h3>Aplicar</h3>	
 				<h3 style="flex: 2">Nome</h3>
+				{{#if (eq item.type "arma")}}
+				<h3>Origem</h3>
+				{{/if}}
 			</li>
 		{{#each aprimoramentos as |ap|}}
 			<li class="item flexrow">
-				<div>
+				<div class="item-cost">
 
 				{{#if ap.data.flags.t20.aumenta}}
 					<input type="button" value="-" class="numCtrl" />
 					<input type="number" name="aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
 					<input type="button" value="+" class="numCtrl" />
 				{{else}}
-					<input  type="checkbox"  name="aplica"  value="1" {{#unless ap.data.disabled}}checked{{/unless}}/>
+					<input type="checkbox"  name="aplica"  value="1" {{#unless ap.data.disabled}}checked{{/unless}}/>
 				{{/if}}
 
 				
@@ -61,56 +63,14 @@
 				{{/if}}
 
 				<input type="hidden" name="id" value="{{ap.id}}" /></div>	
-				<h4 style="flex: 2">{{ap.data.label}}</h4>
+				<h4 class="item-name" style="flex: 2">{{{ap.data.label}}}</h4>
+				{{#if (eq ../item.type "arma")}}
+				<small>{{ap.sourceName}}</small>
+				{{/if}}
 			</li>
 		{{/each}}
 		</ul>
 	</div>
-
-	{{#if (and (eq itype "magiaa") aprimoramentos.length)}}
-	<div class="form-group">
-		<div class="form-fields">
-
-			<ol class="item-list">
-				<li class="item flexrow item-header flex-center">
-					<div>APRIMORAMENTOS</div>
-				</li>
-				<li class="item flexrow item-header">
-					<div class="item-aplicar">Aplicar</div>
-					<div class="item-efeito">Efeito</div>
-				</li>
-				{{#each aprimoramentos as |ap id|}}
-				<li class="item flexrow" data-item-id="{{id}}">
-					<div class="item-quantidade" style="max-width: 100px; text-align: center;">
-						{{#if (eq ap.tipo "Truque")}}
-						<input  type="checkbox"  name="aplica"  value="1" />
-						Truque
-						{{/if}}
-						{{#if (eq ap.tipo "Muda")}}
-						<input type="checkbox" name="aplica" value="1" />
-						{{ap.custo}} PM
-						{{/if}}
-						{{#if (eq ap.tipo "Aumenta")}}
-						<input type="button" value="-" class="numCtrl" />
-						<input type="number" name="aplica" min="0" value="0" step="{{ap.custo}}" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
-						<input type="button" value="+" class="numCtrl" /><br>
-						{{ap.custo}} PM
-						{{/if}}
-						{{#if (eq ap.tipo "Outros")}}
-						<input type="checkbox" name="aplica" value="1" />
-						{{ap.custo}} PM
-						{{/if}}
-					</div>
-					<div class="item-efeito">
-						<input type="hidden" name="id" value="{{ap.id}}" />
-						<p>{{ap.description}}</p>
-					</div>
-				</li>
-				{{/each}}
-			</ol>
-		</div>
-	</div>
-	{{/if}}
 
 	<div class="form-group">
 		<label>Roll Mode</label>
@@ -123,7 +83,6 @@
 		{{/select}}
 		</select>
 	</div>
-</form>
 
 
 

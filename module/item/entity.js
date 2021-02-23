@@ -105,12 +105,8 @@ export default class ItemT20 extends Item {
 		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
 		const buttonId = event.currentTarget.dataset.effectIndex;
 		const actors = canvas.tokens.controlled;
-		// console.log(button);
-		// console.log(canvas.tokens.controlled);
-		console.log(game.messages.get(chatCardId).data.flags.t20.effects);
 		if ( actors && buttonId>=0){
 			const chatEffect = game.messages.get(chatCardId).data.flags.t20?.effects[buttonId];
-			console.log(chatEffect);
 			if(chatEffect.data.changes){
 				chatEffect.data.changes.sort((c,d)=> typeof c.value === "string" ? 1 : -1 );
 				chatEffect.data.changes = chatEffect.data.changes.reduce((object, item) => {
@@ -123,10 +119,8 @@ export default class ItemT20 extends Item {
 					return object;
 				}, []);
 			}
-			console.log(chatEffect);
 			actors.forEach(function(ac){
 				ActiveEffect.create(chatEffect.data,ac.actor).create();
-				console.log(ac.actor);
 			});
 		}
 
@@ -175,7 +169,6 @@ export default class ItemT20 extends Item {
 		// arma {ataque,dano,pericia,atributo,critico,multiplicador}
 		if(item.type === "arma"){
 			options = mergeObject( options, this.getArmaData( id, actorData, configuration ) );
-			console.log(options);
 		}
 		if(item.type === "poder"){
 			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
@@ -260,7 +253,6 @@ export default class ItemT20 extends Item {
 		//Refactor item to have part : itemData.damage.parts.map(d => d[0]);
 		const parts = [itemData.dano, `@${itemData.atrDan}`, itemData.danoBns];
 		const rollData = this.getRollData();
-		console.log(aeparts);
 		// Configure the damage roll
 		const title = this.name;
 
@@ -396,10 +388,8 @@ export default class ItemT20 extends Item {
 							if( tempAp[4] ) mods[sourceName].aumentaNum += tempAp[4];
 						}
 						// custom d12 > mods[].dado = d8
-						console.log(mods[sourceName]);
 						if(mode === 0 && value.match(/^d\d+$/)) mods[sourceName].dado = value; 
 						// adcion 1d8 > mods[sourceName].dano = 1d8
-						console.log(key);console.log(mode);console.log(value);console.log(aplicados[ef.id]);
 						if(mode === 1 && ( Number(value) )) mods[sourceName].dano = mods[sourceName].dano * (Number(value) + aplicados[ef.id] -1);
 						if(mode === 2 && ( Number(value) || value.match(/\d+d\d+/))) mods[sourceName].dano = Number(value) * aplicados[ef.id] || value;
 						if(mode === 2 && (!Number(value) && value.match(/roll/))) {
@@ -420,13 +410,10 @@ export default class ItemT20 extends Item {
 				if ( m.ataque.length ) ret.atqparts = ret.atqparts.concat(m.ataque);
 				if (m.dano && (m.aumentaDado || m.aumentaNum || m.dado || m.override)){
 					m.dano = this.applyRollChanges(m.dano, m);
-					// console.log(temp);
 				} 
 				ret.dmgparts.push( m.dano );
 			}
 			mergeObject(this.data.data, _campos);
-			console.log(mods);
-			console.log(ret);
 			if(Number(passos) && passos!==0){
 				this.data.data.dano = this.applyRollChanges(this.data.data.dano, {passo:passos});
 			}
@@ -434,7 +421,6 @@ export default class ItemT20 extends Item {
 			if(configuration.bonus) options.atqparts.push(configuration.bonus);
 			if(configuration.bonusdano) options.dmgparts.push(configuration.bonusdano);
 		}
-		console.log(options);
 		return options;
 	}
 
@@ -470,7 +456,7 @@ export default class ItemT20 extends Item {
 			};
 		}
 		
-		options.custo = id.ativacao.custo > 0 ? Number(id.ativacao.custo) + (actorData.modificadores.custosPM.bonus ?? 0) : 0;
+		options.custo = id.ativacao.custo > 0 ? Number(id.ativacao.custo) + (actorData.modificadores?.custosPM?.bonus ?? 0) : 0;
 		options.truque = false;
 		options.aprimoramentos = [];
 		options.effects = [];
@@ -522,9 +508,7 @@ export default class ItemT20 extends Item {
 			};
 			
 			aprimoramentos.forEach(function(ef){
-				console.log(ef);
 				// if(ef.data.flags.t20?.durationScene) 
-				flags["t20"] = ef.data.flags.t20?.durationScene ? {durationScene:true} : {durationScene:false};
 				if ( ef.data.flags.ActiveAuras?.isAura ) flags["ActiveAuras"] = ef.data.flags.ActiveAuras;
 
 				ef.data.changes.forEach(function(ch){
@@ -536,7 +520,6 @@ export default class ItemT20 extends Item {
 							let n2 = ch.value.toString().match(/[\d+]?[,]?\d+/)[0].replace(",",".");
 							let n3 = Number(n1) + ( Number(n2) * aplicados[ef.id] ) + "";
 							_campos[ch.key] = options.spell[ch.key].replace(n1 , n3.replace(".",","));
-							console.log(n3);
 						}
 					}
 					// include effect from the item
@@ -573,7 +556,6 @@ export default class ItemT20 extends Item {
 						// TODO MODIFIERS "r" "x" "xo" "k" "kh" "kl" "d" "dh" "dl" "cs" "cf" "df" "sf" "ms"
 						// TODO "+1 pra cada dado"
 					} else if( ch.key !== "roll" ) {
-						console.log(changes);
 						changes.forEach(function(efch){
 							if( !ef.data.flags.t20.aumenta || ( ef.data.flags.t20.aumenta && efch.map(ch => ch.key).includes(ch.key) ) ) {
 								efch.push({
@@ -604,13 +586,11 @@ export default class ItemT20 extends Item {
 		}
 		// Create effects to embbed at chat card
 		effectList.forEach(function(ef, index){
-			console.log(ef);
-			console.log(changes);
 			let tempEffect = ActiveEffect.create({
 				label: ef.data?.label ?? this.data.name,
 				icon: ef.data?.icon ?? this.data.img,
 				origin: ef.data?.origin ?? undefined,
-				flags: flags, //mergeObject(ef.data.flags, { temp: true }),
+				flags: mergeObject(ef.data.flags, flags, { temp: true }),
 				duration: ef.data?.duration ?? undefined,
 				disabled: false,
 				changes: changes[index] ?? ef.data.changes
@@ -618,7 +598,6 @@ export default class ItemT20 extends Item {
 			let efl = ef.data?.label;
 			if(T20Conditions[efl.slugify().replace("-","")])
 				tempEffect = ActiveEffect.create(T20Conditions[efl.slugify().replace("-","")]);
-			console.log(tempEffect)
 			options.effects.push(tempEffect);
 		});
 		options.custo = options.truque ? 0 : Math.max(options.custo,1);
@@ -629,8 +608,6 @@ export default class ItemT20 extends Item {
 			let mtData = {};
 			mtData.type = options.spell.area.match(/(\d+m de raio)|(cubo)|(quadrado)|(linha)|(cone)/i)[0];
 			mtData.distance = options.spell.area.match(/((\d+)?[,]?\d+)(m)/)[1] || 0;
-			console.log(options.spell.area);
-			console.log(mtData.distance);
 			mtData.distance = mtData.distance.replace(",",".");
 			mtData.distance = Number(mtData.distance) || 1.5;
 			if(mtData.type.match(/de raio/)) mtData.type = "circle";
@@ -649,7 +626,6 @@ export default class ItemT20 extends Item {
 			const template = AbilityTemplate.fromData(mtData);
 			if ( template ) template.drawPreview();
 		}
-		console.log(options);
 		formula[0] = this.applyRollChanges(formula[0], rollMods);
 		id.efeito = formula.join("+");
 		return options;
@@ -662,7 +638,6 @@ export default class ItemT20 extends Item {
 	    if ( typeof rollMods.dado === "string" ) roll = roll.replace(/d\d+/, rollMods.dado);
 	    if ( rollMods.passo ) {
 			let indx = -1;
-			console.log(roll);
 			if( CONFIG.T20.passosDano[roll] && CONFIG.T20.passosDano[roll] !== -1 ){
 				 indx = CONFIG.T20.passosDano[roll].indexOf(roll);
 				 roll = CONFIG.T20.passosDano[roll][indx+rollMods.passo] || "4d12";
@@ -687,8 +662,6 @@ export default class ItemT20 extends Item {
 	        else r.terms[2] = rollMods.aumentaNum;
 	        roll = r.formula
 	    };
-	    console.log(rollMods);
-	    console.log(roll);
 	    return roll;
 	}
 
@@ -709,8 +682,8 @@ export default class ItemT20 extends Item {
 		const templateData = {
 			actor: this.actor,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
-			critico: options.rolls.atq ? options.rolls.atq._critical : false ,
-			falha: options.rolls.dmg, 
+			critico: options.rolls.atq ? options.rolls.atq._critical : false,
+			falha: options.rolls.atq?.results[0] == 1 ? true : false,
 			item: this.data,
 			data: this.getChatData(),
 			labels: this.labels
@@ -733,8 +706,6 @@ export default class ItemT20 extends Item {
 			speaker: ChatMessage.getSpeaker({actor: this.actor, token}),
 			flags: {"core.canPopout": true, "t20.effects": options.effects}
 		};
-		console.log(options.rolls.atq);
-		console.log(options.rolls.dmg);
 
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode);

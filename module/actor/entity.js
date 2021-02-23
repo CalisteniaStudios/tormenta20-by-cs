@@ -80,36 +80,6 @@ export default class ActorT20 extends Actor {
 		/* Item SKILLS [WIP] */
 			// TEST THIS CALLING _UPDATESKILLS
 		/* Item SKILLS [WIP] */
-		
-		if (isNaN(data.deslocamento)) {
-			data.deslocamento.total =
-				parseInt(data.deslocamento.base ?? 9, 10) +
-				(data.deslocamento.bonus ?? 0) -
-				(data.deslocamento.penalidade ?? 0);
-		}
-		else {
-			let deslocamento = {
-				base: data.deslocamento,
-				bonus: 0,
-				penalidade: 0,
-				subst: 0,
-				cond: "nao",
-				total: data.deslocamento + (data.deslocamento.bonus ?? 0) - (data.deslocamento.penalidade ?? 0),
-			};
-			data.deslocamento = deslocamento;
-		}
-		if (data.deslocamento.cond == "metade") {
-			data.deslocamento.total = data.deslocamento.total / 2;
-		}
-		else if (data.deslocamento.cond == "zerado") {
-			data.deslocamento.total = 0;
-		}
-		if (data.deslocamento.subst > 0) {
-			data.deslocamento.total = data.deslocamento.subst;
-		}
-		if (data.deslocamento.total < 0) {
-			data.deslocamento.total = 0;
-		}
 
 		if(data.defesa !== undefined && this.data.type !== "npc"){
 			data.defesa.value =
@@ -186,7 +156,6 @@ export default class ActorT20 extends Actor {
 		* Set data that requires other data to be prepared
 		* ie.: Encumbrance, Abl Mod, Skills Bonus, Defense
 		*/
-		this._EvaluateConditions();
 		const nivel = actorData.items.reduce((arr, item) => {
 			if ( item.type === "classe" ) {
 				const classLevels = parseInt(item.data.niveis) || 1;
@@ -224,8 +193,6 @@ export default class ActorT20 extends Actor {
 	*/
 	_prepareNPCData(actorData){
 		const data = actorData.data;
-
-		this._EvaluateConditions();
 
 		// Make modifications to data here. For example:
 		var nivel = data.attributes.nivel.value;
@@ -575,7 +542,6 @@ export default class ActorT20 extends Actor {
 		const data = mergeObject({value: skillData.data.value}, this.getRollData());
 		// Add global actor bonus GERAL | ATQ | !ATQ | SAVES | KEY
 		const bonuses = getProperty(this.data.data, "modificadores.pericias") || {};
-		console.log(bonuses);
 		if ( bonuses.geral ) parts.push(bonuses.geral);
 		if ( !["lut","pon"].includes(skillData.id) && bonuses.semataque ) parts.push(bonuses.semataque);
 		if ( ["lut","pon"].includes(skillData.id) && bonuses.ataque ) parts.push(bonuses.ataque);
@@ -657,102 +623,5 @@ export default class ActorT20 extends Actor {
 		}
 		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;
-	}
-
-	/* -------------------------------------------- */
-	/* TODO REFACTOR */
-	_EvaluateConditions() {
-		const data = this.data.data;
-		let condicoesDet = [];
-
-		//Zerar Condições
-		data.modificadores = {
-			atributos: {
-				bonus: 0,
-				penalidade: 0,
-			},
-			pericias: {
-				bonus: 0,
-				penalidade: 0,
-			},
-			ataques: {
-				bonus: 0,
-				penalidade: 0,
-			},
-			custosPM: {
-				bonus: 0,
-				penalidade: 0,
-			},
-		};
-		if (typeof data.deslocamento !== "object" || data.deslocamento === null) {
-			data.deslocamento = {
-				value: data.deslocamento,
-				base: data.deslocamento,
-				bonus: 0,
-				penalidade: 0,
-				total: data.deslocamento,
-				cond: "nao",
-				subst: 0,
-				descricao: ""
-			};
-		} else {
-			data.deslocamento.bonus = 0;
-			data.deslocamento.penalidade = 0;
-			data.deslocamento.subst = 0;
-			data.deslocamento.cond = "nao";
-		}
-		data.defesa.bonus = 0;
-		data.defesa.penalidade = 0;
-		data.rd.bonus = 0;
-		data.rd.penalidade = 0;
-		data.referencias = this.data.effects;
-
-		for (let [key, atrib] of Object.entries(data.atributos)) {
-			atrib.bonus = 0;
-			atrib.penalidade = 0;
-		}
-		if(data.pericias !== undefined){
-			for (let [key, atrib] of Object.entries(data.pericias)) {
-				atrib.bonus = 0;
-				atrib.penalidade = 0;
-			}
-		}
-
-		// const condicoes = this.data.effects;
-
-		// //Aplicar Condições
-		// condicoes.forEach((condicao) => {
-		// 	let condicaoDados = CONFIG.conditions[condicao.flags.core.statusId];
-		// 	let condicaoDet = condicao;
-		// 	condicaoDet.tooltip = condicaoDados.tooltip;
-		// 	condicaoDet.durationType = condicaoDados.durationType;
-		// 	condicoesDet.push(condicaoDet);
-		// 	let modificadores = condicaoDados.modifiers;
-		// 	CONFIG.conditions[
-		// 	condicao.flags.core.statusId
-		// 	].childrenConditions.forEach((cond) => {
-		// 		modificadores.push(CONFIG.conditions[cond].modifiers);
-		// 	});
-		// 	modificadores = [].concat.apply([], modificadores);
-		// 	modificadores.forEach((modif) => {
-		// 		for (var i in modif) {
-		// 			let prop = i;
-		// 			let value = modif[i];
-		// 			var valuePath = prop.split("."),
-		// 			last = valuePath.pop(),
-		// 			temp = data;
-		// 			for (let ii = 0; ii < valuePath.length; ii++) {
-		// 				temp = temp[valuePath[ii]];
-		// 			}
-		// 			if (
-		// 				((last == "bonus" || last == "penalidade") && temp[last] < value) ||
-		// 				(last != "bonus" && last != "penalidade")
-		// 				) {
-		// 				temp[last] = value;
-		// 			}
-		// 		}
-		// 	});
-		// });
-		// data.referencias = condicoesDet;
 	}
 }

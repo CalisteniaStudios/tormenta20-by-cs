@@ -151,12 +151,9 @@ export default class ItemSheetT20 extends ItemSheet {
 			let desc = ap.description.match(/[^.]+/i)[0].split(/\,|\se\s/);
 			desc.forEach(function(d){
 				let matches = d.match(/(alvo|alcance|duração|[a|á]rea|execução|resist[e|ê]ncia) para (.+)/);
-				console.log(d);
-				console.log(matches);
 				if ( matches ) changes.push({key:matches[1].slugify(),"mode":5,value: matches[2]});
 			});
 
-console.log(ap);
 if (ap.tipo==="Aumenta" && ap.formula.match(/\+?(\d+d\d+\+?\d?)/i)) {
 	changes.push({key:"roll","mode":0,value: ap.formula});
 }
@@ -165,7 +162,6 @@ if (ap.tipo==="Muda" && ap.formula) {
 	let modo = ap.formula.match(/d\d+/i) ? 0 : 5;
 	changes.push({key:"roll",mode:modo,value: ap.formula});
 }
-console.log(ap.description.match(/(alvo para ([^,]+))/i));
 ap.description.match(/abalado|agarrado|alquebrado|apavorado|atordoado|ca[i|í]ido|cego|confuso|debilitado|desprevenido|doente|em chamas|enjoado|enredado|envenenado|esmorecido|exausto|fascinado|fatigado|fraco|frustrado|im[o|ó]vel|inconsciente|indefeso|lento|ofuscado|paralisado|pasmo|petrificado|sangrando|surdo|surpreendido|vulner[a|á]vel/gi)?.forEach(function(c){
 			changes.push({key:"condicao","mode":0,value: c});
 		})
@@ -183,8 +179,6 @@ ap.description.match(/abalado|agarrado|alquebrado|apavorado|atordoado|ca[i|í]id
 				transfer: false
 			});
 		});
-		console.log(effects);
-		console.log(item);
 		await item.createEmbeddedEntity("ActiveEffect", effects);
 	}
 

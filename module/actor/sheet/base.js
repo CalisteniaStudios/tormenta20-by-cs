@@ -404,7 +404,6 @@ export default class ActorSheetT20 extends ActorSheet {
 			const configuration = await AbilityUseDialog.create(fakeItem);
 			let aplicados = {};
 			if ( configuration ) {
-				console.log(configuration);
 				let aplica = [].concat(configuration?.aplica) ?? [];
 				let ids = [].concat(configuration?.id) ?? [];
 				if (configuration?.bonus) parts.push(configuration?.bonus);
@@ -419,7 +418,6 @@ export default class ActorSheetT20 extends ActorSheet {
 				aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
 				options.aprimoramentos = [];
 				aprimoramentos.forEach(function(ef){
-					console.log(ef);
 					ef.data.changes.forEach(function(ch){
 						if( ch.key === "roll" && ch.mode === 2 ){
 							parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
@@ -474,7 +472,6 @@ export default class ActorSheetT20 extends ActorSheet {
 			const configuration = await AbilityUseDialog.create(itemData);
 			let aplicados = {};
 			if ( configuration ) {
-				console.log(configuration);
 				let aplica = [].concat(configuration?.aplica) ?? [];
 				let ids = [].concat(configuration?.id) ?? [];
 				if (configuration?.bonus) parts.push(configuration?.bonus);
@@ -489,7 +486,6 @@ export default class ActorSheetT20 extends ActorSheet {
 				aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
 				options.aprimoramentos = [];
 				aprimoramentos.forEach(function(ef){
-					console.log(ef);
 					ef.data.changes.forEach(function(ch){
 						if( ch.key === "roll" && ch.mode === 2 ){
 							parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);

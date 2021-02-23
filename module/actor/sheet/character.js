@@ -260,7 +260,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Attacks
 		actorData.ataques = ataques;
 		actorData.armas = armas;
-		actorData.referencias  = data.actor.effects;
+		// actorData.referencias  = data.actor.effects.filter(i=>i.isTemporary);
 	}
 
 	/* -------------------------------------------- */

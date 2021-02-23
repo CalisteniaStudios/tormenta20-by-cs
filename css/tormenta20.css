@@ -682,13 +682,19 @@ button {
   -ms-flex: 0 0 42px;
   flex: 0 0 42px;
   text-align: right;
+  white-space: nowrap;
 }
 
+.tormenta20.sheet.item .item-list .item-controls,
+.tormenta20 .npc .effects-list .item-controls,
+.tormenta20 .base .effects-list .item-controls,
 .tormenta20 .tabbed .item-list .item-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 51px;
   flex: 0 0 51px;
   text-align: right;
+  white-space: nowrap;
+  display: flex;
 }
 
 .tormenta20 .item-list .item-controls a {
@@ -821,6 +827,13 @@ button {
 .tormenta20 .npc .item-list .item div.item-name {
   text-indent: -1.5em;
   padding-left: 1.5em;
+}
+.tormenta20 .npc .effects-list .item div.item-name{
+  text-indent: 0;
+  padding-left: 0;
+}
+.tormenta20 .npc .effects-list h3 {
+ font-size:1em;
 }
 
 .tormenta20 .npc .item-list .item div.item-controls {
@@ -1497,6 +1510,31 @@ button {
   height: 19px;
 }
 
+.tormenta20.sheet .tab.efeitos {
+  padding: 0 .5rem!important;
+}
+.tormenta20 .effects-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0 0 0 5px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.tormenta20.sheet.actor .effects-list ol.ae-onuse li.effect {
+  min-width: 45%;
+  max-width: 50%;  
+}
+.tormenta20 .aprimoramentos-list input {
+  margin: 0;
+  max-height: 24px;
+  vertical-align: middle;
+}
+
+.tormenta20 .npc .effects-list .item-image{
+
+}
 /* Módulos */
 
 #dfcp-rt-buttons button { /*DF Chat Enhancement*/

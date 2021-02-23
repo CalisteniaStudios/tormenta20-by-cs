@@ -20,7 +20,6 @@ import ActorSheetT20Character from "./actor/sheet/character.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
 import ActiveEffectConfigT20 from "./apps/ae-config.js";
-import { toggleEffect } from "./actor/condicoes.js";
 import { endSegment } from "./apps/time-segment.js";
 
 import { T20Conditions } from "./conditions/conditions.js";
