@@ -589,7 +589,9 @@ export default class ActorT20 extends Actor {
 		const templateData = {
 			actor: this,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
-			item: itemData
+			item: itemData,
+			critico: rolls.atq?.results[0] == 20,
+			falha: rolls.atq?.results[0] == 1,
 		};
 		// Other Template Data
 
