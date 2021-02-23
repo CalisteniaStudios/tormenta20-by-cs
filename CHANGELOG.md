@@ -1,4 +1,26 @@
 # Lista de Mudanças
+## Versão 1.1.56
+### Consertos de Bugs
+- Ficha NPC: Listas de perícias aparecem fora do modo de edição.
+
+## Versão 1.1.55
+### Novidades
+- Agora todas as ameaças têm tokens.
+
+### Consertos de Bugs
+- Ameaças: Ajustado ataques de algumas criaturas e adicionado habilidades inatas dos aberrantes e mortos-vivos.
+- Poções: Adicionado peso para as poções (0,5 kg).
+
+## Versão 1.1.54
+### Novidades
+- Nome de habilidades do NPC indicam se a habilidade é Sustentada.
+- Adicionado suporte ao módulo Bug Reporter. Agora é possível reportar bugs diretamente de dentro do Foundry, sem precisar criar uma conta no Gitlab, basta instalar o módulo.
+- Ficha NPC: Listas de perícias ou equipamentos vazios são ocultados.
+- Ficha NPC: Armas naturais não aparecem na lista de equipamentos fora do modo de edição.
+
+### Consertos de Bugs
+- Ameaças: Glop corrigido (estava com visão no escuro e sem imunidades).
+
 ## Versão 1.1.53
 ### Novidades
 - A descrição de dano das armas nas fichas de personagens agora não faz cálculos, mostrando a fórmula atual do dano.

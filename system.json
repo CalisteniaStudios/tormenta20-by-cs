@@ -96,5 +96,7 @@
   "url": "https://gitlab.com/vizael/Tormenta20",
   "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/master/system.json",
   "download": "https://gitlab.com/vizael/Tormenta20/-/archive/master/Tormenta20-master.zip",
-  "license": "LICENSE.txt"
+  "license": "LICENSE.txt",
+  "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues",
+  "allowBugReporter": true
 }

@@ -262,6 +262,7 @@
 				{{/each}}
 			</div>
 			<hr>
+			{{#if (or actor.mostrarPericias editing)}}
 			<div>
 				{{#if editing}}
 					<label style="width: 100%!important">Perícias <a class="item-control skill-create" title="Criar Perícia" data-tipo="pericia"><i class="fas fa-plus"></i> Nova</a></label> 
@@ -285,11 +286,12 @@
 						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom">{{skill.label}} +{{skill.value}}</span>{{#unless @last}},{{else}}.{{/unless}}
 						{{/each}}
 				{{/if}}
-					
 			</div>
+			{{/if}}
+			{{#if (or actor.mostrarInventario data.equipament editing)}}
 			<div>
 				<label>Equipamento: </label>
-				{{#if editing}}
+				{{~#if editing~}}
 				<div class="item-controls {{#if editing}}editing{{/if}}">
 					<a class="item-control item-create" data-type="arma"><i class="fas fa-plus"></i> Arma</a>
 					<a class="item-control item-create" data-type="equip"><i class="fas fa-plus"></i> Equipamento</a>
@@ -313,20 +315,21 @@
 					</li>
 					{{/each}}
 				</ul>
-				{{/if}}
+				{{~/if~}}
 				</div>
-				{{else}}
-				{{#if actor.inventario}}
-				{{#each actor.inventario as |item id|}}
-				{{#if @first}}
-				{{item.name}},
-				{{else}}
-				{{toLowerCase item.name}},
-				{{/if}}
-				{{/each}}{{data.equipament}}.
-				{{/if}}
-				{{/if}}
+				{{~else~}}
+					{{~#if actor.inventario~}}
+						{{~#each actor.inventario as |item id|~}}
+							{{~#unless (eq item.data.tipoUso "natural")~}}
+								{{~item.name~}}{{#unless @last}}, {{/unless}}
+							{{~/unless~}}
+						{{~/each~}}{{#if data.equipament}}, {{data.equipament~}}{{/if~}}.
+					{{~else}}
+						{{~data.equipament~}}.
+					{{~/if~}}
+				{{~/if~}}
 			</div>
+			{{/if}}
 			{{#if editing}}
 			<div class="npc-line">
 				<label>Outros Equipamentos: </label>
@@ -336,7 +339,7 @@
 			{{/if}}
 			<div class="npc-line">
 				<label>Tesouro: </label>
-				{{#if data.treasure}}{{data.treasure}}{{else}}Nenhum{{/if}}
+				{{~#if data.treasure}}{{data.treasure}}{{else}}Nenhum{{/if~}}
 				<input type="text" name="data.treasure" value="{{data.treasure}}" data-dtype="String" title="Tesouro" placeholder="Nenhum" />
 			</div>
 			{{#if (and enableLanguages (or data.detalhes.idiomas editing))}}
@@ -346,7 +349,7 @@
 				</a>
 				<ul class="traits-list" style="display:inline-block;">
 				{{#each data.detalhes.idiomas.selected as |v k|}}
-					<li class="tag {{k}}">{{v}}</li>
+					{{v}}{{#unless @last}},{{/unless}}
 				{{/each}}
 				</ul>
 			</div>
