@@ -688,6 +688,11 @@ export default class ItemT20 extends Item {
 			data: this.getChatData(),
 			labels: this.labels
 		};
+		
+		if (game.settings.get("tormenta20", "automaticManaSpend") && this.actor && this.data.data.ativacao.custo) {
+			this.actor.spendMana(this.data.data.ativacao.custo, 0, false);
+		}
+		
 		// Other Template Data
 		if(options.rolls.atq) await options.rolls.atq.render().then((r)=> {templateData.roll = r});
 		if(options.rolls.dmg) await options.rolls.dmg.render().then((r)=> {templateData.rollDano = r});
