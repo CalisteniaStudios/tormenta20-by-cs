@@ -122,6 +122,11 @@ table,
   background: #0d0d0d;
 }
 
+#sidebar .apply-button button {
+  color: unset;
+  background: unset;
+}
+
 #combat #combat-controls button.scene-segment {
   background: inherit;
   border: none;
