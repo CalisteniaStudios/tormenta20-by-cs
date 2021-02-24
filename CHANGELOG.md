@@ -1,4 +1,9 @@
 # Lista de Mudanças
+## Versão 1.1.57
+### Novidades
+- Itens: Bomba de Fumaça adicionada.
+- Poderes: Libertade Irrestrita adicionada.
+
 ## Versão 1.1.56
 ### Consertos de Bugs
 - Ficha NPC: Listas de perícias aparecem fora do modo de edição.
