@@ -904,6 +904,7 @@ button {
 .tormenta20.chat-card .card-header  h3.item-name {
   min-width: 190px;
   max-width: 190px;
+  font-size: 1.5em;
 }
 
 .tormenta20.chat-card .card-header span.custo div,
