@@ -1,4 +1,12 @@
 # Lista de Mudanças
+
+## Versão 1.1.57
+### Novidades
+- Adicionado itens e poderes novos do Guia de NPCS.
+### Conserto de Nome
+- Ajustado a "Armadura de Allihanna" para "Armadura da Natureza".
+
+
 ## Versão 1.1.56
 ### Consertos de Bugs
 - Ficha NPC: Listas de perícias aparecem fora do modo de edição.
