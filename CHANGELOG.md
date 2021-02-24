@@ -1,11 +1,8 @@
 # Lista de Mudanças
-
 ## Versão 1.1.57
 ### Novidades
-- Adicionado itens e poderes novos do Guia de NPCS.
-### Conserto de Nome
-- Ajustado a "Armadura de Allihanna" para "Armadura da Natureza".
-
+- Itens: Bomba de Fumaça adicionada.
+- Poderes: Libertade Irrestrita adicionada.
 
 ## Versão 1.1.56
 ### Consertos de Bugs
