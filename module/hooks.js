@@ -22,17 +22,46 @@ export default function () {
 
 		const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion") ? game.settings.get("tormenta20", "systemMigrationVersion") : "1.0.02";
 
-		const NEEDS_MIGRATION_VERSION = "1.1.32";
+
+		const NEEDS_MIGRATION_VERSION = "1.1.56";
 		const COMPATIBLE_MIGRATION_VERSION = "1.1.30";
 		const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
-		if ( !needsMigration ) return;
-		// Perform the migration
-		if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
-			const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
-			ui.notifications.error(warning, {permanent: true});
+
+		let buttons = {ok: {label: "Ok" }};
+		let readyToMigrate = true;
+		let msg = "<br><br><br>";
+		
+		if (needsMigration){
+			buttons =  {sair: {label:"Sair e Fazer Backup", callback: () => {readyToMigrate=false} },
+				atualizar: {label:"Atualizar", callback: ()=> {
+					if ( !needsMigration || !readyToMigrate ) return;
+					// Perform the migration
+					console.log("vai migrar");
+					if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
+						const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
+						ui.notifications.error(warning, {permanent: true});
+					}
+					migrations.migrateWorld();
+				} } };
+			msg = "<p><b>É necessário atualizar para a nova versão, é recomendado fazer backup antes de continuar. Se optar por não atualizar o sistema pode não funcionar corretamente.</b></p>"
+		} else if ( needsMigration && readyToMigrate ) {
+			if ( !needsMigration || !readyToMigrate ) return;
+			// Perform the migration
+			if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
+				const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
+				ui.notifications.error(warning, {permanent: true});
+			}
+			migrations.migrateWorld();
 		}
-		migrations.migrateWorld();
-	});
+		if( !game.user.getFlag("tormenta20","startMsg") || game.user.getFlag("tormenta20","startMsg") < game.system.data.version ) {
+			new Dialog({
+				title: "Aviso",
+				content: `<h2>Atualização 1.2.0.0</h2><p>Esta versão trás novidades! <ul><li>Efeitos: condições, efeitos temporários, buff. Tudo aquilo altera características de personagem</li><li>Aprimoramentos: foram tranformados em um tipo especial de efeito.</li><li>Condições: Foram refeitas;</li><li>Você pode consultar mais informações para entender mais sobre o sistema em <a href="https://vizael.gitlab.io/tormenta20-fvtt/" target="_blank">https://vizael.gitlab.io/tormenta20-fvtt/</a></li></ul><br><br>Vizael</p>`+msg,
+				buttons: buttons,
+			}, { width: 400, height: 400, minHeight: 400, minWidth: 400, resizable: false }).render(true);
+			game.user.setFlag("tormenta20","startMsg",game.system.data.version)
+		}
+	});	
 
 
 	/* -------------------------------------------- */
@@ -52,6 +81,18 @@ export default function () {
 	/* -------------------------------------------- */
 	/*  Other Hooks                                 */
 	/* -------------------------------------------- */
+
+	// Render Sidebar
+	Hooks.on("renderSidebarTab", (app, html) => {
+		if (app instanceof Settings) {
+			// Add changelog button
+			let button = $(`<button>Ajuda</button>`);
+			html.find("#game-details").append(button);
+			button.click(() => {
+				window.open("https://vizael.gitlab.io/tormenta20-fvtt/");
+			});
+		}
+	});
 
 	/* Effects/Conditions Hooks*/
 	Hooks.on("preCreateActiveEffect", async (actor, effect, options) => {

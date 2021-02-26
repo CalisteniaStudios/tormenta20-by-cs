@@ -15,6 +15,7 @@ export const migrateWorld = async function() {
 				console.log(`Migrando entidade Ator ${a.name}`);
 				await a.update(updateData, {enforceTypes: false});
 			}
+			migrateAprimoramentos(a);
 		} catch(err) {
 			err.message = `Migração de sistema Tormenta20 falhou para o Ator ${a.name}: ${err.message}`;
 			console.error(err);
@@ -153,6 +154,25 @@ export const migrateActorData = function(actor) {
 	if ( hasItemUpdates ) updateData.items = items;
 	return updateData;
 };
+
+export const migrateAprimoramentos = async function (actor) {
+	const magias = game.packs.get("tormenta20.magias");
+	await magias.getIndex();
+	
+	const content = actor.items.filter(i=> i.type == "magia");
+	for ( let item of content ) {
+		let a = {arsenal: "Soco do Mestre", aleph: "Lança Ígnia", talude: "Setas Infalíveis" };
+		let n = item.name.match(/Arsenal|Aleph|Talude/i) ?
+				a[item.name.match(/Arsenal|Aleph|Talude/i)[0]?.toLowerCase()]
+				: item.name;
+		const data = magias.index.find(m=>m.name === n);
+		if( data ){
+			const magia = await magias.getEntry(data._id);
+			const effects = magia.effects;
+			await actor.updateEmbeddedEntity("OwnedItem", {_id:item._id, effects:effects});
+		}
+	}
+}
 
 /* -------------------------------------------- */
 

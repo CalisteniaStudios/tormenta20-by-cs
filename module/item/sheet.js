@@ -292,3 +292,4 @@ ap.description.match(/abalado|agarrado|alquebrado|apavorado|atordoado|ca[i|í]id
 		this.render();
 	}
 }
+// C:/Users/victo/AppData/Local/FoundryVTT

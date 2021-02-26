@@ -64,10 +64,13 @@ export default class ActorT20 extends Actor {
 					Math.floor(nivel / 2) +
 					Number(pericia.treino) +
 					Number(pericia.mod) +
+					Number(pericia.outros) +
 					Number(pericia.temp ?? 0) +
-					Number(data.modificadores?.pericias?.bonus ?? 0) -
-					Number(data.modificadores?.pericias?.penalidade ?? 0) +
-					Number(pericia.outros) -
+					Number(data.modificadores?.pericias?.geral ?? 0) +
+					Number(data.modificadores?.pericias?.semataque ?? 0) +
+					Number(data.modificadores?.pericias?.ataque ?? 0) +
+					Number(data.modificadores?.pericias?.resistencia ?? 0) +
+					Number(pericia.pda ? data.defesa.penalidade : 0) +
 					Number(pericia.pda ? (data.defesa.armadura.equipado ? Math.abs(data.defesa.armadura.penalidade) : 0) +
 						(data.defesa.escudo.equipado ? Math.abs(data.defesa.escudo.penalidade) : 0)
 					: 0
@@ -82,6 +85,12 @@ export default class ActorT20 extends Actor {
 		/* Item SKILLS [WIP] */
 
 		if(data.defesa !== undefined && this.data.type !== "npc"){
+			let bonus;
+			if(data.defesa.bonus && typeof data.defesa.bonus === 'string'){
+				bonus = new Roll(data.defesa.bonus,this.getRollData());
+				bonus = bonus.evaluate().total;
+			}
+			
 			data.defesa.value =
 			10 +
 			Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
@@ -89,8 +98,7 @@ export default class ActorT20 extends Actor {
 			Number(data.defesa.escudo != undefined ? data.defesa.escudo.value : 0) +
 			Number(data.defesa.outro) +
 			Number(data.defesa.temp) +
-			Number(data.defesa.bonus ?? 0) -
-			Number(data.defesa.penalidade ?? 0);
+			(Number(bonus) || 0);
 		}
 
 	}

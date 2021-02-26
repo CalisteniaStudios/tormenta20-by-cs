@@ -132,7 +132,7 @@ export default class ItemT20 extends Item {
 	* @param {string} [rollMode]             The roll display mode with which to display (or not) the card
 	* @return {Promise<ChatMessage|object|void>}
 	*/
-	async roll({rollMode,createMessage=true}={}) {
+	async roll({rollMode,createMessage=true,extra={}}={}) {
 		let item = this;
 		let copy = duplicate(this);
 		const actor = this.actor;
@@ -140,6 +140,14 @@ export default class ItemT20 extends Item {
 		options.rolls = {};
 		// Reference aspects of the item data necessary for usage
 		const id = this.data.data;                // Item data
+		if(extra){
+			Object.entries(extra).forEach(function(ex){
+				ex[0] = {atq:"atqBns", dadoDano: "dano", dano: "danoBns", margemCritico: "criticoM", multCritico: "criticoX", pericia: "pericia"}[ex[0]]
+				if(ex[1]){
+					ex[1].match(/=/) ? id[ex[0]] = Number(ex[1].replace("=",""))||ex[1].replace("=","") : id[ex[0]] += Number(ex[1])||ex[1];
+				}
+			});
+		}
 		const actorData = actor.data.data;
 		// const hasArea = this.hasAreaTarget;       // Is the ability usage an AoE? TODO
 		// const resource = id.consume || {};        // Resource consumption TODO
@@ -172,7 +180,7 @@ export default class ItemT20 extends Item {
 		}
 		if(item.type === "poder"){
 			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
-			// options.custo = item.data.data.ativacao.custo
+			options.custo = item.data.data.ativacao.custo
 		}
 		if(item.type === "magia"){
 			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
@@ -205,7 +213,6 @@ export default class ItemT20 extends Item {
 		const itemData = this.data.data;
 		const actorData = this.actor.data.data;
 		// const flags = 
-
 		let title = this.name;
 		const rollData = this.getRollData();
 
@@ -691,6 +698,11 @@ export default class ItemT20 extends Item {
 		// Other Template Data
 		if(options.rolls.atq) await options.rolls.atq.render().then((r)=> {templateData.roll = r});
 		if(options.rolls.dmg) await options.rolls.dmg.render().then((r)=> {templateData.rollDano = r});
+
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		if ( this.actor && options.custo && autoSpendMana ) {
+			this.actor.spendMana(options.custo, 0, false);
+		}
 
 		let teste = mergeObject(templateData,options);
 		// Render the chat card template

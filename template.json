@@ -50,7 +50,7 @@
         "defesa": {
           "value": 10,
           "outro": 0,
-          "bonus": 0,
+          "bonus": "",
           "penalidade": 0,
           "final": 0
         },

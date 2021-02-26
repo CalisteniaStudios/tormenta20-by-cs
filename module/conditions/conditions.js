@@ -406,3 +406,16 @@ T20Conditions.vulneravel = {
 	flags: {core:{statusId:"vulneravel"},t20:{condition:true,durationScene:true}},
 	changes: [{key: "data.defesa.condi", mode:3, value:-2}]
 }
+
+T20Conditions.sobrecarregado = {
+	label: "Sobrecarregado",
+	duration: {rounds:999},
+	icon: "systems/tormenta20/icons/conditions/sobrecarregado.svg",
+	flags: {core:{statusId:"sobrecarregado"},t20:{condition:true,durationScene:true}},
+	changes: [{key: "data.defesa.penalidade", mode:2, value:-2},
+		{ key: "data.attributes.movement.walk", mode: 2, value: -3 },
+	    { key: "data.attributes.movement.burrow", mode: 2, value: -3 },
+	    { key: "data.attributes.movement.climb", mode: 2, value: -3 },
+	    { key: "data.attributes.movement.fly", mode: 2, value: -3 },
+	    { key: "data.attributes.movement.swim", mode: 2, value: -3 }]
+}
