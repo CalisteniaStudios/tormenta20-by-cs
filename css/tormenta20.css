@@ -87,7 +87,7 @@ table,
 }
 
 .tormenta20.sheet .trait-list {
-  display:inline;
+  display:inline-block;
   padding:0;
   margin:0
 }
@@ -120,6 +120,11 @@ table,
   color: #fff;
   /*#f18c17;*/
   background: #0d0d0d;
+}
+
+#sidebar .apply-button button {
+  color: unset;
+  background: unset;
 }
 
 #combat #combat-controls button.scene-segment {
@@ -899,6 +904,7 @@ button {
 .tormenta20.chat-card .card-header  h3.item-name {
   min-width: 190px;
   max-width: 190px;
+  font-size: 1.5em;
 }
 
 .tormenta20.chat-card .card-header span.custo div,
@@ -957,9 +963,9 @@ button {
 /* Tags */
 .tag {
   display: inline-block;
-  margin: 0 2px 0 0;
+  /* margin: 0 2px 0 0; */
   padding: 0 3px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 16px;
   border: 1px solid #999;
   border-radius: 3px;
