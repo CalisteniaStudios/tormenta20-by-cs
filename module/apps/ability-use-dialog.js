@@ -81,7 +81,6 @@ export default class AbilityUseDialog extends Dialog {
 					apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.t20.onuse && ownit.data.flags.t20.self);
 
 				});
-				
 				break;
 			case "atributo":
 				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ae.data.flags.t20.ability );

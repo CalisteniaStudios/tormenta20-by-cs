@@ -180,7 +180,8 @@ export default class ItemT20 extends Item {
 		}
 		if(item.type === "poder"){
 			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
-			options.custo = item.data.data.ativacao.custo
+			// console.log(item.data.data.ativacao.custo);
+			// if (!item.data.data.ativacao.custo) options.custo = item.data.data.ativacao.custo;
 		}
 		if(item.type === "magia"){
 			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
@@ -607,7 +608,7 @@ export default class ItemT20 extends Item {
 				tempEffect = ActiveEffect.create(T20Conditions[efl.slugify().replace("-","")]);
 			options.effects.push(tempEffect);
 		});
-		options.custo = options.truque ? 0 : Math.max(options.custo,1);
+		options.custo = options.truque || !id.ativacao.custo ? 0 : Math.max(options.custo,1);
 		
 		// Initiate measured template creation
 		let createMeasuredTemplate = true;

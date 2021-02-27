@@ -56,7 +56,7 @@ export default function () {
 		if( !game.user.getFlag("tormenta20","startMsg") || game.user.getFlag("tormenta20","startMsg") < game.system.data.version ) {
 			new Dialog({
 				title: "Aviso",
-				content: `<h2>Atualização 1.2.0.0</h2><p>Esta versão trás novidades! <ul><li>Efeitos: condições, efeitos temporários, buff. Tudo aquilo altera características de personagem</li><li>Apenas alguns itens foram adaptados, algumas habilidades iniciais das classes e as magias que iniciam com A. (São uns 800 itens)</li><li>Aprimoramentos: foram tranformados em um tipo especial de efeito.</li><li>Condições: Foram refeitas;</li><li>Você pode consultar informações para entender mais sobre o sistema em <a href="https://vizael.gitlab.io/tormenta20-fvtt/" target="_blank">https://vizael.gitlab.io/tormenta20-fvtt/</a></li></ul><br><br>Vizael</p>`+msg,
+				content: `<h2>Atualização 1.2.0.0</h2><p>Esta versão trás novidades! <ul><li>Efeitos: condições, efeitos temporários, buffs. Tudo aquilo altera características de personagem</li><li>Nem tudo foi adaptade ainda, são cerca de 800 itens entre poderes e magias. Alguns poderes iniciais das classes foram adaptados, e as magias iniciadas com A</li><li>Aprimoramentos: foram tranformados em um tipo especial de efeito.</li><li>Condições: Foram refeitas;</li><li>Você pode consultar mais informações para entender mais sobre o sistema em <a href="https://vizael.gitlab.io/tormenta20-fvtt/" target="_blank">https://vizael.gitlab.io/tormenta20-fvtt/</a></li></ul><br><br>Vizael</p>`+msg,
 				buttons: buttons,
 			}, { width: 400, height: 400, minHeight: 400, minWidth: 400, resizable: false }).render(true);
 			game.user.setFlag("tormenta20","startMsg",game.system.data.version)
