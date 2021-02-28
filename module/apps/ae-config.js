@@ -20,16 +20,20 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
-		html.find("#flagself").click(this._toggleTranfer.bind(this));
+		html.find(".useType").click(this._toggleTranfer.bind(this));
 	}
 
-	_toggleTranfer(event){
+	async _toggleTranfer(event){
 		event.preventDefault();
-		let upds = {
-			"transfer": this.object.data.flags.t20.self,
-			"flags.t20.self": !this.object.data.flags.t20.self
-		};
-		this.object.update(upds);
+		let transfer = false;
+		$(".useType").each(function(){
+			if( $(this)[0].checked ) transfer = true;
+		});
+
+		let upds = {}
+		upds.transfer = transfer;
+		upds[event.target.name] = event.target.checked;
+		await this.object.update(upds);
 		this.render();
 	}
 
