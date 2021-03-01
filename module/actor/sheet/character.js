@@ -369,6 +369,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		if (!this.options.editable) return;
 
 		if (this.actor.owner) {
+			html.find('.item .item-image').click(event => this._onItemRoll(event));
 
 			html.find('.item-fav').click(ev => {
 				const li = $(ev.currentTarget).parents(".item");

@@ -179,11 +179,16 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		} else {
 			html.find('.npc-line').removeClass("flexrow");
 		}
-		// if ( this.actor.owner ) {
-		// 	html.find('.rollable').each((i, el) => el.setAttribute("draggable", true));
-		// } else {
-		// 	html.find('.rollable').each((i, el) => el.removeAttribute("draggable"));
-		// }
+		if ( this.actor.owner ) {
+			// Rollable abilities.
+			html.find('.magia-rollable').click(event => this._onItemRoll(event));
+			html.find('.arma-rollable').click(event => this._onItemRoll(event));
+			html.find('.poder-rollable').click(event => this._onItemRoll(event));
+
+			// Update item
+			// html.find('.upItem').change(this._onUpdateItem.bind(this));
+
+		}
 
 		// Drag events for macros.
 		let handler = ev => this._onDragStart(ev);

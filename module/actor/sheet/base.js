@@ -227,7 +227,6 @@ export default class ActorSheetT20 extends ActorSheet {
 
 		if ( this.actor.owner ) {
 			// Rollable abilities.
-			html.find('.item .item-image').click(event => this._onItemRoll(event));
 			html.find('.rollable.atributo-rollable').click(this._onRollAtributo.bind(this));
 			html.find('.rollable.pericia-rollable').click(this._onRollPericia.bind(this));
 
@@ -519,8 +518,16 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	_onItemRoll(event) {
 		event.preventDefault();
-		const itemId = this.actor.data.type === "npc" ? event.currentTarget.dataset.itemId : event.currentTarget.parentElement.dataset.itemId;
+		let itemId;
+		if (this.actor.data.type === "npc") {
+			itemId = event.currentTarget.dataset.itemId;
+		}
+		else {
+			itemId = event.currentTarget.closest(".item").dataset.itemId;
+		}
 		const item = this.actor.getOwnedItem(itemId);
+		const ignoreList = ["equip", "tesouro"];
+		if (ignoreList.includes(item.type)) return;
 		return item.roll();
 	}
 
@@ -542,7 +549,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		else {
       let div = $(`<div class="item-summary">${chatData.description}</div>`);
       let props = $(`<div class="item-properties"></div>`);
-      chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
       div.append(props);
       li.append(div.hide());
       div.slideDown(200);
