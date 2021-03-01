@@ -2,7 +2,8 @@
 ## Versão 1.1.58
 ### Novidades
 - Botão `Editar` e o livro com a descrição de perícia removido.
-- Clicar com o botão direito do mouse em um item, poder, magia ou perícia abre a descrição dele.
+- Clicar com o botão esquerdo sobre um item, poder ou magia na ficha do Personagem mostra a descrição do item. Para usar o item, clique no dado que aparece no lugar da imagem ao passar o mouse em cima.
+- Clicar com o botão direito sobre um item, poder, magia ou perícia na ficha do Personagem abre a descrição dele.
 - Equipamentos que não são armaduras ou escudos agora contam diretamente na Defesa, e não como parte do bônus `Outros`.
 - Equipamentos que não são armaduras ou escudos agora contam para a Penalidade de Armadura.
 

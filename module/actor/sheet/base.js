@@ -178,6 +178,10 @@ export default class ActorSheetT20 extends ActorSheet {
 	// TOTO refactor and standarize html listeners
 	activateListeners(html) {
 
+		// Item summaries
+    // html.find('.item .item-name.rollable h4').click(event => this._onItemSummary(event));
+    html.find('.item .item-name h4').click(event => this._onItemSummary(event));
+		
 		// Tooltips
 		html.mousemove(ev => this._moveTooltips(ev));
 
@@ -215,13 +219,15 @@ export default class ActorSheetT20 extends ActorSheet {
 		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 		html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
-		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
 
 		if ( this.actor.owner ) {
 			// Rollable abilities.
-			html.find('.rollable').click(this._onRoll.bind(this));
+			html.find('.item .item-image').click(event => this._onItemRoll(event));
+			html.find('.rollable.atributo-rollable').click(this._onRoll.bind(this));
+			html.find('.rollable.pericia-rollable').click(this._onRoll.bind(this));
 
 			// Update item
 			// html.find('.upItem').change(this._onUpdateItem.bind(this));
@@ -408,9 +414,29 @@ export default class ActorSheetT20 extends ActorSheet {
 			item.roll = "1d20 +"+ actorData.atributos[id].mod;
 			item.label = { 'for': "Força", 'des': "Destreza", 'con': "Constituição", 'int': "Inteligência", 'sab': "Sabedoria", 'car': "Carisma" }[id];
 		}
-		// Roll items
-		else if (actor.items.get(id)){
+
+		if(!isObjectEmpty(item)){
+			await prepRoll(event, item, actor);
+		}
+	}
+
+
+	async _onItemRoll(event, actor = null) {
+		event.preventDefault();
+		actor = !actor ? this.actor : actor;
+		if (!actor.data) {
+			return;
+		}
+		const actorData = actor.data.data;
+		const a = event.currentTarget;
+		const data = a.dataset;
+		const id = a.closest(".item").dataset.itemId;
+		const ignoreList = ["equip", "tesouro"];
+		let item = {};
+		// Roll pericias
+		if (actor.items.get(id)){
 			item = actor.items.get(id);
+			if (ignoreList.includes(item.type)) return;
 		}
 
 		if(!isObjectEmpty(item)){
@@ -424,10 +450,27 @@ export default class ActorSheetT20 extends ActorSheet {
 	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
 	* @private
 	*/
-	// TODO Implement summary [needed?]
-	// _onItemSummary(event) {
-	// 	event.preventDefault();
-	// }
+  _onItemSummary(event) {
+    event.preventDefault();
+    let li = $(event.currentTarget).parents(".item"),
+    item = this.actor.getOwnedItem(li.data("item-id")),
+    chatData = item.getChatData();
+
+    // Toggle summary
+    if ( li.hasClass("expanded") ) {
+      let summary = li.children(".item-summary");
+      summary.slideUp(200, () => summary.remove());
+    }
+		else {
+      let div = $(`<div class="item-summary">${chatData.description}</div>`);
+      let props = $(`<div class="item-properties"></div>`);
+      chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
+      div.append(props);
+      li.append(div.hide());
+      div.slideDown(200);
+    }
+    li.toggleClass("expanded");
+  }
 
 	/* -------------------------------------------- */
 

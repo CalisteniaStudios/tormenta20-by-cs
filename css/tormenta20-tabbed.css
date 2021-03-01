@@ -206,10 +206,8 @@
   border-bottom: none;
 }
 .tormenta20 .tabbed .tab.inventory .item .item-name {
+  align-items: center;
   flex: 2;
-  /* cursor: pointer; */
-  /* max-height: 30px; */
-  /* overflow: hidden; */
 }
 .tormenta20 .tabbed .tab.inventory .item .item-name h4 {
   margin: 0;

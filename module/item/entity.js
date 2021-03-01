@@ -96,4 +96,42 @@ export default class ItemT20 extends Item {
 	}
 
 	/* -------------------------------------------- */
+	
+	/**
+   * Prepare an object of chat data used to display a card for the Item in the chat log
+   * @param {Object} htmlOptions    Options used by the TextEditor.enrichHTML function
+   * @return {Object}               An object of chat data to render
+   */
+  getChatData(htmlOptions={}) {
+    const data = duplicate(this.data.data);
+
+    // Rich text description
+    data.description = TextEditor.enrichHTML(data.description, htmlOptions);
+
+    // Item type specific properties
+    const props = [];
+    const fn = this[`_${this.data.type}ChatData`];
+    if ( fn ) fn.bind(this)(data, labels, props);
+
+    // Equipment properties
+    if ( data.hasOwnProperty("equipado") ) {
+      props.push(
+        game.i18n.localize(data.equipped ? "Equipado" : "")
+      );
+    }
+
+    // Ability activation properties
+    // if ( data.hasOwnProperty("activation") ) {
+      // props.push(
+        // labels.activation + (data.activation?.condition ? ` (${data.activation.condition})` : ""),
+        // labels.target,
+        // labels.range,
+        // labels.duration
+      // );
+    // }
+
+    // Filter properties and return
+    data.properties = props.filter(p => !!p);
+    return data;
+  }
 }

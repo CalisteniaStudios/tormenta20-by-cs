@@ -13,10 +13,10 @@
 	<div class="poderes-scroll">
 	{{#each actor.poderes as |item id|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
+		<div class="item-name flexrow rollable poder-rollable" data-label="{{item.name}}">
 		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-		<span class="rollable poder-rollable" data-label="{{item.name}}">
-			<h4 class="item-name">{{item.name}}</h4>
-		</span>
+			<h4>{{item.name}}</h4>
+		</div>
 		<div class="item-tipo" style="text-transform: capitalize;">{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</div>
 		<!-- <div class="item-custo">{{item.data.custo}}</div> -->
 		<div class="item-tipo">{{#if item.data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.ativacao.custo}} ({{item.data.ativacao.custo}} PM){{/if}}{{/if}}{{/each}}{{else}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{/if}}{{/if}}</div>
