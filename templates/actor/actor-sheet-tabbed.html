@@ -71,29 +71,8 @@
 				</li>
 				<li class="attribute">
 					<h4 class="attribute-name box-title">Defesa</h4>
-					<div class="tooltip">
-						<div class="tooltipcontent">
-							<strong>Fontes:</strong>
-							<br/>
-							Base: 10
-							<br/>
-							{{#if data.defesa.des}}Destreza: {{data.atributos.des.mod}}
-							<br />{{else}}
-							{{#if (gt 0 data.atributos.des.mod)}}Destreza: {{data.atributos.des.mod}}
-							<br /> {{/if}}{{/if}}
-							{{#if data.defesa.armadura.equipado}} {{data.defesa.armadura.nome}}: {{data.defesa.armadura.value}}
-							<br /> {{/if}}
-							{{#if data.defesa.escudo.equipado}} {{data.defesa.escudo.nome}}: {{data.defesa.escudo.value}}
-							<br /> {{/if}}
-							{{#if data.defesa.outro}} Outros: {{data.defesa.outro}}
-							<br /> {{/if}}
-							{{#if data.defesa.temp}} Temporário: {{data.defesa.temp}}
-							<br /> {{/if}}
-
-						</div>
 						<div class="attribute-value">
 							<h1 style="height:auto">{{data.defesa.value}}</h1>
-						</div>
 					</div>
 					<footer class="attribute-footer">
 						{{#if actor.flags.mostrarOutrosDefesa}}<input name="data.defesa.outro" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.defesa.outro}}" />{{/if}}

@@ -178,6 +178,10 @@ export default class ActorSheetT20 extends ActorSheet {
 	// TOTO refactor and standarize html listeners
 	activateListeners(html) {
 
+		// Item summaries
+    // html.find('.item .item-name.rollable h4').click(event => this._onItemSummary(event));
+    html.find('.item .item-name h4').click(event => this._onItemSummary(event));
+		
 		// Tooltips
 		html.mousemove(ev => this._moveTooltips(ev));
 
@@ -217,18 +221,15 @@ export default class ActorSheetT20 extends ActorSheet {
 		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 		html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
-		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
 
 		if ( this.actor.owner ) {
 			// Rollable abilities.
-			html.find('.atributo-rollable').click(this._onRollAtributo.bind(this));
-			html.find('.pericia-rollable').click(this._onRollPericia.bind(this));
-			html.find('.arma-rollable').click(this._onItemRoll.bind(this));
-			html.find('.magia-rollable').click(this._onItemRoll.bind(this));
-			html.find('.poder-rollable').click(this._onItemRoll.bind(this));
-			html.find('.consumivel-rollable').click(this._onItemRoll.bind(this));
+			html.find('.item .item-image').click(event => this._onItemRoll(event));
+			html.find('.rollable.atributo-rollable').click(this._onRollAtributo.bind(this));
+			html.find('.rollable.pericia-rollable').click(this._onRollPericia.bind(this));
 
 			// Update item
 			// html.find('.upItem').change(this._onUpdateItem.bind(this));
@@ -518,11 +519,36 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	_onItemRoll(event) {
 		event.preventDefault();
-		const itemId = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
-										: event.currentTarget.parentElement.dataset.itemId;
+		const itemId = this.actor.data.type === "npc" ? event.currentTarget.dataset.itemId : event.currentTarget.parentElement.dataset.itemId;
 		const item = this.actor.getOwnedItem(itemId);
 		return item.roll();
 	}
+
+	/**
+	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+	* @private
+	*/
+  _onItemSummary(event) {
+    event.preventDefault();
+    let li = $(event.currentTarget).parents(".item"),
+    item = this.actor.getOwnedItem(li.data("item-id")),
+    chatData = item.getChatData();
+
+    // Toggle summary
+    if ( li.hasClass("expanded") ) {
+      let summary = li.children(".item-summary");
+      summary.slideUp(200, () => summary.remove());
+    }
+		else {
+      let div = $(`<div class="item-summary">${chatData.description}</div>`);
+      let props = $(`<div class="item-properties"></div>`);
+      chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
+      div.append(props);
+      li.append(div.hide());
+      div.slideDown(200);
+    }
+    li.toggleClass("expanded");
+  }
 
 	/* -------------------------------------------- */
 

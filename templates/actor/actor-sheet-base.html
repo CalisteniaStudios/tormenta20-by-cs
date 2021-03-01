@@ -117,7 +117,6 @@
 					<div class="ataques">
 						<ol class="item-list">
 							<li class="item flexrow item-header">
-								<div class="item-image"></div>
 								<div class="item-name" >Arma</div>
 								<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
 								<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i>
@@ -127,12 +126,11 @@
 							<div style="max-height: 124px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							{{#each actor.armas as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
+								<div class="item-name flexrow rollable arma-rollable">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-								<span class="rollable arma-rollable item-name">
-									<h4 class="item-name" >{{item.name}}</h4>
-								</span>
-								
-								<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} {{#if item.data.dmg}}({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}}){{/if}}</div>
+									<h4>{{item.name}}</h4>
+								</div>
+								<div class="item-rolls flex2">{{numberFormat item.data.atq sign=true}} {{#if item.data.dmg}}({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}}){{/if}}</div>
 								<div class="item-controls">
 									<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 								</div>
@@ -148,28 +146,7 @@
 							</li>
 							<li class="flexrow text-center" >
 								<div class="item-name" style="height:80px;">
-									<div class="tooltip">
-										<div class="tooltipcontent">
-											<strong>Fontes:</strong>
-											<br/>
-											Base: 10
-											<br/>
-											{{#if data.defesa.des}}Destreza: {{data.atributos.des.mod}}
-											<br />{{else}}
-											{{#if (gt 0 data.atributos.des.mod)}}Destreza: {{data.atributos.des.mod}}
-											<br /> {{/if}}{{/if}}
-											{{#if data.defesa.armadura.equipado}} {{data.defesa.armadura.nome}}: {{data.defesa.armadura.value}}
-											<br /> {{/if}}
-											{{#if data.defesa.escudo.equipado}} {{data.defesa.escudo.nome}}: {{data.defesa.escudo.value}}
-											<br /> {{/if}}
-											{{#if data.defesa.outro}} Outros: {{data.defesa.outro}}
-											<br /> {{/if}}
-											{{#if data.defesa.temp}} Temporário: {{data.defesa.temp}}
-											<br /> {{/if}}
-
-										</div>
 										<h1 name="data.defesa.value" style="padding:0">{{data.defesa.value}}</h1>
-									</div>
 									<div class="flexrow">
 										{{#if actor.flags.mostrarOutrosDefesa}}
 											<input name="data.defesa.outro" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.defesa.outro}}" />
@@ -181,7 +158,6 @@
 						</ol>
 						<ol class="item-list" style="width: calc(80% - 2px); max-height:100px; display:inline-block; vertical-align: top; margin:0; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							<li class="item flexrow item-header">
-								<div class="item-image"></div>
 								<div class="item-name flex2">Equipamento</div>
 								<div class="item-def">Defesa</div>
 								<div class="item-pen">Penalidade</div>
@@ -191,9 +167,10 @@
 							</li>
 							{{#each actor.equipamentos as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
+								<div class="item-name flex2 flexrow edit-favoritos">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-								<h4 class="item-name flex2 edit-favoritos" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.name}}</h4>
-
+									<h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.name}}</h4>
+								</div>
 								<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
 								<div class="item-pen">{{item.data.armadura.penalidade}}</div>
 								<div class="item-toggles">
