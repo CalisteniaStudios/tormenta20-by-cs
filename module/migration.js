@@ -138,6 +138,10 @@ export const migrateActorData = function(actor) {
 		updateData["token.img"] = actor.token.img.replace(".png", ".webp")
 	}
 	if (actor.type === "character") {
+		if (actor.data.defesa.armadura) updateData["data.defesa.-=armadura"] = null;
+		if (actor.data.defesa.escudo) updateData["data.defesa.-=escudo"] = null;
+		if (actor.data.armadura) updateData["data.-=armadura"] = null;
+		if (actor.data.escudo) updateData["data.-=escudo"] = null;
 	}
 	else if (actor.type === "npc") {
 	}
@@ -234,13 +238,11 @@ export const migrateItemData = function(item) {
 	const updateData = {};
 	_migrateClasse(item, updateData);
 	if ( item.type == "ataque" ) {
-		item.type = "arma";
+		updateData["type"] = "arma";
 	}
-	if (item.img && item.img.includes("modules/tormenta20-compendium")) {
-		updateData["img"] = item.img.replace("modules/tormenta20-compendium", "systems/tormenta20");
-	}
-	if (item.img && item.img.includes("systems/tormenta20/icons") && (item.img.includes(".jpg") || item.img.includes(".png"))) {
-		updateData["img"] = item.img.replace(".jpg", ".webp").replace(".png", ".webp");
+	else if ( item.type == "equip" ) {
+		if (item.data.armadura.penalidade > 0) updateData["data.armadura.penalidade"] = -item.data.armadura.penalidade;
+		if (item.data.equipado) updateData["data.equipado"] = false;
 	}
 	return updateData;
 };

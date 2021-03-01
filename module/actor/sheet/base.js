@@ -573,28 +573,9 @@ export default class ActorSheetT20 extends ActorSheet {
 		// const item = this.actor.getOwnedItem(li.data("itemId"));
 		const item = this.actor.items.get(li.dataset.itemId);
 		if(item.data.type === "equip" && item.data.data.equipado) {
-			const armadura = {
-				nome: "",
-				value:  0,
-				penalidade: 0,
-				equipado: false
-			};
-			if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
-				this.actor.update({
-					"data.defesa.armadura": armadura,
-					"data.defesa.des": true
-				});
-			}
-			else if (item.data.data.tipo === "escudo") {
-				this.actor.update({
-					"data.defesa.escudo": armadura
-				});
-			}
-			else {
-				let defesaOutros = this.actor.data.data.defesa.outro - item.data.data.armadura.value;
-				this.actor.update({
-					"data.defesa.outro": defesaOutros
-				});
+			const armor = ["leve", "pesada"];
+			if (armor.includes(item.data.data.tipo)) {
+				this.actor.update({ "data.defesa.des": true });
 			}
 		}
 		else if (item.data.type === "classe") {

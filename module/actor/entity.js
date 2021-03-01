@@ -68,10 +68,7 @@ export default class ActorT20 extends Actor {
 					Number(data.modificadores?.pericias?.bonus ?? 0) -
 					Number(data.modificadores?.pericias?.penalidade ?? 0) +
 					Number(pericia.outros) -
-					Number(pericia.pda ? (data.defesa.armadura.equipado ? Math.abs(data.defesa.armadura.penalidade) : 0) +
-						(data.defesa.escudo.equipado ? Math.abs(data.defesa.escudo.penalidade) : 0)
-					: 0
-					);
+					Number(pericia.pda ? (data.defesa.pda ? Math.abs(data.defesa.pda) : 0) : 0);
 				}
 			}
 		}
@@ -112,15 +109,23 @@ export default class ActorT20 extends Actor {
 		}
 
 		if(data.defesa !== undefined && this.data.type !== "npc"){
+			let armadura = 0;
+			let pda = 0;
+			for (let [key, data] of Object.entries(actorData.items)) {
+				if (data.type == "equip" && data.data.equipado) {
+					armadura += data.data.armadura.value;
+					pda += Math.abs(data.data.armadura.penalidade);
+				}
+			}
 			data.defesa.value =
 			10 +
 			Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
-			Number(data.defesa.armadura != undefined ? data.defesa.armadura.value : 0) +
-			Number(data.defesa.escudo != undefined ? data.defesa.escudo.value : 0) +
+			armadura +
 			Number(data.defesa.outro) +
 			Number(data.defesa.temp) +
 			Number(data.defesa.bonus ?? 0) -
 			Number(data.defesa.penalidade ?? 0);
+			data.defesa.pda = -pda;
 		}
 
 	}
