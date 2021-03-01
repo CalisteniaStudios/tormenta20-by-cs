@@ -51,6 +51,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData["mostrarBonusTreino"] = this.actor.data.flags.mostrarTreino;
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
+		this.actor.data.data.defesa.pda = this.actor.data.data.defesa.pda ?? 0;
 		/* Template SKILLS */
 		// TODO Migration function to enforce template data
 		if(this.actor.data.data.pericias !== undefined){
@@ -331,10 +332,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.getOwnedItem(li.data("itemId"));
 		item.data.data.equipado = !item.data.data.equipado;
-		let current = $(ev.currentTarget)[0];
-		let items = this.actor.data.items;
+		const items = this.actor.data.items;
     
-		const armor = ["leve", "pesada"]
+		const armor = ["leve", "pesada"];
 		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
 
 		if (item.data.data.equipado && exclusiveSlot.includes(item.data.data.tipo)) {
@@ -353,26 +353,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				this.actor.update({"items": items });
 			}
 		}
-
-		const armadura = {
-			nome: item.data.data.equipado ? item.data.name : "",
-			value: item.data.data.equipado ? item.data.data.armadura.value : 0,
-			penalidade: item.data.data.equipado ? item.data.data.armadura.penalidade : 0,
-			equipado: item.data.data.equipado
-		};
 		if (armor.includes(item.data.data.tipo)) {
-			this.actor.update({
-				"data.defesa.armadura": armadura,
-				"data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true //return ((equipado && leve) || !equipado)
-			});
-		}
-		else if (item.data.data.tipo === "escudo") {
-			this.actor.update({ "data.defesa.escudo": armadura });
-		}
-		else {
-			let atual = this.actor.data.data.defesa.outro;
-			let nova = item.data.data.equipado ? atual + item.data.data.armadura.value : atual - item.data.data.armadura.value;
-			this.actor.update({ "data.defesa.outro": nova });
+			this.actor.update({ "data.defesa.des": item.data.data.equipado ? item.data.data.tipo === "leve" ? true : false : true });
 		}
 		item.update({"data.equipado": item.data.data.equipado});
 	}

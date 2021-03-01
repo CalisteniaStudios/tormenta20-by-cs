@@ -1,4 +1,11 @@
 # Lista de Mudanças
+## Versão 1.1.58
+### Novidades
+- Botão `Editar` e o livro com a descrição de perícia removido.
+- Clicar com o botão direito do mouse em um item, poder, magia ou perícia abre a descrição dele.
+- Equipamentos que não são armaduras ou escudos agora contam diretamente na Defesa, e não como parte do bônus `Outros`.
+- Equipamentos que não são armaduras ou escudos agora contam para a Penalidade de Armadura.
+
 ## Versão 1.1.57
 ### Novidades
 - Itens: Bomba de Fumaça adicionada.

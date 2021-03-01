@@ -170,8 +170,12 @@ button {
 }
 
 .rollable:hover,
-.rollable:focus {
-  color: #000;
+.rollable:focus,
+.compendium-entry:hover, 
+.compendium-entry:focus,
+.edit-favoritos:hover,
+.edit-favoritos:focus {
+  color: red;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
@@ -754,11 +758,6 @@ button {
   min-height: 70px;
   margin:5px 0;
 
-}
-
-.tormenta20 .rollable:hover {
-  cursor: pointer;
-  color: red;
 }
 
 .tormenta20 .header-fields .recursos label,
