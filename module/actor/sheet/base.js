@@ -212,6 +212,12 @@ export default class ActorSheetT20 extends ActorSheet {
 				this.actor.update(flags);
 			});
 		}
+		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
 
 		if ( this.actor.owner ) {
 			// Rollable abilities.
@@ -226,9 +232,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		else {
 			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
 		}
-		
-		// Open skill compendium entry
-		html.find("a.compendium-entry").click(this._onOpenCompendiumEntry.bind(this));
 		
 		// Handle default listeners last so system listeners are triggered first
     	super.activateListeners(html);
@@ -252,6 +255,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	 * @private
 	 */
 	async _onOpenCompendiumEntry(event) {
+		if (["oficios","custom"].includes(event.currentTarget.dataset.type)) return;
 		const entryKey = event.currentTarget.dataset.compendiumEntry;
 		const parts = entryKey.split(".");
 		const packKey = parts.slice(0, 2).join(".");

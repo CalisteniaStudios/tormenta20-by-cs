@@ -12,10 +12,8 @@
 		<span class="rollable arma-rollable item-name flex2">
 			<h4 class="item-name" >{{item.name}}</h4>
 		</span>
-		
 		<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
 		<div class="item-detail item-controls">
-			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -32,11 +30,10 @@
 	{{#each actor.favoritos.itens as |item id|}}
 	<li class="item flexrow fav-item" data-item-id="{{item._id}}">
 		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-		<h4 class="item-name flex2 {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{/if}}" style="flex: 5;">
-			{{item.name}}
-		</h4>
+		<span class="{{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{else}}edit-favoritos{{/if}}" style="flex: 5;">
+			<h4 class="item-name" >{{item.name}}</h4>
+		</span>
 		<div class="item-detail item-controls">
-			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -59,7 +56,6 @@
 		</span>
 		<div class="item-tipo">{{#if item.data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.ativacao.custo}} ({{item.data.ativacao.custo}} PM){{/if}}{{/if}}{{/each}}{{else}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{/if}}{{/if}}</div>
 		<div class="item-detail item-controls">
-			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -88,7 +84,6 @@
 			<span class="rollable magia-rollable flex2" data-label="{{m.name}}"><h4 class="item-name">{{m.name}}</h4></span>
 			<div class="item-tipo">{{#each ../../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#ifNotEquals ../data.ativacao.custo circulo.custo}} ({{../data.ativacao.custo}} PM){{/ifNotEquals}}{{/if}}{{/each}}</div>
 			<div class="item-detail item-controls">
-				<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 				<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 			</div>
 		</li>

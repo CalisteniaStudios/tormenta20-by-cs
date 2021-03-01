@@ -1,4 +1,9 @@
 # Lista de Mudanças
+## Versão 1.1.58
+### Novidades
+- Botão `Editar` e o livro com a descrição de perícia removido.
+- Clicar com o botão direito do mouse em um item, poder, magia ou perícia abre a descrição dele.
+
 ## Versão 1.1.57
 ### Novidades
 - Itens: Bomba de Fumaça adicionada.
