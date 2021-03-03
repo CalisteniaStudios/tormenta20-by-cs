@@ -28,7 +28,7 @@ export const addChatMessageContextOptions = function (html, options) {
         callback: li => applyChatCardDamage(li, 2)
     }, {
         name: 'Aplicar Dano pela Metade',
-        icon: '<i class="fas fa-user-shield"></i>',
+        icon: '½',
         condition: canApply,
         callback: li => applyChatCardDamage(li, 0.5)
     }, {
@@ -48,38 +48,38 @@ export const ApplyButtons = function (app, html, data)
     let areaBotoes = $(`<HR><div><table class="apply-area"><tbody><div class="flexrow"></div></tbody></table></div>`);
     if(chatHTML.querySelectorAll(".roll--dano").length > 0)
     {
-        const botaoDanoAplicar = $(`<td class="apply-button apply-button-dano" title="Aplicar Dano"><button class="apply-button-b"><i class="fas fa-user-minus apply-button-img"></i></button></td>`);
+        const botaoDanoAplicar = $(`<td class="apply-button apply-button-dano" title="Aplicar Dano"><button class="apply-button-b" style="background:red;"><i class="fas fa-user-minus apply-button-img"></i></button></td>`);
         areaBotoes.find(".flexrow").append(botaoDanoAplicar);
         botaoDanoAplicar.click(ev => {
             ev.stopPropagation();
             applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,1);
             this.render(true);
         });
-        const botaoCuraAplicar = $(`<td class="apply-button" title="Aplicar Cura"><button class="apply-button-b apply-button-cura"><i class="fas fa-user-plus apply-button-img"></i></button></td>`);
-        areaBotoes.find(".flexrow").append(botaoCuraAplicar);
-        botaoCuraAplicar.click(ev => {
-            ev.stopPropagation();
-            applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
-            this.render(true);
-        });
-        const botaoDanoDobroAplicar = $(`<td class="apply-button" title="Aplicar Dano em Dobro"><button class="apply-button-b apply-button-dano-dobro"><i class="fas fa-user-injured apply-button-img"></i></button></td>`);
+        const botaoDanoDobroAplicar = $(`<td class="apply-button" title="Aplicar Dano em Dobro"><button class="apply-button-b apply-button-dano-dobro" style="background:red; font-size: 25px;">2x</button></td>`);
         areaBotoes.find(".flexrow").append(botaoDanoDobroAplicar);
         botaoDanoDobroAplicar.click(ev => {
             ev.stopPropagation();
             applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,2);
             this.render(true);
         });
-        const botaoDanoMetadeAplicar = $(`<td class="apply-button" title="Aplicar Dano pela Metade"><button class="apply-button-b apply-button-dano-metade"><i class="fas fa-user-shield apply-button-img"></i></button></td>`);
+        const botaoDanoMetadeAplicar = $(`<td class="apply-button" title="Aplicar Dano pela Metade"><button class="apply-button-b apply-button-dano-metade" style="background:red; font-size: 25px;">½</button></td>`);
         areaBotoes.find(".flexrow").append(botaoDanoMetadeAplicar);
         botaoDanoMetadeAplicar.click(ev => {
             ev.stopPropagation();
             applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,0.5);
             this.render(true);
         });
+        const botaoCuraAplicar = $(`<td class="apply-button" title="Aplicar Cura"><button class="apply-button-b apply-button-cura" style="background:lime;"><i class="fas fa-user-plus apply-button-img"></i></button></td>`);
+        areaBotoes.find(".flexrow").append(botaoCuraAplicar);
+        botaoCuraAplicar.click(ev => {
+            ev.stopPropagation();
+            applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
+            this.render(true);
+        });
     }
     if(chatHTML.querySelectorAll(".mana-cost").length > 0)
     {
-        const botaoGastoMana = $(`<td class="apply-button"><button class="apply-button-b apply-button-mana"><i class="fas fa-star apply-button-img" title="Gastar Mana"></i></button></td>`);
+        const botaoGastoMana = $(`<td class="apply-button" title="Gastar Mana"><button class="apply-button-b apply-button-mana" style="background:deepskyblue;"><i class="fas fa-star apply-button-img"></i></button></td>`);
         areaBotoes.find(".flexrow").append(botaoGastoMana);
         botaoGastoMana.click(ev => {
             ev.stopPropagation();

@@ -165,7 +165,7 @@ export const migrateAprimoramentos = async function (actor) {
 	
 	const content = actor.items.filter(i=> i.type == "magia");
 	for ( let item of content ) {
-		let a = {arsenal: "Soco do Mestre", aleph: "Lança Ígnia", talude: "Setas Infalíveis" };
+		let a = {arsenal: "Soco do Mestre", aleph: "Lança Ígnea", talude: "Setas Infalíveis" };
 		let n = item.name.match(/Arsenal|Aleph|Talude/i) ?
 				a[item.name.match(/Arsenal|Aleph|Talude/i)[0]?.toLowerCase()]
 				: item.name;
