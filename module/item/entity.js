@@ -697,18 +697,13 @@ export default class ItemT20 extends Item {
 			labels: this.labels
 		};
 		
-		if (game.settings.get("tormenta20", "automaticManaSpend") && this.actor && (this.data.data.ativacao?.custo || this.data.data.custo)) {
-			this.actor.spendMana((this.data.data.ativacao?.custo || this.data.data.custo), 0, false);
+		if (game.settings.get("tormenta20", "automaticManaSpend") && this.actor && (options.custo || this.data.data.ativacao?.custo || this.data.data.custo)) {
+			this.actor.spendMana((options.custo || this.data.data.ativacao?.custo || this.data.data.custo), 0, false);
 		}
 		
 		// Other Template Data
 		if(options.rolls.atq) await options.rolls.atq.render().then((r)=> {templateData.roll = r});
 		if(options.rolls.dmg) await options.rolls.dmg.render().then((r)=> {templateData.rollDano = r});
-
-		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
-		if ( this.actor && options.custo && autoSpendMana ) {
-			this.actor.spendMana(options.custo, 0, false);
-		}
 
 		let teste = mergeObject(templateData,options);
 		// Render the chat card template
