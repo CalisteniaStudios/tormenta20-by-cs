@@ -79,7 +79,7 @@ export const ApplyButtons = function (app, html, data)
     }
     if(chatHTML.querySelectorAll(".mana-cost").length > 0)
     {
-        const botaoGastoMana = $(`<td class="apply-button"><button class="apply-button-b apply-button-mana"><i class="fas fa-star apply-button-img" title="Gastar Mana"></i></button></td>`);
+        const botaoGastoMana = $(`<td class="apply-button" title="Gastar Mana"><button class="apply-button-b apply-button-mana" style="background:deepskyblue;"><i class="fas fa-star apply-button-img"></i></button></td>`);
         areaBotoes.find(".flexrow").append(botaoGastoMana);
         botaoGastoMana.click(ev => {
             ev.stopPropagation();
