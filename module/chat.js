@@ -84,7 +84,7 @@ export const ApplyButtons = function (app, html, data)
         botaoGastoMana.click(ev => {
             ev.stopPropagation();
             applyInsideChatManaSpend(chatHTML.querySelectorAll(".mana-cost")[0].innerHTML);
-            this.render(true);
+            // this.render(true);
         });
 
     }

@@ -196,12 +196,12 @@ export default class ItemT20 extends Item {
 		switch ( item.type ) {
 			case "arma":
 				options.rolls.atq = await item.rollAttack({aeparts: options.atqparts, event});
-				options.rolls.dmg = await item.rollDamage({aeparts: options.dmgparts, critical: options.rolls.atq._critical, event});
+				options.rolls.dmg = await item.rollDamage({aeparts: options.dmgparts, critical: options.rolls.atq._critical, options:options, event});
 				break; 
 			case "magia":
 			case "poder":
 			case "consumivel":
-				options.rolls.dmg = await item.rollFormula({event});
+				options.rolls.dmg = await item.rollFormula({options, event});
 				break;
 		}
 		
@@ -289,21 +289,20 @@ export default class ItemT20 extends Item {
 		// Add ammunition damage
 		// TODO
 
-		// critical hit damage
-		// TODO?
-
 		// Call the roll helper utility
 		return damageRoll(mergeObject(rollConfig, options));
 	}
 
-	async rollFormula(options={}) {
+	async rollFormula({options={}}) {
 		const formula = this.data.data.efeito ?? this.data.data.roll;
 		if ( !formula ) return false;
 		// Define Roll Data
 		const rollData = this.getRollData();
 		const title = this.name;
 		// Invoke the roll and submit it to chat
-		const roll = new Roll(formula, rollData).roll();
+		const min = options.minmax && options.minmax == "min" ? true : false;
+		const max = options.minmax && options.minmax == "max" ? true : false;
+		const roll = new Roll(formula, rollData).evaluate({maximize:max,minimize:min});
 		if ( roll === false ) return null;
 		return roll;
 	}
@@ -384,7 +383,7 @@ export default class ItemT20 extends Item {
 						if(mode === 1 && Number(value)) mods[sourceName].ataque = mods[sourceName].ataque.map(n => Number(n) * (Number(value) + aplicados[ef.id]-1) || n);
 						if(mode === 2) mods[sourceName].ataque.push(Number(value) * aplicados[ef.id] || value);
 						if(mode === 5) mods[sourceName].ataque = [value];
-					} else if(["$dano","dano"].includes(key)){
+					} else if(["$dano","dano","roll"].includes(key)){
 						// custom 1d8 > mods[].aumentadado = X * qtd
 						if(mode === 0 && value.match(/\d+d\d+/)){
 							let tempAp = [];
@@ -397,6 +396,9 @@ export default class ItemT20 extends Item {
 						}
 						// custom d12 > mods[].dado = d8
 						if(mode === 0 && value.match(/^d\d+$/)) mods[sourceName].dado = value; 
+						if ( mode === 0 && ["max","min"].includes(ch.value.toLowerCase().trim()) ){ //make min/max
+							options.minmax = ch.value.toLowerCase().trim();
+						}
 						// adcion 1d8 > mods[sourceName].dano = 1d8
 						if(mode === 1 && ( Number(value) )) mods[sourceName].dano = mods[sourceName].dano * (Number(value) + aplicados[ef.id] -1);
 						if(mode === 2 && ( Number(value) || value.match(/\d+d\d+/))) mods[sourceName].dano = Number(value) * aplicados[ef.id] || value;
@@ -603,32 +605,36 @@ export default class ItemT20 extends Item {
 				disabled: false,
 				changes: changes[index] ?? ef.data.changes
 			});
+			tempEffect.data.changes = tempEffect.data.changes.filter(ch => ch.key.match(/^data./i));
 			let efl = ef.data?.label;
 			if(T20Conditions[efl.slugify().replace("-","")])
 				tempEffect = ActiveEffect.create(T20Conditions[efl.slugify().replace("-","")]);
 			options.effects.push(tempEffect);
 		});
+		
 		options.custo = options.truque || !id.ativacao.custo ? 0 : Math.max(options.custo,1);
 		
 		// Initiate measured template creation
 		let createMeasuredTemplate = true;
-		if ( options.spell?.area.match(/(\d+m)|(linha)/) ) {
+		if ( options.spell?.area.match(/(\d+m)|(linha)/i) ) {
 			let mtData = {};
 			mtData.type = options.spell.area.match(/(\d+m de raio)|(cubo)|(quadrado)|(linha)|(cone)/i)[0];
-			mtData.distance = options.spell.area.match(/((\d+)?[,]?\d+)(m)/)[1] || 0;
-			mtData.distance = mtData.distance.replace(",",".");
-			mtData.distance = Number(mtData.distance) || 1.5;
-			if(mtData.type.match(/de raio/)) mtData.type = "circle";
+			mtData.type = mtData.type.toLowerCase();
+			if(mtData.type.match(/de raio/i)) mtData.type = "circle";
 			if(mtData.type.match(/cubo|quadrado/i)) mtData.type = "rect";
 			if ( mtData.type == "linha" ){
-				mtData.type == "ray";
+				mtData.type = "ray";
 				if ( options.spell.alcance.match(/m[eé]dio/i) ) {
-					mtData.distance == 30;
+					mtData.distance = 30;
 				} else if ( options.spell.alcance.match(/longo/i)) {
-					mtData.distance == 90;
+					mtData.distance = 90;
 				} else {
-					mtData.distance == 9;
+					mtData.distance = 9;
 				}
+			} else {
+				mtData.distance = options.spell.area.match(/((\d+)?[,]?\d+)(m)/i)[1] || 0;
+				mtData.distance = mtData.distance.replace(",",".");
+				mtData.distance = Number(mtData.distance) || 1.5;
 			}
 			mtData.actor = this.actor;
 			const template = AbilityTemplate.fromData(mtData);
@@ -696,10 +702,6 @@ export default class ItemT20 extends Item {
 			data: this.getChatData(),
 			labels: this.labels
 		};
-		
-		if (game.settings.get("tormenta20", "automaticManaSpend") && this.actor && (this.data.data.ativacao?.custo || this.data.data.custo)) {
-			this.actor.spendMana((this.data.data.ativacao?.custo || this.data.data.custo), 0, false);
-		}
 		
 		// Other Template Data
 		if(options.rolls.atq) await options.rolls.atq.render().then((r)=> {templateData.roll = r});

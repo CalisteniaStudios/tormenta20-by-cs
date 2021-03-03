@@ -444,7 +444,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			rollMode = configuration.rollMode;
 		}
 		options.parts = parts;
-		rolls.atq = await this.actor.rollAtributo(atributo, options);
+		rolls = await this.actor.rollAtributo(atributo, options);
 		//rolls.atq = await this.actor.rollAtributo(atributo, {parts: parts,event: event});
 
 		let itemData = {
@@ -511,7 +511,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			rollMode = configuration.rollMode;
 		}
 		options.parts = parts;
-		rolls.atq = await this.actor.rollPericia(itemData, options);
+		rolls = await this.actor.rollPericia(itemData, options);
 		
 		this.actor.displayCard({rolls, itemData, rollMode});
 	}

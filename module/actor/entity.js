@@ -574,6 +574,17 @@ export default class ActorT20 extends Actor {
 		// Invoke the d20 roll helper
 		const roll = await d20Roll(rollData);
 		if ( roll === false ) return null;
+
+		let combate = game.combats.active;
+		if (label == "Iniciativa" && combate) {
+			let combatente = combate.combatants.find(
+				(combatant) => combatant.actor.id === this.id
+			);
+			if (combatente && combatente.initiative === null) {
+				combate.setInitiative(combatente._id, roll.total);
+				console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
+			}
+		}
 		return roll;
 	}
 
@@ -601,13 +612,13 @@ export default class ActorT20 extends Actor {
 			actor: this,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
 			item: itemData,
-			critico: rolls.atq?.results[0] == 20,
-			falha: rolls.atq?.results[0] == 1,
+			critico: rolls.results[0] == 20,
+			falha: rolls.results[0] == 1,
 		};
 		// Other Template Data
 
-		if(rolls.atq) {
-			await rolls.atq.render().then((r)=> {templateData.roll = r});
+		if(rolls) {
+			await rolls.render().then((r)=> {templateData.roll = r});
 		}
 		// Render the chat card template
 		let template = "systems/tormenta20/templates/chat/chat-card.html";
@@ -632,7 +643,7 @@ export default class ActorT20 extends Actor {
 															: (rollMode === "selfroll" ? [game.user._id] : null)),
 				blind: rollMode === "blindroll"
 			}
-			if(rolls.atq) game.dice3d.showForRoll(rolls.atq, game.user, true, wd.whisper, wd.blind);
+			if(rolls) game.dice3d.showForRoll(rolls, game.user, true, wd.whisper, wd.blind);
 		}
 		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;

@@ -68,7 +68,6 @@ export default class AbilityUseDialog extends Dialog {
 		// 	})
 		// });
 		// console.log(item.actor);
-		// console.log(item);
 		
 		switch (item.type){
 			case "arma":
@@ -78,8 +77,9 @@ export default class AbilityUseDialog extends Dialog {
 				
 				aprimoramentos.forEach(function(ap){
 					let iid = ap.data.origin.split(".")[3] || "";
-					apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.t20.onuse && ownit.data.flags.t20.self);
-
+					if(item._id && iid && item._id != iid){
+						apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.t20.onuse && ownit.data.flags.t20.self);
+					}
 				});
 				break;
 			case "atributo":

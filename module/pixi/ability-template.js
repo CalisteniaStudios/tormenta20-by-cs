@@ -29,16 +29,17 @@ export default class AbilityTemplate extends MeasuredTemplate {
 
     // Additional type-specific data
     switch ( type ) {
-      case "cone": // 5e cone RAW should be 53.13 degrees
+      case "cone": // T20 cone RAW should be 54 degrees Width == Length
         templateData.angle = 54;
         break;
-      case "rect": // 5e rectangular AoEs are always cubes
+      case "rect": // T20 rectangular AoEs are always cubes
         templateData.distance = Math.hypot(distance, distance);
         templateData.width = distance;
         templateData.direction = 45;
         break;
-      case "ray": // 5e rays are most commonly 1 square (5 ft) in width
+      case "ray": // T20 rays are most commonly 1 square (1,5m) in width (will resize for small maps)
         templateData.distance = Math.min(distance, canvas.dimensions.width/canvas.dimensions.size, canvas.dimensions.height/canvas.dimensions.size);
+        if( templateData.distance < distance ) ui.notifications.info(`O template de linha foi reduzido devido ao tamanho do mapa.`);
         templateData.width = canvas.dimensions.distance;
         break;
       default:

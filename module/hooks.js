@@ -2,6 +2,7 @@ import { T20Conditions } from "./conditions/conditions.js";
 import { toggleEffect } from "./actor/condicoes.js";
 import { endSegment } from "./apps/time-segment.js";
 import { measureDistances, getBarAttribute } from "./canvas.js";
+import { T20Config } from "./config.js";
 import ItemT20 from "./item/entity.js";
 import * as chat from "./chat.js";
 import * as macros from "./macros.js";
@@ -102,6 +103,20 @@ export default function () {
 			options.temporary = true;
 			ActiveEffect.create(effect,actor).create();
 		}
+
+		if(effect.changes.find(ch => ch.key === "data.tamanho")){
+			let _changes = effect.changes.map(function(ch){
+				if (ch.key === "data.tamanho" && ch.mode === 0 ) {
+					const sizes = Object.keys( T20Config.tamanhos );
+					let teste = sizes.indexOf(actor.data.data.tamanho) + ch.value;
+					ch.mode = 5;
+					ch.value = sizes[teste];
+				}
+				return ch;
+			});
+			effect.changes = _changes;
+		}
+		
 		if(actor && effect && effect.flags?.t20?.condition){
 			// ignore condi if already applyed
 			if(actor.effects.find(i => i.data.label === effect.label)){
