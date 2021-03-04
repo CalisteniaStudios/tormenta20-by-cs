@@ -221,7 +221,9 @@ export default class ActorSheetT20 extends ActorSheet {
 		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.consumivel-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.effect').on("contextmenu", ev => onManageActiveEffect(ev, this.entity));
 		html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 		html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
