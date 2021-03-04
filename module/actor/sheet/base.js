@@ -177,10 +177,6 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	// TOTO refactor and standarize html listeners
 	activateListeners(html) {
-
-		// Item summaries
-    // html.find('.item .item-name.rollable h4').click(event => this._onItemSummary(event));
-    html.find('.item .item-name h4').click(event => this._onItemSummary(event));
 		
 		// Tooltips
 		html.mousemove(ev => this._moveTooltips(ev));
