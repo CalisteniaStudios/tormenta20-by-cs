@@ -58,11 +58,17 @@ export function prepareActiveEffectCategories(effects) {
 			effects: []
 		}
 	};
-
 	// Iterate over active effects, classifying them into categories
 	for ( let e of effects ) {
 		e._getSourceName(); // Trigger a lookup for the source name
-		// console.log(e.data.flags.t20);
+		if(e.parent.entity == "Actor" && e.data.origin.split(".")[3]) {
+			const actor = e.parent;
+			const item = actor.items.get(e.data.origin.split(".")[3]);
+			if(item.type == "equip" && (e.data.disabled !== !item.data.data.equipado) ){
+				e.update({disabled: !item.data.data.equipado});
+			}
+		}
+
 		if ( e.data.flags.onuse || e.data.flags.t20?.onuse ) categories.onuse.effects.push(e);
 		else if ( e.data.disabled ) categories.inactive.effects.push(e);
 		else if ( e.isTemporary ) categories.temporary.effects.push(e);
