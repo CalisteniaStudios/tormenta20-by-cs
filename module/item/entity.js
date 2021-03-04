@@ -695,8 +695,6 @@ export default class ItemT20 extends Item {
 		const templateData = {
 			actor: this.actor,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
-			// critico: options.rolls.atq ? options.rolls.atq._critical : false,
-			// falha: options.rolls.atq?.results[0] == 1 ? true : false,
 			_rolls: [],
 			item: this.data,
 			data: this.getChatData(),

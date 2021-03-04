@@ -27,9 +27,9 @@
 	</li>
 	{{#each actor.favoritos.itens as |item id|}}
 	<li class="item flexrow fav-item" data-item-id="{{item._id}}">
-		<div class="item-name flexrow {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{else}}edit-favoritos{{/if}}">
+		<div class="item-name flexrow flex2 {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{else}}edit-favoritos{{/if}}">
 		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-			<h4>{{item.name}}</h4>
+			<h4>{{item.name}}{{#if (eq item.type "consumivel")}} (Qtd: {{data.qtd}}){{/if}}</h4>
 		</div>
 		<div class="item-detail item-controls">
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
@@ -46,8 +46,8 @@
 		<div class="item-controls"></div>
 	</li>
 	{{#each actor.favoritos.poderes as |item id|}}
-	<li class="item flexrow" data-item-id="{{item._id}}">
-		<div class="item-name flexrow rollable poder-rollable" data-label="{{item.name}}">
+	<li class="item flexrow flex2" data-item-id="{{item._id}}">
+		<div class="item-name flexrow flex2 rollable poder-rollable" data-label="{{item.name}}">
 		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			<h4>{{item.name}}</h4>
 		</div>
@@ -76,7 +76,7 @@
 				<a class="item-toggle preparation-toggle {{#if m.data.preparada }}active{{/if}}" title="Preparada"><i class="fas fa-sun"></i></a>
 			</div>
 			{{/if}}
-			<div class="item-name flexrow rollable magia-rollable" data-label="{{m.name}}">
+			<div class="item-name flexrow flex2 rollable magia-rollable" data-label="{{m.name}}">
 			<div class="item-image" style="background-image: url('{{m.img}}')"></div>
 				<h4>{{m.name}}</h4>
 			</div>
@@ -90,3 +90,4 @@
 	{{/each}}
 </ol>
 {{/if}}
+{{#if (or actor.favoritos.armas.length actor.favoritos.itens.length actor.favoritos.poderes.length actor.favoritos.qtdMagias)}}<hr>{{/if}}

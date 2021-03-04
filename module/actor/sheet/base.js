@@ -177,10 +177,6 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	// TOTO refactor and standarize html listeners
 	activateListeners(html) {
-
-		// Item summaries
-    // html.find('.item .item-name.rollable h4').click(event => this._onItemSummary(event));
-    html.find('.item .item-name h4').click(event => this._onItemSummary(event));
 		
 		// Tooltips
 		html.mousemove(ev => this._moveTooltips(ev));
@@ -221,7 +217,9 @@ export default class ActorSheetT20 extends ActorSheet {
 		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.consumivel-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.effect').on("contextmenu", ev => onManageActiveEffect(ev, this.entity));
 		html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 		html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
