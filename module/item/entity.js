@@ -703,8 +703,8 @@ export default class ItemT20 extends Item {
 			labels: this.labels
 		};
 		
-		if (game.settings.get("tormenta20", "automaticManaSpend") && this.actor && (options.custo || this.data.data.ativacao?.custo || this.data.data.custo)) {
-			this.actor.spendMana((options.custo || this.data.data.ativacao?.custo || this.data.data.custo), 0, false);
+		if (game.settings.get("tormenta20", "automaticManaSpend") && this.actor && (options.custo || this.data.data.ativacao?.custo)) {
+			this.actor.spendMana((options.custo || this.data.data.ativacao?.custo), 0, false);
 		}
 		
 		// Other Template Data
