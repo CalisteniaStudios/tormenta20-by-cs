@@ -1,5 +1,5 @@
 # Lista de Mudanças
-## Versão 1.1.58
+## Versão 1.2.0.0
 ### Novidades
 - Botão `Editar` e o livro com a descrição de perícia removido.
 - Clicar com o botão esquerdo sobre um item, poder ou magia na ficha do Personagem mostra a descrição do item. Para usar o item, clique no dado que aparece no lugar da imagem ao passar o mouse em cima.
