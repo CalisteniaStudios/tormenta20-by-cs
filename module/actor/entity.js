@@ -612,13 +612,13 @@ export default class ActorT20 extends Actor {
 			actor: this,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
 			item: itemData,
-			critico: rolls.results[0] == 20,
-			falha: rolls.results[0] == 1,
+			_rolls: [],
+			rolls: [rolls]
 		};
 		// Other Template Data
 
 		if(rolls) {
-			await rolls.render().then((r)=> {templateData.roll = r});
+			await rolls.render().then((r)=> {templateData._rolls.push(r)});
 		}
 		// Render the chat card template
 		let template = "systems/tormenta20/templates/chat/chat-card.html";

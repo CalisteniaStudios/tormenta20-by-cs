@@ -137,7 +137,8 @@ export default class ItemT20 extends Item {
 		let copy = duplicate(this);
 		const actor = this.actor;
 		let options = {};
-		options.rolls = {};
+		// options.rolls = {};
+		options.rolls = [];
 		// Reference aspects of the item data necessary for usage
 		const id = this.data.data;                // Item data
 		if(extra){
@@ -180,13 +181,9 @@ export default class ItemT20 extends Item {
 		}
 		if(item.type === "poder"){
 			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
-			// console.log(item.data.data.ativacao.custo);
-			// if (!item.data.data.ativacao.custo) options.custo = item.data.data.ativacao.custo;
 		}
 		if(item.type === "magia"){
 			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
-			// item.data.data.efeito = options?.newFormula?.trim();
-
 		}
 
 		// Determine whether the item can be used by testing for resource consumption
@@ -195,13 +192,15 @@ export default class ItemT20 extends Item {
 		// Execute Rolls
 		switch ( item.type ) {
 			case "arma":
-				options.rolls.atq = await item.rollAttack({aeparts: options.atqparts, event});
-				options.rolls.dmg = await item.rollDamage({aeparts: options.dmgparts, critical: options.rolls.atq._critical, options:options, event});
+				options.rolls.push(await item.rollAttack({aeparts: options.atqparts, event}));
+				options.rolls.push(await item.rollDamage({aeparts: options.dmgparts, critical: options.rolls[0]._critical, options:options, event}))
 				break; 
 			case "magia":
 			case "poder":
 			case "consumivel":
-				options.rolls.dmg = await item.rollFormula({options, event});
+				// options.rolls.dmg = await item.rollFormula({options, event});
+				let roll = await item.rollFormula({options, event});
+				if(roll) options.rolls.push(roll);
 				break;
 		}
 		
@@ -696,26 +695,28 @@ export default class ItemT20 extends Item {
 		const templateData = {
 			actor: this.actor,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
-			critico: options.rolls.atq ? options.rolls.atq._critical : false,
-			falha: options.rolls.atq?.results[0] == 1 ? true : false,
+			// critico: options.rolls.atq ? options.rolls.atq._critical : false,
+			// falha: options.rolls.atq?.results[0] == 1 ? true : false,
+			_rolls: [],
 			item: this.data,
 			data: this.getChatData(),
 			labels: this.labels
 		};
-		
-		if (game.settings.get("tormenta20", "automaticManaSpend") && this.actor && (options.custo || this.data.data.ativacao?.custo || this.data.data.custo)) {
-			this.actor.spendMana((options.custo || this.data.data.ativacao?.custo || this.data.data.custo), 0, false);
+		for (const roll of options.rolls){
+			roll.tipo = roll.dice[0].faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll.results[0] == 1 ? "falha" : "";
+			roll.title = roll.tipo =="roll--dano"? "Dano" : this.type == "arma" ? "Ataque" : "";
+			await roll.render().then((r)=> {templateData._rolls.push(r)});
 		}
-		
-		// Other Template Data
-		if(options.rolls.atq) await options.rolls.atq.render().then((r)=> {templateData.roll = r});
-		if(options.rolls.dmg) await options.rolls.dmg.render().then((r)=> {templateData.rollDano = r});
+
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		if ( this.actor && options.custo && autoSpendMana ) {
+			this.actor.spendMana(options.custo, 0, false);
+		}
 
 		let teste = mergeObject(templateData,options);
 		// Render the chat card template
 		let template = "systems/tormenta20/templates/chat/chat-card.html";
 		const html = await renderTemplate(template, templateData);
-		
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user._id,
@@ -735,8 +736,9 @@ export default class ItemT20 extends Item {
 					: (rollMode === "selfroll" ? [game.user._id] : null)),
 				blind: rollMode === "blindroll"
 			}
-			if(options.rolls.atq) game.dice3d.showForRoll(options.rolls.atq, game.user, true, wd.whisper, wd.blind);
-			if(options.rolls.dmg) game.dice3d.showForRoll(options.rolls.dmg, game.user, true, wd.whisper, wd.blind);
+			for (const roll of options.rolls){
+				game.dice3d.showForRoll(roll, game.user, true, wd.whisper, wd.blind)
+			}
 		}
 		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;
