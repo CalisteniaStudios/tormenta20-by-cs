@@ -50,3 +50,4 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 - [sdenec](https://github.com/sdenec/) pelo módulo [Tidy5e Sheet](https://github.com/sdenec/tidy5e-sheet), cujo código foi adaptado neste sistema.
 - [syl3r86](https://github.com/syl3r86) pelos módulos [Compendium Browser](https://github.com/syl3r86/compendium-browser) e [FavTab](https://github.com/syl3r86/favtab), que foram adaptados neste sistema.
 - [Tijmen Bok](https://gitlab.com/Furyspark) pelo sistema [Pathfinder 1e for Foundry VTT](https://gitlab.com/Furyspark/foundryvtt-pathfinder1), cujo código foi adaptado neste sistema.
+- Este sistema usa artes de tokens do [Forgotten Adventures](https://www.forgotten-adventures.net). This system uses token arts from [Forgotten Adventures](https://www.forgotten-adventures.net).

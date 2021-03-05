@@ -1,4 +1,4 @@
-<ul class="skills-list {{#if actor.flags.editarPericias}}editing{{/if}}">
+<ul class="skills-list {{#if actor.flags.editarPericias}}editing{{/if}}" style="height: fit-content;">
 	<li class="skill flexrow item-header">
 		<div class="item-image"></div>
 		<div class="item-name" >Perícias</div>
@@ -15,9 +15,8 @@
 	{{#if (eq skill "ofi")}}
 	<li class="skill flexrow">
 		<div class="item-image"></div>
-		<div class="item-name">
+		<div class="item-name compendium-entry" data-compendium-entry="tormenta20.pericias.iviKBc19dNgZYBJ0">
 			Ofício +
-			<a class="compendium-entry" data-compendium-entry="tormenta20.pericias.iviKBc19dNgZYBJ0"><i class="fas fa-book compendium-icon"></i></a>
 		</div>
 		<div class="item-total"></div>
 		{{#if ../actor.flags.editarPericias}}
@@ -49,17 +48,21 @@
 		</div>
 		<div class="item-name" data-item-id="{{skill.id}}">
 			{{#if skill.type}}
+				{{#if ../actor.flags.editarPericias}}
 				<span class="rollable pericia-rollable" data-type="{{skill.type}}">
 					<i class="fas fa-dice-d20"></i>
 				</span>
+				
 				<input type="text" name="{{skill.path}}.{{skill.id}}.label" value="{{skill.label}}" data-dtype="String"/>
 			{{else}}
-				<span class="rollable pericia-rollable" data-type="padrao" >
+				<span class="rollable pericia-rollable" data-type="{{skill.type}}">
 					{{{skill.label}}} {{#if skill.st}}*{{/if}} {{#if skill.pda}}+{{/if}}
 				</span>
-				{{#if compendiumEntry}}
-				<a class="compendium-entry" data-compendium-entry="{{compendiumEntry}}"><i class="fas fa-book compendium-icon"></i></a>
 				{{/if}}
+			{{else}}
+				<span class="rollable pericia-rollable" data-type="padrao" data-compendium-entry="{{compendiumEntry}}">
+					{{{skill.label}}} {{#if skill.st}}*{{/if}} {{#if skill.pda}}+{{/if}}
+				</span>
 			{{/if}}
 		</div>
 		<div class="item-total">

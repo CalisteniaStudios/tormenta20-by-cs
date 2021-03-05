@@ -33,6 +33,7 @@ T20Config.statusEffectIcons = [
     { "id": "pasmo", "label": "Pasmo", "icon": "systems/tormenta20/icons/conditions/pasmo.svg" },
     { "id": "petrificado", "label": "Petrificado", "icon": "systems/tormenta20/icons/conditions/petrificado.svg" },
     { "id": "sangrando", "label": "Sangrando", "icon": "systems/tormenta20/icons/conditions/sangrando.svg" },
+    { "id": "sobrecarregado", "label": "Sobrecarregado", "icon": "systems/tormenta20/icons/conditions/sobrecarregado.svg" },
     { "id": "surdo", "label": "Surdo", "icon": "systems/tormenta20/icons/conditions/surdo.svg" },
     { "id": "surpreendido", "label": "Surpreendido", "icon": "systems/tormenta20/icons/conditions/surpreendido.svg" },
     { "id": "vulneravel", "label": "Vulnerável", "icon": "systems/tormenta20/icons/conditions/vulneravel.svg" }
@@ -40,100 +41,52 @@ T20Config.statusEffectIcons = [
 
 T20Config.conditions = {
     "abalado": {
-        "modifiers": [ { "modificadores.pericias.penalidade" : 2 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Abalado</strong><br><br>O personagem sofre –2 em testes de perícia. Se ficar abalado novamente, em vez disso fica apavorado. <i>Condição de medo.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Abalado</strong><br><br>O personagem sofre –2 em testes de perícia. Se ficar abalado novamente, em vez disso fica apavorado. <i>Condição de medo.</i>"
     },
     "agarrado": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : 2 }],
-        "childrenConditions": ["desprevenido", "imovel"],
-        "tooltip": "<strong>Agarrado</strong><br><br>O personagem fica desprevenido e imóvel, sofre –2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. <i>Condição de paralisia.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Agarrado</strong><br><br>O personagem fica desprevenido e imóvel, sofre –2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. <i>Condição de paralisia.</i>"
     },
     "alquebrado": {
-        "modifiers": [ { "modificadores.custosPM.bonus" : +1 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Alquebrado</strong><br><br> O custo em pontos de mana das habilidades e magias do personagem aumenta em +1. <i>Condição mental.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Alquebrado</strong><br><br> O custo em pontos de mana das habilidades e magias do personagem aumenta em +1. <i>Condição mental.</i>"
     },
     "apavorado": {
-        "modifiers": [ { "modificadores.pericias.penalidade" : 5 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Apavorado</strong><br><br>O personagem sofre –5 em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível. Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. <i>Condição de medo.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Apavorado</strong><br><br>O personagem sofre –5 em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível. Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. <i>Condição de medo.</i>"
     },
     "atordoado": {
-        "modifiers": [],
-        "childrenConditions": ["desprevenido"],
-        "tooltip": "<strong>Atordoado</strong><br><br> O personagem fica desprevenido e não pode fazer ações. <i>Condição mental.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Atordoado</strong><br><br> O personagem fica desprevenido e não pode fazer ações. <i>Condição mental.</i>"
     },
     "caido": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : 5, "deslocamento.subst": 1.5 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Caído</strong><br><br> Deitado no chão. O personagem sofre –5 em ataques corpo a corpo e seu deslocamento é reduzido a 1,5m. Além disso, sofre –5 de Defesa contra ataques corpo a corpo, mas recebe +5 de Defesa contra ataques à distância.",
-        "durationType": "cena"
+        "tooltip": "<strong>Caído</strong><br><br> Deitado no chão. O personagem sofre –5 em ataques corpo a corpo e seu deslocamento é reduzido a 1,5m. Além disso, sofre –5 de Defesa contra ataques corpo a corpo, mas recebe +5 de Defesa contra ataques à distância."
     },
     "cego": {
-        "modifiers": [ { "atributos.for.penalidade": 5, "atributos.des.penalidade": 5 }],
-        "childrenConditions": ["desprevenido", "lento"],
-        "tooltip": "<strong>Cego</strong><br><br> O personagem fica desprevenido e lento, não pode fazer testes de Percepção para observar e sofre –5 em testes de perícias baseadas em Força ou Destreza. Todos os alvos de seus ataques recebem camuflagem total. <i>Condição de sentidos.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Cego</strong><br><br> O personagem fica desprevenido e lento, não pode fazer testes de Percepção para observar e sofre –5 em testes de perícias baseadas em Força ou Destreza. Todos os alvos de seus ataques recebem camuflagem total. <i>Condição de sentidos.</i>"
     },
     "confuso": {
-        "modifiers": [ ],
-        "childrenConditions": [],
-        "tooltip": "<strong>Confuso</strong><br><br> O personagem comporta-se de modo aleatório. Role 1d6 no início de seus turnos: 1) Movimenta-se em uma direção escolhida por uma rolagem de 1d8; 2-3) Não pode fazer ações, exceto reações, e fica balbuciando incoerentemente; 4-5) Usa a arma que estiver empunhando para atacar a criatura mais próxima, ou a si mesmo se estiver sozinho (nesse caso, apenas role o dano); 6) A condição termina e pode agir normalmente. <i>Condição mental.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Confuso</strong><br><br> O personagem comporta-se de modo aleatório. Role 1d6 no início de seus turnos: 1) Movimenta-se em uma direção escolhida por uma rolagem de 1d8; 2-3) Não pode fazer ações, exceto reações, e fica balbuciando incoerentemente; 4-5) Usa a arma que estiver empunhando para atacar a criatura mais próxima, ou a si mesmo se estiver sozinho (nesse caso, apenas role o dano); 6) A condição termina e pode agir normalmente. <i>Condição mental.</i>"
     },
     "debilitado": {
-        "modifiers": [ { "atributos.for.penalidade": 5, "atributos.des.penalidade": 5, "atributos.con.penalidade": 5 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Debilitado</strong><br><br> O personagem sofre –5 em testes de atributos físicos (Força, Destreza e Constituição) e de perícias baseadas nesses atributos. Se o personagem ficar debilitado novamente, em vez disso fica inconsciente.",
-        "durationType": "cena"
+        "tooltip": "<strong>Debilitado</strong><br><br> O personagem sofre –5 em testes de atributos físicos (Força, Destreza e Constituição) e de perícias baseadas nesses atributos. Se o personagem ficar debilitado novamente, em vez disso fica inconsciente."
     },
     "desprevenido": {
-        "modifiers": [ { "defesa.penalidade" : 5 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Desprevenido</strong><br><br> Despreparado para reagir. O personagem sofre –5 na Defesa e em Reflexos. Você fica desprevenido contra inimigos que não possa ver.",
-        "durationType": "cena"
+        "tooltip": "<strong>Desprevenido</strong><br><br> Despreparado para reagir. O personagem sofre –5 na Defesa e em Reflexos. Você fica desprevenido contra inimigos que não possa ver."
     },
     "doente": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Doente</strong><br><br> Sob efeito de uma doença.",
-        "durationType": "special"
+        "tooltip": "<strong>Doente</strong><br><br> Sob efeito de uma doença."
     },
     "em-chamas": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Em Chamas</strong><br><br> O personagem está pegando fogo. No início de seus turnos, sofre 1d6 pontos de dano de fogo. O personagem pode gastar uma ação padrão para apagar o fogo com as mãos. Imersão em água também apaga as chamas.",
-        "durationType": "cena"
+        "tooltip": "<strong>Em Chamas</strong><br><br> O personagem está pegando fogo. No início de seus turnos, sofre 1d6 pontos de dano de fogo. O personagem pode gastar uma ação padrão para apagar o fogo com as mãos. Imersão em água também apaga as chamas."
     },
     "enjoado": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Enjoado</strong><br><br> O personagem só pode realizar uma ação padrão ou de movimento (não ambas) por rodada. Ele pode gastar uma ação padrão para fazer uma investida, mas pode avançar no máximo seu deslocamento (e não o dobro).",
-        "durationType": "cena"
+        "tooltip": "<strong>Enjoado</strong><br><br> O personagem só pode realizar uma ação padrão ou de movimento (não ambas) por rodada. Ele pode gastar uma ação padrão para fazer uma investida, mas pode avançar no máximo seu deslocamento (e não o dobro)."
     },
     "enredado": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : 2 }],
-        "childrenConditions": ["lento", "vulneravel"],
-        "tooltip": "<strong>Enredado</strong><br><br> O personagem fica lento, vulnerável e sofre –2 em testes de ataque. <i>Condição de paralisia.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Enredado</strong><br><br> O personagem fica lento, vulnerável e sofre –2 em testes de ataque. <i>Condição de paralisia.</i>"
     },
     "envenenado": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Envenenado</strong><br><br> O efeito desta condição varia de acordo com o veneno. Pode ser outra condição (por exemplo, fraco ou enjoado) ou dano recorrente (por exemplo, 1d12 pontos de dano por rodada). A descrição do veneno determina a duração dele (caso nada seja dito, a condição dura pela cena).",
-        "durationType": "cena"
+        "tooltip": "<strong>Envenenado</strong><br><br> O efeito desta condição varia de acordo com o veneno. Pode ser outra condição (por exemplo, fraco ou enjoado) ou dano recorrente (por exemplo, 1d12 pontos de dano por rodada). A descrição do veneno determina a duração dele (caso nada seja dito, a condição dura pela cena)."
     },
     "esmorecido": {
-        "modifiers": [ { "atributos.int.penalidade": 5, "atributos.sab.penalidade": 5, "atributos.car.penalidade": 5 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Esmorecido</strong><br><br> O personagem sofre –5 em testes de atributos mentais (Inteligência, Sabedoria e Carisma) e de perícias baseadas nesses atributos. <i>Condição mental.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Esmorecido</strong><br><br> O personagem sofre –5 em testes de atributos mentais (Inteligência, Sabedoria e Carisma) e de perícias baseadas nesses atributos. <i>Condição mental.</i>"
     },
     "exausto": {
         "modifiers": [],
@@ -142,106 +95,58 @@ T20Config.conditions = {
         "durationType": "cena"
     },
     "fascinado": {
-        "modifiers": [ {"pericias.per.penalidade" : 5}],
-        "childrenConditions": [],
-        "tooltip": "<strong>Fascinado</strong><br><br> Com a atenção presa em alguma coisa. O personagem sofre –5 em Percepção e não pode fazer ações, exceto observar aquilo que o fascinou. Qualquer ação hostil contra o personagem anula esta condição. Balançar uma criatura fascinada para tirá-la desse estado gasta uma ação padrão. <i>Condição mental.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Fascinado</strong><br><br> Com a atenção presa em alguma coisa. O personagem sofre –5 em Percepção e não pode fazer ações, exceto observar aquilo que o fascinou. Qualquer ação hostil contra o personagem anula esta condição. Balançar uma criatura fascinada para tirá-la desse estado gasta uma ação padrão. <i>Condição mental.</i>"
     },
     "fatigado": {
-        "modifiers": [],
-        "childrenConditions": ["fraco","vulneravel"],
-        "tooltip": "<strong>Fatigado</strong><br><br> O personagem fica fraco e vulnerável. Se o personagem ficar fatigado novamente, em vez disso fica exausto. <i>Condição de fadiga.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Fatigado</strong><br><br> O personagem fica fraco e vulnerável. Se o personagem ficar fatigado novamente, em vez disso fica exausto. <i>Condição de fadiga.</i>"
     },
     "fraco": {
-        "modifiers": [ { "atributos.for.penalidade": 2, "atributos.des.penalidade": 2, "atributos.con.penalidade": 2 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Fraco</strong><br><br>  O personagem sofre –2 em testes de atributos físicos (Força, Destreza e Constituição) e de perícias baseadas nesses atributos. Se ficar fraco novamente, em vez disso fica debilitado.",
-        "durationType": "cena"
+        "tooltip": "<strong>Fraco</strong><br><br>  O personagem sofre –2 em testes de atributos físicos (Força, Destreza e Constituição) e de perícias baseadas nesses atributos. Se ficar fraco novamente, em vez disso fica debilitado."
     },
     "frustrado": {
-        "modifiers": [ { "atributos.int.penalidade": 2, "atributos.sab.penalidade": 2, "atributos.car.penalidade": 2 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Frustrado</strong><br><br> O personagem sofre –2 em testes de atributos mentais (Inteligência, Sabedoria e Carisma) e de perícias baseadas nesses atributos. Se ficar frustrado novamente, em vez disso fica esmorecido. <i>Condição mental.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Frustrado</strong><br><br> O personagem sofre –2 em testes de atributos mentais (Inteligência, Sabedoria e Carisma) e de perícias baseadas nesses atributos. Se ficar frustrado novamente, em vez disso fica esmorecido. <i>Condição mental.</i>"
     },
     "imovel": {
-        "modifiers": [ { "deslocamento.cond" : "zerado" }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Imóvel</strong><br><br> Todas as formas de deslocamento do personagem são reduzidas a 0m. <i>Condição de paralisia.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Imóvel</strong><br><br> Todas as formas de deslocamento do personagem são reduzidas a 0m. <i>Condição de paralisia.</i>"
     },
     "inconsciente": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Inconsciente</strong><br><br> O personagem fica indefeso e não pode fazer ações. Balançar uma criatura para acordá-la gasta uma ação padrão.",
-        "durationType": "cena"
+        "tooltip": "<strong>Inconsciente</strong><br><br> O personagem fica indefeso e não pode fazer ações. Balançar uma criatura para acordá-la gasta uma ação padrão."
     },
     "indefeso": {
-        "modifiers": [ { "defesa.penalidade" : 10, "pericias.ref.penalidade": 99 }],
-        "childrenConditions": ["desprevenido"],
-        "tooltip": "<strong>Indefeso</strong><br><br> O personagem é considerado desprevenido, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.",
-        "durationType": "cena"
+        "tooltip": "<strong>Indefeso</strong><br><br> O personagem é considerado desprevenido, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia."
     },
     "lento": {
-        "modifiers": [ { "deslocamento.cond" : "metade" }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Lento</strong><br><br> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. <i>Condição de paralisia.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Lento</strong><br><br> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. <i>Condição de paralisia.</i>"
     },
     "morto": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Morto</strong><br><br> O personagem está morto!",
-        "durationType": "special"
+        "tooltip": "<strong>Morto</strong><br><br> O personagem está morto!"
     },
     "ofuscado": {
-        "modifiers": [ { "modificadores.ataques.penalidade" : 2, "pericias.per.penalidade": 2 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Ofuscado</strong><br><br> O personagem sofre –2 em testes de ataque e de Percepção. <i>Condição de sentidos.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Ofuscado</strong><br><br> O personagem sofre –2 em testes de ataque e de Percepção. <i>Condição de sentidos.</i>"
     },
     "paralisado": {
-        "modifiers": [],
-        "childrenConditions": ["imovel","indefeso"],
-        "tooltip": "<strong>Paralisado</strong><br><br> O personagem fica imóvel e indefeso e só pode realizar ações puramente mentais. <i>Condição de paralisia.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Paralisado</strong><br><br> O personagem fica imóvel e indefeso e só pode realizar ações puramente mentais. <i>Condição de paralisia.</i>"
     },
     "pasmo": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Pasmo</strong><br><br> O personagem não pode fazer ações, exceto reações. <i>Condição mental.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Pasmo</strong><br><br> O personagem não pode fazer ações, exceto reações. <i>Condição mental.</i>"
     },
     "petrificado": {
-        "modifiers": [ { "rd.bonus" : 8 }],
-        "childrenConditions": ["inconsciente"],
-        "tooltip": "<strong>Petrificado</strong><br><br> O personagem fica inconsciente e recebe resistência a dano 8.",
-        "durationType": "cena"
+        "tooltip": "<strong>Petrificado</strong><br><br> O personagem fica inconsciente e recebe resistência a dano 8."
     },
     "sangrando": {
-        "modifiers": [],
-        "childrenConditions": [],
-        "tooltip": "<strong>Sangrando</strong><br><br> Com um ferimento aberto. No início de seus turnos, o personagem deve fazer um teste de Constituição (CD 15). Se passar, estabiliza e remove essa condição. Se falhar, sofre 1d6 pontos de dano e continua sangrando.",
-        "durationType": "cena"
+        "tooltip": "<strong>Sangrando</strong><br><br> Com um ferimento aberto. No início de seus turnos, o personagem deve fazer um teste de Constituição (CD 15). Se passar, estabiliza e remove essa condição. Se falhar, sofre 1d6 pontos de dano e continua sangrando."
     },
     "surdo": {
-        "modifiers": [ { "pericias.ini.penalidade": 5 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Surdo</strong><br><br> O personagem não pode fazer testes de Percepção para ouvir e sofre –5 em testes de Iniciativa. Além disso, é considerado em condição ruim para lançar magias. <i>Condição de sentidos.</i>",
-        "durationType": "cena"
+        "tooltip": "<strong>Surdo</strong><br><br> O personagem não pode fazer testes de Percepção para ouvir e sofre –5 em testes de Iniciativa. Além disso, é considerado em condição ruim para lançar magias. <i>Condição de sentidos.</i>"
     },
     "surpreendido": {
-        "modifiers": [],
-        "childrenConditions": ["desprevenido"],
-        "tooltip": "<strong>Surpreendido</strong><br><br> Não ciente de seus inimigos. O personagem fica desprevenido e não pode fazer ações, exceto reações.",
-        "durationType": "cena"
+        "tooltip": "<strong>Surpreendido</strong><br><br> Não ciente de seus inimigos. O personagem fica desprevenido e não pode fazer ações, exceto reações."
     },
     "vulneravel": {
-        "modifiers": [ { "defesa.penalidade" : 2 }],
-        "childrenConditions": [],
-        "tooltip": "<strong>Vulnerável</strong><br><br> O personagem sofre –2 na Defesa.",
-        "durationType": "cena"
+        "tooltip": "<strong>Vulnerável</strong><br><br> O personagem sofre –2 na Defesa."
+    },
+    "sobrecarregado": {
+        "tooltip": "<strong>Sobrecarregado</strong><br><br> O personagem sobre -2 de penalidade de armadura e tem seu deslocamento reduzido em 3m."
     }
 }
 
@@ -308,7 +213,7 @@ T20Config.pericias = {
     "lut": "Luta",
     "mis": "Misticismo",
     "nob": "Nobreza",
-    "ofi": "Oficios",
+    "ofi": "Ofício",
     "per": "Percepção",
     "pil": "Pilotagem",
     "pon": "Pontaria",
@@ -317,6 +222,12 @@ T20Config.pericias = {
     "sob": "Sobrevivência",
     "von": "Vontade"
 };
+
+T20Config.resistencias = {
+	"for": "Fortitude",
+	"ref": "Reflexos",
+	"von": "Vontade"
+}
 
 /* ------------------- Níveis ----------------- */
 
@@ -465,6 +376,23 @@ T20Config.weaponProperties = {
   "municao": "Munição",
   "versatil": "Versátil"
 };
+
+T20Config.passosDano = {
+    "1d3": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "1d4": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "1d6": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "1d8": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "2d4": ["1", "1d2", "1d3", "1d4", "1d6", "2d4", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "1d10": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "1d12": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "2d6": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "3d4": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "3d4", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    "2d8": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "3d8", "4d8", "4d10", "4d12"],
+    "2d10": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "2d10", "3d10", "4d10", "4d12"],
+    arr1: ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
+    arr2: ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "3d8", "4d8", "4d10", "4d12"],
+    arr3: ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "2d10", "3d10", "4d10", "4d12"]
+}
 
 T20Config.encantosArmas = { //Não Implementado
   "arremesso": {

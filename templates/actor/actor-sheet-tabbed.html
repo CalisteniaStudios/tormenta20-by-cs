@@ -9,12 +9,12 @@
 				<h1 class="charname">
 					<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 				</h1>
-				<div class="level-information {{#if disableExperience}}noxp{{/if}}" style="margin-right: 0.5em;">
-					<a class="level-settings"><div class="level" style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
+				<div class="level-information">
+					<a class="level-settings"><div class="level" style="width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
 					{{#unless disableExperience}}
 					<div class="xp-tracker" title="Experiência">
-							<div class="experience" style="height: 16px;">
-							<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
+							<div class="experience">
+							<input class="current-xp" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
 							<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
 						</div>
 						<div class="xp-bar">
@@ -50,9 +50,9 @@
 				<li class="attribute health">
 					<h4 class="attribute-name box-title">Pontos de Vida</h4>
 					<div class="attribute-value multiple">
-						<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" placeholder="10">
+						<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
 						<span class="sep">/</span>
-						<input disabled style="color: #191813" name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+						<input disabled name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 					</div>
 					<footer class="attribute-footer">
 						<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
@@ -61,7 +61,7 @@
 				<li class="attribute mana">
 					<h4 class="attribute-name box-title">Pontos de Mana</h4>
 					<div class="attribute-value multiple">
-						<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" placeholder="10">
+						<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
 						<span class="sep">/</span>
 						<input disabled style="color: #191813" name="data.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
 					</div>
@@ -71,29 +71,8 @@
 				</li>
 				<li class="attribute">
 					<h4 class="attribute-name box-title">Defesa</h4>
-					<div class="tooltip">
-						<div class="tooltipcontent">
-							<strong>Fontes:</strong>
-							<br/>
-							Base: 10
-							<br/>
-							{{#if data.defesa.des}}Destreza: {{data.atributos.des.mod}}
-							<br />{{else}}
-							{{#if (gt 0 data.atributos.des.mod)}}Destreza: {{data.atributos.des.mod}}
-							<br /> {{/if}}{{/if}}
-							{{#if data.defesa.armadura.equipado}} {{data.defesa.armadura.nome}}: {{data.defesa.armadura.value}}
-							<br /> {{/if}}
-							{{#if data.defesa.escudo.equipado}} {{data.defesa.escudo.nome}}: {{data.defesa.escudo.value}}
-							<br /> {{/if}}
-							{{#if data.defesa.outro}} Outros: {{data.defesa.outro}}
-							<br /> {{/if}}
-							{{#if data.defesa.temp}} Temporário: {{data.defesa.temp}}
-							<br /> {{/if}}
-
-						</div>
 						<div class="attribute-value">
 							<h1 style="height:auto">{{data.defesa.value}}</h1>
-						</div>
 					</div>
 					<footer class="attribute-footer">
 						{{#if actor.flags.mostrarOutrosDefesa}}<input name="data.defesa.outro" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.defesa.outro}}" />{{/if}}
@@ -113,7 +92,7 @@
 		<!-- <label><a class="item" data-tab="description">Biografia</a></label> -->
 		<label><a class="item" data-tab="journal">Diário</a></label>
 		<label><a class="item" data-tab="efeitos">Efeitos</a></label>
-		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cog"></i></a></label>
+		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
 
 
@@ -137,19 +116,19 @@
 				</li>
 				{{/each}}
 			</ul>
-			
+
 			{{!-- Skills --}}
+
 			{{> "systems/tormenta20/templates/actor/parts/actor-skills.html"}}
 
 			<section class="center-pane">
 			
-				{{#if (or actor.favoritos.armas.length actor.favoritos.itens.length actor.favoritos.poderes.length actor.favoritos.qtdMagias)}}
-				<div class="favoritos" style="margin-bottom: 5px;">
+				{{#if actor.favoritos}}
+				<div class="favoritos">
 					{{> "systems/tormenta20/templates/actor/parts/actor-favoritos.html"}}
 				</div>
 				{{/if}}
 				<div class="outros">
-					<h3 style="text-align:center">PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h3>
 					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
 					<textarea name="data.attributes.info" style="resize:vertical; border-image: none; border-width: 1px;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 				</div>
@@ -176,13 +155,13 @@
 		<div class="tab poderes" data-group="primary" data-tab="poderes">
 			{{> "systems/tormenta20/templates/actor/parts/actor-powers.html" sections=power}}
 		</div>
-		
+
 		{{#if actor.maiorCirculo}}
 		<div class="tab magias" data-group="primary" data-tab="magias">
 			{{> "systems/tormenta20/templates/actor/parts/actor-spells.html" sections=spells}}
 		</div>
 		{{/if}}
-		
+
 		<div class="tab inventory" data-group="primary" data-tab="inventory">
 			{{> "systems/tormenta20/templates/actor/parts/actor-inventory.html" sections=inventory}}
 		</div>
@@ -191,10 +170,11 @@
 		<div class="tab journal" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}
 		</div>
-		
+
 		{{!-- Efeitos Tab --}}
 		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
 			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
 		</div>
+
 	</section>
 </form>

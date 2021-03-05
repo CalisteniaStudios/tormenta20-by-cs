@@ -4,7 +4,7 @@ import TraitSelector from "../../apps/trait-selector.js";
 import LevelSettings from "../../apps/level-settings.js";
 import MovementConfig from "../../apps/movement-config.js";
 import { T20Utility } from '../../utility.js';
-
+import {onManageActiveEffect, prepareActiveEffectCategories} from "../../effects.js";
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
  * This sheet is an Abstract layer which is not used.
@@ -32,7 +32,8 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}]
+			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+			scrollY: [".sheet-body", ".tab.attributes", ".tab.magias", ".tab.inventory", ".tab.journal", ".tab.efeitos", ".tab.poderes"]
 		});
 	}
 
@@ -95,7 +96,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		this._prepareItems(data);
 
 		// Prepare active effects
-		// TODO Implement Active Effects
+		data.effects = prepareActiveEffectCategories(this.entity.effects);
 
 		return data;
 	}
@@ -120,40 +121,40 @@ export default class ActorSheetT20 extends ActorSheet {
 	// }
 	
 	/**
-   * Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
-   * @param {object} traits   The raw traits data object from the actor data
-   * @private
-   */
-  _prepareTraits(traits) {
-    const map = {
-      // "dr": CONFIG.DND5E.damageResistanceTypes,
-      // "di": CONFIG.DND5E.damageResistanceTypes,
-      // "dv": CONFIG.DND5E.damageResistanceTypes,
-      // "ci": CONFIG.DND5E.conditionTypes,
-      "idiomas": CONFIG.T20.idiomas,
-      "profArmas": CONFIG.T20.profArmas,
-      "profArmaduras": CONFIG.T20.profArmaduras,
-      // "toolProf": CONFIG.DND5E.toolProficiencies
-    };
-    for ( let [t, choices] of Object.entries(map) ) {
-      const trait = traits[t];
-      if ( !trait ) continue;
-      let values = [];
-      if ( trait.value ) {
-        values = trait.value instanceof Array ? trait.value : [trait.value];
-      }
-      trait.selected = values.reduce((obj, t) => {
-        obj[t] = choices[t];
-        return obj;
-      }, {});
+	* Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
+	* @param {object} traits   The raw traits data object from the actor data
+	* @private
+	*/
+	_prepareTraits(traits) {
+		const map = {
+			// "dr": CONFIG.DND5E.damageResistanceTypes,
+			// "di": CONFIG.DND5E.damageResistanceTypes,
+			// "dv": CONFIG.DND5E.damageResistanceTypes,
+			// "ci": CONFIG.DND5E.conditionTypes,
+			"idiomas": CONFIG.T20.idiomas,
+			"profArmas": CONFIG.T20.profArmas,
+			"profArmaduras": CONFIG.T20.profArmaduras,
+			// "toolProf": CONFIG.DND5E.toolProficiencies
+		};
+		for ( let [t, choices] of Object.entries(map) ) {
+			const trait = traits[t];
+			if ( !trait ) continue;
+			let values = [];
+			if ( trait.value ) {
+				values = trait.value instanceof Array ? trait.value : [trait.value];
+			}
+			trait.selected = values.reduce((obj, t) => {
+				obj[t] = choices[t];
+				return obj;
+			}, {});
 
-      // Add custom entry
-      if ( trait.custom ) {
-        trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
-      }
-      trait.cssClass = !isObjectEmpty(trait.selected) ? "" : "inactive";
-    }
-  }
+			// Add custom entry
+			if ( trait.custom ) {
+				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
+			}
+			trait.cssClass = !isObjectEmpty(trait.selected) ? "" : "inactive";
+		}
+	}
 
 	/* -------------------------------------------- */
 
@@ -177,7 +178,7 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	// TOTO refactor and standarize html listeners
 	activateListeners(html) {
-
+		
 		// Tooltips
 		html.mousemove(ev => this._moveTooltips(ev));
 
@@ -206,17 +207,27 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find("#configure-actor").click(ev => {
 				new game.tormenta20.applications.ActorSettings(this.actor).render(true);
 			});
+			html.find("#npc-editing").click(ev => {
+				let flags = this.actor.data.flags ?? {"flags": {}};
+				flags["flags.editing"] = flags.editing ? !flags.editing : true;
+				this.actor.update(flags);
+			});
+			// Active Effect management
+			html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.entity));
 		}
+		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.consumivel-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
+		html.find('.effect').on("contextmenu", ev => onManageActiveEffect(ev, this.entity));
+		html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
 		if ( this.actor.owner ) {
 			// Rollable abilities.
-			// html.find('.rollable').click(this._onRoll.bind(this));
-			html.find('.atributo-rollable').click(this._onRollAtributo.bind(this));
-			html.find('.pericia-rollable').click(this._onRollPericia.bind(this));
-			html.find('.arma-rollable').click(this._onItemRoll.bind(this));
-			html.find('.magia-rollable').click(this._onItemRoll.bind(this));
-			html.find('.poder-rollable').click(this._onItemRoll.bind(this));
-			html.find('.consumivel-rollable').click(this._onItemRoll.bind(this));
+			html.find('.rollable.atributo-rollable').click(this._onRollAtributo.bind(this));
+			html.find('.rollable.pericia-rollable').click(this._onRollPericia.bind(this));
 
 			// Update item
 			// html.find('.upItem').change(this._onUpdateItem.bind(this));
@@ -227,9 +238,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		else {
 			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
 		}
-		
-		// Open skill compendium entry
-		html.find("a.compendium-entry").click(this._onOpenCompendiumEntry.bind(this));
 		
 		// Handle default listeners last so system listeners are triggered first
     	super.activateListeners(html);
@@ -253,6 +261,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	 * @private
 	 */
 	async _onOpenCompendiumEntry(event) {
+		if (["oficios","custom"].includes(event.currentTarget.dataset.type)) return;
 		const entryKey = event.currentTarget.dataset.compendiumEntry;
 		const parts = entryKey.split(".");
 		const packKey = parts.slice(0, 2).join(".");
@@ -263,27 +272,27 @@ export default class ActorSheetT20 extends ActorSheet {
 	}
 	
 	/**
-   * Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
-   * @param {Event} event   The click event which originated the selection
-   * @private
-   */
-  _onTraitSelector(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const label = a.parentElement.querySelector("label");
-    const choices = CONFIG.T20[a.dataset.options];
-    const options = { name: a.dataset.target, title: label.innerText, choices };
-		switch ( a.dataset.options ) {
-			case "idiomas":
-			case "profArmas":
-			case "profArmaduras":
-				new TraitSelector(this.actor, options).render(true);
-				break;
-			case "deslocamento":
-				new MovementConfig(this.actor, options).render(true);
-				break;
-		}
-  }
+	* Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
+	* @param {Event} event   The click event which originated the selection
+	* @private
+	*/
+	_onTraitSelector(event) {
+		event.preventDefault();
+		const a = event.currentTarget;
+		const label = a.parentElement.querySelector("label");
+		const choices = CONFIG.T20[a.dataset.options];
+		const options = { name: a.dataset.target, title: label.innerText, choices };
+			switch ( a.dataset.options ) {
+				case "idiomas":
+				case "profArmas":
+				case "profArmaduras":
+					new TraitSelector(this.actor, options).render(true);
+					break;
+				case "deslocamento":
+					new MovementConfig(this.actor, options).render(true);
+					break;
+			}
+	}
 
 	_onLevelSettings(event) {
 		event.preventDefault();
@@ -376,6 +385,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	}
 
 	/* -------------------------------------------- */
+
 	async _onRollAtributo(event) {
 		event.preventDefault();
 		let atributo = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
@@ -383,6 +393,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		let rolls={};
 		let rollMode = event;
 		let parts = [];
+		let options = {event: event};
 		if(event.shiftKey){
 			let fakeItem = {
 				actor: this.actor,
@@ -394,14 +405,46 @@ export default class ActorSheetT20 extends ActorSheet {
 				isOwned: true
 			}
 			const configuration = await AbilityUseDialog.create(fakeItem);
-			console.log(configuration);
+			let aplicados = {};
+			if ( configuration ) {
+				let aplica = [].concat(configuration?.aplica) ?? [];
+				let ids = [].concat(configuration?.id) ?? [];
+				if (configuration?.bonus) parts.push(configuration?.bonus);
+				
+				aplica.forEach(function(ap, ind){
+					if(ap && ap !== "0"){
+						aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
+					}
+				});
+				// get Aprimoramentos from this item
+				let aprimoramentos = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+				aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+				options.aprimoramentos = [];
+				aprimoramentos.forEach(function(ef){
+					ef.data.changes.forEach(function(ch){
+						if( ch.key === "roll" && ch.mode === 2 ){
+							parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
+						}
+					});
+					if ( ef.data.flags.t20.custo === "" ){
+						options.truque = true;
+					} else if ( ef.data.flags.t20.custo ) {
+						options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+					}
 
-			if ( configuration.bonus ) parts.push(configuration.bonus);
+					options.aprimoramentos.push({
+						description: ef.data.label,
+						custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+						qtd: aplicados[ef.id]
+					});
+				});
+			}
 
 			rollMode = configuration.rollMode;
 		}
-
-		rolls.atq = await this.actor.rollAtributo(atributo, {parts: parts,event: event});
+		options.parts = parts;
+		rolls = await this.actor.rollAtributo(atributo, options);
+		//rolls.atq = await this.actor.rollAtributo(atributo, {parts: parts,event: event});
 
 		let itemData = {
 			name: CONFIG.T20.atributos[atributo]
@@ -427,34 +470,90 @@ export default class ActorSheetT20 extends ActorSheet {
 			id: pericia,
 			isOwned: true
 		}
+		let options = {event: event};
 		if(event.shiftKey){
 			const configuration = await AbilityUseDialog.create(itemData);
-			if ( configuration.bonus ) parts.push(configuration.bonus);
+			let aplicados = {};
+			if ( configuration ) {
+				let aplica = [].concat(configuration?.aplica) ?? [];
+				let ids = [].concat(configuration?.id) ?? [];
+				if (configuration?.bonus) parts.push(configuration?.bonus);
+				
+				aplica.forEach(function(ap, ind){
+					if(ap && ap !== "0"){
+						aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
+					}
+				});
+				// get Aprimoramentos from this item
+				let aprimoramentos = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
+				aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+				options.aprimoramentos = [];
+				aprimoramentos.forEach(function(ef){
+					ef.data.changes.forEach(function(ch){
+						if( ch.key === "roll" && ch.mode === 2 ){
+							parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
+						}
+					});
+					if ( ef.data.flags.t20.custo === "" ){
+						options.truque = true;
+					} else if ( ef.data.flags.t20.custo ) {
+						options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+					}
+
+					options.aprimoramentos.push({
+						description: ef.data.label,
+						custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+						qtd: aplicados[ef.id]
+					});
+				});
+			}
 			rollMode = configuration.rollMode;
 		}
-		rolls.atq = await this.actor.rollPericia(itemData, {parts: parts, event: event});
+		options.parts = parts;
+		rolls = await this.actor.rollPericia(itemData, options);
 		
 		this.actor.displayCard({rolls, itemData, rollMode});
 	}
 
 	_onItemRoll(event) {
 		event.preventDefault();
-		const itemId = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
-										: event.currentTarget.parentElement.dataset.itemId;
+		let itemId;
+		if (this.actor.data.type === "npc") {
+			itemId = event.currentTarget.dataset.itemId;
+		}
+		else {
+			itemId = event.currentTarget.closest(".item").dataset.itemId;
+		}
 		const item = this.actor.getOwnedItem(itemId);
+		const ignoreList = ["equip", "tesouro"];
+		if (ignoreList.includes(item.type)) return;
 		return item.roll();
 	}
-
-	/* -------------------------------------------- */
 
 	/**
 	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
 	* @private
 	*/
-	// TODO Implement summary [needed?]
-	// _onItemSummary(event) {
-	// 	event.preventDefault();
-	// }
+  _onItemSummary(event) {
+    event.preventDefault();
+    let li = $(event.currentTarget).parents(".item"),
+    item = this.actor.getOwnedItem(li.data("item-id")),
+    chatData = item.getChatData();
+
+    // Toggle summary
+    if ( li.hasClass("expanded") ) {
+      let summary = li.children(".item-summary");
+      summary.slideUp(200, () => summary.remove());
+    }
+		else {
+      let div = $(`<div class="item-summary">${chatData.description}</div>`);
+      let props = $(`<div class="item-properties"></div>`);
+      div.append(props);
+      li.append(div.hide());
+      div.slideDown(200);
+    }
+    li.toggleClass("expanded");
+  }
 
 	/* -------------------------------------------- */
 
@@ -600,25 +699,12 @@ export default class ActorSheetT20 extends ActorSheet {
 		// const item = this.actor.getOwnedItem(li.data("itemId"));
 		const item = this.actor.items.get(li.dataset.itemId);
 		if(item.data.type === "equip" && item.data.data.equipado) {
-			const armadura = {
-				nome: "",
-				defesa:  0,
-				penalidade: 0,
-				equipado: false
-			};
-			if (item.data.data.tipo === "leve" || item.data.data.tipo === "pesada") {
-				this.actor.update({
-					"data.defesa.armadura": armadura,
-					"data.defesa.des": true
-				});
-			}
-			else if (item.data.data.tipo === "escudo") {
-				this.actor.update({
-					"data.defesa.escudo": armadura,
-				});
+			const armor = ["leve", "pesada"];
+			if (armor.includes(item.data.data.tipo)) {
+				this.actor.update({ "data.defesa.des": true });
 			}
 		}
-		if (item.data.type === "classe") {
+		else if (item.data.type === "classe") {
 			const niveis = item.data.data.niveis;
 			const actorData = this.actor.data;
 			if (niveis === actorData.data.attributes.nivel.value) {
@@ -633,6 +719,31 @@ export default class ActorSheetT20 extends ActorSheet {
 		this.actor.deleteOwnedItem(li.dataset.itemId);
 	}
 
+	/* -------------------------------------------- */
+
+	/**
+	* Handle rolling an Ability check, either a test or a saving throw
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	// TODO refactor and standarize html listeners
+	// _onRollAbilityTest(event) {
+	// 	event.preventDefault();
+	// 	let ability = event.currentTarget.parentElement.dataset.ability;
+	// 	this.actor.rollAbility(ability, {event: event});
+	// }
+
+	/* -------------------------------------------- */
+
+	/**
+	* TODO onToggle for Skill Training, Spell Prepared, Item Equiped
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	// TODO refactor and standarize html listeners
+	// _onToggleXXX(event) {
+	// 	event.preventDefault();
+	// }
 
 	/* -------------------------------------------- */
 

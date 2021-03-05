@@ -38,23 +38,17 @@ export async function createT20Macro(data, slot) {
 		let command = "";
 		if (item.type === "arma") {
 			command = `
-			//UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
-			//VALORES SERÃO SOMADOS A CARACTEÍSTICA.
-			//INICIAR COM "=" SUBSTITUIRÁ O BÔNUS DA FICHA DA ARMA
-			game.tormenta20.rollItemMacro("${item.name}",{
-				'atq' : "0",
-				'dadoDano' : "",
-				'dano' : "0", 
-				'margemCritico' : "0",
-				'multCritico' : "0",
-				'pericia' : "",
-				'atributo' : "",
-				'tipo' : "",
-				'alcance' : "",
-				'custo' : "0",
-				'nome' : "",
-				'descricao' : ""
-			});`;
+//UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
+//VALORES SERÃO SOMADOS A CARACTEÍSTICA.
+//INICIAR COM "=" SUBSTITUIRÁ O BÔNUS DA FICHA DA ARMA
+game.tormenta20.rollItemMacro("${item.name}",{
+	'atq' : "0",
+	'dadoDano' : "",
+	'dano' : "0", 
+	'margemCritico' : "0",
+	'multCritico' : "0",
+	'pericia' : ""
+});`;
 		} else {
 			command = `game.tormenta20.rollItemMacro("${item.name}");`;
 		}
@@ -103,7 +97,7 @@ export async function rollItemMacro(itemName, extra = null) {
 	const item = items[0];
 
 	// Trigger the item roll
-	return item.roll();
+	return item.roll({extra:extra});
 }
 
 

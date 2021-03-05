@@ -43,13 +43,16 @@ export default class AprimoramentoApplication extends FormApplication {
      * @override
      */
     getData() {
+        console.log(this);
         const data = {
             owner: this.actor.owner,
             aprimoramento: this.aprimoramento,
             limited: this.actor.limited,
             options: this.options,
             editable: this.isEditable,
-            cssClass: this.actor.owner ? "editable": "locked"
+            cssClass: this.actor.owner ? "editable": "locked",
+            selmulti: ["ability","skill"].includes(this.aprimoramento.objeto) ? "" : "hidden",
+            config: CONFIG.T20
         };
 
         return data;
@@ -61,7 +64,25 @@ export default class AprimoramentoApplication extends FormApplication {
      */
     activateListeners(html) {
         super.activateListeners(html);
-
+        const target = $('.objeto-selection');
+        html.find('.objeto-select').change(function(ev) {
+            if(ev.currentTarget.value === "ability" ){
+                html.find('.aprimoramento-objeto-selection')[0].classList.remove("hidden");
+                target.find('option').remove();
+                for (const ability of Object.entries(CONFIG.T20.atributos)) {
+                    target.append(`<option value="${ability[0]}">${ability[1]}</option>`);
+                }
+            } else if(ev.currentTarget.value === "skill") {
+                target.find('option').remove();
+                html.find('.aprimoramento-objeto-selection')[0].classList.remove("hidden");
+                for (const ability of Object.entries(CONFIG.T20.pericias)) {
+                    target.append(`<option value="${ability[0]}">${ability[1]}</option>`);
+                }
+            } else {
+                html.find('.aprimoramento-objeto-selection')[0].classList.add("hidden");
+                html.find('.objeto-selection')[0].value = "";
+            }
+        });
     }
 
     /** @override */

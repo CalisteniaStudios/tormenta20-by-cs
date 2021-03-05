@@ -534,7 +534,6 @@ button {
   float:left;
   border-right:2px groove #eeede0;
   line-height:34px;
-  color:#4b4a44;
   margin:2px 0;
   padding:0;
 }
@@ -547,7 +546,6 @@ button {
 
 .tormenta20 .tabbed .form-group label {
   flex:2;
-  color:#4b4a44;
   font-weight:bold;
 }
 
@@ -726,10 +724,6 @@ button {
   width:100%;
 }
 
-.tormenta20 .item-list .item-toggles .item-toggle.active,.tormenta20 .tabbed input:disabled,.tormenta20 .tabbed select:disabled,.tormenta20 .tabbed textarea:disabled {
-  color:#4b4a44;
-}
-
 .tormenta20 ul.skills-list,.tormenta20 .tabbed ul.skills-list {
   flex:0 0 300px;
   height:auto;
@@ -761,7 +755,6 @@ button {
   height:18px;
   line-height:16px;
   font-size:18px;
-  color:#4b4a44;
   border-bottom:1px solid #c9c7b8;
   margin:4px 3px 2px;
 }

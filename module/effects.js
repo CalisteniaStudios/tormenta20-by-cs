@@ -11,11 +11,13 @@ export function onManageActiveEffect(event, owner) {
 	switch ( a.dataset.action ) {
 		case "create":
 		return ActiveEffect.create({
-			label: "New Effect",
+			label: "Novo Efeito",
 			icon: "icons/svg/aura.svg",
 			origin: owner.uuid,
+			flags: { t20: { onuse: li.dataset.effectType=="onuse" } },
 			"duration.rounds": li.dataset.effectType === "temporary" ? 1 : undefined,
-			disabled: li.dataset.effectType === "inactive"
+			"duration.seconds": undefined,
+			disabled: ["inactive","onuse"].includes(li.dataset.effectType)
 		}, owner).create();
 		case "edit":
 		return effect.sheet.render(true);
@@ -56,11 +58,19 @@ export function prepareActiveEffectCategories(effects) {
 			effects: []
 		}
 	};
-
 	// Iterate over active effects, classifying them into categories
 	for ( let e of effects ) {
 		e._getSourceName(); // Trigger a lookup for the source name
-		if ( e.data.disabled ) categories.inactive.effects.push(e);
+		if(e.parent.entity == "Actor" && e.data.origin && e.data.origin.split(".")[3]) {
+			const actor = e.parent;
+			const item = actor.items.get(e.data.origin.split(".")[3]);
+			if(item && item.type == "equip" && (e.data.disabled !== !item.data.data.equipado) ){
+				e.update({disabled: !item.data.data.equipado});
+			}
+		}
+
+		if ( e.data.flags.onuse || e.data.flags.t20?.onuse ) categories.onuse.effects.push(e);
+		else if ( e.data.disabled ) categories.inactive.effects.push(e);
 		else if ( e.isTemporary ) categories.temporary.effects.push(e);
 		else categories.passive.effects.push(e);
 	}

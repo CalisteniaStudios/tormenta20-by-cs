@@ -45,9 +45,9 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 		// Initialize containers.
 		const poderes = [];
-		const equipamentos = [];
 		const ataques = [];
 		const armas = [];
+		const inventario = []
 		const magias = {
 			1: {
 				spells: [],
@@ -75,6 +75,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// let totalWeight = 0;
 		let x = 0;
 		let temMagias = false;
+		let mostrarInventario = false;
 		for (let i of data.items) {
 			let item = i.data;
 			i.img = i.img || DEFAULT_TOKEN;
@@ -90,13 +91,10 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			}
 			// If this is equipment, we currently lump it together.
 			else if (i.type === 'equip') {
-				equipamentos.push(i);
-				// carga = [];
-				// carga.push(i.peso);
-				// carga.reduce((a,b) => a+b,0);
-				// actorData.data.detalhes.carga = carga;
+				inventario.push(i);
+				mostrarInventario = true;
 			} else if (i.type === 'arma') {
-				let tempatq = `${actorData.data.pericias[i.data.pericia].value} + ${i.data.atqBns}`;
+				let tempatq = `${actorData.data.atributos[i.data.atrAtq].mod} + ${i.data.atqBns}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
@@ -110,8 +108,11 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 				i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
 
-				i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+				// i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
+				i.data.dmg = new Roll(tempdmg).formula;
 				armas.push(i);
+				inventario.push(i);
+				if (i.data.tipoUso != "natural") mostrarInventario = true;
 			} else if (i.type === 'ataque') {
 				let tempatq = `${i.data.bonusAtq}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
@@ -131,11 +132,15 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 				i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1) + (b*1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '');
 
-				i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1+b*1>=0 ? '+'+(a*1+b*1) : ''+(a*1+b*1)), '') || '');
-
+				// i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1+b*1>=0 ? '+'+(a*1+b*1) : ''+(a*1+b*1)), '') || '');
+				i.data.dmg = new Roll(tempdmg).formula;
 
 
 				ataques.push(i);
+			}
+			else {
+				inventario.push(i);
+				mostrarInventario = true;
 			}
 		}
 
@@ -143,11 +148,14 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		actorData.poderes = poderes.length ? poderes : null;
 		// Spells
 		actorData.magias = temMagias ? magias : null;
-		// Equipment
-		actorData.equipamentos = equipamentos;
 		// Attacks
 		actorData.ataques = ataques.length ? ataques : null;
 		actorData.armas = armas.length ? armas : null;
+		//Inventário
+		actorData.mostrarInventario = mostrarInventario;
+		actorData.inventario = inventario.length ? inventario : null;
+		//Perícias
+		actorData.mostrarPericias = actorData.data.periciasCustom[0] ? true : false;
 	}
 
 
@@ -171,14 +179,16 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		} else {
 			html.find('.npc-line').removeClass("flexrow");
 		}
-		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		// if ( this.actor.owner ) {
-		// 	html.find('.rollable').each((i, el) => el.setAttribute("draggable", true));
-		// } else {
-		// 	html.find('.rollable').each((i, el) => el.removeAttribute("draggable"));
-		// }
+		if ( this.actor.owner ) {
+			// Rollable abilities.
+			html.find('.magia-rollable').click(event => this._onItemRoll(event));
+			html.find('.arma-rollable').click(event => this._onItemRoll(event));
+			html.find('.poder-rollable').click(event => this._onItemRoll(event));
+
+			// Update item
+			// html.find('.upItem').change(this._onUpdateItem.bind(this));
+
+		}
 
 		// Drag events for macros.
 		let handler = ev => this._onDragStart(ev);

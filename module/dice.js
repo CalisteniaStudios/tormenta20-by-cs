@@ -65,7 +65,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 	return roll;
 }
 
-export async function damageRoll({parts, actor, data, event={}, critical=false, lancinante=false, criticalMultiplier=2}={}) {
+export async function damageRoll({parts, actor, data, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false}={}) {
 
 	parts = parts.concat(["@bonus"]);
 	// Define inner roll function
@@ -95,10 +95,12 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 				roll._formula = roll.formula;
 			}
 		}
-
+		// minMax
+		const min = minmax && minmax == "min" ? true : false;
+		const max = minmax && minmax == "max" ? true : false;
 		// Execute the roll
 		try {
-			return roll.roll();
+			return roll.evaluate({maximize:max,minimize:min});
 		} catch(err) {
 			console.error(err);
 			ui.notifications.error(`Avaliação de rolagem falhou: ${err.message}`);

@@ -1,0 +1,138 @@
+/**
+ * A helper class for building MeasuredTemplates for 5e spells and abilities
+ * @extends {MeasuredTemplate}
+ */
+export default class AbilityTemplate extends MeasuredTemplate {
+
+  /**
+   * A factory method to create an AbilityTemplate instance using provided data from an Item5e instance
+   * @param {Item5e} item               The Item object for which to construct the template
+   * @return {AbilityTemplate|null}     The template object, or null if the item does not produce a template
+   */
+  static fromData(options) {
+    let type = options.type;
+    let distance = options.distance;
+    if (!type) return null;
+    if (!distance) return null;
+    if (!["cone", "circle", "rect", "ray"].includes(type)) return null;
+
+    // Prepare template data
+    const templateData = {
+      t: type,
+      user: game.user._id,
+      distance: distance,
+      direction: 0,
+      x: 0,
+      y: 0,
+      fillColor: game.user.color
+    };
+
+    // Additional type-specific data
+    switch ( type ) {
+      case "cone": // T20 cone RAW should be 54 degrees Width == Length
+        templateData.angle = 54;
+        break;
+      case "rect": // T20 rectangular AoEs are always cubes
+        templateData.distance = Math.hypot(distance, distance);
+        templateData.width = distance;
+        templateData.direction = 45;
+        break;
+      case "ray": // T20 rays are most commonly 1 square (1,5m) in width (will resize for small maps)
+        templateData.distance = Math.min(distance, canvas.dimensions.width/canvas.dimensions.size, canvas.dimensions.height/canvas.dimensions.size);
+        if( templateData.distance < distance ) ui.notifications.info(`O template de linha foi reduzido devido ao tamanho do mapa.`);
+        templateData.width = canvas.dimensions.distance;
+        break;
+      default:
+        break;
+    }
+
+    // Return the template constructed from the item data
+    const template = new this(templateData);
+    template.actorSheet = options.actor?.sheet || null;
+    return template;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Creates a preview of the spell template
+   */
+  drawPreview() {
+    const initialLayer = canvas.activeLayer;
+
+    // Draw the template and switch to the template layer
+    this.draw();
+    this.layer.activate();
+    this.layer.preview.addChild(this);
+
+    // Hide the sheet that originated the preview
+    if ( this.actorSheet ) this.actorSheet.minimize();
+
+    // Activate interactivity
+    this.activatePreviewListeners(initialLayer);
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Activate listeners for the template preview
+   * @param {CanvasLayer} initialLayer  The initially active CanvasLayer to re-activate after the workflow is complete
+   */
+  activatePreviewListeners(initialLayer) {
+    const handlers = {};
+    let moveTime = 0;
+
+    // Update placement (mouse-move)
+    handlers.mm = event => {
+      event.stopPropagation();
+      let now = Date.now(); // Apply a 20ms throttle
+      if ( now - moveTime <= 20 ) return;
+      const center = event.data.getLocalPosition(this.layer);
+      const snapped = canvas.grid.getSnappedPosition(center.x, center.y, 2);
+      this.data.x = snapped.x;
+      this.data.y = snapped.y;
+      this.refresh();
+      moveTime = now;
+    };
+
+    // Cancel the workflow (right-click)
+    handlers.rc = event => {
+      this.layer.preview.removeChildren();
+      canvas.stage.off("mousemove", handlers.mm);
+      canvas.stage.off("mousedown", handlers.lc);
+      canvas.app.view.oncontextmenu = null;
+      canvas.app.view.onwheel = null;
+      initialLayer.activate();
+      if ( this.actorSheet ) this.actorSheet.maximize();
+    };
+
+    // Confirm the workflow (left-click)
+    handlers.lc = event => {
+      handlers.rc(event);
+
+      // Confirm final snapped position
+      const destination = canvas.grid.getSnappedPosition(this.x, this.y, 2);
+      this.data.x = destination.x;
+      this.data.y = destination.y;
+
+      // Create the template
+      canvas.scene.createEmbeddedEntity("MeasuredTemplate", this.data);
+    };
+
+    // Rotate the template by 3 degree increments (mouse-wheel)
+    handlers.mw = event => {
+      if ( event.ctrlKey ) event.preventDefault(); // Avoid zooming the browser window
+      event.stopPropagation();
+      let delta = canvas.grid.type > CONST.GRID_TYPES.SQUARE ? 30 : 15;
+      let snap = event.shiftKey ? delta : 5;
+      this.data.direction += (snap * Math.sign(event.deltaY));
+      this.refresh();
+    };
+
+    // Activate listeners
+    canvas.stage.on("mousemove", handlers.mm);
+    canvas.stage.on("mousedown", handlers.lc);
+    canvas.app.view.oncontextmenu = handlers.rc;
+    canvas.app.view.onwheel = handlers.mw;
+  }
+}

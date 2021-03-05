@@ -50,8 +50,58 @@ export default class AbilityUseDialog extends Dialog {
 		const actorData = item.actor.data.data;
 		const itemData = item.data.data;
 		const pmCost = item.data.data?.custo > 0 ? true : false;
-		let aprimoramentos = itemData?.aprimoramentos ?? {};
+		// let aprimoramentos = itemData?.aprimoramentos ?? [];
+		let aprimoramentos = [];
+		let apdeap = {};
+		const group = {
+			arma: ["attack","attackm","attackr","damage","damagem","damager","skill","skills"],
+			magia: ["spells"],
+			poder: ["power"],
+			pericia: ["skill","skills"],
+			atributo: ["abilities","ability"],
+			consumivel: ["consumable"]
+		}
+		// let gap = [];
+		// item.actor.items.forEach(function(it){
+		// 	it.data.data.aprimoramentos?.forEach(function(ap){
+		// 		if(group[item.type].includes(ap.objeto)) aprimoramentos.push(ap);
+		// 	})
+		// });
+		// console.log(item.actor);
 		
+		switch (item.type){
+			case "arma":
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && (ae.data.flags.t20.attack ) );
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
+				// add self  || ae.data.flags.t20.self
+				
+				aprimoramentos.forEach(function(ap){
+					let iid = ap.data.origin.split(".")[3] || "";
+					if(item._id && iid && item._id != iid){
+						apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.t20.onuse && ownit.data.flags.t20.self);
+					}
+				});
+				break;
+			case "atributo":
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ae.data.flags.t20.ability );
+
+				break;
+			case "pericia":
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ae.data.flags.t20.skill );
+				break;
+			case "magia":
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.spell ));
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
+				break;
+			case "poder":
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.power ) );
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
+				break;
+			case "consumivel":
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.consumable ) );
+				break;
+		}
+
 		// TODO Check if Actor have sufficient MP
 		// TODO Include cosume os Ammunition, Itens, Money
 		// TODO Include measured templates placement
@@ -63,6 +113,7 @@ export default class AbilityUseDialog extends Dialog {
 			custo: itemData?.custo ?? null,
 			formula: (["arma", "poder", "pericia", "magia", "atributo", "consumivel"].includes(item.type)),
 			formuladano: item.type === "arma",
+			itype: item.type,
 			consumeMP: pmCost,
 			aprimoramentos: aprimoramentos,
 			errors: []

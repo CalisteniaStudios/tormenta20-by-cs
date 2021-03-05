@@ -3,13 +3,10 @@
 	{{!-- Sheet Tab Navigation --}}
 
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<label>
-			<i class="fas fa-dice-d20"></i>
-			<a class="item" data-tab="attributes" title="Ficha">Ficha</a>
-		</label>
-		<label><i class="fas fa-book"></i><a class="item" data-tab="journal">Diário</a></label>
-		<!-- <label><i class="fas fa-wrench"></i> <a class="item" data-tab="aviso" title="Aviso">Aviso</a></label> -->
-		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cog"></i></a></label>
+		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
+		<label><i class="fas fa-book"></i> <a class="item" data-tab="journal">Diário</a></label>
+		<label><i class="fas fa-bahai"></i> <a class="item" data-tab="efeitos" title="Efeitos">Efeitos</a></label>
+		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
 
 
@@ -25,15 +22,15 @@
 				<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
 				<section class="header-details flexcol">
 					<section class="general-information">
-						<h1 class="charname"">
+						<h1 class="charname">
 							<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 						</h1>
-						<div class="level-information" style="margin-right: 0.5em;">
-							<a class="level-settings"><div class="level" style="color: var(--primary-color); border: 1px solid transparent; display:inline-block; width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
+						<div class="level-information">
+							<a class="level-settings"><div class="level" style="width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
 							{{#unless disableExperience}}
 							<div class="xp-tracker" title="Experiência">
-									<div class="experience" style="height: 16px;">
-									<input class="current-xp" style="display: block; border: 1px solid transparent; border-radius: 3px; background: none; transition: background .3s ease, border-color .3s ease; margin:0;" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
+									<div class="experience">
+									<input class="current-xp" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
 									<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
 								</div>
 								<div class="xp-bar">
@@ -96,9 +93,9 @@
 							<li class="attribute health">
 								<h4 class="attribute-name box-title">Pontos de Vida</h4>
 								<div class="attribute-value multiple">
-									<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" placeholder="10">
+									<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
 									<span class="sep">/</span>
-									<input disabled style="color: #191813" name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+									<input disabled name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 								</div>
 								<footer class="attribute-footer">
 									<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
@@ -107,7 +104,7 @@
 							<li class="attribute mana">
 								<h4 class="attribute-name box-title">Pontos de Mana</h4>
 								<div class="attribute-value multiple">
-									<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" placeholder="10">
+									<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
 									<span class="sep">/</span>
 									<input disabled style="color: #191813" name="data.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
 								</div>
@@ -120,7 +117,6 @@
 					<div class="ataques">
 						<ol class="item-list">
 							<li class="item flexrow item-header">
-								<div class="item-image"></div>
 								<div class="item-name" >Arma</div>
 								<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
 								<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i>
@@ -130,14 +126,12 @@
 							<div style="max-height: 124px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							{{#each actor.armas as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
+								<div class="item-name flexrow rollable arma-rollable">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-								<span class="rollable arma-rollable item-name">
-									<h4 class="item-name" >{{item.name}}</h4>
-								</span>
-								
-								<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
+									<h4>{{item.name}}</h4>
+								</div>
+								<div class="item-rolls flex2">{{numberFormat item.data.atq sign=true}} {{#if item.data.dmg}}({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}}){{/if}}</div>
 								<div class="item-controls">
-									<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 									<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 								</div>
 							</li>
@@ -152,40 +146,18 @@
 							</li>
 							<li class="flexrow text-center" >
 								<div class="item-name" style="height:80px;">
-									<div class="tooltip">
-										<div class="tooltipcontent">
-											<strong>Fontes:</strong>
-											<br/>
-											Base: 10
-											<br/>
-											{{#if data.defesa.des}}Destreza: {{data.atributos.des.mod}}
-											<br />{{else}}
-											{{#if (gt 0 data.atributos.des.mod)}}Destreza: {{data.atributos.des.mod}}
-											<br /> {{/if}}{{/if}}
-											{{#if data.defesa.armadura.equipado}} {{data.defesa.armadura.nome}}: {{data.defesa.armadura.value}}
-											<br /> {{/if}}
-											{{#if data.defesa.escudo.equipado}} {{data.defesa.escudo.nome}}: {{data.defesa.escudo.value}}
-											<br /> {{/if}}
-											{{#if data.defesa.outro}} Outros: {{data.defesa.outro}}
-											<br /> {{/if}}
-											{{#if data.defesa.temp}} Temporário: {{data.defesa.temp}}
-											<br /> {{/if}}
-
-										</div>
-										<h1 style="padding:0">{{data.defesa.value}}</h1>
-									</div>
+										<h1 name="data.defesa.value" style="padding:0">{{data.defesa.value}}</h1>
 									<div class="flexrow">
 										{{#if actor.flags.mostrarOutrosDefesa}}
-										<input name="data.defesa.outro" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.defesa.outro}}" />
+											<input name="data.defesa.outro" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.defesa.outro}}" />
 										{{/if}}
-										<input name="data.defesa.temp" title="Bônus Temporário" type="number"  class="temphealth" placeholder="0" value="{{data.defesa.temp}}" />
+											<input name="data.defesa.temp" title="Bônus Temporário" type="number"  class="temphealth" placeholder="0" value="{{data.defesa.temp}}" />
 									</div>
 								</div>
 							</li>
 						</ol>
 						<ol class="item-list" style="width: calc(80% - 2px); max-height:100px; display:inline-block; vertical-align: top; margin:0; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
 							<li class="item flexrow item-header">
-								<div class="item-image"></div>
 								<div class="item-name flex2">Equipamento</div>
 								<div class="item-def">Defesa</div>
 								<div class="item-pen">Penalidade</div>
@@ -195,9 +167,10 @@
 							</li>
 							{{#each actor.equipamentos as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
+								<div class="item-name flex2 flexrow edit-favoritos">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-								<h4 class="item-name flex2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.name}}</h4>
-
+									<h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.name}}</h4>
+								</div>
 								<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
 								<div class="item-pen">{{item.data.armadura.penalidade}}</div>
 								<div class="item-toggles">
@@ -206,9 +179,6 @@
 									</a>
 								</div>
 								<div class="item-controls">
-									<a class="item-control item-edit" title="Editar">
-										<i class="fas fa-edit"></i>
-									</a>
 									<a class="item-control item-delete" title="Excluir">
 										<i class="fas fa-trash"></i>
 									</a>
@@ -228,10 +198,8 @@
 						{{> "systems/tormenta20/templates/actor/parts/actor-spells.html" sections=spells}}
 					</div>
 					{{/if}}
-
-
+					<hr>
 					<div class="outros">
-						<h4 style="font-weight: bold; text-align: center;">PROFICIÊNCIAS E OUTRAS CARACTERÍSTICAS</h4>
 						{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
 						<textarea name="data.attributes.info" style="resize:vertical;" rows="10" data-dtype="String">{{data.attributes.info}}</textarea>
 					</div>
@@ -273,7 +241,7 @@
 							{{#each actor.inventario as |item id|}}
 							<li class="item flexrow" data-item-id="{{item._id}}">
 								<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-								<h4 class="item-name {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{/if}}" style="flex: 5;">
+								<h4 class="item-name {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{else}}edit-favoritos{{/if}}" style="flex: 5;">
 									{{item.name}}
 								</h4>
 								<div class="item-qtd">{{item.data.qtd}}</div>
@@ -333,10 +301,10 @@
 		<div class="tab journal" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}
 		</div>
-		
-		{{!-- Aviso Tab --}}
-		<!-- <div class="tab aviso" data-group="primary" data-tab="aviso"> -->
-			<!-- {{!> "systems/tormenta20/templates/actor/parts/actor-aviso.html"}} -->
-		<!-- </div> -->
+
+		{{!-- Efeitos Tab --}}
+		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
+			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
 	</section>
 </form>

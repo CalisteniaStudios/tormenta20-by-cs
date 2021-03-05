@@ -50,7 +50,7 @@
         "defesa": {
           "value": 10,
           "outro": 0,
-          "bonus": 0,
+          "bonus": "",
           "penalidade": 0,
           "final": 0
         },
@@ -217,39 +217,37 @@
         },
         "referencias": {},
         "modificadores": {
-          "atributos" : {
-            "bonus" : 0,
-            "penalidade" : 0,
-            "value": ""
+          "atributos": {
+            "geral": 0,
+            "fisicos": 0,
+            "mentais": 0,
+            "for": 0,
+            "des": 0,
+            "con": 0,
+            "int": 0,
+            "sab": 0,
+            "car": 0
           },
-          "pericias" : {
-            "bonus" : 0,
-            "penalidade" : 0,
-            "value":""
+          "dano": {
+            "geral": 0,
+            "cac": 0,
+            "ad": 0,
+            "mag": 0
           },
-          "ataques" : {
-            "bonus" : 0,
-            "penalidade" : 0,
-            "dano": ""
-          },
-          "custosPM": {
-            "bonus": 0,
-            "penalidade": 0
-          }
-        },
-        "bonuses": {
-          "ataque":{
-            "ataque":"",
-            "dano":""
-          },
-          "atributos":{
-            "bonus":""
-          },
-          "pericias":{
-            "geral":"",
-            "semataque":"",
-            "ataque":"",
-            "resistencia":""
+          "custoPM":0,
+          "pericias": {
+            "geral": 0,
+            "semataque": 0, 
+            "ataque": 0, 
+            "resistencia": 0, 
+            "atr": {
+              "for": 0,
+              "des": 0,
+              "con": 0,
+              "int": 0,
+              "sab": 0,
+              "car": 0
+            }
           }
         }
       }
@@ -270,18 +268,7 @@
       },
       "defesa": {
         "des": true,
-        "armadura": {
-          "nome": "",
-          "value": 0,
-          "penalidade": 0,
-          "equipado": true
-        },
-        "escudo": {
-          "nome": "",
-          "value": 0,
-          "penalidade": 0,
-          "equipado": true
-        }
+        "pda": 0
       },
       "detalhes": {
         "altura": 0,
@@ -307,7 +294,6 @@
       "attributes": {
         "nd": ""
       },
-      "tamanho": "Médio",
       "sentidos":"",
       "biography":"",
       "equipament":"",
@@ -327,6 +313,12 @@
       },
       "efeitoAtivado": {
         "alcance": "",
+        "target": {
+          "value":null,
+          "comprimento":null,
+          "unidades":"",
+          "type":""
+        },
         "alvo": "",
         "area": "",
         "ativacao": {

@@ -66,4 +66,8 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper('multiply', (a, b) => {
     return a * b;
   });
+
+  Handlebars.registerHelper("find", function (arr, key, value) {
+    return arr.find(i => i[key] == value) ? true : false;
+  });
 }

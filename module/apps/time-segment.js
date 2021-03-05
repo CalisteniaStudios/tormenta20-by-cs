@@ -9,7 +9,7 @@ export const endSegment = async function (app, html) {
       for await (const token of canvas.tokens.placeables) {
         if (!token.data.actorLink) {
           for await (const efeito of token.actor.data.effects) {
-            if (efeito.durationType == "cena") {
+            if (efeito.flags.t20.durationScene) {
               historico += "<BR><B>" + token.data.name + "</b> deixou de estar <i>" + efeito.label + "</i>";
               const deleted = await token.actor.deleteEmbeddedEntity(
                 "ActiveEffect",
@@ -18,7 +18,7 @@ export const endSegment = async function (app, html) {
             }
           }        } else {
           for await (const efeito of token.actor.data.effects) {
-            if (efeito.durationType == "cena") {
+            if (efeito.flags.t20.durationScene) {
               historico += "<BR><B>" + token.actor.data.name + "</b> deixou de estar <i>" + efeito.label + "</i>";
               const thisActor = game.actors.get(token.actor.data._id);
               const deleted = await thisActor.deleteEmbeddedEntity(

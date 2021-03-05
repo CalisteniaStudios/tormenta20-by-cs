@@ -37,8 +37,14 @@
         <li>
           <div class="row">
             <b>
-            {{#ifEquals ap.tipo "Truque"}} Truque: {{else}}  {{#ifGreater ap.custo 0}}+{{/ifGreater}}{{ap.custo}}PM: {{/ifEquals}}
-            {{#ifEquals ap.tipo "Aumenta"}} ({{ap.qtd}}x) {{/ifEquals}}
+              {{#if truque}}
+              Truque:
+              {{else if (gt ap.custo 0)}}
+              +{{ap.custo}}PM:
+              {{#if (gt ap.qtd 1)}}
+              ({{ap.qtd}}x)
+              {{/if}}
+              {{/if}}
             </b>
             {{ap.description}}
           </div>
@@ -48,27 +54,23 @@
     </div>
     {{/if}}
 
-    {{#if roll}}
-      {{#if spell}}
-      <div class="roll roll--dano">{{{roll}}}</div>
-      {{else}}
-        {{#if critico}}
-          <div class="roll critico">{{{roll}}}</div>
-        {{else}}
-          {{#if falha}}
-            <div class="roll falha">{{{roll}}}</div>
-          {{else}}
-            <div class="roll">{{{roll}}}</div>
-          {{/if}}     
-        {{/if}}            
-      {{/if}}
-    {{/if}}
-    {{#if rollDano}}
-    <hr>
-    {{#if danosDesc}}<div class="row"><em>{{danosDesc}}</em></div>{{/if}}
-    <div class="roll roll--dano">{{{rollDano}}}</div>
-    {{/if}}
+    {{#each _rolls as |roll id|}}
+      {{#each ../rolls as |r i|}}
+        {{#if (eq id i)}}
+        <div class="row">{{r.title}}</div>
+        <div class="roll {{r.tipo}}">{{{roll}}}</div>  
+        {{/if}}
+      {{/each}}
+    {{/each}}
 
     <div id="aditionalbutton"></div>
 
+    
+    {{#if effects}}
+    <div id="activeEffectsbuttons">
+      {{#each effects as |ef i|}}
+      <button class="apply-button-ef" value="{{i}}" data-effect-index="{{i}}">{{{ef.data.label}}}</button>
+      {{/each}}
+    </div>
+    {{/if}}
 </div>

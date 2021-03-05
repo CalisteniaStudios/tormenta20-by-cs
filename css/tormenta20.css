@@ -86,21 +86,8 @@ table,
   display: flex;
 }
 
-.tormenta20 .npc span.item.rollable.magia-rollable:after {
-  content:",";
-  font-style: italic;
-}
-
-.tormenta20 .npc span.item.rollable.magia-rollable:last-child:after {
-  content:";\00a0"; /*\00a0 = espaço*/
-}
-
-.tormenta20 .npc .editing span.item.rollable.magia-rollable:last-child:after {
-  content:"";
-}
-
 .tormenta20.sheet .trait-list {
-  display:inline;
+  display:inline-block;
   padding:0;
   margin:0
 }
@@ -133,6 +120,11 @@ table,
   color: #fff;
   /*#f18c17;*/
   background: #0d0d0d;
+}
+
+#sidebar .apply-button button {
+  color: unset;
+  background: unset;
 }
 
 #combat #combat-controls button.scene-segment {
@@ -178,8 +170,12 @@ button {
 }
 
 .rollable:hover,
-.rollable:focus {
-  color: #000;
+.rollable:focus,
+.compendium-entry:hover, 
+.compendium-entry:focus,
+.edit-favoritos:hover,
+.edit-favoritos:focus {
+  color: red;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
@@ -259,20 +255,27 @@ button {
   flex-direction: row-reverse;
 }
 
+.tormenta20.sheet.actor .level-information {
+  margin-right: 0.5em;
+}
+
 .tormenta20.sheet.actor .level {
   padding: 4px 6px;
+  border: 1px solid transparent;
   border-radius: 3px;
   background: var(--faint-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 1.25rem;
   line-height: 1;
   height: 25px;
+  display:inline-block;
 }
 
 .tormenta20.sheet.actor .experience {
   display: flex;
   align-items: center;
   font-size: 16px;
+  height: 16px;
 }
 
 .tormenta20.sheet.actor .current-xp {
@@ -280,6 +283,12 @@ button {
   height: 16px;
   text-align: right;
   padding: 0 4px;
+  display: block;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: none;
+  transition: background .3s ease, border-color .3s ease;
+  margin:0;
 }
 
 .tormenta20.sheet.actor .max-xp::before {
@@ -405,7 +414,7 @@ button {
 .tormenta20.sheet.item .sheet-body .item-properties .form-group {
   margin: 0;
   border-bottom: 1px solid var(--faint-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 13px;
 }
 
@@ -622,15 +631,14 @@ button {
 }
 
 .tormenta20 .skills-list .skill .item-image,
-
 .tormenta20 .item-list .item .item-image {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 24px;
-  flex: 0 0 24px;
+  -ms-flex: 0 0 30px;
+  flex: 0 0 30px;
   margin-right: 5px;
-  height: 24px;
-  width: 24px;
-  background-size: 24px;
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
   background-repeat: no-repeat;
 }
 
@@ -682,13 +690,19 @@ button {
   -ms-flex: 0 0 42px;
   flex: 0 0 42px;
   text-align: right;
+  white-space: nowrap;
 }
 
+.tormenta20.sheet.item .item-list .item-controls,
+.tormenta20 .npc .effects-list .item-controls,
+.tormenta20 .base .effects-list .item-controls,
 .tormenta20 .tabbed .item-list .item-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 51px;
   flex: 0 0 51px;
   text-align: right;
+  white-space: nowrap;
+  display: flex;
 }
 
 .tormenta20 .item-list .item-controls a {
@@ -743,11 +757,6 @@ button {
   min-height: 70px;
   margin:5px 0;
 
-}
-
-.tormenta20 .rollable:hover {
-  cursor: pointer;
-  color: red;
 }
 
 .tormenta20 .header-fields .recursos label,
@@ -822,6 +831,13 @@ button {
   text-indent: -1.5em;
   padding-left: 1.5em;
 }
+.tormenta20 .npc .effects-list .item div.item-name{
+  text-indent: 0;
+  padding-left: 0;
+}
+.tormenta20 .npc .effects-list h3 {
+ font-size:1em;
+}
 
 .tormenta20 .npc .item-list .item div.item-controls {
   white-space: nowrap;
@@ -834,12 +850,10 @@ button {
 
 .tormenta20 .item-list .item-toggles .item-toggle {
   /*color: #b5b3a4;*/
-  color: #4b4a44;
   opacity: 0.5;
 }
 
 .tormenta20 .item-list .item-toggles .item-toggle.active {
-  /*color: #4b4a44;*/
   opacity: 1;
 }
 
@@ -888,6 +902,7 @@ button {
 .tormenta20.chat-card .card-header  h3.item-name {
   min-width: 190px;
   max-width: 190px;
+  font-size: 1.5em;
 }
 
 .tormenta20.chat-card .card-header span.custo div,
@@ -946,9 +961,9 @@ button {
 /* Tags */
 .tag {
   display: inline-block;
-  margin: 0 2px 0 0;
+  /* margin: 0 2px 0 0; */
   padding: 0 3px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 16px;
   border: 1px solid #999;
   border-radius: 3px;
@@ -1022,7 +1037,6 @@ button {
   line-height: 16px;
   margin: 4px 3px 2px;
   font-size: 18px;
-  /* color: #4b4a44; */
   border-bottom: 1px solid #c9c7b8;
 }
 
@@ -1053,9 +1067,12 @@ button {
 .tormenta20 .tabbed .sheet-header .attributes .attribute:last-child {
   border-right: none;
 }
-.tormenta20 .recursos  .attributes .attribute .attribute-value {
+.tormenta20 .recursos .attributes .attribute .attribute-value {
   height: auto;
   line-height: normal;
+}
+.tormenta20 .recursos .attributes .attribute .attribute-value:disabled {
+  color: #191813;
 }
 .tormenta20 .tabbed .sheet-header .attributes .attribute .attribute-value {
   height: 30px;
@@ -1128,7 +1145,6 @@ button {
   padding: 0;
   border-right: 2px groove #eeede0;
   line-height: 34px;
-  color: #4b4a44;
 }
 .tormenta20 .sheet-header .summary li:last-child {
   border-right: none;
@@ -1183,7 +1199,8 @@ button {
   column-gap: 5px;
 }
 
-.tormenta20 .npc.statfields input {
+.tormenta20 .npc.statfields input,
+.tormenta20 .npc.statfields select {
    display: inline-flex;
    font-size: 14px;
    width: auto;
@@ -1290,7 +1307,9 @@ button {
 }
 
 .tormenta20.sheet.actor .sheet-body .tab.attributes .attributes-body {
-  padding-left: 1em;
+  padding: 0 0.75em 1em 1rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .tormenta20.sheet.actor .tabbed .tab {
@@ -1478,9 +1497,65 @@ button {
   text-transform: uppercase;
 }
 
+.tormenta20.sheet.actor .item-list .item-summary {
+  flex: 0 0 100%;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0.25em 0.5em;
+  color: #191813;
+  border-top: 1px solid #c9c7b8;
+}
+.tormenta20.sheet.actor .item-list .item .item-name.rollable:hover .item-image {
+  background-image: url("../../../icons/svg/d20-grey.svg") !important;
+}
+.tormenta20.sheet.actor .item-list .item .item-name.rollable .item-image:hover {
+  background-image: url("../../../icons/svg/d20-black.svg") !important;
+}
+
 .tormenta20.sheet.actor ul.skills-list li.skill a.compendium-entry:hover .compendium-icon {
   visibility: visible;
 }
 .tormenta20.sheet.actor ul.skills-list li.skill .compendium-icon {
   visibility: hidden;
+}
+
+.tormenta20.sheet.actor .cdbase {
+  width: 30px;
+  margin: 0;
+  height: 19px;
+}
+
+.tormenta20.sheet.actor .selectAtr {
+  height: 19px;
+}
+
+.tormenta20.sheet .tab.efeitos {
+  padding: 0 .5rem!important;
+}
+.tormenta20 .effects-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0 0 0 5px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.tormenta20.sheet.actor .effects-list ol.ae-onuse li.effect {
+  min-width: 45%;
+  max-width: 50%;  
+}
+.tormenta20 .aprimoramentos-list input {
+  margin: 0;
+  max-height: 24px;
+  vertical-align: middle;
+}
+
+.tormenta20 .npc .effects-list .item-image{
+
+}
+/* Módulos */
+
+#dfcp-rt-buttons button { /*DF Chat Enhancement*/
+  background: rgba(255, 255, 240, 0.8);
 }

@@ -30,7 +30,7 @@ async function chatCondition(actor, condicao) {
 function findCondition(effects, condicao) {
   let condic = null;
   effects.forEach((element) => {
-    if (element.data.flags.core.statusId == condicao) condic = element;
+    if (element.data.label == condicao) condic = element;
   });
 
   return condic;

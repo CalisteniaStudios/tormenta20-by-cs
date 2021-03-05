@@ -1,4 +1,20 @@
 <div class="traits">
+	<h3 style="text-align: center;">Outras Características</h3>
+	<div>
+        <label style="display:inline-block;">Classe{{#if (gt actor.classes.length 1)}}s{{/if}}</label>
+		<ul class="trait-list">
+        {{#each actor.classes as |item|}}
+			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
+				<a class="item-control item-edit" title="Editar">
+				{{this.name}} {{this.data.niveis}}
+				</a>
+				<a class="item-control item-delete" title="Excluir">
+					<i class="fas fa-trash" style="float:unset;"></i>
+				</a>
+			</li>
+		{{/each}}
+		</ul>
+    </div>
 	<div>
         <label style="display:inline-block;">Tamanho</label>
         <select class="actor-size" name="data.tamanho">
@@ -15,21 +31,21 @@
 		<label style="display:inline-block;">Deslocamento</label>
         </a>
 		<ul class="trait-list">
-		{{#if data.attributes.movement.walk}}<li class="speedtag walk">{{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
-		{{#if data.attributes.movement.climb}}<li class="speedtag climb">Escalar {{data.attributes.movement.climb}}m ({{divide data.attributes.movement.climb 1.5}}q)</li>{{/if}}
-		{{#if data.attributes.movement.burrow}}<li class="speedtag burrow">Escavar {{data.attributes.movement.burrow}}m ({{divide data.attributes.movement.burrow 1.5}}q)</li>{{/if}}
-		{{#if data.attributes.movement.swim}}<li class="speedtag swim">Natação {{data.attributes.movement.swim}}m ({{divide data.attributes.movement.swim 1.5}}q)</li>{{/if}}
-		{{#if data.attributes.movement.fly}}<li class="speedtag fly">Voo {{data.attributes.movement.fly}}m ({{divide data.attributes.movement.fly 1.5}}q)</li>{{/if}}
-		{{#if data.attributes.movement.hover}}<li class="speedtag hover">Pairar</li>{{/if}}
+			{{#if data.attributes.movement.walk}}<li class="speedtag walk">{{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
+			{{#if data.attributes.movement.climb}}<li class="speedtag climb">Escalar {{data.attributes.movement.climb}}m ({{divide data.attributes.movement.climb 1.5}}q)</li>{{/if}}
+			{{#if data.attributes.movement.burrow}}<li class="speedtag burrow">Escavar {{data.attributes.movement.burrow}}m ({{divide data.attributes.movement.burrow 1.5}}q)</li>{{/if}}
+			{{#if data.attributes.movement.swim}}<li class="speedtag swim">Natação {{data.attributes.movement.swim}}m ({{divide data.attributes.movement.swim 1.5}}q)</li>{{/if}}
+			{{#if data.attributes.movement.fly}}<li class="speedtag fly">Voo {{data.attributes.movement.fly}}m ({{divide data.attributes.movement.fly 1.5}}q)</li>{{/if}}
+			{{#if data.attributes.movement.hover}}<li class="speedtag hover">Pairar</li>{{/if}}
         </ul>
 	</div>
 	
 	<div>
 		<label style="display:inline-block;">Resistência a Dano</label>
 		<input style="text-align:center;" name="data.rd.value" disabled title="Total" type="number" placeholder="0" value="{{data.rd.value}}" />
-			<label style="display:inline-block;">Base: <input name="data.rd.base" style="max-width: 30px; height: 20px;" title="Base" type="number" placeholder="0" value="{{data.rd.base}}" /></label>
-			<label style="display:inline-block;">Temporário: <input name="data.rd.temp" style="max-width: 30px; height: 20px;" title="Bônus Temporário" type="number"  placeholder="0" value="{{data.rd.temp}}" /></label>
-		</div>
+		<label style="display:inline-block;">Base: <input name="data.rd.base" style="max-width: 30px; height: 20px;" title="Base" type="number" placeholder="0" value="{{data.rd.base}}" /></label>
+		<label style="display:inline-block;">Temporário: <input name="data.rd.temp" style="max-width: 30px; height: 20px;" title="Bônus Temporário" type="number"  placeholder="0" value="{{data.rd.temp}}" /></label>
+	</div>
 	
 	<div>
         <label style="display:inline-block;">Resistências</label>
@@ -84,23 +100,8 @@
         <!-- </ul> -->
     <!-- </div> -->
 
-    {{#if isCharacter}}
 	<hr>
-	<div>
-        <label style="display:inline-block;">Classes</label>
-		<ul class="trait-list">
-        {{#each actor.classes as |item|}}
-			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
-				<a class="item-control item-edit" title="Editar">
-				{{this.name}} {{this.data.niveis}}
-				</a>
-				<a class="item-control item-delete" title="Excluir">
-					<i class="fas fa-trash" style="float:unset;"></i>
-				</a>
-			</li>
-		{{/each}}
-		</ul>
-    </div>
+	<h3 style="text-align: center;">Proficiências</h3>
 	
 	{{#if enableLanguages}}
     <div>
@@ -117,7 +118,7 @@
 	
     <div>
         <a class="trait-selector" data-options="profArmas" data-target="data.detalhes.profArmas">
-            <label style="display:inline-block;">Proficiências em Armas</label>
+            <label style="display:inline-block;">Armas</label>
         </a>
         <ul class="trait-list">
         {{#each data.detalhes.profArmas.selected as |v k|}}
@@ -128,7 +129,7 @@
 
     <div>
         <a class="trait-selector armaduras" data-options="profArmaduras" data-target="data.detalhes.profArmaduras">
-            <label style="display:inline-block;">Proficiências em Armaduras</label>
+            <label style="display:inline-block;">Armaduras</label>
         </a>
         <ul class="trait-list">
         {{#each data.detalhes.profArmaduras.selected as |v k|}}
@@ -136,7 +137,6 @@
         {{/each}}
         </ul>
     </div>
-    {{/if}}
 
     <!-- <div> -->
         <!-- <label style="display:inline-block;">{{localize "DND5E.SpecialTraits"}}</label> -->

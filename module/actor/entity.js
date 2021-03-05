@@ -35,9 +35,7 @@ export default class ActorT20 extends Actor {
 			ability.mod =
 			Math.floor((ability.value + (ability.temp ?? 0) - 10) / 2) +
 			(ability.bonus ?? 0) -
-			(ability.penalidade ?? 0) +
-			Number(data.modificadores?.atributos?.bonus ?? 0) -
-			Number(data.modificadores?.atributos?.penalidade ?? 0);
+			(ability.penalidade ?? 0)
 		}
 
 		/* Template Skills */
@@ -64,14 +62,13 @@ export default class ActorT20 extends Actor {
 					Math.floor(nivel / 2) +
 					Number(pericia.treino) +
 					Number(pericia.mod) +
+					Number(pericia.outros) +
 					Number(pericia.temp ?? 0) +
-					Number(data.modificadores?.pericias?.bonus ?? 0) -
-					Number(data.modificadores?.pericias?.penalidade ?? 0) +
-					Number(pericia.outros) -
-					Number(pericia.pda ? (data.defesa.armadura.equipado ? Math.abs(data.defesa.armadura.penalidade) : 0) +
-						(data.defesa.escudo.equipado ? Math.abs(data.defesa.escudo.penalidade) : 0)
-					: 0
-					);
+					Number(data.modificadores?.pericias?.geral ?? 0) +
+					Number(data.modificadores?.pericias?.semataque ?? 0) +
+					Number(data.modificadores?.pericias?.ataque ?? 0) +
+					Number(data.modificadores?.pericias?.resistencia ?? 0) +
+					Number(pericia.pda ? (data.defesa.pda ? Math.abs(data.defesa.pda) : 0) : 0);
 				}
 			}
 		}
@@ -80,47 +77,29 @@ export default class ActorT20 extends Actor {
 		/* Item SKILLS [WIP] */
 			// TEST THIS CALLING _UPDATESKILLS
 		/* Item SKILLS [WIP] */
-		
-		if (isNaN(data.deslocamento)) {
-			data.deslocamento.total =
-				parseInt(data.deslocamento.base ?? 9, 10) +
-				(data.deslocamento.bonus ?? 0) -
-				(data.deslocamento.penalidade ?? 0);
-		}
-		else {
-			let deslocamento = {
-				base: data.deslocamento,
-				bonus: 0,
-				penalidade: 0,
-				subst: 0,
-				cond: "nao",
-				total: data.deslocamento + (data.deslocamento.bonus ?? 0) - (data.deslocamento.penalidade ?? 0),
-			};
-			data.deslocamento = deslocamento;
-		}
-		if (data.deslocamento.cond == "metade") {
-			data.deslocamento.total = data.deslocamento.total / 2;
-		}
-		else if (data.deslocamento.cond == "zerado") {
-			data.deslocamento.total = 0;
-		}
-		if (data.deslocamento.subst > 0) {
-			data.deslocamento.total = data.deslocamento.subst;
-		}
-		if (data.deslocamento.total < 0) {
-			data.deslocamento.total = 0;
-		}
 
 		if(data.defesa !== undefined && this.data.type !== "npc"){
+			let bonus;
+			let armadura = 0;
+			let pda = 0;
+			if(data.defesa.bonus && typeof data.defesa.bonus === 'string'){
+				bonus = new Roll(data.defesa.bonus,this.getRollData());
+				bonus = bonus.evaluate().total;
+			}
+			for (let [key, data] of Object.entries(actorData.items)) {
+				if (data.type == "equip" && data.data.equipado) {
+					armadura += data.data.armadura.value;
+					pda += Math.abs(data.data.armadura.penalidade);
+				}
+			}
 			data.defesa.value =
-			10 +
-			Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
-			Number(data.defesa.armadura != undefined ? data.defesa.armadura.value : 0) +
-			Number(data.defesa.escudo != undefined ? data.defesa.escudo.value : 0) +
-			Number(data.defesa.outro) +
-			Number(data.defesa.temp) +
-			Number(data.defesa.bonus ?? 0) -
-			Number(data.defesa.penalidade ?? 0);
+				10 +
+				Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
+				armadura +
+				Number(data.defesa.outro) +
+				Number(data.defesa.temp) +
+				(Number(bonus) || 0);
+			data.defesa.pda = -pda;
 		}
 
 	}
@@ -186,7 +165,6 @@ export default class ActorT20 extends Actor {
 		* Set data that requires other data to be prepared
 		* ie.: Encumbrance, Abl Mod, Skills Bonus, Defense
 		*/
-		this._EvaluateConditions();
 		const nivel = actorData.items.reduce((arr, item) => {
 			if ( item.type === "classe" ) {
 				const classLevels = parseInt(item.data.niveis) || 1;
@@ -215,9 +193,6 @@ export default class ActorT20 extends Actor {
 		const necessario = xp.proximo - anterior;
 		const pct = Math.round((xp.value - anterior) * 100 / necessario);
 		xp.pct = Math.clamped(pct, 0, 100);
-
-		// Aprimoramentos Globais
-		// actorData._aprimoramentos = this.getGlobalAprimoramentos();
 	}
 
 	/* -------------------------------------------- */
@@ -227,8 +202,6 @@ export default class ActorT20 extends Actor {
 	*/
 	_prepareNPCData(actorData){
 		const data = actorData.data;
-
-		this._EvaluateConditions();
 
 		// Make modifications to data here. For example:
 		var nivel = data.attributes.nivel.value;
@@ -292,6 +265,7 @@ export default class ActorT20 extends Actor {
 		data.items = data.items || [];
 		data.token = data.token || {};
 		if ( data.type === "character" ) {
+			data.flags = {"editarPericias": true};
 			mergeObject(data.token, {
 				vision: true,
 				actorLink: true,
@@ -319,7 +293,11 @@ export default class ActorT20 extends Actor {
 				bar1: {attribute: "attributes.pv"},
 				bar2: {attribute: "attributes.pm"}
 			}, {overwrite: false});
+			data.img = data.img ?? "systems/Tormenta20/icons/ameaças/Monstro.webp";
+			data.token.img = data.token.img ?? "systems/Tormenta20/icons/ameaças/Monstro_token.webp";
 		}
+		/**/
+
 		return super.create(data, options);
 	}
 
@@ -364,25 +342,6 @@ export default class ActorT20 extends Actor {
 	/*
 	*	Methods for precreate owned item
 	*/
-
-	/* -------------------------------------------- */
-	getGlobalAprimoramentos(){
-		let aprimoramentosGlobais = {
-			attack: [],
-			damage: [],
-			ability: [],
-			consumables: [],
-			spells: [],
-			skill: [],
-			powers: []
-		}
-		for( let [key, it] of Object.entries(this.data.items.filter(i=>i.type==="poder")) ) {
-			for( let [id, ap] of Object.entries(it.data.aprimoramentos??{}) ) {
-				if (ap.transferir !== "self") aprimoramentosGlobais[ap.transferir] = ap;
-			}
-		}
-		return aprimoramentosGlobais;
-	}
 
 	/* -------------------------------------------- */
 
@@ -556,15 +515,14 @@ export default class ActorT20 extends Actor {
 		
 		// Construct parts
 		const parts = ["@mod"];
-		const data = {mod: abl.mod};
+		const data = mergeObject({mod: abl.mod}, this.getRollData());
+		// Add global actor bonus GERAL | FISICOS | MENTAIS | KEY
+		const bonuses = getProperty(this.data.data, "modificadores.atributos") || {};
+		if ( bonuses.geral ) parts.push(bonuses.geral);
+		if ( ["for","des","con"].includes(atributoId) && bonuses.fisicos ) parts.push(bonuses.fisicos);
+		if ( ["int","sab","car"].includes(atributoId) && bonuses.mentais ) parts.push(bonuses.mentais);
+		if ( Object.keys(bonuses).includes(atributoId) && bonuses[atributoId] ) parts.push(bonuses[atributoId]);
 
-		// Add global actor bonus
-		const bonuses = getProperty(this.data.data, "bonuses.atributos") || {};
-		if ( bonuses.bonus ) {
-			parts.push("@checkBonus");
-			data.checkBonus = bonuses.bonus;
-		}
-		
 		// Add provided extra roll parts now because they will get clobbered by mergeObject below
 		if (options.parts?.length > 0) {
 			parts.push(...options.parts);
@@ -591,25 +549,15 @@ export default class ActorT20 extends Actor {
 		const skill = skillData.id;
 		// Construct parts
 		const parts = ["@value"];
-		const data = {value: skillData.data.value};
-		// Add global actor bonus
-		const bonuses = getProperty(this.data.data, "bonuses.pericias") || {};
-		if ( bonuses.geral ) {
-			parts.push("@geralBonus");
-			data.geralBonus = bonuses.geral;
-		}
-		if ( bonuses.semataque && !["lut","pon"].includes(skillData.id) ) {
-			parts.push("@semataqueBonus");
-			data.semataqueBonus = bonuses.semataque;
-		}
-		if ( bonuses.ataque  && ["lut","pon"].includes(skillData.id) ) {
-			parts.push("@ataqueBonus");
-			data.ataqueBonus = bonuses.ataque;
-		}
-		if ( bonuses.resistencia && ["for","ref","von"].includes(skillData.id) ) {
-			parts.push("@resistenciaBonus");
-			data.resistenciaBonus = bonuses.resistencia;
-		}
+		const data = mergeObject({value: skillData.data.value}, this.getRollData());
+		// Add global actor bonus GERAL | ATQ | !ATQ | SAVES | KEY
+		const bonuses = getProperty(this.data.data, "modificadores.pericias") || {};
+		if ( bonuses.geral ) parts.push(bonuses.geral);
+		if ( !["lut","pon"].includes(skillData.id) && bonuses.semataque ) parts.push(bonuses.semataque);
+		if ( ["lut","pon"].includes(skillData.id) && bonuses.ataque ) parts.push(bonuses.ataque);
+		if ( ["for","ref","von"].includes(skillData.id) && bonuses.resistencia ) parts.push(bonuses.resistencia);
+		if ( bonuses.atr && bonuses.atr[skillData.data.atributo] ) parts.push(bonuses.atr[skillData.data.atributo]);
+		if( skillData.data.condi ) parts.push(skillData.data.condi);
 
 		// Add provided extra roll parts now because they will get clobbered by mergeObject below
 		if (options.parts?.length > 0) {
@@ -626,6 +574,17 @@ export default class ActorT20 extends Actor {
 		// Invoke the d20 roll helper
 		const roll = await d20Roll(rollData);
 		if ( roll === false ) return null;
+
+		let combate = game.combats.active;
+		if (label == "Iniciativa" && combate) {
+			let combatente = combate.combatants.find(
+				(combatant) => combatant.actor.id === this.id
+			);
+			if (combatente && combatente.initiative === null) {
+				combate.setInitiative(combatente._id, roll.total);
+				console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
+			}
+		}
 		return roll;
 	}
 
@@ -652,12 +611,14 @@ export default class ActorT20 extends Actor {
 		const templateData = {
 			actor: this,
 			tokenId: token ? `${token.scene._id}.${token.id}` : null,
-			item: itemData
+			item: itemData,
+			_rolls: [],
+			rolls: [rolls]
 		};
 		// Other Template Data
 
-		if(rolls.atq) {
-			await rolls.atq.render().then((r)=> {templateData.roll = r});
+		if(rolls) {
+			await rolls.render().then((r)=> {templateData._rolls.push(r)});
 		}
 		// Render the chat card template
 		let template = "systems/tormenta20/templates/chat/chat-card.html";
@@ -682,108 +643,9 @@ export default class ActorT20 extends Actor {
 															: (rollMode === "selfroll" ? [game.user._id] : null)),
 				blind: rollMode === "blindroll"
 			}
-			if(rolls.atq) game.dice3d.showForRoll(rolls.atq, game.user, true, wd.whisper, wd.blind);
+			if(rolls) game.dice3d.showForRoll(rolls, game.user, true, wd.whisper, wd.blind);
 		}
 		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;
-	}
-
-	/* -------------------------------------------- */
-	/* TODO REFACTOR */
-	_EvaluateConditions() {
-		const data = this.data.data;
-		let condicoesDet = [];
-
-		//Zerar Condições
-		data.modificadores = {
-			atributos: {
-				bonus: 0,
-				penalidade: 0,
-			},
-			pericias: {
-				bonus: 0,
-				penalidade: 0,
-			},
-			ataques: {
-				bonus: 0,
-				penalidade: 0,
-			},
-			custosPM: {
-				bonus: 0,
-				penalidade: 0,
-			},
-		};
-		if (typeof data.deslocamento !== "object" || data.deslocamento === null) {
-			data.deslocamento = {
-				value: data.deslocamento,
-				base: data.deslocamento,
-				bonus: 0,
-				penalidade: 0,
-				total: data.deslocamento,
-				cond: "nao",
-				subst: 0,
-				descricao: ""
-			};
-		} else {
-			data.deslocamento.bonus = 0;
-			data.deslocamento.penalidade = 0;
-			data.deslocamento.subst = 0;
-			data.deslocamento.cond = "nao";
-		}
-		data.defesa.bonus = 0;
-		data.defesa.penalidade = 0;
-		data.rd.bonus = 0;
-		data.rd.penalidade = 0;
-		data.referencias = this.data.effects;
-
-		for (let [key, atrib] of Object.entries(data.atributos)) {
-			atrib.bonus = 0;
-			atrib.penalidade = 0;
-		}
-		if(data.pericias !== undefined){
-			for (let [key, atrib] of Object.entries(data.pericias)) {
-				atrib.bonus = 0;
-				atrib.penalidade = 0;
-			}
-		}
-
-		const condicoes = this.data.effects;
-
-		//Aplicar Condições
-		condicoes.forEach((condicao) => {
-			let condicaoDados = CONFIG.conditions[condicao.flags.core.statusId];
-			if (condicaoDados != undefined) {
-				let condicaoDet = condicao;
-				condicaoDet.tooltip = condicaoDados.tooltip;
-				condicaoDet.durationType = condicaoDados.durationType;
-				condicoesDet.push(condicaoDet);
-				let modificadores = condicaoDados.modifiers;
-				CONFIG.conditions[
-				condicao.flags.core.statusId
-				].childrenConditions.forEach((cond) => {
-					modificadores.push(CONFIG.conditions[cond].modifiers);
-				});
-				modificadores = [].concat.apply([], modificadores);
-				modificadores.forEach((modif) => {
-					for (var i in modif) {
-						let prop = i;
-						let value = modif[i];
-						var valuePath = prop.split("."),
-						last = valuePath.pop(),
-						temp = data;
-						for (let ii = 0; ii < valuePath.length; ii++) {
-							temp = temp[valuePath[ii]];
-						}
-						if (
-							((last == "bonus" || last == "penalidade") && temp[last] < value) ||
-							(last != "bonus" && last != "penalidade")
-							) {
-								temp[last] = value;
-						}
-					}
-				});
-			}
-		});
-		data.referencias = condicoesDet;
 	}
 }
