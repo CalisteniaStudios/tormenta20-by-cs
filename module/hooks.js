@@ -33,7 +33,7 @@ export default function () {
 		let msg = "<br><br><br>";
 		
 		if (needsMigration){
-			buttons =  {sair: {label:"Sair e Fazer Backup", callback: () => {readyToMigrate=false} },
+			buttons =  {sair: {label:"Ignorar", callback: () => {readyToMigrate=false} },
 				atualizar: {label:"Atualizar", callback: ()=> {
 					if ( !needsMigration || !readyToMigrate ) return;
 					// Perform the migration
@@ -43,22 +43,14 @@ export default function () {
 					}
 					migrations.migrateWorld();
 				} } };
-			msg = "<p><b>É necessário atualizar para a nova versão, é recomendado fazer backup antes de continuar. Se optar por não atualizar o sistema pode não funcionar corretamente.</b></p>"
-		} else if ( needsMigration && readyToMigrate ) {
-			if ( !needsMigration || !readyToMigrate ) return;
-			// Perform the migration
-			if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
-				const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
-				ui.notifications.error(warning, {permanent: true});
-			}
-			migrations.migrateWorld();
+			msg = "<p><b>É necessário atualizar, recomenda-se fazer backup antes de continuar. Se optar por não atualizar o sistema pode não funcionar corretamente.</b></p>"
 		}
 		if( !game.user.getFlag("tormenta20","startMsg") || game.user.getFlag("tormenta20","startMsg") < game.system.data.version ) {
 			new Dialog({
 				title: "Aviso",
-				content: `<h2>Atualização 1.2.0.0</h2><p>Esta versão trás novidades! <ul><li>Efeitos: condições, efeitos temporários, buffs. Tudo aquilo altera características de personagem</li><li>Nem tudo foi adaptade ainda, são cerca de 800 itens entre poderes e magias. Alguns poderes iniciais das classes foram adaptados, e as magias iniciadas com A</li><li>Aprimoramentos: foram tranformados em um tipo especial de efeito.</li><li>Condições: Foram refeitas;</li><li>Você pode consultar mais informações para entender mais sobre o sistema em <a href="https://vizael.gitlab.io/tormenta20-fvtt/" target="_blank">https://vizael.gitlab.io/tormenta20-fvtt/</a></li></ul><br><br>Vizael</p>`+msg,
+				content: `<h2>Atualização 1.2.0.0</h2><p>Esta versão trás novidades! <ul><li>Efeitos: condições, efeitos temporários, buffs. Tudo aquilo que altera características de personagem;</li><li>Nem tudo foi adaptado ainda (são cerca de 800 itens entre poderes e magias). Alguns poderes iniciais das classes foram adaptados, e as magias iniciadas com A;</li><li>Aprimoramentos foram migrados para um tipo especial de efeito;</li><li>Condições foram refeitas;</li><li>Acesse <a href="https://vizael.gitlab.io/tormenta20-fvtt/" target="_blank">https://vizael.gitlab.io/tormenta20-fvtt/</a> para mais informações!</li></ul>${msg}<br>Vizael</p>`,
 				buttons: buttons,
-			}, { width: 400, height: 400, minHeight: 400, minWidth: 400, resizable: false }).render(true);
+			}, {height: 400, width: 450, resizable: false }).render(true);
 			game.user.setFlag("tormenta20","startMsg",game.system.data.version)
 		}
 	});	
@@ -103,7 +95,7 @@ export default function () {
 			ActiveEffect.create(effect,actor).create();
 		}
 
-		if(effect.changes.find(ch => ch.key === "data.tamanho")){
+		if(effect.changes && effect.changes.find(ch => ch.key === "data.tamanho")){
 			let _changes = effect.changes.map(function(ch){
 				if (ch.key === "data.tamanho" && ch.mode === 0 ) {
 					const sizes = Object.keys( T20Config.tamanhos );

@@ -61,10 +61,10 @@ export function prepareActiveEffectCategories(effects) {
 	// Iterate over active effects, classifying them into categories
 	for ( let e of effects ) {
 		e._getSourceName(); // Trigger a lookup for the source name
-		if(e.parent.entity == "Actor" && e.data.origin.split(".")[3]) {
+		if(e.parent.entity == "Actor" && e.data.origin && e.data.origin.split(".")[3]) {
 			const actor = e.parent;
 			const item = actor.items.get(e.data.origin.split(".")[3]);
-			if(item.type == "equip" && (e.data.disabled !== !item.data.data.equipado) ){
+			if(item && item.type == "equip" && (e.data.disabled !== !item.data.data.equipado) ){
 				e.update({disabled: !item.data.data.equipado});
 			}
 		}
