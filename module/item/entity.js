@@ -224,6 +224,7 @@ export default class ItemT20 extends Item {
 		const bonuses = this.actor.data.data?.modificadores.pericias || {};
 		if ( bonuses.geral ) parts.push(bonuses.geral);
 		if ( bonuses.ataque ) parts.push(bonuses.ataque);
+		if ( actorData.pericias[itemData.pericia].condi ) parts.push(actorData.pericias[itemData.pericia].condi);
 
 		if( options.aeparts?.length > 0 ) {
 			parts.push(...options.aeparts);

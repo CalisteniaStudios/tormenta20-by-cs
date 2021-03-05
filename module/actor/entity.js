@@ -35,9 +35,7 @@ export default class ActorT20 extends Actor {
 			ability.mod =
 			Math.floor((ability.value + (ability.temp ?? 0) - 10) / 2) +
 			(ability.bonus ?? 0) -
-			(ability.penalidade ?? 0) +
-			Number(data.modificadores?.atributos?.bonus ?? 0) -
-			Number(data.modificadores?.atributos?.penalidade ?? 0);
+			(ability.penalidade ?? 0)
 		}
 
 		/* Template Skills */
@@ -523,7 +521,8 @@ export default class ActorT20 extends Actor {
 		if ( bonuses.geral ) parts.push(bonuses.geral);
 		if ( ["for","des","con"].includes(atributoId) && bonuses.fisicos ) parts.push(bonuses.fisicos);
 		if ( ["int","sab","car"].includes(atributoId) && bonuses.mentais ) parts.push(bonuses.mentais);
-		
+		if ( Object.keys(bonuses).includes(atributoId) && bonuses[atributoId] ) parts.push(bonuses[atributoId]);
+
 		// Add provided extra roll parts now because they will get clobbered by mergeObject below
 		if (options.parts?.length > 0) {
 			parts.push(...options.parts);
@@ -558,6 +557,7 @@ export default class ActorT20 extends Actor {
 		if ( ["lut","pon"].includes(skillData.id) && bonuses.ataque ) parts.push(bonuses.ataque);
 		if ( ["for","ref","von"].includes(skillData.id) && bonuses.resistencia ) parts.push(bonuses.resistencia);
 		if ( bonuses.atr && bonuses.atr[skillData.data.atributo] ) parts.push(bonuses.atr[skillData.data.atributo]);
+		if( skillData.data.condi ) parts.push(skillData.data.condi);
 
 		// Add provided extra roll parts now because they will get clobbered by mergeObject below
 		if (options.parts?.length > 0) {
