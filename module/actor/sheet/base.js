@@ -32,7 +32,8 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}]
+			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+			scrollY: [".sheet-body", ".tab.attributes", ".tab.magias", ".tab.inventory", ".tab.journal", ".tab.efeitos", ".tab.poderes"]
 		});
 	}
 

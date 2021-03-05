@@ -37,7 +37,6 @@ export default function () {
 				atualizar: {label:"Atualizar", callback: ()=> {
 					if ( !needsMigration || !readyToMigrate ) return;
 					// Perform the migration
-					console.log("vai migrar");
 					if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
 						const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
 						ui.notifications.error(warning, {permanent: true});
