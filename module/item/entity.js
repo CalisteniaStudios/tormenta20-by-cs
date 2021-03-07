@@ -220,7 +220,8 @@ export default class ItemT20 extends Item {
 		const parts = [];
 		if ( itemData.pericia != "0") {
 			if ( actorData.pericias[itemData.pericia].atributo != itemData.atrAtq ) {
-				parts.push(actorData.pericias[itemData.pericia].value - (actorData.atributos[itemData.atrAtq].mod ?? 0))
+				const atributoOriginal = actorData.atributos[actorData.pericias[itemData.pericia].atributo].mod;
+				parts.push(actorData.pericias[itemData.pericia].value - atributoOriginal + (actorData.atributos[itemData.atrAtq].mod ?? 0))
 			}
 			else if( actorData.pericias[itemData.pericia].value ) {
 				parts.push(actorData.pericias[itemData.pericia].value);
