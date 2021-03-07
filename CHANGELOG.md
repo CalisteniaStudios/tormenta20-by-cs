@@ -1,4 +1,8 @@
 # Lista de Mudanças
+## Versão 1.2.0.3
+### Consertos de Bugs
+- Penalidade de Armadura é calculada normalmente.
+
 ## Versão 1.2.0.2
 ### Novidades
 - NPC:
