@@ -1,4 +1,17 @@
 # Lista de Mudanças
+## Versão 1.2.0.2
+### Novidades
+- NPC:
+- - NPCs têm a lista de perícias como os PJ. Apenas as perícias com algum valor diferente de 0 aparecem fora do modo de edição.
+- - Armas podem ter nenhum atributo no ataque.
+- - Armas podem ter perícias no ataque.
+- Armas:
+- - Rolagens de ataque e dano não mostram somas de 0. Exemplo: `1d6 + 0 + 0` aparece apenas como `1d6`.
+- - Armas sem dano, como a Rede, não mostram mais uma rolagem de dano zerada.
+
+### Consertos de Bugs
+- Armas: Atributo do Ataque funciona normalmente.
+
 ## Versão 1.2.0.0
 ### Novidades
 - Efeitos Ativos adicionados. Mais informações de como usar [aqui](https://vizael.gitlab.io/tormenta20-fvtt/efeitos/efeitos/).

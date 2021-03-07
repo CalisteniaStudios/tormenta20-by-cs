@@ -173,7 +173,6 @@ export default class ActorT20 extends Actor {
 			}
 			return arr;
 		}, 0);
-		data.attributes.nivel.value = nivel;
 
 		data.rd.value =
 			data.rd.base +
@@ -213,9 +212,6 @@ export default class ActorT20 extends Actor {
 
 		// for compatibility with dnd modules
 		data.attributes.hp = data.attributes.pv.value;
-
-		// Experience required for next level
-		/* TODO IMPLEMENT AFTER CONFIG */
 	}
 
 	/* -------------------------------------------- */

@@ -76,8 +76,9 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		let x = 0;
 		let temMagias = false;
 		let mostrarInventario = false;
+		let mostrarPericias = false;
 		for (let i of data.items) {
-			let item = i.data;
+			let itemData = i.data;
 			i.img = i.img || DEFAULT_TOKEN;
 			// Sort into various arrays.
 			if (i.type === 'poder') {
@@ -93,8 +94,22 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			else if (i.type === 'equip') {
 				inventario.push(i);
 				mostrarInventario = true;
-			} else if (i.type === 'arma') {
-				let tempatq = `${actorData.data.atributos[i.data.atrAtq].mod} + ${i.data.atqBns}`;
+			}
+			else if (i.type === 'arma') {
+				let atqSkill = 0;
+					
+				if(actorData.data.pericias){
+					if (itemData.pericia != "0" && actorData.data.pericias[itemData.pericia] != 0) {
+						if (actorData.data.pericias[itemData.pericia].atributo != itemData.atrAtq) {
+							atqSkill += actorData.data.pericias[itemData.pericia].value - (actorData.data.atributos[itemData.atrAtq].mod ?? 0);
+						}
+						else if(actorData.data.pericias[itemData.pericia].value) {
+							atqSkill += actorData.data.pericias[itemData.pericia].value;
+						}
+					}
+					else if (itemData.atrAtq != "0") atqSkill += actorData.data.atributos[itemData.atrAtq].mod;
+				}
+				let tempatq = `${atqSkill} + ${i.data.atqBns}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
@@ -144,6 +159,14 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			}
 		}
 
+		const ignoreList = ["ini", "per", "for", "ref", "von"]
+		for (let i in data.data.pericias) {
+			if (data.data.pericias[i].value && !ignoreList.includes(i)) {
+				mostrarPericias = true;
+				break;
+			}
+		}
+
 		// Assign and return powers
 		actorData.poderes = poderes.length ? poderes : null;
 		// Spells
@@ -155,7 +178,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		actorData.mostrarInventario = mostrarInventario;
 		actorData.inventario = inventario.length ? inventario : null;
 		//Perícias
-		actorData.mostrarPericias = actorData.data.periciasCustom[0] ? true : false;
+		actorData.mostrarPericias = mostrarPericias || actorData.data.periciasCustom[0] ? true : false;
 	}
 
 
