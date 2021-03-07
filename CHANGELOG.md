@@ -1,4 +1,11 @@
 # Lista de Mudanças
+## Versão 1.2.0.4
+### Novidades
+- Mais 29 Efeitos Ativos: Arqueiro, Ataque Poderoso, Ataque Preciso, Combate Defensivo, Crítico Brutal, Disparo Rápido, Encouraçado, Esquiva, Estilo de Arma e Escudo, Estilo de Disparo, Estilo de Duas Armas, Estilo de Duas Mãos, Estilo de Uma Arma, Fanático, Golpe Pessoal, Inexpugnável, Inimigo de (Criatura), Magia Acelerada, Magia Ampliada, Magia Discreta, Marca da Presa, Mira Apurada, Ponto Fraco, Raio Elemental, Romper Resistências, Vigor Primal, Vitalidade e Vontade de Ferro.
+
+### Consertos de Bugs
+- Armas: Perícia com atributo diferente selecionado agora é calculada corretamente.
+
 ## Versão 1.2.0.3
 ### Consertos de Bugs
 - Penalidade de Armadura é calculada normalmente.
