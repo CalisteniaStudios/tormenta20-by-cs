@@ -1,4 +1,8 @@
 # Lista de Mudanças
+## Versão 1.2.0.6
+### Consertos de Bugs
+- Aprimoramentos: Consertado o campo de Custo de Mana.
+
 ## Versão 1.2.0.5
 ### Consertos de Bugs
 - NPCs: Armas com Perícia com valor 0 adicionam o valor do Atributo. Afeta principalmente NPCs já criados e os do compêndio.
