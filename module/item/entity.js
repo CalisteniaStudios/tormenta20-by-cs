@@ -494,6 +494,7 @@ export default class ItemT20 extends Item {
 			let ids = [].concat(configuration?.id) ?? [];
 			if (configuration?.bonus) formula.push(configuration?.bonus);
 			if (configuration?.bonusdano) formula.push(configuration?.bonusdano);
+			if (configuration?.ajustecusto) options.custo += Number(configuration?.ajustecusto);
 			// Set obj of applied effects
 			// key => ae.uuid	value => amount of aplications
 			aplica.forEach(function(ap, ind){
