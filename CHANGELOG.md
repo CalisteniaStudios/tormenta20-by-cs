@@ -1,4 +1,9 @@
 # Lista de Mudanças
+## Versão 1.2.0.5
+### Consertos de Bugs
+- NPCs: Armas com Perícia com valor 0 adicionam o valor do Atributo. Afeta principalmente NPCs já criados e os do compêndio.
+- Seta Infalível: Aprimoramentos que aumentavam o número de setas funciona corretamente em vez de adicionar ao valor original.
+
 ## Versão 1.2.0.4
 ### Novidades
 - Mais 29 Efeitos Ativos: Arqueiro, Ataque Poderoso, Ataque Preciso, Combate Defensivo, Crítico Brutal, Disparo Rápido, Encouraçado, Esquiva, Estilo de Arma e Escudo, Estilo de Disparo, Estilo de Duas Armas, Estilo de Duas Mãos, Estilo de Uma Arma, Fanático, Golpe Pessoal, Inexpugnável, Inimigo de (Criatura), Magia Acelerada, Magia Ampliada, Magia Discreta, Marca da Presa, Mira Apurada, Ponto Fraco, Raio Elemental, Romper Resistências, Vigor Primal, Vitalidade e Vontade de Ferro.

@@ -218,7 +218,7 @@ export default class ItemT20 extends Item {
 
 		// Define Roll bonuses
 		const parts = [];
-		if ( itemData.pericia != "0") {
+		if ( itemData.pericia != "0" && (this.actor.data.type != "npc" || actorData.pericias[itemData.pericia].value != 0)) {
 			if ( actorData.pericias[itemData.pericia].atributo != itemData.atrAtq ) {
 				const atributoOriginal = actorData.atributos[actorData.pericias[itemData.pericia].atributo].mod;
 				parts.push(actorData.pericias[itemData.pericia].value - atributoOriginal + (actorData.atributos[itemData.atrAtq].mod ?? 0))
@@ -228,12 +228,12 @@ export default class ItemT20 extends Item {
 			}
 		}
 		else if ( itemData.atrAtq != "0") parts.push(actorData.atributos[itemData.atrAtq].mod);
-		if( itemData.atqBns != "0" ) parts.push(itemData.atqBns);
+		if( itemData.atqBns && itemData.atqBns != "0" ) parts.push(itemData.atqBns);
 		
 		const bonuses = this.actor.data.data?.modificadores.pericias || {};
 		if ( bonuses.geral ) parts.push(bonuses.geral);
 		if ( bonuses.ataque ) parts.push(bonuses.ataque);
-		if ( actorData.pericias[itemData.pericia].condi ) parts.push(actorData.pericias[itemData.pericia].condi);
+		if ( itemData.pericia != "0" && actorData.pericias[itemData.pericia].condi ) parts.push(actorData.pericias[itemData.pericia].condi);
 
 		if( options.aeparts?.length > 0 ) {
 			parts.push(...options.aeparts);
