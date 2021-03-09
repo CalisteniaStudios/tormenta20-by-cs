@@ -171,7 +171,7 @@
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div class="item-name">
 							<span class="rollable poder-rollable" data-item-id="{{item._id}}">
-								<label>{{item.name}}{{#if (or item.data.ativacao.execucao item.data.ativacao.custo)}} ({{#if data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{/if}}{{/each}}{{#if item.data.ativacao.custo}}, {{/if}}{{/if}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{#if (eq item.data.duracao.unidade "sust")}}, Sustentada{{/if}}{{/if}}){{/if}}{{#unless ../editing}}:{{/unless}}</label>
+								<label>{{item.name}}{{#if (or item.data.ativacao.execucao item.data.ativacao.custo)}} ({{#if data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.ativacao.custo}}, {{/if}}{{/if}}{{/each}}{{/if}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{#if (eq item.data.duracao.unidade "sust")}}, Sustentada{{/if}}{{/if}}){{/if}}{{#unless ../editing}}:{{/unless}}</label>
 							</span>
 							{{{stripTags item.data.description}}}
 						</div>
@@ -258,7 +258,7 @@
 					<span class="rollable atributo-rollable" data-item-id="{{key}}">
 						<label title="{{atr.label}} {{atr.mod}}"> {{key}}: </label> {{atr.value}}
 					</span>
-					<input type="text" name="data.atributos.{{key}}.value" value="{{atr.value}}" data-dtype="Number" title="{{atr.label}}" />
+					<input type="text" name="data.atributos.{{key}}.value" value="{{atr.value}}" data-dtype="Number" min="0" title="{{atr.label}}" />
 				{{/each}}
 			</div>
 			<hr>
@@ -266,12 +266,23 @@
 			<div>
 				{{#if editing}}
 					<label style="width: 100%!important">Perícias <a class="item-control skill-create" title="Criar Perícia" data-tipo="pericia"><i class="fas fa-plus"></i> Nova</a></label> 
-					<ol class="item-list flexrow">
+					
+					<ol class="item-list flexrow" style="background-color:transparent;">
+						{{#each actor.data.pericias as |skill key|}}
+							{{#unless (or (eq key "per") (eq key "ini") (eq key "ofi") (eq key "for") (eq key "ref") (eq key "von"))}}
+							<li class="flexrow skill-line">
+								<div class="item-name flexrow">
+									<input type="text" name="data.pericias.{{key}}.label" value="{{skill.label}}" class="skill rollable pericia-rollable" style="flex:2; background:none; border:none; text-align:left !important;" data-item-id="{{key}}" data-type="padrao" />
+									<input type="text" name="data.pericias.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
+								</div>
+							</li>
+							{{/unless}}
+						{{/each}}
 						{{#each actor.data.periciasCustom as |skill key|}}
-							<li class="flexrow skill-line" data-item-id="{{key}}" data-type="{{skill.type}}">
+							<li class="flexrow skill-line">
 								<div class="item-name flexrow">
 									<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom"><i class="fas fa-dice-d20"></i></span>
-									<input type="text" name="data.periciasCustom.{{key}}.label" value="{{skill.label}}" class="flex2" data-dtype="String"/>
+									<input type="text" name="data.periciasCustom.{{key}}.label" value="{{skill.label}}" class="flex2" data-dtype="String" />
 									<input type="text" name="data.periciasCustom.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
 								</div>
 								<div class="item-controls">
@@ -282,8 +293,15 @@
 					</ol>
 				{{else}}
 					<label>Pericias: </label>
+					{{#each actor.data.pericias as |skill key|}}
+						{{#unless (or (eq key "per") (eq key "ini") (eq key "ofi") (eq key "for") (eq key "ref") (eq key "von"))}}
+						{{#if skill.value}}
+						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="padrao">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
+						{{/if}}
+						{{/unless}}
+					{{/each}}
 						{{#each actor.data.periciasCustom as |skill key|}}
-						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom">{{skill.label}} +{{skill.value}}</span>{{#unless @last}},{{else}}.{{/unless}}
+						<span class="skill rollable pericia-rollable" data-item-id="{{key}}" data-type="custom">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{else}}.{{/unless}}
 						{{/each}}
 				{{/if}}
 			</div>

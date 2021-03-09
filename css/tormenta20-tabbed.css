@@ -153,7 +153,7 @@
 }
 .tormenta20 .tabbed .ability-scores {
   flex: 0 0 85px;
-  height: 460px;
+  height: 552px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -165,7 +165,7 @@
   border-right: 1px solid #c9c7b8;
 }
 .tormenta20 .tabbed .ability-scores .ability {
-  height: 50px;
+  height: auto; /*50px; */
   text-align: center;
   border-bottom: 2px groove #eeede0;
 }

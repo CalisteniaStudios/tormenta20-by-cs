@@ -123,7 +123,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		let maiorCirculo = 0;
 		// Iterate through items, allocating to containers
 		for (let i of data.items) {
-			let item = i.data;
+			let itemData = i.data;
 			i.img = i.img || DEFAULT_TOKEN;
 			let isFav = i.flags.favorito ?? false;
 			// Sort into various arrays.
@@ -182,10 +182,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					else {
 						atqSkill = actorData.data.pericias[i.data.pericia].value;
 					}
-				}
-				/*NEW SKILL*/
-				else if (i.data.skill) {
-					atqSkill = this.actor.getOwnedItem(i.data.skill)?.data.data.total ?? 0;
 				}
 				let tempatq = `${atqSkill} + ${i.data.atqBns}`;
 				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
@@ -400,17 +396,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		}
 
 	}
-
-	/**
-	* Create skills as items?
-	*/
-	// _CreateDefaultSkill(){
-	//   const pericias = T20Utility.getPericias();
-
-	//   const itemData = {
-	//     name: 
-	//   }
-	// }
 
 	/** @override */
   async _onDropItemCreate(itemData) {

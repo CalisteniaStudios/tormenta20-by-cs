@@ -57,20 +57,20 @@
 				<div class="form-fields">
 					<select class="selectatr" name="data.atrAtq" value={{data.atrAtq}} data-type="String">
 						{{#select data.atrAtq}}
+						{{#if npc}}<option value="0">Nenhum</option>{{/if}}
 						{{#each config.atributos as |atr key|}}
 						<option value="{{key}}">{{atr}}</option>
 						{{/each}}
 						{{/select}}
 					</select>
-					{{#unless npc}}
 					<select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
 					  {{#select data.pericia}}
+					  {{#if npc}}<option value="0">Nenhum</option>{{/if}}
 					  <option value="lut">Luta</option>
 					  <option value="pon">Pontaria</option>
 					  <option value="atu">Atuação</option>
 					  {{/select}}
 					</select>
-					{{/unless}}
 					<input type="text" title="Bônus" name="data.atqBns" value="{{#ifEquals data.atqBns ''}}0{{else}}{{data.atqBns}}{{/ifEquals}}" data-dtype="String"/>
 				</div>
 			</div>

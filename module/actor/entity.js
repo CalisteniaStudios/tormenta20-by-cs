@@ -38,7 +38,29 @@ export default class ActorT20 extends Actor {
 			(ability.penalidade ?? 0)
 		}
 
-		/* Template Skills */
+		if(data.defesa !== undefined && this.data.type !== "npc"){
+			let bonus;
+			let armadura = 0;
+			let pda = 0;
+			if(data.defesa.bonus && typeof data.defesa.bonus === 'string'){
+				bonus = new Roll(data.defesa.bonus,this.getRollData());
+				bonus = bonus.evaluate().total;
+			}
+			for (let [key, data] of Object.entries(actorData.items)) {
+				if (data.type == "equip" && data.data.equipado) {
+					armadura += data.data.armadura.value;
+					pda += Math.abs(data.data.armadura.penalidade);
+				}
+			}
+			data.defesa.value =
+				10 +
+				Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
+				armadura +
+				Number(data.defesa.outro) +
+				Number(data.defesa.temp) +
+				(Number(bonus) || 0);
+			data.defesa.pda = -pda;
+		}
 		if(data.pericias !== undefined && this.data.type !== "npc"){
 			let skillsArrays = [];
 			skillsArrays.push(data.pericias);
@@ -68,40 +90,10 @@ export default class ActorT20 extends Actor {
 					Number(data.modificadores?.pericias?.semataque ?? 0) +
 					Number(data.modificadores?.pericias?.ataque ?? 0) +
 					Number(data.modificadores?.pericias?.resistencia ?? 0) +
-					Number(pericia.pda ? (data.defesa.pda ? Math.abs(data.defesa.pda) : 0) : 0);
+					Number(pericia.pda ? (data.defesa.pda ? -Math.abs(data.defesa.pda) : 0) : 0);
 				}
 			}
 		}
-		/* Template SKILLS */
-		
-		/* Item SKILLS [WIP] */
-			// TEST THIS CALLING _UPDATESKILLS
-		/* Item SKILLS [WIP] */
-
-		if(data.defesa !== undefined && this.data.type !== "npc"){
-			let bonus;
-			let armadura = 0;
-			let pda = 0;
-			if(data.defesa.bonus && typeof data.defesa.bonus === 'string'){
-				bonus = new Roll(data.defesa.bonus,this.getRollData());
-				bonus = bonus.evaluate().total;
-			}
-			for (let [key, data] of Object.entries(actorData.items)) {
-				if (data.type == "equip" && data.data.equipado) {
-					armadura += data.data.armadura.value;
-					pda += Math.abs(data.data.armadura.penalidade);
-				}
-			}
-			data.defesa.value =
-				10 +
-				Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
-				armadura +
-				Number(data.defesa.outro) +
-				Number(data.defesa.temp) +
-				(Number(bonus) || 0);
-			data.defesa.pda = -pda;
-		}
-
 	}
 
 	/* -------------------------------------------- */
@@ -173,7 +165,6 @@ export default class ActorT20 extends Actor {
 			}
 			return arr;
 		}, 0);
-		data.attributes.nivel.value = nivel;
 
 		data.rd.value =
 			data.rd.base +
@@ -213,9 +204,6 @@ export default class ActorT20 extends Actor {
 
 		// for compatibility with dnd modules
 		data.attributes.hp = data.attributes.pv.value;
-
-		// Experience required for next level
-		/* TODO IMPLEMENT AFTER CONFIG */
 	}
 
 	/* -------------------------------------------- */

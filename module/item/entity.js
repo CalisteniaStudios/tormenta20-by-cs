@@ -218,13 +218,22 @@ export default class ItemT20 extends Item {
 
 		// Define Roll bonuses
 		const parts = [];
-		if( actorData.pericias[itemData.pericia].value ) parts.push(actorData.pericias[itemData.pericia].value);
-		if( itemData.atqBns ) parts.push(itemData.atqBns);
+		if ( itemData.pericia != "0" && (this.actor.data.type != "npc" || actorData.pericias[itemData.pericia].value != 0)) {
+			if ( actorData.pericias[itemData.pericia].atributo != itemData.atrAtq ) {
+				const atributoOriginal = actorData.atributos[actorData.pericias[itemData.pericia].atributo].mod;
+				parts.push(actorData.pericias[itemData.pericia].value - atributoOriginal + (actorData.atributos[itemData.atrAtq].mod ?? 0))
+			}
+			else if( actorData.pericias[itemData.pericia].value ) {
+				parts.push(actorData.pericias[itemData.pericia].value);
+			}
+		}
+		else if ( itemData.atrAtq != "0") parts.push(actorData.atributos[itemData.atrAtq].mod);
+		if( itemData.atqBns && itemData.atqBns != "0" ) parts.push(itemData.atqBns);
 		
 		const bonuses = this.actor.data.data?.modificadores.pericias || {};
 		if ( bonuses.geral ) parts.push(bonuses.geral);
 		if ( bonuses.ataque ) parts.push(bonuses.ataque);
-		if ( actorData.pericias[itemData.pericia].condi ) parts.push(actorData.pericias[itemData.pericia].condi);
+		if ( itemData.pericia != "0" && actorData.pericias[itemData.pericia].condi ) parts.push(actorData.pericias[itemData.pericia].condi);
 
 		if( options.aeparts?.length > 0 ) {
 			parts.push(...options.aeparts);
@@ -259,7 +268,9 @@ export default class ItemT20 extends Item {
 		const actorData = this.actor.data.data;
 		// Get roll data
 		//Refactor item to have part : itemData.damage.parts.map(d => d[0]);
-		const parts = [itemData.dano, `@${itemData.atrDan}`, itemData.danoBns];
+		const parts = [itemData.dano];
+		if (itemData.atrDan != "0") parts.push(`@${itemData.atrDan}`);
+		if (itemData.danoBns != "0") parts.push(itemData.danoBns);
 		const rollData = this.getRollData();
 		// Configure the damage roll
 		const title = this.name;
