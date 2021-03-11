@@ -87,63 +87,67 @@ export default function () {
 	});
 
 	/* Effects/Conditions Hooks*/
-	Hooks.on("preCreateActiveEffect", async (actor, effect, options) => {
-		let condi = effect["flags.core.statusId"] ?? false;
-		if(condi && !effect.flags?.t20?.condition){
-			effect = T20Conditions[effect["flags.core.statusId"]] || effect;
-			options.temporary = true;
-			ActiveEffect.create(effect,actor).create();
-		}
-
-		if(effect.changes && effect.changes.find(ch => ch.key === "data.tamanho")){
-			let _changes = effect.changes.map(function(ch){
-				if (ch.key === "data.tamanho" && ch.mode === 0 ) {
-					const sizes = Object.keys( T20Config.tamanhos );
-					let teste = sizes.indexOf(actor.data.data.tamanho) + ch.value;
-					ch.mode = 5;
-					ch.value = sizes[teste];
-				}
-				return ch;
-			});
-			effect.changes = _changes;
-		}
+	// Hooks.on("preCreateActiveEffect", async (actor, effect, options) => {
+	// 	let condi = effect["flags.core.statusId"] ?? false;
 		
-		if(actor && effect && effect.flags?.t20?.condition){
-			// ignore condi if already applyed
-			if(actor.effects.find(i => i.data.label === effect.label)){
-				if( effect.flags?.t20?.stack ){
-					ActiveEffect.create(T20Conditions[effect.flags.t20.stack],actor).create();
-					let aes = actor.effects.filter(i => i.data.label === effect.label);
-					aes.forEach(ae => actor.deleteEmbeddedEntity("ActiveEffect", ae.id));
-				}
-				options.temporary = true;
-			}
-		}
-	});
-	Hooks.on("createActiveEffect", async (actor, effect, options) => {
-		if(actor.effects.find(i => i.data.label === effect.label)) return false;
-		if(actor && effect && effect.flags?.t20?.condition){
-			// apply child conditions
-			if (effect.flags?.t20?.childEffect?.length ) {
-				effect.flags.t20.childEffect.forEach(function(ef){
-					if (T20Conditions[ef]){
-						ActiveEffect.create(T20Conditions[ef],actor).create();
-					}
-				});
-			}
-		}
-	});
-	Hooks.on("deleteActiveEffect", async (actor, effect, options) => {
-		if(actor && effect && effect.flags?.t20?.condition){
-			if ( effect.flags?.t20?.childEffect?.length) {
-				effect.flags.t20.childEffect.forEach(function(ef){
-					let label = T20Conditions[ef].label;
-					let ae = actor.effects.find(i => i.data.label === label);
-					if (ae) actor.deleteEmbeddedEntity("ActiveEffect", ae.id);
-				})
-			}
-		}
-	});
+	// 	if(condi && !effect.flags?.t20?.condition){
+	// 		effect = T20Conditions[effect["flags.core.statusId"]] || effect;
+	// 		options.temporary = true;
+	// 		ActiveEffect.create(effect,actor).create();
+	// 	}
+
+	// 	if(effect.changes && effect.changes.find(ch => ch.key === "data.tamanho")){
+	// 		let _changes = effect.changes.map(function(ch){
+	// 			if (ch.key === "data.tamanho" && ch.mode === 0 ) {
+	// 				const sizes = Object.keys( T20Config.tamanhos );
+	// 				let teste = sizes.indexOf(actor.data.data.tamanho) + ch.value;
+	// 				ch.mode = 5;
+	// 				ch.value = sizes[teste];
+	// 			}
+	// 			return ch;
+	// 		});
+	// 		effect.changes = _changes;
+	// 	}
+		
+	// 	if(actor && effect && effect.flags?.t20?.condition){
+	// 		// ignore condi if already applyed
+	// 		let find = actor.effects.find(i => i.data.label === effect.label);
+	// 		let user = actor.owner;
+	// 		if(actor.effects.find(i => i.data.label === effect.label)){
+	// 			if( effect.flags?.t20?.stack ){
+	// 				ActiveEffect.create(T20Conditions[effect.flags.t20.stack],actor).create();
+	// 				let aes = actor.effects.filter(i => i.data.label === effect.label);
+	// 				aes.forEach(ae => actor.deleteEmbeddedEntity("ActiveEffect", ae.id));
+	// 			}
+	// 			options.temporary = true;
+	// 		}
+	// 	}
+	// });
+	// Hooks.on("createActiveEffect", async (actor, effect, options) => {
+	// 	console.log(actor.effects.find(i => i.data.label === effect.label))
+	// 	if(actor.effects.find(i => i.data.label === effect.label)) return false;
+	// 	if(actor && effect && effect.flags?.t20?.condition){
+	// 		// apply child conditions
+	// 		if (effect.flags?.t20?.childEffect?.length ) {
+	// 			effect.flags.t20.childEffect.forEach(function(ef){
+	// 				if (T20Conditions[ef]){
+	// 					ActiveEffect.create(T20Conditions[ef],actor).create();
+	// 				}
+	// 			});
+	// 		}
+	// 	}
+	// });
+	// Hooks.on("deleteActiveEffect", async (actor, effect, options) => {
+	// 	if(actor && effect && effect.flags?.t20?.condition){
+	// 		if ( effect.flags?.t20?.childEffect?.length) {
+	// 			effect.flags.t20.childEffect.forEach(function(ef){
+	// 				let label = T20Conditions[ef].label;
+	// 				let ae = actor.effects.find(i => i.data.label === label);
+	// 				if (ae) actor.deleteEmbeddedEntity("ActiveEffect", ae.id);
+	// 			})
+	// 		}
+	// 	}
+	// });
 
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {

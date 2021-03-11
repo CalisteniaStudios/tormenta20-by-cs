@@ -317,6 +317,14 @@ export default class ActorSheetT20 extends ActorSheet {
 		if (itemData.type === "magia" && this.actor.data.data.atributoChave != undefined) {
 			itemData.data.atrRes = this.actor.data.data.atributoChave;
 		}
+		// stack consumables
+		if ( itemData.type === "consumivel" ){
+			const it = this.actor.itemTypes.consumivel.find(c => c.name === itemData.name);
+			if (it) {
+				const qtd = it.data.data.qtd + 1;
+				return it.update({"data.qtd": qtd})
+			}
+		}
 		return super._onDropItemCreate(itemData);
 	}
 	
