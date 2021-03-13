@@ -1,6 +1,6 @@
 <header class="sheet-header flexrow">
 	<img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
-
+	
 	<div class="header-details {{#if (or (eq item.type "magia") (eq item.type "arma"))}}flexcol{{else}}flexrow{{/if}}">
 		<h1 class="charname" style="margin: 0;">
 			<input name="name" type="text" value="{{item.name}}" placeholder="Nome"/>

@@ -47,7 +47,9 @@ game.tormenta20.rollItemMacro("${item.name}",{
 	'dano' : "0", 
 	'margemCritico' : "0",
 	'multCritico' : "0",
-	'pericia' : ""
+	'atributoAtq' : "",
+	'atributoDano' : "",
+	'pericia' : "",
 });`;
 		} else {
 			command = `game.tormenta20.rollItemMacro("${item.name}");`;

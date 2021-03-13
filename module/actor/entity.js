@@ -86,11 +86,11 @@ export default class ActorT20 extends Actor {
 					Number(pericia.mod) +
 					Number(pericia.outros) +
 					Number(pericia.temp ?? 0) +
-					Number(data.modificadores?.pericias?.geral ?? 0) +
-					Number(data.modificadores?.pericias?.semataque ?? 0) +
-					Number(data.modificadores?.pericias?.ataque ?? 0) +
-					Number(data.modificadores?.pericias?.resistencia ?? 0) +
 					Number(pericia.pda ? (data.defesa.pda ? -Math.abs(data.defesa.pda) : 0) : 0);
+				// Number(data.modificadores?.pericias?.geral ?? 0) +
+				// Number(data.modificadores?.pericias?.semataque ?? 0) +
+				// Number(data.modificadores?.pericias?.ataque ?? 0) +
+				// Number(data.modificadores?.pericias?.resistencia ?? 0) +
 				}
 			}
 		}

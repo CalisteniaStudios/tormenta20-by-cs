@@ -1,7 +1,16 @@
 # Lista de Mudanças
+
+## Versão 1.2.0.7
+### Consertos de Bugs
+- Macros: não somavam corretamente os bônus;
+
+### Em progresso
+- Condições: desativadas devido a um bug crítico, solução em andamento;
+
 ## Versão 1.2.0.6
 ### Consertos de Bugs
-- Aprimoramentos: Consertado o campo de Custo de Mana.
+- Efeitos: `data.modificadores.pericias.—` não aplicará os valores duas vezes .
+- Ataque Preciso: Efeito ajustado para efeito de uso, alterando ataques normalmente.
 
 ## Versão 1.2.0.5
 ### Consertos de Bugs

@@ -143,9 +143,15 @@ export default class ItemT20 extends Item {
 		const id = this.data.data;                // Item data
 		if(extra){
 			Object.entries(extra).forEach(function(ex){
-				ex[0] = {atq:"atqBns", dadoDano: "dano", dano: "danoBns", margemCritico: "criticoM", multCritico: "criticoX", pericia: "pericia"}[ex[0]]
+				ex[0] = {atq:"atqBns", dadoDano: "dano", dano: "danoBns", margemCritico: "criticoM", multCritico: "criticoX", pericia: "pericia", atributoAtq: "atrAtq", atributoDano:"atrDan"}[ex[0]]
 				if(ex[1]){
-					ex[1].match(/=/) ? id[ex[0]] = Number(ex[1].replace("=",""))||ex[1].replace("=","") : id[ex[0]] += Number(ex[1])||ex[1];
+					if(["atqBns","danoBns"].includes(ex[0])){
+						ex[1].match(/=/) ? id[ex[0]] = ex[1].replace("=","") : id[ex[0]] += "+"+ex[1];
+					} else if(["criticoX","criticoM"].includes(ex[0])){
+						ex[1].match(/=/) ? id[ex[0]] = ex[1].replace("=","") : id[ex[0]] += Number(ex[1]);
+					} else if(["atrAtq","atrDan", "pericia"].includes(ex[0])){
+						id[ex[0]] = ex[1].replace("=","");
+					}
 				}
 			});
 		}
