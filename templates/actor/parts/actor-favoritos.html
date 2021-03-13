@@ -13,6 +13,7 @@
 		</div>
 		<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} ({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}})</div>
 		<div class="item-detail item-controls">
+			{{#if actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -32,6 +33,7 @@
 			<h4>{{item.name}}{{#if (eq item.type "consumivel")}} (Qtd: {{data.qtd}}){{/if}}</h4>
 		</div>
 		<div class="item-detail item-controls">
+			{{#if actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -53,6 +55,7 @@
 		</div>
 		<div class="item-tipo">{{#if item.data.ativacao.execucao}}{{#each ../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#if item.data.ativacao.custo}} ({{item.data.ativacao.custo}} PM){{/if}}{{/if}}{{/each}}{{else}}{{#if item.data.ativacao.custo}}{{item.data.ativacao.custo}} PM{{/if}}{{/if}}</div>
 		<div class="item-detail item-controls">
+			{{#if actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -82,6 +85,7 @@
 			</div>
 			<div class="item-tipo">{{#each ../../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#ifNotEquals ../data.ativacao.custo circulo.custo}} ({{../data.ativacao.custo}} PM){{/ifNotEquals}}{{/if}}{{/each}}</div>
 			<div class="item-detail item-controls">
+				{{#if actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 			</div>
 		</li>

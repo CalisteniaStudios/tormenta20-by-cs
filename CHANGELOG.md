@@ -1,4 +1,7 @@
 # Lista de Mudanças
+## Versão 1.2.0.8
+### Novidades
+- Botão de Editar readicionado à ficha de PJ como uma opção. Vá no menu do personagem (Engrenagem) e marque a opção "Mostrar Botão de Editar Itens".
 
 ## Versão 1.2.0.7
 ### Consertos de Bugs
