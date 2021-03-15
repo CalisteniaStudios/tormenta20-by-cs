@@ -1,5 +1,14 @@
 # Lista de Mudanças
 
+## Versão 1.2.0.10
+### Consertos de Bugs
+- Condições: voltam a funcionar como deveriam.
+- Efeitos de Uso: Atributos (@car) podem ser aplicados no dano de armas.
+
+## Versão 1.2.0.8-1.2.0.9
+### Novidades
+- Botão de Editar readicionado à ficha de PJ como uma opção. Vá no menu do personagem (Engrenagem) e marque a opção "Mostrar Botão de Editar Itens".
+
 ## Versão 1.2.0.6
 ### Consertos de Bugs
 - Macros: não somavam corretamente os bônus;

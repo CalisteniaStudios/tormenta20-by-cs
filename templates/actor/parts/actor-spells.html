@@ -44,6 +44,7 @@
 			<div class="item-tipo">{{#each ../../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#ifNotEquals ../data.ativacao.custo circulo.custo}} ({{../data.ativacao.custo}} PM){{/ifNotEquals}}{{/if}}{{/each}}</div>
 			<div class="item-controls">
 				{{#if (eq ../../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if m.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
+				{{#if ../../actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
 		</li>
