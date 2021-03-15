@@ -14,11 +14,11 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 		
 		getRanges(token) {
 			const baseSpeed = token.actor.data.data.attributes.movement.walk;
-			const enjoadoLento = token.actor.data.data.referencias?.find(
-				(condicao) =>
-					condicao.label === "Enjoado" || condicao.label === "Lento");
+			// const enjoadoLento = token.actor.data.data.referencias?.find(
+				// (condicao) =>
+					// condicao.label === "Enjoado" || condicao.label === "Lento");
 			let runMultiplier = this.getSetting("dashMultiplier");
-			if (enjoadoLento) runMultiplier = 1;
+			// if (enjoadoLento) runMultiplier = 1;
 			// const ranges = [{ range: baseSpeed, color: playerColor },{ range: baseSpeed * 2, color: 0xffff00 },{ range: baseSpeed * runMultiplier, color: 0xff8000 }];
 			const ranges = [
 				{range: baseSpeed, color: "walk"},
