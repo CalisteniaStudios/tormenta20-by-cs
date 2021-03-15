@@ -1,5 +1,6 @@
 import { T20Utility } from "../utility.js";
 import { T20Config } from '../config.js';
+import { T20Conditions } from "../conditions/conditions.js";
 import { d20Roll, damageRoll } from '../dice.js';
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -58,6 +59,7 @@ export default class ActorT20 extends Actor {
 				armadura +
 				Number(data.defesa.outro) +
 				Number(data.defesa.temp) +
+				(Number(data.defesa.condi) || 0) +
 				(Number(bonus) || 0);
 			data.defesa.pda = -pda;
 		}
@@ -330,6 +332,88 @@ export default class ActorT20 extends Actor {
 	/*
 	*	Methods for precreate owned item
 	*/
+	/** @override */
+	async createEmbeddedEntity(embeddedName, itemData, options={}) {
+		const isCondition = (embeddedName === "ActiveEffect")? flattenObject(itemData)["flags.core.statusId"] ?? false : false;
+		if (isCondition) await this.createCondition(isCondition, itemData, options);
+		// Standard embedded entity creation
+		else  super.createEmbeddedEntity(embeddedName, itemData, options);
+	}
+
+	/**
+	* Manage condition applying rules;
+	* 
+	* @param {string} condition			statusId from Status Effect
+	* @param {Object} itemData			StatusEffect object
+	*/
+	async createCondition(condition, itemData, options={}){
+		let ignore = false;
+		let createArr = [T20Conditions[condition]];
+		for(let i=0; i<createArr.length; i++){
+			let conditions = this.effects.filter(ef => ef.getFlag('core','statusId'));
+			let exist = conditions.find(ef => ef.getFlag('core','statusId') == createArr[i].flags.core.statusId);
+			if(exist){
+				if(createArr[i].flags?.t20?.stack){
+					await this.deleteEmbeddedEntity("ActiveEffect", exist.id);
+					let evo = T20Conditions[createArr[i].flags.t20.stack];
+					createArr.pop();
+					i--;
+					createArr.push(evo);
+				} else {
+					createArr.pop();
+					i--;
+				}
+			} else {
+				createArr[i].flags?.t20?.childEffect?.forEach(ce => createArr.push(T20Conditions[ce]) );
+			}
+		}
+		if(createArr){
+			await super.createEmbeddedEntity("ActiveEffect", createArr, options);
+		}
+	}
+
+	/** @override */
+	async deleteEmbeddedEntity(embeddedName, itemData, options={}) {
+		const isCondition = ( embeddedName === "ActiveEffect" && this.effects.get(itemData).data.flags?.core?.statusId ) ? true : false;
+		if (isCondition) await this.deleteCondition(itemData, options);
+		// Standard embedded entity creation
+		else  super.deleteEmbeddedEntity(embeddedName, itemData, options);
+	}
+
+	/**
+	* Manage condition removing rules;
+	* 
+	* @param {Object} itemData			StatusEffect id
+	*/
+	async deleteCondition(itemData, options={}){
+		let childrenConditions = [];
+		// get all child conditions this actor show have ie [weak, shaken, weak, prone]
+		const conditions = this.effects.filter(function(ef){
+			if(ef.getFlag('core','statusId')){
+				if(ef.data.flags.t20?.childEffect)
+					childrenConditions = childrenConditions.concat(ef.data.flags.t20.childEffect);
+				return ef;
+			}
+		});
+
+		// this condition children to be removed ie [weak]
+		const condition = conditions.find(c=> c.id === itemData);
+		let ids = [condition.id];
+		if(condition){
+			let ar = condition.data.flags.t20?.childEffect ?? [];
+			for(let i=0; i < ar.length; i++){
+				let child = conditions.find(c=> c.data.flags.core?.statusId === ar[i]);
+				if(child){
+					let amount = childrenConditions.filter(c=> c===child.data.flags.core.statusId).length;
+					if(amount == 1) ids.push(child.id);
+					if(child.data.flags.t20?.childEffect){
+						child.data.flags.t20?.childEffect.forEach(ch=>ar.push(ch));
+					}
+				}
+			}
+		}
+		await super.deleteEmbeddedEntity("ActiveEffect", ids, options);
+	}
 
 	/* -------------------------------------------- */
 
@@ -340,8 +424,8 @@ export default class ActorT20 extends Actor {
 	 * @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	 */
 	async applyDamage(amount = 0, multiplier = 1, heal) {
-			let toChat = (speaker, message) => {
-				let chatData = {
+		let toChat = (speaker, message) => {
+			let chatData = {
 				user: game.user.id,
 				content: message,
 				speaker: ChatMessage.getSpeaker(speaker),

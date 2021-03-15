@@ -52,28 +52,28 @@ export const ApplyButtons = function (app, html, data)
 		botaoDanoAplicar.click(ev => {
 		ev.stopPropagation();
 		applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,1);
-		this.render(true);
+		// this.render(true);
 		});
 		const botaoDanoDobroAplicar = $(`<td class="apply-button" title="Aplicar Dano em Dobro"><button class="apply-button-b apply-button-dano-dobro" style="background:FireBrick; font-size: 25px;">2x</button></td>`);
 		areaBotoes.find(".flexrow").append(botaoDanoDobroAplicar);
 		botaoDanoDobroAplicar.click(ev => {
 		ev.stopPropagation();
 		applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,2);
-		this.render(true);
+		// this.render(true);
 		});
 		const botaoDanoMetadeAplicar = $(`<td class="apply-button" title="Aplicar Dano pela Metade"><button class="apply-button-b apply-button-dano-metade" style="background:FireBrick; font-size: 25px;">½</button></td>`);
 		areaBotoes.find(".flexrow").append(botaoDanoMetadeAplicar);
 		botaoDanoMetadeAplicar.click(ev => {
 		ev.stopPropagation();
 		applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,0.5);
-		this.render(true);
+		// this.render(true);
 		});
 		const botaoCuraAplicar = $(`<td class="apply-button" title="Aplicar Cura"><button class="apply-button-b apply-button-cura" style="background:SeaGreen;"><i class="fas fa-user-plus apply-button-img"></i></button></td>`);
 		areaBotoes.find(".flexrow").append(botaoCuraAplicar);
 		botaoCuraAplicar.click(ev => {
-		ev.stopPropagation();
-		applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
-		this.render(true);
+			ev.stopPropagation();
+			applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
+			// this.render(true);
 		});
 		botaoAdicionado = true;
 	}

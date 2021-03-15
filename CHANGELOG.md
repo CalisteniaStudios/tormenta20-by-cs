@@ -1,16 +1,10 @@
 # Lista de Mudanças
 
-## Versão 1.2.0.7
-### Consertos de Bugs
-- Macros: não somavam corretamente os bônus;
-
-### Em progresso
-- Condições: desativadas devido a um bug crítico, solução em andamento;
-
 ## Versão 1.2.0.6
 ### Consertos de Bugs
-- Efeitos: `data.modificadores.pericias.—` não aplicará os valores duas vezes .
-- Ataque Preciso: Efeito ajustado para efeito de uso, alterando ataques normalmente.
+- Macros: não somavam corretamente os bônus;
+### Em progresso
+- Condições: desativadas devido a um bug crítico, solução em andamento;
 
 ## Versão 1.2.0.5
 ### Consertos de Bugs

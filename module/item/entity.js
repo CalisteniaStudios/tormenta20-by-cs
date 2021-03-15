@@ -418,7 +418,7 @@ export default class ItemT20 extends Item {
 						}
 						// adcion 1d8 > mods[sourceName].dano = 1d8
 						if(mode === 1 && ( Number(value) )) mods[sourceName].dano = mods[sourceName].dano * (Number(value) + aplicados[ef.id] -1);
-						if(mode === 2 && ( Number(value) || value.match(/\d+d\d+/))) mods[sourceName].dano = Number(value) * aplicados[ef.id] || value;
+						if(mode === 2 && ( Number(value) || value.match(/\d+d\d+|@\w+/))) mods[sourceName].dano = Number(value) * aplicados[ef.id] || value;
 						if(mode === 2 && (!Number(value) && value.match(/roll/))) {
 							let tempIt = actor.items.get(ef.data.origin.split(".")[3]).data.data;
 							mods[sourceName].dano = tempIt.roll ?? tempIt.efeito ?? tempIt.formula;
