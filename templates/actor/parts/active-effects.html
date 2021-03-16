@@ -42,7 +42,7 @@
 			</div>
 			{{/unless}}
 			<div class="item-controls effect-controls flexrow">
-				<a class="effect-control" data-action="toggle" title="Alternar Efeito">
+				<a class="effect-control" data-action="toggle" title="{{#if (eq sid 'onuse')}}Alternar Aplicar Sempre{{else}}Alternar Efeito{{/if}}">
 					<i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
 				</a>
 				<a class="effect-control" data-action="edit" title="Editar Efeito">

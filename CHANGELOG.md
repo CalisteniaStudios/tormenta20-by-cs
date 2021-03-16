@@ -1,5 +1,10 @@
 # Lista de Mudanças
 
+## Versão 1.2.0.11
+### Novidades
+- Efeitos de Uso podem ser alternados para aplicar automaticamente, mesmo sem o SHIFT.
+- Efeitos podem ser arrastados para a barra de macros, permitindo alternar entre Ativo/Inativo.
+
 ## Versão 1.2.0.10
 ### Consertos de Bugs
 - Condições: voltam a funcionar como deveriam.

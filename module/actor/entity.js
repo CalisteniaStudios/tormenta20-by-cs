@@ -61,7 +61,7 @@ export default class ActorT20 extends Actor {
 				Number(data.defesa.temp) +
 				(Number(data.defesa.condi) || 0) +
 				(Number(bonus) || 0);
-			data.defesa.pda = -pda;
+			data.defesa.pda += -pda;
 		}
 		if(data.pericias !== undefined && this.data.type !== "npc"){
 			let skillsArrays = [];
@@ -374,7 +374,7 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	async deleteEmbeddedEntity(embeddedName, itemData, options={}) {
-		const isCondition = ( embeddedName === "ActiveEffect" && this.effects.get(itemData).data.flags?.core?.statusId ) ? true : false;
+		const isCondition = ( embeddedName === "ActiveEffect" && this.effects.get(itemData)?.data?.flags?.core?.statusId ) ? true : false;
 		if (isCondition) await this.deleteCondition(itemData, options);
 		// Standard embedded entity creation
 		else  super.deleteEmbeddedEntity(embeddedName, itemData, options);

@@ -11,9 +11,11 @@
 * @returns {Promise}
 */
 export async function createT20Macro(data, slot) {
+	// Create the macro command
+	let command = "";
 	if (data.type === "Pericia") {
 		const item = data.data;
-		const command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
+		command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
 		let macro = game.macros.entities.find(
 			(m) => m.name === item.label && m.command === command
 			);
@@ -33,9 +35,7 @@ export async function createT20Macro(data, slot) {
 				"Você só pode criar Macros para Ataques, Magias e Poderes. Você pode referenciar atributos e perícias com @. Ex.: @for ou @luta"
 				);
 		const item = data.data;
-		// const actor = getItemOwner(item);
-		// Create the macro command
-		let command = "";
+		
 		if (item.type === "arma") {
 			command = `
 //UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
@@ -71,6 +71,30 @@ game.tormenta20.rollItemMacro("${item.name}",{
 		}
 		game.user.assignHotbarMacro(macro, slot);
 		return false;
+	}
+
+	if (data.type === "ActiveEffect") {
+		let item = data.data;
+		command = `// Ativar/Desativar Efeito;
+if(actor) {
+	let effect = actor.effects.find(ef => ef.data.label == "${item.label}");
+
+	if(effect){
+		effect.update({disabled: !effect.data.disabled});
+	}
+}`;
+		let macro = game.macros.entities.find(
+			(m) => m.name === item.label && m.command === command
+			);
+		if (!macro) {
+			macro = await Macro.create({
+				name: item.label,
+				type: "script",
+				img: item.icon,
+				command: command
+			});
+		}
+		game.user.assignHotbarMacro(macro, slot);
 	}
 }
 

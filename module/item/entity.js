@@ -168,43 +168,39 @@ export default class ItemT20 extends Item {
 
 		// Display a configuration dialog to customize the usage
 		const needsConfiguration = event.shiftKey;
-		let configuration;
+		let configuration = {};
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create(this);
 			if(!configuration) return;
-			
-			// Determine configuration preferences
-			// createMeasuredTemplate = Boolean(configuration.placeTemplate); TODO
 			// consumeResource = Boolean(configuration.consumeResource); TODO
 			consumeMana = Boolean(configuration.consumeMana);
 			rollMode = configuration.rollMode;
+		} else {
+			let aeType = {arma: "attack", magia:"spell", poder: "power", consumivel: "consumable"}[item.type];
+			let awaysActive = actor.effects.filter(ef => ef.data?.flags?.t20?.onuse && ef.data?.flags?.t20?.[aeType] && !ef.data.disabled);
+			awaysActive = awaysActive.concat(item.effects.filter(ef => ef.data?.flags?.t20?.onuse && ef.data?.flags?.t20?.self && !ef.data.disabled));
+			configuration.id = awaysActive.map(ef => ef.id);
+			configuration.aplica = Array(configuration.id.length).fill(true);
 		}
 		// Handle type specific 
 		// TODO
-		// arma {ataque,dano,pericia,atributo,critico,multiplicador}
-		if(item.type === "arma"){
-			options = mergeObject( options, this.getArmaData( id, actorData, configuration ) );
-		}
-		if(item.type === "poder"){
-			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
-		}
-		if(item.type === "magia"){
-			options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
-		}
-
+		
 		// Determine whether the item can be used by testing for resource consumption
 		// Commit pending data updates
 
 		// Execute Rolls
 		switch ( item.type ) {
 			case "arma":
+				options = mergeObject( options, this.getArmaData( id, actorData, configuration ) );
+
 				options.rolls.push(await item.rollAttack({aeparts: options.atqparts, event}));
 				options.rolls.push(await item.rollDamage({aeparts: options.dmgparts, critical: options.rolls[0]._critical, options:options, event}))
 				break; 
 			case "magia":
 			case "poder":
 			case "consumivel":
-				// options.rolls.dmg = await item.rollFormula({options, event});
+				options = mergeObject( options, this.getItemData( id, actorData, configuration ) );
+
 				let roll = await item.rollFormula({options, event});
 				if(roll) options.rolls.push(roll);
 				break;
@@ -400,7 +396,7 @@ export default class ItemT20 extends Item {
 						if(mode === 1 && Number(value)) mods[sourceName].ataque = mods[sourceName].ataque.map(n => Number(n) * (Number(value) + aplicados[ef.id]-1) || n);
 						if(mode === 2) mods[sourceName].ataque.push(Number(value) * aplicados[ef.id] || value);
 						if(mode === 5) mods[sourceName].ataque = [value];
-					} else if(["$dano","dano","roll"].includes(key)){
+					} else if(["$dano","dano"].includes(key)){
 						// custom 1d8 > mods[].aumentadado = X * qtd
 						if(mode === 0 && value.match(/\d+d\d+/)){
 							let tempAp = [];
