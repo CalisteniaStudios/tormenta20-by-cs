@@ -848,12 +848,12 @@ button {
   text-align: center;
 }
 
-.tormenta20 .item-list .item-toggles .item-toggle {
+.tormenta20 .item-list .item-controls .item-toggle {
   /*color: #b5b3a4;*/
   opacity: 0.5;
 }
 
-.tormenta20 .item-list .item-toggles .item-toggle.active {
+.tormenta20 .item-list .item-controls .item-toggle.active {
   opacity: 1;
 }
 

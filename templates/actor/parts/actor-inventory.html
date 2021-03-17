@@ -29,15 +29,13 @@
 	{{#if actor.equipamentos}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
-			<div class="item-name" style="flex:3">Equipamentos</div>
+			<div class="item-name">Equipamentos</div>
 			{{#if (eq layout "tabbed")}}
 			<div class="item-def">Defesa</div>
 			<div class="item-pen">Penalidade</div>
 			{{/if}}
 			<div class="item-qtd">Qtd</div>
 			<div class="item-peso">Peso</div>
-			<div class="item-toggles">
-			</div>
 			<div class="item-controls"></div>
 		</li>
 		{{#each actor.equipamentos as |item id|}}
@@ -52,13 +50,11 @@
 			{{/if}}
 			<div class="item-qtd">{{item.data.qtd}}</div>
 			<div class="item-peso">{{item.peso}}</div>
-			<div class="item-toggles">
+			<div class="item-controls">
+				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
 				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
 					<i class="fas fa-shield-alt"></i>
 				</a>
-			</div>
-			<div class="item-controls">
-				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
 				{{#if ../actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
