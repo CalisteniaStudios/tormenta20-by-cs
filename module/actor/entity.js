@@ -283,8 +283,8 @@ export default class ActorT20 extends Actor {
 				bar1: {attribute: "attributes.pv"},
 				bar2: {attribute: "attributes.pm"}
 			}, {overwrite: false});
-			data.img = data.img ?? "systems/Tormenta20/icons/ameaças/Monstro.webp";
-			data.token.img = data.token.img ?? "systems/Tormenta20/icons/ameaças/Monstro_token.webp";
+			data.img = data.img ?? "systems/tormenta20/icons/ameaças/Monstro.webp";
+			data.token.img = data.token.img ?? "systems/tormenta20/icons/ameaças/Monstro_token.webp";
 		}
 		/**/
 
