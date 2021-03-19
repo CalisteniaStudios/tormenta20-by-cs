@@ -1,5 +1,13 @@
 # Lista de Mudanças
 
+## Versão 1.2.0.12
+### Consertos de Bugs
+- Icones de condição não apareciam no FireFox
+- Itens sem dado podem receber efeitos que incluam com dado e modificar esses dados.
+- Itens podem possuir valores fixos.
+- Adicionado Tempo de Início para Efeitos com duração em segundos.
+- Efeitos com duração cena aparecem corretamente como Efeitos Temporários.
+
 ## Versão 1.2.0.11
 ### Novidades
 - Efeitos de Uso podem ser alternados para aplicar automaticamente, mesmo sem o SHIFT.

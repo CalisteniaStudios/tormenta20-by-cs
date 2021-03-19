@@ -118,6 +118,9 @@ export default class ItemT20 extends Item {
 					}
 					return object;
 				}, []);
+				if( chatEffect.data.duration.seconds ) {
+					chatEffect.data.duration.startTime = game.time.worldTime;
+				}
 			}
 			actors.forEach(function(ac){
 				ActiveEffect.create(chatEffect.data,ac.actor).create();
@@ -556,9 +559,9 @@ export default class ItemT20 extends Item {
 						let tef = T20Conditions[ch.value.toLowerCase().trim()];
 						if ( tef ) effectList.push(ActiveEffect.create(tef));
 					}
-					// adds new dice
+					// adds new bonus/dice
 					else if( ch.key === "roll" && ch.mode === 2 ){
-						formula.push(ch.value);
+						formula.push( Number(ch.value) * aplicados[ef.id] || ch.value);
 					}
 					// overwrite main roll
 					else if( ch.key === "roll" && ch.mode === 5 ){
@@ -566,13 +569,12 @@ export default class ItemT20 extends Item {
 					}
 					// Customizing rolls , change faces, include modifiers
 					else if( ch.key === "roll" && ch.mode === 0 ){
-						if(formula[0].match(/\d+d\d+/) && ch.value.match(/\d+d\d+/)){ //adds more dice
+						if( (formula[0].match(/\d+d\d+/) || rollMods.override.match(/\d+d\d+/)) && ch.value.match(/\d+d\d+/)){ //adds more dice
 							let tempAp = [];
 							ch.value.match(/(\d+^[d])|(d)|(^[d]\d+)|([\+|\-])|(\d+)|(\@\w+)/g).forEach(rt => tempAp.push(Number(rt) * aplicados[ef.id]||rt));
 							if( tempAp[0] ) rollMods.aumentaDado += tempAp[0];
 							if( tempAp[4] ) rollMods.aumentaNum += tempAp[4];
 						}else if(ch.value.match(/^d\d+$/)){ //change faces
-							// formula[0] = formula[0].replace(/d\d+/, ch.value);
 							rollMods.dado = ch.value;
 						} else if ( ["max","min"].includes(ch.value.toLowerCase().trim()) ){ //make min/max
 							options.minmax = ch.value.toLowerCase().trim();
@@ -589,7 +591,6 @@ export default class ItemT20 extends Item {
 								});
 							}
 						});
-
 					}
 				});
 				if ( ef.data.flags.t20.custo === "" ){
@@ -662,7 +663,7 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 	applyRollChanges(roll, rollMods){
 	    let r;
-	    if ( rollMods.override || rollMods.override == "" ) roll = rollMods.override;
+		if ( rollMods.override || rollMods.override == "" ) roll = rollMods.override;
 	    if ( typeof rollMods.dado === "string" ) roll = roll.replace(/d\d+/, rollMods.dado);
 	    if ( rollMods.passo ) {
 			let indx = -1;
@@ -715,8 +716,9 @@ export default class ItemT20 extends Item {
 			data: this.getChatData(),
 			labels: this.labels
 		};
+		
 		for (const roll of options.rolls){
-			roll.tipo = roll.dice[0].faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll.results[0] == 1 ? "falha" : "";
+			roll.tipo = roll.dice[0]?.faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll.results[0] == 1 ? "falha" : "";
 			roll.title = roll.tipo =="roll--dano"? "Dano" : this.type == "arma" ? "Ataque" : "";
 			await roll.render().then((r)=> {templateData._rolls.push(r)});
 		}
