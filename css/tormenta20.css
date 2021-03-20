@@ -1554,6 +1554,11 @@ button {
 .tormenta20 .npc .effects-list .item-image{
 
 }
+
+.active-effect-sheet .effect-change .key {
+  flex: 1;
+}
+
 /* Módulos */
 
 #dfcp-rt-buttons button { /*DF Chat Enhancement*/
