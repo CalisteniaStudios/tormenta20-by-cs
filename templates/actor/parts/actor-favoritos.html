@@ -34,6 +34,11 @@
 		</div>
 		<div class="item-detail item-controls">
 			{{#if ../actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+			{{#if (eq item.type "equip")}}
+			<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
+				<i class="fas fa-shield-alt"></i>
+			</a>
+			{{/if}}
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
