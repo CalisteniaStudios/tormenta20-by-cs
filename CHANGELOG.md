@@ -1,4 +1,9 @@
 # Lista de Mudanças
+## Versão 1.2.0.13
+### Novidades
+- Ficha de Abas: É possível equipar/desequipar um equipamento na seção de Favoritos.
+- Mais 5 Efeitos Ativos: Atlético, Canalizar Reparos, Gatuno, Investigador (parcial), Urro Divino.
+- Aprimoramentos de Magia: Escudo da Fé e Névoa.
 
 ## Versão 1.2.0.12
 ### Consertos de Bugs
