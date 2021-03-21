@@ -1,4 +1,10 @@
 # Lista de Mudanças
+
+## Versão 1.2.0.14
+### Consertos de Bugs
+- Revertido um bug gerado pela atualização 1.2.0.13, onde a ficha não carregaria corretamente.
+- Rolar pericias através de macros voltam a funcionar.
+
 ## Versão 1.2.0.13
 ### Novidades
 - Ficha de Abas: É possível equipar/desequipar um equipamento na seção de Favoritos.
