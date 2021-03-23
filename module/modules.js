@@ -19,7 +19,6 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 					condicao.label === "Enjoado" || condicao.label === "Lento");
 			let runMultiplier = this.getSetting("dashMultiplier");
 			if (enjoadoLento) runMultiplier = 1;
-			const ranges = [{ range: baseSpeed, color: playerColor },{ range: baseSpeed * 2, color: 0xffff00 },{ range: baseSpeed * runMultiplier, color: 0xff8000 }];
 			const ranges = [
 				{range: baseSpeed, color: "walk"},
 				{range: baseSpeed * 2, color:  "dash"},

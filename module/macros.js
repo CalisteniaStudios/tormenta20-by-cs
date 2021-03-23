@@ -176,7 +176,7 @@ export async function rollSkillMacro(skillName, subtype) {
 	};
 	// Trigger the item roll
 	let rolls = {};
-	rolls.atq = await actor.rollPericia(itemData, {event: event});
+	rolls = await actor.rollPericia(itemData, {event: event});
 		
 	actor.displayCard({rolls, itemData});
 }

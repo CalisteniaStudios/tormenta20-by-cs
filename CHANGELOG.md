@@ -1,10 +1,15 @@
 # Lista de Mudanças
-## Versão 1.2.0.14
+## Versão 1.2.0.15
 ### Novidades
 - Macros adicionadas: Confuso e Sangrando.
 
 ### Consertos de Bugs
 - Ficha PJ: Ícones de preprar magia e equipar armadura agora mudam de cor normalmente.
+
+## Versão 1.2.0.14
+### Consertos de Bugs
+- Revertido um bug gerado pela atualização 1.2.0.13, onde a ficha não carregaria corretamente.
+- Rolar pericias através de macros voltam a funcionar.
 
 ## Versão 1.2.0.13
 ### Novidades
