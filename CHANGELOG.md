@@ -1,4 +1,11 @@
 # Lista de Mudanças
+## Versão 1.2.0.14
+### Novidades
+- Macros adicionadas: Confuso e Sangrando.
+
+### Consertos de Bugs
+- Ficha PJ: Ícones de preprar magia e equipar armadura agora mudam de cor normalmente.
+
 ## Versão 1.2.0.13
 ### Novidades
 - Ficha de Abas: É possível equipar/desequipar um equipamento na seção de Favoritos.
@@ -7,7 +14,7 @@
 
 ## Versão 1.2.0.12
 ### Consertos de Bugs
-- Icones de condição não apareciam no FireFox
+- Icones de condição não apareciam no Firefox
 - Itens sem dado podem receber efeitos que incluam com dado e modificar esses dados.
 - Itens podem possuir valores fixos.
 - Adicionado Tempo de Início para Efeitos com duração em segundos.
