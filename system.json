@@ -33,6 +33,13 @@
       "entity": "Item"
     },
     {
+      "name": "macros",
+      "label": "Macros",
+      "system": "tormenta20",
+      "path": "./packs/macros.db",
+      "entity": "Macro"
+    },
+    {
       "name": "magias",
       "label": "Magias",
       "system": "tormenta20",
