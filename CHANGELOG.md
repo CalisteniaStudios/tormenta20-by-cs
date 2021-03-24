@@ -1,4 +1,9 @@
 # Lista de Mudanças
+## Versão 1.2.0.16
+### Novidades
+- Mais 7 Efeitos Ativos: Ambidestria, Autoconfiança, Cura Pelas Mãos, Ervas Curativas, Foco em Arma, Saque Rápido e Sentidos Aguçados.
+- Efeitos Ativos atualizados: Estilo de Uma Arma, Golpe Divino
+
 ## Versão 1.2.0.15
 ### Novidades
 - Macros adicionadas: Confuso e Sangrando.
