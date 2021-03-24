@@ -310,11 +310,15 @@ export default class ItemT20 extends Item {
 	}
 
 	async rollFormula({options={}}) {
-		const formula = this.data.data.efeito ?? this.data.data.roll;
+		let formula = this.data.data.efeito ?? this.data.data.roll;
 		if ( !formula ) return false;
 		// Define Roll Data
 		const rollData = this.getRollData();
 		const title = this.name;
+		// Add damage bonus formula
+		const bonuses = this.actor.data.data?.modificadores.dano || {};
+		if ( bonuses.geral ) parts.push(bonuses.geral);
+		if ( this.type=="magia" && bonuses.mag ) formula += "+"+bonuses.mag;
 		// Invoke the roll and submit it to chat
 		const min = options.minmax && options.minmax == "min" ? true : false;
 		const max = options.minmax && options.minmax == "max" ? true : false;
@@ -522,7 +526,7 @@ export default class ItemT20 extends Item {
 					ef.data.changes.forEach(function(ch){
 						changes[index].push({
 							key: ch.key,
-							value: Number(ch.value),
+							value: Number(ch.value) || ch.value,
 							mode: ch.mode
 						});
 					});
@@ -586,7 +590,7 @@ export default class ItemT20 extends Item {
 							if( !ef.data.flags.t20.aumenta || ( ef.data.flags.t20.aumenta && efch.map(ch => ch.key).includes(ch.key) ) ) {
 								efch.push({
 									key: ch.key,
-									value: Number(ch.value) * aplicados[ef.id] || ch.value,
+									value: Number(ch.value * aplicados[ef.id])  || ch.value,
 									mode: ch.mode
 								});
 							}
@@ -624,7 +628,7 @@ export default class ItemT20 extends Item {
 			let efl = ef.data?.label;
 			if(T20Conditions[efl.slugify().replace("-","")])
 				tempEffect = ActiveEffect.create(T20Conditions[efl.slugify().replace("-","")]);
-			options.effects.push(tempEffect);
+				options.effects.push(tempEffect);
 		});
 		
 		options.custo = options.truque || !id.ativacao.custo ? 0 : Math.max(options.custo,1);
@@ -662,7 +666,7 @@ export default class ItemT20 extends Item {
 
 	/* -------------------------------------------- */
 	applyRollChanges(roll, rollMods){
-	    let r;
+	  let r;
 		if ( rollMods.override || rollMods.override == "" ) roll = rollMods.override;
 	    if ( typeof rollMods.dado === "string" ) roll = roll.replace(/d\d+/, rollMods.dado);
 	    if ( rollMods.passo ) {

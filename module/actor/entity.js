@@ -21,9 +21,9 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareDerivedData() {
+		const actor = this;
 		const actorData = this.data;
 		const data = actorData.data;
-		
 		const nivel = data.attributes.nivel.value;
 
 		// Base CD
@@ -32,35 +32,47 @@ export default class ActorT20 extends Actor {
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (let [key, ability] of Object.entries(data.atributos)) {
 			// Calculate the modifier using d20 rules.
-			ability.ttl = ability.value + (ability.temp ?? 0);
-			ability.mod =
-			Math.floor((ability.value + (ability.temp ?? 0) - 10) / 2) +
-			(ability.bonus ?? 0) -
-			(ability.penalidade ?? 0)
+			try {
+				ability.temp = (Number(ability.temp) || Math.safeEval(ability.temp));
+				ability.value = (Number(ability.value) || Math.safeEval(ability.value));
+				ability.mod = Math.floor((ability.value + (ability.temp ?? 0) - 10) / 2);
+			} catch (error) {
+				ui.notifications.warn(`Avaliação do cálculo de atributo falhou, confira seus Efeitos Ativos.`, {permanent: true});
+				ability.mod = Math.floor((actor._data.data.atributos[key].value + (actor._data.data.atributos[key].temp ?? 0) - 10) / 2);
+			}
 		}
 
 		if(data.defesa !== undefined && this.data.type !== "npc"){
-			let bonus;
+			let bonus = data.defesa.bonus;
 			let armadura = 0;
 			let pda = 0;
-			if(data.defesa.bonus && typeof data.defesa.bonus === 'string'){
+			if(!Number(data.defesa.bonus) && data.defesa.bonus){
 				bonus = new Roll(data.defesa.bonus,this.getRollData());
 				bonus = bonus.evaluate().total;
-			}
+			} 
 			for (let [key, data] of Object.entries(actorData.items)) {
 				if (data.type == "equip" && data.data.equipado) {
 					armadura += data.data.armadura.value;
 					pda += Math.abs(data.data.armadura.penalidade);
 				}
 			}
-			data.defesa.value =
-				10 +
-				Number(data.defesa.des ? data.atributos.des.mod : data.atributos.des.mod < 0 ? data.atributos.des.mod : 0) +
-				armadura +
-				Number(data.defesa.outro) +
-				Number(data.defesa.temp) +
+			try {
+				data.defesa.value = 10;
+				data.defesa.value += Number(data.defesa.des ? data.atributos.des.mod : 0);
+				data.defesa.value += armadura;
+				data.defesa.value += data.defesa.outro = (Number(data.defesa.outro) || Math.safeEval(data.defesa.outro));
+				data.defesa.value += data.defesa.temp = (Number(data.defesa.temp) || Math.safeEval(data.defesa.temp));
+				data.defesa.value += (Number(data.defesa.condi) || 0);
+				data.defesa.value += (Number(bonus) || 0);
+			} catch (error) {
+				ui.notifications.warn(`Avaliação do cálculo de defesa falhou, confira seus Efeitos Ativos.`, {permanent: true});
+				data.defesa.value = 10 + Number(data.defesa.des ? data.atributos.des.mod : 0) + armadura +
+				(Number(data.defesa.outro) || 0) +
+				(Number(data.defesa.temp) || 0) +
 				(Number(data.defesa.condi) || 0) +
 				(Number(bonus) || 0);
+			}
+			
 			data.defesa.pda += -pda;
 		}
 		if(data.pericias !== undefined && this.data.type !== "npc"){
@@ -70,29 +82,38 @@ export default class ActorT20 extends Actor {
 			skillsArrays.push(data.periciasCustom);
 			for (let [k, arr] of Object.entries(skillsArrays)) {
 				for (let [key, pericia] of Object.entries(arr)) {
-				// Calculate the skill values .
-				pericia.treino = !pericia.treinado ? 0 : (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2)) ;
+					// Calculate the skill values .
+					pericia.treino = !pericia.treinado ? 0 : (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2)) ;
 
-				// segunda e terceira array
-				if(k > 0){
-					pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
-					pericia.st = pericia.label.match(/\*/g) ? true : false;
-					pericia.pda = pericia.label.match(/\+/g) ? true : false;
-				}
+					// segunda e terceira array
+					if(k > 0){
+						pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
+						pericia.st = pericia.label.match(/\*/g) ? true : false;
+						pericia.pda = pericia.label.match(/\+/g) ? true : false;
+					}
 
-				var atributo = pericia.atributo;
-				pericia.mod = data.atributos[atributo].mod;
-				pericia.value =
-					Math.floor(nivel / 2) +
-					Number(pericia.treino) +
-					Number(pericia.mod) +
-					Number(pericia.outros) +
-					Number(pericia.temp ?? 0) +
-					Number(pericia.pda ? (data.defesa.pda ? -Math.abs(data.defesa.pda) : 0) : 0);
-				// Number(data.modificadores?.pericias?.geral ?? 0) +
-				// Number(data.modificadores?.pericias?.semataque ?? 0) +
-				// Number(data.modificadores?.pericias?.ataque ?? 0) +
-				// Number(data.modificadores?.pericias?.resistencia ?? 0) +
+					var atributo = pericia.atributo;
+					pericia.mod = data.atributos[atributo].mod;
+					try {
+						let bonus;
+						if(!Number(pericia.temp) && pericia.temp){
+							bonus = new Roll(pericia.temp, actor.getRollData());
+							bonus = bonus.evaluate().total;
+						} else bonus = pericia.temp;
+
+						pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) +
+								Number(pericia.pda ? (data.defesa.pda ? -Math.abs(data.defesa.pda) : 0) : 0);
+						pericia.value += pericia.outros = (Number(pericia.outros) || Math.safeEval(pericia.outros));
+						pericia.value += (Number(bonus) || 0);
+						
+					} catch (error) {
+						console.log(error);
+						ui.notifications.warn(`Avaliação do cálculo de perícia falhou, confira seus Efeitos Ativos.`, {permanent: true});
+						pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) +
+							Number(actor._data.data.pericias[key].outros ?? 0) +
+							Number(actor._data.data.pericias[key].temp ?? 0) +
+							Number(pericia.pda ? (data.defesa.pda ? -Math.abs(data.defesa.pda) : 0) : 0);
+					}
 				}
 			}
 		}
@@ -133,7 +154,8 @@ export default class ActorT20 extends Actor {
 		for ( let abl in data.atributos ) {
 			data[abl] = data.atributos[abl].mod
 		}
-
+		data["nivel"] = data.attributes.nivel.value;
+		data["meionivel"] = Math.floor(data.attributes.nivel.value / 2);
 		return data;
 	}
 
@@ -152,7 +174,6 @@ export default class ActorT20 extends Actor {
 	*/
 	_prepareCharacterData(actorData){
 		const data = actorData.data;
-
 		/* TODO IMPLEMENT GET FROM ITEM */
 		const classes = [];
 		/* 
@@ -168,12 +189,7 @@ export default class ActorT20 extends Actor {
 			return arr;
 		}, 0);
 
-		data.rd.value =
-			data.rd.base +
-			data.rd.temp +
-			(data.rd.bonus ?? 0) +
-			(data.rd.penalidade ?? 0);
-
+		data.rd.value = data.rd.base + data.rd.temp;
 		// for compatibility with dnd modules
 		data.attributes.hp = data.attributes.pv.value;
 
