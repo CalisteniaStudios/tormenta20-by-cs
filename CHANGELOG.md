@@ -1,4 +1,15 @@
 # Lista de Mudanças
+## Versão 1.2.0.16
+### Novidades
+- Mais 7 Efeitos Ativos: Ambidestria, Autoconfiança, Cura Pelas Mãos, Ervas Curativas, Foco em Arma, Saque Rápido e Sentidos Aguçados.
+- Efeitos Ativos atualizados: Estilo de Uma Arma, Golpe Divino
+
+## Versão 1.2.0.15
+### Novidades
+- Macros adicionadas: Confuso e Sangrando.
+
+### Consertos de Bugs
+- Ficha PJ: Ícones de preprar magia e equipar armadura agora mudam de cor normalmente.
 
 ## Versão 1.2.0.14
 ### Consertos de Bugs
@@ -13,7 +24,7 @@
 
 ## Versão 1.2.0.12
 ### Consertos de Bugs
-- Icones de condição não apareciam no FireFox
+- Icones de condição não apareciam no Firefox
 - Itens sem dado podem receber efeitos que incluam com dado e modificar esses dados.
 - Itens podem possuir valores fixos.
 - Adicionado Tempo de Início para Efeitos com duração em segundos.
