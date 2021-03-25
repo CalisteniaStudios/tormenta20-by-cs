@@ -533,7 +533,6 @@ export default class ItemT20 extends Item {
 				});
 			});
 
-
 			let _campos = {
 				custo: 0
 			};
@@ -546,7 +545,9 @@ export default class ItemT20 extends Item {
 					if( campos.includes(ch.key) ){
 						if (ch.mode === 5) _campos[ch.key] = ch.value;
 						// if (ch.mode === 2) _campos[ch.key] = ch.value;
-						if ( ch.mode === 2 && options.spell[ch.key] && ch.value && options.spell[ch.key].match(/[\d+]?[,]?\d+/) && ch.value.toString().match(/[\d+]?[,]?\d+/) ) {
+						if (ch.mode === 2 && options.spell[ch.key] && Number(options.spell[ch.key]) && Number(ch.value)){
+							_campos[ch.key] = Number(options.spell[ch.key]) + Number(ch.value)
+						} else if ( ch.mode === 2 && options.spell[ch.key] && ch.value && options.spell[ch.key].match(/[\d+]?[,]?\d+/) && ch.value.toString().match(/[\d+]?[,]?\d+/) ) {
 							let n1 = options.spell[ch.key].match(/[\d+]?[,]?\d+/)[0].replace(",",".");
 							let n2 = ch.value.toString().match(/[\d+]?[,]?\d+/)[0].replace(",",".");
 							let n3 = Number(n1) + ( Number(n2) * aplicados[ef.id] ) + "";
@@ -588,6 +589,9 @@ export default class ItemT20 extends Item {
 					} else if( ch.key !== "roll" ) {
 						changes.forEach(function(efch){
 							if( !ef.data.flags.t20.aumenta || ( ef.data.flags.t20.aumenta && efch.map(ch => ch.key).includes(ch.key) ) ) {
+								if( ch.key == "data.tamanho" && efch.findIndex(i => i.key=="data.tamanho")){
+									efch.splice(efch.findIndex(i => i.key=="data.tamanho"),1);
+								}
 								efch.push({
 									key: ch.key,
 									value: Number(ch.value * aplicados[ef.id])  || ch.value,

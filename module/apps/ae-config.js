@@ -37,4 +37,17 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 		this.render();
 	}
 
+	/** @override */
+  async _updateObject(event, formData) {
+    formData = expandObject(formData);
+    formData.changes = Object.values(formData.changes || {});
+    for ( let c of formData.changes ) {
+      if ( c.mode !== 2 && Number.isNumeric(c.value) ) c.value = parseFloat(c.value);
+    }
+		if(formData.flags?.t20?.onuse) {
+			let a = formData.flags.t20;
+			formData.transfer = (a.attack || a.skill || a.ability || a.power || a.spell || a.consumable);
+		}
+    return this.object.update(formData);
+  }
 }

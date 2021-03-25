@@ -172,7 +172,7 @@ T20Conditions.emchamas = {
 	label: "Em Chamas",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/em-chamas.svg",
-	flags: {core:{statusId:"chamas"},t20:{condition:true,durationScene:true}}
+	flags: {core:{statusId:"emchamas"},t20:{condition:true,durationScene:true}}
 }
 
 T20Conditions.enjoado = {

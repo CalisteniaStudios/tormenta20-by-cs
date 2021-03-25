@@ -13,7 +13,7 @@ T20Config.statusEffectIcons = [
     { "id": "debilitado", "label": "Debilitado", "icon": "systems/tormenta20/icons/conditions/debilitado.svg" },
     { "id": "desprevenido", "label": "Desprevenido", "icon": "systems/tormenta20/icons/conditions/desprevenido.svg" },
     { "id": "doente", "label": "Doente", "icon": "systems/tormenta20/icons/conditions/doente.svg" },
-    { "id": "em-chamas", "label": "Em Chamas", "icon": "systems/tormenta20/icons/conditions/em-chamas.svg" },
+    { "id": "emchamas", "label": "Em Chamas", "icon": "systems/tormenta20/icons/conditions/em-chamas.svg" },
     { "id": "enjoado", "label": "Enjoado", "icon": "systems/tormenta20/icons/conditions/enjoado.svg" },
     { "id": "enredado", "label": "Enredado", "icon": "systems/tormenta20/icons/conditions/enredado.svg" },
     { "id": "envenenado", "label": "Envenenado", "icon": "systems/tormenta20/icons/conditions/envenenado.svg" },

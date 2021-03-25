@@ -11,8 +11,9 @@ export function onManageActiveEffect(event, owner) {
 	switch ( a.dataset.action ) {
 		case "create":
 		return ActiveEffect.create({
-			label: "Novo Efeito",
-			icon: "icons/svg/aura.svg",
+			label: li.dataset.effectType=="onuse" ? "Novo Efeito" : owner.name,
+			icon: (li.dataset.effectType=="onuse" ? "icons/svg/upgrade.svg" :
+											owner.entity== "Item" ? owner.data.img : "icons/svg/aura.svg"),
 			origin: owner.uuid,
 			flags: { t20: { onuse: li.dataset.effectType=="onuse" } },
 			"duration.rounds": li.dataset.effectType === "temporary" ? 1 : undefined,

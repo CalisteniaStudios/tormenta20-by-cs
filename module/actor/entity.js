@@ -75,6 +75,11 @@ export default class ActorT20 extends Actor {
 			
 			data.defesa.pda += -pda;
 		}
+		if (data.rd){
+			data.rd.base = new Roll(data.rd.base.toString(), actor.getRollData()).evaluate().total;
+			data.rd.temp = new Roll(data.rd.temp.toString(), actor.getRollData()).evaluate().total;
+			data.rd.value = Math.safeEval(data.rd.base + data.rd.temp);
+		}
 		if(data.pericias !== undefined && this.data.type !== "npc"){
 			let skillsArrays = [];
 			skillsArrays.push(data.pericias);
@@ -107,7 +112,6 @@ export default class ActorT20 extends Actor {
 						pericia.value += (Number(bonus) || 0);
 						
 					} catch (error) {
-						console.log(error);
 						ui.notifications.warn(`Avaliação do cálculo de perícia falhou, confira seus Efeitos Ativos.`, {permanent: true});
 						pericia.value = Math.floor(nivel / 2) + Number(pericia.treino) + Number(pericia.mod) +
 							Number(actor._data.data.pericias[key].outros ?? 0) +
@@ -188,8 +192,7 @@ export default class ActorT20 extends Actor {
 			}
 			return arr;
 		}, 0);
-
-		data.rd.value = data.rd.base + data.rd.temp;
+		data.rd.value = Math.safeEval(data.rd.base + data.rd.temp);
 		// for compatibility with dnd modules
 		data.attributes.hp = data.attributes.pv.value;
 
@@ -350,7 +353,14 @@ export default class ActorT20 extends Actor {
 	*/
 	/** @override */
 	async createEmbeddedEntity(embeddedName, itemData, options={}) {
-		const isCondition = (embeddedName === "ActiveEffect")? flattenObject(itemData)["flags.core.statusId"] ?? false : false;
+		let isCondition = false;
+		if(embeddedName === "ActiveEffect"){
+			isCondition = flattenObject(itemData)["flags.core.statusId"] ?? false;
+			if( isCondition && flattenObject(itemData)["flags.core.statusId"].match(/combat-utility-belt/) ){
+				isCondition = false;
+			}
+		}
+		// const isCondition = (embeddedName === "ActiveEffect")? flattenObject(itemData)["flags.core.statusId"] ?? false : false;
 		if (isCondition) await this.createCondition(isCondition, itemData, options);
 		// Standard embedded entity creation
 		else  super.createEmbeddedEntity(embeddedName, itemData, options);
@@ -431,6 +441,32 @@ export default class ActorT20 extends Actor {
 		await super.deleteEmbeddedEntity("ActiveEffect", ids, options);
 	}
 
+
+	/*overrides*/
+	applyActiveEffects() {
+    const overrides = {};
+    // Organize non-disabled effects by their application priority
+    const changes = this.effects.reduce((changes, e) => {
+      if ( e.data.disabled || e.data?.flags?.t20?.onuse ) return changes;
+      return changes.concat(e.data.changes.map(c => {
+        c = duplicate(c);
+        if ( c.key.match(/(data.)(.*)(.temp|.outros|.outro|.bonus|.value)|data.modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i) ){
+					c.value = "+"+c.value.toString();
+				}
+				c.effect = e;
+        c.priority = c.priority ?? (c.mode * 10);
+        return c;
+      }));
+    }, []);
+    changes.sort((a, b) => a.priority - b.priority);
+    // Apply all changes
+    for ( let change of changes ) {
+      const result = change.effect.apply(this, change);
+      if ( result !== null ) overrides[change.key] = result;
+    }
+    // Expand the set of final overrides
+    this.overrides = expandObject(overrides);
+  }
 	/* -------------------------------------------- */
 
 	/**
