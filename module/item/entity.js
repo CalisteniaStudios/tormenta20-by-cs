@@ -223,7 +223,9 @@ export default class ItemT20 extends Item {
 
 		// Define Roll bonuses
 		const parts = [];
-		if ( itemData.pericia != "0" && (this.actor.data.type != "npc" || actorData.pericias[itemData.pericia].value != 0)) {
+		if (itemData.atrAtq == "0" && this.actor.data.type != "npc"){
+			parts.push(actorData.pericias[itemData.pericia].value);
+		} else if ( itemData.pericia != "0" && (this.actor.data.type != "npc" || actorData.pericias[itemData.pericia].value != 0)) {
 			if ( actorData.pericias[itemData.pericia].atributo != itemData.atrAtq ) {
 				const atributoOriginal = actorData.atributos[actorData.pericias[itemData.pericia].atributo].mod;
 				parts.push(actorData.pericias[itemData.pericia].value - atributoOriginal + (actorData.atributos[itemData.atrAtq].mod ?? 0))
@@ -378,7 +380,10 @@ export default class ItemT20 extends Item {
 				if( Number(ef.data.flags.t20.custo) ) ret.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
 				let ap = {
 					description: ef._sourceName,
+					
 				}
+				let flavor = ef.parent.items.get(ef.data.origin.split(".")[3]).data.data.chatFlavor || false;
+				if(flavor) options.chatFlavor = flavor;
 				if (Number(ef.data.flags.t20.custo)) ap.custo = ef.data.flags.t20.custo * aplicados[ef.id];
 				if (ret.aprimoramentos.find(i=>i.description == ef._sourceName)) {
 					ret.aprimoramentos.map(function(i){if(i.description == ef._sourceName) i.custo += ap.custo});
@@ -712,7 +717,6 @@ export default class ItemT20 extends Item {
 	*                                  the prepared message data (if false)
 	*/
 	async displayCard({options, rollMode, createMessage=true}={}) {
-		
 		// Basic template rendering data
 		rollMode = rollMode || game.settings.get("core", "rollMode");
 		const token = this.actor.token;
@@ -745,12 +749,10 @@ export default class ItemT20 extends Item {
 			user: game.user._id,
 			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
 			content: html,
-			flavor: this.data.data.chatFlavor || "",
+			flavor: options.chatFlavor || this.data.data.chatFlavor || "",
 			speaker: ChatMessage.getSpeaker({actor: this.actor, token}),
 			flags: {"core.canPopout": true, "t20.effects": options.effects}
 		};
-
-		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode);
 
 		if (game?.dice3d?.show) {

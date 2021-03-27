@@ -1,4 +1,10 @@
 # Lista de Mudanças
+
+## Versão 1.2.0.17
+### Novidades
+- Botão ao lado do atributo chave de magia, para atualizar todas as magias presentes.
+- Campo nos itens para incluir uma sub descrição no chat;
+
 ## Versão 1.2.0.16
 ### Novidades
 - Mais 7 Efeitos Ativos: Ambidestria, Autoconfiança, Cura Pelas Mãos, Ervas Curativas, Foco em Arma, Saque Rápido e Sentidos Aguçados.

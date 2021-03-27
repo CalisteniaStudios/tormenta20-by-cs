@@ -15,13 +15,14 @@
 			<option value="car">Carisma</option>
 			{{/select}}
 		</select>
+		<a class="update-cd" title="Atualizar Atributos das Magias" data-atrRes="{{data.atributoChave}}"><i class="fas fa-sync"></i></a>
 	</li>
 	{{#each actor.magias as |circulo i|}}
 	{{#if circulo.spells.length}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
-			<div class="item-name">{{i}}º Círculo ({{circulo.custo}} PM)</div>
+			<div class="item-name" style="flex:2">{{i}}º Círculo ({{circulo.custo}} PM)</div>
 			<div class="item-tipo">Escola</div>
 			<div class="item-tipo">Ativação</div>
 			<div class="item-controls">
@@ -36,7 +37,7 @@
 				<a class="item-toggle preparation-toggle {{#if m.data.preparada }}active{{/if}}" title="Preparada"><i class="fas fa-sun"></i></a>
 			</div>
 			{{/if}}
-			<div class="item-name flexrow rollable magia-rollable" data-label="{{m.name}}">
+			<div class="item-name flexrow rollable magia-rollable" style="flex:2" data-label="{{m.name}}">
 			<div class="item-image" style="background-image: url('{{m.img}}')"></div>
 				<h4>{{m.name}}</h4>
 			</div>

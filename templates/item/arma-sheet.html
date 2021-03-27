@@ -55,9 +55,10 @@
             <div class="form-group">
 				<label>Ataque: 1d20+</label>
 				<div class="form-fields">
-					<select class="selectatr" name="data.atrAtq" value={{data.atrAtq}} data-type="String">
+					<select class="selectatr" name="data.atrAtq" value={{data.atrAtq}} title="Alterar Atributo do Ataque" data-type="String">
 						{{#select data.atrAtq}}
-						{{#if npc}}<option value="0">Nenhum</option>{{/if}}
+						{{#if npc}}<option value="0">Nenhum</option>
+						{{else}}<option value="0">Padrão</option>{{/if}}
 						{{#each config.atributos as |atr key|}}
 						<option value="{{key}}">{{atr}}</option>
 						{{/each}}
@@ -112,7 +113,12 @@
 				</div>
 			</div>
 			{{/if}}
-        </div>
+			<hr>
+			<div class="form-group">
+				<label for="chatFlavor">ChatFlavor</label>
+				<textarea name="data.chatFlavor" contenteditable="true">{{data.chatFlavor}}</textarea>
+			</div>
+		</div>
 		
 		{{!-- Description Tab --}}
         {{> "systems/tormenta20/templates/item/parts/item-encantos.html"}}

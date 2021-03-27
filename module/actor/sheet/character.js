@@ -175,7 +175,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			else if (i.type === 'arma') {
 				let atqSkill;
 				if(actorData.data.pericias){
-					if (i.data.atrAtq && actorData.data.atributos[i.data.atrAtq].mod && actorData.data.pericias[i.data.pericia].atributo != i.data.atrAtq) {
+					if (i.data.atrAtq && i.data.atrAtq !== "0" && actorData.data.atributos[i.data.atrAtq].mod && actorData.data.pericias[i.data.pericia].atributo != i.data.atrAtq) {
 						let periciaMod = actorData.data.atributos[actorData.data.pericias[i.data.pericia].atributo].mod;
 						atqSkill = actorData.data.atributos[i.data.atrAtq].mod + actorData.data.pericias[i.data.pericia].value - periciaMod;
 					}
@@ -323,6 +323,15 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
   }
 
 	/* -------------------------------------------- */
+	_onUpdateCD(ev){
+		const atrRes = $(ev.currentTarget).data("atrres");
+		const magias = this.actor.data.items.filter(i => i.type === "magia");
+		const updates = magias.map(i => {
+  		return {_id: i._id, "data.atrRes": atrRes};
+		});
+		this.actor.updateEmbeddedEntity("OwnedItem", updates);
+	}
+	
 	//  
 	_onToggleArmor(ev) {
 		const li = $(ev.currentTarget).parents(".item");
@@ -379,7 +388,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			
 			// Update Inventory Item
 			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
-
+			html.find('.update-cd').click(this._onUpdateCD.bind(this));
 			// Prepare spells
 			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
 

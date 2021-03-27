@@ -377,26 +377,9 @@
     "tesouro": {
       "templates": ["base","objeto"]
     },
-    "ataque": {
-      "templates": ["base"],
-      "arma": "",
-      "pericia": "lut",
-      "bonusAtq": 0,
-      "_bonusAtq": "0",
-      "dano": "1d6",
-      "_bonusDano": "0",
-      "atrDan": "for",
-      "criticoM": 20,
-      "criticoX": 2,
-      "lancinante": false,
-      "tipo": "",
-      "alcance": "",
-      "municao": 0,
-      "custo": 0
-    },
     "arma": {
       "templates": ["base","objeto"],
-      "atrAtq": "for",
+      "atrAtq": "0",
       "pericia": "lut",
       "atrDan": "for",
       "dano": "1d6",

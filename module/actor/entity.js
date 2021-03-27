@@ -158,8 +158,15 @@ export default class ActorT20 extends Actor {
 		for ( let abl in data.atributos ) {
 			data[abl] = data.atributos[abl].mod
 		}
+		
+		const classes = this.items.reduce(function(cn, it) {
+			if (it.type === "classe") cn[it.name.slugify()] = it.data.data.niveis;
+			return cn;
+		}, {} );
+		
 		data["nivel"] = data.attributes.nivel.value;
 		data["meionivel"] = Math.floor(data.attributes.nivel.value / 2);
+		data["nvl"] = classes;
 		return data;
 	}
 
