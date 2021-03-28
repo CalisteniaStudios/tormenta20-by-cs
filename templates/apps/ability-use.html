@@ -1,7 +1,7 @@
 <form id="ability-use-form">
 	{{#if formula}}
 	<div class="form-group">
-		<label>Ataque:</label>
+		<label>{{#if (eq itype "arma")}}Ataque{{else}}Modificador{{/if}}:</label>
 		<input type="text" name="bonus" value="" placeholder="ex. +1d4 ou -3"/>
 	</div>
 	{{/if}}

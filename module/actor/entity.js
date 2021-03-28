@@ -76,8 +76,8 @@ export default class ActorT20 extends Actor {
 			data.defesa.pda += -pda;
 		}
 		if (data.rd){
-			data.rd.base = new Roll(data.rd.base.toString(), actor.getRollData()).evaluate().total;
-			data.rd.temp = new Roll(data.rd.temp.toString(), actor.getRollData()).evaluate().total;
+			data.rd.base = Number(data.rd.base ?? "0");
+			data.rd.temp = Number(data.rd.temp ?? "0");
 			data.rd.value = Math.safeEval(data.rd.base + data.rd.temp);
 		}
 		if(data.pericias !== undefined && this.data.type !== "npc"){

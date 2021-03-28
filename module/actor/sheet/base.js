@@ -399,7 +399,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		let atributo = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
 										: event.currentTarget.parentElement.dataset.itemId;
 		let rolls={};
-		let rollMode = event;
+		let rollMode;
 		let parts = [];
 		let options = {event: event};
 		
@@ -478,7 +478,7 @@ export default class ActorSheetT20 extends ActorSheet {
 										: event.currentTarget.parentElement.dataset.itemId;
 		let type = event.currentTarget.dataset.type;
 		let rolls={};
-		let rollMode = event;
+		let rollMode;
 		let parts = [];
 		let skillData = {padrao: this.actor.data.data.pericias, oficios: this.actor.data.data.pericias.ofi.mais, custom: this.actor.data.data.periciasCustom}[type];
 		skillData[pericia].formula = "1d20+@mod";
@@ -495,7 +495,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const needsConfiguration = event.shiftKey;
 		let configuration = {};
 		if( needsConfiguration ){
-			const configuration = await AbilityUseDialog.create(itemData);
+			configuration = await AbilityUseDialog.create(itemData);
 			
 			rollMode = configuration.rollMode;
 		} else {

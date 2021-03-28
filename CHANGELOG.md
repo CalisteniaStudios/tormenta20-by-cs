@@ -1,4 +1,11 @@
 # Lista de Mudanças
+## Versão 1.2.0.18
+### Consertos de Bugs
+- Fichas com RD Base ou Temporário definidos mas o outro indefinido não conseguiam editar a ficha (ex: Base "5", Temp "").
+- Janela de Uso de Habilidade (Shift + Clique):
+- - Perícias não estavam sendo afetadas pelo modificador da janela do shift.
+- - Modo de rolagem estava sendo ignorado.
+- - "Ataque" aparecia para habilidades que não eram ataques.
 
 ## Versão 1.2.0.17
 ### Novidades
