@@ -25,7 +25,7 @@ export default function () {
 
 
 		const NEEDS_MIGRATION_VERSION = "1.1.57";
-		const COMPATIBLE_MIGRATION_VERSION = "1.1.30";
+		const COMPATIBLE_MIGRATION_VERSION = "1.1.57";
 		const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
 
 		let buttons = {ok: {label: "Ok" }};

@@ -74,7 +74,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		data["itemFisico"] = data.item.data.hasOwnProperty("qtd");
 		if (data.item.data.hasOwnProperty("duracao")) {
 			const unidade = data.item.data.duracao.unidade;
-			const mostrarValorDuracao = unidade == "turno" ? true : unidade == "rodada" ? true : unidade == "outra" ? true : false;
+			const mostrarValorDuracao = ["turno","rodada","outra"].includes(unidade);
 			if (mostrarValorDuracao && Number(data.item.data.duracao.valor) > 1) {
 				data["mostrarPluralDuracao"] = true;
 			}
@@ -292,4 +292,3 @@ ap.description.match(/abalado|agarrado|alquebrado|apavorado|atordoado|ca[i|í]id
 		this.render();
 	}
 }
-// C:/Users/victo/AppData/Local/FoundryVTT

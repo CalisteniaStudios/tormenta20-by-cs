@@ -105,7 +105,7 @@ export default class ItemT20 extends Item {
 		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
 		const buttonId = event.currentTarget.dataset.effectIndex;
 		const actors = canvas.tokens.controlled;
-		if ( actors && buttonId>=0){
+		if ( actors.length && buttonId>=0){
 			const chatEffect = game.messages.get(chatCardId).data.flags.t20?.effects[buttonId];
 			if(chatEffect.data.changes){
 				chatEffect.data.changes.sort((c,d)=> typeof c.value === "string" ? 1 : -1 );
@@ -126,7 +126,9 @@ export default class ItemT20 extends Item {
 				ActiveEffect.create(chatEffect.data,ac.actor).create();
 			});
 		}
-
+		else if (actors.length == 0) {
+			ui.notifications.warn("Você precisa selecionar pelo menos um token.");
+		}
 	}
 	/* -------------------------------------------- */
 
