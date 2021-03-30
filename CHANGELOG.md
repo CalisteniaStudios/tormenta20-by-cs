@@ -1,4 +1,10 @@
 # Lista de Mudanças
+## Versão 1.2.0.19
+### Novidades
+- Efeitos Ativos:
+- - Mais 11 Efeitos: Arcano de Batalha, Arma Sagrada, Armas da Ambição, Comandar, Derrubar/Desarmar/Quebrar Aprimorado, Magia Pungente, Mestre Caçador, Pele de Aço/Ferro
+- - Removido o efeito do Foco em Arma. É melhor aplicar efeitos passivos para itens diretamente na ficha do item.
+
 ## Versão 1.2.0.18
 ### Consertos de Bugs
 - Fichas com RD Base ou Temporário definidos mas o outro indefinido não conseguiam editar a ficha (ex: Base "5", Temp "").
