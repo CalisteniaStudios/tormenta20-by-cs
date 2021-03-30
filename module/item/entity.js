@@ -15,32 +15,10 @@ export default class ItemT20 extends Item {
 	prepareData() {
 		super.prepareData();
 		const data = this.data;
-
-		if (this.data.type == "skill"){
-			this.prepareSkill();
-		}
-	}
-
-	prepareSkill(){
-		if (this.data.type != "skill"){
-			return;
-		}
-
-		const data = this.data;
-
-		if (this.isOwned)
-		{
-			if (!data.data.total){
-				data.data.total = 0;
-			}
-			let actorData = this.actor.data.data;
-			let halfLevel = Math.floor(actorData.attributes.nivel.value/2);
-
-			let training = !data.data.trained ? 0 : (actorData.attributes.nivel.value > 14 ? 6 : (actorData.attributes.nivel.value > 6 ? 4 : 2));
-			let abilityMod = actorData.atributos[data.data.ability].mod;
-			let armorPen = false ? 0 : 0;
-
-			data.data.total = halfLevel + training + abilityMod + data.data.bonus + armorPen;
+		
+		// Classes
+		if ( data.type === "classe" ) {
+			data.niveis = Math.clamped(data.data.niveis, 1, 20);
 		}
 	}
 
@@ -137,7 +115,7 @@ export default class ItemT20 extends Item {
 	* @param {string} [rollMode]             The roll display mode with which to display (or not) the card
 	* @return {Promise<ChatMessage|object|void>}
 	*/
-	async roll({rollMode,createMessage=true,extra={}}={}) {
+	async roll({rollMode, createMessage=true,extra={}}={}) {
 		let item = this;
 		let copy = duplicate(this);
 		const actor = this.actor;
