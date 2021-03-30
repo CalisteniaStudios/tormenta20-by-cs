@@ -102,7 +102,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 					if (itemData.pericia != "0" && actorData.data.pericias[itemData.pericia].value != 0) {
 						if (actorData.data.pericias[itemData.pericia].atributo != itemData.atrAtq) {
 							const atributoOriginal = actorData.data.atributos[actorData.data.pericias[itemData.pericia].atributo].mod;
-							atqSkill += actorData.data.pericias[itemData.pericia].value - atributoOriginal + (actorData.data.atributos[itemData.atrAtq].mod ?? 0);
+							atqSkill += actorData.data.pericias[itemData.pericia].value - atributoOriginal + (actorData.data.atributos[itemData.atrAtq]?.mod ?? 0);
 						}
 						else if(actorData.data.pericias[itemData.pericia].value) {
 							atqSkill += actorData.data.pericias[itemData.pericia].value;

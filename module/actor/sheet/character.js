@@ -180,7 +180,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 						atqSkill = actorData.data.atributos[i.data.atrAtq].mod + actorData.data.pericias[i.data.pericia].value - periciaMod;
 					}
 					else {
-						atqSkill = actorData.data.pericias[i.data.pericia].value;
+						atqSkill = actorData.data.pericias[i.data.pericia]?.value ?? 0;
 					}
 				}
 				let tempatq = `${atqSkill} + ${i.data.atqBns}`;

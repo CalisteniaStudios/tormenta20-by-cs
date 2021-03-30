@@ -4,6 +4,11 @@
 - Efeitos Ativos:
 - - Mais 11 Efeitos: Arcano de Batalha, Arma Sagrada, Armas da Ambição, Comandar, Derrubar/Desarmar/Quebrar Aprimorado, Magia Pungente, Mestre Caçador, Pele de Aço/Ferro
 - - Removido o efeito do Foco em Arma. É melhor aplicar efeitos passivos para itens diretamente na ficha do item.
+- Tentar ativar um efeito de uma mensagem no chat retornará um aviso para selecionar um token caso não tenha um selecionado.
+- Compêndio: Armas de ataque à distância (exceto Arco Longo) não têm Força como atributo no dano.
+
+### Consertos de Bugs
+- Fichas de personagens com Armas sem Atributo definido com uma perícia definida não abriam.
 
 ## Versão 1.2.0.18
 ### Consertos de Bugs
