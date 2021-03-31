@@ -758,4 +758,52 @@ export default class ItemT20 extends Item {
 
 		return data;
 	}
+	
+	/**
+   * Create a consumable spell scroll Item from a spell Item.
+   * @param {ItemT20} spell      The spell to be made into a scroll
+   * @return {ItemT20}           The created scroll consumable item
+   * @private
+   */
+  static async createScrollFromSpell(magia) {
+
+    // Get spell data
+    const itemData = magia instanceof ItemT20 ? magia.data : magia;
+    const {description, tipo, circulo, escola, alcance, duracao, resistencia, alvo, area, efeito, aprimoramentos, ativacao} = itemData.data;
+
+    // Get scroll data
+    const scrollData = {"permission":{"default":0},"type":"consumivel","data":{"peso":0,"qtd":1,"preco":0}};
+		scrollData.img = "systems/tormenta20/icons/itens/pergaminho.webp";
+
+    // Split the scroll description into an intro paragraph and the remaining details
+    const scrollDescription = scrollData.data.description;
+    const pdel = '</p>';
+    const scrollIntroEnd = scrollDescription.indexOf(pdel);
+    const scrollIntro = scrollDescription.slice(0, scrollIntroEnd + pdel.length);
+    const scrollDetails = scrollDescription.slice(scrollIntroEnd + pdel.length);
+
+    // Create a composite description from the scroll description and the spell details
+    const desc = `${scrollIntro}<hr/><h3>${itemData.name} (Círculo ${circulo})</h3><hr/>${description}<hr/><h3>Detalhes do Pergaminho</h3><hr/>${scrollDetails}`;
+
+    // Create the spell scroll data
+    const spellScrollData = mergeObject(scrollData, {
+      name: `Pergaminho: ${itemData.name}`,
+      data: {
+        "description": desc.trim(),
+        circulo,
+				tipo,
+				circulo,
+				escola,
+				alcance,
+				duracao,
+				resistencia,
+				alvo,
+				area,
+				efeito,
+				aprimoramentos,
+				ativacao
+      }
+    });
+    return new this(spellScrollData);
+  }
 }
