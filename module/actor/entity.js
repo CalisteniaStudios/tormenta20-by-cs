@@ -329,31 +329,6 @@ export default class ActorT20 extends Actor {
 	}
 	/**/
 
-	/* -------------------------------------------- */
-	/*/
-	// Item Skills [WIP]
-	static async allBasicSkills(group) {
-		let returnSkills = [];
-
-		const packs = game.packs.filter(p => p.metadata.tags && p.metadata.tags.includes("skill"))
-
-		if (!packs.length)
-			return ui.notifications.error("Conteúdo não encontrado")
-
-		for (let pack of packs){
-			let items;
-			await pack.getContent().then(content => items = content.filter( i => i.data.type == "skill"));
-			for (let i of items){
-				if (i.data.data.groups[group]) {
-					returnSkills.push(i.data)
-				}
-			}
-		}
-		return returnSkills;
-	}
-	/**/
-	/* -------------------------------------------- */
-
 	/** @override */
 	/*
 	*	Methods for precreate owned item
