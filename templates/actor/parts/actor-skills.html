@@ -8,7 +8,7 @@
 	</li>
 	<li>
 		{{#if mostrarBonusTreino}}
-		<label style="font-size: 11px;">Bônus de Treinamento: +{{#if (lt data.attributes.nivel.value 7)}}2{{else if (lt data.attributes.nivel.value 14)}}4{{else}}6{{/if}}</label>
+		<label style="font-size: 11px;">Bônus de Treinamento: +{{#if (lte data.attributes.nivel.value 6)}}2{{else if (lte data.attributes.nivel.value 14)}}4{{else}}6{{/if}}</label>
 		{{/if}}
 	</li>
 	{{#each actor.skillset as |skill key|}}

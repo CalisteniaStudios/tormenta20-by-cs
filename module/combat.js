@@ -11,23 +11,7 @@ export const _getInitiativeFormula = function(combatant) {
 
 	let nd = 1;
 	let mods = "";
-	// new skills
-	if(!actor.data.data.pericias){
-		// TODO get highest Iniciative skill : problem mp cost
-		// let initSkills = actor.items.filter(s => s.data.type === "skill" && s.data.data.toInitiative);
-		let skill = actor.items.filter(s => s.data.type == "skill" && s.data.name == "Iniciativa");
-		if(skill[0]){
-			init = skill[0].data.data.total;
-		}
-		// no iniciative skill found
-		else {
-			init = actor.data.data.atributos.des.mod + actorData.data.attributes.nivel.value/2;
-		}
-	}
-	// old skills
-	else if(actor.data.data.pericias){
-		init = actor.data.data.pericias.ini.value;
-	}
+	init = actor.data.data.pericias.ini.value;
 
 	const parts = [`${nd}d20${mods}`, init];
 

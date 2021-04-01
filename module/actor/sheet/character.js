@@ -131,18 +131,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				poderes.push(i);
 					if (isFav) favoritos.poderes.push(i);
 			}
-			else if (i.type === 'skill') {
-
-				let halfLevel = Math.floor(actorData.data.attributes.nivel.value/2);
-
-				let training = !i.data.trained ? 0 : (actorData.data.attributes.nivel.value > 14 ? 6 : (actorData.data.attributes.nivel.value > 6 ? 4 : 2));
-				let abilityMod = actorData.data.atributos[i.data.ability].mod;
-				let armorPen = false ? 0 : 0;
-
-				i.data.total = halfLevel + training + abilityMod + i.data.bonus + armorPen;
-
-				skills.push(i);
-			}
 			else if (i.type === 'magia') {
 				if (i.data.circulo != undefined) {
 					magias[i.data.circulo].spells.push(i);
