@@ -75,7 +75,7 @@ export default class ActorT20 extends Actor {
 			
 			data.defesa.pda += -pda;
 		}
-		if (data.rd){
+		if (data.rd && this.data.type !== "npc"){
 			data.rd.base = Number(data.rd.base ?? "0");
 			data.rd.temp = Number(data.rd.temp ?? "0");
 			data.rd.value = Math.safeEval(data.rd.base + data.rd.temp);
