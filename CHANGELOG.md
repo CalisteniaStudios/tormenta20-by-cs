@@ -1,4 +1,10 @@
 # Lista de Mudanças
+## Versão 1.2.0.20
+### Consertos de Bugs
+- NPC: RD não sendo adicionado à ficha.
+- PJ: Bug visual onde o Bônus de Treinamento mostrava +6 no nível 14.
+- Efeitos Ativos: Bônus na Defesa do poder Reptiliano.
+
 ## Versão 1.2.0.19
 ### Novidades
 - Efeitos Ativos:
