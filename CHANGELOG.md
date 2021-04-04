@@ -1,4 +1,8 @@
 # Lista de Mudanças
+## Versão 1.2.0.21
+### Novidades
+- Navegador de Compêndio removido do sistema e transformado em um módulo. Manifesto para instalação; https://github.com/mclemente/compendium-browser/releases/latest/module.json.
+
 ## Versão 1.2.0.20
 ### Consertos de Bugs
 - NPC: RD não sendo adicionado à ficha.
