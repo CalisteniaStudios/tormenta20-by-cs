@@ -1,3 +1,54 @@
+export class Tormenta20ChatSettings extends FormApplication {
+
+	constructor (object, options = {}) {
+		super(object, options)
+	}
+
+	/**
+	 * Default Options for this FormApplication
+	 */
+	static get defaultOptions () {
+		return mergeObject(super.defaultOptions, {
+			id : 'tormenta20-chat-form',
+			title : 'Configurações do Chat',
+			template : './systems/tormenta20/templates/apps/settings.hbs',
+			classes : ['sheet'],
+			width : 640,
+			height : "auto",
+			closeOnSubmit: true
+		})
+	}
+
+	getData (options) {
+		function prepSetting (key) {
+			let data = game.settings.settings.get(`tormenta20.${key}`)
+			return {
+				value: game.settings.get('tormenta20', key),
+				name : data.name,
+				hint : data.hint
+			}
+		}
+
+		return {
+			forceSheetTemplate : prepSetting('forceSheetTemplate'),
+			disableExperience : prepSetting('disableExperience'),
+			enableLanguages : prepSetting('enableLanguages'),
+			disableJournal : prepSetting('disableJournal')
+		}
+	}
+
+	/**
+	 * Executes on form submission
+	 * @param {Event} e - the form submission event
+	 * @param {Object} d - the form data
+	 */
+	async _updateObject(e,d) {
+		const iterableSettings = Object.keys(d);
+		for (let key of iterableSettings) {
+			game.settings.set('tormenta20', key, d[key]);
+		}
+	}
+}
 
 /*Classe para configurar opções do sistema*/
 export const SystemSettings = function() {
@@ -12,10 +63,63 @@ export const SystemSettings = function() {
 		default: ""
 	});
 	
+	//Ficha
+	game.settings.registerMenu('tormenta20', 'sheetSettings', {
+		name: "Configurações das Fichas",
+		label: "Configurações das Fichas",
+		icon: 'fas fa-scroll',
+		type: Tormenta20ChatSettings,
+		restricted: true
+	});
+	
+	game.settings.register("tormenta20", "forceSheetTemplate", {
+		name: "Forçar Padrão de Ficha",
+		hint: "Sobrepõe a opção de Ficha dos jogadores e utiliza a ficha selecionada pelo Mestre. Alterar esta opção irá recarregar a página.",
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean,
+		onChange: () => location.reload()
+	});
+	
+	/**
+	* Option to disable XP bar for session-based or story-based advancement.
+	*/
+	game.settings.register("tormenta20", "disableExperience", {
+		name: "Avanço por Marcos",
+		hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean
+	});
+		
+	/**
+	 * Option to disable XP bar for session-based or story-based advancement.
+	 */
+	game.settings.register("tormenta20", "enableLanguages", {
+		name: "Idiomas",
+		hint: "Adiciona uma lista de idiomas à ficha de Personagens de Jogador. Opção cosmética, sem efeitos adicionais.",
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean
+	});
+
+	game.settings.register("tormenta20", "disableJournal", {
+		name: "Desabilitar Diário",
+		hint: "Desabilita a aba Diário das fichas de personagem de jogador.",
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean
+	});
+
+	// Gerais
 	game.settings.register("tormenta20", "sheetTemplate", {
 		name: "Ficha",
 		hint: "Opção de layout da ficha, padrão ou com abas",
-		scope: "user",
+		scope: game.settings.get("tormenta20", "forceSheetTemplate") ? "world" : "user",
 		config: true,
 		default: "base",
 		type: String,
@@ -31,40 +135,6 @@ export const SystemSettings = function() {
 	game.settings.register("tormenta20", "automaticManaSpend", {
 		name: "Gasto de Mana",
 		hint: "Ao utilizar um poder ou magia, a mana do personagem é gasta automaticamente",
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-
-	
-	/**
-	 * Option to disable XP bar for session-based or story-based advancement.
-	 */
-	game.settings.register("tormenta20", "disableExperience", {
-		name: "Avanço por Marcos",
-		hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	
-	/**
-	 * Option to disable XP bar for session-based or story-based advancement.
-	 */
-	game.settings.register("tormenta20", "enableLanguages", {
-		name: "Idiomas",
-		hint: "Adiciona uma lista de idiomas à ficha de Personagens de Jogador. Opção cosmética, sem efeitos adicionais.",
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-
-	game.settings.register("tormenta20", "disableJournal", {
-		name: "Desabilitar Diário",
-		hint: "Desabilita a aba Diário das fichas de personagem de jogador.",
 		scope: "world",
 		config: true,
 		default: false,
