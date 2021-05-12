@@ -91,12 +91,14 @@ Hooks.once("init", async function () {
   Actors.registerSheet("tormenta20", ActorSheetT20Character, {
     types: ["character"],
     makeDefault: true,
+    label: "Ficha de Personagem de Jogador"
   });
 
   // Actors.registerSheet("tormenta20", T20ActorNPCSheet, {
   Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
     types: ["npc"],
     makeDefault: true,
+    label: "Ficha de Personagem do Mestre"
   });
 
   Items.unregisterSheet("core", ItemSheet);
