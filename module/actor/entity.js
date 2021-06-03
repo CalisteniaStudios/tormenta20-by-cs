@@ -225,7 +225,7 @@ export default class ActorT20 extends Actor {
 		
 		// Defense Calculation
 		for (let item of actorData.items ) {
-			if (item.type == "equipamento" && item.data.data.equipado) {
+			if (item.type == "equip" && item.data.data.equipado) {
 				let tipo = item.data.data.tipo;
 				let def = item.data.data.armadura.value;
 				let penalidade = item.data.data.armadura.penalidade;
