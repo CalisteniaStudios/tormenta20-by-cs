@@ -17,22 +17,32 @@ export default class LevelSettings extends FormApplication {
 
 	getData() {
 		let classes = [];
-		if (this.options.classes != undefined) {
-			classes = duplicate(this.options.classes);
-			for ( let [key, data] of Object.entries(classes) ) {
+		let flags = this.object.data.flags.tormenta20 || {};
+		const con = this.object.data.data.atributos.con.mod;
+		if (this.object.data.classes != undefined) {
+			const cls = duplicate(this.object.data.classes);
+			for ( let [key, data] of Object.entries(cls) ) {
+				let c = data.data;
+				let iniPV = c.primary? c.pvPorNivel * 3 : 0;
 				classes[key] = {
 					label: data.name,
-					pvPorNivel: data.data.pvPorNivel,
-					pmPorNivel: data.data.pmPorNivel,
-					niveis: data.data.niveis
+					pvPorNivel: c.pvPorNivel,
+					pmPorNivel: c.pmPorNivel,
+					niveis: c.niveis,
+					pvTotal: Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con )),
+					pmTotal: c.niveis * c.pmPorNivel
 				}
 			}
 		}
-		const con = this.object.data.data.atributos.con.mod;
-		const config = this.options.config;
+		let atributosPV = flags.atributosPV || [];
+		let atributosPM = flags.atributosPM || [];
+		const config = CONFIG.T20;
 		return {
 			actor: this.object,
 			classes: classes,
+			atributosPV: atributosPV,
+			atributosPM: atributosPM,
+			flags: flags,
 			con: con,
 			config: config
 		};
@@ -40,36 +50,33 @@ export default class LevelSettings extends FormApplication {
 
 
 	async _updateObject(event, formData) {
-		const updateData = {};
-		let soma = {"pv": 0, "pm": 0};
-		let flags = {};
-		const nivel = this.object.data.data.attributes.nivel.value;
-		const config = this.options.config;
-		for ( let [k, v] of Object.entries(formData) ) {
-			if (Number.isInteger(v)) {
-				let chave = k.split(".")[1];
-				soma[chave] += v;
-			}
-			if (k.includes("pv.") || k.includes("pm.")) {
-				let chave = k.split(".")[0];
-				k = k.split(".")[1];
-				if (v) {
-						let valor = 0;
-						if (k.includes("PV") || k.includes("PM")) { //atributos
-							let chaveAtributo = k.replace("PV","").replace("PM","");
-							valor += this.object.data.data.atributos[chaveAtributo].mod;
-						}
-						else if (k.includes("pvBonus") || k.includes("pmBonus")) {
-							valor += parseFloat(v[0] || 0) + nivel * parseFloat(v[1] || 0);
-						}
-					soma[chave] += parseInt(valor);
-				}
-				flags[k] = v;
-			}
-		}
-		updateData["data.attributes.pv.max"] = soma.pv;
-		updateData["data.attributes.pm.max"] = soma.pm;
-		updateData["flags"] = flags;
-		this.object.update(updateData)
+		const data = expandObject(formData);
+		delete data.classes;
+		this.object.setFlag("tormenta20", "lvlconfig", data);
+		this.object._calcPVPM();
+		return;
+		// const updateData = {};
+		// let soma = {"pv": 0, "pm": 0};
+		// const nivel = Number( this.object.data.data.attributes.nivel.value );
+		// const data = expandObject(formData);
+		// for (let [k, classe] of Object.entries(data.classes)){
+		// 	soma.pv += Number(classe.pv);
+		// 	soma.pm += Number(classe.pm);
+		// }
+		// if( data.pvBonus[0] ) soma.pv += Number(data.pvBonus[0]);
+		// if( data.pvBonus[1] ) soma.pv += Number(data.pvBonus[1].replace(",",".")) * nivel;
+		// if( data.pmBonus[0] ) soma.pm += Number(data.pmBonus[0]);
+		// if( data.pmBonus[1] ) soma.pm += Number(data.pmBonus[1].replace(",",".")) * nivel;
+		// for (let [atr, value] of Object.entries(data.pv)){
+		// 	if(value) soma.pv += Number(this.object.data.data.atributos[atr].mod);
+		// }
+		// for (let [atr, value] of Object.entries(data.pm)){
+		// 	if(value) soma.pm += Number(this.object.data.data.atributos[atr].mod);
+		// }
+		// delete data.classes;
+		// updateData["data.attributes.pv.max"] = soma.pv;
+		// updateData["data.attributes.pm.max"] = soma.pm;
+		// this.object.setFlag("tormenta20", "lvlconfig", data);
+		// this.object.update(updateData);
 	}
 }

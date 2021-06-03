@@ -5,7 +5,6 @@
 		<input type="text" name="bonus" value="" placeholder="ex. +1d4 ou -3"/>
 	</div>
 	{{/if}}
-
 	{{#if formuladano}}
 	<div class="form-group">
 		<label>Dano:</label>
@@ -30,39 +29,37 @@
 				<h3>Origem</h3>
 				{{/if}}
 			</li>
+			<li class="item flexrow">
+				<div class="item-cost">
+					<input type="checkbox"  name="aprs.T35tEfVtT84.aplica" value="true">
+					<input type="hidden" name="aprs.T35tEfVtT84.qtd" value="4">
+					<input type="hidden" name="aprs.T35tEfVtT84.xablau" value="XABLAU">
+					xablau
+				</div>
+				<h4 class="item-name" style="flex: 2">TESTANDO 123</h4>
+			</li>
 		{{#each aprimoramentos as |ap|}}
 			<li class="item flexrow">
 				<div class="item-cost">
-
-				{{#if ap.data.flags.t20.aumenta}}
+				{{#if ap.data.flags.tormenta20.aumenta}}
 					<input type="button" value="-" class="numCtrl" />
-					<input type="number" name="aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
+					<input type="number" name="aprs.{{ap.id}}.aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
 					<input type="button" value="+" class="numCtrl" />
 				{{else}}
-					<input type="checkbox"  name="aplica"  value="1" {{#unless ap.data.disabled}}checked{{/unless}}/>
+					<input type="checkbox"  name="aprs.{{ap.id}}.aplica"  value="1" {{#unless ap.data.disabled}}checked{{/unless}}/>
 				{{/if}}
 
-				
-				{{#if (and (eq ap.data.flags.t20.custo "") (eq ../item.type "magia") )}}
+				{{#if (and (eq ../item.type "magia") (eq ap.data.flags.tormenta20.custo "") ap.data.flags.tormenta20.self )}}
 					Truque
-				{{else if (eq ap.data.flags.t20.custo "")}}
+					<input type="hidden" name="aprs.{{ap.id}}.custo" value="Truque">
+				{{else if (eq ap.data.flags.tormenta20.custo "")}}
 					-
-				{{else if ap.data.flags.t20.custo}}
-					{{ap.data.flags.t20.custo}} PM
+					<input type="hidden" name="aprs.{{ap.id}}.custo" value="0">
+				{{else if ap.data.flags.tormenta20.custo}}
+					{{ap.data.flags.tormenta20.custo}} PM
+					<input type="hidden" name="aprs.{{ap.id}}.custo" value="{{ap.data.flags.tormenta20.custo}}">
 				{{/if}}
-
-				{{#if (find ap.data.changes "key" "&custo")}}
-				{{#each ap.data.changes as |ch|}}
-				{{#if (eq ch.key "&custo")}}
-				<br>
-				<input type="button" value="-" class="numCtrl" />
-				<input type="number" name="aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
-				<input type="button" value="+" class="numCtrl" />
-				{{/if}}
-				{{/each}}
-				{{/if}}
-
-				<input type="hidden" name="id" value="{{ap.id}}" /></div>	
+				</div>
 				<h4 class="item-name" style="flex: 2">{{{ap.data.label}}}</h4>
 				{{#if (eq ../item.type "arma")}}
 				<small>{{ap.sourceName}}</small>

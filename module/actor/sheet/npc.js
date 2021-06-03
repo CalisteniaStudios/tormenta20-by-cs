@@ -1,5 +1,4 @@
 import { d20Roll, damageRoll } from '../../dice.js';
-import { T20Utility } from '../../utility.js';
 import ActorSheetT20 from "./base.js";
 /**
  * An Actor sheet for NPC type characters.
@@ -111,16 +110,22 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 					else if (itemData.atrAtq != "0") atqSkill += actorData.data.atributos[itemData.atrAtq].mod;
 				}
 				let tempatq = `${atqSkill} + ${i.data.atqBns}`;
-				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+				/*/
+				.replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
+				/**/
 				let tempdmg = '';
 				tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
 				tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg + `+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
 				tempdmg = i.data.danoBns != '' ? tempdmg + ` + ${i.data.danoBns}` : tempdmg;
-				tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+				tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '')
+				/*/
+				.replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
+				/**/
 
 				i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
 
@@ -233,7 +238,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	* Create skills as items?
 	*/
 	// _CreateDefaultSkill(){
-	//   const pericias = T20Utility.getPericias();
+	//   const pericias = 
 
 	//   const itemData = {
 	//     name: 

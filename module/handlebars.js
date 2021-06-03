@@ -18,29 +18,7 @@ export function registerHandlebarsHelpers() {
     return JSON.stringify(str);
   });
 
-  Handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
-    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-  });
-
-  Handlebars.registerHelper("ifNotEquals", function (arg1, arg2, options) {
-    return arg1 != arg2 ? options.fn(this) : options.inverse(this);
-  });
-
-  Handlebars.registerHelper("ifGreater", function (arg1, arg2, options) {
-    if (arg1 > arg2) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
-  });
-  Handlebars.registerHelper("ifEGreater", function (arg1, arg2, options) {
-    if (arg1 >= arg2) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
-  });
-
-  Handlebars.registerHelper(
-    "conditionTip",
+  Handlebars.registerHelper("conditionTip",
     function (context, condition, options) {
       var ret = "";
       for (var prop in context) {

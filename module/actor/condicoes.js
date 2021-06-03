@@ -1,5 +1,5 @@
 import { T20Conditions } from "../conditions/conditions.js";
-import { T20Config } from "../config.js";
+import { T20 } from "../config.js";
 
 const _TokenToggleEffect = Token.prototype.toggleEffect;
 export const toggleEffect = async function (...args) {
@@ -56,7 +56,7 @@ export const toggleEffect = async function (...args) {
 // 	// token.actor.effects.find(ef=> ef.name)
 // 	// this.toggleEffect()
 // 	// T20Conditions["abalado"];
-// 	//T20Conditions[effect.flags.t20.stack];
+// 	//T20Conditions[effect.flags.tormenta20.stack];
 // 	// await chatCondition(this.actor, condicao);
 	return data;
 };

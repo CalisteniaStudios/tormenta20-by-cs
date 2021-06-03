@@ -1,9 +1,11 @@
-import { d20Roll, damageRoll } from '../../dice.js';
+import ItemT20 from '../../item/entity.js';
 import AbilityUseDialog from "../../apps/ability-use-dialog.js";
 import TraitSelector from "../../apps/trait-selector.js";
+import ActorSettings from "../../apps/actor-settings.js";
+import ActorMovementConfig from "../../apps/movement-config.js";
+// TODO TYPE ActorTypeConfig
+import { T20 } from '../../config.js';
 import LevelSettings from "../../apps/level-settings.js";
-import MovementConfig from "../../apps/movement-config.js";
-import { T20Utility } from '../../utility.js';
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../../effects.js";
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -31,10 +33,12 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
-			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
-			scrollY: [".sheet-body", ".tab.attributes", ".tab.magias", ".tab.inventory", ".tab.journal", ".tab.efeitos", ".tab.poderes"]
-		});
+		return mergeObject(super.defaultOptions,
+			{
+				scrollY: [".sheet-body", ".tab.attributes", ".tab.magias", ".tab.inventory", ".tab.journal", ".tab.efeitos", ".tab.poderes"],
+				tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+			}
+		);
 	}
 
 	/* -------------------------------------------- */
@@ -50,54 +54,61 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	getData() {
 		// Basic data
-		let isOwner = this.entity.owner;
+		console.log(this.actor);
+		let isOwner = this.actor.isOwner;
 		const data = {
 			owner: isOwner,
-			limited: this.entity.limited,
+			limited: this.actor.limited,
 			options: this.options,
 			editable: this.isEditable,
 			cssClass: isOwner ? "editable" : "locked",
-			isCharacter: this.entity.data.type === "character",
-			isNPC: this.entity.data.type === "npc",
+			isCharacter: this.actor.type === "character",
+			isNPC: this.actor.type === "npc",
+			config: CONFIG.T20,
+			rollData: this.actor.getRollData.bind(this.actor),
+			//is this needed?
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
-		data.config = CONFIG.T20;
 		
 		// The Actor and its Items
-		data.actor = duplicate(this.actor.data);
+		data.actor = foundry.utils.deepClone(this.actor.data);
 		data.items = this.actor.items.map(i => {
 			i.data.labels = i.labels;
 			return i.data;
 		});
 		data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		
 		data.data = data.actor.data;
+		// LABELS?
+		
 		// Ability Scores
-		// Add icon, hover, label to Scores
+		for ( let [a, abl] of Object.entries(data.actor.data.atributos)) {
+			abl.label = CONFIG.T20.atributos[a];
+		}
 
 		// Skills
-		// Add icon, hover, label to Scores
-		if (data.isCharacter && data.actor.data.pericias != undefined) {
+		if (data.actor.data.pericias) {
 			for (let [s, skl] of Object.entries(data.actor.data.pericias)) {
+				skl.label = CONFIG.T20.pericias[s];
 				skl.compendiumEntry = data.config.skillCompendiumEntries[s] ?? null;
 			}
 		}
 
 		// Movement speeds
-		// TODO Implement Movement Here?
+		// data.movement = this._getMovementSpeed(data.actor);
 
 		// Senses
-		// TODO Implement Senses Here?
+		// data.senses = this._getSenses(data.actor);
 		
 		// Update traits
-		this._prepareTraits(data.actor.data.detalhes);
+		this._prepareTraits(data.actor.data.tracos);
 
 		// Prepare owned items
 		this._prepareItems(data);
 
 		// Prepare active effects
-		data.effects = prepareActiveEffectCategories(this.entity.effects);
+		data.effects = prepareActiveEffectCategories(this.actor.effects);
 
+		// Return data to the sheet
 		return data;
 	}
 
@@ -110,15 +121,55 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @private
 	*/
 	// TODO Implement Movement Here?
-	// _getMovementSpeed(actorData) {
-	// }
+	_getMovementSpeed(actorData, largestPrimary=false) {
+		const movement = actorData.data.attributes.movement || {};
+		// Prepare an array of available movement speeds
+		let speeds = [
+			[movement.burrow, `Escavar ${movement.burrow}`],
+			[movement.climb, `Escalada ${movement.climb}`],
+			[movement.fly, `Voo ${movement.fly}` + (movement.hover ? ` (Flutuando)` : "")],
+			[movement.swim, `Natação ${movement.swim}`]
+		]
+
+		if ( largestPrimary ) {
+			speeds.push([movement.walk, `Deslocamento ${movement.walk}`]);
+		}
+
+		// Filter and sort speeds on their values
+		speeds = speeds.filter(s => !!s[0]).sort((a, b) => b[0] - a[0]);
+
+		// Case 1: Largest as primary
+		if ( largestPrimary ) {
+			let primary = speeds.shift();
+			return {
+				primary: `${primary ? primary[1] : "0"} ${movement.units}`,
+				special: speeds.map(s => s[1]).join(", ")
+			}
+		}
+
+		// Case 2: Walk as primary
+		else {
+			return {
+				primary: `${movement.walk || 0} ${movement.units}`,
+				special: speeds.length ? speeds.map(s => s[1]).join(", ") : ""
+			}
+		}
+	}
 
 
 	/* -------------------------------------------- */
 
-	// TODO Implement Senses
-	// _getSenses(actorData) {
-	// }
+	_getSenses(actorData) {
+		const senses = actorData.data.attributes.sentidos || {};
+		const tags = {};
+		for ( let [k, label] of Object.entries(CONFIG.T20.senses) ) {
+			const v = senses[k] ?? 0
+			if ( v === 0 ) continue;
+			tags[k] = `${label}`;
+		}
+		if ( !!senses.special ) tags["special"] = senses.special;
+		return tags;
+	}
 	
 	/**
 	* Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
@@ -127,14 +178,13 @@ export default class ActorSheetT20 extends ActorSheet {
 	*/
 	_prepareTraits(traits) {
 		const map = {
-			// "dr": CONFIG.DND5E.damageResistanceTypes,
-			// "di": CONFIG.DND5E.damageResistanceTypes,
-			// "dv": CONFIG.DND5E.damageResistanceTypes,
-			// "ci": CONFIG.DND5E.conditionTypes,
+			"rd": CONFIG.T20.damageResistanceTypes,
+			"id": CONFIG.T20.damageResistanceTypes,
+			"vd": CONFIG.T20.damageResistanceTypes,
+			// "ic": CONFIG.T20.conditionTypes,
 			"idiomas": CONFIG.T20.idiomas,
 			"profArmas": CONFIG.T20.profArmas,
-			"profArmaduras": CONFIG.T20.profArmaduras,
-			// "toolProf": CONFIG.DND5E.toolProficiencies
+			"profArmaduras": CONFIG.T20.profArmaduras
 		};
 		for ( let [t, choices] of Object.entries(map) ) {
 			const trait = traits[t];
@@ -184,53 +234,62 @@ export default class ActorSheetT20 extends ActorSheet {
 
 		// Editable Only Listeners
 		if ( this.isEditable ) {
+			// Input focus and update
+			const inputs = html.find("input");
+			inputs.focus(ev => ev.currentTarget.select());
 
 			// TODO input Deltas
-			html.find('.level-settings').click(this._onLevelSettings.bind(this));
+			
 
 			// Skills management
 			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
 			html.find('.skill-create').click(this._onPericiaCustomCreate.bind(this));
 			html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
 			html.find('.show-controls').click(this._toggleControls.bind(this));
-		
+			html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this)); //TODO
 
-			// Owned Item management
-			html.find('.item-create').click(this._onItemCreate.bind(this));
-			html.find('.item-edit').click(this._onItemEdit.bind(this));
-			html.find('.item-delete').click(this._onItemDelete.bind(this));
-			
 			// Trait Selector
 			html.find('.trait-selector').click(this._onTraitSelector.bind(this));
 
 			// Configure Special Flags
 			html.find("#configure-actor").click(ev => {
-				new game.tormenta20.applications.ActorSettings(this.actor).render(true);
+				new ActorSettings(this.actor).render(true);
 			});
+			html.find('.config-button').click(this._onConfigMenu.bind(this));
+
+			// Configure Special Flags
+			html.find('.level-settings').click(this._onLevelSettings.bind(this));
+
 			html.find("#npc-editing").click(ev => {
 				let flags = this.actor.data.flags ?? {"flags": {}};
 				flags["flags.editing"] = flags.editing ? !flags.editing : true;
 				this.actor.update(flags);
 			});
-			// Active Effect management
-			html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.entity));
-		}
-		html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		html.find('.consumivel-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		html.find('.edit-favoritos').on("contextmenu", this._onItemEdit.bind(this));
-		html.find('.effect').on("contextmenu", ev => onManageActiveEffect(ev, this.entity));
-		html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
-		html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
-		if ( this.actor.owner ) {
+			// Owned Item management
+			html.find('.item-create').click(this._onItemCreate.bind(this));
+			html.find('.item-edit').click(this._onItemEdit.bind(this));
+			html.find('.item-delete').click(this._onItemDelete.bind(this));
+			html.find('.item .item-name h4').on("contextmenu", this._onItemEdit.bind(this)); //TODO
+			
+			// Active Effect management
+			html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
+			html.find('.effect').on("contextmenu", ev => onManageActiveEffect(ev, this.actor));
+			
+
+			html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+			
+		}
+
+		if ( this.actor.isOwner ) {
 			// Rollable abilities.
 			html.find('.rollable.atributo-rollable').click(this._onRollAtributo.bind(this));
+
+			// Rollable skills.
 			html.find('.rollable.pericia-rollable').click(this._onRollPericia.bind(this));
 
-			// Update item
-			// html.find('.upItem').change(this._onUpdateItem.bind(this));
+			// Roll item
+			html.find('.item .item-image').click(event => this._onItemRoll(event));
 
 		}
 
@@ -240,7 +299,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 		
 		// Handle default listeners last so system listeners are triggered first
-    	super.activateListeners(html);
+		super.activateListeners(html);
 	}
 
 	/* -------------------------------------------- */
@@ -250,10 +309,30 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @param {Event} event   The click event which originated the selection
 	* @private
 	*/
-	// TODO Implement Senses / Refactor Movement
-	// _onConfigMenu(event) {
-	// 	event.preventDefault();
-	// }
+	_onConfigMenu(event) {
+		event.preventDefault();
+		const button = event.currentTarget;
+		let app;
+		switch ( button.dataset.action ) {
+			case "level":
+				app = new LevelSettings(this.object);
+				break;
+			case "movement":
+				console.error("movement");
+				app = new ActorMovementConfig(this.object);
+				break;
+			case "settings":
+				app = new ActorSettings(this.object);
+				break;
+			// case "senses":
+			// 	app = new ActorSensesConfig(this.object);
+			// 	break;
+			// case "type":
+			// 	app = new ActorTypeConfig(this.object);
+			// 	break;
+		}
+		app?.render(true);
+	}
 	
 	/**
 	 * Handle opening a skill's compendium entry
@@ -282,16 +361,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const label = a.parentElement.querySelector("label");
 		const choices = CONFIG.T20[a.dataset.options];
 		const options = { name: a.dataset.target, title: label.innerText, choices };
-			switch ( a.dataset.options ) {
-				case "idiomas":
-				case "profArmas":
-				case "profArmaduras":
-					new TraitSelector(this.actor, options).render(true);
-					break;
-				case "deslocamento":
-					new MovementConfig(this.actor, options).render(true);
-					break;
-			}
+		return new TraitSelector(this.actor, options).render(true);
 	}
 
 	_onLevelSettings(event) {
@@ -325,10 +395,115 @@ export default class ActorSheetT20 extends ActorSheet {
 				return it.update({"data.qtd": qtd})
 			}
 		}
+
+		if( itemData.data ){
+			//Ignore
+			["equipado","preparado"].forEach(k => delete itemData.data[k]);
+
+		}
 		return super._onDropItemCreate(itemData);
 	}
 	
+	/* -------------------------------------------- */
 
+  /**
+   * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+   * @private
+   */
+	_onItemRoll(event) {
+		event.preventDefault();
+		let itemId;
+		if (this.actor.data.type === "npc") {
+			itemId = event.currentTarget.dataset.itemId;
+		}
+		else {
+			itemId = event.currentTarget.closest(".item").dataset.itemId;
+		}
+		const rollConfigs = {}
+		rollConfigs.configureDialog = event.shiftKey;
+		const item = this.actor.items.get(itemId);
+		const ignoreList = ["equip", "tesouro"];
+		if (ignoreList.includes(item.type)) return;
+		return item.roll(rollConfigs);
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+	* @private
+	*/
+  _onItemSummary(event) {
+    event.preventDefault();
+    let li = $(event.currentTarget).parents(".item"),
+    item = this.actor.items.get(li.data("item-id")),
+    chatData = item.getChatData();
+
+    // Toggle summary
+    if ( li.hasClass("expanded") ) {
+      let summary = li.children(".item-summary");
+      summary.slideUp(200, () => summary.remove());
+    }
+		else {
+      let div = $(`<div class="item-summary">${chatData.description}</div>`);
+      let props = $(`<div class="item-properties"></div>`);
+      div.append(props);
+      li.append(div.hide());
+      div.slideDown(200);
+    }
+    li.toggleClass("expanded");
+  }
+
+	/* -------------------------------------------- */
+
+	/**
+	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	_onItemCreate(event) {
+		event.preventDefault();
+		const header = event.currentTarget;
+		const type = header.dataset.type;
+		let gen = ["arma", "magia"].includes(type) ? "Nova" : "Novo";
+		const itemData = {
+			name: `${gen} ${type.capitalize()}`,
+			type: type,
+			data: foundry.utils.deepClone(header.dataset)
+		};
+		delete itemData.data["type"];
+		return this.actor.createEmbeddedDocuments("Item", [itemData]);
+	}
+
+		/* -------------------------------------------- */
+
+	/**
+	* Handle editing an existing Owned Item for the Actor
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	/* DEPRECATED */
+	_onItemEdit(event) {
+		event.preventDefault();
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.items.get(li.dataset.itemId);
+		console.log(item);
+		if( item ) return item.sheet.render(true);
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	* Handle deleting an existing Owned Item for the Actor
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	_onItemDelete(event) {
+		event.preventDefault();
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.items.get(li.dataset.itemId);
+		if ( item ) return item.delete();
+	}
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -396,104 +571,16 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	async _onRollAtributo(event) {
 		event.preventDefault();
-		let atributo = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
-										: event.currentTarget.parentElement.dataset.itemId;
-		let rolls={};
-		let rollMode;
-		let parts = [];
-		let options = {event: event};
-		
-		// Display a configuration dialog to customize the usage
-		const needsConfiguration = event.shiftKey;
-		let configuration = {};
-		if( needsConfiguration ){
-			let fakeItem = {
-				actor: this.actor,
-				type:"atributo",
-				name: CONFIG.T20.atributos[atributo],
-				data: {
-					formula:"1d20+@mod"
-				},
-				isOwned: true
-			}
-			configuration = await AbilityUseDialog.create(fakeItem);
-
-			rollMode = configuration.rollMode;
-		} else {
-			let awaysActive = this.actor.effects.filter(ef => ef.data?.flags?.t20?.onuse && ef.data?.flags?.t20?.ability && !ef.data.disabled);
-			if(awaysActive){
-				configuration.id = awaysActive.map(ef => ef.id);
-				configuration.aplica = Array(configuration.id.length).fill(true);
-			}
-		}
-
-		if ( !isObjectEmpty(configuration) ) {
-			let aplica = [].concat(configuration?.aplica) ?? [];
-			let ids = [].concat(configuration?.id) ?? [];
-			let aplicados = {};
-			if (configuration?.bonus) parts.push(configuration?.bonus);
-			
-			aplica.forEach(function(ap, ind){
-				if(ap && ap !== "0"){
-					aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
-				}
-			});
-			// get Aprimoramentos from this item
-			let aprimoramentos = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
-			aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
-			options.aprimoramentos = [];
-			aprimoramentos.forEach(function(ef){
-				ef.data.changes.forEach(function(ch){
-					if( ch.key === "roll" && ch.mode === 2 ){
-						parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
-					}
-				});
-				if ( ef.data.flags.t20.custo === "" ){
-					options.truque = true;
-				} else if ( ef.data.flags.t20.custo ) {
-					options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
-				}
-
-				options.aprimoramentos.push({
-					description: ef.data.label,
-					custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
-					qtd: aplicados[ef.id]
-				});
-			});
-		}
-
-		options.parts = parts;
-		rolls = await this.actor.rollAtributo(atributo, options);
-		//rolls.atq = await this.actor.rollAtributo(atributo, {parts: parts,event: event});
-
-		let itemData = {
-			name: CONFIG.T20.atributos[atributo]
-		}
-		this.actor.displayCard({rolls, itemData, rollMode});
+		let atributo = event.currentTarget.parentElement.dataset.itemId;
+		return await this.actor.rollAtributo(atributo, {event: event});
 	}
 
 	async _onRollPericia(event) {
 		event.preventDefault();
-		let pericia = this.actor.data.type==="npc" 	?	event.currentTarget.dataset.itemId
-										: event.currentTarget.parentElement.dataset.itemId;
-		let type = event.currentTarget.dataset.type;
-		let rolls={};
-		let rollMode;
-		let parts = [];
-		let skillData = {padrao: this.actor.data.data.pericias, oficios: this.actor.data.data.pericias.ofi.mais, custom: this.actor.data.data.periciasCustom}[type];
-		skillData[pericia].formula = "1d20+@mod";
-		let itemData = {
-			actor: this.actor,
-			type:"pericia",
-			data: skillData[pericia],
-			name: skillData[pericia].label.replace(/[\*||\+]/g,"").trim(),
-			id: pericia,
-			isOwned: true
-		}
-		let options = {event: event};
-		// Display a configuration dialog to customize the usage
-		const needsConfiguration = event.shiftKey;
-		let configuration = {};
+		const pericia = event.currentTarget.parentElement.dataset.itemId;
+		console.log(event);
+		return this.actor.rollPericia(pericia, {event:event})
+
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create(itemData);
 			
@@ -519,7 +606,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			});
 			// get Aprimoramentos from this item
 			let aprimoramentos = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
-			aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.t20.aumenta && !b.data.flags.t20.aumenta) ? 1 : ((b.data.flags.t20.aumenta && !a.data.flags.t20.aumenta) ? -1 : 0));
+			aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.tormenta20.aumenta && !b.data.flags.tormenta20.aumenta) ? 1 : ((b.data.flags.tormenta20.aumenta && !a.data.flags.tormenta20.aumenta) ? -1 : 0));
 			options.aprimoramentos = [];
 			aprimoramentos.forEach(function(ef){
 				ef.data.changes.forEach(function(ch){
@@ -527,64 +614,24 @@ export default class ActorSheetT20 extends ActorSheet {
 						parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
 					}
 				});
-				if ( ef.data.flags.t20.custo === "" ){
+				if ( ef.data.flags.tormenta20.custo === "" ){
 					options.truque = true;
-				} else if ( ef.data.flags.t20.custo ) {
-					options.custo += Number(ef.data.flags.t20.custo) * aplicados[ef.id];
+				} else if ( ef.data.flags.tormenta20.custo ) {
+					options.custo += Number(ef.data.flags.tormenta20.custo) * aplicados[ef.id];
 				}
 
 				options.aprimoramentos.push({
 					description: ef.data.label,
-					custo: (Number(ef.data.flags.t20.custo) || 0) * aplicados[ef.id],
+					custo: (Number(ef.data.flags.tormenta20.custo) || 0) * aplicados[ef.id],
 					qtd: aplicados[ef.id]
 				});
 			});
 		}
-		options.parts = parts;
-		rolls = await this.actor.rollPericia(itemData, options);
-		
-		this.actor.displayCard({rolls, itemData, rollMode});
 	}
 
-	_onItemRoll(event) {
-		event.preventDefault();
-		let itemId;
-		if (this.actor.data.type === "npc") {
-			itemId = event.currentTarget.dataset.itemId;
-		}
-		else {
-			itemId = event.currentTarget.closest(".item").dataset.itemId;
-		}
-		const item = this.actor.getOwnedItem(itemId);
-		const ignoreList = ["equip", "tesouro"];
-		if (ignoreList.includes(item.type)) return;
-		return item.roll();
-	}
+	
 
-	/**
-	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-	* @private
-	*/
-  _onItemSummary(event) {
-    event.preventDefault();
-    let li = $(event.currentTarget).parents(".item"),
-    item = this.actor.getOwnedItem(li.data("item-id")),
-    chatData = item.getChatData();
-
-    // Toggle summary
-    if ( li.hasClass("expanded") ) {
-      let summary = li.children(".item-summary");
-      summary.slideUp(200, () => summary.remove());
-    }
-		else {
-      let div = $(`<div class="item-summary">${chatData.description}</div>`);
-      let props = $(`<div class="item-properties"></div>`);
-      div.append(props);
-      li.append(div.hide());
-      div.slideDown(200);
-    }
-    li.toggleClass("expanded");
-  }
+	
 
 	/* -------------------------------------------- */
 
@@ -659,110 +706,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		const field = event.currentTarget.previousElementSibling;
 		this.actor.update({[field.name]: 1 - parseInt(field.value == "" ? 0 : field.value)});
 	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onItemCreate(event) {
-		event.preventDefault();
-		const header = event.currentTarget;
-		// Get the type of item to create.
-		const type = header.dataset.type;
-		// Grab any data associated with this control.
-		let data = duplicate(header.dataset);
-		// Initialize a default name.
-		let name;
-		if (type == "arma") {
-			name = `Nova ${type.capitalize()}`;
-		}
-		else if (type == "magia") {
-			name = `Nova ${type.capitalize()}`;
-			data["ativacao.custo"] = data.custo;
-			data["atrRes"] = data.atrres;
-			data["-=custo"] = null;
-			data["-=atrres"] = null;
-		}
-		else {
-			name = `Novo ${type.capitalize()}`;
-		}
-		// Prepare the item object.
-		const itemData = {
-			name: name,
-			type: type,
-			data: data
-		};
-		// Remove the type from the dataset since it's in the itemData.type prop.
-		delete itemData.data["type"];
-
-		// Finally, create the item!
-		return this.actor.createOwnedItem(itemData);
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle editing an existing Owned Item for the Actor
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onItemEdit(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.getOwnedItem(li.dataset.itemId);
-		item.sheet.render(true);
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle deleting an existing Owned Item for the Actor
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onItemDelete(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-
-		// const item = this.actor.getOwnedItem(li.data("itemId"));
-		const item = this.actor.items.get(li.dataset.itemId);
-		if(item.data.type === "equip" && item.data.data.equipado) {
-			const armor = ["leve", "pesada"];
-			if (armor.includes(item.data.data.tipo)) {
-				this.actor.update({ "data.defesa.des": true });
-			}
-		}
-		else if (item.data.type === "classe") {
-			const niveis = item.data.data.niveis;
-			const actorData = this.actor.data;
-			if (niveis === actorData.data.attributes.nivel.value) {
-				this.actor.update({"data.attributes.pv.max": 0, "data.attributes.pm.max": 0});
-			}
-			else {
-				const pvMax = actorData.data.attributes.pv.max - niveis * (parseInt(item.data.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0));
-				const pmMax = actorData.data.attributes.pm.max - niveis * (parseInt(item.data.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0));
-				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
-			}
-		}
-		this.actor.deleteOwnedItem(li.dataset.itemId);
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle rolling an Ability check, either a test or a saving throw
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	// TODO refactor and standarize html listeners
-	// _onRollAbilityTest(event) {
-	// 	event.preventDefault();
-	// 	let ability = event.currentTarget.parentElement.dataset.ability;
-	// 	this.actor.rollAbility(ability, {event: event});
-	// }
 
 	/* -------------------------------------------- */
 

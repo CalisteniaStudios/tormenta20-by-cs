@@ -8,7 +8,6 @@
  * @return {Array} The extended options Array including new context choices
  */
 export const addChatMessageContextOptions = function (html, options) {
-	// let canApply = li => canvas.tokens.controlled.length && li.find(".dice-roll").length;
 	let canApply = li => li.find(".roll--dano").length;
 	let canApplyMana = li => li.find(".mana-cost").length && !game.settings.get("tormenta20", "automaticManaSpend");
 	options.push({
@@ -103,7 +102,6 @@ export const ApplyButtons = function (app, html, data)
  */
 function applyChatCardDamage(roll, multiplier, heal = false) {
 	if (canvas.tokens.controlled.length) {
-		// const amount = roll.find('.dice-total').text();
 		const amount = roll.find('.roll--dano').find('.dice-total').text();
 		return Promise.all(canvas.tokens.controlled.map(t => {
 		const a = t.actor;
@@ -163,3 +161,32 @@ function applyInsideChatCardDamage(amount, multiplier, heal = false) {
 		ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
 	}
 }
+
+
+/**
+ * Highlight critical success or failure on d20 rolls
+ */
+ export const highlightCriticalSuccessFailure = function(message, html, data) {
+	if ( !message.isRoll || !message.isContentVisible ) return;
+
+  // Highlight rolls where the first part is a d20 roll
+  const roll = message.roll;
+  if ( !roll.dice.length ) return;
+  const d = roll.dice[0];
+
+  // Ensure it is an un-modified d20 roll
+  const isD20 = (d.faces === 20) && ( d.values.length === 1 );
+  if ( !isD20 ) return;
+  const isModifiedRoll = ("success" in d.results[0]) || d.options.marginSuccess || d.options.marginFailure;
+  if ( isModifiedRoll ) return;
+
+  // Highlight successes and failures
+  const critical = d.options.critical || 20;
+  const fumble = d.options.fumble || 1;
+  if ( d.total >= critical ) html.find(".dice-total").addClass("critical");
+  else if ( d.total <= fumble ) html.find(".dice-total").addClass("fumble");
+  else if ( d.options.target ) {
+    if ( roll.total >= d.options.target ) html.find(".dice-total").addClass("success");
+    else html.find(".dice-total").addClass("failure");
+  }
+};

@@ -63,7 +63,6 @@ export const SystemSettings = function() {
 		default: ""
 	});
 	
-	//Ficha
 	game.settings.registerMenu('tormenta20', 'sheetSettings', {
 		name: "Configurações das Fichas",
 		label: "Configurações das Fichas",
@@ -72,15 +71,7 @@ export const SystemSettings = function() {
 		restricted: true
 	});
 	
-	game.settings.register("tormenta20", "forceSheetTemplate", {
-		name: "Forçar Padrão de Ficha",
-		hint: "Sobrepõe a opção de Ficha dos jogadores e utiliza a ficha selecionada pelo Mestre. Alterar esta opção irá recarregar a página.",
-		scope: "world",
-		config: false,
-		default: false,
-		type: Boolean,
-		onChange: () => location.reload()
-	});
+
 	
 	/**
 	* Option to disable XP bar for session-based or story-based advancement.
@@ -95,7 +86,7 @@ export const SystemSettings = function() {
 	});
 		
 	/**
-	 * Option to disable XP bar for session-based or story-based advancement.
+	 * Register languages rule (Homebrew)
 	 */
 	game.settings.register("tormenta20", "enableLanguages", {
 		name: "Idiomas",
@@ -106,6 +97,9 @@ export const SystemSettings = function() {
 		type: Boolean
 	});
 
+	/**
+	 * Option to disable sheet journals (TODO REMOVE?)
+	 */
 	game.settings.register("tormenta20", "disableJournal", {
 		name: "Desabilitar Diário",
 		hint: "Desabilita a aba Diário das fichas de personagem de jogador.",
@@ -115,7 +109,19 @@ export const SystemSettings = function() {
 		type: Boolean
 	});
 
-	// Gerais
+	/*
+	* Register sheet templates
+	*/
+	game.settings.register("tormenta20", "forceSheetTemplate", {
+		name: "Forçar Padrão de Ficha",
+		hint: "Sobrepõe a opção de Ficha dos jogadores e utiliza a ficha selecionada pelo Mestre. Alterar esta opção irá recarregar a página.",
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean,
+		onChange: () => location.reload()
+	});
+	
 	game.settings.register("tormenta20", "sheetTemplate", {
 		name: "Ficha",
 		hint: "Opção de layout da ficha, padrão ou com abas",
@@ -129,8 +135,10 @@ export const SystemSettings = function() {
 		}
 	});
 
+	
+
 	/**
-	 * Gasto Automático de Mana
+	 * Option to automatic spend mana on ability use
 	 */
 	game.settings.register("tormenta20", "automaticManaSpend", {
 		name: "Gasto de Mana",
@@ -174,6 +182,7 @@ export const SystemSettings = function() {
 			location.reload();
 		}
 	});
+
 	/**
 	 * Option to show apply buttons inside chat
 	 */

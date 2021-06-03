@@ -1,6 +1,6 @@
 import ActorSheetT20 from "./base.js";
 import ActorT20 from "../entity.js";
-import { T20Utility } from "../../utility.js";
+
 /**
  * An Actor sheet for player character type actors.
  * Extends the base ActorSheetT20 class.
@@ -37,32 +37,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
 		sheetData["disableJournal"] = game.settings.get("tormenta20", "disableJournal");
 
-		// TODO Understand this
-		for (let [pc, per] of Object.entries(this.actor.data.data.atributos)) {
-			if(per.bonus === undefined || per.penalidade === undefined) {
-				let perB ="data.atributos." + pc + ".bonus";
-				let perP ="data.atributos." + pc + ".penalidade";
-				this.actor.update({ [perB] : 0, [perP]: 0});
-			}
-		}
-
 		// FLAGS
-		sheetData["isPreparationCaster"] = this.actor.data.flags.mago;
-		sheetData["mostrarBonusTreino"] = this.actor.data.flags.mostrarTreino;
+		sheetData["isPreparationCaster"] = this.actor.getFlag("tormenta20", "mago");
+		sheetData["mostrarBonusTreino"] = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
-		this.actor.data.data.defesa.pda = this.actor.data.data.defesa.pda ?? 0;
-		/* Template SKILLS */
-		// TODO Migration function to enforce template data
-		if(this.actor.data.data.pericias !== undefined){
-			for (let [pc, per] of Object.entries(this.actor.data.data.pericias)) {
-				if(per.bonus === undefined || per.penalidade === undefined) {
-					let perB ="data.pericias." + pc + ".bonus";
-					let perP ="data.pericias." + pc + ".penalidade";
-					this.actor.update({ [perB] : 0, [perP]: 0});
-				}
-			}
-		}
+		this.actor.data.data.attributes.defesa.pda = this.actor.data.data.attributes.defesa.pda ?? 0;
 
 		return sheetData;
 	}
@@ -81,17 +61,111 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			"itens": [],
 			"poderes": [],
 			"magias": {
-        1: {spells: [], custo: 1},
+				1: {spells: [], custo: 1},
 				2: {spells: [], custo: 3},
 				3: {spells: [], custo: 6},
 				4: {spells: [], custo: 10},
-				5: { spells: [], custo: 15}
+				5: {spells: [], custo: 15}
 			},
 			"qtdMagias": 0
 		};
-		const poderes = [];
-		const equipamentos = [];
-		const inventario = [];
+
+		// Categorize items as inventory
+		const inventario = {
+			arma: {label: "Armas", items: [], dataset: {type: "arma"} },
+			equipamento: {label: "Equipamentos", items: [], dataset: {type: "equipamento"} },
+			consumivel: {label: "Consumível", items: [], dataset: {type: "consumivel"} },
+			tesouro: {label: "Tesouro", items: [], dataset: {type: "tesouro"} }
+		}
+		
+		// Partition items by category
+		let [items, magias, poderes, classes] = data.items.reduce((arr, item) => {
+			// Item details
+			item.img = item.img || CONST.DEFAULT_TOKEN;
+			item.isStack = Number.isNumeric(item.data.quantidade) && (item.data.quantidade !== 1);
+			
+			// Item usage
+			// TODO
+
+			// Item toggle state
+			// _prepareItemToggleState
+
+			// Primary Class
+			// TODO
+			if ( item.type === "classe" ) {
+				item.abbr = item.name.substr(0,4);
+			}
+
+			let isFav = item.flags.favorito || false;
+			if( isFav && favoritos[item.type] ) {
+				if( item.type === "magia" ){
+					favoritos[item.type][item.data.circulo].spells.push(item);
+				} else if( ["consumivel","tesouro"].includes(item.type) ){
+					favoritos.itens.push(item);
+				} else if( favoritos[item.type] ) favoritos[item.type].push(item);
+			}
+			// Classify items into types
+			if ( item.type === "magia" ) arr[1].push(item);
+			else if ( item.type === "poder" ) arr[2].push(item);
+			else if ( item.type === "classe" ) arr[3].push(item);
+			else if ( Object.keys(inventario).includes(item.type ) ) arr[0].push(item);
+			return arr;
+		}, [[], [], [], []]);
+
+		// Apply active item filters
+		// TODO
+
+		// Organize items
+		for ( let i of items ) {
+			i.data.qtd = i.data.qtd || 0;
+			i.data.peso = i.data.peso || 0;
+			i.pesoTotal = (i.data.qtd * i.data.peso).toNearest(0.1);
+			inventario[i.type].items.push(i);
+		}
+
+		// Organize spells and count the number of prepared spells
+		const grimorio = {
+			1: { spells: [], custo: 1 },
+			2: { spells: [], custo: 3 },
+			3: { spells: [], custo: 6 },
+			4: { spells: [], custo: 10 },
+			5: { spells: [], custo: 15 }
+		};
+		const nPreparadas = 0;
+		let maiorCirculo = 0;
+		console.log(magias);
+		magias.forEach(function(m){
+			maiorCirculo = Math.max(maiorCirculo, m.data.circulo);
+			grimorio[m.data.circulo].spells.push(m);
+		});
+		
+		
+		// Organize Powers??
+		// by activation?
+		console.log(classes);
+		// Assign and return
+		actorData.favoritos = favoritos;
+		actorData.classes = classes;
+		actorData.poderes = poderes;
+		actorData.magias = grimorio;
+		actorData.maiorCirculo = maiorCirculo;
+		// actorData.equipamentos = items;
+		let layout = game.settings.get("tormenta20", "sheetTemplate");
+		console.log(inventario);
+		console.log(items);
+		if( layout == "tabbed"){
+			actorData.inventario = inventario;
+		} else if( layout == "base"){
+			inventario.itens = {label: "Itens", items: items};
+			actorData.inventario = inventario;
+		}
+
+		// actorData.data.detalhes.carga = this._computeEncumbrance(actorData, carga);
+		// Attacks
+		// actorData.ataques = ataques;
+		// actorData.armas = armas;
+
+		/* /
 		const ataques = [];
 		const armas = [];
 		let carga = 0;
@@ -99,26 +173,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const skillset = [];
 		const classes = [];
 		const magias = {
-			1: {
-				spells: [],
-				custo: 1
-			},
-			2: {
-				spells: [],
-				custo: 3
-			},
-			3: {
-				spells: [],
-				custo: 6
-			},
-			4: {
-				spells: [],
-				custo: 10
-			},
-			5: {
-				spells: [],
-				custo: 15
-			}
+			1: { spells: [], custo: 1 },
+			2: { spells: [], custo: 3 },
+			3: { spells: [], custo: 6 },
+			4: { spells: [], custo: 10 },
+			5: { spells: [], custo: 15 }
 		};
 		let maiorCirculo = 0;
 		// Iterate through items, allocating to containers
@@ -150,7 +209,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				carga += i.peso;
 				if (isFav) favoritos.itens.push(i);
 			}
-			else if (i.type === 'equip' || i.type === 'armadura') {
+			else if (i.type === 'equipamento') {
 				i.peso = Number(i.data.peso)*Number(i.data.qtd);
 				inventario.push(i);
 				equipamentos.push(i);
@@ -172,17 +231,22 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					}
 				}
 				let tempatq = `${atqSkill} + ${i.data.atqBns}`;
-				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+				//
+				.replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
+				//
 				let tempdmg = '';
 				tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
 				tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg + `+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
 				tempdmg = i.data.danoBns != '' ? tempdmg + ` + ${i.data.danoBns}` : tempdmg;
-				tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
+				tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
+				//
+				.replace(/\@\w+\b/g, function (match) {
 					return "(" + T20Utility.short(match, actorData.data) + ")";
 				});
-
+				//
 				i.data.atq = (tempatq.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
 
 				// i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(-?\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
@@ -198,35 +262,16 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// Group skills in one array
 		const basicSkills = actorData.data.pericias;
-		const oficSkills = actorData.data.pericias.ofi.mais;
-		const customSkills = actorData.data.periciasCustom;
+		// const oficSkills = actorData.data.pericias.ofi.mais;
+		// const customSkills = actorData.data.periciasCustom;
+		console.log(data.actor);
 		for (let [key, sk] of Object.entries(basicSkills)){
-			if(key == 'ofi'){
-				// skillset[key] = "ofi";
-				skillset.push("ofi");
-				for (let [id, ofi] of Object.entries(oficSkills)){
-					ofi.path = "data.pericias.ofi.mais";
-					ofi.id = id;
-					ofi.type = "oficios";
-					skillset.push(ofi);
-				}
-			} else {
-				sk.path = "data.pericias";
-				sk.id = key;
-				// skillset[key] = sk;
-				skillset.push(sk);
-			}
-		}
-		// skillset["cstm"] = "cstm";
-		skillset.push("cstm");
-		for (let [id, cstm] of Object.entries(customSkills)){
-			cstm.path = "data.periciasCustom";
-			cstm.id = id;
-			cstm.type = "custom";
-			// skillset["cstm"+id] = cstm;
-			skillset.push(cstm);
+			sk.path = "data.pericias";
+			sk.id = key;
+			skillset.push(sk);
 		}
 
+		// favoritos
 		actorData.favoritos = favoritos;
 		// Skillset
 		actorData.skillset = skillset;
@@ -246,6 +291,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		actorData.ataques = ataques;
 		actorData.armas = armas;
 		// actorData.referencias  = data.actor.effects.filter(i=>i.isTemporary);
+		/*  */
 	}
 
 	/* -------------------------------------------- */
@@ -295,27 +341,27 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	}
 	
 	/**
-   * Compute the level and percentage of encumbrance for an Actor.
-   *
-   * Optionally include the weight of carried currency across all denominations by applying the standard rule
-   * from the PHB pg. 143
-   * @param {Object} actorData      The data object for the Actor being rendered
-   * @returns {{max: number, value: number, pct: number}}  An object describing the character's encumbrance level
-   * @private
-   */
-  _computeEncumbrance(actorData, carga) {
-    // Compute Encumbrance percentage
-    const max = actorData.data.atributos.for.value * 10;
-    const pct = Math.clamped((carga * 100) / max, 0, 100);
-    return { "value": carga, "pct": pct };
-  }
+	 * Compute the level and percentage of encumbrance for an Actor.
+	 *
+	 * Optionally include the weight of carried currency across all denominations by applying the standard rule
+	 * from the PHB pg. 143
+	 * @param {Object} actorData      The data object for the Actor being rendered
+	 * @returns {{max: number, value: number, pct: number}}  An object describing the character's encumbrance level
+	 * @private
+	 */
+	_computeEncumbrance(actorData, carga) {
+		// Compute Encumbrance percentage
+		const max = actorData.data.atributos.for.value * 10;
+		const pct = Math.clamped((carga * 100) / max, 0, 100);
+		return { "value": carga, "pct": pct };
+	}
 
 	/* -------------------------------------------- */
 	_onUpdateCD(ev){
 		const atrRes = $(ev.currentTarget).data("atrres");
 		const magias = this.actor.data.items.filter(i => i.type === "magia");
 		const updates = magias.map(i => {
-  		return {_id: i._id, "data.atrRes": atrRes};
+			return {_id: i._id, "data.atrRes": atrRes};
 		});
 		this.actor.updateEmbeddedEntity("OwnedItem", updates);
 	}
@@ -326,21 +372,21 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const item = this.actor.getOwnedItem(li.data("itemId"));
 		item.data.data.equipado = !item.data.data.equipado;
 		const items = this.actor.data.items;
-    
+		
 		const armor = ["leve", "pesada"];
 		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
 
 		if (item.data.data.equipado && exclusiveSlot.includes(item.data.data.tipo)) {
 			let unequipped = items.some(element => { //some() === forEach() with a return
-        if(element.type === "equip" && element.data.equipado && element._id != item.data._id) {
+				if(element.type === "equip" && element.data.equipado && element._id != item.data._id) {
 					if (element.data.tipo === item.data.data.tipo || (armor.includes(element.data.tipo) && armor.includes(item.data.data.tipo))) {
 						if (item.data.data.tipo == "traje") {
 							this.actor.data.data.defesa.outro -= element.data.armadura.value;
 						}
-            element.data.equipado = false;
-            return true;
-          }
-        }
+						element.data.equipado = false;
+						return true;
+					}
+				}
 			});
 			if (unequipped) {
 				this.actor.update({"items": items });
@@ -359,14 +405,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		super.activateListeners(html);
 
 		// Item summaries
-    // html.find('.item .item-name.rollable h4').click(event => this._onItemSummary(event));
-    html.find('.item .item-name h4').click(event => this._onItemSummary(event));
+		// html.find('.item .item-name.rollable h4').click(event => this._onItemSummary(event));
+		html.find('.item .item-name h4').click(event => this._onItemSummary(event));
 		
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
 
-		if (this.actor.owner) {
-			html.find('.item .item-image').click(event => this._onItemRoll(event));
+		if (this.actor.isOwner) {
+			// html.find('.item .item-image').click(event => this._onItemRoll(event));
 
 			html.find('.item-fav').click(ev => {
 				const li = $(ev.currentTarget).parents(".item");
@@ -391,29 +437,38 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				li.addEventListener("dragstart", handler, false);
 			});
 		}
-
 	}
 
 	/** @override */
-  async _onDropItemCreate(itemData) {
-    // Increment the number of class levels a character instead of creating a new item
-    if ( itemData.type === "classe" ) {
-      const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
+	async _onDropItemCreate(itemData) {
+		// Increment the number of class levels a character instead of creating a new item
+		if ( itemData.type === "classe" ) {
+			const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
 			const actorData = this.actor.data;
+			let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
+			if ( !lvlconfig ){
+				lvlconfig = {
+					pv: { for: false, des: false, int: false, sab: false, car: false },
+					pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
+					pvBonus: ["0","0"],
+					pmBonus: ["0","0"]
+				}
+				this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
+			}
 			if (actorData.flags.pvBonus === undefined || actorData.flags.pmBonus === undefined) {
 				actorData.flags.pvBonus = [0,0];
 				actorData.flags.pmBonus = [0,0];
 				this.actor.update({"flags.pvBonus": [0, 0], "flags.pmBonus": [0, 0]});
 			}
-      let priorLevel = cls?.data.data.niveis ?? 0;
+			let priorLevel = cls?.data.data.niveis ?? 0;
 			if ( !!cls ) { // Novo nivel de classe preexistente
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.data.attributes.nivel.value);
-	        	if ( next > priorLevel ) {
+						if ( next > priorLevel ) {
 					const pvMax = actorData.data.attributes.pv.max + parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
 					const pmMax = actorData.data.attributes.pm.max +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
 					this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
-	          itemData.niveis = next;
-	          		return cls.update({"data.niveis": next});
+						itemData.niveis = next;
+								return cls.update({"data.niveis": next});
 				}
 			}
 			else if (actorData.data.attributes.nivel.value) { // Novo nivel de classe
@@ -427,10 +482,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const pvMax = somaPV + 4 * parseInt(itemData.data.pvPorNivel) + actorData.data.atributos.con.mod + (actorData.flags.pvBonus[1] ? parseInt(actorData.flags.pvBonus[1]) : 0);
 				const pmMax = somaPM +  parseInt(itemData.data.pmPorNivel) + (actorData.flags.pmBonus[1] ? parseInt(actorData.flags.pmBonus[1]) : 0);
 				this.actor.update({"data.attributes.pv.max": pvMax, "data.attributes.pm.max": pmMax});
-			}
-    }
 
-    // Default drop handling if levels were not added
-    super._onDropItemCreate(itemData);
-  }
+				
+			}
+		}
+
+		// Default drop handling if levels were not added
+		super._onDropItemCreate(itemData);
+	}
 }
