@@ -70,6 +70,7 @@
 	{{!-- Dano --}}
 	{{!-- [ dado, versatil, atributo, ...parts, tipo ] --}}
 	{{#if (eq roll.type "dano" ) }}
+		{{log roll}}
 		<div class="form-group">
 			<ol class="roll-parts form-group">
 				{{#if (eq ../item.type "arma") }}
@@ -108,7 +109,7 @@
 					{{#if (and (eq ../../item.type "arma") (lt i 2) )}}
 					{{else}}
 						<li class="roll-part flexrow" data-roll-part="{{i}}">
-							<input type="text" name="data.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this " 0"}}"/ title="WTF">
+							<input type="text" name="data.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this "0"}}"/ title="WTF">
 							<select name="data.rolls.{{key}}.parts.{{i}}.1">
 								{{#select (lookup this "1") }}
 									<option value="">{{ localize "T20.None" }}</option>

@@ -3,6 +3,7 @@ import AbilityUseDialog from "../../apps/ability-use-dialog.js";
 import TraitSelector from "../../apps/trait-selector.js";
 import ActorSettings from "../../apps/actor-settings.js";
 import ActorMovementConfig from "../../apps/movement-config.js";
+import ActorResistanceConfig from "../../apps/resistance-config.js";
 // TODO TYPE ActorTypeConfig
 import { T20 } from '../../config.js';
 import LevelSettings from "../../apps/level-settings.js";
@@ -71,7 +72,8 @@ export default class ActorSheetT20 extends ActorSheet {
 		};
 		
 		// The Actor and its Items
-		data.actor = foundry.utils.deepClone(this.actor.data);
+		data.actor = this.actor.data.toObject(false);
+		//foundry.utils.deepClone(this.actor.data);
 		data.items = this.actor.items.map(i => {
 			i.data.labels = i.labels;
 			return i.data;
@@ -88,17 +90,25 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Skills
 		if (data.actor.data.pericias) {
 			for (let [s, skl] of Object.entries(data.actor.data.pericias)) {
-				skl.label = CONFIG.T20.pericias[s];
+				skl.label = CONFIG.T20.pericias[s] || skl.label;
+				if( s.match(/_pc[1-9]/) ) skl.order = 6;
+				else if( s == "_pc0" ) skl.order = 5;
+				else if( s > "ofi9" ) skl.order = 4;
+				else if( s.match(/ofi[1-9]/) ) skl.order = 3;
+				else if( s == "ofi0" ) skl.order = 2;
+				else if( s < "ofi0" ) skl.order = 1;
+				skl.key = s;
+				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
 				skl.compendiumEntry = data.config.skillCompendiumEntries[s] ?? null;
 			}
 		}
+		data.skills = Object.values(data.actor.data.pericias).sort((a,b)=>{return a.order-b.order});
 
 		// Movement speeds
 		// data.movement = this._getMovementSpeed(data.actor);
 
 		// Senses
-		// data.senses = this._getSenses(data.actor);
-		
+		data.senses = this._getSenses(data.actor);
 		// Update traits
 		this._prepareTraits(data.actor.data.tracos);
 
@@ -160,15 +170,15 @@ export default class ActorSheetT20 extends ActorSheet {
 	/* -------------------------------------------- */
 
 	_getSenses(actorData) {
-		const senses = actorData.data.attributes.sentidos || {};
-		const tags = {};
+		const senses = actorData.data.attributes.sentidos || {value:[],custom:""};
+		if( !senses.value ) senses.value = [];
 		for ( let [k, label] of Object.entries(CONFIG.T20.senses) ) {
-			const v = senses[k] ?? 0
-			if ( v === 0 ) continue;
-			tags[k] = `${label}`;
+			const v = senses.value?.indexOf(k);
+			if ( v === -1 ) continue;
+			senses.value[v] = label;
 		}
-		if ( !!senses.special ) tags["special"] = senses.special;
-		return tags;
+		if ( !!senses.custom ) senses.value.push(senses.custom);
+		return senses;
 	}
 	
 	/**
@@ -178,10 +188,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	*/
 	_prepareTraits(traits) {
 		const map = {
-			"rd": CONFIG.T20.damageResistanceTypes,
-			"id": CONFIG.T20.damageResistanceTypes,
-			"vd": CONFIG.T20.damageResistanceTypes,
-			// "ic": CONFIG.T20.conditionTypes,
+			"ic": CONFIG.T20.conditionTypes,
 			"idiomas": CONFIG.T20.idiomas,
 			"profArmas": CONFIG.T20.profArmas,
 			"profArmaduras": CONFIG.T20.profArmaduras
@@ -246,7 +253,11 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find('.skill-create').click(this._onPericiaCustomCreate.bind(this));
 			html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
 			html.find('.show-controls').click(this._toggleControls.bind(this));
-			html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this)); //TODO
+			html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+			// Classes
+			html.find(".add-classe").click(ev => {
+				game.packs.get("tormenta20.classes").render(true)
+			});
 
 			// Trait Selector
 			html.find('.trait-selector').click(this._onTraitSelector.bind(this));
@@ -318,11 +329,10 @@ export default class ActorSheetT20 extends ActorSheet {
 				app = new LevelSettings(this.object);
 				break;
 			case "movement":
-				console.error("movement");
 				app = new ActorMovementConfig(this.object);
 				break;
-			case "settings":
-				app = new ActorSettings(this.object);
+			case "resistance":
+				app = new ActorResistanceConfig(this.object);
 				break;
 			// case "senses":
 			// 	app = new ActorSensesConfig(this.object);
@@ -547,8 +557,8 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	_toggleControls(event) {
 		const target = event.currentTarget;
-		const controls = target.closest('ul').querySelectorAll('li.custom .skill-delete, li.oficios .skill-delete');
-		const input = target.closest('ul').querySelectorAll('li.custom .skill-outros, li.oficios .skill-outros');
+		const controls = target.closest('ul').querySelectorAll('li.custom .skill-delete');
+		const input = target.closest('ul').querySelectorAll('li.custom .skill-outros');
 		if ($(target).hasClass('ativo')) {
 			$(controls).css('display', 'none');
 			$(input).css('display', 'inline');
@@ -578,7 +588,6 @@ export default class ActorSheetT20 extends ActorSheet {
 	async _onRollPericia(event) {
 		event.preventDefault();
 		const pericia = event.currentTarget.parentElement.dataset.itemId;
-		console.log(event);
 		return this.actor.rollPericia(pericia, {event:event})
 
 		if( needsConfiguration ){
@@ -642,13 +651,13 @@ export default class ActorSheetT20 extends ActorSheet {
 	*/
 	async _onPericiaCustomCreate(event) {
 		event.preventDefault();
-
 		const a = event.currentTarget;
 
 		const tipo = a.dataset.tipo;
 		const pericia = {
 			label: "Nova Pericia",
 			nome: "Nova Pericia",
+			custom: true,
 			value: 0,
 			atributo: "for",
 			st: false,
@@ -657,47 +666,39 @@ export default class ActorSheetT20 extends ActorSheet {
 			treino: 0,
 			outros: 0,
 			mod: 0,
-			temp: 0
+			bonus: 0
 		};
 
-		let actorData = duplicate(this.actor);
-		let oficios = Object.values(actorData.data.pericias.ofi.mais);
-		let periciasCustom = Object.values(actorData.data.periciasCustom);
+		let actorData = foundry.utils.deepClone(this.actor);
+		let pericias = actorData.data.data.pericias;
 
 		if (tipo == 'oficio') {
 			pericia.label = "Oficio +";
 			pericia.atributo = 'int';
 			pericia.st = true;
 			pericia.treinado = 1;
-
-			oficios.push(pericia);
-			await this.actor.update({
-				"data.pericias.ofi.mais": oficios
-			});
+			let key = Object.keys(pericias).reduce((t, k) => t += k.match(/ofi\d/) ? 1 : 0, 0);
+			pericias[`ofi${key}`] = pericia;
+			
 		} else {
-			periciasCustom.push(pericia);
-			await this.actor.update({
-				"data.periciasCustom": periciasCustom
-			});
+			let key = Object.keys(pericias).reduce((t, k) => t += k.match(/_pc\d/) ? 1 : 0, 0);
+			pericias[`_pc${key}`] = pericia;
 		}
+		pericias = Object.keys(pericias).sort().reduce(
+			(obj, key) => { 
+				obj[key] = pericias[key]; 
+				return obj;
+			}, 
+			{}
+		);
 		await this.render();
 	}
 
 	async _onPericiaCustomDelete(event) {
 		const id = event.currentTarget.dataset.itemId;
-		const a = event.currentTarget;
-		const tipo = a.dataset.type;
-		if (tipo == 'oficios') {
-			let oficios = Object.values(this.actor.data.data.pericias.ofi.mais);
-			oficios.splice(id, 1);
-
-			await this.actor.update({ "data.pericias.ofi.mais": oficios });
-		} else {
-			let pericias = Object.values(this.actor.data.data.periciasCustom);
-			pericias.splice(id, 1);
-
-			await this.actor.update({ "data.periciasCustom": pericias });
-		}
+		let updateData = [];
+		updateData[`data.pericias.-=${id}`] = null;
+		this.actor.update(updateData);
 		await this.render();
 	}
 

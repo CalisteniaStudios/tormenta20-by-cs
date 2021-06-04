@@ -66,17 +66,9 @@
         "tracos": {
           "tamanho": "med",
           "resistencia": {},
-          "rd": {
-            "value": 0
-          },
-          "vd": {
-            "value": 0
-          },
-          "id": {
-            "value": []
-          },
           "ic": {
-            "value": []
+            "value": [],
+            "custom": ""
           }
         },
         "dinheiro": {
@@ -89,7 +81,10 @@
       },
       "creature": {
         "attributes": {
-          "sentidos": [],
+          "sentidos": {
+            "value": [],
+            "custom": ""
+          },
           "conjuracao": "int",
           "nivel": {
             "value": 1
@@ -165,7 +160,7 @@
           "nobr": {
             "value": 0,"atributo": "int"
           },
-          "ofi": {
+          "ofi0": {
             "value": 0,"atributo": "int"
           },
           "perc": {
@@ -188,6 +183,9 @@
           },
           "vont": {
             "value": 0,"atributo": "sab"
+          },
+          "_pc0": {
+            "value": 0, "atributo": "for"
           }
         },
         "tracos": {
@@ -355,6 +353,7 @@
       "niveis": 1,
       "pvPorNivel": "2",
       "pmPorNivel": "3",
+      "inicial": false,
       "pericias": {
         "numero": 2,
         "inatas": "",

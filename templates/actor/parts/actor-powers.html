@@ -20,7 +20,6 @@
 			{{item.data.tipo}}{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}
 		</div>
 		<div class="item-tipo">
-			{{log item}}
 			{{#if item.labels.ativacao}}
 			{{item.labels.ativacao}}{{#if item.labels.custoPM}},{{/if}}
 			{{/if}}
@@ -33,7 +32,7 @@
 			{{#if (eq ../layout "tabbed")}}
 			<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" ><i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>
 			{{/if}}
-			{{#if ../actor.flags.tormenta20.botaoEditarItens}}
+			{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}
 			<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 			{{/if}}
 			<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>

@@ -1,7 +1,7 @@
 <div class="traits">
 	<h3 style="text-align: center;">Outras Características</h3>
 	<div>
-		<label style="display:inline-block;">Classe{{#if (gt actor.classes.length 1)}}s{{/if}}</label>
+		<label>Classe{{#if (gt actor.classes.length 1)}}s{{/if}}</label>
 		<ul class="trait-list">
 			{{#each actor.classes as |item|}}
 			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
@@ -16,7 +16,7 @@
 		</ul>
 	</div>
 	<div>
-		<label style="display:inline-block;">Tamanho</label>
+		<label>Tamanho</label>
 		<select class="actor-size" name="data.tracos.tamanho">
 			{{#select data.tracos.tamanho}}
 			{{#each config.actorSizes as |label size|}}
@@ -41,16 +41,44 @@
 	</div>
 	
 	<div>
-		<label style="display:inline-block;">Resistência a Dano</label>
-		<input style="text-align:center;" name="data.rd.value" disabled title="Total" type="number" placeholder="0" value="{{data.rd.value}}" />
-		<label style="display:inline-block;">Base: <input name="data.rd.base" style="max-width: 30px; height: 20px;" title="Base" type="number" placeholder="0" value="{{data.rd.base}}" /></label>
-		<label style="display:inline-block;">Temporário: <input name="data.rd.temp" style="max-width: 30px; height: 20px;" title="Bônus Temporário" type="number"  placeholder="0" value="{{data.rd.temp}}" /></label>
+		<label>
+			<a class="config-button" data-action="resistance" data-target="data.tracos.resistencias">Resistências: </a>
+		</label>
+		<ul class="trait-list">
+			{{#each data.tracos.resistencias as |v k|}}
+			{{#if v.imunidade }}
+			<li class="tag {{k}}" title="Imunidade">{{k}} <i class="fas fa-fist-raised" style="float:unset;"></i></li>
+			{{else if v.vulnerabilidade }}
+			<li class="tag {{k}}" title="Vulnerabilidade">{{k}} <i class="fas fa-skull" style="float:unset;"></i></li>
+			{{else if (gt v.value 0)}}
+			<li class="tag {{k}}">{{k}} {{v.value}}</li>
+			{{/if}}
+			{{/each}}
+		</ul>
+	</div>
+
+	<div>
+		<a class="trait-selector ic" data-options="conditionTypes" data-target="data.tracos.ic">
+			<label style="display:inline-block;">Resistências a Condições:</label>
+		</a>
+		<ul class="trait-list">
+			{{#each data.tracos.ic.selected as |v k|}}
+			<li class="tag {{k}}">{{v}}</li>
+			{{/each}}
+		</ul>
+	</div>
+
+	<div>
+		<a class="trait-selector" data-options="senses" data-target="data.attributes.sentidos">
+			<label style="display:inline-block;">Sentidos:</label>
+		</a>
+		<ul class="trait-list">
+			{{#each senses.value as |v k|}}
+			<li class="tag {{k}}">{{v}}</li>
+			{{/each}}
+		</ul>
 	</div>
 	
-	<div>
-		<label style="display:inline-block;">Resistências</label>
-		<input name="data.resistencias" style="text-align: left; height: 20px; margin: 0; width:auto;" type="text" value="{{data.resistencias}}" data-dtype="String" />
-	</div>
 	<hr>
 	<h3 style="text-align: center;">Proficiências</h3>
 	

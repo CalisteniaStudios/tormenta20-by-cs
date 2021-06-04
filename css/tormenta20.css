@@ -1090,9 +1090,16 @@ button {
 .tormenta20 .tabbed ul.attributes .classe {
   white-space: nowrap;
 }
+
 .tormenta20 .summary ul.attributes .classe a.class-config,
 .tormenta20 .tabbed ul.attributes .classe a.class-config {
   flex: 0;
+  align-self: center;
+  visibility: hidden; 
+}
+.tormenta20 .summary ul.attributes .classe:hover a.class-config,
+.tormenta20 .tabbed ul.attributes .classe:hover  a.class-config{
+  visibility: visible; 
 }
 
 

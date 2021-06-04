@@ -56,16 +56,22 @@
 									placeholder="Origem" />
 							</li>
 							<li class="classe flexrow" style="flex: 0.2 1 auto;">
+								{{#if actor.classes.length }}
 								{{#each actor.classes as | class key | }}
 									<span class="item" data-item-id="{{class._id}}">
 										<a class="item-control item-edit" title="Editar">
 											{{#if (eq ../actor.classes.length 1)}} {{class.name}} {{else}} {{class.abbr}} {{/if}}
 											{{class.data.niveis}}
 										</a>
+										<a class="item-control class-config item-delete" title="Excluir">
+											<i class="fas fa-trash" style="font-size: 14px;"></i>
+										</a>
 									</span>
 								{{/each}}
-								<!-- <input type="text" name="data.attributes.classe" value="{{data.attributes.classe}}" data-dtype="String" placeholder="Classe" /> -->
-								<a class="item-control class-config" title="Configurar">
+								{{else}}
+								<input type="text" data-dtype="String" placeholder="Classe" disabled />
+								{{/if}}
+								<a class="item-control class-config add-classe" title="Configurar">
 									<i class="fas fa-plus" style="float:right;margin-right: 5px;"></i>
 								</a>
 							</li>
@@ -208,7 +214,7 @@
 										<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
 											<i class="fas fa-shield-alt"></i>
 										</a>
-										{{#if actor.flags.tormenta20.sheet.botaoEditarItens}}
+										{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}
 										<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 										{{/if}}
 										<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
@@ -282,7 +288,7 @@
 										</div>
 										<div class="item-peso" style="text-align: center;">{{item.pesoTotal}}</div>
 										<div class="item-controls">
-											{{#if actor.flags.tormenta20.sheet.botaoEditarItens}}
+											{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}
 											<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 											{{/if}}
 											<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>

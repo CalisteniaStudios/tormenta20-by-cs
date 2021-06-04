@@ -62,7 +62,6 @@ export default class ActorT20 extends Actor {
 		const nivel = data.attributes.nivel.value;
 		// Base CD
 		data.attributes.cd = 10 + Math.floor(nivel / 2);
-		console.log(actor);
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (let [key, ability] of Object.entries(data.atributos)) {
 			// Calculate the modifier using d20 rules.
@@ -174,8 +173,6 @@ export default class ActorT20 extends Actor {
 			return arr;
 		}, 0);
 		data.attributes.nivel.value = nivel;
-		console.log(nivel);
-		console.log(classes);
 		// Experience required for next level
 		data.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		const xp = data.attributes.nivel.xp;
@@ -256,12 +253,7 @@ export default class ActorT20 extends Actor {
 		parts.push(data.attributes.defesa.outros || 0);
 		parts.push(data.attributes.defesa.condi || 0);
 		
-		/**/
-		console.log(parts);
-		
 		const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
-		console.error("DEFESA");
-		console.log(result);
 		data.attributes.defesa.value = parseInt(result);
 		data.attributes.defesa.pda += -pda;
 	}
@@ -276,16 +268,22 @@ export default class ActorT20 extends Actor {
 	_prepareSkills(key, pericia, data, rollData, roll = false) {
 		const pda = data.attributes.defesa.pda ? -Math.abs(data.attributes.defesa.pda) : 0;
 		// Vizahell
-		if (true) {
+		// if( pericia.label && pericia.label[1] ){
+		// 	pericia.label =  pericia.label[1];
+		// } else
+		pericia.label =  pericia.label || CONFIG.T20.pericias[key];
+		pericia.custom = false;
+		if (!key.match(/ofi[1-9]|_pc[1-9]/)) {
 			pericia.pda = ["acro", "furt", "ladi"].includes(key);
 			pericia.st = ["ades", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key);
 		} else {
+			pericia.custom = true;
 			pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
 			pericia.st = pericia.label.match(/\*/g) ? true : false;
 			pericia.pda = pericia.label.match(/\+/g) ? true : false;
 		}
-
-		var atributo = pericia.atributo;
+		
+		var atributo = pericia.atributo || "for";
 		pericia.mod = data.atributos[atributo].mod;
 		pericia.outros = pericia.outros;//Number(pericia.outros) || 0;
 		pericia.bonus = pericia.bonus || 0;//Number(pericia.bonus) || 0;
@@ -329,7 +327,7 @@ export default class ActorT20 extends Actor {
 		
 		for ( let classe of this.itemTypes.classe ) {
 			let c = classe.data.data;
-			let iniPV = c.primary? c.pvPorNivel * 3 : 0;
+			let iniPV = c.inicial? c.pvPorNivel * 3 : 0;
 			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con ));
 			soma.pm += c.niveis * c.pmPorNivel;
 		}
@@ -517,12 +515,11 @@ export default class ActorT20 extends Actor {
 		options.aprimoramentos = [];
 		let temCusto = false;
 		item.custo = 0;
-		console.log(item);
 
 		// Aprimoramentos Aplicados
 		const aplicados = expandObject(configuration).aprs;
+		console.log(aplicados);
 		const aprimoramentos = this.effects.filter(ef => aplicados[ef.id]?.aplica );
-		// const aprimoramentos = this.aprimoramentosValidos.filter(ef => aplicados[ef.id]?.aplica );
 
 		// FUNÇÃO DE INTERNA
 		const applyChanges = (ch,qtd,ef) => {
@@ -546,15 +543,12 @@ export default class ActorT20 extends Actor {
 				// ADD CHANGES
 				else if( ch.mode == 2 ) {
 					// ADD ROLL FROM ITEM
-					console.error("ADD 10");
-					console.log(r);
 					if(item.type == "pericia"){
 						_campos.outros = item.outros? 
 											item.outros + "+"+ (Number(ch.value * qtd) || ch.value)
 											:	(Number(ch.value * qtd) || ch.value);
 						// r.parts.push( Number(ch.value * qtd) || ch.value );
 					} else r.parts.push( Number(ch.value * qtd) || ch.value )
-					console.log(r.parts);
 				}
 				// OVERRIDE CHANGES
 				else if( ch.mode == 5 ){
@@ -569,7 +563,6 @@ export default class ActorT20 extends Actor {
 				else if( ch.mode == 1 ) {
 					if( Number(ch.value) ){
 						let temp = eval(`item.${campos[ch.key][0]}`) ?? false;
-						console.error(Number(temp)* (Number(ch.value)*qtd));
 						if( Number(temp) ) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qtd);
 						else if ( temp ) {
 							temp.replace(/\d+/, (match) => Number(match)*(Number(ch.value)*qtd) );
@@ -593,8 +586,6 @@ export default class ActorT20 extends Actor {
 				// TODO test
 			}
 			foundry.utils.mergeObject(item, expandObject(_campos));
-			console.log(item);
-			console.log(_campos);
 			
 			// ACTOR DATA
 			// TODO
@@ -619,11 +610,10 @@ export default class ActorT20 extends Actor {
 		});
 
 		// Update parts with changed effects
-		console.log(item.parts);
 		if(item.type == "pericia"){
+			console.log(item);
 			item.parts = this._prepareSkills(item.id, item, ad, this.getRollData(), true );
 		}
-		console.log(item.parts);
 		options.itemData = item;
 		return options;
 	}
@@ -640,6 +630,7 @@ export default class ActorT20 extends Actor {
 		const actor = this;
 		const actorData = this.data;
 		const ad = actorData.data;
+		pericia.id = key;
 		let consumeMana = 0;
 		let rollMode;
 		let itemData = {
@@ -647,11 +638,11 @@ export default class ActorT20 extends Actor {
 			type: "pericia",
 			parts: []
 		}
+		console.log(pericia);
 		let parts = this._prepareSkills(key, pericia, ad, this.getRollData(), true );
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
-		console.log(itemData);
-
+		
 		const needsConfiguration = options.event.shiftKey;
 		let configuration = {};
 		if( needsConfiguration ){
@@ -660,14 +651,15 @@ export default class ActorT20 extends Actor {
 				name: pericia.label.replace(/[\*||\+]/g,"").trim()
 			});
 			if (!configuration) return;
-			
-			console.log(configuration);
 			rollMode = configuration.rollMode;
-			options = this.applyAprimoramentos( mergeObject(pericia, itemData), configuration);
-			console.log(pericia);
 		} else {
-			// aways active
+			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
+			configuration.aprs = active.reduce((o,ef)=>{
+				o[ef.id] = {aplica:1, custo: ef.data.flags.tormenta20.custo};
+				return o;
+			}, {});
 		}
+		options = this.applyAprimoramentos( mergeObject(pericia, itemData), flattenObject(configuration));
 
 		// Compose roll options
 		const rollConfig = mergeObject({
@@ -681,7 +673,6 @@ export default class ActorT20 extends Actor {
 		options.itemData.rolled = await d20Roll(rollConfig);
 		
 		// LOGS
-		console.log(rollConfig);
 		return this.displayCard({ options, rollMode});
 	}
 
@@ -726,10 +717,8 @@ export default class ActorT20 extends Actor {
 			});
 			if (!configuration) return;
 			
-			console.log(configuration);
 			rollMode = configuration.rollMode;
 			options = this.applyAprimoramentos( mergeObject(abl, itemData), configuration);
-			console.log(abl);
 		} else {
 			// aways active
 		}
@@ -746,7 +735,6 @@ export default class ActorT20 extends Actor {
 		options.itemData.rolled = await d20Roll(rollConfig);
 		
 		// LOGS
-		console.log(rollConfig);
 		return this.displayCard({ options, rollMode});
 	}
 

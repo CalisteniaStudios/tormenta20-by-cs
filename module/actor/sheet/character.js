@@ -133,26 +133,21 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		};
 		const nPreparadas = 0;
 		let maiorCirculo = 0;
-		console.log(magias);
 		magias.forEach(function(m){
 			maiorCirculo = Math.max(maiorCirculo, m.data.circulo);
 			grimorio[m.data.circulo].spells.push(m);
 		});
 		
-		
-		// Organize Powers??
-		// by activation?
-		console.log(classes);
+		// classes.sort
+		classes.sort((a, b) => (b.data.inicial || 0) - (a.data.inicial || 0));
+
 		// Assign and return
 		actorData.favoritos = favoritos;
 		actorData.classes = classes;
 		actorData.poderes = poderes;
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
-		// actorData.equipamentos = items;
 		let layout = game.settings.get("tormenta20", "sheetTemplate");
-		console.log(inventario);
-		console.log(items);
 		if( layout == "tabbed"){
 			actorData.inventario = inventario;
 		} else if( layout == "base"){

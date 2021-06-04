@@ -150,6 +150,8 @@ T20.conditions = {
     }
 }
 
+T20.conditionTypes = T20.statusEffectIcons.reduce(function(o, s) { o[s.id] = s.label; return o;}, {});
+
 T20.atributos = {
 	"for": "T20.AbilityStr",
 	"des": "T20.AbilityDex",

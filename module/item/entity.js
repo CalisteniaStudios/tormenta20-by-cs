@@ -147,7 +147,6 @@ export default class ItemT20 extends Item {
 		// Ativavel
 		if ( data.hasOwnProperty("ativacao") ) {
 			let act = data.ativacao || {};
-			console.log(act.qtd);
 			if ( act ) labels.ativacao = act.qtd ? [act.qtd, game.i18n.localize(C.abilityActivationTypes[act.execucao])].join(" ") : game.i18n.localize(C.abilityActivationTypes[act.execucao]);
 			
 			//[act.qtd, C.abilityActivationTypes[act.type]].filterJoin(" ");
@@ -416,20 +415,17 @@ export default class ItemT20 extends Item {
 			consumeResource = Boolean(configuration.consumeResource);
 			consumeMana = Boolean(configuration.consumeMana);
 			rollMode = configuration.rollMode;
-
-			options = item.applyAprimoramentos(configuration);
 		} else {
-			// const validAug = item.aprimoramentosValidos;
-			// let awaysActive = validAug.filter(ef => !ef.data.disabled);
-			// configuration.id = awaysActive.map(ef => ef.id);
-			// configuration.aplica = Array(configuration.id.length).fill(true);
+			let itActive = this.actor.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
+			let acActive = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
+			let active = itActive.concat(acActive);
+			configuration.aprs = active.reduce((o,ef)=>{
+				o[ef.id] = {aplica:1, custo: ef.data.flags.tormenta20.custo};
+				return o;
+			}, {});
 		}
-
-
-		// TODO
-		// options = item.applyAprimoramentos(configuration);
-
 		
+		options = item.applyAprimoramentos(configuration);
 		options.rolls = [];
 		// Execute Rolls
 		item.data.data.rolled = {};
@@ -443,8 +439,6 @@ export default class ItemT20 extends Item {
 			await item.rollFormula({options:options});
 		}
 		
-		/* XABLAU */
-
 		// Determine whether the item can be used by testing for resource consumption
 		// TODO config auto consume settings;
 		const setttings = false;
@@ -469,6 +463,7 @@ export default class ItemT20 extends Item {
 			if ( template ) template.drawPreview();
 		}
 
+		if( consumeMana ) item.data.data.ativacao.custo = item.data.data.ativacao.custo || 1;
 		// Create or return the Chat Message data
 		return item.displayCard({options, rollMode, createMessage});
 	}
@@ -765,7 +760,8 @@ export default class ItemT20 extends Item {
 			// Get roll data
 			const parts = r.parts.map(d => d[0]);
 			const rollData = this.getRollData();
-			
+			console.log(r);
+			console.log(parts);
 			// Configure the damage roll
 			const title = this.name;
 			
