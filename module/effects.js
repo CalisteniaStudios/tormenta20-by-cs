@@ -8,6 +8,7 @@ export function onManageActiveEffect(event, owner) {
 	const a = event.currentTarget;
 	const li = a.closest("li");
 	const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null;
+	console.log(effect);
 	switch ( a.dataset.action ) {
 		case "create":
 		return owner.createEmbeddedDocuments("ActiveEffect", [{

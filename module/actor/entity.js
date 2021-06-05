@@ -79,10 +79,6 @@ export default class ActorT20 extends Actor {
 		}
 		// Inventory encumbrance
 		data.attributes.carga = this._computeEncumbrance(actorData);
-		// actorData.data.detalhes.carga = this._computeEncumbrance(actorData, carga);
-		// Cache labels
-		// this.labels["creatureType"];
-
 	}
 
 	/* -------------------------------------------- */
@@ -173,8 +169,8 @@ export default class ActorT20 extends Actor {
 			return arr;
 		}, 0);
 		data.attributes.nivel.value = nivel;
-		// Experience required for next level
 		data.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
+		// Experience required for next level
 		const xp = data.attributes.nivel.xp;
 		xp.proximo = this.getLevelExp(nivel || 1);
 		const anterior = this.getLevelExp(nivel - 1 || 0);
@@ -193,7 +189,7 @@ export default class ActorT20 extends Actor {
 
 		// Experience Reward
 		let nd = data.attributes.nd;
-		data.details.xp.value = Number(nd) * 1000 || (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(nd) ? 100 * Number(nd.split("/")[1]) : 0);
+		data.attributes.nivel.xp.value = Number(nd) * 1000 || (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(nd) ? 1000 * eval(nd).toFixed(3) : 0);
 
 	}
 
@@ -216,13 +212,13 @@ export default class ActorT20 extends Actor {
 		}
 		let parts = ["10"];
 		let pda = 0;
-		let atributo = data.attributes.defesa.atributo || "des";
-		let mod = data.atributos[atributo].mod;
+		let atributo = data.attributes.defesa.atributo;
+		let mod = data.atributos[atributo]?.mod || 0;
 		let maxAbl = false;
 		
 		// Defense Calculation
 		for (let item of actorData.items ) {
-			if (item.type == "equip" && item.data.data.equipado) {
+			if (item.type == "equipamento" && item.data.data.equipado) {
 				let tipo = item.data.data.tipo;
 				let def = item.data.data.armadura.value;
 				let penalidade = item.data.data.armadura.penalidade;
@@ -232,7 +228,7 @@ export default class ActorT20 extends Actor {
 					if(Number(data.attributes.defesa.armadura)){
 						def += data.attributes.defesa.armadura;
 					}
-					maxAbl = Number(maxAtr) ? Number(maxAtr) : false;
+					if ( tipo == "pesada" ) maxAbl = Number(maxAtr) || 0;
 					parts.push( def );
 				} else if (tipo == "escudo") {
 					// escudo = true;
@@ -360,17 +356,16 @@ export default class ActorT20 extends Actor {
 		const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
 		let weight = actorData.items.reduce((weight, i) => {
 			if ( !physicalItems.includes(i.type) ) return weight;
-			const q = i.data.data.quantidade || 0;
+			const q = i.data.data.qtd || 0;
 			const w = i.data.data.peso || 0;
 			return weight + (q * w);
 		}, 0);
-
 		// Compute Encumbrance percentage
 		weight = weight.toNearest(0.1);
 		const max = actorData.data.atributos.for.value * 10;
+		const emc = actorData.data.atributos.for.value * 3;
 		const pct = Math.clamped((weight * 100) / max, 0, 100);
-		return { "value": weight.toNearest(0.1), "pct": pct };
-		// return { value: weight.toNearest(0.1), max, pct, encumbered: pct > (2/3) };
+		return { value: weight, max, pct, encumbered: weight > emc };
 	}
 	/**/
 

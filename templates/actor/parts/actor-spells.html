@@ -3,19 +3,19 @@
 <ul class="item-list">
 	<li class="item item-header" style="text-align: center;">
 		{{#each data.atributos as |atr key|}}
-		{{#if (eq key ../data.atributoChave)}}
-		<label>CD {{add ../data.attributes.cd atr.mod}} =</label>
+		{{#if (eq key ../data.attributes.conjuracao)}}
+		<label>CD das Magias {{add ../data.attributes.cd atr.mod}} =</label>
+		<label title="CD Base 10 + metade do nível">{{../data.attributes.cd}} +</label>
 		{{/if}}
 		{{/each}}
-		<input class="cdbase" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
 		<select class="selectAtr" title="Atributo-Chave" name="data.attributes.conjuracao">
-			{{#select data.conjuracao}}
+			{{#select data.attributes.conjuracao}}
 			<option value="int">Inteligência</option>
 			<option value="sab">Sabedoria</option>
 			<option value="car">Carisma</option>
 			{{/select}}
 		</select>
-		<a class="update-cd" title="Atualizar Atributos das Magias" data-atrRes="{{data.atributoChave}}"><i class="fas fa-sync"></i></a>
+		<a class="update-cd" title="Atualizar Atributos das Magias" data-atrRes="{{data.attributes.conjuracao}}"><i class="fas fa-sync"></i></a>
 	</li>
 	{{#each actor.magias as |circulo i|}}
 	{{#if circulo.spells.length}}
@@ -27,7 +27,7 @@
 			<div class="item-tipo">Ativação</div>
 			<div class="item-controls">
 
-				<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}} data-atrRes="{{../actor.data.atributoChave}}"><i class="fas fa-plus"></i> Nova</a>
+				<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}} data-atrRes="{{../data.attributes.conjuracao}}"><i class="fas fa-plus"></i> Criar</a>
 			</div>
 		</li>
 		{{#each circulo.spells as |m index|}}

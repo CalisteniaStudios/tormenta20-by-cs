@@ -1,21 +1,6 @@
 <div class="traits">
 	<h3 style="text-align: center;">Outras Características</h3>
 	<div>
-		<label>Classe{{#if (gt actor.classes.length 1)}}s{{/if}}</label>
-		<ul class="trait-list">
-			{{#each actor.classes as |item|}}
-			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
-				<a class="item-control item-edit" title="Editar">
-					{{this.name}} {{this.data.niveis}}
-				</a>
-				<a class="item-control item-delete" title="Excluir">
-					<i class="fas fa-trash" style="float:unset;"></i>
-				</a>
-			</li>
-			{{/each}}
-		</ul>
-	</div>
-	<div>
 		<label>Tamanho</label>
 		<select class="actor-size" name="data.tracos.tamanho">
 			{{#select data.tracos.tamanho}}
@@ -31,12 +16,9 @@
 			<label style="display:inline-block;">Deslocamento</label>
 		</a>
 		<ul class="trait-list">
-			{{#if data.attributes.movement.walk}}<li class="speedtag walk">{{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.climb}}<li class="speedtag climb">Escalar {{data.attributes.movement.climb}}m ({{divide data.attributes.movement.climb 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.burrow}}<li class="speedtag burrow">Escavar {{data.attributes.movement.burrow}}m ({{divide data.attributes.movement.burrow 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.swim}}<li class="speedtag swim">Natação {{data.attributes.movement.swim}}m ({{divide data.attributes.movement.swim 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.fly}}<li class="speedtag fly">Voo {{data.attributes.movement.fly}}m ({{divide data.attributes.movement.fly 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.hover}}<li class="speedtag hover">Pairar</li>{{/if}}
+			{{#each movement as | move key | }}
+			<li class="speedtag {{key}}">{{move}}</li>
+			{{/each}}
 		</ul>
 	</div>
 	

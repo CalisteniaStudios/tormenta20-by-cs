@@ -1,4 +1,3 @@
-import { d20Roll, damageRoll } from '../../dice.js';
 import ActorSheetT20 from "./base.js";
 /**
  * An Actor sheet for NPC type characters.
@@ -38,8 +37,67 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	* Organize Owned Items for rendering the NPC sheet
 	* @private
 	*/
-
 	_prepareItems(data) {
+		const actorData = data.actor;
+		// Initialize containers.
+
+		// Categorize items as inventory
+		const inventario = {
+			arma: {label: "Armas", items: [], dataset: {type: "arma"} },
+			equipamento: {label: "Equipamentos", items: [], dataset: {type: "equipamento"} },
+			consumivel: {label: "Consumível", items: [], dataset: {type: "consumivel"} },
+			tesouro: {label: "Tesouro", items: [], dataset: {type: "tesouro"} }
+		}
+		
+		// Partition items by category
+		let [items, magias, poderes] = data.items.reduce((arr, item) => {
+			// Item details
+			item.img = item.img || CONST.DEFAULT_TOKEN;
+			item.isStack = Number.isNumeric(item.data.qtd) && (item.data.qtd !== 1);
+			
+			// Classify items into types
+			if ( item.type === "magia" ) arr[1].push(item);
+			else if ( item.type === "poder" ) arr[2].push(item);
+			else if ( Object.keys(inventario).includes(item.type ) ) arr[0].push(item);
+			return arr;
+		}, [[], [], []]);
+
+		// Organize items
+		for ( let i of items ) {
+			i.data.qtd = i.data.qtd || 0;
+			i.data.peso = i.data.peso || 0;
+			i.pesoTotal = (i.data.qtd * i.data.peso).toNearest(0.1);
+			inventario[i.type].items.push(i);
+		}
+
+		// Organize spells and count the number of prepared spells
+		const grimorio = {
+			1: { spells: [], custo: 1 },
+			2: { spells: [], custo: 3 },
+			3: { spells: [], custo: 6 },
+			4: { spells: [], custo: 10 },
+			5: { spells: [], custo: 15 }
+		};
+		const nPreparadas = 0;
+		let maiorCirculo = 0;
+		magias.forEach(function(m){
+			maiorCirculo = Math.max(maiorCirculo, m.data.circulo);
+			grimorio[m.data.circulo].spells.push(m);
+		});
+		
+
+		// Assign and return
+		actorData.poderes = poderes;
+		actorData.magias = grimorio;
+		actorData.maiorCirculo = maiorCirculo;
+		
+		actorData.inventario = inventario;
+		// inventario.itens = {label: "Itens", items: items};
+		// actorData.inventario = inventario;
+
+	}
+
+	_prepareItems2(data) {
 		const actorData = data.actor;
 
 		// Initialize containers.

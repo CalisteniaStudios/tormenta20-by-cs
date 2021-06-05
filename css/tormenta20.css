@@ -696,11 +696,11 @@ button {
 .tormenta20 .base .effects-list .item-controls,
 .tormenta20 .tabbed .item-list .item-controls {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 51px;
-  flex: 0 0 51px;
+  -ms-flex: 0 0 64px;
+  flex: 0 0 64px;
   text-align: right;
   white-space: nowrap;
-  display: flex;
+  /*display: flex;*/
 }
 
 .tormenta20 .item-list .item-controls a {
@@ -1472,6 +1472,7 @@ button {
   display: flex;
   align-items: center;
   list-style: none;
+  padding: 0;
 }
 
 .tormenta20.sheet.actor .inventory-currency .currency-header {
@@ -1490,7 +1491,7 @@ button {
   align-items: center;
   background: var(--faint-color);
   border-radius: 5px;
-  padding: 0 .5rem 0 0;
+  padding: 0 .25rem 0 0;
   margin-right: .5rem;
   line-height: 30px;
 }
@@ -1498,15 +1499,15 @@ button {
 .tormenta20.sheet.actor .inventory-currency .currency-item input {
   text-align: right;
   flex: 1;
-  padding-left: .5rem;
+  padding-left: .25rem;
   border: 0;
   background: none;
   margin: 0;
 }
 
 .tormenta20.sheet.actor .inventory-currency .currency-item label {
-  margin-left: .25rem;
   flex: unset;
+  font-size: 12px;
 }
 
 .tormenta20.sheet.actor .inventory-currency .currency-item .denomination {

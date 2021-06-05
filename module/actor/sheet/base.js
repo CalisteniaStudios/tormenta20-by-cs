@@ -105,7 +105,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		data.skills = Object.values(data.actor.data.pericias).sort((a,b)=>{return a.order-b.order});
 
 		// Movement speeds
-		// data.movement = this._getMovementSpeed(data.actor);
+		data.movement = this._getMovementSpeed(data.actor);
 
 		// Senses
 		data.senses = this._getSenses(data.actor);
@@ -132,38 +132,17 @@ export default class ActorSheetT20 extends ActorSheet {
 	*/
 	// TODO Implement Movement Here?
 	_getMovementSpeed(actorData, largestPrimary=false) {
-		const movement = actorData.data.attributes.movement || {};
+		const movement = foundry.utils.deepClone(actorData.data.attributes.movement) || {};
 		// Prepare an array of available movement speeds
-		let speeds = [
-			[movement.burrow, `Escavar ${movement.burrow}`],
-			[movement.climb, `Escalada ${movement.climb}`],
-			[movement.fly, `Voo ${movement.fly}` + (movement.hover ? ` (Flutuando)` : "")],
-			[movement.swim, `Natação ${movement.swim}`]
-		]
-
-		if ( largestPrimary ) {
-			speeds.push([movement.walk, `Deslocamento ${movement.walk}`]);
-		}
-
-		// Filter and sort speeds on their values
-		speeds = speeds.filter(s => !!s[0]).sort((a, b) => b[0] - a[0]);
-
-		// Case 1: Largest as primary
-		if ( largestPrimary ) {
-			let primary = speeds.shift();
-			return {
-				primary: `${primary ? primary[1] : "0"} ${movement.units}`,
-				special: speeds.map(s => s[1]).join(", ")
-			}
-		}
-
-		// Case 2: Walk as primary
-		else {
-			return {
-				primary: `${movement.walk || 0} ${movement.units}`,
-				special: speeds.length ? speeds.map(s => s[1]).join(", ") : ""
-			}
-		}
+		let u = movement.unit;
+		let speeds = {};
+		if(movement.walk) speeds.walk = `${movement.walk}${u} (${Math.floor(movement.walk/1.5)}q)`;
+		if(movement.burrow) speeds.burrow = `Escavar ${movement.burrow}${u} (${Math.floor(movement.burrow/1.5)}q)`;
+		if(movement.climb) speeds.climb = `Escalar ${movement.climb}${u} (${Math.floor(movement.climb/1.5)}q)`;
+		if(movement.fly) speeds.fly = `Voo ${movement.fly}${u} (${Math.floor(movement.fly/1.5)}q)`;
+		if(movement.hover) speeds.fly += " (Flutuando)";
+		if(movement.swim) speeds.swim = `Natação ${movement.swim}${u} (${Math.floor(movement.swim/1.5)}q)`;
+		return speeds;
 	}
 
 
@@ -258,7 +237,6 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find(".add-classe").click(ev => {
 				game.packs.get("tormenta20.classes").render(true)
 			});
-
 			// Trait Selector
 			html.find('.trait-selector').click(this._onTraitSelector.bind(this));
 
@@ -277,17 +255,19 @@ export default class ActorSheetT20 extends ActorSheet {
 				this.actor.update(flags);
 			});
 
-			// Owned Item management
-			html.find('.item-create').click(this._onItemCreate.bind(this));
+			// Item management
 			html.find('.item-edit').click(this._onItemEdit.bind(this));
+			html.find('.item .item-name h4').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.item-create').click(this._onItemCreate.bind(this));
 			html.find('.item-delete').click(this._onItemDelete.bind(this));
-			html.find('.item .item-name h4').on("contextmenu", this._onItemEdit.bind(this)); //TODO
+			html.find('.item-qtd input').click(ev => ev.target.select()).change(this._onQtyChange.bind(this));
+			
 			
 			// Active Effect management
 			html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 			html.find('.effect').on("contextmenu", ev => onManageActiveEffect(ev, this.actor));
 			
-
+			// Open Compendium Entry
 			html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 			
 		}
@@ -394,10 +374,10 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	// TODO Implement scroll consumable and onDrop creation
 	async _onDropItemCreate(itemData) {
-		if (itemData.type === "magia" && this.actor.data.data.atributoChave != undefined) {
-			itemData.data.atrRes = this.actor.data.data.atributoChave;
+		if (itemData.type === "magia" && this.actor.data.data.attributes.conjuracao ) {
+			itemData.data.resistencia.atributo = this.actor.data.data.attributes.conjuracao || "int";
 		}
-		// stack consumables
+		// Stack consumables
 		else if ( itemData.type === "consumivel" ){
 			const it = this.actor.itemTypes.consumivel.find(c => c.name === itemData.name);
 			if (it) {
@@ -405,21 +385,19 @@ export default class ActorSheetT20 extends ActorSheet {
 				return it.update({"data.qtd": qtd})
 			}
 		}
-
 		if( itemData.data ){
-			//Ignore
 			["equipado","preparado"].forEach(k => delete itemData.data[k]);
-
 		}
+
 		return super._onDropItemCreate(itemData);
 	}
 	
 	/* -------------------------------------------- */
 
-  /**
-   * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-   * @private
-   */
+	/**
+	 * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+	 * @private
+	 */
 	_onItemRoll(event) {
 		event.preventDefault();
 		let itemId;
@@ -443,26 +421,42 @@ export default class ActorSheetT20 extends ActorSheet {
 	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
 	* @private
 	*/
-  _onItemSummary(event) {
-    event.preventDefault();
-    let li = $(event.currentTarget).parents(".item"),
-    item = this.actor.items.get(li.data("item-id")),
-    chatData = item.getChatData();
+	_onItemSummary(event) {
+		event.preventDefault();
+		let li = $(event.currentTarget).parents(".item"),
+		item = this.actor.items.get(li.data("item-id")),
+		chatData = item.getChatData();
 
-    // Toggle summary
-    if ( li.hasClass("expanded") ) {
-      let summary = li.children(".item-summary");
-      summary.slideUp(200, () => summary.remove());
-    }
+		// Toggle summary
+		if ( li.hasClass("expanded") ) {
+			let summary = li.children(".item-summary");
+			summary.slideUp(200, () => summary.remove());
+		}
 		else {
-      let div = $(`<div class="item-summary">${chatData.description}</div>`);
-      let props = $(`<div class="item-properties"></div>`);
-      div.append(props);
-      li.append(div.hide());
-      div.slideDown(200);
-    }
-    li.toggleClass("expanded");
-  }
+			let div = $(`<div class="item-summary">${chatData.description.value}</div>`);
+			let props = $(`<div class="item-properties"></div>`);
+			div.append(props);
+			li.append(div.hide());
+			div.slideDown(200);
+		}
+		li.toggleClass("expanded");
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Change the quantity of an Owned Item within the Actor
+	 * @param {Event} event   The triggering click event
+	 * @private
+	 */
+	 async _onQtyChange(event) {
+		event.preventDefault();
+		const itemId = event.currentTarget.closest(".item").dataset.itemId;
+		const item = this.actor.items.get(itemId);
+		const qtd = parseInt(event.target.value) || 0;
+		event.target.value = qtd;
+		return item.update({ 'data.qtd': qtd });
+}
 
 	/* -------------------------------------------- */
 
@@ -492,12 +486,10 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	/* DEPRECATED */
 	_onItemEdit(event) {
 		event.preventDefault();
 		const li = event.currentTarget.closest(".item");
 		const item = this.actor.items.get(li.dataset.itemId);
-		console.log(item);
 		if( item ) return item.sheet.render(true);
 	}
 
@@ -589,58 +581,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		event.preventDefault();
 		const pericia = event.currentTarget.parentElement.dataset.itemId;
 		return this.actor.rollPericia(pericia, {event:event})
-
-		if( needsConfiguration ){
-			configuration = await AbilityUseDialog.create(itemData);
-			
-			rollMode = configuration.rollMode;
-		} else {
-			let awaysActive = this.actor.effects.filter(ef => ef.data?.flags?.t20?.onuse && ef.data?.flags?.t20?.skill && !ef.data.disabled);
-			if(awaysActive){
-				configuration.id = awaysActive.map(ef => ef.id);
-				configuration.aplica = Array(configuration.id.length).fill(true);
-			}
-		}
-
-		if ( !isObjectEmpty(configuration) ) {
-			let aplica = [].concat(configuration?.aplica) ?? [];
-			let ids = [].concat(configuration?.id) ?? [];
-			let aplicados = {};
-			if (configuration?.bonus) parts.push(configuration?.bonus);
-			
-			aplica.forEach(function(ap, ind){
-				if(ap && ap !== "0"){
-					aplicados[ids[ind]] = aplica[ind] === true ? 1 : Number(aplica[ind]) ;
-				}
-			});
-			// get Aprimoramentos from this item
-			let aprimoramentos = this.actor.effects.filter(ef=> Object.keys(aplicados).includes(ef.id));
-			aprimoramentos = aprimoramentos.sort((a,b) => (a.data.flags.tormenta20.aumenta && !b.data.flags.tormenta20.aumenta) ? 1 : ((b.data.flags.tormenta20.aumenta && !a.data.flags.tormenta20.aumenta) ? -1 : 0));
-			options.aprimoramentos = [];
-			aprimoramentos.forEach(function(ef){
-				ef.data.changes.forEach(function(ch){
-					if( ch.key === "roll" && ch.mode === 2 ){
-						parts.push(Number(ch.value) * aplicados[ef.id] || ch.value);
-					}
-				});
-				if ( ef.data.flags.tormenta20.custo === "" ){
-					options.truque = true;
-				} else if ( ef.data.flags.tormenta20.custo ) {
-					options.custo += Number(ef.data.flags.tormenta20.custo) * aplicados[ef.id];
-				}
-
-				options.aprimoramentos.push({
-					description: ef.data.label,
-					custo: (Number(ef.data.flags.tormenta20.custo) || 0) * aplicados[ef.id],
-					qtd: aplicados[ef.id]
-				});
-			});
-		}
 	}
-
-	
-
-	
 
 	/* -------------------------------------------- */
 
@@ -707,18 +648,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		const field = event.currentTarget.previousElementSibling;
 		this.actor.update({[field.name]: 1 - parseInt(field.value == "" ? 0 : field.value)});
 	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* TODO onToggle for Skill Training, Spell Prepared, Item Equiped
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	// TODO refactor and standarize html listeners
-	// _onToggleXXX(event) {
-	// 	event.preventDefault();
-	// }
 
 	/* -------------------------------------------- */
 

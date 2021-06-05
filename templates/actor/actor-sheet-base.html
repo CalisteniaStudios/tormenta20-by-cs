@@ -144,7 +144,7 @@
 							<li class="item flexrow item-header">
 								<div class="item-name">Arma</div>
 								<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
-								<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i> Nova</a>
+								<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i> Criar</a>
 								</div>
 							</li>
 							<div style="max-height: 124px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
@@ -158,9 +158,6 @@
 											{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
 										</div>
 										<div class="item-controls">
-											<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
-												<i class="fas fa-shield-alt"></i>
-											</a>
 											{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}
 											<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 											{{/if}}
@@ -201,7 +198,7 @@
 							<li class="item flexrow item-header">
 								<div class="item-name flex2">Equipamento</div>
 								<div class="item-def">Defesa/Penalidade</div>
-								<div class="item-controls"><a class="item-control item-create" title="Criar Equipável" data-type="equip"><i class="fas fa-plus"></i> Nova</a></div>
+								<div class="item-controls"><a class="item-control item-create" title="Criar Equipável" data-type="equipamento"><i class="fas fa-plus"></i> Criar</a></div>
 							</li>
 							{{#each actor.inventario.equipamento.items as |item id|}}
 								<li class="item flexrow" data-item-id="{{item._id}}">
@@ -211,9 +208,7 @@
 									</div>
 									<div class="item-def">{{numberFormat item.data.armadura.value sign=true}} / {{item.data.armadura.penalidade}}</div>
 									<div class="item-controls">
-										<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
-											<i class="fas fa-shield-alt"></i>
-										</a>
+										<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}"><i class="fas fa-shield-alt"></i></a>
 										{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}
 										<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
 										{{/if}}
@@ -284,7 +279,7 @@
 											{{item.name}}
 										</h4>
 										<div class="item-qtd">
-											<input type="text" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width: 90%; text-align: center;">
+											<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width: 90%; text-align: center;">
 										</div>
 										<div class="item-peso" style="text-align: center;">{{item.pesoTotal}}</div>
 										<div class="item-controls">
@@ -313,31 +308,33 @@
 								<li class="currency-header" title="Moedas">
 									<i class="fas fa-coins"></i>
 								</li>
+								{{#if actor.flags.tormenta20.sheet.mostrarPlatina}}
 								<li class="currency-item" title="Platina">
-									<input type="number" name="data.detalhes.dinheiro.tl" value="{{data.detalhes.dinheiro.tl}}"
+									<input type="number" name="data.dinheiro.tl" value="{{data.dinheiro.tl}}"
 										data-dtype="Number" placeholder="0">
-									<label for="data.detalhes.dinheiro.tl" class="denomination gp">tl</label>
+									<label for="data.dinheiro.tl" class="denomination gp">tl</label>
 								</li>
+								{{/if}}
 								<li class="currency-item" title="Ouro">
-									<input type="number" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}"
+									<input type="number" name="data.dinheiro.to" value="{{data.dinheiro.to}}"
 										data-dtype="Number" placeholder="0">
-									<label for="data.detalhes.dinheiro.to" class="denomination gp">to</label>
+									<label for="data.dinheiro.to" class="denomination gp">to</label>
 								</li>
 								<li class="currency-item" title="Prata">
-									<input type="number" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}"
+									<input type="number" name="data.dinheiro.tp" value="{{data.dinheiro.tp}}"
 										data-dtype="Number" placeholder="0">
-									<label for="data.detalhes.dinheiro.tp" class="denomination sp">t$</label>
+									<label for="data.dinheiro.tp" class="denomination sp">t$</label>
 								</li>
 								<li class="currency-item" title="Cobre">
-									<input type="number" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}"
+									<input type="number" name="data.dinheiro.tc" value="{{data.dinheiro.tc}}"
 										data-dtype="Number" placeholder="0">
-									<label for="data.detalhes.dinheiro.tc" class="denomination cp">tc</label>
+									<label for="data.dinheiro.tc" class="denomination cp">tc</label>
 								</li>
 							</ul>
 						</div>
 						<div class="encumbrance" style="margin:0;" title="Carga">
-							<span class="encumbrance-bar" style="width:{{data.detalhes.carga.pct}}%"></span>
-							<span class="encumbrance-label">{{data.detalhes.carga.value}} /
+							<span class="encumbrance-bar" style="width:{{data.attributes.carga.pct}}%"></span>
+							<span class="encumbrance-label">{{data.attributes.carga.value}} /
 								{{multiply data.atributos.for.value 10}}</span>
 							<i class="encumbrance-breakpoint encumbrance-30 arrow-up"></i>
 							<i class="encumbrance-breakpoint encumbrance-30 arrow-down"></i>

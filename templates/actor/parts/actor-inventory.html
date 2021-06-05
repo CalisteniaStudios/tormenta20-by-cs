@@ -1,5 +1,5 @@
+{{log this}}
 <div class="inventario">
-	{{#if actor.armas}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-name flex2" >Armas</div>
@@ -8,91 +8,134 @@
 			<div class="item-peso">Peso</div>
 			<div class="item-controls"></div>
 		</li>
-		{{#each actor.armas as |item id|}}
+		{{#each actor.inventario.arma.items as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
 			<div class="item-name flexrow rollable arma-rollable">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 				<h4>{{item.name}}</h4>
 			</div>
-			{{#if (eq ../layout "tabbed")}}<div class="itam-rolls flex2">{{numberFormat item.data.atq sign=true}} {{#if item.data.dmg}}({{item.data.dmg}}, {{item.data.criticoM}}/x{{item.data.criticoX}}){{/if}}</div>{{/if}}
-			<div class="item-qtd">{{item.data.qtd}}</div>
-			<div class="item-peso">{{item.peso}}</div>
+			{{#if (eq ../layout "tabbed")}}
+			<div class="item-rolls flex2">
+				{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
+			</div>
+			{{/if}}
+			<div class="item-qtd">
+				{{#if ../owner}}
+				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				{{else}}
+					{{item.data.qtd}}
+				{{/if}}
+			</div>
+			<div class="item-peso">{{item.data.peso}}</div>
 			<div class="item-controls">
 				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
-				{{#if ../actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
 		</li>
 		{{/each}}
 	</ol>
-	{{/if}}
-	{{#if actor.equipamentos}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-name">Equipamentos</div>
 			{{#if (eq layout "tabbed")}}
-			<div class="item-def">Defesa</div>
-			<div class="item-pen">Penalidade</div>
+			<div class="item-def flex2">Defesa/Penalidade</div>
 			{{/if}}
 			<div class="item-qtd">Qtd</div>
 			<div class="item-peso">Peso</div>
 			<div class="item-controls"></div>
 		</li>
-		{{#each actor.equipamentos as |item id|}}
+		{{#each actor.inventario.equipamento.items as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
-			<div class="item-name flexrow edit-favoritos">
+			<div class="item-name flexrow">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 				<h4>{{item.name}}</h4>
 			</div>
 			{{#if (eq ../layout "tabbed")}}
-			<div class="item-def">{{numberFormat item.data.armadura.value sign=true}}</div>
-			<div class="item-pen">{{item.data.armadura.penalidade}}</div>
+			<div class="item-def flex2">{{numberFormat item.data.armadura.value sign=true}} {{item.data.armadura.penalidade}}</div>
 			{{/if}}
-			<div class="item-qtd">{{item.data.qtd}}</div>
-			<div class="item-peso">{{item.peso}}</div>
+			<div class="item-qtd">
+				{{#if ../owner}}
+				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				{{else}}
+					{{item.data.qtd}}
+				{{/if}}
+			</div>
+			
+			<div class="item-peso">{{item.data.peso}}</div>
 			<div class="item-controls">
+				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}"><i class="fas fa-shield-alt"></i></a>
 				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
-				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
-					<i class="fas fa-shield-alt"></i>
-				</a>
-				{{#if ../actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
 		</li>
 		{{/each}}
 	</ol>
-	{{/if}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
-			<div class="item-name" style="flex: 5;">Itens</div>
+			<div class="item-name" style="flex: 4;">Consumíveis</div>
 			<div class="item-qtd">Qtd</div>
 			<div class="item-peso">Peso</div>
 			<div class="item-controls">
 			</div>
 		</li>
-		{{#each actor.inventario as |item id|}}
-		{{#unless (eq item.type "equip")}}
+		{{#each actor.inventario.consumivel.items as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
-			<div class="item-name flexrow {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{else}}edit-favoritos{{/if}}" style="flex: 5;">
-			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+			<div class="item-name flexrow rollable" style="flex: 4;">
+				<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 				<h4>{{item.name}}</h4>
 			</div>
-			<div class="item-qtd">{{item.data.qtd}}</div>
-			<div class="item-peso">{{item.peso}}</div>
+			<div class="item-qtd">
+				{{#if ../owner}}
+				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				{{else}}
+					{{item.data.qtd}}
+				{{/if}}
+			</div>
+			<div class="item-peso">{{item.data.peso}}</div>
 			<div class="item-controls">
 				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
-				{{#if ../actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
 		</li>
-		{{/unless}}
+		{{/each}}
+	</ol>
+	<ol class="item-list">
+		<li class="item flexrow item-header">
+			<div class="item-name" style="flex: 4;">Itens e Tesouros</div>
+			<div class="item-qtd">Qtd</div>
+			<div class="item-peso">Peso</div>
+			<div class="item-controls">
+			</div>
+		</li>
+		{{#each actor.inventario.tesouro.items as |item id|}}
+		<li class="item flexrow" data-item-id="{{item._id}}">
+			<div class="item-name flexrow" style="flex: 4;">
+			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+				<h4>{{item.name}}</h4>
+			</div>
+			<div class="item-qtd">
+				{{#if ../owner}}
+				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				{{else}}
+					{{item.data.qtd}}
+				{{/if}}
+			</div>
+			<div class="item-peso">{{item.data.peso}}</div>
+			<div class="item-controls">
+				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
+			</div>
+		</li>
 		{{/each}}
 		<li class="item flexrow item-header">
 			<div class="item-name text-right">
 				&nbsp;&nbsp;
 				<a class="item-control item-create" title="Criar arma" data-type="arma"><i class="fas fa-plus"></i> Arma</a>
 				&nbsp;&nbsp;
-				<a class="item-control item-create" title="Criar armadura" data-type="equip"><i class="fas fa-plus"></i> Equipamento</a>
+				<a class="item-control item-create" title="Criar armadura" data-type="equipamento"><i class="fas fa-plus"></i> Equipamento</a>
 				&nbsp;&nbsp;
 				<a class="item-control item-create" title="Criar consumivel" data-type="consumivel"><i class="fas fa-plus"></i> Consumível</a>
 				&nbsp;&nbsp;
@@ -103,28 +146,30 @@
 </div>
 
 <div class="inventory-currency">  
-  <ul class="currency">
+	<ul class="currency">
+	{{#if actor.flags.tormenta20.sheet.mostrarPlatina}}
 	<li class="currency-item" title="Platina">
-	  <input type="number" name="data.detalhes.dinheiro.tl" value="{{data.detalhes.dinheiro.tl}}" data-dtype="Number" placeholder="0">
-	  <i class="fas fa-coins" style="color: #e5e4e2; line-height: 30px;"></i>
+		<input type="number" name="data.dinheiro.tl" value="{{data.dinheiro.tl}}" data-dtype="Number" placeholder="0">
+		<i class="fas fa-coins" style="color: #e5e4e2; line-height: 30px;"></i>
 	</li>
+	{{/if}}
 	<li class="currency-item" title="Ouro">
-	  <input type="number" name="data.detalhes.dinheiro.to" value="{{data.detalhes.dinheiro.to}}" data-dtype="Number" placeholder="0">
-	  <i class="fas fa-coins" style="color: #c7ab10; line-height: 30px;"></i>
+		<input type="number" name="data.dinheiro.to" value="{{data.dinheiro.to}}" data-dtype="Number" placeholder="0">
+		<i class="fas fa-coins" style="color: #c7ab10; line-height: 30px;"></i>
 	</li>
 	<li class="currency-item" title="Prata">
-	  <input type="number" name="data.detalhes.dinheiro.tp" value="{{data.detalhes.dinheiro.tp}}" data-dtype="Number" placeholder="0">
-	  <i class="fas fa-coins" style="color: #828282; line-height: 30px;"></i>
+		<input type="number" name="data.dinheiro.tp" value="{{data.dinheiro.tp}}" data-dtype="Number" placeholder="0">
+		<i class="fas fa-coins" style="color: #828282; line-height: 30px;"></i>
 	</li>
 	<li class="currency-item" title="Cobre">
-	  <input type="number" name="data.detalhes.dinheiro.tc" value="{{data.detalhes.dinheiro.tc}}" data-dtype="Number" placeholder="0">
-	  <i class="fas fa-coins" style="color: #cd7f32; line-height: 30px;"></i>
+		<input type="number" name="data.dinheiro.tc" value="{{data.dinheiro.tc}}" data-dtype="Number" placeholder="0">
+		<i class="fas fa-coins" style="color: #cd7f32; line-height: 30px;"></i>
 	</li>
-  </ul>
+	</ul>
 </div>
 <div class="encumbrance" title="Carga">
-	<span class="encumbrance-bar" style="width:{{data.detalhes.carga.pct}}%"></span>
-	<span class="encumbrance-label">{{data.detalhes.carga.value}} / {{multiply data.atributos.for.value 10}}</span>
+	<span class="encumbrance-bar" style="width:{{data.attributes.carga.pct}}%"></span>
+	<span class="encumbrance-label">{{data.attributes.carga.value}} / {{multiply data.atributos.for.value 10}}</span>
 	<i class="encumbrance-breakpoint encumbrance-30 arrow-up"></i>
 	<i class="encumbrance-breakpoint encumbrance-30 arrow-down"></i>
 </div>
