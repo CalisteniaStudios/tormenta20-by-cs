@@ -158,7 +158,6 @@ export default class ActorT20 extends Actor {
 	_prepareCharacterData(actorData) {
 		const data = actorData.data;
 		/* TODO IMPLEMENT GET FROM ITEM */
-
 		const classes = [];
 		const nivel = this.items.reduce((arr, item) => {
 			if (item.type === "classe") {
@@ -186,9 +185,10 @@ export default class ActorT20 extends Actor {
 	*/
 	_prepareNPCData(actorData) {
 		const data = actorData.data;
-
+		const nivel = data.attributes.nivel.value;
+		data.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience Reward
-		let nd = data.attributes.nd;
+		let nd = data.detalhes.nd;
 		data.attributes.nivel.xp.value = Number(nd) * 1000 || (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(nd) ? 1000 * eval(nd).toFixed(3) : 0);
 
 	}
@@ -263,10 +263,6 @@ export default class ActorT20 extends Actor {
 	 */
 	_prepareSkills(key, pericia, data, rollData, roll = false) {
 		const pda = data.attributes.defesa.pda ? -Math.abs(data.attributes.defesa.pda) : 0;
-		// Vizahell
-		// if( pericia.label && pericia.label[1] ){
-		// 	pericia.label =  pericia.label[1];
-		// } else
 		pericia.label =  pericia.label || CONFIG.T20.pericias[key];
 		pericia.custom = false;
 		if (!key.match(/ofi[1-9]|_pc[1-9]/)) {
@@ -286,7 +282,6 @@ export default class ActorT20 extends Actor {
 
 		const parts = [];
 		parts.push("@meionivel", pericia.treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, pericia.bonus);
-
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = getProperty(this.data.data, "modificadores.pericias") || {};
 		if (bonuses.geral) parts.push(bonuses.geral);
@@ -392,8 +387,7 @@ export default class ActorT20 extends Actor {
 				this.update({ "data.pericias": skills });
 				break;
 			default:
-				console.log(data);
-				console.log(this);
+				// NO CHANGES;
 				break;
 		}
 
@@ -406,7 +400,7 @@ export default class ActorT20 extends Actor {
 			this.data.token.update({ vision: true, actorLink: true, disposition: 1 });
 		}
 
-		// TODO default token settings
+		
 	}
 
 	/* -------------------------------------------- */
@@ -513,7 +507,6 @@ export default class ActorT20 extends Actor {
 
 		// Aprimoramentos Aplicados
 		const aplicados = expandObject(configuration).aprs;
-		console.log(aplicados);
 		const aprimoramentos = this.effects.filter(ef => aplicados[ef.id]?.aplica );
 
 		// FUNÇÃO DE INTERNA
@@ -606,9 +599,11 @@ export default class ActorT20 extends Actor {
 
 		// Update parts with changed effects
 		if(item.type == "pericia"){
-			console.log(item);
 			item.parts = this._prepareSkills(item.id, item, ad, this.getRollData(), true );
+		} else {
+			item.name = game.i18n.localize(item.name);
 		}
+		
 		options.itemData = item;
 		return options;
 	}
@@ -633,7 +628,6 @@ export default class ActorT20 extends Actor {
 			type: "pericia",
 			parts: []
 		}
-		console.log(pericia);
 		let parts = this._prepareSkills(key, pericia, ad, this.getRollData(), true );
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
@@ -713,10 +707,17 @@ export default class ActorT20 extends Actor {
 			if (!configuration) return;
 			
 			rollMode = configuration.rollMode;
-			options = this.applyAprimoramentos( mergeObject(abl, itemData), configuration);
+			// options = this.applyAprimoramentos( mergeObject(abl, itemData), configuration);
 		} else {
 			// aways active
+			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
+			configuration.aprs = active.reduce((o,ef)=>{
+				o[ef.id] = {aplica:1, custo: ef.data.flags.tormenta20.custo};
+				return o;
+			}, {});
 		}
+
+		options = this.applyAprimoramentos( mergeObject(abl, itemData), flattenObject(configuration));
 		// Roll and return
 		const rollConfig = mergeObject({
 			parts: parts.filter(Boolean),
@@ -725,7 +726,7 @@ export default class ActorT20 extends Actor {
 			flavor: "Teste de Atributo",
 			messageData: { "flags.tormenta20.roll": { type: "ability", key } }
 		}, options);
-		
+		console.log(rollConfig);
 		// return d20Roll(rollData);
 		options.itemData.rolled = await d20Roll(rollConfig);
 		

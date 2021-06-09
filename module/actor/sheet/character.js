@@ -39,6 +39,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// FLAGS
 		sheetData["isPreparationCaster"] = this.actor.getFlag("tormenta20", "mago");
 		sheetData["mostrarBonusTreino"] = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
+		sheetData["botaoEditarItens"] = this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
+		
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
 		this.actor.data.data.attributes.defesa.pda = this.actor.data.data.attributes.defesa.pda ?? 0;
@@ -167,44 +169,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 	/* -------------------------------------------- */
 
-	async _onUpdateCD(ev){
-		const atrRes = $(ev.currentTarget).data("atrres");
-		const magias = this.actor.data.items.filter(i => i.type === "magia");
-		const updateItems = magias.map(i => {
-			return {_id: i.id, "data.resistencia.atributo": atrRes};
-		});
-		await this.actor.updateEmbeddedDocuments("Item", updateItems);
-	}
-
-	/* -------------------------------------------- */
-
-	// Update equippament state, unequipping unique ones;
-	// TODO weapon version;
-	async _onToggleArmor(ev) {
-		const li = $(ev.currentTarget).parents(".item");
-		const item = this.actor.items.get(li.data("itemId"));
-		const id = item.data.data;
-		id.equipado = !id.equipado;
-		const items = this.actor.data.items;
-		let updateItems = [];
-		updateItems.push({_id: item.id, "data.equipado": id.equipado});
-		const armor = ["leve", "pesada"];
-		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
-		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
-			let unequipped = items.some(element => { //some() === forEach() with a return
-				if(element.type === "equipamento" && element.data.data.equipado && element.id != item.id) {
-					if (element.data.data.tipo === id.tipo || (armor.includes(element.data.data.tipo) && armor.includes(id.tipo))) {
-						updateItems.push({_id: element.id, "data.equipado": false});
-						return true;
-					}
-				}
-			});
-		}
-		await this.actor.updateEmbeddedDocuments("Item", updateItems);
-	}
-
-	/* -------------------------------------------- */
-
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
@@ -218,13 +182,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		if (this.actor.isOwner) {
 			html.find('.item-fav').click(ev => {
 				const li = $(ev.currentTarget).parents(".item");
-				const item = this.actor.getOwnedItem(li.data("itemId"));
+				const item = this.actor.items.get(li.data("itemId"));
 				item.update({ "flags.favorito": !item.data.flags.favorito });
 			});
 			
-			// Update Inventory Item
-			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
-			html.find('.update-cd').click(this._onUpdateCD.bind(this));
 			// Prepare spells
 			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
 

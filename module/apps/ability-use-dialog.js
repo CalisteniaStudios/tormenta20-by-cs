@@ -8,7 +8,7 @@ export default class AbilityUseDialog extends Dialog {
 		this.options.classes = ["tormenta20", "dialog"];
 
 		/**
-		 * Store a reference to the Item entity being used
+		 * Store a reference to the Item document being used
 		 * @type {ItemT20}
 		 */
 		this.item = item;

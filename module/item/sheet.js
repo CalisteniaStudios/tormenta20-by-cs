@@ -238,7 +238,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			r.parts = [["", ""]];
 			r.name = rolltype.capitalize();
 			r.type = rolltype;
-			r.key = "xablau";
+			r.key = "ataque";
 			if( rolltype == "ataque" ) r.versatil = "";
 			roll.push(r);
 				

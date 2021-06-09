@@ -3,9 +3,9 @@
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-name flex2" >Armas</div>
-			{{#if (eq layout "tabbed")}}<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>{{/if}}
+			<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
 			<div class="item-qtd">Qtd</div>
-			<div class="item-peso">Peso</div>
+			{{#if isCharacter}}<div class="item-peso">Peso</div>{{/if}}
 			<div class="item-controls"></div>
 		</li>
 		{{#each actor.inventario.arma.items as |item id|}}
@@ -14,11 +14,11 @@
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 				<h4>{{item.name}}</h4>
 			</div>
-			{{#if (eq ../layout "tabbed")}}
+			
 			<div class="item-rolls flex2">
 				{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
 			</div>
-			{{/if}}
+			
 			<div class="item-qtd">
 				{{#if ../owner}}
 				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
@@ -26,9 +26,9 @@
 					{{item.data.qtd}}
 				{{/if}}
 			</div>
-			<div class="item-peso">{{item.data.peso}}</div>
+			{{#if isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
 			<div class="item-controls">
-				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
+				<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>
 				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
@@ -38,11 +38,9 @@
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-name">Equipamentos</div>
-			{{#if (eq layout "tabbed")}}
 			<div class="item-def flex2">Defesa/Penalidade</div>
-			{{/if}}
 			<div class="item-qtd">Qtd</div>
-			<div class="item-peso">Peso</div>
+			{{#if isCharacter}}<div class="item-peso">Peso</div>{{/if}}
 			<div class="item-controls"></div>
 		</li>
 		{{#each actor.inventario.equipamento.items as |item id|}}
@@ -51,9 +49,7 @@
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 				<h4>{{item.name}}</h4>
 			</div>
-			{{#if (eq ../layout "tabbed")}}
 			<div class="item-def flex2">{{numberFormat item.data.armadura.value sign=true}} {{item.data.armadura.penalidade}}</div>
-			{{/if}}
 			<div class="item-qtd">
 				{{#if ../owner}}
 				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
@@ -62,10 +58,10 @@
 				{{/if}}
 			</div>
 			
-			<div class="item-peso">{{item.data.peso}}</div>
+			{{#if isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
 			<div class="item-controls">
 				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}"><i class="fas fa-shield-alt"></i></a>
-				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
+				<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>
 				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
@@ -76,7 +72,7 @@
 		<li class="item flexrow item-header">
 			<div class="item-name" style="flex: 4;">Consumíveis</div>
 			<div class="item-qtd">Qtd</div>
-			<div class="item-peso">Peso</div>
+			{{#if isCharacter}}<div class="item-peso">Peso</div>{{/if}}
 			<div class="item-controls">
 			</div>
 		</li>
@@ -93,9 +89,9 @@
 					{{item.data.qtd}}
 				{{/if}}
 			</div>
-			<div class="item-peso">{{item.data.peso}}</div>
+			{{#if isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
 			<div class="item-controls">
-				{{#if (eq ../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
+				<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>
 				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
@@ -106,7 +102,7 @@
 		<li class="item flexrow item-header">
 			<div class="item-name" style="flex: 4;">Itens e Tesouros</div>
 			<div class="item-qtd">Qtd</div>
-			<div class="item-peso">Peso</div>
+			{{#if isCharacter}}<div class="item-peso">Peso</div>{{/if}}
 			<div class="item-controls">
 			</div>
 		</li>
@@ -123,7 +119,7 @@
 					{{item.data.qtd}}
 				{{/if}}
 			</div>
-			<div class="item-peso">{{item.data.peso}}</div>
+			{{#if isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
 			<div class="item-controls">
 				{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>

@@ -204,6 +204,7 @@
 .tormenta20 .tabbed .tab.inventory .item:last-child {
   border-bottom: none;
 }
+.tormenta20 .npc .tab.items .item .item-name,
 .tormenta20 .tabbed .tab.inventory .item .item-name {
   align-items: center;
   flex: 2;

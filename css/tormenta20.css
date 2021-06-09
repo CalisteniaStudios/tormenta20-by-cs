@@ -369,6 +369,7 @@ button {
   border-top-color: var(--encumbrance-outline);
 }
 
+.tormenta20 .sheet-tabs2,
 .tormenta20 .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
@@ -526,7 +527,12 @@ button {
 }
 
 .tormenta20.sheet.actor .traits input {
-  text-align: right;
+  /*text-align: right;*/
+}
+
+.tormenta20.sheet.npc .inpContentEditable {
+  padding: 0 5px;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .tormenta20.sheet.actor .traits i.fas {
@@ -561,6 +567,7 @@ button {
   padding: 0 8px;
 }
 
+.tormenta20 nav.sheet-tabs2,
 .tormenta20 nav.sheet-tabs {
   align-content: center;
   text-align: center;
@@ -737,10 +744,14 @@ button {
   max-width: 100% !important;
 }
 
-.tormenta20 .sheet-body .dados {
+.tormenta20.character .sheet-body .dados {
   width: 55%;
   position: relative;
   float: left;
+}
+
+.tormenta20.npc .sheet-body .dados {
+
 }
 
 .tormenta20 .sheet-body .skills {
@@ -826,8 +837,8 @@ button {
 }
 
 .tormenta20 .npc .item-list .item div.item-name {
-  text-indent: -1.5em;
-  padding-left: 1.5em;
+  /*text-indent: -1.5em;
+  padding-left: 1.5em;*/
 }
 .tormenta20 .npc .effects-list .item div.item-name{
   text-indent: 0;
@@ -995,6 +1006,7 @@ button {
   text-transform: uppercase;
 }
 
+.tormenta20 .ability-scores .ability h1,
 .tormenta20 .ability-scores .ability {
   /*height: auto;*/
   text-align: center;
@@ -1056,6 +1068,7 @@ button {
 }
 
 .tormenta20 .recursos .attributes .attribute,
+.tormenta20.npc .recursos .attributes .attribute,
 .tormenta20 .tabbed .sheet-header .attributes .attribute {
   height: 70px;
   margin: 0;
@@ -1166,7 +1179,20 @@ button {
   border-right: none;
 }
 .tormenta20 .npc input {
+  /*display: none;*/
+}
+
+.hidden {
   display: none;
+}
+.tormenta20 .npc .npc-skill-list{
+  position: absolute;
+  background: url(../assets/parchment.jpg) repeat;
+  overflow-y: scroll;
+  border: solid 1px red;
+  right: 0;
+  width: 70%;
+  height: 90%;
 }
 
 .tormenta20 .npc .rd.editing,
@@ -1188,9 +1214,8 @@ button {
   line-height: normal;
 }
 
-.tormenta20 .npc .item-controls {
-  display: none;
-  /*font-size: initial!important;*/
+.tormenta20 input.small{
+  height: 20px!important;
 }
 
 .tormenta20 .npc.statfields div {

@@ -70,7 +70,6 @@ export default class ActorSheetT20 extends ActorSheet {
 			//is this needed?
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
-		
 		// The Actor and its Items
 		data.actor = this.actor.data.toObject(false);
 		//foundry.utils.deepClone(this.actor.data);
@@ -103,7 +102,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			}
 		}
 		data.skills = Object.values(data.actor.data.pericias).sort((a,b)=>{return a.order-b.order});
-
+		
 		// Movement speeds
 		data.movement = this._getMovementSpeed(data.actor);
 
@@ -119,6 +118,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		data.effects = prepareActiveEffectCategories(this.actor.effects);
 
 		// Return data to the sheet
+		console.log("getData");
 		return data;
 	}
 
@@ -223,16 +223,16 @@ export default class ActorSheetT20 extends ActorSheet {
 			// Input focus and update
 			const inputs = html.find("input");
 			inputs.focus(ev => ev.currentTarget.select());
-
+			
 			// TODO input Deltas
 			
-
 			// Skills management
 			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
 			html.find('.skill-create').click(this._onPericiaCustomCreate.bind(this));
 			html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
 			html.find('.show-controls').click(this._toggleControls.bind(this));
 			html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+
 			// Classes
 			html.find(".add-classe").click(ev => {
 				game.packs.get("tormenta20.classes").render(true)
@@ -241,19 +241,15 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find('.trait-selector').click(this._onTraitSelector.bind(this));
 
 			// Configure Special Flags
+			html.find('.config-button').click(this._onConfigMenu.bind(this));
+			html.find('.level-settings').click(this._onLevelSettings.bind(this));
 			html.find("#configure-actor").click(ev => {
 				new ActorSettings(this.actor).render(true);
 			});
-			html.find('.config-button').click(this._onConfigMenu.bind(this));
 
-			// Configure Special Flags
-			html.find('.level-settings').click(this._onLevelSettings.bind(this));
-
-			html.find("#npc-editing").click(ev => {
-				let flags = this.actor.data.flags ?? {"flags": {}};
-				flags["flags.editing"] = flags.editing ? !flags.editing : true;
-				this.actor.update(flags);
-			});
+			// Update Inventory Item
+			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
+			html.find('.update-cd').click(this._onUpdateCD.bind(this));
 
 			// Item management
 			html.find('.item-edit').click(this._onItemEdit.bind(this));
@@ -287,6 +283,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Otherwise remove rollable classes
 		else {
 			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
+			html.find("[contenteditable=true]").each((i, el) => el.contenteditable = false);
 		}
 		
 		// Handle default listeners last so system listeners are triggered first
@@ -305,9 +302,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		const button = event.currentTarget;
 		let app;
 		switch ( button.dataset.action ) {
-			case "level":
-				app = new LevelSettings(this.object);
-				break;
 			case "movement":
 				app = new ActorMovementConfig(this.object);
 				break;
@@ -388,7 +382,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if( itemData.data ){
 			["equipado","preparado"].forEach(k => delete itemData.data[k]);
 		}
-
+		
 		return super._onDropItemCreate(itemData);
 	}
 	
@@ -410,7 +404,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const rollConfigs = {}
 		rollConfigs.configureDialog = event.shiftKey;
 		const item = this.actor.items.get(itemId);
-		const ignoreList = ["equip", "tesouro"];
+		const ignoreList = ["equipamento", "tesouro"];
 		if (ignoreList.includes(item.type)) return;
 		return item.roll(rollConfigs);
 	}
@@ -456,7 +450,45 @@ export default class ActorSheetT20 extends ActorSheet {
 		const qtd = parseInt(event.target.value) || 0;
 		event.target.value = qtd;
 		return item.update({ 'data.qtd': qtd });
-}
+	}
+
+	/* -------------------------------------------- */
+
+	async _onUpdateCD(ev){
+		const atrRes = $(ev.currentTarget).data("atrres");
+		const magias = this.actor.data.items.filter(i => i.type === "magia");
+		const updateItems = magias.map(i => {
+			return {_id: i.id, "data.resistencia.atributo": atrRes};
+		});
+		await this.actor.updateEmbeddedDocuments("Item", updateItems);
+	}
+
+	/* -------------------------------------------- */
+
+	// Update equippament state, unequipping unique ones;
+	// TODO weapon version;
+	async _onToggleArmor(ev) {
+		const li = $(ev.currentTarget).parents(".item");
+		const item = this.actor.items.get(li.data("itemId"));
+		const id = item.data.data;
+		id.equipado = !id.equipado;
+		const items = this.actor.data.items;
+		let updateItems = [];
+		updateItems.push({_id: item.id, "data.equipado": id.equipado});
+		const armor = ["leve", "pesada"];
+		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
+		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
+			let unequipped = items.some(element => { //some() === forEach() with a return
+				if(element.type === "equipamento" && element.data.data.equipado && element.id != item.id) {
+					if (element.data.data.tipo === id.tipo || (armor.includes(element.data.data.tipo) && armor.includes(id.tipo))) {
+						updateItems.push({_id: element.id, "data.equipado": false});
+						return true;
+					}
+				}
+			});
+		}
+		await this.actor.updateEmbeddedDocuments("Item", updateItems);
+	}
 
 	/* -------------------------------------------- */
 
@@ -573,13 +605,14 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	async _onRollAtributo(event) {
 		event.preventDefault();
-		let atributo = event.currentTarget.parentElement.dataset.itemId;
+		let atributo = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
 		return await this.actor.rollAtributo(atributo, {event: event});
 	}
 
 	async _onRollPericia(event) {
 		event.preventDefault();
-		const pericia = event.currentTarget.parentElement.dataset.itemId;
+		const pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
+		console.log(pericia);
 		return this.actor.rollPericia(pericia, {event:event})
 	}
 
