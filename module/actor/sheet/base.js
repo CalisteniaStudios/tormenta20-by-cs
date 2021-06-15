@@ -118,7 +118,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		data.effects = prepareActiveEffectCategories(this.actor.effects);
 
 		// Return data to the sheet
-		console.log("getData");
 		return data;
 	}
 
@@ -242,7 +241,7 @@ export default class ActorSheetT20 extends ActorSheet {
 
 			// Configure Special Flags
 			html.find('.config-button').click(this._onConfigMenu.bind(this));
-			html.find('.level-settings').click(this._onLevelSettings.bind(this));
+			// html.find('.level-settings').click(this._onLevelSettings.bind(this));
 			html.find("#configure-actor").click(ev => {
 				new ActorSettings(this.actor).render(true);
 			});
@@ -301,7 +300,11 @@ export default class ActorSheetT20 extends ActorSheet {
 		event.preventDefault();
 		const button = event.currentTarget;
 		let app;
+		console.log(button.dataset.action);
 		switch ( button.dataset.action ) {
+			case "level":
+				this._onLevelSettings(event);
+				break;
 			case "movement":
 				app = new ActorMovementConfig(this.object);
 				break;
@@ -359,6 +362,7 @@ export default class ActorSheetT20 extends ActorSheet {
 				classes.push(item);
 			}
 		});
+		console.log("_onLevelSettings");
 		const options = {classes, config};
 		new LevelSettings(this.actor, options).render(true);
 	}

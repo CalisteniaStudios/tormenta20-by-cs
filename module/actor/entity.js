@@ -112,7 +112,8 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	getRollData() {
-		const data = super.getRollData();
+		const data = foundry.utils.deepClone(super.getRollData());
+		// super.getRollData();
 		for (let abl in data.atributos) {
 			data[abl] = data.atributos[abl].mod
 		}
@@ -157,7 +158,6 @@ export default class ActorT20 extends Actor {
 	*/
 	_prepareCharacterData(actorData) {
 		const data = actorData.data;
-		/* TODO IMPLEMENT GET FROM ITEM */
 		const classes = [];
 		const nivel = this.items.reduce((arr, item) => {
 			if (item.type === "classe") {
@@ -167,6 +167,7 @@ export default class ActorT20 extends Actor {
 			}
 			return arr;
 		}, 0);
+		data.attributes.defesa.condi = 0;
 		data.attributes.nivel.value = nivel;
 		data.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience required for next level
@@ -189,6 +190,7 @@ export default class ActorT20 extends Actor {
 		data.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience Reward
 		let nd = data.detalhes.nd;
+		data.attributes.defesa.condi = 0;
 		data.attributes.nivel.xp.value = Number(nd) * 1000 || (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(nd) ? 1000 * eval(nd).toFixed(3) : 0);
 
 	}
@@ -204,12 +206,12 @@ export default class ActorT20 extends Actor {
 		const data = actorData.data;
 		const rollData = this.getRollData();
 		
-		if (data.attributes.defesa == undefined) {
-			data.attributes.defesa = {
-				value: 0,
-				pda: 0
-			}
-		}
+		if (data.attributes.defesa == undefined) data.attributes.defesa = {}
+		let def = data.attributes.defesa;
+		if ( !def.value ) data.attributes.defesa.value = 0;
+		if ( !def.pda ) data.attributes.defesa.pda = 0;
+		if ( !Number(def.condi) ) data.attributes.defesa.condi = 0;
+
 		let parts = ["10"];
 		let pda = 0;
 		let atributo = data.attributes.defesa.atributo;
@@ -220,20 +222,20 @@ export default class ActorT20 extends Actor {
 		for (let item of actorData.items ) {
 			if (item.type == "equipamento" && item.data.data.equipado) {
 				let tipo = item.data.data.tipo;
-				let def = item.data.data.armadura.value;
+				let def = Number(item.data.data.armadura.value);
 				let penalidade = item.data.data.armadura.penalidade;
 				let maxAtr = item.data.data.armadura.maxAtr
 				if (tipo == "leve" || tipo == "pesada") {
 					// armadura = tipo;
 					if(Number(data.attributes.defesa.armadura)){
-						def += data.attributes.defesa.armadura;
+						def += Number(data.attributes.defesa.armadura);
 					}
 					if ( tipo == "pesada" ) maxAbl = Number(maxAtr) || 0;
 					parts.push( def );
 				} else if (tipo == "escudo") {
 					// escudo = true;
-					if(Number(data.attributes.defesa.armadura)){
-						def += data.attributes.defesa.armadura;
+					if(Number(data.attributes.defesa.escudo)){
+						def += Number(data.attributes.defesa.escudo);
 					}
 					parts.push( def );
 				} else {
@@ -247,8 +249,7 @@ export default class ActorT20 extends Actor {
 		parts.push( maxAbl === false ? mod : Math.min( mod , maxAbl ) );
 		parts.push(data.attributes.defesa.bonus || 0);
 		parts.push(data.attributes.defesa.outros || 0);
-		parts.push(data.attributes.defesa.condi || 0);
-		
+		parts.push(data.attributes.defesa.condi);
 		const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		data.attributes.defesa.value = parseInt(result);
 		data.attributes.defesa.pda += -pda;
@@ -265,6 +266,7 @@ export default class ActorT20 extends Actor {
 		const pda = data.attributes.defesa.pda ? -Math.abs(data.attributes.defesa.pda) : 0;
 		pericia.label =  pericia.label || CONFIG.T20.pericias[key];
 		pericia.custom = false;
+		if ( !Number(pericia.condi) ) pericia.condi = 0;
 		if (!key.match(/ofi[1-9]|_pc[1-9]/)) {
 			pericia.pda = ["acro", "furt", "ladi"].includes(key);
 			pericia.st = ["ades", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key);
@@ -282,6 +284,7 @@ export default class ActorT20 extends Actor {
 
 		const parts = [];
 		parts.push("@meionivel", pericia.treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, pericia.bonus);
+
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = getProperty(this.data.data, "modificadores.pericias") || {};
 		if (bonuses.geral) parts.push(bonuses.geral);
@@ -290,10 +293,10 @@ export default class ActorT20 extends Actor {
 		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia) parts.push(bonuses.resistencia);
 		if (bonuses.atr && bonuses.atr[pericia.atributo]) parts.push(bonuses.atr[pericia.atributo]);
 		if (pericia.condi) parts.push(pericia.condi);
-		
+
 		if ( !roll ) {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
-			pericia.value = parseInt(result) || 0;
+			pericia.value = parseInt(result.replace(" ","")) || 0;
 		} else return ["1d20"].concat(parts);
 
 	}
@@ -423,6 +426,34 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
+	/** @inheritdoc */
+	async _preCreateEmbeddedDocuments(embeddedName, result, options, userId){
+		
+		// Show chat message if condition;
+		if(embeddedName == "ActiveEffect"){
+			const showCard = game.settings.get("tormenta20", "showStatusCards");
+			const effect = result.find(doc => doc.flags?.core?.statusId );
+			if(showCard && effect){
+				this._statusToChat(effect);
+			}
+		}
+
+		await super._preCreateEmbeddedDocuments(embeddedName, result, options, userId);
+	}
+
+	/* -------------------------------------------- */
+
+	async _statusToChat(effect){
+		let conds = game.packs.get("tormenta20.condicoes");
+		await conds.getDocuments();
+		let condJ = conds.getName(effect.label);
+		if( condJ ){
+			let description = `${condJ.data.content}` || "";
+			let msg = `<h2><img src="${effect.icon}" alt="${effect.label}" width="36" height="36" style="flex:0">${effect.label}</h2>${description}`
+			ChatMessage.create({content:msg});
+		}
+	}
+
 	/* -------------------------------------------- */
 	/*  Gameplay Mechanics                          */
 	/* -------------------------------------------- */
@@ -450,7 +481,7 @@ export default class ActorT20 extends Actor {
 		const pv = this.data.data.attributes.pv;
 
 		// Prepare Damage Reduction if damage
-		const rd = this.data.data.tracos.rd.value;
+		const rd = this.data.data.tracos?.resistencia?.dano?.value || 0;
 		amount = amount > 0 ? Math.max(amount - rd, 0) : amount;
 
 		// Deduct damage from temp HP first
@@ -513,6 +544,7 @@ export default class ActorT20 extends Actor {
 		const applyChanges = (ch,qtd,ef) => {
 			const campos = {
 				atributo:			["atributo", null],
+				treinado:			["treinado", null],
 				treino:				["treino", null]
 			}
 			const _campos = {};
@@ -569,9 +601,12 @@ export default class ActorT20 extends Actor {
 				}
 				// OVERRIDE CHANGES
 				else if( ch.mode == 5 ) {
-					if(campos[ch.key]) _campos[campos[ch.key][0]] = ch.value;
+					if( ch.key == "treinado" ){
+						_campos["treino"] = !eval(ch.value)? 0 : ad.attributes.treino;
+					}
+					else if(campos[ch.key]) _campos[campos[ch.key][0]] = ch.value;
+					
 				}
-				// TODO test
 			}
 			foundry.utils.mergeObject(item, expandObject(_campos));
 			
@@ -603,7 +638,9 @@ export default class ActorT20 extends Actor {
 		} else {
 			item.name = game.i18n.localize(item.name);
 		}
-		
+		if( item.custo && this.data.data.modificadores.custoPM ){
+			item.custo += Number(this.data.data.modificadores.custoPM);
+		}
 		options.itemData = item;
 		return options;
 	}
@@ -642,7 +679,7 @@ export default class ActorT20 extends Actor {
 			if (!configuration) return;
 			rollMode = configuration.rollMode;
 		} else {
-			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
+			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && ef.getFlag("tormenta20","pericia") && !ef.data.disabled);
 			configuration.aprs = active.reduce((o,ef)=>{
 				o[ef.id] = {aplica:1, custo: ef.data.flags.tormenta20.custo};
 				return o;
@@ -710,7 +747,7 @@ export default class ActorT20 extends Actor {
 			// options = this.applyAprimoramentos( mergeObject(abl, itemData), configuration);
 		} else {
 			// aways active
-			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
+			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && ef.getFlag("tormenta20","atributo") && !ef.data.disabled);
 			configuration.aprs = active.reduce((o,ef)=>{
 				o[ef.id] = {aplica:1, custo: ef.data.flags.tormenta20.custo};
 				return o;
@@ -744,139 +781,19 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	// TODO death saves for skyfall?
+	// TODO testes de morte pra skyfall?
 
 	/* -------------------------------------------- */
-
-	/* -------------------------------------------- */
-	/*	DEPRECATED METHODS													*/
-	/* -------------------------------------------- */
-
-
-	/* -------------------------------------------- */
-
-	/** @override */
-	/*/
-	async update(data, options={}) {
-		
-		// Get size and scale token
-
-		return super.update(data, options={});
-	}
-	/**/
-
-	/** @override */
-	/*
-	*	Methods for precreate owned item
-	*/
-	/** @override */
-	/*/
-	async createEmbeddedEntity(embeddedName, itemData, options={}) {
-		let isCondition = false;
-		if(embeddedName === "ActiveEffect"){
-			isCondition = flattenObject(itemData)["flags.core.statusId"] ?? false;
-			if( isCondition && flattenObject(itemData)["flags.core.statusId"].match(/combat-utility-belt/) ){
-				isCondition = false;
-			}
-		}
-		// const isCondition = (embeddedName === "ActiveEffect")? flattenObject(itemData)["flags.core.statusId"] ?? false : false;
-		if (isCondition) await this.createCondition(isCondition, itemData, options);
-		// Standard embedded entity creation
-		else  super.createEmbeddedEntity(embeddedName, itemData, options);
-	}
-	/**/
-
-	/**
-	* Manage condition applying rules;
-	* 
-	* @param {string} condition			statusId from Status Effect
-	* @param {Object} itemData			StatusEffect object
-	*/
-	/*/
-	async createCondition(condition, itemData, options={}){
-		let ignore = false;
-		let createArr = [T20Conditions[condition]];
-		for(let i=0; i<createArr.length; i++){
-			let conditions = this.effects.filter(ef => ef.getFlag('core','statusId'));
-			let exist = conditions.find(ef => ef.getFlag('core','statusId') == createArr[i].flags.core.statusId);
-			if(exist){
-				if(createArr[i].flags?.t20?.stack){
-					await this.deleteEmbeddedEntity("ActiveEffect", exist.id);
-					let evo = T20Conditions[createArr[i].flags.t20.stack];
-					createArr.pop();
-					i--;
-					createArr.push(evo);
-				} else {
-					createArr.pop();
-					i--;
-				}
-			} else {
-				createArr[i].flags?.t20?.childEffect?.forEach(ce => createArr.push(T20Conditions[ce]) );
-			}
-		}
-		if(createArr){
-			await super.createEmbeddedEntity("ActiveEffect", createArr, options);
-		}
-	}
-	/**/
-
-	/** @deprecated now is item.delete() ? */
-	/*/
-	async deleteEmbeddedEntity(embeddedName, itemData, options={}) {
-		const isCondition = ( embeddedName === "ActiveEffect" && this.effects.get(itemData)?.data?.flags?.core?.statusId ) ? true : false;
-		if (isCondition) await this.deleteCondition(itemData, options);
-		// Standard embedded entity creation
-		else  super.deleteEmbeddedEntity(embeddedName, itemData, options);
-	}
-	/**/
-
-	/**
-	* Manage condition removing rules;
-	* @deprecated now is item.delete()
-	* @param {Object} itemData			StatusEffect id
-	*/
-	/*/
-	async deleteCondition(itemData, options={}){
-		let childrenConditions = [];
-		// get all child conditions this actor show have ie [weak, shaken, weak, prone]
-		const conditions = this.effects.filter(function(ef){
-			if(ef.getFlag('core','statusId')){
-				if(ef.data.flags.t20?.childEffect)
-					childrenConditions = childrenConditions.concat(ef.data.flags.t20.childEffect);
-				return ef;
-			}
-		});
-
-		// this condition children to be removed ie [weak]
-		const condition = conditions.find(c=> c.id === itemData);
-		let ids = [condition.id];
-		if(condition){
-			let ar = condition.data.flags.t20?.childEffect ?? [];
-			for(let i=0; i < ar.length; i++){
-				let child = conditions.find(c=> c.data.flags.core?.statusId === ar[i]);
-				if(child){
-					let amount = childrenConditions.filter(c=> c===child.data.flags.core.statusId).length;
-					if(amount == 1) ids.push(child.id);
-					if(child.data.flags.t20?.childEffect){
-						child.data.flags.t20?.childEffect.forEach(ch=>ar.push(ch));
-					}
-				}
-			}
-		}
-		await super.deleteEmbeddedEntity("ActiveEffect", ids, options);
-	}
-	/**/
 
 	/** @overrides */
 	applyActiveEffects() {
 		const overrides = {};
-		// Vizahell
 		// Organize non-disabled effects by their application priority
 		const changes = this.effects.reduce((changes, e) => {
-			if (e.data.disabled || e.data?.flags?.t20?.onuse) return changes;
+			if (e.data.disabled || e.data?.flags?.tormenta20?.onuse) return changes;
 			return changes.concat(e.data.changes.map(c => {
 				c = duplicate(c);
-				if (c.key.match(/(data.)(.*)(.temp|.outros|.outro|.bonus|.value)|data.modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
+				if (c.key.match(/(data.)(.*)(.condi|.outros|.bonus|.value)|data.modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
 					c.value = "+" + c.value.toString();
 				}
 				c.effect = e;
@@ -884,14 +801,24 @@ export default class ActorT20 extends Actor {
 				return c;
 			}));
 		}, []);
+		console.log(changes);
 		changes.sort((a, b) => a.priority - b.priority);
 		// Apply all changes
 		for (let change of changes) {
 			const result = change.effect.apply(this, change);
+			/* TEST */
+			console.log(change);
+			console.log(result);
+			let current = foundry.utils.getProperty(this.data, change.key);
+			console.log(current);
+			console.log(change.value);
+			console.log(!Number.isNumeric(change.value));
+			/* TEST */
 			if (result !== null) overrides[change.key] = result;
 		}
+		console.log(overrides);
 		// Expand the set of final overrides
-		this.overrides = expandObject(overrides);
+		this.overrides = foundry.utils.expandObject(overrides);
 	}
 	/* -------------------------------------------- */
 

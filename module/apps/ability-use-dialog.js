@@ -77,7 +77,7 @@ export default class AbilityUseDialog extends Dialog {
 				
 				aprimoramentos.forEach(function(ap){
 					let iid = ap.data.origin.split(".")[3] || "";
-					if(item._id && iid && item._id != iid){
+					if(item.id && iid && item.id != iid){
 						apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.tormenta20.onuse && ownit.data.flags.tormenta20.self);
 					}
 				});
@@ -143,6 +143,17 @@ export default class AbilityUseDialog extends Dialog {
 				default: "use",
 				close: () => resolve(null)
 			});
+			if( item.type === "magia" ) {
+				dlg.data.buttons.brew = {
+					icon: `<i class="fas fa-flask"></i>`,
+					label: "Criar Poção",
+					callback: html => {
+						const fd = new FormDataExtended(html[0].querySelector("form"));
+						fd.dtypes.brew = true;
+						resolve(mergeObject(fd.toObject(), {brew: true}));
+					}
+				}
+			}
 			dlg.options.width = 600;
 			dlg.position.width = 600;
 			dlg.render(true);

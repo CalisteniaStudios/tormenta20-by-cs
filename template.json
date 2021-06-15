@@ -55,7 +55,8 @@
           "defesa":{
             "value": 0,
             "outros": 0,
-            "atributo": "des"
+            "atributo": "des",
+            "pda": 0
           }
         },
         "detalhes": {

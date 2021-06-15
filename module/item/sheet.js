@@ -241,7 +241,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			r.key = "ataque";
 			if( rolltype == "ataque" ) r.versatil = "";
 			roll.push(r);
-				
+				console.log(roll);
 			return this.item.update({[`data.rolls`]:roll});
 		}
 

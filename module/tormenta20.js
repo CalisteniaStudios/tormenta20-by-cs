@@ -38,94 +38,94 @@ import "./modules.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", async function () {
-  // console.log(`T20 | Initializing the Tormenta20 Game System\n T20.ASCII`);
-  // Create a namespace within the game global
-  game.tormenta20 = {
-    applications: {
-      AbilityUseDialog,
-      ActorSheetT20Character,
-      ActorSheetT20NPC,
-      ItemSheetT20,
-      TraitSelector,
-      ActorSettings
-    },
-    canvas: {
-      AbilityTemplate
-    },
-    config: T20,
-    dice: dice,
-    conditions: T20Conditions,
-    entities: {
-      ActorT20,
-      ItemT20
-    },
-    macros: macros,
-    migrations: migrations,
-    rollItemMacro: macros.rollItemMacro,
-    rollSkillMacro: macros.rollSkillMacro
-  }
+	// console.log(`T20 | Initializing the Tormenta20 Game System\n T20.ASCII`);
+	// Create a namespace within the game global
+	game.tormenta20 = {
+		applications: {
+			AbilityUseDialog,
+			ActorSheetT20Character,
+			ActorSheetT20NPC,
+			ItemSheetT20,
+			TraitSelector,
+			ActorSettings
+		},
+		canvas: {
+			AbilityTemplate
+		},
+		config: T20,
+		dice: dice,
+		conditions: T20Conditions,
+		entities: {
+			ActorT20,
+			ItemT20
+		},
+		macros: macros,
+		migrations: migrations,
+		rollItemMacro: macros.rollItemMacro,
+		rollSkillMacro: macros.rollSkillMacro
+	}
 
-  // Record Cnfiguration Values
-  CONFIG.T20 = T20;
-  CONFIG.Actor.documentClass = ActorT20;
-  CONFIG.Item.documentClass = ItemT20;
-  CONFIG.Token.documentClass = TokenDocumentT20;
-  CONFIG.Token.objectClass = TokenT20;
-  CONFIG.time.roundTime = 6;
+	// Record Cnfiguration Values
+	CONFIG.T20 = T20;
+	CONFIG.Actor.documentClass = ActorT20;
+	CONFIG.Item.documentClass = ItemT20;
+	CONFIG.Token.documentClass = TokenDocumentT20;
+	CONFIG.Token.objectClass = TokenT20;
+	CONFIG.time.roundTime = 6;
 
-  // Register T20 stuff
-  CONFIG.statusEffects = T20.statusEffectIcons;
-  CONFIG.conditions = T20.conditions;
-  CONFIG.ActiveEffect.sheetClass = ActiveEffectConfigT20;
-  CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'inconsciente')[0].icon;
+	// Register T20 stuff
+	CONFIG.statusEffects = T20.statusEffectIcons;
+	CONFIG.conditions = T20.conditions;
+	CONFIG.ActiveEffect.sheetClass = ActiveEffectConfigT20;
+	CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'inconsciente')[0].icon;
 
-  // T20 cone RAW should be 53.13 degrees
-  // CONFIG.MeasuredTemplate.defaults.angle = 53.13;
+	// T20 cone RAW should be 53.13 degrees
+	// CONFIG.MeasuredTemplate.defaults.angle = 53.13;
 
-  
-  // Register System Settings
-  SystemSettings();
+	
+	// Register System Settings
+	SystemSettings();
 
-  // Patch Core Functions
-  CONFIG.Combat.initiative = {
-    formula: "1d20 + @pericias.inic.value",
-    decimals: 2,
-  };
-  Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
+	// Patch Core Functions
+	CONFIG.Combat.initiative = {
+		formula: "1d20 + @pericias.inic.value",
+		decimals: 2,
+	};
+	Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
-  // Register Roll Extensions
-  CONFIG.Dice.rolls.push(dice.D20Roll);
-  CONFIG.Dice.rolls.push(dice.DamageRoll);
+	// Register Roll Extensions
+	CONFIG.Dice.rolls.push(dice.D20Roll);
+	CONFIG.Dice.rolls.push(dice.DamageRoll);
 
-  // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("tormenta20", ActorSheetT20Character, {
-    types: ["character"],
-    makeDefault: true,
-    label: "Ficha de Personagem"
-  });
+	// Register sheet application classes
+	Actors.unregisterSheet("core", ActorSheet);
+	Actors.registerSheet("tormenta20", ActorSheetT20Character, {
+		types: ["character"],
+		makeDefault: true,
+		label: "Ficha de Personagem"
+	});
 
-  Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
-    types: ["npc"],
-    makeDefault: true,
-    label: "Ficha de NPC"
-  });
+	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
+		types: ["npc"],
+		makeDefault: true,
+		label: "Ficha de NPC"
+	});
 
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("tormenta20", ItemSheetT20, {
-    makeDefault: true,
-  });
+	Items.unregisterSheet("core", ItemSheet);
+	Items.registerSheet("tormenta20", ItemSheetT20, {
+		makeDefault: true,
+	});
 
-  // Preload Handlebars Templates
-  preloadHandlebarsTemplates();
+	// Preload Handlebars Templates
+	preloadHandlebarsTemplates();
 	registerHandlebarsHelpers();
 });
 
 /* -------------------------------------------- */
 /*  Foundry VTT Setup                           */
 /* -------------------------------------------- */
-  
-  // localization && sort
+	
+	// localization && sort
 
 /* -------------------------------------------- */
 

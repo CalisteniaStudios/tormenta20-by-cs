@@ -178,7 +178,6 @@ export const SystemSettings = function() {
 		default: true,
 		type: Boolean,
 		onChange: s => {
-			// ui.chat.render();
 			location.reload();
 		}
 	});
@@ -194,9 +193,22 @@ export const SystemSettings = function() {
 		default: false,
 		type: Boolean,
 		onChange: s => {
-			// ui.chat.render();
 			location.reload();
 		}
 	});
 
+	/**
+	 * Option to show apply buttons inside chat
+	 */
+	 game.settings.register("tormenta20", "showStatusCards", {
+		name: "Exibir Condições no Chat",
+		hint: "Quando um personagem recebe uma condição cria uma mensagem com sua descrição no chat.",
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean,
+		onChange: s => {
+			location.reload();
+		}
+	});
 }

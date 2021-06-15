@@ -66,7 +66,7 @@ export function prepareActiveEffectCategories(effects) {
 		if(e.parent.documentName == "Actor" && e.data.origin && e.data.origin.split(".")[3]) {
 			const actor = e.parent;
 			const item = actor.items.get(e.data.origin.split(".")[3]);
-			if(item && item.type == "equipament" && (e.data.disabled !== !item.data.data.equipado) ){
+			if(item && item.type == "equipamento" && (e.data.disabled !== !item.data.data.equipado) ){
 				e.update({disabled: !item.data.data.equipado});
 			}
 		}

@@ -39,7 +39,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 		if (!data["bonus"]) parts.pop();
 
 		// Execute the roll
-		let roll = new Roll(parts.join(" + "), data);
+		let roll = new Roll(parts.map(p=>Number(p)||p.replace(/^\+/,"")).filterJoin("+"), data);
 		try {
 			roll.roll();
 		} catch (err) {
@@ -74,9 +74,8 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 			messageOptions.rollMode = form.rollMode.value;
 		}
 		if (!data["bonus"]) parts.pop();
-
 		// Create the damage roll
-		let roll = new Roll(parts.join("+"), data);
+		let roll = new Roll(parts.map(p=>Number(p)||p.replace(/^\+/,"")).filterJoin("+"), data);
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {
 			// roll.alter(criticalMultiplier, 0, { multiplyNumeric: lancinante });
@@ -124,39 +123,38 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
  */
  export function simplifyRollFormula(formula, data, {constantFirst = false} = {}) {
 	const roll = new Roll(formula, data); // Parses the formula and replaces any @properties
-  const terms = roll.terms;
-  // Some terms are "too complicated" for this algorithm to simplify
-  // In this case, the original formula is returned.
-  if (terms.some(_isUnsupportedTerm)) return roll.formula;
+	const terms = roll.terms;
+	// Some terms are "too complicated" for this algorithm to simplify
+	// In this case, the original formula is returned.
+	if (terms.some(_isUnsupportedTerm)) return roll.formula;
 
-  const rollableTerms = []; // Terms that are non-constant, and their associated operators
-  const constantTerms = []; // Terms that are constant, and their associated operators
-  let operators = [];       // Temporary storage for operators before they are moved to one of the above
+	const rollableTerms = []; // Terms that are non-constant, and their associated operators
+	const constantTerms = []; // Terms that are constant, and their associated operators
+	let operators = [];       // Temporary storage for operators before they are moved to one of the above
 
-  for (let term of terms) {                                 // For each term
-    if (term instanceof OperatorTerm) operators.push(term); // If the term is an addition/subtraction operator, push the term into the operators array
-    else {                                                  // Otherwise the term is not an operator
-      if (term instanceof DiceTerm) {                       // If the term is something rollable
-        rollableTerms.push(...operators);                   // Place all the operators into the rollableTerms array
-        rollableTerms.push(term);                           // Then place this rollable term into it as well
-      }                                                     //
-      else {                                                // Otherwise, this must be a constant
-        constantTerms.push(...operators);                   // Place the operators into the constantTerms array
-        constantTerms.push(term);                           // Then also add this constant term to that array.
-      }                                                     //
-      operators = [];                                       // Finally, the operators have now all been assigend to one of the arrays, so empty this before the next iteration.
-    }
-  }
+	for (let term of terms) {                                 // For each term
+		if (term instanceof OperatorTerm) operators.push(term); // If the term is an addition/subtraction operator, push the term into the operators array
+		else {                                                  // Otherwise the term is not an operator
+			if (term instanceof DiceTerm) {                       // If the term is something rollable
+				rollableTerms.push(...operators);                   // Place all the operators into the rollableTerms array
+				rollableTerms.push(term);                           // Then place this rollable term into it as well
+			}                                                     //
+			else {                                                // Otherwise, this must be a constant
+				constantTerms.push(...operators);                   // Place the operators into the constantTerms array
+				constantTerms.push(term);                           // Then also add this constant term to that array.
+			}                                                     //
+			operators = [];                                       // Finally, the operators have now all been assigend to one of the arrays, so empty this before the next iteration.
+		}
+	}
 
-  const constantFormula = Roll.getFormula(constantTerms);  // Cleans up the constant terms and produces a new formula string
-  const rollableFormula = Roll.getFormula(rollableTerms);  // Cleans up the non-constant terms and produces a new formula string
-	
-  const constantPart = Roll.safeEval(constantFormula);     // Mathematically evaluate the constant formula to produce a single constant term
-  const parts = constantFirst ? // Order the rollable and constant terms, either constant first or second depending on the optional argumen
-    [constantPart, rollableFormula] : [rollableFormula, constantPart];
+	const constantFormula = Roll.getFormula(constantTerms) || 0;  // Cleans up the constant terms and produces a new formula string
+	const rollableFormula = Roll.getFormula(rollableTerms);  // Cleans up the non-constant terms and produces a new formula string
+	const constantPart = Roll.safeEval(constantFormula);     // Mathematically evaluate the constant formula to produce a single constant term
+	const parts = constantFirst ? // Order the rollable and constant terms, either constant first or second depending on the optional argumen
+		[constantPart, rollableFormula] : [rollableFormula, constantPart];
 
-  // Join the parts with a + sign, pass them to `Roll` once again to clean up the formula
-  return new Roll(parts.filterJoin(" + ")).formula;
+	// Join the parts with a + sign, pass them to `Roll` once again to clean up the formula
+	return new Roll(parts.filterJoin(" + ")).formula;
 }
 
 /* -------------------------------------------- */

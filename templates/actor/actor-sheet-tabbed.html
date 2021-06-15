@@ -10,7 +10,7 @@
 					<input name="name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 				</h1>
 				<div class="level-information">
-					<a class="level-settings"><div class="level" style="width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
+					<a class="config-button" data-action="level"><div class="level" style="width: {{#if (lt data.attributes.nivel.value 10)}}76{{else}}87{{/if}}px;">Nível {{data.attributes.nivel.value}}</div></a>
 					{{#unless disableExperience}}
 					<div class="xp-tracker" title="Experiência">
 							<div class="experience">
