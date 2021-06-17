@@ -646,7 +646,12 @@ export default class ItemT20 extends Item {
 			placeTemplate: options.template,
 			_rolls: []
 		};
-		
+
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend ");
+		if ( templateData.actor && templateData.custo && autoSpendMana ) {
+				this.actor.spendMana(templateData.custo, 0, false);
+		}
+
 		for( let [key, roll] of Object.entries(this.data.data.rolled) ) {
 			roll.tipo = roll.dice[0]?.faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
 			roll.options.title = key || "";
