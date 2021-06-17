@@ -401,7 +401,6 @@ export default class ItemT20 extends Item {
 		let configuration = {};
 		if (configureDialog) {
 			configuration = await AbilityUseDialog.create(this);
-			console.log(configuration);
 			if (!configuration) return;
 			
 			
@@ -468,7 +467,6 @@ export default class ItemT20 extends Item {
 		if( consumeMana ) item.data.data.ativacao.custo = item.data.data.ativacao.custo || 1;
 		// Create or return the Chat Message data
 		if( configuration.brew ){
-			console.log(item);
 			let potion = "Poção";
 			if( item.data.data.area ) potion = "Granada";
 			if( item.data.data.alvo.match(/objeto/) ) potion = "Óleo";
@@ -818,8 +816,6 @@ export default class ItemT20 extends Item {
 			if ( pericia=="luta" && bonuses.cac ) parts.push(bonuses.cac);
 			if ( pericia=="pont" && bonuses.ad ) parts.push(bonuses.ad);
 			if ( this.type=="magia" && bonuses.mag ) parts.push(bonuses.mag);
-			console.log(bonuses);
-			console.log(rollConfig);
 			
 			// Handle ammunition damage
 			// PREPARE
@@ -849,11 +845,8 @@ export default class ItemT20 extends Item {
 		const rollData = this.getRollData();
 		// Invoke the roll and submit it to chat
 		for (let r of itemData.rolls.filter(i => i.type == "formula")) {
-			console.log(r);
-			console.log(rollData);
 			// rolls[r.name] = 
 			let temp = new Roll(r.parts[0][0], rollData).roll();
-			console.log(temp);
 			itemData.rolled[r.name] = temp;
 		}
 	}
@@ -1058,9 +1051,6 @@ export default class ItemT20 extends Item {
 				// ADD CHANGES
 				else if( ch.mode == 2 ) {
 					re.float = /[\d+]?[,]?\d+/;
-					console.log("ADD CHANGES");
-					console.log(ch.key);
-					console.log(ch.value);
 					if( Number(ch.value) ){
 						let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
 						if( Number(temp) ) _campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qtd);
@@ -1186,8 +1176,6 @@ export default class ItemT20 extends Item {
 		// console.error("|----- applyRollChanges -----|");
 		let rolls = this.data.data.rolls;
 		let roll;
-		console.log(rollMods);
-		console.log(rolls);
 		for ( let r of rolls ){
 			for ( let [i, p] of r.parts.entries() ){
 				let dano = p[0] //r.parts[rollMods][0];

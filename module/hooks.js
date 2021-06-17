@@ -19,8 +19,24 @@ export default function () {
 
 		// Determine whether a system migration is required and feasible
 		if ( !game.user.isGM ) return;
-		// TODO REDO MIGRATIONS
-		// migrations.migrateWorld();
+		new Dialog({
+			"title": `Atualizar Sistema`,
+			"content": `<p style="text-align:center">Realizar a atualização do Sistema? (Não é possível desfazer)</p>`,
+			"buttons": {
+				"no": {
+					"icon": '<i class="fas fa-times"></i>',
+					"label": 'Cancelar'
+				},
+				"yes": {
+					"icon": '<i class="fas fa-check"></i>',
+					"label": 'Atualizar',
+					"callback": (html) => {
+						migrations.migrateWorld();
+					}
+				},
+			},
+			"default": 'yes',
+		}).render(true);
 	});	
 
 

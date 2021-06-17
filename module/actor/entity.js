@@ -763,8 +763,7 @@ export default class ActorT20 extends Actor {
 			flavor: "Teste de Atributo",
 			messageData: { "flags.tormenta20.roll": { type: "ability", key } }
 		}, options);
-		console.log(rollConfig);
-		// return d20Roll(rollData);
+
 		options.itemData.rolled = await d20Roll(rollConfig);
 		
 		// LOGS
@@ -801,22 +800,13 @@ export default class ActorT20 extends Actor {
 				return c;
 			}));
 		}, []);
-		console.log(changes);
+		
 		changes.sort((a, b) => a.priority - b.priority);
 		// Apply all changes
 		for (let change of changes) {
 			const result = change.effect.apply(this, change);
-			/* TEST */
-			console.log(change);
-			console.log(result);
-			let current = foundry.utils.getProperty(this.data, change.key);
-			console.log(current);
-			console.log(change.value);
-			console.log(!Number.isNumeric(change.value));
-			/* TEST */
 			if (result !== null) overrides[change.key] = result;
 		}
-		console.log(overrides);
 		// Expand the set of final overrides
 		this.overrides = foundry.utils.expandObject(overrides);
 	}

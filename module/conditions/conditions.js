@@ -405,7 +405,7 @@ T20Conditions.petrificado = {
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/petrificado.svg",
 	flags: {core:{statusId:"petrificado"},tormenta20:{condition:true,durationScene:true,childEffect:["inconsciente"]}},
-	changes: [ { key: "data.tracos.resistencia.dano.value", mode: 3, value: 8 } ]
+	changes: [ { key: "data.tracos.resistencias.dano.value", mode: 3, value: 8 } ]
 }
 
 T20Conditions.sangrando = {

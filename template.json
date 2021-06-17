@@ -67,7 +67,7 @@
         },
         "tracos": {
           "tamanho": "med",
-          "resistencia": {
+          "resistencias": {
             "dano": {
               "value": 0
             }
