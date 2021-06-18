@@ -399,11 +399,10 @@ export default class ActorSheetT20 extends ActorSheet {
 	_onItemRoll(event) {
 		event.preventDefault();
 		let itemId;
-		if (this.actor.data.type === "npc") {
-			itemId = event.currentTarget.dataset.itemId;
-		}
-		else {
+		if ( event.currentTarget.closest(".item").dataset.itemId ) {
 			itemId = event.currentTarget.closest(".item").dataset.itemId;
+		} else if ( itemId = event.currentTarget.dataset.itemId ) {
+			itemId = event.currentTarget.dataset.itemId;
 		}
 		const rollConfigs = {}
 		rollConfigs.configureDialog = event.shiftKey;

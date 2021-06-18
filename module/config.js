@@ -189,7 +189,8 @@ T20.creatureTypes = {
     "mon": "Monstro",
     "ani": "Animal",
     "con": "Construto",
-    "und": "Morto-Vivo"
+    "esp": "Espírito",
+    "mor": "Morto-Vivo"
 }
 
 T20.idiomas = {
@@ -439,8 +440,8 @@ T20.weaponProperties = {
   "agi": "Ágil",
   "alo": "Alongada",
   "arr": "Arremesso",
-  "ata": "Ataque à Distância",
-  "dua": "Duas Mãos",
+  "dst": "Ataque à Distância",
+  "dms": "Duas Mãos",
   "dup": "Dupla",
   "lev": "Leve",
   "mun": "Munição",

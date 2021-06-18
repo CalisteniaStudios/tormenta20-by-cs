@@ -1,70 +1,66 @@
-import { T20 } from "./config.js";
-
 /**
 * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
 * @return {Promise}      A Promise which resolves once the migration is completed
 */
-export const migrateWorld = async function() {
-	ui.notifications.info(`Aplicando Migração de Sistema do Tormenta20 para a versão ${game.system.data.version}. Por favor, seja paciente e não feche o seu jogo ou desligue o servidor.`, {permanent: true});
-
+export const migrateWorld = async function () {
+	//alert("Comecei a Migrar");
+	ui.notifications.info(`Aplicando Migração de Sistema do Tormenta20 para a versão ${game.system.data.version}. Por favor, seja paciente e não feche o seu jogo ou desligue o servidor.`, { permanent: true });
+	
 	// Migrate World Actors
-	for ( let a of game.actors.contents ) {
+	for (let a of game.actors.contents) {
+		let updateData = {};
 		try {
-			console.warn("Migrate World Actors");
-			console.log(a);
-			const updateData = migrateActorData(a.data);
-			if ( !foundry.utils.isObjectEmpty(updateData) ) {
+			updateData = migrateActorData(a.data);
+			if (!isObjectEmpty(updateData)) {
 				console.log(`Migrando entidade Ator ${a.name}`);
-				console.log(updateData);
-				await a.update(updateData, {enforceTypes: false});
+				// console.log(updateData);
+				await a.update(updateData, { enforceTypes: false });
 			}
-		} catch(err) {
+		} catch (err) {
+			console.log(updateData);
 			err.message = `Migração de sistema Tormenta20 falhou para o Ator ${a.name}: ${err.message}`;
 			console.error(err);
 		}
 	}
-
+	
 	// Migrate World Items
-	for ( let i of game.items.contents ) {
+	for (let i of game.items.contents) {
 		try {
-			const updateData = migrateItemData(i.toObject());
-			if ( !isObjectEmpty(updateData) ) {
+			const updateData = migrateItemData(i.data);
+			if (!isObjectEmpty(updateData)) {
 				console.log(`Migrando entidade Item ${i.name}`);
-				console.log(updateData);
-				await i.update(updateData, {enforceTypes: false});
+				await i.update(updateData, { enforceTypes: false });
 			}
-		} catch(err) {
+		} catch (err) {
 			err.message = `Migração de sistema Tormenta20 falhou para o Item ${i.name}: ${err.message}`;
 			console.error(err);
 		}
 	}
-
+	
 	// Migrate Actor Override Tokens
-	for ( let s of game.scenes.contents ) {
+	for (let s of game.scenes.contents) {
 		try {
 			const updateData = migrateSceneData(s.data);
-			if ( !isObjectEmpty(updateData) ) {
+			if (!isObjectEmpty(updateData)) {
 				console.log(`Migrando entidade Cena ${s.name}`);
-				// await s.update(updateData, {enforceTypes: false});
-				// Prevent un-updated chached actorData.
-				s.tokens.contents.forEach(t => t._actor = null);
+				await s.update(updateData, { enforceTypes: false });
 			}
-		} catch(err) {
+		} catch (err) {
 			err.message = `Migração de sistema Tormenta20 falhou para a Cena ${s.name}: ${err.message}`;
 			console.error(err);
 		}
 	}
-
+	
 	// Migrate World Compendium Packs
-	for ( let p of game.packs ) {
-		if ( p.metadata.package !== "world" ) continue;
-		if ( !["Actor", "Item", "Scene"].includes(p.metadata.entity) ) continue;
-		// await migrateCompendium(p);
+	for (let p of game.packs) {
+		if (p.metadata.package !== "world") continue;
+		if (!["Actor", "Item", "Scene"].includes(p.metadata.entity)) continue;
+		await migrateCompendium(p);
 	}
-
+	
 	// Set the migration as complete
-	game.settings.set("tormenta20", "systemMigrationVersion", game.system.data.version);
-	ui.notifications.info(`Migração de Sistema do Tormenta20 para a versão ${game.system.data.version} concluída!`, {permanent: true});
+	game.settings.set("tormenta20","systemMigrationVersion",game.system.data.version);
+	ui.notifications.info(`Migração de Sistema do Tormenta20 para a versão ${game.system.data.version} concluída!`,{ permanent: true });
 };
 
 /* -------------------------------------------- */
@@ -74,49 +70,47 @@ export const migrateWorld = async function() {
 * @param pack
 * @return {Promise}
 */
-export const migrateCompendium = async function(pack) {
+export const migrateCompendium = async function (pack) {
 	const entity = pack.metadata.entity;
 	if ( !["Actor", "Item", "Scene"].includes(entity) ) return;
-
+	
 	// Unlock the pack for editing
 	const wasLocked = pack.locked;
-	await pack.configure({locked: false});
-
+	await pack.configure({ locked: false });
+	
 	// Begin by requesting server-side data model migration and get the migrated content
 	await pack.migrate();
-	const documents = await pack.getDocuments();
-
+	const content = await pack.getDocuments();
+	
 	// Iterate over compendium entries - applying fine-tuned migration functions
-	for ( let doc of documents ) {
+	for (let doc of content) {
 		let updateData = {};
 		try {
 			switch (entity) {
 				case "Actor":
-					updateData = migrateActorData(doc.data);
-					break;
+				updateData = migrateActorData(doc.data);
+				break;
 				case "Item":
-					updateData = migrateItemData(doc.data);
-					break;
+				updateData = migrateItemData(doc.data);
+				break;
 				case "Scene":
-					updateData = migrateSceneData(doc.data);
-					break;
+				updateData = migrateSceneData(doc.data);
+				break;
 			}
-			if ( isObjectEmpty(updateData) ) continue;
-
+			
 			// Save the entry, if data was changed
+			if ( foundry.utils.isObjectEmpty(updateData) ) continue;
 			await doc.update(updateData);
-			console.log(`Migrated ${entity} entity ${ent.name} in Compendium ${pack.collection}`);
-		}
-
-		// Handle migration failures
-		catch(err) {
-			err.message = `Failed tormenta20 system migration for entity ${ent.name} in pack ${pack.collection}: ${err.message}`;
+			console.log(`Migrated ${entity} entity ${doc.name} in Compendium ${pack.collection}`);
+		} catch (err) {
+			// Handle migration failures
+			err.message = `Failed tormenta20 system migration for entity ${doc.name} in pack ${pack.collection}: ${err.message}`;
 			console.error(err);
 		}
 	}
-
+	
 	// Apply the original locked status for the pack
-	await pack.configure({locked: wasLocked});
+	pack.configure({ locked: wasLocked });
 	console.log(`Migrated all ${entity} entities from Compendium ${pack.collection}`);
 };
 
@@ -125,21 +119,18 @@ export const migrateCompendium = async function(pack) {
 /* -------------------------------------------- */
 
 /**
- * Migrate a single Actor entity to incorporate latest data model changes
- * Return an Object of updateData to be applied
- * @param {Actor} actor   The actor to Update
- * @return {Object}       The updateData to apply
- */
-export const migrateActorData = function(actor) {
+* Migrate a single Actor entity to incorporate latest data model changes
+* Return an Object of updateData to be applied
+* @param {Actor} actor   The actor to Update
+* @return {Object}       The updateData to apply
+*/
+export const migrateActorData = function (actor) {
 	const updateData = {};
 	// Actor Data Updates
-	if( actor.type == "npc" ) return updateData;
-	if ( actor.data ) {
-		console.warn("migrateActorData");
-		console.log(actor);
-		_migrateActorTo8X(actor, updateData);
-		// _migrateActiveEffectsTo8X(actor, updateData);
-	}
+	if(actor.type == "npc") return updateData;
+	_migrateActorSkills(actor, updateData);
+	_migrateActorData8X(actor, updateData);
+	// _migrateItemEffects(item, updateData);
 	// Migrate Owned Items
 	if ( !actor.items ) return updateData;
 	const items = actor.items.reduce((arr, i) => {
@@ -148,19 +139,28 @@ export const migrateActorData = function(actor) {
 		let itemUpdate = migrateItemData(itemData);
 		
 		// Update the Owned Item
+		if( actor.name == "Caveirão" ){
+			console.log(itemUpdate)
+		}
+
 		if ( !isObjectEmpty(itemUpdate) ) {
 			itemUpdate._id = itemData._id;
 			arr.push(expandObject(itemUpdate));
 		}
 		return arr;
 	}, []);
-	if ( items.length > 20000 ) updateData.items = items;
+	if( actor.name == "Caveirão" ){
+		console.log(items);
+	}
+	if ( items.length > 0 ) updateData.items = items;
 	return updateData;
 };
 
 /* -------------------------------------------- */
 
-	// TODO clean actor data
+// TODO clean actor data
+
+/* -------------------------------------------- */
 
 /* -------------------------------------------- */
 
@@ -168,16 +168,55 @@ export const migrateActorData = function(actor) {
 * Migrate a single Item entity to incorporate latest data model changes
 * @param item
 */
-export const migrateItemData = function(item) {
+export const migrateItemData = function (item) {
 	const updateData = {};
-	console.log(item);
-	_migrateItemTo8X(item, updateData);
-	_migrateActiveEffectsTo8X(item, updateData);
+	
+	if (typeof item.data.description !== "undefined") {
+		updateData["data.description.value"] = item.data.description;
+	}
+	
+	if (item.type == "equip") {
+		updateData["type"] = "equipamento";
+		// _migrateItemEquip(item, updateData);
+	} else if (item.type == "arma") {
+		_migrateItemWeapon(item, updateData);
+	} else if (item.type == "magia") {
+		_migrateItemSpell(item, updateData);
+	} else if (item.type == "poder") {
+		_migrateItemPower(item, updateData);
+	} else if ( item.type == "classe" ) {
+		_migrateClasse(item, updateData);
+	} else if ( item.type == "consumivel" ) {
+		_migrateItemConsumable(item, updateData);
+	}
+	
+	if( ["consumivel","magia","poder"].includes(item.type)  ) {
+		let action = {"padrao":"action", "movimento":"move", "completa":"full", "reacao":"reaction", "livre":"free"};
+		let alcance = {"Nenhum": "none", "Pessoal": "self", "Toque": "touch", "Curto": "short", "Médio": "medium", "Longo": "long"};
+		let duration = {instant: "inst", cena: "scene", turno: "turn", rodada: "round", sust: "sust", verTexto: "special", outra: "special" }
+
+		updateData["data.ativacao.execucao"] = action[item.data.ativacao.execucao] ?? "";
+		updateData["data.alcance"] = alcance[item.data.alcance];
+		console.log(item.data.resistencia);
+		if( typeof item.data.resistencia === "string"){
+			let res = item.data.resistencia.match(/fort|refl|vont/i);
+			updateData["data.reistencia"] = {
+				pericia: res? res[0] : "",
+				atributo: item.data.atrRes,
+				bonus: item.data.cd,
+				txt: item.data.resistencia
+			};
+		}
+		updateData["data.duracao"] = {
+			value: item.data.duracao.valor ?? null,
+			units: duration[item.data.duracao.unidade] ?? "",
+			special: ""
+		}
+	}
+
+	_migrateItemEffects(item, updateData);
 	return updateData;
-};
-
-
-/* -------------------------------------------- */
+}
 
 /**
 * Migrate a single Scene entity to incorporate changes to the data model of it's actor data overrides
@@ -208,7 +247,7 @@ export const migrateSceneData = function(scene) {
 				});
 				delete update[embeddedName];
 			});
-
+			
 			mergeObject(t.actorData, update);
 		}
 		return t;
@@ -221,16 +260,85 @@ export const migrateSceneData = function(scene) {
 /* -------------------------------------------- */
 
 /**
- * Migrate actor data to new model
- * @private
- */
-function _migrateActorTo8X(actor, updateData) {
+* Migrate the actor skills string to new keys
+* @private
+*/
+function _migrateActorSkills(actor, updateData) {
+	const ad = actor.data;
+	let treino;
+	if( actor.type == "npc" ){
+		console.log(actor);
+		console.log(ad);
+		let nivel = ad.attributes.nivel.value;
+		treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
+	}
+	let skillsArrays = [];
+	skillsArrays.push(ad.pericias);
+	skillsArrays.push(ad.pericias.ofi.mais);
+	skillsArrays.push(ad.periciasCustom);
+	let ar = ["data.pericias", "data.pericias.ofi.mais", "data.periciasCustom"];
+	for (let [k, arr] of Object.entries(skillsArrays)) {
+		for (let [key, pericia] of Object.entries(arr)) {
+			let temp = ["true", true, "1", 1].includes(pericia.treinado) ? 1 : 0;
+			if (k == 0) {
+				//Transform Regular Skills
+				var newkey = _DeParaSkills(key);
+				if (key.length == 3) {
+					updateData[`${ar[k]}.-=${key}`] = null;
+					updateData[`${ar[k]}.${newkey}.treinado`] = temp;
+				}
+				if (key == "intu") {
+					updateData[`${ar[k]}.${newkey}.treinado`] = temp;
+				}
+				if (key == "ofi0") {
+					updateData[`${ar[k]}.-=${key}`] = null;
+				}
+				if( actor.type == "npc" ){
+					let nivel = ad.attributes.nivel.value;
+					let tempskl = pericia.value - Math.floor(nivel/2);
+					if (actor.name == "Aparição" && key == "ini") {
+						console.log(pericia.value);
+						console.log(Math.floor(nivel/2));
+						console.log(treino);
+					}
+					let temp = tempskl >= treino ? 1 : 0;
+					updateData[`${ar[k]}.${newkey}.treinado`] = temp;
+					tempskl = tempskl - treino;
+					updateData[`${ar[k]}.${newkey}.outros`] = tempskl;
+				}
+			}
+			if (k == 1) {
+				//Transform Craft Skills
+				updateData[`data.pericias.ofi${parseInt(key) + 1}.atributo`] =
+				pericia.atributo;
+				updateData[`data.pericias.ofi${parseInt(key) + 1}.label`] =
+				pericia.label;
+				updateData[`data.pericias.ofi${parseInt(key) + 1}.treinado`] =
+				pericia.treinado;
+			}
+			if (k == 2) {
+				var newkey = _DeParaSkills(pericia.label);
+				if (pericia.label == newkey) {
+					//Keep Custom skill
+					updateData[`${ar[k]}._pc${parseInt(key) + 1}.atributo`] =
+					pericia.atributo ?? "for";
+					updateData[`${ar[k]}._pc${parseInt(key) + 1}.label`] = pericia.label;
+					updateData[`${ar[k]}._pc${parseInt(key) + 1}.treinado`] =
+					pericia.treinado ?? 1;
+				} else {
+					//Transform Custom skill to regular skill
+					updateData[`${ar[0]}.-=${key}`] = null;
+					updateData[`${ar[0]}.${newkey}.treinado`] = 1;
+				}
+			}
+		}
+	}
+	return updateData;
+}
+
+function _migrateActorData8X(actor, updateData) {
 	const ad = actor.data;
 	const flags = actor.flags;
-	console.warn("_migrateActorTo8X");
-	console.log(actor)
-	console.log(ad);
-	console.log(flags);
 	updateData["data.detalhes.raca"] = ad.attributes.raca;
 	updateData["data.detalhes.info"] = ad.attributes.info;
 	updateData["data.detalhes.origem"] = ad.attributes.origem;
@@ -243,68 +351,30 @@ function _migrateActorTo8X(actor, updateData) {
 	if( ad.detalhes?.dinheiro ){
 		updateData["data.dinheiro"] = ad.detalhes.dinheiro;
 	}
-
-	updateData["data.detalhes.biography.value"] = ad.detalhes.biography;
+	updateData["data.detalhes.biography.value"] = ad.biography;
 	updateData["data.tracos.idiomas"] = ad.detalhes.idiomas;
 	updateData["data.tracos.profArmas"] = ad.detalhes.profArmas;
 	updateData["data.tracos.profArmaduras"] = ad.detalhes.profArmaduras;
-	updateData["data.tracos.idiomas"] = ad.detalhes.profArmaduras;
 	updateData["data.attributes.conjuracao"] = ad.atributoChave;
 	updateData["data.attributes.defesa.value"] = ad.defesa.value;
 	updateData["data.attributes.defesa.outro"] = ad.defesa.outro;
 	updateData["data.attributes.defesa.bonus"] = ad.defesa.bonus;
 	updateData["data.attributes.defesa.condi"] = ad.defesa.condi;
 	updateData["data.attributes.defesa.pda"] = ad.defesa.pda;
-	// data.tracos.resistencias is/will be Functional
 	updateData["data.tracos.resistencias.dano"] = Number(ad.rd.base || 0) + Number(ad.rd.temp || 0);
-	for( let [k, p] of Object.entries(ad.pericias) ){
-		console.log(k);
-		let key = Object.keys(T20.pericias).find(i=> i.match(k));
-		let temp = {
-			value: 0,
-			atributo: p.atributo,
-			treinado: p.treinado,
-			treino: p.treino,
-			condi: 0,
-			outros: p.outros
-		}
-		if( key ) updateData[`data.pericias.${key}`] = temp;
-		if( k.length == 3 ) updateData[`data.pericias.-=${k}`] = null;
-	}
-	let i = 1;
-	for( let o of ad.pericias.ofi.mais ){
-		let temp = {
-			value: 0,
-			atributo: o.atributo,
-			treinado: o.treinado,
-			treino: o.treino,
-			condi: 0,
-			outros: o.outros,
-			label: o.label
-		}
-		updateData[`data.pericias.ofi${i}`] = temp;
 
-		i++;
+	if( actor.type == "npc" ){
+		const crType = {"humanoide": "hum","monstro": "mon","animal": "ani","construto": "con","espirito": "esp","mortovivo": "mor","morto-vivo": "mor"};
+		let type = ad.attributes.raca.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+		updateData["data.detalhes.tipo"] = crType[type] || "hum";
+		updateData["data.detalhes.nd"] =  ad.attributes.nd;
+		let defesa = ad.defesa.value - ad.atributos.des.mod - 10;
+		updateData["data.attributes.defesa.outros"] = defesa;
+		updateData["data.detalhes.equipamento"] = ad.equipament;
+		updateData["data.detalhes.resistencias"] = ad.resistencias;
+		updateData["data.detalhes.tesouro"] = ad.treasure;
 	}
-	i = 1;
-	for( let o of Object.values(ad.periciasCustom) ){
-		let skill = `_pc${i}`;
-		let temp = {}
-		if ( actor.type == "npc" ){
-			skill = Object.entries( T20.pericias ).find(i => i[1] == o.label )[0];
-		} else {
-			i++;
-			temp.label = o.label;
-		}
-		temp.value = 0;
-		temp.atributo = o.atributo;
-		temp.treinado = o.treinado;
-		temp.treino = o.treino;
-		temp.condi = 0;
-		temp.outros = o.outros;
 
-		updateData[`data.pericias.${skill}`] = temp;
-	}
 	updateData["flags.tormenta20.sheet.editarPericias"] = flags.editarPericias;
 	updateData["flags.tormenta20.sheet.mostrarDivindade"] = flags.mostrarDivindade;
 	updateData["flags.tormenta20.sheet.mostrarAtributoTemp"] = flags.mostrarAtributoTemp;
@@ -329,68 +399,253 @@ function _migrateActorTo8X(actor, updateData) {
 		sab: flags.sabPM,
 		car: flags.carPM
 	};
-	
-	for ( let k of Object.keys(ad.atributos) ) {
-		updateData[`data.atributos.${k}.-=raca`] = null;
-		updateData[`data.atributos.${k}.-=temp`] = null;
-		updateData[`data.atributos.${k}.-=mod`] = null;
-		updateData[`data.atributos.${k}.-=penalidade`] = null;
-	}
-	updateData["data.attributes.-=raca"] = null;
-	updateData["data.attributes.-=info"] = null;
-	updateData["data.attributes.-=classe"] = null;
-	updateData["data.attributes.-=origem"] = null;
-	updateData["data.attributes.-=divindade"] = null;
-	updateData["data.-=tamanho"] = null;
-	updateData["data.-=resistencias"] = null;
-	updateData["data.detalhes.-=dinheiro"] = null;
-	updateData["data.detalhes.-=biography"] = null;
-	updateData["data.detalhes.-=idiomas"] = null;
-	updateData["data.detalhes.-=profArmas"] = null;
-	updateData["data.detalhes.-=profArmaduras"] = null;
-	updateData["data.detalhes.-=profArmaduras"] = null;
-	updateData["data.-=atributoChave"] = null;
-	updateData["data.-=defesa"] = null;
-	updateData["data.-=periciasCustom"] = null;
-	updateData["data.-=rd"] = null;
-	updateData["data.attributes.-=hp"] = null;
-	updateData["data.attributes.-=classe"] = null;
-	updateData["data.attributes.-=senses"] = null;
-	updateData["data.atributos.-=raca"] = null;
-	updateData["data.atributos.-=temp"] = null;
-	updateData["data.atributos.-=mod"] = null;
-	updateData["data.atributos.-=penalidade"] = null;
-	updateData["data.detalhes.-=carga"] = null;
-	updateData["data.detalhes.-=altura"] = null;
-	updateData["data.detalhes.-=peso"] = null;
-	updateData["data.detalhes.-=aparencia"] = null;
-	updateData["data.detalhes.-=personalidade"] = null;
-	updateData["data.detalhes.-=alinhamento"] = null;
-	updateData["data.-=biography"] = null;
-	updateData["data.-=referencias"] = null;
-	updateData["data.-=deslocamento"] = null;
-	updateData["data.-=defesa"] = null;
 
-	updateData["flags.-=editarPericias"] = null;
-	updateData["flags.-=mostrarDivindade"] = null;
-	updateData["flags.-=mostrarAtributoTemp"] = null;
-	updateData["flags.-=mostrarOutrosDefesa"] = null;
-	updateData["flags.-=botaoEditarItens"] = null;
-	updateData["flags.-=mostrarTreino"] = null;
-	updateData["flags.-=mago"] = null;
-	updateData["flags.-=pvBonus"] = null;
-	updateData["flags.-=pmBonus"] = null;
-	updateData["flags.-=forPV"] = null;
-	updateData["flags.-=desPV"] = null;
-	updateData["flags.-=intPV"] = null;
-	updateData["flags.-=sabPV"] = null;
-	updateData["flags.-=carPV"] = null;
-	updateData["flags.-=forPM"] = null;
-	updateData["flags.-=desPM"] = null;
-	updateData["flags.-=conPM"] = null;
-	updateData["flags.-=intPM"] = null;
-	updateData["flags.-=sabPM"] = null;
-	updateData["flags.-=carPM"] = null;
+	return updateData;
+}
+
+function _DeParaTipoArma(key) {
+	key = key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	let armaTipo = {simples:"sim",marcial:"mar",exotica:"exo","arma de fogo":"fog",armadefogo:"fog",natural:"nat",improvisada:"imp"};
+	return armaTipo[key] || "sim";
+}
+
+/* -------------------------------------------- */
+
+function _DeParaSkills(key) {
+	let newkey = key;
+	switch (key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) {
+		case "acr":
+		case "acrobacia":
+		newkey = "acro";
+		break;
+		case "ade":
+		case "adestramento":
+		newkey = "ades";
+		break;
+		case "atl":
+		case "atletismo":
+		newkey = "atle";
+		break;
+		case "atua":
+		case "atuacao":
+		newkey = "atua";
+		break;
+		case "cav":
+		case "cavalgar":
+		newkey = "cava";
+		break;
+		case "con":
+		case "conhecimento":
+		newkey = "conh";
+		break;
+		case "cur":
+		case "cura":
+		newkey = "cura";
+		break;
+		case "dip":
+		case "diplomacia":
+		newkey = "dipl";
+		break;
+		case "eng":
+		case "enganacao":
+		newkey = "enga";
+		break;
+		case "for":
+		case "fortitude":
+		newkey = "fort";
+		break;
+		case "fur":
+		case "furtividade":
+		newkey = "furt";
+		break;
+		case "gue":
+		case "guerra":
+		newkey = "guer";
+		break;
+		case "ini":
+		case "iniciativa":
+		newkey = "inic";
+		break;
+		case "int":
+		case "intimidacao":
+		newkey = "inti";
+		break;
+		case "intu":
+		case "intuicao":
+		newkey = "intu";
+		break;
+		case "inv":
+		case "investigacao":
+		newkey = "inve";
+		break;
+		case "jog":
+		case "jogatina":
+		newkey = "joga";
+		break;
+		case "lad":
+		case "ladinagem":
+		newkey = "ladi";
+		break;
+		case "lut":
+		case "luta":
+		newkey = "luta";
+		break;
+		case "mis":
+		case "misticismo":
+		newkey = "mist";
+		break;
+		case "nob":
+		case "nobreza":
+		newkey = "nobr";
+		break;
+		case "ofi":
+		case "oficio":
+		case "oficios":
+		newkey = "ofi0";
+		break;
+		case "per":
+		case "percepcao":
+		newkey = "perc";
+		break;
+		case "pil":
+		case "pilotagem":
+		newkey = "pilo";
+		break;
+		case "pon":
+		case "pontaria":
+		newkey = "pont";
+		break;
+		case "ref":
+		case "reflexos":
+		newkey = "refl";
+		break;
+		case "rel":
+		case "religiao":
+		newkey = "reli";
+		break;
+		case "sob":
+		case "sobrevivencia":
+		newkey = "sobr";
+		break;
+		case "von":
+		case "vontade":
+		newkey = "vont";
+		break;
+	}
+	return newkey;
+}
+
+/* -------------------------------------------- */
+
+function _DeParaDamageType(value) {
+	if (value !== "") {
+		try {
+			return Object.keys(CONFIG.T20.damageTypes).find((k) => CONFIG.T20.damageTypes[k] === value);
+		} catch (err) {
+			return "";
+		}
+	} else {
+		return "";
+	}
+}
+
+/* -------------------------------------------- */
+
+function _DeParaAtributeType(value, adic) {
+	if (value !== "" && value !== "0") {
+		try {
+			if (typeof CONFIG.T20.atributosAbr[value] !== "undefined") {
+				return adic + value;
+			} else {
+				return "";
+			}
+		} catch (err) {
+			return "";
+		}
+	} else {
+		return "";
+	}
+}
+
+/* -------------------------------------------- */
+
+function _migrateClasse(item, updateData) {
+	if (item.type != "classe") return;
+	if( item.parent ){
+		let classe = item.parent.items.find(i => i.type == "classe" );
+		if( item.id == classe.id ) {
+			updateData["data.inicial"] = true;
+		}
+	}
+	return updateData;
+}
+
+/* -------------------------------------------- */
+
+/**
+ * Migrate spell data.
+ * @private
+ */
+function _migrateItemSpell(item, updateData) {
+	if (item.type != "magia") return;
+	const type = {divina: "div",arcana: "arc",universal: "uni"};
+	const schools = {abjuracao:"abj",advinhacao:"adv",conjuracao:"con",encantamento:"enc",evocacao:"evo",ilusao:"ilu",necromancia:"nec",transmutacao:"tra"};
+	let tipo = item.data.tipo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	let escola = item.data.escola.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	updateData["data.tipo"] = type[tipo];
+	updateData["data.escola"] = schools[escola];
+	if ( item.data.efeito ){
+		let rolls = [];
+		rolls.push({
+			type: "dano",
+			key: "dano0",
+			name: "Dano",
+			parts: [[ item.data.efeito , ""]]
+		});
+		updateData["data.rolls"] = rolls;
+	}
+	return updateData;
+}
+
+/* -------------------------------------------- */
+
+/**
+ * Migrate power data.
+ * @private
+ */
+function _migrateItemPower(item, updateData) {
+	if (item.type != "poder") return;
+	if ( item.data.roll ){
+		let rolls = [];
+		rolls.push({
+			type: "dano",
+			key: "dano0",
+			name: "Dano",
+			parts: [[ item.data.roll , ""]]
+		});
+		updateData["data.rolls"] = rolls;
+	}
+	return updateData;
+}
+
+/* -------------------------------------------- */
+
+/**
+ * Migrate consumable data.
+ * @private
+ */
+ function _migrateItemConsumable(item, updateData) {
+	if (item.type != "consumivel") return;
+	if ( item.data.efeito ){
+		let rolls = [];
+		rolls.push({
+			type: "dano",
+			key: "dano0",
+			name: "Dano",
+			parts: [[ item.data.efeito , ""]]
+		});
+		updateData["data.rolls"] = rolls;
+	}
 
 	return updateData;
 }
@@ -398,125 +653,96 @@ function _migrateActorTo8X(actor, updateData) {
 /* -------------------------------------------- */
 
 /**
- * Migrate item data to new model
+ * Migrate wearables data.
  * @private
  */
-function _migrateItemTo8X(item, updateData) {
-	const id = item.data;
-	updateData["data.description.value"] = id.description;
-	if( item.type == "arma") {
-		let owner = item.parent;
-		let rolls = [];
-		let atq = {}
-		atq.name = "Ataque";
-		atq.key = "ataque0";
-		atq.type = "ataque";
-		atq.parts = [["1d20",""], ["luta",""], ["",""]];
-		atq.parts[1][0] = {"lut": "luta", "pon":"pont", "atu":"atua"}[id.pericia];
-		if( owner ) {
-			let atbSkill = owner.data.pericias[atq.parts[1][0]].atributo;
-			atq.parts[1][1] = id.atrAtq == atbSkill ? "" : id.atrAtq;
-		} else {
-			atq.parts[1][1] = "";
-		}
-		atq.parts[2][0] = id.atqBns ? id.atqBns : "";
-		rolls.push(atq);
-		let dano = {};
-		dano.name = "Dano";
-		dano.key = "dano0";
-		dano.type = "dano";
-		dano.versatil = "";
-		dano.parts = [["1d6",""], ["@for",""]];
-		dano.parts[0][0] = id.dano ? id.dano : "1d6";
-		dano.parts[0][1] = T20.damageTypes[id.tipo.toLowerCase()] ? T20.damageTypes[id.tipo.toLowerCase()] : "corte";
-		dano.parts[1][0] = id.atrDan ? "@"+id.atrDan : "@for";
-		updateData["data.rolls"] = rolls;
-
-		updateData["data.-=pericia"] = null;
-		updateData["data.-=atrAtq"] = null;
-		updateData["data.-=atqBns"] = null;
-		updateData["data.-=dano"] = null;
-		updateData["data.-=tipo"] = null;
-		updateData["data.-=atrDan"] = null;
-
-	}
-	// EQUIP TO EQUIPAMENTO
-	else if( item.type == "equip") {
-		item.type = "equipamento";
-		updateData["data.armadura.maxAtr"] = 0;
-	}
-	// SPELL AND POWER
-	else if( item.type == "magia" || item.type == "poder" || item.type == "consumivel" ) {
-		let action = {"padrao":"action", "movimento":"move", "completa":"full", "reacao":"reaction", "livre":"free"};
-		let alcance = {"Nenhum": "none", "Pessoal": "self", "Toque": "touch", "Curto": "short", "Médio": "medium", "Longo": "long"};
-		let duration = {instant: "inst", cena: "scene", turno: "turn", rodada: "round", sust: "sust", verTexto: "special", outra: "special" }
-
-		updateData["data.ativacao.execucao"] = action[id.ativacao.execucao] ?? "";
-		updateData["data.alcance"] = alcance[id.alcance];
-		console.log(id);
-		console.log(id.resistencia);
-		updateData["data.reistencia"] = {
-			pericia: id.resistencia? id.resistencia.match(/fort|refl|vont/i)[0] : "",
-			atributo: id.atrRes,
-			bonus: id.cd,
-			txt: id.resistencia
-		};
-		updateData["data.duracao"] = {
-			value: id.duracao.valor ?? null,
-			units: duration[id.duracao.unidade] ?? "",
-			special: ""
-		}
-		let rolls = [];
-		if( id.roll ){
-			rolls.push({
-				type: "dano",
-				key: "dano0",
-				name: "Dano",
-				parts: [[ id.roll , ""]]
-			});
-		} else if ( id.efeito ) {
-			rolls.push({
-				type: "dano",
-				key: "dano0",
-				name: "Dano",
-				parts: [[ id.efeito , ""]]
-			});
-		}
-		updateData["data.rolls"] = rolls;
-		updateData["data.-=aprimoramentos"] = null;
-		updateData["data.-=roll"] = null;
-		updateData["data.-=efeito"] = null;
-	}
-	//
-	else if( item.type == "classe") {
-		if( item.parent ){
-			let classe = item.parent.items.find(i => i.type == "classe" );
-			if( item.id == classe.id ) {
-				updateData["data.inicial"] = true;
-			}
-		}
-	}
+function _migrateItemEquip(item, updateData) {
+	if (item.type != "armadura") return;
 	return updateData;
 }
 
 /* -------------------------------------------- */
+
+/**
+ * Migrate weapon data.
+ * @private
+ */
+function _migrateItemWeapon(item, updateData) {
+	if (item.type != "arma") return;
+	let rollsArray = [];
+	let rollAtaque = {};
+	let rollDano = {};
+	if (item.data.custo > 0) {
+		updateData["data.ativacao.custo"] = item.data.custo;
+	} else {
+		updateData["data.ativacao.custo"] = null;
+	}
+	const wpProps = {adaptavel:"ada",agil:"agi",alongada:"alo",arremesso:"arr",ataqueDistancia:"dst",duasMaos:"dms",dupla:"dup",leve:"lev",municao:"mun",versatil:"ver"};
+	const props = {};
+	for ( let [key, value] of Object.entries(item.data.propriedades) ) {
+		let chav = wpProps[key];
+		props[chav] = value;
+	}
+	updateData["data.propriedades"] = props;
+	
+	updateData["data.tipoUso"] = _DeParaTipoArma(item.data.tipoUso);
+	
+	rollAtaque["key"] = "ataque0";
+	rollAtaque["name"] = "Ataque";
+	rollAtaque["type"] = "ataque";
+	rollAtaque["parts"] = [];
+	rollAtaque["parts"].push(["1d20", ""]);
+	let atrAtq = "";
+	if( item.parent ){
+		let atbSkill = item.parent.data.pericias[item.data.pericia].atributo;
+		atrAtq = atbSkill == item.data.atrAtq ? "" : item.data.atrAtq;
+	}
+	rollAtaque["parts"].push([
+		_DeParaSkills(item.data.pericia),
+		_DeParaAtributeType(atrAtq, ""),
+	]);
+	rollAtaque["parts"].push([item.data.atqBns, ""]);
+	rollsArray.push(rollAtaque);
+	
+	rollDano["key"] = "dano0";
+	rollDano["name"] = "Dano";
+	rollDano["type"] = "dano";
+	rollDano["parts"] = [];
+	rollDano["parts"].push([
+		item.data.dano,
+		_DeParaDamageType(item.data.tipo),
+	]);
+	rollDano["parts"].push([_DeParaAtributeType(item.data.atrDan, "@"), ""]);
+	if ( item.data.danoBns ) {
+		rollDano["parts"].push([
+			item.data.danoBns,
+			_DeParaDamageType(item.data.tipo),
+		]);
+	}
+	rollsArray.push(rollDano);
+	updateData["data.rolls"] = rollsArray;
+	return updateData;
+}
+
+/* -------------------------------------------- */
+
 /**
  * Migrate ActiveEffects data to new flags and keys
  * @private
  */
-function _migrateActiveEffectsTo8X(owner, updateData) {
+ async function _migrateItemEffects(owner, updateData) {
 	let effects = foundry.utils.deepClone(owner.effects);
-	console.log(owner);
+	// console.log(owner);
+	let newEffects = [];
 	for ( let effect of effects ){
 		if ( effect.data ) {
 			effect = effect.data;
 		}
-		console.log(effect);
+		// console.log(effect);
 		let flagT20 = effect.flags.t20 || {};
-		// flagT20 = effect.flags.t20;
-
-		updateData["flags.tormenta20"] = flagT20;
-		updateData["flags.-=t20"] = null;
+		effect.flags["tormenta20"] = flagT20;
+		effect.flags["t20"] = null;
+		
 		for ( let e of effect.changes ) {
 			if( e.key.match(/data.defesa/) ){
 				e.key.replace(/data.defesa/, "data.attributes.defesa");
@@ -541,7 +767,6 @@ function _migrateActiveEffectsTo8X(owner, updateData) {
 			e.key.replace(/.pericias.gue/, ".pericias.guer");
 			e.key.replace(/.pericias.ini/, ".pericias.inic");
 			e.key.replace(/.pericias.int/, ".pericias.inti");
-			e.key.replace(/.pericias.intu/, ".pericias.intu");
 			e.key.replace(/.pericias.inv/, ".pericias.inve");
 			e.key.replace(/.pericias.jog/, ".pericias.joga");
 			e.key.replace(/.pericias.lad/, ".pericias.ladi");
@@ -560,50 +785,98 @@ function _migrateActiveEffectsTo8X(owner, updateData) {
 	
 			e.key.replace(/flags.pvBonus/, "flags.tormenta20.lvlconfig.pvBonus");
 			e.key.replace(/flags.pmBonus/, "flags.tormenta20.lvlconfig.pmBonus");
-			e.key.replace(/flags.t20.pvBonus/, "flags.tormenta20.lvlconfig.pvBonus");
-			e.key.replace(/flags.t20.pmBonus/, "flags.tormenta20.lvlconfig.pmBonus");
-			e.key.replace(/flags.t20/, "flags.tormenta20");
 		}
+		newEffects.push(effect);
 	}
-	updateData["effects"] = effects;
+	updateData["effects"] = newEffects;
 	return updateData;
 }
 
 /* -------------------------------------------- */
 
-function _migrateClasse(item, updateData) {
-	if ( item.type != "classe" ) return;
-	return updateData;
-}
-
-function _migrateSpell(item, updateData) {
-	if ( item.type != "magia" ) return;
-	return updateData;
-}
-
 /**
-* Reorganiza os poderes.
-* @private
-*/
-function _migratePower(item, updateData) {
-	if ( item.type != "poder" ) return;
-	return updateData;
-}
-
-/**
-* Replaces Armadura to Equip
-* @private
-*/
-function _migrateItemArmor(item, updateData) {
-	if ( item.type != "equipamento" ) return;
-	return updateData;
-}
-
-/**
-* Adiciona os tipos e propriedades das armas.
-* @private
-*/
-function _migrateItemWeapon(item, updateData) {
-	if ( item.type != "arma" ) return;
-	return updateData;
+ * Remove deprecated data.
+ * @param {object} object The data to clean
+ * @private
+ */
+export function removeDeprecatedData(object, updateData) {
+	updateData["flags.-=t20"] = null;
+	if( object.type == "character" || object.type == "npc" ){
+		const oldSkills = ["acr","ade","atl","atu","cav","con","cur","dip","eng","for","fur","gue","ini","int","inv","jog","lad","lut","mis","nob","ofi","per","pil","pon","ref","rel","sob","von"];
+		for ( let skl of oldSkills){
+			updateData[`data.pericias.-=${skl}`] = null;
+		}
+		for ( let k of Object.keys(ad.atributos) ) {
+			updateData[`data.atributos.${k}.-=raca`] = null;
+			updateData[`data.atributos.${k}.-=temp`] = null;
+			updateData[`data.atributos.${k}.-=mod`] = null;
+			updateData[`data.atributos.${k}.-=penalidade`] = null;
+		}
+		updateData["data.attributes.-=raca"] = null;
+		updateData["data.attributes.-=info"] = null;
+		updateData["data.attributes.-=classe"] = null;
+		updateData["data.attributes.-=origem"] = null;
+		updateData["data.attributes.-=divindade"] = null;
+		updateData["data.-=tamanho"] = null;
+		updateData["data.-=resistencias"] = null;
+		updateData["data.detalhes.-=dinheiro"] = null;
+		updateData["data.detalhes.-=idiomas"] = null;
+		updateData["data.detalhes.-=profArmas"] = null;
+		updateData["data.detalhes.-=profArmaduras"] = null;
+		updateData["data.detalhes.-=profArmaduras"] = null;
+		updateData["data.-=atributoChave"] = null;
+		updateData["data.-=defesa"] = null;
+		updateData["data.-=periciasCustom"] = null;
+		updateData["data.-=rd"] = null;
+		updateData["data.attributes.-=hp"] = null;
+		updateData["data.attributes.-=senses"] = null;
+		updateData["data.atributos.-=raca"] = null;
+		updateData["data.atributos.-=temp"] = null;
+		updateData["data.atributos.-=mod"] = null;
+		updateData["data.atributos.-=penalidade"] = null;
+		updateData["data.detalhes.-=carga"] = null;
+		updateData["data.detalhes.-=altura"] = null;
+		updateData["data.detalhes.-=peso"] = null;
+		updateData["data.detalhes.-=aparencia"] = null;
+		updateData["data.detalhes.-=personalidade"] = null;
+		updateData["data.detalhes.-=alinhamento"] = null;
+		updateData["data.-=biography"] = null;
+		updateData["data.-=referencias"] = null;
+		updateData["data.-=deslocamento"] = null;
+		updateData["data.-=defesa"] = null;
+		
+		updateData["flags.-=editarPericias"] = null;
+		updateData["flags.-=mostrarDivindade"] = null;
+		updateData["flags.-=mostrarAtributoTemp"] = null;
+		updateData["flags.-=mostrarOutrosDefesa"] = null;
+		updateData["flags.-=botaoEditarItens"] = null;
+		updateData["flags.-=mostrarTreino"] = null;
+		updateData["flags.-=mago"] = null;
+		updateData["flags.-=pvBonus"] = null;
+		updateData["flags.-=pmBonus"] = null;
+		updateData["flags.-=forPV"] = null;
+		updateData["flags.-=desPV"] = null;
+		updateData["flags.-=intPV"] = null;
+		updateData["flags.-=sabPV"] = null;
+		updateData["flags.-=carPV"] = null;
+		updateData["flags.-=forPM"] = null;
+		updateData["flags.-=desPM"] = null;
+		updateData["flags.-=conPM"] = null;
+		updateData["flags.-=intPM"] = null;
+		updateData["flags.-=sabPM"] = null;
+		updateData["flags.-=carPM"] = null;
+	}
+	else if( object.type == "arma" ){
+		updateData["data.-=pericia"] = null;
+		updateData["data.-=atrAtq"] = null;
+		updateData["data.-=atqBns"] = null;
+		updateData["data.-=dano"] = null;
+		updateData["data.-=tipo"] = null;
+		updateData["data.-=atrDan"] = null;
+	}
+	else if( object.type == "magia" || object.type == "poder" || object.type == "consumivel" ){
+		updateData["data.-=aprimoramentos"] = null;
+		updateData["data.-=roll"] = null;
+		updateData["data.-=efeito"] = null;
+	}
 }

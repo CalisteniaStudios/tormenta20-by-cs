@@ -302,9 +302,10 @@
 			{{!-- eq, gt, gte, lt, lte, or, and --}}
 			<div>
 				<ul class="item-list listcol" style="margin: 0;">
-					{{#if (find actor.inventario.arma.items "data.propriedades.ataqueDistancia" false true)}}
+					{{#if (find actor.inventario.arma.items "data.propriedades.dst" false true)}}
 					<label>Corpo a Corpo: </label>
 					{{#each actor.inventario.arma.items as |item id|}}
+					{{#unless item.data.propriedades.dst}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div style="flex:0 0 10px"></div>
 						<div class="item-name">
@@ -315,12 +316,14 @@
 							</span>
 						</div>
 					</li>
+					{{/unless}}
 					{{/each}}
 					{{/if}}
-
-					{{#if (find actor.inventario.arma.items "data.propriedades.ataqueDistancia" true true)}}
+					{{log actor.inventario.arma.items}}
+					{{#if (find actor.inventario.arma.items "data.propriedades.dst" true true)}}
 					<label>À Distância: </label>
 					{{#each actor.inventario.arma.items as |item id|}}
+					{{#if item.data.propriedades.dst}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div style="flex:0 0 10px"></div>
 						<div class="item-name">
@@ -331,6 +334,7 @@
 							</span>
 						</div>
 					</li>
+					{{/if}}
 					{{/each}}
 					{{/if}}
 					

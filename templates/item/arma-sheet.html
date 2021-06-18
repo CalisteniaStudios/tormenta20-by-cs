@@ -54,7 +54,7 @@
 					<input type="number" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
-			{{#if (or data.propriedades.arremesso data.propriedades.ataqueDistancia)}}
+			{{#if (or data.propriedades.arr data.propriedades.dst)}}
 			<div class="form-group">
 				<label>{{ localize "T20.Range" }}</label>
 				
