@@ -130,7 +130,7 @@ export const migrateActorData = function (actor) {
 	if(actor.type == "npc") return updateData;
 	_migrateActorSkills(actor, updateData);
 	_migrateActorData8X(actor, updateData);
-	// _migrateItemEffects(item, updateData);
+	_migrateItemEffects(actor, updateData);
 	// Migrate Owned Items
 	if ( !actor.items ) return updateData;
 	const items = actor.items.reduce((arr, i) => {
@@ -732,56 +732,54 @@ function _migrateItemWeapon(item, updateData) {
  */
  async function _migrateItemEffects(owner, updateData) {
 	let effects = foundry.utils.deepClone(owner.effects);
-	// console.log(owner);
 	let newEffects = [];
 	for ( let effect of effects ){
 		if ( effect.data ) {
-			effect = effect.data;
+			effect = effect.data.toObject();
 		}
-		// console.log(effect);
 		let flagT20 = effect.flags.t20 || {};
 		effect.flags["tormenta20"] = flagT20;
 		effect.flags["t20"] = null;
 		
 		for ( let e of effect.changes ) {
 			if( e.key.match(/data.defesa/) ){
-				e.key.replace(/data.defesa/, "data.attributes.defesa");
-				e.key.replace(/defesa.temp/, "data.attributes.defesa.outros");
-				e.key.replace(/defesa.outro/, "data.attributes.defesa.bonus");
+				e.key = e.key.replace(/data.defesa/, "data.attributes.defesa");
+				e.key = e.key.replace(/defesa.temp/, "data.attributes.defesa.outros");
+				e.key = e.key.replace(/defesa.outro/, "data.attributes.defesa.bonus");
 			} else {
-				e.key.replace(/.temp/, ".bonus");
+				e.key = e.key.replace(/.temp/, ".bonus");
 			}
-			e.key.replace(/data.tamanho/, "data.tracos.tamanho");
-			e.key.replace(/.pericias.acr/, ".pericias.acro");
-			e.key.replace(/.pericias.ade/, ".pericias.ades");
-			e.key.replace(/.pericias.atl/, ".pericias.atle");
-			e.key.replace(/.pericias.atu/, ".pericias.atua");
-			e.key.replace(/.pericias.cav/, ".pericias.cava");
-			e.key.replace(/.pericias.con/, ".pericias.conh");
-			e.key.replace(/.pericias.cur/, ".pericias.cura");
-			e.key.replace(/.pericias.def/, ".pericias.defe");
-			e.key.replace(/.pericias.dip/, ".pericias.dipl");
-			e.key.replace(/.pericias.eng/, ".pericias.enga");
-			e.key.replace(/.pericias.for/, ".pericias.fort");
-			e.key.replace(/.pericias.fur/, ".pericias.furt");
-			e.key.replace(/.pericias.gue/, ".pericias.guer");
-			e.key.replace(/.pericias.ini/, ".pericias.inic");
-			e.key.replace(/.pericias.int/, ".pericias.inti");
-			e.key.replace(/.pericias.inv/, ".pericias.inve");
-			e.key.replace(/.pericias.jog/, ".pericias.joga");
-			e.key.replace(/.pericias.lad/, ".pericias.ladi");
-			e.key.replace(/.pericias.lut/, ".pericias.luta");
-			e.key.replace(/.pericias.mis/, ".pericias.mist");
-			e.key.replace(/.pericias.ocu/, ".pericias.ocul");
-			e.key.replace(/.pericias.nob/, ".pericias.nobr");
-			e.key.replace(/.pericias.ofi/, ".pericias.ofic");
-			e.key.replace(/.pericias.per/, ".pericias.perc");
-			e.key.replace(/.pericias.pil/, ".pericias.pilo");
-			e.key.replace(/.pericias.pon/, ".pericias.pont");
-			e.key.replace(/.pericias.ref/, ".pericias.refl");
-			e.key.replace(/.pericias.rel/, ".pericias.reli");
-			e.key.replace(/.pericias.sob/, ".pericias.sobr");
-			e.key.replace(/.pericias.von/, ".pericias.vont");
+			e.key = e.key.replace(/data.tamanho/, "data.tracos.tamanho");
+			e.key = e.key.replace(/.pericias.acr/, ".pericias.acro");
+			e.key = e.key.replace(/.pericias.ade/, ".pericias.ades");
+			e.key = e.key.replace(/.pericias.atl/, ".pericias.atle");
+			e.key = e.key.replace(/.pericias.atu/, ".pericias.atua");
+			e.key = e.key.replace(/.pericias.cav/, ".pericias.cava");
+			e.key = e.key.replace(/.pericias.con/, ".pericias.conh");
+			e.key = e.key.replace(/.pericias.cur/, ".pericias.cura");
+			e.key = e.key.replace(/.pericias.def/, ".pericias.defe");
+			e.key = e.key.replace(/.pericias.dip/, ".pericias.dipl");
+			e.key = e.key.replace(/.pericias.eng/, ".pericias.enga");
+			e.key = e.key.replace(/.pericias.for/, ".pericias.fort");
+			e.key = e.key.replace(/.pericias.fur/, ".pericias.furt");
+			e.key = e.key.replace(/.pericias.gue/, ".pericias.guer");
+			e.key = e.key.replace(/.pericias.ini/, ".pericias.inic");
+			e.key = e.key.replace(/.pericias.int/, ".pericias.inti");
+			e.key = e.key.replace(/.pericias.inv/, ".pericias.inve");
+			e.key = e.key.replace(/.pericias.jog/, ".pericias.joga");
+			e.key = e.key.replace(/.pericias.lad/, ".pericias.ladi");
+			e.key = e.key.replace(/.pericias.lut/, ".pericias.luta");
+			e.key = e.key.replace(/.pericias.mis/, ".pericias.mist");
+			e.key = e.key.replace(/.pericias.ocu/, ".pericias.ocul");
+			e.key = e.key.replace(/.pericias.nob/, ".pericias.nobr");
+			e.key = e.key.replace(/.pericias.ofi/, ".pericias.ofic");
+			e.key = e.key.replace(/.pericias.per/, ".pericias.perc");
+			e.key = e.key.replace(/.pericias.pil/, ".pericias.pilo");
+			e.key = e.key.replace(/.pericias.pon/, ".pericias.pont");
+			e.key = e.key.replace(/.pericias.ref/, ".pericias.refl");
+			e.key = e.key.replace(/.pericias.rel/, ".pericias.reli");
+			e.key = e.key.replace(/.pericias.sob/, ".pericias.sobr");
+			e.key = e.key.replace(/.pericias.von/, ".pericias.vont");
 	
 			e.key.replace(/flags.pvBonus/, "flags.tormenta20.lvlconfig.pvBonus");
 			e.key.replace(/flags.pmBonus/, "flags.tormenta20.lvlconfig.pmBonus");
