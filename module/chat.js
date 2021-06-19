@@ -41,54 +41,56 @@ export const addChatMessageContextOptions = function (html, options) {
 
 export const ApplyButtons = function (app, html, data)
 {
-	let chatHTML = new DOMParser().parseFromString(data.message.content, "text/xml");
+	let chatHTML = html.find(".tormenta20.chat-card");
+	if ( !chatHTML[0] ) return;
+	chatHTML = chatHTML[0];
 	let botaoAdicionado	= false;
 	if(chatHTML.querySelectorAll(".mana-cost, .roll--dano").length > 0) {
-	let areaBotoes = $(`<HR><div><table class="apply-area"><tbody><div class="flexrow"></div></tbody></table></div>`);
-	if(chatHTML.querySelectorAll(".roll--dano").length > 0) {
-		const botaoDanoAplicar = $(`<td class="apply-button apply-button-dano" title="Aplicar Dano"><button class="apply-button-b" style="background:FireBrick;"><i class="fas fa-user-minus apply-button-img"></i></button></td>`);
-		areaBotoes.find(".flexrow").append(botaoDanoAplicar);
-		botaoDanoAplicar.click(ev => {
-		ev.stopPropagation();
-		applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,1);
-		// this.render(true);
-		});
-		const botaoDanoDobroAplicar = $(`<td class="apply-button" title="Aplicar Dano em Dobro"><button class="apply-button-b apply-button-dano-dobro" style="background:FireBrick; font-size: 25px;">2x</button></td>`);
-		areaBotoes.find(".flexrow").append(botaoDanoDobroAplicar);
-		botaoDanoDobroAplicar.click(ev => {
-		ev.stopPropagation();
-		applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,2);
-		// this.render(true);
-		});
-		const botaoDanoMetadeAplicar = $(`<td class="apply-button" title="Aplicar Dano pela Metade"><button class="apply-button-b apply-button-dano-metade" style="background:FireBrick; font-size: 25px;">½</button></td>`);
-		areaBotoes.find(".flexrow").append(botaoDanoMetadeAplicar);
-		botaoDanoMetadeAplicar.click(ev => {
-		ev.stopPropagation();
-		applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,0.5);
-		// this.render(true);
-		});
-		const botaoCuraAplicar = $(`<td class="apply-button" title="Aplicar Cura"><button class="apply-button-b apply-button-cura" style="background:SeaGreen;"><i class="fas fa-user-plus apply-button-img"></i></button></td>`);
-		areaBotoes.find(".flexrow").append(botaoCuraAplicar);
-		botaoCuraAplicar.click(ev => {
+		let areaBotoes = $(`<hr><div><table class="apply-area"><tbody><div class="flexrow"></div></tbody></table></div>`);
+		if(chatHTML.querySelectorAll(".roll--dano").length > 0) {
+			const botaoDanoAplicar = $(`<td class="apply-button apply-button-dano" title="Aplicar Dano"><button class="apply-button-b" style="background:FireBrick;"><i class="fas fa-user-minus apply-button-img"></i></button></td>`);
+			areaBotoes.find(".flexrow").append(botaoDanoAplicar);
+			botaoDanoAplicar.click(ev => {
+				ev.stopPropagation();
+				applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,1);
+			});
+			
+			const botaoDanoDobroAplicar = $(`<td class="apply-button" title="Aplicar Dano em Dobro"><button class="apply-button-b apply-button-dano-dobro" style="background:FireBrick; font-size: 25px;">2x</button></td>`);
+			areaBotoes.find(".flexrow").append(botaoDanoDobroAplicar);
+			botaoDanoDobroAplicar.click(ev => {
 			ev.stopPropagation();
-			applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
+			applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,2);
 			// this.render(true);
-		});
-		botaoAdicionado = true;
-	}
-	if(chatHTML.querySelectorAll(".mana-cost").length > 0 && !game.settings.get("tormenta20", "automaticManaSpend"))
-	{
-		const botaoGastoMana = $(`<td class="apply-button" title="Gastar Mana"><button class="apply-button-b apply-button-mana" style="background:deepskyblue;"><i class="fas fa-star apply-button-img"></i></button></td>`);
-		areaBotoes.find(".flexrow").append(botaoGastoMana);
-		botaoGastoMana.click(ev => {
-		ev.stopPropagation();
-		applyInsideChatManaSpend(chatHTML.querySelectorAll(".mana-cost")[0].innerHTML);
-		});
-		botaoAdicionado = true;
-	}
-	if (botaoAdicionado) {
-		html.find('.item-card').append(areaBotoes);
-	}
+			});
+			const botaoDanoMetadeAplicar = $(`<td class="apply-button" title="Aplicar Dano pela Metade"><button class="apply-button-b apply-button-dano-metade" style="background:FireBrick; font-size: 25px;">½</button></td>`);
+			areaBotoes.find(".flexrow").append(botaoDanoMetadeAplicar);
+			botaoDanoMetadeAplicar.click(ev => {
+			ev.stopPropagation();
+			applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,0.5);
+			// this.render(true);
+			});
+			const botaoCuraAplicar = $(`<td class="apply-button" title="Aplicar Cura"><button class="apply-button-b apply-button-cura" style="background:SeaGreen;"><i class="fas fa-user-plus apply-button-img"></i></button></td>`);
+			areaBotoes.find(".flexrow").append(botaoCuraAplicar);
+			botaoCuraAplicar.click(ev => {
+				ev.stopPropagation();
+				applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
+				// this.render(true);
+			});
+			botaoAdicionado = true;
+		}
+		if(chatHTML.querySelectorAll(".mana-cost").length > 0 && !game.settings.get("tormenta20", "automaticManaSpend"))
+		{
+			const botaoGastoMana = $(`<td class="apply-button" title="Gastar Mana"><button class="apply-button-b apply-button-mana" style="background:deepskyblue;"><i class="fas fa-star apply-button-img"></i></button></td>`);
+			areaBotoes.find(".flexrow").append(botaoGastoMana);
+			botaoGastoMana.click(ev => {
+			ev.stopPropagation();
+			applyInsideChatManaSpend(chatHTML.querySelectorAll(".mana-cost")[0].innerHTML);
+			});
+			botaoAdicionado = true;
+		}
+		if (botaoAdicionado) {
+			html.find('.item-card').append(areaBotoes);
+		}
 	}
 }
 

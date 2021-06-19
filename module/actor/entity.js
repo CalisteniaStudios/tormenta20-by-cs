@@ -44,6 +44,7 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareBaseData() {
+		if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
 		switch (this.data.type) {
 			case "character":
 				return this._prepareCharacterData(this.data);
@@ -56,6 +57,7 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareDerivedData() {
+		if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
 		const actor = this;
 		const actorData = this.data;
 		const data = actorData.data;

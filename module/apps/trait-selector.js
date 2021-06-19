@@ -49,9 +49,6 @@ export default class TraitSelector extends FormApplication {
 				}
 			}
 		}
-		console.log(attr);
-
-		console.log(choices);
 		// Return data
 		return {
 			allowCustom: this.options.allowCustom,

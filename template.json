@@ -267,7 +267,7 @@
         "ativacao": {
           "execucao": "",
           "custo": 0,
-          "qtd": 1,
+          "qtd": 0,
           "condicao": "",
           "special": ""
         },

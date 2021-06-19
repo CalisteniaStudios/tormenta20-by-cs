@@ -27,16 +27,13 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// FLAGS
 		// sheetData["statblock"] = this.actor.data.flags.editing ? "statfields" : "";
 		// sheetData["editing"] = this.actor.data.flags.editing;
-		
-		if( !this.actor.getFlag("tormenta20", "sheet.editarPericias") ){
+		console.log(this);
+		if( this.isEditable && !this.actor.getFlag("tormenta20", "sheet.editarPericias") ){
 			this.actor.setFlag("tormenta20", "sheet.editarPericias", true);
 		}
-		if( !this.actor.getFlag("tormenta20", "sheet.botaoEditarItens") ){
+		if( this.isEditable && !this.actor.getFlag("tormenta20", "sheet.botaoEditarItens") ){
 			this.actor.setFlag("tormenta20", "sheet.botaoEditarItens", true);
 		}
-		// data.teste = false;
-		// TODO find something to do here
-		// parse ND?
 
 		return sheetData;
 	}

@@ -53,21 +53,6 @@ export default class AbilityUseDialog extends Dialog {
 		// let aprimoramentos = itemData?.aprimoramentos ?? [];
 		let aprimoramentos = [];
 		let apdeap = {};
-		const group = {
-			arma: ["attack","attackm","attackr","damage","damagem","damager","skill","skills"],
-			magia: ["spells"],
-			poder: ["power"],
-			pericia: ["skill","skills"],
-			atributo: ["abilities","ability"],
-			consumivel: ["consumable"]
-		}
-		// let gap = [];
-		// item.actor.items.forEach(function(it){
-		// 	it.data.data.aprimoramentos?.forEach(function(ap){
-		// 		if(group[item.type].includes(ap.objeto)) aprimoramentos.push(ap);
-		// 	})
-		// });
-		// console.log(item.actor);
 		
 		switch (item.type){
 			case "arma":
@@ -84,7 +69,6 @@ export default class AbilityUseDialog extends Dialog {
 				break;
 			case "atributo":
 				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ae.data.flags.tormenta20.ability );
-
 				break;
 			case "pericia":
 				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ae.data.flags.tormenta20.skill );

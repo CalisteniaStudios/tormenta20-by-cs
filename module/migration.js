@@ -17,7 +17,6 @@ export const migrateWorld = async function () {
 				await a.update(updateData, { enforceTypes: false });
 			}
 		} catch (err) {
-			console.log(updateData);
 			err.message = `Migração de sistema Tormenta20 falhou para o Ator ${a.name}: ${err.message}`;
 			console.error(err);
 		}
@@ -73,6 +72,7 @@ export const migrateWorld = async function () {
 export const migrateCompendium = async function (pack) {
 	const entity = pack.metadata.entity;
 	if ( !["Actor", "Item", "Scene"].includes(entity) ) return;
+	// if ( !["Actor"].includes(entity) ) return;
 	
 	// Unlock the pack for editing
 	const wasLocked = pack.locked;
@@ -127,31 +127,25 @@ export const migrateCompendium = async function (pack) {
 export const migrateActorData = function (actor) {
 	const updateData = {};
 	// Actor Data Updates
-	if(actor.type == "npc") return updateData;
+	if( !actor.data ) return updateData;
 	_migrateActorSkills(actor, updateData);
 	_migrateActorData8X(actor, updateData);
 	_migrateItemEffects(actor, updateData);
+	updateData["flags.tormenta20.version"] = "1.3.0.0";
 	// Migrate Owned Items
 	if ( !actor.items ) return updateData;
 	const items = actor.items.reduce((arr, i) => {
 		// Migrate the Owned Item
 		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
 		let itemUpdate = migrateItemData(itemData);
-		
-		// Update the Owned Item
-		if( actor.name == "Caveirão" ){
-			console.log(itemUpdate)
-		}
 
+		// Update the Owned Item
 		if ( !isObjectEmpty(itemUpdate) ) {
 			itemUpdate._id = itemData._id;
 			arr.push(expandObject(itemUpdate));
 		}
 		return arr;
 	}, []);
-	if( actor.name == "Caveirão" ){
-		console.log(items);
-	}
 	if ( items.length > 0 ) updateData.items = items;
 	return updateData;
 };
@@ -171,8 +165,8 @@ export const migrateActorData = function (actor) {
 export const migrateItemData = function (item) {
 	const updateData = {};
 	
-	if (typeof item.data.description !== "undefined") {
-		updateData["data.description.value"] = item.data.description;
+	if (typeof item.data.description === "string") {
+		updateData["data.description.value"] = item.data.description.replace(/<p[^>]*>/g, '<p style="text-align:justify;">');
 	}
 	
 	if (item.type == "equip") {
@@ -197,12 +191,10 @@ export const migrateItemData = function (item) {
 
 		updateData["data.ativacao.execucao"] = action[item.data.ativacao.execucao] ?? "";
 		updateData["data.alcance"] = alcance[item.data.alcance];
-		console.log(item.data.resistencia);
 		if( typeof item.data.resistencia === "string"){
-			let res = item.data.resistencia.match(/fort|refl|vont/i);
-			updateData["data.reistencia"] = {
-				pericia: res? res[0] : "",
-				atributo: item.data.atrRes,
+			let atrRes = item.data.atrRes ? item.data.atrRes : (item.data.tipo == "Arcana" ? "int" : "sab");
+			updateData["data.resistencia"] = {
+				atributo: atrRes,
 				bonus: item.data.cd,
 				txt: item.data.resistencia
 			};
@@ -213,7 +205,7 @@ export const migrateItemData = function (item) {
 			special: ""
 		}
 	}
-
+	updateData["flags.tormenta20.version"] = "1.3.0.0";
 	_migrateItemEffects(item, updateData);
 	return updateData;
 }
@@ -267,8 +259,6 @@ function _migrateActorSkills(actor, updateData) {
 	const ad = actor.data;
 	let treino;
 	if( actor.type == "npc" ){
-		console.log(actor);
-		console.log(ad);
 		let nivel = ad.attributes.nivel.value;
 		treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 	}
@@ -295,15 +285,11 @@ function _migrateActorSkills(actor, updateData) {
 				}
 				if( actor.type == "npc" ){
 					let nivel = ad.attributes.nivel.value;
-					let tempskl = pericia.value - Math.floor(nivel/2);
-					if (actor.name == "Aparição" && key == "ini") {
-						console.log(pericia.value);
-						console.log(Math.floor(nivel/2));
-						console.log(treino);
-					}
+					let atr = ad.atributos[pericia.atributo].mod;
+					let tempskl = Number(pericia.value) > 0 ? pericia.value - atr - Math.floor(nivel/2) : 0;
 					let temp = tempskl >= treino ? 1 : 0;
 					updateData[`${ar[k]}.${newkey}.treinado`] = temp;
-					tempskl = tempskl - treino;
+					if (temp) tempskl = tempskl - treino;
 					updateData[`${ar[k]}.${newkey}.outros`] = tempskl;
 				}
 			}
@@ -426,7 +412,7 @@ function _DeParaSkills(key) {
 		case "atletismo":
 		newkey = "atle";
 		break;
-		case "atua":
+		case "atu":
 		case "atuacao":
 		newkey = "atua";
 		break;
@@ -713,7 +699,7 @@ function _migrateItemWeapon(item, updateData) {
 		_DeParaDamageType(item.data.tipo),
 	]);
 	rollDano["parts"].push([_DeParaAtributeType(item.data.atrDan, "@"), ""]);
-	if ( item.data.danoBns ) {
+	if ( item.data.danoBns && item.data.danoBns != "0" ) {
 		rollDano["parts"].push([
 			item.data.danoBns,
 			_DeParaDamageType(item.data.tipo),
@@ -748,6 +734,9 @@ function _migrateItemWeapon(item, updateData) {
 				e.key = e.key.replace(/defesa.outro/, "data.attributes.defesa.bonus");
 			} else {
 				e.key = e.key.replace(/.temp/, ".bonus");
+			}
+			if( ["poder","magia","consumivel"].includes(owner.type) && e.key=="roll" ){
+				e.key = "dano";
 			}
 			e.key = e.key.replace(/data.tamanho/, "data.tracos.tamanho");
 			e.key = e.key.replace(/.pericias.acr/, ".pericias.acro");

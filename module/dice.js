@@ -75,10 +75,32 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 		}
 		if (!data["bonus"]) parts.pop();
 		// Create the damage roll
-		let roll = new Roll(parts.map(p=>Number(p)||p.replace(/^\+/,"")).filterJoin("+"), data);
+		let roll;
+		if( true ){
+			console.log(parts);
+			roll = new Roll(parts.map(p=> Number(p[0])||p[0].replace(/^\+/,"")).filterJoin("+"), data);
+		} else {
+			/**
+			 * INCLUDE DAMAGE TYPE TODOS
+			 * SOLVE COMBINED PARTS
+			 * [2d6+2, fire] => in roll => gets splited dieTerm 2d6 numericTerm 2
+			 **/
+			console.log( parts );
+			parts = parts.map(function(p) {
+				p[0] = p[0].toString();
+				p[0] = p[0].replace(/^\+| /g,"");
+				p[0] = p[0].replace(/\d+d\d+[\+\-]\d+/, "{$&}");
+				return [p[0] , p[1]]
+			})
+			console.log(parts);
+			roll = new Roll( parts.map(p=>p[0]).filterJoin("+"), data);
+			console.log(roll);
+			for ( let [k, t] of roll.terms.filter(t=> t instanceof OperatorTerm === false ).entries() ) {
+				t.options.flavor = parts[k][1] ? parts[k][1] : parts[0][1] ;
+			}
+		}
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {
-			// roll.alter(criticalMultiplier, 0, { multiplyNumeric: lancinante });
 			if ( roll.terms[0] instanceof Die ) {
 				roll.terms[0].alter(criticalMultiplier, 0);
 				roll._formula = roll.formula;

@@ -37,7 +37,6 @@
 			//foundry.utils.deepClone(sourceResistance),
 			config: CONFIG.T20
 		}
-		console.log(data);
 		return data;
 	}
 }

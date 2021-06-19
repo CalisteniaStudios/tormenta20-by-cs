@@ -731,7 +731,6 @@ export default class ItemT20 extends Item {
 	 * @return {Promise<Roll|null>}   A Promise which resolves to the created Roll instance
 	 */
 	async rollAttack(options={}) {
-		// console.error("|----- rollAttack -----|")
 		const itemData = this.data.data;
 		const flags = this.actor.data.flags.tormenta20 || {};
 		// get the parts and rollData for this item's attack
@@ -769,8 +768,6 @@ export default class ItemT20 extends Item {
 			
 			itemData.rolled[r.name] = roll;
 		}
-
-		// console.error("|----- rollAttack -----|")
 	}
 
 	/**
@@ -793,7 +790,7 @@ export default class ItemT20 extends Item {
 		}
 		for (let r of itemData.rolls.filter(i => i.type == "dano")) {
 			// Get roll data
-			const parts = r.parts.map(d => d[0]);
+			const parts = r.parts;//.map(d => d[0]);
 			const rollData = this.getRollData();
 			// Configure the damage roll
 			const title = this.name;
@@ -812,15 +809,15 @@ export default class ItemT20 extends Item {
 			
 			// Adjust damage from versatile usage
 			if ( versatile && r.versatil ) {
-				parts[0] = r.versatil;
+				parts[0][0] = r.versatil;
 			}
 			
 			// Add damage bonus formula
 			const bonuses = getProperty(actorData, "modificadores.dano") || {};
-			if ( bonuses.geral ) parts.push(bonuses.geral);
-			if ( pericia=="luta" && bonuses.cac ) parts.push(bonuses.cac);
-			if ( pericia=="pont" && bonuses.ad ) parts.push(bonuses.ad);
-			if ( this.type=="magia" && bonuses.mag ) parts.push(bonuses.mag);
+			if ( bonuses.geral ) parts.push([bonuses.geral, ""]);
+			if ( pericia=="luta" && bonuses.cac ) parts.push([bonuses.cac, ""]);
+			if ( pericia=="pont" && bonuses.ad ) parts.push([bonuses.ad,""]);
+			if ( this.type=="magia" && bonuses.mag ) parts.push([bonuses.mag,""]);
 			
 			// Handle ammunition damage
 			// PREPARE
@@ -892,7 +889,6 @@ export default class ItemT20 extends Item {
 	
 	applyAprimoramentos(configuration=null){
 		if( !configuration ) return {};
-		// console.error("|----- applyAprimoramentos -----|");
 		const C = CONFIG.T20, item = this, id = this.data.data, actor = this.actor;
 		const temCusto = id.ativacao.custo > 0;
 		const re = {
@@ -960,7 +956,7 @@ export default class ItemT20 extends Item {
 			}
 			const _campos = {};
 			// ROLLS ARRAY
-			let rolls = id.rolls.filter(r=> (( r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) && r.parts[0][0].match(re.die)) );
+			let rolls = id.rolls.filter(r=> (( ch.key == "roll" || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) && r.parts[0][0].match(re.die)) );
 			
 			for(let r of rolls){
 				// CUSTOM CHANGES
@@ -1166,7 +1162,6 @@ export default class ItemT20 extends Item {
 		// LOG
 		// console.log(id);
 
-		// console.error("|----- applyAprimoramentos -----|");
 		return options;
 	}
 
@@ -1178,7 +1173,6 @@ export default class ItemT20 extends Item {
 	 * @param {Object} rollMods   Objeto com os valores a serem modificados;
 	 */
 	applyRollChanges(rollMods){
-		// console.error("|----- applyRollChanges -----|");
 		let rolls = this.data.data.rolls;
 		let roll;
 		for ( let r of rolls ){
@@ -1233,7 +1227,6 @@ export default class ItemT20 extends Item {
 				r.parts[i][0] = dano;
 			}
 		}
-		// console.error("|----- applyRollChanges -----|");
 		return rolls;
 	}
 

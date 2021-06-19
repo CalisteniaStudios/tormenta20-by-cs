@@ -26,7 +26,6 @@ export default class AbilityTemplate extends MeasuredTemplate {
 		if( area.match(/(\d+[,|.]?\d?)[m|km|q]/) ) distance = area.match(/(\d+[,|.]?\d?)[m|km|q]/)[1].replace(",",".") * 1 ;
 
 		if (!distance || !["cone", "circle", "rect", "ray"].includes(type)) return null;
-		console.log(distance);
 		// Prepare template data
 		const templateData = {
 			t: type,

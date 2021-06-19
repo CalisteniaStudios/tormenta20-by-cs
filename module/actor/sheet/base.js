@@ -55,7 +55,6 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	getData() {
 		// Basic data
-		console.log(this.actor);
 		let isOwner = this.actor.isOwner;
 		const data = {
 			owner: isOwner,
@@ -218,6 +217,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		html.mousemove(ev => this._moveTooltips(ev));
 
 		// Editable Only Listeners
+		console.log(this.isEditable);
 		if ( this.isEditable ) {
 			// Input focus and update
 			const inputs = html.find("input");
@@ -265,6 +265,9 @@ export default class ActorSheetT20 extends ActorSheet {
 			// Open Compendium Entry
 			html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 			
+		} else {
+			html.find("[contenteditable=true]").each((i, el) => el.setAttribute("contenteditable", false));
+			console.log(html.find("[contenteditable=true]"));
 		}
 
 		if ( this.actor.isOwner ) {
@@ -282,7 +285,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Otherwise remove rollable classes
 		else {
 			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
-			html.find("[contenteditable=true]").each((i, el) => el.contenteditable = false);
 		}
 		
 		// Handle default listeners last so system listeners are triggered first
@@ -300,7 +302,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		event.preventDefault();
 		const button = event.currentTarget;
 		let app;
-		console.log(button.dataset.action);
 		switch ( button.dataset.action ) {
 			case "level":
 				this._onLevelSettings(event);
@@ -362,7 +363,6 @@ export default class ActorSheetT20 extends ActorSheet {
 				classes.push(item);
 			}
 		});
-		console.log("_onLevelSettings");
 		const options = {classes, config};
 		new LevelSettings(this.actor, options).render(true);
 	}
@@ -615,7 +615,6 @@ export default class ActorSheetT20 extends ActorSheet {
 	async _onRollPericia(event) {
 		event.preventDefault();
 		const pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		console.log(pericia);
 		return this.actor.rollPericia(pericia, {event:event})
 	}
 

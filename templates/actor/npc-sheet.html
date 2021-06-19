@@ -1,5 +1,4 @@
 <form class="tormenta20 npc" autocomplete="off">
-	{{log this}}
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs primary" data-group="primary">
 		<label><i class="fas fa-clipboard-list"></i> <a class="item" data-tab="statblock">Bloco</a></label>
@@ -319,7 +318,6 @@
 					{{/unless}}
 					{{/each}}
 					{{/if}}
-					{{log actor.inventario.arma.items}}
 					{{#if (find actor.inventario.arma.items "data.propriedades.dst" true true)}}
 					<label>À Distância: </label>
 					{{#each actor.inventario.arma.items as |item id|}}

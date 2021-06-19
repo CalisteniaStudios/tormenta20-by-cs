@@ -23,7 +23,6 @@ export default class LevelSettings extends FormApplication {
 		if ( cls ) {
 			for ( let [key, data] of Object.entries(cls) ) {
 				let c = data.data.data;
-				console.log(c);
 				let iniPV = c.inicial? c.pvPorNivel * 3 : 0;
 				classes[key] = {
 					label: data.name,

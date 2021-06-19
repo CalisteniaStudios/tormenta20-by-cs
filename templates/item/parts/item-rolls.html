@@ -70,15 +70,14 @@
 	{{!-- Dano --}}
 	{{!-- [ dado, versatil, atributo, ...parts, tipo ] --}}
 	{{#if (eq roll.type "dano" ) }}
-		{{log roll}}
 		<div class="form-group">
 			<ol class="roll-parts form-group">
 				{{#if (eq ../item.type "arma") }}
 					<li class="roll-part flexrow" data-roll-part="{{i}}">
 						<input type="text" name="data.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"
 							title="Dano" />
-						{{#if ../data.propriedades.ver }}
-							<input type="text" name="data.rolls.{{key}}.versatil" value="{{roll.versatil}}" placeholder="Versátil" />
+						{{#if ../data.propriedades.ada }}
+							<input type="text" name="data.rolls.{{key}}.versatil" value="{{roll.versatil}}" placeholder="Adaptável" />
 						{{else}}
 							<input type="hidden" name="data.rolls.{{key}}.versatil" value="" />
 						{{/if}}
