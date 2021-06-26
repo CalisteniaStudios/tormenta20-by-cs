@@ -4,60 +4,6 @@ import { T20 } from "../config.js";
 const _TokenToggleEffect = Token.prototype.toggleEffect;
 export const toggleEffect = async function (...args) {
 	const data = _TokenToggleEffect.bind(this)(...args);
-	let condicao = args[0].id;
-	console.log(condicao);
-// 	// let icon = 
-// 	let condicao = args[0].id ? args[0].id : args[0].match(/\/\w+\./i)[0].replace(/\/|\./g, "");
-	
-
-// 	const token = this;
-// 	let condition = T20Conditions[condicao];
-// 	if(args[0].id && condition) mergeObject(args[0], condition);
-// 	console.log(token.actor.effects);
-// 	if(condition) {
-// 		condition.flags?.t20?.childEffect?.forEach(function(ef){
-// 			const stts = T20Config.statusEffectIcons.find(sei=> sei.id==ef);
-// 			const stae = T20Conditions[ef];
-// 			console.log("---------");
-// 			console.log(args);
-// 			// console.log(condicao);
-// 			// console.log(args[1].active);
-// 			let ativando = args[1].active !== false;
-// 			let existe = token.actor.effects.find(ae=> ae.data?.flags?.core?.statusId == ef);
-// 			let outra = token.actor.effects.filter(ae=> ae.data?.flags?.t20?.childEffect?.includes(ef));
-// 			// console.log(`ATIVANDO: ${ativando}`);
-// 			// console.log(`EXISTE:`);
-// 			// console.log(existe);
-// 			// console.log(`OUTRA:`);
-// 			// console.log(outra);
-// 			// console.log(`OUTRA: ${ativando}`);
-// 			// if(!args[1].active || !){
-// 			// }
-// 			token.toggleEffect(stts, {overlay:false});
-// 				// console.log("AAAAAAAAACHOU");
-// 			/*
-// 				1 - TOGGLE ATORDOADO
-// 					APLICANDO :
-// 						DESPREVENIDO EXISTE :
-// 							- NADA
-// 						DESPREVENIDO !EXISTE :
-// 							- TOGGLE DESPREVENIDO
-// 					REMOVENDO :
-// 						DESPREVENIDO EXISTE :
-// 							POR OUTRA CONDIÇÃO :
-// 								- NADA
-
-// 						DESPREVENIDO !EXISTE :
-// 							- NADA
-// 			*/
-// 			// token.toggleEffect(mergeObject(stts, stae), {overlay:false});
-// 		});
-// 	}
-// 	// token.actor.effects.find(ef=> ef.name)
-// 	// this.toggleEffect()
-// 	// T20Conditions["abalado"];
-// 	//T20Conditions[effect.flags.tormenta20.stack];
-// 	// await chatCondition(this.actor, condicao);
 	return data;
 };
 

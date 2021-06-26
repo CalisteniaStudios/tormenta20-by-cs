@@ -1,10 +1,10 @@
-<ul class="skills-list {{#if actor.flags.tormenta20.sheet.editarPericias}}editing{{/if}}" style="height: fit-content;">
+<ul class="skills-list {{#if editarPericias}}editing{{/if}}" style="height: fit-content;">
 	<li class="skill flexrow item-header">
 		<div class="item-image"></div>
 		<div class="item-name" >Perícias</div>
 		<div class="item-total">Total</div>
 		<div class="item-mod">Mod. Atributo</div>
-		{{#if actor.flags.tormenta20.sheet.editarPericias}}<div class="item-outros">Outros</div>{{/if}}
+		{{#if editarPericias}}<div class="item-outros">Outros</div>{{/if}}
 	</li>
 	<li>
 		{{#if mostrarBonusTreino}}
@@ -19,7 +19,7 @@
 			<b>Ofícios +</b>
 		</div>
 		<div class="item-total"></div>
-		{{#if ../actor.flags.tormenta20.sheet.editarPericias}}
+		{{#if ../editarPericias}}
 		<div class="item-mod">
 			<a class="item-control skill-create" title="Criar Ofício" data-tipo="oficio"><i class="fas fa-plus"></i> Criar</a>
 		</div>
@@ -29,7 +29,7 @@
 		{{/if}}
 	</li>
 	{{else if (eq skill.key "_pc0")}}
-	{{#if ../actor.flags.tormenta20.sheet.editarPericias}}
+	{{#if ../editarPericias}}
 	<li class="skill flexrow">
 		<div class="item-image"></div>
 		<div class="item-name">Nova Perícia</div>
@@ -46,7 +46,7 @@
 	<li class="skill flexrow {{#if skill.custom }}custom{{/if}}" data-item-id="{{skill.key}}">
 		<div class="item-image">
 			<input type="hidden" name="data.pericias.{{skill.key}}.treinado" value="{{skill.treinado}}" data-dtype="Number" />
-			{{#if ../actor.flags.tormenta20.sheet.editarPericias}}
+			{{#if ../editarPericias}}
 			<a class="training-toggle skill-training" title="Treinado"><i class="{{skill.symbol}}"></i></a>
 			{{else}}
 			<i class="{{#if skill.treinado }}fas fa-check{{/if}}"></i>
@@ -54,7 +54,7 @@
 		</div>
 		<div class="item-name" data-item-id="{{skill.key}}">
 			{{#if skill.custom}}
-				{{#if ../actor.flags.tormenta20.sheet.editarPericias}}
+				{{#if ../editarPericias}}
 				<span class="rollable pericia-rollable">
 					<i class="fas fa-dice-d20"></i>
 				</span>
@@ -76,7 +76,7 @@
 			<input type="hidden" name="data.pericias.{{skill.key}}.treino" value="{{skill.treino}}" data-dtype="Number" />
 		</div>
 		<div class="item-mod">
-			{{#if ../actor.flags.tormenta20.sheet.editarPericias}}
+			{{#if ../editarPericias}}
 			<select class="selectatr" name="data.pericias.{{skill.key}}.atributo" value={{skill.atributo}} data-dtype="String">
 			{{#select skill.atributo}}
 				<option value="for">For</option>
@@ -91,7 +91,7 @@
 			<input type="text" name="data.pericias.{{skill.key}}.atributo" style="text-transform: capitalize;" value={{skill.atributo}} data-dtype="String" disabled />
 			{{/if}}
 		</div>
-		{{#if ../actor.flags.tormenta20.sheet.editarPericias}}
+		{{#if ../editarPericias}}
 		<div class="item-outros">
 			<input type="text" class="skill-outros" data-dtype="Number" name="data.pericias.{{skill.key}}.outros" value="{{skill.outros}}"/>
 			{{#if skill.custom}}

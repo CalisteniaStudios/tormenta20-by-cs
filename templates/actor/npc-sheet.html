@@ -1,3 +1,4 @@
+{{log "AAAAAAAAAAAAAAAAAAAA"}}
 <form class="tormenta20 npc" autocomplete="off">
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs primary" data-group="primary">
@@ -53,7 +54,7 @@
 								</span>
 								<footer class="attribute-footer flexrow" style="justify-content: center;">
 									<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
-									{{#if ../actor.flags.tormenta20.sheet.mostrarAtributoTemp}}
+									{{#if ../mostrarAtributoTemp}}
 										<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.bonus" value="{{atr.bonus}}" placeholder="0" />
 									{{/if}}
 								</footer>
@@ -271,7 +272,9 @@
 			</div>
 			<div class="npc-line">
 				<label>Pontos de Vida: </label>
-				<span class="inpContentEditable" contenteditable="true" name="data.attributes.pv.value">{{data.attributes.pv.value}}</span> / {{data.attributes.pv.max}} {{#if data.attributes.pv.temp}}/ {{data.attributes.pv.temp}} {{/if}}
+				<!-- <span class="inpContentEditable" contenteditable="true" name="data.attributes.pv.value"> -->
+				<!-- </span> -->
+				{{data.attributes.pv.value}} / {{data.attributes.pv.max}} {{#if data.attributes.pv.temp}}/ {{data.attributes.pv.temp}} {{/if}}
 
 			</div>
 			<div style="font-size:14px;">
@@ -295,7 +298,8 @@
 			{{#if data.attributes.pm.max}}
 			<div class="npc-line">
 				<label>Pontos de Mana: </label>
-				<span class="inpContentEditable" contenteditable="true" name="data.attributes.pm.value">{{data.attributes.pm.value}}</span> / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
+				<!-- <span class="inpContentEditable" contenteditable="true" name="data.attributes.pm.value">{{data.attributes.pm.value}}</span> -->
+				{{data.attributes.pm.value}} / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
 			</div>
 			{{/if}}
 			{{!-- eq, gt, gte, lt, lte, or, and --}}
@@ -348,6 +352,7 @@
 									{{/if}}
 								</label>
 							</span>
+							{{log item}}
 							{{{stripTags item.data.description.value}}}
 						</div>
 					</li>
@@ -466,7 +471,7 @@
 					width="200" />
 				</div>
 
-				{{editor content=data.biography target="data.biography.value" button=true owner=owner editable=editable}}
+				{{editor content=data.biography.value target="data.biography.value" button=true owner=owner editable=editable}}
 			</div>
 		</div>
 

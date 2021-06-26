@@ -13,7 +13,7 @@
 		</div>
 		<div class="itam-rolls flex2">{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})</div>
 		<div class="item-detail item-controls">
-			{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+			{{#if ../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -38,7 +38,7 @@
 				<i class="fas fa-shield-alt"></i>
 			</a>
 			{{/if}}
-			{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+			{{#if ../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -67,7 +67,7 @@
 			{{/if}}
 		</div>
 		<div class="item-detail item-controls">
-			{{#if ../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+			{{#if ../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 			<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 		</div>
 	</li>
@@ -101,7 +101,7 @@
 				{{/if}}
 			</div>
 			<div class="item-detail item-controls">
-				{{#if ../../actor.flags.tormenta20.sheet.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+				{{#if ../../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-fav" title="Desfavoritar" > <i class="fas fa-star" ></i></a>
 			</div>
 		</li>

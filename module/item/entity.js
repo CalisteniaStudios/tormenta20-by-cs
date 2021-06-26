@@ -818,7 +818,8 @@ export default class ItemT20 extends Item {
 			if ( pericia=="luta" && bonuses.cac ) parts.push([bonuses.cac, ""]);
 			if ( pericia=="pont" && bonuses.ad ) parts.push([bonuses.ad,""]);
 			if ( this.type=="magia" && bonuses.mag ) parts.push([bonuses.mag,""]);
-			
+			console.log(this.type);
+			console.log(bonuses);
 			// Handle ammunition damage
 			// PREPARE
 			
@@ -869,6 +870,12 @@ export default class ItemT20 extends Item {
 				rollData.roll[key] = r.total;
 			}
 		}
+		const atributoChave = this.actor.data.data.attributes.conjuracao;
+		rollData["atributoChave"] = 0;
+		if( CONFIG.T20.atributos[atributoChave] ){
+			rollData["atributoChave"] = this.actor.data.data.atributos[atributoChave].mod;
+		}
+
 		// Include an ability score modifier if one exists
 		const atr = this.data.data.atrBns;
 		if ( atr ) {
@@ -956,7 +963,7 @@ export default class ItemT20 extends Item {
 			}
 			const _campos = {};
 			// ROLLS ARRAY
-			let rolls = id.rolls.filter(r=> (( ch.key == "roll" || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) && r.parts[0][0].match(re.die)) );
+			let rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) && r.parts[0][0].match(re.die)) );
 			
 			for(let r of rolls){
 				// CUSTOM CHANGES
@@ -1158,9 +1165,6 @@ export default class ItemT20 extends Item {
 			}
 			options.effects.push(tempEffect);
 		});
-
-		// LOG
-		// console.log(id);
 
 		return options;
 	}

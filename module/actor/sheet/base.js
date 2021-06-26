@@ -66,7 +66,12 @@ export default class ActorSheetT20 extends ActorSheet {
 			isNPC: this.actor.type === "npc",
 			config: CONFIG.T20,
 			rollData: this.actor.getRollData.bind(this.actor),
-			//is this needed?
+			//Flags
+			mostrarDivindade: this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
+			mostrarAtributoTemp: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoTemp"),
+			botaoEditarItens: this.actor.getFlag("tormenta20", "sheet.botaoEditarItens"),
+			mostrarPlatina: this.actor.getFlag("tormenta20", "sheet.mostrarPlatina"),
+			editarPericias: this.actor.getFlag("tormenta20", "sheet.editarPericias"),
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
 		// The Actor and its Items
@@ -217,7 +222,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		html.mousemove(ev => this._moveTooltips(ev));
 
 		// Editable Only Listeners
-		console.log(this.isEditable);
 		if ( this.isEditable ) {
 			// Input focus and update
 			const inputs = html.find("input");
@@ -267,7 +271,6 @@ export default class ActorSheetT20 extends ActorSheet {
 			
 		} else {
 			html.find("[contenteditable=true]").each((i, el) => el.setAttribute("contenteditable", false));
-			console.log(html.find("[contenteditable=true]"));
 		}
 
 		if ( this.actor.isOwner ) {

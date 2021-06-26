@@ -24,17 +24,15 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	/** @override */
 	getData() {
 		const sheetData = super.getData();
+		console.log(sheetData);
 		// FLAGS
-		// sheetData["statblock"] = this.actor.data.flags.editing ? "statfields" : "";
-		// sheetData["editing"] = this.actor.data.flags.editing;
-		console.log(this);
-		if( this.isEditable && !this.actor.getFlag("tormenta20", "sheet.editarPericias") ){
-			this.actor.setFlag("tormenta20", "sheet.editarPericias", true);
+		if( this.isEditable ) {
+			sheetData["editarPericias"] = true;
+			//this.actor.getFlag("tormenta20", "sheet.editarPericias");
+			sheetData["botaoEditarItens"] = true;
+			//this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
 		}
-		if( this.isEditable && !this.actor.getFlag("tormenta20", "sheet.botaoEditarItens") ){
-			this.actor.setFlag("tormenta20", "sheet.botaoEditarItens", true);
-		}
-
+		sheetData["skills"] = [];
 		return sheetData;
 	}
 

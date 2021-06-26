@@ -44,7 +44,9 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareBaseData() {
-		if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
+		const version = game.settings.get("tormenta20","systemMigrationVersion");
+		if( version < game.system.data.version ) return;
+		// if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
 		switch (this.data.type) {
 			case "character":
 				return this._prepareCharacterData(this.data);
@@ -57,9 +59,11 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareDerivedData() {
-		if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
+		const version = game.settings.get("tormenta20","systemMigrationVersion");
+		if( version < game.system.data.version ) return;
+		// if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
 		const actor = this;
-		const actorData = this.data;
+		const actorData = actor.data;
 		const data = actorData.data;
 		const nivel = data.attributes.nivel.value;
 		// Base CD
@@ -279,6 +283,7 @@ export default class ActorT20 extends Actor {
 			pericia.pda = pericia.label.match(/\+/g) ? true : false;
 		}
 		
+
 		var atributo = pericia.atributo || "for";
 		pericia.mod = data.atributos[atributo].mod;
 		pericia.outros = pericia.outros;//Number(pericia.outros) || 0;
@@ -295,7 +300,13 @@ export default class ActorT20 extends Actor {
 		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia) parts.push(bonuses.resistencia);
 		if (bonuses.atr && bonuses.atr[pericia.atributo]) parts.push(bonuses.atr[pericia.atributo]);
 		if (pericia.condi) parts.push(pericia.condi);
-
+		if ( key == "furt" ) {
+			let tamanho = 0;
+			const size = this.data.data.tracos.tamanho;
+			const sizeMod = { "min": 5, "peq": 2, "med": 0, "gra":-2, "eno":-5, "col": -10 };
+			tamanho = sizeMod[size];
+			if( Number(tamanho) ) parts.push(tamanho);
+		}
 		if ( !roll ) {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			pericia.value = parseInt(result.replace(" ","")) || 0;
@@ -395,7 +406,7 @@ export default class ActorT20 extends Actor {
 				// NO CHANGES;
 				break;
 		}
-
+		
 		// Token size category
 		const size = CONFIG.T20.tokenSizes[this.data.data.tracos.tamanho || "med"];
 		this.data.token.update({ width: size, height: size });
@@ -539,8 +550,11 @@ export default class ActorT20 extends Actor {
 		item.custo = 0;
 
 		// Aprimoramentos Aplicados
-		const aplicados = expandObject(configuration).aprs;
-		const aprimoramentos = this.effects.filter(ef => aplicados[ef.id]?.aplica );
+		const aplicados = expandObject(configuration).aprs ?? {};
+		console.log(aplicados);
+		console.log(configuration);
+		console.log(this.effects);
+		const aprimoramentos = this.effects.filter(ef => aplicados[ef.id]?.aplica ) ?? [];
 
 		// FUNÇÃO DE INTERNA
 		const applyChanges = (ch,qtd,ef) => {
@@ -637,6 +651,7 @@ export default class ActorT20 extends Actor {
 		// Update parts with changed effects
 		if(item.type == "pericia"){
 			item.parts = this._prepareSkills(item.id, item, ad, this.getRollData(), true );
+			if ( configuration.bonus ) item.parts.push( configuration.bonus );
 		} else {
 			item.name = game.i18n.localize(item.name);
 		}
@@ -679,6 +694,7 @@ export default class ActorT20 extends Actor {
 				name: pericia.label.replace(/[\*||\+]/g,"").trim()
 			});
 			if (!configuration) return;
+
 			rollMode = configuration.rollMode;
 		} else {
 			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && ef.getFlag("tormenta20","pericia") && !ef.data.disabled);
@@ -741,12 +757,13 @@ export default class ActorT20 extends Actor {
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create({
 				actor: actor, type:"atributo", data: abl, id: key, isOwned: true,
-				name: abl.label.replace(/[\*||\+]/g,"").trim()
+				name: game.i18n.localize(abl.name) //|| abl.label.replace(/[\*||\+]/g,"").trim()
 			});
 			if (!configuration) return;
 			
+			if ( configuration.bonus ) parts.push( configuration.bonus );
 			rollMode = configuration.rollMode;
-			// options = this.applyAprimoramentos( mergeObject(abl, itemData), configuration);
+			
 		} else {
 			// aways active
 			let active = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && ef.getFlag("tormenta20","atributo") && !ef.data.disabled);
@@ -782,12 +799,14 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	// TODO testes de morte pra skyfall?
+	// TODO 
 
 	/* -------------------------------------------- */
 
 	/** @overrides */
 	applyActiveEffects() {
+		const version = game.settings.get("tormenta20","systemMigrationVersion");
+		if( version < game.system.data.version ) return;
 		const overrides = {};
 		// Organize non-disabled effects by their application priority
 		const changes = this.effects.reduce((changes, e) => {
@@ -795,14 +814,14 @@ export default class ActorT20 extends Actor {
 			return changes.concat(e.data.changes.map(c => {
 				c = duplicate(c);
 				if (c.key.match(/(data.)(.*)(.condi|.outros|.bonus|.value)|data.modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
-					c.value = "+" + c.value.toString();
+					c.value = c.value.toString();
+					console.log(c);
 				}
 				c.effect = e;
 				c.priority = c.priority ?? (c.mode * 10);
 				return c;
 			}));
 		}, []);
-		
 		changes.sort((a, b) => a.priority - b.priority);
 		// Apply all changes
 		for (let change of changes) {
