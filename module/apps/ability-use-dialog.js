@@ -127,7 +127,7 @@ export default class AbilityUseDialog extends Dialog {
 				default: "use",
 				close: () => resolve(null)
 			});
-			if( item.type === "magia" ) {
+			if( item.type === "magia" && ( item.actor.getFlag("tormenta20", "createPotion" || game.user.isGM ) ) ) {
 				dlg.data.buttons.brew = {
 					icon: `<i class="fas fa-flask"></i>`,
 					label: "Criar Poção",

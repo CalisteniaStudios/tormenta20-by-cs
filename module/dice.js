@@ -39,7 +39,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 		if (!data["bonus"]) parts.pop();
 
 		// Execute the roll
-		let roll = new Roll(parts.map(p=>Number(p)||p.replace(/^\+/,"")).filterJoin("+"), data);
+		let roll = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+"), data);
 		try {
 			roll.roll();
 		} catch (err) {
@@ -77,8 +77,7 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 		// Create the damage roll
 		let roll;
 		if( true ){
-			console.log(parts);
-			roll = new Roll(parts.map(p=> Number(p[0])||p[0].replace(/^\+/,"")).filterJoin("+"), data);
+			roll = new Roll(parts.map(p=> p[0].toString().replace(/^\+/,"")).filterJoin("+"), data);
 		} else {
 			/**
 			 * INCLUDE DAMAGE TYPE TODOS

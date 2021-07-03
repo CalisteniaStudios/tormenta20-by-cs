@@ -631,17 +631,17 @@ export default class ActorSheetT20 extends ActorSheet {
 	async _onPericiaCustomCreate(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
-
+		// PRONTO
 		const tipo = a.dataset.tipo;
 		const pericia = {
-			label: "Nova Pericia",
-			nome: "Nova Pericia",
+			label: tipo == 'oficio'? "Oficio +" : "Nova Pericia",
+			nome: tipo == 'oficio'? "Oficio" : "Nova Pericia",
 			custom: true,
 			value: 0,
-			atributo: "for",
-			st: false,
+			atributo: tipo == 'oficio'? "int" : "for",
+			st: tipo == 'oficio'? true : false,
 			pda: false,
-			treinado: 0,
+			treinado: tipo == 'oficio'? 1 : 0,
 			treino: 0,
 			outros: 0,
 			mod: 0,
@@ -651,18 +651,21 @@ export default class ActorSheetT20 extends ActorSheet {
 		let actorData = foundry.utils.deepClone(this.actor);
 		let pericias = actorData.data.data.pericias;
 
-		if (tipo == 'oficio') {
-			pericia.label = "Oficio +";
-			pericia.atributo = 'int';
-			pericia.st = true;
-			pericia.treinado = 1;
-			let key = Object.keys(pericias).reduce((t, k) => t += k.match(/ofi\d/) ? 1 : 0, 0);
-			pericias[`ofi${key}`] = pericia;
-			
-		} else {
-			let key = Object.keys(pericias).reduce((t, k) => t += k.match(/_pc\d/) ? 1 : 0, 0);
-			pericias[`_pc${key}`] = pericia;
-		}
+		let key = tipo == 'oficio'? "ofi" : "_pc";
+		const customs = Object.keys(pericias).reduce((t, k) => {
+			if( k.match(new RegExp(`${key}[1-9]`))?.length ) t.push( Number( k.replace(key,"") ) );
+			return t;
+		}, [] );
+		
+		let keyN = Math.max( ...customs );
+		if ( keyN == 9 ) keyN = [1,2,3,4,5,6,7,8,9].find(i => !customs.includes(i) ); 
+		else if ( keyN > 0 ) keyN = keyN + 1;
+		else keyN = 1;
+		
+		if ( customs.length == 9 ) {
+			// MESSAGE ERROR
+			ui.notifications.info("Número limite de pericias");
+		} else pericias[`${key}${keyN}`] = pericia;
 		pericias = Object.keys(pericias).sort().reduce(
 			(obj, key) => { 
 				obj[key] = pericias[key]; 

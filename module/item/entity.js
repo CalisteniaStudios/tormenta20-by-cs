@@ -420,10 +420,36 @@ export default class ItemT20 extends Item {
 			}, {});
 		}
 
+		if ( !isObjectEmpty( extra ) || configuration.bonus || configuration.bonusdano ) {
+			item.data.data.rolls.forEach( r => {
+				if( r.type == "ataque" ) {
+					if ( !["","0",undefined].includes(configuration.bonus) ) r.parts.push([configuration.bonus, ""]);
+					if ( !["","0",undefined].includes(extra.pericia) ) r.parts[1][0] = extra.pericia;
+					if ( !["","0",undefined].includes(extra.atributoAtq) ) r.parts[1][1] = extra.atributoAtq;
+					if ( extra?.atq?.match(/^=/) ) r.parts = [["1d20",""], [extra.atq.replace("=",""),""]];
+					else if ( !["","0",undefined].includes(extra.atq) ) r.parts.push([extra.atq, ""]);
+				}
+				else if( r.type == "dano" ){
+					if ( !["","0",undefined].includes(configuration.bonusdano) ) r.parts.push([configuration.bonusdano, ""]);
+					if ( !["","0",undefined].includes(extra.dadoDano) ) r.parts[0][0] = extra.dadoDano;
+					if ( !["","0",undefined].includes(extra.atributoDano) ) r.parts[1][0] = "@" + extra.atributoDano;
+					if ( extra?.dano?.match(/^=/) ) r.parts = [[extra.dano.replace("=",""),""]];
+					else if ( !["","0"].includes(extra.dano) ) r.parts.push([extra.dano, ""]);
+				}
+			});
+
+			if ( extra?.multCritico?.match(/^=/) ) item.data.data.criticoX = 1* extra.multCritico.replace("=","");
+			else if ( Number(extra.multCritico) ) item.data.data.criticoX += Number(extra.multCritico);
+			if ( extra?.margemCritico?.match(/^=/) ) item.data.data.criticoM = extra.margemCritico.replace("=","");
+			else if ( Number(extra.margemCritico) ) item.data.data.criticoM += Number(extra.margemCritico);
+		}
+		
 		options = item.applyAprimoramentos(configuration);
 		options.rolls = [];
 		// Execute Rolls
 		item.data.data.rolled = {};
+		
+
 		if( item.data.data.rolls.find(r=>r.type == "ataque" && r.parts.length) ){
 			await item.rollAttack({options:options});
 		}
@@ -818,8 +844,6 @@ export default class ItemT20 extends Item {
 			if ( pericia=="luta" && bonuses.cac ) parts.push([bonuses.cac, ""]);
 			if ( pericia=="pont" && bonuses.ad ) parts.push([bonuses.ad,""]);
 			if ( this.type=="magia" && bonuses.mag ) parts.push([bonuses.mag,""]);
-			console.log(this.type);
-			console.log(bonuses);
 			// Handle ammunition damage
 			// PREPARE
 			

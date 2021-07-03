@@ -127,6 +127,21 @@ table,
   background: unset;
 }
 
+.chat-message .apply-area .apply-button-dano,
+.chat-message .apply-area .apply-button-dano-dobro,
+.chat-message .apply-area .apply-button-dano-metade {
+  background: firebrick;
+  font-size: 25px;
+}
+
+.chat-message .apply-area .apply-button-cura {
+  background: seagreen;
+}
+
+.chat-message .apply-area .apply-button-mana {
+  background: deepskyblue;
+}
+
 #combat #combat-controls button.scene-segment {
   background: inherit;
   border: none;

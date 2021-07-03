@@ -24,7 +24,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	/** @override */
 	getData() {
 		const sheetData = super.getData();
-		console.log(sheetData);
 		// FLAGS
 		if( this.isEditable ) {
 			sheetData["editarPericias"] = true;
@@ -32,7 +31,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			sheetData["botaoEditarItens"] = true;
 			//this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
 		}
-		sheetData["skills"] = [];
 		return sheetData;
 	}
 

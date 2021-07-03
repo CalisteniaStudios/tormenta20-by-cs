@@ -1,4 +1,3 @@
-{{log "AAAAAAAAAAAAAAAAAAAA"}}
 <form class="tormenta20 npc" autocomplete="off">
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs primary" data-group="primary">
@@ -352,8 +351,11 @@
 									{{/if}}
 								</label>
 							</span>
-							{{log item}}
-							{{{stripTags item.data.description.value}}}
+							{{#if item.data.description.value }}
+								{{{stripTags item.data.description.value}}}
+							{{else}}
+								{{{stripTags item.data.description}}}
+							{{/if}}
 						</div>
 					</li>
 					{{/each}}

@@ -45,46 +45,82 @@ export const ApplyButtons = function (app, html, data)
 	if ( !chatHTML[0] ) return;
 	chatHTML = chatHTML[0];
 	let botaoAdicionado	= false;
+
+	const btnHtml = function(b){
+		return `<td class="apply-button" title="${b.title}"><button class="apply-button-b ${b.class}" style="${b.style}"> ${b.text}</button></td>`;
+	}
+	let b = {};
+
 	if(chatHTML.querySelectorAll(".mana-cost, .roll--dano").length > 0) {
 		let areaBotoes = $(`<hr><div><table class="apply-area"><tbody><div class="flexrow"></div></tbody></table></div>`);
+
 		if(chatHTML.querySelectorAll(".roll--dano").length > 0) {
-			const botaoDanoAplicar = $(`<td class="apply-button apply-button-dano" title="Aplicar Dano"><button class="apply-button-b" style="background:FireBrick;"><i class="fas fa-user-minus apply-button-img"></i></button></td>`);
+			// Aplicar dano
+			b.title = "Aplicar Dano";
+			b.class = "apply-button-dano"; 
+			b.text  = '<i class="fas fa-user-minus apply-button-img"></i>';
+			b.style = "background:firebrick;";
+			const botaoDanoAplicar = $(btnHtml(b));
 			areaBotoes.find(".flexrow").append(botaoDanoAplicar);
 			botaoDanoAplicar.click(ev => {
 				ev.stopPropagation();
-				applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,1);
+				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
+				applyInsideChatCardDamage(roll,1);
 			});
 			
-			const botaoDanoDobroAplicar = $(`<td class="apply-button" title="Aplicar Dano em Dobro"><button class="apply-button-b apply-button-dano-dobro" style="background:FireBrick; font-size: 25px;">2x</button></td>`);
+			// Dobro
+			b.title = "Aplicar Dano em Dobro";
+			b.class = "apply-button-dano-dobro";
+			b.text  = "2x";
+			b.style = "background:firebrick; font-size: 25px;";
+			const botaoDanoDobroAplicar = $(btnHtml(b));
 			areaBotoes.find(".flexrow").append(botaoDanoDobroAplicar);
 			botaoDanoDobroAplicar.click(ev => {
-			ev.stopPropagation();
-			applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,2);
-			// this.render(true);
+				ev.stopPropagation();
+				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
+				applyInsideChatCardDamage(roll,2);
 			});
-			const botaoDanoMetadeAplicar = $(`<td class="apply-button" title="Aplicar Dano pela Metade"><button class="apply-button-b apply-button-dano-metade" style="background:FireBrick; font-size: 25px;">½</button></td>`);
+			// Metade
+			b.title = "Aplicar Metade do Dano";
+			b.class = "apply-button-dano-metade";
+			b.text  = "½";
+			b.style = "background:FireBrick; font-size: 25px;";
+			const botaoDanoMetadeAplicar = $(btnHtml(b));
 			areaBotoes.find(".flexrow").append(botaoDanoMetadeAplicar);
 			botaoDanoMetadeAplicar.click(ev => {
-			ev.stopPropagation();
-			applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,0.5);
-			// this.render(true);
+				ev.stopPropagation();
+				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
+				applyInsideChatCardDamage(roll,0.5);
 			});
-			const botaoCuraAplicar = $(`<td class="apply-button" title="Aplicar Cura"><button class="apply-button-b apply-button-cura" style="background:SeaGreen;"><i class="fas fa-user-plus apply-button-img"></i></button></td>`);
+
+			
+			// Cura
+			b.title = "Aplicar Cura";
+			b.class = "apply-button-cura";
+			b.text = '<i class="fas fa-user-plus apply-button-img"></i>';
+			b.style = "background:SeaGreen;";
+			const botaoCuraAplicar = $(btnHtml(b));
 			areaBotoes.find(".flexrow").append(botaoCuraAplicar);
 			botaoCuraAplicar.click(ev => {
 				ev.stopPropagation();
-				applyInsideChatCardDamage(chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML,-1,true);
-				// this.render(true);
+				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
+				applyInsideChatCardDamage(roll,-1,true);
 			});
 			botaoAdicionado = true;
 		}
 		if(chatHTML.querySelectorAll(".mana-cost").length > 0 && !game.settings.get("tormenta20", "automaticManaSpend"))
 		{
-			const botaoGastoMana = $(`<td class="apply-button" title="Gastar Mana"><button class="apply-button-b apply-button-mana" style="background:deepskyblue;"><i class="fas fa-star apply-button-img"></i></button></td>`);
+			// Mana
+			b.title = "Gastar Mana";
+			b.class = "apply-button-mana";
+			b.text  = '<i class="fas fa-star apply-button-img"></i>';
+			b.style = "background:deepskyblue;";
+			const botaoGastoMana = $(btnHtml(b));
 			areaBotoes.find(".flexrow").append(botaoGastoMana);
 			botaoGastoMana.click(ev => {
-			ev.stopPropagation();
-			applyInsideChatManaSpend(chatHTML.querySelectorAll(".mana-cost")[0].innerHTML);
+				ev.stopPropagation();
+				let custo = chatHTML.querySelectorAll(".mana-cost")[0].innerHTML;
+				applyInsideChatManaSpend(custo);
 			});
 			botaoAdicionado = true;
 		}
@@ -106,8 +142,8 @@ function applyChatCardDamage(roll, multiplier, heal = false) {
 	if (canvas.tokens.controlled.length) {
 		const amount = roll.find('.roll--dano').find('.dice-total').text();
 		return Promise.all(canvas.tokens.controlled.map(t => {
-		const a = t.actor;
-		return a.applyDamage(amount, multiplier, heal);
+			const a = t.actor;
+			return a.applyDamage(amount, multiplier, heal);
 		}));
 	}
 	else {
@@ -138,8 +174,7 @@ function applyChatManaSpend(mana, adjust, recover = false) {
 	}
 }
 
-function applyInsideChatManaSpend (mana)
-{
+function applyInsideChatManaSpend(mana) {
 	if (canvas.tokens.controlled.length) {
 		return Promise.all(canvas.tokens.controlled.map(t => {
 			const a = t.actor;
@@ -169,7 +204,7 @@ function applyInsideChatCardDamage(amount, multiplier, heal = false) {
  * Highlight critical success or failure on d20 rolls
  * TODO CHANGE THIS
  */
- export const highlightCriticalSuccessFailure = function(message, html, data) {
+export const highlightCriticalSuccessFailure = function(message, html, data) {
 	if ( !message.isRoll || !message.isContentVisible ) return;
 
 	// Highlight rolls where the first part is a d20 roll

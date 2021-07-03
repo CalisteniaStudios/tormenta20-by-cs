@@ -13,12 +13,26 @@ export default function () {
 	* Once the entire VTT framework is initialized, check to see if we should perform a data migration
 	*/
 	Hooks.once("ready", async function () {
-		console.log(Date.now());
 		// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 		Hooks.on("hotbarDrop", (bar, data, slot) => macros.createT20Macro(data, slot));
 
 		// Determine whether a system migration is required and feasible
 		if ( !game.user.isGM ) return;
+		const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion");
+		const NEEDS_MIGRATION_VERSION = "1.2.0.21";
+		const COMPATIBLE_MIGRATION_VERSION = "1.2.0.0";
+		const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
+		if ( !currentVersion && totalDocuments === 0 ) return game.settings.set("tormenta20", "systemMigrationVersion", game.system.data.version);
+
+		const needsMigration = !currentVersion || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+		if ( !needsMigration ) return;
+
+		// Perform the migration
+		if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
+			const warning = `Seu mundo tem uma versão muito antiga do sistema. A migração será feita, mas erros podem ocorrer.`;
+			ui.notifications.error(warning, {permanent: true});
+		}
+		
 		new Dialog({
 			"title": `Atualizar Sistema`,
 			"content": `<p style="text-align:center">Realizar a atualização do Sistema? (Não é possível desfazer)</p>`,

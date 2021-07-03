@@ -119,11 +119,18 @@ export async function rollItemMacro(itemName, extra = null) {
 	} else if ( items.length === 0 ) {
 		return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
 	}
-	
+	//Object.values(extra).some(e=> e.match(/^=/) )
+	if ( extra.atq.match(/^=/) || extra.dano.match(/^=/) ) {
+		ui.notifications.warn(`Substituir bonus de ataque e dano (ie: "=15") não é suportado no momento.`);
+	}
 	const item = items[0];
 
+
+	const rollConfigs = {}
+	rollConfigs.configureDialog = event.shiftKey;
+	rollConfigs.extra	= extra;
 	// Trigger the item roll
-	return item.roll({extra:extra});
+	return item.roll( rollConfigs );
 }
 
 

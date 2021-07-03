@@ -1,3 +1,4 @@
+let teveErro = false;
 /**
 * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
 * @return {Promise}      A Promise which resolves once the migration is completed
@@ -20,6 +21,7 @@ export const migrateWorld = async function () {
 			}
 		} catch (err) {
 			err.message = `Migração de sistema Tormenta20 falhou para o Ator ${a.name}: ${err.message}`;
+			teveErro = true;
 			console.error(err);
 		}
 	}
@@ -35,39 +37,51 @@ export const migrateWorld = async function () {
 			}
 		} catch (err) {
 			err.message = `Migração de sistema Tormenta20 falhou para o Item ${i.name}: ${err.message}`;
+			teveErro = true;
 			console.error(err);
 		}
 	}
 	
 	// Migrate Actor Override Tokens
 	for (let s of game.scenes.contents) {
+		// try {
+		// 	let toReCreate = [];
+		// 	let toDelete = [];
+		// 	let tokens = canvas.scene.tokens.contents.filter(t => t.actor.data.type == "npc" && t.data.actorId );
+		// 	for ( let t of tokens ) {
+		// 		let actor = game.actors.get( t.data.actorId );
+		// 		let createData =  duplicate( actor.data.token );
+		// 		createData.x = t.object.center.x;
+		// 		createData.y = t.object.center.y;
+				
+		// 		toReCreate.push( createData );
+		// 		toDelete.push( t.id );
+		// 	}
+		// 	if( toReCreate.length ){
+		// 		await canvas.scene.createEmbeddedDocuments("Token", toReCreate);
+		// 		await canvas.scene.deleteEmbeddedDocuments("Token", toDelete);
+		// 	}
+		// } catch (err) {
+		// 	err.message = `Migração de sistema Tormenta20 falhou para a Cena ${s.name}: ${err.message}`;
+		// 	teveErro = true;
+		// 	console.error(err);
+		// }
 		try {
 			const updateData = migrateSceneData(s.data);
 			if (!isObjectEmpty(updateData)) {
 				console.log(`Migrando entidade Cena ${s.name}`);
+				// Migrando entidade Cena Minas Heldret 2 Andar
+				console.log(updateData);
+				const test = {tokens: updateData.tokens.splice(0,2), _id: updateData._id };
 				await s.update(updateData, { enforceTypes: false });
 				s.tokens.contents.forEach(t => t._actor = null);
 			}
-			let toReCreate = [];
-			let toDelete = [];
-			let tokens = canvas.scene.tokens.contents.filter(t => t.actor.data.type == "npc" && t.data.actorId );
-			for ( let t of tokens ) {
-				let actor = game.actors.get( t.data.actorId );
-				let createData =  duplicate( actor.data.token );
-				createData.x = t.object.center.x;
-				createData.y = t.object.center.y;
-				
-				toReCreate.push( createData );
-				toDelete.push( t.id );
-			}
-			if( toReCreate.length ){
-				await canvas.scene.createEmbeddedDocuments("Token", toReCreate);
-				await canvas.scene.deleteEmbeddedDocuments("Token", toDelete);
-			}
 		} catch (err) {
 			err.message = `Migração de sistema Tormenta20 falhou para a Cena ${s.name}: ${err.message}`;
+			teveErro = true;
 			console.error(err);
 		}
+
 	}
 	
 	// Migrate World Compendium Packs
@@ -80,7 +94,9 @@ export const migrateWorld = async function () {
 	// Set the migration as complete
 	game.settings.set("tormenta20","systemMigrationVersion",game.system.data.version);
 	ui.notifications.info(`Migração de Sistema do Tormenta20 para a versão ${game.system.data.version} concluída!`,{ permanent: true });
-	// window.location.reload();
+	if( !teveErro ){
+		// window.location.reload();
+	}
 	console.log(`Migração de Sistema do Tormenta20 para a versão ${game.system.data.version} concluída!`);
 };
 
@@ -93,7 +109,8 @@ export const migrateWorld = async function () {
 */
 export const migrateCompendium = async function (pack) {
 	const entity = pack.metadata.entity;
-	if ( !["Actor", "Item", "Scene"].includes(entity) ) return;
+	// if ( !["Actor", "Item", "Scene"].includes(entity) ) return;
+	if ( !["Actor", "Item"].includes(entity) ) return;
 	// if ( !["Actor"].includes(entity) ) return;
 	
 	// Unlock the pack for editing
@@ -130,6 +147,7 @@ export const migrateCompendium = async function (pack) {
 			// Handle migration failures
 			err.message = `Failed tormenta20 system migration for entity ${doc.name} in pack ${pack.collection}: ${err.message}`;
 			console.error(err);
+			teveErro = true;
 		}
 	}
 	
@@ -164,7 +182,7 @@ export const migrateActorData = function (actor) {
 	const items = actor.items.reduce((arr, i) => {
 		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
 		itemData.parent = actor;
-		if ( actor.name == "Jaren" ) console.log(itemData);
+		// if ( actor.name == "Jaren" ) console.log(itemData);
 		if ( itemData.flags?.tormenta20?.version === "1.3.0.0" ) return arr;
 		let itemUpdate = migrateItemData(itemData);
 		removeDeprecatedData(itemData, itemUpdate);
@@ -175,7 +193,7 @@ export const migrateActorData = function (actor) {
 		}
 		return arr;
 	}, []);
-	if ( ["Jaren","Lobo-Crocodilo","Humano Matador"].includes( actor.name ) ) console.log(items);
+	// if ( ["Jaren","Lobo-Crocodilo","Humano Matador"].includes( actor.name ) ) console.log(items);
 	if ( items.length > 0 ) updateData.items = items;
 	return updateData;
 };
@@ -247,65 +265,47 @@ export const migrateItemData = function (item) {
 * @return {Object}       The updateData to apply
 */
 export const migrateSceneData = function(scene) {
-	console.log(scene.tokens);
-	const tokens = scene.tokens.map(token => {
+	// console.log(scene.tokens);
+	const tokens = scene.tokens.contents.map(token => {
 		const t = token.toJSON();
-		if (!t.actorId || t.actorLink) {
-			t.actorData = {};
-		}
-		else if ( !game.actors.has(t.actorId) ){
-			t.actorId = null;
-			t.actorData = {};
-		}
-		else if ( !t.actorLink ) {
-			const actorData = duplicate(token.actor.data);//t.actorData);
-			actorData.type = token.actor?.type;
-			const jaMigrou = token.actor.getFlag("tormenta20","version") == "1.3.0.0";
-			console.error(`${token.name} 245`);
-			if( t.actorData.items ){
-				console.error("I247");
-				console.log(t.actorData.items);
+		try {
+			const temFlag = token.actor?.getFlag("tormenta20","version") == "1.3.0.0";
+			const jaMigrou = ( token.actor?.data?.data?.attributes?.defesa ) ? true : false ;
+			//getFlag("tormenta20","version") == "1.3.0.0";
+			if (!t.actorId || t.actorLink) {
+				t.actorData = {};
 			}
-			console.log(actorData);
-			const update = migrateActorData(actorData);
-			if( ["Jaren","Lobo-Crocodilo","Humano Matador"].includes( token.name ) ){
-				console.log(t);
-				console.log( actorData.items[2]?.data?.description );
-				const jaMigrouItems = actorData.items.every(i=> i.flags?.tormenta20?.version == "1.3.0.0")
-				console.error("jaMigrou?");
-				console.log(jaMigrou);
-				console.error("jaMigrouItems?");
-				console.log(jaMigrouItems);
-				console.error("update.items?");
-				console.log(update.items);
-				// console.log(t.actorData);
+			else if ( !game.actors.has(t.actorId) ){
+				t.actorId = null;
+				t.actorData = {};
 			}
-			console.log(update);
-			if ( jaMigrou ) t.actorData = actorData;
-			['items', 'effects'].forEach(embeddedName => {
-				if (!update[embeddedName]?.length) return;
-				const updates = new Map(update[embeddedName].map(u => [u._id, u]));
-				t.actorData[embeddedName].forEach(original => {
-					const update = updates.get(original._id);
-					if( ["Jaren","Lobo-Crocodilo","Humano Matador"].includes( token.name ) ){
-						console.log(update);
-						console.log(updates.get(original._id));
-					}
-					if (update) mergeObject(original, update);
-				});
-				delete update[embeddedName];
-			});
+			else if ( !t.actorLink ) {
+				const actorData = duplicate(token.actor.data);//t.actorData);
+				// deepClone(token.actor.data.toObject()); //
+				actorData.type = token.actor?.type;
+				const update = migrateActorData(actorData);
 
-			if( ["Jaren","Lobo-Crocodilo","Humano Matador"].includes( token.name ) ){
-				console.log(t.actorData.items);
-				console.log(update);
+				if ( jaMigrou ) t.actorData = actorData;
+
+				['items', 'effects'].forEach(embeddedName => {
+					if (!update[embeddedName]?.length) return;
+					const updates = new Map(update[embeddedName].map(u => [u._id, u]));
+					t.actorData[embeddedName]?.forEach(original => {
+						const update = updates.get(original._id);
+						if (update) mergeObject(original, update);
+					});
+					delete update[embeddedName];
+				});
+				delete t.actorData.items;
+				mergeObject(t.actorData, update);
+				// console.log(t);
 			}
-			delete t.actorData.items;
-			mergeObject(t.actorData, update);
+		} catch (err) {
+			err.message = `Falha ao migrar Token ${token.name}: ${err.message}`;
+			console.error(err);
 		}
 		return t;
 	});
-	console.log(tokens);
 	return {tokens};
 };
 

@@ -291,4 +291,37 @@ export default class ItemSheetT20 extends ItemSheet {
 	_moveTooltips(event) {
 		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
 	}
+
+	/* -------------------------------------------- */
+
+	_createScroll(){
+		let itemData = {};
+		itemData.data = deepClone( this.object.data.data );
+		itemData.type = "consumivel";
+		itemData.name = `Pergaminho de ${this.object.name}`;
+		itemData.img = "icons/sundries/scrolls/scroll-bound-black-tan.webp",
+		itemData.data.ativacao.custo = 0; 
+		itemData.data.tipo = "scroll";
+		this.actor.createEmbeddedDocuments("Item", [itemData]);
+		if( this.actor.type == "character" ){
+			let msg = `${this.actor.name} criou ${itemData.name}`;
+			ChatMessage.create({content:msg});
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	_getHeaderButtons() {
+		let buttons = super._getHeaderButtons();
+		if ( this.object.type == "magia" && ( this.actor?.getFlag("tormenta20","createScroll") || game.user.isGM ) ) {
+			buttons.unshift({
+				label: 'Criar Pergaminho',
+				class: "create-scroll",
+				icon: "fas fa-scroll",
+				onclick: () => this._createScroll()
+			});
+		}
+		return buttons;
+	}
 }

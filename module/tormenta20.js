@@ -1,5 +1,3 @@
-console.log(Date.now());
-
 // Import Modules
 import { T20 } from "./config.js";
 import { SystemSettings } from "./settings.js";

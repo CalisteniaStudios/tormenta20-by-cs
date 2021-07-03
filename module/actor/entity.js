@@ -35,7 +35,6 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	prepareData() {
 		super.prepareData();
-
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
 	}
@@ -164,7 +163,15 @@ export default class ActorT20 extends Actor {
 	*/
 	_prepareCharacterData(actorData) {
 		const data = actorData.data;
+		const flags = actorData.flags;
 		const classes = [];
+		
+		let sheetFlags = {};
+		if ( this.getFlag("tormenta20", "sheet.editarPericias") === undefined ) sheetFlags.editarPericias = true;
+		if ( this.getFlag("tormenta20", "sheet.botaoEditarItens") === undefined ) sheetFlags.botaoEditarItens = true;
+		let baseFlags = { tormenta20: { sheet: sheetFlags } };
+		if( !isObjectEmpty(sheetFlags) ) mergeObject( flags, baseFlags );
+
 		const nivel = this.items.reduce((arr, item) => {
 			if (item.type === "classe") {
 				const classLevels = parseInt(item.data.data.niveis) || 1;
@@ -492,9 +499,9 @@ export default class ActorT20 extends Actor {
 	async applyDamage(amount = 0, multiplier = 1) {
 		amount = Math.floor(parseInt(amount) * multiplier);
 		const pv = this.data.data.attributes.pv;
-
+		const originalDGM = amount;
 		// Prepare Damage Reduction if damage
-		const rd = this.data.data.tracos?.resistencia?.dano?.value || 0;
+		const rd = this.data.data.tracos?.resistencias?.dano?.value || 0;
 		amount = amount > 0 ? Math.max(amount - rd, 0) : amount;
 
 		// Deduct damage from temp HP first
@@ -502,7 +509,7 @@ export default class ActorT20 extends Actor {
 		const dt = amount > 0 ? Math.min(tmp, amount) : 0;
 
 		// Remaining goes to health
-		const dh = Math.clamped(pv.value - (amount - dt), 0, pv.max);
+		const dh = Math.clamped(pv.value - (amount - dt), pv.min, pv.max);
 
 		// Update the Actor
 		const updates = {
@@ -518,24 +525,30 @@ export default class ActorT20 extends Actor {
 			isDelta: false,
 			isBar: true
 		}, updates);
-		return allowed !== false ? this.update(updates) : this;
 
-		let toChat = (speaker, message) => {
-			let chatData = {
-				user: game.user.id,
-				content: message,
-				speaker: ChatMessage.getSpeaker(speaker),
-				type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+		if ( true ){
+			let chatMessage = "";
+			let toChat = (speaker, message) => {
+				let chatData = {
+					user: game.user.id,
+					content: message,
+					speaker: ChatMessage.getSpeaker(speaker),
+					type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+				};
+				ChatMessage.create(chatData, {});
 			};
-			ChatMessage.create(chatData, {});
-		};
-		chatMessage = `<i class="fas fa-user-plus"></i> +${newDmgAmount} pontos PV`;
-		chatMessage = `<i class="fas fa-user-minus"></i> ${newDmgAmount} pontos PV`;
-
-		if (totalRd > 0) {
-			chatMessage += `<br/>(${amount} - RD${totalRd})`;
+			let _fas = "";
+			if( amount < 0 ) _fas = "plus";
+			else _fas = "minus";
+			
+			if ( rd > 0 && amount >= 0 ) chatMessage += `${originalDGM} - ${rd}RD >> ${amount}<br>`;
+			if ( dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${dt} PVs temp ( ${tmp}PVT >> ${tmp - dt} PVT )<br>`;
+			if ( amount < 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> ${amount*-1} PVs ( ${pv.value}PV >> ${dh} PV )`;
+			else if ( amount - dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${amount - dt} PVs ( ${pv.value}PV >> ${dh} PV )`;
+			
+			toChat(this, chatMessage);
 		}
-		//toChat(this, chatMessage);
+		return allowed !== false ? this.update(updates) : this;
 
 	}
 
@@ -551,9 +564,6 @@ export default class ActorT20 extends Actor {
 
 		// Aprimoramentos Aplicados
 		const aplicados = expandObject(configuration).aprs ?? {};
-		console.log(aplicados);
-		console.log(configuration);
-		console.log(this.effects);
 		const aprimoramentos = this.effects.filter(ef => aplicados[ef.id]?.aplica ) ?? [];
 
 		// FUNÇÃO DE INTERNA
@@ -815,7 +825,6 @@ export default class ActorT20 extends Actor {
 				c = duplicate(c);
 				if (c.key.match(/(data.)(.*)(.condi|.outros|.bonus|.value)|data.modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
 					c.value = c.value.toString();
-					console.log(c);
 				}
 				c.effect = e;
 				c.priority = c.priority ?? (c.mode * 10);
@@ -870,9 +879,9 @@ export default class ActorT20 extends Actor {
 
 			tmpPMspend = newSptAmount > 0 ? Math.min(tmpPM, newSptAmount) : 0;
 
-			chatMessage = `<i class="fas fa-user-minus"></i> ${newSptAmount} pontos PM`;
+			chatMessage = `<i class="fas fa-user-minus"></i> ${newSptAmount} PMs`;
 
-			// Remaining goes to health
+			// Remove Mana
 			spendMana = Math.clamped(
 				pm.value - (newSptAmount - tmpPMspend),
 				0,
