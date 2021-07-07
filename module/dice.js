@@ -160,6 +160,11 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 				rollableTerms.push(...operators);                   // Place all the operators into the rollableTerms array
 				rollableTerms.push(term);                           // Then place this rollable term into it as well
 			}                                                     //
+			else if (term instanceof ParentheticalTerm){
+				const numTerm = new NumericTerm({number: Roll.safeEval(term.term)});
+				constantTerms.push(...operators);
+				constantTerms.push(numTerm);
+			}
 			else {                                                // Otherwise, this must be a constant
 				constantTerms.push(...operators);                   // Place the operators into the constantTerms array
 				constantTerms.push(term);                           // Then also add this constant term to that array.
@@ -189,6 +194,7 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 	const diceTerm = term instanceof DiceTerm;
 	const operator = term instanceof OperatorTerm && ["+", "-"].includes(term.operator);
 	const number   = term instanceof NumericTerm;
+	const parents  = term instanceof ParentheticalTerm && Roll.safeEval(term.term);
 
-	return !(diceTerm || operator || number);
+	return !(diceTerm || operator || number || parents );
 }

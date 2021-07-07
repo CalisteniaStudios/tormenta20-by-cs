@@ -11,9 +11,6 @@ export const migrateWorld = async function () {
 		let updateData = {};
 		try {
 			updateData = migrateActorData(a.data);
-			if( ["Jaren","Humano Matador"].includes( a.name ) ){
-				console.error(updateData);
-			}
 			removeDeprecatedData(a.data, updateData);
 			if (!isObjectEmpty(updateData)) {
 				console.log(`Migrando entidade Ator ${a.name}`);
@@ -44,35 +41,11 @@ export const migrateWorld = async function () {
 	
 	// Migrate Actor Override Tokens
 	for (let s of game.scenes.contents) {
-		// try {
-		// 	let toReCreate = [];
-		// 	let toDelete = [];
-		// 	let tokens = canvas.scene.tokens.contents.filter(t => t.actor.data.type == "npc" && t.data.actorId );
-		// 	for ( let t of tokens ) {
-		// 		let actor = game.actors.get( t.data.actorId );
-		// 		let createData =  duplicate( actor.data.token );
-		// 		createData.x = t.object.center.x;
-		// 		createData.y = t.object.center.y;
-				
-		// 		toReCreate.push( createData );
-		// 		toDelete.push( t.id );
-		// 	}
-		// 	if( toReCreate.length ){
-		// 		await canvas.scene.createEmbeddedDocuments("Token", toReCreate);
-		// 		await canvas.scene.deleteEmbeddedDocuments("Token", toDelete);
-		// 	}
-		// } catch (err) {
-		// 	err.message = `Migração de sistema Tormenta20 falhou para a Cena ${s.name}: ${err.message}`;
-		// 	teveErro = true;
-		// 	console.error(err);
-		// }
 		try {
 			const updateData = migrateSceneData(s.data);
 			if (!isObjectEmpty(updateData)) {
 				console.log(`Migrando entidade Cena ${s.name}`);
 				// Migrando entidade Cena Minas Heldret 2 Andar
-				console.log(updateData);
-				const test = {tokens: updateData.tokens.splice(0,2), _id: updateData._id };
 				await s.update(updateData, { enforceTypes: false });
 				s.tokens.contents.forEach(t => t._actor = null);
 			}
@@ -182,7 +155,6 @@ export const migrateActorData = function (actor) {
 	const items = actor.items.reduce((arr, i) => {
 		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
 		itemData.parent = actor;
-		// if ( actor.name == "Jaren" ) console.log(itemData);
 		if ( itemData.flags?.tormenta20?.version === "1.3.0.0" ) return arr;
 		let itemUpdate = migrateItemData(itemData);
 		removeDeprecatedData(itemData, itemUpdate);
@@ -193,7 +165,7 @@ export const migrateActorData = function (actor) {
 		}
 		return arr;
 	}, []);
-	// if ( ["Jaren","Lobo-Crocodilo","Humano Matador"].includes( actor.name ) ) console.log(items);
+	
 	if ( items.length > 0 ) updateData.items = items;
 	return updateData;
 };
@@ -265,7 +237,6 @@ export const migrateItemData = function (item) {
 * @return {Object}       The updateData to apply
 */
 export const migrateSceneData = function(scene) {
-	// console.log(scene.tokens);
 	const tokens = scene.tokens.contents.map(token => {
 		const t = token.toJSON();
 		try {
@@ -298,7 +269,6 @@ export const migrateSceneData = function(scene) {
 				});
 				delete t.actorData.items;
 				mergeObject(t.actorData, update);
-				// console.log(t);
 			}
 		} catch (err) {
 			err.message = `Falha ao migrar Token ${token.name}: ${err.message}`;
@@ -321,8 +291,6 @@ function _migrateActorSkills(actor, updateData) {
 	const ad = actor.data;
 	let treino;
 	if( actor.type == "npc" ){
-		// console.log(actor);
-		// console.log(ad);
 		let nivel = ad.attributes.nivel.value;
 		treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 	}
@@ -365,8 +333,6 @@ function _migrateActorSkills(actor, updateData) {
 							atr = ad.atributos.des.mod;
 							updateData[`${ar[k]}.${newkey}.atributo`] = "des";
 						}
-						// console.log(actor.name);
-						// console.log(actor.items);
 						let it = actor.items.find(i => i.type == "arma" && (i.data?.data?.pericia == key || i.data?.pericia == key) );
 						if ( it ){
 							const abl = ["for","des","con","int","sab","car"];

@@ -134,7 +134,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	* @private
 	*/
 	// TODO Implement Movement Here?
-	_getMovementSpeed(actorData, largestPrimary=false) {
+	_getMovementSpeed(actorData) {
 		const movement = foundry.utils.deepClone(actorData.data.attributes.movement) || {};
 		// Prepare an array of available movement speeds
 		let u = movement.unit;

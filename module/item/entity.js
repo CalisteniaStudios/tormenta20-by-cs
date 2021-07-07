@@ -899,6 +899,9 @@ export default class ItemT20 extends Item {
 		if( CONFIG.T20.atributos[atributoChave] ){
 			rollData["atributoChave"] = this.actor.data.data.atributos[atributoChave].mod;
 		}
+		
+		
+		
 
 		// Include an ability score modifier if one exists
 		const atr = this.data.data.atrBns;
@@ -926,7 +929,7 @@ export default class ItemT20 extends Item {
 			faces: /^d\d+$/,
 			die: /\d+d\d+[\+|\-]?[\d+]?/,
 			split: /(d)|([\+|\-])|(\d+)|(\@\w+)/g,
-			perd: /d*\d+/
+			perd: /d\*\d+/
 		}
 		let changes = [], options = {};
 		options.aprimoramentos = [];
@@ -987,12 +990,16 @@ export default class ItemT20 extends Item {
 			}
 			const _campos = {};
 			// ROLLS ARRAY
-			let rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) && r.parts[0][0].match(re.die)) );
-			
+			let rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key))  ) ); //&& r.parts[0][0].match(re.die)
+			ch.key = ch.key.toString();
 			for(let r of rolls){
 				// CUSTOM CHANGES
 				let p = ef._sourceName ? Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0) : 0;
 				if( ch.mode == 0 ) {
+					if (ch.key.match(/\@([^\#]+)\#/)){
+						r.key = ch.key.match(/\@([^\#]+)\#/)[1];
+						ch.key = ch.key.split("#")[1];
+					}
 					// d12 => muda o dado
 					if( ch.value.match(re.faces) ){
 						rollMods[r.key][p].die = ch.value;
@@ -1020,8 +1027,18 @@ export default class ItemT20 extends Item {
 						options.minmax = ch.value;
 					}
 					// passos 1 => aumenta o dano em um passo 
-					else if( ch.key=="passos" ){
-						rollMods[r.key][p].dmgStep += Number(ch.value) * qtd;
+					else if( r.type == "dano" && ch.key=="passos" ){
+						if( Number(ch.value) ){
+							rollMods[r.key][p].dmgStep += Number(ch.value) * qtd;
+						} else {
+							try {
+								let x = ch.value.replace("@","");
+								ch.value = this.getRollData()[x];
+								rollMods[r.key][p].dmgStep += Number(ch.value) * qtd;
+							} catch (error) {
+								
+							}
+						}
 					}
 				}
 				// MULTIPLY CHANGES
@@ -1037,7 +1054,7 @@ export default class ItemT20 extends Item {
 					// ADD ROLL FROM ITEM
 					if (ch.value == "roll"){
 						const itr = actor.items.get(ef.data.origin.split(".")[3])
-                              .data.data.rolls.find(r=>r.key=="dano0");
+                              .data.data.rolls.find(r=>r.type=="dano");//(r=>r.key=="dano0");
 						r.parts.push(itr.parts[0]);
 					} else {
 						r.parts.push([Number(ch.value * qtd) || ch.value,""]);
@@ -1217,11 +1234,11 @@ export default class ItemT20 extends Item {
 					dano = dano.replace(/d\d+/, rollMods[r.key][i].die);
 				}
 		
-				if ( rollMods[r.key][i]?.dgmStep ) {
+				if ( rollMods[r.key][i]?.dmgStep ) {
 					let indx = -1;
 					if( CONFIG.T20.passosDano[dano] && CONFIG.T20.passosDano[dano] !== -1 ){
 						indx = CONFIG.T20.passosDano[dano].indexOf(dano);
-						dano = CONFIG.T20.passosDano[dano][indx+rollMods[r.key][i].dgmStep] || "4d12";
+						dano = CONFIG.T20.passosDano[dano][indx+rollMods[r.key][i].dmgStep] || "4d12";
 					}
 					if( indx == -1 && CONFIG.T20.passosDano.arr1.indexOf(dano)){
 						indx = CONFIG.T20.passosDano.arr1.indexOf(dano);

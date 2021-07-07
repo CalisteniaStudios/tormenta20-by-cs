@@ -128,10 +128,25 @@ export default class ActorT20 extends Actor {
 			return cn;
 		}, {});
 
+		const poderesTormenta = this.items.filter( p => p.type == "poder" &&
+			( (p.data.data.tipo == "geral" && p.data.data.subtipo == "Tormenta") || ["Deformidade", "Linhagem Rubra Aprimorada", "Linhagem Rubra Superior"].includes(p.name) ) );
+		if( poderesTormenta.length ){
+			data["tormenta"] = (poderesTormenta.length-1);
+			data["tormenta2"] = (1 + Math.floor( (poderesTormenta.length-1) / 2 ))
+			//Math.max( 1, Math.floor( (poderesTormenta.length) / 2 ) );
+			data["tormenta4"] = (1 + Math.floor( (poderesTormenta.length-1) / 4 ))
+			//Math.max( 1, Math.floor( (poderesTormenta.length) / 4 ) );
+		} else {
+			data["tormenta"] = 1;
+			data["tormenta2"] = 1;
+			data["tormenta4"] = 1;
+		}
+
 		data["nivel"] = this.data.data.attributes.nivel.value;
 		data["meionivel"] = Math.floor(this.data.data.attributes.nivel.value / 2);
 		data["nvl"] = classes;
-		data["atributoChave"] = this.data.data.attributes.conjuracao;
+		let atbchave = this.data.data.attributes.conjuracao;
+		data["atributoChave"] = this.data.data.atributos[atbchave].mod;
 		return data;
 	}
 
@@ -422,7 +437,6 @@ export default class ActorT20 extends Actor {
 		if (this.type === "character") {
 			this.data.token.update({ vision: true, actorLink: true, disposition: 1 });
 		}
-
 		
 	}
 
@@ -824,7 +838,14 @@ export default class ActorT20 extends Actor {
 			return changes.concat(e.data.changes.map(c => {
 				c = duplicate(c);
 				if (c.key.match(/(data.)(.*)(.condi|.outros|.bonus|.value)|data.modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
-					c.value = c.value.toString();
+					c.value = "+"+c.value.toString();
+				}
+				else if ( c.key.match(/tamanho/i) ){
+					let size = Object.keys( CONFIG.T20.actorSizes ).includes(c.value) ? c.value : "med";
+					if( Object.values( CONFIG.T20.actorSizes ).includes(c.value) ){
+						size = Object.assign({}, ...Object.entries(CONFIG.T20.actorSizes).map(([a,b]) => ({ [b]: a })))[c.value];
+					}
+					c.value = size;
 				}
 				c.effect = e;
 				c.priority = c.priority ?? (c.mode * 10);
@@ -882,11 +903,7 @@ export default class ActorT20 extends Actor {
 			chatMessage = `<i class="fas fa-user-minus"></i> ${newSptAmount} PMs`;
 
 			// Remove Mana
-			spendMana = Math.clamped(
-				pm.value - (newSptAmount - tmpPMspend),
-				0,
-				pm.max
-			);
+			spendMana = Math.clamped(pm.value - (newSptAmount - tmpPMspend), 0, pm.max);
 		}
 		toChat(this, chatMessage);
 		// Update the Actor
