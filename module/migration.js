@@ -67,10 +67,32 @@ export const migrateWorld = async function () {
 	// Set the migration as complete
 	game.settings.set("tormenta20","systemMigrationVersion",game.system.data.version);
 	ui.notifications.info(`Migração de Sistema do Tormenta20 para a versão ${game.system.data.version} concluída!`,{ permanent: true });
-	if( !teveErro ){
-		// window.location.reload();
-	}
 	console.log(`Migração de Sistema do Tormenta20 para a versão ${game.system.data.version} concluída!`);
+	
+	let error = "";
+	if( teveErro ){
+		error = "<br>Erros ocorreram durante a migração, consulte o console (F12). Print e reporte os erros ao desenvolvedor."
+	}
+
+	new Dialog({
+		"title": `Feedback de Atualização`,
+		"content": `<p style="text-align:center">Para finalizar o processo de atualização é necessário recarregar o Foundry (F5) para que os itens e fichas sejam preparados corretamente. <br> Alguns tokens não linkados podem conter erros, embora suas fichas originais estejam . ${error}</p>`,
+		"buttons": {
+			"no": {
+				"icon": '<i class="fas fa-times"></i>',
+				"label": 'Cancelar'
+			},
+			"yes": {
+				"icon": '<i class="fas fa-check"></i>',
+				"label": 'Recarregar',
+				"callback": (html) => {
+					window.location.reload();
+				}
+			},
+		},
+		"default": 'yes',
+	}).render(true);
+	
 };
 
 /* -------------------------------------------- */
@@ -651,10 +673,10 @@ function _DeParaAtributeType(value, adic) {
 /* -------------------------------------------- */
 
 function _migrateClasse(item, updateData) {
-	if (item.type != "classe") return;
+	if (item.type !== "classe") return;
 	if( item.parent ){
 		let classe = item.parent.items.find(i => i.type == "classe" );
-		if( item.id == classe.id ) {
+		if( item._id == classe.id ) {
 			updateData["data.inicial"] = true;
 		}
 	}

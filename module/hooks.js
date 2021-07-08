@@ -35,7 +35,8 @@ export default function () {
 		
 		new Dialog({
 			"title": `Atualizar Sistema`,
-			"content": `<p style="text-align:center">Realizar a atualização do Sistema? (Não é possível desfazer)</p>`,
+			"content": `<h2>BETA 0.8.8 <i class="fas fa-exclamation-triangle"></i></h2>
+			<p style="text-align:center">Realizar a atualização do Sistema? (Não é possível desfazer)</p>`,
 			"buttons": {
 				"no": {
 					"icon": '<i class="fas fa-times"></i>',
