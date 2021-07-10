@@ -17,6 +17,7 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/actor/parts/actor-spells.html",
 		"systems/tormenta20/templates/actor/parts/actor-skills.html",
 		"systems/tormenta20/templates/actor/parts/actor-traits.html",
+		"systems/tormenta20/templates/actor/parts/actor-modifiers.html",
 		"systems/tormenta20/templates/actor/parts/active-effects.html",
 
 		// Item Sheet Partials

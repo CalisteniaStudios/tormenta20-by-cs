@@ -138,12 +138,12 @@ export const ApplyButtons = function (app, html, data)
  * @param {Number} multiplier A damage multiplier to apply to the rolled damage.
  * @return {Promise}
  */
-function applyChatCardDamage(roll, multiplier, heal = false) {
+function applyChatCardDamage(roll, multiplier) {
 	if (canvas.tokens.controlled.length) {
 		const amount = roll.find('.roll--dano').find('.dice-total').text();
 		return Promise.all(canvas.tokens.controlled.map(t => {
 			const a = t.actor;
-			return a.applyDamage(amount, multiplier, heal);
+			return a.applyDamage(amount, multiplier, true);
 		}));
 	}
 	else {
@@ -186,12 +186,12 @@ function applyInsideChatManaSpend(mana) {
 	}
 }
 
-function applyInsideChatCardDamage(amount, multiplier, heal = false) {
+function applyInsideChatCardDamage(amount, multiplier) {
 	if (canvas.tokens.controlled.length) {
 		// const amount = roll.find('.dice-total').text();
 		return Promise.all(canvas.tokens.controlled.map(t => {
 			const a = t.actor;
-			return a.applyDamage(amount, multiplier, heal);
+			return a.applyDamage(amount, multiplier, true);
 		}));
 	}
 	else {

@@ -13,7 +13,6 @@
 	<section class="sheet-body">
 		{{!-- Sheet Tab --}}
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
-
 			<div class="flexrow title-row">
 				<input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 				<aside class="text-right flexrow">
@@ -277,7 +276,7 @@
 
 			</div>
 			<div style="font-size:14px;">
-				<a class="trait-selector" data-options="deslocamento" data-target="data.attributes.movement">
+				<a class="config-button" data-action="movement" data-target="data.attributes.movement">
 					<label>Deslocamento: </label>
 				</a>
 				<ul class="trait-list">
@@ -351,7 +350,7 @@
 									{{/if}}
 								</label>
 							</span>
-							{{#if item.data.description.value }}
+							{{#if (or (eq item.data.description.value "") item.data.description.value ) }}
 								{{{stripTags item.data.description.value}}}
 							{{else}}
 								{{{stripTags item.data.description}}}
@@ -480,6 +479,10 @@
 		{{!-- Efeitos Tab --}}
 		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
 			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
+		{{!-- Modificadores Tab --}}
+		<div class="tab mods" data-group="primary" data-tab="mods">
+			{{> "systems/tormenta20/templates/actor/parts/actor-modifiers.html"}}
 		</div>
 	</section>
 </form>

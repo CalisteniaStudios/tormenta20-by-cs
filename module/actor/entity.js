@@ -497,7 +497,9 @@ export default class ActorT20 extends Actor {
 		if (attribute === "attributes.pv" || attribute === "attributes.pm") {
 			const hp = getProperty(this.data.data, attribute);
 			const delta = isDelta ? (-1 * value) : (hp.value + hp.temp) - value;
-			return this.applyDamage(delta);
+			if( attribute === "attributes.pm" ){
+				return this.spendMana(delta);
+			} else return this.applyDamage(delta);
 		}
 		return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
 	}
@@ -510,12 +512,12 @@ export default class ActorT20 extends Actor {
 	 * @param {number} multiplier	 A multiplier which allows for resistance, vulnerability, or healing
 	 * @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	 */
-	async applyDamage(amount = 0, multiplier = 1) {
+	async applyDamage(amount = 0, multiplier = 1, applyRD = false) {
 		amount = Math.floor(parseInt(amount) * multiplier);
 		const pv = this.data.data.attributes.pv;
 		const originalDGM = amount;
 		// Prepare Damage Reduction if damage
-		const rd = this.data.data.tracos?.resistencias?.dano?.value || 0;
+		const rd = applyRD ? this.data.data.tracos?.resistencias?.dano?.value || 0 : 0;
 		amount = amount > 0 ? Math.max(amount - rd, 0) : amount;
 
 		// Deduct damage from temp HP first
@@ -537,7 +539,8 @@ export default class ActorT20 extends Actor {
 			attribute: "attributes.pv",
 			value: amount,
 			isDelta: false,
-			isBar: true
+			isBar: true,
+			xablau: "xablau",
 		}, updates);
 
 		if ( true ){
@@ -549,6 +552,7 @@ export default class ActorT20 extends Actor {
 					speaker: ChatMessage.getSpeaker(speaker),
 					type: CONST.CHAT_MESSAGE_TYPES.OTHER,
 				};
+				
 				ChatMessage.create(chatData, {});
 			};
 			let _fas = "";
@@ -559,8 +563,7 @@ export default class ActorT20 extends Actor {
 			if ( dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${dt} PVs temp ( ${tmp}PVT >> ${tmp - dt} PVT )<br>`;
 			if ( amount < 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> ${amount*-1} PVs ( ${pv.value}PV >> ${dh} PV )`;
 			else if ( amount - dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${amount - dt} PVs ( ${pv.value}PV >> ${dh} PV )`;
-			
-			toChat(this, chatMessage);
+			// toChat(this, chatMessage);
 		}
 		return allowed !== false ? this.update(updates) : this;
 
@@ -891,21 +894,17 @@ export default class ActorT20 extends Actor {
 			tmpPMspend = 0;
 			newSptAmount = amount;
 			spendMana = Math.clamped(pm.value + newSptAmount, 0, pm.max);
-			chatMessage = `<i class="fas fa-recover-mana"></i> +${newSptAmount} pontos PM`;
+			chatMessage = `<i class="fas fa-user-plus"></i> +${newSptAmount} PM`;
 		} else {
 			amount = Math.floor(parseInt(amount) + adjust);
 			newSptAmount = amount;
-
 			// Deduct damage from temp Mana first
-
 			tmpPMspend = newSptAmount > 0 ? Math.min(tmpPM, newSptAmount) : 0;
-
 			chatMessage = `<i class="fas fa-user-minus"></i> ${newSptAmount} PMs`;
-
 			// Remove Mana
 			spendMana = Math.clamped(pm.value - (newSptAmount - tmpPMspend), 0, pm.max);
 		}
-		toChat(this, chatMessage);
+		// toChat(this, chatMessage);
 		// Update the Actor
 		return this.update({
 			"data.attributes.pm.temp": tmpPM - tmpPMspend,
@@ -965,8 +964,9 @@ export default class ActorT20 extends Actor {
 					: (rollMode === "selfroll" ? [game.user._id] : null)),
 				blind: rollMode === "blindroll"
 			}
-			for (const roll of options.rolls){
-				game.dice3d.showForRoll(roll, game.user, true, wd.whisper, wd.blind)
+			if( options.itemData.rolled ){
+			// for (const roll of options.itemData.rolled){
+				game.dice3d.showForRoll(options.itemData.rolled, game.user, true, wd.whisper, wd.blind)
 			}
 		}
 		// Create the Chat Message or return its data

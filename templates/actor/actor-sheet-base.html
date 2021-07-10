@@ -4,6 +4,7 @@
 		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
 		<label><i class="fas fa-book"></i> <a class="item" data-tab="journal">Diário</a></label>
 		<label><i class="fas fa-bahai"></i> <a class="item" data-tab="efeitos" title="Efeitos">Efeitos</a></label>
+
 		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
 
@@ -352,6 +353,11 @@
 		{{!-- Efeitos Tab --}}
 		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
 			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
+
+		{{!-- Modificadores Tab --}}
+		<div class="tab mods" data-group="primary" data-tab="mods">
+			{{> "systems/tormenta20/templates/actor/parts/actor-modifiers.html"}}
 		</div>
 	</section>
 </form>

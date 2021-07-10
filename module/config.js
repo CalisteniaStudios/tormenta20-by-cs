@@ -183,6 +183,11 @@ T20.tokenHPColors = {
     tempmax: 0x440066,
     negmax: 0x550000
 }
+T20.tokenMPColors = {
+    temp: 0x0000FF,
+    tempmax: 0x440066,
+    negmax: 0x550000
+}
 
 T20.creatureTypes = {
     "hum": "Humanóide",

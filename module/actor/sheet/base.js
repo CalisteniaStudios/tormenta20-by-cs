@@ -118,6 +118,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Prepare owned items
 		this._prepareItems(data);
 
+		data.modificadores = this._getModificadores();
 		// Prepare active effects
 		data.effects = prepareActiveEffectCategories(this.actor.effects);
 
@@ -276,10 +277,8 @@ export default class ActorSheetT20 extends ActorSheet {
 		if ( this.actor.isOwner ) {
 			// Rollable abilities.
 			html.find('.rollable.atributo-rollable').click(this._onRollAtributo.bind(this));
-
 			// Rollable skills.
 			html.find('.rollable.pericia-rollable').click(this._onRollPericia.bind(this));
-
 			// Roll item
 			html.find('.item .item-image').click(event => this._onItemRoll(event));
 
@@ -688,6 +687,39 @@ export default class ActorSheetT20 extends ActorSheet {
 		event.preventDefault();
 		const field = event.currentTarget.previousElementSibling;
 		this.actor.update({[field.name]: 1 - parseInt(field.value == "" ? 0 : field.value)});
+	}
+
+	_getModificadores(){
+		const modificadores = [
+			{name: "data.modificadores.atributos.for", label: "Testes de Força"},
+			{name: "data.modificadores.atributos.des", label: "Testes de Destreza"},
+			{name: "data.modificadores.atributos.con", label: "Testes de Constintuição"},
+			{name: "data.modificadores.atributos.int", label: "Testes de Inteligência"},
+			{name: "data.modificadores.atributos.sab", label: "Testes de Sabedoria"},
+			{name: "data.modificadores.atributos.car", label: "Testes de Carisma"},
+			{name: "data.modificadores.atributos.geral", label: "Testes de Atributos"},
+			{name: "data.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos"},
+			{name: "data.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais"},
+			{name: "data.modificadores.custoPM", label: "Aumento de custo de PM"},
+			{name: "data.modificadores.dano.geral", label: "Dano Geral"},
+			{name: "data.modificadores.dano.cac", label: "Dano Corpo a Corpo"},
+			{name: "data.modificadores.dano.ad", label: "Dano A Distância"},
+			{name: "data.modificadores.dano.mag", label: "Dano de Magias"},
+			{name: "data.modificadores.pericias.geral", label: "Testes de Perícias"},
+			{name: "data.modificadores.pericias.ataque", label:"Testes de Perícias de Ataque"},
+			{name: "data.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque"},
+			{name: "data.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências"},
+			{name: "data.modificadores.pericias.atr.for", label: "Testes de Perícias de Força"},
+			{name: "data.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza"},
+			{name: "data.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição"},
+			{name: "data.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência"},
+			{name: "data.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria"},
+			{name: "data.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
+		];
+		for ( let b of modificadores ) {
+			b.value = getProperty(this.object.data._source, b.name) || "";
+		}
+		return modificadores;
 	}
 
 	/* -------------------------------------------- */

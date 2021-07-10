@@ -36,7 +36,9 @@ export class TokenT20 extends Token {
 
 	/** @inheritdoc */
 	_drawBar(number, bar, data) {
-		if ( data.attribute === "attributes.pv" ) return this._drawHPBar(number, bar, data);
+		if ( data.attribute === "attributes.pv" || data.attribute === "attributes.pm" ){
+			return this._drawHPBar(number, bar, data);
+		}
 		return super._drawBar(number, bar, data);
 	}
 
@@ -50,9 +52,9 @@ export class TokenT20 extends Token {
 	 * @private
 	 */
 	_drawHPBar(number, bar, data) {
-
 		// Extract health data
-		let {value, max, temp, tempmax} = this.document.actor.data.data.attributes.pv;
+		const actorData = this.document.actor.data.data;
+		let {value, max, temp, tempmax} = getProperty(actorData, data.attribute);//.attributes.pv;
 		temp = Number(temp || 0);
 		tempmax = Number(tempmax || 0);
 
@@ -67,8 +69,12 @@ export class TokenT20 extends Token {
 
 		// Determine colors to use
 		const blk = 0x000000;
-		const hpColor = PIXI.utils.rgb2hex([(1-(colorPct/2)), colorPct, 0]);
-		const c = CONFIG.T20.tokenHPColors;
+		const tknBarColor = [
+			[(1-(colorPct/2)), colorPct, 0],
+			[(0.5 * colorPct), (0.7 * colorPct), 0.5 + (colorPct / 2)]
+		]
+		const hpColor = PIXI.utils.rgb2hex(tknBarColor[number]);
+		const c = data.attribute === "attributes.pm" ? CONFIG.T20.tokenMPColors : CONFIG.T20.tokenHPColors;
 		
 		// Determine the container size (logic borrowed from core)
 		const w = this.w;

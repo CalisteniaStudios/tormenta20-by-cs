@@ -710,7 +710,7 @@ export default class ItemT20 extends Item {
 					: (rollMode === "selfroll" ? [game.user._id] : null)),
 				blind: rollMode === "blindroll"
 			}
-			for (const roll of options.rolls){
+			for( let [key, roll] of Object.entries(this.data.data.rolled) ) {
 				game.dice3d.showForRoll(roll, game.user, true, wd.whisper, wd.blind)
 			}
 		}

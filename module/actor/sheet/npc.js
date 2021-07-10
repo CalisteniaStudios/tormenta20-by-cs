@@ -139,12 +139,16 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		if (!this.options.editable) return;
 
 		if ( this.actor.isOwner ) {
-			html.find('[contenteditable=true]').on("keypress", event => this._onSubmitNPC(event) );
-			html.find('[contenteditable=true]').on("focusout" , event => this._onContentEdit(event) );
+			// html.find('[contenteditable=true]').on("keypress", event => this._onSubmitNPC(event) );
+			// html.find('[contenteditable=true]').on("focusout" , event => this._onContentEdit(event) );
 			// Rollable abilities.
 			html.find('.magia-rollable').click(event => this._onItemRoll(event));
 			html.find('.arma-rollable').click(event => this._onItemRoll(event));
 			html.find('.poder-rollable').click(event => this._onItemRoll(event));
+			
+			html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		}
 
 		// Drag events for macros.

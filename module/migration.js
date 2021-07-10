@@ -450,7 +450,7 @@ function _migrateActorData8X(actor, updateData) {
 	if ( profArmaduras?.value ) profArmaduras.value = profArmaduras.value.map(p => profArmad8x[p]);
 	updateData["data.tracos.profArmaduras"] = profArmaduras;
 	updateData["data.attributes.conjuracao"] = ad.atributoChave;
-	updateData["data.tracos.resistencias.dano.value"] = Number(ad.rd?.base || 0) + Number(ad.rd?.temp || 0);
+	updateData["data.tracos.resistencias.dano.value"] = Number(ad.rd?.base || 0) + Number(ad.rd?.temp || 0) + Number(ad.rd?.bonus || 0);
 
 	if( actor.type == "npc" ){
 		// const crType = {"humanoide": "hum","monstro": "mon","animal": "ani","construto": "con","espirito": "esp","mortovivo": "mor","morto-vivo": "mor"};
@@ -924,7 +924,7 @@ function _migrateItemWeapon(item, updateData) {
 			e.key = e.key.replace(/.pericias.fur/, ".pericias.furt");
 			e.key = e.key.replace(/.pericias.gue/, ".pericias.guer");
 			e.key = e.key.replace(/.pericias.ini/, ".pericias.inic");
-			e.key = e.key.replace(/.pericias.int./, ".pericias.inti");
+			e.key = e.key.replace(/.pericias.int/, ".pericias.inti");
 			e.key = e.key.replace(/.pericias.inv/, ".pericias.inve");
 			e.key = e.key.replace(/.pericias.jog/, ".pericias.joga");
 			e.key = e.key.replace(/.pericias.lad/, ".pericias.ladi");
@@ -940,7 +940,11 @@ function _migrateItemWeapon(item, updateData) {
 			e.key = e.key.replace(/.pericias.rel/, ".pericias.reli");
 			e.key = e.key.replace(/.pericias.sob/, ".pericias.sobr");
 			e.key = e.key.replace(/.pericias.von/, ".pericias.vont");
-	
+
+			e.key = e.key.replace(/data.rd.base/, "data.tracos.resistencias.dano.value");
+			e.key = e.key.replace(/data.rd.temp/, "data.tracos.resistencias.dano.value");
+			e.key = e.key.replace(/data.rd.bonus/, "data.tracos.resistencias.dano.value");
+
 			e.key = e.key.replace(/flags.pvBonus/, "flags.tormenta20.lvlconfig.pvBonus");
 			e.key = e.key.replace(/flags.pmBonus/, "flags.tormenta20.lvlconfig.pmBonus");
 
