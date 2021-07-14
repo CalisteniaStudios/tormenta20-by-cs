@@ -306,7 +306,7 @@ export default class ItemT20 extends Item {
 		if ( roll.parts[1][0] ) {
 			// parts.push("@skill");
 			parts[1] = "@skill";
-			rollData.skill = actorData.pericias[roll.parts[1][0]].value;
+			rollData.skill = actorData.pericias[roll.parts[1][0]].value ?? 0;
 			// Change Skill Ability modifier
 			if( roll.parts[1][1] ){
 				const skill = actorData.pericias[roll.parts[1][0]];
@@ -450,13 +450,13 @@ export default class ItemT20 extends Item {
 		item.data.data.rolled = {};
 		
 
-		if( item.data.data.rolls.find(r=>r.type == "ataque" && r.parts.length) ){
+		if( item.data.data.rolls.find(r=>r.type == "ataque" && r.parts.length && r.parts[0][0]) ){
 			await item.rollAttack({options:options});
 		}
-		if( item.data.data.rolls.find(r=>r.type == "formula" && r.parts.length) ){
+		if( item.data.data.rolls.find(r=>r.type == "formula" && r.parts.length && r.parts[0][0]) ){
 			await item.rollFormula({options:options});
 		}
-		if( item.data.data.rolls.find(r=>r.type == "dano" && r.parts.length) ){
+		if( item.data.data.rolls.find(r=>r.type == "dano" && r.parts.length && r.parts[0][0]) ){
 			await item.rollDamage({options:options});
 		}
 		
@@ -1070,6 +1070,8 @@ export default class ItemT20 extends Item {
 							r.parts[1][0] = ch.value.charAt(0) == "@" ? ch.value : `@${ch.value}`;
 						} else if( item.type == "arma" && ch.key == "tipoDano" ) {
 							r.parts[0][1] = ch.value;
+						} else if( ["","-"].includes(ch.value) ) {
+							r.parts = [];
 						} else if(Number(ch.value) || ch.value.charAt(0) == "@" || ch.value.match(re.die)) {
 							rollMods[r.key][p].override = ch.value;
 						}

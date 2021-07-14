@@ -106,7 +106,7 @@ if(actor) {
 * @param {string} itemName
 * @return {Promise}
 */
-export async function rollItemMacro(itemName, extra = null) {
+export async function rollItemMacro(itemName, extra = {}) {
 	const speaker = ChatMessage.getSpeaker();
 	let actor;
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
@@ -120,7 +120,7 @@ export async function rollItemMacro(itemName, extra = null) {
 		return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
 	}
 	//Object.values(extra).some(e=> e.match(/^=/) )
-	if ( extra.atq.match(/^=/) || extra.dano.match(/^=/) ) {
+	if ( items[0].type === "arma" && (extra.atq.match(/^=/) || extra.dano.match(/^=/)) ) {
 		ui.notifications.warn(`Substituir bonus de ataque e dano (ie: "=15") não é suportado no momento.`);
 	}
 	const item = items[0];
@@ -135,55 +135,15 @@ export async function rollItemMacro(itemName, extra = null) {
 
 
 
-export async function rollSkillMacro(skillName, subtype) {
+export async function rollSkillMacro(skillName) {
 	const speaker = ChatMessage.getSpeaker();
 	let actor;
-	let skill;
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
 	if (!actor) actor = game.actors.get(speaker.actor);
 	if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
 
-	// let skillData = {padrao: actor.data.data.pericias, oficios: actor.data.data.pericias.ofi.mais, custom: actor.data.data.periciasCustom}[subtype];
-	// skillData[skillName].formula = "1d20+@mod";
-
-
-	if (subtype == "oficios") {
-		for (let [t, sk] of Object.entries(actor.data.data.pericias["ofi"].mais)) {
-			if (sk.label === skillName) {
-				skill = sk;
-				skill.id=t;
-				break;
-			}
-		}
-	} else if (subtype == "custom") {
-		for (let [t, sk] of Object.entries(actor.data.data.periciasCustom)) {
-			if (sk.label === skillName) {
-				skill = sk;
-				skill.id=t;
-				break;
-			}
-		}
-	} else {
-		for (let [t, sk] of Object.entries(actor.data.data.pericias)) {
-			if (sk.label === skillName) {
-				skill = sk;
-				skill.id=t;
-				break;
-			}
-		}
-	}
-	const itemData = {
-		actor: actor,
-		isOwned: true,
-		type: "pericia",
-		data: skill,
-		roll: `1d20+${skill.value}`,
-		name: skillName.replace(/[\*||\+]/g,"").trim(),
-		id: skill.id
-	};
-	// Trigger the item roll
-	let rolls = {};
-	rolls = await actor.rollPericia(itemData, {event: event});
-		
-	actor.displayCard({rolls, itemData});
+	let pericias = Object.entries(actor.data.data.pericias);
+	let skl = pericias.find(p => p[1].label == skillName )[0];
+	await actor.rollPericia(skl, {event: event});
+	
 }

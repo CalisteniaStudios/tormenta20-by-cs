@@ -188,14 +188,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			
 			// Prepare spells
 			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
-
+			
 			// Drag events for macros.
 			let handler = ev => this._onDragStart(ev);
 			html.find('li.skill').each((i, li) => {
-				// if (li.classList.contains("inventory-header")) return;
-				// if (li.id === "atributo") return;
 				if (!li.hasAttribute("data-item-id")) return;
-				if (!li.hasAttribute("data-type")) return;
 				li.setAttribute("draggable", true);
 				li.addEventListener("dragstart", handler, false);
 			});

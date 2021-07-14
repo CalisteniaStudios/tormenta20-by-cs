@@ -86,7 +86,12 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português",
+      "path": "lang/pt-BR.json"
     }
   ],
   "gridDistance": 1.5,
