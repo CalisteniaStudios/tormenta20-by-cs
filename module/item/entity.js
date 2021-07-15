@@ -939,10 +939,10 @@ export default class ItemT20 extends Item {
 				addDie:0, addNum:0, perDie:0 }) );
 			return acc;
 		}, {});
-		
 		// Aprimoramentos Aplicados
 		const aplicados = expandObject(configuration).aprs;
 		const aprimoramentos = this.aprimoramentosValidos.filter(ef => aplicados[ef.id]?.aplica );
+		
 		// Efeitos temporários
 		let effectList = this.effects.filter( ef => !ef.data.flags.tormenta20.onuse && !ef.data.disabled);
 		let optEffectList = this.effects.filter( ef => !ef.data.flags.tormenta20.onuse && ef.data.disabled);
@@ -1149,7 +1149,7 @@ export default class ItemT20 extends Item {
 		aprimoramentos.forEach(function(ef){
 			// Prepare chat content;
 			let ap = {};
-			ap.description = item.type == "arma"? ef._sourceName : ef.data.label;
+			ap.description = item.type !== "arma"? ef.data.label : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.data.label}` : ef._sourceName );
 			ap.custo = Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
 			ap.qtd = Number(aplicados[ef.id]?.aplica) || 1;
 			if( options.aprimoramentos.find(i=> i.description == ap.description ) ){

@@ -154,10 +154,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Drag events for macros.
 		let handler = ev => this._onDragStart(ev);
 		html.find('.pericia-rollable').each((i, li) => {
-			// if (li.classList.contains("inventory-header")) return;
-			// if (li.id === "atributo") return;
 			if (!li.hasAttribute("data-item-id")) return;
-			if (!li.hasAttribute("data-type")) return;
 			li.setAttribute("draggable", true);
 			li.addEventListener("dragstart", handler, false);
 		});
