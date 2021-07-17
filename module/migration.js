@@ -634,6 +634,8 @@ function _DeParaSkills(key) {
 		case "vontade":
 		newkey = "vont";
 		break;
+		default:
+			newkey = "luta";
 	}
 	return newkey;
 }
@@ -801,6 +803,13 @@ function _migrateItemWeapon(item, updateData) {
 		let atbSkill = item.parent.data.pericias[item.data.pericia].atributo;
 		item.data.atrAtq = item.data.atrAtq == "0"? "" : item.data.atrAtq;
 		atrAtq = atbSkill == item.data.atrAtq ? "" : item.data.atrAtq;
+	}
+	if ( !['lut', 'pon', 'atu'].includes(item.data.pericia) ) {
+		if( item.data.propriedades.ataqueDistancia ){
+			item.data.pericia = 'pon';
+		} else {
+			item.data.pericia = 'lut';
+		}
 	}
 	rollAtaque["parts"].push([
 		_DeParaSkills(item.data.pericia),

@@ -389,9 +389,6 @@
         "autoDestroy": false
       }
     },
-    "equip": {
-      "_deprecated": null
-    },
     "classe": {
       "templates": ["base"],
       "niveis": 1,

@@ -306,7 +306,7 @@ export default class ItemT20 extends Item {
 		if ( roll.parts[1][0] ) {
 			// parts.push("@skill");
 			parts[1] = "@skill";
-			rollData.skill = actorData.pericias[roll.parts[1][0]].value ?? 0;
+			rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
 			// Change Skill Ability modifier
 			if( roll.parts[1][1] ){
 				const skill = actorData.pericias[roll.parts[1][0]];
