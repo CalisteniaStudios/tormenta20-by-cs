@@ -64,7 +64,6 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 }
 
 export async function damageRoll({parts, actor, data, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false}={}) {
-
 	parts = parts.concat(["@bonus"]);
 	// Define inner roll function
 	const _roll = function(parts, crit, form) {
@@ -105,9 +104,9 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 				roll._formula = roll.formula;
 			}
 			if(lancinante){
-				roll.terms.forEach(function(item, index){
-					if( parseInt(item) ){
-						roll.terms[index] = item * criticalMultiplier;
+				roll.terms.forEach(function(term, index){
+					if( term instanceof NumericTerm ){
+						roll.terms[index].number = term.number * criticalMultiplier;
 					}
 				});
 				roll._formula = roll.formula;

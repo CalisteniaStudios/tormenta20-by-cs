@@ -789,7 +789,10 @@ function _migrateItemWeapon(item, updateData) {
 		props[chav] = value;
 	}
 	updateData["data.propriedades"] = props;
-	
+	const enchs = {};
+	enchs.lancinante = item.data.lancinante;
+	updateData["data.propriedades"] = enchs;
+
 	updateData["data.tipoUso"] = _DeParaTipoArma(item.data.tipoUso);
 	
 	rollAtaque["key"] = "ataque0";

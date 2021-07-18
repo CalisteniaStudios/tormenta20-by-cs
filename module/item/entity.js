@@ -820,7 +820,6 @@ export default class ItemT20 extends Item {
 			const rollData = this.getRollData();
 			// Configure the damage roll
 			const title = this.name;
-			
 			const rollConfig = {
 				actor: this.actor,
 				critical: critical ?? false,
