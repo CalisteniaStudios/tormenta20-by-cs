@@ -177,9 +177,11 @@ export default class ItemT20 extends Item {
 		if ( data.hasOwnProperty("resistencia") ) {
 			let save = data.resistencia || {};
 			const actorData = this.actor?.data?.data ?? null;
-			let base = this.isOwned && actorData ? actorData.attributes.cd ?? 0 : 0;
-			let mod = this.isOwned && actorData ? actorData.atributos[save.atributo]?.mod || 0 : 0;
-			let cd = base + mod + (Number(save.bonus) || 0);
+			const nivel = actorData ? actorData.attributes.nivel.value ?? 0 : 0;
+			const atr = actorData ? actorData.atributos[save.atributo]?.mod ?? 0 : 0;
+			let base = this.isOwned && actorData ? Math.floor(nivel/2) ?? 0 : 0;
+			let mod = this.isOwned && atr ? atr : 0;
+			let cd = 10 + base + mod + (Number(save.bonus) || 0);
 			labels.save = save.txt ? save.txt + ` (CD ${cd})` : save.txt;
 		}
 
@@ -981,7 +983,7 @@ export default class ItemT20 extends Item {
 				duracao:			["duracao.value", C.timePeriods ],
 				resistencia:	["resistencia.value", null ],
 				atributoCD:		["resistencia.atributo", C.atributos ],
-				bonusCD:			["resistencia.bonus", null ],
+				cd:						["resistencia.bonus", null ],
 				efeito: 			["efeito", null ],
 				// PERICIA
 				atributo:			["atributo", null],
@@ -1104,8 +1106,10 @@ export default class ItemT20 extends Item {
 					re.float = /[\d+]?[,]?\d+/;
 					if( Number(ch.value) ){
 						let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
-						if( Number(temp) ) _campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qtd);
-						else if ( temp ) {
+						if( Number.isNumeric(Number(temp)) ) {
+							_campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qtd);
+						}
+						else if ( temp !== false ) {
 							temp.replace(/\d+/, (match) => Number(match)+(Number(ch.value)*qtd) );
 						}
 					} else if( ch.value.match(re.float) && ch.key == "area" ){

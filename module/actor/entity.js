@@ -34,11 +34,11 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
-		// super.prepareData();
-		this.data.reset();
-		this.prepareBaseData();
-		this.prepareDerivedData();
-		super.prepareEmbeddedEntities();
+		super.prepareData();
+		// this.data.reset();
+		// this.prepareBaseData();
+		// this.prepareDerivedData();
+		// super.prepareEmbeddedEntities();
 		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
@@ -50,7 +50,6 @@ export default class ActorT20 extends Actor {
 	prepareBaseData() {
 		const version = game.settings.get("tormenta20","systemMigrationVersion");
 		if( version < game.system.data.version ) return;
-		// if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
 		switch (this.data.type) {
 			case "character":
 				return this._prepareCharacterData(this.data);
