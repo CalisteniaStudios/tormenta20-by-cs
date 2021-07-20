@@ -35,8 +35,9 @@ export default function () {
 		
 		new Dialog({
 			"title": `Atualizar Sistema`,
-			"content": `<h2>BETA 0.8.8 <i class="fas fa-exclamation-triangle"></i></h2>
-			<p style="text-align:center">Realizar a atualização do Sistema? (Não é possível desfazer)</p>`,
+			"content": `<h2>Atualização 0.8.8 <i class="fas fa-exclamation-triangle"></i></h2>
+			<p style="text-align:center">O sistema será migrado para a versão v0.8.8 do Foundry, o processo não pode ser desfeito. <b>É recomendável que faça um backup de seu mundo antes antes de prosseguir</b></p>
+			<p style="text-align:center">Realizar a atualização do Sistema?</p>`,
 			"buttons": {
 				"no": {
 					"icon": '<i class="fas fa-times"></i>',
