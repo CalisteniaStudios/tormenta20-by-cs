@@ -34,7 +34,12 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
-		super.prepareData();
+		// super.prepareData();
+		this.data.reset();
+		this.prepareBaseData();
+		this.prepareDerivedData();
+		super.prepareEmbeddedEntities();
+		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
 	}
@@ -703,7 +708,8 @@ export default class ActorT20 extends Actor {
 		const ad = actorData.data;
 		pericia.id = key;
 		let consumeMana = 0;
-		let rollMode;
+		let rollMode = game.settings.get("core", "rollMode");
+
 		let itemData = {
 			name: pericia.label,
 			type: "pericia",
@@ -743,8 +749,20 @@ export default class ActorT20 extends Actor {
 
 		options.itemData.rolled = await d20Roll(rollConfig);
 		
+		let combate = game.combats.active;
+		if (pericia.label == "Iniciativa" && combate) {
+			let roll = options.itemData.rolled;
+			let combatente = combate.combatants.find(
+				(combatant) => combatant.actor.id === this.id
+			);
+			if (combatente && combatente.initiative === null) {
+				combate.setInitiative(combatente._id, roll.total);
+				console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
+			}
+		}
+
 		// LOGS
-		return this.displayCard({ options, rollMode});
+		return this.displayCard({ options, rollMode });
 	}
 
 	/* -------------------------------------------- */
@@ -759,7 +777,7 @@ export default class ActorT20 extends Actor {
 		const label = CONFIG.T20.atributos[key];
 		const abl = this.data.data.atributos[key];
 		const actor = this;
-		let rollMode;
+		let rollMode = game.settings.get("core", "rollMode");
 
 		// Construct parts
 		const parts = ["@mod"];
@@ -813,7 +831,7 @@ export default class ActorT20 extends Actor {
 		options.itemData.rolled = await d20Roll(rollConfig);
 		
 		// LOGS
-		return this.displayCard({ options, rollMode});
+		return this.displayCard({ options, rollMode });
 	}
 
 	/* -------------------------------------------- */

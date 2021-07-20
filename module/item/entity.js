@@ -107,7 +107,6 @@ export default class ItemT20 extends Item {
 	*/
 	prepareDerivedData() {
 		super.prepareDerivedData();
-		
 		const itemData = this.data;
 		const data = itemData.data;
 		const C = CONFIG.T20;
@@ -177,10 +176,11 @@ export default class ItemT20 extends Item {
 
 		if ( data.hasOwnProperty("resistencia") ) {
 			let save = data.resistencia || {};
-			let cd = 0 + (Number(save.bonus) || 0);
-			labels.save = cd ? save.txt + ` (CD ${cd})` : save.txt;
-			
-			
+			const actorData = this.actor?.data?.data ?? null;
+			let base = this.isOwned && actorData ? actorData.attributes.cd ?? 0 : 0;
+			let mod = this.isOwned && actorData ? actorData.atributos[save.atributo]?.mod || 0 : 0;
+			let cd = base + mod + (Number(save.bonus) || 0);
+			labels.save = save.txt ? save.txt + ` (CD ${cd})` : save.txt;
 		}
 
 		// Tipos de Dano
@@ -372,6 +372,7 @@ export default class ItemT20 extends Item {
 	 */
 	async roll({configureDialog=true, rollMode, createMessage=true, extra={}}={}) {
 		let item = this;
+		rollMode = game.settings.get("core", "rollMode");
 		// Hold to check later
 		if ( true ) {
 			item = this.clone({keepId: true});
@@ -434,7 +435,7 @@ export default class ItemT20 extends Item {
 					if ( !["","0",undefined].includes(extra.dadoDano) ) r.parts[0][0] = extra.dadoDano;
 					if ( !["","0",undefined].includes(extra.atributoDano) ) r.parts[1][0] = "@" + extra.atributoDano;
 					if ( extra?.dano?.match(/^=/) ) r.parts = [[extra.dano.replace("=",""),""]];
-					else if ( !["","0"].includes(extra.dano) ) r.parts.push([extra.dano, ""]);
+					else if ( !["","0",undefined].includes(extra.dano) ) r.parts.push([extra.dano, ""]);
 				}
 			});
 
