@@ -1,96 +1,52 @@
-<form class="tormenta20 flexcol" autocomplete="off">
+<form class="{{cssClass}} flexcol" autocomplete="off">
 	{{!-- Item Sheet Header --}}
-    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+	{{> "systems/tormenta20/templates/item/parts/item-header.html"}}
 	
 	{{!-- Item Sheet Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item active" data-tab="description">Descrição</a>
-        <a class="item" data-tab="details">Detalhes</a>
-        <a class="item" data-tab="encantos">Encantos</a>
-        <a class="item" data-tab="effects">Efeitos</a>
-    </nav>
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item active" data-tab="description">{{ localize "T20.Description" }}</a>
+		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
+		<a class="item" data-tab="encantos">Encantos</a>
+		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
+	</nav>
 
 	{{!-- Item Sheet Body --}}
-    <section class="sheet-body">
-
-        {{!-- Description Tab --}}
-        {{> "systems/tormenta20/templates/item/parts/item-description.html"}}
-
-        {{!-- Details Tab --}}
-        <div class="tab details" data-group="primary" data-tab="details">
-
-            {{!-- Weapon Type --}}
-            <div class="form-group">
-                <label>Tipo</label>
-				<div class="form-fields">
-					<select class="selectatr" name="data.tipoUso">
-						{{#select data.tipoUso}}
-						{{#each config.weaponTypes as |name type|}}
-						<option value="{{type}}">{{name}}</option>
-						{{/each}}
-						{{/select}}
-					</select>
-				</div>
-            </div>
-
-			<div class="form-group">
-				<label>Custo (PM)</label>
-				<div class="form-fields">
-					<input type="number" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
-				</div>
-			</div>
+	<section class="sheet-body">
+		{{!-- Description Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-description.html"}}
+		
+		{{!-- Details Tab --}}
+		<div class="tab details" data-group="primary" data-tab="details">
 			
-            {{!-- Weapon Properties --}}
-            <div class="form-group stacked weapon-properties">
-                <label>Propriedades</label>
-                {{#each config.weaponProperties as |name prop|}}
-                <label class="checkbox">
-                    <input type="checkbox" name="data.propriedades.{{prop}}" value="{{name}}" {{checked (lookup ../data.propriedades prop)}} data-dtype="Boolean" /> {{ name }}
-                </label>
-                {{/each}}
-            </div>
-
-            <hr>
-
-            <div class="form-group">
-				<label>Ataque: 1d20+</label>
+			{{!-- Weapon Type --}}
+			<div class="form-group">
+				<label>{{ localize "T20.Type" }}</label>
 				<div class="form-fields">
-					<select class="selectatr" name="data.atrAtq" value={{data.atrAtq}} title="Alterar Atributo do Ataque" data-type="String">
-						{{#select data.atrAtq}}
-						{{#if npc}}<option value="0">Nenhum</option>
-						{{else}}<option value="0">Padrão</option>{{/if}}
-						{{#each config.atributos as |atr key|}}
-						<option value="{{key}}">{{atr}}</option>
-						{{/each}}
-						{{/select}}
+					<select name="data.tipoUso">
+						{{selectOptions config.weaponTypes selected=data.tipoUso localize=true}}
 					</select>
-					<select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
-					  {{#select data.pericia}}
-					  {{#if npc}}<option value="0">Nenhum</option>{{/if}}
-					  <option value="lut">Luta</option>
-					  <option value="pon">Pontaria</option>
-					  <option value="atu">Atuação</option>
-					  {{/select}}
-					</select>
-					<input type="text" title="Bônus" name="data.atqBns" value="{{#ifEquals data.atqBns ''}}0{{else}}{{data.atqBns}}{{/ifEquals}}" data-dtype="String"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Dano: </label>
+				<label>{{ localize "T20.Cost" }}</label>
 				<div class="form-fields">
-					<input type="text" title="Dados de Dano" name="data.dano" value="{{data.dano}}" data-dtype="String"  placeholder="ex: 1d6" />
-					<select class="selectatr" name="data.atrDan" value={{data.atrDan}} data-type="String">
-						{{#select data.atrDan}}
-						<option value="0">Nenhum</option>
-						{{#each config.atributos as |atr key|}}
-						<option value="{{key}}">{{atr}}</option>
-						{{/each}}
-						{{/select}}
-					</select>
-					<input type="text" title="Bônus" name="data.danoBns" value="{{data.danoBns}}" data-dtype="String"  placeholder="ex.: +2 , +1d6+2"/>
-					<input type="text" title="Tipo de Dano" name="data.tipo" value="{{data.tipo}}" data-dtype="String" placeholder="Tipo" />
+						<input type="number" name="data.ativacao.custo" value="{{data.ativacao.custo}}" data-dtype="Number" placeholder="0"/><label>PM</label>
 				</div>
 			</div>
+			<hr>
+			{{!-- Weapon Properties --}}
+			<div class="form-group stacked weapon-properties">
+				<label>Propriedades</label>
+				{{#each config.weaponProperties as |name prop|}}
+				<label class="checkbox">
+					<input type="checkbox" name="data.propriedades.{{prop}}" value="{{name}}" {{checked (lookup ../data.propriedades prop)}} data-dtype="Boolean" /> {{ name }}
+				</label>
+				{{/each}}
+			</div>
+			<hr>
+			{{!-- Rolls --}}
+			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
+			
 			<div class="form-group">
 				<label>Crítico</label>
 				<div class="form-fields">
@@ -98,33 +54,36 @@
 					<input type="number" title="Multiplicador" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
-			{{#if (or data.propriedades.arremesso data.propriedades.ataqueDistancia)}}
+			{{#if (or data.propriedades.arr data.propriedades.dst)}}
 			<div class="form-group">
-				<label>Alcance</label>
+				<label>{{ localize "T20.Range" }}</label>
+				
 				<div class="form-fields">
 					<select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
 						{{#select data.alcance}}
-						<option value="">Nenhum</option>
-						<option value="Curto">Curto</option>
-						<option value="Médio">Médio</option>
-						<option value="Longo">Longo</option>
+						<option value=""></option>
+						<option value="short">{{localize "T20.DistShort"}}</option>
+						<option value="medium">{{localize "T20.DistMedium"}}</option>
+						<option value="long">{{localize "T20.DistLong"}}</option>
 						{{/select}}
 					</select>
 				</div>
 			</div>
 			{{/if}}
 			<hr>
+			
+			
 			<div class="form-group">
 				<label for="chatFlavor">ChatFlavor</label>
 				<textarea name="data.chatFlavor" contenteditable="true">{{data.chatFlavor}}</textarea>
 			</div>
 		</div>
 		
-		{{!-- Description Tab --}}
-        {{> "systems/tormenta20/templates/item/parts/item-encantos.html"}}
-
-        <div class="tab effects" data-group="primary" data-tab="effects">
-            {{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
-        </div>
+		{{!-- Encantos Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-encantos.html"}}
+		
+		<div class="tab effects" data-group="primary" data-tab="effects">
+			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
 	</section>
 </form>

@@ -1,0 +1,26 @@
+<form autocomplete="off">
+	<p class="notes">Configuração de resistências.</p>
+	<div class="form-group ">
+		<label>Resistência a:</label>
+		<input type="text" value="Valor" disabled />
+		<label style="flex: 0 0 20px; margin: 3px 5px; text-align: center;" title="Vulnerabilidade">V</label>
+		<label style="flex: 0 0 20px; margin: 3px 5px; text-align: center;" title="Imunidade">I</label>
+	</div>
+	<div class="form-group ">
+		<label>Dano</label>
+		<input type="number" name="data.tracos.resistencias.dano.value" min="0" value="{{resistance.dano.value}}"/>
+		<input type="checkbox"  name="data.tracos.resistencias.dano.vulnerabilidade" {{ checked resistance.dano.vulnerabilidade }} title="Vulnerabilidade"/>
+		<input type="checkbox"  name="data.tracos.resistencias.dano.imunidade" {{ checked resistance.dano.imunidade }} title="Imunidade"/>
+	</div>
+	{{#each config.damageTypes as | label key | }}
+	<div class="form-group">
+		<label>{{label}}</label>
+		{{#with (lookup ../resistance key) }}
+			<input type="number" name="data.tracos.resistencias.{{key}}.value"  min="0" value="{{value}}"/>
+			<input type="checkbox"  name="data.tracos.resistencias.{{key}}.vulnerabilidade" {{ checked vulnerabilidade }} title="Vulnerabilidade"/>
+			<input type="checkbox"  name="data.tracos.resistencias.{{key}}.imunidade" {{ checked imunidade }} title="Imunidade"/>
+			{{/with}}
+		</div>
+	{{/each}}
+	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> Enviar</button>
+</form>

@@ -1,8 +1,7 @@
 import { T20Conditions } from "./conditions/conditions.js";
 import { toggleEffect } from "./actor/condicoes.js";
 import { endSegment } from "./apps/time-segment.js";
-import { measureDistances, getBarAttribute } from "./canvas.js";
-import { T20Config } from "./config.js";
+import { measureDistances } from "./canvas.js";
 import ItemT20 from "./item/entity.js";
 import * as chat from "./chat.js";
 import * as macros from "./macros.js";
@@ -19,40 +18,41 @@ export default function () {
 
 		// Determine whether a system migration is required and feasible
 		if ( !game.user.isGM ) return;
-		if (!game.settings.get("tormenta20", "systemMigrationVersion")) game.settings.set("tormenta20", "systemMigrationVersion", "1.0.02");
+		const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion");
+		const NEEDS_MIGRATION_VERSION = "1.2.0.21";
+		const COMPATIBLE_MIGRATION_VERSION = "1.2.0.0";
+		const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
+		if ( !currentVersion && totalDocuments === 0 ) return game.settings.set("tormenta20", "systemMigrationVersion", game.system.data.version);
 
-		const currentVersion = game.settings.get("tormenta20", "systemMigrationVersion") ? game.settings.get("tormenta20", "systemMigrationVersion") : "1.0.02";
+		const needsMigration = !currentVersion || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+		if ( !needsMigration ) return;
 
-
-		const NEEDS_MIGRATION_VERSION = "1.1.57";
-		const COMPATIBLE_MIGRATION_VERSION = "1.1.57";
-		const needsMigration = currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
-
-		let buttons = {ok: {label: "Ok" }};
-		let readyToMigrate = true;
-		let msg = "<br><br><br>";
+		// Perform the migration
+		if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
+			const warning = `Seu mundo tem uma versão muito antiga do sistema. A migração será feita, mas erros podem ocorrer.`;
+			ui.notifications.error(warning, {permanent: true});
+		}
 		
-		if (needsMigration){
-			buttons =  {sair: {label:"Ignorar", callback: () => {readyToMigrate=false} },
-				atualizar: {label:"Atualizar", callback: ()=> {
-					if ( !needsMigration || !readyToMigrate ) return;
-					// Perform the migration
-					if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
-						const warning = `Sua versão do sistema Tormenta20 é muito antiga. A migração será feita, mas erros podem ocorrer.`;
-						ui.notifications.error(warning, {permanent: true});
+		new Dialog({
+			"title": `Atualizar Sistema`,
+			"content": `<h2>Atualização 0.8.8 <i class="fas fa-exclamation-triangle"></i></h2>
+			<p style="text-align:center">O sistema será migrado para a versão v0.8.8 do Foundry, o processo não pode ser desfeito. <b>É recomendável que faça um backup de seu mundo antes antes de prosseguir</b></p>
+			<p style="text-align:center">Realizar a atualização do Sistema?</p>`,
+			"buttons": {
+				"no": {
+					"icon": '<i class="fas fa-times"></i>',
+					"label": 'Cancelar'
+				},
+				"yes": {
+					"icon": '<i class="fas fa-check"></i>',
+					"label": 'Atualizar',
+					"callback": (html) => {
+						migrations.migrateWorld();
 					}
-					migrations.migrateWorld();
-				} } };
-			msg = "<p><b>É necessário atualizar, recomenda-se fazer backup antes de continuar. Se optar por não atualizar o sistema pode não funcionar corretamente.</b></p>"
-		}
-		if( !game.user.getFlag("tormenta20","startMsg") || game.user.getFlag("tormenta20","startMsg") < game.system.data.version ) {
-			new Dialog({
-				title: "Aviso",
-				content: `<h2>Atualização 1.2.0.0</h2><p>Esta versão trás novidades! <ul><li>Efeitos: condições, efeitos temporários, buffs. Tudo aquilo que altera características de personagem;</li><li>Nem tudo foi adaptado ainda (são cerca de 800 itens entre poderes e magias). Alguns poderes iniciais das classes foram adaptados, e as magias iniciadas com A;</li><li>Aprimoramentos foram migrados para um tipo especial de efeito;</li><li>Condições foram refeitas;</li><li>Acesse <a href="https://vizael.gitlab.io/tormenta20-fvtt/" target="_blank">https://vizael.gitlab.io/tormenta20-fvtt/</a> para mais informações!</li></ul>${msg}<br>Vizael</p>`,
-				buttons: buttons,
-			}, {height: 400, width: 450, resizable: false }).render(true);
-			game.user.setFlag("tormenta20","startMsg",game.system.data.version)
-		}
+				},
+			},
+			"default": 'yes',
+		}).render(true);
 	});	
 
 
@@ -64,9 +64,6 @@ export default function () {
 		// Extend Diagonal Measurement
 		canvas.grid.diagonalRule = game.settings.get("tormenta20", "diagonalMovement");
 		SquareGrid.prototype.measureDistances = measureDistances;
-
-		Token.prototype.getBarAttribute = getBarAttribute;
-		// Token.prototype.toggleEffect  = toggleEffect;
 	});
 
 
@@ -89,12 +86,18 @@ export default function () {
 
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {
-		// Optionally collapse the content
-		if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
+		// Display action buttons
 		if (game.settings.get("tormenta20", "applyButtonsInsideChat")){
 			chat.ApplyButtons(app, html, data);
 		}
+
+		// Highlight critical success or failure die
+		chat.highlightCriticalSuccessFailure(app, html, data);
+
+		// Optionally collapse the content
+		if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
 	});
+	
 	/* Add hook for the context menu over the rolled damage */
 	Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 
@@ -104,5 +107,9 @@ export default function () {
 	/* Add hook for End of Scene */
 	Hooks.on("renderSidebarTab", async (app, html) => endSegment(app,html)) ;
 
+	/* Debug hook */
+	// Hooks.on("modifyTokenAttribute", async (attribute, value, isDelta, isBar) => {
+	// 	console.log("Debug hook: Debug hook");
+	// }) ;
 	/* Measured Templates*/
 }

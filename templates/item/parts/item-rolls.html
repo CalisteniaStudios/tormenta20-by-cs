@@ -1,0 +1,146 @@
+<h3>Rolagens
+	<a class="rolls-control add-roll" data-roll-type="ataque"><i class="fas fa-plus"></i> Ataque</a>
+	<a class="rolls-control add-roll" data-roll-type="dano"><i class="fas fa-plus"></i> Dano</a>
+	<a class="rolls-control add-roll" data-roll-type="formula"><i class="fas fa-plus"></i> Fórmula</a>
+</h3>
+{{#each data.rolls as |roll key| }}
+	<hr>
+	{{!-- {parts, name, key, type} --}}
+	<div class="form-group">
+		<h4 class="roll-header flexrow">
+			<input type="text" class="flex-2" name="data.rolls.{{key}}.name" value="{{roll.name}}" title="Referência: {{roll.key}}" />
+			<input type="hidden" name="data.rolls.{{key}}.key" value="{{roll.key}}" />
+			<input type="hidden" name="data.rolls.{{key}}.type" value="{{roll.type}}" />
+			<div class="item-controls">
+				{{#if (eq roll.type "dano")}}
+					<a class="parts-control add-part" data-roll-id="{{key}}" data-roll-type="{{roll.type}}"><i class="fas fa-plus"></i></a>
+				{{/if}}
+				<a class="rolls-control delete-roll" data-roll-id="{{key}}" data-roll-type="{{roll.type}}"><i class="fas fa-trash"></i></a>
+			</div>
+		</h4>
+	</div>
+	{{!-- Ataque --}}
+	{{!-- [ pericia , atributo, bonus, ...parts] --}}
+	{{#if (eq roll.type "ataque" ) }}
+		<div class="form-group">
+			<ol class="roll-parts form-group">
+				<li class="roll-part flexrow">
+					<input type="hidden" name="data.rolls.{{key}}.parts.0.0" value="1d20" />
+					<select name="data.rolls.{{key}}.parts.1.0">
+						{{#select (lookup (lookup roll.parts 1) 0) }}
+							<option value="">{{ localize "T20.None" }}</option>
+							<optgroup label="Pardrões">
+								<option value="luta">Luta</option>
+								<option value="pont">Pontaria</option>
+								<option value="atua">Atuação</option>
+							</optgroup>
+							<optgroup label="Outras Perícias">
+								{{#each ../config.pericias as |name type|}}
+									{{#unless (or (eq type "luta" ) (eq type "pont" ) (eq type "atua") )}}
+										<option value="{{type}}">{{name}}</option>
+									{{/unless}}
+								{{/each}}
+							</optgroup>
+						{{/select}}
+					</select>
+					<select name="data.rolls.{{key}}.parts.1.1" title="Substituir Atributo da Perícia">
+						{{#select (lookup (lookup roll.parts 1) 1) }}
+							<option value="">Padrão</option>
+							{{#each ../config.atributos as |name type|}}
+								<option value="{{type}}">{{localize name}}</option>
+							{{/each}}
+						{{/select}}
+					</select>
+					<input type="text" name="data.rolls.{{key}}.parts.2.0" value="{{lookup (lookup roll.parts 2) 0}}" placeholder="Bônus" />
+				</li>
+				{{#if ready}}
+					{{#each roll.parts as |part i| }}
+						<li class="roll-part flexrow" data-roll-part="{{i}}">
+							<input type="text" name="data.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this " 0"}}" />
+							<input type="text" name="data.rolls.{{key}}.parts.{{i}}.1" value="{{lookup this " 1"}}" />
+							<a class="parts-control delete-part" data-roll-id="{{key}}" title="{{key}}"><i class="fas fa-minus"></i></a>
+						</li>
+					{{/each}}
+				{{/if}}
+			</ol>
+		</div>
+	{{/if}}
+
+
+	{{!-- Dano --}}
+	{{!-- [ dado, versatil, atributo, ...parts, tipo ] --}}
+	{{#if (eq roll.type "dano" ) }}
+		<div class="form-group">
+			<ol class="roll-parts form-group">
+				{{#if (eq ../item.type "arma") }}
+					<li class="roll-part flexrow" data-roll-part="{{i}}">
+						<input type="text" name="data.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"
+							title="Dano" />
+						{{#if ../data.propriedades.ada }}
+							<input type="text" name="data.rolls.{{key}}.versatil" value="{{roll.versatil}}" placeholder="Adaptável" />
+						{{else}}
+							<input type="hidden" name="data.rolls.{{key}}.versatil" value="" />
+						{{/if}}
+
+						<select name="data.rolls.{{key}}.parts.1.0" title="Atributo">
+							{{#select (lookup (lookup roll.parts 1) 0)}}
+								<option value=""></option>
+								{{#each ../config.atributos as |name type|}}
+									<option value="@{{type}}">{{localize name}}</option>
+								{{/each}}
+							{{/select}}
+						</select>
+
+						<select name="data.rolls.{{key}}.parts.0.1" title="Tipo de Dano">
+							{{#select (lookup (lookup roll.parts 0) 1)}}
+								<option value="">{{ localize "T20.None" }}</option>
+								{{#each ../config.damageTypes as |name type|}}
+									<option value="{{type}}">{{name}}</option>
+								{{/each}}
+								{{#each ../config.healingTypes as |name type|}}
+									<option value="{{type}}">{{name}}</option>
+								{{/each}}
+							{{/select}}
+						</select>
+					</li>
+				{{/if}}
+				{{#each roll.parts as |part i| }}
+					{{#if (and (eq ../../item.type "arma") (lt i 2) )}}
+					{{else}}
+						<li class="roll-part flexrow" data-roll-part="{{i}}">
+							<input type="text" name="data.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this "0"}}"/ title="Dano">
+							<select name="data.rolls.{{key}}.parts.{{i}}.1">
+								{{#select (lookup this "1") }}
+									<option value="">{{ localize "T20.None" }}</option>
+									{{#each ../../config.damageTypes as |name type|}}
+										<option value="{{type}}">{{name}}</option>
+									{{/each}}
+									{{#each ../../config.healingTypes as |name type|}}
+										<option value="{{type}}">{{name}}</option>
+									{{/each}}
+								{{/select}}
+							</select>
+							<a class="parts-control delete-part" data-roll-id="{{key}}" title="{{key}}">
+								<i class="fas fa-minus"></i></a>
+						</li>
+					{{/if}}
+				{{/each}}
+			</ol>
+		</div>
+
+	{{/if}}
+
+	{{!-- Fórmula --}}
+	{{!-- [ dado, tipo ] --}}
+
+	{{#if (eq roll.type "formula" ) }}
+		<div class="form-group">
+			<ol class="roll-parts form-group">
+				<li class="roll-part flexrow" data-roll-part="{{i}}">
+					<input type="text" name="data.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}" />
+					<input type="hidden" name="data.rolls.{{key}}.parts.0.1" value="{{lookup (lookup roll.parts 0) 1}}" />
+				</li>
+			</ol>
+		</div>
+	{{/if}}
+{{/each}}

@@ -1,0 +1,15 @@
+
+<form autocomplete="off">
+	<p class="notes">Configuração de resistências.</p>
+	{{#each config.damageTypes as | label key | }}
+	<div class="form-group">
+		<label>{{label}}</label>
+		{{#width (lookup ../resistences key)}}
+		<input name="data.tracos.resistences.{{key}}.value" type="number" min="0" value="{{value}}"/>
+
+		<input type="checkbox" name="data.tracos.resistences.{{key}}.vulnerabilidade" {{ checked vulnerabilidade }} />
+		<input type="checkbox" name="data.tracos.resistences.{{key}}.imunidade" {{ checked imunidade }} />
+		{{/width}}
+	</div>
+	{{/each}}
+</form>

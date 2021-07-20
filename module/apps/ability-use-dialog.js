@@ -8,7 +8,7 @@ export default class AbilityUseDialog extends Dialog {
 		this.options.classes = ["tormenta20", "dialog"];
 
 		/**
-		 * Store a reference to the Item entity being used
+		 * Store a reference to the Item document being used
 		 * @type {ItemT20}
 		 */
 		this.item = item;
@@ -53,52 +53,36 @@ export default class AbilityUseDialog extends Dialog {
 		// let aprimoramentos = itemData?.aprimoramentos ?? [];
 		let aprimoramentos = [];
 		let apdeap = {};
-		const group = {
-			arma: ["attack","attackm","attackr","damage","damagem","damager","skill","skills"],
-			magia: ["spells"],
-			poder: ["power"],
-			pericia: ["skill","skills"],
-			atributo: ["abilities","ability"],
-			consumivel: ["consumable"]
-		}
-		// let gap = [];
-		// item.actor.items.forEach(function(it){
-		// 	it.data.data.aprimoramentos?.forEach(function(ap){
-		// 		if(group[item.type].includes(ap.objeto)) aprimoramentos.push(ap);
-		// 	})
-		// });
-		// console.log(item.actor);
 		
 		switch (item.type){
 			case "arma":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && (ae.data.flags.t20.attack ) );
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
-				// add self  || ae.data.flags.t20.self
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && (ae.data.flags.tormenta20.attack ) );
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.self )));
+				// add self  || ae.data.flags.tormenta20.self
 				
 				aprimoramentos.forEach(function(ap){
 					let iid = ap.data.origin.split(".")[3] || "";
-					if(item._id && iid && item._id != iid){
-						apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.t20.onuse && ownit.data.flags.t20.self);
+					if(item.id && iid && item.id != iid){
+						apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.tormenta20.onuse && ownit.data.flags.tormenta20.self);
 					}
 				});
 				break;
 			case "atributo":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ae.data.flags.t20.ability );
-
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ae.data.flags.tormenta20.ability );
 				break;
 			case "pericia":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ae.data.flags.t20.skill );
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ae.data.flags.tormenta20.skill );
 				break;
 			case "magia":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.spell ));
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.spell ));
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.self )));
 				break;
 			case "poder":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.power ) );
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.self )));
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.power ) );
+				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.self )));
 				break;
 			case "consumivel":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.t20.onuse && ( ae.data.flags.t20.consumable ) );
+				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.consumable ) );
 				break;
 		}
 
@@ -108,7 +92,7 @@ export default class AbilityUseDialog extends Dialog {
 		// Prepare dialog form data
 		const data = {
 			item: item.data,
-			title: game.i18n.format("Usar Poder", item.data),
+			title: game.i18n.format("T20.AbilityUseHint", item.data),
 			note: "",
 			custo: itemData?.custo ?? null,
 			formula: (["arma", "poder", "pericia", "magia", "atributo", "consumivel"].includes(item.type)),
@@ -143,6 +127,17 @@ export default class AbilityUseDialog extends Dialog {
 				default: "use",
 				close: () => resolve(null)
 			});
+			if( item.type === "magia" && ( item.actor.getFlag("tormenta20", "createPotion" || game.user.isGM ) ) ) {
+				dlg.data.buttons.brew = {
+					icon: `<i class="fas fa-flask"></i>`,
+					label: "Criar Poção",
+					callback: html => {
+						const fd = new FormDataExtended(html[0].querySelector("form"));
+						fd.dtypes.brew = true;
+						resolve(mergeObject(fd.toObject(), {brew: true}));
+					}
+				}
+			}
 			dlg.options.width = 600;
 			dlg.position.width = 600;
 			dlg.render(true);

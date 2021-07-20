@@ -14,9 +14,9 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 		
 		getRanges(token) {
 			const baseSpeed = token.actor.data.data.attributes.movement.walk;
-			const enjoadoLento = token.actor.data.data.referencias.length ? token.actor.data.data.referencias.find(
+			const enjoadoLento = token.actor.data.data.referencias?.find(
 				(condicao) =>
-					condicao.label === "Enjoado" || condicao.label === "Lento") : false;
+					condicao.label === "Enjoado" || condicao.label === "Lento");
 			let runMultiplier = this.getSetting("dashMultiplier");
 			if (enjoadoLento) runMultiplier = 1;
 			const ranges = [

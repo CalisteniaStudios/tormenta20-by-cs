@@ -1,81 +1,99 @@
 <div class="form-group input-select">
-    <label>Custo</label>
-    <div class="form-fields">
-		<input type="number" name="data.ativacao.custo" value="{{data.ativacao.custo}}" data-dtype="Number" placeholder="0"/><label>PM</label>
-    </div>
+	<label>{{ localize "T20.Cost" }}</label>
+	<div class="form-fields">
+		<input type="number" name="data.ativacao.custo" value="{{data.ativacao.custo}}" data-dtype="Number"
+		  placeholder="0" /><label>PM</label>
+	</div>
 </div>
 
 {{!-- Activation Cost --}}
 <div class="form-group input-select">
-    <label>Ação</label>
-    <div class="form-fields">
-        <select name="data.ativacao.execucao">
-            {{#select data.ativacao.execucao}}
-            {{#if (eq item.type "poder")}}<option value=""></option>{{/if}}
-            {{#each config.listaAtivacao as |name key|}}
-            <option value="{{key}}">{{name}}</option>
-            {{/each}}
-			{{#if (eq item.type "magia")}}<option value="duasRodadas">Duas Rodadas</option>{{/if}}
-			{{#if (eq item.type "consumivel")}}<option value="verTexto">Ver Texto</option>{{/if}}
-            {{/select}}
-        </select>
-    </div>
+	<label>{{ localize "T20.ActivationCost" }}</label>
+	<div class="form-fields">
+		<select name="data.ativacao.execucao">
+			{{#select data.ativacao.execucao}}
+				<option value=""></option>
+				{{selectOptions config.abilityActivationTypes selected=data.ativacao.execucao localize=true}}
+			{{/select}}
+		</select>
+		{{#if (eq data.ativacao.execucao "special") }}
+			<div class="form-fields">
+				<input type="text" placeholder="Descrição" title="Descrição" name="data.ativacao.special" value="{{data.ativacao.special}}" />
+			</div>
+		{{else}}
+			<input type="hidden" name="data.ativacao.special" value="">
+		{{/if}}
+		{{#if (or (eq data.ativacao.execucao "minute") (eq data.ativacao.execucao "hour") (eq data.ativacao.execucao "day") ) }}
+			<div class="form-fields">
+				<input type="text" name="data.ativacao.qtd" value="{{data.ativacao.qtd}}" placeholder="Quantidade"
+				  title="Quantidade" />
+			</div>
+		{{else}}
+			<input type="hidden" name="data.ativacao.qtd" value="">
+		{{/if}}
+	</div>
 </div>
 
 {{!-- Activation Condition --}}
 <div class="form-group">
-    <label>Condição de Ativação</label>
-    <div class="form-fields">
-        <input type="text" name="data.ativacao.condicao" value="{{data.ativacao.condicao}}"/>
-    </div>
+	<label>Condição de Ativação</label>
+	<div class="form-fields">
+		<input type="text" name="data.ativacao.condicao" value="{{data.ativacao.condicao}}" />
+	</div>
 </div>
 
 {{!-- Ability Range --}}
 <div class="form-group input-select">
-    <label>Alcance</label>
-    <div class="form-fields">
-        <select class="selectatr" name="data.alcance" value={{data.alcance}} data-type="String">
+	<label>{{ localize "T20.Range" }}</label>
+	<div class="form-fields">
+		{{#if (or (eq data.alcance "m") (eq data.alcance "km") )}}
+			<input type="text" name="data.range.value" value="{{data.range.value}}" data-dtype="Number">
+		{{/if}}
+		<select name="data.alcance">
 			{{#select data.alcance}}
-			{{#if (eq item.type "poder")}}<option value=""></option>{{/if}}
-			<option value="Pessoal">Pessoal</option>
-			<option value="Toque">Toque</option>
-			<option value="Curto">Curto</option>
-			<option value="Médio">Médio</option>
-			<option value="Longo">Longo</option>
-			<option value="Ilimitado">Ilimitado</option>
+				{{selectOptions config.distanceUnits selected=data.circulo localize=true}}
 			{{/select}}
 		</select>
-    </div>
+	</div>
 </div>
 
 {{!-- Ability Target --}}
 <div class="form-group input-select-select">
-    <label>Alvo</label>
-    <div class="form-fields">
-        <input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String"/>
-    </div>
+	<label>{{ localize "T20.Target" }}</label>
+	<div class="form-fields">
+		<input type="text" name="data.alvo" value="{{data.alvo}}" data-dtype="String" />
+	</div>
 </div>
 
 <div class="form-group">
-	<label>Área</label>
+	<label>{{ localize "T20.Area" }}</label>
 	<div class="form-fields">
 		<input type="text" name="data.area" value="{{data.area}}" data-dtype="String" />
 	</div>
 </div>
 
+<div class="form-group">
+	<label>{{ localize "T20.Effect" }}</label>
+	<div class="form-fields">
+		<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" />
+	</div>
+</div>
+
 {{!-- Effect Duration --}}
 <div class="form-group input-select">
-    <label>Duração</label>
-    <div class="form-fields">
-		{{#if (or (eq data.duracao.unidade "rodada") (eq data.duracao.unidade "turno"))}}<input type="text" name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Quantidade" />{{/if}}
-        <select name="data.duracao.unidade">
-            {{#select data.duracao.unidade}}
-			{{#if (eq item.type "poder")}}<option value=""></option>{{/if}}
-            {{#each config.listaDuracoes as |name key|}}
-            <option value="{{key}}">{{name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-		{{#if (eq data.duracao.unidade "outra")}}<input type="text" name="data.duracao.valor" value="{{data.duracao.valor}}" data-dtype="String" placeholder="Descrição" />{{/if}}
-    </div>
+	<label>{{ localize "T20.Duration" }}</label>
+	<div class="form-fields">
+		{{#if (or (eq data.duracao.units "round") (eq data.duracao.units "turn") (eq data.duracao.units "minute") (eq data.duracao.units "hour") (eq data.duracao.units "day") (eq data.duracao.units "month") (eq data.duracao.units "year") )}}
+			<input type="text" name="data.duracao.value" value="{{data.duracao.value}}" data-dtype="String"
+			  placeholder="Qtd" />
+		{{/if}}
+		<select name="data.duracao.units">
+			{{#select data.duracao.units}}
+				<option value=""></option>
+				{{selectOptions config.timePeriods selected=data.circulo localize=true}}
+			{{/select}}
+		</select>
+		{{#if (eq data.duracao.units "special")}}<input type="text" name="data.duracao.special"
+			  value="{{data.duracao.special}}" data-dtype="String" placeholder="Descrição" />{{/if}}
+	</div>
 </div>

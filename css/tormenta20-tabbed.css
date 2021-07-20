@@ -27,6 +27,11 @@
   flex: 2;
 }
 
+.tormenta20 .tabbed .tab.inventory .item-list .item-qtd,
+.tormenta20 .tabbed .tab.inventory .item-list .item-peso {
+  text-align: center;
+}
+
 .tormenta20 .tabbed input[type="number"]
 .tormenta20 .tabbed input[type="text"],
 .tormenta20 .tabbed select {
@@ -204,6 +209,7 @@
 .tormenta20 .tabbed .tab.inventory .item:last-child {
   border-bottom: none;
 }
+.tormenta20 .npc .tab.items .item .item-name,
 .tormenta20 .tabbed .tab.inventory .item .item-name {
   align-items: center;
   flex: 2;

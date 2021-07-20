@@ -1,5 +1,3 @@
-import { d20Roll, damageRoll } from '../../dice.js';
-import { T20Utility } from '../../utility.js';
 import ActorSheetT20 from "./base.js";
 /**
  * An Actor sheet for NPC type characters.
@@ -11,6 +9,10 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "npc"],
+			tabs: [
+				{navSelector: ".primary", contentSelector: ".sheet-body", initial: "statblock"},
+				{navSelector: ".secondary", contentSelector: ".sheet-body2", initial: "dados"}
+			],
 			template: "systems/tormenta20/templates/actor/npc-sheet.html",
 			width: 500,
 			height: 700
@@ -23,166 +25,104 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	getData() {
 		const sheetData = super.getData();
 		// FLAGS
-		sheetData["statblock"] = this.actor.data.flags.editing ? "statfields" : "";
-		sheetData["editing"] = this.actor.data.flags.editing;
-		
-		// data.teste = false;
-		// TODO find something to do here
-		// parse ND?
-
+		if( this.isEditable ) {
+			sheetData["editarPericias"] = true;
+			//this.actor.getFlag("tormenta20", "sheet.editarPericias");
+			sheetData["botaoEditarItens"] = true;
+			//this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
+		}
 		return sheetData;
 	}
 
 	/* -------------------------------------------- */
 
 	/**
+	 * TODO Analisar se deve ser incluido
+	 * A linha de resistência inclui:
+	 * "cura acelerada 10/fogo";
+	 * "+5 resistência a magia" (bônus em teste de resistência);
+	 * imunidades a xyz / vulnerabilidade a xyz
+	 * resistência a dano X
+	 * resistência a dano 10/luz (elemento capaz de atravessar a RD)
+	 */
+	_getResistencias(){
+		const resistencias = this.actor.data.data.tracos.resistencias;
+		sheetData["resistencias"] = Object.entries(resistencias).reduce( (o, r) => {
+			if(r[1].imunidade) o.imu.push(r[0]);
+			else if(r[1].vulnerabilidade) o.vul.push(r[0]);
+			else if(r[1].value && o.rd[r[1].value]) o.rd[r[1].value].push(r[0]);
+			else if(r[1].value && !o.rd[r[1].value]) o.rd[r[1].value] = [r[0]];
+			return o;
+		}, {imu: [], vul: [], rd: []});
+		let x = {};
+		x.imu = sheetData["resistencias"].imu.join(", ");
+		x.vul = sheetData["resistencias"].vul.join(", ");
+	}
+	/* -------------------------------------------- */
+
+	/**
 	* Organize Owned Items for rendering the NPC sheet
 	* @private
 	*/
-
 	_prepareItems(data) {
 		const actorData = data.actor;
-
 		// Initialize containers.
-		const poderes = [];
-		const ataques = [];
-		const armas = [];
-		const inventario = []
-		const magias = {
-			1: {
-				spells: [],
-				custo: 1
-			},
-			2: {
-				spells: [],
-				custo: 3
-			},
-			3: {
-				spells: [],
-				custo: 6
-			},
-			4: {
-				spells: [],
-				custo: 10
-			},
-			5: {
-				spells: [],
-				custo: 15
-			}
+
+		// Categorize items as inventory
+		const inventario = {
+			arma: {label: "Armas", items: [], dataset: {type: "arma"} },
+			equipamento: {label: "Equipamentos", items: [], dataset: {type: "equipamento"} },
+			consumivel: {label: "Consumível", items: [], dataset: {type: "consumivel"} },
+			tesouro: {label: "Tesouro", items: [], dataset: {type: "tesouro"} }
+		}
+		
+		// Partition items by category
+		let [items, magias, poderes] = data.items.reduce((arr, item) => {
+			// Item details
+			item.img = item.img || CONST.DEFAULT_TOKEN;
+			item.isStack = Number.isNumeric(item.data.qtd) && (item.data.qtd !== 1);
+			
+			// Classify items into types
+			if ( item.type === "magia" ) arr[1].push(item);
+			else if ( item.type === "poder" ) arr[2].push(item);
+			else if ( Object.keys(inventario).includes(item.type ) ) arr[0].push(item);
+			return arr;
+		}, [[], [], []]);
+
+		// Organize items
+		for ( let i of items ) {
+			i.data.qtd = i.data.qtd || 0;
+			i.data.peso = i.data.peso || 0;
+			i.pesoTotal = (i.data.qtd * i.data.peso).toNearest(0.1);
+			inventario[i.type].items.push(i);
+		}
+
+		// Organize spells and count the number of prepared spells
+		const grimorio = {
+			1: { spells: [], custo: 1 },
+			2: { spells: [], custo: 3 },
+			3: { spells: [], custo: 6 },
+			4: { spells: [], custo: 10 },
+			5: { spells: [], custo: 15 }
 		};
+		const nPreparadas = 0;
+		let maiorCirculo = 0;
+		magias.forEach(function(m){
+			maiorCirculo = Math.max(maiorCirculo, m.data.circulo);
+			grimorio[m.data.circulo].spells.push(m);
+		});
+		
 
-		// Iterate through items, allocating to containers
-		// let totalWeight = 0;
-		let x = 0;
-		let temMagias = false;
-		let mostrarInventario = false;
-		let mostrarPericias = false;
-		for (let i of data.items) {
-			let itemData = i.data;
-			i.img = i.img || DEFAULT_TOKEN;
-			// Sort into various arrays.
-			if (i.type === 'poder') {
-				poderes.push(i);
-			}
-			else if (i.type === 'magia') {
-				if (i.data.circulo != undefined) {
-					magias[i.data.circulo].spells.push(i);
-					temMagias = true;
-				}
-			}
-			// If this is equipment, we currently lump it together.
-			else if (i.type === 'equip') {
-				inventario.push(i);
-				mostrarInventario = true;
-			}
-			else if (i.type === 'arma') {
-				let atqSkill = 0;
-					
-				if(actorData.data.pericias){
-					if (itemData.pericia != "0" && actorData.data.pericias[itemData.pericia].value != 0) {
-						if (actorData.data.pericias[itemData.pericia].atributo != itemData.atrAtq) {
-							const atributoOriginal = actorData.data.atributos[actorData.data.pericias[itemData.pericia].atributo].mod;
-							atqSkill += actorData.data.pericias[itemData.pericia].value - atributoOriginal + (actorData.data.atributos[itemData.atrAtq]?.mod ?? 0);
-						}
-						else if(actorData.data.pericias[itemData.pericia].value) {
-							atqSkill += actorData.data.pericias[itemData.pericia].value;
-						}
-					}
-					else if (itemData.atrAtq != "0") atqSkill += actorData.data.atributos[itemData.atrAtq].mod;
-				}
-				let tempatq = `${atqSkill} + ${i.data.atqBns}`;
-				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
-					return "(" + T20Utility.short(match, actorData.data) + ")";
-				});
-				let tempdmg = '';
-				tempdmg = i.data.dano != '' ? tempdmg + `${i.data.dano}` : tempdmg;
-				tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg + `+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
-				tempdmg = i.data.danoBns != '' ? tempdmg + ` + ${i.data.danoBns}` : tempdmg;
-				tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '').replace(/\@\w+\b/g, function (match) {
-					return "(" + T20Utility.short(match, actorData.data) + ")";
-				});
+		// Assign and return
+		actorData.poderes = poderes;
+		actorData.magias = grimorio;
+		actorData.maiorCirculo = maiorCirculo;
+		
+		actorData.inventario = inventario;
+		// inventario.itens = {label: "Itens", items: items};
+		// actorData.inventario = inventario;
 
-				i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1) + (b * 1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '');
-
-				// i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g) || []).reduce((a, b) => a + b, '') + ((tempdmg.match(/(\b[\+\-]?\d+\b)/g) || []).reduce((a, b) => (a * 1 + b * 1 >= 0 ? '+' + (a * 1 + b * 1) : '' + (a * 1 + b * 1)), '') || '');
-				i.data.dmg = new Roll(tempdmg).formula;
-				armas.push(i);
-				inventario.push(i);
-				if (i.data.tipoUso != "natural") mostrarInventario = true;
-			} else if (i.type === 'ataque') {
-				let tempatq = `${i.data.bonusAtq}`;
-				tempatq = tempatq.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
-				// let tempdmg = `${i.data.dano} + ${actorData.data.atributos[i.data.atrDan].mod} + ${i.data.bonusDano}`;
-				let tempdmg = '';
-				if(i.data._bonusAtq == undefined || i.data._bonusAtq == ""){
-					i.data._bonusAtq = "0";
-				}
-
-				if(i.data._bonusDano == undefined || i.data._bonusDano == ""){
-					i.data._bonusDano = "0";
-				}
-				tempdmg = i.data.dano !='' ? tempdmg+`${i.data.dano}` : tempdmg;
-				tempdmg = i.data.atrDan != '0' && actorData.data.atributos[i.data.atrDan].mod != 0 ? tempdmg+`+ ${actorData.data.atributos[i.data.atrDan].mod}` : tempdmg;
-				tempdmg = i.data.bonusDano!='' ? tempdmg+` + ${i.data.bonusDano}` : tempdmg;
-				tempdmg = tempdmg.replace(/(\s)/g, '').replace(/\b[\+\-]?0+\b/g, '').replace(/[\+\-]$/g, '');
-
-				i.data.atq = (tempatq.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1) + (b*1), 0) + (tempatq.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '');
-
-				// i.data.dmg = (tempdmg.match(/([\+\-]?\d+d\d+\b)/g)||[]).reduce((a, b) => a + b, '') +((tempdmg.match(/(\b[\+\-]?\d+\b)/g)||[]).reduce((a, b) => (a*1+b*1>=0 ? '+'+(a*1+b*1) : ''+(a*1+b*1)), '') || '');
-				i.data.dmg = new Roll(tempdmg).formula;
-
-
-				ataques.push(i);
-			}
-			else {
-				inventario.push(i);
-				mostrarInventario = true;
-			}
-		}
-
-		const ignoreList = ["ini", "per", "for", "ref", "von"]
-		for (let i in data.data.pericias) {
-			if (data.data.pericias[i].value && !ignoreList.includes(i)) {
-				mostrarPericias = true;
-				break;
-			}
-		}
-
-		// Assign and return powers
-		actorData.poderes = poderes.length ? poderes : null;
-		// Spells
-		actorData.magias = temMagias ? magias : null;
-		// Attacks
-		actorData.ataques = ataques.length ? ataques : null;
-		actorData.armas = armas.length ? armas : null;
-		//Inventário
-		actorData.mostrarInventario = mostrarInventario;
-		actorData.inventario = inventario.length ? inventario : null;
-		//Perícias
-		actorData.mostrarPericias = mostrarPericias || actorData.data.periciasCustom[0] ? true : false;
 	}
-
-
 
 	/* -------------------------------------------- */
 	/*  Event Listeners and Handlers                */
@@ -198,46 +138,57 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
 
-		if(this.object.data.flags.editing){
-			html.find('.npc-line').addClass("flexrow");
-		} else {
-			html.find('.npc-line').removeClass("flexrow");
-		}
-		if ( this.actor.owner ) {
+		if ( this.actor.isOwner ) {
+			// html.find('[contenteditable=true]').on("keypress", event => this._onSubmitNPC(event) );
+			// html.find('[contenteditable=true]').on("focusout" , event => this._onContentEdit(event) );
 			// Rollable abilities.
 			html.find('.magia-rollable').click(event => this._onItemRoll(event));
 			html.find('.arma-rollable').click(event => this._onItemRoll(event));
 			html.find('.poder-rollable').click(event => this._onItemRoll(event));
-
-			// Update item
-			// html.find('.upItem').change(this._onUpdateItem.bind(this));
-
+			
+			html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
 		}
 
 		// Drag events for macros.
 		let handler = ev => this._onDragStart(ev);
 		html.find('.pericia-rollable').each((i, li) => {
-			// if (li.classList.contains("inventory-header")) return;
-			// if (li.id === "atributo") return;
 			if (!li.hasAttribute("data-item-id")) return;
-			if (!li.hasAttribute("data-type")) return;
 			li.setAttribute("draggable", true);
 			li.addEventListener("dragstart", handler, false);
 		});
-
 	}
 
 	/* -------------------------------------------- */
 
-	/**
-	* Create skills as items?
-	*/
-	// _CreateDefaultSkill(){
-	//   const pericias = T20Utility.getPericias();
-
-	//   const itemData = {
-	//     name: 
-	//   }
+	// _onSelectEdit(ev){
+	// 	const target = ev.currentTarget;
+	// 	const input = target.dataset.campo;//target.nextElementSibling;
+	// 	$(target).addClass("hidden");
+	// 	$("#"+input).removeClass("hidden").focus();
 	// }
+
+	_onContentEdit(ev){
+		this.submit();
+	}
+
+	_onSubmitNPC(ev){
+		if(ev.which == 13){
+			ev.preventDefault();
+			this.submit();
+		}
+	}
+
+	// /** @inheritdoc */
+	async _onSubmit(...args) {
+		const data = this.form.querySelectorAll('[contenteditable=true]');
+		for ( let ele of data ){
+			let value = ele.innerText;
+			let dom = `input[name="${ele.attributes.name.value}"]`;
+			if( $(this.form).find(dom) ) $(this.form).find(dom)[0].value = value;
+		}
+		await super._onSubmit(...args);
+	}
 
 }
