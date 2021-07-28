@@ -1398,6 +1398,7 @@ export default class ItemT20 extends Item {
 		if ( !this.isEmbedded || (this.parent.type === "vehicle") ) return;
 		const actorData = this.parent.data;
 		const isNPC = this.parent.type === "npc";
+		let updates;
 		switch (data.type) {
 			case "classe":
 				/* TODO */
@@ -1406,13 +1407,18 @@ export default class ItemT20 extends Item {
 				// 	level: this.data.data.niveis
 				// });
 				// return this.parent.addEmbeddedItems(features);
-			case "equipmento":
-				return this._onCreateOwnedEquipment(data, actorData, isNPC);
+				break;
+			case "equipamento":
+				updates = this._onCreateOwnedEquipment(data, actorData, isNPC);
+				break;
 			case "arma":
-				return this._onCreateOwnedWeapon(data, actorData, isNPC);
+				updates = this._onCreateOwnedWeapon(data, actorData, isNPC);
+				break;
 			case "magia":
-				return this._onCreateOwnedSpell(data, actorData, isNPC);
+				updates = this._onCreateOwnedSpell(data, actorData, isNPC);
+				break;
 		}
+		if (updates) return this.data.update(updates);
 	}
 
 	/* -------------------------------------------- */
@@ -1484,7 +1490,8 @@ export default class ItemT20 extends Item {
 		if ( foundry.utils.getProperty(data, "data.equipado") === undefined ) {
 			updates["data.equipado"] = isNPC;       // NPCs automatically equip equipment
 		}
-		foundry.utils.mergeObject(data, updates);
+		//foundry.utils.mergeObject(data, updates);
+		return updates;
 	}
 
 	/* -------------------------------------------- */
@@ -1496,7 +1503,8 @@ export default class ItemT20 extends Item {
 	_onCreateOwnedSpell(data, actorData, isNPC) {
 		const updates = {};
 		/* TODO */
-		foundry.utils.mergeObject(data, updates);
+		// foundry.utils.mergeObject(data, updates);
+		return updates;
 	}
 
 	/* -------------------------------------------- */
@@ -1508,7 +1516,8 @@ export default class ItemT20 extends Item {
 	_onCreateOwnedWeapon(data, actorData, isNPC) {
 		const updates = {};
 		/* TODO */
-		foundry.utils.mergeObject(data, updates);
+		// foundry.utils.mergeObject(data, updates);
+		return updates;
 	}
 
 	/* -------------------------------------------- */

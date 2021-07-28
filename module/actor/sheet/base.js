@@ -548,7 +548,6 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	_onDragStart(event) {
 		const li = event.currentTarget;
-		console.log(li);
 		if(!$(li).hasClass("skill")){
 			super._onDragStart(event);
 		} else {

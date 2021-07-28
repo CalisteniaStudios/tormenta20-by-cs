@@ -30,10 +30,20 @@
 			{{!-- Character Summary --}}
 			<ul class="attributes summary flexrow">
 				<li>
-					<input type="text" name="data.attributes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Raça" />
+					{{#if data.detalhes.divindade }}
+					<input type="text" name="data.detalhes.raca" value="{{data.detalhes.raca}}" data-dtype="String" placeholder="Raça" />
+					{{else}}
+					{{!-- TODO REMOVE --}}
+					<input type="text" name="data.detalhes.raca" value="{{data.attributes.raca}}" data-dtype="String" placeholder="Raça" />
+					{{/if}}
 				</li>
 				<li>
-					<input type="text" name="data.attributes.origem" value="{{data.attributes.origem}}" data-dtype="String" placeholder="Origem" />
+					{{#if data.detalhes.divindade }}
+					<input type="text" name="data.detalhes.origem" value="{{data.detalhes.origem}}" data-dtype="String" placeholder="Origem" />
+					{{else}}
+					{{!-- TODO REMOVE --}}
+					<input type="text" name="data.detalhes.origem" value="{{data.attributes.origem}}" data-dtype="String" placeholder="Origem" />
+					{{/if}}
 				</li>
 				<li class="classe flexrow" style="flex: 0.2 1 auto;">
 					{{#if actor.classes.length }}
@@ -57,7 +67,12 @@
 				</li>
 				{{#if mostrarDivindade}}
 				<li class="flexrow">
-					<input type="text" name="data.attributes.divindade" value="{{data.attributes.divindade}}" data-dtype="String" placeholder="Divindade" />
+					{{#if data.detalhes.divindade }}
+					<input type="text" name="data.detalhes.divindade" value="{{data.detalhes.divindade}}" data-dtype="String" placeholder="Divindade" />
+					{{else}}
+					{{!-- TODO REMOVE --}}
+					<input type="text" name="data.detalhes.divindade" value="{{data.attributes.divindade}}" data-dtype="String" placeholder="Divindade" />
+					{{/if}}
 				</li>
 				{{/if}}
 			</ul>

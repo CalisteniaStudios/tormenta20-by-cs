@@ -49,7 +49,7 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	prepareBaseData() {
 		const version = game.settings.get("tormenta20","systemMigrationVersion");
-		if( version < game.system.data.version ) return;
+		if( version < "1.3.0.0" ) return;
 		switch (this.data.type) {
 			case "character":
 				return this._prepareCharacterData(this.data);
@@ -63,7 +63,7 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	prepareDerivedData() {
 		const version = game.settings.get("tormenta20","systemMigrationVersion");
-		if( version < game.system.data.version ) return;
+		if( version < "1.3.0.0" ) return;
 		// if( this.getFlag("tormenta20","version") !== "1.3.0.0" ) return;
 		const actor = this;
 		const actorData = actor.data;
@@ -336,7 +336,10 @@ export default class ActorT20 extends Actor {
 		if ( !roll ) {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			pericia.value = parseInt(result.replace(" ","")) || 0;
-		} else return ["1d20"].concat(parts);
+		} else {
+			let dice = pericia.parts ? pericia.parts[0] : "1d20";
+			return [dice].concat(parts);
+		}
 
 	}
 
@@ -347,15 +350,15 @@ export default class ActorT20 extends Actor {
 		const nivel = Number( this.data.data.attributes.nivel.value );
 		const con = this.data.data.atributos.con.mod;
 		const soma = {pv:0,pm:0};
-		let lvlconfig = this.getFlag("tormenta20", "lvlconfig");
-		if ( !lvlconfig ){
-			lvlconfig = {
+		let lvlc = this.getFlag("tormenta20", "lvlconfig");
+		if ( !lvlc ){
+			lvlc = {
 				pv: { for: false, des: false, int: false, sab: false, car: false },
 				pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
 				pvBonus: ["0","0"],
 				pmBonus: ["0","0"]
 			}
-			this.setFlag("tormenta20", "lvlconfig", lvlconfig);
+			this.setFlag("tormenta20", "lvlconfig", lvlc);
 		}
 		
 		for ( let classe of this.itemTypes.classe ) {
@@ -364,14 +367,14 @@ export default class ActorT20 extends Actor {
 			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con ));
 			soma.pm += c.niveis * c.pmPorNivel;
 		}
-		if( lvlconfig.pvBonus[0] ) soma.pv += Number(lvlconfig.pvBonus[0]);
-		if( lvlconfig.pvBonus[1] ) soma.pv += Number(lvlconfig.pvBonus[1].replace(",",".")) * nivel;
-		if( lvlconfig.pmBonus[0] ) soma.pm += Number(lvlconfig.pmBonus[0]);
-		if( lvlconfig.pmBonus[1] ) soma.pm += Number(lvlconfig.pmBonus[1].replace(",",".")) * nivel;
-		for (let [atr, value] of Object.entries(lvlconfig.pv)){
+		if( lvlc.pvBonus[0] ) soma.pv += Number(lvlc.pvBonus[0]);
+		if( lvlc.pvBonus[1] ) soma.pv += Math.floor(Number(lvlc.pvBonus[1].replace(",",".")) * nivel);
+		if( lvlc.pmBonus[0] ) soma.pm += Number(lvlc.pmBonus[0]);
+		if( lvlc.pmBonus[1] ) soma.pm += Math.floor(Number(lvlc.pmBonus[1].replace(",",".")) * nivel);
+		for (let [atr, value] of Object.entries(lvlc.pv)){
 			if(value) soma.pv += Number(this.data.data.atributos[atr].mod);
 		}
-		for (let [atr, value] of Object.entries(lvlconfig.pm)){
+		for (let [atr, value] of Object.entries(lvlc.pm)){
 			if(value) soma.pm += Number(this.data.data.atributos[atr].mod);
 		}
 		updateData["data.attributes.pv.max"] = soma.pv;
@@ -850,7 +853,7 @@ export default class ActorT20 extends Actor {
 	/** @overrides */
 	applyActiveEffects() {
 		const version = game.settings.get("tormenta20","systemMigrationVersion");
-		if( version < game.system.data.version ) return;
+		if( version < "1.3.0.0" ) return;
 		const overrides = {};
 		// Organize non-disabled effects by their application priority
 		const changes = this.effects.reduce((changes, e) => {
