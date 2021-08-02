@@ -24,11 +24,11 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 			nd = 2;
 			mods += "kl";
 		}
-
+		
 		// Prepend the d20 roll
-		if( !parts[0].match(/d20/) ) {
+		if( parts[0].match(/d20/) ) {
 			let formula = `${nd}d20${mods}`;
-			parts.unshift(formula);
+			parts[0] = formula;
 		}
 
 		// Optionally include a situational bonus

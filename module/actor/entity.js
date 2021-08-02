@@ -708,6 +708,7 @@ export default class ActorT20 extends Actor {
 		const actor = this;
 		const actorData = this.data;
 		const ad = actorData.data;
+		const event = options.event;
 		pericia.id = key;
 		let consumeMana = 0;
 		let rollMode = game.settings.get("core", "rollMode");
@@ -744,6 +745,7 @@ export default class ActorT20 extends Actor {
 		const rollConfig = mergeObject({
 			parts: options.itemData.parts.map(i => typeof i === "string" ? i.replace(/^\+| /, "") : i ).filter(Boolean),
 			actor: actor,
+			event: event,
 			data: this.getRollData(),
 			title: pericia.label,
 			flavor: pericia.label
@@ -779,6 +781,7 @@ export default class ActorT20 extends Actor {
 		const label = CONFIG.T20.atributos[key];
 		const abl = this.data.data.atributos[key];
 		const actor = this;
+		const event = options.event;
 		let rollMode = game.settings.get("core", "rollMode");
 
 		// Construct parts
@@ -799,7 +802,7 @@ export default class ActorT20 extends Actor {
 		}
 		let itemData = abl;
 		abl.parts = parts;
-		const needsConfiguration = options.event.shiftKey;
+		const needsConfiguration = event.shiftKey;
 		let configuration = {};
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create({
@@ -825,6 +828,7 @@ export default class ActorT20 extends Actor {
 		const rollConfig = mergeObject({
 			parts: parts.filter(Boolean),
 			data: data,
+			event: event,
 			title: game.i18n.format("T20.AbilityPromptTitle", { atributo: label }),
 			flavor: "Teste de Atributo",
 			messageData: { "flags.tormenta20.roll": { type: "ability", key } }

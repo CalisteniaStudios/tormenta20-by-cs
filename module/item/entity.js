@@ -779,7 +779,8 @@ export default class ItemT20 extends Item {
 				actor: this.actor,
 				data: rollData,
 				title: title,
-				flavor: title
+				flavor: title,
+				event: event
 			}, options);
 
 			// Expanded critical hit thresholds
