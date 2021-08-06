@@ -785,7 +785,7 @@ export default class ActorT20 extends Actor {
 		let rollMode = game.settings.get("core", "rollMode");
 
 		// Construct parts
-		const parts = ["@mod"];
+		const parts = ["1d20","@mod"];
 		// const data = {mod: abl.mod};
 		const data = mergeObject({ mod: abl.mod }, this.getRollData());
 
