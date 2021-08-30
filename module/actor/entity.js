@@ -722,7 +722,7 @@ export default class ActorT20 extends Actor {
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
 		
-		const needsConfiguration = options.event.shiftKey;
+		const needsConfiguration = options.event?.shiftKey ?? false;
 		let configuration = {};
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create({
@@ -785,7 +785,7 @@ export default class ActorT20 extends Actor {
 		let rollMode = game.settings.get("core", "rollMode");
 
 		// Construct parts
-		const parts = ["@mod"];
+		const parts = ["1d20","@mod"];
 		// const data = {mod: abl.mod};
 		const data = mergeObject({ mod: abl.mod }, this.getRollData());
 
@@ -802,7 +802,7 @@ export default class ActorT20 extends Actor {
 		}
 		let itemData = abl;
 		abl.parts = parts;
-		const needsConfiguration = event.shiftKey;
+		const needsConfiguration = event?.shiftKey ?? false;
 		let configuration = {};
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create({
@@ -976,7 +976,7 @@ export default class ActorT20 extends Actor {
 			content: html,
 			flavor: options.chatFlavor || "",
 			speaker: ChatMessage.getSpeaker({actor: this, token}),
-			flags: {"core.canPopout": true, "tormenta20.aprimoramentos": options.aprimoramentos}
+			flags: {"core.canPopout": true, "tormenta20.rollTotal": options.itemData.rolled.total, "tormenta20.aprimoramentos": options.aprimoramentos}
 		};
 
 		// Apply the roll mode to adjust message visibility
