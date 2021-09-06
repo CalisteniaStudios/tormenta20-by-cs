@@ -703,7 +703,7 @@ export default class ActorT20 extends Actor {
 	 * @param {Object} options    Options which configure how skill tests are rolled
 	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
 	 */
-	async rollPericia(key, options = {}) {
+	async rollPericia(key, options = {message: true}) {
 		let pericia = foundry.utils.deepClone( this.data.data.pericias[key] );
 		const actor = this;
 		const actorData = this.data;
@@ -739,34 +739,44 @@ export default class ActorT20 extends Actor {
 				return o;
 			}, {});
 		}
-		options = this.applyAprimoramentos( mergeObject(pericia, itemData), flattenObject(configuration));
+		const rConfig = this.applyAprimoramentos( mergeObject(pericia, itemData), flattenObject(configuration));
 
 		// Compose roll options
 		const rollConfig = mergeObject({
-			parts: options.itemData.parts.map(i => typeof i === "string" ? i.replace(/^\+| /, "") : i ).filter(Boolean),
+			parts: rConfig.itemData.parts.map(i => typeof i === "string" ? i.replace(/^\+| /, "") : i ).filter(Boolean),
 			actor: actor,
 			event: event,
 			data: this.getRollData(),
 			title: pericia.label,
 			flavor: pericia.label
-		}, options);
+		}, rConfig);
 
-		options.itemData.rolled = await d20Roll(rollConfig);
+		// rConfig.itemData.rolled = await d20Roll(rollConfig);
 		
-		let combate = game.combats.active;
-		if (pericia.label == "Iniciativa" && combate) {
-			let roll = options.itemData.rolled;
-			let combatente = combate.combatants.find(
-				(combatant) => combatant.actor.id === this.id
-			);
-			if (combatente && combatente.initiative === null) {
-				combate.setInitiative(combatente._id, roll.total);
-				console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
+		let toInitiative = function(){
+			let combate = game.combats.active;
+			if (pericia.label == "Iniciativa" && combate) {
+				let roll = rConfig.itemData.rolled;
+				let combatente = combate.combatants.find(
+					(combatant) => combatant.actor.id === this.id
+				);
+				if (combatente && combatente.initiative === null) {
+					combate.setInitiative(combatente._id, roll.total);
+					console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
+				}
 			}
 		}
 
 		// LOGS
-		return this.displayCard({ options, rollMode });
+		if( options.message ){
+			options = rConfig;
+			options.itemData.rolled = await d20Roll(rollConfig);
+			toInitiative();
+			return this.displayCard({ options, rollMode });
+		} else {
+			return await d20Roll(rollConfig);
+		}
+		// return this.displayCard({ options, rollMode });
 	}
 
 	/* -------------------------------------------- */
@@ -777,7 +787,7 @@ export default class ActorT20 extends Actor {
 	 * @param {Object} options    Options which configure how ability tests are rolled
 	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
 	 */
-	async rollAtributo(key, options = {}) {
+	async rollAtributo(key, options = {message: true}) {
 		const label = CONFIG.T20.atributos[key];
 		const abl = this.data.data.atributos[key];
 		const actor = this;
@@ -823,7 +833,7 @@ export default class ActorT20 extends Actor {
 			}, {});
 		}
 
-		options = this.applyAprimoramentos( mergeObject(abl, itemData), flattenObject(configuration));
+		let rConfig = this.applyAprimoramentos( mergeObject(abl, itemData), flattenObject(configuration));
 		// Roll and return
 		const rollConfig = mergeObject({
 			parts: parts.filter(Boolean),
@@ -832,12 +842,15 @@ export default class ActorT20 extends Actor {
 			title: game.i18n.format("T20.AbilityPromptTitle", { atributo: label }),
 			flavor: "Teste de Atributo",
 			messageData: { "flags.tormenta20.roll": { type: "ability", key } }
-		}, options);
+		}, rConfig);
 
-		options.itemData.rolled = await d20Roll(rollConfig);
-		
-		// LOGS
-		return this.displayCard({ options, rollMode });
+		if( options.message ){
+			options = rConfig;
+			options.itemData.rolled = await d20Roll(rollConfig);
+			return this.displayCard({ options, rollMode });
+		} else {
+			return await d20Roll(rollConfig);
+		}
 	}
 
 	/* -------------------------------------------- */
@@ -978,6 +991,7 @@ export default class ActorT20 extends Actor {
 			speaker: ChatMessage.getSpeaker({actor: this, token}),
 			flags: {"core.canPopout": true, "tormenta20.rollTotal": options.itemData.rolled.total, "tormenta20.aprimoramentos": options.aprimoramentos}
 		};
+		chatData.roll = options.itemData.rolled;
 
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode || game.settings.get("core", "rollMode"));
@@ -994,6 +1008,11 @@ export default class ActorT20 extends Actor {
 			}
 		}
 		// Create the Chat Message or return its data
-		return createMessage ? ChatMessage.create(chatData) : chatData;
+		if( createMessage ){
+			return await ChatMessage.create(chatData);
+		} else {
+			return chatData;
+		}
+		// return createMessage ? ChatMessage.create(chatData) : chatData;
 	}
 }

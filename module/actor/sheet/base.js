@@ -611,13 +611,13 @@ export default class ActorSheetT20 extends ActorSheet {
 	async _onRollAtributo(event) {
 		event.preventDefault();
 		let atributo = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		return await this.actor.rollAtributo(atributo, {event: event});
+		return await this.actor.rollAtributo(atributo, {event: event, message: true});
 	}
 
 	async _onRollPericia(event) {
 		event.preventDefault();
 		const pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		return this.actor.rollPericia(pericia, {event:event})
+		return this.actor.rollPericia(pericia, {event: event, message: true})
 	}
 
 	/* -------------------------------------------- */
