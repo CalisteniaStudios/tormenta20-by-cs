@@ -758,7 +758,7 @@ export default class ActorT20 extends Actor {
 			if (pericia.label == "Iniciativa" && combate) {
 				let roll = rConfig.itemData.rolled;
 				let combatente = combate.combatants.find(
-					(combatant) => combatant.actor.id === this.id
+					(combatant) => combatant.actor.id === actor.id
 				);
 				if (combatente && combatente.initiative === null) {
 					combate.setInitiative(combatente._id, roll.total);
