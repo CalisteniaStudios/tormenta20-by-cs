@@ -4,6 +4,16 @@
 Este é um sistema NÃO OFICIAL feito e mantido por fãs, sem qualquer afiliação a Tormenta20 ou a Jambo Editora.
 Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 
+## Versão 1.3.0.9
+- Macro de Condições por Tiago Morato;
+- Macro de descanço;
+- Config de ocultar CD de npcs;
+- Campo Raças nos NPCS;
+- Bug no cálculo de distância ao usar a régua.
+
+## Versão 1.3.0.8
+- Ajuste no tracker de iniciativa;
+
 ## Versão 1.3.0.7
 - Atualização na rolagem de atributos e perícias para permitir a compatibilidade com as solicitações de rolagem do módulo Monk's TokenBar (O módulo ainda precisa aceitar uma atualização);
 

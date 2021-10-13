@@ -98,7 +98,7 @@
   "T20.ConsumeAmmunition": "Munição",
   "T20.ConsumeAttribute": "Recurso",
   "T20.ConsumeMaterial": "Material",
-  "T20.ChatFlavor": "Customização da Menssagen",
+  "T20.ChatFlavor": "Customização da Mensagem",
   "T20.ConsumeWarningNoResource": "{name} indica o consumo de {type}, mas não foi espeficiado qual!",
   "T20.ConsumeWarningNoSource": "O recurso {type} especificado para o uso de {name} não existe!",
   "T20.ItemNoUses": "Não há mais cargas disponíveis de {name}.",

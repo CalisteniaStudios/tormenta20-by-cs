@@ -29,7 +29,7 @@ export const measureDistances = function(segments, options={}) {
 		}
 
 		// Standard Manhattan Movement
-		return (ns + nd + nDiagonal) * canvas.scene.data.gridDistance;
+		return (ns + (nd * 2)) * canvas.scene.data.gridDistance;
 	});
 };
 /* -------------------------------------------- */

@@ -5,7 +5,7 @@
 		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes">Ficha</a></label>
 		<label><i class="fas fa-address-card"></i> <a class="item" data-tab="description">Biografia</a></label>
 		<label><i class="fas fa-bahai"></i> <a class="item" data-tab="efeitos" title="Efeitos">Efeitos</a></label>
-		{{#if editable}}<label><i class="fas fa-cog"></i> <a class="item" id="npc-editing">Editar</a></label>{{/if}}
+		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
 	</nav>
 
 
@@ -22,13 +22,14 @@
 			</div>
 			<div class="flexrow">
 				<label style="white-space:nowrap">Tipo de Criatura: </label>
-				<select name="data.detalhes.tipo">
+				<select class="selectAtr" name="data.detalhes.tipo">
 					{{#select data.detalhes.tipo}}
 					{{#each config.creatureTypes as |label size|}}
 					<option value="{{size}}">{{label}}</option>
 					{{/each}}
 					{{/select}}
 				</select>
+				<input type="text" name="data.detalhes.raca" value="{{data.detalhes.raca}}" Title="Raça" class="small">
 				<input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" Title="Nível" class="small">
 			</div>
 

@@ -147,3 +147,24 @@ export async function rollSkillMacro(skillName) {
 	await actor.rollPericia(skl, {event: event});
 	
 }
+
+export async function msgFromJournal(name, source) {
+	let journal;
+	let style = '';
+	if ( source ) {
+		const pack = await game.packs.get( source ).getDocuments();
+		journal = pack.find(i => i.name === name);
+	} else {
+		journal = game.journal.getName(name);
+	}
+	if( !journal ) return;
+	if (  game.tormenta20.config.statusEffectIcons.find( i => i.label === name )  ){
+		style = 'style="position:relative; background: #ddd9d5;padding: 0.5rem; margin-left:-7px;margin-right:-7px;margin-bottom:-7px;margin-top:-27px"';
+	}
+	
+	let chatData = {
+			speaker: null,
+			content: `<div ${style} >${journal.data.content}</div>`
+	}
+	ChatMessage.create(chatData, {});
+}

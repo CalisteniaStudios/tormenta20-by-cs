@@ -188,6 +188,7 @@ export default class ActorT20 extends Actor {
 		let sheetFlags = {};
 		if ( this.getFlag("tormenta20", "sheet.editarPericias") === undefined ) sheetFlags.editarPericias = true;
 		if ( this.getFlag("tormenta20", "sheet.botaoEditarItens") === undefined ) sheetFlags.botaoEditarItens = true;
+
 		let baseFlags = { tormenta20: { sheet: sheetFlags } };
 		if( !isObjectEmpty(sheetFlags) ) mergeObject( flags, baseFlags );
 
@@ -218,12 +219,19 @@ export default class ActorT20 extends Actor {
 	*/
 	_prepareNPCData(actorData) {
 		const data = actorData.data;
+		const flags = actorData.flags;
 		const nivel = data.attributes.nivel.value;
 		data.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience Reward
 		let nd = data.detalhes.nd;
 		data.attributes.defesa.condi = 0;
 		data.attributes.nivel.xp.value = Number(nd) * 1000 || (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(nd) ? 1000 * eval(nd).toFixed(3) : 0);
+
+		let npcFlags = {};
+		if ( this.getFlag("tormenta20", "showCD") === undefined ) npcFlags.showCD = true;
+
+		let baseFlags = { tormenta20: npcFlags };
+		if( !isObjectEmpty(npcFlags) ) mergeObject( flags, baseFlags );
 
 	}
 
@@ -381,6 +389,50 @@ export default class ActorT20 extends Actor {
 		updateData["data.attributes.pm.max"] = soma.pm;
 		this.update(updateData);
 	}
+
+	/* -------------------------------------------- */
+
+	async descanso(modificador=1, modPV=0, modPM=0, toChat=true) {
+		let descricao = "";
+		const nivel = this.data.data.attributes.nivel.value;
+		const pv = this.data.data.attributes.pv.value;
+		let rec = {
+			pv:0,
+			pm:0
+		}
+		// modifyTokenAttribute(attribute, value, isDelta, isBar);
+		let recuperar = Math.floor( nivel * ( modificador + modPV ) );
+		rec.pv = recuperar;
+		await this.modifyTokenAttribute("attributes.pv", recuperar, true, true);
+
+		recuperar = Math.floor( nivel * ( modificador + modPM ) );
+		rec.pm = recuperar;
+		await this.modifyTokenAttribute("attributes.pm", recuperar, true, true);
+
+		descricao = `${this.data.name} recuperou ${rec.pv} PV e  ${rec.pm} PM.`;
+		
+		if ( !toChat ) return descricao;
+
+		let content = {
+			item: {
+				name: "Descanso",
+				img: "icons/svg/regen.svg"
+			},
+			data: {
+				description: {
+					value: "<p>" + descricao + "</p>"
+				}
+			}
+		}
+		let template = "systems/tormenta20/templates/chat/chat-card.html";
+		const html = await renderTemplate(template, content);
+		const chatData = {
+			user: game.user.id,
+			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+			content: html
+		};
+		ChatMessage.create(chatData);
+  }
 
 	/* -------------------------------------------- */
 

@@ -177,11 +177,18 @@ export default class ItemT20 extends Item {
 		if ( data.hasOwnProperty("resistencia") ) {
 			let save = data.resistencia || {};
 			const actorData = this.actor?.data?.data ?? null;
+			const actorFlags = this.actor?.data?.flags ?? null;
 			const nivel = actorData ? actorData.attributes.nivel.value ?? 0 : 0;
 			const atr = actorData ? actorData.atributos[save.atributo]?.mod ?? 0 : 0;
 			let base = this.isOwned && actorData ? Math.floor(nivel/2) ?? 0 : 0;
 			let mod = this.isOwned && atr ? atr : 0;
+
 			let cd = 10 + base + mod + (Number(save.bonus) || 0);
+			// console.log(this.actor);
+			if( this.isOwned && actorFlags) {
+				let showCD = actorFlags?.tormenta20?.showCD ?? true;
+				if( !showCD ) cd = "??";
+			}
 			labels.save = save.txt ? save.txt + ` (CD ${cd})` : save.txt;
 		}
 
