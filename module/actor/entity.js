@@ -392,16 +392,20 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	async descanso(modificador=1, modPV=0, modPM=0, toChat=true) {
+	async descanso(modificador=1, modPV=0, modPM=0, curaCP=false, toChat=true) {
 		let descricao = "";
+		const condicao = ["Ruim", "Normal", "Confortável", "Luxuoso"];
 		const nivel = this.data.data.attributes.nivel.value;
 		const pv = this.data.data.attributes.pv.value;
 		let rec = {
 			pv:0,
 			pm:0
 		}
+		
+		
 		// modifyTokenAttribute(attribute, value, isDelta, isBar);
-		let recuperar = Math.floor( nivel * ( modificador + modPV ) );
+		let cp = curaCP ? 2 : 1;
+		let recuperar = Math.floor( nivel * ( modificador + modPV )  * cp);
 		rec.pv = recuperar;
 		await this.modifyTokenAttribute("attributes.pv", recuperar, true, true);
 
@@ -527,7 +531,7 @@ export default class ActorT20 extends Actor {
 			const showCard = game.settings.get("tormenta20", "showStatusCards");
 			const effect = result.find(doc => doc.flags?.core?.statusId );
 			if(showCard && effect){
-				this._statusToChat(effect);
+				game.tormenta20.macros.msgFromJournal(effect.label, "tormenta20.condicoes");
 			}
 		}
 
@@ -535,17 +539,6 @@ export default class ActorT20 extends Actor {
 	}
 
 	/* -------------------------------------------- */
-
-	async _statusToChat(effect){
-		let conds = game.packs.get("tormenta20.condicoes");
-		await conds.getDocuments();
-		let condJ = conds.getName(effect.label);
-		if( condJ ){
-			let description = `${condJ.data.content}` || "";
-			let msg = `<h2><img src="${effect.icon}" alt="${effect.label}" width="36" height="36" style="flex:0">${effect.label}</h2>${description}`
-			ChatMessage.create({content:msg});
-		}
-	}
 
 	/* -------------------------------------------- */
 	/*  Gameplay Mechanics                          */
