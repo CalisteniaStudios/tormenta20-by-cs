@@ -1197,7 +1197,7 @@ button {
   /*display: none;*/
 }
 
-.hidden {
+.tormenta20 .hidden {
   display: none;
 }
 .tormenta20 .npc .npc-skill-list{
@@ -1272,13 +1272,13 @@ button {
   max-width: 30px;
 }
 
-.npc .skill-line * {
+.tormenta20 .npc .skill-line * {
   font-size: 12px;
   height: fit-content;
   line-height: 1.5em;
 }
 
-.npc .skill-line {
+.tormenta20 .npc .skill-line {
   max-width: 50%;
   min-width: 50%;
 }

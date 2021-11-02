@@ -33,7 +33,8 @@ export class Tormenta20ChatSettings extends FormApplication {
 			forceSheetTemplate : prepSetting('forceSheetTemplate'),
 			disableExperience : prepSetting('disableExperience'),
 			enableLanguages : prepSetting('enableLanguages'),
-			disableJournal : prepSetting('disableJournal')
+			disableJournal : prepSetting('disableJournal'),
+			showDamageCards : prepSetting('showDamageCards'),
 		}
 	}
 
@@ -207,6 +208,23 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
+		onChange: s => {
+			location.reload();
+		}
+	});
+
+	game.settings.register("tormenta20", "showDamageCards", {
+		name: "Exibir Dano/Gasto de Mana no Chat para:",
+		hint: "Quando os PVs/PMs de um ator mudam exibe mensagem no chat (Pode ficar poluído)",
+		scope: "world",
+		config: true,
+		default: "none",
+		type: String,
+		choices: {
+			"none": "Nenhum",
+			"players": "Personagens dos Jogadores (PJ)",
+			"npcs": "Personagens do Mestre (PdM)"
+		},
 		onChange: s => {
 			location.reload();
 		}

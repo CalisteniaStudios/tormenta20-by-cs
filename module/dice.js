@@ -55,7 +55,6 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 				if (targetValue) d.options.target = targetValue;
 			}
 		}
-
 		return roll;
 	}
 	// Create the Roll instance

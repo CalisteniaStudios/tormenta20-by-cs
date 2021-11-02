@@ -524,18 +524,30 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
+	// async createEmbeddedDocuments( embeddedName, data, context ) {
+	// 	await super.createEmbeddedDocuments( embeddedName, data, context );
+	// 	console.log(context);
+	// }
+
+	/** @inheritdoc */
 	async _preCreateEmbeddedDocuments(embeddedName, result, options, userId){
-		
+		await super._preCreateEmbeddedDocuments(embeddedName, result, options, userId);
+
+		if( game.userId !== userId ) return;
 		// Show chat message if condition;
-		if(embeddedName == "ActiveEffect"){
+		options.toChat = options.toChat === undefined ? true : options.toChat;
+		if(embeddedName == "ActiveEffect" && options.toChat){
 			const showCard = game.settings.get("tormenta20", "showStatusCards");
 			const effect = result.find(doc => doc.flags?.core?.statusId );
 			if(showCard && effect){
 				game.tormenta20.macros.msgFromJournal(effect.label, "tormenta20.condicoes");
 			}
 		}
+	}
 
-		await super._preCreateEmbeddedDocuments(embeddedName, result, options, userId);
+	/** @inheritdoc */
+	async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId){
+		await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
 	}
 
 	/* -------------------------------------------- */
@@ -595,7 +607,8 @@ export default class ActorT20 extends Actor {
 			xablau: "xablau",
 		}, updates);
 
-		if ( true ){
+		let show = ( this.type == 'character' && game.settings.get("tormenta20", "showDamageCards") != 'none' ) || ( this.type == 'npc' && game.settings.get("tormenta20", "showDamageCards") == 'npcs' );
+		if ( show ){
 			let chatMessage = "";
 			let toChat = (speaker, message) => {
 				let chatData = {
@@ -610,12 +623,16 @@ export default class ActorT20 extends Actor {
 			let _fas = "";
 			if( amount < 0 ) _fas = "plus";
 			else _fas = "minus";
-			
-			if ( rd > 0 && amount >= 0 ) chatMessage += `${originalDGM} - ${rd}RD >> ${amount}<br>`;
-			if ( dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${dt} PVs temp ( ${tmp}PVT >> ${tmp - dt} PVT )<br>`;
-			if ( amount < 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> ${amount*-1} PVs ( ${pv.value}PV >> ${dh} PV )`;
-			else if ( amount - dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${amount - dt} PVs ( ${pv.value}PV >> ${dh} PV )`;
-			// toChat(this, chatMessage);
+			if( this.type == 'npc' ){
+				if ( amount < 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> ${amount*-1} PVs`;
+				else if ( amount - dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${amount - dt} PVs`;
+			} else {
+				if ( rd > 0 && amount >= 0 ) chatMessage += `${originalDGM} - ${rd}RD >> ${amount}<br>`;
+				if ( dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${dt} PVs temp ( ${tmp}PVT >> ${tmp - dt} PVT )<br>`;
+				if ( amount < 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> ${amount*-1} PVs ( ${pv.value}PV >> ${dh} PV )`;
+				else if ( amount - dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${amount - dt} PVs ( ${pv.value}PV >> ${dh} PV )`;
+			}
+			toChat(this, chatMessage);
 		}
 		return allowed !== false ? this.update(updates) : this;
 

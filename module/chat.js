@@ -8,8 +8,12 @@
  * @return {Array} The extended options Array including new context choices
  */
 export const addChatMessageContextOptions = function (html, options) {
-	let canApply = li => li.find(".roll--dano").length;
-	let canApplyMana = li => li.find(".mana-cost").length && !game.settings.get("tormenta20", "automaticManaSpend");
+	// let canApply = li => li.find(".roll--dano").length;
+	let canApply = li => {
+    const message = game.messages.get(li.data("messageId"));
+    return ( li.find(".roll--dano").length || message?.isRoll ) && message?.isContentVisible && canvas.tokens?.controlled.length;
+  };
+	let canApplyMana = li => li.find(".mana-cost").length;
 	options.push({
 		name: 'Aplicar Dano',
 		icon: '<i class="fas fa-user-minus" style="color: FireBrick;"></i>',
@@ -35,6 +39,10 @@ export const addChatMessageContextOptions = function (html, options) {
 		icon: '<i class="fas fa-star" style="color: deepskyblue;"></i>',
 		condition: canApplyMana,
 		callback: li => applyChatManaSpend(li, 0)
+	}, {
+		name: 'Apagar',
+		icon: '<i class="fas fa-trash"></i>',
+		callback: li => ChatMessage.deleteDocuments([li.data("messageId")])
 	});
 	return options;
 };
@@ -54,7 +62,9 @@ export const ApplyButtons = function (app, html, data)
 	if(chatHTML.querySelectorAll(".mana-cost, .roll--dano").length > 0) {
 		let areaBotoes = $(`<hr><div><table class="apply-area"><tbody><div class="flexrow"></div></tbody></table></div>`);
 
-		if(chatHTML.querySelectorAll(".roll--dano").length > 0) {
+		if(chatHTML.querySelectorAll(".roll--dano").length > 0 || chatHTML.querySelectorAll(".dice-roll").length > 0 ) {
+			let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
+			
 			// Aplicar dano
 			b.title = "Aplicar Dano";
 			b.class = "apply-button-dano"; 
@@ -64,7 +74,6 @@ export const ApplyButtons = function (app, html, data)
 			areaBotoes.find(".flexrow").append(botaoDanoAplicar);
 			botaoDanoAplicar.click(ev => {
 				ev.stopPropagation();
-				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
 				applyInsideChatCardDamage(roll,1);
 			});
 			
@@ -77,7 +86,6 @@ export const ApplyButtons = function (app, html, data)
 			areaBotoes.find(".flexrow").append(botaoDanoDobroAplicar);
 			botaoDanoDobroAplicar.click(ev => {
 				ev.stopPropagation();
-				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
 				applyInsideChatCardDamage(roll,2);
 			});
 			// Metade
@@ -89,7 +97,6 @@ export const ApplyButtons = function (app, html, data)
 			areaBotoes.find(".flexrow").append(botaoDanoMetadeAplicar);
 			botaoDanoMetadeAplicar.click(ev => {
 				ev.stopPropagation();
-				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
 				applyInsideChatCardDamage(roll,0.5);
 			});
 
@@ -103,7 +110,6 @@ export const ApplyButtons = function (app, html, data)
 			areaBotoes.find(".flexrow").append(botaoCuraAplicar);
 			botaoCuraAplicar.click(ev => {
 				ev.stopPropagation();
-				let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
 				applyInsideChatCardDamage(roll,-1,true);
 			});
 			botaoAdicionado = true;
@@ -140,7 +146,7 @@ export const ApplyButtons = function (app, html, data)
  */
 function applyChatCardDamage(roll, multiplier) {
 	if (canvas.tokens.controlled.length) {
-		const amount = roll.find('.roll--dano').find('.dice-total').text();
+		const amount = roll.find('.roll--dano, .dice-roll').find('.dice-total').text();
 		return Promise.all(canvas.tokens.controlled.map(t => {
 			const a = t.actor;
 			return a.applyDamage(amount, multiplier, true);

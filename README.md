@@ -4,6 +4,13 @@
 Este é um sistema NÃO OFICIAL feito e mantido por fãs, sem qualquer afiliação a Tormenta20 ou a Jambo Editora.
 Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 
+## Versão 1.3.0.11
+- Adicionado: opção de apagar mensagem no menu de contexto (BDM);
+- Adicionado: `data.modificadores.dano.alq` aumentar efeito de itens alquimicos;
+- Adicionado: configuração de mensagem de dano;
+- Corrigido: macros de Sangramento e Confuso;
+- Corrigido: spam de mensagem de condição quando aplicada em multiplos tokens;
+
 ## Versão 1.3.0.10
 - Correção da mensagem no chat ao aplicar uma condição.
 

@@ -854,6 +854,7 @@ export default class ItemT20 extends Item {
 			if ( pericia=="luta" && bonuses.cac ) parts.push([bonuses.cac, ""]);
 			if ( pericia=="pont" && bonuses.ad ) parts.push([bonuses.ad,""]);
 			if ( this.type=="magia" && bonuses.mag ) parts.push([bonuses.mag,""]);
+			if ( this.type=="consumivel" && this.data.data.tipo == "alchemy" && bonuses.alq ) parts.push([bonuses.alq,""]);
 			// Handle ammunition damage
 			// PREPARE
 			
@@ -1363,7 +1364,7 @@ export default class ItemT20 extends Item {
 
 	/* -------------------------------------------- */
 
-	static _onChatCardApplyEffect(event) {
+	static async _onChatCardApplyEffect(event) {
 		event.preventDefault();
 		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
 		const buttonId = event.currentTarget.dataset.effectIndex;
@@ -1385,9 +1386,14 @@ export default class ItemT20 extends Item {
 					chatEffect.duration.startTime = game.time.worldTime;
 				}
 			}
-			actors.forEach(async function(ac){
-				await ac.actor.createEmbeddedDocuments("ActiveEffect", [chatEffect]);
-			});
+			
+			let toChat = true;
+			for ( let ac of actors ) {
+				await ac.actor.createEmbeddedDocuments("ActiveEffect", [chatEffect], {
+					toChat: toChat
+				});
+				toChat = false;
+			}
 		}
 		else if (actors.length == 0) {
 			ui.notifications.warn("Você precisa selecionar pelo menos um token.");
