@@ -3,8 +3,8 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 	parts = parts.concat(["@bonus"]);
 
 	let adv = 0;
-	if( advantage || event.altKey ) adv = 1;
-	else if ( disadvantage || event.ctrlKey ) adv = -1;
+	if( advantage || event.altKey || parts[0].includes('kh')) adv = 1;
+	else if ( disadvantage || event.ctrlKey || parts[0].includes('kl')) adv = -1;
 	
 	
 	// Define the inner roll function
