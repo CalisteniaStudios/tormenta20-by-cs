@@ -181,7 +181,7 @@ T20.tokenSizes = {
 T20.tokenHPColors = {
     temp: 0xFF0000,
     tempmax: 0x440066,
-    negmax: 0x550000
+    negmax: 0xAA0000
 }
 T20.tokenMPColors = {
     temp: 0x0000FF,

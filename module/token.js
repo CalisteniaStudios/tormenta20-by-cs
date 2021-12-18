@@ -53,8 +53,11 @@ export class TokenT20 extends Token {
 	 */
 	_drawHPBar(number, bar, data) {
 		// Extract health data
+		
+
 		const actorData = this.document.actor.data.data;
-		let {value, max, temp, tempmax} = getProperty(actorData, data.attribute);//.attributes.pv;
+		let {value, max, temp, tempmax, min} = getProperty(actorData, data.attribute);
+		
 		temp = Number(temp || 0);
 		tempmax = Number(tempmax || 0);
 
@@ -65,6 +68,7 @@ export class TokenT20 extends Token {
 		// Allocate percentages of the total
 		const tempPct = Math.clamped(temp, 0, displayMax) / displayMax;
 		const valuePct = Math.clamped(value, 0, effectiveMax) / displayMax;
+		const negativePct = Math.clamped(value, min, 0) / min;
 		const colorPct = Math.clamped(value, 0, effectiveMax) / displayMax;
 
 		// Determine colors to use
@@ -87,12 +91,6 @@ export class TokenT20 extends Token {
 		bar.clear()
 		bar.beginFill(blk, 0.5).lineStyle(bs, blk, 1.0).drawRoundedRect(0, 0, w, h, 3);
 
-		// // Temporary maximum HP
-		// if (tempmax > 0) {
-		//   const pct = max / effectiveMax;
-		//   bar.beginFill(c.tempmax, 1.0).lineStyle(1, blk, 1.0).drawRoundedRect(pct*w, 0, (1-pct)*w, h, 2);
-		// }
-
 		// // Maximum HP penalty
 		// else if (tempmax < 0) {
 		//   const pct = (max + tempmax) / max;
@@ -107,8 +105,15 @@ export class TokenT20 extends Token {
 			bar.beginFill(c.temp, 1.0).lineStyle(0).drawRoundedRect(bs1, bs1, (tempPct*w)-(2*bs1), h-(2*bs1), 1);
 		}
 
+		// Negative HP
+		if (value < 0) {
+		  bar.beginFill(c.negmax, 1.0).lineStyle(bs, blk, 1.0).drawRoundedRect((1-negativePct)*w, 0, negativePct*w, h, 2);
+		}
+
+
 		// Set position
 		let posY = (number === 0) ? (this.h - h) : 0;
 		bar.position.set(0, posY);
 	}
+
 }

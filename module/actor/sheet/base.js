@@ -616,8 +616,8 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	async _onRollPericia(event) {
 		event.preventDefault();
-		const pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		return this.actor.rollPericia(pericia, {event: event, message: true})
+		let pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
+		return await this.actor.rollPericia(pericia, {event: event, message: true})
 	}
 
 	/* -------------------------------------------- */

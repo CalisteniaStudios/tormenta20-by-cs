@@ -356,7 +356,11 @@ export default class ActorT20 extends Actor {
 	_calcPVPM() {
 		const updateData = {};
 		const nivel = Number( this.data.data.attributes.nivel.value );
-		const con = this.data.data.atributos.con.mod;
+		// const con = this.data.data.atributos.con.mod;
+		// Get oringinal value, without temporary bonuses;
+		const conabl = this.data._source.data.atributos.con.value;
+		const con = Math.floor((conabl - 10) / 2);
+
 		const soma = {pv:0,pm:0};
 		let lvlc = this.getFlag("tormenta20", "lvlconfig");
 		if ( !lvlc ){
@@ -372,6 +376,14 @@ export default class ActorT20 extends Actor {
 		for ( let classe of this.itemTypes.classe ) {
 			let c = classe.data.data;
 			let iniPV = c.inicial? c.pvPorNivel * 3 : 0;
+			
+			// Skyfall will change at playtest v0.6
+			// //min(pvPorNivel*8, 20); 
+			// if( c.inicial && c.tipo == 'arquetipo' ) iniPV = min(pvPorNivel*7, 17);
+			// else if( c.inicial ) iniPV = c.pvPorNivel * 3;
+			// if( c.inicial && c.tipo == 'arquetipo') iniPM = max(pmPorNivel, 2);
+			// //max(pmPorNivel*2, 3);
+			
 			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con ));
 			soma.pm += c.niveis * c.pmPorNivel;
 		}
@@ -385,6 +397,7 @@ export default class ActorT20 extends Actor {
 		for (let [atr, value] of Object.entries(lvlc.pm)){
 			if(value) soma.pm += Number(this.data.data.atributos[atr].mod);
 		}
+		updateData["data.attributes.pv.min"] = (Math.floor(soma.pv/2)*-1);
 		updateData["data.attributes.pv.max"] = soma.pv;
 		updateData["data.attributes.pm.max"] = soma.pm;
 		this.update(updateData);
@@ -765,7 +778,7 @@ export default class ActorT20 extends Actor {
 	 * @param {Object} options    Options which configure how skill tests are rolled
 	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
 	 */
-	async rollPericia(key, options = {message: true}) {
+	 async rollPericia(key, options = {message: true}) {
 		let pericia = foundry.utils.deepClone( this.data.data.pericias[key] );
 		const actor = this;
 		const actorData = this.data;
@@ -1036,6 +1049,7 @@ export default class ActorT20 extends Actor {
 
 		if (options.itemData.rolled) {
 			let roll = options.itemData.rolled;
+			
 		// for( let [key, roll] of Object.entries(options.itemData.rolled) ) {
 			await roll.render().then((r)=> {templateData._rolls.push({template: r, roll: roll})});
 			// await options.itemData.rolled.render().then((r) => { templateData._rolls.push(r) });
@@ -1043,7 +1057,7 @@ export default class ActorT20 extends Actor {
 		// Render the chat card template
 		let template = "systems/tormenta20/templates/chat/chat-card.html";
 		const html = await renderTemplate(template, templateData);
-
+		
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,

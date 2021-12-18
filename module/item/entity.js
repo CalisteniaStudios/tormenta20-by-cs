@@ -2,6 +2,7 @@ import { T20Conditions } from "../conditions/conditions.js";
 import { simplifyRollFormula, d20Roll, damageRoll } from '../dice.js';
 import AbilityUseDialog from "../apps/ability-use-dialog.js";
 import AbilityTemplate from "../pixi/ability-template.js";
+// import ActiveEffectT20 from "../_support/active-effects.js";
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -391,7 +392,7 @@ export default class ItemT20 extends Item {
 		const id = this.data.data;                // Item system data
 		const actor = this.actor;
 		const ad = actor.data.data;               // Actor system data
-
+		
 		// Reference aspects of the item data necessary for usage
 		const hasArea = this.hasAreaTarget;       // Is the ability usage an AoE?
 		const resource = id.consume || {};        // Resource consumption
@@ -454,6 +455,7 @@ export default class ItemT20 extends Item {
 			else if ( Number(extra.margemCritico) ) item.data.data.criticoM += Number(extra.margemCritico);
 		}
 		
+		// ActiveEffectT20._applyOnUse(actor, item, configuration);
 		options = item.applyAprimoramentos(configuration);
 		options.rolls = [];
 		// Execute Rolls

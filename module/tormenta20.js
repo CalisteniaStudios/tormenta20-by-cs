@@ -9,6 +9,7 @@ import { measureDistances } from "./canvas.js";
 // Import Entities
 import ActorT20 from "./actor/entity.js";
 import ItemT20 from "./item/entity.js";
+// import ActiveEffectT20 from "./_support/active-effects.js";
 import { TokenDocumentT20, TokenT20 } from "./token.js";
 
 // Import Applications
@@ -67,6 +68,8 @@ Hooks.once("init", async function () {
 	CONFIG.T20 = T20;
 	CONFIG.Actor.documentClass = ActorT20;
 	CONFIG.Item.documentClass = ItemT20;
+	// CONFIG.ActiveEffect.documentClass = ActiveEffectT20;
+	
 	CONFIG.Token.documentClass = TokenDocumentT20;
 	CONFIG.Token.objectClass = TokenT20;
 	CONFIG.time.roundTime = 6;

@@ -1,14 +1,14 @@
 export async function d20Roll({parts=[], data={}, event={}, advantage=null, disadvantage=null, critical=20, fumble=1, targetValue=null}={}) {
 
 	parts = parts.concat(["@bonus"]);
-
 	let adv = 0;
-	if( advantage || event.altKey ) adv = 1;
-	else if ( disadvantage || event.ctrlKey ) adv = -1;
+	if( advantage || event.altKey || parts[0].includes('kh')) adv = 1;
+	else if ( disadvantage || event.ctrlKey || parts[0].includes('kl')) adv = -1;
+
 	
 	
 	// Define the inner roll function
-	const _roll = (parts, adv, form) => {
+	const _roll = async (parts, adv, form) => {
 
 		// Determine the d20 roll and modifiers
 		let nd = 1;
@@ -40,8 +40,9 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 
 		// Execute the roll
 		let roll = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+"), data);
+
 		try {
-			roll.roll();
+			await roll.roll({async:true});
 		} catch (err) {
 			console.error(err);
 			ui.notifications.error(`Avaliação de rolagem falhou: ${err.message}`);
@@ -58,14 +59,14 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 		return roll;
 	}
 	// Create the Roll instance
-	const roll = _roll(parts, adv);
+	const roll = await _roll(parts, adv);
 	return roll;
 }
 
 export async function damageRoll({parts, actor, data, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false}={}) {
 	parts = parts.concat(["@bonus"]);
 	// Define inner roll function
-	const _roll = function(parts, crit, form) {
+	const _roll = async function(parts, crit, form) {
 		// Optionally include a situational bonus
 		if ( form ) {
 			data['bonus'] = form.bonus.value;
@@ -116,7 +117,7 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 		const max = minmax && minmax == "max" ? true : false;
 		// Execute the roll
 		try {
-			return roll.evaluate({maximize:max,minimize:min,async:false});
+			return await roll.evaluate({ maximize:max, minimize:min, async:true });
 		} catch(err) {
 			console.error(err);
 			ui.notifications.error(`Avaliação de rolagem falhou: ${err.message}`);
@@ -195,4 +196,4 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 	const parents  = term instanceof ParentheticalTerm && Roll.safeEval(term.term);
 
 	return !(diceTerm || operator || number || parents );
-}
+ }

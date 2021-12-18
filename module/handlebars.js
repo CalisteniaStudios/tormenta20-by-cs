@@ -53,4 +53,10 @@ export function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("ift", function (v, rtrue, rfalse) {
 		return (v ? rtrue : rfalse);
 	});
+
+	Handlebars.registerHelper("inp", function (path) {
+		// console.log(this);
+		// console.log(path);
+		return `<input name="" value="">`;
+	});
 }
