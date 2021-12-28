@@ -1,5 +1,5 @@
 /**
- * A helper class for building MeasuredTemplates for 5e spells and abilities
+ * A helper class for building MeasuredTemplates for spells and abilities
  * @extends {MeasuredTemplate}
  */
 export default class AbilityTemplate extends MeasuredTemplate {
@@ -109,13 +109,13 @@ export default class AbilityTemplate extends MeasuredTemplate {
 
 		// Cancel the workflow (right-click)
 		handlers.rc = event => {
-			this.layer.preview.removeChildren();
+			this.layer._onDragLeftCancel(event);
 			canvas.stage.off("mousemove", handlers.mm);
 			canvas.stage.off("mousedown", handlers.lc);
 			canvas.app.view.oncontextmenu = null;
 			canvas.app.view.onwheel = null;
 			initialLayer.activate();
-			if ( this.actorSheet ) this.actorSheet.maximize();
+			this.actorSheet.maximize();
 		};
 
 		// Confirm the workflow (left-click)

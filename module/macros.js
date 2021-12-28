@@ -16,7 +16,7 @@ export async function createT20Macro(data, slot) {
 	if (data.type === "Pericia") {
 		const item = data.data;
 		command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
-		let macro = game.macros.entities.find(
+		let macro = game.macros.find(
 			(m) => m.name === item.label && m.command === command
 			);
 		if (!macro) {
@@ -55,7 +55,8 @@ game.tormenta20.rollItemMacro("${item.name}",{
 			command = `game.tormenta20.rollItemMacro("${item.name}");`;
 		}
 
-		let macro = game.macros.entities.find(
+
+		let macro = game.macros.find(
 			(m) => m.name === item.name && m.command === command
 			);
 		if (!macro) {
@@ -83,7 +84,7 @@ if(actor) {
 		effect.update({disabled: !effect.data.disabled});
 	}
 }`;
-		let macro = game.macros.entities.find(
+		let macro = game.macros.find(
 			(m) => m.name === item.label && m.command === command
 			);
 		if (!macro) {
