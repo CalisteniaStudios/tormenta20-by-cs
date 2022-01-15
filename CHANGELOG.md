@@ -1,4 +1,44 @@
 # Lista de Mudanças
+
+## Versão 1.3.0.14
+- Atualização: Classes com PV/PM por nível livres;
+- Atualização: Chat deve exibir o tipo de dano junto ao dado;
+- Corrigido: Clicar com o botão direito numa perícias volta a abrir o Journal dela;
+
+
+## Versão 1.3.0.13
+- Corrigido: Bug icone de template aparecendo em outra camada;
+- Corrigido: Macro não é criada ao arrastar um item pra barra;
+
+## Versão 1.3.0.12
+- Atualização: Compatibilidade com a v9 do FoundryVTT;
+- Adicionado: Barra de Vida Negativa;
+- Corrigido: Bug do Icone de Templates aparecendo na Layer errada;
+- Corrigido: Bug ao criar macro ao arrastar um item para a barra de macros;
+
+## Versão 1.3.0.11
+- Adicionado: opção de apagar mensagem no menu de contexto (BDM);
+- Adicionado: `data.modificadores.dano.alq` aumentar efeito de itens alquimicos;
+- Adicionado: configuração de mensagem de dano;
+- Corrigido: macros de Sangramento e Confuso;
+- Corrigido: spam de mensagem de condição quando aplicada em multiplos tokens;
+
+## Versão 1.3.0.10
+- Correção da mensagem no chat ao aplicar uma condição.
+
+## Versão 1.3.0.9
+- Macro de Condições por Tiago Morato;
+- Macro de descanço;
+- Config de ocultar CD de npcs;
+- Campo Raças nos NPCS;
+- Bug no cálculo de distância ao usar a régua.
+
+## Versão 1.3.0.8
+- Ajuste no tracker de iniciativa;
+
+## Versão 1.3.0.7
+- Atualização na rolagem de atributos e perícias para permitir a compatibilidade com as solicitações de rolagem do módulo Monk's TokenBar (O módulo ainda precisa aceitar uma atualização);
+
 ## Versão 1.2.0.21
 ### Novidades
 - Navegador de Compêndio removido do sistema e transformado em um módulo. Manifesto para instalação: https://github.com/mclemente/compendium-browser/releases/latest/download/module.json.

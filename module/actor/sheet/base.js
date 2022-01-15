@@ -336,7 +336,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const packKey = parts.slice(0, 2).join(".");
 		const entryId = parts.slice(-1)[0];
 		const pack = game.packs.get(packKey);
-		const entry = await pack.getEntity(entryId);
+		const entry = await pack.getDocument(entryId);
 		entry.sheet.render(true);
 	}
 	

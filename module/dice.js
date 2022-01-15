@@ -75,27 +75,20 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 		if (!data["bonus"]) parts.pop();
 		// Create the damage roll
 		let roll;
-		if( true ){
+		
+		if( false ){
 			roll = new Roll(parts.map(p=> p[0].toString().replace(/^\+/,"")).filterJoin("+"), data);
 		} else {
-			/**
-			 * INCLUDE DAMAGE TYPE TODOS
-			 * SOLVE COMBINED PARTS
-			 * [2d6+2, fire] => in roll => gets splited dieTerm 2d6 numericTerm 2
-			 **/
-			console.log( parts );
-			parts = parts.map(function(p) {
-				p[0] = p[0].toString();
-				p[0] = p[0].replace(/^\+| /g,"");
-				p[0] = p[0].replace(/\d+d\d+[\+\-]\d+/, "{$&}");
-				return [p[0] , p[1]]
-			})
-			console.log(parts);
-			roll = new Roll( parts.map(p=>p[0]).filterJoin("+"), data);
-			console.log(roll);
-			for ( let [k, t] of roll.terms.filter(t=> t instanceof OperatorTerm === false ).entries() ) {
-				t.options.flavor = parts[k][1] ? parts[k][1] : parts[0][1] ;
-			}
+			parts = parts.reduce(function(acc, o){
+				let p = o[0].split('+');
+				acc = acc.concat( p.map( e => [e, o[1]]) );
+				return  acc;
+			}, []);
+			parts = parts.map( function(e) { 
+				if(e[1]) return e[0]+`[${e[1]}]`;
+				else return e[0];
+			});
+			roll = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+"), data);
 		}
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {
@@ -117,7 +110,9 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 		const max = minmax && minmax == "max" ? true : false;
 		// Execute the roll
 		try {
-			return await roll.evaluate({ maximize:max, minimize:min, async:true });
+			let l = await roll.evaluate({ maximize:max, minimize:min, async:true });
+			l._formula = l._formula.replaceAll(/(\[\w*\])/g, '');
+			return l;
 		} catch(err) {
 			console.error(err);
 			ui.notifications.error(`Avaliação de rolagem falhou: ${err.message}`);

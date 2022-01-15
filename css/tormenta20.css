@@ -566,13 +566,15 @@ button {
   color: #7a7971;
 }
 
-.tormenta20 .item-description,
+/* .tormenta20 .item-description,
 .tormenta20 .sheet-body .tab.item-description,
 .tormenta20 .sheet-body .tab .editor,
 .tormenta20 .sheet-body .tab .item-description .editor,
 .tormenta20 .sheet-body .tab .item-description .editor .editor-content {
   height: inherit;
-}
+} */
+
+
 
 .tormenta20 .tox .tox-editor-container {
   background: #fff;
@@ -1328,6 +1330,29 @@ button {
 }
 
 /* tormenta20 */
+.tormenta20.sheet .window-content {
+  overflow-y: hidden;
+}
+
+.tormenta20.sheet .window-content form {
+  height: 100%;
+  overflow: hidden;
+}
+
+.tormenta20.sheet .window-content .tab {
+  height: 100%;
+  overflow-y: auto;
+  align-content: flex-start;
+}
+
+.tormenta20.sheet .sheet-body {
+  overflow: hidden;
+}
+
+.tormenta20.sheet .sheet-body .tab {
+  overflow: hidden auto;
+}
+
 .tormenta20.sheet.actor .window-content {
   padding: 0;
 }

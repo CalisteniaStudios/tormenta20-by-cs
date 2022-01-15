@@ -886,8 +886,8 @@ export default class ItemT20 extends Item {
 		// Invoke the roll and submit it to chat
 		for (let r of itemData.rolls.filter(i => i.type == "formula")) {
 			// rolls[r.name] = 
-			let temp = new Roll(r.parts[0][0], rollData).roll();
-			itemData.rolled[r.name] = temp;
+			let temp = new Roll(r.parts[0][0], rollData);
+			itemData.rolled[r.name] = await temp.roll({async:true});
 		}
 	}
 
