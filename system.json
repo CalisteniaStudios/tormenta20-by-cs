@@ -10,6 +10,7 @@
   "esmodules": ["module/tormenta20.js"],
   "styles": ["css/tormenta20.css","css/tormenta20-tabbed.css"],
   "scripts": [],
+  "authors": [],
   "packs": [
     {
       "name": "poderes",
