@@ -21,10 +21,13 @@ export default class AbilityTemplate extends MeasuredTemplate {
 		if( area.match(/cone/) ) type = "cone";
 		else if( area.match(/linha|parede|muralha/) ) type = "ray"; 
 		else if( area.match(/quadrado|cubo/) ) type = "rect";
-		else if( area.match(/esfera|circulo|raio|cilindro|explosão|emanação/) ) type = "circle";
+		else if( area.match(/esfera|circulo|círculo|raio|cilindro|explosão|emanação/) ) type = "circle";
 		if( area.match(/\d+[,|.]?\d?(m|km|q)/) ) units = area.match(/\d+[,|.]?\d?(m|km|q)/)[1];
-		if( area.match(/(\d+[,|.]?\d?)[m|km|q]/) ) distance = area.match(/(\d+[,|.]?\d?)[m|km|q]/)[1].replace(",",".") * 1 ;
-
+		if( area.match(/(\d+[,|.]?\d?)[m|km|q]/) ){
+			if (area.match(/diametro|diâmetro/i)) distance = area.match(/(\d+[,|.]?\d?)[m|km|q]/)[1].replace(",",".") * 1 / 2;
+			else distance = area.match(/(\d+[,|.]?\d?)[m|km|q]/)[1].replace(",",".") * 1;
+		}
+		
 		if (!distance || !["cone", "circle", "rect", "ray"].includes(type)) return null;
 		// Prepare template data
 		const templateData = {
