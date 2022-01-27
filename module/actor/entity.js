@@ -1075,12 +1075,16 @@ export default class ActorT20 extends Actor {
 		if (game?.dice3d?.show) {
 			let wd = {
 				whisper: (["gmroll", "blindroll"].includes(rollMode) ? ChatMessage.getWhisperRecipients("GM") 
-					: (rollMode === "selfroll" ? [game.user._id] : null)),
+					: (rollMode === "selfroll" ? [game.user.id] : null)),
 				blind: rollMode === "blindroll"
 			}
-			if( options.itemData.rolled ){
-			// for (const roll of options.itemData.rolled){
-				await game.dice3d.showForRoll(options.itemData.rolled, game.user, true, wd.whisper, wd.blind)
+
+			try {
+				if( options.itemData.rolled ){
+					await game.dice3d.showForRoll(options.itemData.rolled, game.user, true, wd.whisper, wd.blind)
+				}
+			} catch (error) {
+				console.error(error);
 			}
 		}
 		// Create the Chat Message or return its data
