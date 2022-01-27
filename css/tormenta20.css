@@ -541,9 +541,9 @@ button {
   height: 20px;
 }
 
-.tormenta20.sheet.actor .traits input {
-  /*text-align: right;*/
-}
+/* .tormenta20.sheet.actor .traits input {
+  text-align: right;
+} */
 
 .tormenta20.sheet.npc .inpContentEditable {
   padding: 0 5px;
@@ -563,16 +563,12 @@ button {
 }
 
 .tormenta20.sheet.actor .traits .inactive {
-  color: #7a7971;
+  color: #726c42;
 }
 
-/* .tormenta20 .item-description,
-.tormenta20 .sheet-body .tab.item-description,
-.tormenta20 .sheet-body .tab .editor,
-.tormenta20 .sheet-body .tab .item-description .editor,
-.tormenta20 .sheet-body .tab .item-description .editor .editor-content {
+.tormenta20.sheet.item .item-description {
   height: inherit;
-} */
+}
 
 
 
@@ -584,12 +580,13 @@ button {
   padding: 0 8px;
 }
 
-.tormenta20 nav.sheet-tabs2,
-.tormenta20 nav.sheet-tabs {
+
+.tormenta20.sheet nav.sheet-tabs {
   align-content: center;
   text-align: center;
   font-size: 18px;
   margin: 0 0 -1px 0;
+  padding: 0;
 }
 
 .tormenta20 .tabs .item {
@@ -767,9 +764,6 @@ button {
   float: left;
 }
 
-.tormenta20.npc .sheet-body .dados {
-
-}
 
 .tormenta20 .sheet-body .skills {
   width: 44%;
@@ -1300,9 +1294,7 @@ button {
   width: fit-content;
   max-width: 30%;
 }
-.tormenta20 .npc ul * {
-  /*font-size: 14px!important;*/
-}
+
 .tormenta20 .npc span {
   text-align: left!important;
 }
@@ -1330,26 +1322,27 @@ button {
 }
 
 /* tormenta20 */
-.tormenta20.sheet .window-content {
+.tormenta20.sheet.item .window-content {
   overflow-y: hidden;
 }
 
-.tormenta20.sheet .window-content form {
+.tormenta20.sheet.item .window-content form {
   height: 100%;
   overflow: hidden;
 }
 
-.tormenta20.sheet .window-content .tab {
+/* .tormenta20.sheet.actor .tabbed .window-content .tab, */
+.tormenta20.sheet.item .window-content .tab {
   height: 100%;
   overflow-y: auto;
   align-content: flex-start;
 }
 
-.tormenta20.sheet .sheet-body {
+.tormenta20.sheet.item .sheet-body {
   overflow: hidden;
 }
 
-.tormenta20.sheet .sheet-body .tab {
+.tormenta20.sheet.item .sheet-body .tab {
   overflow: hidden auto;
 }
 
@@ -1633,9 +1626,6 @@ button {
   vertical-align: middle;
 }
 
-.tormenta20 .npc .effects-list .item-image{
-
-}
 
 .active-effect-sheet .effect-change .key {
   flex: 1;
@@ -1672,3 +1662,7 @@ button {
   background: rgba(255, 255, 240, 0.8);
 }
 
+/* TINY MCE */
+.tormenta20.sheet .editor {
+  height: 100%;
+}

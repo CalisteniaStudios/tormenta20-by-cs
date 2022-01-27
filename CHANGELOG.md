@@ -1,10 +1,15 @@
 # Lista de Mudanças
 
+## Versão 1.3.0.15
+- Atualização: Os dados 3D vão atrasar a mensagem no chat até que a animação seja concluída;
+- Atualização: Correções de algumas magias e habilidades;
+- Corrigido: Editor de Texto deve aparecer normalmente;
+- Corrigido: Erro em rolagens com valores númerico;
+
 ## Versão 1.3.0.14
 - Atualização: Classes com PV/PM por nível livres;
 - Atualização: Chat deve exibir o tipo de dano junto ao dado;
 - Corrigido: Clicar com o botão direito numa perícias volta a abrir o Journal dela;
-
 
 ## Versão 1.3.0.13
 - Corrigido: Bug icone de template aparecendo em outra camada;

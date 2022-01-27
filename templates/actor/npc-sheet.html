@@ -466,15 +466,13 @@
 		</div>
 
 		{{!-- Biography Tab --}}
-		<div class="tab biography" data-group="primary" data-tab="description">
-			<div class="flexrow flex-between">
-				<div style="max-width: 220px;">
-					<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200"
-					width="200" />
-				</div>
-
-				{{editor content=data.biography.value target="data.biography.value" button=true owner=owner editable=editable}}
+		<div class="tab biography flexrow flex-between" data-group="primary" data-tab="description">
+			<div style="max-width: 220px;">
+				<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200"
+				width="200" />
 			</div>
+
+			{{editor content=data.biography.value target="data.biography.value" button=true owner=owner editable=editable}}
 		</div>
 
 		{{!-- Efeitos Tab --}}

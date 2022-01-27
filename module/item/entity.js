@@ -723,7 +723,7 @@ export default class ItemT20 extends Item {
 				blind: rollMode === "blindroll"
 			}
 			for( let [key, roll] of Object.entries(this.data.data.rolled) ) {
-				game.dice3d.showForRoll(roll, game.user, true, wd.whisper, wd.blind)
+				await game.dice3d.showForRoll(roll, game.user, true, wd.whisper, wd.blind)
 			}
 		}
 		// Create the Chat Message or return its data

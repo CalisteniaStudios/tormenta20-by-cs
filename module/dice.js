@@ -80,7 +80,7 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 			roll = new Roll(parts.map(p=> p[0].toString().replace(/^\+/,"")).filterJoin("+"), data);
 		} else {
 			parts = parts.reduce(function(acc, o){
-				let p = o[0].split('+');
+				let p = String(o[0]).split('+');
 				acc = acc.concat( p.map( e => [e, o[1]]) );
 				return  acc;
 			}, []);

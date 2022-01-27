@@ -1080,7 +1080,7 @@ export default class ActorT20 extends Actor {
 			}
 			if( options.itemData.rolled ){
 			// for (const roll of options.itemData.rolled){
-				game.dice3d.showForRoll(options.itemData.rolled, game.user, true, wd.whisper, wd.blind)
+				await game.dice3d.showForRoll(options.itemData.rolled, game.user, true, wd.whisper, wd.blind)
 			}
 		}
 		// Create the Chat Message or return its data

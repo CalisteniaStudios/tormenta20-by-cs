@@ -14,6 +14,7 @@ Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 * Victor Kullack
 * Alexandre Galdino
 * André Oliveira
+* Vinicius Lima Silva
 
 ## Atribuições
 - Arte de alguns ícones de magias: J. W. Bjerk (eleazzaar) -- www.jwbjerk.com/art -- find this and other open art at: http://opengameart.org
