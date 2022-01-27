@@ -1,5 +1,73 @@
 # Lista de Mudanças
 
+## Versão 1.3.0.14
+- Atualização: Classes com PV/PM por nível livres;
+- Atualização: Chat deve exibir o tipo de dano junto ao dado;
+- Corrigido: Clicar com o botão direito numa perícias volta a abrir o Journal dela;
+
+
+## Versão 1.3.0.13
+- Corrigido: Bug icone de template aparecendo em outra camada;
+- Corrigido: Macro não é criada ao arrastar um item pra barra;
+
+## Versão 1.3.0.12
+- Atualização: Compatibilidade com a v9 do FoundryVTT;
+- Adicionado: Barra de Vida Negativa;
+- Corrigido: Bug do Icone de Templates aparecendo na Layer errada;
+- Corrigido: Bug ao criar macro ao arrastar um item para a barra de macros;
+
+## Versão 1.3.0.11
+- Adicionado: opção de apagar mensagem no menu de contexto (BDM);
+- Adicionado: `data.modificadores.dano.alq` aumentar efeito de itens alquimicos;
+- Adicionado: configuração de mensagem de dano;
+- Corrigido: macros de Sangramento e Confuso;
+- Corrigido: spam de mensagem de condição quando aplicada em multiplos tokens;
+
+## Versão 1.3.0.10
+- Correção da mensagem no chat ao aplicar uma condição.
+
+## Versão 1.3.0.9
+- Macro de Condições por Tiago Morato;
+- Macro de descanço;
+- Config de ocultar CD de npcs;
+- Campo Raças nos NPCS;
+- Bug no cálculo de distância ao usar a régua.
+
+## Versão 1.3.0.8
+- Ajuste no tracker de iniciativa;
+
+## Versão 1.3.0.7
+- Atualização na rolagem de atributos e perícias para permitir a compatibilidade com as solicitações de rolagem do módulo Monk's TokenBar (O módulo ainda precisa aceitar uma atualização);
+
+## Versão 1.2.0.21
+### Novidades
+- Navegador de Compêndio removido do sistema e transformado em um módulo. Manifesto para instalação: https://github.com/mclemente/compendium-browser/releases/latest/download/module.json.
+
+## Versão 1.2.0.20
+### Consertos de Bugs
+- NPC: RD não sendo adicionado à ficha.
+- PJ: Bug visual onde o Bônus de Treinamento mostrava +6 no nível 14.
+- Efeitos Ativos: Bônus na Defesa do poder Reptiliano.
+
+## Versão 1.2.0.19
+### Novidades
+- Efeitos Ativos:
+- - Mais 11 Efeitos: Arcano de Batalha, Arma Sagrada, Armas da Ambição, Comandar, Derrubar/Desarmar/Quebrar Aprimorado, Magia Pungente, Mestre Caçador, Pele de Aço/Ferro
+- - Removido o efeito do Foco em Arma. É melhor aplicar efeitos passivos para itens diretamente na ficha do item.
+- Tentar ativar um efeito de uma mensagem no chat retornará um aviso para selecionar um token caso não tenha um selecionado.
+- Compêndio: Armas de ataque à distância (exceto Arco Longo) não têm Força como atributo no dano.
+
+### Consertos de Bugs
+- Fichas de personagens com Armas sem Atributo definido com uma perícia definida não abriam.
+
+## Versão 1.2.0.18
+### Consertos de Bugs
+- Fichas com RD Base ou Temporário definidos mas o outro indefinido não conseguiam editar a ficha (ex: Base "5", Temp "").
+- Janela de Uso de Habilidade (Shift + Clique):
+- - Perícias não estavam sendo afetadas pelo modificador da janela do shift.
+- - Modo de rolagem estava sendo ignorado.
+- - "Ataque" aparecia para habilidades que não eram ataques.
+
 ## Versão 1.2.0.17
 ### Novidades
 - Botão ao lado do atributo chave de magia, para atualizar todas as magias presentes.

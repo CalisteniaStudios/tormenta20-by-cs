@@ -1,40 +1,10 @@
 # Tormenta20
 
-This is an UNOFICIAL system made by fan and has no affiliation with Tormenta20 or Jambo Editora.
-Tormenta 20 is a brazilian RPG system owned by Jambo Editora.
+## Descrição
+Este é um sistema NÃO OFICIAL feito e mantido por fãs, sem qualquer afiliação a Tormenta20 ou a Jambo Editora.
+Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 
-## Description
 
-Build campaigns in the Tormenta20 using Foundry VTT!
-
-## TODOS & UPDATES
-
-* ~~Corrigir caixa de magias preparadas~~ (v0.9.2)
-* ~~Adicionar novos ofícios e novas perícias~~ (v0.9.3)
-* ~~Adicionar aba de biografia e imagem~~ (v0.9.3)
-* ~~Equipar e desequipar itens~~ (v0.9.4)
-* ~~Correção de bugs~~ (v0.9.4)
-* ~~Arrumar macros~~ (v0.9.5)
-* ~~Ficha de NPCS~~ (v0.9.6)
-* ~~Separar equipamentos em armas, consumiveis e tesouro~~ (v0.9.7)
-* ~~Melhorar ataques~~ (v0.9.7)
-* ~~Aplicar dano/cura~~ (v0.9.7)
-* ~~Correção de medição de distância diagonal~~ (v0.9.8)
-* ~~Correções para atualização 0.7.5 do Foundry~~ (v0.9.82)
-* ~~Correções para atualização 0.7.8 do Foundry~~ (v0.9.84)
-* ~~Correções adicionais de ataques, medição de distância por etapas e melhor visualização de críticos~~ (v0.9.85)
-* ~~Suporte a aprimoramentos das magias~~ (v0.9.9)
-* ~~Personalizar rolagens usando atalhos do teclado (SHIFT, CTRL, ALT)~~ (v0.9.9)
-* ~~Melhorias diversas~~ (v0.9.92)
-* ~~Reformulação das armas e Macros de para Armas~~ (v0.9.93)
-* ~~Itens Roláveis~~ (v0.9.93)
-* ~~Condições de T20 aplicadas como efeitos ativos~~ (v0.9.94)
-* ~~Armaduras e Itens de defesa equipáveis.~~ (v1.0.0)
-* ~~Melhoras Condições.~~ (v1.0.0)
-* ~~Paridade de Fichas, Fim de Cena, melhorias gerais.~~ (v1.1.0)
-* Melhorar Poderes e Itens num geral
-* Efeitos ativos.
-* Layout da ficha
 
 ## Colaboradores
 * TheTruePortal
@@ -48,6 +18,6 @@ Build campaigns in the Tormenta20 using Foundry VTT!
 ## Atribuições
 - Arte de alguns ícones de magias: J. W. Bjerk (eleazzaar) -- www.jwbjerk.com/art -- find this and other open art at: http://opengameart.org
 - [sdenec](https://github.com/sdenec/) pelo módulo [Tidy5e Sheet](https://github.com/sdenec/tidy5e-sheet), cujo código foi adaptado neste sistema.
-- [syl3r86](https://github.com/syl3r86) pelos módulos [Compendium Browser](https://github.com/syl3r86/compendium-browser) e [FavTab](https://github.com/syl3r86/favtab), que foram adaptados neste sistema.
+- [syl3r86](https://github.com/syl3r86) pelo módulo [FavTab](https://github.com/syl3r86/favtab), que foi adaptado neste sistema.
 - [Tijmen Bok](https://gitlab.com/Furyspark) pelo sistema [Pathfinder 1e for Foundry VTT](https://gitlab.com/Furyspark/foundryvtt-pathfinder1), cujo código foi adaptado neste sistema.
 - Este sistema usa artes de tokens do [Forgotten Adventures](https://www.forgotten-adventures.net). This system uses token arts from [Forgotten Adventures](https://www.forgotten-adventures.net).

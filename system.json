@@ -2,14 +2,15 @@
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.2.0.17",
-  "minimumCoreVersion": "0.6.5",
-  "compatibleCoreVersion": "0.7.9",
+  "version": "1.3.0.14",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "9",
   "templateVersion": 1,
-  "author": "Vizael, Matheus Clemente",
+  "author": "Vizael",
   "esmodules": ["module/tormenta20.js"],
-  "styles": ["css/tormenta20.css", "css/compendium-browser.css","css/tormenta20-tabbed.css"],
-  "scripts": ["module/compendium-browser.js"],
+  "styles": ["css/tormenta20.css","css/tormenta20-tabbed.css"],
+  "scripts": [],
+  "authors": [],
   "packs": [
     {
       "name": "poderes",
@@ -86,7 +87,12 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português",
+      "path": "lang/pt-BR.json"
     }
   ],
   "gridDistance": 1.5,

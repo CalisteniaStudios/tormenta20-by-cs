@@ -3,31 +3,31 @@
 <ul class="item-list">
 	<li class="item item-header" style="text-align: center;">
 		{{#each data.atributos as |atr key|}}
-		{{#if (eq key ../data.atributoChave)}}
-		<label>CD {{add ../data.attributes.cd atr.mod}} =</label>
+		{{#if (eq key ../data.attributes.conjuracao)}}
+		<label>CD das Magias {{add ../data.attributes.cd atr.mod}} =</label>
+		<label title="CD Base 10 + metade do nível">{{../data.attributes.cd}} +</label>
 		{{/if}}
 		{{/each}}
-		<input class="cdbase" title="CD Base" name="data.attributes.cd" type="text" value="{{data.attributes.cd}}" data-dtype="Number" />
-		<select class="selectAtr" title="Atributo-Chave" name="data.atributoChave">
-			{{#select data.atributoChave}}
+		<select class="selectAtr" title="Atributo-Chave" name="data.attributes.conjuracao">
+			{{#select data.attributes.conjuracao}}
 			<option value="int">Inteligência</option>
 			<option value="sab">Sabedoria</option>
 			<option value="car">Carisma</option>
 			{{/select}}
 		</select>
-		<a class="update-cd" title="Atualizar Atributos das Magias" data-atrRes="{{data.atributoChave}}"><i class="fas fa-sync"></i></a>
+		<a class="update-cd" title="Atualizar Atributos das Magias" data-atrRes="{{data.attributes.conjuracao}}"><i class="fas fa-sync"></i></a>
 	</li>
 	{{#each actor.magias as |circulo i|}}
 	{{#if circulo.spells.length}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			{{#if ../isPreparationCaster}}<div class="item-toggles">Prep</div>{{/if}}
-			<div class="item-name" style="flex:2">{{i}}º Círculo ({{circulo.custo}} PM)</div>
+			<div class="item-name flex2">{{i}}º Círculo ({{circulo.custo}} PM)</div>
 			<div class="item-tipo">Escola</div>
 			<div class="item-tipo">Ativação</div>
 			<div class="item-controls">
 
-				<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}} data-atrRes="{{../actor.data.atributoChave}}"><i class="fas fa-plus"></i> Nova</a>
+				<a class="item-control item-create" title="Create item" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}} data-atrRes="{{../data.attributes.conjuracao}}"><i class="fas fa-plus"></i> Criar</a>
 			</div>
 		</li>
 		{{#each circulo.spells as |m index|}}
@@ -37,15 +37,19 @@
 				<a class="item-toggle preparation-toggle {{#if m.data.preparada }}active{{/if}}" title="Preparada"><i class="fas fa-sun"></i></a>
 			</div>
 			{{/if}}
-			<div class="item-name flexrow rollable magia-rollable" style="flex:2" data-label="{{m.name}}">
+			<div class="item-name flexrow rollable flex2" data-label="{{m.name}}">
 			<div class="item-image" style="background-image: url('{{m.img}}')"></div>
 				<h4>{{m.name}}</h4>
 			</div>
-			<div class="item-tipo">{{m.data.escola}}</div>
-			<div class="item-tipo">{{#each ../../config.listaAtivacao as |name prop|}}{{#if (eq ../data.ativacao.execucao prop)}}{{name}}{{#ifNotEquals ../data.ativacao.custo circulo.custo}} ({{../data.ativacao.custo}} PM){{/ifNotEquals}}{{/if}}{{/each}}</div>
+			<div class="item-tipo">{{m.labels.escola}}</div>
+			<div class="item-tipo">
+				{{#if m.labels.ativacao}}
+				{{m.labels.ativacao}}
+				{{/if}}
+			</div>
 			<div class="item-controls">
 				{{#if (eq ../../layout "tabbed")}}<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if m.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>{{/if}}
-				{{#if ../../actor.flags.botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
+				{{#if ../../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
 			</div>
 		</li>

@@ -22,10 +22,10 @@
 				<h4 class="item-name">{{effect.data.label}}</h4>
 				{{else}}
 				<h4 class="item-name"><b>
-				{{effect.data.flags.t20.custo}}
+				{{effect.data.flags.tormenta20.custo}}
 
-				{{#if (and (eq effect.data.flags.t20.custo "") (eq ../../item.type "magia"))}}Truque:
-				{{else if (eq effect.data.flags.t20.custo "")}}—
+				{{#if (and (eq effect.data.flags.tormenta20.custo "") (eq ../../item.type "magia"))}}Truque:
+				{{else if (eq effect.data.flags.tormenta20.custo "")}}—
 				{{else}}PM:{{/if}}
 				</b>
 				{{effect.data.label}}</h4>
@@ -34,7 +34,7 @@
 			{{#unless (eq sid "onuse")}}
 			<div class="effect-source">{{effect.sourceName}}</div>
 			<div class="effect-duration">
-				{{#if effect.data.flags.t20.durationScene}}
+				{{#if effect.data.flags.tormenta20.durationScene}}
 				Cena
 				{{else}}
 				{{effect.duration.label}}

@@ -1,81 +1,64 @@
-<form class="tormenta20" autocomplete="off">
+<form class="{{cssClass}} flexcol" autocomplete="off">
 	{{!-- Item Sheet Header --}}
-    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+	{{> "systems/tormenta20/templates/item/parts/item-header.html"}}
 	
 	{{!-- Item Sheet Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item active" data-tab="description">Descrição</a>
-        <a class="item" data-tab="details">Detalhes</a>
-        <a class="item" data-tab="effects">Efeitos</a>
-        <!-- <a class="item" data-tab="aprimoramentos">Aprimoramentos</a> -->
-    </nav>
-
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item active" data-tab="description">{{ localize "T20.Description" }}</a>
+		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
+		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
+	</nav>
+	
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
 		{{!-- Description Tab --}}
-        {{> "systems/tormenta20/templates/item/parts/item-description.html"}}
+		{{> "systems/tormenta20/templates/item/parts/item-description.html"}}
 		
+		{{!-- Details Tab --}}
 		<div class="tab details" data-group="primary" data-tab="details">
 			<div class="form-group">
-                    <label>Tipo</label>
-                    <select class="selectatr" name="data.tipo" value={{data.tipo}} data-type="Number">
-                        {{#select data.tipo}}
-                        <option value="Arcana">Arcana</option>
-                        <option value="Divina">Divina</option>
-                        <option value="Universal">Universal</option>
-                        {{/select}}
-                    </select>
+				<label>{{ localize "T20.Type" }}</label>
+				<select name="data.tipo">
+					{{selectOptions config.spellType selected=data.tipo localize=true}}
+				</select>
 			</div>
-            <div class="form-group">
-				<label>Circulo</label>
-				<select class="selectatr" name="data.circulo" value={{data.circulo}} data-type="Number">
+			<div class="form-group">
+				<label>{{ localize "T20.SpellCircle" }}</label>
+				<select name="data.circulo" data-type="Number">
 					{{#select data.circulo}}
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
+					{{selectOptions config.spellLevels selected=data.circulo localize=true}}
 					{{/select}}
 				</select>
 			</div>
-            <div class="form-group">
-				<label>Escola</label>
-				<select class="selectatr" name="data.escola" value={{data.escola}} data-type="String">
+			<div class="form-group">
+				<label>{{ localize "T20.SpellSchool" }}</label>
+				<select name="data.escola">
 					{{#select data.escola}}
-					<option value="Abjuração">Abjuração</option>
-					<option value="Adivinhação">Adivinhação</option>
-					<option value="Convocação">Convocação</option>
-					<option value="Encantamento">Encantamento</option>
-					<option value="Evocação">Evocação</option>
-					<option value="Ilusão">Ilusão</option>
-					<option value="Necromancia">Necromancia</option>
-					<option value="Transmutação">Transmutação</option>
+					{{selectOptions config.spellSchools selected=data.circulo localize=true}}
 					{{/select}}
 				</select>
-            </div>
+			</div>
 			
 			<hr>
-			
-			<div class="form-group">
-				<label>Rolagem</label>
-				<div class="form-fields">
-				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String" placeholder="Ex: 6d6+6" />
-				</div>
-			</div>
+			{{!-- Rolls --}}
+			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
 			
 			<hr>
 			<h3>Ativação</h3>
 			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
 			{{> "systems/tormenta20/templates/item/parts/item-resistencia.html"}}
+			
 			<hr>
-			<div class="form-group">
-				<label for="chatFlavor">ChatFlavor</label>
+			{{!-- Chat Message Flavor --}}
+			<div class="form-group stacked">
+				<label>{{ localize "T20.ChatFlavor" }}</label>
 				<textarea name="data.chatFlavor" contenteditable="true">{{data.chatFlavor}}</textarea>
 			</div>
 		</div>
-
+		
+		{{!-- Effects Tab --}}
 		<div class="tab effects" data-group="primary" data-tab="effects">
-            {{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
-        </div>
-    </section>
+			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
+	</section>
 </form>

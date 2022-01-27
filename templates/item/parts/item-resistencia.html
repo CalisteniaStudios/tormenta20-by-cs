@@ -1,28 +1,20 @@
 <div class="form-group">
-	<label>Resistência</label>
+	<label>{{ localize "T20.ActionSave" }}</label>
 	<div class="form-fields">
-		<input type="text" name="data.resistencia" value="{{data.resistencia}}" data-dtype="String" />
+		<input type="text" name="data.resistencia.txt" value="{{data.resistencia.txt}}" data-dtype="String" />
 	</div>
 </div>
 
-{{#if data.totalCD}}
+{{#if data.resistencia.txt}}
 <div class="form-group">
-	<label>CD</label>
+	<label>CD Atributo / Bônus</label>
 	<div class="form-fields">
-		<select title="Atributo-Chave" name="data.atrRes">
-            {{#select data.atrRes}}
-			{{#if (eq item.type "magia")}}
-			<option value="int">Inteligência</option>
-			<option value="sab">Sabedoria</option>
-			<option value="car">Carisma</option>
-			{{else}}
-			{{#each config.atributos as |name key|}}
-			<option value="{{key}}">{{name}}</option>
-			{{/each}}
-			{{/if}}
+		<select name="data.resistencia.atributo">
+			{{#select data.resistencia.atributo}}
+			{{selectOptions config.atributos selected=data.resistencia.atributo localize=true}}
 			{{/select}}
 		</select>
-		<input type="text" title="Bônus" name="data.cd" value="{{data.cd}}" data-dtype="Number" />
+		<input type="text" name="data.resistencia.bonus" value="{{data.resistencia.bonus}}" data-dtype="Number" />
 	</div>
 </div>
 {{/if}}

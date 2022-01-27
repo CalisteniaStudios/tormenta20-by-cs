@@ -1,145 +1,101 @@
 <div class="traits">
 	<h3 style="text-align: center;">Outras Características</h3>
 	<div>
-        <label style="display:inline-block;">Classe{{#if (gt actor.classes.length 1)}}s{{/if}}</label>
+		<label>Tamanho</label>
+		<select class="actor-size" name="data.tracos.tamanho">
+			{{#select data.tracos.tamanho}}
+			{{#each config.actorSizes as |label size|}}
+			<option value="{{size}}">{{label}}</option>
+			{{/each}}
+			{{/select}}
+		</select>
+	</div>
+	
+	<div>
+		<a class="config-button" data-action="movement" data-target="data.attributes.movement">
+			<label style="display:inline-block;">Deslocamento</label>
+		</a>
 		<ul class="trait-list">
-        {{#each actor.classes as |item|}}
-			<li class="item tag {{this.name}}" data-item-id="{{item._id}}">
-				<a class="item-control item-edit" title="Editar">
-				{{this.name}} {{this.data.niveis}}
-				</a>
-				<a class="item-control item-delete" title="Excluir">
-					<i class="fas fa-trash" style="float:unset;"></i>
-				</a>
-			</li>
-		{{/each}}
+			{{#each movement as | move key | }}
+			<li class="speedtag {{key}}">{{move}}</li>
+			{{/each}}
 		</ul>
-    </div>
-	<div>
-        <label style="display:inline-block;">Tamanho</label>
-        <select class="actor-size" name="data.tamanho">
-            {{#select data.tamanho}}
-            {{#each config.tamanhos as |label size|}}
-                <option value="{{size}}">{{label}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-    </div>
+	</div>
 	
 	<div>
-		<a class="trait-selector" data-options="deslocamento" data-target="data.attributes.movement">
-		<label style="display:inline-block;">Deslocamento</label>
-        </a>
+		<label>
+			<a class="config-button" data-action="resistance" data-target="data.tracos.resistencias">Resistências: </a>
+		</label>
 		<ul class="trait-list">
-			{{#if data.attributes.movement.walk}}<li class="speedtag walk">{{data.attributes.movement.walk}}m ({{divide data.attributes.movement.walk 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.climb}}<li class="speedtag climb">Escalar {{data.attributes.movement.climb}}m ({{divide data.attributes.movement.climb 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.burrow}}<li class="speedtag burrow">Escavar {{data.attributes.movement.burrow}}m ({{divide data.attributes.movement.burrow 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.swim}}<li class="speedtag swim">Natação {{data.attributes.movement.swim}}m ({{divide data.attributes.movement.swim 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.fly}}<li class="speedtag fly">Voo {{data.attributes.movement.fly}}m ({{divide data.attributes.movement.fly 1.5}}q)</li>{{/if}}
-			{{#if data.attributes.movement.hover}}<li class="speedtag hover">Pairar</li>{{/if}}
-        </ul>
+			{{#each data.tracos.resistencias as |v k|}}
+			{{#if v.imunidade }}
+			<li class="tag {{k}}" title="Imunidade">{{k}} <i class="fas fa-fist-raised" style="float:unset;"></i></li>
+			{{else if v.vulnerabilidade }}
+			<li class="tag {{k}}" title="Vulnerabilidade">{{k}} <i class="fas fa-skull" style="float:unset;"></i></li>
+			{{else if (gt v.value 0)}}
+			<li class="tag {{k}}">{{k}} {{v.value}}</li>
+			{{/if}}
+			{{/each}}
+		</ul>
+	</div>
+
+	<div>
+		<a class="trait-selector ic" data-options="conditionTypes" data-target="data.tracos.ic">
+			<label style="display:inline-block;">Imunidades a Condições:</label>
+		</a>
+		<ul class="trait-list">
+			{{#each data.tracos.ic.selected as |v k|}}
+			<li class="tag {{k}}">{{v}}</li>
+			{{/each}}
+		</ul>
+	</div>
+
+	<div>
+		<a class="trait-selector" data-options="senses" data-target="data.attributes.sentidos">
+			<label style="display:inline-block;">Sentidos:</label>
+		</a>
+		<ul class="trait-list">
+			{{#each senses.value as |v k|}}
+			<li class="tag {{k}}">{{v}}</li>
+			{{/each}}
+		</ul>
 	</div>
 	
-	<div>
-		<label style="display:inline-block;">Resistência a Dano</label>
-		<input style="text-align:center;" name="data.rd.value" disabled title="Total" type="number" placeholder="0" value="{{data.rd.value}}" />
-		<label style="display:inline-block;">Base: <input name="data.rd.base" style="max-width: 30px; height: 20px;" title="Base" type="number" placeholder="0" value="{{data.rd.base}}" /></label>
-		<label style="display:inline-block;">Temporário: <input name="data.rd.temp" style="max-width: 30px; height: 20px;" title="Bônus Temporário" type="number"  placeholder="0" value="{{data.rd.temp}}" /></label>
-	</div>
-	
-	<div>
-        <label style="display:inline-block;">Resistências</label>
-        <input name="data.resistencias" style="text-align: left; height: 20px; margin: 0; width:auto;" type="text" value="{{data.resistencias}}" data-dtype="String" />
-    </div>
-
-    <!-- <div> -->
-        <!-- <label style="display:inline-block;">Imunidades a Dano</label> -->
-        <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.di"> -->
-            <!-- <i class="fas fa-edit"></i> -->
-        <!-- </a> -->
-        <!-- <ul class="trait-list"> -->
-        <!-- {{#each data.traits.di.selected as |v k|}} -->
-            <!-- <li class="tag {{k}}">{{v}}</li> -->
-        <!-- {{/each}} -->
-        <!-- </ul> -->
-    <!-- </div> -->
-
-    <!-- <div> -->
-        <!-- <label style="display:inline-block;">Resistências a Dano</label> -->
-        <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dr"> -->
-            <!-- <i class="fas fa-edit"></i> -->
-        <!-- </a> -->
-        <!-- <ul class="trait-list"> -->
-        <!-- {{#each data.traits.dr.selected as |v k|}} -->
-            <!-- <li class="tag {{k}}">{{v}}</li> -->
-        <!-- {{/each}} -->
-        <!-- </ul> -->
-    <!-- </div> -->
-
-    <!-- <div> -->
-        <!-- <label style="display:inline-block;">Vulnerabilidades à Dano</label> -->
-        <!-- <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dv"> -->
-            <!-- <i class="fas fa-edit"></i> -->
-        <!-- </a> -->
-        <!-- <ul class="trait-list"> -->
-        <!-- {{#each data.traits.dv.selected as |v k|}} -->
-            <!-- <li class="tag {{k}}">{{v}}</li> -->
-        <!-- {{/each}} -->
-        <!-- </ul> -->
-    <!-- </div> -->
-
-    <!-- <div> -->
-        <!-- <label style="display:inline-block;">Imunidades à Condições</label> -->
-        <!-- <a class="trait-selector" data-options="conditionTypes" data-target="data.traits.ci"> -->
-            <!-- <i class="fas fa-edit"></i> -->
-        <!-- </a> -->
-        <!-- <ul class="trait-list"> -->
-        <!-- {{#each data.traits.ci.selected as |v k|}} -->
-            <!-- <li class="tag {{k}}">{{v}}</li> -->
-        <!-- {{/each}} -->
-        <!-- </ul> -->
-    <!-- </div> -->
-
 	<hr>
 	<h3 style="text-align: center;">Proficiências</h3>
 	
 	{{#if enableLanguages}}
-    <div>
-        <a class="trait-selector" data-options="idiomas" data-target="data.detalhes.idiomas">
-            <label style="display:inline-block;">Idiomas</label>
-        </a>
+	<div>
+		<a class="trait-selector" data-options="idiomas" data-target="data.tracos.idiomas">
+			<label style="display:inline-block;">Idiomas</label>
+		</a>
 		<ul class="trait-list">
-        {{#each data.detalhes.idiomas.selected as |v k|}}
-            <li class="tag {{k}}">{{v}}</li>
-        {{/each}}
-        </ul>
-    </div>
+			{{#each data.tracos.idiomas.selected as |v k|}}
+			<li class="tag {{k}}">{{v}}</li>
+			{{/each}}
+		</ul>
+	</div>
 	{{/if}}
 	
-    <div>
-        <a class="trait-selector" data-options="profArmas" data-target="data.detalhes.profArmas">
-            <label style="display:inline-block;">Armas</label>
-        </a>
-        <ul class="trait-list">
-        {{#each data.detalhes.profArmas.selected as |v k|}}
-            <li class="tag {{k}}">{{v}}</li>
-        {{/each}}
-        </ul>
-    </div>
-
-    <div>
-        <a class="trait-selector armaduras" data-options="profArmaduras" data-target="data.detalhes.profArmaduras">
-            <label style="display:inline-block;">Armaduras</label>
-        </a>
-        <ul class="trait-list">
-        {{#each data.detalhes.profArmaduras.selected as |v k|}}
-            <li class="tag {{k}}">{{v}}</li>
-        {{/each}}
-        </ul>
-    </div>
-
-    <!-- <div> -->
-        <!-- <label style="display:inline-block;">{{localize "DND5E.SpecialTraits"}}</label> -->
-        <!-- <a class="config-button" data-action="flags" title="{{localize 'DND5E.SpecialTraits'}}"><i class="fas fa-cog"></i></a> -->
-    <!-- </div> -->
+	<div>
+		<a class="trait-selector" data-options="profArmas" data-target="data.tracos.profArmas">
+			<label style="display:inline-block;">Armas</label>
+		</a>
+		<ul class="trait-list">
+			{{#each data.tracos.profArmas.selected as |v k|}}
+			<li class="tag {{k}}">{{v}}</li>
+			{{/each}}
+		</ul>
+	</div>
+	
+	<div>
+		<a class="trait-selector armaduras" data-options="profArmaduras" data-target="data.tracos.profArmaduras">
+			<label style="display:inline-block;">Armaduras</label>
+		</a>
+		<ul class="trait-list">
+			{{#each data.tracos.profArmaduras.selected as |v k|}}
+			<li class="tag {{k}}">{{v}}</li>
+			{{/each}}
+		</ul>
+	</div>
 </div>

@@ -16,7 +16,7 @@ export async function createT20Macro(data, slot) {
 	if (data.type === "Pericia") {
 		const item = data.data;
 		command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
-		let macro = game.macros.entities.find(
+		let macro = game.macros.find(
 			(m) => m.name === item.label && m.command === command
 			);
 		if (!macro) {
@@ -55,7 +55,8 @@ game.tormenta20.rollItemMacro("${item.name}",{
 			command = `game.tormenta20.rollItemMacro("${item.name}");`;
 		}
 
-		let macro = game.macros.entities.find(
+
+		let macro = game.macros.find(
 			(m) => m.name === item.name && m.command === command
 			);
 		if (!macro) {
@@ -83,7 +84,7 @@ if(actor) {
 		effect.update({disabled: !effect.data.disabled});
 	}
 }`;
-		let macro = game.macros.entities.find(
+		let macro = game.macros.find(
 			(m) => m.name === item.label && m.command === command
 			);
 		if (!macro) {
@@ -106,7 +107,7 @@ if(actor) {
 * @param {string} itemName
 * @return {Promise}
 */
-export async function rollItemMacro(itemName, extra = null) {
+export async function rollItemMacro(itemName, extra = {}) {
 	const speaker = ChatMessage.getSpeaker();
 	let actor;
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
@@ -119,64 +120,52 @@ export async function rollItemMacro(itemName, extra = null) {
 	} else if ( items.length === 0 ) {
 		return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
 	}
-	
+	//Object.values(extra).some(e=> e.match(/^=/) )
+	if ( items[0].type === "arma" && (extra.atq.match(/^=/) || extra.dano.match(/^=/)) ) {
+		ui.notifications.warn(`Substituir bonus de ataque e dano (ie: "=15") não é suportado no momento.`);
+	}
 	const item = items[0];
 
+
+	const rollConfigs = {}
+	rollConfigs.configureDialog = event.shiftKey;
+	rollConfigs.extra	= extra;
 	// Trigger the item roll
-	return item.roll({extra:extra});
+	return item.roll( rollConfigs );
 }
 
 
 
-export async function rollSkillMacro(skillName, subtype) {
+export async function rollSkillMacro(skillName) {
 	const speaker = ChatMessage.getSpeaker();
 	let actor;
-	let skill;
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
 	if (!actor) actor = game.actors.get(speaker.actor);
 	if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
 
-	// let skillData = {padrao: actor.data.data.pericias, oficios: actor.data.data.pericias.ofi.mais, custom: actor.data.data.periciasCustom}[subtype];
-	// skillData[skillName].formula = "1d20+@mod";
+	let pericias = Object.entries(actor.data.data.pericias);
+	let skl = pericias.find(p => p[1].label == skillName )[0];
+	await actor.rollPericia(skl, {event: event});
+	
+}
 
-
-	if (subtype == "oficios") {
-		for (let [t, sk] of Object.entries(actor.data.data.pericias["ofi"].mais)) {
-			if (sk.label === skillName) {
-				skill = sk;
-				skill.id=t;
-				break;
-			}
-		}
-	} else if (subtype == "custom") {
-		for (let [t, sk] of Object.entries(actor.data.data.periciasCustom)) {
-			if (sk.label === skillName) {
-				skill = sk;
-				skill.id=t;
-				break;
-			}
-		}
+export async function msgFromJournal(name, source) {
+	let journal;
+	let style = '';
+	if ( source ) {
+		const pack = await game.packs.get( source ).getDocuments();
+		journal = pack.find(i => i.name === name);
 	} else {
-		for (let [t, sk] of Object.entries(actor.data.data.pericias)) {
-			if (sk.label === skillName) {
-				skill = sk;
-				skill.id=t;
-				break;
-			}
-		}
+		journal = game.journal.getName(name);
 	}
-	const itemData = {
-		actor: actor,
-		isOwned: true,
-		type: "pericia",
-		data: skill,
-		roll: `1d20+${skill.value}`,
-		name: skillName.replace(/[\*||\+]/g,"").trim(),
-		id: skill.id
-	};
-	// Trigger the item roll
-	let rolls = {};
-	rolls = await actor.rollPericia(itemData, {event: event});
-		
-	actor.displayCard({rolls, itemData});
+	if( !journal ) return;
+	if (  game.tormenta20.config.statusEffectIcons.find( i => i.label === name )  ){
+		style = 'style="position:relative; background: #ddd9d5;padding: 0.5rem; margin-left:-7px;margin-right:-7px;margin-bottom:-7px;margin-top:-27px"';
+	}
+	
+	let chatData = {
+			speaker: null,
+			content: `<div ${style} >${journal.data.content}</div>`
+	}
+	ChatMessage.create(chatData, {});
 }

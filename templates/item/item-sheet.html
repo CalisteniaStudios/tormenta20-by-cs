@@ -1,40 +1,60 @@
-<form class="tormenta20 flexcol" autocomplete="off">
+<form class="{{cssClass}} flexcol" autocomplete="off">
 	{{!-- Item Sheet Header --}}
-    {{> "systems/tormenta20/templates/item/parts/item-header.html"}}
-	
+	{{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+
 	{{!-- Item Sheet Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item active" data-tab="description">Descrição</a>
-        {{#if (eq item.type "consumivel")}}<a class="item" data-tab="details">Detalhes</a>{{/if}}
-        <!-- <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a> -->
-    </nav>
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item active" data-tab="description">{{ localize "T20.Description" }}</a>
+		{{#if (eq item.type "consumivel")}}
+		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
+		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
+		{{/if}}
+	</nav>
 
 	{{!-- Item Sheet Body --}}
-    <section class="sheet-body">
+	<section class="sheet-body">
+		{{!-- Description Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-description.html"}}
 
-        {{!-- Description Tab --}}
-        {{> "systems/tormenta20/templates/item/parts/item-description.html"}}
-
-        {{!-- Details Tab --}}
-        {{#if (eq item.type "consumivel")}}
+		{{!-- Details Tab --}}
+		{{#if (eq item.type "consumivel")}}
 		<div class="tab details" data-group="primary" data-tab="details">
 			<div class="form-group">
-				<label>Rolagem</label>
-				<input type="text" name="data.efeito" value="{{data.efeito}}" data-dtype="String"/>
+				<label>{{ localize "T20.Type" }}</label>
+				<div class="form-fields">
+					<select name="data.tipo">
+						{{#select data.tipo}}
+							<option value="ammo">Munição</option>
+							<option value="scroll">Pergaminho</option>
+							<option value="alchemy">Alquímico</option>
+							<option value="potion">Poção</option>
+							<option value="material">Material</option>
+							<option value="food">Comida</option>
+						{{/select}}
+					</select>
+				</div>
 			</div>
+			<hr>
+			{{!-- Rolls --}}
+			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
 			
 			<hr>
 			<h3>Ativação</h3>
 			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
 			{{> "systems/tormenta20/templates/item/parts/item-resistencia.html"}}
+
+			<hr>
+			{{!-- Chat Message Flavor --}}
+			<div class="form-group stacked">
+				<label>{{ localize "T20.ChatFlavor" }}</label>
+				<textarea name="data.chatFlavor" contenteditable="true">{{data.chatFlavor}}</textarea>
+			</div>
 		</div>
+			
 		{{/if}}
-		<hr>
-		<div class="form-group">
-			<label for="chatFlavor">ChatFlavor</label>
-			<textarea name="data.chatFlavor" contenteditable="true">{{data.chatFlavor}}</textarea>
+		{{!-- Effects Tab --}}
+		<div class="tab effects" data-group="primary" data-tab="effects">
+			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
 		</div>
-    </section>
-    {{!-- Sheet Body --}}
-    </section>
+	</section>
 </form>

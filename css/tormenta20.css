@@ -127,6 +127,21 @@ table,
   background: unset;
 }
 
+.chat-message .apply-area .apply-button-dano,
+.chat-message .apply-area .apply-button-dano-dobro,
+.chat-message .apply-area .apply-button-dano-metade {
+  background: firebrick;
+  font-size: 25px;
+}
+
+.chat-message .apply-area .apply-button-cura {
+  background: seagreen;
+}
+
+.chat-message .apply-area .apply-button-mana {
+  background: deepskyblue;
+}
+
 #combat #combat-controls button.scene-segment {
   background: inherit;
   border: none;
@@ -260,14 +275,12 @@ button {
 }
 
 .tormenta20.sheet.actor .level {
-  padding: 4px 6px;
+  padding: 3px 6px;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: 4px;
   background: var(--faint-color);
   color: var(--primary-color);
-  font-size: 1.25rem;
   line-height: 1;
-  height: 25px;
   display:inline-block;
 }
 
@@ -371,6 +384,7 @@ button {
   border-top-color: var(--encumbrance-outline);
 }
 
+.tormenta20 .sheet-tabs2,
 .tormenta20 .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
@@ -528,7 +542,12 @@ button {
 }
 
 .tormenta20.sheet.actor .traits input {
-  text-align: right;
+  /*text-align: right;*/
+}
+
+.tormenta20.sheet.npc .inpContentEditable {
+  padding: 0 5px;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .tormenta20.sheet.actor .traits i.fas {
@@ -547,13 +566,15 @@ button {
   color: #7a7971;
 }
 
-.tormenta20 .item-description,
+/* .tormenta20 .item-description,
 .tormenta20 .sheet-body .tab.item-description,
 .tormenta20 .sheet-body .tab .editor,
 .tormenta20 .sheet-body .tab .item-description .editor,
 .tormenta20 .sheet-body .tab .item-description .editor .editor-content {
   height: inherit;
-}
+} */
+
+
 
 .tormenta20 .tox .tox-editor-container {
   background: #fff;
@@ -563,6 +584,7 @@ button {
   padding: 0 8px;
 }
 
+.tormenta20 nav.sheet-tabs2,
 .tormenta20 nav.sheet-tabs {
   align-content: center;
   text-align: center;
@@ -698,11 +720,11 @@ button {
 .tormenta20 .base .effects-list .item-controls,
 .tormenta20 .tabbed .item-list .item-controls {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 51px;
-  flex: 0 0 51px;
+  -ms-flex: 0 0 64px;
+  flex: 0 0 64px;
   text-align: right;
   white-space: nowrap;
-  display: flex;
+  /*display: flex;*/
 }
 
 .tormenta20 .item-list .item-controls a {
@@ -739,10 +761,14 @@ button {
   max-width: 100% !important;
 }
 
-.tormenta20 .sheet-body .dados {
+.tormenta20.character .sheet-body .dados {
   width: 55%;
   position: relative;
   float: left;
+}
+
+.tormenta20.npc .sheet-body .dados {
+
 }
 
 .tormenta20 .sheet-body .skills {
@@ -828,8 +854,8 @@ button {
 }
 
 .tormenta20 .npc .item-list .item div.item-name {
-  text-indent: -1.5em;
-  padding-left: 1.5em;
+  /*text-indent: -1.5em;
+  padding-left: 1.5em;*/
 }
 .tormenta20 .npc .effects-list .item div.item-name{
   text-indent: 0;
@@ -997,6 +1023,7 @@ button {
   text-transform: uppercase;
 }
 
+.tormenta20 .ability-scores .ability h1,
 .tormenta20 .ability-scores .ability {
   /*height: auto;*/
   text-align: center;
@@ -1058,6 +1085,7 @@ button {
 }
 
 .tormenta20 .recursos .attributes .attribute,
+.tormenta20.npc .recursos .attributes .attribute,
 .tormenta20 .tabbed .sheet-header .attributes .attribute {
   height: 70px;
   margin: 0;
@@ -1088,6 +1116,22 @@ button {
   margin: 0;
   padding: 0;
 }
+.tormenta20 .summary ul.attributes .classe,
+.tormenta20 .tabbed ul.attributes .classe {
+  white-space: nowrap;
+}
+
+.tormenta20 .summary ul.attributes .classe a.class-config,
+.tormenta20 .tabbed ul.attributes .classe a.class-config {
+  flex: 0;
+  align-self: center;
+  visibility: hidden; 
+}
+.tormenta20 .summary ul.attributes .classe:hover a.class-config,
+.tormenta20 .tabbed ul.attributes .classe:hover  a.class-config{
+  visibility: visible; 
+}
+
 
 .tormenta20 span.sep {
   flex: none;
@@ -1152,7 +1196,20 @@ button {
   border-right: none;
 }
 .tormenta20 .npc input {
+  /*display: none;*/
+}
+
+.tormenta20 .hidden {
   display: none;
+}
+.tormenta20 .npc .npc-skill-list{
+  position: absolute;
+  background: url(../assets/parchment.jpg) repeat;
+  overflow-y: scroll;
+  border: solid 1px red;
+  right: 0;
+  width: 70%;
+  height: 90%;
 }
 
 .tormenta20 .npc .rd.editing,
@@ -1174,9 +1231,8 @@ button {
   line-height: normal;
 }
 
-.tormenta20 .npc .item-controls {
-  display: none;
-  /*font-size: initial!important;*/
+.tormenta20 input.small{
+  height: 20px!important;
 }
 
 .tormenta20 .npc.statfields div {
@@ -1218,13 +1274,13 @@ button {
   max-width: 30px;
 }
 
-.npc .skill-line * {
+.tormenta20 .npc .skill-line * {
   font-size: 12px;
   height: fit-content;
   line-height: 1.5em;
 }
 
-.npc .skill-line {
+.tormenta20 .npc .skill-line {
   max-width: 50%;
   min-width: 50%;
 }
@@ -1274,6 +1330,29 @@ button {
 }
 
 /* tormenta20 */
+.tormenta20.sheet .window-content {
+  overflow-y: hidden;
+}
+
+.tormenta20.sheet .window-content form {
+  height: 100%;
+  overflow: hidden;
+}
+
+.tormenta20.sheet .window-content .tab {
+  height: 100%;
+  overflow-y: auto;
+  align-content: flex-start;
+}
+
+.tormenta20.sheet .sheet-body {
+  overflow: hidden;
+}
+
+.tormenta20.sheet .sheet-body .tab {
+  overflow: hidden auto;
+}
+
 .tormenta20.sheet.actor .window-content {
   padding: 0;
 }
@@ -1458,6 +1537,7 @@ button {
   display: flex;
   align-items: center;
   list-style: none;
+  padding: 0;
 }
 
 .tormenta20.sheet.actor .inventory-currency .currency-header {
@@ -1476,7 +1556,7 @@ button {
   align-items: center;
   background: var(--faint-color);
   border-radius: 5px;
-  padding: 0 .5rem 0 0;
+  padding: 0 .25rem 0 0;
   margin-right: .5rem;
   line-height: 30px;
 }
@@ -1484,15 +1564,15 @@ button {
 .tormenta20.sheet.actor .inventory-currency .currency-item input {
   text-align: right;
   flex: 1;
-  padding-left: .5rem;
+  padding-left: .25rem;
   border: 0;
   background: none;
   margin: 0;
 }
 
 .tormenta20.sheet.actor .inventory-currency .currency-item label {
-  margin-left: .25rem;
   flex: unset;
+  font-size: 12px;
 }
 
 .tormenta20.sheet.actor .inventory-currency .currency-item .denomination {
@@ -1561,8 +1641,34 @@ button {
   flex: 1;
 }
 
+/* Rolls */
+.tormenta20.sheet.item h4.roll-header {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  line-height: 24px;
+  color: #4b4a44;
+}
+.tormenta20.sheet.item .roll-parts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tormenta20.sheet.item .roll-parts .roll-part {
+  flex: 0 0 100%;
+  padding: 0;
+}
+.tormenta20.sheet.item .roll-parts .roll-part input {
+  flex: 3;
+}
+.tormenta20.sheet.item .roll-parts .roll-part select {
+  margin-left: 5px;
+  flex: 1;
+}
+
 /* Módulos */
 
 #dfcp-rt-buttons button { /*DF Chat Enhancement*/
   background: rgba(255, 255, 240, 0.8);
 }
+
