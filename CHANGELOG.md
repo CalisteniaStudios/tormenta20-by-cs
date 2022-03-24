@@ -1,5 +1,11 @@
 # Lista de Mudanças
 
+## Versão 1.3.0.17
+- Atualização: Diversos itens, poderes e magias foram atualizados. E um compendium de Tabelas de Tesouro foi adicionado. (Feitos pelo Gustavo Reis)
+
+## Versão 1.3.0.16
+- Corrigido: Dice So Nice mostrará os dados em rolagens para Si mesmo;
+
 ## Versão 1.3.0.15
 - Atualização: Os dados 3D vão atrasar a mensagem no chat até que a animação seja concluída;
 - Atualização: Correções de algumas magias e habilidades;
