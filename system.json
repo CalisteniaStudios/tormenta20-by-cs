@@ -80,6 +80,13 @@
       "system": "tormenta20",
       "path": "./packs/pocoes.db",
       "entity": "Item"
+    },
+    {
+      "name": "tabelas-de-tesouro",
+      "label": "Tabelas de Tesouro",
+      "system": "tormenta20",
+      "path": "./packs/tabelas-de-tesouro.db",
+      "entity": "RollTable"
     }
   ],
   "languages": [

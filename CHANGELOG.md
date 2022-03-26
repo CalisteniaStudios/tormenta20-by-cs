@@ -1,6 +1,6 @@
 # Lista de Mudanças
 
-## Versão 1.3.0.17
+## Versão 1.3.0.18
 - Atualização: Diversos itens, poderes e magias foram atualizados. E um compendium de Tabelas de Tesouro foi adicionado. (Feitos pelo Gustavo Reis)
 
 ## Versão 1.3.0.16
