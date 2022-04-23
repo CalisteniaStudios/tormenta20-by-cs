@@ -461,20 +461,52 @@ export default class ActorT20 extends Actor {
 	*/
 	/**/
 	_computeEncumbrance(actorData) {
-		// Get the total weight from items
-		const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
-		let weight = actorData.items.reduce((weight, i) => {
-			if ( !physicalItems.includes(i.type) ) return weight;
-			const q = i.data.data.qtd || 0;
-			const w = i.data.data.peso || 0;
-			return weight + (q * w);
-		}, 0);
-		// Compute Encumbrance percentage
-		weight = weight.toNearest(0.1);
-		const max = actorData.data.atributos.for.value * 10;
-		const emc = actorData.data.atributos.for.value * 3;
-		const pct = Math.clamped((weight * 100) / max, 0, 100);
-		return { value: weight, max, pct, encumbered: weight > emc };
+		let rule = game.settings.get("tormenta20", "weightRule");
+		if( rule == 'core' ){
+			const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
+			// Get the total weight from items
+			let weight = actorData.items.reduce((weight, i) => {
+				if ( !physicalItems.includes(i.type) || !i.data.data.carregado ) return weight;
+				const q = i.data.data.qtd || 0;
+				const w = i.data.data.peso || 0;
+				return weight + (q * w);
+			}, 0);
+			// Compute Encumbrance percentage
+			weight = weight.toNearest(0.1);
+			const atrFor = actorData.data.atributos.for;
+			const atrCrg = actorData.data.attributes.carga;
+			const max = (( atrFor.value + atrFor.bonus ) * 10) + (Number(atrCrg.max) || 0) ;
+			const emc = (( atrFor.value + atrFor.bonus ) * 3) + (Number(atrCrg.lev) || 0) ;
+			const pct = Math.clamped((weight * 100) / max, 0, 100).toNearest(0.1);
+			return { value: weight, max, pct, encumbered: weight > emc };
+		}
+		else if( rule == 'espacos' ){
+			
+			const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
+			// Get the total weight from items
+			let weight = actorData.items.reduce((weight, i) => {
+				if ( !physicalItems.includes(i.type) || !i.data.data.carregado || i.data.data.container) return weight;
+				const q = i.data.data.qtd || 0;
+				const w = i.data.data.espacos || 0;
+				return weight + (q * w);
+			}, 0);
+
+			let coins = Object.values( actorData.data.dinheiro ).reduce((a, b) => a + b);
+			weight = weight + Math.floor( coins / 1000);
+			weight = Math.floor( weight );
+			// Compute Encumbrance percentage
+			const atrFor = actorData.data.atributos.for;
+			const atrCrg = actorData.data.attributes.carga;
+			const max = (( atrFor.value + atrFor.bonus ) * 2) + (Number(atrCrg.max) || 0) ;
+			const emc = (( atrFor.value + atrFor.bonus ) * 1) + (Number(atrCrg.lev) || 0) ;
+			const pct = Math.clamped((weight * 100) / max, 0, 100);
+			return { value: weight, max, pct, encumbered: weight > emc };
+		}
+		else if( rule == 'manual' ){
+			return { value: 0, max: 100, pct: 30, encumbered: false };
+		} else {
+			return { value: 0, max: 100, pct: 30, encumbered: false };
+		}
 	}
 	/**/
 

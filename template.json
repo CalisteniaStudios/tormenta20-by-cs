@@ -335,7 +335,9 @@
       },
       "objeto":{
         "equipado": false,
+        "carregado": true,
         "peso": 0,
+        "espacos": 0,
         "qtd": 1,
         "preco": 0,
         "pv": {
@@ -370,7 +372,8 @@
       "escola": ""
     },
     "tesouro": {
-      "templates": ["base","objeto"]
+      "templates": ["base","objeto"],
+      "container": false
     },
     "arma": {
       "templates": ["base","objeto"],

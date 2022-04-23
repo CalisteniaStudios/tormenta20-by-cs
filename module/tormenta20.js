@@ -1,5 +1,6 @@
 // Import Modules
 import { T20 } from "./config.js";
+import { Tormenta20ActorSheetSettings } from "./apps/form-apps.js";
 import { SystemSettings } from "./settings.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import { registerHandlebarsHelpers } from './handlebars.js';
@@ -17,6 +18,7 @@ import AbilityTemplate from "./pixi/ability-template.js";
 import AbilityUseDialog from "./apps/ability-use-dialog.js";
 import ActorSettings from "./apps/actor-settings.js";
 import ActorSheetT20Character from "./actor/sheet/character.js";
+//import ActorSheetT20Builder from "./actor/sheet/builder.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
 import TraitSelector from "./apps/trait-selector.js";
@@ -77,7 +79,8 @@ Hooks.once("init", async function () {
 	// Register T20 stuff
 	CONFIG.statusEffects = T20.statusEffectIcons;
 	CONFIG.conditions = T20.conditions;
-	CONFIG.ActiveEffect.sheetClass = ActiveEffectConfigT20;
+	// console.log(CONFIG.ActiveEffect.sheetClass);
+	// CONFIG.ActiveEffect.sheetClass = ActiveEffectConfigT20;
 	CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'inconsciente')[0].icon;
 
 	// T20 cone RAW should be 53.13 degrees
@@ -105,7 +108,12 @@ Hooks.once("init", async function () {
 		makeDefault: true,
 		label: "Ficha de Personagem"
 	});
-
+	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
+	// 	types: ["character"],
+	// 	makeDefault: false,
+	// 	label: "Progressão de Personagem"
+	// });
+	
 	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
 		types: ["npc"],
 		makeDefault: true,
@@ -116,6 +124,8 @@ Hooks.once("init", async function () {
 	Items.registerSheet("tormenta20", ItemSheetT20, {
 		makeDefault: true,
 	});
+
+	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
 
 	// Preload Handlebars Templates
 	preloadHandlebarsTemplates();

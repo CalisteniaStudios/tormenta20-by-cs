@@ -87,7 +87,7 @@ export default function () {
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {
 		// Display action buttons
-		if (game.settings.get("tormenta20", "applyButtonsInsideChat")){
+		if (true || game.settings.get("tormenta20", "applyButtonsInsideChat")){
 			chat.ApplyButtons(app, html, data);
 		}
 
@@ -101,8 +101,8 @@ export default function () {
 	/* Add hook for the context menu over the rolled damage */
 	Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 
-	Hooks.on("renderChatLog", (app, html, data) => ItemT20.chatListeners(html));
-	Hooks.on("renderChatPopout", (app, html, data) => ItemT20.chatListeners(html));
+	Hooks.on("renderChatLog", (app, html, data) => chat.chatListeners(html));
+	Hooks.on("renderChatPopout", (app, html, data) => chat.chatListeners(html));
 
 	/* Add hook for End of Scene */
 	Hooks.on("renderSidebarTab", async (app, html) => endSegment(app,html)) ;

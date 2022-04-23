@@ -4,7 +4,7 @@
 			<div class="item-name flex2" >Armas</div>
 			<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
 			<div class="item-qtd">Qtd</div>
-			{{#if isCharacter}}<div class="item-peso">Peso</div>{{/if}}
+			{{#if isCharacter}}<div class="item-peso">{{weightCol}}</div>{{/if}}
 			<div class="item-controls"></div>
 		</li>
 		{{#each actor.inventario.arma.items as |item id|}}
@@ -164,7 +164,7 @@
 </div>
 <div class="encumbrance" title="Carga">
 	<span class="encumbrance-bar" style="width:{{data.attributes.carga.pct}}%"></span>
-	<span class="encumbrance-label">{{data.attributes.carga.value}} / {{multiply data.atributos.for.value 10}}</span>
+	<span class="encumbrance-label">{{data.attributes.carga.value}} / {{data.attributes.carga.max}}</span>
 	<i class="encumbrance-breakpoint encumbrance-30 arrow-up"></i>
 	<i class="encumbrance-breakpoint encumbrance-30 arrow-down"></i>
 </div>

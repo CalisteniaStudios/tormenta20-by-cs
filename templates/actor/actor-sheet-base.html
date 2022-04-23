@@ -266,7 +266,7 @@
 								<div class="item-image"></div>
 								<div class="item-name" style="flex: 5;">Nome</div>
 								<div class="item-qtd">Qtd</div>
-								<div class="item-peso">Peso</div>
+								<div class="item-peso">{{weightCol}}</div>
 								<div class="item-controls">
 
 								</div>
@@ -336,7 +336,7 @@
 						<div class="encumbrance" style="margin:0;" title="Carga">
 							<span class="encumbrance-bar" style="width:{{data.attributes.carga.pct}}%"></span>
 							<span class="encumbrance-label">{{data.attributes.carga.value}} /
-								{{multiply data.atributos.for.value 10}}</span>
+								{{data.attributes.carga.max}}</span>
 							<i class="encumbrance-breakpoint encumbrance-30 arrow-up"></i>
 							<i class="encumbrance-breakpoint encumbrance-30 arrow-down"></i>
 						</div>

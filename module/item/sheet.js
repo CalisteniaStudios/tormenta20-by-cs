@@ -43,6 +43,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		data.itemStatus = itemData.equipado?.capitalize() || itemData.preparada?.capitalize() || "";
 		data.itemProperties = this._getItemProperties(itemData);
 		data.isPhysical = itemData.data.hasOwnProperty("qtd");
+		data.weightRule = game.settings.get("tormenta20", "weightRule");
 		data.isOwned = data.item.isOwned;
 		// Resource to Consume
 		// method

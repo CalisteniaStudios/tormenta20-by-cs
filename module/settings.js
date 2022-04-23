@@ -1,56 +1,4 @@
-export class Tormenta20ChatSettings extends FormApplication {
-
-	constructor (object, options = {}) {
-		super(object, options)
-	}
-
-	/**
-	 * Default Options for this FormApplication
-	 */
-	static get defaultOptions () {
-		return mergeObject(super.defaultOptions, {
-			id : 'tormenta20-chat-form',
-			title : 'Configurações do Chat',
-			template : './systems/tormenta20/templates/apps/settings.hbs',
-			classes : ['sheet'],
-			width : 640,
-			height : "auto",
-			closeOnSubmit: true
-		})
-	}
-
-	getData (options) {
-		function prepSetting (key) {
-			let data = game.settings.settings.get(`tormenta20.${key}`)
-			return {
-				value: game.settings.get('tormenta20', key),
-				name : data.name,
-				hint : data.hint
-			}
-		}
-
-		return {
-			forceSheetTemplate : prepSetting('forceSheetTemplate'),
-			disableExperience : prepSetting('disableExperience'),
-			enableLanguages : prepSetting('enableLanguages'),
-			disableJournal : prepSetting('disableJournal'),
-			showDamageCards : prepSetting('showDamageCards'),
-		}
-	}
-
-	/**
-	 * Executes on form submission
-	 * @param {Event} e - the form submission event
-	 * @param {Object} d - the form data
-	 */
-	async _updateObject(e,d) {
-		const iterableSettings = Object.keys(d);
-		for (let key of iterableSettings) {
-			game.settings.set('tormenta20', key, d[key]);
-		}
-	}
-}
-
+import { Tormenta20ActorSheetSettings, Tormenta20ResourceColorsSettings } from "./apps/form-apps.js";
 /*Classe para configurar opções do sistema*/
 export const SystemSettings = function() {
 	/**
@@ -68,10 +16,17 @@ export const SystemSettings = function() {
 		name: "Configurações das Fichas",
 		label: "Configurações das Fichas",
 		icon: 'fas fa-scroll',
-		type: Tormenta20ChatSettings,
+		type: Tormenta20ActorSheetSettings,
 		restricted: true
 	});
 	
+	// game.settings.registerMenu('tormenta20', 'resourceSettings', {
+	// 	name: "Configurar Recursos",
+	// 	label: "Configurar Recursos",
+	// 	icon: 'fas bars-progress',
+	// 	type: Tormenta20ResourceColorsSettings,
+	// 	restricted: true
+	// });
 
 	
 	/**
@@ -83,7 +38,8 @@ export const SystemSettings = function() {
 		scope: "world",
 		config: false,
 		default: false,
-		type: Boolean
+		type: Boolean,
+		onChange: () => location.reload()
 	});
 		
 	/**
@@ -178,9 +134,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: true,
 		type: Boolean,
-		onChange: s => {
-			location.reload();
-		}
+		onChange: () => location.reload()
 	});
 
 	/**
@@ -193,9 +147,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
-		onChange: s => {
-			location.reload();
-		}
+		onChange: () => location.reload()
 	});
 
 	/**
@@ -208,9 +160,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
-		onChange: s => {
-			location.reload();
-		}
+		onChange: () => location.reload()
 	});
 
 	game.settings.register("tormenta20", "showDamageCards", {
@@ -225,8 +175,40 @@ export const SystemSettings = function() {
 			"players": "Personagens dos Jogadores (PJ)",
 			"npcs": "Personagens do Mestre (PdM)"
 		},
-		onChange: s => {
-			location.reload();
-		}
+		onChange: () => location.reload()
 	});
+
+	/**
+	 * Option to define weight Rule calculation
+	 */
+	 game.settings.register("tormenta20", "weightRule", {
+		name: "Regra de Carga",
+		hint: "Define a regra para cálculo de carga.",
+		scope: "world",
+		config: true,
+		default: "core",
+		type: String,
+		choices: {
+			"core": "Regra Padrão, Livro Básico Tormenta20",
+			"espacos": "Regra de Espaços, Dragão Brasil #171"
+		},
+		onChange: () => location.reload()
+	});
+
+	/**
+	 * Option to define mechanics for Campaign Settings
+	 */
+	//  game.settings.register("tormenta20", "gameSystem", {
+	// 	name: "WIP. Cenário de Jogo",
+	// 	hint: "Altera regras de acordo com cenários de Jogo.",
+	// 	scope: "world",
+	// 	config: true,
+	// 	default: "Tormenta20",
+	// 	type: String,
+	// 	choices: {
+	// 		"Tormenta20": "Tormenta20",
+	// 		"Skyfall": "Skyfall RPG"
+	// 	},
+	// 	onChange: () => location.reload()
+	// });
 }

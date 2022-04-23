@@ -15,14 +15,33 @@
 			<label>Quantidade</label>
 			<input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number"/>
 		</div>
+		{{#unless (eq weightRule "espacos") }}
 		<div class="form-group">
 			<label>Peso</label>
 			<input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/>
 		</div>
+		{{else}}
+		<div class="form-group">
+			<label>Espaço</label>
+			<input type="text" name="data.espacos" value="{{data.espacos}}" data-dtype="Number"/>
+		</div>
+		{{/unless}}
 		<div class="form-group">
 			<label>Preço</label>
 			<input type="text" name="data.preco" value="{{data.preco}}" data-dtype="Number" placeholder="0" data-dtype="Number"/>
 		</div>
+		{{#if isOwned}}
+		<div class="form-group">
+			<label>Carregando?
+			<input type="checkbox" name="data.carregado" value="{{data.carregado}}" {{#if data.carregado}}checked{{/if}} data-dtype="Boolean"/></label>
+		</div>
+		{{/if}}
+		{{#if (and (eq item.type "tesouro") (eq weightRule "espacos") )}}
+		<div class="form-group">
+			<label>Recipiente?
+			<input type="checkbox" name="data.container" value="{{data.container}}" {{#if data.container}}checked{{/if}} data-dtype="Boolean"/></label>
+		</div>
+		{{/if}}
 		{{/if}}
 		<ul class="properties-list">
 			{{#if (eq item.type "arma")}}

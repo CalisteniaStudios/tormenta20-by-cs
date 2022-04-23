@@ -77,3 +77,5 @@ export function prepareActiveEffectCategories(effects) {
 	}
 	return categories;
 }
+
+

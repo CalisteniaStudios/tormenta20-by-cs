@@ -18,10 +18,10 @@
   border-image-slice: 0 40 0 40;
 }
 
-.window-app .window-content {
-  /*background: url(../assets/parchment.jpg) repeat !important;*/
-  /*color: #2f290c !important;*/
-}
+/* .window-app .window-content {
+  background: url(../assets/parchment.jpg) repeat !important;
+  color: #2f290c !important;
+} */
 
 .window-app.minimized .window-header{
   border:none;
@@ -116,7 +116,7 @@ table,
   z-index: 30;
 }
 
-#sidebar button {
+#sidebar .tab:not(#chat) button {
   color: #fff;
   /*#f18c17;*/
   background: #0d0d0d;
@@ -164,7 +164,6 @@ table,
 button {
   width: 100%;
   margin: 0 1px;
-  /* background: #0d0d0d; */
   color: #2f290c;
   border: 1px solid #782e22;
   border-radius: 3px;
@@ -172,6 +171,7 @@ button {
   line-height: 28px;
   font-family: "Signika", sans-serif;
 }
+
 
 #sidebar {
   border: 1px solid #782e22;
@@ -847,10 +847,12 @@ button {
   border: 0;
 }
 
+/*
 .tormenta20 .npc .item-list .item div.item-name {
-  /*text-indent: -1.5em;
-  padding-left: 1.5em;*/
+  text-indent: -1.5em;
+  padding-left: 1.5em;
 }
+*/
 .tormenta20 .npc .effects-list .item div.item-name{
   text-indent: 0;
   padding-left: 0;
@@ -1189,9 +1191,11 @@ button {
 .tormenta20 .sheet-header .summary li:last-child {
   border-right: none;
 }
+/*
 .tormenta20 .npc input {
-  /*display: none;*/
+  display: none;
 }
+*/
 
 .tormenta20 .hidden {
   display: none;
@@ -1666,3 +1670,125 @@ button {
 .tormenta20.sheet .editor {
   height: 100%;
 }
+
+/* ################################################################ */
+/*                           Chat-Message                           */
+/* ################################################################ */
+.chat-message {
+  padding: 0;
+}
+.chat-message .message-header {
+  padding: 5px 5px 0px 5px;
+}
+.chat-message .chat-portrait {
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: fill;
+  margin-right: 3px;
+}
+.chat-message .message-header .whisper-to,
+.chat-message .message-header .flavor-text {
+  flex-shrink: inherit;
+}
+
+/* .chat-message .message-metadata .message-timestamp, */
+.chat-message .message-metadata {
+  display: none;
+}
+.chat-message:hover .message-metadata {
+  display: inline-block;
+  float: right;
+}
+
+.chat-message .message-header .message-metadata:hover .message-timestamp {
+  display: inline-block;
+}
+.chat-message:hover .message-metadata * + * {
+  margin: 0px 1px;
+}
+.chat-message .message-content {
+  padding: 0px 5px 5px 5px;
+}
+
+.tormenta20.item-card .card-item-header p {
+  text-align: justify;
+}
+
+.tormenta20.item-card .card-item-effects a {
+  border: 1px solid #202124;
+  border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+}
+
+.tormenta20.item-card .card-item-template button,
+.tormenta20.item-card .card-item-effects button {
+  border: 2px groove var(--color-border-light-highlight);
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  text-align: left;
+}
+.tormenta20.item-card .card-item-template span,
+.tormenta20.item-card .card-item-effects button img {
+  width: 28px;
+  height: 28px;
+  background-color: #202124;
+  margin-right: 5px;
+  position: relative;
+  float: left;
+  color: white;
+  text-align: center;
+}
+.tormenta20.item-card .dice-result button {
+  width: 24px;
+  height: 24px;
+  padding: 0px;
+  margin: 0;
+  color: black;
+}
+
+.tormenta20.item-card .chat-spend-mana {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+
+.tormenta20.item-card .roll {
+  position: relative;
+}
+
+.tormenta20.item-card .roll .dice-btn {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  max-height: 26px;
+}
+
+.chat-message:hover .tormenta20.item-card .roll .dice-btn {
+  display: inline-block;
+}
+
+.tormenta20.item-card .roll .dice-btn button {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 26px;
+}
+
+.tormenta20.item-card .roll .dice-btn.right {
+  right: 0px;
+}
+.tormenta20.item-card .roll .dice-btn.left {
+  left: 0px;
+}
+
+.tormenta20.item-card .roll .dice-btn.formula {
+  top: 0px;
+}
+.tormenta20.item-card .roll .dice-btn.result {
+  bottom: 0px;
+}
+
+/* ################################################################ */
+/*                          /Chat-Message                           */
+/* ################################################################ */

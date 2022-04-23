@@ -1007,7 +1007,7 @@ export default class ItemT20 extends Item {
 			}
 			const _campos = {};
 			// ROLLS ARRAY
-			let rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key))  ) ); //&& r.parts[0][0].match(re.die)
+			let rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) ) ); //&& r.parts[0][0].match(re.die)
 			ch.key = ch.key.toString();
 			for(let r of rolls){
 				// CUSTOM CHANGES
@@ -1313,100 +1313,6 @@ export default class ItemT20 extends Item {
 		}
 		return null;
 	}
-
-	/* -------------------------------------------- */
-	/*  Chat Message Helpers                        */
-	/* -------------------------------------------- */
-
-	static chatListeners(html) {
-		html.on('click', '.item-name', this._onChatCardToggleContent.bind(this));
-		html.on('click', '.apply-button-ef', this._onChatCardApplyEffect.bind(this));
-		html.on('click', '.placeTemplate', this._onPlaceTemplateAction.bind(this));
-	}
-
-	/* -------------------------------------------- */
-
-	/* _onChatCardAction */
-	/* _getChatCardActor */
-	/* _getChatCardTargets */
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle toggling the visibility of chat card content when the name is clicked
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	static _onChatCardToggleContent(event) {
-		event.preventDefault();
-		const header = event.currentTarget;
-		const card = header.closest(".chat-card");
-		const content = card.querySelector(".card-content");
-		content.style.display = content.style.display === "none" ? "block" : "none";
-	}
-
-	static _onPlaceTemplateAction(event) {
-		event.preventDefault();
-		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
-		const chatCard = game.messages.get(chatCardId);
-		const button = event.currentTarget;
-		const card = button.closest(".chat-card");
-
-		const actor = game.actors.get(card.dataset.actorId);
-		if( !actor ) return;
-
-		const storedData = chatCard.getFlag("tormenta20", "itemData");
-		const storedTemplate = chatCard.getFlag("tormenta20", "template");
-		let item = new this(storedData, {parent: actor});
-		if( !item ) return;
-		item.data.data.area = storedTemplate.area;
-		item.data.data.alcance = storedTemplate.alcance;
-		
-		const template = AbilityTemplate.fromItem(item);
-		if ( template ) {
-			template.drawPreview();
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	static async _onChatCardApplyEffect(event) {
-		event.preventDefault();
-		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
-		const buttonId = event.currentTarget.dataset.effectIndex;
-		const actors = canvas.tokens.controlled;
-		if ( actors.length && buttonId>=0){
-			const chatEffect = game.messages.get(chatCardId).data.flags.tormenta20?.effects[buttonId];
-			if(chatEffect.changes){
-				chatEffect.changes.sort((c,d)=> !Number(c.value) ? 1 : -1 );
-				chatEffect.changes = chatEffect.changes.reduce((object, item) => {
-					let idx = object.map(ob=> ob.key).indexOf(item.key);
-					if (idx >= 0) {
-						object[idx].value = Number(object[idx].value) + Number(item.value) || item.value;
-					} else {
-						object.push({key:item.key,mode:item.mode,value:item.value})
-					}
-					return object;
-				}, []);
-				if( chatEffect.duration.seconds ) {
-					chatEffect.duration.startTime = game.time.worldTime;
-				}
-			}
-			
-			let toChat = true;
-			for ( let ac of actors ) {
-				await ac.actor.createEmbeddedDocuments("ActiveEffect", [chatEffect], {
-					toChat: toChat
-				});
-				toChat = false;
-			}
-		}
-		else if (actors.length == 0) {
-			ui.notifications.warn("Você precisa selecionar pelo menos um token.");
-		}
-	}
-
-	/* -------------------------------------------- */
 
 	/* -------------------------------------------- */
 	/*  Event Handlers                              */

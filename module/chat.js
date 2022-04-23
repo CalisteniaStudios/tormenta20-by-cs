@@ -1,3 +1,9 @@
+import ItemT20 from "./item/entity.js";
+
+	/* -------------------------------------------- */
+	/*  Chat Message Overrides                      */
+	/* -------------------------------------------- */
+
 /**
  * This function is used to hook into the Chat Log context menu to add additional options to each message
  * These options make it easy to conveniently apply damage to controlled tokens based on the value of a Roll
@@ -8,229 +14,350 @@
  * @return {Array} The extended options Array including new context choices
  */
 export const addChatMessageContextOptions = function (html, options) {
-	// let canApply = li => li.find(".roll--dano").length;
 	let canApply = li => {
-    const message = game.messages.get(li.data("messageId"));
-    return ( li.find(".roll--dano").length || message?.isRoll ) && message?.isContentVisible && canvas.tokens?.controlled.length;
-  };
-	let canApplyMana = li => li.find(".mana-cost").length;
+		const message = game.messages.get(li.data("messageId"));
+		return ( li.find(".roll--dano").length || message?.isRoll ) && message?.isContentVisible && canvas.tokens?.controlled.length;
+	};
+	let canApplyMana = li => {
+		const message = game.messages.get(li.data("messageId"));
+		return ( li.find(".mana-cost, .chat-spend-mana").length || message?.isRoll ) && message?.isContentVisible && canvas.tokens?.controlled.length;
+	}
+
 	options.push({
 		name: 'Aplicar Dano',
-		icon: '<i class="fas fa-user-minus" style="color: FireBrick;"></i>',
+		icon: '<i class="fas fa-user-minus" style="color: #CC0000;"></i>',
+		value: 1,
 		condition: canApply,
 		callback: li => applyChatCardDamage(li, 1)
 	}, {
 		name: 'Aplicar Dano em Dobro',
-		icon: '<i style="color: FireBrick;">2x </i>',
+		icon: '<i style="color: #CC0000;">2x </i>',
 		condition: canApply,
 		callback: li => applyChatCardDamage(li, 2)
 	}, {
 		name: 'Aplicar Dano pela Metade',
-		icon: '<i style="color: FireBrick;">½ </i>',
+		icon: '<i style="color: #CC0000;">½ </i>',
 		condition: canApply,
 		callback: li => applyChatCardDamage(li, 0.5)
 	}, {
 		name: 'Aplicar Cura',
-		icon: '<i class="fas fa-user-plus" style="color: SeaGreen;"></i>',
+		icon: '<i class="fas fa-user-plus" style="color: #00AA00;"></i>',
 		condition: canApply,
 		callback: li => applyChatCardDamage(li, -1, true)
 	}, {
 		name: 'Gastar Mana',
-		icon: '<i class="fas fa-star" style="color: deepskyblue;"></i>',
+		icon: '<i class="fas fa-star" style="color: #33A0FF;"></i>',
 		condition: canApplyMana,
 		callback: li => applyChatManaSpend(li, 0)
-	}, {
-		name: 'Apagar',
-		icon: '<i class="fas fa-trash"></i>',
-		callback: li => ChatMessage.deleteDocuments([li.data("messageId")])
 	});
 	return options;
 };
 
-export const ApplyButtons = function (app, html, data)
-{
+/**
+ * Render Action Buttons Over chat-card
+ */
+export const ApplyButtons = function (app, html, data){
 	let chatHTML = html.find(".tormenta20.chat-card");
 	if ( !chatHTML[0] ) return;
 	chatHTML = chatHTML[0];
-	let botaoAdicionado	= false;
-
-	const btnHtml = function(b){
-		return `<td class="apply-button" title="${b.title}"><button class="apply-button-b ${b.class}" style="${b.style}"> ${b.text}</button></td>`;
+	
+	let button;
+	let btnparent;
+	let btncontainer;
+	// Get Element To Append to;
+	// btnparent = chatHTML.querySelectorAll('.roll:not(.roll--dano) .dice-formula')[0];
+	let btnCreate = function( text = '', classes = [], title = '', data = [] ){
+		let b = document.createElement("button");
+		b.innerHTML = text;
+		b.classList.add(...classes);
+		b.title = title;
+		for (const d of data) {
+			if ( Array.isArray(d) && d[0] && d[1] ){
+				b.dataset[d[0]] = d[1];
+			}
+		}
+		return b;
 	}
-	let b = {};
 
-	if(chatHTML.querySelectorAll(".mana-cost, .roll--dano").length > 0) {
-		let areaBotoes = $(`<hr><div><table class="apply-area"><tbody><div class="flexrow"></div></tbody></table></div>`);
+	btnparent = chatHTML.querySelectorAll('.roll:not(.roll--dano)')[0];
 
-		if(chatHTML.querySelectorAll(".roll--dano").length > 0 || chatHTML.querySelectorAll(".dice-roll").length > 0 ) {
-			let roll = chatHTML.querySelectorAll(".roll--dano > .dice-roll > .dice-result > .dice-total")[0].innerHTML;
-			
-			// Aplicar dano
-			b.title = "Aplicar Dano";
-			b.class = "apply-button-dano"; 
-			b.text  = '<i class="fas fa-user-minus apply-button-img"></i>';
-			b.style = "background:firebrick;";
-			const botaoDanoAplicar = $(btnHtml(b));
-			areaBotoes.find(".flexrow").append(botaoDanoAplicar);
-			botaoDanoAplicar.click(ev => {
-				ev.stopPropagation();
-				applyInsideChatCardDamage(roll,1);
-			});
-			
-			// Dobro
-			b.title = "Aplicar Dano em Dobro";
-			b.class = "apply-button-dano-dobro";
-			b.text  = "2x";
-			b.style = "background:firebrick; font-size: 25px;";
-			const botaoDanoDobroAplicar = $(btnHtml(b));
-			areaBotoes.find(".flexrow").append(botaoDanoDobroAplicar);
-			botaoDanoDobroAplicar.click(ev => {
-				ev.stopPropagation();
-				applyInsideChatCardDamage(roll,2);
-			});
-			// Metade
-			b.title = "Aplicar Metade do Dano";
-			b.class = "apply-button-dano-metade";
-			b.text  = "½";
-			b.style = "background:FireBrick; font-size: 25px;";
-			const botaoDanoMetadeAplicar = $(btnHtml(b));
-			areaBotoes.find(".flexrow").append(botaoDanoMetadeAplicar);
-			botaoDanoMetadeAplicar.click(ev => {
-				ev.stopPropagation();
-				applyInsideChatCardDamage(roll,0.5);
-			});
+	if( false && btnparent ){
+		btncontainer = document.createElement("span");
+		btncontainer.classList.add('dice-btn', 'formula', 'right');
 
-			
-			// Cura
-			b.title = "Aplicar Cura";
-			b.class = "apply-button-cura";
-			b.text = '<i class="fas fa-user-plus apply-button-img"></i>';
-			b.style = "background:SeaGreen;";
-			const botaoCuraAplicar = $(btnHtml(b));
-			areaBotoes.find(".flexrow").append(botaoCuraAplicar);
-			botaoCuraAplicar.click(ev => {
-				ev.stopPropagation();
-				applyInsideChatCardDamage(roll,-1,true);
-			});
-			botaoAdicionado = true;
-		}
-		if(chatHTML.querySelectorAll(".mana-cost").length > 0 && !game.settings.get("tormenta20", "automaticManaSpend"))
-		{
-			// Mana
-			b.title = "Gastar Mana";
-			b.class = "apply-button-mana";
-			b.text  = '<i class="fas fa-star apply-button-img"></i>';
-			b.style = "background:deepskyblue;";
-			const botaoGastoMana = $(btnHtml(b));
-			areaBotoes.find(".flexrow").append(botaoGastoMana);
-			botaoGastoMana.click(ev => {
-				ev.stopPropagation();
-				let custo = chatHTML.querySelectorAll(".mana-cost")[0].innerHTML;
-				applyInsideChatManaSpend(custo);
-			});
-			botaoAdicionado = true;
-		}
-		if (botaoAdicionado) {
-			html.find('.item-card').append(areaBotoes);
-		}
+		button = btnCreate('<i class="fas fa-redo"></i>', ['chat-reroll'], "Re-rolar");
+		btncontainer.append(button);
+		
+		btnparent.append(btncontainer);
 	}
+	
+	// Get Element To Append to;
+	// btnparent = chatHTML.querySelectorAll('.roll--dano .dice-total')[0];
+	btnparent = chatHTML.querySelectorAll('.roll.roll--dano')[0];
+
+	if( btnparent ){
+		// Buttons Left
+		btncontainer = document.createElement("span");
+		btncontainer.classList.add('dice-btn', 'result', 'left');
+	
+		// Button Apply Damage
+		button = btnCreate('<i class="fas fa-user-minus"></i>', ['apply-dmg'], "Aplicar Dano", [['mod',1]]);
+		btncontainer.append(button);
+
+		// Button Apply Damage Double
+		button = btnCreate('2x', ['apply-dmg'], "Aplicar Dano em Dobro", [['mod',2]]);
+		btncontainer.append(button);
+		
+		btnparent.append(btncontainer);
+
+		// Buttons Right
+		btncontainer = document.createElement("span");
+		btncontainer.classList.add('dice-btn', 'result', 'right');
+		
+		// Button Apply Damage Half
+		button = btnCreate('½', ['apply-dmg'], "Aplicar Metade do Dano", [['mod',0.5]]);
+		btncontainer.append(button);
+		
+		// Button Apply Damage as Heal
+		button = btnCreate('<i class="fas fa-user-plus"></i>', ['apply-dmg'], "Aplicar Cura", [['mod',-1]]);
+		btncontainer.append(button);
+
+		btnparent.append(btncontainer);
+		
+	}
+
 }
+
+	export const chatListeners = function (html){
+		html.on('click', '.item-name', _onChatCardToggleContent.bind(this));
+		html.on('click', '.chat-apply-ae', _onChatCardApplyEffect.bind(this));
+		html.on('click', '.chat-place-template', _onChatPlaceTemplate.bind(this));
+
+		
+		//html.on('click', '.chat-reroll', _onChatReRoll.bind(this));
+		html.on('click', '.apply-dmg', _onChatApplyDamage.bind(this));
+		html.on('click', '.chat-spend-mana', _onChatSpendMana.bind(this));
+	}
+
+	/* -------------------------------------------- */
+	/*  Chat Message Helpers                        */
+	/* -------------------------------------------- */
+	
+	/**
+	 * TODO [Delayed to V10 to use Message With Multi Rolls]
+	 * Call Reroll Method for selected roll and update chat card
+	 * @param {HTMLElement} roll The chat entry which contains the roll data
+	 */
+	function _onChatReRoll(event){
+		event.preventDefault();
+		const btn = event.currentTarget;
+		const chatCardId = btn.closest(".chat-message").dataset.messageId;
+		const message = game.messages.get(chatCardId);
+		console.log(message);
+	}
+
+	function _onChatSpendCatarse(event){
+		event.preventDefault();
+		const btn = event.currentTarget;
+		const chatCardId = btn.closest(".chat-message").dataset.messageId;
+		const message = game.messages.get(chatCardId);
+	}
+
+	/**
+	* Get rolled damage value and call Actor apply damage Method
+	*/
+	function _onChatApplyDamage(event) {
+		event.preventDefault();
+		const btn = event.currentTarget;
+		const amount = Number(btn.closest(".roll").querySelector(".dice-total").innerText);
+		const multiplier = Number(btn.dataset.mod);
+		if( amount && multiplier ){
+			if (canvas.tokens.controlled.length) {
+				return Promise.all(canvas.tokens.controlled.map(tk => {
+					return tk.actor.applyDamage(amount, multiplier, true);
+				}));
+			} else {
+				ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
+			}
+		}
+	}
+
+	/**
+	* Apply rolled dice damage to the token or tokens which are currently controlled.
+	* This allows for damage to be scaled by a multiplier to account for healing, critical hits, or resistance
+	*
+	* @param {HTMLElement} message The chat entry which contains the roll data
+	* @param {Number} multiplier A damage multiplier to apply to the rolled damage.
+	* @return {Promise}
+	*/
+	function applyChatCardDamage(message, multiplier) {
+		if (canvas.tokens.controlled.length) {
+			const amount = message.find('.roll--dano, .dice-roll').find('.dice-total').text();
+			return Promise.all(canvas.tokens.controlled.map(t => {
+				const a = t.actor;
+				return a.applyDamage(amount, multiplier, true);
+			}));
+		}
+		else {
+			ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
+		}
+	}
 
 /**
- * Apply rolled dice damage to the token or tokens which are currently controlled.
- * This allows for damage to be scaled by a multiplier to account for healing, critical hits, or resistance
- *
- * @param {HTMLElement} roll The chat entry which contains the roll data
- * @param {Number} multiplier A damage multiplier to apply to the rolled damage.
- * @return {Promise}
- */
-function applyChatCardDamage(roll, multiplier) {
-	if (canvas.tokens.controlled.length) {
-		const amount = roll.find('.roll--dano, .dice-roll').find('.dice-total').text();
-		return Promise.all(canvas.tokens.controlled.map(t => {
-			const a = t.actor;
-			return a.applyDamage(amount, multiplier, true);
-		}));
+	* Get mana cost value and call Actor spend mana Method
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	function _onChatSpendMana(event) {
+		event.preventDefault();
+		const btn = event.currentTarget;
+		const amount = Number(btn.value);
+		if (canvas.tokens.controlled.length) {
+			return Promise.all(canvas.tokens.controlled.map(tk => {
+				const actor = tk.actor;
+				return actor.spendMana(amount, 0, false);
+			}));
+		}
+		else {
+			ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
+		}
 	}
-	else {
-		ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
-	}
-}
 
-
-
+	
 /**
  * Apply mana points spent to the token or tokens which are currently controlled.
  * This allows for damage to be adjusted due to reduced or expanded cost
  *
- * @param {HTMLElement} mana The chat entry which contains the mana cost
+ * @param {HTMLElement} message The chat entry which contains the mana cost
  * @param {Number} adjust A adjust value to apply to the cost.
  * @return {Promise}
  */
-function applyChatManaSpend(mana, adjust, recover = false) {
-	if (canvas.tokens.controlled.length) {
-		const amount = mana.find('.mana-cost').text();
-		return Promise.all(canvas.tokens.controlled.map(t => {
-			const a = t.actor;
-			return a.spendMana(amount, adjust, recover);
-		}));
+	function applyChatManaSpend(message, adjust, recover = false) {
+		if (canvas.tokens.controlled.length) {
+			const amount = message.find('.chat-spend-mana').val();
+			return Promise.all(canvas.tokens.controlled.map(tk => {
+				const actor = tk.actor;
+				return actor.spendMana(amount, adjust, recover);
+			}));
+		} else {
+			ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
+		}
 	}
-	else {
-		ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
-	}
-}
-
-function applyInsideChatManaSpend(mana) {
-	if (canvas.tokens.controlled.length) {
-		return Promise.all(canvas.tokens.controlled.map(t => {
-			const a = t.actor;
-			return a.spendMana(mana, 0, false);
-		}));
-	}
-	else {
-		ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
-	}
-}
-
-function applyInsideChatCardDamage(amount, multiplier) {
-	if (canvas.tokens.controlled.length) {
-		// const amount = roll.find('.dice-total').text();
-		return Promise.all(canvas.tokens.controlled.map(t => {
-			const a = t.actor;
-			return a.applyDamage(amount, multiplier, true);
-		}));
-	}
-	else {
-		ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
-	}
-}
 
 
 /**
- * Highlight critical success or failure on d20 rolls
- * TODO CHANGE THIS
- */
-export const highlightCriticalSuccessFailure = function(message, html, data) {
-	if ( !message.isRoll || !message.isContentVisible ) return;
-
-	// Highlight rolls where the first part is a d20 roll
-	const roll = message.roll;
-	if ( !roll.dice.length ) return;
-	const d = roll.dice[0];
-
-	// Ensure it is an un-modified d20 roll
-	const isD20 = (d.faces === 20) && ( d.values.length === 1 );
-	if ( !isD20 ) return;
-	const isModifiedRoll = ("success" in d.results[0]) || d.options.marginSuccess || d.options.marginFailure;
-	if ( isModifiedRoll ) return;
-
-	// Highlight successes and failures
-	const critical = d.options.critical || 20;
-	const fumble = d.options.fumble || 1;
-	if ( d.total >= critical ) html.find(".dice-total").addClass("critical");
-	else if ( d.total <= fumble ) html.find(".dice-total").addClass("fumble");
-	else if ( d.options.target ) {
-		if ( roll.total >= d.options.target ) html.find(".dice-total").addClass("success");
-		else html.find(".dice-total").addClass("failure");
+	* Handle toggling the visibility of chat card content when the name is clicked
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	function _onChatCardToggleContent(event) {
+		event.preventDefault();
+		const chatCard = event.currentTarget.closest(".chat-message");
+		const content = chatCard.querySelector(".card-content");
+		content.style.display = content.style.display === "none" ? "block" : "none";
 	}
-};
+
+	/**
+		* Retrieve AbilityTemplate data and Draw on Canvas
+		* @param {Event} event   The originating click event
+		* @private
+		*/
+	function _onChatPlaceTemplate(event) {
+		event.preventDefault();
+		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
+		const chatCard = game.messages.get(chatCardId);
+		const button = event.currentTarget;
+		const card = button.closest(".chat-card");
+
+		const actor = game.actors.get(card.dataset.actorId);
+		if( !actor ) return;
+
+		const storedData = chatCard.getFlag("tormenta20", "itemData");
+		const storedTemplate = chatCard.getFlag("tormenta20", "template");
+		let item = new game.tormenta20.entities.ItemT20(storedData, {parent: actor});
+		// new game.tormenta20.entities.ItemT20()
+		// new game.tormenta20.canvas.AbilityTemplate()
+		if( !item ) return;
+		item.data.data.area = storedTemplate.area;
+		item.data.data.alcance = storedTemplate.alcance;
+		
+		const template = game.tormenta20.canvas.AbilityTemplate.fromItem(item);
+		if ( template ) {
+			template.drawPreview();
+		}
+	}
+
+
+/**
+	* Handle Active Effetcs Applying on Tokens
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	async function _onChatCardApplyEffect(event) {
+		event.preventDefault();
+		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
+		const buttonId = event.currentTarget.dataset.effectIndex;
+		const actors = canvas.tokens.controlled;
+		if ( actors.length && buttonId>=0){
+			const chatEffect = game.messages.get(chatCardId).data.flags.tormenta20?.effects[buttonId];
+			if(chatEffect.changes){
+				chatEffect.changes.sort((c,d)=> !Number(c.value) ? 1 : -1 );
+				chatEffect.changes = chatEffect.changes.reduce((object, item) => {
+					let idx = object.map(ob=> ob.key).indexOf(item.key);
+					if (idx >= 0) {
+						object[idx].value = Number(object[idx].value) + Number(item.value) || item.value;
+					} else {
+						object.push({key:item.key,mode:item.mode,value:item.value})
+					}
+					return object;
+				}, []);
+				if( chatEffect.duration.seconds ) {
+					chatEffect.duration.startTime = game.time.worldTime;
+				}
+			}
+			
+			let toChat = true;
+			for ( let ac of actors ) {
+				await ac.actor.createEmbeddedDocuments("ActiveEffect", [chatEffect], {
+					toChat: toChat
+				});
+				toChat = false;
+			}
+		}
+		else if (actors.length == 0) {
+			ui.notifications.warn("Você precisa selecionar pelo menos um token.");
+		}
+	}
+
+
+	/* -------------------------------------------- */
+	/*  /Chat Message Helpers                       */
+	/* -------------------------------------------- */
+	/**
+	 * Highlight critical success or failure on d20 rolls
+	 * TODO CHANGE THIS
+	 */
+	export const highlightCriticalSuccessFailure = function(message, html, data) {
+		if ( !message.isRoll || !message.isContentVisible ) return;
+
+		// Highlight rolls where the first part is a d20 roll
+		const roll = message.roll;
+		if ( !roll.dice.length ) return;
+		const d = roll.dice[0];
+
+		// Ensure it is an un-modified d20 roll
+		const isD20 = (d.faces === 20) && ( d.values.length === 1 );
+		if ( !isD20 ) return;
+		const isModifiedRoll = ("success" in d.results[0]) || d.options.marginSuccess || d.options.marginFailure;
+		if ( isModifiedRoll ) return;
+
+		// Highlight successes and failures
+		const critical = d.options.critical || 20;
+		const fumble = d.options.fumble || 1;
+		if ( d.total >= critical ) html.find(".dice-total").addClass("critical");
+		else if ( d.total <= fumble ) html.find(".dice-total").addClass("fumble");
+		else if ( d.options.target ) {
+			if ( roll.total >= d.options.target ) html.find(".dice-total").addClass("success");
+			else html.find(".dice-total").addClass("failure");
+		}
+	};

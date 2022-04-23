@@ -1,6 +1,9 @@
 import { T20Conditions } from "./conditions/conditions.js";
 export const T20 = {};
 
+CONFIG.ChatMessage.template = "systems/tormenta20/templates/chat/chat-message.html"
+CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/tormenta20/templates/chat/roll.html';
+
 T20.statusEffectIcons = Object.values(T20Conditions);
 
 T20.conditionTypes = T20.statusEffectIcons.reduce(function(o, s) { o[s.id] = s.label; return o;}, {});
@@ -15,12 +18,12 @@ T20.atributos = {
 };
 
 T20.atributosAbr = {
-	"for": "For",
-	"des": "Des",
-	"con": "Con",
-	"int": "Int",
-	"sab": "Sab",
-	"car": "Car"
+	"for": "T20.AbilityStrAbbr",
+	"des": "T20.AbilityDexAbbr",
+	"con": "T20.AbilityConAbbr",
+	"int": "T20.AbilityIntAbbr",
+	"sab": "T20.AbilityWisAbbr",
+	"car": "T20.AbilityChaAbbr"
 };
 
 /* ------------------ Classes ----------------- */

@@ -107,6 +107,7 @@
   "T20.SpellPrepPrepared": "Preparada",
   "T20.Equipped": "Equipado",
   "T20.Name": "Nome",
+  "T20.Level": "Nível",
   "T20.Advantage": "Vantagem",
   "T20.Disadvantage": "Desvantagem",
   "T20.Description": "Descrição",
@@ -153,5 +154,14 @@
   "T20.TimePerm": "Permanente",
   "T20.TimeScene": "Cena",
   "T20.TimeSust": "Sustentada",
-  "T20.AA": ""
+  
+
+  "T20.AbilityGenerationRule": "Geração de atributos",
+  "T20.AGR.PointBuy": "Compra por Pontos",
+  "T20.AGR.Rolling": "Rolagem de dados",
+  "T20.RacialAbilityRule": "Regra de Atributo Racial",
+  "T20.RAR.Default": "Padrão (T20)",
+  "T20.RAR.Flex": "Atributos Flexíveis (SF)",
+  
+  "T20.VIZAEL": "VIZAEL"
 }

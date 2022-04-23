@@ -1,5 +1,12 @@
 # Lista de Mudanças
 
+## Versão 1.3.0.19
+- Atualização: Algumas magias foram atualizados. (ft. Gustavo Reis, eunaumtenhoid)
+- Carga max pode ser alterada por efeitos `data.attributes.carga.max`
+- Regra Alternativa de carga por espaços da Dragão Brasil
+- Atualizado o cartão do chat
+- Fix aprimoramentos de passos
+
 ## Versão 1.3.0.18
 - Atualização: Diversos itens, poderes e magias foram atualizados. E um compendium de Tabelas de Tesouro foi adicionado. (Feitos pelo Gustavo Reis)
 
