@@ -356,10 +356,10 @@ export default class ActorT20 extends Actor {
 	_calcPVPM() {
 		const updateData = {};
 		const nivel = Number( this.data.data.attributes.nivel.value );
-		// const con = this.data.data.atributos.con.mod;
-		// Get oringinal value, without temporary bonuses;
-		const conabl = this.data._source.data.atributos.con.value;
-		const con = Math.floor((conabl - 10) / 2);
+		const con = this.data.data.atributos.con.mod;
+		// TODO: Should all effects altering ;
+		// const conabl = this.data.data.atributos.con.value;
+		// const con = Math.floor((conabl - 10) / 2);
 
 		const soma = {pv:0,pm:0};
 		let lvlc = this.getFlag("tormenta20", "lvlconfig");
@@ -868,7 +868,7 @@ export default class ActorT20 extends Actor {
 					(combatant) => combatant.actor.id === actor.id
 				);
 				if (combatente && combatente.initiative === null) {
-					combate.setInitiative(combatente._id, roll.total);
+					combate.setInitiative(combatente.id, roll.total);
 					console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
 				}
 			}
