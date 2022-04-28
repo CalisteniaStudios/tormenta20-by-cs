@@ -1,5 +1,8 @@
 # Lista de Mudanças
 
+## Versão 1.3.0.20
+- Corrigido: A atualização no cálculo de carga quebrava atualizações nas fichas de NPC;
+
 ## Versão 1.3.0.19
 - Adicionado: Carga max pode ser alterada por efeitos `data.attributes.carga.max`;
 - Adicionado: Regra Alternativa de carga por espaços da Dragão Brasil;
