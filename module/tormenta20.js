@@ -34,6 +34,8 @@ import * as macros from "./macros.js";
 import * as migrations from "./migration.js";
 import "./modules.js";
 
+import {getSystemActorData,  getSystemItemData} from "./dataModel/data.js";
+
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
@@ -42,6 +44,10 @@ Hooks.once("init", async function () {
 	// console.log(`T20 | Initializing the Tormenta20 Game System\n T20.ASCII`);
 	// Create a namespace within the game global
 	game.tormenta20 = {
+		testes: {
+			getSystemActorData,
+			getSystemItemData,
+		},
 		applications: {
 			AbilityUseDialog,
 			ActorSheetT20Character,
@@ -108,11 +114,6 @@ Hooks.once("init", async function () {
 		makeDefault: true,
 		label: "Ficha de Personagem"
 	});
-	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
-	// 	types: ["character"],
-	// 	makeDefault: false,
-	// 	label: "Progressão de Personagem"
-	// });
 	
 	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
 		types: ["npc"],
@@ -120,10 +121,20 @@ Hooks.once("init", async function () {
 		label: "Ficha de NPC"
 	});
 
+	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
+	// 	types: ["character"],
+	// 	makeDefault: false,
+	// 	label: "Progressão de Personagem"
+	// });
+	
+	// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
+
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("tormenta20", ItemSheetT20, {
 		makeDefault: true,
 	});
+
+	// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
 
 	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
 

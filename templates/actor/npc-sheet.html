@@ -17,20 +17,20 @@
 				<input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
 				<aside class="text-right flexrow">
 					<h2><label>ND</label></h2>
-					<input type="text" class="npc-nd" name="data.detalhes.nd" value="{{data.detalhes.nd}}" >
+					<input type="text" class="npc-nd" name="system.detalhes.nd" value="{{data.detalhes.nd}}" >
 				</aside>
 			</div>
 			<div class="flexrow">
 				<label style="white-space:nowrap">Tipo de Criatura: </label>
-				<select class="selectAtr" name="data.detalhes.tipo">
+				<select class="selectAtr" name="system.detalhes.tipo">
 					{{#select data.detalhes.tipo}}
 					{{#each config.creatureTypes as |label size|}}
 					<option value="{{size}}">{{label}}</option>
 					{{/each}}
 					{{/select}}
 				</select>
-				<input type="text" name="data.detalhes.raca" value="{{data.detalhes.raca}}" Title="Raça" class="small">
-				<input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" Title="Nível" class="small">
+				<input type="text" name="system.detalhes.raca" value="{{data.detalhes.raca}}" Title="Raça" class="small">
+				<input type="text" name="system.attributes.nivel.value" value="{{data.attributes.nivel.value}}" Title="Nível" class="small">
 			</div>
 
 			<hr>
@@ -52,9 +52,9 @@
 									</label>
 								</span>
 								<footer class="attribute-footer flexrow" style="justify-content: center;">
-									<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
+									<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="system.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
 									{{#if ../mostrarAtributoTemp}}
-										<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.bonus" value="{{atr.bonus}}" placeholder="0" />
+										<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="system.atributos.{{key}}.bonus" value="{{atr.bonus}}" placeholder="0" />
 									{{/if}}
 								</footer>
 							</li>
@@ -66,23 +66,23 @@
 							<li class="attribute health">
 								<h4 class="attribute-name box-title">Pontos de Vida</h4>
 								<div class="attribute-value multiple">
-									<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
+									<input name="system.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
 									<span class="sep">/</span>
-									<input name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+									<input name="system.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 								</div>
 								<footer class="attribute-footer">
-									<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
+									<input name="system.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
 								</footer>
 							</li>
 							<li class="attribute mana">
 								<h4 class="attribute-name box-title">Pontos de Mana</h4>
 								<div class="attribute-value multiple">
-									<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
+									<input name="system.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
 									<span class="sep">/</span>
-									<input style="color: #191813" name="data.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
+									<input style="color: #191813" name="system.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
 								</div>
 								<footer class="attribute-footer">
-									<input name="data.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
+									<input name="system.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
 								</footer>
 							</li>
 							<li class="attribute">
@@ -92,7 +92,7 @@
 								</div>
 								<footer class="attribute-footer">
 									<div class="flexrow">
-										<select class="selectAtr" name="data.attributes.defesa.atributo" value="{{data.attributes.defesa.atributo}}">
+										<select class="selectAtr" name="system.attributes.defesa.atributo" value="{{data.attributes.defesa.atributo}}">
 											{{#select data.attributes.defesa.atributo}}
 											<option value=""></option>
 											<option value="for">For</option>
@@ -103,7 +103,7 @@
 											<option value="car">Car</option>
 											{{/select}}
 										</select>
-										<input name="data.attributes.defesa.outros" title="Outros" type="number" class="small" placeholder="0" value="{{data.attributes.defesa.outros}}" />
+										<input name="system.attributes.defesa.outros" title="Outros" type="number" class="small" placeholder="0" value="{{data.attributes.defesa.outros}}" />
 								</footer>
 							</li>
 						</ul>
@@ -112,7 +112,7 @@
 					<div class="traits">
 						<div>
 							<label>Tamanho</label>
-							<select class="actor-size" name="data.tracos.tamanho">
+							<select class="actor-size" name="system.tracos.tamanho">
 								{{#select data.tracos.tamanho}}
 								{{#each config.actorSizes as |label size|}}
 								<option value="{{size}}">{{label}}</option>
@@ -190,15 +190,15 @@
 						<h4>Linhas descritivas</h2>
 						<div>
 							<label>Resistências:</label>
-							<input type="text" name="data.detalhes.resistencias" value="{{data.detalhes.resistencias}}" placeholder="Resistências"/>
+							<input type="text" name="system.detalhes.resistencias" value="{{data.detalhes.resistencias}}" placeholder="Resistências"/>
 						</div>
 						<div>
 							<label>Equipamentos:</label>
-							<input type="text" name="data.detalhes.equipamento" value="{{data.detalhes.equipamento}}">
+							<input type="text" name="system.detalhes.equipamento" value="{{data.detalhes.equipamento}}">
 						</div>
 						<div>
 							<label>Tesouro:</label>
-							<input type="text" name="data.detalhes.tesouro" value="{{data.detalhes.tesouro}}">
+							<input type="text" name="system.detalhes.tesouro" value="{{data.detalhes.tesouro}}">
 						</div>
 					</div>
 				</div>
@@ -271,7 +271,7 @@
 			</div>
 			<div class="npc-line">
 				<label>Pontos de Vida: </label>
-				<!-- <span class="inpContentEditable" contenteditable="true" name="data.attributes.pv.value"> -->
+				<!-- <span class="inpContentEditable" contenteditable="true" name="system.attributes.pv.value"> -->
 				<!-- </span> -->
 				{{data.attributes.pv.value}} / {{data.attributes.pv.max}} {{#if data.attributes.pv.temp}}/ {{data.attributes.pv.temp}} {{/if}}
 
@@ -297,7 +297,7 @@
 			{{#if data.attributes.pm.max}}
 			<div class="npc-line">
 				<label>Pontos de Mana: </label>
-				<!-- <span class="inpContentEditable" contenteditable="true" name="data.attributes.pm.value">{{data.attributes.pm.value}}</span> -->
+				<!-- <span class="inpContentEditable" contenteditable="true" name="system.attributes.pm.value">{{data.attributes.pm.value}}</span> -->
 				{{data.attributes.pm.value}} / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
 			</div>
 			{{/if}}
@@ -307,7 +307,7 @@
 					{{#if (find actor.inventario.arma.items "data.propriedades.dst" false true)}}
 					<label>Corpo a Corpo: </label>
 					{{#each actor.inventario.arma.items as |item id|}}
-					{{#unless item.data.propriedades.dst}}
+					{{#unless item.system.propriedades.dst}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div style="flex:0 0 10px"></div>
 						<div class="item-name">
@@ -324,7 +324,7 @@
 					{{#if (find actor.inventario.arma.items "data.propriedades.dst" true true)}}
 					<label>À Distância: </label>
 					{{#each actor.inventario.arma.items as |item id|}}
-					{{#if item.data.propriedades.dst}}
+					{{#if item.system.propriedades.dst}}
 					<li class="item flexrow" data-item-id="{{item._id}}">
 						<div style="flex:0 0 10px"></div>
 						<div class="item-name">
@@ -351,10 +351,10 @@
 									{{/if}}
 								</label>
 							</span>
-							{{#if (or (eq item.data.description.value "") item.data.description.value ) }}
-								{{{stripTags item.data.description.value}}}
+							{{#if (or (eq item.system.description.value "") item.system.description.value ) }}
+								{{{stripTags item.system.description.value}}}
 							{{else}}
-								{{{stripTags item.data.description}}}
+								{{{stripTags item.system.description}}}
 							{{/if}}
 						</div>
 					</li>
@@ -417,7 +417,7 @@
 				{{data.detalhes.equipamento}}
 				{{#each actor.inventario as |list s| }}
 					{{#each list.items as |item i| }}
-						{{item.name}}{{ift (gt item.data.qtd 1) (concat " " item.data.qtd) "" }}{{ift @../last "" ","}}
+						{{item.name}}{{ift (gt item.system.qtd 1) (concat " " item.system.qtd) "" }}{{ift @../last "" ","}}
 					{{/each}}
 				{{/each}}
 			</div>

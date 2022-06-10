@@ -3,18 +3,13 @@
  * @param {MouseEvent} event      The left-click event on the effect control
  * @param {Actor|Item} owner      The owning entity which manages this effect
  */
-export function onManageActiveEffect(event, owner) {
+ export function onManageActiveEffect(event, owner) {
 	event.preventDefault();
 	const a = event.currentTarget;
 	const li = a.closest("li");
 	const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null;
-	console.log(owner);
-	console.log(a.dataset);
-	console.log(li.dataset);
-	console.log(effect);
 	switch ( a.dataset.action ) {
 		case "create":
-			console.info( owner.name, owner.img, owner.img, owner.uuid );
 		return owner.createEmbeddedDocuments("ActiveEffect", [{
 			label: li.dataset.effectType=="onuse" ? "Novo Efeito" : owner.name,
 			icon: (li.dataset.effectType=="onuse" ? "icons/svg/upgrade.svg" :
@@ -27,7 +22,6 @@ export function onManageActiveEffect(event, owner) {
 			disabled: ["inactive","onuse"].includes(li.dataset.effectType)
 		}]);
 		case "edit":
-			console.log(effect);
 		return effect.sheet.render(true);
 		case "delete":
 		return effect.delete();

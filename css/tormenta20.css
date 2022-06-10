@@ -1141,7 +1141,8 @@ button {
 
 .tormenta20 .sheet-header {
   flex: 0 0 100px;
-  border-bottom: 2px groove #eeede0;
+  /* border-bottom: 2px groove #eeede0; */
+  margin: 0;
   font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
   font-size: 20px;
   /* Character Name */
@@ -1791,4 +1792,24 @@ button {
 
 /* ################################################################ */
 /*                          /Chat-Message                           */
+/* ################################################################ */
+
+/* ################################################################ */
+/*                            Item-Sheet                            */
+/* ################################################################ */
+
+.tormenta20.sheet.item header.sheet-header img.profile {
+  height: 90px;
+}
+
+.tormenta20.sheet.item header.sheet-header .item-subtitle {
+  text-align: center;
+}
+
+.tormenta20.sheet.item header.sheet-header .item-type {
+  margin: 0;
+}
+
+/* ################################################################ */
+/*                           /Item-Sheet                            */
 /* ################################################################ */

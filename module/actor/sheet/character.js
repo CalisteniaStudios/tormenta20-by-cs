@@ -31,7 +31,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	
 	/** @override */
 	getData() {
+		console.log('XABLAU');
 		const sheetData = super.getData();
+		console.log('XABLAU');
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
 		sheetData["disableJournal"] = game.settings.get("tormenta20", "disableJournal");
@@ -45,7 +47,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
-		this.actor.data.data.attributes.defesa.pda = this.actor.data.data.attributes.defesa.pda ?? 0;
+		this.actor.system.attributes.defesa.pda = this.actor.system.attributes.defesa.pda ?? 0;
 
 		return sheetData;
 	}
@@ -58,6 +60,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	*/
 	_prepareItems(data) {
 		const actorData = data.actor;
+		const actorItems = data.actor.items;
 		// Initialize containers.
 		const favoritos = {
 			"armas": [],
@@ -82,10 +85,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		}
 		
 		// Partition items by category
-		let [items, magias, poderes, classes] = data.items.reduce((arr, item) => {
+		console.log(data);
+
+		let [items, magias, poderes, classes] = actorItems.reduce((arr, item) => {
 			// Item details
 			item.img = item.img || CONST.DEFAULT_TOKEN;
-			item.isStack = Number.isNumeric(item.data.qtd) && (item.data.qtd !== 1);
+			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
 			
 			if ( item.type === "classe" ) {
 				item.abbr = item.name.substr(0,4);
@@ -99,7 +104,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				} else if ( item.type === "poder" ){
 					favoritos.poderes.push(item);
 				} else if ( item.type === "magia" ){
-					favoritos.magias[item.data.circulo].spells.push(item);
+					favoritos.magias[item.system.circulo].spells.push(item);
 					favoritos.qtdMagias++;
 				} else if( ["consumivel","equipamento"].includes(item.type) ){
 					favoritos.itens.push(item);
@@ -118,13 +123,13 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// Organize items
 		for ( let i of items ) {
-			i.data.qtd = i.data.qtd || 0;
-			i.data.peso = i.data.peso || 0;
-			i.data.espacos = i.data.espacos || 0;
+			i.system.qtd = i.system.qtd || 0;
+			i.system.peso = i.system.peso || 0;
+			i.system.espacos = i.system.espacos || 0;
 			if ( game.settings.get("tormenta20", "weightRule") == 'core' ) {
-				i.pesoTotal = (i.data.qtd * i.data.peso).toNearest(0.1);
+				i.pesoTotal = (i.system.qtd * i.system.peso).toNearest(0.1);
 			} else if( game.settings.get("tormenta20", "weightRule") == 'espacos' ) {
-				i.pesoTotal = (i.data.qtd * i.data.espacos).toNearest(0.1);
+				i.pesoTotal = (i.system.qtd * i.system.espacos).toNearest(0.1);
 			}
 			inventario[i.type].items.push(i);
 		}
@@ -140,12 +145,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const nPreparadas = 0;
 		let maiorCirculo = 0;
 		magias.forEach(function(m){
-			maiorCirculo = Math.max(maiorCirculo, m.data.circulo);
-			grimorio[m.data.circulo].spells.push(m);
+			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);
+			grimorio[m.system.circulo].spells.push(m);
 		});
 		
 		// classes.sort
-		classes.sort((a, b) => (b.data.inicial || 0) - (a.data.inicial || 0));
+		classes.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0));
 
 		// Assign and return
 		actorData.favoritos = favoritos;
@@ -168,7 +173,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	async _onPrepareSpell(ev) {
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.items.get(li.data("itemId"));
-		const id = item.data.data;
+		const id = item.system;
 		let updateItems = [];
 		updateItems.push({_id: item.id, "data.preparada": !id.preparada});
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
@@ -179,7 +184,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
-
+		
 		// Item summaries
 		html.find('.item .item-name h4').click(event => this._onItemSummary(event));
 		
@@ -190,7 +195,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			html.find('.item-fav').click(ev => {
 				const li = $(ev.currentTarget).parents(".item");
 				const item = this.actor.items.get(li.data("itemId"));
-				item.update({ "flags.favorito": !item.data.flags.favorito });
+				item.update({ "flags.favorito": !item.flags.favorito });
 			});
 			
 			// Prepare spells
@@ -210,8 +215,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	async _onDropItemCreate(itemData) {
 		// Increment the number of class levels a character instead of creating a new item
 		if ( itemData.type === "classe" ) {
-			const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
-			const actorData = this.actor.data;
+			console.log(this.actor);
+			const cls = this.actor.classes.find(c => c.name === itemData.name);
+			const actorData = this.actor.system;
 			let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
 			if ( !lvlconfig ){
 				lvlconfig = {
@@ -224,14 +230,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			}
 			// Novo nivel de classe preexistente
 			if ( !!cls ) { 
-				let priorLevel = cls.data.data.niveis ?? 0;
-				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.data.attributes.nivel.value);
-				await cls.update({"data.niveis": next});
+				let priorLevel = cls.system.niveis ?? 0;
+				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
+				await cls.update({"system.niveis": next});
 				return this.actor._calcPVPM();
 			}
 			// Primeiro Nivel do Personagem
-			else if ( !this.actor.itemTypes.classe.length ) {
-				itemData.data.inicial = true;
+			else if ( !this.actor.classes.length ) {
+				itemData.system.inicial = true;
 			}
 			await super._onDropItemCreate(itemData);
 			return this.actor._calcPVPM();

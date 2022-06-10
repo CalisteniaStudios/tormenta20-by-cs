@@ -14,7 +14,7 @@
 
 	{{#if custo}}
 	<div class="form-group">
-		<label>Custo em PM ({{item.data.ativacao.custo}})</label>
+		<label>Custo em PM ({{item.system.ativacao.custo}})</label>
 		<input type="text" name="ajustecusto" value="" placeholder="ex. +3 ou -2"/>
 	</div>
 	{{/if}}
@@ -32,7 +32,7 @@
 		{{#each aprimoramentos as |ap|}}
 			<li class="item flexrow">
 				<div class="item-cost">
-				{{#if ap.data.flags.tormenta20.aumenta}}
+				{{#if ap.flags.tormenta20.aumenta}}
 					<input type="button" value="-" class="numCtrl" />
 					<input type="number" name="aprs.{{ap.id}}.aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
 					<input type="button" value="+" class="numCtrl" />
@@ -40,15 +40,15 @@
 					<input type="checkbox"  name="aprs.{{ap.id}}.aplica"  value="1" {{#unless ap.data.disabled}}checked{{/unless}}/>
 				{{/if}}
 
-				{{#if (and (eq ../item.type "magia") (eq ap.data.flags.tormenta20.custo "") ap.data.flags.tormenta20.self )}}
+				{{#if (and (eq ../item.type "magia") (eq ap.flags.tormenta20.custo "") ap.flags.tormenta20.self )}}
 					Truque
 					<input type="hidden" name="aprs.{{ap.id}}.custo" value="Truque">
-				{{else if (eq ap.data.flags.tormenta20.custo "")}}
+				{{else if (eq ap.flags.tormenta20.custo "")}}
 					-
 					<input type="hidden" name="aprs.{{ap.id}}.custo" value="0">
-				{{else if ap.data.flags.tormenta20.custo}}
-					{{ap.data.flags.tormenta20.custo}} PM
-					<input type="hidden" name="aprs.{{ap.id}}.custo" value="{{ap.data.flags.tormenta20.custo}}">
+				{{else if ap.flags.tormenta20.custo}}
+					{{ap.flags.tormenta20.custo}} PM
+					<input type="hidden" name="aprs.{{ap.id}}.custo" value="{{ap.flags.tormenta20.custo}}">
 				{{/if}}
 				</div>
 				<h4 class="item-name" style="flex: 2">{{{ap.data.label}}}</h4>

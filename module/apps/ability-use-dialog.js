@@ -120,7 +120,7 @@ export default class AbilityUseDialog extends Dialog {
 						label: label,
 						callback: html => {
 							const fd = new FormDataExtended(html[0].querySelector("form"));
-							resolve(fd.toObject());
+							resolve(fd.object);
 						}
 					}
 				},
@@ -134,7 +134,7 @@ export default class AbilityUseDialog extends Dialog {
 					callback: html => {
 						const fd = new FormDataExtended(html[0].querySelector("form"));
 						fd.dtypes.brew = true;
-						resolve(mergeObject(fd.toObject(), {brew: true}));
+						resolve(mergeObject(fd.object, {brew: true}));
 					}
 				}
 			}

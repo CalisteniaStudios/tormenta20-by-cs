@@ -47,13 +47,14 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	get template() {
 		if ( !game.user.isGM && this.actor.limited ) return "systems/tormenta20/templates/actors/limited-sheet.html";
-		return `systems/tormenta20/templates/actor/${this.actor.data.type}-sheet.html`;
+		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
 	getData() {
+		console.log('XABLAU');
 		// Basic data
 		let isOwner = this.actor.isOwner;
 		const data = {
@@ -75,24 +76,24 @@ export default class ActorSheetT20 extends ActorSheet {
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
 		// The Actor and its Items
-		data.actor = this.actor.data.toObject(false);
+		data.actor = this.actor;
 		//foundry.utils.deepClone(this.actor.data);
 		data.items = this.actor.items.map(i => {
-			i.data.labels = i.labels;
-			return i.data;
+			i.system.labels = i.labels;
+			return i.system;
 		});
 		data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		data.data = data.actor.data;
+		data.data = data.actor.system;
 		// LABELS?
 		
 		// Ability Scores
-		for ( let [a, abl] of Object.entries(data.actor.data.atributos)) {
+		for ( let [a, abl] of Object.entries(data.actor.system.atributos)) {
 			abl.label = CONFIG.T20.atributos[a];
 		}
 
 		// Skills
-		if (data.actor.data.pericias) {
-			for (let [s, skl] of Object.entries(data.actor.data.pericias)) {
+		if (data.actor.system.pericias) {
+			for (let [s, skl] of Object.entries(data.actor.system.pericias)) {
 				skl.label = CONFIG.T20.pericias[s] || skl.label;
 				if( s.match(/_pc[1-9]/) ) skl.order = 6;
 				else if( s == "_pc0" ) skl.order = 5;
@@ -105,7 +106,7 @@ export default class ActorSheetT20 extends ActorSheet {
 				skl.compendiumEntry = data.config.skillCompendiumEntries[s] ?? null;
 			}
 		}
-		data.skills = Object.values(data.actor.data.pericias).sort((a,b)=>{return a.order-b.order});
+		data.skills = Object.values(data.actor.system.pericias).sort((a,b)=>{return a.order-b.order});
 		
 		// Movement speeds
 		data.movement = this._getMovementSpeed(data.actor);
@@ -113,7 +114,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Senses
 		data.senses = this._getSenses(data.actor);
 		// Update traits
-		this._prepareTraits(data.actor.data.tracos);
+		this._prepareTraits(data.actor.system.tracos);
 
 		// Prepare owned items
 		this._prepareItems(data);
@@ -136,7 +137,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	*/
 	// TODO Implement Movement Here?
 	_getMovementSpeed(actorData) {
-		const movement = foundry.utils.deepClone(actorData.data.attributes.movement) || {};
+		const movement = foundry.utils.deepClone(actorData.system.attributes.movement) || {};
 		// Prepare an array of available movement speeds
 		let u = movement.unit;
 		let speeds = {};
@@ -153,7 +154,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	/* -------------------------------------------- */
 
 	_getSenses(actorData) {
-		const senses = actorData.data.attributes.sentidos || {value:[],custom:""};
+		const senses = actorData.system.attributes.sentidos || {value:[],custom:""};
 		if( !senses.value ) senses.value = [];
 		for ( let [k, label] of Object.entries(CONFIG.T20.senses) ) {
 			const v = senses.value?.indexOf(k);
@@ -192,7 +193,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			if ( trait.custom ) {
 				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
 			}
-			trait.cssClass = !isObjectEmpty(trait.selected) ? "" : "inactive";
+			trait.cssClass = !isEmpty(trait.selected) ? "" : "inactive";
 		}
 	}
 
@@ -374,19 +375,20 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	// TODO Implement scroll consumable and onDrop creation
 	async _onDropItemCreate(itemData) {
-		if (itemData.type === "magia" && this.actor.data.data.attributes.conjuracao ) {
-			itemData.data.resistencia.atributo = this.actor.data.data.attributes.conjuracao || "int";
+		if (itemData.type === "magia" && this.actor.system.attributes.conjuracao ) {
+			itemData.system.resistencia.atributo = this.actor.system.attributes.conjuracao || "int";
 		}
 		// Stack consumables
 		else if ( itemData.type === "consumivel" ){
-			const it = this.actor.itemTypes.consumivel.find(c => c.name === itemData.name);
+			console.log(this.actor);
+			const it = this.actor.items.find(c => c.name === itemData.name);
 			if (it) {
-				const qtd = it.data.data.qtd + 1;
-				return it.update({"data.qtd": qtd})
+				const qtd = it.system.qtd + 1;
+				return it.update({"system.qtd": qtd})
 			}
 		}
-		if( itemData.data ){
-			["equipado","preparado"].forEach(k => delete itemData.data[k]);
+		if( itemData.system ){
+			["equipado","preparado"].forEach(k => delete itemData.system[k]);
 		}
 		
 		return super._onDropItemCreate(itemData);
@@ -461,7 +463,7 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	async _onUpdateCD(ev){
 		const atrRes = $(ev.currentTarget).data("atrres");
-		const magias = this.actor.data.items.filter(i => i.type === "magia");
+		const magias = this.actor.items.filter(i => i.type === "magia");
 		const updateItems = magias.map(i => {
 			return {_id: i.id, "data.resistencia.atributo": atrRes};
 		});
@@ -475,17 +477,17 @@ export default class ActorSheetT20 extends ActorSheet {
 	async _onToggleArmor(ev) {
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.items.get(li.data("itemId"));
-		const id = item.data.data;
+		const id = item.system;
 		id.equipado = !id.equipado;
-		const items = this.actor.data.items;
+		const items = this.actor.items;
 		let updateItems = [];
 		updateItems.push({_id: item.id, "data.equipado": id.equipado});
 		const armor = ["leve", "pesada"];
 		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
 		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
 			let unequipped = items.some(element => { //some() === forEach() with a return
-				if(element.type === "equipamento" && element.data.data.equipado && element.id != item.id) {
-					if (element.data.data.tipo === id.tipo || (armor.includes(element.data.data.tipo) && armor.includes(id.tipo))) {
+				if(element.type === "equipamento" && element.system.equipado && element.id != item.id) {
+					if (element.system.tipo === id.tipo || (armor.includes(element.system.tipo) && armor.includes(id.tipo))) {
 						updateItems.push({_id: element.id, "data.equipado": false});
 						return true;
 					}
@@ -564,13 +566,13 @@ export default class ActorSheetT20 extends ActorSheet {
 			if (li.dataset.itemId) {
 				let skill;
 				if (li.dataset.type=="oficios") {
-					skill = this.actor.data.data.pericias["ofi"].mais[li.dataset.itemId];
+					skill = this.actor.system.pericias["ofi"].mais[li.dataset.itemId];
 					dragData.subtype = li.dataset.type;
 				} else if (li.dataset.type=="custom") {
-					skill = this.actor.data.data.periciasCustom[li.dataset.itemId];
+					skill = this.actor.system.periciasCustom[li.dataset.itemId];
 					dragData.subtype = li.dataset.type;
 				} else {
-					skill = this.actor.data.data.pericias[li.dataset.itemId];
+					skill = this.actor.system.pericias[li.dataset.itemId];
 					dragData.subtype = "base";
 				}
 				dragData.type = "Pericia";
@@ -648,7 +650,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		};
 
 		let actorData = foundry.utils.deepClone(this.actor);
-		let pericias = actorData.data.data.pericias;
+		let pericias = actorData.system.pericias;
 
 		let key = tipo == 'oficio'? "ofi" : "_pc";
 		const customs = Object.keys(pericias).reduce((t, k) => {
@@ -691,33 +693,34 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	_getModificadores(){
 		const modificadores = [
-			{name: "data.modificadores.atributos.for", label: "Testes de Força"},
-			{name: "data.modificadores.atributos.des", label: "Testes de Destreza"},
-			{name: "data.modificadores.atributos.con", label: "Testes de Constintuição"},
-			{name: "data.modificadores.atributos.int", label: "Testes de Inteligência"},
-			{name: "data.modificadores.atributos.sab", label: "Testes de Sabedoria"},
-			{name: "data.modificadores.atributos.car", label: "Testes de Carisma"},
-			{name: "data.modificadores.atributos.geral", label: "Testes de Atributos"},
-			{name: "data.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos"},
-			{name: "data.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais"},
-			{name: "data.modificadores.custoPM", label: "Aumento de custo de PM"},
-			{name: "data.modificadores.dano.geral", label: "Dano Geral"},
-			{name: "data.modificadores.dano.cac", label: "Dano Corpo a Corpo"},
-			{name: "data.modificadores.dano.ad", label: "Dano A Distância"},
-			{name: "data.modificadores.dano.mag", label: "Dano de Magias"},
-			{name: "data.modificadores.pericias.geral", label: "Testes de Perícias"},
-			{name: "data.modificadores.pericias.ataque", label:"Testes de Perícias de Ataque"},
-			{name: "data.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque"},
-			{name: "data.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências"},
-			{name: "data.modificadores.pericias.atr.for", label: "Testes de Perícias de Força"},
-			{name: "data.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza"},
-			{name: "data.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição"},
-			{name: "data.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência"},
-			{name: "data.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria"},
-			{name: "data.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
+			{name: "system.modificadores.atributos.for", label: "Testes de Força"},
+			{name: "system.modificadores.atributos.des", label: "Testes de Destreza"},
+			{name: "system.modificadores.atributos.con", label: "Testes de Constintuição"},
+			{name: "system.modificadores.atributos.int", label: "Testes de Inteligência"},
+			{name: "system.modificadores.atributos.sab", label: "Testes de Sabedoria"},
+			{name: "system.modificadores.atributos.car", label: "Testes de Carisma"},
+			{name: "system.modificadores.atributos.geral", label: "Testes de Atributos"},
+			{name: "system.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos"},
+			{name: "system.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais"},
+			{name: "system.modificadores.custoPM", label: "Aumento de custo de PM"},
+			{name: "system.modificadores.dano.geral", label: "Dano Geral"},
+			{name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo"},
+			{name: "system.modificadores.dano.ad", label: "Dano A Distância"},
+			{name: "system.modificadores.dano.mag", label: "Dano de Magias"},
+			{name: "system.modificadores.pericias.geral", label: "Testes de Perícias"},
+			{name: "system.modificadores.pericias.ataque", label:"Testes de Perícias de Ataque"},
+			{name: "system.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque"},
+			{name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências"},
+			{name: "system.modificadores.pericias.atr.for", label: "Testes de Perícias de Força"},
+			{name: "system.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza"},
+			{name: "system.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição"},
+			{name: "system.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência"},
+			{name: "system.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria"},
+			{name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
 		];
+		
 		for ( let b of modificadores ) {
-			b.value = getProperty(this.object.data._source, b.name) || "";
+			b.value = getProperty(this.object._source, b.name) || "";
 		}
 		return modificadores;
 	}

@@ -18,23 +18,23 @@
 		<li class="item effect flexrow" data-effect-id="{{effect.id}}" data-action="edit">
 			<div class="item-name effect-name flexrow">
 				{{#unless (eq sid "onuse")}}
-				<img class="item-image" src="{{effect.data.icon}}"/>
-				<h4 class="item-name">{{effect.data.label}}</h4>
+				<img class="item-image" src="{{effect.icon}}"/>
+				<h4 class="item-name">{{effect.label}}</h4>
 				{{else}}
 				<h4 class="item-name"><b>
-				{{effect.data.flags.tormenta20.custo}}
+				{{effect.flags.tormenta20.custo}}
 
-				{{#if (and (eq effect.data.flags.tormenta20.custo "") (eq ../../item.type "magia"))}}Truque:
-				{{else if (eq effect.data.flags.tormenta20.custo "")}}—
+				{{#if (and (eq effect.flags.tormenta20.custo "") (eq ../../item.type "magia"))}}Truque:
+				{{else if (eq effect.flags.tormenta20.custo "")}}—
 				{{else}}PM:{{/if}}
 				</b>
-				{{effect.data.label}}</h4>
+				{{effect.label}}</h4>
 				{{/unless}}
 			</div>
 			{{#unless (eq sid "onuse")}}
 			<div class="effect-source">{{effect.sourceName}}</div>
 			<div class="effect-duration">
-				{{#if effect.data.flags.tormenta20.durationScene}}
+				{{#if effect.flags.tormenta20.durationScene}}
 				Cena
 				{{else}}
 				{{effect.duration.label}}
@@ -43,7 +43,7 @@
 			{{/unless}}
 			<div class="item-controls effect-controls flexrow">
 				<a class="effect-control" data-action="toggle" title="{{#if (eq sid 'onuse')}}Alternar Aplicar Sempre{{else}}Alternar Efeito{{/if}}">
-					<i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
+					<i class="fas {{#if effect.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
 				</a>
 				<a class="effect-control" data-action="edit" title="Editar Efeito">
 					<i class="fas fa-edit"></i>

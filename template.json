@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character","npc"],
+    "types": ["character","npc","foo"],
     "templates": {
       "common":{
         "atributos": {
@@ -283,7 +283,7 @@
     }
   },
   "Item": {
-    "types": ["arma","equipamento","classe","consumivel","magia","poder","tesouro","equip"],
+    "types": ["arma","equipamento","classe","consumivel","magia","poder","tesouro","test"],
     "templates": {
       "base": {
         "description": {
@@ -358,7 +358,7 @@
       }
     },
     "poder": {
-      "templates": ["base", "efeitoAtivado", "resistencia","aprimoramento"],
+      "templates": ["base", "efeitoAtivado", "resistencia"],
       "rolls": [],
       "tipo": "",
       "subtipo": ""

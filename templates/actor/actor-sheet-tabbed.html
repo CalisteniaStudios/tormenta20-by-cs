@@ -14,7 +14,7 @@
 					{{#unless disableExperience}}
 					<div class="xp-tracker" title="Experiência">
 							<div class="experience">
-							<input class="current-xp" name="data.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
+							<input class="current-xp" name="system.attributes.nivel.xp.value" type="text" value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
 							<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
 						</div>
 						<div class="xp-bar">
@@ -30,10 +30,10 @@
 			{{!-- Character Summary --}}
 			<ul class="attributes summary flexrow">
 				<li>
-					<input type="text" name="data.detalhes.raca" value="{{data.detalhes.raca}}" data-dtype="String" placeholder="Raça" />
+					<input type="text" name="system.detalhes.raca" value="{{data.detalhes.raca}}" data-dtype="String" placeholder="Raça" />
 				</li>
 				<li>
-					<input type="text" name="data.detalhes.origem" value="{{data.detalhes.origem}}" data-dtype="String" placeholder="Origem" />
+					<input type="text" name="system.detalhes.origem" value="{{data.detalhes.origem}}" data-dtype="String" placeholder="Origem" />
 				</li>
 				<li class="classe flexrow" style="flex: 0.2 1 auto;">
 					{{#if actor.classes.length }}
@@ -57,7 +57,7 @@
 				</li>
 				{{#if mostrarDivindade}}
 				<li class="flexrow">
-					<input type="text" name="data.detalhes.divindade" value="{{data.detalhes.divindade}}" data-dtype="String" placeholder="Divindade" />
+					<input type="text" name="system.detalhes.divindade" value="{{data.detalhes.divindade}}" data-dtype="String" placeholder="Divindade" />
 				</li>
 				{{/if}}
 			</ul>
@@ -67,23 +67,23 @@
 				<li class="attribute health">
 					<h4 class="attribute-name box-title">Pontos de Vida</h4>
 					<div class="attribute-value multiple">
-						<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
+						<input name="system.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
 						<span class="sep">/</span>
-						<input disabled name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+						<input disabled name="system.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
 					</div>
 					<footer class="attribute-footer">
-						<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
+						<input name="system.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
 					</footer>
 				</li>
 				<li class="attribute mana">
 					<h4 class="attribute-name box-title">Pontos de Mana</h4>
 					<div class="attribute-value multiple">
-						<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
+						<input name="system.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
 						<span class="sep">/</span>
-						<input disabled style="color: #191813" name="data.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
+						<input disabled style="color: #191813" name="system.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
 					</div>
 					<footer class="attribute-footer">
-						<input name="data.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
+						<input name="system.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
 					</footer>
 				</li>
 				<li class="attribute">
@@ -93,7 +93,7 @@
 					</div>
 					<footer class="attribute-footer">
 						<div class="flexrow">
-							<select class="selectAtr" name="data.attributes.defesa.atributo" value="{{data.attributes.defesa.atributo}}">
+							<select class="selectAtr" name="system.attributes.defesa.atributo" value="{{data.attributes.defesa.atributo}}">
 								{{#select data.attributes.defesa.atributo}}
 								<option value=""></option>
 								<option value="for">For</option>
@@ -104,7 +104,7 @@
 								<option value="car">Car</option>
 								{{/select}}
 							</select>
-							<input name="data.attributes.defesa.outros" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.attributes.defesa.outros}}" />
+							<input name="system.attributes.defesa.outros" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.attributes.defesa.outros}}" />
 					</footer>
 				</li>
 			</ul>
@@ -138,8 +138,8 @@
 					</label>
 					</span>
 					<footer class="attribute-footer flexrow">
-						<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
-						{{#if ../mostrarAtributoTemp}}<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.bonus"  value="{{atr.bonus}}" placeholder="0" />{{/if}}
+						<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="system.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
+						{{#if ../mostrarAtributoTemp}}<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="system.atributos.{{key}}.bonus"  value="{{atr.bonus}}" placeholder="0" />{{/if}}
 					</footer>
 				</li>
 				{{/each}}
@@ -158,7 +158,7 @@
 				{{/if}}
 				<div class="outros">
 					{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
-					<textarea name="data.detalhes.info" style="resize:vertical; border-image: none; border-width: 1px;" rows="10" data-dtype="String">{{data.detalhes.info}}</textarea>
+					<textarea name="system.detalhes.info" style="resize:vertical; border-image: none; border-width: 1px;" rows="10" data-dtype="String">{{data.detalhes.info}}</textarea>
 				</div>
 				{{#if actor.referencias}}
 				<div class="conditions">

@@ -20,12 +20,12 @@
 			
 			<div class="item-qtd">
 				{{#if ../owner}}
-				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				<input type="text" classe="item-qtd" value="{{item.system.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
 				{{else}}
-					{{item.data.qtd}}
+					{{item.system.qtd}}
 				{{/if}}
 			</div>
-			{{#if ../isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
+			{{#if ../isCharacter}}<div class="item-peso">{{item.system.peso}}</div>{{/if}}
 			<div class="item-controls">
 				<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>
 				{{#if ../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
@@ -48,18 +48,18 @@
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 				<h4>{{item.name}}</h4>
 			</div>
-			<div class="item-def flex2">{{numberFormat item.data.armadura.value sign=true}} {{item.data.armadura.penalidade}}</div>
+			<div class="item-def flex2">{{numberFormat item.system.armadura.value sign=true}} {{item.system.armadura.penalidade}}</div>
 			<div class="item-qtd">
 				{{#if ../owner}}
-				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				<input type="text" classe="item-qtd" value="{{item.system.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
 				{{else}}
-					{{item.data.qtd}}
+					{{item.system.qtd}}
 				{{/if}}
 			</div>
 			
-			{{#if ../isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
+			{{#if ../isCharacter}}<div class="item-peso">{{item.system.peso}}</div>{{/if}}
 			<div class="item-controls">
-				<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}"><i class="fas fa-shield-alt"></i></a>
+				<a class="item-control item-toggle toggle-armor{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}Desequipar{{else}}Equipar{{/if}}"><i class="fas fa-shield-alt"></i></a>
 				<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>
 				{{#if ../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
@@ -83,12 +83,12 @@
 			</div>
 			<div class="item-qtd">
 				{{#if ../owner}}
-				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				<input type="text" classe="item-qtd" value="{{item.system.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
 				{{else}}
-					{{item.data.qtd}}
+					{{item.system.qtd}}
 				{{/if}}
 			</div>
-			{{#if ../isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
+			{{#if ../isCharacter}}<div class="item-peso">{{item.system.peso}}</div>{{/if}}
 			<div class="item-controls">
 				<a class="item-control item-fav" title="{{#if item.flags.favorito}}Desfavoritar{{else}}Favoritar{{/if}}" > <i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i></a>
 				{{#if ../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
@@ -113,12 +113,12 @@
 			</div>
 			<div class="item-qtd">
 				{{#if ../owner}}
-				<input type="text" classe="item-qtd" value="{{item.data.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
+				<input type="text" classe="item-qtd" value="{{item.system.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width:25%; text-align: center;">
 				{{else}}
-					{{item.data.qtd}}
+					{{item.system.qtd}}
 				{{/if}}
 			</div>
-			{{#if ../isCharacter}}<div class="item-peso">{{item.data.peso}}</div>{{/if}}
+			{{#if ../isCharacter}}<div class="item-peso">{{item.system.peso}}</div>{{/if}}
 			<div class="item-controls">
 				{{#if ../botaoEditarItens}}<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>{{/if}}
 				<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
@@ -144,20 +144,20 @@
 	<ul class="currency">
 	{{#if mostrarPlatina}}
 	<li class="currency-item" title="Platina">
-		<input type="number" name="data.dinheiro.tl" value="{{data.dinheiro.tl}}" data-dtype="Number" placeholder="0">
+		<input type="number" name="system.dinheiro.tl" value="{{data.dinheiro.tl}}" data-dtype="Number" placeholder="0">
 		<i class="fas fa-coins" style="color: #e5e4e2; line-height: 30px;"></i>
 	</li>
 	{{/if}}
 	<li class="currency-item" title="Ouro">
-		<input type="number" name="data.dinheiro.to" value="{{data.dinheiro.to}}" data-dtype="Number" placeholder="0">
+		<input type="number" name="system.dinheiro.to" value="{{data.dinheiro.to}}" data-dtype="Number" placeholder="0">
 		<i class="fas fa-coins" style="color: #c7ab10; line-height: 30px;"></i>
 	</li>
 	<li class="currency-item" title="Prata">
-		<input type="number" name="data.dinheiro.tp" value="{{data.dinheiro.tp}}" data-dtype="Number" placeholder="0">
+		<input type="number" name="system.dinheiro.tp" value="{{data.dinheiro.tp}}" data-dtype="Number" placeholder="0">
 		<i class="fas fa-coins" style="color: #828282; line-height: 30px;"></i>
 	</li>
 	<li class="currency-item" title="Cobre">
-		<input type="number" name="data.dinheiro.tc" value="{{data.dinheiro.tc}}" data-dtype="Number" placeholder="0">
+		<input type="number" name="system.dinheiro.tc" value="{{data.dinheiro.tc}}" data-dtype="Number" placeholder="0">
 		<i class="fas fa-coins" style="color: #cd7f32; line-height: 30px;"></i>
 	</li>
 	</ul>

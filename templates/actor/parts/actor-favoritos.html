@@ -34,7 +34,7 @@
 		</div>
 		<div class="item-detail item-controls">
 			{{#if (eq item.type "equipamento")}}
-			<a class="item-control item-toggle toggle-armor{{#if item.data.equipado}} active{{/if}}" title="{{#if item.data.equipado}}Desequipar{{else}}Equipar{{/if}}">
+			<a class="item-control item-toggle toggle-armor{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}Desequipar{{else}}Equipar{{/if}}">
 				<i class="fas fa-shield-alt"></i>
 			</a>
 			{{/if}}
