@@ -692,7 +692,7 @@ export default class ItemT20 extends Item {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
 			item: this.system,
-			data: this.getChatData(),
+			data: await this.getChatData(),
 			labels: this.labels,
 			custo: options.truque? 0 : this.system.ativacao.custo || null,
 			truque: options.truque,
@@ -757,14 +757,13 @@ export default class ItemT20 extends Item {
 	/*  Chat Cards																	*/
 	/* -------------------------------------------- */
 
-	getChatData(htmlOptions={}) {
+	async getChatData(htmlOptions={}) {
 		const data = foundry.utils.deepClone(this.system);
 		const labels = this.labels;
 
 		// Rich text description
 		data.description = data.description || {value:"",chat:"",unidentified:""};
-		data.description.value = TextEditor.enrichHTML(data.description.value, htmlOptions)
-		//TextEditor.enrichHTML(data.description.value, htmlOptions);
+		data.description.value = await TextEditor.enrichHTML(data.description.value, htmlOptions)
 
 		if( this.type === "magia" || ( this.type === "consumivel" && ["scroll", "potion"].includes(data.subtipo) ) ){
 			const headerTags = { ativacao: "Execução", range:"Alcance", target:"Alvo", duracao:"Duração", save:"Resistência" };

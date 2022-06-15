@@ -92,7 +92,7 @@ export default function () {
 		}
 
 		// Highlight critical success or failure die
-		chat.highlightCriticalSuccessFailure(app, html, data);
+		// chat.highlightCriticalSuccessFailure(app, html, data);
 
 		// Optionally collapse the content
 		if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();

@@ -274,12 +274,13 @@ export const ApplyButtons = function (app, html, data){
 
 		const storedData = chatCard.getFlag("tormenta20", "itemData");
 		const storedTemplate = chatCard.getFlag("tormenta20", "template");
-		let item = new game.tormenta20.entities.ItemT20(storedData, {parent: actor});
+		// let item = new game.tormenta20.entities.ItemT20(storedData, {name:'temp',type:'tesouro',parent: actor});
+		let item = { system: storedTemplate, actor: actor };
 		// new game.tormenta20.entities.ItemT20()
 		// new game.tormenta20.canvas.AbilityTemplate()
 		if( !item ) return;
-		item.data.data.area = storedTemplate.area;
-		item.data.data.alcance = storedTemplate.alcance;
+		item.system.area = storedTemplate.area;
+		item.system.alcance = storedTemplate.alcance;
 		
 		const template = game.tormenta20.canvas.AbilityTemplate.fromItem(item);
 		if ( template ) {
@@ -299,7 +300,7 @@ export const ApplyButtons = function (app, html, data){
 		const buttonId = event.currentTarget.dataset.effectIndex;
 		const actors = canvas.tokens.controlled;
 		if ( actors.length && buttonId>=0){
-			const chatEffect = game.messages.get(chatCardId).data.flags.tormenta20?.effects[buttonId];
+			const chatEffect = game.messages.get(chatCardId).flags.tormenta20?.effects[buttonId];
 			if(chatEffect.changes){
 				chatEffect.changes.sort((c,d)=> !Number(c.value) ? 1 : -1 );
 				chatEffect.changes = chatEffect.changes.reduce((object, item) => {

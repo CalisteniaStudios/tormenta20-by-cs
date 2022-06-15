@@ -78,10 +78,10 @@ game.tormenta20.rollItemMacro("${item.name}",{
 		let item = data.data;
 		command = `// Ativar/Desativar Efeito;
 if(actor) {
-	let effect = actor.effects.find(ef => ef.data.label == "${item.label}");
+	let effect = actor.effects.find(ef => ef.label == "${item.label}");
 
 	if(effect){
-		effect.update({disabled: !effect.data.disabled});
+		effect.update({disabled: !effect.disabled});
 	}
 }`;
 		let macro = game.macros.find(
@@ -143,7 +143,7 @@ export async function rollSkillMacro(skillName) {
 	if (!actor) actor = game.actors.get(speaker.actor);
 	if (!actor) return ui.notifications.warn(`Selecione um personagem.`);
 
-	let pericias = Object.entries(actor.data.data.pericias);
+	let pericias = Object.entries(actor.system.pericias);
 	let skl = pericias.find(p => p[1].label == skillName )[0];
 	await actor.rollPericia(skl, {event: event});
 	
@@ -163,9 +163,12 @@ export async function msgFromJournal(name, source) {
 		style = 'style="position:relative; background: #ddd9d5;padding: 0.5rem; margin-left:-7px;margin-right:-7px;margin-bottom:-7px;margin-top:-27px"';
 	}
 	
+	let page = journal.pages.find( p => p );
+	if( !page ) return;
+
 	let chatData = {
 			speaker: null,
-			content: `<div ${style} >${journal.data.content}</div>`
+			content: `<div ${style} >${page.text.content}</div>`
 	}
 	ChatMessage.create(chatData, {});
 }

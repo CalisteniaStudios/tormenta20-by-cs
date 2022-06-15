@@ -1,12 +1,14 @@
 {
+  "id": "tormenta20",
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.3.0.20",
-  "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "9",
+  "version": "1.4.0",
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "10",
   "templateVersion": 1,
   "author": "Vizael",
+  "authors": [{"name": "Vizael"}],
   "esmodules": ["module/tormenta20.js"],
   "styles": ["css/tormenta20.css","css/tormenta20-tabbed.css"],
   "scripts": [],
@@ -87,6 +89,13 @@
       "system": "tormenta20",
       "path": "./packs/tabelas-de-tesouro.db",
       "entity": "RollTable"
+    },
+    {
+      "name": "errata-e-faq",
+      "label": "Errata e FAQ",
+      "system": "tormenta20",
+      "path": "./packs/errata-e-faq.db",
+      "entity": "JournalEntry"
     }
   ],
   "languages": [

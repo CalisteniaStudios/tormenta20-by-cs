@@ -5,6 +5,11 @@ import ActorSheetT20 from "./base.js";
  * @extends {ActorSheetT20}
  */
 export default class ActorSheetT20NPC extends ActorSheetT20 {
+	
+	/* -------------------------------------------- */
+	/*  Properties                                  */
+	/* -------------------------------------------- */
+
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -19,6 +24,8 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		});
 	}
 
+	/* -------------------------------------------- */
+	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -35,6 +42,42 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	}
 
 	/* -------------------------------------------- */
+	
+	/** @override */
+	activateListeners(html) {
+		// super.activateListeners(html);
+
+		// // Tooltips TODO DEBUG
+		// html.mousemove(ev => this._moveTooltips(ev));
+
+		// Everything below here is only needed if the sheet is editable
+		if (!this.options.editable) return;
+
+		if ( this.actor.isOwner ) {
+			// Rollable abilities.
+			html.find('.magia-rollable').click(event => this._onItemRoll(event));
+			html.find('.arma-rollable').click(event => this._onItemRoll(event));
+			html.find('.poder-rollable').click(event => this._onItemRoll(event));
+			
+			html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
+		}
+
+		// Drag events for macros.
+		let handler = ev => this._onDragStart(ev);
+		html.find('.pericia-rollable').each((i, li) => {
+			if (!li.hasAttribute("data-item-id")) return;
+			li.setAttribute("draggable", true);
+			li.addEventListener("dragstart", handler, false);
+		});
+
+		super.activateListeners(html);
+	}
+	
+	/* -------------------------------------------- */
+	/*  Event Listeners and Handlers                */
+	/* -------------------------------------------- */
 
 	/**
 	 * TODO Analisar se deve ser incluido
@@ -46,7 +89,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	 * resistência a dano 10/luz (elemento capaz de atravessar a RD)
 	 */
 	_getResistencias(){
-		const resistencias = this.actor.data.data.tracos.resistencias;
+		const resistencias = this.actor.system.tracos.resistencias;
 		sheetData["resistencias"] = Object.entries(resistencias).reduce( (o, r) => {
 			if(r[1].imunidade) o.imu.push(r[0]);
 			else if(r[1].vulnerabilidade) o.vul.push(r[0]);
@@ -58,6 +101,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		x.imu = sheetData["resistencias"].imu.join(", ");
 		x.vul = sheetData["resistencias"].vul.join(", ");
 	}
+
 	/* -------------------------------------------- */
 
 	/**
@@ -80,7 +124,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		let [items, magias, poderes] = data.items.reduce((arr, item) => {
 			// Item details
 			item.img = item.img || CONST.DEFAULT_TOKEN;
-			item.isStack = Number.isNumeric(item.data.qtd) && (item.data.qtd !== 1);
+			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
 			
 			// Classify items into types
 			if ( item.type === "magia" ) arr[1].push(item);
@@ -91,9 +135,9 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 		// Organize items
 		for ( let i of items ) {
-			i.data.qtd = i.data.qtd || 0;
-			i.data.peso = i.data.peso || 0;
-			i.pesoTotal = (i.data.qtd * i.data.peso).toNearest(0.1);
+			i.system.qtd = i.system.qtd || 0;
+			i.system.peso = i.system.peso || 0;
+			i.pesoTotal = (i.system.qtd * i.system.peso).toNearest(0.1);
 			inventario[i.type].items.push(i);
 		}
 
@@ -108,8 +152,8 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		const nPreparadas = 0;
 		let maiorCirculo = 0;
 		magias.forEach(function(m){
-			maiorCirculo = Math.max(maiorCirculo, m.data.circulo);
-			grimorio[m.data.circulo].spells.push(m);
+			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);
+			grimorio[m.system.circulo].spells.push(m);
 		});
 		
 
@@ -122,73 +166,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// inventario.itens = {label: "Itens", items: items};
 		// actorData.inventario = inventario;
 
-	}
-
-	/* -------------------------------------------- */
-	/*  Event Listeners and Handlers                */
-	/* -------------------------------------------- */
-
-	/** @override */
-	activateListeners(html) {
-		super.activateListeners(html);
-
-		// // Tooltips TODO DEBUG
-		// html.mousemove(ev => this._moveTooltips(ev));
-
-		// Everything below here is only needed if the sheet is editable
-		if (!this.options.editable) return;
-
-		if ( this.actor.isOwner ) {
-			// html.find('[contenteditable=true]').on("keypress", event => this._onSubmitNPC(event) );
-			// html.find('[contenteditable=true]').on("focusout" , event => this._onContentEdit(event) );
-			// Rollable abilities.
-			html.find('.magia-rollable').click(event => this._onItemRoll(event));
-			html.find('.arma-rollable').click(event => this._onItemRoll(event));
-			html.find('.poder-rollable').click(event => this._onItemRoll(event));
-			
-			html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
-			html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
-			html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
-		}
-
-		// Drag events for macros.
-		let handler = ev => this._onDragStart(ev);
-		html.find('.pericia-rollable').each((i, li) => {
-			if (!li.hasAttribute("data-item-id")) return;
-			li.setAttribute("draggable", true);
-			li.addEventListener("dragstart", handler, false);
-		});
-	}
-
-	/* -------------------------------------------- */
-
-	// _onSelectEdit(ev){
-	// 	const target = ev.currentTarget;
-	// 	const input = target.dataset.campo;//target.nextElementSibling;
-	// 	$(target).addClass("hidden");
-	// 	$("#"+input).removeClass("hidden").focus();
-	// }
-
-	_onContentEdit(ev){
-		this.submit();
-	}
-
-	_onSubmitNPC(ev){
-		if(ev.which == 13){
-			ev.preventDefault();
-			this.submit();
-		}
-	}
-
-	// /** @inheritdoc */
-	async _onSubmit(...args) {
-		const data = this.form.querySelectorAll('[contenteditable=true]');
-		for ( let ele of data ){
-			let value = ele.innerText;
-			let dom = `input[name="${ele.attributes.name.value}"]`;
-			if( $(this.form).find(dom) ) $(this.form).find(dom)[0].value = value;
-		}
-		await super._onSubmit(...args);
 	}
 
 }

@@ -117,7 +117,7 @@ export class MappingField extends fields.ObjectField {
 	/** @inheritdoc */
 	getInitialValue(data) {
 		let keys = this.options.initialKeys;
-		if ( !keys || !foundry.utils.isObjectEmpty(this.initial) ) return super.getInitialValue(data);
+		if ( !keys || !foundry.utils.isEmpty(this.initial) ) return super.getInitialValue(data);
 		if ( !(keys instanceof Array) ) keys = Object.keys(keys);
 		const initial = {};
 		for ( const key of keys ) {
@@ -131,9 +131,9 @@ export class MappingField extends fields.ObjectField {
 		const errors = {};
 		for ( const [k, v] of Object.entries(value) ) {
 			const err = SchemaField.validateSchema(this.model.schema, v, options);
-			if ( !isObjectEmpty(err) ) errors[k] = err;
+			if ( !isEmpty(err) ) errors[k] = err;
 		}
-		if ( !isObjectEmpty(errors) ) throw new Error(DataModel.formatValidationErrors(errors));
+		if ( !isEmpty(errors) ) throw new Error(DataModel.formatValidationErrors(errors));
 		return super.validate(value, options);
 	}
 

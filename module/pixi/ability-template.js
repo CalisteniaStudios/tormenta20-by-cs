@@ -10,8 +10,8 @@ export default class AbilityTemplate extends MeasuredTemplate {
 	 * @return {AbilityTemplate|null}     The template object, or null if the item does not produce a template
 	 */
 	static fromItem(item) {
-		let area = getProperty(item.data, "data.area").toLowerCase() || "";
-		let alcance = getProperty(item.data, "data.alcance").toLowerCase() || "";
+		let area = getProperty(item, "system.area").toLowerCase() || "";
+		let alcance = getProperty(item, "system.alcance").toLowerCase() || "";
 		if( !area.match(/\d/) ){
 			if ( alcance == "short" ) area += " 9m";
 			else if ( alcance == "medium" ) area += " 30m";
@@ -105,7 +105,7 @@ export default class AbilityTemplate extends MeasuredTemplate {
 			if ( now - moveTime <= 20 ) return;
 			const center = event.data.getLocalPosition(this.layer);
 			const snapped = canvas.grid.getSnappedPosition(center.x, center.y, 2);
-			this.data.update({x: snapped.x, y: snapped.y});
+			this.update({x: snapped.x, y: snapped.y});
 			this.refresh();
 			moveTime = now;
 		};
@@ -124,9 +124,9 @@ export default class AbilityTemplate extends MeasuredTemplate {
 		// Confirm the workflow (left-click)
 		handlers.lc = event => {
 			handlers.rc(event);
-			const destination = canvas.grid.getSnappedPosition(this.data.x, this.data.y, 2);
-			this.data.update(destination);
-			canvas.scene.createEmbeddedDocuments("MeasuredTemplate", [this.data]);
+			const destination = canvas.grid.getSnappedPosition(this.x, this.y, 2);
+			this.update(destination);
+			canvas.scene.createEmbeddedDocuments("MeasuredTemplate", [this]);
 		};
 
 		// Rotate the template by 3 degree increments (mouse-wheel)
@@ -135,7 +135,7 @@ export default class AbilityTemplate extends MeasuredTemplate {
 			event.stopPropagation();
 			let delta = canvas.grid.type > CONST.GRID_TYPES.SQUARE ? 30 : 15;
 			let snap = event.shiftKey ? delta : 5;
-			this.data.update({direction: this.data.direction + (snap * Math.sign(event.deltaY))});
+			this.update({direction: this.direction + (snap * Math.sign(event.deltaY))});
 			this.refresh();
 		};
 

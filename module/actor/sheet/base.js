@@ -14,6 +14,7 @@ import {onManageActiveEffect, prepareActiveEffectCategories} from "../../effects
  * @extends {ActorSheet}
  */
 export default class ActorSheetT20 extends ActorSheet {
+
 	constructor(...args) {
 		super(...args);
 
@@ -29,7 +30,9 @@ export default class ActorSheetT20 extends ActorSheet {
 		// 		effects: new Set()
 		// };
 	}
-
+	
+	/* -------------------------------------------- */
+	/*  Properties                                  */
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -49,12 +52,22 @@ export default class ActorSheetT20 extends ActorSheet {
 		if ( !game.user.isGM && this.actor.limited ) return "systems/tormenta20/templates/actors/limited-sheet.html";
 		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
 	}
-
+	
+	/**
+	* Determine whether an Owned Item will be shown based on the current set of filters
+	* @return {boolean}
+	* @private
+	*/
+	// TODO Implement filters
+	// _filterItems(items, filters) {
+	// }
+	
+	/* -------------------------------------------- */
+	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
 
 	/** @override */
 	getData() {
-		console.log('XABLAU');
 		// Basic data
 		let isOwner = this.actor.isOwner;
 		const data = {
@@ -76,25 +89,24 @@ export default class ActorSheetT20 extends ActorSheet {
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
 		};
 		// The Actor and its Items
-		data.actor = this.actor;
-		//foundry.utils.deepClone(this.actor.data);
+		data.actor = this.actor.toObject(false);
+		//foundry.utils.deepClone(this.actor.system);
 		data.items = this.actor.items.map(i => {
-			i.system.labels = i.labels;
-			return i.system;
+			i.labels = i.labels;
+			return i;
 		});
 		data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		data.data = data.actor.system;
+		data.data = this.actor.system;
 		// LABELS?
 		
 		// Ability Scores
-		for ( let [a, abl] of Object.entries(data.actor.system.atributos)) {
+		for ( let [a, abl] of Object.entries(data.data.atributos)) {
 			abl.label = CONFIG.T20.atributos[a];
 		}
 
 		// Skills
-		if (data.actor.system.pericias) {
-			for (let [s, skl] of Object.entries(data.actor.system.pericias)) {
-				skl.label = CONFIG.T20.pericias[s] || skl.label;
+		if (data.data.pericias) {
+			for (let [s, skl] of Object.entries(data.data.pericias)) {
 				if( s.match(/_pc[1-9]/) ) skl.order = 6;
 				else if( s == "_pc0" ) skl.order = 5;
 				else if( s > "ofi9" ) skl.order = 4;
@@ -106,118 +118,36 @@ export default class ActorSheetT20 extends ActorSheet {
 				skl.compendiumEntry = data.config.skillCompendiumEntries[s] ?? null;
 			}
 		}
-		data.skills = Object.values(data.actor.system.pericias).sort((a,b)=>{return a.order-b.order});
+		data.skills = Object.values(data.data.pericias).sort((a,b)=>{return a.order-b.order});
 		
 		// Movement speeds
-		data.movement = this._getMovementSpeed(data.actor);
-
+		data.movement = this._prepareMovementSpeed(data.actor);
 		// Senses
-		data.senses = this._getSenses(data.actor);
+		data.senses = this._prepareSenses(data.actor);
 		// Update traits
-		this._prepareTraits(data.actor.system.tracos);
+		this._prepareTraits(data.data.tracos);
+		// Update bonuses
+		data.modificadores = this._prepareModificadores();
 
 		// Prepare owned items
 		this._prepareItems(data);
 
-		data.modificadores = this._getModificadores();
 		// Prepare active effects
 		data.effects = prepareActiveEffectCategories(this.actor.effects);
 
+		data.system = data.data
 		// Return data to the sheet
 		return data;
 	}
 
-	/* -------------------------------------------- */
-
-	/**
-	* Prepare the display of movement speed data for the Actor
-	* @param {object} actorData
-	* @returns {{primary: string, special: string}}
-	* @private
-	*/
-	// TODO Implement Movement Here?
-	_getMovementSpeed(actorData) {
-		const movement = foundry.utils.deepClone(actorData.system.attributes.movement) || {};
-		// Prepare an array of available movement speeds
-		let u = movement.unit;
-		let speeds = {};
-		if(movement.walk) speeds.walk = `${movement.walk}${u} (${Math.floor(movement.walk/1.5)}q)`;
-		if(movement.burrow) speeds.burrow = `Escavar ${movement.burrow}${u} (${Math.floor(movement.burrow/1.5)}q)`;
-		if(movement.climb) speeds.climb = `Escalar ${movement.climb}${u} (${Math.floor(movement.climb/1.5)}q)`;
-		if(movement.fly) speeds.fly = `Voo ${movement.fly}${u} (${Math.floor(movement.fly/1.5)}q)`;
-		if(movement.hover) speeds.fly += " (Flutuando)";
-		if(movement.swim) speeds.swim = `Natação ${movement.swim}${u} (${Math.floor(movement.swim/1.5)}q)`;
-		return speeds;
-	}
 
 
 	/* -------------------------------------------- */
-
-	_getSenses(actorData) {
-		const senses = actorData.system.attributes.sentidos || {value:[],custom:""};
-		if( !senses.value ) senses.value = [];
-		for ( let [k, label] of Object.entries(CONFIG.T20.senses) ) {
-			const v = senses.value?.indexOf(k);
-			if ( v === -1 ) continue;
-			senses.value[v] = label;
-		}
-		if ( !!senses.custom ) senses.value.push(senses.custom);
-		return senses;
-	}
 	
-	/**
-	* Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
-	* @param {object} traits   The raw traits data object from the actor data
-	* @private
-	*/
-	_prepareTraits(traits) {
-		const map = {
-			"ic": CONFIG.T20.conditionTypes,
-			"idiomas": CONFIG.T20.idiomas,
-			"profArmas": CONFIG.T20.profArmas,
-			"profArmaduras": CONFIG.T20.profArmaduras
-		};
-		for ( let [t, choices] of Object.entries(map) ) {
-			const trait = traits[t];
-			if ( !trait ) continue;
-			let values = [];
-			if ( trait.value ) {
-				values = trait.value instanceof Array ? trait.value : [trait.value];
-			}
-			trait.selected = values.reduce((obj, t) => {
-				obj[t] = choices[t];
-				return obj;
-			}, {});
-
-			// Add custom entry
-			if ( trait.custom ) {
-				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
-			}
-			trait.cssClass = !isEmpty(trait.selected) ? "" : "inactive";
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Determine whether an Owned Item will be shown based on the current set of filters
-	* @return {boolean}
-	* @private
-	*/
-	// TODO Implement filters
-	// _filterItems(items, filters) {
-	// }
-
-	/* -------------------------------------------- */
-	/*  Event Listeners and Handlers                */
-	/* -------------------------------------------- */
-
 	/**
 	* Activate event listeners using the prepared sheet HTML
 	* @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
 	*/
-
-	// TOTO refactor and standarize html listeners
 	activateListeners(html) {
 		
 		// Tooltips
@@ -293,258 +223,153 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Handle default listeners last so system listeners are triggered first
 		super.activateListeners(html);
 	}
-
+	
 	/* -------------------------------------------- */
 
 	/**
-	* Handle spawning the application which allows a checkbox of multiple trait options
-	* @param {Event} event   The click event which originated the selection
+	* Prepare the display of movement speed data for the Actor
+	* @param {object} actorData
+	* @returns {{primary: string, special: string}}
 	* @private
 	*/
-	_onConfigMenu(event) {
-		event.preventDefault();
-		const button = event.currentTarget;
-		let app;
-		switch ( button.dataset.action ) {
-			case "level":
-				this._onLevelSettings(event);
-				break;
-			case "movement":
-				app = new ActorMovementConfig(this.object);
-				break;
-			case "resistance":
-				app = new ActorResistanceConfig(this.object);
-				break;
-			// case "senses":
-			// 	app = new ActorSensesConfig(this.object);
-			// 	break;
-			// case "type":
-			// 	app = new ActorTypeConfig(this.object);
-			// 	break;
+	_prepareMovementSpeed(actorData) {
+		const movement = foundry.utils.deepClone(actorData.system.attributes.movement) || {};
+		// Prepare an array of available movement speeds
+		let u = movement.unit;
+		let speeds = {};
+		if(movement.walk) speeds.walk = `${movement.walk}${u} (${Math.floor(movement.walk/1.5)}q)`;
+		if(movement.burrow) speeds.burrow = `Escavar ${movement.burrow}${u} (${Math.floor(movement.burrow/1.5)}q)`;
+		if(movement.climb) speeds.climb = `Escalar ${movement.climb}${u} (${Math.floor(movement.climb/1.5)}q)`;
+		if(movement.fly) speeds.fly = `Voo ${movement.fly}${u} (${Math.floor(movement.fly/1.5)}q)`;
+		if(movement.hover) speeds.fly += " (Flutuando)";
+		if(movement.swim) speeds.swim = `Natação ${movement.swim}${u} (${Math.floor(movement.swim/1.5)}q)`;
+		return speeds;
+	}
+
+	/* -------------------------------------------- */
+
+	_prepareSenses(actorData) {
+		const senses = actorData.system.attributes.sentidos || {value:[],custom:""};
+		if( !senses.value ) senses.value = [];
+		for ( let [k, label] of Object.entries(CONFIG.T20.senses) ) {
+			const v = senses.value?.indexOf(k);
+			if ( v === -1 ) continue;
+			senses.value[v] = label;
 		}
-		app?.render(true);
+		if ( !!senses.custom ) senses.value.push(senses.custom);
+		return senses;
 	}
 	
+	/* -------------------------------------------- */
+
 	/**
-	 * Handle opening a skill's compendium entry
-	 * @param {Event} event	 The originating click event
-	 * @private
-	 */
-	async _onOpenCompendiumEntry(event) {
-		if (["oficios","custom"].includes(event.currentTarget.dataset.type)) return;
-		const entryKey = event.currentTarget.dataset.compendiumEntry;
-		const parts = entryKey.split(".");
-		const packKey = parts.slice(0, 2).join(".");
-		const entryId = parts.slice(-1)[0];
-		const pack = game.packs.get(packKey);
-		const entry = await pack.getDocument(entryId);
-		entry.sheet.render(true);
-	}
-	
-	/**
-	* Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
-	* @param {Event} event   The click event which originated the selection
+	* Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
+	* @param {object} traits   The raw traits data object from the actor data
 	* @private
 	*/
-	_onTraitSelector(event) {
-		event.preventDefault();
-		const a = event.currentTarget;
-		const label = a.parentElement.querySelector("label");
-		const choices = CONFIG.T20[a.dataset.options];
-		const options = { name: a.dataset.target, title: label.innerText, choices };
-		return new TraitSelector(this.actor, options).render(true);
-	}
-
-	_onLevelSettings(event) {
-		event.preventDefault();
-		const actorData = this.object.data;
-		const a = event.currentTarget;
-		const config = CONFIG.T20;
-		const classes = [];
-		actorData.items.forEach(item => {
-			if ( item.type === "classe" ) {
-				classes.push(item);
+	_prepareTraits(traits) {
+		const map = {
+			"ic": CONFIG.T20.conditionTypes,
+			"idiomas": CONFIG.T20.idiomas,
+			"profArmas": CONFIG.T20.profArmas,
+			"profArmaduras": CONFIG.T20.profArmaduras
+		};
+		for ( let [t, choices] of Object.entries(map) ) {
+			const trait = traits[t];
+			if ( !trait ) continue;
+			let values = [];
+			if ( trait.value ) {
+				values = trait.value instanceof Array ? trait.value : [trait.value];
 			}
-		});
-		const options = {classes, config};
-		new LevelSettings(this.actor, options).render(true);
+			trait.selected = values.reduce((obj, t) => {
+				obj[t] = choices[t];
+				return obj;
+			}, {});
+
+			// Add custom entry
+			if ( trait.custom ) {
+				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
+			}
+			trait.cssClass = !isEmpty(trait.selected) ? "" : "inactive";
+		}
 	}
 
+	/* -------------------------------------------- */
+
+	_prepareModificadores(){
+		const modificadores = [
+			{name: "system.modificadores.atributos.for", label: "Testes de Força"},
+			{name: "system.modificadores.atributos.des", label: "Testes de Destreza"},
+			{name: "system.modificadores.atributos.con", label: "Testes de Constintuição"},
+			{name: "system.modificadores.atributos.int", label: "Testes de Inteligência"},
+			{name: "system.modificadores.atributos.sab", label: "Testes de Sabedoria"},
+			{name: "system.modificadores.atributos.car", label: "Testes de Carisma"},
+			{name: "system.modificadores.atributos.geral", label: "Testes de Atributos"},
+			{name: "system.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos"},
+			{name: "system.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais"},
+			{name: "system.modificadores.custoPM", label: "Aumento de custo de PM"},
+			{name: "system.modificadores.dano.geral", label: "Dano Geral"},
+			{name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo"},
+			{name: "system.modificadores.dano.ad", label: "Dano A Distância"},
+			{name: "system.modificadores.dano.mag", label: "Dano de Magias"},
+			{name: "system.modificadores.pericias.geral", label: "Testes de Perícias"},
+			{name: "system.modificadores.pericias.ataque", label:"Testes de Perícias de Ataque"},
+			{name: "system.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque"},
+			{name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências"},
+			{name: "system.modificadores.pericias.atr.for", label: "Testes de Perícias de Força"},
+			{name: "system.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza"},
+			{name: "system.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição"},
+			{name: "system.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência"},
+			{name: "system.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria"},
+			{name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
+		];
+		for ( let b of modificadores ) {
+			b.value = getProperty(this.object._source, b.name) || "";
+		}
+		return modificadores;
+	}
+	
+	/* -------------------------------------------- */
+	/*  Interactions                                */
+	/* -------------------------------------------- */
+
+	_moveTooltips(event) {
+		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
+	}
+	
 	/* -------------------------------------------- */
 
 	/** @override */
-	// TODO Implement scroll consumable and onDrop creation
+	_getHeaderButtons() {
+		let buttons = super._getHeaderButtons();
+		// Add button for help
+	 	// Add button for sheet settings?
+		return buttons;
+	}
+	
+	/* -------------------------------------------- */
+
+	/** @override */
 	async _onDropItemCreate(itemData) {
 		if (itemData.type === "magia" && this.actor.system.attributes.conjuracao ) {
 			itemData.system.resistencia.atributo = this.actor.system.attributes.conjuracao || "int";
 		}
 		// Stack consumables
 		else if ( itemData.type === "consumivel" ){
-			console.log(this.actor);
-			const it = this.actor.items.find(c => c.name === itemData.name);
+			const it = this.actor.itemTypes.consumivel.find(c => c.name === itemData.name);
 			if (it) {
 				const qtd = it.system.qtd + 1;
 				return it.update({"system.qtd": qtd})
 			}
 		}
+		console.info(itemData);
 		if( itemData.system ){
 			["equipado","preparado"].forEach(k => delete itemData.system[k]);
 		}
 		
 		return super._onDropItemCreate(itemData);
 	}
-	
-	/* -------------------------------------------- */
 
-	/**
-	 * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-	 * @private
-	 */
-	_onItemRoll(event) {
-		event.preventDefault();
-		let itemId;
-		if ( event.currentTarget.closest(".item").dataset.itemId ) {
-			itemId = event.currentTarget.closest(".item").dataset.itemId;
-		} else if ( itemId = event.currentTarget.dataset.itemId ) {
-			itemId = event.currentTarget.dataset.itemId;
-		}
-		const rollConfigs = {}
-		rollConfigs.configureDialog = event.shiftKey;
-		const item = this.actor.items.get(itemId);
-		const ignoreList = ["equipamento", "tesouro"];
-		if (ignoreList.includes(item.type)) return;
-		return item.roll(rollConfigs);
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-	* @private
-	*/
-	_onItemSummary(event) {
-		event.preventDefault();
-		let li = $(event.currentTarget).parents(".item"),
-		item = this.actor.items.get(li.data("item-id")),
-		chatData = item.getChatData();
-
-		// Toggle summary
-		if ( li.hasClass("expanded") ) {
-			let summary = li.children(".item-summary");
-			summary.slideUp(200, () => summary.remove());
-		}
-		else {
-			let div = $(`<div class="item-summary">${chatData.description.value}</div>`);
-			let props = $(`<div class="item-properties"></div>`);
-			div.append(props);
-			li.append(div.hide());
-			div.slideDown(200);
-		}
-		li.toggleClass("expanded");
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Change the quantity of an Owned Item within the Actor
-	 * @param {Event} event   The triggering click event
-	 * @private
-	 */
-	 async _onQtyChange(event) {
-		event.preventDefault();
-		const itemId = event.currentTarget.closest(".item").dataset.itemId;
-		const item = this.actor.items.get(itemId);
-		const qtd = parseInt(event.target.value) || 0;
-		event.target.value = qtd;
-		return item.update({ 'data.qtd': qtd });
-	}
-
-	/* -------------------------------------------- */
-
-	async _onUpdateCD(ev){
-		const atrRes = $(ev.currentTarget).data("atrres");
-		const magias = this.actor.items.filter(i => i.type === "magia");
-		const updateItems = magias.map(i => {
-			return {_id: i.id, "data.resistencia.atributo": atrRes};
-		});
-		await this.actor.updateEmbeddedDocuments("Item", updateItems);
-	}
-
-	/* -------------------------------------------- */
-
-	// Update equippament state, unequipping unique ones;
-	// TODO weapon version;
-	async _onToggleArmor(ev) {
-		const li = $(ev.currentTarget).parents(".item");
-		const item = this.actor.items.get(li.data("itemId"));
-		const id = item.system;
-		id.equipado = !id.equipado;
-		const items = this.actor.items;
-		let updateItems = [];
-		updateItems.push({_id: item.id, "data.equipado": id.equipado});
-		const armor = ["leve", "pesada"];
-		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
-		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
-			let unequipped = items.some(element => { //some() === forEach() with a return
-				if(element.type === "equipamento" && element.system.equipado && element.id != item.id) {
-					if (element.system.tipo === id.tipo || (armor.includes(element.system.tipo) && armor.includes(id.tipo))) {
-						updateItems.push({_id: element.id, "data.equipado": false});
-						return true;
-					}
-				}
-			});
-		}
-		await this.actor.updateEmbeddedDocuments("Item", updateItems);
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onItemCreate(event) {
-		event.preventDefault();
-		const header = event.currentTarget;
-		const type = header.dataset.type;
-		let gen = ["arma", "magia"].includes(type) ? "Nova" : "Novo";
-		const itemData = {
-			name: `${gen} ${type.capitalize()}`,
-			type: type,
-			data: foundry.utils.deepClone(header.dataset)
-		};
-		delete itemData.data["type"];
-		return this.actor.createEmbeddedDocuments("Item", [itemData]);
-	}
-
-		/* -------------------------------------------- */
-
-	/**
-	* Handle editing an existing Owned Item for the Actor
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onItemEdit(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.items.get(li.dataset.itemId);
-		if( item ) return item.sheet.render(true);
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Handle deleting an existing Owned Item for the Actor
-	* @param {Event} event   The originating click event
-	* @private
-	*/
-	_onItemDelete(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.items.get(li.dataset.itemId);
-		if ( item ) return item.delete();
-	}
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -582,44 +407,223 @@ export default class ActorSheetT20 extends ActorSheet {
 			event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
 		}
 	}
-
-
+	
 	/* -------------------------------------------- */
 
-	_toggleControls(event) {
-		const target = event.currentTarget;
-		const controls = target.closest('ul').querySelectorAll('li.custom .skill-delete');
-		const input = target.closest('ul').querySelectorAll('li.custom .skill-outros');
-		if ($(target).hasClass('ativo')) {
-			$(controls).css('display', 'none');
-			$(input).css('display', 'inline');
-			$(target).removeClass('ativo');
-
-		} else {
-			$(controls).css('display', 'inline');
-			$(input).css('display', 'none');
-			$(target).addClass('ativo');
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	_moveTooltips(event) {
-		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
-	}
-
-	/* -------------------------------------------- */
-
+	/*  */
 	async _onRollAtributo(event) {
 		event.preventDefault();
 		let atributo = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
 		return await this.actor.rollAtributo(atributo, {event: event, message: true});
 	}
 
+	/*  */
 	async _onRollPericia(event) {
 		event.preventDefault();
 		let pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
 		return await this.actor.rollPericia(pericia, {event: event, message: true})
+	}
+
+	/**
+	 * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+	 * @private
+	 */
+	_onItemRoll(event) {
+		event.preventDefault();
+		let itemId;
+		if ( event.currentTarget.closest(".item").dataset.itemId ) {
+			itemId = event.currentTarget.closest(".item").dataset.itemId;
+		} else if ( itemId = event.currentTarget.dataset.itemId ) {
+			itemId = event.currentTarget.dataset.itemId;
+		}
+		const rollConfigs = {}
+		rollConfigs.configureDialog = event.shiftKey;
+		const item = this.actor.items.get(itemId);
+		const ignoreList = ["equipamento", "tesouro"];
+		if (ignoreList.includes(item.type)) return;
+		return item.roll(rollConfigs);
+	}
+	
+	/* -------------------------------------------- */
+
+	/**
+	* Handle spawning the application which allows a checkbox of multiple trait options
+	* @param {Event} event   The click event which originated the selection
+	* @private
+	*/
+	_onConfigMenu(event) {
+		event.preventDefault();
+		const button = event.currentTarget;
+		let app;
+		switch ( button.dataset.action ) {
+			case "level":
+				this._onLevelSettings(event);
+				break;
+			case "movement":
+				app = new ActorMovementConfig(this.object);
+				break;
+			case "resistance":
+				app = new ActorResistanceConfig(this.object);
+				break;
+			// case "senses":
+			// 	app = new ActorSensesConfig(this.object);
+			// 	break;
+			// case "type":
+			// 	app = new ActorTypeConfig(this.object);
+			// 	break;
+		}
+		app?.render(true);
+	}
+	
+	_onLevelSettings(event) {
+		event.preventDefault();
+		const actorData = this.object;
+		const a = event.currentTarget;
+		const config = CONFIG.T20;
+		const classes = [];
+		actorData.items.forEach(item => {
+			if ( item.type === "classe" ) {
+				classes.push(item);
+			}
+		});
+		const options = {classes, config};
+		new LevelSettings(this.actor, options).render(true);
+	}
+
+	/**
+	* Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
+	* @param {Event} event   The click event which originated the selection
+	* @private
+	*/
+	_onTraitSelector(event) {
+		event.preventDefault();
+		const a = event.currentTarget;
+		const label = a.parentElement.querySelector("label");
+		const choices = CONFIG.T20[a.dataset.options];
+		const options = { name: a.dataset.target, title: label.innerText, choices };
+		return new TraitSelector(this.actor, options).render(true);
+	}
+	
+	/* -------------------------------------------- */
+
+	/**
+	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	_onItemCreate(event) {
+		event.preventDefault();
+		const header = event.currentTarget;
+		const type = header.dataset.type;
+		let gen = ["arma", "magia"].includes(type) ? "Nova" : "Novo";
+		const itemData = {
+			name: `${gen} ${type.capitalize()}`,
+			type: type,
+			data: foundry.utils.deepClone(header.dataset)
+		};
+		delete itemData.data["type"];
+		return this.actor.createEmbeddedDocuments("Item", [itemData]);
+	}
+
+	/**
+	* Handle editing an existing Owned Item for the Actor
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	_onItemEdit(event) {
+		event.preventDefault();
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.items.get(li.dataset.itemId);
+		if( item ) return item.sheet.render(true);
+	}
+
+	/**
+	* Handle deleting an existing Owned Item for the Actor
+	* @param {Event} event   The originating click event
+	* @private
+	*/
+	_onItemDelete(event) {
+		event.preventDefault();
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.items.get(li.dataset.itemId);
+		if ( item ) return item.delete();
+	}
+	
+	/**
+	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+	* @private
+	*/
+	async _onItemSummary(event) {
+		event.preventDefault();
+		let li = $(event.currentTarget).parents(".item"),
+		item = this.actor.items.get(li.data("item-id")),
+		chatData = await item.getChatData();
+		// Toggle summary
+		if ( li.hasClass("expanded") ) {
+			let summary = li.children(".item-summary");
+			summary.slideUp(200, () => summary.remove());
+		}
+		else {
+			let div = $(`<div class="item-summary">${chatData.description.value}</div>`);
+			let props = $(`<div class="item-properties"></div>`);
+			div.append(props);
+			li.append(div.hide());
+			div.slideDown(200);
+		}
+		li.toggleClass("expanded");
+	}
+
+	/*  */
+	async _onUpdateCD(ev){
+		const atrRes = $(ev.currentTarget).data("atrres");
+		const magias = this.actor.items.filter(i => i.type === "magia");
+		const updateItems = magias.map(i => {
+			return {_id: i.id, "data.resistencia.atributo": atrRes};
+		});
+		await this.actor.updateEmbeddedDocuments("Item", updateItems);
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Change the quantity of an Owned Item within the Actor
+	 * @param {Event} event   The triggering click event
+	 * @private
+	 */
+	async _onQtyChange(event) {
+		event.preventDefault();
+		const itemId = event.currentTarget.closest(".item").dataset.itemId;
+		const item = this.actor.items.get(itemId);
+		const qtd = parseInt(event.target.value) || 0;
+		event.target.value = qtd;
+		return item.update({ 'data.qtd': qtd });
+	}
+
+	/* -------------------------------------------- */
+
+	// Update equippament state, unequipping unique ones;
+	// TODO weapon version;
+	async _onToggleArmor(ev) {
+		const li = $(ev.currentTarget).parents(".item");
+		const item = this.actor.items.get(li.data("itemId"));
+		const id = item.system;
+		id.equipado = !id.equipado;
+		const items = this.actor.items;
+		let updateItems = [];
+		updateItems.push({_id: item.id, "data.equipado": id.equipado});
+		const armor = ["leve", "pesada"];
+		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
+		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
+			let unequipped = items.some(element => { //some() === forEach() with a return
+				if(element.type === "equipamento" && element.system.equipado && element.id != item.id) {
+					if (element.system.tipo === id.tipo || (armor.includes(element.system.tipo) && armor.includes(id.tipo))) {
+						updateItems.push({_id: element.id, "data.equipado": false});
+						return true;
+					}
+				}
+			});
+		}
+		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
 	/* -------------------------------------------- */
@@ -691,47 +695,36 @@ export default class ActorSheetT20 extends ActorSheet {
 		this.actor.update({[field.name]: 1 - parseInt(field.value == "" ? 0 : field.value)});
 	}
 
-	_getModificadores(){
-		const modificadores = [
-			{name: "system.modificadores.atributos.for", label: "Testes de Força"},
-			{name: "system.modificadores.atributos.des", label: "Testes de Destreza"},
-			{name: "system.modificadores.atributos.con", label: "Testes de Constintuição"},
-			{name: "system.modificadores.atributos.int", label: "Testes de Inteligência"},
-			{name: "system.modificadores.atributos.sab", label: "Testes de Sabedoria"},
-			{name: "system.modificadores.atributos.car", label: "Testes de Carisma"},
-			{name: "system.modificadores.atributos.geral", label: "Testes de Atributos"},
-			{name: "system.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos"},
-			{name: "system.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais"},
-			{name: "system.modificadores.custoPM", label: "Aumento de custo de PM"},
-			{name: "system.modificadores.dano.geral", label: "Dano Geral"},
-			{name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo"},
-			{name: "system.modificadores.dano.ad", label: "Dano A Distância"},
-			{name: "system.modificadores.dano.mag", label: "Dano de Magias"},
-			{name: "system.modificadores.pericias.geral", label: "Testes de Perícias"},
-			{name: "system.modificadores.pericias.ataque", label:"Testes de Perícias de Ataque"},
-			{name: "system.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque"},
-			{name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências"},
-			{name: "system.modificadores.pericias.atr.for", label: "Testes de Perícias de Força"},
-			{name: "system.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza"},
-			{name: "system.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição"},
-			{name: "system.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência"},
-			{name: "system.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria"},
-			{name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
-		];
-		
-		for ( let b of modificadores ) {
-			b.value = getProperty(this.object._source, b.name) || "";
+	_toggleControls(event) {
+		const target = event.currentTarget;
+		const controls = target.closest('ul').querySelectorAll('li.custom .skill-delete');
+		const input = target.closest('ul').querySelectorAll('li.custom .skill-outros');
+		if ($(target).hasClass('ativo')) {
+			$(controls).css('display', 'none');
+			$(input).css('display', 'inline');
+			$(target).removeClass('ativo');
+
+		} else {
+			$(controls).css('display', 'inline');
+			$(input).css('display', 'none');
+			$(target).addClass('ativo');
 		}
-		return modificadores;
+	}
+	
+	/**
+	 * Handle opening a skill's compendium entry
+	 * @param {Event} event	 The originating click event
+	 * @private
+	 */
+	async _onOpenCompendiumEntry(event) {
+		if (["oficios","custom"].includes(event.currentTarget.dataset.type)) return;
+		const entryKey = event.currentTarget.dataset.compendiumEntry;
+		const parts = entryKey.split(".");
+		const packKey = parts.slice(0, 2).join(".");
+		const entryId = parts.slice(-1)[0];
+		const pack = game.packs.get(packKey);
+		const entry = await pack.getDocument(entryId);
+		entry.sheet.render(true);
 	}
 
-	/* -------------------------------------------- */
-
-	/** @override */
-	// _getHeaderButtons() {
-	// 	let buttons = super._getHeaderButtons();
-	// 	// Add button for help
-	//  // Add button for sheet settings?
-	// 	return buttons;
-	// }
 }

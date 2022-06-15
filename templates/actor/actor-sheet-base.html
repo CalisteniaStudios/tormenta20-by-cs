@@ -49,7 +49,6 @@
 					<section class="general-information summary">
 						<ul class="attributes flexrow" style="flex: 1; margin:0; padding:0;">
 							<li class="flexrow">
-								{{log data}}
 								<input type="text" name="system.detalhes.raca" value="{{data.detalhes.raca}}" placeholder="Raça" />
 							</li>
 							<li class="flexrow">
@@ -134,8 +133,20 @@
 							</li>
 						</ul>
 					</div>
-					{{#if recursos}}
-					<div>
+					{{#if data.resources.shadow }}
+					<div class="recursos">
+						<ul class="attributes flexrow">
+						{{#each data.resources as | resource id | }}
+							<li class="attribute health">
+								<h4 class="attribute-name box-title">{{resource.name}}</h4>
+								<div class="attribute-value multiple">
+									<input name="data.resources.{{id}}.value" type="number" value="{{resource.value}}" data-dtype="Number" max="{{resource.max}}" placeholder="10">
+									<span class="sep">/</span>
+									<input disabled name="data.resources.{{id}}.max" type="number" value="{{resource.max}}" data-dtype="Number" placeholder="10">
+								</div>
+							</li>
+							{{/each}}
+						</ul>
 					</div>
 					{{/if}}
 					<div class="ataques">

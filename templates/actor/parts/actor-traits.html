@@ -12,7 +12,7 @@
 	</div>
 	
 	<div>
-		<a class="config-button" data-action="movement" data-target="data.attributes.movement">
+		<a class="config-button" data-action="movement" data-target="system.attributes.movement">
 			<label style="display:inline-block;">Deslocamento</label>
 		</a>
 		<ul class="trait-list">
@@ -24,7 +24,7 @@
 	
 	<div>
 		<label>
-			<a class="config-button" data-action="resistance" data-target="data.tracos.resistencias">Resistências: </a>
+			<a class="config-button" data-action="resistance" data-target="system.tracos.resistencias">Resistências: </a>
 		</label>
 		<ul class="trait-list">
 			{{#each data.tracos.resistencias as |v k|}}
@@ -40,7 +40,7 @@
 	</div>
 
 	<div>
-		<a class="trait-selector ic" data-options="conditionTypes" data-target="data.tracos.ic">
+		<a class="trait-selector ic" data-options="conditionTypes" data-target="system.tracos.ic">
 			<label style="display:inline-block;">Imunidades a Condições:</label>
 		</a>
 		<ul class="trait-list">
@@ -51,12 +51,12 @@
 	</div>
 
 	<div>
-		<a class="trait-selector" data-options="senses" data-target="data.attributes.sentidos">
+		<a class="trait-selector" data-options="senses" data-target="system.attributes.sentidos">
 			<label style="display:inline-block;">Sentidos:</label>
 		</a>
 		<ul class="trait-list">
 			{{#each senses.value as |v k|}}
-			<li class="tag {{k}}">{{v}}</li>
+			<li class="tag {{k}}">{{localize v}}</li>
 			{{/each}}
 		</ul>
 	</div>
@@ -66,7 +66,7 @@
 	
 	{{#if enableLanguages}}
 	<div>
-		<a class="trait-selector" data-options="idiomas" data-target="data.tracos.idiomas">
+		<a class="trait-selector" data-options="idiomas" data-target="system.tracos.idiomas">
 			<label style="display:inline-block;">Idiomas</label>
 		</a>
 		<ul class="trait-list">
@@ -78,23 +78,23 @@
 	{{/if}}
 	
 	<div>
-		<a class="trait-selector" data-options="profArmas" data-target="data.tracos.profArmas">
+		<a class="trait-selector" data-options="profArmas" data-target="system.tracos.profArmas">
 			<label style="display:inline-block;">Armas</label>
 		</a>
 		<ul class="trait-list">
 			{{#each data.tracos.profArmas.selected as |v k|}}
-			<li class="tag {{k}}">{{v}}</li>
+			<li class="tag {{k}}">{{localize v}}</li>
 			{{/each}}
 		</ul>
 	</div>
 	
 	<div>
-		<a class="trait-selector armaduras" data-options="profArmaduras" data-target="data.tracos.profArmaduras">
+		<a class="trait-selector armaduras" data-options="profArmaduras" data-target="system.tracos.profArmaduras">
 			<label style="display:inline-block;">Armaduras</label>
 		</a>
 		<ul class="trait-list">
 			{{#each data.tracos.profArmaduras.selected as |v k|}}
-			<li class="tag {{k}}">{{v}}</li>
+			<li class="tag {{k}}">{{localize v}}</li>
 			{{/each}}
 		</ul>
 	</div>

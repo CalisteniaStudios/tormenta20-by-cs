@@ -6,7 +6,7 @@
 export const _getInitiativeFormula = function(combatant) {
 	const actor = combatant.actor;
 	if ( !actor ) return "1d20";
-	let init = actor.data.data.pericias.inic.value;
+	let init = actor.system.pericias.inic.value;
 	
 	let nd = 1;
 	let mods = "";

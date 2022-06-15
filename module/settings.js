@@ -13,8 +13,8 @@ export const SystemSettings = function() {
 	});
 	
 	game.settings.registerMenu('tormenta20', 'sheetSettings', {
-		name: "Configurações das Fichas",
-		label: "Configurações das Fichas",
+		name: game.i18n.localize("T20.SettingSheetSettings"),
+		label: game.i18n.localize("T20.SettingSheetSettingsHint"),
 		icon: 'fas fa-scroll',
 		type: Tormenta20ActorSheetSettings,
 		restricted: true
@@ -27,14 +27,30 @@ export const SystemSettings = function() {
 	// 	type: Tormenta20ResourceColorsSettings,
 	// 	restricted: true
 	// });
-
+	
+	/**
+	 * Option to define mechanics for Campaign Settings
+	 */
+	game.settings.register("tormenta20", "gameSystem", {
+		name: game.i18n.localize("T20.SettingsCampaignSettingRule"),
+		hint: game.i18n.localize("T20.SettingsCampaignSettingHint"),
+		scope: "world",
+		config: true,
+		default: "Tormenta20",
+		type: String,
+		choices: {
+			"Tormenta20": "Tormenta20",
+			"Skyfall": "Skyfall RPG"
+		},
+		onChange: () => location.reload()
+	});
 	
 	/**
 	* Option to disable XP bar for session-based or story-based advancement.
 	*/
 	game.settings.register("tormenta20", "disableExperience", {
-		name: "Avanço por Marcos",
-		hint: "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
+		name: game.i18n.localize("T20.SettingDisableExperience"),
+		hint: game.i18n.localize("T20.SettingDisableExperienceHint"),
 		scope: "world",
 		config: false,
 		default: false,
@@ -46,8 +62,8 @@ export const SystemSettings = function() {
 	 * Register languages rule (Homebrew)
 	 */
 	game.settings.register("tormenta20", "enableLanguages", {
-		name: "Idiomas",
-		hint: "Adiciona uma lista de idiomas à ficha de Personagens de Jogador. Opção cosmética, sem efeitos adicionais.",
+		name: game.i18n.localize("T20.SettingEnableLanguages"),
+		hint: game.i18n.localize("T20.SettingEnableLanguagesHint"),
 		scope: "world",
 		config: false,
 		default: false,
@@ -58,8 +74,8 @@ export const SystemSettings = function() {
 	 * Option to disable sheet journals (TODO REMOVE?)
 	 */
 	game.settings.register("tormenta20", "disableJournal", {
-		name: "Desabilitar Diário",
-		hint: "Desabilita a aba Diário das fichas de personagem de jogador.",
+		name: game.i18n.localize("T20.SettingDisableJournal"),
+		hint: game.i18n.localize("T20.SettingDisableJournalHint"),
 		scope: "world",
 		config: false,
 		default: false,
@@ -70,8 +86,8 @@ export const SystemSettings = function() {
 	* Register sheet templates
 	*/
 	game.settings.register("tormenta20", "forceSheetTemplate", {
-		name: "Forçar Padrão de Ficha",
-		hint: "Sobrepõe a opção de Ficha dos jogadores e utiliza a ficha selecionada pelo Mestre. Alterar esta opção irá recarregar a página.",
+		name: game.i18n.localize("T20.SettingForceSheetTemplate"),
+		hint: game.i18n.localize("T20.SettingForceSheetTemplateHint"),
 		scope: "world",
 		config: false,
 		default: false,
@@ -80,15 +96,15 @@ export const SystemSettings = function() {
 	});
 	
 	game.settings.register("tormenta20", "sheetTemplate", {
-		name: "Ficha",
-		hint: "Opção de layout da ficha, padrão ou com abas",
+		name: game.i18n.localize("T20.SettingSheetTemplate"),
+		hint: game.i18n.localize("T20.SettingSheetTemplateHint"),
 		scope: game.settings.get("tormenta20", "forceSheetTemplate") ? "world" : "user",
 		config: true,
 		default: "base",
 		type: String,
 		choices: {
-			"base": "Layout T20 (padrão)",
-			"tabbed": "Layout VTT (abas)"
+			"base": game.i18n.localize("T20.SettingSheetTemplateBase"),
+			"tabbed": game.i18n.localize("T20.SettingSheetTemplateTabbed"),
 		}
 	});
 
@@ -98,8 +114,8 @@ export const SystemSettings = function() {
 	 * Option to automatic spend mana on ability use
 	 */
 	game.settings.register("tormenta20", "automaticManaSpend", {
-		name: "Gasto de Mana",
-		hint: "Ao utilizar um poder ou magia, a mana do personagem é gasta automaticamente",
+		name: game.i18n.localize("T20.SettingAutomaticManaSpend"),
+		hint: game.i18n.localize("T20.SettingAutomaticManaSpendHint"),
 		scope: "world",
 		config: true,
 		default: false,
@@ -110,16 +126,16 @@ export const SystemSettings = function() {
 	 * Register diagonal movement rule setting
 	 */
 	game.settings.register("tormenta20", "diagonalMovement", {
-		name: "Movimento Diagonal",
-		hint: "Configura qual regra de movimento diagonal será usada no sistema.",
+		name: game.i18n.localize("T20.SettingDiagonalMovement"),
+		hint: game.i18n.localize("T20.SettingDiagonalMovementHint"),
 		scope: "world",
 		config: true,
 		default: "MANHATTAN",
 		type: String,
 		choices: {
-		"MANHATTAN": "Padrão (3m)",
-		"EQUIDISTANT": "Equidistante (1,5m)",
-		"PATHFINDER": "Pathfinder/3.5 (1,5m/3m/1,5m)",
+		"MANHATTAN": game.i18n.localize("T20.SettingDiagonalMovementMANHATTAN"),
+		"EQUIDISTANT": game.i18n.localize("T20.SettingDiagonalMovementEQUIDISTANT"),
+		"PATHFINDER": game.i18n.localize("T20.SettingDiagonalMovementPATHFINDER"),
 		},
 		onChange: rule => canvas.grid.diagonalRule = rule
 	});
@@ -128,8 +144,8 @@ export const SystemSettings = function() {
 	 * Option to automatically collapse Item Card descriptions
 	 */
 	game.settings.register("tormenta20", "autoCollapseItemCards", {
-		name: "Esconder Descrições No Chat",
-		hint: "Esconder Descrições No Chat. Alterar esta opção irá recarregar a página.",
+		name: game.i18n.localize("T20.SettingCollapseItemDescRule"),
+		hint: game.i18n.localize("T20.SettingCollapseItemDescHint"),
 		scope: "client",
 		config: true,
 		default: true,
@@ -141,8 +157,8 @@ export const SystemSettings = function() {
 	 * Option to show apply buttons inside chat
 	 */
 	game.settings.register("tormenta20", "applyButtonsInsideChat", {
-		name: "Botões de Dano/Gasto",
-		hint: "Ao selecionar esta opção, os botões de aplicar dano, cura, gastar mana, etc, serão exibidos embutidos dentro do chat. Alterar esta opção irá recarregar a página.",
+		name: game.i18n.localize("T20.SettingChatButtonsRule"),
+		hint: game.i18n.localize("T20.SettingChatButtonsHint"),
 		scope: "world",
 		config: true,
 		default: false,
@@ -154,8 +170,8 @@ export const SystemSettings = function() {
 	 * Option to show apply buttons inside chat
 	 */
 	 game.settings.register("tormenta20", "showStatusCards", {
-		name: "Exibir Condições no Chat",
-		hint: "Quando um personagem recebe uma condição cria uma mensagem com sua descrição no chat.",
+		name: game.i18n.localize("T20.SettingStatusCardRule"),
+		hint: game.i18n.localize("T20.SettingStatusCardHint"),
 		scope: "world",
 		config: true,
 		default: false,
@@ -164,16 +180,16 @@ export const SystemSettings = function() {
 	});
 
 	game.settings.register("tormenta20", "showDamageCards", {
-		name: "Exibir Dano/Gasto de Mana no Chat para:",
-		hint: "Quando os PVs/PMs de um ator mudam exibe mensagem no chat (Pode ficar poluído)",
+		name: game.i18n.localize("T20.SettingDamageCardRule"),
+		hint: game.i18n.localize("T20.SettingDamageCardRuleHint"),
 		scope: "world",
 		config: true,
 		default: "none",
 		type: String,
 		choices: {
-			"none": "Nenhum",
-			"players": "Personagens dos Jogadores (PJ)",
-			"npcs": "Personagens do Mestre (PdM)"
+			"none": game.i18n.localize("T20.None"),
+			"players": game.i18n.localize("T20.SettingDamageCardPlayers"),
+			"npcs": game.i18n.localize("T20.SettingDamageCardNPCS"),
 		},
 		onChange: () => location.reload()
 	});
@@ -182,33 +198,17 @@ export const SystemSettings = function() {
 	 * Option to define weight Rule calculation
 	 */
 	 game.settings.register("tormenta20", "weightRule", {
-		name: "Regra de Carga",
-		hint: "Define a regra para cálculo de carga.",
+		name: game.i18n.localize("T20.SettingEmcumbrancreRule"),
+		hint: game.i18n.localize("T20.SettingEmcumbrancreRuleHint"),
 		scope: "world",
 		config: true,
 		default: "core",
 		type: String,
 		choices: {
-			"core": "Regra Padrão, Livro Básico Tormenta20",
-			"espacos": "Regra de Espaços, Dragão Brasil #171"
+			"core": game.i18n.localize("T20.SettingEmcumbrancreRuleCore"),
+			"espacos": game.i18n.localize("T20.SettingEmcumbrancreRuleSlots"),
 		},
 		onChange: () => location.reload()
 	});
 
-	/**
-	 * Option to define mechanics for Campaign Settings
-	 */
-	//  game.settings.register("tormenta20", "gameSystem", {
-	// 	name: "WIP. Cenário de Jogo",
-	// 	hint: "Altera regras de acordo com cenários de Jogo.",
-	// 	scope: "world",
-	// 	config: true,
-	// 	default: "Tormenta20",
-	// 	type: String,
-	// 	choices: {
-	// 		"Tormenta20": "Tormenta20",
-	// 		"Skyfall": "Skyfall RPG"
-	// 	},
-	// 	onChange: () => location.reload()
-	// });
 }

@@ -36,7 +36,7 @@ export default class TraitSelector extends FormApplication {
 	getData() {
 
 		// Get current values
-		let attr = foundry.utils.getProperty(this.object.system, this.attribute);
+		let attr = foundry.utils.getProperty(this.object, this.attribute);
 		if ( getType(attr) !== "Object" ) attr = {value: [], custom: ""};
 		// Populate choices
 		let choices = "";

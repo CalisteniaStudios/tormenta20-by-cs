@@ -11,7 +11,7 @@
                     <select class="selectatr selArma" name="data.arma" value={{data.arma}} data-type="String">
                         {{#select data.arma}}
                         {{#each armas as |arma a|}}
-                            <option value="{{a}}" data-dano="{{arma.data.data.dano}}" data-atqBns="{{arma.data.data.atqBns}}" data-criticoM="{{arma.data.data.criticoM}}" data-criticoX="{{arma.data.data.criticoX}}" data-lancinante="{{arma.data.data.lancinante}}" data-tipo="{{arma.data.data.tipo}}" data-alcance="{{arma.data.data.alcance}}" data-municao="{{arma.data.data.municao}}">{{arma.name}}</option>
+                            <option value="{{a}}" data-dano="{{arma.system.dano}}" data-atqBns="{{arma.system.atqBns}}" data-criticoM="{{arma.system.criticoM}}" data-criticoX="{{arma.system.criticoX}}" data-lancinante="{{arma.system.lancinante}}" data-tipo="{{arma.system.tipo}}" data-alcance="{{arma.system.alcance}}" data-municao="{{arma.system.municao}}">{{arma.name}}</option>
                         {{/each}}
                         {{/select}}
                     </select>

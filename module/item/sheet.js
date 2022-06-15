@@ -1,12 +1,15 @@
 import TraitSelector from "../apps/trait-selector.js";
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../effects.js";
-import ItemT20 from "./entity.js";
 
 /**
 * Extend the basic ItemSheet with some very simple modifications
 * @extends {ItemSheet}
 */
 export default class ItemSheetT20 extends ItemSheet {
+
+	/* -------------------------------------------- */
+	/*  Properties                                  */
+	/* -------------------------------------------- */
 
 	/** @inheritdoc */
 	static get defaultOptions() {
@@ -27,11 +30,14 @@ export default class ItemSheetT20 extends ItemSheet {
 		if (this.item.type == "consumivel" || this.item.type == "tesouro") {
 			return `${path}/item-sheet.html`;
 		}
+		else if (this.item.type == "armadura") {
+			return `${path}/equip-sheet.html`;
+		}
 		return `${path}/${this.item.type}-sheet.html`;
 	}
-	
-	/* -------------------------------------------- */
 
+	/* -------------------------------------------- */
+	
 	/** @inheritdoc */
 	setPosition(position = {}) {
 		if ( !(this._minimized  || position.height) ) {
@@ -41,39 +47,117 @@ export default class ItemSheetT20 extends ItemSheet {
 	}
 
 	/* -------------------------------------------- */
-	/*  Form Render                                 */
+
+	/** @inheritdoc */
+	_getSubmitData(updateData={}) {
+		// Create the expanded update data object
+		const fd = new FormDataExtended(this.form, {editors: this.editors});
+		let tdata = fd.object;
+		let data = {};
+		for (let key of Object.keys( tdata ) ){
+			let nkey = key.replace(/^system./, 'data.');
+			data[ nkey ] = tdata[key];
+		}
+		if ( updateData ) data = mergeObject(data, updateData);
+		else data = expandObject(data);
+
+		// Handle rolls array
+		data.data.rolls = Object.values(data.data.rolls || []);
+		let rolls = Object.entries(data.data?.rolls || []);
+		for (let [key, roll] of rolls){
+			if ( roll ) roll.parts = Object.values(roll?.parts || {}).map(d => [d[0] || "", d[1] || ""]);
+			if ( roll ) roll.key = roll.type + key;
+		}
+		// Return the flattened submission data
+		return flattenObject(data);
+	}
+	
+	/* -------------------------------------------- */
+	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
 
 	/** @override */
 	getData(options) {
 		const data = super.getData(options);
-		const itemData = data.item?.system;
-
+		const itemData =  this.item.system;
 		data.labels = this.item.labels;
 		data.config = CONFIG.T20;
 
 		data.itemType = data.item.type.capitalize();
-		data.itemStatus = this._getItemStatus( data.item );
-
-		data.itemProperties = this._getItemProperties(itemData);
-		data.isGM = game.user.isGM;
+		data.itemStatus = itemData.equipado ? game.i18n.localize('T20.Equipped') : itemData.preparada ? game.i18n.localize('T20.Prepared') : "";
+		data.itemProperties = this._getItemProperties();
 		data.isPhysical = itemData.hasOwnProperty("qtd");
 		data.weightRule = game.settings.get("tormenta20", "weightRule");
 		data.isOwned = data.item.isOwned;
 		// Resource to Consume
 		// method
-		// itemData.description.value = await TextEditor.enrichHTML( itemData.description.value );
 
 		// Prepare Active Effects
 		data.effects = prepareActiveEffectCategories(this.item.effects);
 
 		// Re-define the template data references (backwards compatible)
 		// data.item = itemData;
+		// data.item.system = itemData;
 		data.system = itemData;
 		return data;
 	}
 
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	activateListeners(html) {
+		super.activateListeners(html);
+		if ( this.isEditable ) {
+			html.find(".rolls-control").click(this._onRollsControl.bind(this));
+			html.find(".parts-control").click(this._onPartsControl.bind(this));
+			html.find('.trait-selector').click(this._onConfigureTraits.bind(this));
+			html.find(".effect-control").click(ev => {
+				if ( this.item.isOwned ) return ui.notifications.warn("Alteração de Efeitos em itens possuidos por Personagens não é suportada atualmente.")
+				onManageActiveEffect(ev, this.item)
+			});
+		}
+		html.mousemove(ev => this._moveTooltips(ev));
+	}
 	
+	/* -------------------------------------------- */
+	/*  Interactions                                */
+	/* -------------------------------------------- */
+
+	_moveTooltips(event) {
+		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
+	}
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	_getHeaderButtons() {
+		let buttons = super._getHeaderButtons();
+		if ( this.object.type == "magia" && ( this.actor?.getFlag("tormenta20","createScroll") || game.user.isGM ) ) {
+			buttons.unshift({
+				label: 'Criar Pergaminho',
+				class: "create-scroll",
+				icon: "fas fa-scroll",
+				onclick: () => this._createScroll()
+			});
+		}
+		return buttons;
+	}
+	
+	/* -------------------------------------------- */
+
+	/**
+	* Get status text for itens;
+	* @retun {string}
+	*/
+	_getItemStatus(item) {
+		if( item.type === "magia" ){
+			return game.i18n.localize(item.system.preparada ? "T20.SpellPrepPrepared" : "");
+		}
+		else if ( ["arma", "equipamento"] .includes(item.type) ){
+			return game.i18n.localize(item.system.equipado ? "T20.Equipped" : "");
+		}
+	}
+
 	/* -------------------------------------------- */
 
 	/**
@@ -81,16 +165,14 @@ export default class ItemSheetT20 extends ItemSheet {
 	 * @return {Array}
 	 * @private
 	 */
-	_getItemProperties(item) {
+	 _getItemProperties() {
 		const props = [];
 		const labels = this.item.labels;
-
-		if ( item.type === "arma" ) {
-			props.push(...Object.entries(item.system.propriedades)
+		if ( this.item.type === "arma" ) {
+			props.push(...Object.entries(this.item.system.propriedades)
 				.filter(e => e[1] === true)
 				.map(e => CONFIG.T20.weaponProperties[e[0]]));
-		} else if ( item.type === "magia" ) {
-			
+		} else if ( this.item.type === "magia" ) {
 			props.push(
 				labels.ativacao? `<b>Execução:</b> ${labels.ativacao}; ` : null,
 				labels.range? `<b>Alcance:</b> ${labels.range}; ` : null,
@@ -119,7 +201,7 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		// Ammunition
 		if ( consume.type === "ammo" ) {
-			return actor.consumivel.reduce((ammo, i) =>  {
+			return actor.itemTypes.consumivel.reduce((ammo, i) =>  {
 				if ( i.system.consumableType === "ammo" ) {
 					ammo[i.id] = `${i.name} (${i.system.quantidade})`;
 				}
@@ -151,55 +233,34 @@ export default class ItemSheetT20 extends ItemSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Get status text for itens;
-	* @retun {string}
-	*/
-	_getItemStatus(item) {
-		if( item.type === "magia" ){
-			return game.i18n.localize(item.system.preparada ? "T20.SpellPrepPrepared" : "—");
-		}
-		//  ["arma", "equipamento"] .includes(item.type)
-		else if ( item.type === "equipamento" ){
-			return game.i18n.localize(item.system.equipado ? "T20.Equipped" : "—");
-		}
-		else if ( item.type === "arma" ){
-			let hand = '<i class="fa-solid fa-hand-back-fist"></i>';
-			if( item.system.equipado == 2 ) return game.i18n.localize("T20.Equipped") + hand + hand;
-			if( item.system.equipado == 1 ) return game.i18n.localize("T20.Equipped") + hand;
-			return "—";
-		}
-	}
-
-	
-
-
-	/* -------------------------------------------- */
-	/*  Form Interaction                            */
-	/* -------------------------------------------- */
-	
-	/** @inheritdoc */
-	activateListeners(html) {
-		super.activateListeners(html);
-		if ( this.isEditable ) {
-			html.find(".rolls-control").click(this._onRollsControl.bind(this));
-			html.find(".parts-control").click(this._onPartsControl.bind(this));
-			html.find('.trait-selector').click(this._onConfigureTraits.bind(this));
-			html.find(".effect-control").click(ev => {
-				if ( this.item.isOwned ) return ui.notifications.warn("Alteração de Efeitos em itens possuidos por Personagens não é suportada atualmente.")
-				onManageActiveEffect(ev, this.object)
-			});
-		}
-		html.mousemove(ev => this._moveTooltips(ev));
-	}
-	
-	/* -------------------------------------------- */
-
-	/**
 	* Add or remove a roll part from the roll formula
 	* @param {Event} event     The original click event
 	* @return {Promise}
 	* @private
 	*/
+	async _onPartsControl(event) {
+		event.preventDefault();
+		const a = event.currentTarget;
+		// Add new damage component
+		if ( a.classList.contains("add-part") && a.dataset.rollId ) {
+			await this._onSubmit(event);  // Submit any unsaved changes
+			const key = a.dataset.rollId;
+			const rolls = foundry.utils.deepClone(this.item.system.rolls);
+			rolls[key].parts = rolls[key].parts.concat([["",""]]);
+			return this.item.update({ [`data.rolls`]: rolls });
+		}
+
+		// Remove a damage component
+		if ( a.classList.contains("delete-part") && a.dataset.rollId ) {
+			await this._onSubmit(event);  // Submit any unsaved changes
+			const key = a.dataset.rollId;
+			const li = a.closest(".roll-part");
+			const rolls = foundry.utils.deepClone(this.item.system.rolls);
+			rolls[key].parts.splice(Number(li.dataset.rollPart), 1);
+			return this.item.update({ [`data.rolls`]: rolls });
+		}
+	}
+
 	async _onRollsControl(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
@@ -210,13 +271,13 @@ export default class ItemSheetT20 extends ItemSheet {
 			let rolltype = a.dataset.rollType;
 			let roll = foundry.utils.deepClone(this.item.system.rolls);
 			let r = {};
-			r.parts = ["1d4", "acido"];
+			r.parts = [["", ""]];
 			r.name = rolltype.capitalize();
 			r.type = rolltype;
 			r.key = "ataque";
 			if( rolltype == "ataque" ) r.versatil = "";
 			roll.push(r);
-			return this.item.update({[`system.rolls`]:roll});
+			return this.item.update({[`data.rolls`]:roll});
 		}
 
 		// Remove a roll component
@@ -225,37 +286,10 @@ export default class ItemSheetT20 extends ItemSheet {
 			const rolltype = a.dataset.rollType;
 			let rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls.splice(Number(a.dataset.rollId), 1);
-			return this.item.update({[`system.rolls`]:rolls});
+			return this.item.update({[`data.rolls`]:rolls});
 		}
 	}
 
-	async _onPartsControl(event) {
-		event.preventDefault();
-		const a = event.currentTarget;
-		// Add new damage component
-		if ( a.classList.contains("add-part") && a.dataset.rollId ) {
-			await this._onSubmit(event);  // Submit any unsaved changes
-			const key = a.dataset.rollId;
-			const rolls = foundry.utils.deepClone(this.item.system.rolls);
-			console.log(this.item.system.rolls);
-			rolls[key].parts = rolls[key].parts.concat([["",""]]);
-			// rolls[key].parts.push(["",""]);
-
-			console.log(rolls);
-			return await this.item.updateSource({ [`system.rolls`]: rolls });
-		}
-
-		// Remove a damage component
-		if ( a.classList.contains("delete-part") && a.dataset.rollId ) {
-			await this._onSubmit(event);  // Submit any unsaved changes
-			const key = a.dataset.rollId;
-			const li = a.closest(".roll-part");
-			const rolls = foundry.utils.deepClone(this.item.system.rolls);
-			rolls[key].parts.splice(Number(li.dataset.rollPart), 1);
-			return this.item.update({ [`system.rolls`]: rolls });
-		}
-	}
-	
 	/* -------------------------------------------- */
 
 	/**
@@ -288,78 +322,27 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		new TraitSelector(this.item, options).render(true);
 	}
-
-	/* -------------------------------------------- */
-
-	_moveTooltips(event) {
-		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
-	}
-
 	
 	/* -------------------------------------------- */
 
-	/** @override */
-	_getHeaderButtons() {
-		let buttons = super._getHeaderButtons();
-		if ( this.object.type == "magia" && ( this.actor?.getFlag("tormenta20","createScroll") || game.user.isGM ) ) {
-			buttons.unshift({
-				label: 'Criar Pergaminho',
-				class: "create-scroll",
-				icon: "fas fa-scroll",
-				onclick: () => this._createScroll()
-			});
-		}
-		return buttons;
-	}
-	
-	/* -------------------------------------------- */
-
+	/**
+	 * Replicate the spell as a consumable scroll item.
+	 * @param {Event} event   The click event which originated the selection
+	 * @private
+	 */
 	_createScroll(){
 		let itemData = {};
-		itemData.system = this.object.system.toObject();
+		itemData.data = deepClone( this.object.system );
 		itemData.type = "consumivel";
 		itemData.name = `Pergaminho de ${this.object.name}`;
 		itemData.img = "icons/sundries/scrolls/scroll-bound-black-tan.webp",
-		itemData.system.ativacao.custo = 0; 
-		itemData.system.tipo = "scroll";
-		if( this.actor ){
-			this.actor.createEmbeddedDocuments("Item", [itemData]);
-			if( this.actor.type == "character" ){
-				let msg = `${this.actor.name} criou ${itemData.name}`;
-				ChatMessage.create({content:msg});
-			}
-		} else {
-			ItemT20.create(itemData).then( item => item.sheet.render(true) );
+		itemData.data.ativacao.custo = 0; 
+		itemData.data.tipo = "scroll";
+		this.actor.createEmbeddedDocuments("Item", [itemData]);
+		if( this.actor.type == "character" ){
+			let msg = `${this.actor.name} criou ${itemData.name}`;
+			ChatMessage.create({content:msg});
 		}
 	}
 
-	/* -------------------------------------------- */
-  /*  Form Submission                             */
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	_getSubmitData(updateData={}) {
-		// Create the expanded update data object
-		const fd = new FormDataExtended(this.form, {editors: this.editors});
-		let data = fd.object;
-		console.warn('_getSubmitData', data );
-		// console.log(data);
-		if ( updateData ) data = mergeObject(data, updateData);
-		else data = expandObject(data);
-
-		// Handle rolls array
-		// console.log(data);
-		data.system.rolls = Object.values(data.system.rolls || []);
-		let rolls = Object.entries(data.system.rolls || []);
-		console.log(rolls);
-		for (let [key, roll] of rolls){
-			if ( roll ) roll.parts = Object.values(roll?.parts || {}).map(d => [d[0] || "", d[1] || ""]);
-			if ( roll ) roll.key = roll.type + key;
-		}
-		// console.log(rolls);
-		// console.log(data);
-		console.warn('_getSubmitData', data );
-		// Return the flattened submission data
-		return flattenObject(data);
-	}
 }

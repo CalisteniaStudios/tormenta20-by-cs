@@ -1,13 +1,13 @@
 <form id="ability-use-form">
 	{{#if formula}}
 	<div class="form-group">
-		<label>{{#if (eq itype "arma")}}Ataque{{else}}Modificador{{/if}}:</label>
+		<label>Bônus no Teste:</label>
 		<input type="text" name="bonus" value="" placeholder="ex. +1d4 ou -3"/>
 	</div>
 	{{/if}}
 	{{#if formuladano}}
 	<div class="form-group">
-		<label>Dano:</label>
+		<label>{{localize "T20.Damage"}}:</label>
 		<input type="text" name="bonusdano" value="" placeholder="ex. +1d4 ou -4"/>
 	</div>
 	{{/if}}
@@ -23,7 +23,7 @@
 	<div class="form-group">
 		<ul class="item-list effects-list aprimoramentos-list">
 			<li class="items-header item flexrow">
-				<h3>Aplicar</h3>	
+				<h3>Aplicar</h3>
 				<h3 style="flex: 2">Nome</h3>
 				{{#if (eq item.type "arma")}}
 				<h3>Origem</h3>
@@ -37,7 +37,7 @@
 					<input type="number" name="aprs.{{ap.id}}.aplica" min="0" value="0" step="1" class="numInp" data-dtype="Number" style="max-width: 25px; height: auto;" onkeydown="return false" />
 					<input type="button" value="+" class="numCtrl" />
 				{{else}}
-					<input type="checkbox"  name="aprs.{{ap.id}}.aplica"  value="1" {{#unless ap.data.disabled}}checked{{/unless}}/>
+					<input type="checkbox"  name="aprs.{{ap.id}}.aplica"  value="1" {{#unless ap.disabled}}checked{{/unless}}/>
 				{{/if}}
 
 				{{#if (and (eq ../item.type "magia") (eq ap.flags.tormenta20.custo "") ap.flags.tormenta20.self )}}
@@ -51,7 +51,7 @@
 					<input type="hidden" name="aprs.{{ap.id}}.custo" value="{{ap.flags.tormenta20.custo}}">
 				{{/if}}
 				</div>
-				<h4 class="item-name" style="flex: 2">{{{ap.data.label}}}</h4>
+				<h4 class="item-name" style="flex: 2">{{{ap.label}}}</h4>
 				{{#if (eq ../item.type "arma")}}
 				<small>{{ap.sourceName}}</small>
 				{{/if}}

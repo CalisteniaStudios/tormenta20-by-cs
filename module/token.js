@@ -8,10 +8,10 @@
 	getBarAttribute(...args) {
 		const data = super.getBarAttribute(...args);
 		if ( data && (data.attribute === "attributes.pv") ) {
-			data.value += parseInt(getProperty(this.actor.data, "data.attributes.pv.temp") || 0);
+			data.value += parseInt(getProperty(this.actor, "system.attributes.pv.temp") || 0);
 		}
 		if ( data && (data.attribute === "attributes.pm") ) {
-			data.value += parseInt(getProperty(this.actor.data, "data.attributes.pm.temp") || 0);
+			data.value += parseInt(getProperty(this.actor, "system.attributes.pm.temp") || 0);
 		}
 		return data;
 	}
@@ -55,7 +55,7 @@ export class TokenT20 extends Token {
 		// Extract health data
 		
 
-		const actorData = this.document.actor.data.data;
+		const actorData = this.document.actor.system;
 		let {value, max, temp, tempmax, min} = getProperty(actorData, data.attribute);
 		
 		temp = Number(temp || 0);
