@@ -18,6 +18,7 @@ import AbilityTemplate from "./pixi/ability-template.js";
 import AbilityUseDialog from "./apps/ability-use-dialog.js";
 import ActorSettings from "./apps/actor-settings.js";
 import ActorSheetT20Character from "./actor/sheet/character.js";
+import ActorSheetT20CharacterTabbed from "./actor/sheet/_tempSheets.js";
 //import ActorSheetT20Builder from "./actor/sheet/builder.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
@@ -114,6 +115,11 @@ Hooks.once("init", async function () {
 		makeDefault: true,
 		label: "Ficha de Personagem"
 	});
+	Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
+		types: ["character"],
+		makeDefault: false,
+		label: "Ficha de Personagem - Abas"
+	});
 	
 	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
 		types: ["npc"],
@@ -137,6 +143,9 @@ Hooks.once("init", async function () {
 	// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
 
 	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
+
+	// SET VISION MODES
+	// CONFIG.Canvas.visionModes = 
 
 	// Preload Handlebars Templates
 	preloadHandlebarsTemplates();

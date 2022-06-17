@@ -99,6 +99,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		// data.item = itemData;
 		// data.item.system = itemData;
 		data.system = itemData;
+		data.documentName = "Item";
 		return data;
 	}
 

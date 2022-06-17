@@ -1,0 +1,36 @@
+<form class="tormenta20 base" autocomplete="off">
+	{{log this }}
+	{{#if (eq documentName 'Actor' ) }}
+	{{else if (eq documentName 'Item' ) }}
+	{{else if (eq documentName 'ActiveEffect' ) }}
+	{{/if}}
+	{{!-- Sheet Header --}}
+	{{> "systems/tormenta20/templates2/partials/actor/sheet-header-npc.html"}}
+	{{!-- Sheet Tab Navigation --}}
+	{{> "systems/tormenta20/templates2/partials/nav-bar.html"}}
+
+	{{!-- Sheet Body --}}
+
+	{{!-- Biography Tab --}}
+	<div class="tab biography flexrow flex-between" data-group="primary" data-tab="description">
+		<div style="max-width: 220px;">
+			<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200"
+			width="200" />
+		</div>
+
+		{{editor system.biography.value target="system.biography.value" button=true owner=owner editable=editable}}
+	</div>
+
+	{{!-- Modifiers Tab --}}
+	<div class="tab modifiers" data-group="primary" data-tab="modifiers">
+		{{> "systems/tormenta20/templates/actor/parts/actor-modifiers.html"}}
+	</div>
+	{{!-- Efeitos Tab --}}
+	<div class="tab efeitos" data-group="primary" data-tab="efeitos">
+		{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+	</div>
+	
+
+
+
+</form>

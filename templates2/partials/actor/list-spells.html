@@ -1,0 +1,63 @@
+<ul class="item-list">
+	<li class="item item-header" style="text-align: center;">
+		{{#each system.atributos as |atr key|}}
+		{{#if (eq key ../system.attributes.conjuracao)}}
+		<label>{{localize 'T20.SpellDC'}} {{add ../system.attributes.cd atr.mod}} =</label>
+		<label title="{{localize 'T20.SpellDCFormula'}}">{{../system.attributes.cd}} +</label>
+		{{/if}}
+		{{/each}}
+		<select class="selectAtr" title="{{localize 'T20.KeyAbility'}}" name="system.attributes.conjuracao">
+			{{#select system.attributes.conjuracao}}
+			{{#each config.atributos as |name abl|}}
+				<option value="{{abl}}">{{localize name}}</option>
+			{{/each}}
+			{{/select}}
+		</select>
+		<a class="update-cd" title="{{localize 'T20.UpdateSpellKeyAbility'}}" data-atrRes="{{system.attributes.conjuracao}}"><i class="fas fa-sync"></i></a>
+	</li>
+	{{#each actor.magias as |circulo i|}}
+	{{#if circulo.spells.length}}
+	<ol class="item-list">
+		<li class="item flexrow item-header">
+			{{#if ../isPreparationCaster}}<div class="item-toggles">{{localize 'T20.SpellPrepPreparedAbbr'}}</div>{{/if}}
+			<div class="item-name flex2">{{i}}º {{localize 'T20.SpellCircle'}} ({{circulo.custo}} {{localize 'T20.MP'}})</div>
+			<div class="item-type">{{localize 'T20.SpellSchool'}}</div>
+			<div class="item-activation">{{localize 'T20.Activation'}}</div>
+			<div class="item-controls">
+				<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Spell'}}" data-type="magia" data-circulo="{{i}}" data-custo="{{circulo.custo}}" data-atrRes="{{../system.attributes.conjuracao}}"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
+			</div>
+		</li>
+		{{#each circulo.spells as |m index|}}
+		<li class="item flexrow" data-item-id="{{m._id}}">
+			{{#if ../../isPreparationCaster}}
+			<div class="item-toggles">
+				<a class="item-toggle preparation-toggle {{#if m.system.preparada }}active{{/if}}" title="{{localize 'T20.SpellPrepPrepared'}}"><i class="fas fa-sun"></i></a>
+			</div>
+			{{/if}}
+			<div class="item-name flexrow rollable flex2" data-label="{{m.name}}">
+			<div class="item-image" style="background-image: url('{{m.img}}')"></div>
+				<h4>{{m.name}}</h4>
+			</div>
+			<div class="item-type">{{m.labels.escola}}</div>
+			<div class="item-activation">
+				{{#if m.labels.ativacao}}
+				{{m.labels.ativacao}}
+				{{/if}}
+			</div>
+			<div class="item-controls">
+				{{#if (eq ../layout "tabbed")}}
+				<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >
+					<i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i>
+				</a>
+				{{/if}}
+				{{#if ../botaoEditarItens}}
+					<a class="item-control item-edit" title="{{localize 'T20.Edit'}}"><i class="fas fa-edit"></i></a>
+				{{/if}}
+				<a class="item-control item-delete" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
+			</div>
+		</li>
+		{{/each}}
+	</ol>
+	{{/if}}
+	{{/each}}
+</ul>

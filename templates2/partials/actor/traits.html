@@ -1,0 +1,99 @@
+<h3 style="text-align: center;">{{ localize 'T20.ActionOthers'}} {{ localize 'T20.Attributes'}}</h3>
+<div>
+	<label>{{ localize 'T20.Size'}}</label>
+	<select class="actor-size" name="system.tracos.tamanho">
+		{{#select system.tracos.tamanho}}
+		{{#each config.actorSizes as |label size|}}
+		<option value="{{size}}">{{localize label}}</option>
+		{{/each}}
+		{{/select}}
+	</select>
+</div>
+
+<div>
+	<a class="config-button" data-action="movement" data-target="system.attributes.movement">
+		<label>{{ localize 'T20.Movement'}}:</label>
+	</a>
+	<ul class="trait-list">
+		{{#each movement as | move key | }}
+		<li class="speedtag {{key}}">{{localize move}}</li>
+		{{/each}}
+	</ul>
+</div>
+
+<div>
+	<label>
+		<a class="config-button" data-action="resistance" data-target="system.tracos.resistencias">{{ localize 'T20.Resistances'}}:</a>
+	</label>
+	<ul class="trait-list">
+		{{#each system.tracos.resistencias as |v k|}}
+		{{#if v.imunidade }}
+		<li class="tag {{k}}" title="{{localize 'T20.DamImm'}}">{{k}} <i class="fas fa-fist-raised"></i></li>
+		{{else if v.vulnerabilidade }}
+		<li class="tag {{k}}" title="{{localize 'T20.DamVuln'}}">{{k}} <i class="fas fa-skull"></i></li>
+		{{else if (gt v.value 0)}}
+		<li class="tag {{k}}">{{k}} {{v.value}}</li>
+		{{/if}}
+		{{/each}}
+	</ul>
+</div>
+
+<div>
+	<a class="trait-selector ic" data-options="conditionTypes" data-target="system.tracos.ic">
+		<label>{{ localize 'T20.StatusImm'}}:</label>
+	</a>
+	<ul class="trait-list">
+		{{#each system.tracos.ic.selected as |v k|}}
+		<li class="tag {{k}}">{{v}}</li>
+		{{/each}}
+	</ul>
+</div>
+
+<div>
+	<a class="trait-selector" data-options="senses" data-target="system.attributes.sentidos">
+		<label>{{ localize 'T20.Senses'}}:</label>
+	</a>
+	<ul class="trait-list">
+		{{#each senses.value as |v k|}}
+		<li class="tag {{k}}">{{localize v}}</li>
+		{{/each}}
+	</ul>
+</div>
+
+<hr>
+<h3 style="text-align: center;">{{ localize 'T20.Proficiency'}}</h3>
+
+{{#if enableLanguages}}
+<div>
+	<a class="trait-selector" data-options="idiomas" data-target="system.tracos.idiomas">
+		<label style="display:inline-block;">{{ localize 'T20.Languages'}}</label>
+	</a>
+	<ul class="trait-list">
+		{{#each system.tracos.idiomas.selected as |v k|}}
+		<li class="tag {{k}}">{{v}}</li>
+		{{/each}}
+	</ul>
+</div>
+{{/if}}
+
+<div>
+	<a class="trait-selector" data-options="profArmas" data-target="system.tracos.profArmas">
+		<label style="display:inline-block;">{{ localize 'T20.Weapons'}}</label>
+	</a>
+	<ul class="trait-list">
+		{{#each system.tracos.profArmas.selected as |v k|}}
+		<li class="tag {{k}}">{{localize v}}</li>
+		{{/each}}
+	</ul>
+</div>
+
+<div>
+	<a class="trait-selector armaduras" data-options="profArmaduras" data-target="system.tracos.profArmaduras">
+		<label style="display:inline-block;">{{ localize 'T20.Armors'}}</label>
+	</a>
+	<ul class="trait-list">
+		{{#each system.tracos.profArmaduras.selected as |v k|}}
+		<li class="tag {{k}}">{{localize v}}</li>
+		{{/each}}
+	</ul>
+</div>

@@ -1,0 +1,12 @@
+<ul class="attributes flexrow">
+	{{#each system.resources as | resource id | }}
+	<li class="attribute health">
+		<h4 class="attribute-name box-title">{{resource.name}}</h4>
+		<div class="attribute-value multiple">
+			<input type="number" data-dtype="Number" placeholder="0" name="system.resources.{{id}}.value" value="{{resource.value}}" max="{{resource.max}}">
+			<span class="sep">/</span>
+			<input disabled type="number" data-dtype="Number" placeholder="0" name="system.resources.{{id}}.max" value="{{resource.max}}">
+		</div>
+	</li>
+	{{/each}}
+</ul>

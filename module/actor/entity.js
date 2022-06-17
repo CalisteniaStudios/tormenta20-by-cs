@@ -829,6 +829,7 @@ export default class ActorT20 extends Actor {
 		}
 
 		// LOGS
+		console.log(options);
 		if( options.message ){
 			options = rConfig;
 			options.itemData.rolled = await d20Roll(rollConfig);

@@ -1673,6 +1673,25 @@ button {
 }
 
 /* ################################################################ */
+/*                           Actor-Sheet                            */
+/* ################################################################ */
+
+.tormenta20.sheet.character .base .sheet-header {
+  margin-bottom: -2px;
+}
+.tormenta20.sheet.character .tabbed .sheet-header {
+  flex:0 0 180px
+}
+.tormenta20.sheet.character .general-information ul.attributes {
+  flex: 1; margin:0; padding:0;
+}
+
+.tormenta20.sheet.character .general-information ul.attributes .classe {
+  flex: 0.2 1 auto;
+}
+
+
+/* ################################################################ */
 /*                           Chat-Message                           */
 /* ################################################################ */
 .chat-message {

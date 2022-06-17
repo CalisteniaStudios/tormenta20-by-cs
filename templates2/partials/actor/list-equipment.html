@@ -1,0 +1,27 @@
+<ol class="item-list">
+	<li class="item flexrow item-header">
+		<div class="item-name flex2">{{ localize 'T20.Equipment'}}</div>
+		<div class="item-def">{{ localize 'T20.Defense'}}/{{ localize 'T20.ArmorPenalty'}}</div>
+		<div class="item-controls">
+			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Equipment'}}" data-type="equipamento"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
+		</div>
+	</li>
+	{{#each actor.inventario.equipamento.items as |item id|}}
+		<li class="item flexrow" data-item-id="{{item._id}}">
+			<div class="item-name flex2 flexrow edit-favoritos">
+				<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+				<h4>{{item.name}}</h4>
+			</div>
+			<div class="item-def">
+				{{numberFormat item.system.armadura.value sign=true}} / {{item.system.armadura.penalidade}}
+			</div>
+			<div class="item-controls">
+				<a class="item-control item-toggle toggle-armor{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}"><i class="fas fa-shield-alt"></i></a>
+				{{#if ../botaoEditarItens}}
+					<a class="item-control item-edit" title="{{localize 'T20.Edit'}}"><i class="fas fa-edit"></i></a>
+				{{/if}}
+				<a class="item-control item-delete" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
+			</div>
+		</li>
+	{{/each}}
+</ol>

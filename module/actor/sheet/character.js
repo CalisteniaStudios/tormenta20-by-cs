@@ -26,7 +26,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		if ( !game.user.isGM && this.actor.limited ) {
 			return "systems/tormenta20/templates/actor/actor-sheet-limited.html";
 		} else if(layout == 'base'){
-			return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
+			return "systems/tormenta20/templates2/actor/actor-sheet-base.html" ;
 		} else if(layout == 'tabbed') {
 			return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
 		}

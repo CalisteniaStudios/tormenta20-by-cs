@@ -1,7 +1,56 @@
+/* -------------------------------------------- */
+/*  Macros Scripts                              */
+/* -------------------------------------------- */
+const macroScripts = {
+SKILL: `game.tormenta20.rollSkillMacro("{label}","{subtype}");`,
+ITEM: `game.tormenta20.rollItemMacro("{name}");`,
+EXTRAWEAPON: {
+  'atq' : "0",
+  'dadoDano' : "",
+  'dano' : "0", 
+  'margemCritico' : "0",
+  'multCritico' : "0",
+  'atributoAtq' : "",
+  'atributoDano' : "",
+  'pericia' : "",
+},
+WEAPON: `
+//UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
+//VALORES SERÃO SOMADOS A CARACTEÍSTICA.
+//INICIAR COM "=" SUBSTITUIRÁ O BÔNUS DA FICHA DA ARMA
+game.tormenta20.rollItemMacro("{name}",{
+  'atq' : "0",
+  'dadoDano' : "",
+  'dano' : "0", 
+  'margemCritico' : "0",
+  'multCritico' : "0",
+  'atributoAtq' : "",
+  'atributoDano' : "",
+  'pericia' : "",
+});`,
+EFFECT: `// Ativar/Desativar Efeito;
+if(actor) {
+  let effect = actor.effects.find(ef => ef.label == "{label}");
+
+  if(effect){
+    effect.update({disabled: !effect.disabled});
+  }
+}`,
+EQUIPMENT: `// Equipa/Desequipa Equipamento;
+if(actor){
+  let item = actor.items.find( it => it.name == "{name}");
+  if(item){
+    item.update({'system.equipado': !item.system.equipado});
+  }
+}`,
+}
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
+
+
+import ItemT20 from "./item/entity.js";
 
 /**
 * Create a Macro from an Item drop.
@@ -15,10 +64,8 @@ export async function createT20Macro(data, slot) {
 	let command = "";
 	if (data.type === "Pericia") {
 		const item = data.data;
-		command = `game.tormenta20.rollSkillMacro("${item.label}","${data.subtype}");`;
-		let macro = game.macros.find(
-			(m) => m.name === item.label && m.command === command
-			);
+		command = macroScripts.SKILL.replace('{label}', item.label).replace('{subtype}', data.subtype);
+		let macro = game.macros.find((m) => m.name === item.label && m.command === command);
 		if (!macro) {
 			macro = await Macro.create({
 				name: item.label,
@@ -29,36 +76,23 @@ export async function createT20Macro(data, slot) {
 		game.user.assignHotbarMacro(macro, slot);
 		return false;
 	}
+	
 	if (data.type === "Item") {
-		if (!("data" in data))
+		let item = await fromUuid( data.uuid );
+		if ( !item instanceof ItemT20 )
 			return ui.notifications.warn(
-				"Você só pode criar Macros para Ataques, Magias e Poderes. Você pode referenciar atributos e perícias com @. Ex.: @for ou @luta"
+				"Não há uma macro para este tipo de item."
 				);
-		const item = data.data;
 		
 		if (item.type === "arma") {
-			command = `
-//UTILIZE OS CAMPOS ABAIXO PARA MODIFICAR um ATAQUE
-//VALORES SERÃO SOMADOS A CARACTEÍSTICA.
-//INICIAR COM "=" SUBSTITUIRÁ O BÔNUS DA FICHA DA ARMA
-game.tormenta20.rollItemMacro("${item.name}",{
-	'atq' : "0",
-	'dadoDano' : "",
-	'dano' : "0", 
-	'margemCritico' : "0",
-	'multCritico' : "0",
-	'atributoAtq' : "",
-	'atributoDano' : "",
-	'pericia' : "",
-});`;
+			command = macroScripts.WEAPON.replace('{name}',item.name);
+		} else if (item.type === "equipamento") {
+			command = macroScripts.EQUIPMENT.replace('{name}',item.name);
 		} else {
-			command = `game.tormenta20.rollItemMacro("${item.name}");`;
+			command = macroScripts.ITEM.replace('{name}',item.name);
 		}
 
-
-		let macro = game.macros.find(
-			(m) => m.name === item.name && m.command === command
-			);
+		let macro = game.macros.find((m) => m.name === item.name && m.command === command);
 		if (!macro) {
 			macro = await Macro.create({
 				name: item.name,
@@ -75,23 +109,19 @@ game.tormenta20.rollItemMacro("${item.name}",{
 	}
 
 	if (data.type === "ActiveEffect") {
-		let item = data.data;
-		command = `// Ativar/Desativar Efeito;
-if(actor) {
-	let effect = actor.effects.find(ef => ef.label == "${item.label}");
-
-	if(effect){
-		effect.update({disabled: !effect.disabled});
-	}
-}`;
-		let macro = game.macros.find(
-			(m) => m.name === item.label && m.command === command
-			);
+		let effect = await fromUuid( data.uuid );
+		if( !effect instanceof ActiveEffect )
+			return ui.notifications.warn(
+				"Não há uma macro para este tipo de item."
+				);
+		
+		command = macroScripts.EFFECT.replace('{label}',effect.label);
+		let macro = game.macros.find( (m) => m.name === effect.label && m.command === command );
 		if (!macro) {
 			macro = await Macro.create({
-				name: item.label,
+				name: effect.label,
 				type: "script",
-				img: item.icon,
+				img: effect.icon,
 				command: command
 			});
 		}
@@ -120,7 +150,6 @@ export async function rollItemMacro(itemName, extra = {}) {
 	} else if ( items.length === 0 ) {
 		return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
 	}
-	//Object.values(extra).some(e=> e.match(/^=/) )
 	if ( items[0].type === "arma" && (extra.atq.match(/^=/) || extra.dano.match(/^=/)) ) {
 		ui.notifications.warn(`Substituir bonus de ataque e dano (ie: "=15") não é suportado no momento.`);
 	}
@@ -134,8 +163,6 @@ export async function rollItemMacro(itemName, extra = {}) {
 	return item.roll( rollConfigs );
 }
 
-
-
 export async function rollSkillMacro(skillName) {
 	const speaker = ChatMessage.getSpeaker();
 	let actor;
@@ -145,8 +172,7 @@ export async function rollSkillMacro(skillName) {
 
 	let pericias = Object.entries(actor.system.pericias);
 	let skl = pericias.find(p => p[1].label == skillName )[0];
-	await actor.rollPericia(skl, {event: event});
-	
+	await actor.rollPericia(skl, {message:true, event: event});
 }
 
 export async function msgFromJournal(name, source) {

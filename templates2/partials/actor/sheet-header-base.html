@@ -1,0 +1,57 @@
+<header class="sheet-header flexrow">
+	<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+	<section class="header-details flexcol">
+		<div class="general-information">
+			<h1 class="charname">
+				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}">
+			</h1>
+			<aside class="header-exp flexcol">
+				<a class="config-button" data-action="level">
+					<h4 class="level">{{ localize 'T20.Level' }} {{system.attributes.nivel.value}}</h4>
+				</a>
+				{{#unless disableExperience}}
+					<div class="xp-tracker" title="{{ localize 'T20.Experience' }}">
+						<div class="experience">
+							<input name="system.attributes.nivel.xp.value" type="text" value="{{system.attributes.nivel.xp.value}}" placeholder="0" data-dtype="Number" />
+							<span class="max-xp">{{system.attributes.nivel.xp.proximo}}</span>
+						</div>
+						<div class="xp-bar">
+							<span class="bar" style="width: {{system.attributes.nivel.xp.pct}}%"></span>
+						</div>
+					</div>
+				{{/unless}}
+			</aside>
+		</div>
+		<ul class="attributes summary flexrow">
+			<li>
+				<input type="text" name="system.detalhes.raca" value="{{system.detalhes.raca}}" placeholder="{{ localize 'T20.Race'}}" />
+			</li>
+			<li>
+				<input type="text" name="system.detalhes.origem" value="{{system.detalhes.origem}}" placeholder="{{ localize 'T20.Background'}}" />
+			</li>
+			<li class="classe flexrow">
+				{{#if actor.classes.length }}
+				{{#each actor.classes as | class key | }}
+					<span class="item" data-item-id="{{class._id}}">
+						<a class="item-control item-edit" title="{{ localize 'T20.Edit'}}">
+							{{#if (eq ../actor.classes.length 1)}} {{class.name}} {{else}} {{class.abbr}} {{/if}}
+							{{class.system.niveis}}
+						</a>
+						<a class="item-control class-config item-delete" title="{{ localize 'T20.Delete'}}">
+							<i class="fas fa-trash" style="font-size: 14px;"></i>
+						</a>
+					</span>
+				{{/each}}
+				{{else}}
+				<input type="text" placeholder="{{ localize 'T20.Class'}}" disabled />
+				{{/if}}
+				<a class="item-control class-config add-classe" title="{{ localize 'T20.Configure'}}">
+					<i class="fas fa-plus" style="float:right;margin-right: 5px;"></i>
+				</a>
+			</li>
+			<li>
+				<input type="text" name="system.detalhes.divindade" value="{{system.detalhes.divindade}}" placeholder="{{ localize 'T20.Deity'}}" />
+			</li>
+		</ul>
+	</section>
+</header>

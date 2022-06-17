@@ -7,13 +7,20 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.object.label}`;
 		}
 	}
-	/*override*/
+	/** @override */
 	get template() {
 		if (this.object.flags?.tormenta20?.onuse) {
 			return "systems/tormenta20/templates/apps/onuse-effect-config.html";
 		} else {
 			return "systems/tormenta20/templates/apps/active-effect-config.html"
 		}
+	}
+
+	/** @override */
+	getData() {
+		const data = super.getData();
+		data.documentName = "ActiveEffect";
+		return data;
 	}
 
 	/** @override */

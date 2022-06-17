@@ -1,0 +1,37 @@
+<ol class="item-list">
+	<li class="item flexrow item-header">
+		<div class="item-name">{{localize 'T20.LootAndTreasures'}}</div>
+		<div class="item-qty">{{localize 'T20.QuantityAbbr'}}</div>
+		{{#if isCharacter}}<div class="item-weight">{{weightCol}}</div>{{/if}}
+		<div class="item-controls">
+			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Treasure'}}" data-type="loot"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
+		</div>
+	</li>
+	{{#each actor.inventario.tesouro.items as |item id|}}
+	<li class="item flexrow" data-item-id="{{item._id}}">
+		<div class="item-name flexrow">
+		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+			<h4>{{item.name}}</h4>
+		</div>
+		<div class="item-qty">
+			{{#if ../owner}}
+			<input type="text" data-dtype="Number" placeholder="0" classe="item-qtd" value="{{item.system.qtd}}">
+			{{else}}
+				{{item.system.qtd}}
+			{{/if}}
+		</div>
+		{{#if ../isCharacter}}<div class="item-weight">{{item.pesoTotal}}</div>{{/if}}
+		<div class="item-controls">
+			{{#if (eq ../layout "tabbed")}}
+			<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >
+				<i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i>
+			</a>
+			{{/if}}
+			{{#if ../botaoEditarItens}}
+				<a class="item-control item-edit" title="{{localize 'T20.Edit'}}"><i class="fas fa-edit"></i></a>
+			{{/if}}
+			<a class="item-control item-delete" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
+		</div>
+	</li>
+	{{/each}}
+</ol>
