@@ -1,7 +1,7 @@
 <form class="tormenta20 tabbed" autocomplete="off">
 	{{log this }}
 	{{!-- Sheet Header --}}
-	{{> "systems/tormenta20/templates2/partials/actor/sheet-header-base.html"}}
+	{{> "systems/tormenta20/templates2/partials/actor/sheet-header-tabbed.html"}}
 	{{!-- Sheet Tab Navigation --}}
 	{{> "systems/tormenta20/templates2/partials/nav-bar.html"}}
 
@@ -19,8 +19,8 @@
 			</div>
 			<div class="attributes-right flexcol">
 				{{!-- Extra Resources --}}
-				{{#if system.resources.shadow }}
-				<div class="resources-extra">
+				{{#if (or system.resources.shadow) }}
+				<div class="resource">
 					{{> "systems/tormenta20/templates2/partials/actor/resources-extra.html"}}
 				</div>
 				{{/if}}
@@ -38,12 +38,14 @@
 
 		{{!-- Inventory Tab --}}
 		<div class="tab inventory" data-group="primary" data-tab="inventory">
+			<div class="inventory-list">
 			{{> "systems/tormenta20/templates2/partials/actor/list-weapon.html"}}
 			{{> "systems/tormenta20/templates2/partials/actor/list-equipment.html"}}
 			{{> "systems/tormenta20/templates2/partials/actor/list-consumable.html"}}
 			{{> "systems/tormenta20/templates2/partials/actor/list-loot.html"}}
 			{{> "systems/tormenta20/templates2/partials/actor/currency.html"}}
 			{{> "systems/tormenta20/templates2/partials/actor/encumbrance.html"}}
+		</div>
 		</div>
 
 		{{!-- Powers Tab --}}
@@ -58,7 +60,7 @@
 
 		
 		{{!-- Biography Tab --}}
-		<div class="tab biography flexrow flex-between" data-group="primary" data-tab="journal">
+		<div class="tab journal flexrow flex-between" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates2/partials/actor/journal.html"}}
 		</div>
 

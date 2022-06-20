@@ -1,25 +1,26 @@
 <header class="sheet-header flexrow">
 	<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
 	<section class="header-details flexcol">
-		<div class="general-information">
+		<div class="general-information flexrow">
 			<h1 class="charname">
-				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}">
+				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}" />
 			</h1>
+			{{#unless disableExperience}}
 			<aside class="header-exp flexcol">
+				<div class="experience flexrow">
+					<input type="text" placeholder="0" data-dtype="Number" name="system.attributes.nivel.xp.value" value="{{system.attributes.nivel.xp.value}}"/>
+					<span class="sep">/</span>
+					<span class="max-xp">{{system.attributes.nivel.xp.proximo}}</span>
+				</div>
+				<div class="xpbar">
+					<span class="bar" style="width: {{system.attributes.nivel.xp.pct}}%"></span>
+				</div>
+			</aside>
+			{{/unless}}
+			<aside class="charlevel flexrow">
 				<a class="config-button" data-action="level">
-					<h4 class="level">{{ localize 'T20.Level' }} {{system.attributes.nivel.value}}</h4>
+					<div class="level">{{ localize 'T20.Level' }} {{system.attributes.nivel.value}}</div>
 				</a>
-				{{#unless disableExperience}}
-					<div class="xp-tracker" title="{{ localize 'T20.Experience' }}">
-						<div class="experience">
-							<input name="system.attributes.nivel.xp.value" type="text" value="{{system.attributes.nivel.xp.value}}" placeholder="0" data-dtype="Number" />
-							<span class="max-xp">{{system.attributes.nivel.xp.proximo}}</span>
-						</div>
-						<div class="xp-bar">
-							<span class="bar" style="width: {{system.attributes.nivel.xp.pct}}%"></span>
-						</div>
-					</div>
-				{{/unless}}
 			</aside>
 		</div>
 		<ul class="attributes summary flexrow">
@@ -29,7 +30,7 @@
 			<li>
 				<input type="text" name="system.detalhes.origem" value="{{system.detalhes.origem}}" placeholder="{{ localize 'T20.Background'}}" />
 			</li>
-			<li class="classe flexrow">
+			<li class="char-class flexrow">
 				{{#if actor.classes.length }}
 				{{#each actor.classes as | class key | }}
 					<span class="item" data-item-id="{{class._id}}">

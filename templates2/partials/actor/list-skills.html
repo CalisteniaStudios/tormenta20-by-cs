@@ -6,11 +6,13 @@
 		<div class="item-mod">{{ localize 'T20.AbilityModifierBonus'}}</div>
 		{{#if editarPericias}}<div class="item-outros">{{ localize 'T20.Other'}}</div>{{/if}}
 	</li>
-	<li>
-		{{#if mostrarBonusTreino}}
-		<small>{{ localize 'T20.SkillTrainBonus'}}: +{{system.attributes.treino}}</small>
-		{{/if}}
+	{{#if mostrarBonusTreino}}
+	<li class="skill">
+		<div class="item-total">
+			<small>{{ localize 'T20.SkillTrainBonus'}}: +{{system.attributes.treino}}</small>
+		</div>
 	</li>
+	{{/if}}
 	{{#each skills as |skill key|}}
 	{{#if (eq skill.key "ofi0")}}
 	<li class="skill flexrow">
@@ -21,7 +23,7 @@
 		<div class="item-total"></div>
 		{{#if ../editarPericias}}
 		<div class="item-mod">
-			<a class="item-control skill-create" title="{{ localize 'T20.Add'}} {{ localize 'T20.SkillOfic'}}" data-tipo="oficio"><i class="fas fa-plus"></i> {{ localize 'T20.Add'}}</a>
+			<a class="item-control skill-create" title="{{ localize 'T20.Add'}} {{ localize 'T20.SkillOfic'}}" data-tipo="oficio"><i class="fa-solid fa-plus"></i> {{ localize 'T20.Add'}}</a>
 		</div>
 		<div class="item-outros">
 			<a class="item-control show-controls" title="{{ localize 'T20.Edit'}} {{ localize 'T20.Skills'}}"><i class="fas fa-cogs"></i></a>
@@ -35,7 +37,7 @@
 		<div class="item-name">{{ localize 'T20.New'}} {{ localize 'T20.Skill'}}</div>
 		<div class="item-total"></div>
 		<div class="item-mod">
-			<a class="item-control skill-create" title="{{ localize 'T20.Add'}} {{ localize 'T20.Skill'}}" data-tipo="pericia"><i class="fas fa-plus"></i> {{ localize 'T20.Skill'}}</a>
+			<a class="item-control skill-create" title="{{ localize 'T20.Add'}} {{ localize 'T20.Skill'}}" data-tipo="pericia"><i class="fa-solid fa-plus"></i> {{ localize 'T20.Add'}}</a>
 		</div>
 		<div class="item-outros">
 			<a class="item-control show-controls" title="{{ localize 'T20.Edit'}} {{ localize 'T20.Skills'}}"><i class="fas fa-cogs"></i></a>

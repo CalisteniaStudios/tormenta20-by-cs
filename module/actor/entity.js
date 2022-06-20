@@ -98,7 +98,7 @@ export default class ActorT20 extends Actor {
 
 		const gameSystem = game.settings.get("tormenta20", "gameSystem");
 		if ( gameSystem == "Skyfall" ){
-			if( !system.resources || isEmpty(system.resources) ){
+			if( !system.resources || isEmpty(system.resources) || system.resources.zara ){
 				const resources = {};
 				resources.deathsave = {name: T20.resources['deathsave'], min:0, max:3, value:0};
 				resources.shadow = {name: T20.resources['shadow'], min:0, max:5, value:0};
@@ -573,9 +573,9 @@ export default class ActorT20 extends Actor {
 				});
 				// delete skills.mist;
 				const resources = {};
-				resources.deathsave = {name: T20.resources[deathsave], min:0, max:3, value:0};
-				resources.shadow = {name: T20.resources[shadow], min:0, max:5, value:0};
-				resources.inspiration = {name: T20.resources[inspiration], min:0, max:3, value:0};
+				resources.deathsave = {name: T20.resources['deathsave'], min:0, max:3, value:0};
+				resources.shadow = {name: T20.resources['shadow'], min:0, max:5, value:0};
+				resources.inspiration = {name: T20.resources['inspiration'], min:0, max:3, value:0};
 				
 				this.update({ "data.pericias": skills, "data.pericias": resources });
 				break;

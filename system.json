@@ -10,7 +10,7 @@
   "author": "Vizael",
   "authors": [{"name": "Vizael"}],
   "esmodules": ["module/tormenta20.js"],
-  "styles": ["css/tormenta20.css","css/tormenta20-tabbed.css"],
+  "styles": ["tormenta20.css"],
   "scripts": [],
   "packs": [
     {

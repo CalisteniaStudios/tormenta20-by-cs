@@ -9,12 +9,11 @@
 		</div>
 		{{/if}}
 	</li>
-	<div class="poderes-scroll">
 	{{#each actor.poderes as |item id|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
 		<div class="item-name flexrow rollable flex2" data-label="{{item.name}}">
-		<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-			<h4>{{item.name}}</h4>
+			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+			<label>{{item.name}}</label>
 		</div>
 		<div class="item-type">
 			{{item.system.tipo}}{{#if item.system.subtipo}}: {{item.system.subtipo}}{{/if}}
@@ -42,5 +41,4 @@
 		{{/if}}
 	</li>
 	{{/each}}
-	</div>
 </ul>

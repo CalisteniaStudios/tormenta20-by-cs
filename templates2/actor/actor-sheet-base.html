@@ -24,8 +24,8 @@
 				</div>
 				
 				{{!-- Extra Resources --}}
-				{{#if system.resources.shadow }}
-				<div class="resources-extra">
+				{{#if (or system.resources.shadow system.resources.zara) }}
+				<div class="resource">
 					{{> "systems/tormenta20/templates2/partials/actor/resources-extra.html"}}
 				</div>
 				{{/if}}
@@ -65,14 +65,16 @@
 				{{> "systems/tormenta20/templates2/partials/actor/list-skills.html"}}
 
 				{{!-- Inventory General --}}
-				{{> "systems/tormenta20/templates2/partials/actor/list-general.html"}}
-				{{> "systems/tormenta20/templates2/partials/actor/currency.html"}}
-				{{> "systems/tormenta20/templates2/partials/actor/encumbrance.html"}}
+				<div class="inventory-list">
+					{{> "systems/tormenta20/templates2/partials/actor/list-general.html"}}
+					{{> "systems/tormenta20/templates2/partials/actor/currency.html"}}
+					{{> "systems/tormenta20/templates2/partials/actor/encumbrance.html"}}
+				</div>
 			</div>
 		</div>
 
 		{{!-- Biography Tab --}}
-		<div class="tab biography flexrow flex-between" data-group="primary" data-tab="journal">
+		<div class="tab journal flexrow flex-between" data-group="primary" data-tab="journal">
 			{{> "systems/tormenta20/templates2/partials/actor/journal.html"}}
 		</div>
 

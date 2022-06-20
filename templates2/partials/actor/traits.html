@@ -22,9 +22,9 @@
 </div>
 
 <div>
-	<label>
-		<a class="config-button" data-action="resistance" data-target="system.tracos.resistencias">{{ localize 'T20.Resistances'}}:</a>
-	</label>
+	<a class="config-button" data-action="resistance" data-target="system.tracos.resistencias">
+		<label>{{ localize 'T20.Resistances'}}:</label>
+	</a>
 	<ul class="trait-list">
 		{{#each system.tracos.resistencias as |v k|}}
 		{{#if v.imunidade }}

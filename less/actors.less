@@ -1,0 +1,898 @@
+@import "./variables.less";
+
+@actorNameHeight: 60px;
+
+.tormenta20.sheet.actor {
+
+  /* ----------------------------------------- */
+  /*  Shared Styles                            */
+  /* ----------------------------------------- */
+
+  .rollable:hover {
+    color: red;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+  }
+
+  font-size: 18px;
+  // Attribute Configuration
+  .trait-selector,
+  .config-button {
+    color: @colorOlive;
+    right: -6px;
+    top: -3px;
+    // font-size: 10px;
+    font-weight: normal;
+  }
+
+  /* ----------------------------------------- */
+  /*  Sheet Header                             */
+  /* ----------------------------------------- */
+  .sheet-header {
+
+    // Portrait Artwork
+    img.profile {
+      flex: 0 0 160px;
+      max-width: 160px;
+      height: 160px;
+    }
+
+    // Character Name
+    h1.charname {
+      flex: 1;
+      height: @actorNameHeight;
+      padding: 0;
+      input {
+        height: @actorNameHeight - 20px;
+        margin: 10px 0;
+      }
+    }
+
+    // Character Level
+    .header-exp {
+      flex: 0 0 150px;
+      margin-right: 3px;
+      height: @actorNameHeight;
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    // Character Summary
+    .summary {
+      height: 30px;
+      border-bottom: @borderGroove;
+      // font-size: 18px;
+      input, span {
+        display: block;
+        height: 24px;
+        line-height: 24px;
+      }
+      span {
+        margin-inline-start: 4px;
+        border-block-start: 1px solid transparent;
+      }
+      select {
+        position: relative;
+        top: -4px;
+      }
+    }
+
+    // Primary Attributes
+    .attributes {
+      flex: 0 0 100%;
+      margin: 0;
+
+      .attribute {
+        height: 70px;
+        margin: 0;
+        border: none;
+        border-right: @borderGroove;
+        border-radius: 0;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        .attribute-name {
+          position: relative;
+        }
+
+        .attribute-value {
+          height: 30px;
+          line-height: 30px;
+        }
+
+        .config-button {
+          position: absolute;
+          display: none;
+        }
+
+        &:hover .config-button {
+          display: block;
+        }
+
+        // Temporary HP
+        input.temphp {
+          width: 48%;
+        }
+
+        // Attribution Tooltip
+        .property-attribution {
+          min-width: 150px;
+          top: 50px;
+          font-family: Signika, sans-serif;
+          // font-size: 14px;
+          font-weight: normal;
+          line-height: 1rem;
+        }
+      }
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  General Styles                           */
+  /* ----------------------------------------- */
+
+  // Box Headers
+  h4.box-title {
+    height: 18px;
+    line-height: 16px;
+    margin: 4px 8px 2px;
+    .modesto();
+    // font-size: 18px;
+    color: @colorOlive;
+    border-bottom: 1px solid @colorFaint;
+    white-space: nowrap;
+  }
+
+  /* ----------------------------------------- */
+  /*  Attributes                               */
+  /* ----------------------------------------- */
+
+  .tab.attributes {
+    overflow: hidden;
+    align-items: flex-start;
+  }
+
+  ul.attributes {
+    flex: 0 0 60px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li.attribute {
+      // height: 70px;
+      margin: 0 5px 0 0;
+      border: @borderGroove;
+      border-radius: 4px;
+      text-align: center;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      .attribute-value {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 28px;
+        line-height: 28px;
+        .modesto();
+
+        > * {
+          font-weight: 400;
+          // font-size: 24px;
+        }
+
+        &.multiple input {
+          flex: 0 0 33%;
+        }
+      }
+
+      .attribute-footer {
+        flex: 0 0 18px;
+        margin-top: -1px;
+        line-height: 18px;
+        font-family: "Signika", sans-serif;
+        // font-size: 18px;
+        font-weight: 400;
+        white-space: nowrap
+      }
+      // Defense panel
+      
+    }
+  }
+
+  .inventory-equipment ul.attributes {
+    flex: 0 0 100px;
+    h1 {
+      border: unset;
+      margin: unset;
+    }
+    footer select {
+      // font-size: 1em;
+      height: auto;
+    }
+  }
+
+  .attributable {
+    position: relative;
+
+    &:hover .tooltip {
+      display: block;
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Ability Scores                           */
+  /* ----------------------------------------- */
+
+  .ability-scores {
+    flex: 0 0 auto;
+    align-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    .modesto();
+    border: @borderGroove;
+    border-radius: 3px;
+
+    h4.ability-name {
+      text-transform: uppercase;
+    }
+    h1 {
+      // font-size: 1.5rem;
+      border: none;
+      margin: unset;
+    }
+    .ability {
+      // height: 70px;
+      text-align: center;
+      border-bottom: @borderGroove;
+      position: relative;
+
+      input.ability-score {
+        height: 30px;
+        width: 36px;
+        margin: 0 auto;
+        line-height: 32px;
+        // font-size: 24px;
+      }
+
+      .config-button {
+        right: 2px;
+        top: 3px;
+        position: absolute;
+        display: none;
+      }
+
+      &:hover .config-button {
+        display: block;
+      }
+
+      .ability-modifiers {
+        height: 24px;
+        margin: -8px 0 0;
+
+        span.ability-mod,
+        span.ability-save {
+          flex: 0 0 24px;
+          height: 22px;
+          line-height: 22px;
+          // font-size: 16px;
+          border-top: @borderGroove;
+        }
+
+        span.ability-mod {
+          border-right: @borderGroove;
+        }
+
+        .ability-proficiency {
+          line-height: 30px;
+        }
+
+        span.ability-save {
+          border-left: @borderGroove;
+        }
+      }
+    }
+  }
+  
+
+  // Proficiency Toggle Buttons
+  .proficiency-toggle {
+    color: @colorBeige;
+    // font-size: 12px;
+  }
+  .proficient .proficiency-toggle {
+    color: @colorOlive;
+  }
+
+  .locked .proficiency-toggle {
+    color: @colorBeige;
+    text-shadow: none;
+    cursor: default;
+  }
+
+  /* ----------------------------------------- */
+  /*  Skills                                   */
+  /* ----------------------------------------- */
+
+  // ul.skills-list {
+  //   flex: 0 0 180px;
+  //   height: 440px;
+  //   list-style: none;
+  //   margin: 0 5px 0;
+  //   padding: 3px 0 2px;
+  //   border: @borderGroove;
+  //   border-radius: 3px;
+
+  //   li.skill {
+  //     height: 24px;
+  //     padding: 3px 2px;
+
+  //     &:nth-child(even) {
+  //       background: rgba(0, 0, 0, 0.05);
+  //     }
+
+  //     h4 {
+  //       flex: 1px;
+  //       margin: 0;
+  //       // font-size: 11px;
+  //       line-height: 18px;
+  //     }
+
+  //     .skill-proficiency {
+  //       flex: 0 0 16px;
+  //       line-height: 18px;
+  //     }
+
+  //     .skill-name-controls {
+  //       position: relative;
+
+  //       .config-button {
+  //         right: 3px;
+  //         top: 4px;
+  //         position: absolute;
+  //         display: none;
+  //       }
+
+  //       &:hover .config-button {
+  //         display: block;
+  //       }
+  //     }
+
+  //     .skill-ability {
+  //       flex: 0 0 26px;
+  //       text-transform: capitalize;
+  //     }
+
+  //     .skill-mod {
+  //       flex: 0 0 20px;
+  //     }
+
+  //     .skill-passive {
+  //       flex: 0 0 26px;
+  //       text-align: center;
+  //       color: @colorTan;
+  //     }
+  //   }
+  // }
+
+  /* ----------------------------------------- */
+  /*  Statuses                                 */
+  /* ----------------------------------------- */
+
+  .counters {
+    flex: none;
+    padding: 5px 0;
+    margin: 0;
+    border-bottom: @borderGroove;
+
+    .counter {
+      height: 20px;
+      line-height: 20px;
+
+      h4 {
+        flex: auto;
+        margin: 0;
+        // font-size: 13px;
+        font-weight: bold;
+        color: @colorOlive;
+      }
+
+      .counter-value {
+        flex: none;
+        text-align: right;
+        > * {
+          display: inline;
+        }
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        height: 20px;
+        max-width: 20px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      input[type="checkbox"] {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        margin: 0;
+        top: 4px;
+      }
+      span.sep {
+        // font-size: 12px;
+      }
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Traits                                   */
+  /* ----------------------------------------- */
+
+  .center-pane {
+    height: 100%;
+    padding: 0 5px 0 3px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .traits {
+    .form-group, .form-group-stacked {
+      margin: 0 0 3px 0;
+      justify-content: space-between;
+    }
+
+    .trait-selector,
+    .config-button {
+      flex: initial;
+      font-size: 16px;
+      color: @colorDark;
+    }
+
+    label {
+      flex: none;
+      line-height: 20px;
+      font-weight: bold;
+      margin: 0 10px 0 0;
+    }
+
+    select {
+      max-width: 200px;
+      background-color: rgba(0, 0, 0, .05);
+    }
+
+    i.fas {
+      float: right;
+      margin-right: 3px;
+      text-align: right;
+      color: #999;
+
+      &:hover {
+        color: #111;
+        text-shadow: 0 0 10px red;
+      }
+    }
+
+    .inactive {
+      color: @colorTan;
+    }
+
+    div {
+      display: flex;
+    }
+    .trait-list {
+      margin: 0;
+      padding: 0 0 0 .5em;
+      .tag {
+        background-color: rgba(0, 0, 0, .05);
+      }
+      .speedtag {
+        list-style: none;
+        display: inline-flex;
+        text-transform: lowercase;
+        background-color: rgba(0, 0, 0, .05);
+        &:last-child::after{
+          content: "";
+        }
+        &:after{
+          content: ",";
+        }
+      }
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Inventory Lists                          */
+  /* ----------------------------------------- */
+
+  .tab.powers,
+  .tab.inventory,
+  .tab.spells {
+    overflow-y: hidden;
+  }
+
+  /* Inventory List Filters */
+  .inventory-filters {
+    margin: 0 8px;
+    flex: 0 0 20px;
+    justify-content: flex-end;
+  }
+
+  .inventory-list {
+    .currency {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      // font-size: 12px;
+
+      .currency-header {
+        flex: 0 0 13px;
+        text-align: center;
+        align-items: center;
+        margin-right: 0.5rem;
+      }
+      .currency-item {
+        display: flex;
+        align-items: center;
+        background: @colorFaint;
+        border-radius: 5px;
+        padding: 0 0.25rem 0 0;
+        margin-right: 0.5rem;
+        line-height: 30px;
+      }
+      label {
+        flex: unset;
+        font-size: 12px;
+      }
+      input {
+        text-align: right;
+        flex: 1;
+        padding-left: 0.25rem;
+        border: 0;
+        background: none;
+        margin: 0;
+      }
+    }
+  }
+
+  // Inventory item lists
+  .item-list {
+    padding: 0 5px;
+    margin: 5px 0;
+    background-color: @colorFaint;
+    border-radius: 10px;
+    font-size: 16px;
+    .item * {
+      align-items: center;
+    }
+    .item {
+      
+      &:first-child {
+        font-weight: bold;
+      }
+
+      align-items: center;
+      .item-name {
+        cursor: pointer;
+        .item-image {
+          flex: 0 0 30px;
+          height: 30px;
+          background-size: cover;
+          margin-right: 3px;
+        }
+        &.rollable:hover {
+          color: red;
+          text-shadow: 0 0 10px red;
+          cursor: pointer;
+        }
+        &.rollable:hover .item-image {
+          background-image: url("../../icons/svg/d20-grey.svg") !important;
+        }
+        &.rollable .item-image:hover {
+          background-image: url("../../icons/svg/d20-black.svg") !important;
+        }
+      }
+
+      // Item uses
+      .item-uses input {
+        width: 24px;
+        text-align: center;
+      }
+
+      // Item Dropdown Properties
+      .item-properties {
+        margin-top: 3px;
+      }
+
+      // Defense
+      .item-def {
+        flex: 0 0 70px;
+      }
+      // Charged
+      .item-recharge {
+        flex: 0 0 80px;
+        text-align: right;
+        // font-size: 11px;
+        white-space: nowrap;
+      }
+    }
+
+    
+    // Inventory Header
+    .item-header {
+      line-height: 24px;
+      .item-controls a.item-create {
+        flex: 0 0 100%;
+      }
+    }
+
+    // Item Detail Sections
+    .item-detail {
+      flex: 0 0 70px;
+      // font-size: 12px;
+      text-align: center;
+      border-right: 1px solid @colorFaint;
+      word-break: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      &:last-child { border-right: none; }
+      &.item-action {flex: 0 0 100px}
+      &.attunement {flex: 0 0 24px}
+    }
+
+    .item-qty,
+    .item-weight {
+      text-align: center;
+      flex: 0 0 40px;
+      border-left: 1px solid @colorFaint;
+      border-right: 1px solid @colorFaint;
+    }
+
+    // Item Control Buttons
+    .item-controls {
+      flex: 0 0 44px;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    // Item Dropdown Summary
+    .item-summary {
+      flex: 0 0 100%;
+      // font-size: 12px;
+      line-height: 16px;
+      padding: 0.25em 0.5em;
+      color: @colorDark;
+      border-top: 1px solid @colorFaint;
+    }
+  }
+
+  // Inventory item lists
+  .skills-list {
+    list-style: none;
+    margin: 0 5px 0;
+    padding: 3px 0 2px;
+    border: @borderGroove;
+    border-radius: 3px;
+    font-size: 16px;
+
+    .item-header {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .skill {
+      &:nth-child(even) {
+        background: #c9c7b8;
+      }
+
+      *:not(.item-name) {
+        text-align: center;
+      }
+      align-items: center;
+      height: auto;
+      padding: 0 3px;
+      .item-image {
+        flex: 0 0 32px;
+      }
+      .item-name {
+        flex: 1;
+      }
+      .item-total {
+        flex: 0 0 48px;
+      }
+      .item-mod {
+        flex: 0 0 60px;
+      }
+      .item-outros {
+        flex: 0 0 48px;
+      }
+      input {
+        border: @borderGroove;
+        max-height: 23px;
+      }
+    }
+  }
+  // Especific rules
+  .inventory-weapons .item-list {
+    .item-qty,
+    .item-weight {
+      display: none;
+    }
+  }
+
+  /* Encumbrance Bar */
+  .encumbrance {
+    
+    // margin-right: 14px;
+    background: @colorTan;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .9) inset;
+
+    .encumbrance-bar {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      background: #6c8aa5;
+      height: calc(100% - 1px);
+      border: 1px solid #cde4ff;
+      border-radius: 4px;
+    }
+
+    .encumbrance-label {
+      display: block;
+      position: relative;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: #EEE;
+      text-shadow: 0 0 2px #000;
+    }
+
+    .encumbrance-breakpoint {
+      display: block;
+      position: absolute;
+      border: 4px solid transparent;
+      &.encumbrance-30 { left: 30% }
+    }
+
+    .arrow-up {
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid #666;
+      border-bottom-color: black;
+    }
+
+    .arrow-down {
+      top: 0;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid #666;
+      border-top-color: black;
+    }
+
+    &.encumbered {
+      .arrow-up { border-bottom: 4px solid #000; }
+      .arrow-down { border-top: 4px solid #000; }
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Spellbook                                */
+  /* ----------------------------------------- */
+
+  .spellcasting-ability {
+    flex: 0 0 240px;
+    margin: 0;
+    label, span {
+      flex: none;
+    }
+    input {
+      flex: 0 0 28px;
+      text-align: center;
+    }
+    select {
+      margin: 0 5px;
+      flex: 0 0 120px;
+    }
+  }
+
+  .spell-slots,
+  .spell-comps {
+    flex: none;
+    padding: 0 5px;
+    // font-size: 12px;
+    color: @colorTan;
+    border-right: 1px solid @colorFaint;
+  }
+
+  .spell-slots {
+    input {
+      display: inline;
+      max-width: 20px;
+    }
+    .sep {
+      // font-size: 13px;
+      font-weight: normal;
+    }
+  }
+
+  .spellbook .spell-uses {
+    padding-right: 5px;
+    text-align: right;
+    color: @colorTan;
+  }
+
+  .spell-school, .spell-action, .spell-target {
+    flex: 0 0 100px;
+    // font-size: 12px;
+    color: @colorTan;
+    text-align: center;
+    border-right: 1px solid @colorFaint;
+  }
+
+  .spell-component {
+    line-height: 14px;
+    &.tag {
+      display: inline-block;
+      text-align: center;
+      padding-top: 1px;
+      width: 16px;
+      color: @colorFaint;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid transparent;
+      border-radius: 8px;
+    }
+  }
+
+  // Empty spellbook controls
+  .spellbook-empty .item-controls { flex: 1; }
+
+  /* ----------------------------------------- */
+  /*  Features Tab                             */
+  /* ----------------------------------------- */
+
+  // Original class icon
+  .features i.original-class {
+    color: #4b4a44
+  }
+  .features .item-detail select {
+    max-width: 90%;
+  }
+
+  /* ----------------------------------------- */
+  /*  TinyMCE                                  */
+  /* ----------------------------------------- */
+
+  .editor {
+    padding: 0px;
+  }
+}
+
+#actor-flags {
+  .window-content {
+    overflow-y: hidden;
+  }
+  form {
+    height: 100%;
+  }
+  .form-body {
+    height: calc(100% - 40px);
+    padding-right: 8px;
+    margin-bottom: 4px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}

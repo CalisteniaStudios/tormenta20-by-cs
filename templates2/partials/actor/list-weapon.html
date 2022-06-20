@@ -8,9 +8,9 @@
 	</li>
 	{{#each actor.inventario.arma.items as |item id|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
-		<div class="item-name flexrow rollable ">
+		<div class="item-name flexrow rollable flex2">
 			<div class="item-image" tabindex="0" role="button" aria-label="{{item.name}}" style="background-image: url('{{item.img}}')"></div>
-			<h4>{{item.name}}</h4>
+			<label>{{item.name}}</label>
 		</div>
 		
 		<div class="item-rolls flex2">
@@ -24,7 +24,7 @@
 				{{item.system.qtd}}
 			{{/if}}
 		</div>
-		{{#if ../isCharacter}}<div class="item-weight">{{item.pesoTotal}}</div>{{/if}}
+		<div class="item-weight">{{item.pesoTotal}}</div>
 		<div class="item-controls">
 			{{#if (eq ../layout "tabbed")}}
 			<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >

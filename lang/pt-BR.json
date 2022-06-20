@@ -20,6 +20,7 @@
   "T20.Other": "Outros",
   "T20.Add": "Criar",
   "T20.Apply": "Aplicar",
+  "T20.Edit": "Editar",
   "T20.Configure": "Configurar",
   "T20.Delete": "Apagar",
   "T20.Favorite": "Favoritar",
@@ -39,7 +40,7 @@
   "T20.Effects": "Efeitos",
   "T20.AlwaysApply": "Aplicar Sempre",
 
-  
+  "T20.Class": "Classe",
 
   "T20.Inventory": "Inventário",
   "T20.Encumbrance": "Carga",
@@ -156,6 +157,10 @@
   "T20.UpdateSpellKeyAbility": "Atualizar Atributos das Magias",
   "T20.Background": "Origem",
   "T20.Deity": "Divindade",
+
+  "T20SK.ResourceDeathSave": "Falha na Morte",
+  "T20SK.ResourceShadow": "Pontos de Sombra",
+  "T20SK.ResourceInspiration": "Inspiração",
 
   "T20.Attack": "Ataque",
   "T20.Attacks": "Ataques",

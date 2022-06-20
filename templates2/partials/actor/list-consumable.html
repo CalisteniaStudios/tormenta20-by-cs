@@ -11,16 +11,16 @@
 	<li class="item flexrow" data-item-id="{{item._id}}">
 		<div class="item-name flexrow rollable">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-			<h4>{{item.name}}</h4>
+			<label>{{item.name}}</label>
 		</div>
-		<div class="item-qtd">
+		<div class="item-qty">
 			{{#if ../owner}}
 			<input type="text" data-dtype="Number" placeholder="0" classe="item-qtd" value="{{item.system.qtd}}" >
 			{{else}}
 				{{item.system.qtd}}
 			{{/if}}
 		</div>
-		{{#if ../isCharacter}}<div class="item-peso">{{item.pesoTotal}}</div>{{/if}}
+		<div class="item-weight">{{item.pesoTotal}}</div>
 		<div class="item-controls">
 			{{#if (eq ../layout "tabbed")}}
 			<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >

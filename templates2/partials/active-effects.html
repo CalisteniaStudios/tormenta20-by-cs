@@ -1,18 +1,18 @@
-<ol class="item-list effects-list">
+<ol class=" effects-list">
 	{{#each effects as |section sid|}}
 	<li class="items-header flexrow" data-effect-type="{{section.type}}">
 		<h3 class="item-name effect-name flexrow">{{section.label}}</h3>
 		{{#unless (eq sid "onuse")}}
-		<div class="effect-source">{{localize T20.Source}}</div>
-		<div class="effect-source">{{localize T20.Duration}}</div>
+		<div class="effect-source">{{localize 'T20.Source'}}</div>
+		<div class="effect-source">{{localize 'T20.Duration'}}</div>
 		{{/unless}}
 		<div class="item-controls effect-controls flexrow">
-			<a class="effect-control" data-action="create" title="{{localize T20.Add}} {{localize T20.Effect}}">
-				<i class="fas fa-plus"></i> {{localize T20.Add}}
+			<a class="effect-control" data-action="create" title="{{localize 'T20.Add'}} {{localize 'T20.Effect'}}">
+				<i class="fas fa-plus"></i> {{localize 'T20.Add'}}
 			</a>
 		</div>
 	</li>
-	<ol class="item-list {{#if (and ../actor (eq section.type 'onuse'))}}flexrow{{/if}} ae-{{section.type}}">
+	<ol class="effects-list {{#if (and ../actor (eq section.type 'onuse'))}}flexrow{{/if}} ae-{{section.type}}">
 		{{#each section.effects as |effect|}}
 		<li class="item effect flexrow" data-effect-id="{{effect.id}}" data-action="edit">
 			<div class="item-name effect-name flexrow">
@@ -23,9 +23,9 @@
 				<h4 class="item-name"><b>
 				{{effect.flags.tormenta20.custo}}
 
-				{{#if (and (eq effect.flags.tormenta20.custo "") (eq ../../item.type "magia"))}}{{localize T20.Cantrip}}:
+				{{#if (and (eq effect.flags.tormenta20.custo "") (eq ../../item.type "magia"))}}{{localize 'T20.Cantrip'}}:
 				{{else if (eq effect.flags.tormenta20.custo "")}}—
-				{{else}}{{localize T20.MP}}:{{/if}}
+				{{else}}{{localize 'T20.MP'}}:{{/if}}
 				</b>
 				{{effect.label}}</h4>
 				{{/unless}}
@@ -34,7 +34,7 @@
 			<div class="effect-source">{{effect.sourceName}}</div>
 			<div class="effect-duration">
 				{{#if effect.flags.tormenta20.durationScene}}
-				{{localize T20.TimeScene}}
+				{{localize 'T20.TimeScene'}}
 				{{else}}
 				{{effect.duration.label}}
 				{{/if}}
