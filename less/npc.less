@@ -4,8 +4,65 @@
 /*  Basic Structure                          */
 /* ----------------------------------------- */
 .tormenta20.sheet.actor.npc {
-  min-width: 600px;
+  min-width: 500px;
   min-height: 680px;
+
+  font-size: 14px;
+  .tab.sheet {
+    label {
+      font-size: 14px;
+      color: red;
+    }
+  }
+
+  .sheet-header {
+    // flex-direction: column;
+    max-height: 56px;
+    display: unset;
+    flex-direction: unset;
+    flex-wrap: unset;
+    justify-content: unset; // flex-start;
+    align-items: center;
+    
+    label {
+      font-size: 14px;
+      color: red;
+    }
+
+    .general-information {
+      .charlevel {
+        label {
+          text-align: right;
+        }
+      }
+    }
+
+    li {
+      align-items: center;
+      white-space: nowrap;
+      line-height: unset;
+      height: unset;
+      margin: unset;
+    }
+    
+    .summary select {
+      position: unset;
+      top: unset;
+    }
+
+  }
+  
+  .attributes {
+    .defense {
+      .attribute-value {
+        h1 {
+          font-size: 18px;
+          border: unset;
+          margin: unset;
+        }
+      }
+    }
+  }
 
   .header-exp {
     flex: 0 0 80px;
@@ -54,6 +111,62 @@
       }
       &:hover .config-button {
         display: block;
+      }
+    }
+  }
+  
+  nav.secondary {
+    font-size: 16px;
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .sheet-body {
+    min-width: 100%;
+  }
+
+  .statblock {
+    * {font-size: 0.75rem;}
+
+    hr {
+      margin: 7px 0px;
+    }
+    .title-row {
+      aside span,
+      h2 {
+        font-size: initial;
+        border: none;
+      }
+      
+      text-transform: uppercase;
+      color: crimson;
+    }
+    label {
+      color: crimson;
+      font-weight: bold;
+    }
+    .trait-list {
+      list-style: none;
+      display: inline-flex;
+      margin: 0;
+    }
+
+    .item-list {
+      list-style: none;
+      background-color: unset;
+      padding: 0;
+      overflow-y: unset;
+
+      .item-name h4.item-name {
+        margin: 0;
+      }
+
+      .magias .item-list {
+        display: inline;
+      }
+      .magias .item {
+        display: inline;
+        font-weight: 400;
       }
     }
   }

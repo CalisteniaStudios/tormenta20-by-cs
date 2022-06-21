@@ -45,7 +45,7 @@
   src: url('../fonts/Iowan Old Style.tcc') format('tcc');
 }
 .modesto {
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
@@ -241,7 +241,7 @@
   padding: 2px 0;
   border-top: 2px groove #eeede0;
   border-bottom: 2px groove #eeede0;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
@@ -384,7 +384,7 @@
   /* Header Summary Details */
 }
 .tormenta20.sheet .sheet-header .header-details {
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
@@ -392,7 +392,7 @@
   width: 100%;
   height: 100%;
   border: 0;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   text-transform: capitalize;
@@ -443,7 +443,7 @@
 .tormenta20.sheet .sheet-tabs {
   flex: 0 0 30px;
   margin-bottom: 5px;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
@@ -538,6 +538,10 @@
   white-space: nowrap;
   overflow-x: hidden;
 }
+.tormenta20 .effects-list.ae-onuse .item.effect {
+  min-width: 45%;
+  max-width: 50%;
+}
 .tormenta20 .effects-list .item-controls {
   flex: 0 0 60px;
   justify-content: space-between;
@@ -545,10 +549,6 @@
 .tormenta20 .effects-list .item-controls a {
   font-size: 12px;
   text-align: center;
-}
-.tormenta20 .effects-list .effect {
-  min-width: 45%;
-  max-width: 50%;
 }
 .tormenta20 .effects-list .item {
   align-items: center;
@@ -584,7 +584,7 @@
 }
 .tormenta20 .effects-list .items-header h3 {
   padding-left: 5px;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   text-align: left;
@@ -730,6 +730,8 @@
   /* ----------------------------------------- */
   /*  Shared Styles                            */
   /* ----------------------------------------- */
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   font-size: 18px;
   /* ----------------------------------------- */
   /*  Sheet Header                             */
@@ -860,7 +862,7 @@
   height: 18px;
   line-height: 16px;
   margin: 4px 8px 2px;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #4b4a44;
@@ -892,7 +894,7 @@
   align-items: center;
   height: 28px;
   line-height: 28px;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
@@ -932,7 +934,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   border: 2px groove #eeede0;
@@ -1416,164 +1418,13 @@
   overflow-y: auto;
   scrollbar-width: thin;
 }
-.tormenta20.advancement {
-  /* ----------------------------------------- */
-  /*  Advancement Selection                    */
-  /* ----------------------------------------- */
-  /* ----------------------------------------- */
-  /*  Two Column Configurations                */
-  /* ----------------------------------------- */
-  /* ----------------------------------------- */
-  /*  Scale Value                              */
-  /* ----------------------------------------- */
-}
-.tormenta20.advancement input[type="text"],
-.tormenta20.advancement input[type="number"],
-.tormenta20.advancement select {
-  height: var(--form-field-height);
-}
-.tormenta20.advancement .form-group .form-fields button {
-  flex: 0;
-}
-.tormenta20.advancement .form-group .form-field-readonly {
-  color: #999;
-}
-.tormenta20.advancement .items-list {
-  margin-bottom: 1em;
-  /* Solves the borders being cut off */
-}
-.tormenta20.advancement .items-list li.item {
-  padding-top: 0.25em;
-}
-.tormenta20.advancement .items-list .item-hint {
-  flex: 0 1 100%;
-  margin-left: 35px;
-  margin-bottom: 0.5em;
-}
-.tormenta20.advancement .items-list .entity-link {
-  display: inline-block;
-}
-.tormenta20.advancement .centered {
-  text-align: center;
-}
-.tormenta20.advancement.two-column {
-  --grid-two-column-left-size: 1fr;
-  --grid-two-column-right-size: 1fr;
-}
-.tormenta20.advancement.two-column form {
-  display: grid;
-  grid-template-columns: var(--grid-two-column-left-size) var(--grid-two-column-right-size);
-  grid-template-areas: "left right";
-  grid-gap: 0.4em;
-}
-.tormenta20.advancement.two-column form .left-column {
-  grid-area: left;
-}
-.tormenta20.advancement.two-column form .right-column {
-  grid-area: right;
-}
-.tormenta20.advancement.two-column form button[type="submit"] {
-  grid-column-end: span 2;
-}
-.tormenta20.advancement.scale-value {
-  --grid-two-column-right-size: 0.6fr;
-}
-.tormenta20.advancement.scale-value .right-column label {
-  flex: 0.5;
-  padding-right: 0.5rem;
-  text-align: right;
-}
-.tormenta20.advancement.scale-value input[type="text"]::placeholder {
-  opacity: 0.5;
-}
-.tormenta20.advancement.scale-value select.new-scale-value {
-  font-weight: bold;
-}
-.tormenta20.advancement.scale-value select option[value=""] {
-  color: var(--color-text-light-6);
-}
-/* ----------------------------------------- */
-/*  Advancement Flow                         */
-/* ----------------------------------------- */
-.tormenta20.advancement.flow .step {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.tormenta20.advancement.flow .step h1 {
-  flex-grow: 1;
-}
-.tormenta20.advancement.flow .step h2 {
-  text-align: right;
-  line-height: 1.8em;
-  border-bottom: 2px solid var(--color-underline-header);
-}
-.tormenta20.advancement.flow .step form {
-  flex-basis: 100%;
-}
-.tormenta20.advancement.flow h3 {
-  font-size: var(--font-size-20);
-}
-.tormenta20.advancement.flow .item-name .item-image {
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
-  margin-inline-end: 5px;
-}
-.tormenta20.advancement.flow .item-name label {
-  align-items: center;
-}
-.tormenta20.advancement.flow .item-name label h4 {
-  margin: 0;
-  font-size: 0.9rem;
-}
-.tormenta20.advancement.flow form:not(:last-of-type) {
-  margin-block-end: 0.5em;
-  border-block-end: 2px groove var(--color-border-light-1);
-  padding-block-end: 1em;
-}
-.tormenta20.advancement.flow form[data-type="HitPoints"] div {
-  font-size: var(--font-size-14);
-}
-.tormenta20.advancement.flow form[data-type="HitPoints"] .rolls {
-  display: grid;
-  grid-template-columns: 50% 1fr 1fr;
-  align-items: center;
-  gap: 2px;
-}
-.tormenta20.advancement.flow form[data-type="HitPoints"] .rolls .averageLabel span,
-.tormenta20.advancement.flow form[data-type="HitPoints"] .rolls .averageLabel input {
-  vertical-align: middle;
-}
-.tormenta20.advancement.flow form[data-type="HitPoints"] .rolls .rollResult {
-  text-align: center;
-}
-.tormenta20.advancement.flow form[data-type="HitPoints"] .rolls .rollButton {
-  height: calc(var(--form-field-height) + 5px);
-  line-height: 1.5em;
-}
-.tormenta20.advancement.flow input.error {
-  outline: 2px solid red;
-}
-.tormenta20.advancement.flow form[data-type="ScaleValue"] p {
-  margin-block-end: 0;
-  font-size: var(--font-size-18);
-}
-.tormenta20.advancement.flow form[data-type="ScaleValue"] span.none {
-  font-style: italic;
-}
-.tormenta20.advancement.flow nav {
-  display: flex;
-  justify-content: flex-end;
-  margin-block-start: 1em;
-}
-.tormenta20.advancement.flow nav button {
-  max-width: 50%;
-}
 .tormenta20.sheet.item {
   min-height: 400px;
   max-height: 95%;
   min-width: 480px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
   /* ----------------------------------------- */
   /*  Sheet Header                             */
   /* ----------------------------------------- */
@@ -1585,9 +1436,6 @@
   /* ----------------------------------------- */
   /* ----------------------------------------- */
   /*  Item Actions                             */
-  /* ----------------------------------------- */
-  /* ----------------------------------------- */
-  /*  Item Advancement                         */
   /* ----------------------------------------- */
   /* ----------------------------------------- */
   /*  Loot Sheet (No Tabs)                     */
@@ -1626,6 +1474,7 @@
 }
 .tormenta20.sheet.item .sheet-body {
   overflow: hidden;
+  font-size: 14px;
 }
 .tormenta20.sheet.item .sheet-body .tab {
   padding: 0 5px;
@@ -1641,7 +1490,8 @@
   margin: 0;
 }
 .tormenta20.sheet.item .sheet-body .item-properties .form-group label {
-  line-height: 20px;
+  line-height: 18px;
+  font-size: 14px;
 }
 .tormenta20.sheet.item .sheet-body .item-properties .form-group input {
   text-align: right;
@@ -1665,6 +1515,13 @@
   color: #4b4a44;
   margin: 0.5em 0 0 0;
   font-size: 1em;
+}
+.tormenta20.sheet.item .sheet-body .form-group {
+  margin: 0;
+}
+.tormenta20.sheet.item .sheet-body .form-group label {
+  line-height: 18px;
+  font-size: 14px;
 }
 .tormenta20.sheet.item .details input[type="text"],
 .tormenta20.sheet.item .details input[type="number"],
@@ -1748,64 +1605,8 @@
   text-align: right;
   color: #7a7971;
 }
-.tormenta20.sheet.item .recharge.form-group span {
-  text-align: right;
-  padding-right: 3px;
-}
-.tormenta20.sheet.item .recharge.form-group input[type="text"] {
-  flex: 0 0 32px;
-  text-align: center;
-}
-.tormenta20.sheet.item .recharge.form-group label.checkbox {
-  flex: none;
-}
-.tormenta20.sheet.item .recharge.form-group label.checkbox input {
-  width: 16px;
-  height: 16px;
-  top: 4px;
-}
 .tormenta20.sheet.item .weapon-properties label.checkbox {
   flex: 0 0 98px;
-}
-.tormenta20.sheet.item .advancement .items-list .main-controls .configuration-mode-control {
-  flex: 1 0;
-  margin-inline-start: 0.5em;
-}
-.tormenta20.sheet.item .advancement .items-list .main-controls .configuration-mode-control a {
-  text-align: inline-start;
-}
-.tormenta20.sheet.item .advancement .items-list .main-controls .item-add {
-  padding-block-start: 0.2em;
-}
-.tormenta20.sheet.item .advancement .items-list .items-header .item-checkmark {
-  flex: 0 0 44px;
-  color: #119111;
-}
-.tormenta20.sheet.item .advancement .items-list .items-header .item-warning {
-  flex: 0 0 44px;
-  color: #faff23;
-}
-.tormenta20.sheet.item .advancement .items-list .item-name {
-  flex: 1 0 10em;
-}
-.tormenta20.sheet.item .advancement .items-list .item-controls {
-  border-left: 1px solid #c9c7b8;
-  flex: 0 0 44px;
-}
-.tormenta20.sheet.item .advancement .items-list .item-summary {
-  flex: 0 0 100%;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 0 0.5em 0.5em 34px;
-  margin-top: -4px;
-  color: #191813;
-}
-.tormenta20.sheet.item .advancement .items-list .item-summary .item-list .item-name {
-  display: flex;
-}
-.tormenta20.sheet.item .advancement .items-list .tag {
-  font-size: 0.7rem;
-  padding: 0.1em 0.5em;
 }
 .tormenta20.sheet.item .loot-header {
   margin-bottom: 10px;
@@ -1830,7 +1631,7 @@
   flex: 1;
   margin: 0;
   line-height: 36px;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #4b4a44;
@@ -2170,7 +1971,7 @@
 }
 .tormenta20.sheet.actor.character .characteristics label {
   flex: 0 0 20px;
-  font-family: "Signika", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   font-weight: normal;
@@ -2189,8 +1990,44 @@
 /*  Basic Structure                          */
 /* ----------------------------------------- */
 .tormenta20.sheet.actor.npc {
-  min-width: 600px;
+  min-width: 500px;
   min-height: 680px;
+  font-size: 14px;
+}
+.tormenta20.sheet.actor.npc .tab.sheet label {
+  font-size: 14px;
+  color: red;
+}
+.tormenta20.sheet.actor.npc .sheet-header {
+  max-height: 56px;
+  display: unset;
+  flex-direction: unset;
+  flex-wrap: unset;
+  justify-content: unset;
+  align-items: center;
+}
+.tormenta20.sheet.actor.npc .sheet-header label {
+  font-size: 14px;
+  color: red;
+}
+.tormenta20.sheet.actor.npc .sheet-header .general-information .charlevel label {
+  text-align: right;
+}
+.tormenta20.sheet.actor.npc .sheet-header li {
+  align-items: center;
+  white-space: nowrap;
+  line-height: unset;
+  height: unset;
+  margin: unset;
+}
+.tormenta20.sheet.actor.npc .sheet-header .summary select {
+  position: unset;
+  top: unset;
+}
+.tormenta20.sheet.actor.npc .attributes .defense .attribute-value h1 {
+  font-size: 18px;
+  border: unset;
+  margin: unset;
 }
 .tormenta20.sheet.actor.npc .header-exp {
   flex: 0 0 80px;
@@ -2238,6 +2075,54 @@
 }
 .tormenta20.sheet.actor.npc .summary .creature-type:hover .config-button {
   display: block;
+}
+.tormenta20.sheet.actor.npc nav.secondary {
+  font-size: 16px;
+  flex: 0 0 100%;
+  width: 100%;
+}
+.tormenta20.sheet.actor.npc .sheet-body {
+  min-width: 100%;
+}
+.tormenta20.sheet.actor.npc .statblock * {
+  font-size: 0.75rem;
+}
+.tormenta20.sheet.actor.npc .statblock hr {
+  margin: 7px 0px;
+}
+.tormenta20.sheet.actor.npc .statblock .title-row {
+  text-transform: uppercase;
+  color: crimson;
+}
+.tormenta20.sheet.actor.npc .statblock .title-row aside span,
+.tormenta20.sheet.actor.npc .statblock .title-row h2 {
+  font-size: initial;
+  border: none;
+}
+.tormenta20.sheet.actor.npc .statblock label {
+  color: crimson;
+  font-weight: bold;
+}
+.tormenta20.sheet.actor.npc .statblock .trait-list {
+  list-style: none;
+  display: inline-flex;
+  margin: 0;
+}
+.tormenta20.sheet.actor.npc .statblock .item-list {
+  list-style: none;
+  background-color: unset;
+  padding: 0;
+  overflow-y: unset;
+}
+.tormenta20.sheet.actor.npc .statblock .item-list .item-name h4.item-name {
+  margin: 0;
+}
+.tormenta20.sheet.actor.npc .statblock .item-list .magias .item-list {
+  display: inline;
+}
+.tormenta20.sheet.actor.npc .statblock .item-list .magias .item {
+  display: inline;
+  font-weight: 400;
 }
 .tormenta20.sheet.actor.vehicle {
   min-width: 720px;

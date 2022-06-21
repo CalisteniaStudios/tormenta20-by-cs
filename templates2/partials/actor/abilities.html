@@ -1,7 +1,7 @@
 <ul class="ability-scores {{#if (eq layout 'tabbed')}}flexcol{{else}}flexrow{{/if}}">
 	{{#each system.atributos as |atr key|}}
 	<li class="ability" data-item-id="{{key}}">
-		<h4 class="ability-name box-title rollable atributo-rollable">{{key}}</h4>
+		<h4 class="ability-name box-title rollable atributo-rollable">{{localize (lookup ../config.atributosAbr key)}}</h4>
 		<span class="rollable atributo-rollable">
 			<h1>{{numberFormat atr.mod decimals=0 sign=true}}</h1>
 		</span>

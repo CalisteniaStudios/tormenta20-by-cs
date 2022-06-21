@@ -132,16 +132,15 @@ export default class ItemT20 extends Item {
 		}
 		// Power
 		else if ( this.type === "poder" ){
-			if(system.ativacao && system.ativacao.execucao){
-				labels.tipo = system.subtipo;
-			}
+			labels.tipo = game.i18n.localize(T20.powerType[system.tipo]);
+			labels.subtipo = system.subtipo;
 		}
 		// Equipment
 		else if ( this.type === "equipamento"){
 			labels.armadura = system.armadura.valor ? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
 		}
 
-		// Ativation
+		// Activation
 		if ( system.hasOwnProperty("ativacao") ) {
 			let act = system.ativacao || {};
 			if ( act ) labels.ativacao = act.qtd

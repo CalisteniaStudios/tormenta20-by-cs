@@ -1,4 +1,6 @@
+{{#if isCharacter }}
 <h3 style="text-align: center;">{{ localize 'T20.ActionOthers'}} {{ localize 'T20.Attributes'}}</h3>
+{{/if}}
 <div>
 	<label>{{ localize 'T20.Size'}}</label>
 	<select class="actor-size" name="system.tracos.tamanho">
@@ -59,10 +61,10 @@
 		{{/each}}
 	</ul>
 </div>
-
 <hr>
+{{#if isCharacter }}
 <h3 style="text-align: center;">{{ localize 'T20.Proficiency'}}</h3>
-
+{{/if}}
 {{#if enableLanguages}}
 <div>
 	<a class="trait-selector" data-options="idiomas" data-target="system.tracos.idiomas">
@@ -76,6 +78,7 @@
 </div>
 {{/if}}
 
+{{#if isCharacter }}
 <div>
 	<a class="trait-selector" data-options="profArmas" data-target="system.tracos.profArmas">
 		<label style="display:inline-block;">{{ localize 'T20.Weapons'}}</label>
@@ -97,3 +100,4 @@
 		{{/each}}
 	</ul>
 </div>
+{{/if}}

@@ -2,7 +2,7 @@
 	<li class="item flexrow item-header">
 		<div class="item-name">{{localize 'T20.LootAndTreasures'}}</div>
 		<div class="item-qty">{{localize 'T20.QuantityAbbr'}}</div>
-		{{#if isCharacter}}<div class="item-weight">{{weightCol}}</div>{{/if}}
+		<div class="item-weight">{{weightCol}}</div>
 		<div class="item-controls">
 			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Treasure'}}" data-type="loot"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
 		</div>
@@ -20,7 +20,7 @@
 				{{item.system.qtd}}
 			{{/if}}
 		</div>
-		{{#if ../isCharacter}}<div class="item-weight">{{item.pesoTotal}}</div>{{/if}}
+		<div class="item-weight">{{item.pesoTotal}}</div>
 		<div class="item-controls">
 			{{#if (eq ../layout "tabbed")}}
 			<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >
