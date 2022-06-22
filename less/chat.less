@@ -101,3 +101,156 @@
     color: red;
   }
 }
+
+
+/* ################################################################ */
+/*                           Chat-Message                           */
+/* ################################################################ */
+.chat-message {
+  padding: 0;
+  .signika();
+
+  .message-header {
+    padding: 5px 5px 0px 5px;
+  }
+  
+  .chat-portrait {
+    max-width: 48px;
+    max-height: 48px;
+    object-fit: fill;
+    margin-right: 3px;
+  }
+
+  .message-header {
+    .whisper-to,
+    .flavor-text {
+      flex-shrink: inherit;
+    }
+    
+    .message-metadata {
+      display: none;
+      
+      &:hover .message-timestamp {
+        display: inline-block;
+      }
+    }
+  }
+  
+  button {
+    background: rgba(255, 255, 240, 0.8);
+    font-size: 14px;
+  }
+
+  &:hover {
+    .message-metadata {
+      display: inline-block;
+      float: right;
+    }
+    .message-metadata * + * {
+      margin: 0px 1px;
+    }
+    
+    .tormenta20.item-card .roll .dice-btn {
+      display: inline-block;
+    }
+  }
+  
+  .message-content {
+    padding: 0px 5px 5px 5px;
+  }
+}
+
+.tormenta20.item-card{
+  
+  .card-item-header p {
+    text-align: justify;
+  }
+
+  .card-header {
+    .item-name {
+      .signika();
+      min-width: 190px;
+      max-width: 190px;
+      font-size: 1.5em;
+    }
+  }
+  
+  .chat-spend-mana {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  
+  .dice-result button {
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    margin: 0;
+    color: black;
+  }
+  
+  .roll {
+    position: relative;
+
+    .dice-btn {
+      display: none;
+      z-index: 2;
+      position: absolute;
+      max-height: 26px;
+      
+      button {
+        border: 1px solid #782e22;
+        position: relative;
+        display: inline-block;
+        width: 28px;
+        height: 26px;
+      }
+      
+      &.right {
+        right: 0px;
+      }
+      &.left {
+        left: 0px;
+      }
+      &.formula {
+        top: 0px;
+      }
+      &.result {
+        bottom: 0px;
+      }
+    }
+  }
+
+  .card-item-effects a {
+    border: 1px solid #202124;
+    border-radius: 5px;
+    display: flex;
+    font-size: 14px;
+  }
+  
+  .card-item-template,
+  .card-item-effects {
+    button {
+      border: 2px groove var(--color-border-light-highlight);
+      background: rgba(0, 0, 0, 0.1);
+      padding: 0px;
+      text-align: left;
+    }
+
+    span,
+    button img {
+      width: 28px;
+      height: 28px;
+      background-color: #202124;
+      margin-right: 5px;
+      position: relative;
+      float: left;
+      color: white;
+      text-align: center;
+    }
+  }
+  
+}
+
+/* ################################################################ */
+/*                          /Chat-Message                           */
+/* ################################################################ */

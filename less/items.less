@@ -231,13 +231,19 @@
 
   .weapon-properties label.checkbox {
     flex: 0 0 98px;
+    white-space: nowrap;
   }
 
   /* ----------------------------------------- */
-  /*  Loot Sheet (No Tabs)                     */
+  /*  Active Effects                           */
   /* ----------------------------------------- */
 
-  .loot-header {
-    margin-bottom: 10px;
+  .effects-list {
+    .item-list {
+      padding: 0;
+      .effects {
+        line-height: normal;
+      }
+    }
   }
 }

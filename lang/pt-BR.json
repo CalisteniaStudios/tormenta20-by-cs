@@ -189,6 +189,9 @@
   "T20.Background": "Origem",
   "T20.Deity": "Divindade",
 
+  "T20.ResourcePrimary": "Recurso 1",
+  "T20.ResourceSecondary": "Recurso 2",
+  "T20.ResourceTertiary": "Recurso 3",
   "T20SK.ResourceDeathSave": "Falha na Morte",
   "T20SK.ResourceShadow": "Pontos de Sombra",
   "T20SK.ResourceInspiration": "Inspiração",

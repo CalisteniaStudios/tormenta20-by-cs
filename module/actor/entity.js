@@ -46,6 +46,12 @@ export default class ActorT20 extends Actor {
 	prepareData() {
 		super.prepareData();
 
+		const system = this.system;
+
+		for (let [key, resource] of Object.entries(system.resources)) {
+			resource.label = T20.resources[key];
+		}
+		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
 	}
@@ -96,19 +102,7 @@ export default class ActorT20 extends Actor {
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
 
-		const gameSystem = game.settings.get("tormenta20", "gameSystem");
-		if ( gameSystem == "Skyfall" ){
-			if( !system.resources || isEmpty(system.resources) || system.resources.zara ){
-				const resources = {};
-				resources.deathsave = {name: T20.resources['deathsave'], min:0, max:3, value:0};
-				resources.shadow = {name: T20.resources['shadow'], min:0, max:5, value:0};
-				resources.inspiration = {name: T20.resources['inspiration'], min:0, max:3, value:0};
-				system.resources = resources;
-			}
-			// TODO FIND MAX RESOURCE RULE
-		} else {
-			system.resources = {};
-		}
+		
 
 	}
 
@@ -572,12 +566,8 @@ export default class ActorT20 extends Actor {
 					ocul: { value: 0, atributo: "int" },
 				});
 				// delete skills.mist;
-				const resources = {};
-				resources.deathsave = {name: T20.resources['deathsave'], min:0, max:3, value:0};
-				resources.shadow = {name: T20.resources['shadow'], min:0, max:5, value:0};
-				resources.inspiration = {name: T20.resources['inspiration'], min:0, max:3, value:0};
 				
-				this.update({ "data.pericias": skills, "data.pericias": resources });
+				// this.update({ "system.pericias": skills });
 				break;
 			default:
 				// NO CHANGES;

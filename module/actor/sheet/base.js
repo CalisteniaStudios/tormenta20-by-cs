@@ -86,7 +86,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			botaoEditarItens: this.actor.getFlag("tormenta20", "sheet.botaoEditarItens"),
 			mostrarPlatina: this.actor.getFlag("tormenta20", "sheet.mostrarPlatina"),
 			editarPericias: this.actor.getFlag("tormenta20", "sheet.editarPericias"),
-			enableLanguages: game.settings.get("tormenta20", "enableLanguages")
+			enableLanguages: game.settings.get("tormenta20", "enableLanguages"),
+			gameSystem: game.settings.get("tormenta20", "gameSystem")
 		};
 		// The Actor and its Items
 		data.actor = this.actor.toObject(false);

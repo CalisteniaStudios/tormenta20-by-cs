@@ -83,7 +83,38 @@
           "tp": 0,
           "tc": 0
         },
-        "resources": {}
+        "resources": {
+          "primary": {
+            "value": 0,
+            "max": 0,
+            "label": ""
+          },
+          "secondary": {
+            "value": 0,
+            "max": 0,
+            "label": ""
+          },
+          "tertiary": {
+            "value": 0,
+            "max": 0,
+            "label": ""
+          },
+          "deathsave": {
+            "value": 0,
+            "max": 3,
+            "label": ""
+          },
+          "shadow": {
+            "value": 0,
+            "max": 5,
+            "label": ""
+          },
+          "inspiration": {
+            "value": 0,
+            "max": 3,
+            "label": ""
+          }
+        }
       },
       "creature": {
         "attributes": {
