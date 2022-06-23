@@ -1,5 +1,6 @@
 import TraitSelector from "../apps/trait-selector.js";
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../effects.js";
+import ItemT20 from "./entity.js";
 
 /**
 * Extend the basic ItemSheet with some very simple modifications
@@ -84,7 +85,15 @@ export default class ItemSheetT20 extends ItemSheet {
 		data.config = CONFIG.T20;
 
 		data.itemType = data.item.type.capitalize();
-		data.itemStatus = itemData.equipado ? game.i18n.localize('T20.Equipped') : itemData.preparada ? game.i18n.localize('T20.Prepared') : "";
+		if( this.item.type == 'classe' ){
+			data.itemStatus = itemData.inicial ? game.i18n.localize('T20.ClassOriginal') : "";
+		} else if ( this.item.type == 'equipamento' ) {
+			data.itemStatus = itemData.equipado ? game.i18n.localize('T20.Equipped') : "";
+		} else if ( this.item.type == 'magia' ){
+			data.itemStatus = itemData.preparada ? game.i18n.localize('T20.Prepared') : "";
+		}
+		console.log( data.itemStatus );
+
 		data.itemProperties = this._getItemProperties();
 		data.isPhysical = itemData.hasOwnProperty("qtd");
 		data.weightRule = game.settings.get("tormenta20", "weightRule");
@@ -339,10 +348,14 @@ export default class ItemSheetT20 extends ItemSheet {
 		itemData.img = "icons/sundries/scrolls/scroll-bound-black-tan.webp",
 		itemData.data.ativacao.custo = 0; 
 		itemData.data.tipo = "scroll";
-		this.actor.createEmbeddedDocuments("Item", [itemData]);
-		if( this.actor.type == "character" ){
-			let msg = `${this.actor.name} criou ${itemData.name}`;
-			ChatMessage.create({content:msg});
+		if( this.actor ){
+			this.actor.createEmbeddedDocuments("Item", [itemData]);
+			if( this.actor.type == "character" ){
+				let msg = `${this.actor.name} criou ${itemData.name}`;
+				ChatMessage.create({content:msg});
+			}
+		} else {
+			ItemT20.create(itemData);
 		}
 	}
 

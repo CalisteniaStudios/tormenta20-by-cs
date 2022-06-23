@@ -174,9 +174,9 @@
 <div>
 	<label>{{localize 'T20.Skills'}}: </label>
 	{{#each skills as |skill key|}}
-		{{#unless (or (eq key "perc") (eq key "inic") (eq key "fort") (eq key "refl") (eq key "vont"))}}
+		{{#unless (or (eq skill.key "perc") (eq skill.key "inic") (eq skill.key "fort") (eq skill.key "refl") (eq skill.key "vont"))}}
 			{{#if (or skill.treino skill.outros) }}
-			<span class="skill rollable pericia-rollable" data-item-id="{{key}}">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
+			<span class="skill rollable pericia-rollable" data-item-id="{{skill.key}}">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
 			{{/if}}
 		{{/unless}}
 	{{/each}}
@@ -206,31 +206,6 @@
 	{{#each system.detalhes.idiomas.selected as |v k|}}
 		{{v}}{{#unless @last}},{{/unless}}
 	{{/each}}
-	</ul>
-</div>
-{{/if}}
-{{#if (or system.dinheiro.to system.dinheiro.tp system.dinheiro.tc)}}
-<div class="inventory-currency">  
-	<ul class="currency">
-	<li class="currency-header" title="{{localize 'T20.Currency'}}">
-		<i class="fas fa-coins"></i>
-	</li>
-	<li class="currency-item" title="{{localize 'T20.CurrencyPlat'}}">
-		<span>{{system.dinheiro.tl}}</span>
-		<label for="system.dinheiro.tl" class="denomination gp">{{localize 'T20.CurrencyPlatAbbr'}}</label>
-	</li>
-	<li class="currency-item" title="{{localize 'T20.CurrencyGold'}}">
-		<span>{{system.dinheiro.to}}</span>
-		<label for="system.dinheiro.to" class="denomination gp">{{localize 'T20.CurrencyGoldAbbr'}}</label>
-	</li>
-	<li class="currency-item" title="{{localize 'T20.CurrencySilver'}}">
-		{{system.dinheiro.tp}}
-		<label for="system.dinheiro.tp" class="denomination sp">{{localize 'T20.CurrencySilverAbbr'}}</label>
-	</li>
-	<li class="currency-item" title="{{localize 'T20.CurrencyCopper'}}">
-		{{system.dinheiro.tc}}
-		<label for="system.dinheiro.tc" class="denomination cp">{{localize 'T20.CurrencyCopperAbbr'}}</label>
-	</li>
 	</ul>
 </div>
 {{/if}}

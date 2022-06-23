@@ -35,9 +35,9 @@
 						{{#select (lookup (lookup roll.parts 1) 0) }}
 							<option value="">{{ localize "T20.None" }}</option>
 							<optgroup label="Pardrões">
-								<option value="luta">{{ localize (lookup ../config.pericias luta)}}</option>
-								<option value="pont">{{ localize (lookup ../config.pericias pont)}}</option>
-								<option value="atua">{{ localize (lookup ../config.pericias atua)}}</option>
+								<option value="luta">{{ localize (lookup ../config.pericias 'luta')}}</option>
+								<option value="pont">{{ localize (lookup ../config.pericias 'pont')}}</option>
+								<option value="atua">{{ localize (lookup ../config.pericias 'atua')}}</option>
 							</optgroup>
 							<optgroup label="Outras Perícias">
 								{{#each ../config.pericias as |name type|}}
@@ -75,7 +75,7 @@
 	{{!-- [ dado, versatil, atributo, ...parts, tipo ] --}}
 	{{#if (eq roll.type "dano" ) }}
 		<div class="form-group">
-			<ol class="roll-parts form-group">
+			<ol class="roll-parts form-group flexcol">
 				{{#if (eq ../item.type "arma") }}
 					<li class="roll-part flexrow" data-roll-part="{{i}}">
 						<input type="text" name="system.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"

@@ -1482,6 +1482,31 @@
   padding: 0 0.25em;
   text-align: right;
 }
+.tormenta20.sheet.item .editor {
+  min-height: 15em;
+}
+.tormenta20.sheet.item .tox {
+  min-height: 15em;
+}
+.tormenta20.sheet.item .tox .tox-editor-header {
+  border-bottom: 1px solid var(--faint-color);
+  min-width: max-content;
+  background: unset;
+}
+.tormenta20.sheet.item .tox .tox-toolbar__group {
+  padding: 0;
+}
+.tormenta20.sheet.item .tox .tox-tbtn {
+  width: 24px;
+  height: 24px;
+}
+.tormenta20.sheet.item .tox .tox-tbtn--select {
+  width: auto;
+}
+.tormenta20.sheet.item .tox .tox-tbtn--bespoke {
+  width: 90px;
+  font-size: 12px;
+}
 .tormenta20.sheet.item nav.sheet-tabs {
   margin-bottom: 5px;
 }
@@ -1620,6 +1645,12 @@
   float: right;
   text-align: right;
   color: #7a7971;
+}
+.tormenta20.sheet.item .roll-parts {
+  flex-direction: column;
+}
+.tormenta20.sheet.item .roll-parts .roll-part {
+  width: 100%;
 }
 .tormenta20.sheet.item .weapon-properties label.checkbox {
   flex: 0 0 98px;
@@ -2007,6 +2038,17 @@
 .tormenta20.sheet.actor.character ul.skills-list li.skill {
   padding: 3px;
 }
+.tormenta20.sheet.actor.character ul.skills-list li.skill .item-name {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+.tormenta20.sheet.actor.character ul.skills-list li.skill .item-name .rollable {
+  min-width: 20%;
+}
+.tormenta20.sheet.actor.character ul.skills-list li.skill .item-name input {
+  text-align: left;
+}
 .tormenta20.sheet.actor.character ul.skills-list li.skill h4 {
   flex: 1px;
   margin: 0;
@@ -2142,6 +2184,31 @@
   font-size: 14px;
   color: red;
 }
+.tormenta20.sheet.actor.npc .tab.journal .editor {
+  min-height: 20rem;
+}
+.tormenta20.sheet.actor.npc .tox {
+  min-height: 20em;
+}
+.tormenta20.sheet.actor.npc .tox .tox-editor-header {
+  border-bottom: 1px solid var(--faint-color);
+  min-width: max-content;
+  background: unset;
+}
+.tormenta20.sheet.actor.npc .tox .tox-toolbar__group {
+  padding: 0;
+}
+.tormenta20.sheet.actor.npc .tox .tox-tbtn {
+  width: 24px;
+  height: 24px;
+}
+.tormenta20.sheet.actor.npc .tox .tox-tbtn--select {
+  width: auto;
+}
+.tormenta20.sheet.actor.npc .tox .tox-tbtn--bespoke {
+  width: 90px;
+  font-size: 12px;
+}
 .tormenta20.sheet.actor.npc .sheet-header {
   max-height: 56px;
   display: unset;
@@ -2227,6 +2294,24 @@
 }
 .tormenta20.sheet.actor.npc .sheet-body {
   min-width: 100%;
+}
+.tormenta20.sheet.actor.npc ul.skills-list li.skill {
+  padding: 3px;
+}
+.tormenta20.sheet.actor.npc ul.skills-list li.skill .item-name {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+.tormenta20.sheet.actor.npc ul.skills-list li.skill .item-name .rollable {
+  min-width: 20%;
+}
+.tormenta20.sheet.actor.npc ul.skills-list li.skill .item-name input {
+  text-align: left;
+}
+.tormenta20.sheet.actor.npc ul.skills-list li.skill h4 {
+  flex: 1px;
+  margin: 0;
 }
 .tormenta20.sheet.actor.npc .statblock * {
   font-size: 0.75rem;

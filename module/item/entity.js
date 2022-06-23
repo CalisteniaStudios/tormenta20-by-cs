@@ -451,11 +451,11 @@ export default class ItemT20 extends Item {
 	_onUpdate(changed, options, user){
 		super._onUpdate(changed, options, user);
 		// Set Initial Class
-		if( this.parent && this.type === "classe" && changed.data?.hasOwnProperty("inicial") ){
+		if( this.parent && this.type === "classe" && changed.system?.hasOwnProperty("inicial") ){
 			const classes = this.actor.items.filter(i => i.type === "classe" && i.id != this.id);
 			let updateItems;
 			// When set as initial, unset other classes
-			if( changed.data.inicial ){
+			if( changed.system.inicial ){
 				updateItems = classes.map(i => {
 					return {_id: i.id, "system.inicial": false};
 				});

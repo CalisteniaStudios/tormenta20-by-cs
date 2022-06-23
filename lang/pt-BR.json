@@ -26,6 +26,7 @@
   "T20.Favorite": "Favoritar",
   "T20.Unfavorite": "Desfavoritar",
   "T20.Toggle": "Alternar",
+  "T20.New": "Nova",
   
   "T20.Proficiency": "Proficiência",
   "T20.Languages": "Idiomas",
@@ -170,6 +171,7 @@
 
   "T20.S6": "/* -------------- ATTRIBUTES -------------- */",
   "T20.Level": "Nível",
+  "T20.Levels": "Níveis",
   "T20.AbbreviationLevel": "NVL",
   "T20.ChallengeRate": "Nível de Desafio",
   "T20.AbbreviationCR": "ND",
@@ -288,7 +290,7 @@
   "T20.ClassLevels": "Níveis de Classe",
   "T20.ClassHPLevels": "Pontos de Vida por Nível",
   "T20.ClassMPLevels": "Pontos de Mana por Nível",
-  "T20.ClassOriginal": "Classe Inicial",
+  "T20.ClassOriginal": "Inicial",
   "T20.ClassSkillsNumber": "Quantidade de Perícias Iniciais",
   "T20.ClassSkillsEligible": "Perícias de Classe",
   "T20.ClassSkillsChosen": "Perícias de Classe Escolhidas",
@@ -408,6 +410,9 @@
   "T20.WeaponPropertiesLgt": "Leve",
   "T20.WeaponPropertiesAmm": "Munição",
   "T20.WeaponPropertiesVer": "Versátil",
+
+  "T20.WeaponEnchantmentLan": "Lancinante",
+  "T20.WeaponEnchantmentLanHint": "Crítico multiplica valores fixos",
   
   "T20.ActivationCost": "Execução",
   "T20.Duration": "Duração",

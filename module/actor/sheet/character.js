@@ -64,7 +64,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		super.activateListeners(html);
 
 		// Item summaries
-		html.find('.item .item-name h4').click(event => this._onItemSummary(event));
+		html.find('.item .item-name').click(event => this._onItemSummary(event));
 		
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;

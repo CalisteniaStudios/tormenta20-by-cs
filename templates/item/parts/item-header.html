@@ -31,12 +31,12 @@
 			{{/if}}
 			{{#if (eq item.type "classe")}}
 				<li style="flex-grow: 3;">
-					{{#if isOwned }}
-						{{#if item.system.inicial }} {{ localize "T20.Initial" }} {{/if}}
+					{{#if false }}
+						{{#if item.system.inicial }} {{ localize "T20.ClassOriginal" }} {{/if}}
 						—
 						{{ localize "T20.Levels" }} {{  item.system.niveis  }}
 						—
-						{{ localize "T20.MaxManaCost" }} {{  item.system.inicial  }}
+						{{ localize "T20.MaxManaCost" }}: {{  item.system.niveis  }}
 					{{/if}}
 				</li>
 			{{/if}}

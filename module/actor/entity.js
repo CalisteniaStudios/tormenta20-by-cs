@@ -758,6 +758,7 @@ export default class ActorT20 extends Actor {
 	* @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
 	*/
 	async rollPericia(key, options = {message: true}) {
+		const actor = this;
 		const cloneActor = this.clone({name: `${this.name} (Temp)`}, {save: false});
 		let pericia = foundry.utils.deepClone( cloneActor.system.pericias[key] );
 		const ad = cloneActor.system;
@@ -805,21 +806,24 @@ export default class ActorT20 extends Actor {
 		}, rConfig);
 
 		let toInitiative = function(){
-			let combate = game.combats.active;
-			if (pericia.label == "Iniciativa" && combate) {
-				let roll = rConfig.itemData.rolled;
-				let combatente = combate.combatants.find(
-					(combatant) => combatant.actor.id === this.id
-				);
-				if (combatente && combatente.initiative === null) {
-					combate.setInitiative(combatente.id, roll.total);
-					console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
+			try {
+				let combate = game.combats.active;
+				if (pericia.label == "Iniciativa" && combate) {
+					let roll = rConfig.itemData.rolled;
+					let combatente = combate.combatants.find(
+						(combatant) => combatant.actor.id === actor.id
+					);
+					if (combatente && combatente.initiative === null) {
+						combate.setInitiative(combatente.id, roll.total);
+						console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
+					}
 				}
+			} catch (error) {
+				console.warn(`Foundry VTT | Erro ao adicionar a Iniciativa, ${combatente._id} (${combatente.actor.name})`);
 			}
 		}
 
 		// LOGS
-		console.log(options);
 		if( options.message ){
 			options = rConfig;
 			options.itemData.rolled = await d20Roll(rollConfig);

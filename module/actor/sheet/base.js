@@ -191,10 +191,10 @@ export default class ActorSheetT20 extends ActorSheet {
 
 			// Item management
 			html.find('.item-edit').click(this._onItemEdit.bind(this));
-			html.find('.item .item-name h4').on("contextmenu", this._onItemEdit.bind(this));
+			html.find('.item .item-name').on("contextmenu", this._onItemEdit.bind(this));
 			html.find('.item-create').click(this._onItemCreate.bind(this));
 			html.find('.item-delete').click(this._onItemDelete.bind(this));
-			html.find('.item-qtd input').click(ev => ev.target.select()).change(this._onQtyChange.bind(this));
+			html.find('.item-qty input').click(ev => ev.target.select()).change(this._onQtyChange.bind(this));
 			
 			
 			// Active Effect management
@@ -558,9 +558,10 @@ export default class ActorSheetT20 extends ActorSheet {
 	*/
 	async _onItemSummary(event) {
 		event.preventDefault();
-		let li = $(event.currentTarget).parents(".item"),
-		item = this.actor.items.get(li.data("item-id")),
-		chatData = await item.getChatData();
+		let li = $(event.currentTarget).parents(".item");
+		let item = this.actor.items.get(li.data("item-id"));
+		if( !item ) return;
+		let chatData = await item.getChatData();
 		// Toggle summary
 		if ( li.hasClass("expanded") ) {
 			let summary = li.children(".item-summary");
@@ -721,6 +722,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	 */
 	async _onOpenCompendiumEntry(event) {
 		if (["oficios","custom"].includes(event.currentTarget.dataset.type)) return;
+		if (!event.currentTarget.dataset.compendiumEntry) return;
 		const entryKey = event.currentTarget.dataset.compendiumEntry;
 		const parts = entryKey.split(".");
 		const packKey = parts.slice(0, 2).join(".");

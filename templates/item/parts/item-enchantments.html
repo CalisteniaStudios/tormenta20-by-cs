@@ -1,7 +1,7 @@
 <div class="tab enchantments" data-group="primary" data-tab="enchantments">
 	{{#if (eq item.type "arma")}}
 	<div class="form-group">
-		<label class="tooltip">Lancinante <i class="fas fa-question-circle"></i><div class="tooltipcontent">Crítico multiplica valores fixos</div></label>
+		<label class="tooltip">{{localize 'T20.WeaponEnchantmentLan'}} <i class="fas fa-question-circle" data-tooltip="{{localize 'T20.WeaponEnchantmentLanHint'}}"></i></label>
 		<div class="form-fields">
 			<input type="checkbox" name="system.encantos.lancinante" value="{{item.system.encantos.lancinante}}" {{checked item.system.encantos.lancinante}} data-dtype="Boolean"/>
 		</div>
