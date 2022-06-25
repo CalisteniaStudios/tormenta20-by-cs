@@ -474,7 +474,7 @@ export default class ActorT20 extends Actor {
 			// Compute Encumbrance percentage
 			weight = weight.toNearest(0.1);
 			const atrFor = actorData.data.atributos.for;
-			const atrCrg = actorData.data.attributes.carga;
+			const atrCrg = actorData.data.attributes.carga || {max:0, lev:0};
 			const max = (( atrFor.value + atrFor.bonus ) * 10) + (Number(atrCrg.max) || 0) ;
 			const emc = (( atrFor.value + atrFor.bonus ) * 3) + (Number(atrCrg.lev) || 0) ;
 			const pct = Math.clamped((weight * 100) / max, 0, 100).toNearest(0.1);
@@ -496,7 +496,7 @@ export default class ActorT20 extends Actor {
 			weight = Math.floor( weight );
 			// Compute Encumbrance percentage
 			const atrFor = actorData.data.atributos.for;
-			const atrCrg = actorData.data.attributes.carga;
+			const atrCrg = actorData.data.attributes.carga || {max:0, lev:0};
 			const max = (( atrFor.value + atrFor.bonus ) * 2) + (Number(atrCrg.max) || 0) ;
 			const emc = (( atrFor.value + atrFor.bonus ) * 1) + (Number(atrCrg.lev) || 0) ;
 			const pct = Math.clamped((weight * 100) / max, 0, 100);

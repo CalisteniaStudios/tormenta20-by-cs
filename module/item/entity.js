@@ -1257,26 +1257,16 @@ export default class ItemT20 extends Item {
 		
 				if ( rollMods[r.key][i]?.dmgStep ) {
 					let indx = -1;
-					let adic = dano.search(/[\+\-]/);
-					let danoBase = dano.slice(0,adic);
-					let danoAdic = dano.slice(adic);
-					if( CONFIG.T20.passosDano[danoBase] && CONFIG.T20.passosDano[danoBase] !== -1 ){
-						indx = CONFIG.T20.passosDano[danoBase].indexOf(danoBase);
-						dano = CONFIG.T20.passosDano[danoBase][indx+rollMods[r.key][i].dmgStep] || "4d12";
+					let danoBase = dano.match(/^\d+d\d+/)[0];
+
+					if( danoBase == '2d4' ) danoBase = '1d8';
+					if( danoBase == '2d6' || danoBase == '3d4' ) danoBase = '1d12';
+
+					indx = CONFIG.T20.passosDano.indexOf(danoBase);
+					if ( indx != -1 ) {
+						danoBase = CONFIG.T20.passosDano[ indx + rollMods[r.key][i].dmgStep ];
+						dano = dano.replace(/^\d+d\d+/, danoBase)
 					}
-					if( indx == -1 && CONFIG.T20.passosDano.arr1.indexOf(danoBase)){
-						indx = CONFIG.T20.passosDano.arr1.indexOf(danoBase);
-						dano = CONFIG.T20.passosDano.arr1[indx+rollMods[r.key][i].passo] || "4d12";
-					}
-					if( indx == -1 && CONFIG.T20.passosDano.arr2.indexOf(danoBase)){
-						indx = CONFIG.T20.passosDano.arr2.indexOf(danoBase);
-						dano = CONFIG.T20.passosDano.arr2[indx+rollMods[r.key][i].passo] || "4d12";
-					}
-					if( indx == -1 && CONFIG.T20.passosDano.arr3.indexOf(danoBase)){
-						indx = CONFIG.T20.passosDano.arr3.indexOf(danoBase);
-						dano = CONFIG.T20.passosDano.arr3[indx+rollMods[r.key][i].passo] || "4d12";
-					}
-					dano = dano + danoAdic;
 				}
 			
 				if ( rollMods[r.key][i]?.addDie ){
