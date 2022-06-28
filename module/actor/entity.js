@@ -44,28 +44,33 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
+		console.log('#prepareData');
 		super.prepareData();
 
-		const system = this.system;
-
-		for (let [key, resource] of Object.entries(system.resources)) {
-			resource.label = T20.resources[key];
-		}
 		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
+		console.log('/prepareData');
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
 	prepareBaseData() {
+		console.log('#prepareBaseData');
+		
+		const system = this.system;
+		for (let [key, resource] of Object.entries(system.resources)) {
+			resource.label = T20.resources[key];
+		}
+		
 		switch (this.type) {
 			case "character":
 				return this._prepareCharacterData();
 			case "npc":
 				return this._prepareNPCData();
 		}
+		console.log('/prepareBaseData');
 	}
 
 	/* -------------------------------------------- */
@@ -77,6 +82,7 @@ export default class ActorT20 extends Actor {
 	 * */
 	/** @override */
 	prepareDerivedData() {
+		console.log('#prepareDerivedData');
 		const system = this.system;
 		const nivel = system.attributes.nivel.value;
 
@@ -102,8 +108,7 @@ export default class ActorT20 extends Actor {
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
 
-		
-
+		console.log('/prepareDerivedData');
 	}
 
 	/* -------------------------------------------- */
@@ -114,6 +119,7 @@ export default class ActorT20 extends Actor {
 	* Prepare Character type specific data
 	*/
 	_prepareCharacterData() {
+		console.log('#_prepareCharacterData');
 		const system = this.system;
 		const flags = this.flags;
 		const classes = [];
@@ -142,11 +148,13 @@ export default class ActorT20 extends Actor {
 		const necessario = xp.proximo - anterior;
 		const pct = Math.round((xp.value - anterior) * 100 / necessario);
 		xp.pct = Math.clamped(pct, 0, 100);
+		console.log('/_prepareCharacterData');
 	}
 
 	/* -------------------------------------------- */
 
 	_prepareNPCData() {
+		console.log('#_prepareNPCData');
 		const system = this.system;
 		const flags = this.flags;
 		const nivel = system.attributes.nivel.value;
@@ -161,6 +169,7 @@ export default class ActorT20 extends Actor {
 
 		let baseFlags = { tormenta20: npcFlags };
 		if( !isEmpty(npcFlags) ) mergeObject( flags, baseFlags );
+		console.log('/_prepareNPCData');
 	}
 
 	/* -------------------------------------------- */
@@ -657,8 +666,8 @@ export default class ActorT20 extends Actor {
 
 		// Update the Actor
 		const updates = {
-			"data.attributes.pv.temp": tmp - dt,
-			"data.attributes.pv.value": dh
+			"system.attributes.pv.temp": tmp - dt,
+			"system.attributes.pv.value": dh
 		};
 
 		// Delegate damage application to a hook
@@ -698,7 +707,6 @@ export default class ActorT20 extends Actor {
 			toChat(this, chatMessage);
 		}
 		return allowed !== false ? this.update(updates) : this;
-
 	}
 
 	/* -------------------------------------------- */
@@ -744,8 +752,8 @@ export default class ActorT20 extends Actor {
 		// toChat(this, chatMessage);
 		// Update the Actor
 		return this.update({
-			"data.attributes.pm.temp": tmpPM - tmpPMspend,
-			"data.attributes.pm.value": spendMana,
+			"system.attributes.pm.temp": tmpPM - tmpPMspend,
+			"system.attributes.pm.value": spendMana,
 		});
 	}
 
@@ -753,13 +761,15 @@ export default class ActorT20 extends Actor {
 
 	/**
 	* Roll Teste de Perícia
-	* @param {String} key  The skill ID (e.g. "cur")
+	* @param {String} key  The skill ID (e.g. "cura")
 	* @param {Object} options    Options which configure how skill tests are rolled
 	* @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
 	*/
 	async rollPericia(key, options = {message: true}) {
 		const actor = this;
-		const cloneActor = this.clone({name: `${this.name} (Temp)`}, {save: false});
+		const cloneActor = this.clone({name: `${this.name} (Temp)`},
+																	{save: false, keepId: true});
+		console.log( actor.uuid , cloneActor.uuid);
 		let pericia = foundry.utils.deepClone( cloneActor.system.pericias[key] );
 		const ad = cloneActor.system;
 		const event = options.event;
@@ -780,7 +790,7 @@ export default class ActorT20 extends Actor {
 		let configuration = {};
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create({
-				actor: cloneActor, type:"pericia", data: pericia, id: key, isOwned: true,
+				actor: cloneActor, type:"pericia", system: pericia, id: key, isOwned: true,
 				name: pericia.label.replace(/[\*||\+]/g,"").trim()
 			});
 			if (!configuration) return;
@@ -827,6 +837,8 @@ export default class ActorT20 extends Actor {
 		if( options.message ){
 			options = rConfig;
 			options.itemData.rolled = await d20Roll(rollConfig);
+			options.effects = configuration.effects ?? [];
+			console.log(options);
 			toInitiative();
 			return this.displayCard({ options, rollMode });
 		} else {
@@ -909,135 +921,10 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	/* MIGRATE TO ACTIVE EFFECTS */
-	applyAprimoramentos(item, configuration=null){
-		// Get Augments Applied
-		// Apply Rolls Augments
-		// Apply Item Augments
-		// Prepare Chat Data
-		// Update parts with changed effects
-		if( !configuration ) return {};
-		const C = CONFIG.T20, actor = this, ad = actor.system;
-		let changes = [], options = {};
-		options.aprimoramentos = [];
-		let temCusto = false;
-		item.custo = 0;
-
-		// Aprimoramentos Aplicados
-		const aplicados = expandObject(configuration).aprs ?? {};
-		const aprimoramentos = this.effects.filter(ef => aplicados[ef.id]?.aplica ) ?? [];
-
-		// FUNÇÃO DE INTERNA
-		const applyChanges = (ch,qtd,ef) => {
-			const campos = {
-				atributo:			["atributo", null],
-				treinado:			["treinado", null],
-				treino:				["treino", null]
-			}
-			const _campos = {};
-			// ROLLS ARRAY
-			let rolls = ch.key.match(/roll/) ? [item] : [];
-			for(let r of rolls){
-				// CUSTOM CHANGES
-				if( ch.mode == 0 ) {
-					// kh => adic o modifier
-					if( Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/, "")] ){
-						if( ch.value.match(/k|kh|kl/) ){
-							r.parts[0] = r.parts[0].replace("1d","2d")+ch.value;
-						} else r.parts[0] = r.parts[0]+ch.value;
-					}
-				}
-				// ADD CHANGES
-				else if( ch.mode == 2 ) {
-					// ADD ROLL FROM ITEM
-					if(item.type == "pericia"){
-						_campos.outros = item.outros? 
-											item.outros + "+"+ (Number(ch.value * qtd) || ch.value)
-											:	(Number(ch.value * qtd) || ch.value);
-						// r.parts.push( Number(ch.value * qtd) || ch.value );
-					} else r.parts.push( Number(ch.value * qtd) || ch.value )
-				}
-				// OVERRIDE CHANGES
-				else if( ch.mode == 5 ){
-					r.parts[0] = ch.value;
-				}
-			}
-			// ITEM DATA
-			if( campos[ch.key] ){
-				// CUSTOM CHANGES
-				if( ch.mode == 0 ) i = 1;
-				// MULTIPLY CHANGES
-				else if( ch.mode == 1 ) {
-					if( Number(ch.value) ){
-						let temp = eval(`item.${campos[ch.key][0]}`) ?? false;
-						if( Number(temp) ) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qtd);
-						else if ( temp ) {
-							temp.replace(/\d+/, (match) => Number(match)*(Number(ch.value)*qtd) );
-						}
-					}
-				}
-				// ADD CHANGES
-				else if( ch.mode == 2 ) {
-					if( Number(ch.value) ){
-						let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
-						if( Number(temp) ) _campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qtd);
-						else if ( temp ) {
-							temp.replace(/\d+/, (match) => Number(match)+(Number(ch.value)*qtd) );
-						}
-					}
-				}
-				// OVERRIDE CHANGES
-				else if( ch.mode == 5 ) {
-					if( ch.key == "treinado" ){
-						_campos["treino"] = !eval(ch.value)? 0 : ad.attributes.treino;
-					}
-					else if(campos[ch.key]) _campos[campos[ch.key][0]] = ch.value;
-					
-				}
-			}
-			foundry.utils.mergeObject(item, expandObject(_campos));
-			
-			// ACTOR DATA
-			// TODO
-		}
-
-		aprimoramentos.forEach(function(ef){
-			// Prepare chat content;
-			let ap = {};
-			ap.description = ef._sourceName;// : ef.label;
-			ap.custo = Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
-			ap.qtd = Number(aplicados[ef.id]?.aplica) || 1;
-			
-			options.aprimoramentos.push(ap);
-			
-			// TODO modify item;
-			item.custo += Number(ap.custo) || 0;
-			if( ap.custo ) temCusto = true;
-			
-			ef.changes.forEach(function(ch){
-				applyChanges(ch, ap.qtd, ef);
-			});
-		});
-
-		// Update parts with changed effects
-		if(item.type == "pericia"){
-			item.parts = this._prepareSkills(item.id, item, ad, this.getRollData(), true );
-			if ( configuration.bonus ) item.parts.push( configuration.bonus );
-		} else {
-			item.name = game.i18n.localize(item.name);
-		}
-		if( item.custo && this.system.modificadores.custoPM ){
-			item.custo += Number(this.system.modificadores.custoPM);
-		}
-		options.itemData = item;
-		return options;
-	}
-
-	/* -------------------------------------------- */
-
 	/** @override */
 	applyActiveEffects() {
 		const overrides = {};
+		console.log('applyActiveEffects');
 		// Organize non-disabled effects by their application priority
 		const changes = this.effects.reduce((changes, e) => {
 			if ( e.disabled ) return changes;
@@ -1086,8 +973,9 @@ export default class ActorT20 extends Actor {
 			tokenId: token?.uuid || null,
 			item: options.itemData,
 			custo: options.itemData.custo || null,
-			aprimoramentos: options.aprimoramentos,
-			_rolls: []
+			onUseEffects: options.onUseEffects,
+			effects: options.effects,
+			_rolls: [],
 		};
 
 		// Other Template Data
@@ -1107,7 +995,12 @@ export default class ActorT20 extends Actor {
 			content: html,
 			flavor: options.chatFlavor || "",
 			speaker: ChatMessage.getSpeaker({actor: this, token}),
-			flags: {"core.canPopout": true, "tormenta20.rollTotal": options.itemData.rolled.total, "tormenta20.aprimoramentos": options.aprimoramentos}
+			flags: {
+				"core.canPopout": true,
+				"tormenta20.rollTotal": options.itemData.rolled.total,
+				"tormenta20.onUseEffects": options.onUseEffects,
+				"tormenta20.effects": options.effects,
+			},
 		};
 		chatData.roll = options.itemData.rolled;
 

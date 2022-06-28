@@ -1,5 +1,5 @@
 <form autocomplete="off" onsubmit="event.preventDefault();">
-	<ol class="trait-list">
+	<ul class="trait-list">
 		{{#each choices as |choice key|}}
 		<li>
 			<label class="checkbox">
@@ -8,12 +8,12 @@
 			</label>
 		</li>
 		{{/each}}
-	</ol>
+	</ul>
 	{{#if allowCustom}}
 	<div class="form-group stacked">
-		<label>Especial (Separe com ponto e vírgula)</label>
+		<label>{{ localize 'T20.Special' }} ({{ localize 'T20.CommaSeparated' }})</label>
 		<input type="text" name="custom" value="{{custom}}" data-dtype="String" />
 	</div>
 	{{/if}}
-	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> Salvar</button>
+	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{ localize 'T20.Submit' }}</button>
 </form>

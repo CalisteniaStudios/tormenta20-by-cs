@@ -38,19 +38,19 @@
 	<div class="card-content">
 		{{#if system.description.value}} {{{system.description.value}}} {{/if}}
 	</div>
-	{{#if aprimoramentos}}
+	{{#if onUseEffects}}
 	<div class="card-upgrades">
 		<ul>
-			{{#each aprimoramentos as |ap|}}
+			{{#each onUseEffects as |ap|}}
 				<li>
 					<div class="row">
 						<b>
-							{{#if (eq ap.custo "Truque")}}
+							{{#if (eq ap.cost "Truque")}}
 								Truque:
-							{{else if (ne ap.custo "0")}}
-								{{#if (gt ap.custo 0)}}+{{/if}}{{ap.custo}}PM:
-									{{#if (gt ap.qtd 1)}}
-										({{ap.qtd}}x)
+							{{else if (ne ap.cost "0")}}
+								{{#if (gt ap.cost 0)}}+{{/if}}{{ap.cost}}PM:
+									{{#if (gt ap.qty 1)}}
+										({{ap.qty}}x)
 									{{/if}}
 								{{/if}}
 						</b>

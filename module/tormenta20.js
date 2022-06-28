@@ -23,6 +23,7 @@ import ActorSheetT20CharacterTabbed from "./actor/sheet/_tempSheets.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
 import TraitSelector from "./apps/trait-selector.js";
+import {applyOnUseEffects} from "./apps/ability-use.js";
 
 import { T20Conditions } from "./conditions/conditions.js";
 import ActiveEffectConfigT20 from "./apps/ae-config.js";
@@ -48,6 +49,7 @@ Hooks.once("init", async function () {
 		testes: {
 			getSystemActorData,
 			getSystemItemData,
+			applyOnUseEffects
 		},
 		applications: {
 			AbilityUseDialog,

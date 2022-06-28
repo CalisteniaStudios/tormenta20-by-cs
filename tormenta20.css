@@ -616,6 +616,23 @@
   margin: 2px;
 }
 /* ----------------------------------------- */
+/*  Ability Use                              */
+/* ----------------------------------------- */
+.tormenta20.ability-use-form .window-content .dialog-content #ability-use-form .form-group .aprimoramentos-list .item .item-cost {
+  vertical-align: center;
+}
+.tormenta20.ability-use-form .window-content .dialog-content #ability-use-form .form-group .aprimoramentos-list .item .item-cost .numInp,
+.tormenta20.ability-use-form .window-content .dialog-content #ability-use-form .form-group .aprimoramentos-list .item .item-cost .numCtrl {
+  max-height: 24px;
+  max-width: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 1px 4px;
+}
+.tormenta20.ability-use-form .window-content .dialog-content #ability-use-form .form-group .aprimoramentos-list .item .item-cost .numCtrl {
+  background-color: #fff;
+}
+/* ----------------------------------------- */
 /*  Property Attribution                     */
 /* ----------------------------------------- */
 .property-attribution {
@@ -1993,7 +2010,11 @@
   margin: none;
 }
 .tormenta20.sheet.actor.character form.base .attributes-left {
-  flex: 0 0 60%;
+  flex: 0 0 1;
+}
+.tormenta20.sheet.actor.character form.base .attributes-right {
+  min-width: 330px;
+  flex: 0 0 40%;
 }
 .tormenta20.sheet.actor.character form.base .ability-scores {
   flex: 0 0 auto;

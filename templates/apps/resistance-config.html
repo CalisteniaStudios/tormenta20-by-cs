@@ -1,26 +1,26 @@
 <form autocomplete="off">
-	<p class="notes">Configuração de resistências.</p>
+	<p class="notes">{{ localize 'T20.ResistancesConfig'}}.</p>
 	<div class="form-group ">
-		<label>Resistência a:</label>
-		<input type="text" value="Valor" disabled />
-		<label style="flex: 0 0 20px; margin: 3px 5px; text-align: center;" title="Vulnerabilidade">V</label>
-		<label style="flex: 0 0 20px; margin: 3px 5px; text-align: center;" title="Imunidade">I</label>
+		<label>{{ localize 'T20.Resistances'}}:</label>
+		<input type="text" value="{{ localize 'T20.Value'}}" disabled />
+		<label style="flex: 0 0 20px; margin: 3px 5px; text-align: center;" title="{{ localize 'T20.DamVuln'}}">V</label>
+		<label style="flex: 0 0 20px; margin: 3px 5px; text-align: center;" title="{{ localize 'T20.DamImm'}}">I</label>
 	</div>
 	<div class="form-group ">
 		<label>{{localize "T20.Damage"}}</label>
 		<input type="number" name="system.tracos.resistencias.dano.value" min="0" value="{{resistance.dano.value}}"/>
-		<input type="checkbox"  name="system.tracos.resistencias.dano.vulnerabilidade" {{ checked resistance.dano.vulnerabilidade }} title="Vulnerabilidade"/>
-		<input type="checkbox"  name="system.tracos.resistencias.dano.imunidade" {{ checked resistance.dano.imunidade }} title="Imunidade"/>
+		<input type="checkbox"  name="system.tracos.resistencias.dano.vulnerabilidade" {{ checked resistance.dano.vulnerabilidade }} title="{{ localize 'T20.DamVuln'}}"/>
+		<input type="checkbox"  name="system.tracos.resistencias.dano.imunidade" {{ checked resistance.dano.imunidade }} title="{{ localize 'T20.DamImm'}}"/>
 	</div>
 	{{#each config.damageTypes as | label key | }}
 	<div class="form-group">
 		<label>{{localize label}}</label>
 		{{#with (lookup ../resistance key) }}
 			<input type="number" name="system.tracos.resistencias.{{key}}.value"  min="0" value="{{value}}"/>
-			<input type="checkbox"  name="system.tracos.resistencias.{{key}}.vulnerabilidade" {{ checked vulnerabilidade }} title="Vulnerabilidade"/>
-			<input type="checkbox" name="system.tracos.resistencias.{{key}}.imunidade" {{ checked imunidade }} title="Imunidade"/>
+			<input type="checkbox"  name="system.tracos.resistencias.{{key}}.vulnerabilidade" {{ checked vulnerabilidade }} title="{{ localize 'T20.DamVuln'}}"/>
+			<input type="checkbox" name="system.tracos.resistencias.{{key}}.imunidade" {{ checked imunidade }} title="{{ localize 'T20.DamImm'}}"/>
 			{{/with}}
 		</div>
 	{{/each}}
-	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> Enviar</button>
+	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{ localize 'T20.Submit'}}</button>
 </form>

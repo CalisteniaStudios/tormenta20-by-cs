@@ -1,12 +1,12 @@
 <form class="" autocomplete="off" onsubmit="event.preventDefault();">
-	<h2>Classes</h2>
+	<h2>{{ localize 'T20.Classes'}}</h2>
 	<ol class="trait-list">
 		<li class="flexrow">
-			<div style="font-weight: bold;">Classe</div>
-			<div style="font-weight: bold; text-align:center">PV por Nível</div>
-			<div style="font-weight: bold; text-align:center">PV Total</div>
-			<div style="font-weight: bold; text-align:center">PM por Nível</div>
-			<div style="font-weight: bold; text-align:center">PM Total</div>
+			<div style="font-weight: bold;">{{ localize 'T20.Class'}}</div>
+			<div style="font-weight: bold; text-align:center">{{ localize 'T20.HPPerLevel'}}</div>
+			<div style="font-weight: bold; text-align:center">{{ localize 'T20.HPTotal'}}</div>
+			<div style="font-weight: bold; text-align:center">{{ localize 'T20.MPPerLevel'}}</div>
+			<div style="font-weight: bold; text-align:center">{{ localize 'T20.MPTotal'}}</div>
 		</li>
 		{{#each classes as |data key|}}
 			<li class="flexrow">
@@ -20,9 +20,9 @@
 			</li>
 		{{/each}}
 	</ol>
-	<h2>Pontos de Vida</h2>
+	<h2>{{ localize 'T20.HitPoints'}}</h2>
 	<div class="flexrow">
-		<label class="checkbox">Atributo:</label>
+		<label class="checkbox">{{ localize 'T20.Ability'}}:</label>
 		{{#each config.atributos as |name prop|}}
 			{{#unless (eq prop "con") }}
 			<label class="checkbox">
@@ -33,17 +33,17 @@
 	</div>
 	<div class="flexrow">
 		<label class="checkbox">
-			Bônus Total
+			{{ localize 'T20.BonusTotal'}}
 			<input style="height: 20px; width: 30px;" type="number" step="0.5" name="pvBonus" value="{{flags.lvlconfig.pvBonus.[0]}}" data-dtype="Number" placeholder="0" />
 		</label>
 		<label class="checkbox">
-			Bônus por Nível
+			{{ localize 'T20.BonusPerLevel'}}
 			<input style="height: 20px; width: 30px;" type="number" step="0.5" name="pvBonus" value="{{flags.lvlconfig.pvBonus.[1]}}" data-dtype="Number" placeholder="0" />
 		</label>
 	</div>
-	<h2>Pontos de Mana</h2>
+	<h2>{{ localize 'T20.ManaPoints'}}</h2>
 	<div class="flexrow">
-		<label class="checkbox">Atributo:</label>
+		<label class="checkbox">{{ localize 'T20.Ability'}}:</label>
 		{{#each config.atributos as |name prop|}}
 			<label class="checkbox">
 				<input type="checkbox" name="pm.{{prop}}" value="{{name}}" {{checked (lookup ../flags.lvlconfig.pm prop)}} data-dtype="Boolean" /> {{localize name }}
@@ -52,14 +52,14 @@
 	</div>
 	<div class="flexrow">
 		<label class="checkbox">
-			Bônus Total
+			{{ localize 'T20.BonusTotal'}}
 			<input style="height: 20px; width: 30px;" type="number" step="0.5" name="pmBonus" value="{{flags.lvlconfig.pmBonus.[0]}}" data-dtype="Number" placeholder="0" />
 		</label>
 		<label class="checkbox">
-			Bônus por Nível
+			{{ localize 'T20.BonusPerLevel'}}
 			<input style="height: 20px; width: 30px;" type="number" step="0.5" name="pmBonus" value="{{flags.lvlconfig.pmBonus.[1]}}" data-dtype="Number" placeholder="0" />
 		</label>
 	</div>
 	<br />
-	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> Salvar</button>
+	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{ localize 'T20.Submit'}}</button>
 </form>

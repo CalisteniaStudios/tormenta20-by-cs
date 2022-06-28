@@ -27,6 +27,7 @@
   "T20.Unfavorite": "Desfavoritar",
   "T20.Toggle": "Alternar",
   "T20.New": "Nova",
+  "T20.Value": "Valor",
   
   "T20.Proficiency": "Proficiência",
   "T20.Languages": "Idiomas",
@@ -40,8 +41,13 @@
   "T20.Effect": "Efeito",
   "T20.Effects": "Efeitos",
   "T20.AlwaysApply": "Aplicar Sempre",
+  "T20.ApplyTo": "Aplicar em",
+  "T20.ApplyToSelf": "Próprio Item",
+  "T20.SpecificItems": "Itens Específico",
+  "T20.AllowMultApply": "Permite multiplas aplicações?",
 
   "T20.Class": "Classe",
+  "T20.Classes": "Classes",
 
   "T20.Inventory": "Inventário",
   "T20.Encumbrance": "Carga",
@@ -57,10 +63,14 @@
   
   "T20.Type": "Tipo",
   "T20.Cost": "Custo",
+  "T20.PMCost": "Custo em PM",
   "T20.None": "Nenhum",
   "T20.Default": "Padrão",
   "T20.Special": "Especial",
-
+  "T20.Submit": "Enviar",
+  "T20.CommaSeparated": "Separe com ponto e vírgula",
+  "T20.CheckBonus": "Bônus no Teste",
+  
   "T20.Roll": "Rolagem",
   "T20.Rolls": "Rolagens",
   
@@ -185,6 +195,13 @@
   "T20.ManaPoints": "Pontos de Mana",
   "T20.HP": "PV",
   "T20.MP": "PM",
+  "T20.HPInicial": "PV Inicial",
+  "T20.HPTotal": "PV Total",  
+  "T20.MPTotal": "PM Total",
+  "T20.HPPerLevel": "PV por Nível",
+  "T20.MPPerLevel": "PM por Nível",
+  "T20.BonusTotal": "Bônus Total",
+  "T20.BonusPerLevel": "Bônus por Nível",
   "T20.DCAbilityBonus": "CD Atributo / Bônus",
   "T20.KeyAbility": "Atributo Chave",
   "T20.UpdateSpellKeyAbility": "Atualizar Atributos das Magias",
@@ -226,6 +243,15 @@
   "T20.BonusCDMagia": "Bônus Global na CD de Magias",
   "T20.Bonuses": "Modificadores Bônus Globais",
 
+  "T20.ShowTemporaryAbilityBonus": "Mostrar campo 'Bônus Temporário'",
+  "T20.ShowCurrencyPlatinum": "Mostrar campo Platina",
+  "T20.ShowProficiencyBônus": "Mostrar bônus de treinamento",
+  "T20.ShowPrepareSpells": "Preparar magias (para magos)",
+  "T20.ShowBrewPotion": "Preparar Poções",
+  "T20.ShowWriteScroll": "Escrever Pergaminhos",
+  "T20.ShowDC": "Mostrar CD",
+  "T20.ShowRD": "Mostrar RD",
+  
   "T20.Alignment": "Alinhamento",
   "T20.AlignmentCE": "Caótico e Mal",
   "T20.AlignmentCG": "Caótico e Bom",
@@ -295,6 +321,8 @@
   "T20.ClassSkillsEligible": "Perícias de Classe",
   "T20.ClassSkillsChosen": "Perícias de Classe Escolhidas",
 
+  "T20.Item": "Item",
+  "T20.Items": "Itens",
   "T20.Power": "Poder",
   "T20.Powers": "Poderes",
   "T20.PowerTypeClassAbility": "Habilidade de Classe",
@@ -347,6 +375,7 @@
   "T20.Resistance": "Resistência",
   "T20.Resistances": "Resistências",
 
+  "T20.MovementConfig": "Configure o deslocamento e deslocamentos especiais dessa criatura.",
   "T20.Movement": "Deslocamento",
   "T20.MovementBurrow": "Escavar",
   "T20.MovementClimb": "Escalada",
@@ -386,6 +415,7 @@
   "T20.CreatureTypeConfig": "Configurar Tipo de Criatura",
   "T20.CreatureTypeSelectorCustom": "Tipo Personalizado",
   "T20.CreatureTypeSelectorSubtype": "Subtipo",
+  "T20.ResistancesConfig": "Configuração de resistências",
 
   "T20.Weapon": "Arma",
   "T20.Weapons": "Armas",

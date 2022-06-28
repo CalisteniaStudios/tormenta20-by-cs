@@ -441,9 +441,9 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 		const rollConfigs = {}
 		rollConfigs.configureDialog = event.shiftKey;
-		const item = this.actor.items.get(itemId);
 		const ignoreList = ["equipamento", "tesouro"];
-		if (ignoreList.includes(item.type)) return;
+		const item = this.actor.items.get(itemId);
+		if ( !item || ignoreList.includes(item.type) ) return;
 		return item.roll(rollConfigs);
 	}
 	
@@ -600,7 +600,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const item = this.actor.items.get(itemId);
 		const qtd = parseInt(event.target.value) || 0;
 		event.target.value = qtd;
-		return item.update({ 'data.qtd': qtd });
+		return item.update({ 'system.qtd': qtd });
 	}
 
 	/* -------------------------------------------- */
@@ -688,7 +688,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	async _onPericiaCustomDelete(event) {
 		const id = event.currentTarget.dataset.itemId;
 		let updateData = [];
-		updateData[`data.pericias.-=${id}`] = null;
+		updateData[`system.pericias.-=${id}`] = null;
 		this.actor.update(updateData);
 		await this.render();
 	}
