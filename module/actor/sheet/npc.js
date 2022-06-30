@@ -18,7 +18,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 				{navSelector: ".primary", contentSelector: ".sheet-body.primary", initial: "statblock"},
 				{navSelector: ".secondary", contentSelector: ".sheet-body.secondary", initial: "sheet"}
 			],
-			template: "systems/tormenta20/templates2/actor/npc-sheet.html",
+			template: "systems/tormenta20/templates/actor/npc-sheet.html",
 			width: 500,
 			height: 700
 		});

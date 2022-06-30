@@ -1,0 +1,378 @@
+<form class="tormenta20 builder npc" autocomplete="off">
+	{{!-- Sheet Header --}}
+	{{!-- flags.tormenta20.character-planner --}}
+	<header class="sheet-header flexrow">
+		<section class="char-info flexcol">
+			<h2>CRIAÇÃO DE AMEAÇA</h2>
+		</section>
+		<section class="char-info flexcol">
+			<div class="form-group">
+				<label for="Name">
+					{{actor.name}}
+				</label>
+				<label for="Name">
+					{{localize 'T20.AbbreviationCR'}}
+				</label>
+				<label for="Name">
+					{{actor.system.builder.attributes.cr}}
+				</label>
+			</div>
+			<div class="form-group">
+				<label for="Name">
+					{{system.builder.details.concept}}
+				</label>
+			</div>
+		</section>
+	</header>
+	<nav class="flexrow sheet-tabs tabs primary" data-group="primary">
+		<a class="item" data-tab="concept" >{{localize 'T20.NPCBuilderConcept'}}</a>
+		<a class="item" data-tab="type" >{{localize 'T20.NPCBuilderType'}}</a>
+		<a class="item" data-tab="cr" >{{localize 'T20.NPCBuilderCR'}}</a>
+		<a class="item" data-tab="attributes" >{{localize 'T20.NPCBuilderAttributes'}}</a>
+		<a class="item" data-tab="attacks" >{{localize 'T20.NPCBuilderAttacks'}}</a>
+		<a class="item" data-tab="powers" >{{localize 'T20.NPCBuilderPowers'}}</a>
+		<a class="item" data-tab="stats" >{{localize 'T20.NPCBuilderTraits'}}</a>
+		<a class="item" data-tab="loot" >{{localize 'T20.NPCBuilderLoot'}}</a>
+	</nav>
+	<section class="sheet-body flexrow" >
+		<div class="tab concept flexcol" data-group="primary" data-tab="concept">
+			<p>Pense no nome e no conceito da ameaça, uma descrição em poucas palavras (Ex.; "réptil alado que cospe fogo", "combatente fdp que usa magia", "humanoide grande que tanka e bate");
+				Escolha uma função para a ameaça que vai servir de referência do que ela pode fazer e como pode ser usada.
+			</p>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.Name'}}
+				</label>
+				<input  type="text" name="name" value="{{actor.name}}"/>
+			</div>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.FoeConcept'}}
+				</label>
+				<input type="text" name="system.builder.details.concept" value="{{system.builder.details.concept}}"/>
+			</div>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.FoeRole'}}
+				</label>
+				<select name="system.builder.details.role">
+					{{#select system.builder.details.role}}
+					{{#each config.creatureRoles as |label type|}}
+					<option value="{{type}}">{{localize label}}</option>
+					{{/each}}
+					{{/select}}
+				</select>
+			</div>
+			<p>
+				ROLE DESCRIPTION
+			</p>
+		</div>
+		<div class="tab type flexcol" data-group="primary" data-tab="type">
+			<p>Escolha o tipo da criatura. O tipo define natureza, determina quais habilidades e magias podem afetar a criatura e alguns fornecem habilidades especiais.
+				Em seguida defina o tamanho e e deslocamento.
+			</p>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.CreatureType'}}
+				</label>
+				<select name="system.builder.details.creatureType">
+					{{#select system.builder.details.creatureType}}
+					{{#each config.creatureTypes as |label type|}}
+					<option value="{{type}}">{{localize label}}</option>
+					{{/each}}
+					{{/select}}
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.Size'}}
+				</label>
+				<select name="system.builder.attributes.size">
+					{{#select system.builder.attributes.size}}
+					{{#each config.actorSizes as |label type|}}
+					<option value="{{type}}">{{localize label}}</option>
+					{{/each}}
+					{{/select}}
+				</select>
+			</div>
+			<label for="Name">
+				{{localize 'T20.Movement'}}
+			</label>
+			{{#each config.movementTypes as |label type|}}
+				<div class="form-group">
+					<label for="Name">
+						{{localize label}}
+					</label>
+					<input  type="number" name="system.builder.movement.{{type}}" step="1.5" value="{{lookup ../system.builder.movement type}}"/>
+				</div>
+			{{/each}}
+		</div>
+		<div class="tab cr flexcol" data-group="primary" data-tab="cr">
+			<p>Escolha o ND da criatura de acordo com o nível do grupo. Use os patamares de jogo como referênciae compare com outras criaturas com conceito semelhante.
+				As estatísticas apresentadas nos próximos passos consideram um grupo de 4 personagens combados, você pode ajustar de acordo com o seu grupo.
+			</p>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.AbbreviationCR'}}
+				</label>
+				<input  type="text" name="system.builder.attributes.cr" value="{{system.builder.attributes.cr}}"/>
+			</div>
+			<!-- TABLE PATAMARES? -->
+			<!-- TABLE ESTATISTICAS? -->
+		</div>
+		<div class="tab attributes flexcol" data-group="primary" data-tab="attributes">
+			<p>As estatísticas de combate possuem valores médios definidos pelo ND. Não é necessário fazer modificações, mas você pode usar as estatísticas de ND maior ou menor para se adequar ao conceito, criar uma fraqueza, etc. </p>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.Attack'}}
+				</label>
+				<input  type="number" name="system.builder.attributes.attack" value="{{system.builder.attributes.attack}}"/>
+				<i class="fa-solid fa-tag"></i>
+				<label for="Name">
+					{{localize 'T20.Damage'}}
+				</label>
+				<input  type="number" name="system.builder.attributes.damage" value="{{system.builder.attributes.damage}}"/>
+				<i class="fa-solid fa-tag"></i>
+				<label for="Name">
+					{{localize 'T20.Defense'}}
+				</label>
+				<input  type="number" name="system.builder.attributes.defense" value="{{system.builder.attributes.defense}}"/>
+				<i class="fa-solid fa-tag"></i>
+			</div>
+
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.SkillFort'}}
+				</label>
+				<input  type="number" name="system.builder.skills.fort" value="{{system.builder.skills.fort}}"/>
+				<i class="fa-solid fa-tag"></i>
+				<label for="Name">
+					{{localize 'T20.SkillRefl'}}
+				</label>
+				<input  type="number" name="system.builder.skills.refl" value="{{system.builder.skills.refl}}"/>
+				<i class="fa-solid fa-tag"></i>
+				<label for="Name">
+					{{localize 'T20.SkillVont'}}
+				</label>
+				<input  type="number" name="system.builder.skills.vont" value="{{system.builder.skills.vont}}"/>
+				<i class="fa-solid fa-tag"></i>
+			</div>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.HP'}}
+				</label>
+				<input  type="number" name="system.builder.attributes.hp" value="{{system.builder.attributes.hp}}"/>
+				<i class="fa-solid fa-tag"></i>
+				<label for="Name">
+					{{localize 'T20.DifficultClass'}}
+				</label>
+				<input  type="number" name="system.builder.attributes.dc" value="{{system.builder.attributes.dc}}"/>
+				<i class="fa-solid fa-tag"></i>
+				<label for="Name">
+					{{localize 'T20.MP'}}
+				</label>
+				<input  type="number" name="system.builder.attributes.mp" value="{{system.builder.attributes.mp}}"/>
+				<i class="fa-solid fa-tag"></i>
+			</div>
+			<table>
+				{{log config.NDparams.cr}}
+				<tr>
+					{{#each config.NDparams as | arr stat |}}
+						<th>{{stat}}</th>
+					{{/each}}
+				</tr>
+				{{#each config.NDparams.cr as | cr i |}}
+				<tr>
+					<td>{{lookup ../config.NDparams.pat i }}</td>
+					<td>{{lookup ../config.NDparams.cr i }}</td>
+					<td>{{lookup ../config.NDparams.attack i }}</td>
+					<td>{{lookup ../config.NDparams.damage i }}</td>
+					<td>{{lookup ../config.NDparams.defense i }}</td>
+					<td>{{lookup ../config.NDparams.topsave i }}</td>
+					<td>{{lookup ../config.NDparams.midsave i }}</td>
+					<td>{{lookup ../config.NDparams.botsave i }}</td>
+					<td>{{lookup ../config.NDparams.hp i }}</td>
+					<td>{{lookup ../config.NDparams.dc i }}</td>
+				</tr>
+				{{/each}}
+			</table>
+		</div>
+		
+		{{!-- ATTACKS --}}
+		<div class="tab attacks flexcol" data-group="primary" data-tab="attacks">
+			<p>Defina as armas que a criatura usa para atacar, se ela possui múltiplos ataques, ataques secundários podem ter um Bônus de Ataque menor. Cálcule a média de dano das armas e complemente com um bônus até alcançar a média de dano.</p>
+			<ol class="item-list">
+				<li class="item flexrow item-header">
+					<div class="item-name flex2" >{{ localize 'T20.Weapons'}}</div>
+					<div class="item-attack">{{ localize 'T20.Attack'}}</div>
+					<div class="item-dice">{{ localize 'T20.Dice'}}</div>
+					<div class="item-bonus">{{ localize 'T20.Bonus'}}</div>
+					<div class="item-controls"><a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Weapon'}}" data-type="arma"><i class="fas fa-plus"></i> {{localize 'T20.Search'}}</a></div>
+				</li>
+				{{#each actor.inventario.arma.items as |item id|}}
+					<li class="item flexrow">
+						<div class="item-name flexrow flex2">
+							<img src="" alt="">
+							<label for="">{{item.name}}</label>
+						</div>
+						<div class="item-attack">
+							<input type="number" class="" value="">
+						</div>
+						<div class="item-dice">
+							<input type="text" class="" value="1d6">
+						</div>
+						<div class="item-bonus">
+							<input type="number" name="" value="">
+						</div>
+						<div class="item-controls"> E - X </div>
+					</li>
+				{{/each}}
+				<li class="item flexrow item-header">
+					<div class="item-name flex2" >Média de Dano</div>
+					<div class="item-attack">{{system.builder.attributes.damage}}</div>
+					<div class="item-dice">{{sheet.damage}}</div>
+					<div class="item-bonus">{{sheet.damageDiff}}</div>
+					<div class="item-controls"></div>
+				</li>
+			</ol>
+		</div>
+
+		{{!-- POWERS --}}
+		<div class="tab powers flexcol" data-group="primary" data-tab="powers">
+			<p>Escolha as habilidades das criaturas, pense em 1 ou 2 por patamar da de jogo. Equilibre as escolhas entre formas especiais de ataque, habilidades defensivas e habilidades sensoriais ou de movimentação.</p>
+			<ol class="item-list">
+				<li class="item flexrow item-header">
+					<div class="item-name flex2" >{{ localize 'T20.NPCBuilderPowers'}}</div>
+					<div class="item-action">{{ localize 'T20.Activation'}}</div>
+					<div class="item-damage">{{ localize 'T20.Damage'}}</div>
+					<div class="item-dc">{{ localize 'T20.AbbreviationDC'}}</div>
+					<div class="item-controls"><a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Weapon'}}" data-type="arma"><i class="fas fa-plus"></i> {{localize 'T20.Search'}}</a></div>
+				</li>
+				{{#each actor.poderes as |item id|}}
+					<li class="item flexrow">
+						<div class="item-name flexrow flex2">
+							<img src="" alt="">
+							<label for="">{{item.name}}</label>
+						</div>
+						<div class="item-action">
+							<input type="number" class="" value="">
+						</div>
+						<div class="item-damage">
+							<input type="text" class="" value="1d6">
+						</div>
+						<div class="item-dc">
+							<input type="number" name="" value="">
+						</div>
+						<div class="item-controls"> E - X </div>
+					</li>
+				{{/each}}
+				<li class="item flexrow item-header">
+					<div class="item-name flex2" >Média de Dano</div>
+					<div class="item-attack">Desejável</div>
+					<div class="item-dice">Atual</div>
+					<div class="item-bonus">+-Diff</div>
+					<div class="item-controls"></div>
+				</li>
+				<li class="item flexrow item-header">
+					<div class="item-name flex2" >Habilidades Para o Patamar</div>
+					<div class="item-attack">Desejável</div>
+					<div class="item-dice">Atual</div>
+					<div class="item-bonus">+-Diff</div>
+					<div class="item-controls"></div>
+				</li>
+			</ol>
+			TODO MAGIAS
+		</div>
+
+		{{!-- ABILITIES & SKILLS --}}
+		<div class="tab stats flexcol" data-group="primary" data-tab="stats">
+			<p>Para definir os valores de atributo escolha valores compatíveis com o conceito da criatura de acordo com a tabela.
+				Então defina as perícias que a criatura é treinada e defina seu valor pelas regras normais, usando ND como nível de personagem.
+			</p>
+			<div class="form-group">
+				{{#each config.atributosAbr as |label type|}}
+				<label for="Name">
+					{{localize label}}
+				</label>
+				<input  type="number" name="system.builder.abilities.{{type}}" value="{{lookup ../system.builder.abilities type}}"/>
+				{{/each}}
+			</div>
+			{{#each config.pericias as |label type|}}
+				{{#unless (or (eq type 'luta') (eq type 'pont') (eq type 'fort') (eq type 'refl') (eq type 'vont') ) }}
+				<div class="form-group">
+					<label for="Name">
+						{{localize label}}
+					</label>
+					<input  type="number" name="system.builder.skills.{{type}}.proficiency" value="{{lookup (lookup ../system.builder.skills type) 'proficiency'}}"/>
+					<input  type="text" name="system.builder.skills.{{type}}.abl" value="{{lookup (lookup ../system.builder.skills type) 'abl'}}"/>
+					<input  type="number" name="system.builder.skills.{{type}}.other" value="{{lookup (lookup ../system.builder.skills type) 'other'}}"/>
+				</div>
+				{{/unless}}
+			{{/each}}
+		</div>
+
+		{{!-- LOOT --}}
+		<div class="tab loot flexcol" data-group="primary" data-tab="loot">
+			<p>Com base nas estatísticas da criatura e do patamar defina os esquipamentos que ela trás (Ex. se uma criatura humanóide tem defesa alta, seu tesouro pode incluir armadura e escudo).
+				Além disso defina o seu tesouro que ela renderá ao grupo de acordo com a tabela de tesouro do Capítulo 7 de Tormenta20.
+			</p>
+			<div class="form-group">
+				<label for="Name">
+					{{localize 'T20.Treasure'}}
+				</label>
+				<select name="system.builder.details.treasure">
+					{{#select system.builder.details.treasure}}
+					<option value="">{{localize 'T20.None'}}</option>
+					<option value="half">{{localize 'T20.Half'}}</option>
+					<option value="default">{{localize 'T20.Default'}}</option>
+					<option value="double">{{localize 'T20.Double'}}</option>
+					{{/select}}
+				</select>
+			</div>
+			<ol class="item-list">
+				<li class="item flexrow item-header">
+					<div class="item-name flex2" >{{ localize 'T20.Name'}}</div>
+					<div class="item-controls"><a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Weapon'}}" data-type="arma"><i class="fas fa-plus"></i> {{localize 'T20.Search'}}</a></div>
+				</li>
+				{{#each actor.inventario.items as |item id|}}
+					<li class="item flexrow">
+						<div class="item-name flexrow flex2">
+							<img src="" alt="">
+							<label for="">{{item.name}}</label>
+						</div>
+						<div class="item-action">
+							<input type="number" class="" value="">
+						</div>
+						<div class="item-damage">
+							<input type="text" class="" value="1d6">
+						</div>
+						<div class="item-dc">
+							<input type="number" name="" value="">
+						</div>
+						<div class="item-controls"> E - X </div>
+					</li>
+				{{/each}}
+				<li class="item flexrow item-header">
+					<div class="item-name flex2" >AAAA</div>
+					<div class="item-attack">BBBB</div>
+					<div class="item-dice">CCCC</div>
+					<div class="item-bonus">DDDD</div>
+					<div class="item-controls"></div>
+				</li>
+			</ol>
+		</div>
+	</section>
+</form>
+
+<style>
+	.tormenta20.builder.npc select,
+	.tormenta20.builder.npc input {
+		background-color: rgba(0,0,0,0.1);
+	}
+	.tormenta20.builder.npc nav.sheet-tabs {
+		font-size: 14px;
+	}
+	.tormenta20.builder.npc nav.sheet-tabs .item {
+		line-height: 16px;
+	}
+</style>

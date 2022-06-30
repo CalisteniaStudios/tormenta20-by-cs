@@ -50,7 +50,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	/** @override */
 	get template() {
 		if ( !game.user.isGM && this.actor.limited ) return "systems/tormenta20/templates/actors/limited-sheet.html";
-		return `systems/tormenta20/templates2/actor/${this.actor.type}-sheet.html`;
+		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
 	}
 	
 	/**

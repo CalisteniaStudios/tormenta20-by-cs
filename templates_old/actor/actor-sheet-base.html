@@ -1,0 +1,371 @@
+<form class="tormenta20 base" autocomplete="off">
+	{{!-- Sheet Tab Navigation --}}
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes" title="Ficha">Ficha</a></label>
+		<label><i class="fas fa-book"></i> <a class="item" data-tab="journal">Diário</a></label>
+		<label><i class="fas fa-bahai"></i> <a class="item" data-tab="efeitos" title="Efeitos">Efeitos</a></label>
+
+		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
+	</nav>
+
+
+	{{!-- Sheet Header --}}
+
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
+
+		{{!-- Attributes Tab --}}
+		<div class="tab attributes" data-group="primary" data-tab="attributes">
+
+			<header class="sheet-header flexrow" style="margin-bottom: -2px;">
+				<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+				<section class="header-details flexcol">
+					<section class="general-information">
+						<h1 class="charname">
+							<input name="name" type="text" value="{{actor.name}}" placeholder="Nome" />
+						</h1>
+						<div class="level-information">
+							<a class="config-button" data-action="level">
+								<h4 class="level">Nível {{data.attributes.nivel.value}}</h4>
+							</a>
+							{{#unless disableExperience}}
+								<div class="xp-tracker" title="Experiência">
+									<div class="experience">
+										<input class="current-xp" name="system.attributes.nivel.xp.value" type="text"
+											value="{{data.attributes.nivel.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7" />
+										<span class="max-xp">{{data.attributes.nivel.xp.proximo}}</span>
+									</div>
+									<div class="xp-bar">
+										<div class="xp-bar-total">
+											<span class="xp-bar-current" style="width: {{data.attributes.nivel.xp.pct}}%"></span>
+										</div>
+									</div>
+								</div>
+							{{/unless}}
+						</div>
+					</section>
+					
+					{{!-- Character Summary --}}
+					<section class="general-information summary">
+						<ul class="attributes flexrow" style="flex: 1; margin:0; padding:0;">
+							<li class="flexrow">
+								<input type="text" name="system.detalhes.raca" value="{{data.detalhes.raca}}" placeholder="Raça" />
+							</li>
+							<li class="flexrow">
+								<input type="text" name="system.detalhes.origem" value="{{data.detalhes.origem}}" placeholder="Origem" />
+							</li>
+							<li class="classe flexrow" style="flex: 0.2 1 auto;">
+								{{#if actor.classes.length }}
+								{{#each actor.classes as | class key | }}
+									<span class="item" data-item-id="{{class._id}}">
+										<a class="item-control item-edit" title="Editar">
+											{{#if (eq ../actor.classes.length 1)}} {{class.name}} {{else}} {{class.abbr}} {{/if}}
+											{{class.system.niveis}}
+										</a>
+										<a class="item-control class-config item-delete" title="Excluir">
+											<i class="fas fa-trash" style="font-size: 14px;"></i>
+										</a>
+									</span>
+								{{/each}}
+								{{else}}
+								<input type="text" placeholder="Classe" disabled />
+								{{/if}}
+								<a class="item-control class-config add-classe" title="Configurar">
+									<i class="fas fa-plus" style="float:right;margin-right: 5px;"></i>
+								</a>
+							</li>
+							{{#if mostrarDivindade}}
+							<li class="flexrow">
+								<input type="text" name="system.detalhes.divindade" value="{{data.detalhes.divindade}}" placeholder="Divindade" />
+							</li>
+							{{/if}}
+						</ul>
+
+					</section>
+				</section>
+			</header>
+			<div class="attributes-body">
+				<div class="dados" style="width:61%">
+					{{!-- Abilities --}}
+					<ul class="ability-scores flexrow">
+						{{#each data.atributos as |atr key|}}
+							<li class="ability" data-item-id="{{key}}">
+								<h4 class="ability-name box-title rollable atributo-rollable">{{key}}</h4>
+								<span class="rollable atributo-rollable"><label>
+										<h1 style="border: 0!important; padding:0;">{{numberFormat atr.mod decimals=0 sign=true}}</h1>
+									</label>
+								</span>
+								<footer class="attribute-footer flexrow" style="justify-content: center;">
+									<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="system.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
+									{{#if ../mostrarAtributoTemp}}
+										<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="system.atributos.{{key}}.bonus" value="{{atr.bonus}}" placeholder="0" />
+									{{/if}}
+								</footer>
+							</li>
+						{{/each}}
+					</ul>
+					<div class="recursos">
+						<ul class="attributes flexrow">
+							<li class="attribute health">
+								<h4 class="attribute-name box-title">Pontos de Vida</h4>
+								<div class="attribute-value multiple">
+									<input name="system.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
+									<span class="sep">/</span>
+									<input disabled name="system.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
+								</div>
+								<footer class="attribute-footer">
+									<input name="system.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
+								</footer>
+							</li>
+							<li class="attribute mana">
+								<h4 class="attribute-name box-title">Pontos de Mana</h4>
+								<div class="attribute-value multiple">
+									<input name="system.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}"
+										data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
+									<span class="sep">/</span>
+									<input disabled style="color: #191813" name="system.attributes.pm.max" type="number"
+										value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
+								</div>
+								<footer class="attribute-footer">
+									<input name="system.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number"
+										class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
+								</footer>
+							</li>
+						</ul>
+					</div>
+					{{#if data.resources.shadow }}
+					<div class="recursos">
+						<ul class="attributes flexrow">
+						{{#each data.resources as | resource id | }}
+							<li class="attribute health">
+								<h4 class="attribute-name box-title">{{resource.name}}</h4>
+								<div class="attribute-value multiple">
+									<input name="data.resources.{{id}}.value" type="number" value="{{resource.value}}" data-dtype="Number" max="{{resource.max}}" placeholder="10">
+									<span class="sep">/</span>
+									<input disabled name="data.resources.{{id}}.max" type="number" value="{{resource.max}}" data-dtype="Number" placeholder="10">
+								</div>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+					{{/if}}
+					<div class="ataques">
+						<ol class="item-list">
+							<li class="item flexrow item-header">
+								<div class="item-name">Arma</div>
+								<div class="itam-rolls flex2">Ataque (Dano, Crítico)</div>
+								<div class="item-controls"><a class="item-control item-create" title="Criar Arma" data-type="arma"><i class="fas fa-plus"></i> Criar</a>
+								</div>
+							</li>
+							<div style="max-height: 124px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
+								{{#each actor.inventario.arma.items as |item id|}}
+									<li class="item flexrow" data-item-id="{{item._id}}">
+										<div class="item-name flexrow rollable arma-rollable">
+											<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+											<h4>{{item.name}}</h4>
+										</div>
+										<div class="item-rolls flex2">
+											{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
+										</div>
+										<div class="item-controls">
+											{{#if ../botaoEditarItens}}
+											<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+											{{/if}}
+											<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
+										</div>
+									</li>
+								{{/each}}
+							</div>
+						</ol>
+					</div>
+					<div class="defesa">
+						<ol class="ability-scores" style="width: calc(20% - 2px); height:100px; display:inline-block;">
+							<li class="flexrow item-header flex-center">
+								<h4 class="box-title">Defesa</h4>
+							</li>
+							<li class="flexrow text-center">
+								<div class="item-name" style="height:80px;">
+									<h1 name="system.attributes.defesa.value" style="padding:0">{{data.attributes.defesa.value}}</h1>
+									<div class="flexrow">
+										<select class="selectAtr" name="system.attributes.defesa.atributo" value="{{data.attributes.defesa.atributo}}">
+											{{#select data.attributes.defesa.atributo}}
+											<option value=""></option>
+											<option value="for">For</option>
+											<option value="des">Des</option>
+											<option value="con">Con</option>
+											<option value="int">Int</option>
+											<option value="sab">Sab</option>
+											<option value="car">Car</option>
+											{{/select}}
+										</select>
+										<input name="system.attributes.defesa.outros" title="Outros" type="number" class="temphealth" placeholder="0" value="{{data.attributes.defesa.outros}}" />
+									</div>
+								</div>
+							</li>
+						</ol>
+						<ol class="item-list"
+							style="width: calc(80% - 2px); max-height:100px; display:inline-block; vertical-align: top; margin:0; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
+							<li class="item flexrow item-header">
+								<div class="item-name flex2">Equipamento</div>
+								<div class="item-def">Defesa/Penalidade</div>
+								<div class="item-controls"><a class="item-control item-create" title="Criar Equipável" data-type="equipamento"><i class="fas fa-plus"></i> Criar</a></div>
+							</li>
+							{{#each actor.inventario.equipamento.items as |item id|}}
+								<li class="item flexrow" data-item-id="{{item._id}}">
+									<div class="item-name flex2 flexrow edit-favoritos">
+										<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+										<h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.name}}</h4>
+									</div>
+									<div class="item-def">{{numberFormat item.system.armadura.value sign=true}} / {{item.system.armadura.penalidade}}</div>
+									<div class="item-controls">
+										<a class="item-control item-toggle toggle-armor{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}Desequipar{{else}}Equipar{{/if}}"><i class="fas fa-shield-alt"></i></a>
+										{{#if ../botaoEditarItens}}
+										<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+										{{/if}}
+										<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
+									</div>
+								</li>
+							{{/each}}
+						</ol>
+					</div>
+					<div class="poderes">
+						<h4 class="attribute-name poderes-title">Poderes</h4>
+						{{> "systems/tormenta20/templates/actor/parts/actor-powers.html"}}
+					</div>
+
+					{{#if actor.maiorCirculo}}
+						<div class="magias">
+							<h4 class="attribute-name poderes-title">Magias</h4>
+							{{> "systems/tormenta20/templates/actor/parts/actor-spells.html" sections=spells}}
+						</div>
+					{{/if}}
+					<hr>
+					<div class="outros">
+						{{> "systems/tormenta20/templates/actor/parts/actor-traits.html"}}
+						<textarea name="system.detalhes.info" style="resize:vertical;" rows="10">{{data.detalhes.info}}</textarea>
+					</div>
+					{{#if actor.referencias}}
+						<div class="conditions">
+							<li class="item flexrow item-header flex-center">
+								<div>CONDIÇÕES ATUAIS</div>
+							</li>
+							{{#each actor.referencias as |item index|}}
+								<div>
+									<label class="tooltip">
+										<img class="invert" src="{{item.icon}}" width="36" height="36" /> {{item.label}}
+										<i class="fas fa-question-circle"></i>
+										<div class="tooltipcontent"> <img src="{{item.icon}}" width="120" height="120" /> {{{item.tooltip}}}
+										</div>
+									</label>
+								</div>
+							{{/each}}
+						</div>
+					{{/if}}
+				</div>
+				<div class="skills" style="width:38%">
+					{{!-- Skills --}}
+					{{> "systems/tormenta20/templates/actor/parts/actor-skills.html"}}
+
+					<div class="inventario">
+
+						<ol class="item-list">
+							<li class="item flexrow item-header flex-center">Inventário</li>
+							<li class="item flexrow item-header">
+								<div class="item-image"></div>
+								<div class="item-name" style="flex: 5;">Nome</div>
+								<div class="item-qtd">Qtd</div>
+								<div class="item-peso">{{weightCol}}</div>
+								<div class="item-controls">
+
+								</div>
+							</li>
+							<div style="max-height: 450px; overflow-y: auto; scrollbar-width: thin; padding-right: 2px;">
+								{{#each actor.inventario.itens.items as |item id|}}
+									<li class="item flexrow" data-item-id="{{item._id}}">
+										<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+										<h4 class="item-name {{#if (eq item.type " consumivel")}}rollable
+											consumivel-rollable{{else}}edit-favoritos{{/if}}" style="flex: 5;">
+											{{item.name}}
+										</h4>
+										<div class="item-qty">
+											<input type="text" classe="item-qtd" value="{{item.system.qtd}}" data-dtype="Number" placeholder="0" style="height: 20px; width: 90%; text-align: center;">
+										</div>
+										<div class="item-peso" style="text-align: center;">{{item.pesoTotal}}</div>
+										<div class="item-controls">
+											{{#if ../botaoEditarItens}}
+											<a class="item-control item-edit" title="Editar"><i class="fas fa-edit"></i></a>
+											{{/if}}
+											<a class="item-control item-delete" title="Excluir"><i class="fas fa-trash"></i></a>
+										</div>
+									</li>
+								{{/each}}
+							</div>
+							<li class="item flexrow item-header">
+								<div class="item-name text-right">
+									&nbsp;&nbsp;
+									<a class="item-control item-create" title="Criar consumivel" data-type="consumivel"><i
+											class="fas fa-plus"></i> Consumível</a>
+									&nbsp;&nbsp;
+									<a class="item-control item-create" title="Criar tesouro" data-type="tesouro"><i
+											class="fas fa-plus"></i> Item</a>
+								</div>
+							</li>
+						</ol>
+
+						<div class="inventory-currency">
+							<ul class="currency">
+								<li class="currency-header" title="Moedas">
+									<i class="fas fa-coins"></i>
+								</li>
+								{{#if mostrarPlatina}}
+								<li class="currency-item" title="Platina">
+									<input type="number" name="system.dinheiro.tl" value="{{data.dinheiro.tl}}"
+										data-dtype="Number" placeholder="0">
+									<label for="data.dinheiro.tl" class="denomination gp">tl</label>
+								</li>
+								{{/if}}
+								<li class="currency-item" title="Ouro">
+									<input type="number" name="system.dinheiro.to" value="{{data.dinheiro.to}}"
+										data-dtype="Number" placeholder="0">
+									<label for="data.dinheiro.to" class="denomination gp">to</label>
+								</li>
+								<li class="currency-item" title="Prata">
+									<input type="number" name="system.dinheiro.tp" value="{{data.dinheiro.tp}}"
+										data-dtype="Number" placeholder="0">
+									<label for="data.dinheiro.tp" class="denomination sp">t$</label>
+								</li>
+								<li class="currency-item" title="Cobre">
+									<input type="number" name="system.dinheiro.tc" value="{{data.dinheiro.tc}}"
+										data-dtype="Number" placeholder="0">
+									<label for="data.dinheiro.tc" class="denomination cp">tc</label>
+								</li>
+							</ul>
+						</div>
+						<div class="encumbrance" style="margin:0;" title="Carga">
+							<span class="encumbrance-bar" style="width:{{data.attributes.carga.pct}}%"></span>
+							<span class="encumbrance-label">{{data.attributes.carga.value}} /
+								{{data.attributes.carga.max}}</span>
+							<i class="encumbrance-breakpoint encumbrance-30 arrow-up"></i>
+							<i class="encumbrance-breakpoint encumbrance-30 arrow-down"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{{!-- Journal Tab --}}
+		<div class="tab journal" data-group="primary" data-tab="journal">
+			{{> "systems/tormenta20/templates/actor/parts/actor-diario.html"}}
+		</div>
+
+		{{!-- Efeitos Tab --}}
+		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
+			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+		</div>
+
+		{{!-- Modificadores Tab --}}
+		<div class="tab mods" data-group="primary" data-tab="mods">
+			{{> "systems/tormenta20/templates/actor/parts/actor-modifiers.html"}}
+		</div>
+	</section>
+</form>

@@ -55,6 +55,15 @@ T20.creatureTypes = {
 	"mor": "T20.CreatureUndead",
 }
 
+T20.creatureRoles = {
+	"combatant": "T20.FoeRoleCombatant",
+	"caster": "T20.FoeRoleCaster",
+	"trickster": "T20.FoeRoleTrickster",
+	"lackay": "T20.FoeRoleLackey",
+	"captain": "T20.FoeRoleCaptain",
+	"boss": "T20.FoeRoleBoss",
+}
+
 /* ---------------- Armour ---------------- */
 
 T20.armorTypes = {
@@ -350,11 +359,11 @@ T20.senses = {
  * @type {Object<string,string>}
  */
 T20.movementTypes = {
-	"burrow": "T20.MovementBurrow",
-	"climb": "T20.MovementClimb",
-	"fly": "T20.MovementFly",
-	"swim": "T20.MovementSwim",
 	"walk": "T20.MovementWalk",
+	"climb": "T20.MovementClimb",
+	"burrow": "T20.MovementBurrow",
+	"swim": "T20.MovementSwim",
+	"fly": "T20.MovementFly",
 };
 
 /* ----------------- Size ----------------- */
@@ -565,4 +574,30 @@ T20.passosDanoOld = {
     arr3: ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "2d10", "3d10", "4d10", "4d12"]
 }
 
+// NPC STATS
+T20.NDparams = {
+  pat: ['i','i','i','i','i','i','v','v','v','v','v','v','c','c','c','c','c','c','l','l','l','l'],
+  cr: ['1/4','1/2',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+  attack: [6,7,9,12,14,16,17,20,24,26,27,29,34,36,37,39,43,46,47,49,52,54],
+  damage: [8,10,15,18,21,24,40,56,62,68,74,80,130,144,158,172,186,200,270,288,306,324],
+  defense: [11,14,16,19,21,23,24,27,31,33,34,36,41,43,44,46,50,53,54,56,59,61],
+  topsave: [3,6,11,13,15,16,16,18,20,21,21,22,29,30,30,31,31,32,32,33,33,34],
+  midsave: [0,3,5,7,9,10,10,12,14,15,15,16,23,24,24,25,25,26,26,27,27,28],
+  botsave: [-2,-1,0,2,4,5,5,7,9,10,10,11,18,19,19,20,20,21,21,22,22,23],
+  hp: [7,15,35,70,105,140,200,240,280,320,360,400,550,600,650,700,750,800,1020,1080,1140,1200],
+  dc: [12,14,15,16,17,18,20,22,24,26,28,30,31,33,35,38,40,42,44,47,47,49]
+}
+T20.NPCParams = ( cr ) => {
+	let idx = T20.NDparams.cr.indexOf(cr);
+	if ( idx < 0 ){
+		ui.notifications.warn(game.i18n.format("T20.CRInvalid", {cr: cr}));
+		idx = 0;
+	}
+	
+	let param = Object.entries(T20.NDparams).reduce(( acc, p )=>{
+		acc[p[0]] = p[1][idx];
+		return acc;
+	},{});
+	return param;
+}
 

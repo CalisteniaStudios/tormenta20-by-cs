@@ -28,7 +28,13 @@
   "T20.Toggle": "Alternar",
   "T20.New": "Nova",
   "T20.Value": "Valor",
+  "T20.Search": "Buscar",
   
+  "T20.Die": "Dado",
+  "T20.Dice": "Dados",
+  "T20.Bonus": "Bônus",
+  "T20.Half": "Metade",
+  "T20.Double": "Dobro",
   "T20.Proficiency": "Proficiência",
   "T20.Languages": "Idiomas",
   "T20.Total": "Total",
@@ -516,6 +522,7 @@
   "T20.AbilityUseCast": "Conjurar Magia",
   "T20.AbilityUseUse": "Usar Habilidade",
   "T20.ActionAbil": "Teste de Atributo",
+  "T20.SavingThrows": "Testes de Resistência",
   "T20.ActionSave": "Teste de Resistência",
   "T20.ActionUtil": "Utilidade",
   
@@ -531,6 +538,8 @@
   "T20.InsufficientMana": "Mana insuficiente para usar {name}.",
 
   
+  "T20.S9": "/* --------------- Builder --------------- */",
+
   "T20.AbilityGenerationRule": "Geração de atributos",
   "T20.MaxManaCost": "Limite de Gasto de Mana",
   "T20.AGR.PointBuy": "Compra por Pontos",
@@ -539,6 +548,17 @@
   "T20.RAR.Default": "Padrão (T20)",
   "T20.RAR.Flex": "Atributos Flexíveis (SF)",
   
+
+  "T20.NPCBuilderConcept": "Conceito e Nome",
+  "T20.NPCBuilderType": "Tipo e Tamanho",
+  "T20.NPCBuilderCR": "Nível de Desafio",
+  "T20.NPCBuilderAttributes": "Estatísticas de Combate",
+  "T20.NPCBuilderAttacks": "Ataques",
+  "T20.NPCBuilderPowers": "Habilidades",
+  "T20.NPCBuilderTraits": "Estatísticas Secundárias",
+  "T20.NPCBuilderLoot": "Equipamento e Tesouro",
+
+
   "T20.S98": "/* --------------- Settings --------------- */",
 
   "T20.SettingSheetSettings": "Configurações das Fichas",

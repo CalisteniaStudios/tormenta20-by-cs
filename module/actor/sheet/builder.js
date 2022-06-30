@@ -12,6 +12,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		return mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "character"],
 			scrollY: [".sheet-body"],
+			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "concept"}],
 			width: 600,
 			height: 700
 		});
@@ -19,11 +20,10 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 
 	/* @override */
 	get template() {
-		let layout = game.settings.get("tormenta20", "sheetTemplate");
 		if ( this.actor.type == 'character' ) {
 			return "systems/tormenta20/templates/actor/actor-sheet-builder.html" ;
 		} else if( this.actor.type == 'npc' ) {
-			return "systems/tormenta20/templates/actor/actor-sheet-builder.html";
+			return "systems/tormenta20/templates/actor/npc-sheet-builder.html";
 		}
 	}
 

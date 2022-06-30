@@ -56,8 +56,7 @@
             "value": 0,
             "outros": 0,
             "atributo": "des",
-            "pda": 0,
-            "bonus": []
+            "pda": 0
           }
         },
         "detalhes": {
@@ -312,6 +311,9 @@
         "resistencias": "",
         "tesouro": ""
       }
+    },
+    "foo": {
+      
     }
   },
   "Item": {

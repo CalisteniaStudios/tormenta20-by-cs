@@ -19,7 +19,7 @@ import AbilityUseDialog from "./apps/ability-use-dialog.js";
 import ActorSettings from "./apps/actor-settings.js";
 import ActorSheetT20Character from "./actor/sheet/character.js";
 import ActorSheetT20CharacterTabbed from "./actor/sheet/_tempSheets.js";
-//import ActorSheetT20Builder from "./actor/sheet/builder.js";
+import ActorSheetT20Builder from "./actor/sheet/builder.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
 import ItemSheetT20 from "./item/sheet.js";
 import TraitSelector from "./apps/trait-selector.js";
@@ -115,25 +115,25 @@ Hooks.once("init", async function () {
 	Actors.registerSheet("tormenta20", ActorSheetT20Character, {
 		types: ["character"],
 		makeDefault: true,
-		label: "Ficha de Personagem"
+		label: game.i18n.localize("T20.CharacterSheet"), //"Ficha de Personagem"
 	});
 	Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
 		types: ["character"],
 		makeDefault: false,
-		label: "Ficha de Personagem - Abas"
+		label: game.i18n.localize("T20.CharacterSheetTabbed"), //"Ficha de Personagem - Abas"
 	});
 	
 	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
 		types: ["npc"],
 		makeDefault: true,
-		label: "Ficha de NPC"
+		label: game.i18n.localize("T20.NPCSheet"), //"Ficha de NPC"
 	});
 
-	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
-	// 	types: ["character"],
-	// 	makeDefault: false,
-	// 	label: "Progressão de Personagem"
-	// });
+	Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
+		types: ["character","npc"],
+		makeDefault: false,
+		label: game.i18n.localize("T20.CharacterBuilderSheet"), //"Progressão de Personagem"
+	});
 	
 	// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
 
