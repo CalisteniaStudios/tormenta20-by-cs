@@ -223,3 +223,100 @@
     }
   }
 }
+
+.tormenta20.sheet.npc-builder {
+  select,
+  input {
+    background-color: rgba(0,0,0,0.1);
+  }
+  nav{
+    .item {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+  .sheet-body {
+    .tab {
+      .left-side {
+        height: 100%;
+        flex:3;
+      }
+      .right-side {
+        height: 100%;
+        flex: 2;
+        margin: 0 10px;
+      }
+
+      &.attributes {
+        label {
+          flex: 0 0 110px;
+        }
+        i {
+          flex: 0 0 20px;
+        }
+        input {
+          flex: 0 0 90px;
+          margin: 0 4px;
+        }
+      }
+      
+      table {
+        text-align: center;
+      }
+
+      table.cr-table {
+        tr.active td:not(:nth-child(-n + 2)) {
+          background-color: rgba(255,0,0,0.1);
+        }
+        tr.pat-i {
+          td:nth-child(-n + 2)  {
+            background-color: rgba(0, 255, 0, 0.1);
+          }
+        }
+        tr.pat-v {
+          td:nth-child(-n + 2)  {
+            background-color: rgba(255, 255, 0, 0.1);
+          }
+        }
+        tr.pat-c {
+          td:nth-child(-n + 2)  {
+            background-color: rgba(255, 180, 0, 0.1);
+          }
+        }
+        tr.pat-l {
+          td:nth-child(-n + 2)  {
+            background-color: rgba(255, 0, 0, 0.1);
+          }
+        }
+
+        td.setParam {
+          &.active {
+            font-weight: bold;
+            color: darkred;
+            text-decoration: underline;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .skills-list {
+        .skill {
+          padding: 1px !important;
+        }
+
+        .item-value {
+          flex: 0 0 30px;
+          text-align: center;
+        }
+        .item-trained,
+        .item-ability,
+        .item-bonus {
+          flex: 0 0 60px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

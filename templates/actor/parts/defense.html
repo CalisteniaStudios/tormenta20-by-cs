@@ -6,6 +6,9 @@
 	</div>
 	<footer class="attribute-footer">
 		<div class="flexrow">
+			{{#if isReformed}}
+			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.BaseDefense'}}">
+			{{else}}
 			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityModifierBonus'}}">
 				{{#select system.attributes.defesa.atributo}}
 				<option value=""></option>
@@ -15,6 +18,7 @@
 				{{/select}}
 			</select>
 			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.outros" value="{{system.attributes.defesa.outros}}" title="{{localize 'T20.Other'}}">
+			{{/if}}
 		</div>
 	</footer>
 </li>

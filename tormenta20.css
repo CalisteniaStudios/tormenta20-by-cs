@@ -2374,6 +2374,72 @@
   display: inline;
   font-weight: 400;
 }
+.tormenta20.sheet.npc-builder select,
+.tormenta20.sheet.npc-builder input {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.tormenta20.sheet.npc-builder nav .item {
+  font-size: 14px;
+  line-height: 16px;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab .left-side {
+  height: 100%;
+  flex: 3;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab .right-side {
+  height: 100%;
+  flex: 2;
+  margin: 0 10px;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab.attributes label {
+  flex: 0 0 110px;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab.attributes i {
+  flex: 0 0 20px;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab.attributes input {
+  flex: 0 0 90px;
+  margin: 0 4px;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table {
+  text-align: center;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table.cr-table tr.active td:not(:nth-child(-n + 2)) {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table.cr-table tr.pat-i td:nth-child(-n + 2) {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table.cr-table tr.pat-v td:nth-child(-n + 2) {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table.cr-table tr.pat-c td:nth-child(-n + 2) {
+  background-color: rgba(255, 180, 0, 0.1);
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table.cr-table tr.pat-l td:nth-child(-n + 2) {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table.cr-table td.setParam.active {
+  font-weight: bold;
+  color: darkred;
+  text-decoration: underline;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab table.cr-table td.setParam:hover {
+  cursor: pointer;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab .skills-list .skill {
+  padding: 1px !important;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab .skills-list .item-value {
+  flex: 0 0 30px;
+  text-align: center;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab .skills-list .item-trained,
+.tormenta20.sheet.npc-builder .sheet-body .tab .skills-list .item-ability,
+.tormenta20.sheet.npc-builder .sheet-body .tab .skills-list .item-bonus {
+  flex: 0 0 60px;
+  text-align: center;
+}
 .tormenta20.sheet.actor.vehicle {
   min-width: 720px;
   min-height: 680px;

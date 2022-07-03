@@ -83,6 +83,8 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	prepareDerivedData() {
 		console.log('#prepareDerivedData');
+		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
+
 		const system = this.system;
 		const nivel = system.attributes.nivel.value;
 
@@ -103,7 +105,7 @@ export default class ActorT20 extends Actor {
 		this._prepareDefense(system);
 
 		// BASE CD
-		system.attributes.cd = 10 + Math.floor(nivel / 2);
+		system.attributes.cd = reforma ? system.attributes.cd : 10 + Math.floor(nivel / 2);
 
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
@@ -157,15 +159,20 @@ export default class ActorT20 extends Actor {
 		console.log('#_prepareNPCData');
 		const system = this.system;
 		const flags = this.flags;
-		const nivel = system.attributes.nivel.value;
+		let npcFlags = {};
+		let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
+		if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
+		if ( reformSheet ) npcFlags.npcReform = reformSheet;
+		if ( this.getFlag("tormenta20", "showCD") === undefined ) npcFlags.showCD = true;
+
+		const reforma = npcFlags.npcReform || this.getFlag("tormenta20", "npcReform");
+		let nd = system.detalhes.nd;
+		
+		const nivel = reforma ? (Number(nd)||0) : system.attributes.nivel.value;
 		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience Reward
-		let nd = system.detalhes.nd;
 		system.attributes.defesa.condi = 0;
 		system.attributes.nivel.xp.value = this.getCDExp(nd);
-
-		let npcFlags = {};
-		if ( this.getFlag("tormenta20", "showCD") === undefined ) npcFlags.showCD = true;
 
 		let baseFlags = { tormenta20: npcFlags };
 		if( !isEmpty(npcFlags) ) mergeObject( flags, baseFlags );
@@ -190,14 +197,17 @@ export default class ActorT20 extends Actor {
 	* @private
 	*/
 	_prepareDefense(system){
+		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const rollData = this.getRollData();
+		
 
 		let defense = system.attributes.defesa;
+		if ( !defense.base ) system.attributes.defesa.base = 10;
 		if ( !defense.value ) system.attributes.defesa.value = 0;
 		if ( !defense.pda ) system.attributes.defesa.pda = 0;
 		if ( !Number(defense.condi) ) system.attributes.defesa.condi = 0;
 
-		let parts = ["10"];
+		let parts = [defense.base];
 		let pda = 0;
 		let ability = defense.atributo;
 		let mod = system.atributos[ability]?.mod || 0;
@@ -205,6 +215,7 @@ export default class ActorT20 extends Actor {
 		
 		// Defense Calculation
 		for (let item of this.items.filter( i => i.type == 'equipamento') ) {
+			if( reforma ) break;
 			if( !item.system.equipado ) continue;
 			let tipo = item.system.tipo;
 			let value = Number(item.system.armadura.value);
@@ -233,9 +244,11 @@ export default class ActorT20 extends Actor {
 			DEF = 10 + armor + (@armor) + shield + (@shield)
 							 + @ability, outros, bonus, condi;
 		 */
-		parts.push( maxAbl === false ? mod : Math.min( mod , maxAbl ) );
+		if( !reforma ){
+			parts.push( maxAbl === false ? mod : Math.min( mod , maxAbl ) );
+			parts.push(defense.outros || 0);
+		}
 		parts.push(defense.bonus || 0);
-		parts.push(defense.outros || 0);
 		parts.push(defense.condi);
 
 		const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
@@ -251,8 +264,10 @@ export default class ActorT20 extends Actor {
 	* @private
 	*/
 	_prepareSkills(key, pericia, system, rollData, roll = false) {
+		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const pda = system.attributes.defesa.pda ? -Math.abs(system.attributes.defesa.pda) : 0;
 		pericia.label = pericia.label || CONFIG.T20.pericias[key];
+		pericia.label = key == 'ofi0'? CONFIG.T20.pericias['ofic'] : pericia.label;
 		pericia.custom = false;
 		if ( !Number(pericia.condi) ) pericia.condi = 0;
 		if (!key.match(/ofi[1-9]|_pc[1-9]/)) {
@@ -267,13 +282,20 @@ export default class ActorT20 extends Actor {
 		
 		pericia.label = game.i18n.localize( pericia.label );
 
-		var atributo = pericia.atributo || "for";
-		pericia.mod = system.atributos[atributo].mod;
+		let atributo = pericia.atributo || "for";
+		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && !reforma ) {
+			pericia.mod = system.atributos[atributo].mod;
+		}
+
 		pericia.outros = pericia.outros;//Number(pericia.outros) || 0;
 		pericia.bonus = pericia.bonus || 0;//Number(pericia.bonus) || 0;
 
 		const parts = [];
-		parts.push("@meionivel", pericia.treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, pericia.bonus);
+		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && reforma ) {
+			parts.push(pericia.outros, pericia.bonus);
+		} else {
+			parts.push("@meionivel", pericia.treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, pericia.bonus);
+		}
 
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = getProperty(this.system, "modificadores.pericias") || {};
@@ -557,6 +579,42 @@ export default class ActorT20 extends Actor {
 		return ItemT20.createDocuments(itemsToAdd.map(i => i.toJSON()), { parent: this });
 	}
 
+	/**
+	 * Update Actor Attributes following NPC builder guide
+	 * @param {String} cr    - The Challenge Rating to get values from;
+	 * @param {String} attr  - The attribute being changed;
+	 */
+	_setCRAttrs(cr, attr){
+		if ( this.type != 'npc' ) return;
+		let updateData = {};
+		const crData = CONFIG.T20.NPCParams(cr);
+		let skills = {};
+		skills.fort = this.system.builder.attributes.fort ?? {};
+		skills.refl = this.system.builder.attributes.refl ?? {};
+		skills.vont = this.system.builder.attributes.vont ?? {};
+		const ranks = ['botsave','midsave','topsave'];
+		const attrs = ['attack','damage','defense','hp','dc','topsave','midsave','botsave'];
+		
+		if( attr == 'all') {
+			for ( let att of attrs ){
+				updateData['system.builder.attributes.'+att+'.value'] = crData[att];
+				updateData['system.builder.attributes.'+att+'.cr'] = cr;
+			}
+		} else {
+			updateData['system.builder.attributes.'+attr+'.value'] = crData[attr];
+			updateData['system.builder.attributes.'+attr+'.cr'] = cr;
+		}
+		if ( ['all','topsave','midsave','botsave'].includes(attr) ) {
+			for ( let [key, skill] of Object.entries(skills)) {
+				let r = skill.rank ?? 0;
+				if( attr == 'all' || attr == ranks[r] ){
+					updateData['system.builder.attributes.'+key+'.value'] = crData[ranks[r]];
+					updateData['system.builder.attributes.'+key+'.cr'] = cr;
+				}
+			}
+		}
+		this.update(updateData);
+	}
 
 	/* -------------------------------------------- */
 	/*  Event Handlers                              */
@@ -598,6 +656,50 @@ export default class ActorT20 extends Actor {
 				changed.token.height = size;
 				changed.token.width = size;
 			}
+		}
+		// NPC REFORM
+		if ( this.type == 'npc' && this.getFlag('tormenta20','npcReform') ){
+			let attributes = {};
+			let skills = {};
+			let cr = getProperty(changed, 'system.detalhes.nd');
+			let defense = getProperty(changed, 'system.builder.attributes.defense.value');
+			let hp = getProperty(changed, 'system.builder.attributes.hp.value');
+			let dc = getProperty(changed, 'system.builder.attributes.dc.value');
+			let fort = getProperty(changed, 'system.builder.attributes.fort.value');
+			let refl = getProperty(changed, 'system.builder.attributes.refl.value');
+			let vont = getProperty(changed, 'system.builder.attributes.vont.value');
+
+			let _cr = getProperty(changed, 'system.attributes.nivel.value');
+			let _defense = getProperty(changed, 'system.attributes.defesa.base');
+			let _hp = getProperty(changed, 'system.attributes.pv.max');
+			let _dc = getProperty(changed, 'system.attributes.dc');
+			let _fort = getProperty(changed, 'system.pericias.fort.outros');
+			let _refl = getProperty(changed, 'system.pericias.refl.outros');
+			let _vont = getProperty(changed, 'system.pericias.vont.outros');
+			if ( cr && (cr != getProperty(this.system, _cr)) ){
+				attributes.nivel = {value: cr};
+			}
+			if ( defense && (defense != getProperty(this.system, _defense)) ){
+				attributes.defesa = {base: defense};
+			}
+			if ( hp && (hp != getProperty(this.system, _hp)) ){
+				attributes.pv = {max: hp};
+			}
+			if ( dc && (dc != getProperty(this.system, _dc)) ){
+				attributes.cd = dc;
+			}
+			if ( fort && (fort != getProperty(this.system, _fort)) ){
+				skills.fort = {outros: fort};
+			}
+			if ( refl && (refl != getProperty(this.system, _refl)) ){
+				skills.refl = {outros: refl};
+			}
+			if ( vont && (vont != getProperty(this.system, _vont)) ){
+				skills.vont = {outros: vont};
+			}
+			if (!isEmpty(attributes)) changed.system.attributes = attributes;
+			if (!isEmpty(skills)) changed.system.pericias = skills;
+			console.log(changed);
 		}
 	}
 

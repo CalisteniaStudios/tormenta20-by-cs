@@ -126,6 +126,10 @@ export default class ItemT20 extends Item {
 		// Weapons
 		else if ( this.type === "arma" ) {
 			labels.critico = `${system.criticoM}/${system.criticoX}x`
+			let rollAttack = this.system.rolls.find( r => r.type == 'ataque' );
+			let rollDamage = this.system.rolls.find( r => r.type == 'dano' );
+			labels.npcattack = rollAttack?.parts[2][0] ?? '';
+			labels.npcdamage = rollDamage?.parts[0][0] ?? '';
 		}
 		// Spells
 		else if ( this.type === "magia" ) {

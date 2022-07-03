@@ -21,8 +21,10 @@
 		<li>
 			<input type="text" title="{{ localize 'T20.Race'}}" placeholder="{{ localize 'T20.Race'}}"  name="system.detalhes.raca" value="{{system.detalhes.raca}}" />
 		</li>
+		{{#unless isReformed}}
 		<li>
 			<input type="text" title="{{ localize 'T20.Level'}}" placeholder="{{ localize 'T20.Level'}}"  name="system.attributes.nivel.value" value="{{system.attributes.nivel.value}}"/>
 		</li>
+		{{/unless}}
 	</ul>
 </header>

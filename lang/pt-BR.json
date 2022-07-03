@@ -387,7 +387,7 @@
   "T20.MovementClimb": "Escalada",
   "T20.MovementFly": "Voo",
   "T20.MovementSwim": "Natação",
-  "T20.MovementWalk": "Caminhada",
+  "T20.MovementWalk": "Terrestre",
   "T20.MovementHover": "Pairar",
   "T20.MovementUnits": "Unidades",
 
@@ -548,19 +548,44 @@
   "T20.RAR.Default": "Padrão (T20)",
   "T20.RAR.Flex": "Atributos Flexíveis (SF)",
   
+  "T20.FoeConcept": "Conceito",
+  "T20.FoeRole": "Função",
 
-  "T20.NPCBuilderConcept": "Conceito e Nome",
-  "T20.NPCBuilderType": "Tipo e Tamanho",
-  "T20.NPCBuilderCR": "Nível de Desafio",
-  "T20.NPCBuilderAttributes": "Estatísticas de Combate",
-  "T20.NPCBuilderAttacks": "Ataques",
-  "T20.NPCBuilderPowers": "Habilidades",
-  "T20.NPCBuilderTraits": "Estatísticas Secundárias",
-  "T20.NPCBuilderLoot": "Equipamento e Tesouro",
+  "T20.FoeRoleCombatant": "Combatente",
+  "T20.FoeRoleCaster": "Conjurador",
+  "T20.FoeRoleTrickster": "Trapaceiro",
+  "T20.FoeRoleLackey": "Lacaio",
+  "T20.FoeRoleCaptain": "Capitão",
+  "T20.FoeRoleBoss": "Chefão",
+
+  "T20.NPCB_Concept": "Conceito e Nome",
+  "T20.NPCB_Type": "Tipo e Tamanho",
+  "T20.NPCB_CR": "Nível de Desafio",
+  "T20.NPCB_Attributes": "Estatísticas de Combate",
+  "T20.NPCB_Attacks": "Ataques",
+  "T20.NPCB_Powers": "Habilidades",
+  "T20.NPCB_Traits": "Estatísticas Secundárias",
+  "T20.NPCB_Loot": "Equipamento e Tesouro",
+
+  "T20.NPCB_Bipedal": "Bípede",
+  "T20.NPCB_Quadrupedal": "Quadrupede",
+  "T20.NPCB_Flying": "Voador",
+  "T20.NPCB_Climber": "Escalador",
+  "T20.NPCB_Burrower": "Escavador",
+  "T20.NPCB_Swimmer": "Nadador",
+
+  "T20.NPCB_SaveGood": "Res. Forte",
+  "T20.NPCB_SaveNormal": "Res. Média",
+  "T20.NPCB_SaveBad": "Res. Fraca",
+
 
 
   "T20.S98": "/* --------------- Settings --------------- */",
 
+  "T20.CharacterSheet": "Ficha de Personagem",
+  "T20.CharacterSheetTabbed": "Ficha de Personagem - Abas",
+  "T20.NPCSheet": "Ficha de NPC",
+  "T20.CharacterBuilderSheet": "Criação de NPC",
   "T20.SettingSheetSettings": "Configurações das Fichas",
   "T20.SettingSheetSettingsHint": "Configurações das Fichas",
   "T20.SettingDisableExperience": "Avanço por Marcos",

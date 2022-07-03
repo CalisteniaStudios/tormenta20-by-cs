@@ -113,7 +113,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			if ( !!cls ) { 
 				let priorLevel = cls.system.niveis ?? 0;
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.system.attributes.nivel.value);
-				await cls.update({"data.niveis": next});
+				await cls.update({"system.niveis": next});
 				return this.actor._calcPVPM();
 			}
 			// Primeiro Nivel do Personagem
@@ -247,7 +247,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const item = this.actor.items.get(li.data("itemId"));
 		const id = item.system;
 		let updateItems = [];
-		updateItems.push({_id: item.id, "data.preparada": !id.preparada});
+		updateItems.push({_id: item.id, "system.preparada": !id.preparada});
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 

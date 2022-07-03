@@ -59,7 +59,7 @@ T20.creatureRoles = {
 	"combatant": "T20.FoeRoleCombatant",
 	"caster": "T20.FoeRoleCaster",
 	"trickster": "T20.FoeRoleTrickster",
-	"lackay": "T20.FoeRoleLackey",
+	"lackey": "T20.FoeRoleLackey",
 	"captain": "T20.FoeRoleCaptain",
 	"boss": "T20.FoeRoleBoss",
 }
@@ -383,7 +383,7 @@ T20.tokenSizes = {
 	"med": 1,
 	"gra": 2,
 	"eno": 3,
-	"col": 4
+	"col": 6
 };
 
 /* -------------- Proficiencies ----------- */
@@ -575,9 +575,45 @@ T20.passosDanoOld = {
 }
 
 // NPC STATS
+T20.tableSize = {
+	size: ["min","peq","med","gra","eno","col"],
+	grid: [1.5,1.5,1.5,3,4.5,9],
+	stealth:  [5,2,0,-2,-5,-10],
+	maneuver: [-5,-2,0,2,5,10],
+}
+
+T20.tableMovement = {
+	type:		['T20.NPCB_Bipedal','T20.NPCB_Bipedal','T20.NPCB_Bipedal',
+					 'T20.NPCB_Quadrupedal','T20.NPCB_Quadrupedal','T20.NPCB_Quadrupedal',
+					 'T20.NPCB_Flying','T20.NPCB_Flying','T20.NPCB_Flying',
+					 'T20.NPCB_Climber','T20.NPCB_Burrower','T20.NPCB_Swimmer'
+	],
+	size:		["Pequeno ou menor","Médio","Grande ou maior","Pequeno ou maior","Médio","Grande","","",""],
+	size2:	[["min","peq"],["med"],["gra","eno","col"]],
+	slow:		[4.5,6,9,6,9,12,12,15,18,4.5,4.5,9],
+	normal:	[6,9,12,9,12,15,15,18,24,9,6,15],
+	fast:		[9,12,15,12,15,18,18,24,36,12,9,24]
+}
+
+
+T20.tableAbilities = {
+	'cat': ["Incapaz","Incompetente","Ineficaz","Mediano","Notável","Excelente","Extraordinário","Excepcional"],
+	'val': ["1","2-5","6-9","10-13","14-17","18-21","22-25","26+"]
+}
+
+T20.RoleMods = {
+	"combatant": {good:['attack','damage','defense','hp'], bad:[]},
+	"caster": {good:['vont'], bad:['attack','damage','defense','hp']},
+	"trickster": {good:['vont'], bad:['attack','damage','defense','hp']},
+	"lackey": {good:['attack','hp'], bad:[]},
+	"boss": {good:['hp'], bad:[]},
+}
+
+
 T20.NDparams = {
+	labels: ['','T20.AbbreviationCR','T20.Attack','T20.Damage','T20.Defense','T20.NPCB_SaveGood','T20.NPCB_SaveNormal','T20.NPCB_SaveBad','T20.HP','T20.AbbreviationDC'],
   pat: ['i','i','i','i','i','i','v','v','v','v','v','v','c','c','c','c','c','c','l','l','l','l'],
-  cr: ['1/4','1/2',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+  cr: ['1/4','1/2','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'],
   attack: [6,7,9,12,14,16,17,20,24,26,27,29,34,36,37,39,43,46,47,49,52,54],
   damage: [8,10,15,18,21,24,40,56,62,68,74,80,130,144,158,172,186,200,270,288,306,324],
   defense: [11,14,16,19,21,23,24,27,31,33,34,36,41,43,44,46,50,53,54,56,59,61],
@@ -587,8 +623,10 @@ T20.NDparams = {
   hp: [7,15,35,70,105,140,200,240,280,320,360,400,550,600,650,700,750,800,1020,1080,1140,1200],
   dc: [12,14,15,16,17,18,20,22,24,26,28,30,31,33,35,38,40,42,44,47,47,49]
 }
+
+
 T20.NPCParams = ( cr ) => {
-	let idx = T20.NDparams.cr.indexOf(cr);
+	let idx = T20.NDparams.cr.indexOf(cr.toString());
 	if ( idx < 0 ){
 		ui.notifications.warn(game.i18n.format("T20.CRInvalid", {cr: cr}));
 		idx = 0;

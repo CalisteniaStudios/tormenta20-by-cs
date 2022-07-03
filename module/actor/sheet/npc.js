@@ -32,6 +32,11 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	getData() {
 		const sheetData = super.getData();
 		// FLAGS
+		sheetData.isReformed = this.actor.type === "npc" && this.actor.getFlag("tormenta20", "npcReform");
+		if ( sheetData.isReformed ) {
+			sheetData.skills = sheetData.skills.filter( s => !['luta','pont','fort','refl','vont'].includes(s.key) )
+		}
+		console.log(sheetData.skills);
 		if( this.isEditable ) {
 			sheetData["editarPericias"] = true;
 			//this.actor.getFlag("tormenta20", "sheet.editarPericias");

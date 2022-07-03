@@ -9,7 +9,7 @@
 </div>
 <i>
 	{{ localize (lookup config.creatureTypes system.detalhes.tipo) }}
-	{{system.attributes.nivel.value}},
+	{{#unless isReformed}}{{system.attributes.nivel.value}}{{/unless}},
 	{{ localize (lookup config.actorSizes system.tracos.tamanho) }}
 </i>
 
@@ -58,12 +58,10 @@
 <div>
 	<a class="config-button" data-action="movement" data-target="system.attributes.movement">
 		<label>{{localize 'T20.Movement'}}: </label>
-	</a>
-	<ul class="trait-list">
 		{{#each movement as | move key | }}
-		<li class="speedtag {{key}}">{{move}}</li>
+		{{move}}{{#unless @last}},{{/unless}}
 		{{/each}}
-	</ul>
+	</a>
 </div>
 <hr>
 {{#if system.attributes.pm.max}}
@@ -83,7 +81,7 @@
 			<div style="flex:0 0 10px"></div>
 			<div class="item-name">
 				<span class="rollable arma-rollable" data-item-id="{{item._id}}">
-				<h4 class="item-name" style="flex: 5;">{{item.name}}
+				<h4 class="item-name" style="flex: 5;">{{#if (gt item.system.qtd 1)}}{{item.system.qtd}}x{{/if}} {{item.name}}
 					{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
 				</h4>
 				</span>

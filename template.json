@@ -53,6 +53,7 @@
             "hover": false
           },
           "defesa":{
+            "base": 10,
             "value": 0,
             "outros": 0,
             "atributo": "des",

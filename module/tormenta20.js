@@ -55,6 +55,7 @@ Hooks.once("init", async function () {
 			AbilityUseDialog,
 			ActorSheetT20Character,
 			ActorSheetT20NPC,
+			ActorSheetT20Builder,
 			ItemSheetT20,
 			TraitSelector,
 			ActorSettings
@@ -130,7 +131,7 @@ Hooks.once("init", async function () {
 	});
 
 	Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
-		types: ["character","npc"],
+		types: ["npc"],
 		makeDefault: false,
 		label: game.i18n.localize("T20.CharacterBuilderSheet"), //"Progressão de Personagem"
 	});
