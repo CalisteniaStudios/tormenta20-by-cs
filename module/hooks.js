@@ -112,4 +112,7 @@ export default function () {
 	// 	console.log("Debug hook: Debug hook");
 	// }) ;
 	/* Measured Templates*/
+	// Hooks.on("preCreateActiveEffect", (ActiveEffect, object, options, userId) => {
+		
+	// });
 }

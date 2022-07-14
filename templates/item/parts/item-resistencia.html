@@ -11,6 +11,7 @@
 	<div class="form-fields">
 		<select name="system.resistencia.atributo">
 			{{#select item.system.resistencia.atributo}}
+			<option value=""></option>
 			{{selectOptions config.atributos selected=item.system.resistencia.atributo localize=true}}
 			{{/select}}
 		</select>

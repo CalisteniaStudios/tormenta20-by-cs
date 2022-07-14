@@ -39,7 +39,6 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		const cr = this.actor.system.detalhes.nd; // actorData.attributes.cr;
 		const currAttr = this._getActorAttr(this.actor);
 		let closestCR = {};
-		console.log(currAttr);
 		for ( let [key, attr] of Object.entries(currAttr) ) {
 			closestCR[key] = this._getClosestCR(attr, key, cr);
 		}
@@ -55,9 +54,9 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		let sum = 0;
 		for ( let w of weapons ){
 			let roll = w.system.rolls.find( r => r.type == 'dano' );
-			let parts = roll.parts[0][0].replace(' ','').match(/(\d+d\d+)|([\+\-]\d+[^d])/g);
-			let min = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+")).evaluate({minimize:true, async:false});
-			let max = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+")).evaluate({maximize:true, async:false});
+			let parts = roll.parts.map(p=> p[0].toString() ).filterJoin('+');
+			let min = new Roll(parts).evaluate({minimize:true, async:false});
+			let max = new Roll(parts).evaluate({maximize:true, async:false});
 			sum += ((min.total+max.total)/2) * (w.system.qtd ?? 1);
 		}
 		sheetData.builder.meanDamage.current = sum;
@@ -70,7 +69,6 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 			refl: ranks[actorData.attributes?.refl?.rank ?? 0],
 			vont: ranks[actorData.attributes?.vont?.rank ?? 0],
 		};
-		console.log(sheetData);
 		return sheetData;
 	}
 
@@ -131,7 +129,6 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		actorData.poderes = poderes;
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
-		console.log(inventario);
 		// actorData.inventario = inventario;
 		inventario.itens = {label: "Itens", items: items};
 		actorData.inventario = inventario;
@@ -163,7 +160,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		const attr = {};
 		for (let path of attrPaths ) {
 			let key = path.split('.')[1];
-			let def = ['fort','refl','vont'].includes(key) ? {value: 0, cr:'1', rank:0} : {value: 0, cr:'1'}
+			let def = ['fort','refl','vont'].includes(key) ? {value: 0, cr:'1', rank:0} : {value: 0, cr:'1'};
 			attr[key] = getProperty( actor.system.builder , path) ?? def;
 		}
 		return attr;

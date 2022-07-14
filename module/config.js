@@ -257,7 +257,7 @@ T20.resources = {
 	"tertiary": "T20.ResourceTertiary",
 	"deathsave": "T20SK.ResourceDeathSave",
 	"shadow": "T20SK.ResourceShadow",
-	"inspiration": "T20SK.ResourceInspiration",
+	"catarse": "T20SK.ResourceCatarse",
 }
 /* ---------------- Skills ---------------- */
 

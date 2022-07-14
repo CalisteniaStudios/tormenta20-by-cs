@@ -25,7 +25,12 @@ export default class AbilityUseDialog extends Dialog {
 
 	numberControl(ev){
 		ev.preventDefault();
-		let target = $(ev.target).parent('.numCtrl') ?? ev.target;
+		let target;
+		if ( ev.target.tagName == "I" ) {
+			target = $(ev.target).parent('.numCtrl');
+		} else {
+			target = ev.target;
+		}
 		let campo = $(target).siblings('.numInp')[0];
 		if($(target).val() === "+"){
 			campo.value =  parseInt(campo.value) + parseInt($(campo).prop('step'));
@@ -45,8 +50,7 @@ export default class AbilityUseDialog extends Dialog {
 	 * @return {Promise}
 	 */
 	 static async create(item) {
-		if ( !item.isOwned ) throw new Error("Um item precisa pertencer a um personagem para ser usado.");
-
+		if ( !item.isOwned ) ui.notifications.error(game.i18n.localize("T20.ActionWarningItemNotOwned"));
 		// Prepare data
 		const actorData = item.actor.system;
 		const itemData = item.system;
@@ -55,12 +59,16 @@ export default class AbilityUseDialog extends Dialog {
 		let apdeap = {};
 		
 		function filterAE( ae , keys=[] , tags=[] ){
+			const name = item.name;
+			let items = ae.getFlag('tormenta20','items');
+			items = items ? items.split(';').map( i => i.trim()) : [];
+			if ( !isEmpty(items) && !items.includes(name) ) return false;
 			for ( let k of keys ){
 				if ( !ae.flags?.tormenta20 || !ae.flags?.tormenta20[k] ) return false;
 			}
 			return true;
 		}
-		// filterAE( ae , ['onuse', 'attack'])
+		
 		const relate = {
 			atributo:'ability', pericia:'skill',
 			arma:'attack', magia:'spell',
@@ -74,6 +82,7 @@ export default class AbilityUseDialog extends Dialog {
 				aprimoramentos = [
 					...item.actor.effects.filter(ae => filterAE( ae , ['onuse', utype]) ),
 				];
+				item.validOnUseEffects = aprimoramentos;
 				break;
 			case "arma":
 			case "magia":
@@ -91,7 +100,6 @@ export default class AbilityUseDialog extends Dialog {
 		// TODO Include consume os Ammunition, Itens, Money?
 		// TODO Include measured templates placement
 		// Prepare dialog form data
-		
 		const data = {
 			item: itemData,
 			title: game.i18n.format("T20.AbilityUseHint", item),
@@ -112,11 +120,14 @@ export default class AbilityUseDialog extends Dialog {
 
 		// Create the Dialog and return data as a Promise
 		const icon = item.type === "magia" ? "fas fa-magic" : "fa-fist-raised";
-		const label = item.type === "magia" ? "Lançar Magia" : "Usar Habilidade";
-		// return new Promise((resolve) => {
+		const label = item.type === "magia" ? game.i18n.localize('T20.AbilityUseCast') : game.i18n.localize('T20.AbilityUseUse');
+		
+		
+		
+		
 		return await new Promise((resolve) => {
 			const dlg = new this(item, {
-				title: `Uso de ${item.type}: ${item.name}`,
+				title: game.i18n.format('T20.AbilityUseHint', {name:item.name, type:item.type}),
 				content: html,
 				buttons: {
 					use: {
@@ -124,10 +135,7 @@ export default class AbilityUseDialog extends Dialog {
 						label: label,
 						callback: html => {
 							const fd = new FormDataExtended(html[0].querySelector("form"));
-							
 							let op = applyOnUseEffects( item, fd.object );
-							console.log( op );
-							console.log( fd.object );
 							resolve( mergeObject( fd.object, op ) );
 						}
 					}
@@ -141,10 +149,8 @@ export default class AbilityUseDialog extends Dialog {
 					label: game.i18n.localize('T20.BrewPotion'),
 					callback: html => {
 						const fd = new FormDataExtended(html[0].querySelector("form"));
-						fd.dtypes.brew = true;
+						fd.object.brew = true;
 						let op = applyOnUseEffects( item, fd.object );
-						console.log( op );
-						console.log( fd.object );
 						resolve( mergeObject( fd.object, op ) );
 					}
 				}

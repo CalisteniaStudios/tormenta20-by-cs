@@ -47,7 +47,7 @@
 	{{else}}
 	<li class="skill flexrow {{#if skill.custom }}custom{{/if}}" data-item-id="{{skill.key}}">
 		<div class="item-image">
-			<input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.treinado" value="{{skill.treinado}}">
+			<!-- <input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.treinado" value="{{skill.treinado}}"> -->
 			{{#if ../editarPericias}}
 			<a class="training-toggle skill-training" title="{{ localize 'T20.Trained'}}"><i class="{{skill.symbol}}"></i></a>
 			{{else}}

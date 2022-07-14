@@ -1,6 +1,6 @@
 import { T20Conditions } from "../conditions/conditions.js";
 import { T20 } from '../config.js';
-
+import { simplifyRollFormula } from '../dice.js';
 const C = T20;
 
 /* -------------------------------------------- */
@@ -51,11 +51,19 @@ const rollFields = {
  */
 const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
 	// ROLLS ARRAY
-	let rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) ) );
+	const _campos = {};
+	let rolls = [];
+	if ( ['atributo','pericia'].includes(item.type) ) {
+		item.key = 'roll';// item.id;
+		rolls = [item];
+	} else {
+		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) ) );
+	}
+
 	ch.key = ch.key.toString();
 	for(let r of rolls){
 		// CUSTOM CHANGES
-		let p = ef._sourceName ? Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0) : 0;
+		let p = !rollMods? 0 : ef._sourceName ? Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0) : 0;
 		if( ch.mode == 0 ) {
 			// Target another onUseEffect ie.: @some#roll
 			if (ch.key.match(/\@([^\#]+)\#/)){
@@ -128,7 +136,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
 			}
 			
-			if( ef._sourceName ){
+			if( rollMods && ef._sourceName ){
 				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, src: ef._sourceName } );
 			}
 		}
@@ -154,6 +162,9 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
 			}
 		}
 	}
+	if ( ['atributo','pericia'].includes(item.type) ) {
+		mergeObject(item, _campos);
+	}
 }
 
 const itemFields = {
@@ -170,11 +181,11 @@ const itemFields = {
 	alvo:					["alvo", null ],
 	area:					["area", null ],
 	execucao:			["ativacao.execucao", C.abilityActivationTypes ],
-	duracao:			["duracao.value", C.timePeriods ],
-	resistencia:	["resistencia.value", null ],
+	duracao:			["duracao.units", C.timePeriods ],
+	resistencia:	["resistencia.txt", null ],
 	atributoCD:		["resistencia.atributo", C.atributos ],
 	cd:						["resistencia.bonus", null ],
-	efeito: 			["efeito", null ],
+	// efeito: 			["efeito", null ],
 	// PERICIA
 	atributo:			["atributo", null],
 	treino:				["treino", null],
@@ -204,26 +215,34 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 	}
 	// ADD CHANGES
 	else if( ch.mode == 2 ) {
-		re.float = /[\d+]?[,]?\d+/;
-		if( Number(ch.value) ){
+		re.float = /[\d+]?[.|,]?\d+/;
+		if( ch.value.match(re.float) && ch.key == "area" ){
+			let n1 = id.area.match(re.float)[0].replace(",",".");
+			let n2 = ch.value.toString().match(re.float)[0].replace(",",".");
+			let n3 = Number(n1) + ( Number(n2) * qty ) + "";
+			_campos[ch.key] = id.area.replace(n1.replace(".",",") , n3);
+		} else if( Number(ch.value) ){
 			let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
 			if( Number.isNumeric(Number(temp)) ) {
 				_campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qty);
 			}
 			else if ( temp !== false ) {
-				temp.replace(/\d+/, (match) => Number(match)+(Number(ch.value)*qty) );
+				temp = temp.replace(/\d+/, (match) => Number(match)+(Number(ch.value)*qty) );
+				_campos[campos[ch.key][0]] = temp;
 			}
-		} else if( ch.value.match(re.float) && ch.key == "area" ){
-			let n1 = id.area.match(re.float)[0].replace(",",".");
-			let n2 = ch.value.toString().match(re.float)[0].replace(",",".");
-			let n3 = Number(n1) + ( Number(n2) * qty ) + "";
-			_campos[ch.key] = id.area.replace(n1.replace(".",",") , n3);
 		}
 	}
 	// OVERRIDE CHANGES
 	else if( ch.mode == 5 ) {
 		if( campos[ch.key][1] ) {
-			_campos[campos[ch.key][0]] = itemKey( ch.value , campos[ch.key][1]);
+			if ( ch.key == 'duracao' ) {
+				let num = ch.value.match(/\d+/)[0] ?? 1;
+				let value = ch.value.match(/[^\d+|\s]+/)[0] ?? 'turno';
+				_campos[campos[ch.key][0]] = itemKey( value , campos[ch.key][1]);
+				_campos['duracao.value'] = num;
+			} else {
+				_campos[campos[ch.key][0]] = itemKey( ch.value , campos[ch.key][1]);
+			}
 		} else _campos[campos[ch.key][0]] = ch.value;
 	}
 	
@@ -291,8 +310,12 @@ const effectFields = {
  */
 const applyEffectChanges = (ch, qty, ef, optEffectList, effectList) => {
 	// include effect from the item
-	if( ch.key === "efeito"){
-		let tef = optEffectList.find(ef => ef.label === ch.value );
+	if( ch.key.match(/^efeito..+/)){
+		let k = ch.key.split('.');
+		let tef = [...optEffectList, ...effectList].find( e => e.label === ch.value );
+		// tef.changes.find( ch = ) 
+	} else if( ch.key === "efeito"){
+		let tef = optEffectList.find( e => e.label === ch.value );
 		if ( tef ) effectList.push(tef);
 	}
 	// include condition
@@ -371,8 +394,7 @@ function applyRollModifiers(item, rollMods) {
  */
 function applyOnUseEffects( rolledItem, configuration=null ) {
 	if( !configuration ) return {};
-
-	const item = rolledItem, id = item.system
+	const item = rolledItem, id = item.system;
 	const actor = item.actor, ad = actor.system;
 	const hasMPCost = id.ativacao?.custo > 0 ?? false;
 	
@@ -388,17 +410,16 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 			return acc;
 		}, {});
 	} else {
-		item.validOnUseEffects = [];
+		item.validOnUseEffects = item.validOnUseEffects ?? [];
 		item.effects = [];
 	}
 	
 	// Get Applied On Use Effects
 	const applied = expandObject(configuration).aprs;
 	const onUseEffects = item.validOnUseEffects.filter(ef => applied[ef.id]?.aplica );
-
 	// Get Active Effects From Item
-	const effectList = item.effects.filter( ef => !ef.flags.tormenta20.onuse && !ef.disabled);
-	const optEffectList = item.effects.filter( ef => !ef.flags.tormenta20.onuse && ef.disabled);
+	const effectList = item.effects.filter( ef => (ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && !ef.disabled) || (!ef.flags.tormenta20.onuse && !ef.disabled) );
+	const optEffectList = item.effects.filter( ef => (ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && ef.disabled) || (!ef.flags.tormenta20.onuse && ef.disabled));
 
 	// 
 	const changes = [];
@@ -444,12 +465,13 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 
 		// Prepare onUseEffects rollModifiers
 		for ( let ch of ef.changes ){
+			if( ch.key.match(/^\?/) ) continue;
 			if (itemFields[ch.key]) applyItemChanges( ch, ouEff.qty, ef, item, id );
 			else if (actorFields[ch.key]) applyActorChanges( ch, ouEff.qty, ef, item, id, ad );
 			else if (effectFields[ch.key]) applyEffectChanges( ch, ouEff.qty, ef, optEffectList, effectList );
 			else applyRollChanges( ch, ouEff.qty, ef, item, id, rollMods );
 			
-			if( ch.key.match(/^(data|system)./) ){
+			// if( ch.key.match(/^(data|system|?)./) ){
 				changes.forEach(function(efch){
 					if( !ef.flags.tormenta20.aumenta || ( ef.flags.tormenta20.aumenta && efch.map(i => i.key).includes(ch.key) ) ) {
 						if( ch.key == "system.tamanho" && efch.findIndex(i => i.key=="system.tamanho")){
@@ -463,7 +485,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 						});
 					}
 				});
-			}
+			// }
 		}
 	}
 
@@ -472,7 +494,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		item.prepareDerivedData();
 		// Apply the modifications to the rolls data
 		id.rolls = applyRollModifiers( item, rollMods );
-	} else if ( item.type != 'pericia' ) {
+	} else if ( item.type == 'pericia' ) {
 		item.parts = actor._prepareSkills(item.id, item, ad, actor.getRollData(), true );
 		if ( configuration.bonus ) item.parts.push( configuration.bonus );
 	}
@@ -480,9 +502,22 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	if ( hasMPCost ) Math.min(id.ativacao?.custo || 1);
 	
 	// Generate a list of effects that will appear in the chat-card
+	let rollData = actor.getRollData();
 	effectList.forEach(function(ef, index){
 		let tempEffect = ef.toObject();
-		
+		let duration = {};
+		let durValue = Number(id.duracao.value) ?? 1;
+		let flags = { temp: true, tormenta20:{ durationScene: false} };
+		if ( id.duracao.units == 'scene' ) {
+			flags.tormenta20.durationScene = true;
+			duration.rounds = 99;
+		};
+		if ( id.duracao.units == 'turn' ) duration.turns = durValue;
+		if ( id.duracao.units == 'round' ) duration.rounds = durValue;
+		if ( id.duracao.units == 'minute' ) duration.seconds = durValue * 60;
+		if ( id.duracao.units == 'hour' ) duration.seconds = durValue * 60 * 60;
+		if ( id.duracao.units == 'day' ) duration.seconds = durValue * 60 * 60 * 24;
+		if ( id.duracao.units == 'month' ) duration.seconds = durValue * 60 * 60 * 24 * 30;
 		let efl = ef.label.slugify().replace("-","");
 		if(T20Conditions[efl]){
 			tempEffect = new ActiveEffect(T20Conditions[efl]);
@@ -490,11 +525,28 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		} else {
 			tempEffect.label ??= this.name;
 			tempEffect.icon ??= this.img;
-			tempEffect.flags = mergeObject(ef.flags, { temp: true });
-			tempEffect.duration ??= undefined;
+			tempEffect.flags = mergeObject(ef.flags, flags);
+			tempEffect.duration = duration;
+			// tempEffect.duration ??= undefined; mergeObject(ef.duration, duration);
 			tempEffect.disabled = false;
 			tempEffect.changes = changes[index] ?? ef.changes;
-			tempEffect.changes = tempEffect.changes.filter(ch => ch.key.match(/^system./i));
+			// tempEffect.changes = tempEffect.changes.filter(ch => ch.key.match(/^system./i));
+			if( tempEffect.changes){
+				tempEffect.changes.sort((c,d)=> !Number(c.value) ? 1 : -1 );
+				tempEffect.changes = tempEffect.changes.reduce((object, ch) => {
+					let idx = object.map(ob=> ob.key).indexOf(ch.key);
+					if( ch.value.toString().match(/^@[^\s|+|-]+/) ){
+						ch.value = simplifyRollFormula(ch.value, rollData);
+					}
+					if (idx >= 0) {
+						object[idx].value += '+' + ch.value;
+						// object[idx].value = Number(object[idx].value) + Number(ch.value) || ch.value;
+					} else {
+						object.push({key:ch.key,mode:ch.mode,value:ch.value})
+					}
+					return object;
+				}, []);
+			}
 		}
 		// Set Origin as the Actor who caused the effects
 		// Determine which turn it will be proc an effect over time
@@ -502,12 +554,14 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		tempEffect.origin = item.uuid ?? actor.uuid;
 		tempEffect.origin = tempEffect.origin?.replace(/.?ActiveEffect.\w+/,'');
 		options.effects.push(tempEffect);
+		
 	});
 	
+	// Brew Potion
+	options.brew = configuration.brew;
 	// Logs
-	// console.log(rollMods, changes, options);
+	// console.log(item, rollMods, changes, options);
 	return options;
-	// return true;
 }
 
 export {

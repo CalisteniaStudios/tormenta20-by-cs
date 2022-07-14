@@ -3,7 +3,7 @@
 	{{!-- flags.tormenta20.character-planner --}}
 	<header class="sheet-header flexrow">
 		<section class="char-info flexcol">
-			<h2>CRIAÇÃO DE AMEAÇA</h2>
+			<h2>{{localize 'T20.FoeCreationGuide'}}</h2>
 		</section>
 		<section class="char-info flexcol">
 			<div class="form-group">
@@ -21,6 +21,9 @@
 				</label>
 			</div>
 		</section>
+	</header>
+	<header class="sheet-header flexrow">
+		{{localize 'T20.FoeCreationGuideDisclaimer'}}
 	</header>
 	<nav class="flexrow sheet-tabs tabs primary" data-group="primary">
 		<a class="item" data-tab="concept" >{{localize 'T20.NPCB_Concept'}}</a>
@@ -60,30 +63,28 @@
 						{{/select}}
 					</select>
 				</div>
-				<p>Pense no nome e no conceito da ameaça, uma descrição em poucas palavras (Ex.; "réptil alado que cospe fogo", "combatente fdp que usa magia", "humanoide grande que tanka e bate");
-					Escolha uma função para a ameaça que vai servir de referência do que ela pode fazer e como pode ser usada.
-				</p>
+				<p>{{localize 'T20.NPCB_ConceptHint'}}</p>
 			</div>
 			<div class="right-side flexcol">
 				<aside>
 					<p>
 					{{#if (eq system.builder.details.role 'combatant' )}}
-						COMBATENTE. Poder Ofensivo e Defensivo elevado. Exemplos: mercenário, urso.
+						{{localize 'T20.NPCB_FoeRoleCombatantHint'}}
 					{{/if}}
 					{{#if (eq system.builder.details.role 'caster' )}}
-						CONJURADOR. Poder Ofensivo e Defensivo reduzido, mas com efeitos de dano em área, condições e controle de terreno. Exemplos: mago, engenhoqueiro.
+						{{localize 'T20.NPCB_FoeRoleCasterHint'}}
 					{{/if}}
 					{{#if (eq system.builder.details.role 'trickster' )}}
-						TRAPACEIRO. Poder Ofensivo e Defensivo reduzido, mas com efeitos para confundir e prejudicar, como perícias sociais ou especialistas. Exemplos: cortesão, ladino.
+						{{localize 'T20.NPCB_FoeRoleTricksterHint'}}
 					{{/if}}
 					{{#if (eq system.builder.details.role 'lackey' )}}
-						LACAIO. Poder Ofensivo elevado e Defensivo reduzido, faceis de derrotar mas capazes de causar problemas. Exemplos: capangas, soldados.
+						{{localize 'T20.NPCB_FoeRoleLackeyHint'}}
 					{{/if}}
 					{{#if (eq system.builder.details.role 'captain' )}}
-						CAPITÃO. Poder variado, usualmente acompanhando de lacaios e com habilidades para lhes fornecer bônus. Exemplos: necromante, sargento.
+						{{localize 'T20.NPCB_FoeRoleCaptainHint'}}
 					{{/if}}
 					{{#if (eq system.builder.details.role 'boss' )}}
-						CHEFÃO. Poder variados, mas capazes de lutar sozinho, com multiplas ações em uma rodada, efeitos de dano em área, condições e alcance elevado.
+						{{localize 'T20.NPCB_FoeRoleBossHint'}}
 					{{/if}}
 					</p>
 				</aside>
@@ -123,39 +124,37 @@
 				</div>
 				{{/each}}
 
-				<p>Escolha o tipo da criatura. O tipo define natureza, determina quais habilidades e magias podem afetar a criatura e alguns fornecem habilidades especiais.
-					Em seguida defina o tamanho e e deslocamento.
-				</p>
+				<p>{{localize 'T20.NPCB_TypeHint'}}</p>
 			</div>
 			<div class="right-side flexcol">
 				<aside>
 					<p>
 					{{#if (eq system.detalhes.tipo 'ani' )}}
-						ANIMAL. Criaturas com inteligência limitada, com armas e habilidades naturais como veneno, teia e podem ter visão no escuro ou visão na penumbra.
+						{{localize 'T20.CreatureBeastHint'}}
 					{{/if}}
 					{{#if (eq system.detalhes.tipo 'con' )}}
-						CONSTRUTO. Objetos animados ou criaturas artificiais. Possuem as habilidades: imunidade a doenças, fadiga, sangramento, sono e veneno; não precisam respirar, alimentar-se e dormir; não recuperam pontos de vida por descanso e habilidades de cura, exceto aquelas que afetam especificamente construtos; visão no escuro.
+						{{localize 'T20.CreatureConstructHint'}}
 					{{/if}}
 					{{#if (eq system.detalhes.tipo 'esp' )}}
-						ESPÍRITO. Seres de outros planos. Podem ter visão no escuro ou visão na penumbra.
+						{{localize 'T20.CreatureSpiritHint'}}
 					{{/if}}
 					{{#if (eq system.detalhes.tipo 'hum' )}}
-						HUMANÓIDE. Criaturas que tem anatomia humanos completa ou parcial e formam culturas e sociedades. Todo humanoide possui raça ou subtipo;
+						{{localize 'T20.CreatureHumanoidHint'}}
 					{{/if}}
 					{{#if (eq system.detalhes.tipo 'mon' )}}
-						MONSTRO. Criaturas com anatomia estranha, habilidades sobrenaturais. Podem ter visão no escuro.
+						{{localize 'T20.CreatureMonstrosityHint'}}
 					{{/if}}
 					{{#if (eq system.detalhes.tipo 'mor' )}}
-						MORTO-VIVO. Cadáveres animados por energia negativa. Possuem as seguintes habilidades: imunidade a doenças, fadiga, sangramento, sono e veneno; não precisam respirar, alimentar-se e dormir; sofrem dano por cura mágica (Vontade CD do efeito reduz à metade) e recuperam PV com dano de trevas; visão no escuro.
+						{{localize 'T20.CreatureUndeadHint'}}
 					{{/if}}
 					</p>
 				</aside>
 				<aside>
 					<table>
 						<tr>
-							<td>Categoria</td>
-							<td>Espaço / Alcance</td>
-							<td>Furtividade / Manobras</td>
+							<td>{{localize 'T20.NPCB_Category'}}</td>
+							<td>{{localize 'T20.NPCB_SizeNRange'}}</td>
+							<td>{{localize 'T20.NPCB_SizeFurtNManeuver'}}</td>
 						</tr>
 						{{#each config.tableSize.size as | size i | }}
 						<tr>
@@ -174,11 +173,11 @@
 			</div>
 			<table>
 				<tr>
-					<td>Deslocamento</td>
-					<td>Tamanho</td>
-					<td>Lento</td>
-					<td>Normal</td>
-					<td>Rápido</td>
+					<td>{{localize 'T20.Movement'}}</td>
+					<td>{{localize 'T20.Size'}}</td>
+					<td>{{localize 'T20.NPCB_MoveSlow'}}</td>
+					<td>{{localize 'T20.NPCB_MoveNormal'}}</td>
+					<td>{{localize 'T20.NPCB_MoveFast'}}</td>
 				</tr>
 			{{#each config.tableMovement.type as | type i | }}
 				<tr>
@@ -194,9 +193,7 @@
 		
 		{{!-- CR --}}
 		<div class="tab cr flexcol" data-group="primary" data-tab="cr">
-			<p>Escolha o ND da criatura de acordo com o nível do grupo. Use os patamares de jogo como referênciae compare com outras criaturas com conceito semelhante.
-				As estatísticas apresentadas nos próximos passos consideram um grupo de 4 personagens combados, você pode ajustar de acordo com o seu grupo.
-			</p>
+			<p>{{localize 'T20.NPCB_CRHint'}}</p>
 			<div class="form-group">
 				<label for="Name">
 					{{localize 'T20.AbbreviationCR'}}
@@ -208,13 +205,11 @@
 					{{/each}}
 				</datalist>
 			</div>
-			<!-- TABLE PATAMARES? -->
-			<!-- TABLE ESTATISTICAS? -->
 		</div>
 		
 		{{!-- ATTRIBUTES --}}
 		<div class="tab attributes flexcol" data-group="primary" data-tab="attributes">
-			<p>As estatísticas de combate possuem valores médios definidos pelo ND. Não é necessário fazer modificações, mas você pode usar as estatísticas de ND maior ou menor para se adequar ao conceito, criar uma fraqueza, etc.</p>
+			<p>{{localize 'T20.NPCB_AttributesHint'}}</p>
 			<div class="form-group">
 				<label for="Name">
 					{{localize 'T20.Attack'}}
@@ -306,7 +301,7 @@
 		
 		{{!-- ATTACKS --}}
 		<div class="tab attacks flexcol" data-group="primary" data-tab="attacks">
-			<p>Defina as armas que a criatura usa para atacar, se ela possui múltiplos ataques, ataques secundários podem ter um Bônus de Ataque menor. Cálcule a média de dano das armas e complemente com um bônus até alcançar a média de dano.</p>
+			<p>{{localize 'T20.NPCB_AttacksHint'}}</p>
 			<ol class="item-list">
 				<li class="item flexrow item-header">
 					<div class="item-name flex2" >{{ localize 'T20.Weapons'}}</div>
@@ -338,8 +333,8 @@
 				{{/each}}
 				<li class="item flexrow item-header">
 					<div class="item-name flex2" ></div>
-					<div class="item-attack">Dano Médio ({{builder.meanDamage.target}}):</div>
-					<div class="item-dice" data-tooltip="Soma da média de dano todas as armas.">Atual: {{builder.meanDamage.current}}</div>
+					<div class="item-attack">{{localize 'T20.NPCB_MeanDamage'}} ({{builder.meanDamage.target}}):</div>
+					<div class="item-dice" data-tooltip="{{localize 'T20.NPCB_MeanDamageHint'}}">{{localize 'T20.Current'}}: {{builder.meanDamage.current}}</div>
 					<div class="item-controls"></div>
 				</li>
 			</ol>
@@ -347,7 +342,7 @@
 
 		{{!-- FEATURES --}}
 		<div class="tab powers flexcol" data-group="primary" data-tab="powers">
-			<p>Escolha as habilidades das criaturas, pense em 1 ou 2 por patamar da de jogo. Equilibre as escolhas entre formas especiais de ataque, habilidades defensivas e habilidades sensoriais ou de movimentação.</p>
+			<p>{{localize 'T20.NPCB_PowersHint'}}</p>
 			<div class="traits">
 				{{> "systems/tormenta20/templates/actor/parts/traits.html"}}
 			</div>
@@ -360,9 +355,7 @@
 
 		{{!-- ABILITIES & SKILLS --}}
 		<div class="tab stats flexcol" data-group="primary" data-tab="stats">
-			<p>Para definir os valores de atributo escolha valores compatíveis com o conceito da criatura de acordo com a tabela.
-				Então defina as perícias que a criatura é treinada e defina seu valor pelas regras normais, usando ND como nível de personagem.
-			</p>
+			<p>{{localize 'T20.NPCB_TraitsHint'}}</p>
 			<div class="form-group">
 				{{#each system.atributos as |atr key|}}
 					<label for="">
@@ -437,9 +430,7 @@
 
 		{{!-- LOOT --}}
 		<div class="tab loot flexcol" data-group="primary" data-tab="loot">
-			<p>Com base nas estatísticas da criatura e do patamar defina os esquipamentos que ela trás (Ex. se uma criatura humanóide tem defesa alta, seu tesouro pode incluir armadura e escudo).
-				Além disso defina o seu tesouro que ela renderá ao grupo de acordo com a tabela de tesouro do Capítulo 7 de Tormenta20.
-			</p>
+			<p>{{localize 'T20.NPCB_LootHint'}}</p>
 			<div class="form-group">
 				<label for="Name">
 					{{localize 'T20.Treasure'}}

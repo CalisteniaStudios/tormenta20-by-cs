@@ -10,12 +10,12 @@
 		{{!-- Mana Cost --}}
 		{{#if custo}}
 		<button class="chat-spend-mana" value="{{{custo}}}">
-			{{{custo}}} <br> PM
+			{{{custo}}} <br> {{localize 'T20.MP'}}
 		</button>
 		{{/if}}
 		{{#if truque}}
 		<span class="custo" style="float: right;">
-			<div><i>Truque</i></div>
+			<div><i>{{localize 'T20.Cantrip'}}</i></div>
 		</span>
 		{{/if}}
 	</header>
@@ -30,7 +30,7 @@
 	{{#if (eq item.type "poder")}}
 		<div class="card-item-header">
 			<p>
-				{{#if power.resistencia}}<b> Resistência:</b> {{{power.resistencia}}} (CD {{{power.cd}}}){{/if}} 
+				{{#if power.resistencia}}<b> {{localize 'T20.Resistance'}}:</b> {{{power.resistencia}}} ({{localize 'T20.AbbreviationDC'}} {{{power.cd}}}){{/if}} 
 			</p>
 		</div>
 	{{/if}}
@@ -46,7 +46,7 @@
 					<div class="row">
 						<b>
 							{{#if (eq ap.cost "Truque")}}
-								Truque:
+								{{localize 'T20.Cantrip'}}:
 							{{else if (ne ap.cost "0")}}
 								{{#if (gt ap.cost 0)}}+{{/if}}{{ap.cost}}PM:
 									{{#if (gt ap.qty 1)}}
@@ -82,7 +82,7 @@
 	<div class="card-item-template" id="placeTemplate">
 		<button class="chat-place-template">
 			<span><i class="fas fa-ruler-combined"></i></span>
-			Colocar Área de Efeito</button>
+			{{localize 'T20.PlaceAbilityTemplate'}}</button>
 	</div>
 	{{/if}}
 </div>

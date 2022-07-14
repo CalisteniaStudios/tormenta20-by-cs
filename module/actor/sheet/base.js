@@ -200,6 +200,13 @@ export default class ActorSheetT20 extends ActorSheet {
 			// Active Effect management
 			html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 			html.find('.effect').on("contextmenu", ev => onManageActiveEffect(ev, this.actor));
+			// html.find('li.effect').on("dragstart", ev => this._onDragStart.bind(ev, this));
+			let handler = ev => this._onDragStart(ev);
+			html.find('li.effect').each((i, li) => {
+				if (!li.hasAttribute("data-effect-id")) return;
+				li.setAttribute("draggable", true);
+				li.addEventListener("dragstart", handler, false);
+			});
 			
 			// Open Compendium Entry
 			html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
@@ -695,8 +702,13 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	_onToggleSkillTraining(event){
 		event.preventDefault();
-		const field = event.currentTarget.previousElementSibling;
-		this.actor.update({[field.name]: 1 - parseInt(field.value == "" ? 0 : field.value)});
+		// const field = event.currentTarget.previousElementSibling;
+		const li = event.currentTarget.closest('li');
+		const id = li.dataset.itemId;
+		if ( !this.actor.system.pericias[id] ) return;
+		const value = this.actor.system.pericias[id].treinado;
+		const field = `system.pericias.${id}.treinado`;
+		this.actor.update({[field]: 1 - (Number(value) ?? 0)});
 	}
 
 	_toggleControls(event) {

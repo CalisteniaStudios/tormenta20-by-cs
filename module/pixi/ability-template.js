@@ -65,8 +65,6 @@ export default class AbilityTemplate extends MeasuredTemplate {
 		const object = new this(template);
 		object.item = item;
 		object.actorSheet = item.actor?.sheet || null;
-		console.log(template);
-		console.log(object);
 		return object;
 	}
 

@@ -1,8 +1,9 @@
-import { T20Conditions } from "../conditions/conditions.js";
-import { simplifyRollFormula, d20Roll, damageRoll } from '../dice.js';
 import AbilityUseDialog from "../apps/ability-use-dialog.js";
+import {applyOnUseEffects} from "../apps/ability-use.js";
 import AbilityTemplate from "../pixi/ability-template.js";
 import { T20 } from '../config.js';
+import { T20Conditions } from "../conditions/conditions.js";
+import { simplifyRollFormula, d20Roll, damageRoll } from '../dice.js';
 // import ActiveEffectT20 from "../_support/active-effects.js";
 
 /**
@@ -81,20 +82,20 @@ export default class ItemT20 extends Item {
 	 * Provide an object which organizes all augmenting ActiveEffects by their type
 	 * @type {Object<documents.ActiveEffect[]>}
 	 */
-	 get aprimoramentosValidos() {
-		console.warn('"aprimoramentosValidos" is Deprecated. Use "validOnUseEffects";');
-		return validOnUseEffects();
-	 }
 	get validOnUseEffects() {
 		if( !this.isOwned ) return [];
 		const type = this.type;
+		const name = this.name;
 		let effects = [];
 
 		const types = {magia:"spell",arma:"attack",pericia:"skill",atributo:"ability",consumivel:"consumable",poder:"power"};
 
 		for ( let i of this.actor.effects.values() ) {
 			if( !i.getFlag("tormenta20","onuse") ) continue;
-			if( i.getFlag("tormenta20", types[type]) ) effects.push(i);
+			let items = i.getFlag("tormenta20", 'items');
+			if( i.getFlag("tormenta20", types[type]) ){
+				effects.push(i);
+			} else if( items && items.match(name) >=0 ) effects.push(i);
 		}
 
 		for ( let i of this.effects.values() ) {
@@ -211,14 +212,19 @@ export default class ItemT20 extends Item {
 		// Spellheader
 		if ( this.type === "magia" ) {
 			//Execução: padrão; Alcance: curto; Alvo: 1 criatura; Area:; Efeito:; Duração: instantânea; Resistência: Vontade parcial.
+			const hTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", area: 'T20.Area', effect: 'T20.Effect', duracao:"T20.Duration", save:"T20.Resistance" };
+			
+			for ( let [h, tag] of Object.entries(hTags) ){
+				hTags[h] = game.i18n.localize(tag);
+			}
 			labels.header = "";
-			labels.header += labels.ativacao? `<b>Execução:</b> ${labels.ativacao}; ` : "";
-			labels.header += labels.range? `<b>Alcance:</b> ${labels.range}; ` : "";
-			labels.header += labels.alvo? `<b>Alvo:</b> ${labels.alvo}; ` : "";
-			labels.header += labels.area? `<b>Área:</b> ${labels.area}; ` : "";
-			labels.header += labels.effect? `<b>Efeito:</b> ${labels.effect}; ` : "";
-			labels.header += labels.duration? `<b>Duração:</b> ${labels.duration}; ` : "";
-			labels.header += labels.save? `<b>Resistência:</b> ${labels.save}; ` : "";
+			labels.header += labels.ativacao? `<b>${hTags['ativacao']}:</b> ${labels.ativacao}; ` : "";
+			labels.header += labels.range? `<b>${hTags['range']}:</b> ${labels.range}; ` : "";
+			labels.header += labels.alvo? `<b>${hTags['target']}:</b> ${labels.alvo}; ` : "";
+			labels.header += labels.area? `<b>${hTags['area']}:</b> ${labels.area}; ` : "";
+			labels.header += labels.effect? `<b>${hTags['effect']}:</b> ${labels.effect}; ` : "";
+			labels.header += labels.duration? `<b>${hTags['duracao']}:</b> ${labels.duration}; ` : "";
+			labels.header += labels.save? `<b>${hTags['save']}:</b> ${labels.save}; ` : "";
 		}
 
 		// if this item is owned, we prepareFinalAttributes() at the end of actor init
@@ -525,57 +531,22 @@ export default class ItemT20 extends Item {
 	 */
 	_onCreateOwnedWeapon(data, actorData, isNPC) {
 		const updates = {};
-		return updates;
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Create a consumable spell scroll Item from a spell Item.
-	 * @param {ItemT20} spell      The spell to be made into a scroll
-	 * @return {ItemT20}           The created scroll consumable item
-	 * @private
-	 */
-	 static async createScrollFromSpell(magia) {
-
-		// Get spell data
-		const itemData = magia instanceof ItemT20 ? magia.system : magia;
-		const {description, tipo, circulo, escola, alcance, duracao, resistencia, alvo, area, efeito, aprimoramentos, ativacao} = itemData.system;
-
-		// Get scroll data
-		const scrollData = {"permission":{"default":0},"type":"consumivel","system":{"peso":0,"qtd":1,"preco":0}};
-		scrollData.img = "systems/tormenta20/icons/itens/pergaminho.webp";
-
-		// Split the scroll description into an intro paragraph and the remaining details
-		const scrollDescription = scrollData.system.description;
-		const pdel = '</p>';
-		const scrollIntroEnd = scrollDescription.indexOf(pdel);
-		const scrollIntro = scrollDescription.slice(0, scrollIntroEnd + pdel.length);
-		const scrollDetails = scrollDescription.slice(scrollIntroEnd + pdel.length);
-
-		// Create a composite description from the scroll description and the spell details
-		const desc = `${scrollIntro}<hr/><h3>${itemData.name} (Círculo ${circulo})</h3><hr/>${description}<hr/><h3>Detalhes do Pergaminho</h3><hr/>${scrollDetails}`;
-
-		// Create the spell scroll data
-		const spellScrollData = mergeObject(scrollData, {
-			name: `Pergaminho: ${itemData.name}`,
-			data: {
-				"description": desc.trim(),
-				circulo,
-				tipo,
-				circulo,
-				escola,
-				alcance,
-				duracao,
-				resistencia,
-				alvo,
-				area,
-				efeito,
-				aprimoramentos,
-				ativacao
+		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+			try {
+				let attack = actorData.builder.attributes?.attack?.value ?? 0;
+				let damage = actorData.builder.attributes?.damage?.value ?? 0;
+				let attackRoll = data.system.rolls.find( r => r.type == 'ataque' );
+				let damageRoll = data.system.rolls.find( r => r.type == 'dano' );
+				
+				attackRoll.parts = [['1d20',''],['',''],[attack,'']];
+				let wroll = damageRoll.parts[0][0];
+				damageRoll.parts = [[`${wroll}+${damage}`,''],['','']];
+				updates["system.rolls"] = [attackRoll,damageRoll];
+			} catch (error) {
+				console.error(error);
 			}
-		});
-		return new this(spellScrollData);
+		}
+		return updates;
 	}
 
 	/* -------------------------------------------- */
@@ -597,39 +568,38 @@ export default class ItemT20 extends Item {
 		if ( true ) {
 			item = this.clone({keepId: true});
 			item.prepareFinalAttributes(); // Spell save DC, etc...
-			console.log( this.actor.uuid , item.actor.uuid);
 		}
 		const id = this.system;                // Item system data
 		const actor = this.actor;
 		const ad = actor.system;               // Actor system data
 		
-		// Reference aspects of the item data necessary for usage
-		const hasArea = this.hasAreaTarget;       // Is the ability usage an AoE?
-		const resource = id.consume || {};        // Resource consumption
-		const uses = id?.uses ?? {};              // Limited uses
-
-		// Define follow-up actions resulting from the item usage
-		let createMeasuredTemplate = hasArea;       // Trigger a template creation
-		let consumeResource = !!resource.target && (resource.type !== "ammo") // Consume a linked (non-ammo) resource
-		let consumeUsage = !!uses.per;              // Consume limited uses
-		let consumeQuantity = uses.autoDestroy;     // Consume quantity of the item in lieu of uses
+		let createMeasuredTemplate;
+		const resource = id.consume || {};     // Resource consumption
 		
-		let consumeMana = id.ativacao?.custo > 0 ;  // Consume mana
-		let options = {};                           // 
+		
+		// TODO: Consume a linked (non-ammo) resource
+		let consumeResource = !!resource.target && resource.type == "attribute";
+		// Consume item quantity
+		let consumeSelf = this.type == 'consumivel';
+		let consumeQuantity = ['ammo','material'].includes(resource.type) && resource.target;
+		// Consume mana
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		let consumeMana = autoSpendMana && id.ativacao?.custo > 0 ? true : false;
+		let options = {};
 
 		// Display a configuration dialog to customize the usage
-		const needsConfiguration = createMeasuredTemplate || consumeResource || consumeMana || consumeUsage;
+		const needsConfiguration = consumeResource || consumeMana;
 		let configuration = {};
 		if (configureDialog) {
 			configuration = await AbilityUseDialog.create(item);
 			// configuration = await new AbilityUseDialog(item).render(true);
-			console.log(configuration);
 			if (!configuration) return;
 			
-			
+			options = configuration;
 			// Determine consumption preferences
 			// createMeasuredTemplate = Boolean(configuration.placeTemplate);
-			consumeUsage = Boolean(configuration.consumeUse);
+			consumeSelf = Boolean(configuration.consumeSelf);
+			consumeQuantity = Boolean(configuration.consumeUse);
 			consumeResource = Boolean(configuration.consumeResource);
 			consumeMana = Boolean(configuration.consumeMana);
 			rollMode = configuration.rollMode;
@@ -637,10 +607,18 @@ export default class ItemT20 extends Item {
 			let itActive = this.actor.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.disabled);
 			let acActive = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.disabled);
 			let active = itActive.concat(acActive);
+			const relate = {
+				atributo:'ability', pericia:'skill',
+				arma:'attack', magia:'spell',
+				poder:'power', consumivel:'consumable',
+			}
+			let efType = relate[item.type];
+			active = active.filter( ef => ef.flags.tormenta20[efType] );
 			configuration.aprs = active.reduce((o,ef)=>{
 				o[ef.id] = {aplica:1, custo: ef.flags.tormenta20.custo||"0"};
 				return o;
 			}, {});
+			options = applyOnUseEffects( item, configuration );
 		}
 
 		if ( !isEmpty( extra ) || configuration.bonus || configuration.bonusdano ) {
@@ -667,9 +645,6 @@ export default class ItemT20 extends Item {
 			else if ( Number(extra.margemCritico) ) item.system.criticoM += Number(extra.margemCritico);
 		}
 		
-		// options = item.applyAprimoramentos(configuration);
-		options = configuration;
-
 		// Execute Rolls
 		options.rolls = [];
 		item.system.rolled = {};
@@ -685,22 +660,36 @@ export default class ItemT20 extends Item {
 		
 		// Determine whether the item can be used by testing for resource consumption
 		// TODO config auto consume settings;
-		const setttings = false;
-		if( setttings ){
-			const usage = item._getUsageUpdates({consumeResource, consumeMana, consumeUsage, consumeQuantity});
-			if ( !usage ) return;
-			const {actorUpdates, itemUpdates, resourceUpdates} = usage;
+		if( !options.truque && consumeMana ) {
+			consumeMana = item.system.ativacao.custo;
+		} else consumeMana = false;
 
-			// Commit pending data updates
-			if ( !foundry.utils.isEmpty(itemUpdates) ) await item.update(itemUpdates);
-			if ( consumeQuantity && (id.quantity === 0) ) await item.delete();
-			if ( !foundry.utils.isEmpty(actorUpdates) ) await actor.update(actorUpdates);
-			if ( !foundry.utils.isEmpty(resourceUpdates) ) {
-				const resource = actor.items.get(id.consume?.target);
-				if ( resource ) await resource.update(resourceUpdates);
+		const consumeSettings = consumeResource || consumeMana || consumeQuantity || consumeSelf;
+		if( consumeSettings ){
+			const usage = item._getUsageUpdates({consumeResource, consumeMana, consumeQuantity, consumeSelf});
+			if ( !usage ) return;
+			const {actorUpdates, itemsUpdate, itemUpdates, resourceUpdates, manaUpdate} = usage;
+
+			// Commit pending data updates 
+			if ( !isEmpty(itemsUpdate) ) {
+				this.actor.updateEmbeddedDocuments('Item', itemsUpdate);
+			}
+			if ( !isEmpty(itemUpdates) ) {
+				itemUpdates._id = this.id;
+				this.actor.updateEmbeddedDocuments('Item', [itemUpdates]);
+			}
+			if ( !isEmpty(manaUpdate) ) {
+				this.actor.spendMana(manaUpdate.value, 0, false);
+			}
+			if ( !isEmpty(resourceUpdates) ) {
+				this.actor.update(resourceUpdates);
 			}
 		}
 
+		// Reference aspects of the item data necessary for usage
+		const hasArea = item.hasAreaTarget;       // Is the ability usage an AoE?
+		// Define follow-up actions resulting from the item usage
+		createMeasuredTemplate = hasArea;       // Trigger a template creation
 		// Initiate measured template creation
 		if ( createMeasuredTemplate ) {
 			const template = AbilityTemplate.fromItem(item);
@@ -713,14 +702,17 @@ export default class ItemT20 extends Item {
 			}
 		}
 		
-		if( consumeMana ) item.system.ativacao.custo = item.system.ativacao.custo || 1;
+		
 		// Create or return the Chat Message data
 		if( configuration.brew ){
-			let potion = "Poção";
-			if( item.system.area ) potion = "Granada";
-			if( item.system.alvo.match(/objeto/) ) potion = "Óleo";
+			let potion = "T20.ConsumableSubtypePotion";
+			if( item.system.area ) potion = "T20.ConsumableSubtypeGranade";
+			if( item.system.alvo.match(/objeto/) ) potion = "T20.ConsumableSubtypeOil";
 			const itemData = {
-				name: `${potion} de ${item.name}`,
+				name: game.i18n.format('T20.ConsumableSpellName',{
+					item: game.i18n.localize(potion),
+					name:item.name
+				}),
 				type: "consumivel",
 				img: "icons/consumables/potions/bottle-bulb-corked-glowing-red.webp",
 				system: item.system
@@ -728,13 +720,9 @@ export default class ItemT20 extends Item {
 			itemData.system.tipo = "potion";
 			itemData.system.ativacao.custo = 0;
 			actor.createEmbeddedDocuments("Item", [itemData]);
-			let msg = `${item.actor.name} criou ${itemData.name}`;
+			let msg = game.i18n.format('T20.ConsumableCreated', {actor:item.actor.name, name:itemData.name} );
 			return ChatMessage.create({content:msg});
 		}
-		if( id.ativacao.custo && actor.system.modificadores.custoPM ){
-			item.system.ativacao.custo += Number(actor.system.modificadores.custoPM);
-		}
-		
 		return item.displayCard({options, rollMode, createMessage});
 	}
 
@@ -749,57 +737,69 @@ export default class ItemT20 extends Item {
 	 * @returns {object|boolean}            A set of data changes to apply when the item is used, or false
 	 * @private
 	 */
-	_getUsageUpdates({consumeQuantity, consumeResource, consumeMana, consumeUsage}) {
+	_getUsageUpdates({consumeQuantity, consumeResource, consumeMana, consumeSelf}) {
 
 		// Reference item data
 		const id = this.system;
 		const actorUpdates = {};
 		const itemUpdates = {};
 		const resourceUpdates = {};
+		const manaUpdate = {};
+		const itemsUpdate = [];
 
 		// Consume Limited Resource
+		// consumeResource = false;
 		if ( consumeResource ) {
-			const canConsume = this._handleConsumeResource(itemUpdates, actorUpdates, resourceUpdates);
-			if ( canConsume === false ) return false;
+			let resourceAttr = this.actor?.system.resources[id.consume.target] ?? {};
+			if( !isEmpty(resourceAttr) && resourceAttr.value >= id.consume.amount ){
+				let remaining = resourceAttr.value - id.consume.amount;
+				let key = `system.resources.${id.consume.target}.value`;
+				resourceUpdates[key] = remaining;
+			}
+			// if ( canConsume === false ) return false;
 		}
 
-		// Consume Spell Slots
+		// Consume Mana Points
 		if ( consumeMana && Number.isNumeric(consumeMana)) {
-			this.actor.spendMana(consumeMana, 0, false);
-		}
-
-		// Consume Limited Usage
-		if ( consumeUsage ) {
-			const uses = id.uses || {};
-			const available = Number(uses.value ?? 0);
-			let used = false;
-
-			// Reduce usages
-			const remaining = Math.max(available - 1, 0);
-			if ( available >= 1 ) {
-				used = true;
-				itemUpdates["system.uses.value"] = remaining;
+			if( consumeMana && this.actor.system.modificadores.custoPM ){
+				consumeMana += Number(this.actor.system.modificadores.custoPM);
 			}
-
-			// Reduce quantity if not reducing usages or if usages hit 0 and we are set to consumeQuantity
-			if ( consumeQuantity && (!used || (remaining === 0)) ) {
-				const q = Number(id.quantity ?? 1);
-				if ( q >= 1 ) {
-					used = true;
-					itemUpdates["system.quantidade"] = Math.max(q - 1, 0);
-					itemUpdates["system.uses.value"] = uses.max ?? 1;
-				}
-			}
-
-			// If the item was not used, return a warning
-			if ( !used ) {
-				ui.notifications.warn(game.i18n.format("T20.ItemNoUses", {name: this.name}));
+			const mana = this.actor.system.attributes.pm;
+			const currentMana = mana.value + mana.temp;
+			if( currentMana >= consumeMana ) {
+				manaUpdate['value'] = consumeMana;
+			} else {
+				ui.notifications.warn(game.i18n.format("T20.InsufficientMana", {name: this.name}));
 				return false;
 			}
 		}
 
+		// Reduce quantity
+		if ( consumeQuantity && id.consume.target.length ) {
+			let resourceItem = this.actor.items.get(id.consume.target);
+			if ( resourceItem.system.qtd >= id.consume.amount ) {
+				let remaining = resourceItem.system.qtd - id.consume.amount;
+				itemsUpdate.push({_id: resourceItem.id, "system.qtd": remaining});
+			} else {
+				ui.notifications.warn(game.i18n.format("T20.ItemNoUses", {name: resourceItem.name}));
+				return false;
+			}
+		}
+
+		// Reduce self quantity
+		if ( consumeSelf ) {
+			const q = Number(id.qtd ?? 1);
+			if ( q >= 1 ) {
+				// itemsUpdate.push({_id: this.id, "system.qtd": Math.max(q - 1, 0)});
+				itemUpdates["system.qtd"] = Math.max(q - 1, 0);
+			} else {
+				ui.notifications.warn(game.i18n.format("T20.ItemNoUses", {name: this.name}));
+				return false;
+			}
+		}
+		
 		// Return the configured usage
-		return {itemUpdates, actorUpdates, resourceUpdates};
+		return {itemUpdates, itemsUpdate, actorUpdates, resourceUpdates, manaUpdate};
 	}
 
 	/* -------------------------------------------- */
@@ -894,10 +894,10 @@ export default class ItemT20 extends Item {
 			rolls: []
 		};
 
-		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
-		if ( templateData.actor && templateData.custo && autoSpendMana ) {
-				this.actor.spendMana(templateData.custo, 0, false);
-		}
+		// const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		// if ( templateData.actor && templateData.custo && autoSpendMana ) {
+		// 		this.actor.spendMana(templateData.custo, 0, false);
+		// }
 
 		
 		for( let [key, roll] of Object.entries(this.system.rolled) ) {
@@ -960,11 +960,11 @@ export default class ItemT20 extends Item {
 		system.description.value = await TextEditor.enrichHTML(system.description.value, htmlOptions)
 
 		if( this.type === "magia" || ( this.type === "consumivel" && ["scroll", "potion"].includes(system.subtipo) ) ){
-			const headerTags = { ativacao: "Execução", range:"Alcance", target:"Alvo", duracao:"Duração", save:"Resistência" };
-
+			const headerTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", duracao:"T20.Duration", save:"T20.Resistance" };
 			const r = Object.entries(labels).map(function(t){
 				if( headerTags.hasOwnProperty(t[0]) && t[1]){
-					return `<b>${headerTags[t[0]]}:</b> ${t[1]};`
+					let tag = game.i18n.localize( headerTags[t[0]] );
+					return `<b>${tag}:</b> ${t[1]};`
 				} else return;
 			});
 			system.spellHeader = r.filter(t => t!=null).join(" ");

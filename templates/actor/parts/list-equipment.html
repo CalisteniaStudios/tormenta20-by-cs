@@ -26,7 +26,6 @@
 			</div>
 			<div class="item-weight">{{item.pesoTotal}}</div>
 			<div class="item-controls">
-				{{log item.system }}
 				<a class="item-control item-toggle toggle-armor{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}"><i class="fas fa-shield-alt"></i></a>
 				{{#if ../botaoEditarItens}}
 					<a class="item-control item-edit" title="{{localize 'T20.Edit'}}"><i class="fas fa-edit"></i></a>

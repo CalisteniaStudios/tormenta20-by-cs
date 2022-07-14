@@ -92,7 +92,6 @@ export default class ItemSheetT20 extends ItemSheet {
 		} else if ( this.item.type == 'magia' ){
 			data.itemStatus = itemData.preparada ? game.i18n.localize('T20.Prepared') : "";
 		}
-		console.log( data.itemStatus );
 
 		data.itemProperties = this._getItemProperties();
 		data.isPhysical = itemData.hasOwnProperty("qtd");
@@ -100,7 +99,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		data.isOwned = data.item.isOwned;
 		// Resource to Consume
 		// method
-
+		data.abilityConsumptionTargets = this._getItemConsumptionTargets(itemData);
 		// Prepare Active Effects
 		data.effects = prepareActiveEffectCategories(this.item.effects);
 
@@ -114,6 +113,51 @@ export default class ItemSheetT20 extends ItemSheet {
 
 	/* -------------------------------------------- */
 
+	/**
+	 * Get the valid item consumption targets which exist on the actor
+	 * @param {object} item         Item data for the item being displayed
+	 * @returns {{string: string}}   An object of potential consumption targets
+	 * @private
+	 */
+	_getItemConsumptionTargets(item) {
+		const consume = item.consume || {};
+		if ( !consume.type ) return [];
+		const actor = this.item.actor;
+		if ( !actor ) return {};
+
+		// Ammunition
+		if ( consume.type === "ammo" ) {
+			return actor.itemTypes.consumivel.reduce((ammo, i) => {
+				if ( i.system.tipo === "ammo" ) {
+					ammo[i.id] = `${i.name} (${i.system.qtd})`;
+				}
+				return ammo;
+			}, {});
+			// {[i._id]: `${i.name} (${item.qtd})`}
+		}
+
+		// Resources
+		else if ( consume.type === "attribute" ) {
+			const resources = this.item.actor?.system.resources ?? {};
+			return Object.entries(resources).reduce((object, r) => {
+				object[r[0]] = r[1].label;
+				return object;
+			}, {});
+		}
+		// Materials
+		else if ( consume.type === "material" ) {
+			return actor.items.reduce((obj, i) => {
+				if ( ["consumivel", "tesouro"].includes(i.type) && !i.ativacao ) {
+					obj[i.id] = `${i.name} (${i.system.qtd})`;
+				}
+				return obj;
+			}, {});
+		}
+		else return {};
+	}
+
+	/* -------------------------------------------- */
+
 	/** @inheritdoc */
 	activateListeners(html) {
 		super.activateListeners(html);
@@ -122,7 +166,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			html.find(".parts-control").click(this._onPartsControl.bind(this));
 			html.find('.trait-selector').click(this._onConfigureTraits.bind(this));
 			html.find(".effect-control").click(ev => {
-				if ( this.item.isOwned ) return ui.notifications.warn("Alteração de Efeitos em itens possuidos por Personagens não é suportada atualmente.")
+				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
 				onManageActiveEffect(ev, this.item)
 			});
 		}
@@ -144,7 +188,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		let buttons = super._getHeaderButtons();
 		if ( this.object.type == "magia" && ( this.actor?.getFlag("tormenta20","createScroll") || game.user.isGM ) ) {
 			buttons.unshift({
-				label: 'Criar Pergaminho',
+				label: game.i18n.localize('T20.WriteScroll'),
 				class: "create-scroll",
 				icon: "fas fa-scroll",
 				onclick: () => this._createScroll()
@@ -183,14 +227,19 @@ export default class ItemSheetT20 extends ItemSheet {
 				.filter(e => e[1] === true)
 				.map(e => CONFIG.T20.weaponProperties[e[0]]));
 		} else if ( this.item.type === "magia" ) {
+			let hTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", area: 'T20.Area', effect: 'T20.Effect', duration:"T20.Duration", save:"T20.Resistance" };
+			
+			for ( let [h, tag] of Object.entries(hTags) ){
+				hTags[h] = game.i18n.localize(tag);
+			}
 			props.push(
-				labels.ativacao? `<b>Execução:</b> ${labels.ativacao}; ` : null,
-				labels.range? `<b>Alcance:</b> ${labels.range}; ` : null,
-				labels.alvo? `<b>Alvo:</b> ${labels.alvo}; ` : null,
-				labels.area? `<b>Área:</b> ${labels.area}; ` : null,
-				labels.effect? `<b>Efeito:</b> ${labels.effect}; ` : null,
-				labels.duration? `<b>Duração:</b> ${labels.duration}; ` : null,
-				labels.save? `<b>Resistência:</b> ${labels.save}; ` : null
+				labels.ativacao? `<b>${hTags['ativacao']}:</b> ${labels.ativacao}; ` : null,
+				labels.range? `<b>${hTags['range']}:</b> ${labels.range}; ` : null,
+				labels.alvo? `<b>${hTags['alvo']}:</b> ${labels.alvo}; ` : null,
+				labels.area? `<b>${hTags['area']}:</b> ${labels.area}; ` : null,
+				labels.effect? `<b>${hTags['effect']}:</b> ${labels.effect}; ` : null,
+				labels.duration? `<b>${hTags['duration']}:</b> ${labels.duration}; ` : null,
+				labels.save? `<b>${hTags['save']}:</b> ${labels.save}; ` : null
 			)
 		}
 		return props.filter(p => !!p);
@@ -344,14 +393,17 @@ export default class ItemSheetT20 extends ItemSheet {
 		let itemData = {};
 		itemData.data = deepClone( this.object.system );
 		itemData.type = "consumivel";
-		itemData.name = `Pergaminho de ${this.object.name}`;
+		itemData.name = game.i18n.format('T20.ConsumableSpellName',{
+			item: game.i18n.localize('T20.ConsumableSubtypeScroll'),
+			name:this.object.name
+		}),
 		itemData.img = "icons/sundries/scrolls/scroll-bound-black-tan.webp",
 		itemData.data.ativacao.custo = 0; 
 		itemData.data.tipo = "scroll";
 		if( this.actor ){
 			this.actor.createEmbeddedDocuments("Item", [itemData]);
 			if( this.actor.type == "character" ){
-				let msg = `${this.actor.name} criou ${itemData.name}`;
+				let msg = game.i18n.format('T20.ConsumableCreated', {actor:this.actor.name, name:itemData.name} );
 				ChatMessage.create({content:msg});
 			}
 		} else {

@@ -1,8 +1,11 @@
 import { simplifyRollFormula, d20Roll, damageRoll } from '../dice.js';
+import {applyOnUseEffects} from "../apps/ability-use.js";
 import { T20 } from '../config.js';
 // import SelectItemsPrompt from "../apps/select-items-prompt.js";
 import AbilityUseDialog from "../apps/ability-use-dialog.js";
+import ChoicesDialog from "../apps/choices-dialog.js";
 import ItemT20 from "../item/entity.js";
+import { T20Conditions } from '../conditions/conditions.js';
 
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -44,20 +47,17 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
-		console.log('#prepareData');
 		super.prepareData();
 
 		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
-		console.log('/prepareData');
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
 	prepareBaseData() {
-		console.log('#prepareBaseData');
 		
 		const system = this.system;
 		for (let [key, resource] of Object.entries(system.resources)) {
@@ -70,7 +70,6 @@ export default class ActorT20 extends Actor {
 			case "npc":
 				return this._prepareNPCData();
 		}
-		console.log('/prepareBaseData');
 	}
 
 	/* -------------------------------------------- */
@@ -82,7 +81,6 @@ export default class ActorT20 extends Actor {
 	 * */
 	/** @override */
 	prepareDerivedData() {
-		console.log('#prepareDerivedData');
 		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 
 		const system = this.system;
@@ -109,8 +107,6 @@ export default class ActorT20 extends Actor {
 
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
-
-		console.log('/prepareDerivedData');
 	}
 
 	/* -------------------------------------------- */
@@ -121,7 +117,6 @@ export default class ActorT20 extends Actor {
 	* Prepare Character type specific data
 	*/
 	_prepareCharacterData() {
-		console.log('#_prepareCharacterData');
 		const system = this.system;
 		const flags = this.flags;
 		const classes = [];
@@ -150,13 +145,11 @@ export default class ActorT20 extends Actor {
 		const necessario = xp.proximo - anterior;
 		const pct = Math.round((xp.value - anterior) * 100 / necessario);
 		xp.pct = Math.clamped(pct, 0, 100);
-		console.log('/_prepareCharacterData');
 	}
 
 	/* -------------------------------------------- */
 
 	_prepareNPCData() {
-		console.log('#_prepareNPCData');
 		const system = this.system;
 		const flags = this.flags;
 		let npcFlags = {};
@@ -176,7 +169,6 @@ export default class ActorT20 extends Actor {
 
 		let baseFlags = { tormenta20: npcFlags };
 		if( !isEmpty(npcFlags) ) mergeObject( flags, baseFlags );
-		console.log('/_prepareNPCData');
 	}
 
 	/* -------------------------------------------- */
@@ -419,9 +411,9 @@ export default class ActorT20 extends Actor {
 		for (let [atr, value] of Object.entries(lvlc.pm)){
 			if(value) soma.pm += Number(this.system.atributos[atr].mod);
 		}
-		updateData["data.attributes.pv.min"] = (Math.floor(soma.pv/2)*-1);
-		updateData["data.attributes.pv.max"] = soma.pv;
-		updateData["data.attributes.pm.max"] = soma.pm;
+		updateData["system.attributes.pv.min"] = (Math.floor(soma.pv/2)*-1);
+		updateData["system.attributes.pv.max"] = soma.pv;
+		updateData["system.attributes.pm.max"] = soma.pm;
 		this.update(updateData);
 	}
 
@@ -500,7 +492,7 @@ export default class ActorT20 extends Actor {
 		// Set casting ability
 		/* TODO CLASS SPELLBOOK */
 		let atbchave = this.system.attributes.conjuracao;
-		data["atributoChave"] = this.system.atributos[atbchave].mod;
+		data["atributoChave"] = this.system.atributos[atbchave]?.mod ?? 0;
 
 		// Set defense bonuses modifiers
 		let defMods = this.system.modificadores.defesa || {};
@@ -648,13 +640,27 @@ export default class ActorT20 extends Actor {
 	async _preUpdate(changed, options, user) {
 		await super._preUpdate(changed, options, user);
 		// Apply changes in Actor size to Token width/height
-		const newSize = foundry.utils.getProperty(changed, "system.tracos.tamanho");
+		const newSize = getProperty(changed, "system.tracos.tamanho");
 		if (newSize && (newSize !== foundry.utils.getProperty(this.system, "tracos.tamanho"))) {
 			let size = CONFIG.T20.tokenSizes[newSize];
 			if (!foundry.utils.hasProperty(changed, "token.width")) {
 				changed.token = changed.token || {};
 				changed.token.height = size;
 				changed.token.width = size;
+			}
+		}
+		const sheetClass = getProperty(changed, "flags.core.sheetClass");
+		if( sheetClass && sheetClass == 'tormenta20.ActorSheetT20Builder' ){
+			setProperty(changed, 'flags.tormenta20.npcReform', true);
+			const builder = getProperty(this.system, "builder.attributes");
+			if( !['0','1','2'].includes(builder.fort?.rank) ){
+				setProperty(changed, 'system.builder.attributes.fort.rank', '0');
+			}
+			if( !['0','1','2'].includes(builder.refl?.rank) ){
+				setProperty(changed, 'system.builder.attributes.refl.rank', '0');
+			}
+			if( !['0','1','2'].includes(builder.vont?.rank) ){
+				setProperty(changed, 'system.builder.attributes.vont.rank', '0');
 			}
 		}
 		// NPC REFORM
@@ -664,6 +670,7 @@ export default class ActorT20 extends Actor {
 			let cr = getProperty(changed, 'system.detalhes.nd');
 			let defense = getProperty(changed, 'system.builder.attributes.defense.value');
 			let hp = getProperty(changed, 'system.builder.attributes.hp.value');
+			let mp = getProperty(changed, 'system.builder.attributes.mp.value');
 			let dc = getProperty(changed, 'system.builder.attributes.dc.value');
 			let fort = getProperty(changed, 'system.builder.attributes.fort.value');
 			let refl = getProperty(changed, 'system.builder.attributes.refl.value');
@@ -672,6 +679,7 @@ export default class ActorT20 extends Actor {
 			let _cr = getProperty(changed, 'system.attributes.nivel.value');
 			let _defense = getProperty(changed, 'system.attributes.defesa.base');
 			let _hp = getProperty(changed, 'system.attributes.pv.max');
+			let _mp = getProperty(changed, 'system.attributes.pm.max');
 			let _dc = getProperty(changed, 'system.attributes.dc');
 			let _fort = getProperty(changed, 'system.pericias.fort.outros');
 			let _refl = getProperty(changed, 'system.pericias.refl.outros');
@@ -684,6 +692,9 @@ export default class ActorT20 extends Actor {
 			}
 			if ( hp && (hp != getProperty(this.system, _hp)) ){
 				attributes.pv = {max: hp};
+			}
+			if ( mp && (mp != getProperty(this.system, _mp)) ){
+				attributes.pm = {max: mp};
 			}
 			if ( dc && (dc != getProperty(this.system, _dc)) ){
 				attributes.cd = dc;
@@ -699,7 +710,53 @@ export default class ActorT20 extends Actor {
 			}
 			if (!isEmpty(attributes)) changed.system.attributes = attributes;
 			if (!isEmpty(skills)) changed.system.pericias = skills;
-			console.log(changed);
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	async _preCreateStatusEffects(result, options, userId){
+		let resultchanged = false;
+		// Chain apply/remove child effects
+		// If stackable apply worst effect and remove current
+		let effects = this.effects;
+		let add = [];
+		let remove = [];
+		let i = 0;
+		for ( let ef of result ){
+			// add[i] = ef;
+			let stack = ef.flags.tormenta20.stack;
+			let child = ef.flags.tormenta20.childEffect;
+			if ( !stack && !child ) continue;
+			let cond = effects.find( e => e.flags?.core?.statusId == ef.flags?.core?.statusId);
+			if( stack && cond ){
+				result[i] = T20Conditions[stack];
+				child = result[i].flags.tormenta20.childEffect;
+				remove.push(cond.id);
+				resultchanged = true;
+			}
+			if ( !isEmpty(child) ) {
+				child = child.map( c => T20Conditions[c] );
+				result.push(...child);
+				resultchanged = true;
+			}
+			// for ( let cef of child ){
+			// 	cond = effects.find( e => e.flags?.core?.statusId == cef.flags?.core?.statusId);
+			// 	if( cef ){
+			// 		result.push(cef);
+			// 	}
+			// } 
+			i++;
+		}
+		i = 0;
+		for ( let ef of result ){
+			result[i] = new ActiveEffect({ef}).object;
+			i++;
+		}
+		if( resultchanged ) {
+			// await this._preCreateEmbeddedDocuments("ActiveEffect", result, options, userId);
+		} else {
+			// await super._preCreateEmbeddedDocuments("ActiveEffect", result, options, userId);
 		}
 	}
 
@@ -725,7 +782,36 @@ export default class ActorT20 extends Actor {
 	/** @inheritdoc */
 	async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId){
 		await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
+
+
+		if( embeddedName == "ActiveEffect" ){
+			let effs = documents.filter(ef => ef.changes.find( ch => ch.key.match(/^\?/) ) );
+			let choices = [];
+			for ( let ef of effs ){
+				let changes = ef.changes.filter( ch => ch.key.match(/^\?/) );
+				let choice = {};
+				for ( let ch of changes ){
+					choice.id = ef.id;
+					choice.label = ef.label;
+					choice.key = ch.key.split('.');
+					choice.value = ch.value.split('.');
+					choices.push(choice);
+				}
+			}
+			if ( !isEmpty(choices) ) {
+				let chosen = await ChoicesDialog.create( choices, this );
+				chosen = expandObject(chosen);
+				for ( let [ id, c] of Object.entries(chosen) ){
+					let ef = this.effects.find( e => e.id == id );
+					for ( let [ key, value ] of Object.entries(c) ){
+						ef.setFlag('tormenta20', key, value);
+					}
+				}
+			}
+		}
+		// console.log(embeddedName, documents, result, options);
 	}
+
 
 	/* -------------------------------------------- */
 	/*  Gameplay Mechanics                          */
@@ -871,19 +957,23 @@ export default class ActorT20 extends Actor {
 		const actor = this;
 		const cloneActor = this.clone({name: `${this.name} (Temp)`},
 																	{save: false, keepId: true});
-		console.log( actor.uuid , cloneActor.uuid);
 		let pericia = foundry.utils.deepClone( cloneActor.system.pericias[key] );
 		const ad = cloneActor.system;
 		const event = options.event;
-		pericia.id = key;
 		let consumeMana = 0;
 		let rollMode = game.settings.get("core", "rollMode");
 
+		let rConfig = {};
 		let itemData = {
 			name: pericia.label,
 			type: "pericia",
-			parts: []
+			parts: [],
+			id: key,
+			actor: cloneActor,
+			system: {ativacao:{custo:0}},
+			isOwned: true,
 		}
+		itemData = mergeObject( itemData, pericia);
 		let parts = cloneActor._prepareSkills(key, pericia, ad, cloneActor.getRollData(), true );
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
@@ -891,11 +981,9 @@ export default class ActorT20 extends Actor {
 		const needsConfiguration = options.event?.shiftKey ?? false;
 		let configuration = {};
 		if( needsConfiguration ){
-			configuration = await AbilityUseDialog.create({
-				actor: cloneActor, type:"pericia", system: pericia, id: key, isOwned: true,
-				name: pericia.label.replace(/[\*||\+]/g,"").trim()
-			});
+			configuration = await AbilityUseDialog.create(itemData);
 			if (!configuration) return;
+			rConfig = mergeObject(rConfig, configuration);
 
 			rollMode = configuration.rollMode;
 		} else {
@@ -904,17 +992,19 @@ export default class ActorT20 extends Actor {
 				o[ef.id] = {aplica:1, custo: ef.flags.tormenta20.custo};
 				return o;
 			}, {});
+			rConfig = applyOnUseEffects( itemData, configuration );
 		}
-		const rConfig = cloneActor.applyAprimoramentos( mergeObject(pericia, itemData), flattenObject(configuration));
-
+		
+		rConfig.itemData = itemData;
+		
 		// Compose roll options
 		const rollConfig = mergeObject({
 			parts: rConfig.itemData?.parts.map(i => typeof i === "string" ? i.replace(/^\+| /, "") : i ).filter(Boolean) || [],
 			actor: cloneActor,
 			event: event,
 			data: this.getRollData(),
-			title: pericia.label,
-			flavor: pericia.label
+			title: itemData.label,
+			flavor: itemData.label,
 		}, rConfig);
 
 		let toInitiative = function(){
@@ -940,7 +1030,6 @@ export default class ActorT20 extends Actor {
 			options = rConfig;
 			options.itemData.rolled = await d20Roll(rollConfig);
 			options.effects = configuration.effects ?? [];
-			console.log(options);
 			toInitiative();
 			return this.displayCard({ options, rollMode });
 		} else {
@@ -978,16 +1067,31 @@ export default class ActorT20 extends Actor {
 		if (options.parts?.length > 0) {
 			parts.push(...options.parts);
 		}
-		let itemData = abl;
 		abl.parts = parts;
+		// let itemData = abl;
+		let itemData = {
+			name: game.i18n.localize(abl.name),
+			type: "atributo",
+			parts: parts,
+			id: key,
+			actor: actor,
+			system: {ativacao:{custo:0}},
+			isOwned: true,
+			rollData: abl,
+			custo: 0,
+		}
+
+		let rConfig = {};
 		const needsConfiguration = event?.shiftKey ?? false;
 		let configuration = {};
 		if( needsConfiguration ){
-			configuration = await AbilityUseDialog.create({
-				actor: actor, type:"atributo", rollData: abl, id: key, isOwned: true,
-				name: game.i18n.localize(abl.name)
-			});
+			// configuration = await AbilityUseDialog.create({
+			// 	actor: actor, type:"atributo", rollData: abl, id: key, isOwned: true,
+			// 	name: game.i18n.localize(abl.name)
+			// });
+			configuration = await AbilityUseDialog.create(itemData);
 			if (!configuration) return;
+			rConfig = mergeObject(rConfig, configuration);
 			
 			if ( configuration.bonus ) parts.push( configuration.bonus );
 			rollMode = configuration.rollMode;
@@ -999,16 +1103,16 @@ export default class ActorT20 extends Actor {
 				o[ef.id] = {aplica:1, custo: ef.flags.tormenta20.custo};
 				return o;
 			}, {});
+			rConfig = applyOnUseEffects( itemData, configuration );
 		}
-
-		let rConfig = this.applyAprimoramentos( mergeObject(abl, itemData), flattenObject(configuration));
+		rConfig.itemData = itemData;
 		// rollData
 		const rollConfig = mergeObject({
 			parts: parts.filter(Boolean),
 			data: rollData,
 			event: event,
 			title: game.i18n.format("T20.AbilityPromptTitle", { atributo: label }),
-			flavor: "Teste de Atributo",
+			flavor: game.i18n.localize("T20.AbilityCheck"),
 			messageData: { "flags.tormenta20.roll": { type: "ability", key } }
 		}, rConfig);
 
@@ -1026,14 +1130,13 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	applyActiveEffects() {
 		const overrides = {};
-		console.log('applyActiveEffects');
 		// Organize non-disabled effects by their application priority
-		const changes = this.effects.reduce((changes, e) => {
+		let changes = this.effects.reduce((changes, e) => {
 			if ( e.disabled ) return changes;
 			if ( e.flags?.tormenta20?.onuse ) return changes;
 			return changes.concat(e.changes.map(c => {
 				c = duplicate(c);
-				if (c.key.match(/(data.)(.*)(.condi|.outros|.bonus|.value)|data.modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
+				if (c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value)|(system.|data.)modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
 					c.value = "+"+c.value.toString();
 				}
 				else if ( c.key.match(/tamanho/i) ){
@@ -1050,10 +1153,14 @@ export default class ActorT20 extends Actor {
 		}, []);
 		changes.sort((a, b) => a.priority - b.priority);
 		// Apply all changes
-		for (let change of changes) {
-			const result = change.effect.apply(this, change);
-			if (result !== null) overrides[change.key] = result;
+		changes = changes.filter(c=> c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value)|(system.|data.)modificadores/i));
+		
+		for ( let change of changes ) {
+			if ( !change.key ) continue;
+			const changes = change.effect.apply(this, change);
+			Object.assign(overrides, changes);
 		}
+
 		// Expand the set of final overrides
 		this.overrides = foundry.utils.expandObject(overrides);
 	}

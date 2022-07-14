@@ -8,9 +8,8 @@
 		{{/each}}
 		<select class="selectAtr" title="{{localize 'T20.KeyAbility'}}" name="system.attributes.conjuracao">
 			{{#select system.attributes.conjuracao}}
-			{{#each config.atributos as |name abl|}}
-				<option value="{{abl}}">{{localize name}}</option>
-			{{/each}}
+			<option value=""></option>
+			{{selectOptions config.atributos selected=system.attributes.conjuracao localize=true}}
 			{{/select}}
 		</select>
 		<a class="update-cd" title="{{localize 'T20.UpdateSpellKeyAbility'}}" data-atrRes="{{system.attributes.conjuracao}}"><i class="fas fa-sync"></i></a>

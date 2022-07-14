@@ -71,7 +71,6 @@ export class Tormenta20BaseSettings extends FormApplication {
 		const ds =  a.dataset.type;
 		// Add a list item component
 		if ( a.classList.contains("add-li") ) {
-			console.log(this);
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			let dm = this?.object?.lidatamodel[ds];
 			game.settings.get

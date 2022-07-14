@@ -297,24 +297,13 @@ export const ApplyButtons = function (app, html, data){
 	async function _onChatCardApplyEffect(event) {
 		event.preventDefault();
 		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
+		const actorId = event.currentTarget.closest(".item-card").dataset.actorId;
 		const buttonId = event.currentTarget.dataset.effectIndex;
 		const actors = canvas.tokens.controlled;
 		if ( actors.length && buttonId>=0){
 			const chatEffect = game.messages.get(chatCardId).flags.tormenta20?.effects[buttonId];
-			if(chatEffect.changes){
-				chatEffect.changes.sort((c,d)=> !Number(c.value) ? 1 : -1 );
-				chatEffect.changes = chatEffect.changes.reduce((object, item) => {
-					let idx = object.map(ob=> ob.key).indexOf(item.key);
-					if (idx >= 0) {
-						object[idx].value = Number(object[idx].value) + Number(item.value) || item.value;
-					} else {
-						object.push({key:item.key,mode:item.mode,value:item.value})
-					}
-					return object;
-				}, []);
-				if( chatEffect.duration.seconds ) {
-					chatEffect.duration.startTime = game.time.worldTime;
-				}
+			if( chatEffect.duration.seconds ) {
+				chatEffect.duration.startTime = game.time.worldTime;
 			}
 			
 			let toChat = true;

@@ -8,26 +8,22 @@ export function onManageActiveEffect(event, owner) {
 	const a = event.currentTarget;
 	const li = a.closest("li");
 	const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null;
-	console.log(owner);
-	console.log(a.dataset);
-	console.log(li.dataset);
-	console.log(effect);
+	const type = li.dataset.effectType == "onuseTemp" ? "onuse" : li.dataset.effectType;
+	const temp = li.dataset.effectType == "onuseTemp" ? true : false;
 	switch ( a.dataset.action ) {
 		case "create":
-			console.info( owner.name, owner.img, owner.img, owner.uuid );
 		return owner.createEmbeddedDocuments("ActiveEffect", [{
-			label: li.dataset.effectType=="onuse" ? "Novo Efeito" : owner.name,
-			icon: (li.dataset.effectType=="onuse" ? "icons/svg/upgrade.svg" :
+			label:  type=="onuse" ? "Novo Efeito" : owner.name,
+			icon: ( type=="onuse" ? "icons/svg/upgrade.svg" :
 											owner.documentName == "Item" ? owner.img : "icons/svg/aura.svg"),
 			origin: owner.uuid,
 			tint: "#FFFFFF",
-			flags: { tormenta20: { onuse: li.dataset.effectType=="onuse" } },
-			"duration.rounds": li.dataset.effectType === "temporary" ? 1 : undefined,
+			flags: { tormenta20: { onuse: type=="onuse", durationScene: temp } },
+			"duration.rounds": type === "temporary" || temp ? 1 : undefined,
 			"duration.seconds": undefined,
-			disabled: ["inactive","onuse"].includes(li.dataset.effectType)
+			disabled: ["inactive","onuse"].includes(type)
 		}]);
 		case "edit":
-			console.log(effect);
 		return effect.sheet.render(true);
 		case "delete":
 		return effect.delete();
@@ -48,6 +44,11 @@ export function prepareActiveEffectCategories(effects) {
 		onuse: {
 			type: "onuse",
 			label: "Efeitos de Uso",
+			effects: []
+		},
+		onuseTemp: {
+			type: "onuseTemp",
+			label: "Efeitos de Uso Temporários",
 			effects: []
 		},
 		temporary: {
@@ -77,11 +78,13 @@ export function prepareActiveEffectCategories(effects) {
 			}
 		}
 
-		if ( e.flags.tormenta20?.onuse ) categories.onuse.effects.push(e);
+		if ( e.flags.tormenta20?.onuse && e.isTemporary ) categories.onuseTemp.effects.push(e);
+		else if ( e.flags.tormenta20?.onuse ) categories.onuse.effects.push(e);
 		else if ( e.disabled ) categories.inactive.effects.push(e);
 		else if ( e.isTemporary ) categories.temporary.effects.push(e);
 		else categories.passive.effects.push(e);
 	}
+	
 	return categories;
 }
 

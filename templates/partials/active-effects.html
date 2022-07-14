@@ -2,7 +2,7 @@
 	{{#each effects as |section sid|}}
 	<li class="items-header flexrow" data-effect-type="{{section.type}}">
 		<h3 class="item-name effect-name flexrow">{{section.label}}</h3>
-		{{#unless (eq sid "onuse")}}
+		{{#unless (or (eq sid 'onuse') (eq sid 'onuseTemp'))}}
 		<div class="effect-source">{{localize 'T20.Source'}}</div>
 		<div class="effect-source">{{localize 'T20.Duration'}}</div>
 		{{/unless}}
@@ -12,25 +12,25 @@
 			</a>
 		</div>
 	</li>
-	<ol class="effects-list {{#if (and ../actor (eq section.type 'onuse'))}}flexrow{{/if}} ae-{{section.type}}">
+	<ol class="effects-list {{#if (and ../actor (or (eq section.type 'onuse') (eq section.type 'onuseTemp')))}}flexrow{{/if}} ae-{{section.type}}">
 		{{#each section.effects as |effect|}}
 		<li class="item effect flexrow" data-effect-id="{{effect.id}}" data-action="edit">
 			<div class="item-name effect-name flexrow">
-				{{#unless (eq sid "onuse")}}
+				{{#unless (or (eq sid 'onuse') (eq sid 'onuseTemp'))}}
 				<img class="item-image" src="{{effect.icon}}"/>
 				<h4 class="item-name">{{effect.label}}</h4>
 				{{else}}
 				<h4 class="item-name"><b>
 				{{effect.flags.tormenta20.custo}}
 
-				{{#if (and (eq effect.flags.tormenta20.custo "") (eq ../../item.type "magia"))}}{{localize 'T20.Cantrip'}}:
-				{{else if (eq effect.flags.tormenta20.custo "")}}—
+				{{#if (and (eq effect.flags.tormenta20.custo '') (eq ../../item.type 'magia'))}}{{localize 'T20.Cantrip'}}:
+				{{else if (eq effect.flags.tormenta20.custo '')}}—
 				{{else}}{{localize 'T20.MP'}}:{{/if}}
 				</b>
 				{{effect.label}}</h4>
 				{{/unless}}
 			</div>
-			{{#unless (eq sid "onuse")}}
+			{{#unless (or (eq sid 'onuse') (eq sid 'onuseTemp'))}}
 			<div class="effect-source">{{effect.sourceName}}</div>
 			<div class="effect-duration">
 				{{#if effect.flags.tormenta20.durationScene}}
@@ -41,7 +41,7 @@
 			</div>
 			{{/unless}}
 			<div class="item-controls effect-controls flexrow">
-				<a class="effect-control" data-action="toggle" title="{{#if (eq sid 'onuse')}}{{localize 'T20.Toggle'}} {{localize 'T20.AlwaysApply'}}{{else}}{{localize 'T20.Toggle'}} {{localize 'T20.Effect'}}{{/if}}">
+				<a class="effect-control" data-action="toggle" title="{{#if (or (eq sid 'onuse') (eq sid 'onuseTemp'))}}{{localize 'T20.Toggle'}} {{localize 'T20.AlwaysApply'}}{{else}}{{localize 'T20.Toggle'}} {{localize 'T20.Effect'}}{{/if}}">
 					<i class="fas {{#if effect.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
 				</a>
 				<a class="effect-control" data-action="edit" title="{{localize 'T20.Edit'}}">

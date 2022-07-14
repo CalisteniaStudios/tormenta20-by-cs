@@ -458,14 +458,13 @@
     }
     
     
-    &.ae-onuse {
-      // Individual Item
-      .item.effect {
-        min-width: 45%;
-        max-width: 50%;
-        
-      }
-    }
+    // &.ae-onuse {
+    //   // Individual Item
+    //   .item.effect {
+    //     min-width: 45%;
+    //     max-width: 50%;
+    //   }
+    // }
 
     // Control Buttons
     .item-controls {
@@ -538,6 +537,19 @@
   }
 }
 
+.tormenta20.actor.sheet {
+  .effects-list {
+    &.ae-onuseTemp,
+    &.ae-onuse {
+      // Individual Item
+      .item.effect {
+        min-width: 45%;
+        max-width: 50%;
+      }
+    }
+  }
+}
+
 /* ----------------------------------------- */
 /* Trait Selector
 /* ----------------------------------------- */
@@ -584,6 +596,17 @@
           }
         }
       }
+    }
+  }
+  .window-content .dialog-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    button {
+      max-height: 35px;
+      flex: 1;
     }
   }
 }

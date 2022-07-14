@@ -537,10 +537,6 @@
   margin: 0;
   overflow-x: hidden;
 }
-.tormenta20 .effects-list.ae-onuse .item.effect {
-  min-width: 45%;
-  max-width: 50%;
-}
 .tormenta20 .effects-list .item-controls {
   flex: 0 0 60px;
   justify-content: space-between;
@@ -600,6 +596,11 @@
 .tormenta20 .effects .item .effect-controls {
   border: none;
 }
+.tormenta20.actor.sheet .effects-list.ae-onuseTemp .item.effect,
+.tormenta20.actor.sheet .effects-list.ae-onuse .item.effect {
+  min-width: 45%;
+  max-width: 50%;
+}
 /* ----------------------------------------- */
 /* Trait Selector
 /* ----------------------------------------- */
@@ -631,6 +632,16 @@
 }
 .tormenta20.ability-use-form .window-content .dialog-content #ability-use-form .form-group .aprimoramentos-list .item .item-cost .numCtrl {
   background-color: #fff;
+}
+.tormenta20.ability-use-form .window-content .dialog-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.tormenta20.ability-use-form .window-content .dialog-buttons button {
+  max-height: 35px;
+  flex: 1;
 }
 /* ----------------------------------------- */
 /*  Property Attribution                     */

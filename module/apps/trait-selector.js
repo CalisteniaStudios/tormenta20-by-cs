@@ -9,7 +9,7 @@ export default class TraitSelector extends FormApplication {
 		return mergeObject(super.defaultOptions, {
 			id: "trait-selector",
 			classes: ["tormenta20"],
-			title: "Actor Trait Selection",
+			title: game.i18n.localize('T20.ActorTraitSelection'),
 			template: "systems/tormenta20/templates/apps/trait-selector.html",
 			width: 320,
 			height: "auto",

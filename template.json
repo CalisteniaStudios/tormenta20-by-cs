@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character","npc","foo"],
+    "types": ["character","npc"],
     "templates": {
       "common":{
         "atributos": {
@@ -110,7 +110,7 @@
             "max": 5,
             "label": ""
           },
-          "inspiration": {
+          "catarse": {
             "value": 0,
             "max": 3,
             "label": ""
@@ -266,6 +266,32 @@
             }
           }
         }
+      },
+      "builder": {
+        "builder": {
+          "attributes":{
+            "cr": "",
+            "size": "",
+            "attack": {"value":0,"cr":""},
+            "damage": {"value":0,"cr":""},
+            "defense": {"value":0,"cr":""},
+            "fort": {"value":0,"cr":""},
+            "refl": {"value":0,"cr":""},
+            "vont": {"value":0,"cr":""},
+            "topsave": {"value":0,"cr":""},
+            "midsave": {"value":0,"cr":""},
+            "botsave": {"value":0,"cr":""},
+            "hp": {"value":0,"cr":""},
+            "mp": {"value":0,"cr":""},
+            "dc": {"value":0,"cr":""}
+          },
+          "details":{
+            "concept": "",
+            "creatureType": "",
+            "role": "",
+            "treasure": ""
+          }
+        }
       }
     },
     "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"],
@@ -298,7 +324,7 @@
       }
     },
     "npc": {
-      "templates": ["common", "creature"],
+      "templates": ["common", "creature","builder"],
       "attributes": {
         "nivel": {
           "xp": {
@@ -312,9 +338,6 @@
         "resistencias": "",
         "tesouro": ""
       }
-    },
-    "foo": {
-      
     }
   },
   "Item": {

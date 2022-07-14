@@ -114,7 +114,7 @@
 
   "T20.AbilityPromptText": "???",
   "T20.AbilityPromptTitle": "Teste de Atributo {atributo}",
-  "T20.AbilityUseHint": "Configuração de uso de {name} {type}",
+  "T20.AbilityUseHint": "Configuração de uso de {type}: {name}",
 
   "T20.S5": "/* ---------------- SKILLS ---------------- */",
   "T20.Skill": "Perícia",
@@ -214,12 +214,15 @@
   "T20.Background": "Origem",
   "T20.Deity": "Divindade",
 
+  "T20.AbilityCheck":"Teste de Atributo",
+  "T20.SkillCheck":"Teste de Perícia",
+
   "T20.ResourcePrimary": "Recurso 1",
   "T20.ResourceSecondary": "Recurso 2",
   "T20.ResourceTertiary": "Recurso 3",
   "T20SK.ResourceDeathSave": "Falha na Morte",
   "T20SK.ResourceShadow": "Pontos de Sombra",
-  "T20SK.ResourceInspiration": "Inspiração",
+  "T20SK.ResourceCatarse": "Catarse",
 
   "T20.Attack": "Ataque",
   "T20.Attacks": "Ataques",
@@ -254,7 +257,9 @@
   "T20.ShowProficiencyBônus": "Mostrar bônus de treinamento",
   "T20.ShowPrepareSpells": "Preparar magias (para magos)",
   "T20.ShowBrewPotion": "Preparar Poções",
+  "T20.BrewPotion": "Preparar Poção",
   "T20.ShowWriteScroll": "Escrever Pergaminhos",
+  "T20.WriteScroll": "Escrever Pergaminho",
   "T20.ShowDC": "Mostrar CD",
   "T20.ShowRD": "Mostrar RD",
   
@@ -371,6 +376,7 @@
   "T20.SpellPrepPrepared": "Preparada",
   "T20.SpellPrepPreparedAbbr": "Prep",
 
+  "T20.ConsumeTitle": "Consumível",
   "T20.ConsumeAmmunition": "Munição",
   "T20.ConsumeAttribute": "Recurso",
   "T20.ConsumeMaterial": "Material",
@@ -500,6 +506,13 @@
 
   "T20.Consumable": "Consumível",
   "T20.Consumables": "Consumíveis",
+
+  "T20.ConsumableCreated": "{actor} criou {name}",
+  "T20.ConsumableSpellName": "{item} de {name}",
+  "T20.ConsumableSubtypePotion": "Poção",
+  "T20.ConsumableSubtypeGranade": "Granada",
+  "T20.ConsumableSubtypeOil": "Óleo",
+
   "T20.Treasure": "Tesouro",
   "T20.Treasures": "Tesouros",
   "T20.LootAndTreasures": "Items e Tesouros",
@@ -519,13 +532,16 @@
   "T20.AbilityUseConsumableDestroyHint": "Usar esta {type} vai consumir seu último {resource} e remove-lo de sua ficha.",
   "T20.AbilityUseConsume": "Consumir PMs Disponíveis?",
   "T20.AbilityUseConsumableLabel": "{max} per {per}",
-  "T20.AbilityUseCast": "Conjurar Magia",
+  "T20.AbilityUseCast": "Lançar Magia",
   "T20.AbilityUseUse": "Usar Habilidade",
   "T20.ActionAbil": "Teste de Atributo",
   "T20.SavingThrows": "Testes de Resistência",
   "T20.ActionSave": "Teste de Resistência",
   "T20.ActionUtil": "Utilidade",
+
+  "T20.PlaceAbilityTemplate": "Colocar Área de Efeito",
   
+  "T20.ActionWarningItemNotOwned": "Um item precisa pertencer a um personagem para ser usado.",
   "T20.ActionWarningNoItem": "O item {item} não está presente no Ator {name}",
   "T20.ActionWarningNoToken": "É necessário ter um ou mais Tokens selecionado para usar esta opção.",
 
@@ -540,6 +556,9 @@
   
   "T20.S9": "/* --------------- Builder --------------- */",
 
+  "T20.MonstrousReform": "Reforma Monstrográfica",
+  "T20.FoeCreationGuide": "MANUAL CRIAÇÃO DE AMEAÇAS",
+  "T20.FoeCreationGuideDisclaimer": "Os textos e tabelas fazem parte do Manual de Criação de Ameaças, apresentado na Dragão Brasil 180 (disponível em www.dragaobrasil.com.br)",
   "T20.AbilityGenerationRule": "Geração de atributos",
   "T20.MaxManaCost": "Limite de Gasto de Mana",
   "T20.AGR.PointBuy": "Compra por Pontos",
@@ -573,12 +592,47 @@
   "T20.NPCB_Climber": "Escalador",
   "T20.NPCB_Burrower": "Escavador",
   "T20.NPCB_Swimmer": "Nadador",
+  
+  "T20.Current": "Atual",
+  "T20.NPCB_MeanDamage": "Dano Médio",
+  "T20.NPCB_MeanDamageHint": "Soma da média de dano todas as armas.",
+
+  "T20.NPCB_MoveSlow": "Lento",
+  "T20.NPCB_MoveNormal": "Normal",
+  "T20.NPCB_MoveFast": "Rápido",
+
+  "T20.NPCB_Category": "Categoria",
+  "T20.NPCB_SizeNRange": "Espaço / Alcance",
+  "T20.NPCB_SizeFurtNManeuver": "Furtividade / Manobras",
 
   "T20.NPCB_SaveGood": "Res. Forte",
   "T20.NPCB_SaveNormal": "Res. Média",
   "T20.NPCB_SaveBad": "Res. Fraca",
 
 
+  "T20.NPCB_ConceptHint": "Pense no nome e no conceito da ameaça, uma descrição em poucas palavras (Ex.; 'réptil alado que cospe fogo', 'combatente purista que usa magia', 'humanoide grande que tanka e bate'); \n Escolha uma função para a ameaça que vai servir de referência do que ela pode fazer e como pode ser usada.",
+  "T20.NPCB_TypeHint": "Escolha o tipo da criatura. O tipo define natureza, determina quais habilidades e magias podem afetar a criatura e alguns fornecem habilidades especiais. \n Em seguida defina o tamanho e e deslocamento.",
+  "T20.NPCB_CRHint": "Escolha o ND da criatura de acordo com o nível do grupo. Use os patamares de jogo como referênciae compare com outras criaturas com conceito semelhante. \n As estatísticas apresentadas nos próximos passos consideram um grupo de 4 personagens combados, você pode ajustar de acordo com o seu grupo.",
+  "T20.NPCB_AttributesHint": "As estatísticas de combate possuem valores médios definidos pelo ND. Não é necessário fazer modificações, mas você pode usar as estatísticas de ND maior ou menor para se adequar ao conceito, criar uma fraqueza, etc.",
+  "T20.NPCB_AttacksHint": "Defina as armas que a criatura usa para atacar, se ela possui múltiplos ataques, ataques secundários podem ter um Bônus de Ataque menor. Cálcule a média de dano das armas e complemente com um bônus até alcançar a média de dano.",
+  "T20.NPCB_PowersHint": "Escolha as habilidades das criaturas, pense em 1 ou 2 por patamar da de jogo. Equilibre as escolhas entre formas especiais de ataque, habilidades defensivas e habilidades sensoriais ou de movimentação.",
+  "T20.NPCB_TraitsHint": "Para definir os valores de atributo escolha valores compatíveis com o conceito da criatura de acordo com a tabela. \nEntão defina as perícias que a criatura é treinada e defina seu valor pelas regras normais, usando ND como nível de personagem.",
+  "T20.NPCB_LootHint": "Com base nas estatísticas da criatura e do patamar defina os esquipamentos que ela trás (Ex. se uma criatura humanóide tem defesa alta, seu tesouro pode incluir armadura e escudo). \nAlém disso defina o seu tesouro que ela renderá ao grupo de acordo com a tabela de tesouro do Capítulo 7 de Tormenta20.",
+
+
+  "T20.NPCB_FoeRoleCombatantHint": "COMBATENTE. Poder Ofensivo e Defensivo elevado. Exemplos: mercenário, urso.",
+  "T20.NPCB_FoeRoleCasterHint": "CONJURADOR. Poder Ofensivo e Defensivo reduzido, mas com efeitos de dano em área, condições e controle de terreno. Exemplos: mago, engenhoqueiro.",
+  "T20.NPCB_FoeRoleTricksterHint": "TRAPACEIRO. Poder Ofensivo e Defensivo reduzido, mas com efeitos para confundir e prejudicar, como perícias sociais ou especialistas. Exemplos: cortesão, ladino.",
+  "T20.NPCB_FoeRoleLackeyHint": "LACAIO. Poder Ofensivo elevado e Defensivo reduzido, faceis de derrotar mas capazes de causar problemas. Exemplos: capangas, soldados.",
+  "T20.NPCB_FoeRoleCaptainHint": "CAPITÃO. Poder variado, usualmente acompanhando de lacaios e com habilidades para lhes fornecer bônus. Exemplos: necromante, sargento.",
+  "T20.NPCB_FoeRoleBossHint": "CHEFÃO. Poder variados, mas capazes de lutar sozinho, com multiplas ações em uma rodada, efeitos de dano em área, condições e alcance elevado.",
+  
+  "T20.CreatureBeastHint": "ANIMAL. Criaturas com inteligência limitada, com armas e habilidades naturais como veneno, teia e podem ter visão no escuro ou visão na penumbra.",
+  "T20.CreatureConstructHint": "CONSTRUTO. Objetos animados ou criaturas artificiais. Possuem as habilidades: imunidade a doenças, fadiga, sangramento, sono e veneno; não precisam respirar, alimentar-se e dormir; não recuperam pontos de vida por descanso e habilidades de cura, exceto aquelas que afetam especificamente construtos; visão no escuro.",
+  "T20.CreatureSpiritHint": "ESPÍRITO. Seres de outros planos. Podem ter visão no escuro ou visão na penumbra.",
+  "T20.CreatureHumanoidHint": "HUMANÓIDE. Criaturas que tem anatomia humanos completa ou parcial e formam culturas e sociedades. Todo humanoide possui raça ou subtipo;",
+  "T20.CreatureMonstrosityHint": "MONSTRO. Criaturas com anatomia estranha, habilidades sobrenaturais. Podem ter visão no escuro.",
+  "T20.CreatureUndeadHint": "MORTO-VIVO. Cadáveres animados por energia negativa. Possuem as seguintes habilidades: imunidade a doenças, fadiga, sangramento, sono e veneno; não precisam respirar, alimentar-se e dormir; sofrem dano por cura mágica (Vontade CD do efeito reduz à metade) e recuperam PV com dano de trevas; visão no escuro.",
 
   "T20.S98": "/* --------------- Settings --------------- */",
 
@@ -588,6 +642,9 @@
   "T20.CharacterBuilderSheet": "Criação de NPC",
   "T20.SettingSheetSettings": "Configurações das Fichas",
   "T20.SettingSheetSettingsHint": "Configurações das Fichas",
+
+  "T20.ActorTraitSelection": "Seleção de Características",
+
   "T20.SettingDisableExperience": "Avanço por Marcos",
   "T20.SettingDisableExperienceHint": "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
   "T20.SettingEnableLanguages": "Idiomas",
@@ -624,6 +681,7 @@
   "T20.SettingsCampaignSettingRule": "Cenário de Jogo",
   "T20.SettingsCampaignSettingHint": "Altera regras de acordo com cenários de Jogo.",
   
+  "T20.WarningEditOwnedItemEffect": "Alteração de Efeitos em itens possuidos por Personagens não é suportada atualmente.",
   
   "T20.S99": "/* --------------- Creature --------------- */",
 
