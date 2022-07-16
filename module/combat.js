@@ -37,7 +37,7 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 	const combatantId = combat.current.combatantId;
 	let combatant = combat.combatants.get(combatantId);
 	let curActor = combatant?.actor;
-	if( !curActor ) return;
+	if( !curActor || game.userId != userId ) return;
 	// Check effects from each combatant
 	for ( let c of combat.combatants ){
 		let actor = c?.actor;
@@ -51,7 +51,7 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 			let e;
 			for( let ef of eff ){
 				if( ef.changes.find(c=> c.key == 'sustentado' )  ){
-					ChatMessage.create({content:'Sustentar Magia X'});
+					ChatMessage.create({content:'Sustentar Magia'});
 				}
 				if( e = ef.changes.find(c=> c.key == 'dano' )  ){
 					new Roll(e.value).toMessage({async:false})

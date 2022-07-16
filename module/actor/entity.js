@@ -837,10 +837,157 @@ export default class ActorT20 extends Actor {
 	* @param {number} multiplier	 A multiplier which allows for resistance, vulnerability, or healing
 	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
+	async applyDamageV2(roll, multiplier = 1, applyRD = false) {
+		const pv = this.system.attributes.pv;
+		const pm = this.system.attributes.pm;
+		const rds = this.system.tracos?.resistencias;
+		const PCVuln = this.type == "character" ? true : false;
+		const NPCVuln = this.type == "npc" ? true : false;
+		let damage;
+		if( roll ){
+			let defaultDamage = 'dano';
+			damage = roll.terms.reduce( (acc, t, idx) =>{
+				if ( idx == 0 && t.options.flavor ) defaultDamage = t.options.flavor;
+				let dType = t.options.flavor ?? defaultDamage;
+				if ( !acc[dType] ) acc[dType] = {value:0,vuln:0,rd:0,final:0};
+				if( Number(t.total)) {
+					acc[dType].value += t.total;
+					//TODO Vulnerability per dice
+					if ( t.faces && PCVuln && rds[dType] && rds[dType].vulnerabilidade ){
+						acc[dType].vuln += t.number;
+					}
+					
+				}
+				return acc;
+			}, {});
+		}
+
+		// Apply Damage Reduction for each type of damage
+		let final = {
+			damage: 0,
+			total: 0,
+			tempHP: 0,
+			mana: 0,
+			tempMP: 0
+		};
+
+		for ( let [type, dmg] of Object.entries(damage) ){
+			dmg.value = Math.floor(dmg.value * multiplier);
+			dmg.vuln = Math.floor(dmg.vuln * multiplier);
+			if ( type == 'curapv' || type == 'true' ) {
+				final.damage += dmg.value;
+			} else if ( type == 'curatpv' ) {
+				final.tempHP += dmg.value;
+			} else if ( type == 'curapm' ) {
+				final.mana += dmg.value;
+			} else if ( type == 'curatpm' ) {
+				final.tempMP += dmg.value;
+			} else if ( dmg.value < 0 ) {
+				final.damage += dmg.value;
+			} else {
+				let r = 0;
+				if( applyRD && type == 'dano' ){
+					r = ( rds[type]?.value ?? 0 );
+				} else if( applyRD ) {
+					r = (rds.dano?.value ?? 0) + ( rds[type]?.value ?? 0 );
+				}
+				if( NPCVuln && rds[type]?.vulnerabilidade ){
+					dmg.value = Math.floor(dmg.value * 1.5);
+					dmg.vuln = Math.floor(dmg.vuln * 1.5);
+				}
+				dmg.value = rds[type]?.imunidade ? 0 : dmg.value;
+				dmg.vuln = rds[type]?.imunidade ? 0 : dmg.vuln;
+				let acc = Math.max( (dmg.value + dmg.vuln ) - r , 0);
+				dmg.final = acc;
+				dmg.rd = r;
+				
+				final.total += Math.max( (dmg.value + dmg.vuln) , 0);
+				final.damage += acc;
+			}
+		}
+
+		// Deduct value from temp attr first
+		const tmpHP = parseInt(pv.temp) || 0;
+		const tmpMP = parseInt(pm.temp) || 0;
+		const hpt = final.damage > 0 ? Math.min(tmpHP, final.damage) : 0;
+		const mpt = final.damage > 0 ? Math.min(tmpMP, final.mana) : 0;
+		// Remaining goes to attr
+		const dhp = Math.clamped(pv.value - (final.damage - hpt), pv.min, pv.max);
+		const dmp = Math.clamped(pm.value - (final.mana - mpt), pm.min, pm.max);
+
+		// Update the Actor
+		const updates = {
+			"system.attributes.pv.temp": tmpHP - hpt - final.tempHP,
+			"system.attributes.pv.value": dhp,
+			"system.attributes.pm.temp": tmpMP - mpt - final.tempMP,
+			"system.attributes.pm.value": dmp,
+		};
+
+		await this.update(updates);
+		let show =  game.settings.get("tormenta20", "showDamageCards");
+		if ( show != 'none' ) {
+			this.displayDamageCard( damage, final, show );
+		}
+	}
+	
+	async displayDamageCard(dmgParts, final, show){
+		
+		let label = {
+			damage:'T20.HP', mana:'T20.MP', tempHP:'T20.HealingTemp', tempMP:'T20.ManaTemp'
+		}
+		let chatDamage = {};
+		for ( let [type, value] of Object.entries(final)){
+			if( type == 'total' ) chatDamage['total'] = value * -1;
+			if( type != 'total' && ( type != 'damage' && value != 0 ) ) {
+				chatDamage['type'] = type;
+				chatDamage['label'] = label[type];
+				chatDamage['value'] = value *= -1;
+			} else if ( type == 'damage' ) {
+				chatDamage['label'] = label[type];
+				chatDamage['type'] = type;
+				chatDamage['value'] = value *= -1;
+			}
+		}
+
+		let color = 'red';
+		if ( chatDamage.type == 'damage' && chatDamage.value <= 0 ) color = 'health';
+		else if ( chatDamage.type == 'damage' && chatDamage.value > 0 ) color = 'heal';
+		else if ( chatDamage.type == 'mana' && chatDamage.value != 0 ) color = 'mana';
+		else if ( chatDamage.type == 'tempHP' && chatDamage.value != 0 ) color = 'hptemp';
+		else if ( chatDamage.type == 'tempMP' && chatDamage.value != 0 ) color = 'mptemp';
+		
+		const templateData = {
+			actor: this,
+			damage: dmgParts,
+			chatDMG: chatDamage,
+			setting: game.settings.get("tormenta20", "showDamageCards"),
+		}
+		let template = "systems/tormenta20/templates/chat/chat-card-damage.html";
+		const html = await renderTemplate(template, templateData);
+
+		let chatData = {
+			user: game.user.id,
+			content: html,
+			speaker: ChatMessage.getSpeaker(this),
+			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+			flags: {
+				tormenta20: {
+					minimal: true,
+					cssClass: `tormenta20 damage-card damage-${color}`,
+				}
+			}
+		};
+		
+		let rollMode = 'publicroll';
+		if ( this.type == 'npc' && show != 'npcs' ) rollMode = 'selfroll';
+		ChatMessage.applyRollMode(chatData, rollMode);
+		ChatMessage.create(chatData, {});
+	}
+
 	async applyDamage(amount = 0, multiplier = 1, applyRD = false) {
 		amount = Math.floor(parseInt(amount) * multiplier);
 		const pv = this.system.attributes.pv;
-		const originalDGM = amount;
+		
 		// Prepare Damage Reduction if damage
 		const rd = applyRD ? this.system.tracos?.resistencias?.dano?.value || 0 : 0;
 		amount = amount > 0 ? Math.max(amount - rd, 0) : amount;
@@ -867,33 +1014,6 @@ export default class ActorT20 extends Actor {
 			isBar: true,
 		}, updates);
 
-		let show = ( this.type == 'character' && game.settings.get("tormenta20", "showDamageCards") != 'none' ) || ( this.type == 'npc' && game.settings.get("tormenta20", "showDamageCards") == 'npcs' );
-		if ( show ){
-			let chatMessage = "";
-			let toChat = (speaker, message) => {
-				let chatData = {
-					user: game.user.id,
-					content: message,
-					speaker: ChatMessage.getSpeaker(speaker),
-					type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-				};
-				
-				ChatMessage.create(chatData, {});
-			};
-			let _fas = "";
-			if( amount < 0 ) _fas = "plus";
-			else _fas = "minus";
-			if( this.type == 'npc' ){
-				if ( amount < 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> ${amount*-1} PVs`;
-				else if ( amount - dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${amount - dt} PVs`;
-			} else {
-				if ( rd > 0 && amount >= 0 ) chatMessage += `${originalDGM} - ${rd}RD >> ${amount}<br>`;
-				if ( dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${dt} PVs temp ( ${tmp}PVT >> ${tmp - dt} PVT )<br>`;
-				if ( amount < 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> ${amount*-1} PVs ( ${pv.value}PV >> ${dh} PV )`;
-				else if ( amount - dt > 0 ) chatMessage += `<i class="fas fa-user-${_fas}"></i> -${amount - dt} PVs ( ${pv.value}PV >> ${dh} PV )`;
-			}
-			toChat(this, chatMessage);
-		}
 		return allowed !== false ? this.update(updates) : this;
 	}
 
@@ -906,16 +1026,6 @@ export default class ActorT20 extends Actor {
 	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
 	async spendMana(amount = 0, adjust = 0, recover) {
-		let toChat = (speaker, message) => {
-			let chatData = {
-				user: game.user.id,
-				content: message,
-				speaker: ChatMessage.getSpeaker(speaker),
-				type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-			};
-			ChatMessage.create(chatData, {});
-		};
-
 		let spendMana = 0;
 		let tmpPMspend;
 		let chatMessage = "";
@@ -937,12 +1047,16 @@ export default class ActorT20 extends Actor {
 			// Remove Mana
 			spendMana = Math.clamped(pm.value - (newSptAmount - tmpPMspend), 0, pm.max);
 		}
-		// toChat(this, chatMessage);
 		// Update the Actor
-		return this.update({
+		await this.update({
 			"system.attributes.pm.temp": tmpPM - tmpPMspend,
 			"system.attributes.pm.value": spendMana,
 		});
+
+		let show =  game.settings.get("tormenta20", "showDamageCards");
+		if ( show != 'none' ) {
+			this.displayDamageCard( {}, {mana:amount}, show );
+		}
 	}
 
 	/* -------------------------------------------- */

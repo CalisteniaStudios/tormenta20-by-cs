@@ -262,6 +262,7 @@
   "T20.WriteScroll": "Escrever Pergaminho",
   "T20.ShowDC": "Mostrar CD",
   "T20.ShowRD": "Mostrar RD",
+  "T20.ShowResources": "Mostrar Recursos",
   
   "T20.Alignment": "Alinhamento",
   "T20.AlignmentCE": "Caótico e Mal",
@@ -282,6 +283,7 @@
   "T20.DR": "RD",
   "T20.DamVuln": "Vulnerabilidade a Dano",
   "T20.DamageType": "Tipo de Dano",
+  "T20.DamageLoss": "Perda de PV",
   "T20.DamageAcid": "Ácido",
   "T20.DamageBludgeoning": "Impacto",
   "T20.DamageCold": "Frio",
@@ -683,8 +685,14 @@
   
   "T20.WarningEditOwnedItemEffect": "Alteração de Efeitos em itens possuidos por Personagens não é suportada atualmente.",
   
+  "T20.S90": "/* --------------- Status --------------- */",
+  
+  "T20.StatusTypeFear":"Condição de Medo",
+	"T20.StatusTypeParalyze":"Condição de Paralisia",
+	"T20.StatusTypeSenses":"Condição de sentidos",
+	"T20.StatusTypeFatigue":"Condição de Fadiga",
+  
   "T20.S99": "/* --------------- Creature --------------- */",
-
   "T20.S0": "/* --------------- END --------------- */",
   "T20.VIZAEL": "VIZAEL"
 }

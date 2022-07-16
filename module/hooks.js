@@ -96,6 +96,8 @@ export default function () {
 
 		// Optionally collapse the content
 		if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
+
+		if ( html.find(".card-damage-details") ) html.find(".card-damage-details").hide();
 	});
 	
 	/* Add hook for the context menu over the rolled damage */

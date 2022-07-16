@@ -81,6 +81,7 @@
       }
     }
   }
+
 }
 
 .dice-roll .dice-total {
@@ -157,6 +158,32 @@
   
   .message-content {
     padding: 0px 5px 5px 5px;
+  }
+
+  .message-content.damage-card {
+    * {
+      font-size: 14px;
+    }
+    &.damage-health {
+      background-color: red;
+      background-color: rgba(255,0,0,0.5);
+    }
+    &.damage-heal {
+      background-color: lime;
+      background-color: rgba(0,255,0,0.5);
+    }
+    &.damage-mana {
+      background-color: cyan;
+      background-color: rgba(0,255,255,0.5);
+    }
+    &.damage-hptemp {
+      background-color: magenta;
+      background-color: rgba(255,0,255,0.5);
+    }
+    &.damage-mptemp {
+      background-color: deepskyblue;
+      background-color: rgba(0,191,255,0.5);
+    }
   }
 }
 

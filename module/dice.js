@@ -56,6 +56,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 				if (targetValue) d.options.target = targetValue;
 			}
 		}
+		roll.options.type = 'attack';
 		return roll;
 	}
 	// Create the Roll instance
@@ -89,6 +90,7 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 				else return e[0];
 			});
 			roll = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+"), data);
+			roll.options.type = 'damage';
 		}
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {

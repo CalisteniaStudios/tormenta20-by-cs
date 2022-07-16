@@ -987,6 +987,7 @@ export default class ItemT20 extends Item {
 	async rollAttack(options={}) {
 		const itemData = this.system;
 		const flags = this.actor.flags.tormenta20 || {};
+		options.type = 'attack';
 		// get the parts and rollData for this item's attack
 		for (let r of itemData.rolls.filter(i => i.type == "ataque")) {
 			// Get roll data
@@ -1016,10 +1017,6 @@ export default class ItemT20 extends Item {
 			if ( roll === false ) return null;
 			roll._critical = roll.terms[0].total >= itemData.criticoM;
 			roll._fumble = roll.terms[0].total == 1;
-
-			// Commit ammunition consumption on attack rolls resource consumption if the attack roll was made
-			// TODO autoSettings
-			// if ( ammo && !isEmpty(ammoUpdate) ) await ammo.update(ammoUpdate);
 			
 			itemData.rolled[r.name] = roll;
 		}
@@ -1037,6 +1034,7 @@ export default class ItemT20 extends Item {
 		const itemData = this.system;
 		const actorData = this.actor.system;
 		let pericia;
+		options.type = 'damage';
 		if(this.type == "arma") {
 			critical = itemData.rolled?.Ataque?._critical || false;
 			pericia = itemData.rolls.find(i => i.type == "ataque")?.parts[1][0];

@@ -93,36 +93,39 @@ export const ApplyButtons = function (app, html, data){
 	
 	// Get Element To Append to;
 	// btnparent = chatHTML.querySelectorAll('.roll--dano .dice-total')[0];
-	btnparent = chatHTML.querySelectorAll('.roll.roll--dano')[0];
-
-	if( btnparent ){
-		// Buttons Left
-		btncontainer = document.createElement("span");
-		btncontainer.classList.add('dice-btn', 'result', 'left');
+	// btnparent = chatHTML.querySelectorAll('.roll.roll--dano')[0];
+	let btnparents = chatHTML.querySelectorAll('.roll.roll--dano');
+	for (const btnparent of btnparents) {
+		if( btnparent ){
+			// Buttons Left
+			btncontainer = document.createElement("span");
+			btncontainer.classList.add('dice-btn', 'result', 'left');
+		
+			// Button Apply Damage
+			button = btnCreate('<i class="fas fa-user-minus"></i>', ['apply-dmg'], "Aplicar Dano", [['mod',1]]);
+			btncontainer.append(button);
 	
-		// Button Apply Damage
-		button = btnCreate('<i class="fas fa-user-minus"></i>', ['apply-dmg'], "Aplicar Dano", [['mod',1]]);
-		btncontainer.append(button);
-
-		// Button Apply Damage Double
-		button = btnCreate('2x', ['apply-dmg'], "Aplicar Dano em Dobro", [['mod',2]]);
-		btncontainer.append(button);
-		
-		btnparent.append(btncontainer);
-
-		// Buttons Right
-		btncontainer = document.createElement("span");
-		btncontainer.classList.add('dice-btn', 'result', 'right');
-		
-		// Button Apply Damage Half
-		button = btnCreate('½', ['apply-dmg'], "Aplicar Metade do Dano", [['mod',0.5]]);
-		btncontainer.append(button);
-		
-		// Button Apply Damage as Heal
-		button = btnCreate('<i class="fas fa-user-plus"></i>', ['apply-dmg'], "Aplicar Cura", [['mod',-1]]);
-		btncontainer.append(button);
-
-		btnparent.append(btncontainer);
+			// Button Apply Damage Double
+			button = btnCreate('2x', ['apply-dmg'], "Aplicar Dano em Dobro", [['mod',2]]);
+			btncontainer.append(button);
+			
+			btnparent.append(btncontainer);
+	
+			// Buttons Right
+			btncontainer = document.createElement("span");
+			btncontainer.classList.add('dice-btn', 'result', 'right');
+			
+			// Button Apply Damage Half
+			button = btnCreate('½', ['apply-dmg'], "Aplicar Metade do Dano", [['mod',0.5]]);
+			btncontainer.append(button);
+			
+			// Button Apply Damage as Heal
+			button = btnCreate('<i class="fas fa-user-plus"></i>', ['apply-dmg'], "Aplicar Cura", [['mod',-1]]);
+			btncontainer.append(button);
+	
+			btnparent.append(btncontainer);
+			
+		}
 		
 	}
 
@@ -130,9 +133,9 @@ export const ApplyButtons = function (app, html, data){
 
 	export const chatListeners = function (html){
 		html.on('click', '.item-name', _onChatCardToggleContent.bind(this));
+		html.on('click', '.chat-message', _onChatCardToggleDamage.bind(this));
 		html.on('click', '.chat-apply-ae', _onChatCardApplyEffect.bind(this));
 		html.on('click', '.chat-place-template', _onChatPlaceTemplate.bind(this));
-
 		
 		//html.on('click', '.chat-reroll', _onChatReRoll.bind(this));
 		html.on('click', '.apply-dmg', _onChatApplyDamage.bind(this));
@@ -171,9 +174,15 @@ export const ApplyButtons = function (app, html, data){
 		const btn = event.currentTarget;
 		const amount = Number(btn.closest(".roll").querySelector(".dice-total").innerText);
 		const multiplier = Number(btn.dataset.mod);
+		const chatCardId = btn.closest(".chat-message").dataset.messageId;
+		const message = game.messages.get(chatCardId);
+		const rollTitle = btn.closest(".roll").dataset.rollTitle;
+		const roll =  message.rolls.find( r => r.options.title == rollTitle && r.options.type == 'damage' );
+		
 		if( amount && multiplier ){
 			if (canvas.tokens.controlled.length) {
 				return Promise.all(canvas.tokens.controlled.map(tk => {
+					if( roll ) return tk.actor.applyDamageV2(roll, multiplier, true);
 					return tk.actor.applyDamage(amount, multiplier, true);
 				}));
 			} else {
@@ -256,6 +265,18 @@ export const ApplyButtons = function (app, html, data){
 		const content = chatCard.querySelector(".card-content");
 		content.style.display = content.style.display === "none" ? "block" : "none";
 	}
+
+	function _onChatCardToggleDamage(event) {
+		event.preventDefault();
+		const chatCard = event.currentTarget.closest(".chat-message");
+		const minimal = chatCard.querySelector(".card-damage");
+		const details = chatCard.querySelector(".card-damage-details");
+		if( minimal && details ) {
+			minimal.style.display = minimal.style.display === "none" ? "block" : "none";
+			details.style.display = details.style.display === "none" ? "block" : "none";
+		}
+	}
+	
 
 	/**
 		* Retrieve AbilityTemplate data and Draw on Canvas

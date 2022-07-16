@@ -64,7 +64,7 @@
 
 	{{#each _rolls as |r id|}}
 		<div class="row">{{r.roll.options.title}}</div>
-		<div class="roll {{r.roll.tipo}}">{{{r.template}}}</div>
+		<div class="roll {{r.roll.tipo}}" data-roll-title="{{r.roll.options.title}}">{{{r.template}}}</div>
 	{{/each}}
 	<hr>
 	{{#if effects}}

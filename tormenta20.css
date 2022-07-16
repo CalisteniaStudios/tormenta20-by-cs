@@ -1822,6 +1822,29 @@
 .chat-message .message-content {
   padding: 0px 5px 5px 5px;
 }
+.chat-message .message-content.damage-card * {
+  font-size: 14px;
+}
+.chat-message .message-content.damage-card.damage-health {
+  background-color: red;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.chat-message .message-content.damage-card.damage-heal {
+  background-color: lime;
+  background-color: rgba(0, 255, 0, 0.5);
+}
+.chat-message .message-content.damage-card.damage-mana {
+  background-color: cyan;
+  background-color: rgba(0, 255, 255, 0.5);
+}
+.chat-message .message-content.damage-card.damage-hptemp {
+  background-color: magenta;
+  background-color: rgba(255, 0, 255, 0.5);
+}
+.chat-message .message-content.damage-card.damage-mptemp {
+  background-color: deepskyblue;
+  background-color: rgba(0, 191, 255, 0.5);
+}
 .tormenta20.item-card .card-item-header p {
   text-align: justify;
 }

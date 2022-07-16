@@ -77,9 +77,9 @@ T20.armorTypes = {
 }
 
 /* ---------------- Damage ---------------- */
-// TODO TRANSLATE
 
 T20.damageTypes = {
+	"perda": "T20.DamageLoss",
 	"acido": "T20.DamageAcid",
 	"corte": "T20.DamageSlashing",
 	"eletricidade": "T20.DamageLightning",
