@@ -156,15 +156,15 @@ export const SystemSettings = function() {
 	/**
 	 * Option to show apply buttons inside chat
 	 */
-	game.settings.register("tormenta20", "applyButtonsInsideChat", {
-		name: game.i18n.localize("T20.SettingChatButtonsRule"),
-		hint: game.i18n.localize("T20.SettingChatButtonsHint"),
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean,
-		onChange: () => location.reload()
-	});
+	// game.settings.register("tormenta20", "applyButtonsInsideChat", {
+	// 	name: game.i18n.localize("T20.SettingChatButtonsRule"),
+	// 	hint: game.i18n.localize("T20.SettingChatButtonsHint"),
+	// 	scope: "world",
+	// 	config: true,
+	// 	default: false,
+	// 	type: Boolean,
+	// 	onChange: () => location.reload()
+	// });
 
 	/**
 	 * Option to show apply buttons inside chat

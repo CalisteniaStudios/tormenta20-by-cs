@@ -235,7 +235,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			props.push(
 				labels.ativacao? `<b>${hTags['ativacao']}:</b> ${labels.ativacao}; ` : null,
 				labels.range? `<b>${hTags['range']}:</b> ${labels.range}; ` : null,
-				labels.alvo? `<b>${hTags['alvo']}:</b> ${labels.alvo}; ` : null,
+				labels.alvo? `<b>${hTags['target']}:</b> ${labels.alvo}; ` : null,
 				labels.area? `<b>${hTags['area']}:</b> ${labels.area}; ` : null,
 				labels.effect? `<b>${hTags['effect']}:</b> ${labels.effect}; ` : null,
 				labels.duration? `<b>${hTags['duration']}:</b> ${labels.duration}; ` : null,

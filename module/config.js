@@ -1,3 +1,4 @@
+import { preLocalize } from "./utils.js";
 import { T20Conditions } from "./conditions/conditions.js";
 export const T20 = {};
 
@@ -54,6 +55,8 @@ T20.creatureTypes = {
 	"mon": "T20.CreatureMonstrosity",
 	"mor": "T20.CreatureUndead",
 }
+preLocalize("creatureTypes");
+
 
 T20.creatureRoles = {
 	"combatant": "T20.FoeRoleCombatant",
@@ -63,6 +66,7 @@ T20.creatureRoles = {
 	"captain": "T20.FoeRoleCaptain",
 	"boss": "T20.FoeRoleBoss",
 }
+preLocalize("creatureRoles");
 
 /* ---------------- Armour ---------------- */
 
@@ -75,6 +79,7 @@ T20.armorTypes = {
 	"natural": "T20.ArmorNatural",
 	"acessorio": "T20.ArmorAccessory",
 }
+preLocalize("armorTypes");
 
 /* ---------------- Damage ---------------- */
 
@@ -93,6 +98,7 @@ T20.damageTypes = {
 	"trevas": "T20.DamageNecrotic",
 	"veneno": "T20.DamagePoison",
 };
+preLocalize("damageTypes");
 
 
 T20.healingTypes = {
@@ -101,10 +107,12 @@ T20.healingTypes = {
 	"curapm": "T20.ManaRecovery",
 	"curatpm": "T20.ManaTemp",
 }
+preLocalize("healingTypes");
 
 T20.damageResistanceTypes = mergeObject(foundry.utils.deepClone(T20.damageTypes), {
 "fisico": "T20.DamagePhysical",
 });
+preLocalize("damageResistanceTypes");
 
 
 /* ----------------- Time ----------------- */
@@ -126,6 +134,7 @@ T20.damageResistanceTypes = mergeObject(foundry.utils.deepClone(T20.damageTypes)
 	"perm": "T20.TimePerm",
 	"special": "T20.Special"
 };
+preLocalize("timePeriods");
 
 /* ---------------- Usage ----------------- */
 
@@ -146,12 +155,14 @@ T20.damageResistanceTypes = mergeObject(foundry.utils.deepClone(T20.damageTypes)
 	"day": T20.timePeriods.day,
 	"special": T20.timePeriods.special
 };
+preLocalize("abilityActivationTypes");
 
 T20.abilityConsumptionTypes = {
 	"ammo": "T20.ConsumeAmmunition",
 	"attribute": "T20.ConsumeAttribute",
 	"material": "T20.ConsumeMaterial"
 };
+preLocalize("abilityConsumptionTypes");
 
 
 /**
@@ -175,6 +186,7 @@ T20.abilityConsumptionTypes = {
 	"line": "T20.TargetLine",
 	"wall": "T20.TargetWall"
 };
+preLocalize("targetTypes");
 
 /* -------------------------------------------- */
 
@@ -193,6 +205,7 @@ T20.areaTargetTypes = {
 	square: "rect",
 	wall: "ray"
 };
+preLocalize("areaTargetTypes");
 
 
 /* --------------- Distance --------------- */
@@ -206,6 +219,7 @@ T20.areaTargetTypes = {
 	"m": "T20.DistM",
 	"km": "T20.DistKM",
 };
+preLocalize("movementUnits");
 
 /**
  * The valid units of measure for the range of an action or effect.
@@ -225,7 +239,7 @@ T20.areaTargetTypes = {
 for ( let [k, v] of Object.entries(T20.movementUnits) ) {
 	T20.distanceUnits[k] = v;
 }
-
+preLocalize("distanceUnits");
 
 /* ---------------------------------------- */
 /*  Character Data                          */
@@ -240,6 +254,7 @@ T20.atributos = {
 	"sab": "T20.AbilityWis",
 	"car": "T20.AbilityCha"
 };
+preLocalize("atributos");
 
 T20.atributosAbr = {
 	"for": "T20.AbilityStrAbbr",
@@ -249,6 +264,7 @@ T20.atributosAbr = {
 	"sab": "T20.AbilityWisAbbr",
 	"car": "T20.AbilityChaAbbr"
 };
+preLocalize("atributosAbr");
 
 /* -------------- Resources --------------- */
 T20.resources = {
@@ -259,6 +275,8 @@ T20.resources = {
 	"shadow": "T20SK.ResourceShadow",
 	"catarse": "T20SK.ResourceCatarse",
 }
+preLocalize("resources");
+
 /* ---------------- Skills ---------------- */
 
 T20.pericias = {
@@ -294,47 +312,46 @@ T20.pericias = {
 	"sobr": "T20.SkillSobr",
 	"vont": "T20.SkillVont",
 };
+preLocalize("pericias");
 
 T20.resistencias = {
 	"fort": "T20.SkillFort",
 	"refl": "T20.SkillRefl",
 	"vont": "T20.SkillVont",
 }
+preLocalize("resistencias");
 
-/* TODO PAGES */
 T20.skillCompendiumEntries = {
-	'acro': 'tormenta20.pericias.hWto9ixrLcAV5Pg9',
-	'ades': 'tormenta20.pericias.3vNJgVz4DeSWUr2T',
-	'atle': 'tormenta20.pericias.ZMXVeEARJHe4WsWx',
-	'atua': 'tormenta20.pericias.eiKvnk0prKaG2rl0',
-	'cava': 'tormenta20.pericias.umGf2m2a517affYh',
-	'conh': 'tormenta20.pericias.k4BBdUTIFCFMi6Tp',
-	'cura': 'tormenta20.pericias.f0Cvg9dhaAgVfjpU',
-	'dipl': 'tormenta20.pericias.u3bLZxqLhvqQjlfz',
-	'enga': 'tormenta20.pericias.IAzI6D4Xj2vZa4ZK',
-	'fort': 'tormenta20.pericias.efy0eGXTMnXZbXED',
-	'furt': 'tormenta20.pericias.u2FeyQUF5rSu9ec3',
-	'guer': 'tormenta20.pericias.7pA3UiVhl2H091zb',
-	'inic': 'tormenta20.pericias.W4V1ObkLtpxgRoBE',
-	'inti': 'tormenta20.pericias.tGOSDh0RSh0Qewdv',
-	'intu': 'tormenta20.pericias.DLcZCk8c9KUyJ0Qk',
-	'inve': 'tormenta20.pericias.ZAS0zJaPRJWg15ib',
-	'joga': 'tormenta20.pericias.htoLZR83iKDkmc8j',
-	'ladi': 'tormenta20.pericias.lcgrJelGuEGZ96C0',
-	'luta': 'tormenta20.pericias.6PwE0u0Nfr5VolzM',
-	'mist': 'tormenta20.pericias.oPAtmZ2vXGDjfCyt',
-	'nobr': 'tormenta20.pericias.Uw4Edff5CDnPZgIF',
-	'ocul': 'tormenta20.pericias.oPAtmZ2vXGDjfCyt',
-	'ofic': 'tormenta20.pericias.iviKBc19dNgZYBJ0',
-	'perc': 'tormenta20.pericias.hkTML0lqoOopGTLQ',
-	'pilo': 'tormenta20.pericias.d7ia26SZqoFGzGrv',
-	'pont': 'tormenta20.pericias.rwDmhFebCtNIFzfy',
-	'refl': 'tormenta20.pericias.p9JngLpUrPFrqiTU',
-	'reli': 'tormenta20.pericias.VYEkUN1ITAQqn5y7',
-	'sobr': 'tormenta20.pericias.dyePg3NS95So0yEJ',
-	'vont': 'tormenta20.pericias.mBbMbDy7XnbkFzdR'
+  "acro": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.mtIHFUZSK6xBFHqd",
+  "ades": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.GGVyGDvqfIQKFLch",
+  "atle": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.eMu2uKBn5KV0eRI4",
+  "atua": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.ZTsOxj5RZPayHIFX",
+  "cava": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.MqOZve8EYE7jIUFw",
+  "conh": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.TjjV15fV27nEoWyX",
+  "cura": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.wQcNQVpDUvzvmHMY",
+  "dipl": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.cPbZCkI3ApOFMTnL",
+  "enga": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.SF7OrtCOR5wqLTaH",
+  "fort": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.PcT6ZdZqQgsF5xh2",
+  "furt": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.bNaCnZBCP78XDpTS",
+  "guer": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.Enbe4Cb4SZmTJiE9",
+  "inic": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.Wjq09fN74TRjtwaa",
+  "inti": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.yFlMv6opj01JYXmu",
+  "intu": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.gOxPHHZ9lKpaVA2i",
+  "inve": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.FA5Km75yEUsW8hR4",
+  "joga": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.WKC0D1EIJLEEqsX1",
+  "ladi": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.Ic17BdCyk6Eb4fE5",
+  "luta": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.LFvkUhrjgGP9Joqv",
+  "mist": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.T5I0dWUuXFEyorJG",
+  "nobr": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.oacoimyp8UfMD1o7",
+  "ofíc": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.GcfpNnf0qsct6c36",
+  "perc": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.IZDwoKmx3sd0MGDv",
+  "pilo": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.RZGkvgBj943km7Ux",
+  "pont": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.FpCIRhlSUBciPvL1",
+  "refl": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.rYJ5YACNaWGrv3f8",
+  "reli": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.0GUTcO35fxzma15V",
+  "sobr": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.SdS8pxPmbSpjv5Ml",
+  "vont": "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.YriqYltqs9f00eAb"
 }
-
 
 /* -------------- Experience -------------- */
 
@@ -351,6 +368,7 @@ T20.senses = {
 	"cegas": "T20.SenseBlindSight",
 	"faro": "T20.SenseScent",
 };
+preLocalize("senses");
 
 /* --------------- Movement --------------- */
 /**
@@ -365,6 +383,7 @@ T20.movementTypes = {
 	"swim": "T20.MovementSwim",
 	"fly": "T20.MovementFly",
 };
+preLocalize("movementTypes");
 
 /* ----------------- Size ----------------- */
 
@@ -376,6 +395,7 @@ T20.actorSizes = {
 	"eno": "T20.SizeHuge",
 	"col": "T20.SizeGargantuan"
 };
+preLocalize("actorSizes");
 
 T20.tokenSizes = {
 	"min": 1,
@@ -415,6 +435,7 @@ T20.profArmas = {
 	"exo": "T20.WeaponExoticProficiency",
 	"fog": "T20.WeaponFireArmProficiency",
 };
+preLocalize("profArmas");
 
 /**
  * The set of Armor Proficiencies which a character may have
@@ -425,6 +446,7 @@ T20.profArmaduras = {
 	"pes": "T20.ArmorHeavyProficiency",
 	"esc": "T20.ArmorShieldProficiency",
 };
+preLocalize("profArmaduras");
 
 /* ---------------------------------------- */
 /*  Class Data - TODO: REMOVE               */
@@ -434,21 +456,23 @@ T20.pvPorNivel = [2, 3, 4, 5, 6];
 T20.pmPorNivel = [3, 4, 5, 6];
 
 T20.atributoPV = {
-	"forPV": "Força",
-	"desPV": "Destreza",
-	"intPV": "Inteligência",
-	"sabPV": "Sabedoria",
-	"carPV": "Carisma"
+	"forPV": "T20.AbilityStr",
+	"desPV": "T20.AbilityDex",
+	"intPV": "T20.AbilityInt",
+	"sabPV": "T20.AbilityWis",
+	"carPV": "T20.AbilityCha"
 }
-
+preLocalize("atributoPV");
+	
 T20.atributoPM = {
-	"forPM": "Força",
-	"desPM": "Destreza",
-	"conPM": "Constituição",
-	"intPM": "Inteligência",
-	"sabPM": "Sabedoria",
-	"carPM": "Carisma"
+	"forPM": "T20.AbilityStr",
+	"desPM": "T20.AbilityDex",
+	"conPM": "T20.AbilityCon",
+	"intPM": "T20.AbilityInt",
+	"sabPM": "T20.AbilityWis",
+	"carPM": "T20.AbilityCha"
 }
+preLocalize("atributoPM");
 
 /* ---------------------------------------- */
 /*  Power Data                              */
@@ -462,6 +486,7 @@ T20.powerType = {
 	"origem": "T20.PowerTypeBackground",
 	"racial": "T20.PowerTypeRacial",
 }
+preLocalize("powerType");
 
 T20.powerSubType = {
 	"combate": "T20.PowerSubTypeCombat",
@@ -470,6 +495,7 @@ T20.powerSubType = {
 	"magia": "T20.PowerSubTypeSpell",
 	"tormenta": "T20.PowerSubTypeTormenta",
 }
+preLocalize("powerSubType");
 
 /* ---------------------------------------- */
 /*  Spell Data                              */
@@ -482,6 +508,7 @@ T20.spellType = {
 	"div": "T20.SpellDiv",
 	"uni": "T20.SpellUni"
 }
+preLocalize("spellType");
 
 /* ---------------- Schools --------------- */
 
@@ -495,6 +522,7 @@ T20.spellSchools = {
 	"nec": "T20.SchoolNec",
 	"tra": "T20.SchoolTra"
 }
+preLocalize("spellSchools");
 
 /* ---------------- Circle --------------- */
 
@@ -505,6 +533,7 @@ T20.spellLevels = {
 	4: "T20.SpellLevel4",
 	5: "T20.SpellLevel5"
 };
+preLocalize("spellLevels");
 
 /* ---------------------------------------- */
 /*  Weapon Data                             */
@@ -513,6 +542,7 @@ T20.spellLevels = {
 /**
  * Define the set of types which a weapon item can take
  * @type {Object}
+ * preLocalize("abilities");
  */
 T20.weaponTypes = {
 	"sim": "T20.WeaponSimple",
@@ -522,12 +552,14 @@ T20.weaponTypes = {
 	"nat": "T20.WeaponNatural",
 	"imp": "T20.WeaponImprov",
 };
+preLocalize("weaponTypes");
 
 /* -------------------------------------------- */
 
 /**
  * Define the set of weapon property flags which can exist on a weapon
  * @type {Object}
+ * preLocalize("abilities");
  */
 T20.weaponProperties = {
 	"ada": "T20.WeaponPropertiesAda",
@@ -541,6 +573,7 @@ T20.weaponProperties = {
 	"mun": "T20.WeaponPropertiesAmm",
 	"ver": "T20.WeaponPropertiesVer",
 };
+preLocalize("weaponProperties");
 
 T20.encantosArmas = { //Não Implementado
 	"arremesso": {
@@ -556,23 +589,6 @@ T20.encantosArmas = { //Não Implementado
 };
 
 T20.passosDano = ['1','1d2','1d3','1d4','1d6','1d8','1d10','1d12','3d6','4d6','4d8','4d10','4d12'];
-
-T20.passosDanoOld = {
-    "1d3": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "1d4": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "1d6": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "1d8": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "2d4": ["1", "1d2", "1d3", "1d4", "1d6", "2d4", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "1d10": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "1d12": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "2d6": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "3d4": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "3d4", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    "2d8": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "3d8", "4d8", "4d10", "4d12"],
-    "2d10": ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "2d10", "3d10", "4d10", "4d12"],
-    arr1: ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "1d12", "3d6", "4d6", "4d8", "4d10", "4d12"],
-    arr2: ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "3d8", "4d8", "4d10", "4d12"],
-    arr3: ["1", "1d2", "1d3", "1d4", "1d6", "1d8", "1d10", "2d6", "2d8", "2d10", "3d10", "4d10", "4d12"]
-}
 
 // NPC STATS
 T20.tableSize = {
@@ -595,7 +611,6 @@ T20.tableMovement = {
 	fast:		[9,12,15,12,15,18,18,24,36,12,9,24]
 }
 
-
 T20.tableAbilities = {
 	'cat': ["Incapaz","Incompetente","Ineficaz","Mediano","Notável","Excelente","Extraordinário","Excepcional"],
 	'val': ["1","2-5","6-9","10-13","14-17","18-21","22-25","26+"]
@@ -608,7 +623,6 @@ T20.RoleMods = {
 	"lackey": {good:['attack','hp'], bad:[]},
 	"boss": {good:['hp'], bad:[]},
 }
-
 
 T20.NDparams = {
 	labels: ['','T20.AbbreviationCR','T20.Attack','T20.Damage','T20.Defense','T20.NPCB_SaveGood','T20.NPCB_SaveNormal','T20.NPCB_SaveBad','T20.HP','T20.AbbreviationDC'],
@@ -624,7 +638,6 @@ T20.NDparams = {
   dc: [12,14,15,16,17,18,20,22,24,26,28,30,31,33,35,38,40,42,44,47,47,49]
 }
 
-
 T20.NPCParams = ( cr ) => {
 	let idx = T20.NDparams.cr.indexOf(cr.toString());
 	if ( idx < 0 ){
@@ -638,4 +651,3 @@ T20.NPCParams = ( cr ) => {
 	},{});
 	return param;
 }
-

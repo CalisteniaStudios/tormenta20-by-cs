@@ -35,6 +35,7 @@ import * as dice from "./dice.js";
 import * as macros from "./macros.js";
 import * as migrations from "./migration.js";
 import "./modules.js";
+import * as utils from "./utils.js";
 
 import {getSystemActorData,  getSystemItemData} from "./dataModel/data.js";
 
@@ -160,6 +161,7 @@ Hooks.once("init", async function () {
 /* -------------------------------------------- */
 	
 	// localization && sort
+	Hooks.once("i18nInit", () => utils.performPreLocalization(CONFIG.T20));
 
 /* -------------------------------------------- */
 

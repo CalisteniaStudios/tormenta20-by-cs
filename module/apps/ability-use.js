@@ -49,7 +49,7 @@ const rollFields = {
  * Regular Expressions to find
  * @param {Object} rollMods   Objeto com os valores a serem modificados;
  */
-const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
+const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 	// ROLLS ARRAY
 	const _campos = {};
 	let rolls = [];
@@ -57,19 +57,28 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
 		item.key = 'roll';// item.id;
 		rolls = [item];
 	} else {
-		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) ) );
+		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key) || ch.key.match(/\@([^\#]+)\#/) ) ) );
 	}
-
 	ch.key = ch.key.toString();
+	if( ch.value.toString().match(/^:/) ){
+		ch.value = ch.value.replace(':',';').split(';')[qty];
+		ef.flags.tormenta20.aumenta = false;
+	}
 	for(let r of rolls){
-		// CUSTOM CHANGES
-		let p = !rollMods? 0 : ef._sourceName ? Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0) : 0;
-		if( ch.mode == 0 ) {
-			// Target another onUseEffect ie.: @some#roll
-			if (ch.key.match(/\@([^\#]+)\#/)){
-				r.key = ch.key.match(/\@([^\#]+)\#/)[1];
-				ch.key = ch.key.split("#")[1];
+		// Target another onUseEffect ie.: @some#roll
+		if (ch.key.match(/\@([^\#]+)\#/)){
+			let m = ch.key.match(/@(.*)#(.*)/);
+			if( m[1] && m[2] ){
+				ef._sourceName = m[1];
+				ch.key = m[2];
 			}
+		}
+		// CUSTOM CHANGES
+		let p = 0;
+		if ( rollMods && ef._sourceName ){
+			p = Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0);
+		}
+		if( ch.mode == 0 ) {
 			// To Change die => d12 (d#NUMBEROFFACES)
 			if( ch.value.match(re.faces) ){
 				rollMods[r.key][p].die = ch.value;
@@ -77,12 +86,18 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
 			// To add Roll Modifiers => kh
 			else if( Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/, "")] && !["min","max"].includes(ch.value) ){
 				if( ch.value.match(/k|kh|kl/) ){
-					r.parts[p][0] = r.parts[p][0].replace("1d","2d")+ch.value;
+					if ( r.parts[p][0] == '1d20' ) {
+						r.parts[p][0] = r.parts[p][0].replace("1d","2d")+ch.value;
+					} else if ( r.parts[0][0] == '1d20' ){
+						r.parts[0][0] = r.parts[0][0].replace("1d","2d")+ch.value;
+					} else if ( r.parts[0] == '1d20' ){
+						r.parts[0] = r.parts[0].replace("1d","2d")+ch.value;
+					}
 				} else r.parts[p][0] = r.parts[p][0]+ch.value;
 			}
 			// To add more dice => 1d8+1
-			else if( ch.value.match(re.die)
-						&& (r.parts[p][0].match(re.die) || rollMods[r.key][p].match(re.die)) ){
+			else if( ch.value.match(re.die) && (r.parts[p][0].toString().match(re.die)) ){
+				// match at object? || rollMods[r.key][p].match(re.die)
 				let tempAp = [];
 				ch.value.match(re.split).forEach(rt => tempAp.push(Number(rt) * qty||rt));
 				if( tempAp[0] ) rollMods[r.key][p].addDie += tempAp[0];
@@ -92,7 +107,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
 			else if( ch.value.match(re.perd) ){
 				rollMods[r.key][p].perDie += Number(ch.value.match(/\d+/)[0]) || 0;
 			}
-			// To Maximize/Minimazie a roll => max/min
+			// To Maximize/Minimize a roll => max/min
 			else if( ["max","min"].includes(ch.value) ){
 				options.minmax = ch.value;
 			}
@@ -132,12 +147,16 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods) => {
 									:	(Number(ch.value * qty) || ch.value);
 			} else if(item.type == "atributo"){
 				r.parts.push( Number(ch.value * qty) || ch.value )
+			// To add one extra dice from source 1d => 2d6 + 1d6
+			} else if ( ch.key == "dano" && ch.value.match(/^1d$/)){
+				let n = parseInt(ch.value) ?? 0;
+				if( n ) rollMods[r.key][p].extraDie = n;
 			} else {
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
 			}
 			
 			if( rollMods && ef._sourceName ){
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, src: ef._sourceName } );
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, src: ef._sourceName } );
 			}
 		}
 		// OVERRIDE CHANGES
@@ -187,9 +206,9 @@ const itemFields = {
 	cd:						["resistencia.bonus", null ],
 	// efeito: 			["efeito", null ],
 	// PERICIA
-	atributo:			["atributo", null],
-	treino:				["treino", null],
-	treinado:			["treinado", null]
+	// atributo:			["atributo", null],
+	// treino:				["treino", null],
+	// treinado:			["treinado", null]
 }
 
 /** 
@@ -309,13 +328,14 @@ const effectFields = {
  * @param {Array} effectList      List of ActiveEffect that will go to be applied
  */
 const applyEffectChanges = (ch, qty, ef, optEffectList, effectList) => {
-	// include effect from the item
-	if( ch.key.match(/^efeito..+/)){
-		let k = ch.key.split('.');
-		let tef = [...optEffectList, ...effectList].find( e => e.label === ch.value );
-		// tef.changes.find( ch = ) 
-	} else if( ch.key === "efeito"){
+	if( ch.key === "efeito"){
 		let tef = optEffectList.find( e => e.label === ch.value );
+		// include effect from the item
+		if ( !tef && ef.origin.match(/Item.[A-Za-z0-9]+/) ) {
+			let itemId = ef.origin.match(/Item.[A-Za-z0-9]+/)[0].split('.')[1] ?? false;
+			let it = ef.parent?.items.find(i => i.id == itemId);
+			if( it ) tef = it.effects.find( e => e.label == ch.value );
+		}
 		if ( tef ) effectList.push(tef);
 	}
 	// include condition
@@ -343,12 +363,12 @@ function applyRollModifiers(item, rollMods) {
 			} else if ( rollMods[r.key][i]?.override ){
 				dano = rollMods[r.key][i].override;
 			}
-	
-			if ( typeof rollMods[r.key][i]?.die === "string" ) {
+			
+			if ( typeof dano === "string" && typeof rollMods[r.key][i]?.die === "string" ) {
 				dano = dano.replace(/d\d+/, rollMods[r.key][i].die);
 			}
-	
-			if ( rollMods[r.key][i]?.dmgStep ) {
+			
+			if ( dano.toString().match(re.die) && rollMods[r.key][i]?.dmgStep ) {
 				let indx = -1;
 				let danoBase = dano.match(/^\d+d\d+/)[0];
 
@@ -361,11 +381,11 @@ function applyRollModifiers(item, rollMods) {
 					dano = dano.replace(/^\d+d\d+/, danoBase)
 				}
 			}
-		
+			
 			if ( rollMods[r.key][i]?.addDie ){
 				dano = new Roll(dano).alter(1, rollMods[r.key][i].addDie).formula;
 			}
-	
+			
 			if ( rollMods[r.key][i]?.addNum ) {
 				roll = new Roll(dano);
 				if ( roll.terms[2] ) roll.terms[2].number += rollMods[r.key][i].addNum;
@@ -373,9 +393,15 @@ function applyRollModifiers(item, rollMods) {
 				dano = roll.formula;
 			}
 			
-			if ( rollMods[r.key][i]?.perDie ) {
+			if ( dano.toString().match(re.die) && rollMods[r.key][i]?.perDie ) {
 				let pd = parseInt(dano.match(/\d+d/ )[0]) * Number(rollMods[r.key][i].perDie) || 0;
-				if ( pd ) dano = `${dano} + ${pd}`;
+				if ( pd ) dano = `${dano}+${pd}`;
+			}
+
+			if ( dano.toString().match(re.die) && rollMods[r.key][i]?.extraDie ) {
+				let danoBase = dano.match(/^\d+d\d+/)[0];
+				let ed = danoBase.replace(/\d+/, Number(rollMods[r.key][i].extraDie));
+				if ( ed.match(re.die) ) dano = `${dano}+${ed}`;
 			}
 			r.parts[i][0] = dano;
 		}
@@ -406,7 +432,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	if( item.type != 'pericia' && item.type != 'atributo' ){
 		rollMods = id.rolls.reduce(function(acc, r){ 
 			acc[r.key] = r.parts.map(i=> ({die:null, dmgStep:0, override:null,
-				addDie:0, addNum:0, perDie:0 }) );
+				addDie:0, addNum:0, extraDie:0, perDie:0 }) );
 			return acc;
 		}, {});
 	} else {
@@ -430,7 +456,8 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 				changes[index].push({
 					key: ch.key,
 					value: Number(ch.value) || ch.value,
-					mode: ch.mode
+					mode: ch.mode,
+					priority: ch.priority,
 				});
 			});
 		});
@@ -447,6 +474,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		// Prepare onUseEffects chat content;
 		let ouEff = {};
 		ouEff.description = item.type !== "arma"? ef.label : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.label}` : ef._sourceName );
+		if ( ["Unknown",actor.name].includes(ouEff.description) ) ouEff.description = ef.label;
 		ouEff.cost = Number(applied[ef.id]?.custo) * applied[ef.id]?.aplica || applied[ef.id]?.custo;
 		// Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
 		ouEff.qty = Number(applied[ef.id]?.aplica) || 1;
@@ -455,7 +483,9 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		if( options.onUseEffects.find(i=> i.description == ouEff.description ) ){
 			let apl = options.onUseEffects.find(i=> i.description == ouEff.description );
 			apl.qty += ouEff.qty-1 || 0;
-			apl.cost += ouEff.cost || 0;
+			// apl.cost = Number(apl.cost) + Number(ouEff.cost) ?? Number(apl.cost) + Number(0);
+			apl.cost = apl.cost == '' ? apl.cost : Number(apl.cost)
+			if ( ouEff.cost != '' && Number(ouEff.cost) ) apl.cost += Number(ouEff.cost);
 		} else {
 			options.onUseEffects.push(ouEff);
 		}
@@ -465,26 +495,30 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 
 		// Prepare onUseEffects rollModifiers
 		for ( let ch of ef.changes ){
+			if( ch.key == 'custo' ){
+				if( ch.value == '/2' ) options.halfCost = true;
+			}
 			if( ch.key.match(/^\?/) ) continue;
 			if (itemFields[ch.key]) applyItemChanges( ch, ouEff.qty, ef, item, id );
 			else if (actorFields[ch.key]) applyActorChanges( ch, ouEff.qty, ef, item, id, ad );
 			else if (effectFields[ch.key]) applyEffectChanges( ch, ouEff.qty, ef, optEffectList, effectList );
-			else applyRollChanges( ch, ouEff.qty, ef, item, id, rollMods );
+			else applyRollChanges( ch, ouEff.qty, ef, item, id, rollMods, options );
 			
-			// if( ch.key.match(/^(data|system|?)./) ){
-				changes.forEach(function(efch){
-					if( !ef.flags.tormenta20.aumenta || ( ef.flags.tormenta20.aumenta && efch.map(i => i.key).includes(ch.key) ) ) {
-						if( ch.key == "system.tamanho" && efch.findIndex(i => i.key=="system.tamanho")){
-							efch.splice(efch.findIndex(i => i.key=="system.tamanho"),1);
-						}
-						// Push the change to the changes list
-						efch.push({
-							key: ch.key,
-							value: Number(ch.value * ouEff.qty)  || ch.value,
-							mode: ch.mode
-						});
+			changes.forEach(function(efch){
+				if( !ef.flags.tormenta20.aumenta || ( ef.flags.tormenta20.aumenta && efch.map(i => i.key).includes(ch.key) ) ) {
+					if( ch.key == "system.tamanho" && efch.findIndex(i => i.key=="system.tamanho")){
+						efch.splice(efch.findIndex(i => i.key=="system.tamanho"),1);
 					}
-				});
+					// Push the change to the changes list
+					efch.push({
+						key: ch.key,
+						value: Number(ch.value * ouEff.qty)  || ch.value,
+						mode: ch.mode,
+						priority: ch.priority
+					});
+				}
+			});
+			// if( ch.key.match(/^(data|system|?)./) ){
 			// }
 		}
 	}
@@ -506,18 +540,18 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	effectList.forEach(function(ef, index){
 		let tempEffect = ef.toObject();
 		let duration = {};
-		let durValue = Number(id.duracao.value) ?? 1;
+		let durValue = Number(id.duracao?.value) ?? 1;
 		let flags = { temp: true, tormenta20:{ durationScene: false} };
-		if ( id.duracao.units == 'scene' ) {
+		if ( id.duracao?.units == 'scene' ) {
 			flags.tormenta20.durationScene = true;
 			duration.rounds = 99;
 		};
-		if ( id.duracao.units == 'turn' ) duration.turns = durValue;
-		if ( id.duracao.units == 'round' ) duration.rounds = durValue;
-		if ( id.duracao.units == 'minute' ) duration.seconds = durValue * 60;
-		if ( id.duracao.units == 'hour' ) duration.seconds = durValue * 60 * 60;
-		if ( id.duracao.units == 'day' ) duration.seconds = durValue * 60 * 60 * 24;
-		if ( id.duracao.units == 'month' ) duration.seconds = durValue * 60 * 60 * 24 * 30;
+		if ( id.duracao?.units == 'turn' ) duration.turns = durValue;
+		if ( id.duracao?.units == 'round' ) duration.rounds = durValue;
+		if ( id.duracao?.units == 'minute' ) duration.seconds = durValue * 60;
+		if ( id.duracao?.units == 'hour' ) duration.seconds = durValue * 60 * 60;
+		if ( id.duracao?.units == 'day' ) duration.seconds = durValue * 60 * 60 * 24;
+		if ( id.duracao?.units == 'month' ) duration.seconds = durValue * 60 * 60 * 24 * 30;
 		let efl = ef.label.slugify().replace("-","");
 		if(T20Conditions[efl]){
 			tempEffect = new ActiveEffect(T20Conditions[efl]);
@@ -526,23 +560,70 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 			tempEffect.label ??= this.name;
 			tempEffect.icon ??= this.img;
 			tempEffect.flags = mergeObject(ef.flags, flags);
-			tempEffect.duration = duration;
+			tempEffect.duration = !isEmpty(duration) ? duration : ef.duration;
 			// tempEffect.duration ??= undefined; mergeObject(ef.duration, duration);
 			tempEffect.disabled = false;
 			tempEffect.changes = changes[index] ?? ef.changes;
 			// tempEffect.changes = tempEffect.changes.filter(ch => ch.key.match(/^system./i));
-			if( tempEffect.changes){
-				tempEffect.changes.sort((c,d)=> !Number(c.value) ? 1 : -1 );
+			if( tempEffect.changes ){
+				tempEffect.changes.sort((c,d)=> !Number(c.value) || c.key.match(/efeito.\w+/) ? 1 : -1 );
 				tempEffect.changes = tempEffect.changes.reduce((object, ch) => {
-					let idx = object.map(ob=> ob.key).indexOf(ch.key);
+					let key = ch.key.match(/efeito.\w+/)? ch.key.toString().split('.')[1] : ch.key;
+					let idx = object.map(ob=> ob.key).indexOf(key);
+					if( ch.mode == 2 && idx == -1 && ch.key.match(/efeito.\w+/) ){
+						ch.key = key;
+					}
 					if( ch.value.toString().match(/^@[^\s|+|-]+/) ){
 						ch.value = simplifyRollFormula(ch.value, rollData);
 					}
+					
 					if (idx >= 0) {
-						object[idx].value += '+' + ch.value;
-						// object[idx].value = Number(object[idx].value) + Number(ch.value) || ch.value;
+						try {
+							if( ch.mode == 5 ){
+								if( ch.key.match(/efeito.\w+/) ){
+									object[idx].value = ch.value;
+								}
+							} else if( ch.mode == 1 ){
+								if( ch.key.match(/efeito.\w+/) ){
+									if( Number(object[idx].value) ){
+										object[idx].value = Number(object[idx].value) * Number(ch.value);
+									} else if( object[idx].value.match(re.die) ) {
+										object[idx].value = object[idx].value.replace(/\d+/, (m) => Number(m*ch.value));
+									}
+								} else {
+									object[idx].value = Number(object[idx].value) + Number(ch.value);
+								}
+							} else if( ch.mode == 2 ){
+								if( ch.key.match(/efeito.\w+/) ){
+									object[idx].value = Number(object[idx].value) + Number(ch.value);
+								} else {
+									object[idx].value = Number(object[idx].value) + Number(ch.value);
+								}
+							} else if( ch.mode == 0 && ch.value.toString().match(/\*\d+/)  ){
+								if( ch.key.match(/efeito.\w+/) ){
+									object[idx].value = ch.value;
+								} else {
+									let value = ch.value.toString().match(/\d+/)[0];
+									object[idx].value = Number(object[idx].value) * Number(value);
+								}
+							}
+						} catch (error) {
+							if( ch.mode == 2 ){
+								if( ch.key.match(/efeito.\w+/) ){
+									object[idx].value = ch.value;
+								} else {
+									object[idx].value += '+' + ch.value;
+								}
+							} else if( ch.mode == 0 && ch.value.toString().match(/\*\d+/)  ){
+								if( ch.key.match(/efeito.\w+/) ){
+									object[idx].value = ch.value;
+								} else {
+									object[idx].value = '('+object[idx].value+') ' + ch.value;
+								}
+							}
+						}
 					} else {
-						object.push({key:ch.key,mode:ch.mode,value:ch.value})
+						object.push({key:ch.key,mode:ch.mode,value:ch.value,priority:ch.priority})
 					}
 					return object;
 				}, []);

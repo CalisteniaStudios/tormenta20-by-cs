@@ -86,10 +86,7 @@ export default function () {
 
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {
-		// Display action buttons
-		if (true || game.settings.get("tormenta20", "applyButtonsInsideChat")){
-			chat.ApplyButtons(app, html, data);
-		}
+		chat.ApplyButtons(app, html, data);
 
 		// Highlight critical success or failure die
 		// chat.highlightCriticalSuccessFailure(app, html, data);

@@ -39,7 +39,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 		if (!data["bonus"]) parts.pop();
 
 		// Execute the roll
-		let roll = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+"), data);
+		let roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);
 
 		try {
 			await roll.roll({async:true});
@@ -77,21 +77,18 @@ export async function damageRoll({parts, actor, data, event={}, critical=false, 
 		// Create the damage roll
 		let roll;
 		
-		if( false ){
-			roll = new Roll(parts.map(p=> p[0].toString().replace(/^\+/,"")).filterJoin("+"), data);
-		} else {
-			parts = parts.reduce(function(acc, o){
-				let p = String(o[0]).split('+');
-				acc = acc.concat( p.map( e => [e, o[1]]) );
-				return  acc;
-			}, []);
-			parts = parts.map( function(e) { 
-				if(e[1]) return e[0]+`[${e[1]}]`;
-				else return e[0];
-			});
-			roll = new Roll(parts.map(p=> p.toString().replace(/^\+/,"")).filterJoin("+"), data);
-			roll.options.type = 'damage';
-		}
+		parts = parts.reduce(function(acc, o){
+			let p = String(o[0]).split('+');
+			acc = acc.concat( p.map( e => [e, o[1]]) );
+			return  acc;
+		}, []);
+		parts = parts.map( function(e) { 
+			if(e[1]) return e[0]+`[${e[1]}]`;
+			else return e[0];
+		});
+		roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);
+		roll.options.type = 'damage';
+		
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {
 			if ( roll.terms[0] instanceof Die ) {

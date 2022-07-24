@@ -118,10 +118,10 @@ T20Conditions.caido = {
 
 T20Conditions.cego = {
 	label: "Cego",
-	id: "cego",
+	id: "blind",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/cego.svg",
-	flags: {core:{statusId:"cego"},tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido","lento"]}},
+	flags: {core:{statusId:"blind"},tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido","lento"]}},
 	changes: [{key: "system.pericias.acro.condi", mode:3, value:-2},
 		{key: "system.pericias.atle.condi", mode:3, value:-2},
 		{key: "system.pericias.cava.condi", mode:3, value:-2},
@@ -185,7 +185,8 @@ T20Conditions.emchamas = {
 	id: "emchamas",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/em-chamas.svg",
-	flags: {core:{statusId:"emchamas"},tormenta20:{condition:true,durationScene:true}}
+	flags: {core:{statusId:"emchamas"},tormenta20:{condition:true,durationScene:true}},
+	changes:[{key:'dano',mode:0,value:'1d6[fogo]'}]
 }
 
 T20Conditions.enjoado = {
@@ -351,6 +352,14 @@ T20Conditions.indefeso = {
 	icon: "systems/tormenta20/icons/conditions/indefeso.svg",
 	flags: {core:{statusId:"indefeso"},tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido"]}},
 	changes: [{key: "system.attributes.defesa.condi", mode:3, value:-10}]
+}
+
+T20Conditions.invisivel = {
+	label: "Invisível",
+	id: "invisible",
+	duration: {rounds:999},
+	icon: "icons/svg/invisible.svg",
+	flags: {core:{statusId:"invisible"},tormenta20:{condition:true,durationScene:true}},
 }
 
 T20Conditions.lento = {

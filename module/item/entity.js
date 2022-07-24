@@ -129,19 +129,28 @@ export default class ItemT20 extends Item {
 			labels.critico = `${system.criticoM}/${system.criticoX}x`
 			let rollAttack = this.system.rolls.find( r => r.type == 'ataque' );
 			let rollDamage = this.system.rolls.find( r => r.type == 'dano' );
-			labels.npcattack = rollAttack?.parts[2][0] ?? '';
-			labels.npcdamage = rollDamage?.parts[0][0] ?? '';
+			
+			if ( this.isEmbedded && this.parent.type == 'npc'){
+				if(rollAttack) labels.npcattack = rollAttack?.parts[2][0] ?? '';
+				if(rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? '';
+			}
 		}
 		// Spells
 		else if ( this.type === "magia" ) {
-			labels.tipo = game.i18n.localize(T20.spellType[system.tipo]);
+			labels.tipo = T20.spellType[system.tipo];
 			labels.nivel = game.i18n.format("T20.SpellLevel", {lvl:system.circulo});
-			labels.escola = game.i18n.localize(T20.spellSchools[system.escola]);
+			labels.escola = T20.spellSchools[system.escola];
+			// PRELOCALIZED
+			// labels.tipo = game.i18n.localize(T20.spellType[system.tipo]);
+			// labels.nivel = game.i18n.format("T20.SpellLevel", {lvl:system.circulo});
+			// labels.escola = game.i18n.localize(T20.spellSchools[system.escola]);
 			labels.materiais = system.meteriais?.value ?? null;
 		}
 		// Power
 		else if ( this.type === "poder" ){
-			labels.tipo = game.i18n.localize(T20.powerType[system.tipo]);
+			labels.tipo = T20.powerType[system.tipo];
+			// PRELOCALIZED
+			// labels.tipo = game.i18n.localize(T20.powerType[system.tipo]);
 			labels.subtipo = system.subtipo;
 		}
 		// Equipment
@@ -152,10 +161,19 @@ export default class ItemT20 extends Item {
 		// Activation
 		if ( system.hasOwnProperty("ativacao") ) {
 			let act = system.ativacao || {};
-			if ( act ) labels.ativacao = act.qtd
-				? [act.qtd, game.i18n.localize(T20.abilityActivationTypes[act.execucao])].join(" ")
-				: game.i18n.localize(T20.abilityActivationTypes[act.execucao]);
-			if ( act && act.custo > 0) labels.custoPM = act.custo + " PM";
+			if ( ['minute','hour','day'].includes(act.execucao) ) {
+				labels.ativacao = [act.qtd, T20.abilityActivationTypes[act.execucao]].join(" ");
+				// PRELOCALIZED
+				// labels.ativacao = [act.qtd, game.i18n.localize(T20.abilityActivationTypes[act.execucao])].join(" ");
+			} else if ( ['special'].includes(act.execucao) ) {
+				labels.ativacao = act.special;
+			} else {
+				labels.ativacao = T20.abilityActivationTypes[act.execucao];
+				// PRELOCALIZED
+				// labels.ativacao = game.i18n.localize(T20.abilityActivationTypes[act.execucao]);
+			}
+		
+				if ( act && act.custo > 0) labels.custoPM = act.custo + " PM";
 
 			// Target
 			let tgt = system.target || {};
@@ -169,7 +187,12 @@ export default class ItemT20 extends Item {
 			labels.area = system.area;
 
 			// Range
-			labels.range = game.i18n.localize(T20.distanceUnits[system.alcance]);
+			labels.range = T20.distanceUnits[system.alcance];
+			// PRELOCALIZED
+			// labels.range = game.i18n.localize(T20.distanceUnits[system.alcance]);
+			if( ['m','km'].includes(system.alcance) ){
+				labels.range = `${system.range.value}${system.alcance}`
+			}
 
 			// Effect
 			labels.effect = system.efeito;
@@ -177,7 +200,18 @@ export default class ItemT20 extends Item {
 			// Duration
 			let dur = system.duracao || {};
 			if (["inst", "perm", "cena","sust"].includes(dur.units)) dur.value = null;
-			labels.duration = dur.value? [dur.value, game.i18n.localize(T20.timePeriods[dur.units])].filterJoin(" ") : game.i18n.localize(T20.timePeriods[dur.units]);
+			if ( dur.value ) {
+				labels.duration = [dur.value, T20.timePeriods[dur.units]].filterJoin(" ");
+				// PRELOCALIZED
+				// labels.duration = [dur.value, game.i18n.localize(T20.timePeriods[dur.units])].filterJoin(" ");
+			} else {
+				labels.duration = T20.timePeriods[dur.units];
+				// PRELOCALIZED
+				// labels.duration = game.i18n.localize(T20.timePeriods[dur.units]);
+			}
+			if( ["special"].includes(dur.units) ) {
+				labels.duration = system.duracao.special;
+			}
 		}
 
 		// Saving Throw
@@ -584,7 +618,7 @@ export default class ItemT20 extends Item {
 		let consumeQuantity = ['ammo','material'].includes(resource.type) && resource.target;
 		// Consume mana
 		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
-		let consumeMana = autoSpendMana && id.ativacao?.custo > 0 ? true : false;
+		let consumeMana = id.ativacao?.custo > 0 ? true : false;
 		let options = {};
 
 		// Display a configuration dialog to customize the usage
@@ -598,10 +632,10 @@ export default class ItemT20 extends Item {
 			options = configuration;
 			// Determine consumption preferences
 			// createMeasuredTemplate = Boolean(configuration.placeTemplate);
-			consumeSelf = Boolean(configuration.consumeSelf);
-			consumeQuantity = Boolean(configuration.consumeUse);
-			consumeResource = Boolean(configuration.consumeResource);
-			consumeMana = Boolean(configuration.consumeMana);
+			// consumeSelf = Boolean(configuration.consumeSelf);
+			// consumeQuantity = Boolean(configuration.consumeUse);
+			// consumeResource = Boolean(configuration.consumeResource);
+			// consumeMana = Boolean(configuration.consumeMana);
 			rollMode = configuration.rollMode;
 		} else {
 			let itActive = this.actor.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.disabled);
@@ -659,8 +693,7 @@ export default class ItemT20 extends Item {
 		}
 		
 		// Determine whether the item can be used by testing for resource consumption
-		// TODO config auto consume settings;
-		if( !options.truque && consumeMana ) {
+		if( autoSpendMana && !options.truque && consumeMana ) {
 			consumeMana = item.system.ativacao.custo;
 		} else consumeMana = false;
 
@@ -879,13 +912,18 @@ export default class ItemT20 extends Item {
 	async displayCard({options, rollMode, createMessage=true}={}) {
 		// Basic template rendering data
 		const token = this.actor.token;
+		
+		let manaCost = Number(this.system.ativacao.custo) || null;
+		if ( options.truque ) manaCost = 0;
+		else if ( options.halfCost ) manaCost = Math.floor(manaCost / 2);
+
 		const templateData = {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
 			item: this,
 			system: await this.getChatData(),
 			labels: this.labels,
-			custo: options.truque? 0 : this.system.ativacao.custo || null,
+			custo: manaCost,
 			truque: options.truque,
 			onUseEffects: options.onUseEffects,
 			effects: options.effects,
@@ -893,11 +931,6 @@ export default class ItemT20 extends Item {
 			_rolls: [],
 			rolls: []
 		};
-
-		// const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
-		// if ( templateData.actor && templateData.custo && autoSpendMana ) {
-		// 		this.actor.spendMana(templateData.custo, 0, false);
-		// }
 
 		
 		for( let [key, roll] of Object.entries(this.system.rolled) ) {
@@ -964,6 +997,7 @@ export default class ItemT20 extends Item {
 			const r = Object.entries(labels).map(function(t){
 				if( headerTags.hasOwnProperty(t[0]) && t[1]){
 					let tag = game.i18n.localize( headerTags[t[0]] );
+					
 					return `<b>${tag}:</b> ${t[1]};`
 				} else return;
 			});

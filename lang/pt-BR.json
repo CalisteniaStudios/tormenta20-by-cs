@@ -47,6 +47,8 @@
   "T20.Effect": "Efeito",
   "T20.Effects": "Efeitos",
   "T20.AlwaysApply": "Aplicar Sempre",
+  "T20.EffectStatusType": "Modo de Efeito",
+  "T20.OnUseEffect": "Efeito de Uso",
   "T20.ApplyTo": "Aplicar em",
   "T20.ApplyToSelf": "Próprio Item",
   "T20.SpecificItems": "Itens Específico",

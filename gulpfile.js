@@ -11,10 +11,6 @@ exports.default = gulp.series(
   // css.watchUpdates
 );
 exports.css = css.compile;
-// exports.cleanPacks = gulp.series(packs.clean);
-// exports.compilePacks = gulp.series(packs.compile);
-// exports.extractPacks = gulp.series(packs.extract);
-// exports.lint = gulp.series(linting.lint);
 exports.buildAll = gulp.parallel(
   css.compile,
   // packs.compile

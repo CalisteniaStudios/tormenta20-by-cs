@@ -6,6 +6,11 @@
   "version": "1.4.0",
   "minimumCoreVersion": "10",
   "compatibleCoreVersion": "10",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
   "author": "Vizael",
   "authors": [{"name": "Vizael"}],
   "esmodules": ["module/tormenta20.js"],
@@ -17,84 +22,91 @@
       "label": "Poderes",
       "system": "tormenta20",
       "path": "./packs/poderes.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipamentos",
       "label": "Equipamentos",
       "system": "tormenta20",
       "path": "./packs/equipamentos.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipamentos-magicos",
       "label": "Itens Mágicos",
       "system": "tormenta20",
       "path": "./packs/equipamentos-magicos.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "macros",
       "label": "Macros",
       "system": "tormenta20",
       "path": "./packs/macros.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
     {
       "name": "magias",
       "label": "Magias",
       "system": "tormenta20",
       "path": "./packs/magias.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "ameacas",
       "label": "Ameaças",
       "system": "tormenta20",
       "path": "./packs/ameacas.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "condicoes",
       "label": "Condições",
       "system": "tormenta20",
       "path": "./packs/condicoes.db",
-      "entity": "JournalEntry"
+      "type": "JournalEntry"
     },
     {
       "name": "classes",
       "label": "Classes",
       "system": "tormenta20",
       "path": "./packs/classes.db",
-      "entity": "Item"
+      "type": "Item"
+    },
+    {
+      "name": "basico",
+      "label": "Livro Básico",
+      "system": "tormenta20",
+      "path": "./packs/basico.db",
+      "type": "JournalEntry"
     },
     {
       "name": "pericias",
       "label": "Perícias",
       "system": "tormenta20",
       "path": "./packs/pericias.db",
-      "entity": "JournalEntry"
+      "type": "JournalEntry"
     },
     {
       "name": "pocoes",
       "label": "Poções",
       "system": "tormenta20",
       "path": "./packs/pocoes.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "tabelas-de-tesouro",
       "label": "Tabelas de Tesouro",
       "system": "tormenta20",
       "path": "./packs/tabelas-de-tesouro.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "errata-e-faq",
       "label": "Errata e FAQ",
       "system": "tormenta20",
       "path": "./packs/errata-e-faq.db",
-      "entity": "JournalEntry"
+      "type": "JournalEntry"
     }
   ],
   "languages": [

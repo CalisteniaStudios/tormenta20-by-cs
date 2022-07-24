@@ -116,7 +116,6 @@ export default class ActorSheetT20 extends ActorSheet {
 				else if( s < "ofi0" ) skl.order = 1;
 				skl.key = s;
 				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
-				skl.compendiumEntry = data.config.skillCompendiumEntries[s] ?? null;
 			}
 		}
 		data.skills = Object.values(data.data.pericias).sort((a,b)=>{return a.order-b.order});
@@ -589,7 +588,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const atrRes = $(ev.currentTarget).data("atrres");
 		const magias = this.actor.items.filter(i => i.type === "magia");
 		const updateItems = magias.map(i => {
-			return {_id: i.id, "data.resistencia.atributo": atrRes};
+			return {_id: i.id, "system.resistencia.atributo": atrRes};
 		});
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
@@ -719,7 +718,6 @@ export default class ActorSheetT20 extends ActorSheet {
 			$(controls).css('display', 'none');
 			$(input).css('display', 'inline');
 			$(target).removeClass('ativo');
-
 		} else {
 			$(controls).css('display', 'inline');
 			$(input).css('display', 'none');
@@ -733,15 +731,11 @@ export default class ActorSheetT20 extends ActorSheet {
 	 * @private
 	 */
 	async _onOpenCompendiumEntry(event) {
-		if (["oficios","custom"].includes(event.currentTarget.dataset.type)) return;
-		if (!event.currentTarget.dataset.compendiumEntry) return;
-		const entryKey = event.currentTarget.dataset.compendiumEntry;
-		const parts = entryKey.split(".");
-		const packKey = parts.slice(0, 2).join(".");
-		const entryId = parts.slice(-1)[0];
-		const pack = game.packs.get(packKey);
-		const entry = await pack.getDocument(entryId);
-		entry.sheet.render(true);
+		const parent = event.currentTarget.closest('li') ?? event.currentTarget;
+		const skill = parent.dataset.itemId ?? null;
+		if ( !skill || !T20.skillCompendiumEntries[skill] ) return;
+		const entryKey = T20.skillCompendiumEntries[skill];
+		await Journal._showEntry(entryKey, true);
 	}
 
 }

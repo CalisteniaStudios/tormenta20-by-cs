@@ -161,7 +161,7 @@ export default class ActorT20 extends Actor {
 		const reforma = npcFlags.npcReform || this.getFlag("tormenta20", "npcReform");
 		let nd = system.detalhes.nd;
 		
-		const nivel = reforma ? (Number(nd)||0) : system.attributes.nivel.value;
+		const nivel = reforma ? (Number(nd)||1) : system.attributes.nivel.value;
 		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience Reward
 		system.attributes.defesa.condi = 0;
@@ -272,7 +272,7 @@ export default class ActorT20 extends Actor {
 			pericia.pda = pericia.label.match(/\+/g) ? true : false;
 		}
 		
-		pericia.label = game.i18n.localize( pericia.label );
+		//PRELOCALIZED pericia.label = game.i18n.localize( pericia.label );
 
 		let atributo = pericia.atributo || "for";
 		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && !reforma ) {
@@ -479,8 +479,8 @@ export default class ActorT20 extends Actor {
 		}
 
 		// Set level abbreviation
-		data["nivel"] = this.system.attributes.nivel.value;
-		data["meionivel"] = Math.floor(this.system.attributes.nivel.value / 2);
+		data["nivel"] =  Number(this.system.attributes.nivel.value || 1);
+		data["meionivel"] = Math.floor(data["nivel"] / 2) || 0;
 
 		// Set class level
 		const classes = this.items.reduce(function (cn, it) {
@@ -772,7 +772,7 @@ export default class ActorT20 extends Actor {
 			const showCard = game.settings.get("tormenta20", "showStatusCards");
 			const effect = result.find(doc => doc.flags?.core?.statusId );
 			if(showCard && effect){
-				game.tormenta20.macros.msgFromJournal(effect.label, "tormenta20.condicoes");
+				game.tormenta20.macros.msgFromJournal(effect.label, "tormenta20.basico", 'Condições');
 			}
 		}
 	}
@@ -1139,6 +1139,17 @@ export default class ActorT20 extends Actor {
 			}
 		}
 
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		if( autoSpendMana && rConfig.itemData?.system?.ativacao?.custo ) {
+			consumeMana = rConfig.itemData.system.ativacao.custo;
+		} else consumeMana = false;
+		
+		if( consumeMana ){
+			const manaUpdate = rConfig.itemData.system.ativacao.custo;
+			if ( !isEmpty(manaUpdate) ) {
+				this.spendMana(manaUpdate, 0, false);
+			}
+		}
 		// LOGS
 		if( options.message ){
 			options = rConfig;
@@ -1184,7 +1195,7 @@ export default class ActorT20 extends Actor {
 		abl.parts = parts;
 		// let itemData = abl;
 		let itemData = {
-			name: game.i18n.localize(abl.name),
+			name: abl.name, //PRELOCALIZED game.i18n.localize(abl.name),
 			type: "atributo",
 			parts: parts,
 			id: key,
@@ -1199,10 +1210,6 @@ export default class ActorT20 extends Actor {
 		const needsConfiguration = event?.shiftKey ?? false;
 		let configuration = {};
 		if( needsConfiguration ){
-			// configuration = await AbilityUseDialog.create({
-			// 	actor: actor, type:"atributo", rollData: abl, id: key, isOwned: true,
-			// 	name: game.i18n.localize(abl.name)
-			// });
 			configuration = await AbilityUseDialog.create(itemData);
 			if (!configuration) return;
 			rConfig = mergeObject(rConfig, configuration);
@@ -1229,6 +1236,19 @@ export default class ActorT20 extends Actor {
 			flavor: game.i18n.localize("T20.AbilityCheck"),
 			messageData: { "flags.tormenta20.roll": { type: "ability", key } }
 		}, rConfig);
+
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		let consumeMana = 0;
+		if( autoSpendMana && rConfig.itemData?.system?.ativacao?.custo ) {
+			consumeMana = rConfig.itemData.system.ativacao.custo;
+		} else consumeMana = false;
+		
+		if( consumeMana ){
+			const manaUpdate = rConfig.itemData.system.ativacao.custo;
+			if ( !isEmpty(manaUpdate) ) {
+				this.spendMana(manaUpdate, 0, false);
+			}
+		}
 
 		if( options.message ){
 			options = rConfig;
@@ -1291,11 +1311,16 @@ export default class ActorT20 extends Actor {
 	async displayCard({ options, rollMode, createMessage = true } = {}) {
 		// Basic template rendering data
 		const token = this.token;
+
+		let manaCost = Number(options.itemData?.system?.ativacao?.custo) || null;
+		if ( options.truque ) manaCost = 0;
+		else if ( options.halfCost ) manaCost = Math.floor(manaCost / 2);
+
 		const templateData = {
 			actor: this,
 			tokenId: token?.uuid || null,
 			item: options.itemData,
-			custo: options.itemData.custo || null,
+			custo: manaCost || null,
 			onUseEffects: options.onUseEffects,
 			effects: options.effects,
 			_rolls: [],

@@ -135,6 +135,11 @@
   background: #0d0d0d;
   border: 1px solid #782e22;
 }
+#sidebar .tab #chat-log button {
+  color: initial;
+  background: rgba(255, 255, 240, 0.8);
+  border: 2px groove #eeede0;
+}
 #sidebar button {
   font-family: "Signika", sans-serif;
 }
@@ -254,6 +259,13 @@
   border: 1px solid #999;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.05);
+}
+.active-effect-sheet {
+  /* Form Groups */
+}
+.active-effect-sheet .form-group .form-checks label {
+  line-height: 16px;
+  flex: 1!important;
 }
 /* ----------------------------------------- */
 /*  Hit Dice Config Sheet Specifically       */
@@ -1848,17 +1860,24 @@
 .tormenta20.item-card .card-item-header p {
   text-align: justify;
 }
+.tormenta20.item-card > button {
+  border: 2px groove #eeede0 !important;
+  background: rgba(255, 255, 240, 0.8) !important;
+  color: initial!important;
+}
 .tormenta20.item-card .card-header .item-name {
   font-family: "Signika", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  min-width: 190px;
-  max-width: 190px;
   font-size: 1.5em;
+  line-height: 1em;
+  align-self: center;
 }
 .tormenta20.item-card .chat-spend-mana {
   font-size: 12px;
   line-height: 12px;
+  max-width: 36px;
+  height: 36px;
 }
 .tormenta20.item-card .dice-result button {
   width: 24px;
