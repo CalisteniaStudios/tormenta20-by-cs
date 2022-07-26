@@ -130,9 +130,9 @@ export default class ItemT20 extends Item {
 			let rollAttack = this.system.rolls.find( r => r.type == 'ataque' );
 			let rollDamage = this.system.rolls.find( r => r.type == 'dano' );
 			
-			if ( this.isEmbedded && this.parent.type == 'npc'){
+			if ( this.isEmbedded && this.parent.type == 'npc'){ //TODO ERRO
 				if(rollAttack) labels.npcattack = rollAttack?.parts[2][0] ?? '';
-				if(rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? '';
+				if(rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? '';//
 			}
 		}
 		// Spells
@@ -569,13 +569,16 @@ export default class ItemT20 extends Item {
 			try {
 				let attack = actorData.builder.attributes?.attack?.value ?? 0;
 				let damage = actorData.builder.attributes?.damage?.value ?? 0;
-				let attackRoll = data.system.rolls.find( r => r.type == 'ataque' );
-				let damageRoll = data.system.rolls.find( r => r.type == 'dano' );
-				
-				attackRoll.parts = [['1d20',''],['',''],[attack,'']];
-				let wroll = damageRoll.parts[0][0];
-				damageRoll.parts = [[`${wroll}+${damage}`,''],['','']];
-				updates["system.rolls"] = [attackRoll,damageRoll];
+				if ( data.system.rolls ) {
+					let attackRoll = data.system.rolls.find( r => r.type == 'ataque' );
+					let damageRoll = data.system.rolls.find( r => r.type == 'dano' );
+					if( attackRoll && damageRoll ){
+						attackRoll.parts = [['1d20',''],['',''],[attack,'']];
+						let wroll = damageRoll.parts[0][0];
+						damageRoll.parts = [[`${wroll}+${damage}`,''],['','']];
+						updates["system.rolls"] = [attackRoll,damageRoll];
+					}
+				};
 			} catch (error) {
 				console.error(error);
 			}

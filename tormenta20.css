@@ -909,7 +909,6 @@
   white-space: nowrap;
 }
 .tormenta20.sheet.actor .tab.attributes {
-  overflow: hidden;
   align-items: flex-start;
 }
 .tormenta20.sheet.actor ul.attributes {
@@ -2427,6 +2426,9 @@
   display: inline;
   font-weight: 400;
 }
+.tormenta20.sheet.npc-builder > * {
+  font-size: 16px;
+}
 .tormenta20.sheet.npc-builder select,
 .tormenta20.sheet.npc-builder input {
   background-color: rgba(0, 0, 0, 0.1);
@@ -2446,6 +2448,9 @@
 }
 .tormenta20.sheet.npc-builder .sheet-body .tab.attributes label {
   flex: 0 0 110px;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab.attributes label.setSaveRank {
+  cursor: pointer;
 }
 .tormenta20.sheet.npc-builder .sheet-body .tab.attributes i {
   flex: 0 0 20px;

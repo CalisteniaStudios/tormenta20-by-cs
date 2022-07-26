@@ -48,7 +48,11 @@
 		<label>{{ localize 'T20.SkillVontAbbr'}}: </label>
 		{{numberFormat system.pericias.vont.value sign=true}}{{#if (or system.detalhes.resistencias)}};{{/if}} 
 	</span>
-	{{system.detalhes.resistencias}}
+	{{#if resistencias }}
+	, {{resistencias}}
+	{{else}}
+	, {{system.detalhes.resistencias}}
+	{{/if}}
 </div>
 <div class="npc-line">
 	<label>{{ localize 'T20.HitPoints'}}: </label>

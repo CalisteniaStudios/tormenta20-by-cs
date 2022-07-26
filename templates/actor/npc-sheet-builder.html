@@ -3,7 +3,7 @@
 	{{!-- flags.tormenta20.character-planner --}}
 	<header class="sheet-header flexrow">
 		<section class="char-info flexcol">
-			<h2>{{localize 'T20.FoeCreationGuide'}}</h2>
+			<h3>{{localize 'T20.FoeCreationGuide'}}</h3>
 		</section>
 		<section class="char-info flexcol">
 			<div class="form-group">
@@ -19,6 +19,9 @@
 				<label for="Name">
 					{{system.builder.details.concept}}
 				</label>
+			</div>
+			<div>
+				<a class="toggleNPCSheet" style="align-self: center;">Voltar para a Ficha <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 			</div>
 		</section>
 	</header>
@@ -92,103 +95,107 @@
 		</div>
 		
 		{{!-- TYPE --}}
-		<div class="tab type flexrow" data-group="primary" data-tab="type">
-			<div class="left-side flexcol">
-				<div class="form-group">
+		<div class="tab type flexcol" data-group="primary" data-tab="type">
+			<div class=" flexrow ">
+				<div class="left-side flexcol">
+					<div class="form-group">
+						<label for="Name">
+							{{localize 'T20.CreatureType'}}
+						</label>
+						<select name="system.detalhes.tipo">
+						{{#select system.detalhes.tipo}}
+							{{selectOptions config.creatureTypes selected=system.detalhes.tipo localize=true}}
+						{{/select}}
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="Name">
+							{{localize 'T20.Size'}}
+						</label>
+						<select name="system.tracos.tamanho">
+						{{#select system.tracos.tamanho}}
+							{{selectOptions config.actorSizes selected=system.tracos.tamanho localize=true}}
+						{{/select}}
+						</select>
+					</div>
 					<label for="Name">
-						{{localize 'T20.CreatureType'}}
+						{{localize 'T20.Movement'}}
 					</label>
-					<select name="system.detalhes.tipo">
-					{{#select system.detalhes.tipo}}
-						{{selectOptions config.creatureTypes selected=system.detalhes.tipo localize=true}}
-					{{/select}}
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="Name">
-						{{localize 'T20.Size'}}
-					</label>
-					<select name="system.tracos.tamanho">
-					{{#select system.tracos.tamanho}}
-						{{selectOptions config.actorSizes selected=system.tracos.tamanho localize=true}}
-					{{/select}}
-					</select>
-				</div>
-				<label for="Name">
-					{{localize 'T20.Movement'}}
-				</label>
-				{{#each config.movementTypes as |label type|}}
-				<div class="form-group">
-					<label for="Name">{{localize label}}</label>
-					<input  type="number" name="system.attributes.movement.{{type}}" step="1.5" value="{{lookup ../system.attributes.movement type}}"/>
-				</div>
-				{{/each}}
+					{{#each config.movementTypes as |label type|}}
+					<div class="form-group">
+						<label for="Name">{{localize label}}</label>
+						<input  type="number" name="system.attributes.movement.{{type}}" step="1.5" value="{{lookup ../system.attributes.movement type}}"/>
+					</div>
+					{{/each}}
 
-				<p>{{localize 'T20.NPCB_TypeHint'}}</p>
+					<p>{{localize 'T20.NPCB_TypeHint'}}</p>
+				</div>
+				<div class="right-side flexcol">
+					<aside>
+						<p>
+						{{#if (eq system.detalhes.tipo 'ani' )}}
+							{{localize 'T20.CreatureBeastHint'}}
+						{{/if}}
+						{{#if (eq system.detalhes.tipo 'con' )}}
+							{{localize 'T20.CreatureConstructHint'}}
+						{{/if}}
+						{{#if (eq system.detalhes.tipo 'esp' )}}
+							{{localize 'T20.CreatureSpiritHint'}}
+						{{/if}}
+						{{#if (eq system.detalhes.tipo 'hum' )}}
+							{{localize 'T20.CreatureHumanoidHint'}}
+						{{/if}}
+						{{#if (eq system.detalhes.tipo 'mon' )}}
+							{{localize 'T20.CreatureMonstrosityHint'}}
+						{{/if}}
+						{{#if (eq system.detalhes.tipo 'mor' )}}
+							{{localize 'T20.CreatureUndeadHint'}}
+						{{/if}}
+						</p>
+					</aside>
+					<aside>
+						<table>
+							<tr>
+								<td>{{localize 'T20.NPCB_Category'}}</td>
+								<td>{{localize 'T20.NPCB_SizeNRange'}}</td>
+								<td>{{localize 'T20.NPCB_SizeFurtNManeuver'}}</td>
+							</tr>
+							{{#each config.tableSize.size as | size i | }}
+							<tr>
+								<td>{{localize (lookup ../config.actorSizes size)}}</td>
+								<td>{{lookup ../config.tableSize.grid i}}m</td>
+								<td>
+									{{numberFormat (lookup ../config.tableSize.stealth i) decimals=0 sign=true}} /
+									{{numberFormat (lookup ../config.tableSize.maneuver i) decimals=0 sign=true}}
+								</td>
+							</tr>
+							{{/each}}
+						</table>
+					</aside>
+					<aside>
+					</aside>
+				</div>
 			</div>
-			<div class="right-side flexcol">
-				<aside>
-					<p>
-					{{#if (eq system.detalhes.tipo 'ani' )}}
-						{{localize 'T20.CreatureBeastHint'}}
-					{{/if}}
-					{{#if (eq system.detalhes.tipo 'con' )}}
-						{{localize 'T20.CreatureConstructHint'}}
-					{{/if}}
-					{{#if (eq system.detalhes.tipo 'esp' )}}
-						{{localize 'T20.CreatureSpiritHint'}}
-					{{/if}}
-					{{#if (eq system.detalhes.tipo 'hum' )}}
-						{{localize 'T20.CreatureHumanoidHint'}}
-					{{/if}}
-					{{#if (eq system.detalhes.tipo 'mon' )}}
-						{{localize 'T20.CreatureMonstrosityHint'}}
-					{{/if}}
-					{{#if (eq system.detalhes.tipo 'mor' )}}
-						{{localize 'T20.CreatureUndeadHint'}}
-					{{/if}}
-					</p>
-				</aside>
-				<aside>
-					<table>
-						<tr>
-							<td>{{localize 'T20.NPCB_Category'}}</td>
-							<td>{{localize 'T20.NPCB_SizeNRange'}}</td>
-							<td>{{localize 'T20.NPCB_SizeFurtNManeuver'}}</td>
-						</tr>
-						{{#each config.tableSize.size as | size i | }}
-						<tr>
-							<td>{{localize (lookup ../config.actorSizes size)}}</td>
-							<td>{{lookup ../config.tableSize.grid i}}m</td>
-							<td>
-								{{numberFormat (lookup ../config.tableSize.stealth i) decimals=0 sign=true}} /
-								{{numberFormat (lookup ../config.tableSize.maneuver i) decimals=0 sign=true}}
-							</td>
-						</tr>
-						{{/each}}
-					</table>
-				</aside>
-				<aside>
-				</aside>
+			<div class="flexcol">
+				<table>
+					<tr>
+						<td>{{localize 'T20.Movement'}}</td>
+						<td>{{localize 'T20.Size'}}</td>
+						<td>{{localize 'T20.NPCB_MoveSlow'}}</td>
+						<td>{{localize 'T20.NPCB_MoveNormal'}}</td>
+						<td>{{localize 'T20.NPCB_MoveFast'}}</td>
+					</tr>
+				{{#each config.tableMovement.type as | type i | }}
+					<tr>
+						<td>{{localize (lookup ../config.tableMovement.type i)}}</td>
+						<td>{{localize (lookup ../config.tableMovement.size i)}}</td>
+						<td>{{lookup ../config.tableMovement.slow i}}m</td>
+						<td>{{lookup ../config.tableMovement.normal i}}m</td>
+						<td>{{lookup ../config.tableMovement.fast i}}m</td>
+					</tr>
+				{{/each}}
+				</table>
 			</div>
-			<table>
-				<tr>
-					<td>{{localize 'T20.Movement'}}</td>
-					<td>{{localize 'T20.Size'}}</td>
-					<td>{{localize 'T20.NPCB_MoveSlow'}}</td>
-					<td>{{localize 'T20.NPCB_MoveNormal'}}</td>
-					<td>{{localize 'T20.NPCB_MoveFast'}}</td>
-				</tr>
-			{{#each config.tableMovement.type as | type i | }}
-				<tr>
-					<td>{{localize (lookup ../config.tableMovement.type i)}}</td>
-					<td>{{localize (lookup ../config.tableMovement.size i)}}</td>
-					<td>{{lookup ../config.tableMovement.slow i}}m</td>
-					<td>{{lookup ../config.tableMovement.normal i}}m</td>
-					<td>{{lookup ../config.tableMovement.fast i}}m</td>
-				</tr>
-			{{/each}}
-			</table>
 		</div>
 		
 		{{!-- CR --}}
@@ -214,17 +221,17 @@
 				<label for="Name">
 					{{localize 'T20.Attack'}}
 				</label>
-				<i class="{{builder.attrClosestCR.attack.icon}}"></i>
+				<i class="{{builder.attrClosestCR.attack.icon}}" title="{{builder.attrClosestCR.attack.title}}"></i>
 				<input  type="number" name="system.builder.attributes.attack.value" value="{{system.builder.attributes.attack.value}}"/>
 				<label for="Name">
 					{{localize 'T20.Damage'}}
 				</label>
-				<i class="{{builder.attrClosestCR.damage.icon}}"></i>
+				<i class="{{builder.attrClosestCR.damage.icon}}" title="{{builder.attrClosestCR.damage.title}}"></i>
 				<input  type="number" name="system.builder.attributes.damage.value" value="{{system.builder.attributes.damage.value}}"/>
 				<label for="Name">
 					{{localize 'T20.Defense'}}
 				</label>
-				<i class="{{builder.attrClosestCR.defense.icon}}"></i>
+				<i class="{{builder.attrClosestCR.defense.icon}}" title="{{builder.attrClosestCR.defense.title}}"></i>
 				<input  type="number" name="system.builder.attributes.defense.value" value="{{system.builder.attributes.defense.value}}"/>
 			</div>
 
@@ -232,36 +239,36 @@
 				<label for="Name" class="setSaveRank" data-skill="fort">
 					<input type="hidden" name="system.builder.attributes.fort.rank" value="{{system.builder.attributes.fort.rank}}"/>
 					
-					<i class="{{builder.saverankicons.fort}}"></i>
+					<i class="{{builder.saverankicons.fort}}" title="{{builder.saveranktitle.fort}}"></i>
 					{{localize 'T20.SkillFort'}}
 				</label>
-				<i class="{{builder.attrClosestCR.fort.icon}}"></i>
+				<i class="{{builder.attrClosestCR.fort.icon}}" title="{{builder.attrClosestCR.fort.title}}"></i>
 				<input  type="number" name="system.builder.attributes.fort.value" value="{{system.builder.attributes.fort.value}}"/>
 				<label for="Name" class="setSaveRank" data-skill="refl">
 					<input type="hidden" name="system.builder.attributes.refl.rank" value="{{system.builder.attributes.refl.rank}}"/>
-					<i class="{{builder.saverankicons.refl}}"></i>
+					<i class="{{builder.saverankicons.refl}}" title="{{builder.saveranktitle.refl}}"></i>
 					{{localize 'T20.SkillRefl'}}
 				</label>
-				<i class="{{builder.attrClosestCR.refl.icon}}"></i>
+				<i class="{{builder.attrClosestCR.refl.icon}}" title="{{builder.attrClosestCR.refl.title}}"></i>
 				<input  type="number" name="system.builder.attributes.refl.value" value="{{system.builder.attributes.refl.value}}"/>
 				<label for="Name" class="setSaveRank" data-skill="vont">
 					<input type="hidden" name="system.builder.attributes.vont.rank" value="{{system.builder.attributes.vont.rank}}"/>
-					<i class="{{builder.saverankicons.vont}}"></i>
+					<i class="{{builder.saverankicons.vont}}" title="{{builder.saveranktitle.vont}}"></i>
 					{{localize 'T20.SkillVont'}}
 				</label>
-				<i class="{{builder.attrClosestCR.vont.icon}}"></i>
+				<i class="{{builder.attrClosestCR.vont.icon}}" title="{{builder.attrClosestCR.vont.title}}"></i>
 				<input  type="number" name="system.builder.attributes.vont.value" value="{{system.builder.attributes.vont.value}}"/>
 			</div>
 			<div class="form-group">
 				<label for="Name">
 					{{localize 'T20.HP'}}
 				</label>
-				<i class="{{builder.attrClosestCR.hp.icon}}"></i>
+				<i class="{{builder.attrClosestCR.hp.icon}}" title="{{builder.attrClosestCR.hp.title}}"></i>
 				<input  type="number" name="system.builder.attributes.hp.value" value="{{system.builder.attributes.hp.value}}"/>
 				<label for="Name">
 					{{localize 'T20.DifficultClass'}}
 				</label>
-				<i class="{{builder.attrClosestCR.dc.icon}}"></i>
+				<i class="{{builder.attrClosestCR.dc.icon}}" title="{{builder.attrClosestCR.dc.title}}"></i>
 				<input  type="number" name="system.builder.attributes.dc.value" value="{{system.builder.attributes.dc.value}}"/>
 				<label for="Name">
 					{{localize 'T20.MP'}}

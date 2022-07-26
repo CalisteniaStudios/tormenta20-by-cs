@@ -225,6 +225,9 @@
 }
 
 .tormenta20.sheet.npc-builder {
+  > * {
+    font-size: 16px;
+  }
   select,
   input {
     background-color: rgba(0,0,0,0.1);
@@ -246,14 +249,18 @@
         flex: 2;
         margin: 0 10px;
       }
-
+      
       &.attributes {
         label {
           flex: 0 0 110px;
+          &.setSaveRank {
+            cursor: pointer;
+          }
         }
         i {
           flex: 0 0 20px;
         }
+        
         input {
           flex: 0 0 90px;
           margin: 0 4px;

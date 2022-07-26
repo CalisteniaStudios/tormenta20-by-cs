@@ -41,6 +41,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			{
 				scrollY: [".sheet-body", ".tab.attributes", ".tab.magias", ".tab.inventory", ".tab.journal", ".tab.efeitos", ".tab.poderes"],
 				tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+				height: 700
 			}
 		);
 	}

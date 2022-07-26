@@ -20,11 +20,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 
 	/* @override */
 	get template() {
-		if ( this.actor.type == 'character' ) {
-			return "systems/tormenta20/templates/actor/actor-sheet-builder.html" ;
-		} else if( this.actor.type == 'npc' ) {
-			return "systems/tormenta20/templates/actor/npc-sheet-builder.html";
-		}
+		return "systems/tormenta20/templates/actor/npc-sheet-builder.html";
 	}
 
 	/* -------------------------------------------- */
@@ -54,21 +50,28 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		let sum = 0;
 		for ( let w of weapons ){
 			let roll = w.system.rolls.find( r => r.type == 'dano' );
-			let parts = roll.parts.map(p=> p[0].toString() ).filterJoin('+');
-			let min = new Roll(parts).evaluate({minimize:true, async:false});
-			let max = new Roll(parts).evaluate({maximize:true, async:false});
-			sum += ((min.total+max.total)/2) * (w.system.qtd ?? 1);
+			if( roll ) {
+				let parts = roll.parts.map(p=> p[0].toString() ).filterJoin('+');
+				let min = new Roll(parts).evaluate({minimize:true, async:false});
+				let max = new Roll(parts).evaluate({maximize:true, async:false});
+				sum += ((min.total+max.total)/2) * (w.system.qtd ?? 1);
+			}
 		}
 		sheetData.builder.meanDamage.current = sum;
 
 		// PREPARE SKILL RANK ICON
-		const ranks = ["fa-regular fa-circle","fa-solid fa-circle-half-stroke","fa-solid fa-circle"];
-		
+		const ranksIcons = ["fa-regular fa-circle","fa-solid fa-circle-half-stroke","fa-solid fa-circle"];
 		sheetData.builder.saverankicons = {
-			fort: ranks[actorData.attributes?.fort?.rank ?? 0],
-			refl: ranks[actorData.attributes?.refl?.rank ?? 0],
-			vont: ranks[actorData.attributes?.vont?.rank ?? 0],
+			fort: ranksIcons[actorData.attributes?.fort?.rank ?? 0],
+			refl: ranksIcons[actorData.attributes?.refl?.rank ?? 0],
+			vont: ranksIcons[actorData.attributes?.vont?.rank ?? 0],
 		};
+		const ranksTitle = ['T20.NPCB_SaveGood','T20.NPCB_SaveNormal','T20.NPCB_SaveBad'];
+		sheetData.builder.saveranktitle = {
+			fort: game.i18n.localize( ranksTitle[actorData.attributes?.fort?.rank ?? 0] ),
+			refl: game.i18n.localize( ranksTitle[actorData.attributes?.fort?.rank ?? 0] ),
+			vont: game.i18n.localize( ranksTitle[actorData.attributes?.fort?.rank ?? 0] ),
+		}
 		return sheetData;
 	}
 
@@ -138,6 +141,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 	_getClosestCR(attr, key, ccr) {
 		let value = attr.value ?? 0;
 		let icons = ['fa-solid fa-angles-down','fa-solid fa-angles-up'];
+		let title = ['Abaixo do ND','Acima do ND'];
 		if ( ['fort','refl','vont'].includes(key) ) {
 			key = ['botsave','midsave','topsave'][attr.rank] ?? 'botsave';
 		}
@@ -151,6 +155,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 			clos:ind,
 			diff: (ind - cind),
 			icon: ((ind - cind) < 0 ? icons[0] : ((ind - cind) > 0 ? icons[1] : '')),
+			title: ((ind - cind) < 0 ? title[0] : ((ind - cind) > 0 ? title[1] : '')),
 		}
 		return closestCR;
 	}
@@ -177,7 +182,25 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		
 		html.find('.setWeaponRoll').on("change", this._onSetWeaponRoll.bind(this));
 		
+		html.find('.toggleNPCSheet').click(event => this._toggleNPCSheet(event));
 		super.activateListeners(html);
+	}
+
+	/**
+	 * Toggle NPC Sheet
+	 */
+	 async _toggleNPCSheet(){
+		// De-register the current sheet class
+		const sheet = this.object.sheet;
+		await sheet.close();
+		this.object._sheet = null;
+		delete this.object.apps?.[sheet.appId];
+		
+		const sheetName = sheet.name == "ActorSheetT20Builder" ? "ActorSheetT20Builder" : "ActorSheetT20NPC";
+		const newSheet = Actors.registeredSheets?.map( s => s )?.find( s => s.name == sheetName );
+		if ( !newSheet ) return;
+		this.object._sheet = new newSheet( this.object, {editable: this.object.isOwner} );
+		this.object.sheet.render(true);
 	}
 
 	_onCicleSaveRank(event){
