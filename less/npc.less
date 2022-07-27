@@ -178,6 +178,13 @@
   }
 
   .statblock {
+    &.flexcol {
+      // > .form-group, p, ol.item-list
+      > * {
+        flex: 0;
+      }
+    }
+    
     * {font-size: 0.75rem;}
 
     hr {
@@ -242,7 +249,8 @@
     .tab {
       .flexcol,
       &.flexcol {
-        > .form-group, p, ol.item-list {
+        // > .form-group, p, ol.item-list
+        > * {
           flex: 0;
         }
       }

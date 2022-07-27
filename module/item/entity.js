@@ -225,7 +225,9 @@ export default class ItemT20 extends Item {
 			let mod = this.isOwned && atr ? atr : 0;
 
 			let cd = 10 + base + mod + (Number(save.bonus) || 0);
-			
+			if ( this.actor?.type == 'npc' && this.actor?.getFlag('tormenta20','npcReform') ){
+				cd = this.actor.system.attributes.cd;
+			}
 			if( this.isOwned && actorFlags) {
 				let showCD = actorFlags?.tormenta20?.showCD ?? true;
 				if( !showCD ) cd = "??";
@@ -325,6 +327,9 @@ export default class ItemT20 extends Item {
 			let atr = getProperty(this.actor.system, `atributos.${resistencia.atributo}.mod`);
 			let nvl = Math.floor(getProperty(this.actor.system, `attributes.nivel.value`)/2);
 			resistencia.cd = 10 + nvl + atr + resistencia.bonus;
+			if ( this.actor.type == 'npc' && this.actor.getFlag('tormenta20', 'npcReform') ){
+				resistencia.cd = this.actor.system.attributes.cd;
+			}
 		}
 
 		// Update labels
@@ -475,6 +480,9 @@ export default class ItemT20 extends Item {
 			case "magia":
 				updates = this._onCreateOwnedSpell(data, actorData, isNPC);
 				break;
+			case "poder":
+				updates = this._onCreateOwnedPower(data, actorData, isNPC);
+				break;
 		}
 		if (updates) return this.updateSource(updates);
 	}
@@ -554,6 +562,37 @@ export default class ItemT20 extends Item {
 	 */
 	_onCreateOwnedSpell(data, actorData, isNPC) {
 		const updates = {};
+		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+			try {
+				if ( data.system.resistencia ){
+					updates["system.resistencia.atributo"] = '';
+					updates["system.resistencia.bonus"] = '';
+				}
+			} catch (error) {
+				console.error(error);
+			};
+		}
+		return updates;
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Pre-creation logic for the automatic configuration of owned powers type Items
+	 * @private
+	 */
+	_onCreateOwnedPower(data, actorData, isNPC) {
+		const updates = {};
+		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+			try {
+				if ( data.system.resistencia ){
+					updates["system.resistencia.atributo"] = '';
+					updates["system.resistencia.bonus"] = '';
+				}
+			} catch (error) {
+				console.error(error);
+			};
+		}
 		return updates;
 	}
 
