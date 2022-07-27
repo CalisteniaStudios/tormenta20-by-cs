@@ -147,7 +147,7 @@
   
   nav.secondary {
     font-size: 16px;
-    flex: 0 0 100%;
+    flex: 0 0 40px;
     width: 100%;
   }
 
@@ -240,6 +240,12 @@
   }
   .sheet-body {
     .tab {
+      .flexcol,
+      &.flexcol {
+        > .form-group, p, ol.item-list {
+          flex: 0;
+        }
+      }
       .left-side {
         height: 100%;
         flex:3;

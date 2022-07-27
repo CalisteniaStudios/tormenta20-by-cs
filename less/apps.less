@@ -189,13 +189,48 @@
 
     form {
       height: 100%;
-      overflow: auto;
+      overflow: hidden;
     }
 
     .tab {
       height: 100%;
       overflow-y: auto;
       align-content: flex-start;
+    }
+
+    // scrollY
+    form.base {
+      .sheet-body {
+        overflow-y: auto;
+        // height: 94%;
+        height: calc(100% - 50px);
+        padding-bottom: 5px;
+      }
+    }
+    form.tabbed {
+      .sheet-body {
+        overflow-y: auto;
+        height: calc(100% - 230px);
+        padding-bottom: 5px;
+      }
+    }
+    form.npc {
+      .sheet-body.primary {
+        overflow-y: auto;
+        height: calc(100% - 50px);
+        padding-bottom: 5px;
+      }
+      &.builder {
+        .sheet-body {
+          overflow-y: auto;
+          height: calc(100% - 150px);
+          padding-bottom: 5px;
+          .tab {
+            overflow: hidden;
+            height: auto;
+          }
+        }
+      }
     }
   }
 
@@ -369,7 +404,6 @@
 
   .sheet-body {
     flex: 1;
-    overflow: hidden;
   }
 
   /* ----------------------------------------- */

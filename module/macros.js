@@ -183,7 +183,6 @@ export async function msgFromJournal(name, source, sourceName) {
 		const pack = await game.packs.get( source ).getDocuments();
 		journal = pack.find(i => i.name === sourceName);
 		page = journal.pages.find( p => p.name == name );
-		console.log(pack,journal,page);
 	} else if ( source ) {
 		const pack = await game.packs.get( source ).getDocuments();
 		journal = pack.find(i => i.name === name);

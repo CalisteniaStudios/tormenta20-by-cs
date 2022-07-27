@@ -39,7 +39,11 @@ export default class ActorSheetT20 extends ActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions,
 			{
-				scrollY: [".sheet-body", ".tab.attributes", ".tab.magias", ".tab.inventory", ".tab.journal", ".tab.efeitos", ".tab.poderes"],
+				scrollY: [
+					".tormenta20.base .sheet-body",
+					".tormenta20.builder .tab.attributes",
+					".tab.skills", ".tab.attributes", ".tab.spells", ".tab.inventory", ".tab.journal", ".tab.effects", ".tab.powers"
+				],
 				tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
 				height: 700
 			}

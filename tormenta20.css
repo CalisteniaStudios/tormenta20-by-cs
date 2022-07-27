@@ -325,12 +325,36 @@
 }
 .tormenta20.sheet .window-content form {
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 .tormenta20.sheet .window-content .tab {
   height: 100%;
   overflow-y: auto;
   align-content: flex-start;
+}
+.tormenta20.sheet .window-content form.base .sheet-body {
+  overflow-y: auto;
+  height: calc(100% - 50px);
+  padding-bottom: 5px;
+}
+.tormenta20.sheet .window-content form.tabbed .sheet-body {
+  overflow-y: auto;
+  height: calc(100% - 230px);
+  padding-bottom: 5px;
+}
+.tormenta20.sheet .window-content form.npc .sheet-body.primary {
+  overflow-y: auto;
+  height: calc(100% - 50px);
+  padding-bottom: 5px;
+}
+.tormenta20.sheet .window-content form.npc.builder .sheet-body {
+  overflow-y: auto;
+  height: calc(100% - 150px);
+  padding-bottom: 5px;
+}
+.tormenta20.sheet .window-content form.npc.builder .sheet-body .tab {
+  overflow: hidden;
+  height: auto;
 }
 .tormenta20.sheet input[type="text"],
 .tormenta20.sheet input[type="number"] {
@@ -465,7 +489,6 @@
 }
 .tormenta20.sheet .sheet-body {
   flex: 1;
-  overflow: hidden;
 }
 .tormenta20.sheet .filter-list {
   align-items: center;
@@ -1135,11 +1158,6 @@
 }
 .tormenta20.sheet.actor .traits .trait-list .speedtag:after {
   content: ",";
-}
-.tormenta20.sheet.actor .tab.powers,
-.tormenta20.sheet.actor .tab.inventory,
-.tormenta20.sheet.actor .tab.spells {
-  overflow-y: hidden;
 }
 .tormenta20.sheet.actor .inventory-filters {
   margin: 0 8px;
@@ -2161,7 +2179,6 @@
   flex-direction: row;
   font-size: 13px;
   padding: 1rem 0.75rem 1rem 1rem;
-  overflow-y: auto;
 }
 .tormenta20.sheet.actor.character .tab.journal .right-notes,
 .tormenta20.sheet.actor.character .tab.journal .left-notes {
@@ -2362,7 +2379,7 @@
 }
 .tormenta20.sheet.actor.npc nav.secondary {
   font-size: 16px;
-  flex: 0 0 100%;
+  flex: 0 0 40px;
   width: 100%;
 }
 .tormenta20.sheet.actor.npc .sheet-body {
@@ -2436,6 +2453,14 @@
 .tormenta20.sheet.npc-builder nav .item {
   font-size: 14px;
   line-height: 16px;
+}
+.tormenta20.sheet.npc-builder .sheet-body .tab .flexcol > .form-group,
+.tormenta20.sheet.npc-builder .sheet-body .tab.flexcol > .form-group,
+.tormenta20.sheet.npc-builder .sheet-body .tab .flexcol p,
+.tormenta20.sheet.npc-builder .sheet-body .tab.flexcol p,
+.tormenta20.sheet.npc-builder .sheet-body .tab .flexcol ol.item-list,
+.tormenta20.sheet.npc-builder .sheet-body .tab.flexcol ol.item-list {
+  flex: 0;
 }
 .tormenta20.sheet.npc-builder .sheet-body .tab .left-side {
   height: 100%;

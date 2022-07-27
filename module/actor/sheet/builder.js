@@ -11,7 +11,9 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "character","npc-builder"],
-			scrollY: [".sheet-body",".cr-table"],
+			scrollY: [
+				".sheet-body",
+			],
 			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "concept"}],
 			width: 600,
 			height: 700

@@ -37,7 +37,7 @@ import * as migrations from "./migration.js";
 import "./modules.js";
 import * as utils from "./utils.js";
 
-import {getSystemActorData,  getSystemItemData} from "./dataModel/data.js";
+// import {getSystemActorData,  getSystemItemData} from "./dataModel/data.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -47,11 +47,6 @@ Hooks.once("init", async function () {
 	// console.log(`T20 | Initializing the Tormenta20 Game System\n T20.ASCII`);
 	// Create a namespace within the game global
 	game.tormenta20 = {
-		testes: {
-			getSystemActorData,
-			getSystemItemData,
-			applyOnUseEffects
-		},
 		applications: {
 			AbilityUseDialog,
 			ActorSheetT20Character,
