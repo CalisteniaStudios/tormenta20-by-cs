@@ -83,7 +83,6 @@ export default function () {
 		}
 	});
 
-
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {
 		chat.ApplyButtons(app, html, data);

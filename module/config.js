@@ -1,10 +1,23 @@
 import { preLocalize } from "./utils.js";
 import { T20Conditions } from "./conditions/conditions.js";
 export const T20 = {};
+export const SYSTEMRULES = {};
+
+/* ---------------------------------------- */
+/*  Compendium Indexing                     */
+/* ---------------------------------------- */
+
+CONFIG.Item.compendiumIndexFields.push('type');
+CONFIG.Item.compendiumIndexFields.push('system.tipo');
+CONFIG.Item.compendiumIndexFields.push('system.subtipo');
+// await compendium.getDocuments({'system.subtipo':{$in:['Bardo']}});
+
 
 /* ---------------------------------------- */
 /*  Template Overwrites                     */
 /* ---------------------------------------- */
+
+
 
 CONFIG.ChatMessage.template = "systems/tormenta20/templates/chat/chat-message.html"
 CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/tormenta20/templates/chat/roll.html';
@@ -313,6 +326,40 @@ T20.pericias = {
 	"vont": "T20.SkillVont",
 };
 preLocalize("pericias");
+
+SYSTEMRULES.skills = {
+  "acro": {abl: 'des', systems: ['core'], trainedOnly: false, armorPenalty: true, sizeMod: false},
+  "ades": {abl: 'car', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  "atle": {abl: 'for', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "atua": {abl: 'car', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "cava": {abl: 'des', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "conh": {abl: 'int', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  "cura": {abl: 'sab', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  // "defe": {abl: 'con', systems: ['skyfall'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "dipl": {abl: 'car', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "enga": {abl: 'car', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "fort": {abl: 'con', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "furt": {abl: 'des', systems: ['core'], trainedOnly: false, armorPenalty: true, sizeMod: true},
+  "guer": {abl: 'int', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  "inic": {abl: 'des', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "inti": {abl: 'car', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "intu": {abl: 'sab', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "inve": {abl: 'int', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "joga": {abl: 'car', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "ladi": {abl: 'des', systems: ['core'], trainedOnly: true, armorPenalty: true, sizeMod: false},
+  "luta": {abl: 'for', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "mist": {abl: 'int', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  "nobr": {abl: 'int', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  // "ocul": {abl: 'sab', systems: ['skyfall'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  // "ofic": {abl: 'int', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  "perc": {abl: 'sab', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "pilo": {abl: 'des', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  "pont": {abl: 'des', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "refl": {abl: 'des', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "reli": {abl: 'sab', systems: ['core'], trainedOnly: true, armorPenalty: false, sizeMod: false},
+  "sobr": {abl: 'sab', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+  "vont": {abl: 'sab', systems: ['core'], trainedOnly: false, armorPenalty: false, sizeMod: false},
+}
 
 T20.resistencias = {
 	"fort": "T20.SkillFort",

@@ -239,6 +239,13 @@
   input {
     background-color: rgba(0,0,0,0.1);
   }
+  .sheet-header{
+    .char-info {
+      h3 {
+        border: unset;
+      }
+    }
+  }
   nav{
     .item {
       font-size: 14px;
@@ -250,7 +257,7 @@
       .flexcol,
       &.flexcol {
         // > .form-group, p, ol.item-list
-        > * {
+        > *:not(p) {
           flex: 0;
         }
       }

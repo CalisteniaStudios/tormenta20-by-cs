@@ -245,6 +245,9 @@ export default class ItemT20 extends Item {
 			}
 		}
 
+		// Progression
+		// if( !(system.progression instanceof Array) ) system.progression = [];
+
 		// Spellheader
 		if ( this.type === "magia" ) {
 			//Execução: padrão; Alcance: curto; Alvo: 1 criatura; Area:; Efeito:; Duração: instantânea; Resistência: Vontade parcial.
@@ -498,6 +501,7 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
+		// console.log(changed, options, user);
 		await super._preUpdate(changed, options, user);
 	}
 
@@ -505,6 +509,7 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	_onUpdate(changed, options, user){
+		// console.log(changed, options, user);
 		super._onUpdate(changed, options, user);
 		// Set Initial Class
 		if( this.parent && this.type === "classe" && changed.system?.hasOwnProperty("inicial") ){

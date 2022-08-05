@@ -95,7 +95,7 @@ export default class ActorT20 extends Actor {
 		// Skills
 		const rollData = this.getRollData();
 		for (let [key, pericia] of Object.entries(system.pericias)) {
-			pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
+			// pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
 			this._prepareSkills(key, pericia, system, rollData);
 		}
 		
@@ -258,13 +258,15 @@ export default class ActorT20 extends Actor {
 	_prepareSkills(key, pericia, system, rollData, roll = false) {
 		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const pda = system.attributes.defesa.pda ? -Math.abs(system.attributes.defesa.pda) : 0;
-		pericia.label = pericia.label || CONFIG.T20.pericias[key];
+		const treino = !pericia.treinado ? 0 : system.attributes.treino;
+		pericia.label = pericia.label || CONFIG.T20.pericias[key] || '';
 		pericia.label = key == 'ofi0'? CONFIG.T20.pericias['ofic'] : pericia.label;
 		pericia.custom = false;
 		if ( !Number(pericia.condi) ) pericia.condi = 0;
 		if (!key.match(/ofi[1-9]|_pc[1-9]/)) {
 			pericia.pda = ["acro", "furt", "ladi"].includes(key);
 			pericia.st = ["ades", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key);
+			pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
 		} else {
 			pericia.custom = true;
 			pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
@@ -276,7 +278,8 @@ export default class ActorT20 extends Actor {
 
 		let atributo = pericia.atributo || "for";
 		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && !reforma ) {
-			pericia.mod = system.atributos[atributo].mod;
+			let mod = system.atributos[atributo].mod;
+			// pericia.mod = system.atributos[atributo].mod;
 		}
 
 		pericia.outros = pericia.outros;//Number(pericia.outros) || 0;
@@ -286,7 +289,7 @@ export default class ActorT20 extends Actor {
 		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && reforma ) {
 			parts.push(pericia.outros, pericia.bonus);
 		} else {
-			parts.push("@meionivel", pericia.treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, pericia.bonus);
+			parts.push("@meionivel", treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, pericia.bonus);
 		}
 
 		// GET GLOBAL ACTOR MODIFIERS
@@ -615,15 +618,15 @@ export default class ActorT20 extends Actor {
 	/** @inheritdoc */
 	async _preCreate(data, options, user) {
 		await super._preCreate(data, options, user);
-
+		console.error("_preCreate");
 		// SkillSet
 		const system = game.settings.get("tormenta20", "gameSystem");
 		switch (system) {
 			case "Skyfall":
-				const skills = mergeObject(this.system.pericias, {
-					defe: { value: 0, atributo: "des" },
-					ocul: { value: 0, atributo: "int" },
-				});
+				// const skills = mergeObject(this.system.pericias, {
+				// 	defe: { value: 0, atributo: "des" },
+				// 	ocul: { value: 0, atributo: "int" },
+				// });
 				// delete skills.mist;
 				
 				// this.update({ "system.pericias": skills });

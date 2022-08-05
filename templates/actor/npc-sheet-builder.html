@@ -92,6 +92,7 @@
 					</p>
 				</aside>
 			</div>
+			<div></div>
 		</div>
 		
 		{{!-- TYPE --}}
@@ -196,10 +197,11 @@
 				{{/each}}
 				</table>
 			</div>
+			<div></div>
 		</div>
 		
 		{{!-- CR --}}
-		<div class="tab cr flexcol" data-group="primary" data-tab="cr">
+		<div class="tab cr " data-group="primary" data-tab="cr">
 			<p>{{localize 'T20.NPCB_CRHint'}}</p>
 			<div class="form-group">
 				<label for="Name">
@@ -212,6 +214,7 @@
 					{{/each}}
 				</datalist>
 			</div>
+			<div></div>
 		</div>
 		
 		{{!-- ATTRIBUTES --}}
@@ -304,10 +307,11 @@
 					{{/each}}
 				</tbody>
 			</table>
+			<div></div>
 		</div>
 		
 		{{!-- ATTACKS --}}
-		<div class="tab attacks flexcol" data-group="primary" data-tab="attacks">
+		<div class="tab attacks " data-group="primary" data-tab="attacks">
 			<p>{{localize 'T20.NPCB_AttacksHint'}}</p>
 			<ol class="item-list">
 				<li class="item flexrow item-header">
@@ -345,10 +349,11 @@
 					<div class="item-controls"></div>
 				</li>
 			</ol>
+			<div></div>
 		</div>
 
 		{{!-- FEATURES --}}
-		<div class="tab powers flexcol" data-group="primary" data-tab="powers">
+		<div class="tab powers " data-group="primary" data-tab="powers">
 			<p>{{localize 'T20.NPCB_PowersHint'}}</p>
 			<div class="traits">
 				{{> "systems/tormenta20/templates/actor/parts/traits.html"}}
@@ -357,11 +362,11 @@
 			{{> "systems/tormenta20/templates/actor/parts/list-powers.html"}}
 
 			{{> "systems/tormenta20/templates/actor/parts/list-spells.html"}}
-			
+			<div></div>
 		</div>
 
 		{{!-- ABILITIES & SKILLS --}}
-		<div class="tab stats flexcol" data-group="primary" data-tab="stats">
+		<div class="tab stats " data-group="primary" data-tab="stats">
 			<p>{{localize 'T20.NPCB_TraitsHint'}}</p>
 			<div class="form-group">
 				{{#each system.atributos as |atr key|}}
@@ -433,10 +438,11 @@
 					{{/each}}
 				</ul>
 			</div>
+			<div></div>
 		</div>
 
 		{{!-- LOOT --}}
-		<div class="tab loot flexcol" data-group="primary" data-tab="loot">
+		<div class="tab loot " data-group="primary" data-tab="loot">
 			<p>{{localize 'T20.NPCB_LootHint'}}</p>
 			<div class="form-group">
 				<label for="Name">
@@ -454,87 +460,7 @@
 			<div class="inventory-list">
 				{{> "systems/tormenta20/templates/actor/parts/list-general.html"}}
 			</div>
-			
+			<div></div>
 		</div>
 	</section>
 </form>
-
-<style>
-	/* REFERENCE JIC */
-	.ref.tormenta20.builder.npc select,
-	.ref.tormenta20.builder.npc input {
-		background-color: rgba(0,0,0,0.1);
-	}
-	.ref.tormenta20.builder.npc nav.sheet-tabs {
-		font-size: 14px;
-	}
-	.ref.tormenta20.builder.npc nav.sheet-tabs .item {
-		line-height: 16px;
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab .left-side {
-		height: 100%;
-		flex:3;
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab .right-side {
-		height: 100%;
-		flex: 2;
-		margin: 0 10px;
-	}
-
-	.ref.tormenta20.builder.npc .sheet-body .tab.attributes input {
-		flex: 0 0 90px;
-		margin: 0 4px;
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab.attributes label {
-		flex: 0 0 110px;
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab.attributes i {
-		flex: 0 0 20px;
-	}
-
-	.ref.tormenta20.builder.npc .sheet-body .tab table.cr-table tr.pat-i td:nth-child(-n + 2)  {
-		background-color: rgba(0, 255, 0, 0.1);
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab table.cr-table tr.pat-v td:nth-child(-n + 2)  {
-		background-color: rgba(255, 255, 0, 0.1);
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab table.cr-table tr.pat-c td:nth-child(-n + 2)  {
-		background-color: rgba(255, 180, 0, 0.1);
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab table.cr-table tr.pat-l td:nth-child(-n + 2)  {
-		background-color: rgba(255, 0, 0, 0.1);
-	}
-
-
-	.ref.tormenta20.builder.npc .sheet-body .tab table.cr-table tr.active td:not(:nth-child(-n + 2)) {
-		background-color: rgba(255,0,0,0.1);
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab table td.setParam.active {
-		font-weight: bold;
-		color: darkred;
-		text-decoration: underline;
-	}
-	.ref.tormenta20.builder.npc .sheet-body .tab table td.setParam:hover {
-		cursor: pointer;
-	}
-	
-	.ref.tormenta20.builder.npc .sheet-body .tab table {
-		text-align: center;
-	}
-
-	.ref.tormenta20.builder.npc .sheet-body .skills-list .skill {
-		padding: 1px !important;
-	}
-
-	.ref.tormenta20.builder.npc .sheet-body .skills-list .item-value {
-		flex: 0 0 30px;
-		text-align: center;
-	}
-	.ref.tormenta20.builder.npc .sheet-body .skills-list .item-trained,
-	.ref.tormenta20.builder.npc .sheet-body .skills-list .item-ability,
-	.ref.tormenta20.builder.npc .sheet-body .skills-list .item-bonus {
-		flex: 0 0 60px;
-		text-align: center;
-	}
-
-</style>

@@ -8,6 +8,9 @@
 		{{#if (eq item.type "consumivel")}}
 		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
 		{{/if}}
+		{{#if TODO }}
+		<a class="item" data-tab="progression">{{ localize "T20.Progression" }}</a>
+		{{/if}}
 		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
 	</nav>
 
@@ -50,8 +53,13 @@
 				<textarea name="system.chatFlavor" contenteditable="true">{{data.chatFlavor}}</textarea>
 			</div>
 		</div>
-			
 		{{/if}}
+		
+		{{#if TODO }}
+		{{!-- Progression Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-progression.html"}}
+		{{/if}}
+
 		{{!-- Effects Tab --}}
 		<div class="tab effects" data-group="primary" data-tab="effects">
 			{{> "systems/tormenta20/templates/partials/active-effects.html"}}

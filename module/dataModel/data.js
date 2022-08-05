@@ -3,6 +3,9 @@ import * as fields from "/common/data/fields.mjs";
 import { lists } from './lists.js';
 import { T20 } from '../config.js';
 
+
+
+
 /* ---------------------------------------- */
 /*  Helpers                                 */
 /* ---------------------------------------- */
@@ -327,7 +330,10 @@ class systemActorBaseData extends DataModel {
 					hover: new fields.BooleanField({ initial: false }),
 					unit: new fields.StringField({ initial: 'm' }),
 				}),
-				sentidos: new fields.ArrayField(new fields.StringField()), //TODO: choices / custom field
+				sentidos: new fields.SchemaField({
+					value: new fields.ArrayField(new fields.StringField()),
+					custom: new fields.StringField(),
+				}),
 			}),
 			modificadores: new fields.SchemaField({
 				custoPM: new fields.StringField(),
@@ -367,19 +373,32 @@ class systemActorBaseData extends DataModel {
 			detalhes: new fields.SchemaField({
 				divindade: new fields.StringField({ initial: '' }),
 				raca: new fields.StringField({ initial: '' }),
-				tipo: new fields.StringField({ initial: 'humanoide' }), //TODO: choices
+				tipo: new fields.StringField({ choices: Object.keys(T20.creatureTypes), initial: 'hum' }),
 				biography: new fields.SchemaField({
 					value: new fields.HTMLField({ required: true, nullable:false, initial:'' }),
 					public: new fields.HTMLField({ initial:'' }),
 				}),
 			}),
 			tracos: new fields.SchemaField({
-				ic: new fields.ArrayField(new fields.StringField()), //TODO: custom field
-				idiomas: new fields.ArrayField(new fields.StringField()), //TODO: choices / custom field
-				profArmaduras: new fields.ArrayField(new fields.StringField()), //TODO: choices
-				profArmas: new fields.ArrayField(new fields.StringField()), //TODO: choices
+				ic: new fields.SchemaField({
+					value: new fields.ArrayField(new fields.StringField()),
+					custom: new fields.StringField(),
+				}),
+				idiomas: new fields.SchemaField({
+					value: new fields.ArrayField(new fields.StringField()),
+					custom: new fields.StringField(),
+				}),
+				
+				profArmaduras: new fields.SchemaField({
+					value: new fields.ArrayField(new fields.StringField()),
+					custom: new fields.StringField(),
+				}),
+				profArmas: new fields.SchemaField({
+					value: new fields.ArrayField(new fields.StringField()),
+					custom: new fields.StringField(),
+				}),
 				resistencias: new fields.SchemaField(dresist),
-				tamanho: new fields.StringField({ required: true, nullable:false, initial: 'med' }),
+				tamanho: new fields.StringField({ required: true, nullable:false, choices: Object.keys(T20.actorSizes), initial: 'med' }),
 			}),
 			dinheiro: new fields.SchemaField({
 				tc: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),

@@ -38,6 +38,7 @@ import "./modules.js";
 import * as utils from "./utils.js";
 
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.js";
+// import {systemActorBaseData, systemActorCharacterData} from "./dataModel/actor.mjs";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -133,6 +134,9 @@ Hooks.once("init", async function () {
 	});
 	
 	// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
+	// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
+	// CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;
+	
 
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("tormenta20", ItemSheetT20, {
@@ -145,6 +149,9 @@ Hooks.once("init", async function () {
 
 	// SET VISION MODES
 	// CONFIG.Canvas.visionModes = 
+
+	
+
 
 	// Preload Handlebars Templates
 	preloadHandlebarsTemplates();

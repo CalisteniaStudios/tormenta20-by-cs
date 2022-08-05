@@ -19,7 +19,11 @@ export default class ItemSheetT20 extends ItemSheet {
 			width: 620,
 			height: 480,
 			scrollY: [".tab.details"],
-			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
+			dragDrop: [
+				// {dragSelector: ".effects-list .item", dropSelector: '.effects-list'},
+				{dropSelector: '.opt-drop'}
+			],
 		});
 	}
 
@@ -51,26 +55,36 @@ export default class ItemSheetT20 extends ItemSheet {
 
 	/** @inheritdoc */
 	_getSubmitData(updateData={}) {
+		const formData = foundry.utils.expandObject(super._getSubmitData(updateData));
 		// Create the expanded update data object
-		const fd = new FormDataExtended(this.form, {editors: this.editors});
-		let tdata = fd.object;
-		let data = {};
-		for (let key of Object.keys( tdata ) ){
-			let nkey = key.replace(/^system./, 'data.');
-			data[ nkey ] = tdata[key];
-		}
-		if ( updateData ) data = mergeObject(data, updateData);
-		else data = expandObject(data);
+		// const fd = new FormDataExtended(this.form, {editors: this.editors});
+		// let tdata = fd.object;
+		// let data = fd.object;//{};
+		// for (let key of Object.keys( tdata ) ){
+		// 	let nkey = key.replace(/^system./, 'data.');
+		// 	data[ nkey ] = tdata[key];
+		// }
+		// if ( updateData ) formData = mergeObject(formData, updateData);
+		// else data = expandObject(data);
 
 		// Handle rolls array
-		data.data.rolls = Object.values(data.data.rolls || []);
-		let rolls = Object.entries(data.data?.rolls || []);
+		formData.system.rolls = Object.values(formData.system.rolls || []);
+		let rolls = Object.entries(formData.system?.rolls || []);
 		for (let [key, roll] of rolls){
 			if ( roll ) roll.parts = Object.values(roll?.parts || {}).map(d => [d[0] || "", d[1] || ""]);
 			if ( roll ) roll.key = roll.type + key;
 		}
+
+		// Handle progression array
+		// formData.system.progression = Object.values(formData.system.progression || []);
+		// let progression = Object.entries(formData.system?.progression || []);
+		// for (let [key, prog] of progression){
+		// 	if ( prog.list ) {
+		// 		prog.list = Object.values(prog.list);
+		// 	} else prog.list = [];
+		// }
 		// Return the flattened submission data
-		return flattenObject(data);
+		return flattenObject(formData);
 	}
 	
 	/* -------------------------------------------- */
@@ -164,6 +178,11 @@ export default class ItemSheetT20 extends ItemSheet {
 		if ( this.isEditable ) {
 			html.find(".rolls-control").click(this._onRollsControl.bind(this));
 			html.find(".parts-control").click(this._onPartsControl.bind(this));
+
+			// Progression Tab
+			html.find(".progression-control").click(this._onProgressionControl.bind(this));
+			html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
+
 			html.find('.trait-selector').click(this._onConfigureTraits.bind(this));
 			html.find(".effect-control").click(ev => {
 				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
@@ -175,6 +194,47 @@ export default class ItemSheetT20 extends ItemSheet {
 	
 	/* -------------------------------------------- */
 	/*  Interactions                                */
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onDrop(event) {
+		const data = TextEditor.getDragEventData(event);
+		// const actor = this.actor;
+		console.log(data);
+		// console.log(this);
+		// Handle different data types
+		switch ( data.type ) {
+			case "ActiveEffect":
+				// return this._onDropActiveEffect(event, data);
+			case "Item":
+				return this._onDropItem(event, data);
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	_onDropItem(event, data){
+		let tgt = event.target;
+		if( !tgt.classList.contains('opt-uuid') ){
+			tgt = tgt.closest('li').querySelector('.opt-uuid');
+		}
+		// console.log(tgt);
+		let pIndex = Number(tgt.dataset.pIndex);
+		let oIndex = Number(tgt.dataset.oIndex);
+		if( pIndex>=0 && oIndex>=0 && data.uuid ){
+			let progression = deepClone(this.item.system.progression);
+			progression[pIndex]['list'][oIndex] = {
+				type: "item",
+				value: data.uuid,
+				selected: false
+			}
+
+			return this.item.update({
+				[`system.progression`]: progression
+			});
+		}
+	}
+
 	/* -------------------------------------------- */
 
 	_moveTooltips(event) {
@@ -306,7 +366,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			const key = a.dataset.rollId;
 			const rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls[key].parts = rolls[key].parts.concat([["",""]]);
-			return this.item.update({ [`data.rolls`]: rolls });
+			return this.item.update({ [`system.rolls`]: rolls });
 		}
 
 		// Remove a damage component
@@ -316,7 +376,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			const li = a.closest(".roll-part");
 			const rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls[key].parts.splice(Number(li.dataset.rollPart), 1);
-			return this.item.update({ [`data.rolls`]: rolls });
+			return this.item.update({ [`system.rolls`]: rolls });
 		}
 	}
 
@@ -336,7 +396,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			r.key = "ataque";
 			if( rolltype == "ataque" ) r.versatil = "";
 			roll.push(r);
-			return this.item.update({[`data.rolls`]:roll});
+			return this.item.update({[`system.rolls`]:roll});
 		}
 
 		// Remove a roll component
@@ -345,8 +405,63 @@ export default class ItemSheetT20 extends ItemSheet {
 			const rolltype = a.dataset.rollType;
 			let rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls.splice(Number(a.dataset.rollId), 1);
-			return this.item.update({[`data.rolls`]:rolls});
+			return this.item.update({[`system.rolls`]:rolls});
 		}
+	}
+
+	/* -------------------------------------------- */
+
+	async _onProgressionControl(event){
+		event.preventDefault();
+		const a = event.currentTarget;
+		let progression = deepClone(this.item.system.progression) ?? [];
+		let action = a.dataset.action;
+		// Add a progression component
+		if ( action == "create" ) {
+			progression.push({
+				isChoices: false,
+				numChoices: 0,
+				list: []
+			});
+		}
+		
+		// Remove a progression component
+		if ( action == "delete" ) {
+			console.log(a);
+			progression.splice(Number(a.dataset.index), 1);
+		}
+
+		console.log(progression);
+		return this.item.update({[`system.progression`]:progression});
+	}
+
+	async _onProgressionOptionControl(event){
+		event.preventDefault();
+		const a = event.currentTarget;
+		let progression = deepClone(this.item.system.progression) ?? [];
+		let action = a.dataset.action;
+		let pIndex = Number(a.dataset.pIndex);
+		let oIndex = Number(a.dataset.oIndex);
+		console.log(a);
+		console.log(pIndex);
+		console.log(oIndex);
+		// Add a progression component
+		if ( action == "create" && pIndex >= 0) {
+			progression[pIndex].list.push({
+				type: '', //attribute || item
+				path: '', // 
+				value: '', // UUID || VALUE
+				selected: false
+			});
+		}
+		
+		// Remove a progression component
+		if ( action == "delete" ) {
+			console.log(a);
+			progression[pIndex].list.splice(Number(oIndex), 1);
+		}
+		console.log(progression);
+		return this.item.update({[`system.progression`]:progression});
 	}
 
 	/* -------------------------------------------- */

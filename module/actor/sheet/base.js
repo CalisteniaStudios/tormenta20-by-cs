@@ -102,7 +102,9 @@ export default class ActorSheetT20 extends ActorSheet {
 			return i;
 		});
 		data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		data.data = this.actor.system;
+		data.data = deepClone(this.actor.system);//this.actor.system;
+		data.skills = structuredClone(data.data.pericias); //deepClone(this.actor.system.pericias);
+
 		// LABELS?
 		
 		// Ability Scores
@@ -111,8 +113,8 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 
 		// Skills
-		if (data.data.pericias) {
-			for (let [s, skl] of Object.entries(data.data.pericias)) {
+		if (data.skills) {
+			for (let [s, skl] of Object.entries(data.skills)) {
 				if( s.match(/_pc[1-9]/) ) skl.order = 6;
 				else if( s == "_pc0" ) skl.order = 5;
 				else if( s > "ofi9" ) skl.order = 4;
@@ -123,7 +125,7 @@ export default class ActorSheetT20 extends ActorSheet {
 				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
 			}
 		}
-		data.skills = Object.values(data.data.pericias).sort((a,b)=>{return a.order-b.order});
+		data.skills = Object.values(data.skills).sort((a,b)=>{return a.order-b.order});
 		
 		// Movement speeds
 		data.movement = this._prepareMovementSpeed(data.actor);

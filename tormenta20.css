@@ -486,6 +486,7 @@
 .tormenta20.sheet .sheet-tabs .item {
   height: 30px;
   line-height: 32px;
+  padding: 0;
 }
 .tormenta20.sheet .sheet-body {
   flex: 1;
@@ -571,6 +572,7 @@
 .tormenta20 .effects-list .item-name h4 {
   margin: 0;
   overflow-x: hidden;
+  border: unset;
 }
 .tormenta20 .effects-list .item-controls {
   flex: 0 0 60px;
@@ -619,6 +621,7 @@
   font-weight: 400;
   text-align: left;
   font-size: 16px;
+  border: unset;
 }
 .tormenta20 .effects .item .effect-source,
 .tormenta20 .effects .item .effect-duration,
@@ -1739,6 +1742,7 @@
   flex: 1;
   margin: 0;
   line-height: 36px;
+  border: unset;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -1916,6 +1920,8 @@
   border: 1px solid #782e22;
   position: relative;
   display: inline-block;
+  white-space: nowrap;
+  padding: 0;
   width: 28px;
   height: 26px;
 }
@@ -2453,12 +2459,15 @@
 .tormenta20.sheet.npc-builder input {
   background-color: rgba(0, 0, 0, 0.1);
 }
+.tormenta20.sheet.npc-builder .sheet-header .char-info h3 {
+  border: unset;
+}
 .tormenta20.sheet.npc-builder nav .item {
   font-size: 14px;
   line-height: 16px;
 }
-.tormenta20.sheet.npc-builder .sheet-body .tab .flexcol > *,
-.tormenta20.sheet.npc-builder .sheet-body .tab.flexcol > * {
+.tormenta20.sheet.npc-builder .sheet-body .tab .flexcol > *:not(p),
+.tormenta20.sheet.npc-builder .sheet-body .tab.flexcol > *:not(p) {
   flex: 0;
 }
 .tormenta20.sheet.npc-builder .sheet-body .tab .left-side {
