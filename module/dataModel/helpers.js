@@ -89,7 +89,6 @@ class ActorSkillsField extends MappingField {
 	initialize(value, model, name) {
 		if ( !value ) return value;
 		value = foundry.utils.deepClone(value);
-		console.error(value);
 		const skills = SYSTEMRULES.skills;
 		const gameSystem = game.settings.get('tormenta20', 'gameSystem');
 		for ( let [k, v] of Object.entries(value) ) {
@@ -138,53 +137,111 @@ class SkillData extends foundry.abstract.DataModel {
 	};
 }
 
+/* ----------- Items ----------- */
+
+class PartData extends foundry.abstract.DataModel {
+	/** @override */
+	static defineSchema() {
+		return {
+		}
+	}
+}
+
+class RollData extends foundry.abstract.DataModel {
+	/** @override */
+	static defineSchema() {
+		return {
+			key: new fields.StringField({ required: true, nullable:false, initial:'roll'}),
+			name: new fields.StringField({ required: true, nullable:false, initial:'Roll' }),
+			parts: new fields.ArrayField(new fields.ArrayField(
+				new fields.StringField({ required: true, nullable:false, initial:''}),
+				{
+					// validate: r => (r.length === 3),
+					// validationError: "must be a length-3 array",
+					initial: ['','','']
+				}
+			)),
+			// parts: new fields.ArrayField(new PartData)),
+			// parts: new fields.ObjectField({ initial:{ 0:['1d4','ac'] } }),
+			type: new fields.StringField({ required: true, nullable:false, choices:['ataque','dano','formula'], initial:'dano'}),
+			versatil: new fields.StringField({ nullable:false, initial:'' }),
+		};
+	}
+
+	/** @override */
+	validate(value, options={}) {
+		return super.validate(value, options);
+	}
+
+	/** @override */
+	_validateType(value, options={}) {
+		return super._validateType(value, options);
+	}
+
+	/** @inheritdoc */
+	static migrateData(data) {
+		for ( let [k, v] of Object.entries(data.parts) ){
+			if( v.length !== 3 ){
+				data.parts[k] = [ v[0] ?? '', v[1] ?? '', v[2] ?? '' ];
+			}
+		}
+		return super.migrateData(data);
+	}
+}
+
+function getRollData(){
+	return {
+		key: new fields.StringField({ required: true, nullable:false, initial:'roll'}),
+		name: new fields.StringField({ required: true, nullable:false, initial:'Roll' }),
+		parts: new fields.ArrayField(new fields.ArrayField(
+			new fields.StringField({ required: true, nullable:false, initial:''}),
+			{
+				validate: r => (r.length === 3),
+				validationError: "must be a length-3 array",
+				initial: ['','','']
+			}
+		)),
+		type: new fields.StringField({ required: true, nullable:false, choices:['ataque','dano','formula'], initial:'dano'}),
+		versatil: new fields.StringField({ nullable:false, initial:'' }),
+	};
+}
+
 /* ---------------------------------------- */
 /*  Object Key Assigns                      */
 /* ---------------------------------------- */
 
 /* Abilities */
-function _abilitySchema () {
-	return new fields.SchemaField({
-		value: new fields.NumberField({ required: true, nullable:false, initial:10, min:0 }),
-		bonus: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-		mod: new fields.NumberField({ required: true, nullable:false, initial:0 })
-	});
+const AbilitiesSchema = () => {
+	let getSchema = () => {
+		return new fields.SchemaField({
+			value: new fields.NumberField({ required: true, nullable:false, initial:10, min:0 }),
+			bonus: new fields.NumberField({ required: true, nullable:false, initial:0 }),
+			mod: new fields.NumberField({ required: true, nullable:false, initial:0 })
+		});
+	}
+	
+	let schema = {};
+	Object.keys(T20.atributos).forEach( abl => schema[abl] = getSchema());
+	return schema;
 }
-const AbilitiesSchema = {};
-Object.keys(T20.atributos).forEach( abl => AbilitiesSchema[abl] = _abilitySchema());
 
 /* ---------------------------- */
 
-/* Skills */
-function _skillSchema(){
-	// TODO: get initial value for atributo, st, pda, size
-	return new fields.SchemaField({
-		atributo: new fields.StringField({ required: true, nullable:false, blank: false, choices: Object.keys(T20.atributos), initial: 'for'}),
-		treinado: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-		st: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-		pda: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-		size: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-		value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-		outros: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-		condi: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-		bonus: new fields.StringField({ required: true, nullable:false, initial: '' }),
-	})
-}
-const SkillsSchema = {};
-Object.keys(T20.pericias).forEach( skl => SkillsSchema[skl] = _skillSchema());
-
-/*  */
-
-function _damageResistanceSchema () {
-	return new fields.SchemaField({
-		value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-		imunidade: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-		vulnerabilidade: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-	});
+/* Damage Resistances */
+const ResistanceSchema = () => {
+	let getSchema = () => {
+		return new fields.SchemaField({
+			value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
+			imunidade: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+			vulnerabilidade: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+		});
+	}
+	
+	let schema = {};
+	Object.keys(T20.damageTypes).forEach( dmg => schema[dmg] = getSchema());
+	return schema;
 }
 
-const ResistanceSchema = {};
-Object.keys(T20.damageTypes).forEach( dmg => ResistanceSchema[dmg] = _damageResistanceSchema());
 
 function _resourceSchema () {
 	return new fields.SchemaField({
@@ -195,12 +252,90 @@ function _resourceSchema () {
 	});
 }
 
+/* ITEMS */
+// Base Data
+function getObjectBaseData() {
+	return {
+		description: new fields.SchemaField({
+			value: new fields.HTMLField({ required: true, nullable:false, initial:'' }),
+			chat: new fields.HTMLField({ initial:'' }),
+			unidentified: new fields.HTMLField({ initial:'' }),
+		}),
+		source: new fields.StringField({ initial: '' }),
+		origin: new fields.StringField({ initial: '' }),
+		chatFlavor: new fields.StringField({ required: true, nullable:false, initial: '' }),
+	}
+}
+
+// Physical Object Data
+function getObjectItemData() {
+	return {
+		carregado: new fields.BooleanField({ required: true, nullable:false, initial: true }),
+		espacos: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
+		peso: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
+		qtd: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
+		preco: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
+		pv: new fields.SchemaField({
+			value: new fields.NumberField({ required: true, nullable:false, initial:0, step:1, integer:true }),
+			min: new fields.NumberField({ required: true, nullable:false, initial:0, integer:true }),
+			max: new fields.NumberField({ required: true, nullable:false, initial:3, integer:true }),
+		}),
+		rd: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
+	}
+}
+
+// Acvation Data
+function getActivationItemData() {
+	return {
+		// ativacao
+		ativacao: new fields.SchemaField({
+			custo: new fields.NumberField({  requirede:true, initial:0 }),
+			condicao: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			execucao: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			qtd: new fields.StringField({ initial: '' }),
+			special: new fields.StringField({ required: true, nullable:false, initial: '' }),
+		}),
+		// consume
+		consume: new fields.SchemaField({
+			amount: new fields.NumberField({ initial:0 }),
+			target: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			type: new fields.StringField({ required: true, nullable:false, initial: '' }),
+		}),
+		// duracao
+		duracao: new fields.SchemaField({
+			units: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			value: new fields.NumberField({ required: true, nullable:false, initial:0 }),
+			special: new fields.StringField({ required: true, nullable:false, initial: '' }),
+		}),
+		// range
+		range: new fields.SchemaField({
+			units: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			value: new fields.NumberField({ initial:0 }),
+		}),
+		// target
+		target: new fields.SchemaField({
+			type: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			value: new fields.NumberField({ initial:0 }),
+			width: new fields.NumberField({ initial:0 }),
+		}),
+		
+		alcance: new fields.StringField({ required: true, nullable:false, initial: '' }),
+		alvo: new fields.StringField({ required: true, nullable:false, initial: '' }),
+		area: new fields.StringField({ required: true, nullable:false, initial: '' }),
+		efeito: new fields.StringField({ required: true, nullable:false, initial: '' }),
+	}
+}
+
+
 export {
 	MappingField,
 	ActorSkillsField,
 	SkillData,
 	AbilitiesSchema,
-	SkillsSchema,
 	ResistanceSchema,
 	_resourceSchema,
+	getObjectBaseData,
+	getObjectItemData,
+	getActivationItemData,
+	RollData,
 }

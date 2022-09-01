@@ -6,7 +6,7 @@
 	</div>
 	<footer class="attribute-footer">
 		<div class="flexrow">
-			{{#if isReformed}}
+			{{#if (or isReformed (eq actor.type 'vehicle') (eq actor.type 'simple'))}}
 			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.BaseDefense'}}">
 			{{else}}
 			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityModifierBonus'}}">

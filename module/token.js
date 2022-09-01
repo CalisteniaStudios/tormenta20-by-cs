@@ -36,6 +36,7 @@ export class TokenT20 extends Token {
 
 	/** @inheritdoc */
 	_drawBar(number, bar, data) {
+		console.log(data, '_drawHPBar');
 		if ( data.attribute === "attributes.pv" || data.attribute === "attributes.pm" ){
 			return this._drawHPBar(number, bar, data);
 		}

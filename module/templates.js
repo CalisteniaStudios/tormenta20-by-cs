@@ -15,6 +15,7 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/actor/parts/sheet-header-base.html",
 		"systems/tormenta20/templates/actor/parts/sheet-header-tabbed.html",
 		"systems/tormenta20/templates/actor/parts/sheet-header-npc.html",
+		"systems/tormenta20/templates/actor/parts/sheet-header-simple.html",
 		"systems/tormenta20/templates/actor/parts/statblock.html",
 		"systems/tormenta20/templates/actor/parts/abilities.html",
 		"systems/tormenta20/templates/actor/parts/defense.html",

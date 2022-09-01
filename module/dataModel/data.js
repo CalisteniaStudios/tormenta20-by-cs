@@ -55,7 +55,7 @@ function getActivationItemData() {
 		duracao: new fields.SchemaField({
 			units: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			unidade: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			value: new fields.NumberField({ initial:0 }),
+			value: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 			valor: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			special: new fields.StringField({ required: true, nullable:false, initial: '' }),
 		}),

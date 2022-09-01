@@ -28,7 +28,7 @@ export default class ActorT20 extends Actor {
 	 */
 	get aprimoramentosTypes() {
 		const tipos = ["arma", "atributo", "consumivel", "magia", "pericia", "poder"];
-		const types = Object.fromEntries(game.system.entityTypes.Item.map(t => [t, []]));
+		const types = Object.fromEntries(game.system.documentTypes.Item.map(t => [t, []]));
 		for (let i of this.effects.values()) {
 			if (!i.getFlag("tormenta20", "onuse")) continue;
 			for (let j of tipos) {
@@ -49,8 +49,8 @@ export default class ActorT20 extends Actor {
 	prepareData() {
 		super.prepareData();
 
-		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
+		// if ( this.id == 'cBcLawjgqkwmjOle' ) // 	console.warn(this.id, this.system);
 		this.items.forEach(item => item.prepareFinalAttributes());
 	}
 
@@ -61,6 +61,7 @@ export default class ActorT20 extends Actor {
 		
 		const system = this.system;
 		for (let [key, resource] of Object.entries(system.resources)) {
+			if ( ["vehicle","simple"].includes(this.type) ) break;
 			resource.label = T20.resources[key];
 		}
 		
@@ -69,6 +70,10 @@ export default class ActorT20 extends Actor {
 				return this._prepareCharacterData();
 			case "npc":
 				return this._prepareNPCData();
+			case "vehicle":
+				return this._prepareVehicleData();
+			case "simple":
+				return this._prepareSimpleActorData();
 		}
 	}
 
@@ -81,8 +86,9 @@ export default class ActorT20 extends Actor {
 	 * */
 	/** @override */
 	prepareDerivedData() {
+		if ( ["vehicle","simple"].includes(this.type) ) return;
+		
 		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
-
 		const system = this.system;
 		const nivel = system.attributes.nivel.value;
 
@@ -91,7 +97,6 @@ export default class ActorT20 extends Actor {
 			ability.name = CONFIG.T20.atributos[key];
 			ability.mod = ActorT20._prepareModifier(ability);
 		}
-		
 		// Skills
 		const rollData = this.getRollData();
 		for (let [key, pericia] of Object.entries(system.pericias)) {
@@ -101,10 +106,10 @@ export default class ActorT20 extends Actor {
 		
 		// Defense
 		this._prepareDefense(system);
-
+		
 		// BASE CD
 		system.attributes.cd = reforma ? system.attributes.cd : 10 + Math.floor(nivel / 2);
-
+		
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
 	}
@@ -169,6 +174,20 @@ export default class ActorT20 extends Actor {
 
 		let baseFlags = { tormenta20: npcFlags };
 		if( !isEmpty(npcFlags) ) mergeObject( flags, baseFlags );
+	}
+
+	/* -------------------------------------------- */
+
+	_prepareVehicleData() {
+		const system = this.system;
+		const flags = this.flags;
+	}
+
+	/* -------------------------------------------- */
+
+	_prepareSimpleActorData() {
+		const system = this.system;
+		const flags = this.flags;
 	}
 
 	/* -------------------------------------------- */
@@ -474,8 +493,9 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	getRollData() {
-		const data = foundry.utils.deepClone(super.getRollData());
-		// super.getRollData();
+		// const data = foundry.utils.deepClone(super.getRollData());
+		const data = Object.assign({}, this.system);
+		//super.getRollData();
 		// Set abilities abbreviation
 		for (let abl in data.atributos) {
 			data[abl] = data.atributos[abl].mod
@@ -1314,6 +1334,7 @@ export default class ActorT20 extends Actor {
 	async displayCard({ options, rollMode, createMessage = true } = {}) {
 		// Basic template rendering data
 		const token = this.token;
+		console.warn(token);
 
 		let manaCost = Number(options.itemData?.system?.ativacao?.custo) || null;
 		if ( options.truque ) manaCost = 0;

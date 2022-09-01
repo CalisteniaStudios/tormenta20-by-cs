@@ -308,7 +308,7 @@ export default class ItemT20 extends Item {
 		const system = this.system;
 		if ( !this.hasDamage || !system || !this.isOwned ) return [];
 
-		const rollData = this.getRollData();
+		const rollData = {}; //this.getRollData();
 		this.labels.dano = simplifyRollFormula(this.labels.dano, rollData, { constantFirst: false });
 		
 		return this.labels.dano;

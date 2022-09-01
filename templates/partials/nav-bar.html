@@ -1,6 +1,5 @@
 {{!-- ACTOR SHEET --}}
 {{#if (eq documentName 'Actor' ) }}
-{{!-- ACTOR ULTIMATE --}}
 <nav class="sheet-tabs tabs primary" data-group="primary">
 	{{#if limited }}
 		<a class="item" data-tab="journal" ><i class="fas fa-book"></i> {{localize "T20.Notes"}}</a>
@@ -21,6 +20,14 @@
 		<a class="item" data-tab="journal"><i class="fas fa-book"></i> {{localize "T20.Journal"}}</a>
 		<a class="item" data-tab="effects" ><i class="fas fa-bahai"></i> {{localize "T20.Effects"}}</a>
 		<a class="item" id="configure-actor" title="{{localize "T20.Configure"}}"><i class="fas fa-cogs"></i></a>
+	{{/if}}
+	{{#if (eq layout 'vehicle' ) }}
+		<a class="item active" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
+		<a class="item" data-tab="description">{{ localize "T20.Description" }}</a>
+	{{/if}}
+	{{#if (eq layout 'simple' ) }}
+		<a class="item active" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
+		<a class="item" data-tab="description">{{ localize "T20.Description" }}</a>
 	{{/if}}
 </nav>
 {{/if}}

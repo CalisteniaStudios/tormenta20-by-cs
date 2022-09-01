@@ -32,6 +32,28 @@
 					<input type="number" data-dtype="Number" placeholder="0" name="system.ativacao.custo" value="{{item.system.ativacao.custo}}"/><label>{{localize 'T20.MP'}}</label>
 				</div>
 			</div>
+			<div class="form-group input-select">
+				<label>{{ localize "T20.ConsumeTitle" }}</label>
+				<div class="form-fields">
+					<select name="system.consume.type">
+							{{#select system.consume.type}}
+							<option value=""></option>
+							{{#each config.abilityConsumptionTypes as |name key|}}
+							<option value="{{key}}">{{localize name}}</option>
+							{{/each}}
+							{{/select}}
+					</select>
+					<select name="system.consume.target">
+						{{#select system.consume.target}}
+						<option value=""></option>
+						{{#each abilityConsumptionTargets as |name key|}}
+						<option value="{{key}}">{{localize name}}</option>
+						{{/each}}
+						{{/select}}
+					</select>
+					<input type="text" name="system.consume.amount" value="{{system.consume.amount}}" data-dtype="Number"/>
+				</div>
+			</div>
 			<hr>
 			{{!-- Weapon Properties --}}
 			<div class="form-group stacked weapon-properties">
