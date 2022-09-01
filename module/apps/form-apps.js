@@ -26,7 +26,6 @@ export class Tormenta20BaseSettings extends FormApplication {
 	getData (options) {
 		function prepSetting (key) {
 			let data = game.settings.settings.get(`tormenta20.${key}`);
-			console.warn(data, key);
 			return mergeObject( data ,{
 				value: game.settings.get('tormenta20', key),
 				type : data.type

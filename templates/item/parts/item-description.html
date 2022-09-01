@@ -49,7 +49,7 @@
 			{{#if (lookup ../item.system.propriedades prop)}}<li>{{ localize name}}{{#if (eq prop "arremesso")}} ({{../item.system.alcance}}){{/if}}</li>{{/if}}
 			{{/each}}
 			{{/if}}
-			{{#if (eq item.type "equip")}}
+			{{#if (or (eq item.type "equipamento") (eq item.type "equip"))}}
 			{{#if item.system.armadura.value}}<li>Defesa: {{item.system.armadura.value}}</li>{{/if}}
 			{{#if item.system.armadura.penalidade}}<li>Penalidade: {{item.system.armadura.penalidade}}</li>{{/if}}
 			{{/if}}

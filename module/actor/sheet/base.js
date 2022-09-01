@@ -400,7 +400,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			const dragData = {
 				actorId: this.actor.id,
 				sceneId: this.actor.isToken ? canvas.scene?.id : null,
-				tokenId: this.actor.isToken ? this.actor.token.id : null
+				tokenId: this.actor.isToken ? this.actor.getActiveTokens()[0] : null
 			};
 
 			// Pericias

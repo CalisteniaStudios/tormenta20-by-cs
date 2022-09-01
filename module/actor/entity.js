@@ -666,10 +666,10 @@ export default class ActorT20 extends Actor {
 		const newSize = getProperty(changed, "system.tracos.tamanho");
 		if (newSize && (newSize !== foundry.utils.getProperty(this.system, "tracos.tamanho"))) {
 			let size = CONFIG.T20.tokenSizes[newSize];
-			if (!foundry.utils.hasProperty(changed, "token.width")) {
-				changed.token = changed.token || {};
-				changed.token.height = size;
-				changed.token.width = size;
+			if (!foundry.utils.hasProperty(changed, "prototypeToken.width")) {
+				changed.prototypeToken = changed.prototypeToken || {};
+				changed.prototypeToken.height = size;
+				changed.prototypeToken.width = size;
 			}
 		}
 		const sheetClass = getProperty(changed, "flags.core.sheetClass");
@@ -1333,8 +1333,7 @@ export default class ActorT20 extends Actor {
 	*/
 	async displayCard({ options, rollMode, createMessage = true } = {}) {
 		// Basic template rendering data
-		const token = this.token;
-		console.warn(token);
+		const token = this.getActiveTokens()[0] ?? null;
 
 		let manaCost = Number(options.itemData?.system?.ativacao?.custo) || null;
 		if ( options.truque ) manaCost = 0;

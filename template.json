@@ -341,7 +341,7 @@
     }
   },
   "Item": {
-    "types": ["arma","equipamento","classe","consumivel","magia","poder","tesouro"],
+    "types": ["arma","equipamento","classe","consumivel","magia","poder","tesouro","equip"],
     "templates": {
       "base": {
         "description": {
