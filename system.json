@@ -114,7 +114,7 @@
   "primaryTokenAttribute": "attributes.pv",
   "secondaryTokenAttribute": "attributes.pm",
   "url": "https://gitlab.com/vizael/Tormenta20",
-  "manifest": "https://gitlab.com/vizael/Tormenta20/-/archive/v1.3.1/system.json",
+  "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/v1.3.1/system.json",
   "download": "https://gitlab.com/vizael/Tormenta20/-/archive/v1.3.1/Tormenta20-v1.3.1.zip",
   "license": "LICENSE.txt",
   "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues",
