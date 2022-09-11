@@ -27,7 +27,7 @@
 		</div>
 	{{/if}}
 
-	{{#if (eq item.type "poder")}}
+	{{#if (and (eq item.type "poder") power.resistencia)}}
 		<div class="card-item-header">
 			<p>
 				{{#if power.resistencia}}<b> {{localize 'T20.Resistance'}}:</b> {{{power.resistencia}}} ({{localize 'T20.AbbreviationDC'}} {{{power.cd}}}){{/if}} 
@@ -61,8 +61,8 @@
 		</ul>
 	</div>
 	{{/if}}
-
-	{{#each _rolls as |r id|}}
+	
+	{{#each rolls as |r id|}}
 		<div class="row">{{r.roll.options.title}}</div>
 		<div class="roll {{r.roll.tipo}}" data-roll-title="{{r.roll.options.title}}">{{{r.template}}}</div>
 	{{/each}}

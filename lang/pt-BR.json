@@ -555,7 +555,7 @@
   
   "T20.ConsumeWarningNoResource": "{name} indica o consumo de {type}, mas não foi espeficiado qual!",
   "T20.ConsumeWarningNoSource": "O recurso {type} especificado para o uso de {name} não existe!",
-  "T20.ItemNoUses": "Não há mais cargas disponíveis de {name}.",
+  "T20.ItemNoUses": "Não há mais unidades disponíveis de {name}.",
   "T20.InsufficientMana": "Mana insuficiente para usar {name}.",
 
   

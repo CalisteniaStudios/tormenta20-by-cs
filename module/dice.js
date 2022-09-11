@@ -1,4 +1,4 @@
-export async function d20Roll({parts=[], data={}, event={}, advantage=null, disadvantage=null, critical=20, fumble=1, targetValue=null}={}) {
+export async function d20Roll({parts=[], data={}, event={}, advantage=null, disadvantage=null, critical=20, fumble=1, targetValue=null, options={}}={}) {
 
 	parts = parts.concat(["@bonus"]);
 	let adv = 0;
@@ -57,6 +57,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 			}
 		}
 		roll.options.type = 'attack';
+		roll.options.title = options.title;
 		return roll;
 	}
 	// Create the Roll instance
@@ -64,7 +65,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 	return roll;
 }
 
-export async function damageRoll({parts, actor, data, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false}={}) {
+export async function damageRoll({parts, actor, data={}, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false}={}) {
 	parts = parts.concat(["@bonus"]);
 	// Define inner roll function
 	const _roll = async function(parts, crit, form) {

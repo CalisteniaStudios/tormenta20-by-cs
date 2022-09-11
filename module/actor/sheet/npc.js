@@ -108,7 +108,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			html.find('.magia-rollable').click(event => this._onItemRoll(event));
 			html.find('.arma-rollable').click(event => this._onItemRoll(event));
 			html.find('.poder-rollable').click(event => this._onItemRoll(event));
-			html.find('.pericia-rollable').click(event => this._onRollPericia(event));
+			// html.find('.pericia-rollable').click(event => this._onRollPericia(event)); super
 			
 			html.find('.toggleNPCSheet').click(event => this._toggleNPCSheet(event));
 

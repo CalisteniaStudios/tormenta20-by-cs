@@ -26,11 +26,14 @@ const itemKey = (value, configKey) => {
 	const lang = game.i18n.translations.T20;
 	value = value.toLowerCase().capitalize();
 	let temp = Object.entries(lang).find(t=> t[1] == value);
-	value = temp ? "T20." + temp[0] : value;
+	let valueUnlocalized = temp ? "T20." + temp[0] : value;
+	
 	if ( Object.entries(configKey).find(t=> t[1]==value) ){
 		return Object.entries(configKey).find(t=> t[1]==value)[0];
 	} else if( configKey[value.toLowerCase()] ){
 		return configKey[value.toLowerCase()];
+	} else if ( Object.entries(configKey).find(t=> t[1]==valueUnlocalized) ){
+		return Object.entries(configKey).find(t=> t[1]==valueUnlocalized)[0];
 	}
 	return null;
 }
@@ -255,10 +258,10 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 	else if( ch.mode == 5 ) {
 		if( campos[ch.key][1] ) {
 			if ( ch.key == 'duracao' ) {
-				let num = ch.value.match(/\d+/)[0] ?? 1;
-				let value = ch.value.match(/[^\d+|\s]+/)[0] ?? 'turno';
-				_campos[campos[ch.key][0]] = itemKey( value , campos[ch.key][1]);
-				_campos['duracao.value'] = num;
+				let str = ch.value.match(/[A-z]+/);
+				let num = ch.value.match(/\d+/);
+				_campos[campos[ch.key][0]] = str ? itemKey( str[0] , campos[ch.key][1]) : '';
+				_campos['duracao.value'] = num ? num[0] : '';
 			} else {
 				_campos[campos[ch.key][0]] = itemKey( ch.value , campos[ch.key][1]);
 			}

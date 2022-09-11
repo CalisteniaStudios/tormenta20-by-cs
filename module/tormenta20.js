@@ -73,7 +73,7 @@ Hooks.once("init", async function () {
 		macros: macros,
 		migrations: migrations,
 		rollItemMacro: macros.rollItemMacro,
-		rollSkillMacro: macros.rollSkillMacro
+		rollSkillMacro: macros.rollSkillMacro,
 	}
 
 	// Record Cnfiguration Values
@@ -108,8 +108,8 @@ Hooks.once("init", async function () {
 	Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
 	// Register Roll Extensions
-	CONFIG.Dice.rolls.push(dice.D20Roll);
-	CONFIG.Dice.rolls.push(dice.DamageRoll);
+	CONFIG.Dice.rolls.D20Roll = dice.D20Roll;
+	CONFIG.Dice.rolls.DamageRoll = dice.DamageRoll;
 
 	// Register sheet application classes
 	Actors.unregisterSheet("core", ActorSheet);

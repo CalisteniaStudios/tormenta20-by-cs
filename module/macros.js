@@ -202,3 +202,37 @@ export async function msgFromJournal(name, source, sourceName) {
 	}
 	ChatMessage.create(chatData, {});
 }
+
+
+/**
+ * Create Standard rollChatMessage
+ * 
+ * */
+ export async function rollChatMessage({rolls= [], templateData={item: {name:"Teste", img:"icons/svg/dice-target.svg"}, system: {description:{value:"Teste"}}}}){
+	templateData.rolls = [];
+	// Render dice rolls
+	for( let [key, roll] of Object.entries(rolls) ) {
+		roll.tipo = roll.dice[0]?.faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
+		roll.options.title = roll.options.title || "-";
+		await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
+	}
+	
+	// Render the chat card template
+	let template = "systems/tormenta20/templates/chat/chat-card.html";
+	const html = await renderTemplate(template, templateData);
+
+	// Create the ChatMessage data object
+	const chatData = {
+		user: game.user._id,
+		type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+		content: html,
+		rolls: rolls,
+		speaker: ChatMessage.getSpeaker()
+	};
+	
+	// Apply the roll mode to adjust message visibility
+	ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
+	
+	// Create the Chat Message or return its data
+	ChatMessage.create(chatData);
+}

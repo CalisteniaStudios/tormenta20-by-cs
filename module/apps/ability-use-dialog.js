@@ -106,7 +106,7 @@ export default class AbilityUseDialog extends Dialog {
 			note: "",
 			custo: itemData?.custo ?? null,
 			formula: (["arma", "poder", "pericia", "magia", "atributo", "consumivel"].includes(item.type)),
-			formuladano: item.type === "arma",
+			formuladano: (["arma", "poder", "magia", "consumivel"].includes(item.type)),
 			itype: item.type,
 			consumeMP: pmCost,
 			aprimoramentos: aprimoramentos,

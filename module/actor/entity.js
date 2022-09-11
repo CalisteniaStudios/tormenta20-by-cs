@@ -50,7 +50,6 @@ export default class ActorT20 extends Actor {
 		super.prepareData();
 
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
-		// if ( this.id == 'cBcLawjgqkwmjOle' ) // 	console.warn(this.id, this.system);
 		this.items.forEach(item => item.prepareFinalAttributes());
 	}
 
@@ -445,7 +444,7 @@ export default class ActorT20 extends Actor {
 	* Calculate HP and MP recovery by rest.
 	* @private
 	*/
-	async descanso(modificador=1, modPV=0, modPM=0, curaCP=false, toChat=true) {
+	async descanso(modificador=1, modPV=0, modPM=0, curaCP=false, curaAC=false, toChat=true) {
 		let descricao = "";
 		const nivel = this.system.attributes.nivel.value;
 		let rec = {
@@ -454,15 +453,16 @@ export default class ActorT20 extends Actor {
 		}
 		
 		let cp = curaCP ? 2 : 1;
-		let recuperar = Math.floor( nivel * ( modificador + modPV )  * cp);
-		rec.pv = recuperar;
-		await this.modifyTokenAttribute("attributes.pv", recuperar, true, true);
+		let ac = curaAC ? 2 : 1;
+		let recuperarPV = Math.floor( nivel * ( modificador + modPV )  * cp);
+		rec.pv = recuperarPV;
+		await this.modifyTokenAttribute("attributes.pv", recuperarPV, true, true);
 
-		recuperar = Math.floor( nivel * ( modificador + modPM ) );
-		rec.pm = recuperar;
-		await this.modifyTokenAttribute("attributes.pm", recuperar, true, true);
+		let recuperarPM = Math.floor( nivel * ( modificador + modPM )  * ac);
+		rec.pm = recuperarPM;
+		await this.modifyTokenAttribute("attributes.pm", recuperarPM, true, true);
 
-		descricao = `${this.name} recuperou ${rec.pv} PV e  ${rec.pm} PM.`;
+		descricao = `${this.name} recuperou ${rec.pv} PV e ${rec.pm} PM.`;
 		
 		if ( !toChat ) return descricao;
 
@@ -471,7 +471,7 @@ export default class ActorT20 extends Actor {
 				name: "Descanso",
 				img: "icons/svg/regen.svg"
 			},
-			data: {
+			system: {
 				description: {
 					value: "<p>" + descricao + "</p>"
 				}
@@ -638,7 +638,7 @@ export default class ActorT20 extends Actor {
 	/** @inheritdoc */
 	async _preCreate(data, options, user) {
 		await super._preCreate(data, options, user);
-		console.error("_preCreate");
+		// console.error("_preCreate");
 		// SkillSet
 		const system = game.settings.get("tormenta20", "gameSystem");
 		switch (system) {
@@ -897,7 +897,7 @@ export default class ActorT20 extends Actor {
 		for ( let [type, dmg] of Object.entries(damage) ){
 			dmg.value = Math.floor(dmg.value * multiplier);
 			dmg.vuln = Math.floor(dmg.vuln * multiplier);
-			if ( type == 'curapv' || type == 'true' ) {
+			if ( type == 'curapv' || type == 'perda' || dmg.value < 0 ) {
 				final.damage += dmg.value;
 			} else if ( type == 'curatpv' ) {
 				final.tempHP += dmg.value;
@@ -905,8 +905,6 @@ export default class ActorT20 extends Actor {
 				final.mana += dmg.value;
 			} else if ( type == 'curatpm' ) {
 				final.tempMP += dmg.value;
-			} else if ( dmg.value < 0 ) {
-				final.damage += dmg.value;
 			} else {
 				let r = 0;
 				if( applyRD && type == 'dano' ){
@@ -991,7 +989,7 @@ export default class ActorT20 extends Actor {
 		let chatData = {
 			user: game.user.id,
 			content: html,
-			speaker: ChatMessage.getSpeaker(this),
+			speaker: ChatMessage.getSpeaker({actor: this}),
 			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
 			flags: {
 				tormenta20: {
@@ -1346,13 +1344,13 @@ export default class ActorT20 extends Actor {
 			custo: manaCost || null,
 			onUseEffects: options.onUseEffects,
 			effects: options.effects,
-			_rolls: [],
+			rolls:[]
 		};
 
 		// Other Template Data
 		if (options.itemData.rolled) {
 			let roll = options.itemData.rolled;
-			await roll.render().then((r)=> {templateData._rolls.push({template: r, roll: roll})});
+			await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
 		}
 
 		// Render the chat card template
@@ -1362,10 +1360,11 @@ export default class ActorT20 extends Actor {
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+			rolls: [options.itemData.rolled],
 			content: html,
 			flavor: options.chatFlavor || "",
-			speaker: ChatMessage.getSpeaker({actor: this, token}),
+			speaker: ChatMessage.getSpeaker({actor: this}),
 			flags: {
 				"core.canPopout": true,
 				"tormenta20.rollTotal": options.itemData.rolled.total,
@@ -1373,26 +1372,11 @@ export default class ActorT20 extends Actor {
 				"tormenta20.effects": options.effects,
 			},
 		};
-		chatData.roll = options.itemData.rolled;
+		// chatData.rolls = options.itemData.rolled;
 
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode || game.settings.get("core", "rollMode"));
-
-		if (game?.dice3d?.show) {
-			let wd = {
-				whisper: (["gmroll", "blindroll"].includes(rollMode) ? ChatMessage.getWhisperRecipients("GM") 
-					: (rollMode === "selfroll" ? [game.user.id] : null)),
-				blind: rollMode === "blindroll"
-			}
-
-			try {
-				if( options.itemData.rolled ){
-					await game.dice3d.showForRoll(options.itemData.rolled, game.user, true, wd.whisper, wd.blind)
-				}
-			} catch (error) {
-				console.error(error);
-			}
-		}
+		
 		// Create the Chat Message or return its data
 		if( createMessage ){
 			return await ChatMessage.create(chatData);

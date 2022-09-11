@@ -103,7 +103,8 @@ export default class ActorSheetT20 extends ActorSheet {
 		});
 		data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		data.data = deepClone(this.actor.system);//this.actor.system;
-		data.skills = structuredClone(data.data.pericias); //deepClone(this.actor.system.pericias);
+		data.skills = deepClone(this.actor.system.pericias);
+		// TODO checar pq causou erros: structuredClone(data.data.pericias);
 
 		// LABELS?
 		

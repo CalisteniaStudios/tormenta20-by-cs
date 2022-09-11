@@ -666,6 +666,7 @@ export default class ItemT20 extends Item {
 		// Consume mana
 		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
 		let consumeMana = id.ativacao?.custo > 0 ? true : false;
+		let hasManaCost = id.ativacao?.custo > 0 ? true : false;
 		let options = {};
 
 		// Display a configuration dialog to customize the usage
@@ -739,6 +740,7 @@ export default class ItemT20 extends Item {
 			await item.rollDamage({options:options});
 		}
 		
+		options.hasManaCost = hasManaCost;
 		// Determine whether the item can be used by testing for resource consumption
 		if( autoSpendMana && !options.truque && consumeMana ) {
 			consumeMana = item.system.ativacao.custo;
@@ -960,7 +962,7 @@ export default class ItemT20 extends Item {
 		// Basic template rendering data
 		const token = this.actor.token;
 		
-		let manaCost = Number(this.system.ativacao.custo) || null;
+		let manaCost = Number(this.system.ativacao.custo) || (options.hasManaCost ? 1 : null );
 		if ( options.truque ) manaCost = 0;
 		else if ( options.halfCost ) manaCost = Math.floor(manaCost / 2);
 
@@ -968,14 +970,13 @@ export default class ItemT20 extends Item {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
 			item: this,
+			custo: manaCost,
 			system: await this.getChatData(),
 			labels: this.labels,
-			custo: manaCost,
 			truque: options.truque,
 			onUseEffects: options.onUseEffects,
 			effects: options.effects,
 			placeTemplate: options.template,
-			_rolls: [],
 			rolls: []
 		};
 
@@ -983,7 +984,7 @@ export default class ItemT20 extends Item {
 		for( let [key, roll] of Object.entries(this.system.rolled) ) {
 			roll.tipo = roll.dice[0]?.faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
 			roll.options.title = key || "";
-			await roll.render().then((r)=> {templateData._rolls.push({template: r, roll: roll})});
+			await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
 		}
 		
 		// Render the chat card template
@@ -993,11 +994,11 @@ export default class ItemT20 extends Item {
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,
-			rolls:  Object.values( this.system.rolled ),
 			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+			rolls: Object.values( this.system.rolled ),
 			content: html,
 			flavor: options.chatFlavor || this.system.chatFlavor || "",
-			speaker: ChatMessage.getSpeaker({actor: this.actor, token}),
+			speaker: ChatMessage.getSpeaker({actor: this.actor}),
 			flags: {
 				"core.canPopout": true,
 				"tormenta20.onUseEffects": options.onUseEffects,
@@ -1009,23 +1010,8 @@ export default class ItemT20 extends Item {
 		
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode || game.settings.get("core", "rollMode"));
-
-		if (game?.dice3d?.show) {
-			let wd = {
-				whisper: (["gmroll", "blindroll"].includes(rollMode) ? ChatMessage.getWhisperRecipients("GM") 
-					: (rollMode === "selfroll" ? [game.user._id] : null)),
-				blind: rollMode === "blindroll"
-			}
-			try {
-				for( let [key, roll] of Object.entries(this.system.rolled) ) {
-					await game.dice3d.showForRoll(roll, game.user, true, wd.whisper, wd.blind)
-				}
-			} catch (error) {
-				console.error(error);
-			}
-		}
+		
 		// Create the Chat Message or return its data
-		// chatData.rolls = Object.values( this.system.rolled );
 		return createMessage ? ChatMessage.create(chatData) : chatData;
 	}
 
