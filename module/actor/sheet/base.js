@@ -72,7 +72,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData() {
+	async getData() {
 		// Basic data
 		let isOwner = this.actor.isOwner;
 		const data = {
@@ -138,19 +138,29 @@ export default class ActorSheetT20 extends ActorSheet {
 		data.modificadores = this._prepareModificadores();
 
 		// Prepare owned items
-		this._prepareItems(data);
+		await this._prepareItems(data);
 
 		// Prepare active effects
 		data.effects = prepareActiveEffectCategories(this.actor.effects);
 
 		data.system = data.data
-		// Return data to the sheet
-
+		
+		// Enrich HTML text
+		data.system.detalhes.biography.value = await this.enrichHTML(data.system.detalhes.biography.value, data);
+		
 		data.documentName = "Actor";
+		// Return data to the sheet
 		return data;
 	}
 
-
+	async enrichHTML( text, data ){
+		return await TextEditor.enrichHTML(text, {
+			secrets: this.actor.isOwner,
+			rollData: data.rollData,
+			async: true,
+			relativeTo: this.actor
+		});
+	}
 
 	/* -------------------------------------------- */
 	
@@ -379,7 +389,7 @@ export default class ActorSheetT20 extends ActorSheet {
 				return it.update({"system.qtd": qtd})
 			}
 		}
-		console.info(itemData);
+		
 		if( itemData.system ){
 			["equipado","preparado"].forEach(k => delete itemData.system[k]);
 		}

@@ -92,8 +92,8 @@ export default class ItemSheetT20 extends ItemSheet {
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData(options) {
-		const data = super.getData(options);
+	async getData(options) {
+		const data = await super.getData(options);
 		const itemData =  this.item.system;
 		data.labels = this.item.labels;
 		data.config = CONFIG.T20;
@@ -121,6 +121,13 @@ export default class ItemSheetT20 extends ItemSheet {
 		// data.item = itemData;
 		// data.item.system = itemData;
 		data.system = itemData;
+		
+		data.system.description.value = await TextEditor.enrichHTML(data.system.description.value, {
+			secrets: this.item.isOwner,
+			async: true,
+			relativeTo: this.item
+		});
+
 		data.documentName = "Item";
 		return data;
 	}

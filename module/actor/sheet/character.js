@@ -37,8 +37,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	/* -------------------------------------------- */
 	
 	/** @override */
-	getData() {
-		const sheetData = super.getData();
+	async getData() {
+		const sheetData = await super.getData();
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
 		sheetData["disableJournal"] = game.settings.get("tormenta20", "disableJournal");
@@ -56,7 +56,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
 		this.actor.system.attributes.defesa.pda = this.actor.system.attributes.defesa.pda ?? 0;
-
+		
+		sheetData.system.detalhes.diario.value = await this.enrichHTML(sheetData.system.detalhes.diario.value, sheetData);
+		sheetData.system.detalhes.diario1.value = await this.enrichHTML(sheetData.system.detalhes.diario1.value, sheetData);
+		sheetData.system.detalhes.diario2.value = await this.enrichHTML(sheetData.system.detalhes.diario2.value, sheetData);
+		sheetData.system.detalhes.diario3.value = await this.enrichHTML(sheetData.system.detalhes.diario3.value, sheetData);
+		sheetData.system.detalhes.diario4.value = await this.enrichHTML(sheetData.system.detalhes.diario4.value, sheetData);
 		return sheetData;
 	}
 
@@ -137,7 +142,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	* Organize and classify Owned Items for Character sheets
 	* @private
 	*/
-	_prepareItems(data) {
+	async _prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
 		const favoritos = {
@@ -163,15 +168,19 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		}
 		
 		// Partition items by category
-		let [items, magias, poderes, classes] = data.items.reduce((arr, item) => {
+		let [items, magias, poderes, classes] = await data.items.reduce(async (arr, item) => {
 			// Item details
 			item.img = item.img || CONST.DEFAULT_TOKEN;
 			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
-			
+			item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
+				secrets: item.isOwner,
+				async: true,
+				relativeTo: item
+			});
+
 			if ( item.type === "classe" ) {
 				item.abbr = item.name.substr(0,4);
 			}
-
 			
 			let isFav = item.flags.favorito || false;
 			if( isFav ) {
@@ -186,6 +195,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					favoritos.itens.push(item);
 				}
 			}
+			
+			if ( !Array.isArray(arr) ) arr = await arr;
 			// Classify items into types
 			if ( item.type === "magia" ) arr[1].push(item);
 			else if ( item.type === "poder" ) arr[2].push(item);

@@ -6,8 +6,8 @@ export default class ActorSheetT20Vehicle extends ActorSheetT20Character {
 		return "systems/tormenta20/templates/actor/vehicle-sheet.html";
 	}
 	
-	getData() {
-		const sheetData = super.getData();
+	async getData() {
+		const sheetData = await super.getData();
 		
 		return sheetData;
 	}

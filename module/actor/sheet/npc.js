@@ -29,8 +29,9 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData() {
-		const sheetData = super.getData();
+	async getData() {
+		const sheetData = await super.getData();
+		
 		// FLAGS
 		sheetData.isReformed = this.actor.type === "npc" && this.actor.getFlag("tormenta20", "npcReform");
 		if ( sheetData.isReformed ) {
@@ -173,10 +174,9 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	* Organize Owned Items for rendering the NPC sheet
 	* @private
 	*/
-	_prepareItems(data) {
+	async _prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
-
 		// Categorize items as inventory
 		const inventario = {
 			arma: {label: "Armas", items: [], dataset: {type: "arma"} },
@@ -186,18 +186,24 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		}
 		
 		// Partition items by category
-		let [items, magias, poderes] = data.items.reduce((arr, item) => {
+		let [items, magias, poderes] = await data.items.reduce( async (arr, item) => {
 			// Item details
 			item.img = item.img || CONST.DEFAULT_TOKEN;
 			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
+			item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
+				secrets: item.isOwner,
+				async: true,
+				relativeTo: item
+			});
 			
+			if ( !Array.isArray(arr) ) arr = await arr;
 			// Classify items into types
 			if ( item.type === "magia" ) arr[1].push(item);
 			else if ( item.type === "poder" ) arr[2].push(item);
 			else if ( Object.keys(inventario).includes(item.type ) ) arr[0].push(item);
 			return arr;
 		}, [[], [], []]);
-
+		
 		// Organize items
 		for ( let i of items ) {
 			i.system.qtd = i.system.qtd || 0;

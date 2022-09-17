@@ -125,9 +125,9 @@
 					</label>
 				</span>
 				{{#if (or (eq item.system.description.value "") item.system.description.value ) }}
-					{{{stripTags item.system.description.value}}}
+					{{{stripTagsInline item.system.description.value}}}
 				{{else}}
-					{{{stripTags item.system.description}}}
+					{{{stripTagsInline item.system.description}}}
 				{{/if}}
 			</div>
 		</li>

@@ -14,8 +14,8 @@ export default class ActorSheetT20CharacterTabbed extends ActorSheetT20Character
 			return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
 		}
 	}
-	getData() {
-		const sheetData = super.getData();
+	async getData() {
+		const sheetData = await super.getData();
 		sheetData['layout'] = 'tabbed';
 		return sheetData;
 	}

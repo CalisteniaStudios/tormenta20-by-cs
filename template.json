@@ -312,7 +312,12 @@
       },
       "detalhes": {
         "classe": "",
-        "origem": ""
+        "origem": "",
+        "diario": { "name": "", "value": "" },
+        "diario1": { "name": "", "value": "" },
+        "diario2": { "name": "", "value": "" },
+        "diario3": { "name": "", "value": "" },
+        "diario4": { "name": "", "value": "" }
       },
       "tracos": {
         "profArmas": {

@@ -19,7 +19,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 		return "systems/tormenta20/templates/actor/simple-sheet.html";
 	}
 	
-	getData() {
+	async getData() {
 		let isOwner = this.actor.isOwner;
 		const sheetData = {
 			owner: isOwner,
@@ -54,7 +54,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 		this._prepareTraits(sheetData.system.tracos);
 		
 		// Prepare owned items
-		this._prepareItems(sheetData);
+		await this._prepareItems(sheetData);
 
 		// Prepare active effects
 		sheetData.effects = prepareActiveEffectCategories(this.actor.effects);
@@ -68,7 +68,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 	* Organize Owned Items for rendering the NPC sheet
 	* @private
 	*/
-	_prepareItems(data) {
+	async _prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
 

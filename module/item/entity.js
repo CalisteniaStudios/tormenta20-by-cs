@@ -743,9 +743,9 @@ export default class ItemT20 extends Item {
 		options.hasManaCost = hasManaCost;
 		// Determine whether the item can be used by testing for resource consumption
 		if( autoSpendMana && !options.truque && consumeMana ) {
-			consumeMana = item.system.ativacao.custo;
+			consumeMana = Math.max(item.system.ativacao.custo, 1);
 		} else consumeMana = false;
-
+		
 		const consumeSettings = consumeResource || consumeMana || consumeQuantity || consumeSelf;
 		if( consumeSettings ){
 			const usage = item._getUsageUpdates({consumeResource, consumeMana, consumeQuantity, consumeSelf});

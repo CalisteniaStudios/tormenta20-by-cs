@@ -171,6 +171,10 @@ export default class ActorT20 extends Actor {
 		system.attributes.defesa.condi = 0;
 		system.attributes.nivel.xp.value = this.getCDExp(nd);
 
+		if ( system.biography?.value ) {
+			system.detalhes.biography.value += system.biography.value;
+		}
+
 		let baseFlags = { tormenta20: npcFlags };
 		if( !isEmpty(npcFlags) ) mergeObject( flags, baseFlags );
 	}

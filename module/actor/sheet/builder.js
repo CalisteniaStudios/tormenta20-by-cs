@@ -28,8 +28,8 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 	/* -------------------------------------------- */
 	
 	/** @override */
-	getData() {
-		const sheetData = super.getData();
+	async getData() {
+		const sheetData = await super.getData();
 		const actorData = this.actor.system.builder;
 		sheetData.builder = {};
 		sheetData.isNPCBuilder = true;
@@ -81,7 +81,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 	* Organize and classify Owned Items for Character sheets
 	* @private
 	*/
-	_prepareItems(data) {
+	async _prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
 

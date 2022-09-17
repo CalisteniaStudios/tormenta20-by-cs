@@ -32,6 +32,10 @@ export function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("stripTags", function (str) {
 		return str.replace(/<[^>]*>?/gm, '');
 	});
+
+	Handlebars.registerHelper("stripTagsInline", function (str) {
+		return str.replace(/<(?!\/?[a|i](?=>|\s.*>))\/?.*?>/gm, '');
+	});
 	
 	Handlebars.registerHelper('add', (a, b) => {
 		return a + b;
