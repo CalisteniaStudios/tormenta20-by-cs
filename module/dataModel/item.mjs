@@ -5,6 +5,7 @@ import {
 	getObjectBaseData,
 	getObjectItemData,
 	getActivationItemData,
+	getSaveItemData,
 	RollData,
 } from './helpers.js';
 
@@ -86,6 +87,7 @@ class systemItemConsumableData extends foundry.abstract.DataModel {
 			...getObjectBaseData(),
 			...getObjectItemData(),
 			...getActivationItemData(),
+			...getSaveItemData(),
 			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			subtipo: new fields.StringField({ required: true, nullable:false, initial: '' }),
@@ -134,8 +136,9 @@ class systemItemSpellData extends foundry.abstract.DataModel {
 		return {
 			...getObjectBaseData(),
 			...getActivationItemData(),
+			...getSaveItemData(),
 			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),
-			circulo: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			circulo: new fields.StringField({ required: true, nullable:false, initial: '1' }),
 			escola: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			preparada: new fields.BooleanField({ required: true, nullable:false, initial: false }),
@@ -158,6 +161,7 @@ class systemItemPowerData extends foundry.abstract.DataModel {
 		return {
 			...getObjectBaseData(),
 			...getActivationItemData(),
+			...getSaveItemData(),
 			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			subtipo: new fields.StringField({ required: true, nullable:false, initial: '' }),

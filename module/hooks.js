@@ -15,7 +15,12 @@ export default function () {
 	Hooks.once("ready", async function () {
 		
 		// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-		Hooks.on("hotbarDrop", (bar, data, slot) => macros.createT20Macro(data, slot));
+		Hooks.on("hotbarDrop", (bar, data, slot) => {
+			if ( ["Item", "ActiveEffect"].includes(data.type) ) {
+				macros.createT20Macro(data, slot);
+				return false;
+			}
+		});
 
 		// Determine whether a system migration is required and feasible
 		if ( !game.user.isGM ) return;

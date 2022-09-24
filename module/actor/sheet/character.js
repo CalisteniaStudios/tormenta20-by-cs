@@ -120,7 +120,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			// Novo nivel de classe preexistente
 			if ( !!cls ) { 
 				let priorLevel = cls.system.niveis ?? 0;
-				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.system.attributes.nivel.value);
+				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
 				await cls.update({"system.niveis": next});
 				return this.actor._calcPVPM();
 			}
@@ -172,11 +172,20 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			// Item details
 			item.img = item.img || CONST.DEFAULT_TOKEN;
 			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
-			item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
-				secrets: item.isOwner,
-				async: true,
-				relativeTo: item
-			});
+			try {
+				if ( typeof item.system.description === 'string' || item.system.description instanceof String ) {
+					item.system.description = {value: item.system.description};
+				}
+
+				item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
+					secrets: item.isOwner,
+					async: true,
+					relativeTo: item
+				});
+			} catch (err) {
+				ui.notifications.error('Falha ao carregar descrição', {permanent: false});
+			}
+
 
 			if ( item.type === "classe" ) {
 				item.abbr = item.name.substr(0,4);

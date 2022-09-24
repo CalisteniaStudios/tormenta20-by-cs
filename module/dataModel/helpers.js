@@ -326,6 +326,17 @@ function getActivationItemData() {
 	}
 }
 
+// Acvation Data
+function getSaveItemData() {
+	return {
+		resistencia: new fields.SchemaField({
+			txt: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			pericia: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			atributo: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			bonus: new fields.NumberField({ required: true, initial:0 }),
+		})
+	}
+}
 
 export {
 	MappingField,
@@ -337,5 +348,6 @@ export {
 	getObjectBaseData,
 	getObjectItemData,
 	getActivationItemData,
+	getSaveItemData,
 	RollData,
 }

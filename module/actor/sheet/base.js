@@ -546,9 +546,9 @@ export default class ActorSheetT20 extends ActorSheet {
 		const itemData = {
 			name: `${gen} ${type.capitalize()}`,
 			type: type,
-			data: foundry.utils.deepClone(header.dataset)
+			system: {}
 		};
-		delete itemData.data["type"];
+		delete itemData.system.type;
 		return this.actor.createEmbeddedDocuments("Item", [itemData]);
 	}
 

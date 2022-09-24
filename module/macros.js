@@ -60,6 +60,7 @@ import ItemT20 from "./item/entity.js";
 * @returns {Promise}
 */
 export async function createT20Macro(data, slot) {
+	console.log('createT20Macro', data, slot);
 	// Create the macro command
 	let command = "";
 	if (data.type === "Pericia") {
@@ -104,8 +105,9 @@ export async function createT20Macro(data, slot) {
 				},
 			});
 		}
+		console.log(macro);
 		game.user.assignHotbarMacro(macro, slot);
-		return false;
+		return true;
 	}
 
 	if (data.type === "ActiveEffect") {

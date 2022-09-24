@@ -1,5 +1,29 @@
 # Lista de Mudanças
 
+## Versão 1.4.005
+- Corrigido: Fichas não abriam por erro na descrição de items;
+- Corrigido: Foundry criava uma macro de exibição em cima da macro de item.
+- Corrigido: Magias na Ficha de Abas não apresentavam o icone de favoritar.
+- Corrigido: Cálculo de RollData de poderes por tipo, ajustado pra ser mais abrangente e funcionar com Poderes de Distinções, além de Poderes da Tormenta (TODO: Alterar no futuro, possívelmente criando um campo Tag nos itens);
+- Adiciondado: [Protótipo] DataModels - a nova maneira de registrar e migrar as estruturas de dados dos Personagens e Itens.
+	- PARA TESTAR, DETECTAR BUGS E COLHER FEEDBACK.
+	- Essa configuração pode causar a perda de informações em Personagens e Itens.
+	- Personagens e Itens que não estejam de acordo com a estrutura estabelecida não serão exibidos, mas continuam no existindo.
+
+## Versão 1.4.003 a 1.4.004
+- Corrigido: Diversas correções;
+
+## Versão 1.4.002
+- Atualização: compatibilidade com o FoundryVTT v10
+- Adicionado: Ajustes nos cálculos de Ameaças seguindo a Reforma Monstrográfica;
+- Adicionado: Redução de dano para todos os tipos de dano e mensagem de dano foi atualizada;
+- Adicionado: Recursos, campos de controle para recursos secundários e recursos de Skyfall (Pontos de Sombra, Catarse, e falhas na Morte)
+- Adicionado: Nova categoria de ActiveEffects 'Efeitos de Uso Temporários';
+- Adicionado: Efeitos de Uso podem ser aplicados em rolagens de itens especificos;
+- Adicionado: A duração do efeito de um Item deve ser aplicada no efeito que ele gera;
+- Adicionado: [Protótipo] Efeitos `sustentando` e `dano` que ativam no inicio do turno;
+- Adicionado: [Protótipo] Efeito de Uso permite escolher uma arma especifica a ser aplicada `?.items.arma`, como Arma Mágica;
+
 ## Versão 1.3.0.20
 - Corrigido: A atualização no cálculo de carga quebrava atualizações nas fichas de NPC;
 

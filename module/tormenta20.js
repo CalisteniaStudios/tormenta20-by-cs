@@ -147,27 +147,31 @@ Hooks.once("init", async function () {
 	// 	makeDefault: true,
 	// 	label: game.i18n.localize("T20.VehicleSheet"), //"Ficha de Veiculo"
 	// });
-	// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
-	// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
-	// CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;
-	// CONFIG.Actor.systemDataModels["npc"] = systemActorNPCData;
-	// CONFIG.Actor.systemDataModels["vehicle"] = systemActorVehicleData;
-	// CONFIG.Actor.systemDataModels["simple"] = systemActorSimpleData;
 	
-
+	
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("tormenta20", ItemSheetT20, {
 		makeDefault: true,
 	});
+	
+	if( game.settings.get('tormenta20', 'prototypeDataModel') ) {
+		console.log(('REGISTER DMs'));
+		// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
+		// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
+		CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;
+		CONFIG.Actor.systemDataModels["npc"] = systemActorNPCData;
+		CONFIG.Actor.systemDataModels["vehicle"] = systemActorVehicleData;
+		CONFIG.Actor.systemDataModels["simple"] = systemActorSimpleData;
 
-	// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
-	// CONFIG.Item.systemDataModels["arma"] = systemItemWeaponData;
-	// CONFIG.Item.systemDataModels["classe"] = systemItemClassData;
-	// CONFIG.Item.systemDataModels["consumivel"] = systemItemConsumableData;
-	// CONFIG.Item.systemDataModels["equipamento"] = systemItemEquipmentData;
-	// CONFIG.Item.systemDataModels["magia"] = systemItemSpellData;
-	// CONFIG.Item.systemDataModels["poder"] = systemItemPowerData;
-	// CONFIG.Item.systemDataModels["tesouro"] = systemItemLootData;
+		// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
+		CONFIG.Item.systemDataModels["arma"] = systemItemWeaponData;
+		CONFIG.Item.systemDataModels["classe"] = systemItemClassData;
+		CONFIG.Item.systemDataModels["consumivel"] = systemItemConsumableData;
+		CONFIG.Item.systemDataModels["equipamento"] = systemItemEquipmentData;
+		CONFIG.Item.systemDataModels["magia"] = systemItemSpellData;
+		CONFIG.Item.systemDataModels["poder"] = systemItemPowerData;
+		CONFIG.Item.systemDataModels["tesouro"] = systemItemLootData;
+	}
 
 	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
 

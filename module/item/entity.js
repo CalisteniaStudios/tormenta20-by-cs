@@ -109,6 +109,14 @@ export default class ItemT20 extends Item {
 	/*  DataPreparation                             */
 	/* -------------------------------------------- */
 
+	prepareBaseData() {
+		super.prepareBaseData();
+		
+		/* FIX item description issues */
+		if ( typeof this.system.description === 'string' || this.system.description instanceof String ) {
+			this.system.description = {value: this.system.description};
+		}
+	}
 	/**
 	* Augment the basic Item data model with additional dynamic system.
 	*/

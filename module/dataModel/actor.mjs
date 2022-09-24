@@ -248,6 +248,10 @@ class systemActorCharacterData extends foundry.abstract.DataModel {
 					value: new fields.HTMLField({ required: true, nullable:false, initial:'' }),
 					public: new fields.HTMLField({ initial:'' }),
 				}),
+				diario: new fields.SchemaField({
+					name: new fields.StringField({ initial:'' }),
+					value: new fields.HTMLField({ initial:'' }),
+				}),
 				diario1: new fields.SchemaField({
 					name: new fields.StringField({ initial:'' }),
 					value: new fields.HTMLField({ initial:'' }),

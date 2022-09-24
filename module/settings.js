@@ -211,4 +211,16 @@ export const SystemSettings = function() {
 		onChange: () => location.reload()
 	});
 
+	/**
+	 * Options for testing WIP features.
+	 */
+	game.settings.register('tormenta20', 'prototypeDataModel', {
+		name: "[PROTÓTIPO] DataModel",
+		hint: "Altera o modo como o Sistema registra as estruturas de Personagens e Itens. ATENÇÃO Essa configuração pode causar a perda de informações em Personagens e Itens. Personagens e Itens inválidos não serão exibidos, mas continuam existindo.",
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean,
+		onChange: () => location.reload()
+	});
 }

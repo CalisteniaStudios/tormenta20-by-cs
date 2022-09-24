@@ -23,7 +23,7 @@
 {{#if actor.favoritos.itens}}
 <ol class="item-list fav-item">
 	<li class="item item-header flexrow">
-		<div class="item-name flex2">{{localize 'T20.Name'}}</div>
+		<div class="item-name flex2">{{ localize 'T20.Items'}}</div>
 		<div class="item-controls">
 	</li>
 	{{#each actor.favoritos.itens as |item id|}}
@@ -48,7 +48,7 @@
 {{#if actor.favoritos.poderes}}
 <ol class="item-list fav-feat">
 	<li class="item item-header flexrow">
-		<div class="item-name flex2">{{localize 'T20.Name'}}</div>
+		<div class="item-name flex2">{{ localize 'T20.Powers'}}</div>
 		<div class="item-activation">{{localize 'T20.Activation'}}</div>
 		<div class="item-controls"></div>
 	</li>
@@ -80,7 +80,7 @@
 		{{#if circulo.spells}}
 		<li class="item item-header flexrow">
 			{{#if ../isPreparationCaster}}<div class="item-toggles">{{localize 'T20.SpellPrepPreparedAbbr'}}</div>{{/if}}
-			<div class="item-name flex2">{{i}}º {{localize 'T20.SpellCircle'}} ({{circulo.custo}} {{localize 'T20.MP'}})</div>
+			<div class="item-name flex2">{{ localize 'T20.Spells'}} {{i}}º {{localize 'T20.SpellCircle'}} ({{circulo.custo}} {{localize 'T20.MP'}})</div>
 			<div class="item-activation">{{localize 'T20.Activation'}}</div>
 			<div class="item-controls"></div>
 		</li>

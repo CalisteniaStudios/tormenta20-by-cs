@@ -545,8 +545,8 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		let duration = {};
 		let durValue = Number(id.duracao?.value) ?? 1;
 		let flags = { temp: true, tormenta20:{ durationScene: false} };
-		if ( id.duracao?.units == 'scene' ) {
-			flags.tormenta20.durationScene = true;
+		if ( id.duracao?.units == 'scene' || ef.flags.tormenta20.durationScene) {
+			flags.tormenta20.durationScene = ef.flags.tormenta20.durationScene ?? true;
 			duration.rounds = 99;
 		};
 		if ( id.duracao?.units == 'turn' ) duration.turns = durValue;
