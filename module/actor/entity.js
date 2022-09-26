@@ -96,6 +96,10 @@ export default class ActorT20 extends Actor {
 			ability.name = CONFIG.T20.atributos[key];
 			ability.mod = ActorT20._prepareModifier(ability);
 		}
+		
+		// Defense
+		this._prepareDefense(system);
+
 		// Skills
 		const rollData = this.getRollData();
 		for (let [key, pericia] of Object.entries(system.pericias)) {
@@ -103,8 +107,7 @@ export default class ActorT20 extends Actor {
 			this._prepareSkills(key, pericia, system, rollData);
 		}
 		
-		// Defense
-		this._prepareDefense(system);
+		
 		
 		// BASE CD
 		system.attributes.cd = reforma ? system.attributes.cd : 10 + Math.floor(nivel / 2);
@@ -1309,7 +1312,7 @@ export default class ActorT20 extends Actor {
 			if ( e.flags?.tormenta20?.onuse ) return changes;
 			return changes.concat(e.changes.map(c => {
 				c = duplicate(c);
-				if (c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value)|(system.|data.)modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
+				if (c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value|.pda)|(system.|data.)modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
 					c.value = "+"+c.value.toString();
 				}
 				else if ( c.key.match(/tamanho/i) ){
@@ -1326,7 +1329,7 @@ export default class ActorT20 extends Actor {
 		}, []);
 		changes.sort((a, b) => a.priority - b.priority);
 		// Apply all changes
-		changes = changes.filter(c=> c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value)|(system.|data.)modificadores/i));
+		changes = changes.filter(c=> c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value|.pda)|(system.|data.)modificadores/i));
 		
 		for ( let change of changes ) {
 			if ( !change.key ) continue;

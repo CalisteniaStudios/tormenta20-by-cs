@@ -813,6 +813,7 @@ export default class ItemT20 extends Item {
 			let msg = game.i18n.format('T20.ConsumableCreated', {actor:item.actor.name, name:itemData.name} );
 			return ChatMessage.create({content:msg});
 		}
+		options.itemId = this.id;
 		return item.displayCard({options, rollMode, createMessage});
 	}
 
@@ -973,10 +974,11 @@ export default class ItemT20 extends Item {
 		let manaCost = Number(this.system.ativacao.custo) || (options.hasManaCost ? 1 : null );
 		if ( options.truque ) manaCost = 0;
 		else if ( options.halfCost ) manaCost = Math.floor(manaCost / 2);
-
+		
 		const templateData = {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
+			itemId: options.itemId,
 			item: this,
 			custo: manaCost,
 			system: await this.getChatData(),

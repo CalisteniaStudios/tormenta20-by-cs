@@ -1,10 +1,10 @@
-<ul class="skills-list {{#if editarPericias}}editing{{/if}}">
+<ul class="skills-list editing">
 	<li class="skill flexrow item-header">
 		<div class="item-image"></div>
 		<div class="item-name" >{{ localize 'T20.Skills'}}</div>
 		<div class="item-total">{{ localize 'T20.Total'}}</div>
 		<div class="item-mod">{{ localize 'T20.AbilityModifierBonus'}}</div>
-		{{#if editarPericias}}<div class="item-outros">{{ localize 'T20.Other'}}</div>{{/if}}
+		<div class="item-outros">{{ localize 'T20.Other'}}</div>
 	</li>
 	{{#if mostrarBonusTreino}}
 	<li class="skill">
@@ -21,17 +21,14 @@
 			<b>{{ localize 'T20.SkillOfic'}} +</b>
 		</div>
 		<div class="item-total"></div>
-		{{#if ../editarPericias}}
 		<div class="item-mod">
 			<a class="item-control skill-create" title="{{ localize 'T20.Add'}} {{ localize 'T20.SkillOfic'}}" data-tipo="oficio"><i class="fa-solid fa-plus"></i> {{ localize 'T20.Add'}}</a>
 		</div>
 		<div class="item-outros">
 			<a class="item-control show-controls" title="{{ localize 'T20.Edit'}} {{ localize 'T20.Skills'}}"><i class="fas fa-cogs"></i></a>
 		</div>
-		{{/if}}
 	</li>
 	{{else if (eq skill.key "_pc0")}}
-	{{#if ../editarPericias}}
 	<li class="skill flexrow">
 		<div class="item-image"></div>
 		<div class="item-name">{{ localize 'T20.New'}} {{ localize 'T20.Skill'}}</div>
@@ -43,30 +40,17 @@
 			<a class="item-control show-controls" title="{{ localize 'T20.Edit'}} {{ localize 'T20.Skills'}}"><i class="fas fa-cogs"></i></a>
 		</div>
 	</li>
-	{{/if}}
 	{{else}}
 	<li class="skill flexrow {{#if skill.custom }}custom{{/if}}" data-item-id="{{skill.key}}">
 		<div class="item-image">
-			<!-- <input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.treinado" value="{{skill.treinado}}"> -->
-			{{#if ../editarPericias}}
 			<a class="training-toggle skill-training" title="{{ localize 'T20.Trained'}}"><i class="{{skill.symbol}}"></i></a>
-			{{else}}
-			<i class="{{#if skill.treinado }}fas fa-check{{/if}}"></i>
-			{{/if}}
 		</div>
 		<div class="item-name" data-item-id="{{skill.key}}">
 			{{#if skill.custom}}
-				{{#if ../editarPericias}}
 				<span class="rollable pericia-rollable">
 					<i class="fas fa-dice-d20"></i>
 				</span>
-				
 				<input type="text" name="system.pericias.{{skill.key}}.label" value="{{skill.label}}">
-				{{else}}
-				<span class="rollable pericia-rollable">
-					{{{skill.label}}}
-				</span>
-				{{/if}}
 			{{else}}
 				<span class="rollable pericia-rollable">
 					{{{skill.label}}} {{#if skill.st}}*{{/if}} {{#if skill.pda}}+{{/if}}
@@ -78,7 +62,6 @@
 			<input type="hidden"  data-dtype="Number" name="system.pericias.{{skill.key}}.treino" value="{{skill.treino}}" />
 		</div>
 		<div class="item-mod">
-			{{#if ../editarPericias}}
 			<select class="selectatr" name="system.pericias.{{skill.key}}.atributo" value={{skill.atributo}}>
 			{{#select skill.atributo}}
 				{{#each ../config.atributosAbr as |name abl|}}
@@ -86,18 +69,13 @@
 				{{/each}}
 			{{/select}}
 			</select>
-			{{else}}
-			<input disabled type="text" value={{skill.atributo}}>
-			{{/if}}
 		</div>
-		{{#if ../editarPericias}}
 		<div class="item-outros">
 			<input type="text" class="skill-outros" data-dtype="Number" name="system.pericias.{{skill.key}}.outros" value="{{skill.outros}}"/>
 			{{#if skill.custom}}
 			<a class="item-control skill-delete" style="display: none;" data-item-id="{{skill.key}}" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
 			{{/if}}
 		</div>
-		{{/if}}
 		<input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.condi" value="{{skill.condi}}"/>
 	</li>
 	{{/if}}
