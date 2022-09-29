@@ -1,4 +1,4 @@
-<div class="tormenta20 chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{item._id}}">
+<div class="tormenta20 chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{itemId}}">
 	<header class="card-header flexrow">
 		{{#if item.img}}
 		<img src="{{item.img}}" title="{{item.name}}" width="36" height="36" style="flex:0" />
@@ -10,13 +10,13 @@
 		{{!-- Mana Cost --}}
 		{{#if custo}}
 		<button class="chat-spend-mana" value="{{{custo}}}">
-			{{{custo}}} <br> PM
+			{{{custo}}} <br> {{localize 'T20.MP'}}
 		</button>
 		{{/if}}
 		{{#if truque}}
-		<span class="custo" style="float: right;">
-			<div><i>Truque</i></div>
-		</span>
+		<button class="chat-spend-mana" disabled style="background: unset;border: unset;cursor:unset">
+			{{localize 'T20.Cantrip'}}
+		</button>
 		{{/if}}
 	</header>
 
@@ -27,30 +27,30 @@
 		</div>
 	{{/if}}
 
-	{{#if (eq item.type "poder")}}
+	{{#if (and (eq item.type "poder") power.resistencia)}}
 		<div class="card-item-header">
 			<p>
-				{{#if power.resistencia}}<b> Resistência:</b> {{{power.resistencia}}} (CD {{{power.cd}}}){{/if}} 
+				{{#if power.resistencia}}<b> {{localize 'T20.Resistance'}}:</b> {{{power.resistencia}}} ({{localize 'T20.AbbreviationDC'}} {{{power.cd}}}){{/if}} 
 			</p>
 		</div>
 	{{/if}}
 
 	<div class="card-content">
-		{{#if data.description.value}} {{{data.description.value}}} {{/if}}
+		{{#if system.description.value}} {{{system.description.value}}} {{/if}}
 	</div>
-	{{#if aprimoramentos}}
+	{{#if onUseEffects}}
 	<div class="card-upgrades">
 		<ul>
-			{{#each aprimoramentos as |ap|}}
+			{{#each onUseEffects as |ap|}}
 				<li>
 					<div class="row">
 						<b>
-							{{#if (eq ap.custo "Truque")}}
-								Truque:
-							{{else if (ne ap.custo "0")}}
-								{{#if (gt ap.custo 0)}}+{{/if}}{{ap.custo}}PM:
-									{{#if (gt ap.qtd 1)}}
-										({{ap.qtd}}x)
+							{{#if (eq ap.cost "Truque")}}
+								{{localize 'T20.Cantrip'}}:
+							{{else if (ne ap.cost "0")}}
+								{{#if (gt ap.cost 0)}}+{{/if}}{{ap.cost}}PM:
+									{{#if (gt ap.qty 1)}}
+										({{ap.qty}}x)
 									{{/if}}
 								{{/if}}
 						</b>
@@ -61,18 +61,18 @@
 		</ul>
 	</div>
 	{{/if}}
-
-	{{#each _rolls as |r id|}}
+	
+	{{#each rolls as |r id|}}
 		<div class="row">{{r.roll.options.title}}</div>
-		<div class="roll {{r.roll.tipo}}">{{{r.template}}}</div>
+		<div class="roll {{r.roll.tipo}}" data-roll-title="{{r.roll.options.title}}">{{{r.template}}}</div>
 	{{/each}}
 	<hr>
 	{{#if effects}}
 	<div class="card-item-effects flexcol">
 		{{#each effects as |ef i|}}
 			<button class="chat-apply-ae" data-effect-index="{{i}}">
-				<img src="{{ef.data.icon}}">
-				{{{ef.data.label}}}
+				<img src="{{ef.icon}}">
+				{{{ef.label}}}
 			</button>
 		{{/each}}
 	</div>
@@ -82,7 +82,7 @@
 	<div class="card-item-template" id="placeTemplate">
 		<button class="chat-place-template">
 			<span><i class="fas fa-ruler-combined"></i></span>
-			Colocar Área de Efeito</button>
+			{{localize 'T20.PlaceAbilityTemplate'}}</button>
 	</div>
 	{{/if}}
 </div>

@@ -1,5 +1,4 @@
 <form autocomplete="off">
-
 	<!-- Effect Header -->
 	<header class="sheet-header">
 		<img class="effect-icon" src="{{ effect.icon }}" data-edit="icon">
@@ -8,9 +7,9 @@
 
 	<!-- Effect Configuration Tabs -->
 	<nav class="sheet-tabs tabs">
-		<a class="item" data-tab="details"><i class="fas fa-book"></i> Detalhes</a>
-		<a class="item" data-tab="duration"><i class="fas fa-clock"></i> Duração</a>
-		<a class="item" data-tab="effects"><i class="fas fa-cogs"></i> Efeitos</a>
+		<a class="item" data-tab="details"><i class="fas fa-book"></i> {{ localize 'T20.Details' }}</a>
+		<a class="item" data-tab="duration"><i class="fas fa-clock"></i> {{ localize 'T20.Duration' }}</a>
+		<a class="item" data-tab="effects"><i class="fas fa-cogs"></i> {{ localize 'T20.Effects' }}</a>
 	</nav>
 
 	<!-- Details Tab -->
@@ -40,47 +39,47 @@
 		</div>
 
 		<div class="form-group">
-			<label>{{ localize "EFFECT.Disabled" }}</label>
-			<input type="checkbox" name="disabled" {{ checked effect.disabled }} />
+			<label>{{ localize 'T20.EffectStatusType' }}: </label>
+			<div class="form-fields form-checks">
+				<label><input type="checkbox" name="flags.tormenta20.onuse" {{ checked effect.flags.tormenta20.onuse }} /> <br> {{ localize 'T20.OnUseEffect' }}</label>
+				<label><input type="checkbox" name="disabled" {{ checked effect.disabled }} /> <br>{{ localize "EFFECT.Disabled" }}</label>
+				{{#if isItemEffect}}
+				<label><input type="checkbox" name="transfer" {{ checked effect.transfer }} /> <br> {{ localize "EFFECT.Transfer" }}</label>
+				{{/if}}
+			</div>
 		</div>
-		{{#if isItemEffect}}
-		<div class="form-group">
-			<label>{{ localize "EFFECT.Transfer" }}</label>
-			<input type="checkbox" name="transfer" {{ checked effect.transfer }} />
-		</div>
-		{{/if}}
-
 		
 		{{#if effect.flags.tormenta20.onuse }}
 		<div class="form-group">
-			<label>Aplicavel em: </label>
-			<div class="form-fields">
-				<label><input type="checkbox" name="flags.tormenta20.self" {{ checked effect.flags.tormenta20.self }} /> Próprio Item</label>
-				<label><input type="checkbox" name="flags.tormenta20.attack" {{ checked effect.flags.tormenta20.attack }} /> Ataque</label>
-				<label><input type="checkbox" name="flags.tormenta20.skill" {{ checked effect.flags.tormenta20.skill }} /> Pericia</label>
-				<label><input type="checkbox" name="flags.tormenta20.ability" {{ checked effect.flags.tormenta20.ability }} /> Atributo</label>
-				<label><input type="checkbox" name="flags.tormenta20.power" {{ checked effect.flags.tormenta20.power }} /> Poder</label>
-				<label><input type="checkbox" name="flags.tormenta20.spell" {{ checked effect.flags.tormenta20.spell }} /> Magia</label>
-				<label><input type="checkbox" name="flags.tormenta20.consumable" {{ checked effect.flags.tormenta20.consumable }} /> Consumivel</label>
+			<label>{{ localize 'T20.ApplyTo' }}: </label>
+			<div class="form-fields form-checks">
+				<label><input type="checkbox" name="flags.tormenta20.self" {{ checked effect.flags.tormenta20.self }} /> {{ localize 'T20.ApplyToSelf' }}</label>
+				<label><input type="checkbox" name="flags.tormenta20.attack" {{ checked effect.flags.tormenta20.attack }} /> {{ localize 'T20.Attack' }}</label>
+				<label><input type="checkbox" name="flags.tormenta20.skill" {{ checked effect.flags.tormenta20.skill }} /> {{ localize 'T20.Skill' }}</label>
+				<label><input type="checkbox" name="flags.tormenta20.ability" {{ checked effect.flags.tormenta20.ability }} /> {{ localize 'T20.Ability' }}</label>
+				<label><input type="checkbox" name="flags.tormenta20.power" {{ checked effect.flags.tormenta20.power }} /> {{ localize 'T20.Power' }}</label>
+				<label><input type="checkbox" name="flags.tormenta20.spell" {{ checked effect.flags.tormenta20.spell }} /> {{ localize 'T20.Spell' }}</label>
+				<label><input type="checkbox" name="flags.tormenta20.consumable" {{ checked effect.flags.tormenta20.consumable }} /> {{ localize 'T20.Consumable' }}</label>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label>Itens Específico:</label>
+			<label>{{ localize 'T20.SpecificItems'}}:</label>
 			<div class="form-fields">
+				
 			<input type="text" name="flags.tormenta20.items" value="{{effect.flags.tormenta20.items}}" data-dtype="String"/>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label>Permite multiplas aplicações?</label>
-			<div class="form-fields">
-			<input type="checkbox" name="flags.tormenta20.aumenta" {{ checked effect.flags.tormenta20.aumenta }} />
-			</div>
+			<label>{{ localize 'T20.AllowMultApply'}}</label>
+			<label>
+				<input type="checkbox" name="flags.tormenta20.aumenta" {{ checked effect.flags.tormenta20.aumenta }} />
+			</label>
 		</div>
 
 		<div class="form-group">
-			<label>Custo</label>
+			<label>{{ localize  'T20.Cost'}}</label>
 			<div class="form-fields">
 				<input type="text" name="flags.tormenta20.custo" value="{{ effect.flags.tormenta20.custo }}" />
 			</div>
@@ -150,8 +149,8 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label>Duração Especial:</label>
-			<label><input type="checkbox" name="flags.tormenta20.durationScene" {{ checked effect.flags.tormenta20.durationScene }} /> Cena</label>
+			<label>{{localize 'T20.TimeScene'}}:</label>
+			<label><input type="checkbox" name="flags.tormenta20.durationScene" {{ checked effect.flags.tormenta20.durationScene }} /></label>
 		</div>
 	</section>
 
@@ -183,15 +182,8 @@
 				</div>
 				<div class="mode">
 					<select name="changes.{{i}}.mode" data-dtype="Number">
-                        {{#select change.mode}}
-                        <option value="0">Customizar</option>
-                        <option value="1">Multiplicar</option>
-                        <option value="2">Adicionar</option>
-                        <option value="3">Retroceder</option>
-                        <option value="4">Atualizar</option>
-                        <option value="5">Substituir</option>
-                        {{/select}}
-                    </select>
+						{{selectOptions ../modes selected=change.mode}}
+					</select>
 				</div>
 				<div class="value">
 					<input type="text" name="changes.{{i}}.value" value="{{change.value}}" />

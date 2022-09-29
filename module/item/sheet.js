@@ -1,11 +1,16 @@
 import TraitSelector from "../apps/trait-selector.js";
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../effects.js";
+import ItemT20 from "./entity.js";
 
 /**
 * Extend the basic ItemSheet with some very simple modifications
 * @extends {ItemSheet}
 */
 export default class ItemSheetT20 extends ItemSheet {
+
+	/* -------------------------------------------- */
+	/*  Properties                                  */
+	/* -------------------------------------------- */
 
 	/** @inheritdoc */
 	static get defaultOptions() {
@@ -14,47 +19,297 @@ export default class ItemSheetT20 extends ItemSheet {
 			width: 620,
 			height: 480,
 			scrollY: [".tab.details"],
-			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
+			dragDrop: [
+				// {dragSelector: ".effects-list .item", dropSelector: '.effects-list'},
+				{dropSelector: '.opt-drop'}
+			],
 		});
 	}
+
+	/* -------------------------------------------- */
 
 	/** @inheritdoc */
 	get template() {
 		const path = "systems/tormenta20/templates/item";
-		if (this.item.data.type == "consumivel" || this.item.data.type == "tesouro") {
+		if (this.item.type == "consumivel" || this.item.type == "tesouro") {
 			return `${path}/item-sheet.html`;
 		}
-		else if (this.item.data.type == "armadura") {
+		else if (this.item.type == "armadura") {
 			return `${path}/equip-sheet.html`;
 		}
-		return `${path}/${this.item.data.type}-sheet.html`;
+		return `${path}/${this.item.type}-sheet.html`;
+	}
+
+	/* -------------------------------------------- */
+	
+	/** @inheritdoc */
+	setPosition(position = {}) {
+		if ( !(this._minimized  || position.height) ) {
+			position.height = (this._tabs[0].active === "details") ? "auto" : this.options.height;
+		}
+		return super.setPosition(position);
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	_getSubmitData(updateData={}) {
+		const formData = foundry.utils.expandObject(super._getSubmitData(updateData));
+		// Create the expanded update data object
+		// const fd = new FormDataExtended(this.form, {editors: this.editors});
+		// let tdata = fd.object;
+		// let data = fd.object;//{};
+		// for (let key of Object.keys( tdata ) ){
+		// 	let nkey = key.replace(/^system./, 'data.');
+		// 	data[ nkey ] = tdata[key];
+		// }
+		// if ( updateData ) formData = mergeObject(formData, updateData);
+		// else data = expandObject(data);
+
+		// Handle rolls array
+		formData.system.rolls = Object.values(formData.system.rolls || []);
+		let rolls = Object.entries(formData.system?.rolls || []);
+		for (let [key, roll] of rolls){
+			if ( roll ) roll.parts = Object.values(roll?.parts || {}).map(d => [d[0] || "", d[1] || ""]);
+			if ( roll ) roll.key = roll.type + key;
+		}
+
+		// Handle progression array
+		// formData.system.progression = Object.values(formData.system.progression || []);
+		// let progression = Object.entries(formData.system?.progression || []);
+		// for (let [key, prog] of progression){
+		// 	if ( prog.list ) {
+		// 		prog.list = Object.values(prog.list);
+		// 	} else prog.list = [];
+		// }
+		// Return the flattened submission data
+		return flattenObject(formData);
+	}
+	
+	/* -------------------------------------------- */
+	/*  SheetPreparation                            */
+	/* -------------------------------------------- */
+
+	/** @override */
+	async getData(options) {
+		const data = await super.getData(options);
+		const itemData =  this.item.system;
+		data.labels = this.item.labels;
+		data.config = CONFIG.T20;
+
+		data.itemType = data.item.type.capitalize();
+		if( this.item.type == 'classe' ){
+			data.itemStatus = itemData.inicial ? game.i18n.localize('T20.ClassOriginal') : "";
+		} else if ( this.item.type == 'equipamento' ) {
+			data.itemStatus = itemData.equipado ? game.i18n.localize('T20.Equipped') : "";
+		} else if ( this.item.type == 'magia' ){
+			data.itemStatus = itemData.preparada ? game.i18n.localize('T20.Prepared') : "";
+		}
+
+		data.itemProperties = this._getItemProperties();
+		data.isPhysical = itemData.hasOwnProperty("qtd");
+		data.weightRule = game.settings.get("tormenta20", "weightRule");
+		data.isOwned = data.item.isOwned;
+		// Resource to Consume
+		// method
+		data.abilityConsumptionTargets = this._getItemConsumptionTargets(itemData);
+		// Prepare Active Effects
+		data.effects = prepareActiveEffectCategories(this.item.effects);
+
+		// Re-define the template data references (backwards compatible)
+		// data.item = itemData;
+		// data.item.system = itemData;
+		data.system = itemData;
+		
+		data.system.description.value = await TextEditor.enrichHTML(data.system.description.value, {
+			secrets: this.item.isOwner,
+			async: true,
+			relativeTo: this.item
+		});
+
+		data.documentName = "Item";
+		return data;
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Get the valid item consumption targets which exist on the actor
+	 * @param {object} item         Item data for the item being displayed
+	 * @returns {{string: string}}   An object of potential consumption targets
+	 * @private
+	 */
+	_getItemConsumptionTargets(item) {
+		const consume = item.consume || {};
+		if ( !consume.type ) return [];
+		const actor = this.item.actor;
+		if ( !actor ) return {};
+
+		// Ammunition
+		if ( consume.type === "ammo" ) {
+			return actor.itemTypes.consumivel.reduce((ammo, i) => {
+				if ( i.system.tipo === "ammo" ) {
+					ammo[i.id] = `${i.name} (${i.system.qtd})`;
+				}
+				return ammo;
+			}, {});
+			// {[i._id]: `${i.name} (${item.qtd})`}
+		}
+
+		// Resources
+		else if ( consume.type === "attribute" ) {
+			const resources = this.item.actor?.system.resources ?? {};
+			return Object.entries(resources).reduce((object, r) => {
+				object[r[0]] = r[1].label;
+				return object;
+			}, {});
+		}
+		// Materials
+		else if ( consume.type === "material" ) {
+			return actor.items.reduce((obj, i) => {
+				if ( ["consumivel", "tesouro"].includes(i.type) && !i.ativacao ) {
+					obj[i.id] = `${i.name} (${i.system.qtd})`;
+				}
+				return obj;
+			}, {});
+		}
+		else return {};
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	activateListeners(html) {
+		super.activateListeners(html);
+		if ( this.isEditable ) {
+			html.find(".rolls-control").click(this._onRollsControl.bind(this));
+			html.find(".parts-control").click(this._onPartsControl.bind(this));
+
+			// Progression Tab
+			html.find(".progression-control").click(this._onProgressionControl.bind(this));
+			html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
+
+			html.find('.trait-selector').click(this._onConfigureTraits.bind(this));
+			html.find(".effect-control").click(ev => {
+				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
+				onManageActiveEffect(ev, this.item)
+			});
+		}
+		html.mousemove(ev => this._moveTooltips(ev));
+	}
+	
+	/* -------------------------------------------- */
+	/*  Interactions                                */
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onDrop(event) {
+		const data = TextEditor.getDragEventData(event);
+		// const actor = this.actor;
+		console.log(data);
+		// console.log(this);
+		// Handle different data types
+		switch ( data.type ) {
+			case "ActiveEffect":
+				// return this._onDropActiveEffect(event, data);
+			case "Item":
+				return this._onDropItem(event, data);
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	_onDropItem(event, data){
+		let tgt = event.target;
+		if( !tgt.classList.contains('opt-uuid') ){
+			tgt = tgt.closest('li').querySelector('.opt-uuid');
+		}
+		// console.log(tgt);
+		let pIndex = Number(tgt.dataset.pIndex);
+		let oIndex = Number(tgt.dataset.oIndex);
+		if( pIndex>=0 && oIndex>=0 && data.uuid ){
+			let progression = deepClone(this.item.system.progression);
+			progression[pIndex]['list'][oIndex] = {
+				type: "item",
+				value: data.uuid,
+				selected: false
+			}
+
+			return this.item.update({
+				[`system.progression`]: progression
+			});
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	_moveTooltips(event) {
+		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData(options) {
-		const data = super.getData(options);
-		const itemData = data.data;
-		data.labels = this.item.labels;
-		data.config = CONFIG.T20;
+	_getHeaderButtons() {
+		let buttons = super._getHeaderButtons();
+		if ( this.object.type == "magia" && ( this.actor?.getFlag("tormenta20","createScroll") || game.user.isGM ) ) {
+			buttons.unshift({
+				label: game.i18n.localize('T20.WriteScroll'),
+				class: "create-scroll",
+				icon: "fas fa-scroll",
+				onclick: () => this._createScroll()
+			});
+		}
+		return buttons;
+	}
+	
+	/* -------------------------------------------- */
 
-		data.itemType = data.item.type.capitalize();
-		data.itemStatus = itemData.equipado?.capitalize() || itemData.preparada?.capitalize() || "";
-		data.itemProperties = this._getItemProperties(itemData);
-		data.isPhysical = itemData.data.hasOwnProperty("qtd");
-		data.weightRule = game.settings.get("tormenta20", "weightRule");
-		data.isOwned = data.item.isOwned;
-		// Resource to Consume
-		// method
+	/**
+	* Get status text for itens;
+	* @retun {string}
+	*/
+	_getItemStatus(item) {
+		if( item.type === "magia" ){
+			return game.i18n.localize(item.system.preparada ? "T20.SpellPrepPrepared" : "");
+		}
+		else if ( ["arma", "equipamento"] .includes(item.type) ){
+			return game.i18n.localize(item.system.equipado ? "T20.Equipped" : "");
+		}
+	}
 
-		// Prepare Active Effects
-		data.effects = prepareActiveEffectCategories(this.item.effects);
+	/* -------------------------------------------- */
 
-		// Re-define the template data references (backwards compatible)
-		data.item = itemData;
-		data.data = itemData.data;
-		return data;
+	/**
+	 * Get the Array of item properties which are used in the small sidebar of the description tab
+	 * @return {Array}
+	 * @private
+	 */
+	 _getItemProperties() {
+		const props = [];
+		const labels = this.item.labels;
+		if ( this.item.type === "arma" ) {
+			props.push(...Object.entries(this.item.system.propriedades)
+				.filter(e => e[1] === true)
+				.map(e => CONFIG.T20.weaponProperties[e[0]]));
+		} else if ( this.item.type === "magia" ) {
+			let hTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", area: 'T20.Area', effect: 'T20.Effect', duration:"T20.Duration", save:"T20.Resistance" };
+			
+			for ( let [h, tag] of Object.entries(hTags) ){
+				hTags[h] = game.i18n.localize(tag);
+			}
+			props.push(
+				labels.ativacao? `<b>${hTags['ativacao']}:</b> ${labels.ativacao}; ` : null,
+				labels.range? `<b>${hTags['range']}:</b> ${labels.range}; ` : null,
+				labels.alvo? `<b>${hTags['target']}:</b> ${labels.alvo}; ` : null,
+				labels.area? `<b>${hTags['area']}:</b> ${labels.area}; ` : null,
+				labels.effect? `<b>${hTags['effect']}:</b> ${labels.effect}; ` : null,
+				labels.duration? `<b>${hTags['duration']}:</b> ${labels.duration}; ` : null,
+				labels.save? `<b>${hTags['save']}:</b> ${labels.save}; ` : null
+			)
+		}
+		return props.filter(p => !!p);
 	}
 
 	/* -------------------------------------------- */
@@ -65,7 +320,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	* @returns {{string: string}} An object of valid consummable resources;
 	*/
 	_getConsummableResources(item){
-		const consume = item.data.consume || {};
+		const consume = item.system.consume || {};
 		if ( !consume.type ) return [];
 		const actor = this.item.actor;
 		if ( !actor ) return {};
@@ -73,11 +328,11 @@ export default class ItemSheetT20 extends ItemSheet {
 		// Ammunition
 		if ( consume.type === "ammo" ) {
 			return actor.itemTypes.consumivel.reduce((ammo, i) =>  {
-				if ( i.data.data.consumableType === "ammo" ) {
-					ammo[i.id] = `${i.name} (${i.data.data.quantidade})`;
+				if ( i.system.consumableType === "ammo" ) {
+					ammo[i.id] = `${i.name} (${i.system.quantidade})`;
 				}
 				return ammo;
-			}, {[item._id]: `${item.name} (${item.data.quantidade})`});
+			}, {[item._id]: `${item.name} (${item.system.quantidade})`});
 		}
 
 		// Attributes
@@ -92,107 +347,13 @@ export default class ItemSheetT20 extends ItemSheet {
 		// Materials
 		else if ( consume.type === "material" ) {
 			return actor.items.reduce((obj, i) => {
-				if ( ["consumivel", "tesouro"].includes(i.data.type) && !i.data.data.ativacao ) {
-					obj[i.id] = `${i.name} (${i.data.data.consumivel})`;
+				if ( ["consumivel", "tesouro"].includes(i.type) && !i.system.ativacao ) {
+					obj[i.id] = `${i.name} (${i.system.consumivel})`;
 				}
 				return obj;
 			}, {});
 		}
 		else return {};
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	* Get status text for itens;
-	* @retun {string}
-	*/
-	_getItemStatus(item) {
-		if( item.type === "magia" ){
-			return game.i18n.localize(item.data.preparada ? "T20.SpellPrepPrepared" : "");
-		}
-		else if ( ["arma", "equipamento"] .includes(item.type) ){
-			return game.i18n.localize(item.data.equipado ? "T20.Equipped" : "");
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Get the Array of item properties which are used in the small sidebar of the description tab
-	 * @return {Array}
-	 * @private
-	 */
-	_getItemProperties(item) {
-		const props = [];
-		const labels = this.item.labels;
-
-		if ( item.type === "arma" ) {
-			props.push(...Object.entries(item.data.propriedades)
-				.filter(e => e[1] === true)
-				.map(e => CONFIG.T20.weaponProperties[e[0]]));
-		} else if ( item.type === "magia" ) {
-			
-			props.push(
-				labels.ativacao? `<b>Execução:</b> ${labels.ativacao}; ` : null,
-				labels.range? `<b>Alcance:</b> ${labels.range}; ` : null,
-				labels.alvo? `<b>Alvo:</b> ${labels.alvo}; ` : null,
-				labels.area? `<b>Área:</b> ${labels.area}; ` : null,
-				labels.effect? `<b>Efeito:</b> ${labels.effect}; ` : null,
-				labels.duration? `<b>Duração:</b> ${labels.duration}; ` : null,
-				labels.save? `<b>Resistência:</b> ${labels.save}; ` : null
-			)
-		}
-		return props.filter(p => !!p);
-	}
-
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	setPosition(position = {}) {
-		if ( !(this._minimized  || position.height) ) {
-			position.height = (this._tabs[0].active === "details") ? "auto" : this.options.height;
-		}
-		return super.setPosition(position);
-	}
-
-	/* -------------------------------------------- */
-  /*  Form Submission                             */
-	/* -------------------------------------------- */
-	/** @inheritdoc */
-	_getSubmitData(updateData={}) {
-		// Create the expanded update data object
-		const fd = new FormDataExtended(this.form, {editors: this.editors});
-		let data = fd.toObject();
-		if ( updateData ) data = mergeObject(data, updateData);
-		else data = expandObject(data);
-
-		// Handle rolls array
-		data.data.rolls = Object.values(data.data.rolls || []);
-		let rolls = Object.entries(data.data?.rolls || []);
-		for (let [key, roll] of rolls){
-			if ( roll ) roll.parts = Object.values(roll?.parts || {}).map(d => [d[0] || "", d[1] || ""]);
-			if ( roll ) roll.key = roll.type + key;
-		}
-		// Return the flattened submission data
-		return flattenObject(data);
-	}
-
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	activateListeners(html) {
-		super.activateListeners(html);
-		if ( this.isEditable ) {
-			html.find(".rolls-control").click(this._onRollsControl.bind(this));
-			html.find(".parts-control").click(this._onPartsControl.bind(this));
-			html.find('.trait-selector').click(this._onConfigureTraits.bind(this));
-			html.find(".effect-control").click(ev => {
-				if ( this.item.isOwned ) return ui.notifications.warn("Alteração de Efeitos em itens possuidos por Personagens não é suportada atualmente.")
-				onManageActiveEffect(ev, this.item)
-			});
-		}
-		html.mousemove(ev => this._moveTooltips(ev));
 	}
 
 	/* -------------------------------------------- */
@@ -210,9 +371,9 @@ export default class ItemSheetT20 extends ItemSheet {
 		if ( a.classList.contains("add-part") && a.dataset.rollId ) {
 			await this._onSubmit(event);  // Submit any unsaved changes
 			const key = a.dataset.rollId;
-			const rolls = foundry.utils.deepClone(this.item.data.data.rolls);
+			const rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls[key].parts = rolls[key].parts.concat([["",""]]);
-			return this.item.update({ [`data.rolls`]: rolls });
+			return this.item.update({ [`system.rolls`]: rolls });
 		}
 
 		// Remove a damage component
@@ -220,21 +381,21 @@ export default class ItemSheetT20 extends ItemSheet {
 			await this._onSubmit(event);  // Submit any unsaved changes
 			const key = a.dataset.rollId;
 			const li = a.closest(".roll-part");
-			const rolls = foundry.utils.deepClone(this.item.data.data.rolls);
+			const rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls[key].parts.splice(Number(li.dataset.rollPart), 1);
-			return this.item.update({ [`data.rolls`]: rolls });
+			return this.item.update({ [`system.rolls`]: rolls });
 		}
 	}
 
 	async _onRollsControl(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
-		let itemData = foundry.utils.deepClone(this.item.data.data);
+		let itemData = foundry.utils.deepClone(this.item.system);
 		// Add new roll component
 		if ( a.classList.contains("add-roll") ) {
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			let rolltype = a.dataset.rollType;
-			let roll = foundry.utils.deepClone(this.item.data.data.rolls);
+			let roll = foundry.utils.deepClone(this.item.system.rolls);
 			let r = {};
 			r.parts = [["", ""]];
 			r.name = rolltype.capitalize();
@@ -242,17 +403,72 @@ export default class ItemSheetT20 extends ItemSheet {
 			r.key = "ataque";
 			if( rolltype == "ataque" ) r.versatil = "";
 			roll.push(r);
-			return this.item.update({[`data.rolls`]:roll});
+			return this.item.update({[`system.rolls`]:roll});
 		}
 
 		// Remove a roll component
 		if ( a.classList.contains("delete-roll") && a.dataset.rollId ) {
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			const rolltype = a.dataset.rollType;
-			let rolls = foundry.utils.deepClone(this.item.data.data.rolls);
+			let rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls.splice(Number(a.dataset.rollId), 1);
-			return this.item.update({[`data.rolls`]:rolls});
+			return this.item.update({[`system.rolls`]:rolls});
 		}
+	}
+
+	/* -------------------------------------------- */
+
+	async _onProgressionControl(event){
+		event.preventDefault();
+		const a = event.currentTarget;
+		let progression = deepClone(this.item.system.progression) ?? [];
+		let action = a.dataset.action;
+		// Add a progression component
+		if ( action == "create" ) {
+			progression.push({
+				isChoices: false,
+				numChoices: 0,
+				list: []
+			});
+		}
+		
+		// Remove a progression component
+		if ( action == "delete" ) {
+			console.log(a);
+			progression.splice(Number(a.dataset.index), 1);
+		}
+
+		console.log(progression);
+		return this.item.update({[`system.progression`]:progression});
+	}
+
+	async _onProgressionOptionControl(event){
+		event.preventDefault();
+		const a = event.currentTarget;
+		let progression = deepClone(this.item.system.progression) ?? [];
+		let action = a.dataset.action;
+		let pIndex = Number(a.dataset.pIndex);
+		let oIndex = Number(a.dataset.oIndex);
+		console.log(a);
+		console.log(pIndex);
+		console.log(oIndex);
+		// Add a progression component
+		if ( action == "create" && pIndex >= 0) {
+			progression[pIndex].list.push({
+				type: '', //attribute || item
+				path: '', // 
+				value: '', // UUID || VALUE
+				selected: false
+			});
+		}
+		
+		// Remove a progression component
+		if ( action == "delete" ) {
+			console.log(a);
+			progression[pIndex].list.splice(Number(oIndex), 1);
+		}
+		console.log(progression);
+		return this.item.update({[`system.progression`]:progression});
 	}
 
 	/* -------------------------------------------- */
@@ -262,7 +478,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	 * @param {Event} event   The click event which originated the selection
 	 * @private
 	 */
-		_onConfigureTraits(event) {
+	_onConfigureTraits(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
 		const label = a.parentElement;
@@ -276,7 +492,7 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		switch(a.dataset.options) {
 			case 'pericias':
-				const skills = this.item.data.data.pericias;
+				const skills = this.item.system.pericias;
 				const choiceSet = skills.escolhas && skills.escolhas.length ? skills.escolhas : Object.keys(CONFIG.T20.pericias);
 				options.choices = Object.fromEntries(Object.entries(CONFIG.T20.pericias).filter(skill => choiceSet.includes(skill[0])));
 				options.allowCustom = true;
@@ -287,42 +503,34 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		new TraitSelector(this.item, options).render(true);
 	}
+	
 	/* -------------------------------------------- */
 
-	_moveTooltips(event) {
-		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
-	}
-
-	/* -------------------------------------------- */
-
+	/**
+	 * Replicate the spell as a consumable scroll item.
+	 * @param {Event} event   The click event which originated the selection
+	 * @private
+	 */
 	_createScroll(){
 		let itemData = {};
-		itemData.data = deepClone( this.object.data.data );
+		itemData.data = deepClone( this.object.system );
 		itemData.type = "consumivel";
-		itemData.name = `Pergaminho de ${this.object.name}`;
+		itemData.name = game.i18n.format('T20.ConsumableSpellName',{
+			item: game.i18n.localize('T20.ConsumableSubtypeScroll'),
+			name:this.object.name
+		}),
 		itemData.img = "icons/sundries/scrolls/scroll-bound-black-tan.webp",
 		itemData.data.ativacao.custo = 0; 
 		itemData.data.tipo = "scroll";
-		this.actor.createEmbeddedDocuments("Item", [itemData]);
-		if( this.actor.type == "character" ){
-			let msg = `${this.actor.name} criou ${itemData.name}`;
-			ChatMessage.create({content:msg});
+		if( this.actor ){
+			this.actor.createEmbeddedDocuments("Item", [itemData]);
+			if( this.actor.type == "character" ){
+				let msg = game.i18n.format('T20.ConsumableCreated', {actor:this.actor.name, name:itemData.name} );
+				ChatMessage.create({content:msg});
+			}
+		} else {
+			ItemT20.create(itemData);
 		}
 	}
 
-	/* -------------------------------------------- */
-
-	/** @override */
-	_getHeaderButtons() {
-		let buttons = super._getHeaderButtons();
-		if ( this.object.type == "magia" && ( this.actor?.getFlag("tormenta20","createScroll") || game.user.isGM ) ) {
-			buttons.unshift({
-				label: 'Criar Pergaminho',
-				class: "create-scroll",
-				icon: "fas fa-scroll",
-				onclick: () => this._createScroll()
-			});
-		}
-		return buttons;
-	}
 }

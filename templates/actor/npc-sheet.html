@@ -1,487 +1,97 @@
 <form class="tormenta20 npc" autocomplete="off">
+	{{#if (eq documentName 'Actor' ) }}
+	{{else if (eq documentName 'Item' ) }}
+	{{else if (eq documentName 'ActiveEffect' ) }}
+	{{/if}}
+	
 	{{!-- Sheet Tab Navigation --}}
-	<nav class="sheet-tabs tabs primary" data-group="primary">
-		<label><i class="fas fa-clipboard-list"></i> <a class="item" data-tab="statblock">Bloco</a></label>
-		<label><i class="fas fa-dice-d20"></i> <a class="item" data-tab="attributes">Ficha</a></label>
-		<label><i class="fas fa-address-card"></i> <a class="item" data-tab="description">Biografia</a></label>
-		<label><i class="fas fa-bahai"></i> <a class="item" data-tab="efeitos" title="Efeitos">Efeitos</a></label>
-		<label style="flex:0"><a class="item" id="configure-actor" title="Configurar"><i class="fas fa-cogs"></i></a></label>
-	</nav>
-
+	{{> "systems/tormenta20/templates/partials/nav-bar.html"}}
 
 	{{!-- Sheet Body --}}
-	<section class="sheet-body">
-		{{!-- Sheet Tab --}}
-		<div class="tab attributes" data-group="primary" data-tab="attributes">
-			<div class="flexrow title-row">
-				<input name="name" class="npc-name" type="text" value="{{actor.name}}" data-dtype="String" placeholder="Nome" />
-				<aside class="text-right flexrow">
-					<h2><label>ND</label></h2>
-					<input type="text" class="npc-nd" name="data.detalhes.nd" value="{{data.detalhes.nd}}" >
-				</aside>
-			</div>
-			<div class="flexrow">
-				<label style="white-space:nowrap">Tipo de Criatura: </label>
-				<select class="selectAtr" name="data.detalhes.tipo">
-					{{#select data.detalhes.tipo}}
-					{{#each config.creatureTypes as |label size|}}
-					<option value="{{size}}">{{label}}</option>
-					{{/each}}
-					{{/select}}
-				</select>
-				<input type="text" name="data.detalhes.raca" value="{{data.detalhes.raca}}" Title="Raça" class="small">
-				<input type="text" name="data.attributes.nivel.value" value="{{data.attributes.nivel.value}}" Title="Nível" class="small">
-			</div>
+	<section class="sheet-body primary">
 
-			<hr>
+		{{!-- Statblock Tab --}}
+		<div class="tab statblock flexcol " data-group="primary" data-tab="statblock">
+			{{> "systems/tormenta20/templates/actor/parts/statblock.html"}}
+		</div>
 
+		{{!-- Attributes Tab --}}
+		<div class="tab attributes flexcol " data-group="primary" data-tab="attributes">
+			{{#if isReformed }}
+			<a class="toggleNPCSheet" style="align-self: center;flex:0 0 30px">Seguir o Guia de Construção de Ameaças <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+			{{/if}}
+			{{!-- Sheet Header --}}
+			{{> "systems/tormenta20/templates/actor/parts/sheet-header-npc.html"}}
 			<nav class="sheet-tabs tabs secondary" data-group="secondary">
-				<label><i class="fas fa-stream"></i> <a class="item" data-tab="dados">Dados</a></label>
-				<label><i class="fas fa-running"></i> <a class="item" data-tab="pericias">Perícias</a></label>
-				<label><i class="fas fa-th-list"></i> <a class="item" data-tab="items">Itens</a></label>
+				<a class="item" data-tab="sheet"><i class="fa-solid fa-diagram-project"></i> {{localize "T20.Attributes"}}</a>
+				<a class="item" data-tab="skills"><i class="fa-solid fa-person-running"></i> {{localize "T20.Skills"}}</a>
+				<a class="item" data-tab="inventory"><i class="fa-solid fa-suitcase-rolling"></i> {{localize "T20.Inventory"}}</a>
+				<a class="item" data-tab="powers"><i class="fa-solid fa-bolt"></i> {{localize "T20.Powers"}}</a>
+				<a class="item" data-tab="spells"><i class="fa-solid fa-hurricane"></i> {{localize "T20.Spells"}}</a>
 			</nav>
-			<section class="sheet-body2">
-				<div class="tab dados" data-group="secondary" data-tab="dados">
-					{{!-- Abilities --}}
-					<ul class="ability-scores flexrow">
-						{{#each data.atributos as |atr key|}}
-							<li class="ability" data-item-id="{{key}}">
-								<h4 class="ability-name box-title rollable atributo-rollable">{{key}}</h4>
-								<span class="rollable atributo-rollable"><label>
-										<h1 style="border: 0!important; padding:0;">{{numberFormat atr.mod decimals=0 sign=true}}</h1>
-									</label>
-								</span>
-								<footer class="attribute-footer flexrow" style="justify-content: center;">
-									<input style="margin-bottom: 0; border: none; background: none;" title="Base" type="number" name="data.atributos.{{key}}.value" value="{{atr.value}}" min="0" placeholder="0" />
-									{{#if ../mostrarAtributoTemp}}
-										<input style="margin-bottom: 0; border: none; background: none;" title="Bônus Temporário" type="number" name="data.atributos.{{key}}.bonus" value="{{atr.bonus}}" placeholder="0" />
-									{{/if}}
-								</footer>
-							</li>
-						{{/each}}
-					</ul>
 
-					<div class="recursos">
-						<ul class="attributes flexrow">
-							<li class="attribute health">
-								<h4 class="attribute-name box-title">Pontos de Vida</h4>
-								<div class="attribute-value multiple">
-									<input name="data.attributes.pv.value" type="number" value="{{data.attributes.pv.value}}" data-dtype="Number" max="{{data.attributes.pv.max}}" placeholder="10">
-									<span class="sep">/</span>
-									<input name="data.attributes.pv.max" type="number" value="{{data.attributes.pv.max}}" data-dtype="Number" placeholder="10">
-								</div>
-								<footer class="attribute-footer">
-									<input name="data.attributes.pv.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pv.temp}}" data-dtype="Number" />
-								</footer>
-							</li>
-							<li class="attribute mana">
-								<h4 class="attribute-name box-title">Pontos de Mana</h4>
-								<div class="attribute-value multiple">
-									<input name="data.attributes.pm.value" type="number" value="{{data.attributes.pm.value}}" data-dtype="Number" max="{{data.attributes.pm.max}}" placeholder="10">
-									<span class="sep">/</span>
-									<input style="color: #191813" name="data.attributes.pm.max" type="number" value="{{data.attributes.pm.max}}" data-dtype="Number" placeholder="10">
-								</div>
-								<footer class="attribute-footer">
-									<input name="data.attributes.pm.temp" style="height: 20px;" title="Bônus Temporário" type="number" class="temphealth" placeholder="0" value="{{data.attributes.pm.temp}}" data-dtype="Number" />
-								</footer>
-							</li>
-							<li class="attribute">
-								<h4 class="attribute-name box-title">Defesa</h4>
-									<div class="attribute-value">
-										<h1 style="height:auto">{{data.attributes.defesa.value}}</h1>
-								</div>
-								<footer class="attribute-footer">
-									<div class="flexrow">
-										<select class="selectAtr" name="data.attributes.defesa.atributo" value="{{data.attributes.defesa.atributo}}">
-											{{#select data.attributes.defesa.atributo}}
-											<option value=""></option>
-											<option value="for">For</option>
-											<option value="des">Des</option>
-											<option value="con">Con</option>
-											<option value="int">Int</option>
-											<option value="sab">Sab</option>
-											<option value="car">Car</option>
-											{{/select}}
-										</select>
-										<input name="data.attributes.defesa.outros" title="Outros" type="number" class="small" placeholder="0" value="{{data.attributes.defesa.outros}}" />
-								</footer>
-							</li>
-						</ul>
-					</div>
-					<hr>
+			<section class="sheet-body secondary">
+				<div class="tab sheet" data-group="secondary" data-tab="sheet">
+					{{> "systems/tormenta20/templates/actor/parts/abilities.html"}}
+					{{!-- Header Attributes --}}
+					<ul class="attributes flexrow">
+						{{!-- HP/MP Resources --}}
+						{{> "systems/tormenta20/templates/actor/parts/resources.html"}}
+						{{!-- Defense --}}
+						{{> "systems/tormenta20/templates/actor/parts/defense.html"}}
+					</ul>
 					<div class="traits">
-						<div>
-							<label>Tamanho</label>
-							<select class="actor-size" name="data.tracos.tamanho">
-								{{#select data.tracos.tamanho}}
-								{{#each config.actorSizes as |label size|}}
-								<option value="{{size}}">{{label}}</option>
-								{{/each}}
-								{{/select}}
-							</select>
-						</div>
-						
-						<div>
-							<a class="config-button" data-action="movement" data-target="data.attributes.movement">
-								<label style="display:inline-block;">Deslocamento</label>
-							</a>
-							<ul class="trait-list">
-								{{#each movement as | move key | }}
-								<li class="speedtag {{key}}">{{move}}</li>
-								{{/each}}
-							</ul>
-						</div>
-						
-						<div>
-							<label>
-								<a class="config-button" data-action="resistance" data-target="data.tracos.resistencias">Resistências: </a>
-							</label>
-							<ul class="trait-list">
-								{{#each data.tracos.resistencias as |v k|}}
-								{{#if v.imunidade }}
-								<li class="tag {{k}}" title="Imunidade">{{k}} <i class="fas fa-fist-raised" style="float:unset;"></i></li>
-								{{else if v.vulnerabilidade }}
-								<li class="tag {{k}}" title="Vulnerabilidade">{{k}} <i class="fas fa-skull" style="float:unset;"></i></li>
-								{{else if (gt v.value 0)}}
-								<li class="tag {{k}}">{{k}} {{v.value}}</li>
-								{{/if}}
-								{{/each}}
-							</ul>
-							
-						</div>
-					
-						<div>
-							<a class="trait-selector ic" data-options="conditionTypes" data-target="data.tracos.ic">
-								<label style="display:inline-block;">Imunidades a Condições:</label>
-							</a>
-							<ul class="trait-list">
-								{{#each data.tracos.ic.selected as |v k|}}
-								<li class="tag {{k}}">{{v}}</li>
-								{{/each}}
-							</ul>
-						</div>
-					
-						<div>
-							<a class="trait-selector" data-options="senses" data-target="data.attributes.sentidos">
-								<label style="display:inline-block;">Sentidos:</label>
-							</a>
-							<ul class="trait-list">
-								{{#each senses.value as |v k|}}
-								<li class="tag {{k}}">{{v}}</li>
-								{{/each}}
-							</ul>
-						</div>
-						
-						<hr>
-						
-						{{#if enableLanguages}}
-						<div>
-							<a class="trait-selector" data-options="idiomas" data-target="data.tracos.idiomas">
-								<label style="display:inline-block;">Idiomas</label>
-							</a>
-							<ul class="trait-list">
-								{{#each data.tracos.idiomas.selected as |v k|}}
-								<li class="tag {{k}}">{{v}}</li>
-								{{/each}}
-							</ul>
-						</div>
-						{{/if}}
-						
-						<h4>Linhas descritivas</h2>
-						<div>
-							<label>Resistências:</label>
-							<input type="text" name="data.detalhes.resistencias" value="{{data.detalhes.resistencias}}" placeholder="Resistências"/>
-						</div>
-						<div>
-							<label>Equipamentos:</label>
-							<input type="text" name="data.detalhes.equipamento" value="{{data.detalhes.equipamento}}">
-						</div>
-						<div>
-							<label>Tesouro:</label>
-							<input type="text" name="data.detalhes.tesouro" value="{{data.detalhes.tesouro}}">
-						</div>
+						{{> "systems/tormenta20/templates/actor/parts/traits.html"}}
+					</div>
+					<div class="traits">
+						<label>Linhas descritivas</label>
+						<label>{{localize 'T20.Resistances'}}</label>
+						<input type="text" name="system.detalhes.resistencias" value="{{system.detalhes.resistencias}}" placeholder="{{localize 'T20.Resistances'}}"/>
+						<label>{{localize 'T20.Equipments'}}</label>
+						<input type="text" name="system.detalhes.equipamento" value="{{system.detalhes.equipamento}}" placeholder="{{localize 'T20.Equipments'}}"/>
+						<label>{{localize 'T20.Treasure'}}</label>
+						<input type="text" name="system.detalhes.tesouro" value="{{system.detalhes.tesouro}}" placeholder="{{localize 'T20.Treasure'}}"/>
 					</div>
 				</div>
-				<div class="tab pericias" data-group="secondary" data-tab="pericias">
-					{{> "systems/tormenta20/templates/actor/parts/actor-skills.html"}}
+				<div class="tab skills" data-group="secondary" data-tab="skills">
+					{{> "systems/tormenta20/templates/actor/parts/list-skills.html"}}
 				</div>
-				<div class="tab items" data-group="secondary" data-tab="items">
-					{{> "systems/tormenta20/templates/actor/parts/actor-inventory.html"}}
-					<hr>
-					<h3>Poderes</h3>
-					{{> "systems/tormenta20/templates/actor/parts/actor-powers.html"}}
-					<hr>
-					<h3>Magias</h3>
-					{{> "systems/tormenta20/templates/actor/parts/actor-spells.html"}}
+				<div class="tab inventory" data-group="secondary" data-tab="inventory">
+					<div class="inventory-list">
+						{{> "systems/tormenta20/templates/actor/parts/list-weapon.html"}}
+						{{> "systems/tormenta20/templates/actor/parts/list-equipment.html"}}
+						{{> "systems/tormenta20/templates/actor/parts/list-consumable.html"}}
+						{{> "systems/tormenta20/templates/actor/parts/list-loot.html"}}
+						{{> "systems/tormenta20/templates/actor/parts/currency.html"}}
+						{{> "systems/tormenta20/templates/actor/parts/encumbrance.html"}}
+					</div>
+				</div>
+				<div class="tab powers" data-group="secondary" data-tab="powers">
+					{{> "systems/tormenta20/templates/actor/parts/list-powers.html"}}
+				</div>
+				<div class="tab spells" data-group="secondary" data-tab="spells">
+					{{> "systems/tormenta20/templates/actor/parts/list-spells.html"}}
 				</div>
 			</section>
 		</div>
 
-		{{!-- Attributes Tab --}}
-		<div class="tab statblock" data-group="primary" data-tab="statblock">
-			<div class="flexrow title-row">
-				<h2 class="flex3">{{actor.name}}</h2>
-				<aside class="text-right flexrow">
-					<h2>
-						<label>ND</label>
-						<span>{{data.detalhes.nd}}</span>
-					</h2>
-				</aside>
-			</div>
-			<i>
-				{{lookup config.creatureTypes data.detalhes.tipo }} {{data.attributes.nivel.value}}, {{lookup config.actorSizes data.tracos.tamanho }}
-			</i>
-			
-			<hr>
-			<div class="npc-line">
-				<span class="rollable pericia-rollable skill" data-item-id="inic" data-type="padrao">
-					<label>Iniciativa: </label>
-					{{numberFormat data.pericias.inic.value sign=true}},
-				</span>
-
-				<span class="rollable pericia-rollable skill" data-item-id="perc" data-type="padrao">
-					<label>Percepção: </label>
-					{{numberFormat data.pericias.perc.value sign=true}}{{#if senses.value.length}},{{/if}}
-				</span>
-				{{#each senses.value as |v k|}}
-					{{v}}{{#if (lt (add k 1) ../senses.value.length) }},{{/if}}
-				{{/each}}
-			</div>
-			<div class="npc-line">
-				<span>
-					<label>Defesa: </label>
-					{{data.attributes.defesa.value}},
-				</span>
-
-				<span class="rollable pericia-rollable skill" data-item-id="fort" data-type="padrao">
-					<label>Fort: </label>
-					{{numberFormat data.pericias.fort.value sign=true}},
-				</span>
-
-				<span class="rollable pericia-rollable skill" data-item-id="refl" data-type="padrao">
-					<label>Ref: </label>
-					{{numberFormat data.pericias.refl.value sign=true}},
-				</span>
-
-				<span class="rollable pericia-rollable skill" data-item-id="vont" data-type="padrao">
-					<label>Von: </label>
-					{{numberFormat data.pericias.vont.value sign=true}}{{#if (or data.detalhes.resistencias)}};{{/if}} 
-				</span>
-				{{data.detalhes.resistencias}}
-			</div>
-			<div class="npc-line">
-				<label>Pontos de Vida: </label>
-				<!-- <span class="inpContentEditable" contenteditable="true" name="data.attributes.pv.value"> -->
-				<!-- </span> -->
-				{{data.attributes.pv.value}} / {{data.attributes.pv.max}} {{#if data.attributes.pv.temp}}/ {{data.attributes.pv.temp}} {{/if}}
-
-			</div>
-			<div style="font-size:14px;">
-				<a class="config-button" data-action="movement" data-target="data.attributes.movement">
-					<label>Deslocamento: </label>
-				</a>
-				<ul class="trait-list">
-					<ul class="trait-list">
-						{{#each movement as | move key | }}
-						<li class="speedtag {{key}}">{{move}}</li>
-						{{/each}}
-					</ul>
-			</div>
-			{{#if data.deslocamento.value}}
-			<div class="npc-line">
-				<label>Deslocamento (Antigo)</label>
-				{{data.deslocamento.value}}
-			</div>
-			{{/if}}
-			<hr>
-			{{#if data.attributes.pm.max}}
-			<div class="npc-line">
-				<label>Pontos de Mana: </label>
-				<!-- <span class="inpContentEditable" contenteditable="true" name="data.attributes.pm.value">{{data.attributes.pm.value}}</span> -->
-				{{data.attributes.pm.value}} / {{data.attributes.pm.max}} {{#if data.attributes.pm.temp}}/ {{data.attributes.pm.temp}} {{/if}}
-			</div>
-			{{/if}}
-			{{!-- eq, gt, gte, lt, lte, or, and --}}
-			<div>
-				<ul class="item-list listcol" style="margin: 0;">
-					{{#if (find actor.inventario.arma.items "data.propriedades.dst" false true)}}
-					<label>Corpo a Corpo: </label>
-					{{#each actor.inventario.arma.items as |item id|}}
-					{{#unless item.data.propriedades.dst}}
-					<li class="item flexrow" data-item-id="{{item._id}}">
-						<div style="flex:0 0 10px"></div>
-						<div class="item-name">
-							<span class="rollable arma-rollable" data-item-id="{{item._id}}">
-							<h4 class="item-name" style="flex: 5;">{{item.name}}
-								{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
-							</h4>
-							</span>
-						</div>
-					</li>
-					{{/unless}}
-					{{/each}}
-					{{/if}}
-					{{#if (find actor.inventario.arma.items "data.propriedades.dst" true true)}}
-					<label>À Distância: </label>
-					{{#each actor.inventario.arma.items as |item id|}}
-					{{#if item.data.propriedades.dst}}
-					<li class="item flexrow" data-item-id="{{item._id}}">
-						<div style="flex:0 0 10px"></div>
-						<div class="item-name">
-							<span class="rollable arma-rollable" data-item-id="{{item._id}}">
-							<h4 class="item-name" style="flex: 5;">{{item.name}}
-								{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
-							</h4>
-							</span>
-						</div>
-					</li>
-					{{/if}}
-					{{/each}}
-					{{/if}}
-					
-					
-					{{#if actor.poderes}}
-					{{#each actor.poderes as |item id|}}
-					<li class="item flexrow" data-item-id="{{item._id}}">
-						<div class="item-name">
-							<span class="rollable poder-rollable" data-item-id="{{item._id}}">
-								<label>{{item.name}}
-									{{#if item.labels.ativacao}}
-									({{item.labels.ativacao}}{{ift item.labels.custoPM (concat ", " item.labels.custoPM) ""}})
-									{{/if}}
-								</label>
-							</span>
-							{{#if (or (eq item.data.description.value "") item.data.description.value ) }}
-								{{{stripTags item.data.description.value}}}
-							{{else}}
-								{{{stripTags item.data.description}}}
-							{{/if}}
-						</div>
-					</li>
-					{{/each}}
-					{{/if}}
-				</ul>
-				{{#if actor.magias}}
-				<ul class="item-list" style="margin: 0;">
-					<li class="item flexrow">
-						<div class="item-name magias"><label>Magias: </label>
-							<ol class="item-list">
-							{{#each actor.magias as |circulo i|}}
-								{{#if circulo.spells}}
-								<li class="item">
-									{{i}}º —
-									<ol class="item-list">
-									{{#each circulo.spells as |m index|}}
-										<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>{{#unless @last}},{{else}}<i>;</i>{{/unless}}
-									{{/each}}
-									</ol>
-								</li>
-								{{/if}}
-							{{/each}}
-							</ol>
-							{{#each data.atributos as |atr key|}}
-								{{#if (eq key ../data.attributes.conjuracao)}}
-								CD {{add ../data.attributes.cd atr.mod}}
-								{{/if}}
-							{{/each}}
-						</div>
-					</li>
-				</ul>
-				{{/if}}
-				<hr>
-			</div>
-			<div class="flexrow text-center abl-line">
-				{{#each data.atributos as |atr key|}}
-					<span class="rollable atributo-rollable" data-item-id="{{key}}">
-						<label title="{{atr.label}} {{atr.mod}}"> {{key}}: </label> {{atr.value}}
-					</span>
-				{{/each}}
-			</div>
-			<hr>
-
-			{{#if (or (find skills "treinado" true) (find skills "outros" true) ) }}
-			<div>
-				<label>Pericias: </label>
-				{{#each actor.data.pericias as |skill key|}}
-					{{#unless (or (eq key "perc") (eq key "inic") (eq key "fort") (eq key "refl") (eq key "vont"))}}
-						{{#if (or skill.treino skill.outros) }}
-						<span class="skill rollable pericia-rollable" data-item-id="{{key}}">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
-						{{/if}}
-					{{/unless}}
-				{{/each}}
-			</div>
-			{{/if}}
-			{{#if (or actor.inventario.arma.items.length actor.inventario.equipamento.items.length actor.inventario.consumivel.items.length actor.inventario.tesouro.items.length)}}
-			<div>
-				<label>Equipamento: </label>
-				{{data.detalhes.equipamento}}
-				{{#each actor.inventario as |list s| }}
-					{{#each list.items as |item i| }}
-						{{item.name}}{{ift (gt item.data.qtd 1) (concat " " item.data.qtd) "" }}{{ift @../last "" ","}}
-					{{/each}}
-				{{/each}}
-			</div>
-			{{/if}}
-			<div class="npc-line">
-				<label>Tesouro: </label>
-				{{~#if data.detalhes.tesouro}}{{data.detalhes.tesouro}}{{else}}Nenhum{{/if~}}
-			</div>
-			{{#if (and enableLanguages data.detalhes.idiomas)}}
-			<div class="traits" style="margin:0;">
-				<a class="trait-selector" style="display:inline-block;" data-options="idiomas" data-target="data.detalhes.idiomas">
-					<label>Idiomas:</label>
-				</a>
-				<ul class="traits-list" style="display:inline-block;">
-				{{#each data.detalhes.idiomas.selected as |v k|}}
-					{{v}}{{#unless @last}},{{/unless}}
-				{{/each}}
-				</ul>
-			</div>
-			{{/if}}
-			{{#if (or data.dinheiro.to data.dinheiro.tp data.dinheiro.tc)}}
-			<div class="inventory-currency">  
-				<ul class="currency">
-				<li class="currency-header" title="Moedas">
-					<i class="fas fa-coins"></i>
-				</li>
-				<li class="currency-item" title="Platina">
-					<span>{{data.dinheiro.tl}}</span>
-					<label for="data.dinheiro.tl" class="denomination gp">tl</label>
-				</li>
-				<li class="currency-item" title="Ouro">
-					<span>{{data.dinheiro.to}}</span>
-					<label for="data.dinheiro.to" class="denomination gp">to</label>
-				</li>
-				<li class="currency-item" title="Prata">
-					{{data.dinheiro.tp}}
-					<label for="data.dinheiro.tp" class="denomination sp">t$</label>
-				</li>
-				<li class="currency-item" title="Cobre">
-					{{data.dinheiro.tc}}
-					<label for="data.dinheiro.tc" class="denomination cp">tc</label>
-				</li>
-				</ul>
-			</div>
-			{{/if}}
-		</div>
-
 		{{!-- Biography Tab --}}
-		<div class="tab biography flexrow flex-between" data-group="primary" data-tab="description">
+		<div class="tab journal flexcol " data-group="primary" data-tab="journal">
 			<div style="max-width: 220px;">
 				<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200"
 				width="200" />
 			</div>
-
-			{{editor content=data.biography.value target="data.biography.value" button=true owner=owner editable=editable}}
+	
+			{{editor system.detalhes.biography.value target="system.detalhes.biography.value" button=true owner=owner editable=editable}}
 		</div>
-
-		{{!-- Efeitos Tab --}}
-		<div class="tab efeitos" data-group="primary" data-tab="efeitos">
-			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+	
+		{{!-- Modifiers Tab --}}
+		<div class="tab modifiers" data-group="primary" data-tab="modifiers">
+			{{> "systems/tormenta20/templates/actor/parts/modifiers.html"}}
 		</div>
-		{{!-- Modificadores Tab --}}
-		<div class="tab mods" data-group="primary" data-tab="mods">
-			{{> "systems/tormenta20/templates/actor/parts/actor-modifiers.html"}}
+		{{!-- Effects Tab --}}
+		<div class="tab effects" data-group="primary" data-tab="effects">
+			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
 		</div>
 	</section>
 </form>

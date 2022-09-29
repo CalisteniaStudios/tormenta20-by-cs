@@ -2,60 +2,59 @@
 	<div class="item-properties">
 		{{#if isPhysical}}
 		<div class="form-group">
-			<label>PV</label>
-			<input type="text" name="data.pv.value" value="{{data.pv.value}}" data-dtype="Number"/>
+			<label>{{ localize "T20.HP" }}</label>
+			<input type="text" name="system.pv.value" value="{{item.system.pv.value}}" data-dtype="Number"/>
 			/
-			<input type="text" name="data.pv.max" value="{{data.pv.max}}" data-dtype="Number"/>
+			<input type="text" name="system.pv.max" value="{{item.system.pv.max}}" data-dtype="Number"/>
 		</div>
 		<div class="form-group">
-			<label>RD</label>
-			<input type="text" name="data.rd" value="{{data.rd}}" data-dtype="Number"/>
+			<label>{{ localize "T20.DR" }}</label>
+			<input type="text" name="system.rd" value="{{item.system.rd}}" data-dtype="Number"/>
 		</div>	
 		<div class="form-group">
-			<label>Quantidade</label>
-			<input type="text" name="data.qtd" value="{{data.qtd}}" data-dtype="Number"/>
+			<label>{{ localize "T20.Quantity" }}</label>
+			<input type="text" name="system.qtd" value="{{item.system.qtd}}" data-dtype="Number"/>
 		</div>
 		{{#unless (eq weightRule "espacos") }}
 		<div class="form-group">
-			<label>Peso</label>
-			<input type="text" name="data.peso" value="{{data.peso}}" data-dtype="Number"/>
+			<label>{{ localize "T20.Weight" }}</label>
+			<input type="text" name="system.peso" value="{{item.system.peso}}" data-dtype="Number"/>
 		</div>
 		{{else}}
 		<div class="form-group">
-			<label>Espaço</label>
-			<input type="text" name="data.espacos" value="{{data.espacos}}" data-dtype="Number"/>
+			<label>{{ localize "T20.Slots" }}</label>
+			<input type="text" name="system.espacos" value="{{item.system.espacos}}" data-dtype="Number"/>
 		</div>
 		{{/unless}}
 		<div class="form-group">
-			<label>Preço</label>
-			<input type="text" name="data.preco" value="{{data.preco}}" data-dtype="Number" placeholder="0" data-dtype="Number"/>
+			<label>{{ localize "T20.Price" }}</label>
+			<input type="text" name="system.preco" value="{{item.system.preco}}" data-dtype="Number" placeholder="0" data-dtype="Number"/>
 		</div>
 		{{#if isOwned}}
 		<div class="form-group">
-			<label>Carregando?
-			<input type="checkbox" name="data.carregado" value="{{data.carregado}}" {{#if data.carregado}}checked{{/if}} data-dtype="Boolean"/></label>
+			<label><label>{{ localize "T20.Carrying" }}?
+			<input type="checkbox" name="system.carregado" value="{{item.system.carregado}}" {{checked item.system.carregado}} data-dtype="Boolean"/></label>
 		</div>
 		{{/if}}
 		{{#if (and (eq item.type "tesouro") (eq weightRule "espacos") )}}
 		<div class="form-group">
-			<label>Recipiente?
-			<input type="checkbox" name="data.container" value="{{data.container}}" {{#if data.container}}checked{{/if}} data-dtype="Boolean"/></label>
+			<label><label>{{ localize "T20.Recipient" }}?
+			<input type="checkbox" name="system.container" value="{{item.system.container}}" {checked item.system.container}} data-dtype="Boolean"/></label>
 		</div>
 		{{/if}}
 		{{/if}}
 		<ul class="properties-list">
 			{{#if (eq item.type "arma")}}
 			{{#each config.weaponProperties as |name prop|}}
-			{{#if (lookup ../data.propriedades prop)}}<li>{{name}}{{#if (eq prop "arremesso")}} ({{../data.alcance}}){{/if}}</li>{{/if}}
-			<!-- <input type="checkbox" name="data.propriedades.{{prop}}" {{checked (lookup ../data.propriedades prop)}}/> {{ name }} -->
+			{{#if (lookup ../item.system.propriedades prop)}}<li>{{ localize name}}{{#if (eq prop "arremesso")}} ({{../item.system.alcance}}){{/if}}</li>{{/if}}
 			{{/each}}
 			{{/if}}
-			{{#if (eq item.type "equip")}}
-			{{#if item.data.armadura.value}}<li>Defesa: {{item.data.armadura.value}}</li>{{/if}}
-			{{#if item.data.armadura.penalidade}}<li>Penalidade: {{item.data.armadura.penalidade}}</li>{{/if}}
+			{{#if (or (eq item.type "equipamento") (eq item.type "equip"))}}
+			{{#if item.system.armadura.value}}<li>Defesa: {{item.system.armadura.value}}</li>{{/if}}
+			{{#if item.system.armadura.penalidade}}<li>Penalidade: {{item.system.armadura.penalidade}}</li>{{/if}}
 			{{/if}}
 			{{#if (eq item.type "poder")}}
-			<li style="text-transform: capitalize;"><strong>{{item.data.tipo}}</strong>{{#if item.data.subtipo}}: {{item.data.subtipo}}{{/if}}</li>
+			<li style="text-transform: capitalize;"><strong>{{item.system.tipo}}</strong>{{#if item.system.subtipo}}: {{item.system.subtipo}}{{/if}}</li>
 			{{/if}}
 			{{#if (or (eq item.type "poder") (eq item.type "magia"))}}
 			{{#each itemProperties}}
@@ -66,10 +65,8 @@
 	</div>
 	
 	<div class="item-description">
-		{{#if (or (eq data.description.value "") data.description.value ) }}
-		{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
-		{{else}}
-		{{editor content=data.description target="data.description.value" button=true owner=owner editable=editable}}
+		{{#if (or (eq item.system.description.value "") item.system.description.value ) }}
+		{{editor item.system.description.value target="system.description.value" button=true owner=owner editable=editable}}
 		{{/if}}
 	</div>
 </div>

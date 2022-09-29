@@ -1,28 +1,28 @@
 <form autocomplete="off">
 	<p class="notes">Configure o deslocamento e deslocamentos especiais dessa criatura.</p>
 	<div class="form-group">
-		<label>Deslocamento</label>
-		<input name="data.attributes.movement.walk" type="number" min="0" step="1.5" value="{{movement.walk}}"/>
+		<label>{{ localize 'T20.MovementWalk'}}</label>
+		<input name="system.attributes.movement.walk" type="number" min="0" step="1.5" value="{{movement.walk}}"/>
 	</div>
 	<div class="form-group">
-		<label>Escalar</label>
-		<input name="data.attributes.movement.climb" type="number" min="0" step="1.5" value="{{movement.climb}}"/>
+		<label>{{ localize 'T20.MovementClimb'}}</label>
+		<input name="system.attributes.movement.climb" type="number" min="0" step="1.5" value="{{movement.climb}}"/>
 	</div>
 	<div class="form-group">
-		<label>Escavar</label>
-		<input name="data.attributes.movement.burrow" type="number" min="0" step="1.5" value="{{movement.burrow}}"/>
+		<label>{{ localize 'T20.MovementBurrow'}}</label>
+		<input name="system.attributes.movement.burrow" type="number" min="0" step="1.5" value="{{movement.burrow}}"/>
 	</div>
 	<div class="form-group">
-		<label>Natação</label>
-		<input name="data.attributes.movement.swim" type="number" min="0" step="1.5" value="{{movement.swim}}"/>
+		<label>{{ localize 'T20.MovementSwim'}}</label>
+		<input name="system.attributes.movement.swim" type="number" min="0" step="1.5" value="{{movement.swim}}"/>
 	</div>
 	<div class="form-group">
-		<label>Voo</label>
-		<input name="data.attributes.movement.fly" type="number" min="0" step="1.5" value="{{movement.fly}}"/>
+		<label>{{ localize 'T20.MovementFly'}}</label>
+		<input name="system.attributes.movement.fly" type="number" min="0" step="1.5" value="{{movement.fly}}"/>
 	</div>
 	<div class="form-group">
-		<label>Pairar</label>
-		<input name="data.attributes.movement.hover" type="checkbox" {{checked movement.hover}}/>
+		<label>{{ localize 'T20.MovementHover'}}</label>
+		<input name="system.attributes.movement.hover" type="checkbox" {{checked movement.hover}}/>
 	</div>
-	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> Enviar</button>
+	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{ localize 'T20.Submit'}}</button>
 </form>

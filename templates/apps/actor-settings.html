@@ -1,57 +1,52 @@
 <form autocomplete="off" onsubmit="event.preventDefault();">
 	{{#if (eq object.type "character")}}
-	<h2>Cabeçalho</h2>
+	<h2>{{ localize 'T20.Abilities'}}</h2>
 	<div class="form-group">
-		<label>Mostrar campo "Divindade"</label>
-		<input type="checkbox" name="flags.tormenta20.sheet.mostrarDivindade" data-dtype="Boolean" {{checked object.data.flags.tormenta20.sheet.mostrarDivindade}}>
-	</div>
-	<h2>Atributos</h2>
-	<div class="form-group">
-		<label>Mostrar campo "Bônus Temporário"</label>
-		<input type="checkbox" name="flags.tormenta20.sheet.mostrarAtributoTemp" data-dtype="Boolean" {{checked object.data.flags.tormenta20.sheet.mostrarAtributoTemp}}>
-	</div>
-	<h2>Itens</h2>
-	<div class="form-group">
-		<label>Mostrar botão de edição</label>
-		<input type="checkbox" name="flags.tormenta20.sheet.botaoEditarItens" data-dtype="Boolean" {{checked object.data.flags.tormenta20.sheet.botaoEditarItens}}>
+		<label>{{ localize 'T20.ShowTemporaryAbilityBonus'}}</label>
+		<input type="checkbox" name="flags.tormenta20.sheet.mostrarAtributoTemp" data-dtype="Boolean" {{checked object.flags.tormenta20.sheet.mostrarAtributoTemp}}>
 	</div>
 	<div class="form-group">
-		<label>Mostrar campo Platina</label>
-		<input type="checkbox" name="flags.tormenta20.sheet.mostrarPlatina" data-dtype="Boolean" {{checked object.data.flags.tormenta20.sheet.mostrarPlatina}}>
+		<label>{{ localize 'T20.ShowResources'}}</label>
+		<input type="checkbox" name="flags.tormenta20.sheet.showResources" data-dtype="Boolean" {{checked object.flags.tormenta20.sheet.showResources}}>
 	</div>
-	<h2>Perícias</h2>
+	<h2>{{ localize 'T20.Items'}}</h2>
 	<div class="form-group">
-		<label>Habilitar edição de perícias</label>
-		<input type="checkbox" name="flags.tormenta20.sheet.editarPericias" data-dtype="Boolean" {{checked object.data.flags.tormenta20.sheet.editarPericias}}>
+		<label>{{ localize 'T20.ShowCurrencyPlatinum'}}</label>
+		<input type="checkbox" name="flags.tormenta20.sheet.mostrarPlatina" data-dtype="Boolean" {{checked object.flags.tormenta20.sheet.mostrarPlatina}}>
 	</div>
+	<h2>{{ localize 'T20.Skills'}}</h2>
 	<div class="form-group">
-		<label>Mostrar bônus de treinamento</label>
-		<input type="checkbox" name="flags.tormenta20.sheet.mostrarTreino" data-dtype="Boolean" {{checked object.data.flags.tormenta20.sheet.mostrarTreino}}>
+		<label>{{ localize 'T20.ShowProficiencyBônus'}}</label>
+		<input type="checkbox" name="flags.tormenta20.sheet.mostrarTreino" data-dtype="Boolean" {{checked object.flags.tormenta20.sheet.mostrarTreino}}>
 	</div>
-	<h2>Magias</h2>
+	<h2>{{ localize 'T20.Spells'}}</h2>
 	<div class="form-group">
-		<label>Preparar magias (para magos)</label>
-		<input type="checkbox" name="flags.tormenta20.mago" data-dtype="Boolean" {{checked object.data.flags.tormenta20.mago}}>
-	</div>
-	<div class="form-group">
-		<label>Preparar Poções</label>
-		<input type="checkbox" name="flags.tormenta20.createPotion" data-dtype="Boolean" {{checked object.data.flags.tormenta20.createPotion}}>
+		<label>{{ localize 'T20.ShowPrepareSpells'}}</label>
+		<input type="checkbox" name="flags.tormenta20.mago" data-dtype="Boolean" {{checked object.flags.tormenta20.mago}}>
 	</div>
 	<div class="form-group">
-		<label>Escrever Pergaminhos</label>
-		<input type="checkbox" name="flags.tormenta20.createScroll" data-dtype="Boolean" {{checked object.data.flags.tormenta20.createScroll}}>
+		<label>{{ localize 'T20.ShowBrewPotion'}}</label>
+		<input type="checkbox" name="flags.tormenta20.createPotion" data-dtype="Boolean" {{checked object.flags.tormenta20.createPotion}}>
+	</div>
+	<div class="form-group">
+		<label>{{ localize 'T20.ShowWriteScroll'}}</label>
+		<input type="checkbox" name="flags.tormenta20.createScroll" data-dtype="Boolean" {{checked object.flags.tormenta20.createScroll}}>
 	</div>
 	{{/if}}
 	{{#if (eq object.type "npc")}}
 	<div class="form-group">
-		<label>Mostrar CD:</label>
-		<input type="checkbox" name="flags.tormenta20.showCD" data-dtype="Boolean" {{checked object.data.flags.tormenta20.showCD}}>
+		<label>{{ localize 'T20.ShowDC'}}:</label>
+		<input type="checkbox" name="flags.tormenta20.showCD" data-dtype="Boolean" {{checked object.flags.tormenta20.showCD}}>
 	</div>
 	<div class="form-group">
-		<label>Mostrar RD:</label>
-		<input type="checkbox" name="flags.tormenta20.showRD" data-dtype="Boolean" {{checked object.data.flags.tormenta20.showRD}}>
+		<label>{{ localize 'T20.ShowRD'}}:</label>
+		<input type="checkbox" name="flags.tormenta20.showRD" data-dtype="Boolean" {{checked object.flags.tormenta20.showRD}}>
+	</div>
+	<div class="form-group">
+		<label>{{ localize 'T20.MonstrousReform'}}:</label>
+		<input type="checkbox" name="flags.tormenta20.npcReform" data-dtype="Boolean" {{checked object.flags.tormenta20.npcReform}}>
 	</div>
 	{{/if}}
 	
-	<button type="submit" name="submit">Submit</button>
+	<button type="submit" name="submit">{{ localize 'T20.Submit'}}</button>
 </form>

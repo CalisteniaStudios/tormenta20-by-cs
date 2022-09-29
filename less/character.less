@@ -1,0 +1,403 @@
+@import "./variables.less";
+
+/* ----------------------------------------- */
+/*  Basic Structure                          */
+/* ----------------------------------------- */
+.tormenta20.sheet.actor.character {
+  min-width: 720px;
+  min-height: 680px;
+
+  /* ----------------------------------------- */
+  /*  Sheet Header                             */
+  /* ----------------------------------------- */
+  
+  .sheet-header {
+
+    // Character Level
+    .charlevel {
+      flex: 0 0 20px;
+      color: @colorDark;
+      white-space: nowrap;
+      height: @actorNameHeight;
+      align-items: center;
+    }
+    .level {
+      flex: 0 0 76px;
+      // font-size: 2em;
+      padding: 3px 6px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: @colorFaint;
+      line-height: 1;
+    }
+
+    // Experience Tracking
+    .experience {
+      margin-bottom: -10px;
+      align-items: center;
+      // font-size: 18px;
+      input {
+        height: auto;
+      }
+      span.max-xp {
+        color: @colorTan;
+        flex: none;
+        margin: 0px 3px;
+      }
+    }
+    .xpbar {
+      flex: 0 0 8px;
+      width: 100%;
+      margin-bottom: 15px;
+      background: @colorTan;
+      border: 1px solid #000;
+      border-radius: 3px;
+      .bar {
+        height: 6px;
+        display: block;
+        background: #5ee192;
+        border-radius: 2px;
+      }
+    }
+
+    // Header Attributes
+    .attributes {
+      a.rest {
+        border: 1px solid @colorBeige;
+        border-radius: 2px;
+        background: rgba(0, 0, 0, 0.05);
+        padding: 0 3px;
+        margin: 0 3px;
+      }
+    }
+    .summary .char-class {
+      flex: 0.2 1 auto;
+      white-space: nowrap;
+      align-items: center;
+      .item-control {
+        flex: 0 0 auto;
+      }
+    }
+  }
+  form.tabbed {
+    // Character Profile image (larger)
+    img.profile {
+      flex: 0 0 160px;
+      max-width: 160px;
+      height: 160px;
+    }
+
+    .sheet-header {
+      .attributes {
+        .attribute {
+          height: 80px;
+          // Defense panel
+          &.defense {
+            .attribute-value {
+              h1 {
+                font-size: 22px;
+                border: none;
+                margin: none;
+              }
+            }
+            
+            // background-color: @colorFaint;
+          }
+        }
+      }
+    }
+  }
+  form.base {
+    margin-top: -5px;
+    
+    img.profile {
+      flex: 0 0 100px;
+      max-width: 100px;
+      height: 100px;
+    }
+
+    .sheet-header {
+      flex: 0 0 100%
+    }
+
+    nav {
+      align-content: center;
+      text-align: center;
+      margin: 0 0 -1px 0;
+    }
+
+    ul.attributes {
+      // Defense panel
+      .attribute {
+        &.defense {
+          h4 {
+            text-transform: uppercase;
+          }
+          .attribute-value {
+            height: 38px;
+            h1 {
+              font-size: 28px;
+              border: none;
+              margin: none;
+            }
+          }
+          height: 90px;
+          background-color: @colorFaint;
+        }
+      }
+    }
+  }
+  /* ----------------------------------------- */
+  /*  Sheet Body                               */
+  /* ----------------------------------------- */
+
+  form.base {
+    .attributes-left {
+      flex: 0 0 1;
+    }
+    .attributes-right {
+      min-width: 330px;
+      flex: 0 0 40%;
+    }
+    
+    .ability-scores {
+      flex: 0 0 auto;
+      .ability {
+        border-right: @borderGroove;
+      }
+    }
+  }
+
+  form.tabbed {
+    .attributes-left {
+      flex: 0 0 85px;
+      .ability {
+        border-bottom: @borderGroove;
+      }
+      
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: -3px;
+      }
+    }
+
+    .attributes-mid {
+      flex: 0 0 350px;
+    }
+    
+    .item-list {
+      .item-def {
+        flex:2;
+      }
+    }
+  }
+  
+  // Custom Resources
+  .resource .attribute-value {
+    > input {
+      flex: 0 0 25%;
+    }
+    label.recharge {
+      height: 32px;
+      position: relative;
+      font-family: "Signika", sans-serif;
+      // font-size: 11px;
+      text-align: center;
+      color: @colorOlive;
+      align-items: center;
+      input[type="checkbox"] {
+        flex-basis: 14px;
+        height: 14px;
+        width: 14px;
+        margin: 0;
+        top: -6px;
+      }
+    }
+  }
+
+  ul.skills-list {
+    li.skill {
+      padding: 3px;
+      .item-name {
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        .rollable {
+          min-width: 20%;
+        }
+        input {
+          text-align: left;
+        }
+      }
+      h4 {
+        flex: 1px;
+        margin: 0;
+        // font-size: 13px;
+      }
+    }
+  }
+
+  .item-detail.player-class {
+    flex: 0 0 180px;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  /* ----------------------------------------- */
+  /*  Item Controls                            */
+  /* ----------------------------------------- */
+
+  .inventory-list {
+    .item-header {
+      &:last-child .item-controls {
+        flex: 0 0 100%;
+      }
+    }
+    // .item-controls {
+      
+    //   .item-toggle {
+    //     color: @colorBeige;
+    //     &.active {
+    //       color: @colorOlive;
+    //     }
+    //     &.fixed {
+    //       color: @colorCrimson;
+    //       &:hover {
+    //         text-shadow: none;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+
+  /* ----------------------------------------- */
+  /*  Journal                                  */
+  /* ----------------------------------------- */
+
+  .tox {
+    min-height: 8rem;
+
+    .tox-editor-header{
+      border-bottom: 1px solid var(--faint-color);
+      min-width: max-content;
+      background: unset;
+    }
+    .tox-toolbar__group {
+      padding: 0;
+    }
+    .tox-tbtn {
+      width: 24px;
+      height: 24px;
+    }
+    .tox-tbtn--select{
+      width: auto;
+    }
+    .tox-tbtn--bespoke {
+      width: 90px;
+      font-size: 12px;
+    }
+  }
+
+  .tab.journal {
+    align-items: flex-start;
+    flex-direction: row;
+    font-size: 13px;
+    padding: 1rem .75rem 1rem 1rem;
+    // height: 75%;
+    // overflow: auto;
+
+    .right-notes,
+    .left-notes {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .left-notes {
+      margin-right: 1rem;
+    }
+    article {
+      background: rgba(0,0,0,.05);
+      border-radius: 5px;
+      padding: 8px;
+      margin-bottom: 1rem;
+      position: relative;
+      flex: 1;
+
+      .section-titles {
+        font-weight: 700;
+        border-bottom: 1px solid @colorBeige;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+
+        input {
+          height: 16px;
+          width: calc(100% - 26px);
+          font-weight: 700;
+          border: 0;
+          background: transparent;
+          margin: 0;
+        }
+      }
+
+      
+      &:hover .editor .editor-edit {
+        display: block;
+      }
+
+      .editor {
+        min-height: 50px;
+        padding: 0;
+        position: static;
+
+        
+        .editor-edit {
+          background: transparent;
+          display: none;
+          font-size: 1.25em;
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          padding: 1px 2px;
+          background: none;
+          border: none;
+          box-shadow: none;
+        }
+
+        .editor-content {
+          min-height: 50px;
+          padding: 0;
+          position: static;
+        }
+      }
+
+      &.journal-notes .editor {
+        min-height: 168px;
+      }
+    }
+  }
+
+  .characteristics {
+    flex: 0 0 180px;
+    height: 100%;
+    padding: 0 3px 3px;
+    label {
+      flex: 0 0 20px;
+      .modesto();
+      // font-size: 16px;
+      font-weight: normal;
+      line-height: 20px;
+      text-align: center;
+    }
+    textarea {
+      font-family: "Signika", serif;
+      // font-size: 13px;
+      border: 1px solid @colorFaint;
+      resize: none;
+    }
+  }
+
+  .journal {
+    max-width: calc(100% - 0px);
+  }
+}

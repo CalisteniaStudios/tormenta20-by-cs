@@ -1,3 +1,4 @@
+import {applyOnUseEffects} from "./ability-use.js";
 /**
  * A specialized Dialog subclass for ability usage
  * @type {Dialog}
@@ -5,7 +6,7 @@
 export default class AbilityUseDialog extends Dialog {
 	constructor(item, dialogData={}, options={}) {
 		super(dialogData, options);
-		this.options.classes = ["tormenta20", "dialog"];
+		this.options.classes = ["tormenta20", "ability-use-form"];
 
 		/**
 		 * Store a reference to the Item document being used
@@ -22,13 +23,18 @@ export default class AbilityUseDialog extends Dialog {
 		html.find('.numCtrl').click(this.numberControl.bind(this));
 	}
 
-
 	numberControl(ev){
 		ev.preventDefault();
-		let campo = $(ev.target).siblings('.numInp')[0];
-		if($(ev.target).val() === "+"){
+		let target;
+		if ( ev.target.tagName == "I" ) {
+			target = $(ev.target).parent('.numCtrl');
+		} else {
+			target = ev.target;
+		}
+		let campo = $(target).siblings('.numInp')[0];
+		if($(target).val() === "+"){
 			campo.value =  parseInt(campo.value) + parseInt($(campo).prop('step'));
-		} else if($(ev.target).val() === "-"){
+		} else if($(target).val() === "-"){
 			campo.value = parseInt(campo.value) - parseInt($(campo).prop('step'));
 		}
 	}
@@ -44,75 +50,84 @@ export default class AbilityUseDialog extends Dialog {
 	 * @return {Promise}
 	 */
 	 static async create(item) {
-		if ( !item.isOwned ) throw new Error("Um item precisa pertencer a um personagem para ser usado.");
-
+		if ( !item.isOwned ) ui.notifications.error(game.i18n.localize("T20.ActionWarningItemNotOwned"));
 		// Prepare data
-		const actorData = item.actor.data.data;
-		const itemData = item.data.data;
-		const pmCost = item.data.data?.custo > 0 ? true : false;
-		// let aprimoramentos = itemData?.aprimoramentos ?? [];
+		const actorData = item.actor.system;
+		const itemData = item.system;
+		const pmCost = itemData?.custo > 0 ? true : false;
 		let aprimoramentos = [];
 		let apdeap = {};
 		
+		function filterAE( ae , keys=[] , tags=[] ){
+			const name = item.name;
+			let items = ae.getFlag('tormenta20','items');
+			items = items ? items.split(';').map( i => i.trim()) : [];
+			if ( !isEmpty(items) && !items.includes(name) ) return false;
+			for ( let k of keys ){
+				if ( !ae.flags?.tormenta20 || !ae.flags?.tormenta20[k] ) return false;
+			}
+			return true;
+		}
+		
+		const relate = {
+			atributo:'ability', pericia:'skill',
+			arma:'attack', magia:'spell',
+			poder:'power', consumivel:'consumable',
+		}
+		let utype = '';
 		switch (item.type){
-			case "arma":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && (ae.data.flags.tormenta20.attack ) );
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.self )));
-				// add self  || ae.data.flags.tormenta20.self
-				
-				aprimoramentos.forEach(function(ap){
-					let iid = ap.data.origin.split(".")[3] || "";
-					if(item.id && iid && item.id != iid){
-						apdeap[iid] = item.actor.items.get(iid).effects.filter(ownit => ownit.data.flags.tormenta20.onuse && ownit.data.flags.tormenta20.self);
-					}
-				});
-				break;
 			case "atributo":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ae.data.flags.tormenta20.ability );
-				break;
 			case "pericia":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ae.data.flags.tormenta20.skill );
+				utype = relate[item.type];
+				aprimoramentos = [
+					...item.actor.effects.filter(ae => filterAE( ae , ['onuse', utype]) ),
+				];
+				item.validOnUseEffects = aprimoramentos;
 				break;
+			case "arma":
 			case "magia":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.spell ));
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.self )));
-				break;
 			case "poder":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.power ) );
-				aprimoramentos = aprimoramentos.concat(item.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.self )));
-				break;
 			case "consumivel":
-				aprimoramentos = item.actor.effects.filter(ae => ae.data.flags.tormenta20.onuse && ( ae.data.flags.tormenta20.consumable ) );
+				utype = relate[item.type];
+				aprimoramentos = [
+					...item.actor.effects.filter(ae => filterAE( ae , ['onuse', utype]) ),
+					...item.effects.filter(ae => filterAE( ae , ['onuse', 'self']) )
+				];
 				break;
 		}
 
 		// TODO Check if Actor have sufficient MP
-		// TODO Include cosume os Ammunition, Itens, Money
+		// TODO Include consume os Ammunition, Itens, Money?
 		// TODO Include measured templates placement
 		// Prepare dialog form data
 		const data = {
-			item: item.data,
-			title: game.i18n.format("T20.AbilityUseHint", item.data),
+			item: itemData,
+			title: game.i18n.format("T20.AbilityUseHint", item),
 			note: "",
 			custo: itemData?.custo ?? null,
 			formula: (["arma", "poder", "pericia", "magia", "atributo", "consumivel"].includes(item.type)),
-			formuladano: item.type === "arma",
+			formuladano: (["arma", "poder", "magia", "consumivel"].includes(item.type)),
 			itype: item.type,
 			consumeMP: pmCost,
 			aprimoramentos: aprimoramentos,
+			rollMode: game.settings.get("core", "rollMode"),
+			rollModes: CONFIG.Dice.rollModes,
 			errors: []
 		};
-		// if ( item.data.type === "spell" ) this._getSpellData(actorData, itemData, data);
 
 		// Render the ability usage template
 		const html = await renderTemplate("systems/tormenta20/templates/apps/ability-use.html", data);
 
 		// Create the Dialog and return data as a Promise
 		const icon = item.type === "magia" ? "fas fa-magic" : "fa-fist-raised";
-		const label = item.type === "magia" ? "Conjurar Magia" : "Usar Habilidade";
-		return new Promise((resolve) => {
+		const label = item.type === "magia" ? game.i18n.localize('T20.AbilityUseCast') : game.i18n.localize('T20.AbilityUseUse');
+		
+		
+		
+		
+		return await new Promise((resolve) => {
 			const dlg = new this(item, {
-				title: `Uso de ${item.type}: ${item.name}`,
+				title: game.i18n.format('T20.AbilityUseHint', {name:item.name, type:item.type}),
 				content: html,
 				buttons: {
 					use: {
@@ -120,7 +135,8 @@ export default class AbilityUseDialog extends Dialog {
 						label: label,
 						callback: html => {
 							const fd = new FormDataExtended(html[0].querySelector("form"));
-							resolve(fd.toObject());
+							let op = applyOnUseEffects( item, fd.object );
+							resolve( mergeObject( fd.object, op ) );
 						}
 					}
 				},
@@ -130,11 +146,12 @@ export default class AbilityUseDialog extends Dialog {
 			if( item.type === "magia" && ( item.actor.getFlag("tormenta20", "createPotion" || game.user.isGM ) ) ) {
 				dlg.data.buttons.brew = {
 					icon: `<i class="fas fa-flask"></i>`,
-					label: "Criar Poção",
+					label: game.i18n.localize('T20.BrewPotion'),
 					callback: html => {
 						const fd = new FormDataExtended(html[0].querySelector("form"));
-						fd.dtypes.brew = true;
-						resolve(mergeObject(fd.toObject(), {brew: true}));
+						fd.object.brew = true;
+						let op = applyOnUseEffects( item, fd.object );
+						resolve( mergeObject( fd.object, op ) );
 					}
 				}
 			}
@@ -143,24 +160,4 @@ export default class AbilityUseDialog extends Dialog {
 			dlg.render(true);
 		});
 	}
-
-	/* -------------------------------------------- */
-	/*  Helpers                                     */
-	/* -------------------------------------------- */
-
-	/**
-	 * Get the ability usage note that is displayed
-	 * @private
-	 */
-	 static _getAbilityUseNote(item, uses, recharge) {
-
-		return ""
-		
-	 }
-
-	 /* -------------------------------------------- */
-
-	 static _handleSubmit(formData, item) {
-
-	 }
- }
+}

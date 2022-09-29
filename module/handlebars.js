@@ -32,6 +32,10 @@ export function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("stripTags", function (str) {
 		return str.replace(/<[^>]*>?/gm, '');
 	});
+
+	Handlebars.registerHelper("stripTagsInline", function (str) {
+		return str.replace(/<(?!\/?[a|i](?=>|\s.*>))\/?.*?>/gm, '');
+	});
 	
 	Handlebars.registerHelper('add', (a, b) => {
 		return a + b;
@@ -52,11 +56,5 @@ export function registerHandlebarsHelpers() {
 
 	Handlebars.registerHelper("ift", function (v, rtrue, rfalse) {
 		return (v ? rtrue : rfalse);
-	});
-
-	Handlebars.registerHelper("inp", function (path) {
-		// console.log(this);
-		// console.log(path);
-		return `<input name="" value="">`;
 	});
 }

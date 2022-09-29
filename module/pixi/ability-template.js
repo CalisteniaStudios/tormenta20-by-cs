@@ -10,8 +10,8 @@ export default class AbilityTemplate extends MeasuredTemplate {
 	 * @return {AbilityTemplate|null}     The template object, or null if the item does not produce a template
 	 */
 	static fromItem(item) {
-		let area = getProperty(item.data, "data.area").toLowerCase() || "";
-		let alcance = getProperty(item.data, "data.alcance").toLowerCase() || "";
+		let area = getProperty(item, "system.area").toLowerCase() || "";
+		let alcance = getProperty(item, "system.alcance").toLowerCase() || "";
 		if( !area.match(/\d/) ){
 			if ( alcance == "short" ) area += " 9m";
 			else if ( alcance == "medium" ) area += " 30m";
@@ -105,7 +105,8 @@ export default class AbilityTemplate extends MeasuredTemplate {
 			if ( now - moveTime <= 20 ) return;
 			const center = event.data.getLocalPosition(this.layer);
 			const snapped = canvas.grid.getSnappedPosition(center.x, center.y, 2);
-			this.data.update({x: snapped.x, y: snapped.y});
+			if ( game.release.generation < 10 ) this.data.update({x: snapped.x, y: snapped.y});
+			else this.document.updateSource({x: snapped.x, y: snapped.y});
 			this.refresh();
 			moveTime = now;
 		};
@@ -118,15 +119,16 @@ export default class AbilityTemplate extends MeasuredTemplate {
 			canvas.app.view.oncontextmenu = null;
 			canvas.app.view.onwheel = null;
 			initialLayer.activate();
-			this.actorSheet.maximize();
+			this.actorSheet?.maximize();
 		};
 
 		// Confirm the workflow (left-click)
 		handlers.lc = event => {
 			handlers.rc(event);
 			const destination = canvas.grid.getSnappedPosition(this.data.x, this.data.y, 2);
-			this.data.update(destination);
-			canvas.scene.createEmbeddedDocuments("MeasuredTemplate", [this.data]);
+			if ( game.release.generation < 10 ) this.data.update(destination);
+			else this.document.updateSource(destination);
+			canvas.scene.createEmbeddedDocuments("MeasuredTemplate", [this.data.toObject()]);
 		};
 
 		// Rotate the template by 3 degree increments (mouse-wheel)
@@ -135,7 +137,9 @@ export default class AbilityTemplate extends MeasuredTemplate {
 			event.stopPropagation();
 			let delta = canvas.grid.type > CONST.GRID_TYPES.SQUARE ? 30 : 15;
 			let snap = event.shiftKey ? delta : 5;
-			this.data.update({direction: this.data.direction + (snap * Math.sign(event.deltaY))});
+			const update = {direction: this.data.direction + (snap * Math.sign(event.deltaY))};
+			if ( game.release.generation < 10 ) this.data.update(update);
+			else this.document.updateSource(update);
 			this.refresh();
 		};
 

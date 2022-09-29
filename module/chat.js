@@ -93,36 +93,39 @@ export const ApplyButtons = function (app, html, data){
 	
 	// Get Element To Append to;
 	// btnparent = chatHTML.querySelectorAll('.roll--dano .dice-total')[0];
-	btnparent = chatHTML.querySelectorAll('.roll.roll--dano')[0];
-
-	if( btnparent ){
-		// Buttons Left
-		btncontainer = document.createElement("span");
-		btncontainer.classList.add('dice-btn', 'result', 'left');
+	// btnparent = chatHTML.querySelectorAll('.roll.roll--dano')[0];
+	let btnparents = chatHTML.querySelectorAll('.roll.roll--dano');
+	for (const btnparent of btnparents) {
+		if( btnparent ){
+			// Buttons Left
+			btncontainer = document.createElement("span");
+			btncontainer.classList.add('dice-btn', 'result', 'left');
+		
+			// Button Apply Damage
+			button = btnCreate('<i class="fas fa-user-minus"></i>', ['apply-dmg'], "Aplicar Dano", [['mod',1]]);
+			btncontainer.append(button);
 	
-		// Button Apply Damage
-		button = btnCreate('<i class="fas fa-user-minus"></i>', ['apply-dmg'], "Aplicar Dano", [['mod',1]]);
-		btncontainer.append(button);
-
-		// Button Apply Damage Double
-		button = btnCreate('2x', ['apply-dmg'], "Aplicar Dano em Dobro", [['mod',2]]);
-		btncontainer.append(button);
-		
-		btnparent.append(btncontainer);
-
-		// Buttons Right
-		btncontainer = document.createElement("span");
-		btncontainer.classList.add('dice-btn', 'result', 'right');
-		
-		// Button Apply Damage Half
-		button = btnCreate('½', ['apply-dmg'], "Aplicar Metade do Dano", [['mod',0.5]]);
-		btncontainer.append(button);
-		
-		// Button Apply Damage as Heal
-		button = btnCreate('<i class="fas fa-user-plus"></i>', ['apply-dmg'], "Aplicar Cura", [['mod',-1]]);
-		btncontainer.append(button);
-
-		btnparent.append(btncontainer);
+			// Button Apply Damage Double
+			button = btnCreate('2x', ['apply-dmg'], "Aplicar Dano em Dobro", [['mod',2]]);
+			btncontainer.append(button);
+			
+			btnparent.append(btncontainer);
+	
+			// Buttons Right
+			btncontainer = document.createElement("span");
+			btncontainer.classList.add('dice-btn', 'result', 'right');
+			
+			// Button Apply Damage Half
+			button = btnCreate('½', ['apply-dmg'], "Aplicar Metade do Dano", [['mod',0.5]]);
+			btncontainer.append(button);
+			
+			// Button Apply Damage as Heal
+			button = btnCreate('<i class="fas fa-user-plus"></i>', ['apply-dmg'], "Aplicar Cura", [['mod',-1]]);
+			btncontainer.append(button);
+	
+			btnparent.append(btncontainer);
+			
+		}
 		
 	}
 
@@ -130,9 +133,9 @@ export const ApplyButtons = function (app, html, data){
 
 	export const chatListeners = function (html){
 		html.on('click', '.item-name', _onChatCardToggleContent.bind(this));
+		html.on('click', '.chat-message', _onChatCardToggleDamage.bind(this));
 		html.on('click', '.chat-apply-ae', _onChatCardApplyEffect.bind(this));
 		html.on('click', '.chat-place-template', _onChatPlaceTemplate.bind(this));
-
 		
 		//html.on('click', '.chat-reroll', _onChatReRoll.bind(this));
 		html.on('click', '.apply-dmg', _onChatApplyDamage.bind(this));
@@ -171,9 +174,15 @@ export const ApplyButtons = function (app, html, data){
 		const btn = event.currentTarget;
 		const amount = Number(btn.closest(".roll").querySelector(".dice-total").innerText);
 		const multiplier = Number(btn.dataset.mod);
+		const chatCardId = btn.closest(".chat-message").dataset.messageId;
+		const message = game.messages.get(chatCardId);
+		const rollTitle = btn.closest(".roll").dataset.rollTitle;
+		const roll =  message.rolls.find( r => r.options.title == rollTitle && r.options.type == 'damage' );
+		
 		if( amount && multiplier ){
 			if (canvas.tokens.controlled.length) {
 				return Promise.all(canvas.tokens.controlled.map(tk => {
+					if( roll ) return tk.actor.applyDamageV2(roll, multiplier, true);
 					return tk.actor.applyDamage(amount, multiplier, true);
 				}));
 			} else {
@@ -257,6 +266,18 @@ export const ApplyButtons = function (app, html, data){
 		content.style.display = content.style.display === "none" ? "block" : "none";
 	}
 
+	function _onChatCardToggleDamage(event) {
+		event.preventDefault();
+		const chatCard = event.currentTarget.closest(".chat-message");
+		const minimal = chatCard.querySelector(".card-damage");
+		const details = chatCard.querySelector(".card-damage-details");
+		if( minimal && details ) {
+			minimal.style.display = minimal.style.display === "none" ? "block" : "none";
+			details.style.display = details.style.display === "none" ? "block" : "none";
+		}
+	}
+	
+
 	/**
 		* Retrieve AbilityTemplate data and Draw on Canvas
 		* @param {Event} event   The originating click event
@@ -274,12 +295,13 @@ export const ApplyButtons = function (app, html, data){
 
 		const storedData = chatCard.getFlag("tormenta20", "itemData");
 		const storedTemplate = chatCard.getFlag("tormenta20", "template");
-		let item = new game.tormenta20.entities.ItemT20(storedData, {parent: actor});
+		// let item = new game.tormenta20.entities.ItemT20(storedData, {name:'temp',type:'tesouro',parent: actor});
+		let item = { system: storedTemplate, actor: actor };
 		// new game.tormenta20.entities.ItemT20()
 		// new game.tormenta20.canvas.AbilityTemplate()
 		if( !item ) return;
-		item.data.data.area = storedTemplate.area;
-		item.data.data.alcance = storedTemplate.alcance;
+		item.system.area = storedTemplate.area;
+		item.system.alcance = storedTemplate.alcance;
 		
 		const template = game.tormenta20.canvas.AbilityTemplate.fromItem(item);
 		if ( template ) {
@@ -296,24 +318,13 @@ export const ApplyButtons = function (app, html, data){
 	async function _onChatCardApplyEffect(event) {
 		event.preventDefault();
 		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
+		const actorId = event.currentTarget.closest(".item-card").dataset.actorId;
 		const buttonId = event.currentTarget.dataset.effectIndex;
 		const actors = canvas.tokens.controlled;
 		if ( actors.length && buttonId>=0){
-			const chatEffect = game.messages.get(chatCardId).data.flags.tormenta20?.effects[buttonId];
-			if(chatEffect.changes){
-				chatEffect.changes.sort((c,d)=> !Number(c.value) ? 1 : -1 );
-				chatEffect.changes = chatEffect.changes.reduce((object, item) => {
-					let idx = object.map(ob=> ob.key).indexOf(item.key);
-					if (idx >= 0) {
-						object[idx].value = Number(object[idx].value) + Number(item.value) || item.value;
-					} else {
-						object.push({key:item.key,mode:item.mode,value:item.value})
-					}
-					return object;
-				}, []);
-				if( chatEffect.duration.seconds ) {
-					chatEffect.duration.startTime = game.time.worldTime;
-				}
+			const chatEffect = game.messages.get(chatCardId).flags.tormenta20?.effects[buttonId];
+			if( chatEffect.duration.seconds ) {
+				chatEffect.duration.startTime = game.time.worldTime;
 			}
 			
 			let toChat = true;

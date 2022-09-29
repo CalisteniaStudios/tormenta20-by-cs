@@ -1,3 +1,4 @@
+/* TODO REFACTOR THIS */
 export class Tormenta20BaseSettings extends FormApplication {
 	constructor (object, options = {}) {
 		super(object, options)
@@ -15,7 +16,8 @@ export class Tormenta20BaseSettings extends FormApplication {
 			classes : ['sheet'],
 			width : 640,
 			height : "auto",
-			closeOnSubmit: true,
+			submitOnChange: false,
+      submitOnClose: false,
 			defaultSettings: []
 		})
 	}
@@ -23,10 +25,10 @@ export class Tormenta20BaseSettings extends FormApplication {
 	
 	getData (options) {
 		function prepSetting (key) {
-			let data = game.settings.settings.get(`tormenta20.${key}`)
+			let data = game.settings.settings.get(`tormenta20.${key}`);
 			return mergeObject( data ,{
 				value: game.settings.get('tormenta20', key),
-				type : data.type.name
+				type : data.type
 			});
 		}
 
@@ -71,7 +73,6 @@ export class Tormenta20BaseSettings extends FormApplication {
 		const ds =  a.dataset.type;
 		// Add a list item component
 		if ( a.classList.contains("add-li") ) {
-			console.log(this);
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			let dm = this?.object?.lidatamodel[ds];
 			game.settings.get
@@ -97,6 +98,8 @@ export class Tormenta20ActorSheetSettings extends Tormenta20BaseSettings {
 		return mergeObject(super.defaultOptions, {
 		 title : 'Configurações de Ficha',
 		 template : './systems/tormenta20/templates/apps/settings.hbs',
+		 submitOnChange: false,
+		 submitOnClose: false,
 		 defaultSettings: ['forceSheetTemplate', 'disableExperience', 'enableLanguages', 'disableJournal']
 	 })
  }

@@ -36,7 +36,7 @@
 
 
 	<div class="card-content">
-		{{#if data.description.value}} {{{data.description.value}}} {{/if}}
+		{{#if system.description.value}} {{{system.description.value}}} {{/if}}
 	</div>
 	{{#if aprimoramentos}}
 		<div class="spellheader" style="display:block;width:100%; flex: unset">
@@ -72,7 +72,7 @@
 	{{#if effects}}
 		<div id="activeEffectsbuttons">
 			{{#each effects as |ef i|}}
-				<button class="apply-button-ef" value="{{i}}" data-effect-index="{{i}}">{{{ef.data.label}}}</button>
+				<button class="apply-button-ef" value="{{i}}" data-effect-index="{{i}}">{{{ef.label}}}</button>
 			{{/each}}
 		</div>
 	{{/if}}

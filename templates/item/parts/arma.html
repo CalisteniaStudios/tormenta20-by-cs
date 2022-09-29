@@ -1,8 +1,8 @@
 <div class="form-group">
   <label>Ataque: 1d20+</label>
   <div class="form-fields">
-      <input type="text" name="data.atqBns" value="{{data.atqBns}}" data-dtype="Number"/>
-      <select class="selectatr" name="data.pericia" value={{data.pericia}} data-type="String">
+      <input type="text" name="system.atqBns" value="{{data.atqBns}}" data-dtype="Number"/>
+      <select class="selectatr" name="system.pericia" value={{data.pericia}} data-type="String">
         {{#select data.pericia}}
         <option value="lut">Luta</option>
         <option value="pon">Pontaria</option>
@@ -14,8 +14,8 @@
 <div class="form-group">
   <label>Dano: </label>
   <div class="form-fields">
-      <input type="text" name="data.dano" value="{{data.dano}}" data-dtype="String"  placeholder="ex.: 1d6+2"/>
-      <select class="selectatr" name="data.atrDan" value={{data.atrDan}} data-type="String">
+      <input type="text" name="system.dano" value="{{data.dano}}" data-dtype="String"  placeholder="ex.: 1d6+2"/>
+      <select class="selectatr" name="system.atrDan" value={{data.atrDan}} data-type="String">
           {{#select data.atrDan}}
           <option value="0">Nenhum</option>
           <option value="for">For</option>
@@ -31,28 +31,28 @@
 <div class="form-group">
   <label>Tipo</label>
   <div class="form-fields">
-      <input type="text" name="data.tipo" value="{{data.tipo}}" data-dtype="String"/>
+      <input type="text" name="system.tipo" value="{{data.tipo}}" data-dtype="String"/>
   </div>
 </div>
 <div class="form-group">
   <label>Margem de Crítico</label>
   <div class="form-fields">
-      <input type="text" name="data.criticoM" value="{{data.criticoM}}" data-dtype="Number"placeholder="ex.: 19"/>
+      <input type="text" name="system.criticoM" value="{{data.criticoM}}" data-dtype="Number"placeholder="ex.: 19"/>
   </div>
 </div>
 <div class="form-group">
   <label>Multiplicador de Crítico</label>
   <div class="form-fields">
-      <input type="text" name="data.criticoX" value="{{data.criticoX}}" data-dtype="Number"/>
+      <input type="text" name="system.criticoX" value="{{data.criticoX}}" data-dtype="Number"/>
   </div>
 </div>
 <div class="form-group" style="width: 100%;">
   <label class="tooltip">Lancinante <i class="fas fa-question-circle"></i><div class="tooltipcontent">Crítico multiplica valores fíxos</div></label>
   <div class="form-fields">
     {{#if data.lancinante}}
-    <input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" checked data-dtype="Boolean"/>
+    <input type="checkbox" name="system.lancinante" value="{{data.lancinante}}" checked data-dtype="Boolean"/>
     {{else}}
-    <input type="checkbox" name="data.lancinante" value="{{data.lancinante}}" data-dtype="Boolean"/>
+    <input type="checkbox" name="system.lancinante" value="{{data.lancinante}}" data-dtype="Boolean"/>
     {{/if}}
   </div>
 </div>
@@ -60,18 +60,18 @@
 <div class="form-group">
   <label>Alcance</label>
   <div class="form-fields">
-      <input type="text" name="data.alcance" value="{{data.alcance}}" data-dtype="String"/>
+      <input type="text" name="system.alcance" value="{{data.alcance}}" data-dtype="String"/>
   </div>
 </div>
 <div class="form-group">
   <label>Munição</label>
   <div class="form-fields">
-      <input type="text" name="data.municao" value="{{data.municao}}" data-dtype="Number"/>
+      <input type="text" name="system.municao" value="{{data.municao}}" data-dtype="Number"/>
   </div>
 </div>
 <div class="form-group">
   <label>Custo PM</label>
   <div class="form-fields">
-      <input type="text" name="data.custo" value="{{data.custo}}" data-dtype="Number"/>
+      <input type="text" name="system.custo" value="{{data.custo}}" data-dtype="Number"/>
   </div>
 </div>

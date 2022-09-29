@@ -1,19 +1,26 @@
 export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 	/*override*/
 	get title() {
-		if (this.object.data.flags?.tormenta20?.onuse) {
+		if (this.object.flags?.tormenta20?.onuse) {
 			return `Efeito de Uso: ${this.object.sourceName}`;
 		} else {
-			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.object.data.label}`;
+			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.object.label}`;
 		}
 	}
-	/*override*/
+	/** @override */
 	get template() {
-		if (this.object.data.flags?.tormenta20?.onuse) {
+		if (this.object.flags?.tormenta20?.onuse) {
 			return "systems/tormenta20/templates/apps/onuse-effect-config.html";
 		} else {
 			return "systems/tormenta20/templates/apps/active-effect-config.html"
 		}
+	}
+
+	/** @override */
+	getData() {
+		const data = super.getData();
+		data.documentName = "ActiveEffect";
+		return data;
 	}
 
 	/** @override */
@@ -28,7 +35,6 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 		$(".useType").each(function () {
 			if ($(this)[0].checked) transfer = true;
 		});
-
 		let upds = {}
 		upds.transfer = transfer;
 		upds[event.target.name] = event.target.checked;
@@ -44,8 +50,8 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 			if (c.mode !== 2 && Number.isNumeric(c.value)) c.value = parseFloat(c.value);
 		}
 		if (formData.flags?.tormenta20?.onuse) {
-			let a = formData.flags.tormenta20;
-			formData.transfer = (a.attack || a.skill || a.ability || a.power || a.spell || a.consumable);
+			let f = formData.flags.tormenta20;
+			formData.transfer = (!f.durationScene && (f.attack || f.skill || f.ability || f.power || f.spell || f.consumable));
 		}
 		return this.object.update(formData);
 	}

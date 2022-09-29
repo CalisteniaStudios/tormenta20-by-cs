@@ -13,8 +13,14 @@ export default function () {
 	* Once the entire VTT framework is initialized, check to see if we should perform a data migration
 	*/
 	Hooks.once("ready", async function () {
+		
 		// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-		Hooks.on("hotbarDrop", (bar, data, slot) => macros.createT20Macro(data, slot));
+		Hooks.on("hotbarDrop", (bar, data, slot) => {
+			if ( ["Item", "ActiveEffect"].includes(data.type) ) {
+				macros.createT20Macro(data, slot);
+				return false;
+			}
+		});
 
 		// Determine whether a system migration is required and feasible
 		if ( !game.user.isGM ) return;
@@ -83,19 +89,17 @@ export default function () {
 		}
 	});
 
-
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {
-		// Display action buttons
-		if (true || game.settings.get("tormenta20", "applyButtonsInsideChat")){
-			chat.ApplyButtons(app, html, data);
-		}
+		chat.ApplyButtons(app, html, data);
 
 		// Highlight critical success or failure die
-		chat.highlightCriticalSuccessFailure(app, html, data);
+		// chat.highlightCriticalSuccessFailure(app, html, data);
 
 		// Optionally collapse the content
 		if (game.settings.get("tormenta20", "autoCollapseItemCards")) html.find(".card-content").hide();
+
+		if ( html.find(".card-damage-details") ) html.find(".card-damage-details").hide();
 	});
 	
 	/* Add hook for the context menu over the rolled damage */
@@ -112,4 +116,7 @@ export default function () {
 	// 	console.log("Debug hook: Debug hook");
 	// }) ;
 	/* Measured Templates*/
+	// Hooks.on("preCreateActiveEffect", (ActiveEffect, object, options, userId) => {
+		
+	// });
 }

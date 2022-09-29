@@ -6,6 +6,11 @@ import ActorSheetT20 from "./base.js";
  * @type {ActorSheetT20}
  */
 export default class ActorSheetT20Character extends ActorSheetT20 {
+	
+	/* -------------------------------------------- */
+	/*  Properties                                  */
+	/* -------------------------------------------- */
+
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -15,7 +20,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		});
 	}
 
-	/* @override */
+	/** @override */
 	get template() {
 		let layout = game.settings.get("tormenta20", "sheetTemplate");
 		if ( !game.user.isGM && this.actor.limited ) {
@@ -26,12 +31,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
 		}
 	}
-
+	
+	/* -------------------------------------------- */
+	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
 	
 	/** @override */
-	getData() {
-		const sheetData = super.getData();
+	async getData() {
+		const sheetData = await super.getData();
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
 		sheetData["disableJournal"] = game.settings.get("tormenta20", "disableJournal");
@@ -42,21 +49,100 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData["isPreparationCaster"] = this.actor.getFlag("tormenta20", "mago");
 		sheetData["mostrarBonusTreino"] = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
 		sheetData["botaoEditarItens"] = this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
+
+		sheetData["showResources"] = this.actor.getFlag("tormenta20", "sheet.showResources");
+		
 		
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
-		this.actor.data.data.attributes.defesa.pda = this.actor.data.data.attributes.defesa.pda ?? 0;
-
+		this.actor.system.attributes.defesa.pda = this.actor.system.attributes.defesa.pda ?? 0;
+		
+		sheetData.system.detalhes.diario.value = await this.enrichHTML(sheetData.system.detalhes.diario.value, sheetData);
+		sheetData.system.detalhes.diario1.value = await this.enrichHTML(sheetData.system.detalhes.diario1.value, sheetData);
+		sheetData.system.detalhes.diario2.value = await this.enrichHTML(sheetData.system.detalhes.diario2.value, sheetData);
+		sheetData.system.detalhes.diario3.value = await this.enrichHTML(sheetData.system.detalhes.diario3.value, sheetData);
+		sheetData.system.detalhes.diario4.value = await this.enrichHTML(sheetData.system.detalhes.diario4.value, sheetData);
 		return sheetData;
 	}
 
+	/* -------------------------------------------- */
+
+	/** @override */
+	activateListeners(html) {
+		super.activateListeners(html);
+
+		// Item summaries
+		html.find('.item .item-name label').click(event => this._onItemSummary(event));
+		
+		// Everything below here is only needed if the sheet is editable
+		if (!this.options.editable) return;
+
+		if (this.actor.isOwner) {
+			html.find('.item-fav').click(ev => {
+				const li = $(ev.currentTarget).parents(".item");
+				const item = this.actor.items.get(li.data("itemId"));
+				item.update({ "flags.favorito": !item.flags.favorito });
+			});
+			
+			// Prepare spells
+			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
+			
+			// Drag events for macros.
+			let handler = ev => this._onDragStart(ev);
+			html.find('li.skill').each((i, li) => {
+				if (!li.hasAttribute("data-item-id")) return;
+				li.setAttribute("draggable", true);
+				li.addEventListener("dragstart", handler, false);
+			});
+		}
+	}
+	
+	/* -------------------------------------------- */
+	/*  Interactions                                */
+	/* -------------------------------------------- */
+	
+	/** @override */
+	async _onDropItemCreate(itemData) {
+		// Increment the number of class levels a character instead of creating a new item
+		if ( itemData.type === "classe" ) {
+			const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
+			const actorData = this.actor.system;
+			let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
+			if ( !lvlconfig ){
+				lvlconfig = {
+					pv: { for: false, des: false, int: false, sab: false, car: false },
+					pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
+					pvBonus: ["0","0"],
+					pmBonus: ["0","0"]
+				}
+				this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
+			}
+			// Novo nivel de classe preexistente
+			if ( !!cls ) { 
+				let priorLevel = cls.system.niveis ?? 0;
+				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
+				await cls.update({"system.niveis": next});
+				return this.actor._calcPVPM();
+			}
+			// Primeiro Nivel do Personagem
+			else if ( !this.actor.itemTypes.classe.length ) {
+				itemData.system.inicial = true;
+			}
+			await super._onDropItemCreate(itemData);
+			return this.actor._calcPVPM();
+		}
+
+		// Default drop handling if levels were not added
+		super._onDropItemCreate(itemData);
+	}
+	
 	/* -------------------------------------------- */
 
 	/**
 	* Organize and classify Owned Items for Character sheets
 	* @private
 	*/
-	_prepareItems(data) {
+	async _prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
 		const favoritos = {
@@ -82,15 +168,28 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		}
 		
 		// Partition items by category
-		let [items, magias, poderes, classes] = data.items.reduce((arr, item) => {
+		let [items, magias, poderes, classes] = await data.items.reduce(async (arr, item) => {
 			// Item details
 			item.img = item.img || CONST.DEFAULT_TOKEN;
-			item.isStack = Number.isNumeric(item.data.qtd) && (item.data.qtd !== 1);
-			
+			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
+			try {
+				if ( typeof item.system.description === 'string' || item.system.description instanceof String ) {
+					item.system.description = {value: item.system.description};
+				}
+
+				item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
+					secrets: item.isOwner,
+					async: true,
+					relativeTo: item
+				});
+			} catch (err) {
+				ui.notifications.error('Falha ao carregar descrição', {permanent: false});
+			}
+
+
 			if ( item.type === "classe" ) {
 				item.abbr = item.name.substr(0,4);
 			}
-
 			
 			let isFav = item.flags.favorito || false;
 			if( isFav ) {
@@ -99,12 +198,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				} else if ( item.type === "poder" ){
 					favoritos.poderes.push(item);
 				} else if ( item.type === "magia" ){
-					favoritos.magias[item.data.circulo].spells.push(item);
+					favoritos.magias[item.system.circulo].spells.push(item);
 					favoritos.qtdMagias++;
 				} else if( ["consumivel","equipamento"].includes(item.type) ){
 					favoritos.itens.push(item);
 				}
 			}
+			
+			if ( !Array.isArray(arr) ) arr = await arr;
 			// Classify items into types
 			if ( item.type === "magia" ) arr[1].push(item);
 			else if ( item.type === "poder" ) arr[2].push(item);
@@ -118,13 +219,13 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// Organize items
 		for ( let i of items ) {
-			i.data.qtd = i.data.qtd || 0;
-			i.data.peso = i.data.peso || 0;
-			i.data.espacos = i.data.espacos || 0;
+			i.system.qtd = i.system.qtd || 0;
+			i.system.peso = i.system.peso || 0;
+			i.system.espacos = i.system.espacos || 0;
 			if ( game.settings.get("tormenta20", "weightRule") == 'core' ) {
-				i.pesoTotal = (i.data.qtd * i.data.peso).toNearest(0.1);
+				i.pesoTotal = (i.system.qtd * i.system.peso).toNearest(0.1);
 			} else if( game.settings.get("tormenta20", "weightRule") == 'espacos' ) {
-				i.pesoTotal = (i.data.qtd * i.data.espacos).toNearest(0.1);
+				i.pesoTotal = (i.system.qtd * i.system.espacos).toNearest(0.1);
 			}
 			inventario[i.type].items.push(i);
 		}
@@ -140,12 +241,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const nPreparadas = 0;
 		let maiorCirculo = 0;
 		magias.forEach(function(m){
-			maiorCirculo = Math.max(maiorCirculo, m.data.circulo);
-			grimorio[m.data.circulo].spells.push(m);
+			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);
+			grimorio[m.system.circulo].spells.push(m);
 		});
 		
 		// classes.sort
-		classes.sort((a, b) => (b.data.inicial || 0) - (a.data.inicial || 0));
+		classes.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0));
 
 		// Assign and return
 		actorData.favoritos = favoritos;
@@ -162,82 +263,15 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		}
 	}
 
-
 	/* -------------------------------------------- */
 
 	async _onPrepareSpell(ev) {
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.items.get(li.data("itemId"));
-		const id = item.data.data;
+		const id = item.system;
 		let updateItems = [];
-		updateItems.push({_id: item.id, "data.preparada": !id.preparada});
+		updateItems.push({_id: item.id, "system.preparada": !id.preparada});
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
-	/* -------------------------------------------- */
-
-	/** @override */
-	activateListeners(html) {
-		super.activateListeners(html);
-
-		// Item summaries
-		html.find('.item .item-name h4').click(event => this._onItemSummary(event));
-		
-		// Everything below here is only needed if the sheet is editable
-		if (!this.options.editable) return;
-
-		if (this.actor.isOwner) {
-			html.find('.item-fav').click(ev => {
-				const li = $(ev.currentTarget).parents(".item");
-				const item = this.actor.items.get(li.data("itemId"));
-				item.update({ "flags.favorito": !item.data.flags.favorito });
-			});
-			
-			// Prepare spells
-			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
-			
-			// Drag events for macros.
-			let handler = ev => this._onDragStart(ev);
-			html.find('li.skill').each((i, li) => {
-				if (!li.hasAttribute("data-item-id")) return;
-				li.setAttribute("draggable", true);
-				li.addEventListener("dragstart", handler, false);
-			});
-		}
-	}
-
-	/** @override */
-	async _onDropItemCreate(itemData) {
-		// Increment the number of class levels a character instead of creating a new item
-		if ( itemData.type === "classe" ) {
-			const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
-			const actorData = this.actor.data;
-			let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
-			if ( !lvlconfig ){
-				lvlconfig = {
-					pv: { for: false, des: false, int: false, sab: false, car: false },
-					pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
-					pvBonus: ["0","0"],
-					pmBonus: ["0","0"]
-				}
-				this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
-			}
-			// Novo nivel de classe preexistente
-			if ( !!cls ) { 
-				let priorLevel = cls.data.data.niveis ?? 0;
-				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.data.attributes.nivel.value);
-				await cls.update({"data.niveis": next});
-				return this.actor._calcPVPM();
-			}
-			// Primeiro Nivel do Personagem
-			else if ( !this.actor.itemTypes.classe.length ) {
-				itemData.data.inicial = true;
-			}
-			await super._onDropItemCreate(itemData);
-			return this.actor._calcPVPM();
-		}
-
-		// Default drop handling if levels were not added
-		super._onDropItemCreate(itemData);
-	}
 }

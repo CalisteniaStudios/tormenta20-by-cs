@@ -9,7 +9,7 @@ export default class TraitSelector extends FormApplication {
 		return mergeObject(super.defaultOptions, {
 			id: "trait-selector",
 			classes: ["tormenta20"],
-			title: "Actor Trait Selection",
+			title: game.i18n.localize('T20.ActorTraitSelection'),
 			template: "systems/tormenta20/templates/apps/trait-selector.html",
 			width: 320,
 			height: "auto",
@@ -36,7 +36,7 @@ export default class TraitSelector extends FormApplication {
 	getData() {
 
 		// Get current values
-		let attr = foundry.utils.getProperty(this.object.data, this.attribute);
+		let attr = foundry.utils.getProperty(this.object, this.attribute);
 		if ( getType(attr) !== "Object" ) attr = {value: [], custom: ""};
 		// Populate choices
 		let choices = "";

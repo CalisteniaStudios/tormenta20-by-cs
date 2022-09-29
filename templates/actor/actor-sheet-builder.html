@@ -40,9 +40,7 @@
 				</select>
 			</div>
 			<div>
-					{{log this.config.atributosAbr}}
 					{{#each this.config.atributosAbr as | abl |}}
-					{{log abl}}
 					<span>{{localize alb}} {{alb}}</span>
 					{{/each}}
 				</ol>
@@ -74,7 +72,6 @@
 		</section>
 	</header>
 	<section class="sheet-body flexcol">
-		{{log this}}
 		{{#each this.choices as | a b | }}
 			<span class="choice flexcol">
 				<span>{{a}}</span>

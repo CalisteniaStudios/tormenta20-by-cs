@@ -18,10 +18,14 @@ import AbilityTemplate from "./pixi/ability-template.js";
 import AbilityUseDialog from "./apps/ability-use-dialog.js";
 import ActorSettings from "./apps/actor-settings.js";
 import ActorSheetT20Character from "./actor/sheet/character.js";
-//import ActorSheetT20Builder from "./actor/sheet/builder.js";
+import ActorSheetT20CharacterTabbed from "./actor/sheet/_tempSheets.js";
+import ActorSheetT20Builder from "./actor/sheet/builder.js";
 import ActorSheetT20NPC from "./actor/sheet/npc.js";
+import ActorSheetT20Simple from "./actor/sheet/simple.js";
+import ActorSheetT20Vehicle from "./actor/sheet/vehicle.js";
 import ItemSheetT20 from "./item/sheet.js";
 import TraitSelector from "./apps/trait-selector.js";
+import {applyOnUseEffects} from "./apps/ability-use.js";
 
 import { T20Conditions } from "./conditions/conditions.js";
 import ActiveEffectConfigT20 from "./apps/ae-config.js";
@@ -33,6 +37,11 @@ import * as dice from "./dice.js";
 import * as macros from "./macros.js";
 import * as migrations from "./migration.js";
 import "./modules.js";
+import * as utils from "./utils.js";
+
+// import {getSystemActorData,  getSystemItemData} from "./dataModel/data.js";
+import {systemActorCharacterData, systemActorNPCData, systemActorVehicleData, systemActorSimpleData} from "./dataModel/actor.mjs";
+import {systemItemWeaponData, systemItemEquipmentData, systemItemSpellData, systemItemPowerData, systemItemConsumableData, systemItemClassData, systemItemLootData} from "./dataModel/item.mjs";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -46,6 +55,7 @@ Hooks.once("init", async function () {
 			AbilityUseDialog,
 			ActorSheetT20Character,
 			ActorSheetT20NPC,
+			ActorSheetT20Builder,
 			ItemSheetT20,
 			TraitSelector,
 			ActorSettings
@@ -63,7 +73,7 @@ Hooks.once("init", async function () {
 		macros: macros,
 		migrations: migrations,
 		rollItemMacro: macros.rollItemMacro,
-		rollSkillMacro: macros.rollSkillMacro
+		rollSkillMacro: macros.rollSkillMacro,
 	}
 
 	// Record Cnfiguration Values
@@ -98,34 +108,78 @@ Hooks.once("init", async function () {
 	Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
 	// Register Roll Extensions
-	CONFIG.Dice.rolls.push(dice.D20Roll);
-	CONFIG.Dice.rolls.push(dice.DamageRoll);
+	CONFIG.Dice.rolls.D20Roll = dice.D20Roll;
+	CONFIG.Dice.rolls.DamageRoll = dice.DamageRoll;
 
 	// Register sheet application classes
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("tormenta20", ActorSheetT20Character, {
 		types: ["character"],
 		makeDefault: true,
-		label: "Ficha de Personagem"
+		label: game.i18n.localize("T20.CharacterSheet"), //"Ficha de Personagem"
 	});
-	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
-	// 	types: ["character"],
-	// 	makeDefault: false,
-	// 	label: "Progressão de Personagem"
-	// });
+	Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
+		types: ["character"],
+		makeDefault: false,
+		label: game.i18n.localize("T20.CharacterSheetTabbed"), //"Ficha de Personagem - Abas"
+	});
 	
 	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
 		types: ["npc"],
 		makeDefault: true,
-		label: "Ficha de NPC"
+		label: game.i18n.localize("T20.NPCSheet"), //"Ficha de NPC"
 	});
 
+	Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
+		types: ["npc"],
+		makeDefault: false,
+		label: game.i18n.localize("T20.CharacterBuilderSheet"), //"Progressão de Personagem"
+	});
+	
+	// Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
+	// 	types: ["simple"],
+	// 	makeDefault: true,
+	// 	label: game.i18n.localize("T20.SimpleActorSheet"), //"Ficha de Simple"
+	// });
+
+	// Actors.registerSheet("tormenta20", ActorSheetT20Vehicle, {
+	// 	types: ["vehicle"],
+	// 	makeDefault: true,
+	// 	label: game.i18n.localize("T20.VehicleSheet"), //"Ficha de Veiculo"
+	// });
+	
+	
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("tormenta20", ItemSheetT20, {
 		makeDefault: true,
 	});
+	
+	if( game.settings.get('tormenta20', 'prototypeDataModel') ) {
+		console.log(('REGISTER DMs'));
+		// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
+		// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
+		CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;
+		CONFIG.Actor.systemDataModels["npc"] = systemActorNPCData;
+		CONFIG.Actor.systemDataModels["vehicle"] = systemActorVehicleData;
+		CONFIG.Actor.systemDataModels["simple"] = systemActorSimpleData;
+
+		// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
+		CONFIG.Item.systemDataModels["arma"] = systemItemWeaponData;
+		CONFIG.Item.systemDataModels["classe"] = systemItemClassData;
+		CONFIG.Item.systemDataModels["consumivel"] = systemItemConsumableData;
+		CONFIG.Item.systemDataModels["equipamento"] = systemItemEquipmentData;
+		CONFIG.Item.systemDataModels["magia"] = systemItemSpellData;
+		CONFIG.Item.systemDataModels["poder"] = systemItemPowerData;
+		CONFIG.Item.systemDataModels["tesouro"] = systemItemLootData;
+	}
 
 	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
+
+	// SET VISION MODES
+	// CONFIG.Canvas.visionModes = 
+
+	
+
 
 	// Preload Handlebars Templates
 	preloadHandlebarsTemplates();
@@ -137,6 +191,7 @@ Hooks.once("init", async function () {
 /* -------------------------------------------- */
 	
 	// localization && sort
+	Hooks.once("i18nInit", () => utils.performPreLocalization(CONFIG.T20));
 
 /* -------------------------------------------- */
 

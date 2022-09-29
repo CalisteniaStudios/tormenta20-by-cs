@@ -1,24 +1,26 @@
+import AbilityUseDialog from "../apps/ability-use-dialog.js";
+import {applyOnUseEffects} from "../apps/ability-use.js";
+import AbilityTemplate from "../pixi/ability-template.js";
+import { T20 } from '../config.js';
 import { T20Conditions } from "../conditions/conditions.js";
 import { simplifyRollFormula, d20Roll, damageRoll } from '../dice.js';
-import AbilityUseDialog from "../apps/ability-use-dialog.js";
-import AbilityTemplate from "../pixi/ability-template.js";
 // import ActiveEffectT20 from "../_support/active-effects.js";
 
 /**
  * Override and extend the basic :class:`Item` implementation
  */
 export default class ItemT20 extends Item {
-	/* -------------------------------------------- */
-	/*  Item Properties															*/
-	/* -------------------------------------------- */
 
+	/* -------------------------------------------- */
+	/*  Properties                                  */
+	/* -------------------------------------------- */
+	
 	/**
 	 * Does the Item implement a attack roll as part of its usage
 	 * @type {boolean}
 	 */
-	 get hasAttack() {
-		return !!this.data.data.rolls.find(r=>r.type=="ataque");;
-		!!(this.data.data.rolls?.ataque[0] && this.data.data.rolls.ataque[0].parts.length);
+	get hasAttack() {
+		return !!this.system.rolls.find(r=>r.type=="ataque");
 	}
 
 	/* -------------------------------------------- */
@@ -28,7 +30,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasDamage() {
-		return !!this.data.data.rolls.find(r=>r.type=="dano");
+		return !!this.system.rolls.find(r=>r.type=="dano");
 	}
 
 	/* -------------------------------------------- */
@@ -38,7 +40,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get isVersatile() {
-		return !!(this.hasDamage && this.data.data.propriedades.ver);
+		return !!(this.hasDamage && this.system.propriedades.ver);
 	}
 
 	/* -------------------------------------------- */
@@ -48,7 +50,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasSave() {
-		const resistencia = this.data.data?.resistencia || {};
+		const resistencia = this.system?.resistencia || {};
 		return !!(resistencia.atributo && resistencia.value);
 	}
 
@@ -59,7 +61,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasTarget() {
-		const target = this.data.data.target;
+		const target = this.system.target;
 		return target && !["none",""].includes(target.type);
 	}
 
@@ -70,7 +72,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasAreaTarget() {
-		const target = this.data.data.area;
+		const target = this.system.area;
 		return target? true : false;
 	}
 
@@ -80,16 +82,20 @@ export default class ItemT20 extends Item {
 	 * Provide an object which organizes all augmenting ActiveEffects by their type
 	 * @type {Object<documents.ActiveEffect[]>}
 	 */
-	 get aprimoramentosValidos() {
+	get validOnUseEffects() {
 		if( !this.isOwned ) return [];
-		const type = this.data.type;
+		const type = this.type;
+		const name = this.name;
 		let effects = [];
 
 		const types = {magia:"spell",arma:"attack",pericia:"skill",atributo:"ability",consumivel:"consumable",poder:"power"};
 
 		for ( let i of this.actor.effects.values() ) {
 			if( !i.getFlag("tormenta20","onuse") ) continue;
-			if( i.getFlag("tormenta20", types[type]) ) effects.push(i);
+			let items = i.getFlag("tormenta20", 'items');
+			if( i.getFlag("tormenta20", types[type]) ){
+				effects.push(i);
+			} else if( items && items.match(name) >=0 ) effects.push(i);
 		}
 
 		for ( let i of this.effects.values() ) {
@@ -100,92 +106,136 @@ export default class ItemT20 extends Item {
 	}
 
 	/* -------------------------------------------- */
-	/*	Data Preparation														*/
+	/*  DataPreparation                             */
 	/* -------------------------------------------- */
-	
+
+	prepareBaseData() {
+		super.prepareBaseData();
+		
+		/* FIX item description issues */
+		if ( typeof this.system.description === 'string' || this.system.description instanceof String ) {
+			this.system.description = {value: this.system.description};
+		}
+	}
 	/**
-	* Augment the basic Item data model with additional dynamic data.
+	* Augment the basic Item data model with additional dynamic system.
 	*/
 	prepareDerivedData() {
-		super.prepareDerivedData();
-		const itemData = this.data;
-		const data = itemData.data;
+		const system = this.system;
 		const C = CONFIG.T20;
 		const labels = this.labels = {};
+		const gameSystem = game.settings.get("tormenta20", "gameSystem");
 		
 		// Classes
-		if ( data.type === "classe" ) {
-			data.niveis = Math.clamped(data.data.niveis, 1, 20);
+		if ( this.type === "classe" ) {
+			// TODO Skyfall Class/Archetype
+			let maxLvl = gameSystem == "Skyfall" ? 10 : 20;
+			system.niveis = Math.clamped(system.niveis, 1, maxLvl);
 		}
-
-		// Armas
-		if ( itemData.type === "arma" ) {
-			labels.critico = `${data.criticoM}/${data.criticoX}x`
-		}
-		// Magia
-		else if ( itemData.type === "magia" ) {
-			//data.modoPreparo = data.modoPreparo || "preparada";
-			labels.tipo = game.i18n.localize(C.spellType[data.tipo]);
-			labels.nivel = game.i18n.format("T20.SpellLevel", {lvl:data.circulo});
-			labels.escola = game.i18n.localize(C.spellSchools[data.escola]);
-			labels.materiais = data.meteriais?.value ?? null;
-		}
-		// Poder
-		else if ( itemData.type === "poder" ){
-			if(data.ativacao && data.ativacao.execucao){
-				
-				// labels.tipoPoder = 
-				//data.ativacao.execucao;
-				//C.abilityActivationTypes[data.ativacao.execucao].replace(/Ação| |de/g, "");
+		// Weapons
+		else if ( this.type === "arma" ) {
+			labels.critico = `${system.criticoM}/${system.criticoX}x`
+			let rollAttack = this.system.rolls.find( r => r.type == 'ataque' );
+			let rollDamage = this.system.rolls.find( r => r.type == 'dano' );
+			
+			if ( this.isEmbedded && this.parent.type == 'npc'){ //TODO ERRO
+				if(rollAttack) labels.npcattack = rollAttack?.parts[2][0] ?? '';
+				if(rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? '';//
 			}
 		}
-		// Item
-		else if ( itemData.type === "equipamento"){
-			labels.armadura = data.armadura.valor ? `${data.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
+		// Spells
+		else if ( this.type === "magia" ) {
+			labels.tipo = T20.spellType[system.tipo];
+			labels.nivel = game.i18n.format("T20.SpellLevel", {lvl:system.circulo});
+			labels.escola = T20.spellSchools[system.escola];
+			// PRELOCALIZED
+			// labels.tipo = game.i18n.localize(T20.spellType[system.tipo]);
+			// labels.nivel = game.i18n.format("T20.SpellLevel", {lvl:system.circulo});
+			// labels.escola = game.i18n.localize(T20.spellSchools[system.escola]);
+			labels.materiais = system.meteriais?.value ?? null;
+		}
+		// Power
+		else if ( this.type === "poder" ){
+			labels.tipo = T20.powerType[system.tipo];
+			// PRELOCALIZED
+			// labels.tipo = game.i18n.localize(T20.powerType[system.tipo]);
+			labels.subtipo = system.subtipo;
+		}
+		// Equipment
+		else if ( this.type === "equipamento"){
+			labels.armadura = system.armadura.valor ? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
 		}
 
-		// Ativavel
-		if ( data.hasOwnProperty("ativacao") ) {
-			let act = data.ativacao || {};
-			if ( act ) labels.ativacao = act.qtd ? [act.qtd, game.i18n.localize(C.abilityActivationTypes[act.execucao])].join(" ") : game.i18n.localize(C.abilityActivationTypes[act.execucao]);
-			
-			//[act.qtd, C.abilityActivationTypes[act.type]].filterJoin(" ");
-			if ( act && act.custo > 0) labels.custoPM = act.custo + " PM";
+		// Activation
+		if ( system.hasOwnProperty("ativacao") ) {
+			let act = system.ativacao || {};
+			if ( ['minute','hour','day'].includes(act.execucao) ) {
+				labels.ativacao = [act.qtd, T20.abilityActivationTypes[act.execucao]].join(" ");
+				// PRELOCALIZED
+				// labels.ativacao = [act.qtd, game.i18n.localize(T20.abilityActivationTypes[act.execucao])].join(" ");
+			} else if ( ['special'].includes(act.execucao) ) {
+				labels.ativacao = act.special;
+			} else {
+				labels.ativacao = T20.abilityActivationTypes[act.execucao];
+				// PRELOCALIZED
+				// labels.ativacao = game.i18n.localize(T20.abilityActivationTypes[act.execucao]);
+			}
+		
+				if ( act && act.custo > 0) labels.custoPM = act.custo + " PM";
 
-			// Alvo TODO
-			let tgt = data.target || {};
+			// Target
+			let tgt = system.target || {};
 			if (["none", "self"].includes(tgt.unidades)) tgt.value = null;
 			if (["none", "self"].includes(tgt.type)) {
 				tgt.value = null;
 				tgt.unidades = null;
 			}
-			labels.target = [tgt.value, C.distanceUnits[tgt.unidades], C.targetTypes[tgt.type]].filterJoin(" ") ?? "";
-			labels.alvo = data.alvo;
-			labels.area = data.area;
+			labels.target = [tgt.value, T20.distanceUnits[tgt.unidades], T20.targetTypes[tgt.type]].filterJoin(" ") ?? "";
+			labels.alvo = system.alvo;
+			labels.area = system.area;
 
-			// Alcance
-			labels.range = game.i18n.localize(C.distanceUnits[data.alcance]);
+			// Range
+			labels.range = T20.distanceUnits[system.alcance];
+			// PRELOCALIZED
+			// labels.range = game.i18n.localize(T20.distanceUnits[system.alcance]);
+			if( ['m','km'].includes(system.alcance) ){
+				labels.range = `${system.range.value}${system.alcance}`
+			}
 
-			// Efeito
-			labels.effect = data.efeito;
+			// Effect
+			labels.effect = system.efeito;
 
-			// Duração
-			let dur = data.duracao || {};
+			// Duration
+			let dur = system.duracao || {};
 			if (["inst", "perm", "cena","sust"].includes(dur.units)) dur.value = null;
-			labels.duration = dur.value? [dur.value, game.i18n.localize(C.timePeriods[dur.units])].filterJoin(" ") : game.i18n.localize(C.timePeriods[dur.units]);
+			if ( dur.value ) {
+				labels.duration = [dur.value, T20.timePeriods[dur.units]].filterJoin(" ");
+				// PRELOCALIZED
+				// labels.duration = [dur.value, game.i18n.localize(T20.timePeriods[dur.units])].filterJoin(" ");
+			} else {
+				labels.duration = T20.timePeriods[dur.units];
+				// PRELOCALIZED
+				// labels.duration = game.i18n.localize(T20.timePeriods[dur.units]);
+			}
+			if( ["special"].includes(dur.units) ) {
+				labels.duration = system.duracao.special;
+			}
 		}
 
-		if ( data.hasOwnProperty("resistencia") ) {
-			let save = data.resistencia || {};
-			const actorData = this.actor?.data?.data ?? null;
-			const actorFlags = this.actor?.data?.flags ?? null;
-			const nivel = actorData ? actorData.attributes.nivel.value ?? 0 : 0;
-			const atr = actorData ? actorData.atributos[save.atributo]?.mod ?? 0 : 0;
+		// Saving Throw
+		if ( system.hasOwnProperty("resistencia") ) {
+			let save = system.resistencia || {};
+			const actorData = this.actor?.system ?? null;
+			const actorFlags = this.actor?.flags ?? null;
+			const nivel = actorData?.attributes.nivel.value ?? 0;
+			const atr = actorData?.atributos[save.atributo]?.mod ?? 0;
 			let base = this.isOwned && actorData ? Math.floor(nivel/2) ?? 0 : 0;
 			let mod = this.isOwned && atr ? atr : 0;
 
 			let cd = 10 + base + mod + (Number(save.bonus) || 0);
-			// console.log(this.actor);
+			if ( this.actor?.type == 'npc' && this.actor?.getFlag('tormenta20','npcReform') ){
+				cd = this.actor.system.attributes.cd;
+			}
 			if( this.isOwned && actorFlags) {
 				let showCD = actorFlags?.tormenta20?.showCD ?? true;
 				if( !showCD ) cd = "??";
@@ -193,26 +243,35 @@ export default class ItemT20 extends Item {
 			labels.save = save.txt ? save.txt + ` (CD ${cd})` : save.txt;
 		}
 
-		// Tipos de Dano
-		if( !(data.rolls instanceof Array) ) data.rolls = [];
-		if ( data.rolls?.find(r=> r.type == "dano") ) {
-			let dano = data.rolls.find(r=> r.type == "dano") || {};
+		// Damage Types
+		if( !(system.rolls instanceof Array) ) system.rolls = [];
+		if ( system.rolls?.find(r=> r.type == "dano") ) {
+			let dano = system.rolls.find(r=> r.type == "dano") || {};
 			if ( dano.parts ) {
 				labels.dano = dano.parts.map(d => d[0]).join(" + ").replace(/\+ -/g, "- ");
-				labels.damageTypes = dano.parts.map(d => C.damageTypes[d[1]]).join(", ");
+				labels.damageTypes = dano.parts.map(d => T20.damageTypes[d[1]]).join(", ");
 			}
 		}
 
-		if ( itemData.type === "magia" ) {
+		// Progression
+		// if( !(system.progression instanceof Array) ) system.progression = [];
+
+		// Spellheader
+		if ( this.type === "magia" ) {
 			//Execução: padrão; Alcance: curto; Alvo: 1 criatura; Area:; Efeito:; Duração: instantânea; Resistência: Vontade parcial.
+			const hTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", area: 'T20.Area', effect: 'T20.Effect', duracao:"T20.Duration", save:"T20.Resistance" };
+			
+			for ( let [h, tag] of Object.entries(hTags) ){
+				hTags[h] = game.i18n.localize(tag);
+			}
 			labels.header = "";
-			labels.header += labels.ativacao? `<b>Execução:</b> ${labels.ativacao}; ` : "";
-			labels.header += labels.range? `<b>Alcance:</b> ${labels.range}; ` : "";
-			labels.header += labels.alvo? `<b>Alvo:</b> ${labels.alvo}; ` : "";
-			labels.header += labels.area? `<b>Área:</b> ${labels.area}; ` : "";
-			labels.header += labels.effect? `<b>Efeito:</b> ${labels.effect}; ` : "";
-			labels.header += labels.duration? `<b>Duração:</b> ${labels.duration}; ` : "";
-			labels.header += labels.save? `<b>Resistência:</b> ${labels.save}; ` : "";
+			labels.header += labels.ativacao? `<b>${hTags['ativacao']}:</b> ${labels.ativacao}; ` : "";
+			labels.header += labels.range? `<b>${hTags['range']}:</b> ${labels.range}; ` : "";
+			labels.header += labels.alvo? `<b>${hTags['target']}:</b> ${labels.alvo}; ` : "";
+			labels.header += labels.area? `<b>${hTags['area']}:</b> ${labels.area}; ` : "";
+			labels.header += labels.effect? `<b>${hTags['effect']}:</b> ${labels.effect}; ` : "";
+			labels.header += labels.duration? `<b>${hTags['duracao']}:</b> ${labels.duration}; ` : "";
+			labels.header += labels.save? `<b>${hTags['save']}:</b> ${labels.save}; ` : "";
 		}
 
 		// if this item is owned, we prepareFinalAttributes() at the end of actor init
@@ -222,7 +281,7 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 
 	/**
-	 * Compute item attributes which might depend on prepared actor data.
+	 * Compute item attributes which might depend on prepared actor system.
 	 */
 	prepareFinalAttributes() {
 		if ( this.hasSave ) {
@@ -241,29 +300,28 @@ export default class ItemT20 extends Item {
 		}
 	}
 
+
+
+	/* -------------------------------------------- */
+	/*  Data Preparation Helpers                    */
 	/* -------------------------------------------- */
 
 	/**
 	 * Populate a label with the compiled and simplified damage formula
-	 * based on owned item actor data. This is only used for display
+	 * based on owned item actor system. This is only used for display
 	 * 
 	 * @returns {Array} array of objects with `formula` and `damageType`
 	 */
 	getDerivedDamageLabel() {
-		const itemData = this.data.data;
-		if ( !this.hasDamage || !itemData || !this.isOwned ) return [];
+		const system = this.system;
+		if ( !this.hasDamage || !system || !this.isOwned ) return [];
 
-		const rollData = this.getRollData();
-		// const derivedDamage = itemData.rolls?.find(r=>r.type=="dano")?.parts?.map((damagePart) => ({
-		// 	formula: simplifyRollFormula(damagePart[0], rollData, { constantFirst: false }),
-		// 	damageType: damagePart[1],
-		// }));
-		// this.labels.derivedDamage = derivedDamage;
+		const rollData = {}; //this.getRollData();
 		this.labels.dano = simplifyRollFormula(this.labels.dano, rollData, { constantFirst: false });
 		
 		return this.labels.dano;
 	}
-
+	
 	/* -------------------------------------------- */
 
 	/**
@@ -272,14 +330,17 @@ export default class ItemT20 extends Item {
 	 */
 	getSaveDC() {
 		if ( !this.hasSave ) return;
-		const resistencia = this.data.data?.resistencia;
+		const resistencia = this.system?.resistencia;
 
 		// Ability-score
 		resistencia.cd = null;
 		if ( this.isOwned ){
-			let atr = getProperty(this.actor.data, `data.atributos.${resistencia.atributo}.mod`);
-			let nvl = Math.floor(getProperty(this.actor.data, `data.attributes.nivel.value`)/2);
+			let atr = getProperty(this.actor.system, `atributos.${resistencia.atributo}.mod`);
+			let nvl = Math.floor(getProperty(this.actor.system, `attributes.nivel.value`)/2);
 			resistencia.cd = 10 + nvl + atr + resistencia.bonus;
+			if ( this.actor.type == 'npc' && this.actor.getFlag('tormenta20', 'npcReform') ){
+				resistencia.cd = this.actor.system.attributes.cd;
+			}
 		}
 
 		// Update labels
@@ -287,7 +348,7 @@ export default class ItemT20 extends Item {
 		this.labels.resistencia = game.i18n.format("T20.SaveDC", {cd: resistencia.cd || "", pericia: skill});
 		return resistencia.dc;
 	}
-
+	
 	/* -------------------------------------------- */
 
 	/**
@@ -301,7 +362,7 @@ export default class ItemT20 extends Item {
 	 * @returns {Object} returns `rollData` and `parts` to be used in the item's Attack roll
 	 */
 	getAttackToHit() {
-		const itemData = this.data.data;
+		const itemData = this.system;
 		const rollData = this.getRollData();
 		const roll = itemData.rolls.find(r=>r.type == "ataque");
 		if ( !this.hasAttack || !itemData || roll.parts.length < 2 ) return;
@@ -310,11 +371,10 @@ export default class ItemT20 extends Item {
 		
 		// Take no further action for un-owned items
 		if ( !this.isOwned ) return {rollData, parts};
-		const actorData = this.actor.data.data;
+		const actorData = this.actor.system;
 		
 		// Add skill bonus
 		if ( roll.parts[1][0] ) {
-			// parts.push("@skill");
 			parts[1] = "@skill";
 			rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
 			// Change Skill Ability modifier
@@ -334,7 +394,7 @@ export default class ItemT20 extends Item {
 		// else if( enchants?.formidavel ) parts.push(2);
 
 		// Actor-level global bonus to attack rolls
-		const bonuses = this.actor.data.data.modificadores?.ataque || {};
+		const bonuses = this.actor.system.modificadores?.ataque || {};
 		if ( bonuses.geral ) parts.push(bonuses.geral);
 		if ( bonuses.cac && roll.parts[1][0] !== "pont"){
 			parts.push(bonuses.cac);
@@ -345,13 +405,13 @@ export default class ItemT20 extends Item {
 
 		// One-time bonus provided by consumed ammunition
 		if ( (itemData.consume?.type === 'ammo') && !!this.actor.items ) {
-			const ammoItemData = this.actor.items.get(itemData.consume.target)?.data;
+			const ammoItemData = this.actor.items.get(itemData.consume.target)?.system;
 
 			if (ammoItemData) {
-				const ammoItemQuantity = ammoItemData.data.qtd;
+				const ammoItemQuantity = ammoItemData.qtd;
 				const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
-				const ammoAtqBns = ammoItemData.data.atqBns;
-				const ammoIsTypeConsumable = (ammoItemData.type === "consumivel") && (ammoItemData.data.subtipo === "ammo");
+				const ammoAtqBns = ammoItemData.atqBns;
+				const ammoIsTypeConsumable = (ammoItemData.type === "consumivel") && (ammoItemData.subtipo === "ammo");
 				if ( ammoCanBeConsumed && ammoAtqBns && ammoIsTypeConsumable ) {
 					parts.push("@ammo");
 					rollData["ammo"] = ammoAtqBns;
@@ -370,8 +430,218 @@ export default class ItemT20 extends Item {
 		return {rollData, parts};
 	}
 
+
+	/* -------------------------------------------- */
+	/*  Methods                                     */
 	/* -------------------------------------------- */
 
+	/**
+	 * Prepare a data object which is passed to any Roll formulas which are created related to this Item
+	 * @private
+	 */
+	getRollData() {
+		if ( !this.actor ) return null;
+		const rollData = this.actor.getRollData();
+		rollData.item = foundry.utils.deepClone(this.system);
+		if ( this.system.rolled ){
+			if ( !rollData.roll ) rollData.roll = {};
+			for ( let [key, r] of Object.entries(this.system.rolled) ) {
+				rollData.roll[key] = r.total;
+			}
+		}
+		const atributoChave = this.actor.system.attributes.conjuracao;
+		rollData["atributoChave"] = 0;
+		if( T20.atributos[atributoChave] ){
+			rollData["atributoChave"] = this.actor.system.atributos[atributoChave].mod;
+		}
+
+		// Include an ability score modifier if one exists
+		const atr = this.system.atrBns;
+		if ( atr ) {
+			const atributo = rollData.atributos[atr];
+			rollData["mod"] = atributo.mod || 0;
+		}
+		for ( let [key, skl] of  Object.entries(this.actor.system.pericias) ){
+			rollData[key] = skl.value;
+		}
+		return rollData;
+	}
+
+	/* -------------------------------------------- */
+	/*  Event Handlers                              */
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _preCreate(data, options, user) {
+		await super._preCreate(data, options, user);
+		if ( !this.isEmbedded || (this.parent.type === "vehicle") ) return;
+		const actorData = this.parent.system;
+		const isNPC = this.parent.type === "npc";
+		let updates;
+		switch (data.type) {
+			case "classe":
+				/* TODO */
+				break;
+			case "equipamento":
+				updates = this._onCreateOwnedEquipment(data, actorData, isNPC);
+				break;
+			case "arma":
+				updates = this._onCreateOwnedWeapon(data, actorData, isNPC);
+				break;
+			case "magia":
+				updates = this._onCreateOwnedSpell(data, actorData, isNPC);
+				break;
+			case "poder":
+				updates = this._onCreateOwnedPower(data, actorData, isNPC);
+				break;
+		}
+		if (updates) return this.updateSource(updates);
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	_onCreate(data, options, userId) {
+		super._onCreate(data, options, userId);
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _preUpdate(changed, options, user) {
+		// console.log(changed, options, user);
+		await super._preUpdate(changed, options, user);
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	_onUpdate(changed, options, user){
+		// console.log(changed, options, user);
+		super._onUpdate(changed, options, user);
+		// Set Initial Class
+		if( this.parent && this.type === "classe" && changed.system?.hasOwnProperty("inicial") ){
+			const classes = this.actor.items.filter(i => i.type === "classe" && i.id != this.id);
+			let updateItems;
+			// When set as initial, unset other classes
+			if( changed.system.inicial ){
+				updateItems = classes.map(i => {
+					return {_id: i.id, "system.inicial": false};
+				});
+			}
+			// If unseted initial, find first class and set it as initial
+			else if( this.actor.items.find(i => i.type === "classe" && !i.system.inicial ) ) {
+				let newInicial = this.actor.items.find(i => i.type === "classe" && i.id != this.id);
+				updateItems = [{_id: newInicial.id, "system.inicial": true}];
+			}
+			if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	_onDelete(options, userId) {
+		super._onDelete(options, userId);
+		// Assign a new primary class
+		if ( this.parent && this.type === "classe" )  {
+			if( this.actor.items.find(i => i.type === "classe" && !i.system.inicial ) ) {
+				let newInicial = this.actor.items.find(i => i.type === "classe" );
+				const updateItems = [{_id: newInicial.id, "system.inicial": true}];
+				if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
+			}
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Pre-creation logic for the automatic configuration of owned equipment type Items
+	 * @private
+	 */
+	_onCreateOwnedEquipment(data, actorData, isNPC) {
+		const updates = {};
+		if ( foundry.utils.getProperty(data, "system.equipado") === undefined ) {
+			updates["system.equipado"] = isNPC;       // NPCs automatically equip equipment
+		}
+		return updates;
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Pre-creation logic for the automatic configuration of owned spell type Items
+	 * @private
+	 */
+	_onCreateOwnedSpell(data, actorData, isNPC) {
+		const updates = {};
+		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+			try {
+				if ( data.system.resistencia ){
+					updates["system.resistencia.atributo"] = '';
+					updates["system.resistencia.bonus"] = '';
+				}
+			} catch (error) {
+				console.error(error);
+			};
+		}
+		return updates;
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Pre-creation logic for the automatic configuration of owned powers type Items
+	 * @private
+	 */
+	_onCreateOwnedPower(data, actorData, isNPC) {
+		const updates = {};
+		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+			try {
+				if ( data.system.resistencia ){
+					updates["system.resistencia.atributo"] = '';
+					updates["system.resistencia.bonus"] = '';
+				}
+			} catch (error) {
+				console.error(error);
+			};
+		}
+		return updates;
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Pre-creation logic for the automatic configuration of owned weapon type Items
+	 * @private
+	 */
+	_onCreateOwnedWeapon(data, actorData, isNPC) {
+		const updates = {};
+		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+			try {
+				let attack = actorData.builder.attributes?.attack?.value ?? 0;
+				let damage = actorData.builder.attributes?.damage?.value ?? 0;
+				if ( data.system.rolls ) {
+					let attackRoll = data.system.rolls.find( r => r.type == 'ataque' );
+					let damageRoll = data.system.rolls.find( r => r.type == 'dano' );
+					if( attackRoll && damageRoll ){
+						attackRoll.parts = [['1d20',''],['',''],[attack,'']];
+						let wroll = damageRoll.parts[0][0];
+						damageRoll.parts = [[`${wroll}+${damage}`,''],['','']];
+						updates["system.rolls"] = [attackRoll,damageRoll];
+					}
+				};
+			} catch (error) {
+				console.error(error);
+			}
+		}
+		return updates;
+	}
+
+	/* -------------------------------------------- */
+	/*  Gameplay Mechanics                          */
+	/* -------------------------------------------- */
+	
 	/**
 	 * Roll the item to Chat, creating a chat card which contains follow up attack or damage roll options
 	 * @param {boolean} [configureDialog]     Display a configuration dialog for the item roll, if applicable?
@@ -386,53 +656,63 @@ export default class ItemT20 extends Item {
 		// Hold to check later
 		if ( true ) {
 			item = this.clone({keepId: true});
-			item.data.update({_id: this.id}); // Retain the original ID (needed until 0.8.2+)
 			item.prepareFinalAttributes(); // Spell save DC, etc...
 		}
-		const id = this.data.data;                // Item system data
+		const id = this.system;                // Item system data
 		const actor = this.actor;
-		const ad = actor.data.data;               // Actor system data
+		const ad = actor.system;               // Actor system data
 		
-		// Reference aspects of the item data necessary for usage
-		const hasArea = this.hasAreaTarget;       // Is the ability usage an AoE?
-		const resource = id.consume || {};        // Resource consumption
-		const uses = id?.uses ?? {};              // Limited uses
-
-		// Define follow-up actions resulting from the item usage
-		let createMeasuredTemplate = hasArea;       // Trigger a template creation
-		let consumeResource = !!resource.target && (resource.type !== "ammo") // Consume a linked (non-ammo) resource
-		let consumeUsage = !!uses.per;              // Consume limited uses
-		let consumeQuantity = uses.autoDestroy;     // Consume quantity of the item in lieu of uses
+		let createMeasuredTemplate;
+		const resource = id.consume || {};     // Resource consumption
 		
-		let consumeMana = id.ativacao?.custo > 0 ;  // Consume mana
-		let options = {};                           // 
+		
+		// TODO: Consume a linked (non-ammo) resource
+		let consumeResource = !!resource.target && resource.type == "attribute";
+		// Consume item quantity
+		let consumeSelf = this.type == 'consumivel';
+		let consumeQuantity = ['ammo','material'].includes(resource.type) && resource.target;
+		// Consume mana
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		let consumeMana = id.ativacao?.custo > 0 ? true : false;
+		let hasManaCost = id.ativacao?.custo > 0 ? true : false;
+		let options = {};
 
 		// Display a configuration dialog to customize the usage
-		const needsConfiguration = createMeasuredTemplate || consumeResource || consumeMana || consumeUsage;
+		const needsConfiguration = consumeResource || consumeMana;
 		let configuration = {};
 		if (configureDialog) {
-			configuration = await AbilityUseDialog.create(this);
+			configuration = await AbilityUseDialog.create(item);
+			// configuration = await new AbilityUseDialog(item).render(true);
 			if (!configuration) return;
 			
-			
+			options = configuration;
 			// Determine consumption preferences
 			// createMeasuredTemplate = Boolean(configuration.placeTemplate);
-			consumeUsage = Boolean(configuration.consumeUse);
-			consumeResource = Boolean(configuration.consumeResource);
-			consumeMana = Boolean(configuration.consumeMana);
+			// consumeSelf = Boolean(configuration.consumeSelf);
+			// consumeQuantity = Boolean(configuration.consumeUse);
+			// consumeResource = Boolean(configuration.consumeResource);
+			// consumeMana = Boolean(configuration.consumeMana);
 			rollMode = configuration.rollMode;
 		} else {
-			let itActive = this.actor.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
-			let acActive = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.data.disabled);
+			let itActive = this.actor.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.disabled);
+			let acActive = this.effects.filter(ef => ef.getFlag("tormenta20","onuse") && !ef.disabled);
 			let active = itActive.concat(acActive);
+			const relate = {
+				atributo:'ability', pericia:'skill',
+				arma:'attack', magia:'spell',
+				poder:'power', consumivel:'consumable',
+			}
+			let efType = relate[item.type];
+			active = active.filter( ef => ef.flags.tormenta20[efType] );
 			configuration.aprs = active.reduce((o,ef)=>{
-				o[ef.id] = {aplica:1, custo: ef.data.flags.tormenta20.custo||"0"};
+				o[ef.id] = {aplica:1, custo: ef.flags.tormenta20.custo||"0"};
 				return o;
 			}, {});
+			options = applyOnUseEffects( item, configuration );
 		}
 
-		if ( !isObjectEmpty( extra ) || configuration.bonus || configuration.bonusdano ) {
-			item.data.data.rolls.forEach( r => {
+		if ( !isEmpty( extra ) || configuration.bonus || configuration.bonusdano ) {
+			item.system.rolls.forEach( r => {
 				if( r.type == "ataque" ) {
 					if ( !["","0",undefined].includes(configuration.bonus) ) r.parts.push([configuration.bonus, ""]);
 					if ( !["","0",undefined].includes(extra.pericia) ) r.parts[1][0] = extra.pericia;
@@ -449,85 +729,93 @@ export default class ItemT20 extends Item {
 				}
 			});
 
-			if ( extra?.multCritico?.match(/^=/) ) item.data.data.criticoX = 1* extra.multCritico.replace("=","");
-			else if ( Number(extra.multCritico) ) item.data.data.criticoX += Number(extra.multCritico);
-			if ( extra?.margemCritico?.match(/^=/) ) item.data.data.criticoM = extra.margemCritico.replace("=","");
-			else if ( Number(extra.margemCritico) ) item.data.data.criticoM += Number(extra.margemCritico);
+			if ( extra?.multCritico?.match(/^=/) ) item.system.criticoX = 1* extra.multCritico.replace("=","");
+			else if ( Number(extra.multCritico) ) item.system.criticoX += Number(extra.multCritico);
+			if ( extra?.margemCritico?.match(/^=/) ) item.system.criticoM = extra.margemCritico.replace("=","");
+			else if ( Number(extra.margemCritico) ) item.system.criticoM += Number(extra.margemCritico);
 		}
 		
-		// ActiveEffectT20._applyOnUse(actor, item, configuration);
-		options = item.applyAprimoramentos(configuration);
-		options.rolls = [];
 		// Execute Rolls
-		item.data.data.rolled = {};
-		
-
-		if( item.data.data.rolls.find(r=>r.type == "ataque" && r.parts.length && r.parts[0][0]) ){
+		options.rolls = [];
+		item.system.rolled = {};
+		if( item.system.rolls.find(r=>r.type == "ataque" && r.parts.length && r.parts[0][0]) ){
 			await item.rollAttack({options:options});
 		}
-		if( item.data.data.rolls.find(r=>r.type == "formula" && r.parts.length && r.parts[0][0]) ){
+		if( item.system.rolls.find(r=>r.type == "formula" && r.parts.length && r.parts[0][0]) ){
 			await item.rollFormula({options:options});
 		}
-		if( item.data.data.rolls.find(r=>r.type == "dano" && r.parts.length && r.parts[0][0]) ){
+		if( item.system.rolls.find(r=>r.type == "dano" && r.parts.length && r.parts[0][0]) ){
 			await item.rollDamage({options:options});
 		}
 		
+		options.hasManaCost = hasManaCost;
 		// Determine whether the item can be used by testing for resource consumption
-		// TODO config auto consume settings;
-		const setttings = false;
-		if( setttings ){
-			const usage = item._getUsageUpdates({consumeResource, consumeMana, consumeUsage, consumeQuantity});
+		if( autoSpendMana && !options.truque && consumeMana ) {
+			consumeMana = Math.max(item.system.ativacao.custo, 1);
+		} else consumeMana = false;
+		
+		const consumeSettings = consumeResource || consumeMana || consumeQuantity || consumeSelf;
+		if( consumeSettings ){
+			const usage = item._getUsageUpdates({consumeResource, consumeMana, consumeQuantity, consumeSelf});
 			if ( !usage ) return;
-			const {actorUpdates, itemUpdates, resourceUpdates} = usage;
+			const {actorUpdates, itemsUpdate, itemUpdates, resourceUpdates, manaUpdate} = usage;
 
-			// Commit pending data updates
-			if ( !foundry.utils.isObjectEmpty(itemUpdates) ) await item.update(itemUpdates);
-			if ( consumeQuantity && (id.quantity === 0) ) await item.delete();
-			if ( !foundry.utils.isObjectEmpty(actorUpdates) ) await actor.update(actorUpdates);
-			if ( !foundry.utils.isObjectEmpty(resourceUpdates) ) {
-				const resource = actor.items.get(id.consume?.target);
-				if ( resource ) await resource.update(resourceUpdates);
+			// Commit pending data updates 
+			if ( !isEmpty(itemsUpdate) ) {
+				this.actor.updateEmbeddedDocuments('Item', itemsUpdate);
+			}
+			if ( !isEmpty(itemUpdates) ) {
+				itemUpdates._id = this.id;
+				this.actor.updateEmbeddedDocuments('Item', [itemUpdates]);
+			}
+			if ( !isEmpty(manaUpdate) ) {
+				this.actor.spendMana(manaUpdate.value, 0, false);
+			}
+			if ( !isEmpty(resourceUpdates) ) {
+				this.actor.update(resourceUpdates);
 			}
 		}
 
+		// Reference aspects of the item data necessary for usage
+		const hasArea = item.hasAreaTarget;       // Is the ability usage an AoE?
+		// Define follow-up actions resulting from the item usage
+		createMeasuredTemplate = hasArea;       // Trigger a template creation
 		// Initiate measured template creation
 		if ( createMeasuredTemplate ) {
 			const template = AbilityTemplate.fromItem(item);
 			if ( template ) {
 				template.drawPreview();
 				options.template = {
-					area: item.data.data.area,
-					alcance: item.data.data.alcance
+					area: item.system.area,
+					alcance: item.system.alcance
 				}
 			}
 		}
 		
-		if( consumeMana ) item.data.data.ativacao.custo = item.data.data.ativacao.custo || 1;
+		
 		// Create or return the Chat Message data
 		if( configuration.brew ){
-			let potion = "Poção";
-			if( item.data.data.area ) potion = "Granada";
-			if( item.data.data.alvo.match(/objeto/) ) potion = "Óleo";
+			let potion = "T20.ConsumableSubtypePotion";
+			if( item.system.area ) potion = "T20.ConsumableSubtypeGranade";
+			if( item.system.alvo.match(/objeto/) ) potion = "T20.ConsumableSubtypeOil";
 			const itemData = {
-				name: `${potion} de ${item.name}`,
+				name: game.i18n.format('T20.ConsumableSpellName',{
+					item: game.i18n.localize(potion),
+					name:item.name
+				}),
 				type: "consumivel",
 				img: "icons/consumables/potions/bottle-bulb-corked-glowing-red.webp",
-				data: item.data.data
+				system: item.system
 			};
-			itemData.data.tipo = "potion";
-			itemData.data.ativacao.custo = 0;
+			itemData.system.tipo = "potion";
+			itemData.system.ativacao.custo = 0;
 			actor.createEmbeddedDocuments("Item", [itemData]);
-			let msg = `${item.actor.name} criou ${itemData.name}`;
+			let msg = game.i18n.format('T20.ConsumableCreated', {actor:item.actor.name, name:itemData.name} );
 			return ChatMessage.create({content:msg});
 		}
-		if( id.ativacao.custo && actor.data.data.modificadores.custoPM ){
-			item.data.data.ativacao.custo += Number(actor.data.data.modificadores.custoPM);
-		}
-		
+		options.itemId = this.id;
 		return item.displayCard({options, rollMode, createMessage});
 	}
-
-	/* -------------------------------------------- */
 
 	/**
 	 * Verify that the consumed resources used by an Item are available.
@@ -540,57 +828,69 @@ export default class ItemT20 extends Item {
 	 * @returns {object|boolean}            A set of data changes to apply when the item is used, or false
 	 * @private
 	 */
-	_getUsageUpdates({consumeQuantity, consumeResource, consumeMana, consumeUsage}) {
+	_getUsageUpdates({consumeQuantity, consumeResource, consumeMana, consumeSelf}) {
 
 		// Reference item data
-		const id = this.data.data;
+		const id = this.system;
 		const actorUpdates = {};
 		const itemUpdates = {};
 		const resourceUpdates = {};
+		const manaUpdate = {};
+		const itemsUpdate = [];
 
 		// Consume Limited Resource
+		// consumeResource = false;
 		if ( consumeResource ) {
-			const canConsume = this._handleConsumeResource(itemUpdates, actorUpdates, resourceUpdates);
-			if ( canConsume === false ) return false;
+			let resourceAttr = this.actor?.system.resources[id.consume.target] ?? {};
+			if( !isEmpty(resourceAttr) && resourceAttr.value >= id.consume.amount ){
+				let remaining = resourceAttr.value - id.consume.amount;
+				let key = `system.resources.${id.consume.target}.value`;
+				resourceUpdates[key] = remaining;
+			}
+			// if ( canConsume === false ) return false;
 		}
 
-		// Consume Spell Slots
+		// Consume Mana Points
 		if ( consumeMana && Number.isNumeric(consumeMana)) {
-			this.actor.spendMana(consumeMana, 0, false);
-		}
-
-		// Consume Limited Usage
-		if ( consumeUsage ) {
-			const uses = id.uses || {};
-			const available = Number(uses.value ?? 0);
-			let used = false;
-
-			// Reduce usages
-			const remaining = Math.max(available - 1, 0);
-			if ( available >= 1 ) {
-				used = true;
-				itemUpdates["data.uses.value"] = remaining;
+			if( consumeMana && this.actor.system.modificadores.custoPM ){
+				consumeMana += Number(this.actor.system.modificadores.custoPM);
 			}
-
-			// Reduce quantity if not reducing usages or if usages hit 0 and we are set to consumeQuantity
-			if ( consumeQuantity && (!used || (remaining === 0)) ) {
-				const q = Number(id.quantity ?? 1);
-				if ( q >= 1 ) {
-					used = true;
-					itemUpdates["data.quantidade"] = Math.max(q - 1, 0);
-					itemUpdates["data.uses.value"] = uses.max ?? 1;
-				}
-			}
-
-			// If the item was not used, return a warning
-			if ( !used ) {
-				ui.notifications.warn(game.i18n.format("T20.ItemNoUses", {name: this.name}));
+			const mana = this.actor.system.attributes.pm;
+			const currentMana = mana.value + mana.temp;
+			if( currentMana >= consumeMana ) {
+				manaUpdate['value'] = consumeMana;
+			} else {
+				ui.notifications.warn(game.i18n.format("T20.InsufficientMana", {name: this.name}));
 				return false;
 			}
 		}
 
+		// Reduce quantity
+		if ( consumeQuantity && id.consume.target.length ) {
+			let resourceItem = this.actor.items.get(id.consume.target);
+			if ( resourceItem.system.qtd >= id.consume.amount ) {
+				let remaining = resourceItem.system.qtd - id.consume.amount;
+				itemsUpdate.push({_id: resourceItem.id, "system.qtd": remaining});
+			} else {
+				ui.notifications.warn(game.i18n.format("T20.ItemNoUses", {name: resourceItem.name}));
+				return false;
+			}
+		}
+
+		// Reduce self quantity
+		if ( consumeSelf ) {
+			const q = Number(id.qtd ?? 1);
+			if ( q >= 1 ) {
+				// itemsUpdate.push({_id: this.id, "system.qtd": Math.max(q - 1, 0)});
+				itemUpdates["system.qtd"] = Math.max(q - 1, 0);
+			} else {
+				ui.notifications.warn(game.i18n.format("T20.ItemNoUses", {name: this.name}));
+				return false;
+			}
+		}
+		
 		// Return the configured usage
-		return {itemUpdates, actorUpdates, resourceUpdates};
+		return {itemUpdates, itemsUpdate, actorUpdates, resourceUpdates, manaUpdate};
 	}
 
 	/* -------------------------------------------- */
@@ -605,7 +905,7 @@ export default class ItemT20 extends Item {
 	 */
 	_handleConsumeResource(itemUpdates, actorUpdates, resourceUpdates) {
 		const actor = this.actor;
-		const itemData = this.data.data;
+		const itemData = this.system;
 		const consume = itemData.consume || {};
 		if ( !consume.type ) return;
 
@@ -622,13 +922,13 @@ export default class ItemT20 extends Item {
 		let quantity = 0;
 		switch ( consume.type ) {
 			case "attribute":
-				resource = getProperty(actor.data.data, consume.target);
+				resource = getProperty(actor.system, consume.target);
 				quantity = resource || 0;
 				break;
 			case "ammo":
 			case "material":
 				resource = actor.items.get(consume.target);
-				quantity = resource ? resource.data.data.quantidade : 0;
+				quantity = resource ? resource.system.quantidade : 0;
 				break;
 		}
 
@@ -648,14 +948,15 @@ export default class ItemT20 extends Item {
 		// Define updates to provided data objects
 		switch ( consume.type ) {
 			case "attribute":
-				actorUpdates[`data.${consume.target}`] = remaining;
+				actorUpdates[`system.${consume.target}`] = remaining;
 				break;
 			case "ammo":
 			case "material":
-				resourceUpdates["data.quantidade"] = remaining;
+				resourceUpdates["system.quantidade"] = remaining;
 				break;
 		}
 	}
+
 
 	/* -------------------------------------------- */
 
@@ -669,29 +970,31 @@ export default class ItemT20 extends Item {
 	async displayCard({options, rollMode, createMessage=true}={}) {
 		// Basic template rendering data
 		const token = this.actor.token;
+		
+		let manaCost = Number(this.system.ativacao.custo) || (options.hasManaCost ? 1 : null );
+		if ( options.truque ) manaCost = 0;
+		else if ( options.halfCost ) manaCost = Math.floor(manaCost / 2);
+		
 		const templateData = {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
-			item: this.data,
-			data: this.getChatData(),
+			itemId: options.itemId,
+			item: this,
+			custo: manaCost,
+			system: await this.getChatData(),
 			labels: this.labels,
-			custo: options.truque? 0 : this.data.data.ativacao.custo || null,
 			truque: options.truque,
-			aprimoramentos: options.aprimoramentos,
+			onUseEffects: options.onUseEffects,
 			effects: options.effects,
 			placeTemplate: options.template,
-			_rolls: []
+			rolls: []
 		};
 
-		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
-		if ( templateData.actor && templateData.custo && autoSpendMana ) {
-				this.actor.spendMana(templateData.custo, 0, false);
-		}
-
-		for( let [key, roll] of Object.entries(this.data.data.rolled) ) {
+		
+		for( let [key, roll] of Object.entries(this.system.rolled) ) {
 			roll.tipo = roll.dice[0]?.faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
 			roll.options.title = key || "";
-			await roll.render().then((r)=> {templateData._rolls.push({template: r, roll: roll})});
+			await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
 		}
 		
 		// Render the chat card template
@@ -701,64 +1004,50 @@ export default class ItemT20 extends Item {
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+			rolls: Object.values( this.system.rolled ),
 			content: html,
-			flavor: options.chatFlavor || this.data.data.chatFlavor || "",
-			speaker: ChatMessage.getSpeaker({actor: this.actor, token}),
+			flavor: options.chatFlavor || this.system.chatFlavor || "",
+			speaker: ChatMessage.getSpeaker({actor: this.actor}),
 			flags: {
 				"core.canPopout": true,
-				"tormenta20.aprimoramentos": options.aprimoramentos,
+				"tormenta20.onUseEffects": options.onUseEffects,
 				"tormenta20.effects": options.effects,
-				"tormenta20.itemData": this.data,
+				"tormenta20.itemData": this.system,
 				"tormenta20.template": options.template
 			}
 		};
+		
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode || game.settings.get("core", "rollMode"));
-
-		if (game?.dice3d?.show) {
-			let wd = {
-				whisper: (["gmroll", "blindroll"].includes(rollMode) ? ChatMessage.getWhisperRecipients("GM") 
-					: (rollMode === "selfroll" ? [game.user._id] : null)),
-				blind: rollMode === "blindroll"
-			}
-			try {
-				for( let [key, roll] of Object.entries(this.data.data.rolled) ) {
-					await game.dice3d.showForRoll(roll, game.user, true, wd.whisper, wd.blind)
-				}
-			} catch (error) {
-				console.error(error);
-			}
-		}
+		
 		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;
 	}
 
 	/* -------------------------------------------- */
-	/*  Chat Cards																	*/
-	/* -------------------------------------------- */
 
-	getChatData(htmlOptions={}) {
-		const data = foundry.utils.deepClone(this.data.data);
+	async getChatData(htmlOptions={async:true}) {
+		const system = foundry.utils.deepClone(this.system);
 		const labels = this.labels;
 
 		// Rich text description
-		data.description = data.description || {value:"",chat:"",unidentified:""};
-		data.description.value = TextEditor.enrichHTML(data.description.value, htmlOptions)
-		//TextEditor.enrichHTML(data.description.value, htmlOptions);
+		system.description = system.description || {value:"",chat:"",unidentified:""};
+		system.description.value = await TextEditor.enrichHTML(system.description.value, htmlOptions)
 
-		if( this.data.type === "magia" || ( this.data.type === "consumivel" && ["scroll", "potion"].includes(data.subtipo) ) ){
-			const headerTags = { ativacao: "Execução", range:"Alcance", target:"Alvo", duracao:"Duração", save:"Resistência" };
-
+		if( this.type === "magia" || ( this.type === "consumivel" && ["scroll", "potion"].includes(system.subtipo) ) ){
+			const headerTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", duracao:"T20.Duration", save:"T20.Resistance" };
 			const r = Object.entries(labels).map(function(t){
 				if( headerTags.hasOwnProperty(t[0]) && t[1]){
-					return `<b>${headerTags[t[0]]}:</b> ${t[1]};`
+					let tag = game.i18n.localize( headerTags[t[0]] );
+					
+					return `<b>${tag}:</b> ${t[1]};`
 				} else return;
 			});
-			data.spellHeader = r.filter(t => t!=null).join(" ");
+			system.spellHeader = r.filter(t => t!=null).join(" ");
 			// Exec - Alcn - Alvo - Area - Dura - Resis
 		}
-		return data;
+		return system;
 	}
 
 	/* -------------------------------------------- */
@@ -773,8 +1062,9 @@ export default class ItemT20 extends Item {
 	 * @return {Promise<Roll|null>}   A Promise which resolves to the created Roll instance
 	 */
 	async rollAttack(options={}) {
-		const itemData = this.data.data;
-		const flags = this.actor.data.flags.tormenta20 || {};
+		const itemData = this.system;
+		const flags = this.actor.flags.tormenta20 || {};
+		options.type = 'attack';
 		// get the parts and rollData for this item's attack
 		for (let r of itemData.rolls.filter(i => i.type == "ataque")) {
 			// Get roll data
@@ -804,29 +1094,24 @@ export default class ItemT20 extends Item {
 			if ( roll === false ) return null;
 			roll._critical = roll.terms[0].total >= itemData.criticoM;
 			roll._fumble = roll.terms[0].total == 1;
-
-			// Commit ammunition consumption on attack rolls resource consumption if the attack roll was made
-			// TODO autoSettings
-			// if ( ammo && !isObjectEmpty(ammoUpdate) ) await ammo.update(ammoUpdate);
 			
 			itemData.rolled[r.name] = roll;
 		}
 	}
 
+	/* -------------------------------------------- */
+
 	/**
-	 * Place a damage roll using an item (weapon, feat, spell, or equipment)
-	 * Rely upon the damageRoll logic for the core implementation.
-	 * @param {MouseEvent} [event]    An event which triggered this roll, if any
-	 * @param {boolean} [critical]    Should damage be rolled as a critical hit?
-	 * @param {number} [spellLevel]   If the item is a spell, override the level for damage scaling
-	 * @param {boolean} [versatile]   If the item is a weapon, roll damage using the versatile formula
-	 * @param {object} [options]      Additional options passed to the damageRoll function
-	 * @return {Promise<Roll>}        A Promise which resolves to the created Roll instance
+	 * Place an attack roll using an item (weapon, feat, spell, or equipment)
+	 * Rely upon the d20Roll logic for the core implementation
+	 *
+	 * @return {Promise<Roll>}   A Promise which resolves to the created Roll instance
 	 */
 	async rollDamage({critical=false, event=null,  versatile=false, options={}}={}) {
-		const itemData = this.data.data;
-		const actorData = this.actor.data.data;
+		const itemData = this.system;
+		const actorData = this.actor.system;
 		let pericia;
+		options.type = 'damage';
 		if(this.type == "arma") {
 			critical = itemData.rolled?.Ataque?._critical || false;
 			pericia = itemData.rolls.find(i => i.type == "ataque")?.parts[1][0];
@@ -860,7 +1145,7 @@ export default class ItemT20 extends Item {
 			if ( pericia=="luta" && bonuses.cac ) parts.push([bonuses.cac, ""]);
 			if ( pericia=="pont" && bonuses.ad ) parts.push([bonuses.ad,""]);
 			if ( this.type=="magia" && bonuses.mag ) parts.push([bonuses.mag,""]);
-			if ( this.type=="consumivel" && this.data.data.tipo == "alchemy" && bonuses.alq ) parts.push([bonuses.alq,""]);
+			if ( this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq ) parts.push([bonuses.alq,""]);
 			// Handle ammunition damage
 			// PREPARE
 			
@@ -884,8 +1169,8 @@ export default class ItemT20 extends Item {
 	 * @return {Promise<Roll>}   A Promise which resolves to the created Roll instance
 	 */
 	async rollFormula(options={}) {
-		const itemData = this.data.data;
-		const actorData = this.actor.data.data;
+		const itemData = this.system;
+		const actorData = this.actor.system;
 		const rollData = this.getRollData();
 		// Invoke the roll and submit it to chat
 		for (let r of itemData.rolls.filter(i => i.type == "formula")) {
@@ -893,604 +1178,5 @@ export default class ItemT20 extends Item {
 			let temp = new Roll(r.parts[0][0], rollData);
 			itemData.rolled[r.name] = await temp.roll({async:true});
 		}
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-   * Prepare a data object which is passed to any Roll formulas which are created related to this Item
-   * @private
-   */
-	getRollData() {
-		if ( !this.actor ) return null;
-		const rollData = foundry.utils.deepClone(this.actor.getRollData());
-		rollData.item = foundry.utils.deepClone(this.data.data);
-		if ( this.data.data.rolled ){
-			if ( !rollData.roll ) rollData.roll = {};
-			for ( let [key, r] of Object.entries(this.data.data.rolled) ) {
-				rollData.roll[key] = r.total;
-			}
-		}
-		const atributoChave = this.actor.data.data.attributes.conjuracao;
-		rollData["atributoChave"] = 0;
-		if( CONFIG.T20.atributos[atributoChave] ){
-			rollData["atributoChave"] = this.actor.data.data.atributos[atributoChave].mod;
-		}
-		
-		
-		
-
-		// Include an ability score modifier if one exists
-		const atr = this.data.data.atrBns;
-		if ( atr ) {
-			const atributo = rollData.atributos[atr];
-			rollData["mod"] = atributo.mod || 0;
-		}
-		for ( let [key, skl] of  Object.entries(this.actor.data.data.pericias) ){
-			rollData[key] = skl.value;
-		}
-		return rollData;
-	}
-
-	/* -------------------------------------------- */
-	
-	/* APPLY APRIMORAMENTOS */
-
-	/* -------------------------------------------- */
-	
-	applyAprimoramentos(configuration=null){
-		if( !configuration ) return {};
-		const C = CONFIG.T20, item = this, id = this.data.data, actor = this.actor;
-		const temCusto = id.ativacao.custo > 0;
-		const re = {
-			faces: /^d\d+$/,
-			die: /\d+d\d+[\+|\-]?[\d+]?/,
-			split: /(d)|([\+|\-])|(\d+)|(\@\w+)/g,
-			perd: /d\*\d+/
-		}
-		let changes = [], options = {};
-		options.aprimoramentos = [];
-		options.effects = [];
-		let rollMods = id.rolls.reduce(function(acc, r){ 
-			acc[r.key] = r.parts.map(i=> ({die:null, dmgStep:0, override:null,
-				addDie:0, addNum:0, perDie:0 }) );
-			return acc;
-		}, {});
-		// Aprimoramentos Aplicados
-		const aplicados = expandObject(configuration).aprs;
-		const aprimoramentos = this.aprimoramentosValidos.filter(ef => aplicados[ef.id]?.aplica );
-		
-		// Efeitos temporários
-		let effectList = this.effects.filter( ef => !ef.data.flags.tormenta20.onuse && !ef.data.disabled);
-		let optEffectList = this.effects.filter( ef => !ef.data.flags.tormenta20.onuse && ef.data.disabled);
-
-		
-		[effectList,optEffectList].forEach(function(list){
-			list.forEach(function(ef, index){
-				changes.push([]);
-				ef.data.changes.forEach(function(ch){
-					changes[index].push({
-						key: ch.key,
-						value: Number(ch.value) || ch.value,
-						mode: ch.mode
-					});
-				});
-			});
-		});
-
-		
-		// FUNÇÃO DE INTERNA
-		const applyChanges = (ch,qtd,ef) => {
-			const campos = {
-				// ARMA
-				// pericia:			["rolls.0.parts.1.0", null ],//C.pericias
-				// atributoAtq:	["rolls.0.parts.1.1", C.atributos ],
-				// atributoDano:	["rolls.1.parts.1.0", C.atributos ],
-				// tipoDano:			["rolls.1.parts.1.1", C.damageTypes ],
-				criticoM:			["criticoM", null ],
-				criticoX:			["criticoX", null ],
-				// ARMA / MAGIA / PODER / CONSUMIVEL
-				alcance:			["alcance", C.distanceUnits ],
-				// MAGIA / PODER / CONSUMIVEL
-				alvo:					["alvo", null ],
-				area:					["area", null ],
-				execucao:			["ativacao.execucao", C.abilityActivationTypes ],
-				duracao:			["duracao.value", C.timePeriods ],
-				resistencia:	["resistencia.value", null ],
-				atributoCD:		["resistencia.atributo", C.atributos ],
-				cd:						["resistencia.bonus", null ],
-				efeito: 			["efeito", null ],
-				// PERICIA
-				atributo:			["atributo", null],
-				treino:				["treino", null],
-				treinado:			["treinado", null]
-			}
-			const _campos = {};
-			// ROLLS ARRAY
-			let rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key)) ) ); //&& r.parts[0][0].match(re.die)
-			ch.key = ch.key.toString();
-			for(let r of rolls){
-				// CUSTOM CHANGES
-				let p = ef._sourceName ? Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0) : 0;
-				if( ch.mode == 0 ) {
-					if (ch.key.match(/\@([^\#]+)\#/)){
-						r.key = ch.key.match(/\@([^\#]+)\#/)[1];
-						ch.key = ch.key.split("#")[1];
-					}
-					// d12 => muda o dado
-					if( ch.value.match(re.faces) ){
-						rollMods[r.key][p].die = ch.value;
-					}
-					// kh => adic o modifier
-					else if( Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/, "")] && !["min","max"].includes(ch.value) ){
-						if( ch.value.match(/k|kh|kl/) ){
-							r.parts[p][0] = r.parts[p][0].replace("1d","2d")+ch.value;
-						} else r.parts[p][0] = r.parts[p][0]+ch.value;
-					}
-					// 1d8+1 => muda a quantidade
-					else if( ch.value.match(re.die)
-								&& (r.parts[p][0].match(re.die) || rollMods[r.key][p].match(re.die)) ){
-						let tempAp = [];
-						ch.value.match(re.split).forEach(rt => tempAp.push(Number(rt) * qtd||rt));
-						if( tempAp[0] ) rollMods[r.key][p].addDie += tempAp[0];
-						if( tempAp[4] ) rollMods[r.key][p].addNum += tempAp[4];
-					}
-					// d*1 => +1 por dado ie.: 2d8+2 > 2d8+2+2
-					else if( ch.value.match(re.perd) ){
-						rollMods[r.key][p].perDie += Number(ch.value.match(/\d+/)[0]) || 0;
-					}
-					// Max/Min => Maximiza Minimiza a Rollagem
-					else if( ["max","min"].includes(ch.value) ){
-						options.minmax = ch.value;
-					}
-					// passos 1 => aumenta o dano em um passo 
-					else if( r.type == "dano" && ch.key=="passos" ){
-						if( Number(ch.value) ){
-							rollMods[r.key][p].dmgStep += Number(ch.value) * qtd;
-						} else {
-							try {
-								let x = ch.value.replace("@","");
-								ch.value = this.getRollData()[x];
-								rollMods[r.key][p].dmgStep += Number(ch.value) * qtd;
-							} catch (error) {
-								
-							}
-						}
-					}
-				}
-				// MULTIPLY CHANGES
-				else if( ch.mode == 1 ) {
-					// Only multiply from the same src
-					if( rollMods[r.key].find(m=> m.src == ef._sourceName ) ){
-						let temp = r.parts.pop();
-						r.parts.push([temp[0]*(Number(ch.value)+qtd-1), ""]);
-					}
-				}
-				// ADD CHANGES
-				else if( ch.mode == 2 ) {
-					// ADD ROLL FROM ITEM
-					if (ch.value == "roll"){
-						const itr = actor.items.get(ef.data.origin.split(".")[3])
-                              .data.data.rolls.find(r=>r.type=="dano");//(r=>r.key=="dano0");
-						r.parts.push(itr.parts[0]);
-					} else {
-						r.parts.push([Number(ch.value * qtd) || ch.value,""]);
-					}
-					if( ef._sourceName ){
-						rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, src: ef._sourceName } );
-					}
-				}
-				// OVERRIDE CHANGES
-				else if( ch.mode == 5 ){
-					if( r.type=="dano" ){
-						if( item.type == "arma" && ch.key == "atributoDano" ) {
-							r.parts[1][0] = ch.value.charAt(0) == "@" ? ch.value : `@${ch.value}`;
-						} else if( item.type == "arma" && ch.key == "tipoDano" ) {
-							r.parts[0][1] = ch.value;
-						} else if( ["","-"].includes(ch.value) ) {
-							r.parts = [];
-						} else if(Number(ch.value) || ch.value.charAt(0) == "@" || ch.value.match(re.die)) {
-							rollMods[r.key][p].override = ch.value;
-						}
-					}
-					else if(r.type=="ataque"){
-						if( item.type == "arma" && ch.key == "pericia" ) {
-							r.parts[1][0] = ch.value;
-						} else if( item.type == "arma" && ch.key == "atributoAtq" ) {
-							r.parts[1][1] = ch.value;
-						}
-					}
-				}
-			}
-			// ITEM DATA
-			if( campos[ch.key] ){
-				// CUSTOM CHANGES
-				if( ch.mode == 0 ) i = 1;
-				// MULTIPLY CHANGES
-				else if( ch.mode == 1 ) {
-					if( Number(ch.value) ){
-						let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
-						if( Number(temp) ) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qtd);
-						else if ( temp ) {
-							temp.replace(/\d+/, (match) => Number(match)*(Number(ch.value)*qtd) );
-						}
-					}
-				}
-				// ADD CHANGES
-				else if( ch.mode == 2 ) {
-					re.float = /[\d+]?[,]?\d+/;
-					if( Number(ch.value) ){
-						let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
-						if( Number.isNumeric(Number(temp)) ) {
-							_campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qtd);
-						}
-						else if ( temp !== false ) {
-							temp.replace(/\d+/, (match) => Number(match)+(Number(ch.value)*qtd) );
-						}
-					} else if( ch.value.match(re.float) && ch.key == "area" ){
-						let n1 = id.area.match(re.float)[0].replace(",",".");
-						let n2 = ch.value.toString().match(re.float)[0].replace(",",".");
-						let n3 = Number(n1) + ( Number(n2) * qtd ) + "";
-						_campos[ch.key] = id.area.replace(n1.replace(".",",") , n3);
-					}
-				}
-				// OVERRIDE CHANGES
-				else if( ch.mode == 5 ) {
-					if( campos[ch.key][1] ) {
-						_campos[campos[ch.key][0]] = ItemT20.itemKey( ch.value , campos[ch.key][1]);
-					} else _campos[campos[ch.key][0]] = ch.value;
-				}
-				// TODO test
-				foundry.utils.mergeObject(id, expandObject(_campos));
-			}
-			
-			// ACTOR DATA
-			// TODO
-
-			// ACTIVE EFFECT
-			// include effect from the item
-			if( ch.key === "efeito"){
-				let tef = optEffectList.find(ef => ef.data.label === ch.value );
-				if ( tef ) effectList.push(tef);
-			}
-			// include condition
-			else if( ch.key === "condicao"){
-				let tef = T20Conditions[ch.value.toLowerCase().trim()];
-				if ( tef ) effectList.push(new ActiveEffect(tef));
-				// if ( tef ) effectList.push(ActiveEffect.create(tef));
-			}
-		}
-		
-		aprimoramentos.sort((a,b)=> (
-			(a.data.changes.some(ch=>ch.mode == 5) && !b.data.changes.some(ch=>ch.mode == 5)) ? -1 : (b.data.changes.some(ch=>ch.mode == 5) && !a.data.changes.some(ch=>ch.mode == 5)) ? 1 : 0 
-			)
-		);
-		aprimoramentos.forEach(function(ef){
-			// Prepare chat content;
-			let ap = {};
-			ap.description = item.type !== "arma"? ef.data.label : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.data.label}` : ef._sourceName );
-			ap.custo = Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
-			ap.qtd = Number(aplicados[ef.id]?.aplica) || 1;
-			if( options.aprimoramentos.find(i=> i.description == ap.description ) ){
-				let apl =  options.aprimoramentos.find(i=> i.description == ap.description );
-				apl.custo += ap.custo || 0;
-				apl.qtd += ap.qtd-1 || 0;
-			} else {
-				options.aprimoramentos.push(ap);
-			}
-			
-			id.ativacao.custo += Number(ap.custo) || 0;
-			if( !Number(aplicados[ef.id]?.custo+1) && item.type == "magia" ) options.truque = true;
-			
-			ef.data.changes.forEach(function(ch){
-				
-				applyChanges(ch, ap.qtd, ef);
-
-				if( ch.key.match(/^data./) ){
-					changes.forEach(function(efch){
-						if( !ef.data.flags.tormenta20.aumenta || ( ef.data.flags.tormenta20.aumenta && efch.map(i => i.key).includes(ch.key) ) ) {
-							if( ch.key == "data.tamanho" && efch.findIndex(i => i.key=="data.tamanho")){
-								efch.splice(efch.findIndex(i => i.key=="data.tamanho"),1);
-							}
-							efch.push({
-								key: ch.key,
-								value: Number(ch.value * ap.qtd)  || ch.value,
-								mode: ch.mode
-							});
-						}
-					});
-				}
-			});
-
-		});
-		
-		// Prepare data from the item to update labels
-		item.prepareDerivedData();
-		// Apply the modifications to the rolls data
-		id.rolls = this.applyRollChanges(rollMods);
-		if ( temCusto ) Math.min(id.ativacao.custo || 1);
-		// 
-		effectList.forEach(function(ef, index){
-			let tempEffect = new ActiveEffect({
-				label: ef.data?.label ?? this.data.name,
-				icon: ef.data?.icon ?? this.data.img,
-				origin: ef.data?.origin ?? undefined,
-				flags: mergeObject(ef.data.flags, { temp: true }),
-				duration: ef.data?.duration ?? undefined,
-				disabled: false,
-				changes: changes[index] ?? ef.data.changes
-			});
-			tempEffect.data.changes = tempEffect.data.changes.filter(ch => ch.key.match(/^data./i));
-			let efl = ef.data?.label.slugify().replace("-","");
-			if(T20Conditions[efl]){
-				tempEffect = new ActiveEffect(T20Conditions[efl]);
-			}
-			options.effects.push(tempEffect);
-		});
-
-		return options;
-	}
-
-	/* -------------------------------------------- */
-
-	/** 
-	 * Realiza as modificações nas formulas de rolagens como alteração de dado, adição de dados
-	 * e bônus e aumento de passo;
-	 * @param {Object} rollMods   Objeto com os valores a serem modificados;
-	 */
-	applyRollChanges(rollMods){
-		let rolls = this.data.data.rolls;
-		let roll;
-		for ( let r of rolls ){
-			for ( let [i, p] of r.parts.entries() ){
-				let dano = p[0] //r.parts[rollMods][0];
-				if( rollMods[r.key][i]?.override == "" ){
-					r.parts[i] = [];
-					continue;
-				} else if ( rollMods[r.key][i]?.override ){
-					dano = rollMods[r.key][i].override;
-				}
-		
-				if ( typeof rollMods[r.key][i]?.die === "string" ) {
-					dano = dano.replace(/d\d+/, rollMods[r.key][i].die);
-				}
-		
-				if ( rollMods[r.key][i]?.dmgStep ) {
-					let indx = -1;
-					let danoBase = dano.match(/^\d+d\d+/)[0];
-
-					if( danoBase == '2d4' ) danoBase = '1d8';
-					if( danoBase == '2d6' || danoBase == '3d4' ) danoBase = '1d12';
-
-					indx = CONFIG.T20.passosDano.indexOf(danoBase);
-					if ( indx != -1 ) {
-						danoBase = CONFIG.T20.passosDano[ indx + rollMods[r.key][i].dmgStep ];
-						dano = dano.replace(/^\d+d\d+/, danoBase)
-					}
-				}
-			
-				if ( rollMods[r.key][i]?.addDie ){
-					dano = new Roll(dano).alter(1, rollMods[r.key][i].addDie).formula;
-				}
-		
-				if ( rollMods[r.key][i]?.addNum ) {
-					roll = new Roll(dano);
-					if ( roll.terms[2] ) roll.terms[2].number += rollMods[r.key][i].addNum;
-					else roll = new Roll( dano + "+" + rollMods[r.key][i].addNum ) || roll;
-					dano = roll.formula;
-				}
-				
-				if ( rollMods[r.key][i]?.perDie ) {
-					let pd = parseInt(dano.match(/\d+d/ )[0]) * Number(rollMods[r.key][i].perDie) || 0;
-					if ( pd ) dano = `${dano} + ${pd}`;
-				}
-				r.parts[i][0] = dano;
-			}
-		}
-		return rolls;
-	}
-
-	/**
-	 * Busca o valor sistêmico de uma configuração a partir de sua tradução ou campo de configuração;
-	 * @param {String} value       Texto usado na busca, seja tradução ou chave do objeto;
-	 * @param {Object} configKey   Objeto CONFIG.T20 onde encontram-se os valores;
-	 */
-	static itemKey(value, configKey){
-		const lang = game.i18n.translations.T20;
-		value = value.toLowerCase().capitalize();
-		let temp = Object.entries(lang).find(t=> t[1] == value);
-		value = temp ? "T20." + temp[0] : value;
-		if ( Object.entries(configKey).find(t=> t[1]==value) ){
-			return Object.entries(configKey).find(t=> t[1]==value)[0];
-		} else if( configKey[value.toLowerCase()] ){
-			return configKey[value.toLowerCase()];
-		}
-		return null;
-	}
-
-	/* -------------------------------------------- */
-	/*  Event Handlers                              */
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	async _preCreate(data, options, user) {
-		await super._preCreate(data, options, user);
-		if ( !this.isEmbedded || (this.parent.type === "vehicle") ) return;
-		const actorData = this.parent.data;
-		const isNPC = this.parent.type === "npc";
-		let updates;
-		switch (data.type) {
-			case "classe":
-				/* TODO */
-				// const features = await this.parent.getClassFeatures({
-				// 	className: this.name,
-				// 	level: this.data.data.niveis
-				// });
-				// return this.parent.addEmbeddedItems(features);
-				break;
-			case "equipamento":
-				updates = this._onCreateOwnedEquipment(data, actorData, isNPC);
-				break;
-			case "arma":
-				updates = this._onCreateOwnedWeapon(data, actorData, isNPC);
-				break;
-			case "magia":
-				updates = this._onCreateOwnedSpell(data, actorData, isNPC);
-				break;
-		}
-		if (updates) return this.data.update(updates);
-	}
-
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	_onCreate(data, options, userId) {
-		super._onCreate(data, options, userId);
-
-		// Assign a new primary class
-		if ( this.parent && (this.type === "classe") && (userId === game.user.id) )  {
-			// const pc = this.parent.items.get(this.parent.data.data.details.originalClass);
-			// if ( !pc ) this.parent._assignPrimaryClass();
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	async _preUpdate(changed, options, user) {
-		await super._preUpdate(changed, options, user);
-	}
-
-	/** @inheritdoc */
-	_onUpdate(changed, options, user){
-		super._onUpdate(changed, options, user);
-		// Ajusta classe inicial
-		if( this.parent && this.type === "classe" && changed.data?.hasOwnProperty("inicial") ){
-			const classes = this.actor.data.items.filter(i => i.type === "classe" && i.id != this.id);
-			let updateItems;
-			// SE VIROU INICIAL, TORNA TODAS AS OUTRAS NÃO INICIAL
-			if( changed.data.inicial ){
-				updateItems = classes.map(i => {
-					return {_id: i.id, "data.inicial": false};
-				});
-			}
-			// SE DEIXOU DE SER INICIAL E NENHUMA OUTRA CLASSE FOI DECIDIDA COMO INICIAL
-			// TORNA A PRIMEIRA CLASSE ENCONTRADA
-			else if( this.actor.data.items.find(i => i.type === "classe" && !i.data.data.inicial ) ) {
-				let newInicial = this.actor.data.items.find(i => i.type === "classe" && i.id != this.id);
-				updateItems = [{_id: newInicial.id, "data.inicial": true}];
-			}
-			if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	_onDelete(options, userId) {
-		super._onDelete(options, userId);
-		// Assign a new primary class
-		if ( this.parent && this.type === "classe" )  {
-			if( this.actor.data.items.find(i => i.type === "classe" && !i.data.data.inicial ) ) {
-				let newInicial = this.actor.data.items.find(i => i.type === "classe" );
-				const updateItems = [{_id: newInicial.id, "data.inicial": true}];
-				if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
-			}
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Pre-creation logic for the automatic configuration of owned equipment type Items
-	 * @private
-	 */
-	_onCreateOwnedEquipment(data, actorData, isNPC) {
-		const updates = {};
-		if ( foundry.utils.getProperty(data, "data.equipado") === undefined ) {
-			updates["data.equipado"] = isNPC;       // NPCs automatically equip equipment
-		}
-		//foundry.utils.mergeObject(data, updates);
-		return updates;
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Pre-creation logic for the automatic configuration of owned spell type Items
-	 * @private
-	 */
-	_onCreateOwnedSpell(data, actorData, isNPC) {
-		const updates = {};
-		/* TODO */
-		// foundry.utils.mergeObject(data, updates);
-		return updates;
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Pre-creation logic for the automatic configuration of owned weapon type Items
-	 * @private
-	 */
-	_onCreateOwnedWeapon(data, actorData, isNPC) {
-		const updates = {};
-		/* TODO */
-		// foundry.utils.mergeObject(data, updates);
-		return updates;
-	}
-
-	/* -------------------------------------------- */
-
-	/* -------------------------------------------- */
-	/*  Factory Methods                             */
-	/* -------------------------------------------- */
-
-	/**
-	 * Create a consumable spell scroll Item from a spell Item.
-	 * @param {ItemT20} spell      The spell to be made into a scroll
-	 * @return {ItemT20}           The created scroll consumable item
-	 * @private
-	 */
-	static async createScrollFromSpell(magia) {
-
-		// Get spell data
-		const itemData = magia instanceof ItemT20 ? magia.data : magia;
-		const {description, tipo, circulo, escola, alcance, duracao, resistencia, alvo, area, efeito, aprimoramentos, ativacao} = itemData.data;
-
-		// Get scroll data
-		const scrollData = {"permission":{"default":0},"type":"consumivel","data":{"peso":0,"qtd":1,"preco":0}};
-		scrollData.img = "systems/tormenta20/icons/itens/pergaminho.webp";
-
-		// Split the scroll description into an intro paragraph and the remaining details
-		const scrollDescription = scrollData.data.description;
-		const pdel = '</p>';
-		const scrollIntroEnd = scrollDescription.indexOf(pdel);
-		const scrollIntro = scrollDescription.slice(0, scrollIntroEnd + pdel.length);
-		const scrollDetails = scrollDescription.slice(scrollIntroEnd + pdel.length);
-
-		// Create a composite description from the scroll description and the spell details
-		const desc = `${scrollIntro}<hr/><h3>${itemData.name} (Círculo ${circulo})</h3><hr/>${description}<hr/><h3>Detalhes do Pergaminho</h3><hr/>${scrollDetails}`;
-
-		// Create the spell scroll data
-		const spellScrollData = mergeObject(scrollData, {
-			name: `Pergaminho: ${itemData.name}`,
-			data: {
-				"description": desc.trim(),
-				circulo,
-				tipo,
-				circulo,
-				escola,
-				alcance,
-				duracao,
-				resistencia,
-				alvo,
-				area,
-				efeito,
-				aprimoramentos,
-				ativacao
-			}
-		});
-		return new this(spellScrollData);
 	}
 }

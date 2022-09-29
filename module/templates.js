@@ -7,26 +7,46 @@ export const preloadHandlebarsTemplates = async function() {
 	return loadTemplates([
 
 		// Shared Partials
-
+		"systems/tormenta20/templates/partials/nav-bar.html",
+		"systems/tormenta20/templates/partials/active-effects.html",
+		
+		
 		// Actor Sheet Partials
-		"systems/tormenta20/templates/actor/parts/actor-aviso.html",
-		"systems/tormenta20/templates/actor/parts/actor-diario.html",
-		"systems/tormenta20/templates/actor/parts/actor-favoritos.html",
-		"systems/tormenta20/templates/actor/parts/actor-inventory.html",
-		"systems/tormenta20/templates/actor/parts/actor-powers.html",
-		"systems/tormenta20/templates/actor/parts/actor-spells.html",
-		"systems/tormenta20/templates/actor/parts/actor-skills.html",
-		"systems/tormenta20/templates/actor/parts/actor-traits.html",
-		"systems/tormenta20/templates/actor/parts/actor-modifiers.html",
-		"systems/tormenta20/templates/actor/parts/active-effects.html",
+		"systems/tormenta20/templates/actor/parts/sheet-header-base.html",
+		"systems/tormenta20/templates/actor/parts/sheet-header-tabbed.html",
+		"systems/tormenta20/templates/actor/parts/sheet-header-npc.html",
+		"systems/tormenta20/templates/actor/parts/sheet-header-simple.html",
+		"systems/tormenta20/templates/actor/parts/statblock.html",
+		"systems/tormenta20/templates/actor/parts/abilities.html",
+		"systems/tormenta20/templates/actor/parts/defense.html",
+		"systems/tormenta20/templates/actor/parts/resources.html",
+		"systems/tormenta20/templates/actor/parts/resources-extra.html",
+		"systems/tormenta20/templates/actor/parts/traits.html",
+		"systems/tormenta20/templates/actor/parts/currency.html",
+		"systems/tormenta20/templates/actor/parts/encumbrance.html",
+		"systems/tormenta20/templates/actor/parts/list-general.html",
+		"systems/tormenta20/templates/actor/parts/list-weapon.html",
+		"systems/tormenta20/templates/actor/parts/list-equipment.html",
+		"systems/tormenta20/templates/actor/parts/list-consumable.html",
+		"systems/tormenta20/templates/actor/parts/list-loot.html",
+		"systems/tormenta20/templates/actor/parts/list-favorites.html",
+		"systems/tormenta20/templates/actor/parts/list-powers.html",
+		"systems/tormenta20/templates/actor/parts/list-spells.html",
+		"systems/tormenta20/templates/actor/parts/list-skills.html",
+		"systems/tormenta20/templates/actor/parts/journal.html",
+		"systems/tormenta20/templates/actor/parts/modifiers.html",
+		
+		// Actor Builder Partials
+		
 
 		// Item Sheet Partials
 		"systems/tormenta20/templates/item/parts/item-header.html",
 		"systems/tormenta20/templates/item/parts/item-rolls.html",
 		"systems/tormenta20/templates/item/parts/item-ativacao.html",
-		"systems/tormenta20/templates/item/parts/item-encantos.html",
+		"systems/tormenta20/templates/item/parts/item-enchantments.html",
 		"systems/tormenta20/templates/item/parts/item-description.html",
 		"systems/tormenta20/templates/item/parts/item-modificacoes.html",
-		"systems/tormenta20/templates/item/parts/item-resistencia.html"
+		"systems/tormenta20/templates/item/parts/item-resistencia.html",
+		"systems/tormenta20/templates/item/parts/item-progression.html",
 	]);
 };

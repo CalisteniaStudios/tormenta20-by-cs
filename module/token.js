@@ -8,10 +8,10 @@
 	getBarAttribute(...args) {
 		const data = super.getBarAttribute(...args);
 		if ( data && (data.attribute === "attributes.pv") ) {
-			data.value += parseInt(getProperty(this.actor.data, "data.attributes.pv.temp") || 0);
+			data.value += parseInt(getProperty(this.actor, "system.attributes.pv.temp") || 0);
 		}
 		if ( data && (data.attribute === "attributes.pm") ) {
-			data.value += parseInt(getProperty(this.actor.data, "data.attributes.pm.temp") || 0);
+			data.value += parseInt(getProperty(this.actor, "system.attributes.pm.temp") || 0);
 		}
 		return data;
 	}
@@ -53,9 +53,8 @@ export class TokenT20 extends Token {
 	 */
 	_drawHPBar(number, bar, data) {
 		// Extract health data
-		
 
-		const actorData = this.document.actor.data.data;
+		const actorData = this.document.actor.system;
 		let {value, max, temp, tempmax, min} = getProperty(actorData, data.attribute);
 		
 		temp = Number(temp || 0);
@@ -83,7 +82,7 @@ export class TokenT20 extends Token {
 		// Determine the container size (logic borrowed from core)
 		const w = this.w;
 		let h = Math.max((canvas.dimensions.size / 12), 8);
-		if ( this.data.height >= 2 ) h *= 1.6;
+		if ( this.document.height >= 2 ) h *= 1.6;  // Enlarge the bar for large tokens
 		const bs = Math.clamped(h / 8, 1, 2);
 		const bs1 = bs+1;
 

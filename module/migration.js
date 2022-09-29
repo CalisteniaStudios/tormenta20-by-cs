@@ -12,7 +12,7 @@ export const migrateWorld = async function () {
 		try {
 			updateData = migrateActorData(a.data);
 			removeDeprecatedData(a.data, updateData);
-			if (!isObjectEmpty(updateData)) {
+			if (!isEmpty(updateData)) {
 				console.log(`Migrando entidade Ator ${a.name}`);
 				await a.update(updateData, { enforceTypes: false });
 			}
@@ -28,7 +28,7 @@ export const migrateWorld = async function () {
 		try {
 			const updateData = migrateItemData(i.data);
 			removeDeprecatedData(i.data, updateData);
-			if (!isObjectEmpty(updateData)) {
+			if (!isEmpty(updateData)) {
 				console.log(`Migrando entidade Item ${i.name}`);
 				await i.update(updateData, { enforceTypes: false });
 			}
@@ -43,7 +43,7 @@ export const migrateWorld = async function () {
 	for (let s of game.scenes.contents) {
 		try {
 			const updateData = migrateSceneData(s.data);
-			if (!isObjectEmpty(updateData)) {
+			if (!isEmpty(updateData)) {
 				console.log(`Migrando entidade Cena ${s.name}`);
 				// Migrando entidade Cena Minas Heldret 2 Andar
 				await s.update(updateData, { enforceTypes: false });
@@ -135,7 +135,7 @@ export const migrateCompendium = async function (pack) {
 			}
 			
 			// Save the entry, if data was changed
-			if ( foundry.utils.isObjectEmpty(updateData) ) continue;
+			if ( foundry.utils.isEmpty(updateData) ) continue;
 			await doc.update(updateData);
 			console.log(`Migrated ${entity} entity ${doc.name} in Compendium ${pack.collection}`);
 		} catch (err) {
@@ -165,7 +165,7 @@ export const migrateActorData = function (actor) {
 	const updateData = {};
 	// Actor Data Updates
 	
-	if( !actor.data ) return updateData;
+	if( !actor ) return updateData;
 	if( actor.flags?.tormenta20?.version != "1.3.0.0" ) {
 		_migrateActorSkills(actor, updateData);
 		_migrateActorData8X(actor, updateData);
@@ -175,13 +175,13 @@ export const migrateActorData = function (actor) {
 	// Migrate Owned Items
 	if ( !actor.items ) return updateData;
 	const items = actor.items.reduce((arr, i) => {
-		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
+		const itemData = i instanceof CONFIG.Item.documentClass ? i.object : i;
 		itemData.parent = actor;
 		if ( itemData.flags?.tormenta20?.version === "1.3.0.0" ) return arr;
 		let itemUpdate = migrateItemData(itemData);
 		removeDeprecatedData(itemData, itemUpdate);
 		// Update the Owned Item
-		if ( !isObjectEmpty(itemUpdate) ) {
+		if ( !isEmpty(itemUpdate) ) {
 			itemUpdate._id = itemData._id;
 			arr.push(expandObject(itemUpdate));
 		}
@@ -207,8 +207,8 @@ export const migrateActorData = function (actor) {
 export const migrateItemData = function (item) {
 	const updateData = {};
 	
-	if (typeof item.data.description === "string") {
-		updateData["data.description.value"] = item.data.description.replace(/<p[^>]*>/g, '<p style="text-align:justify;">');
+	if (typeof item.system.description === "string") {
+		updateData["system.description.value"] = item.system.description.replace(/<p[^>]*>/g, '<p style="text-align:justify;">');
 	}
 	
 	if (item.type == "equip") {
@@ -231,19 +231,19 @@ export const migrateItemData = function (item) {
 		let alcance = {"Nenhum": "none", "Pessoal": "self", "Toque": "touch", "Curto": "short", "Médio": "medium", "Longo": "long"};
 		let duration = {instant: "inst", cena: "scene", turno: "turn", rodada: "round", sust: "sust", verTexto: "special", outra: "special" }
 
-		updateData["data.ativacao.execucao"] = action[item.data.ativacao.execucao] ?? "";
-		updateData["data.alcance"] = alcance[item.data.alcance];
-		if( typeof item.data.resistencia === "string"){
-			let atrRes = item.data.atrRes ? item.data.atrRes : (item.data.tipo == "Arcana" ? "int" : "sab");
+		updateData["data.ativacao.execucao"] = action[item.system.ativacao.execucao] ?? "";
+		updateData["data.alcance"] = alcance[item.system.alcance];
+		if( typeof item.system.resistencia === "string"){
+			let atrRes = item.system.atrRes ? item.system.atrRes : (item.system.tipo == "Arcana" ? "int" : "sab");
 			updateData["data.resistencia"] = {
 				atributo: atrRes,
-				bonus: item.data.cd,
-				txt: item.data.resistencia
+				bonus: item.system.cd,
+				txt: item.system.resistencia
 			};
 		}
 		updateData["data.duracao"] = {
-			value: item.data.duracao.valor ?? null,
-			units: duration[item.data.duracao.unidade] ?? "",
+			value: item.system.duracao.valor ?? null,
+			units: duration[item.system.duracao.unidade] ?? "",
 			special: ""
 		}
 	}
@@ -273,8 +273,8 @@ export const migrateSceneData = function(scene) {
 				t.actorData = {};
 			}
 			else if ( !t.actorLink ) {
-				const actorData = duplicate(token.actor.data);//t.actorData);
-				// deepClone(token.actor.data.toObject()); //
+				const actorData = duplicate(token.actor);//t.actorData);
+				// deepClone(token.actor.object); //
 				actorData.type = token.actor?.type;
 				const update = migrateActorData(actorData);
 
@@ -310,7 +310,7 @@ export const migrateSceneData = function(scene) {
 * @private
 */
 function _migrateActorSkills(actor, updateData) {
-	const ad = actor.data;
+	const ad = actor.system;
 	let treino;
 	if( actor.type == "npc" ){
 		let nivel = ad.attributes.nivel.value;
@@ -355,11 +355,11 @@ function _migrateActorSkills(actor, updateData) {
 							atr = ad.atributos.des.mod;
 							updateData[`${ar[k]}.${newkey}.atributo`] = "des";
 						}
-						let it = actor.items.find(i => i.type == "arma" && (i.data?.data?.pericia == key || i.data?.pericia == key) );
+						let it = actor.items.find(i => i.type == "arma" && (i.system?.pericia == key || i.system?.pericia == key) );
 						if ( it ){
 							const abl = ["for","des","con","int","sab","car"];
-							const _atrAtq = it.data?.data?.atrAtq || it.data?.atrAtq;
-							const _atqBns = it.data?.data?.atqBns || it.data?.atqBns;
+							const _atrAtq = it.system?.atrAtq || it.system?.atrAtq;
+							const _atqBns = it.system?.atqBns || it.system?.atqBns;
 							if ( abl.includes(_atrAtq) && atr !== _atrAtq ) {
 								sklValue = parseInt(_atqBns) + ad.atributos[_atrAtq].mod;
 							} else if (!abl.includes(_atrAtq)) {
@@ -428,7 +428,7 @@ function _migrateActorSkills(actor, updateData) {
 }
 
 function _migrateActorData8X(actor, updateData) {
-	const ad = actor.data;
+	const ad = actor.system;
 	const flags = actor.flags;
 	updateData["data.detalhes.raca"] = ad.attributes.raca;
 	updateData["data.detalhes.info"] = ad.attributes.info;
@@ -695,17 +695,17 @@ function _migrateItemSpell(item, updateData) {
 	if (item.type != "magia") return;
 	const type = {divina: "div",arcana: "arc",universal: "uni"};
 	const schools = {abjuracao:"abj",advinhacao:"adv",conjuracao:"con",encantamento:"enc",evocacao:"evo",ilusao:"ilu",necromancia:"nec",transmutacao:"tra"};
-	let tipo = item.data.tipo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-	let escola = item.data.escola.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	let tipo = item.system.tipo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	let escola = item.system.escola.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 	updateData["data.tipo"] = type[tipo];
 	updateData["data.escola"] = schools[escola];
-	if ( item.data.efeito ){
+	if ( item.system.efeito ){
 		let rolls = [];
 		rolls.push({
 			type: "dano",
 			key: "dano0",
 			name: "Dano",
-			parts: [[ item.data.efeito , ""]]
+			parts: [[ item.system.efeito , ""]]
 		});
 		updateData["data.rolls"] = rolls;
 	}
@@ -720,13 +720,13 @@ function _migrateItemSpell(item, updateData) {
  */
 function _migrateItemPower(item, updateData) {
 	if (item.type != "poder") return;
-	if ( item.data.roll ){
+	if ( item.system.roll ){
 		let rolls = [];
 		rolls.push({
 			type: "dano",
 			key: "dano0",
 			name: "Dano",
-			parts: [[ item.data.roll , ""]]
+			parts: [[ item.system.roll , ""]]
 		});
 		updateData["data.rolls"] = rolls;
 	}
@@ -741,13 +741,13 @@ function _migrateItemPower(item, updateData) {
  */
  function _migrateItemConsumable(item, updateData) {
 	if (item.type != "consumivel") return;
-	if ( item.data.efeito ){
+	if ( item.system.efeito ){
 		let rolls = [];
 		rolls.push({
 			type: "dano",
 			key: "dano0",
 			name: "Dano",
-			parts: [[ item.data.efeito , ""]]
+			parts: [[ item.system.efeito , ""]]
 		});
 		updateData["data.rolls"] = rolls;
 	}
@@ -777,23 +777,23 @@ function _migrateItemWeapon(item, updateData) {
 	let rollsArray = [];
 	let rollAtaque = {};
 	let rollDano = {};
-	if (item.data.custo > 0) {
-		updateData["data.ativacao.custo"] = item.data.custo;
+	if (item.system.custo > 0) {
+		updateData["data.ativacao.custo"] = item.system.custo;
 	} else {
 		updateData["data.ativacao.custo"] = null;
 	}
 	const wpProps = {adaptavel:"ada",agil:"agi",alongada:"alo",arremesso:"arr",ataqueDistancia:"dst",duasMaos:"dms",dupla:"dup",leve:"lev",municao:"mun",versatil:"ver"};
 	const props = {};
-	for ( let [key, value] of Object.entries(item.data.propriedades) ) {
+	for ( let [key, value] of Object.entries(item.system.propriedades) ) {
 		let chav = wpProps[key];
 		props[chav] = value;
 	}
 	updateData["data.propriedades"] = props;
 	const enchs = {};
-	enchs.lancinante = item.data.lancinante;
+	enchs.lancinante = item.system.lancinante;
 	updateData["data.propriedades"] = enchs;
 
-	updateData["data.tipoUso"] = _DeParaTipoArma(item.data.tipoUso);
+	updateData["data.tipoUso"] = _DeParaTipoArma(item.system.tipoUso);
 	
 	rollAtaque["key"] = "ataque0";
 	rollAtaque["name"] = "Ataque";
@@ -803,19 +803,19 @@ function _migrateItemWeapon(item, updateData) {
 	let atrAtq = "";
 	
 	if ( item.parent && item.parent.type == "character" ) {
-		let atbSkill = item.parent.data.pericias[item.data.pericia].atributo;
-		item.data.atrAtq = item.data.atrAtq == "0"? "" : item.data.atrAtq;
-		atrAtq = atbSkill == item.data.atrAtq ? "" : item.data.atrAtq;
+		let atbSkill = item.parent.data.pericias[item.system.pericia].atributo;
+		item.system.atrAtq = item.system.atrAtq == "0"? "" : item.system.atrAtq;
+		atrAtq = atbSkill == item.system.atrAtq ? "" : item.system.atrAtq;
 	}
-	if ( !['lut', 'pon', 'atu'].includes(item.data.pericia) ) {
-		if( item.data.propriedades.ataqueDistancia ){
-			item.data.pericia = 'pon';
+	if ( !['lut', 'pon', 'atu'].includes(item.system.pericia) ) {
+		if( item.system.propriedades.ataqueDistancia ){
+			item.system.pericia = 'pon';
 		} else {
-			item.data.pericia = 'lut';
+			item.system.pericia = 'lut';
 		}
 	}
 	rollAtaque["parts"].push([
-		_DeParaSkills(item.data.pericia),
+		_DeParaSkills(item.system.pericia),
 		_DeParaAtributeType(atrAtq, ""),
 	]);
 	let ataqueBonus = "";
@@ -823,16 +823,16 @@ function _migrateItemWeapon(item, updateData) {
 		let ad = item.parent.data;
 		let nivel = ad.attributes.nivel.value;
 		let treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
-		let atrAtq = item.data.atrAtq;
+		let atrAtq = item.system.atrAtq;
 		let atr = Math.max( ad.atributos.for.mod, ad.atributos.des.mod );
-		if ( item.data.pericia == "pon" ) atr = ad.atributos.des.mod;
-		let tempskl = Number(item.data.atqBns)
+		if ( item.system.pericia == "pon" ) atr = ad.atributos.des.mod;
+		let tempskl = Number(item.system.atqBns)
 		if ( tempskl > 0 ) tempskl = tempskl - Math.floor(nivel/2);
 		if ( tempskl > 0 && (tempskl - atr >= 0) && atrAtq == "0" ) tempskl = tempskl - atr;
 		if ( tempskl > 0 && (tempskl - treino >= 0) ) tempskl = tempskl - treino;
 		ataqueBonus = tempskl;
 	} else {
-		ataqueBonus = item.data.atqBns;
+		ataqueBonus = item.system.atqBns;
 	}
 	rollAtaque["parts"].push([ataqueBonus, ""]);
 	rollsArray.push(rollAtaque);
@@ -842,20 +842,20 @@ function _migrateItemWeapon(item, updateData) {
 	rollDano["type"] = "dano";
 	rollDano["parts"] = [];
 	rollDano["parts"].push([
-		item.data.dano,
-		_DeParaDamageType(item.data.tipo),
+		item.system.dano,
+		_DeParaDamageType(item.system.tipo),
 	]);
-	if( ["for","des","con","int","sab","car"].includes(item.data.atrDan) ) {
-		rollDano["parts"].push([_DeParaAtributeType(item.data.atrDan, "@"), ""]);
-	} else if( item.data.pericia == "lut" ) {
+	if( ["for","des","con","int","sab","car"].includes(item.system.atrDan) ) {
+		rollDano["parts"].push([_DeParaAtributeType(item.system.atrDan, "@"), ""]);
+	} else if( item.system.pericia == "lut" ) {
 		rollDano["parts"].push(["@for", ""]);
 	} else rollDano["parts"].push(["", ""]);
 
 	if ( item.parent && item.parent.type == "npc" ) {
 		let ad = item.parent.data;
-		let atrDan = item.data.atrDan;
+		let atrDan = item.system.atrDan;
 		let atr = Math.max( ad.atributos.for.mod, ad.atributos.des.mod );
-		let danoFrml = game.tormenta20.dice.simplifyRollFormula(item.data.danoBns, {});
+		let danoFrml = game.tormenta20.dice.simplifyRollFormula(item.system.danoBns, {});
 		let temp = new Roll( danoFrml );
 		
 		let dmgNum = temp.terms.find(t => t instanceof NumericTerm  );
@@ -870,7 +870,7 @@ function _migrateItemWeapon(item, updateData) {
 		if ( dmgNum ) {
 			rollDano["parts"].push([
 				dmgNum,
-				_DeParaDamageType(item.data.tipo),
+				_DeParaDamageType(item.system.tipo),
 			]);
 		}
 		
@@ -880,10 +880,10 @@ function _migrateItemWeapon(item, updateData) {
 			}
 		}
 	} else {
-		if ( item.data.danoBns && item.data.danoBns != "0" ) {
+		if ( item.system.danoBns && item.system.danoBns != "0" ) {
 			rollDano["parts"].push([
-				item.data.danoBns,
-				_DeParaDamageType(item.data.tipo),
+				item.system.danoBns,
+				_DeParaDamageType(item.system.tipo),
 			]);
 		}
 	}
@@ -902,8 +902,8 @@ function _migrateItemWeapon(item, updateData) {
 	let effects = foundry.utils.deepClone(owner.effects);
 	let newEffects = [];
 	for ( let effect of effects ){
-		if ( effect.data ) {
-			effect = effect.data.toObject();
+		if ( effect ) {
+			effect = effect.object;
 		}
 		let flagT20 = effect.flags.t20 || {};
 		effect.flags["tormenta20"] = flagT20;

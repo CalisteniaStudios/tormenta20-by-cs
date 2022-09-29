@@ -1,104 +1,91 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 	{{!-- Item Sheet Header --}}
 	{{> "systems/tormenta20/templates/item/parts/item-header.html"}}
-	
 	{{!-- Item Sheet Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<!-- <a class="item active" data-tab="description">Descrição</a> -->
-		<a class="item active" data-tab="details">Detalhes</a>
-		
+		<a class="item active" data-tab="details">{{ localize "T20.Details" }}</a>
 		{{#if isGM}}<a class="item" data-tab="config">Configuração (GM)</a>{{/if}}
 	</nav>
 	
 	{{!-- Item Sheet Body --}}
 	<section class="sheet-body">
-		
-		{{!-- Description Tab --}}
-		<!-- <div class="tab flexrow active" data-group="primary" data-tab="description"> -->
-			<!-- {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} -->
-			<!-- </div> -->
+	
+		{{!-- Details Tab --}}
+		<div class="tab details" data-group="primary" data-tab="details">
 			
-			{{!-- Details Tab --}}
-			<div class="tab details" data-group="primary" data-tab="details">
-				
-				{{!-- Class Levels --}}
-				<div class="form-group">
-					<label>Níveis de Classe</label>
-					<div class="form-fields">
-						<input type="number" min="1" name="data.niveis" value="{{data.niveis}}" data-dtype="Number" />
-					</div>
+			{{!-- Class Levels --}}
+			<div class="form-group">
+				<label>{{ localize "T20.ClassLevels"}}</label>
+				<div class="form-fields">
+					<input type="number" min="1" max="20" name="system.niveis" value="{{item.system.niveis}}" data-dtype="Number" />
 				</div>
-				{{#if isOwned }}
-				<div class="form-group">
-					<label>Classe Inicial?</label>
-					<div class="form-fields">
-						<input type="checkbox" name="data.inicial" value="{{data.inicial}}" {{checked data.inicial}} data-dtype="Boolean" />
-					</div>
+			</div>
+			{{#if isOwned }}
+			<div class="form-group">
+				<label>{{ localize "T20.ClassOriginal"}}?</label>
+				<div class="form-fields">
+					<input type="checkbox" name="system.inicial" {{checked item.system.inicial}} data-dtype="Boolean" />
 				</div>
+			</div>
+			{{/if}}
+			
+			{{!-- Class Hit Dice --}}
+			<div class="form-group">
+				<label>{{ localize "T20.ClassHPLevels" }}</label>
+				<div class="form-fields">
+					<input type="number" min="1" name="system.pvPorNivel" value="{{item.system.pvPorNivel}}" data-dtype="Number" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label>{{ localize "T20.ClassMPLevels" }}</label>
+				<div class="form-fields">
+					<input type="number" min="1" name="system.pmPorNivel" value="{{item.system.pmPorNivel}}" data-dtype="Number" />
+				</div>
+			</div>
+			
+			{{!-- Level 1 skills --}}
+			<div class="form-group">
+				<label>{{ localize "T20.ClassSkillsEligible"}}</label>
+				<div class="form-fields">
+					<input type="text" name="system.pericias.inatas" value="{{item.system.pericias.inatas}}" data-dtype="String" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.ClassSkillsNumber" }}</label>
+				<div class="form-fields">
+					<input type="text" name="system.pericias.numero" value="{{item.system.pericias.numero}}"
+					data-dtype="Number" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.ClassSkillsChosen"}}
+				{{#if editable }}
+					<a class="trait-selector class-skills" data-target="item.system.pericias" data-options="pericias">
+					<i class="fas fa-edit"></i></a>
 				{{/if}}
-				
-				{{!-- Class Hit Dice --}}
-				<div class="form-group">
-					<label>Pontos de Vida por Nível</label>
-					<div class="form-fields">
-						<input type="number" min="1" name="data.pvPorNivel" value="{{data.pvPorNivel}}" data-dtype="Number" />
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label>Pontos de Mana por Nível</label>
-					<div class="form-fields">
-						<input type="number" min="1" name="data.pmPorNivel" value="{{data.pmPorNivel}}" data-dtype="Number" />
-					</div>
-				</div>
-				
-				{{!-- Level 1 skills --}}
-				<div class="form-group">
-					<label>Perícias de Classe</label>
-					<div class="form-fields">
-						<input type="text" name="data.pericias.inatas" value="{{data.pericias.inatas}}"
-						data-dtype="String" />
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label>Número de Perícias de Classe Adicionais</label>
-					<div class="form-fields">
-						<input type="text" name="data.pericias.numero" value="{{data.pericias.numero}}"
-						data-dtype="Number" />
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label>
-						Perícias Escolhidas
-						{{#if editable }}
-						<a class="trait-selector class-skills" data-target="data.pericias" data-options="pericias">
-							<i class="fas fa-edit"></i></a>
-							{{/if}}
-						</label>
-						<div class="form-fields">
-							<ul class="traits-list">
-								{{#each data.pericias.value}}
-								<li class="tag {{this}}">{{lookup ../config.pericias this}}</li>
-								{{/each}}
-							</ul>
-						</div>
-					</div>
-				</div>
-							
-				<div class="tab config" data-group="primary" data-tab="config">
-					{{#if isGM}}
-					<div class="form-group stacked weapon-properties">
-						<label>Perícias Adicionais</label>
-						{{#each config.pericias as |name prop|}}
-						<label class="checkbox">
-							<input type="checkbox" name="data.pericias.escolhas.{{prop}}" value="{{name}}" {{checked
-								(lookup ../data.pericias.escolhas prop)}} data-dtype="Boolean" /> {{ name }}
-						</label>
+				</label>
+				<div class="form-fields">
+					<ul class="traits-list">
+						{{#each item.system.pericias.value}}
+						<li class="tag {{this}}">{{lookup ../config.pericias this}}</li>
 						{{/each}}
-					</div>
-					{{/if}}
+					</ul>
 				</div>
+			</div>
+		</div>
+		
+		<div class="tab config" data-group="primary" data-tab="config">
+			{{#if isGM}}
+			<div class="form-group stacked weapon-properties">
+				<label>Perícias Adicionais</label>
+				{{#each config.pericias as |name prop|}}
+				<label class="checkbox">
+					<input type="checkbox" name="system.pericias.escolhas.{{prop}}" {{checked (lookup ../item.system.pericias.escolhas prop)}} /> {{ localize name }}
+				</label>
+				{{/each}}
+			</div>
+			{{/if}}
+		</div>
 	</section>
 </form>

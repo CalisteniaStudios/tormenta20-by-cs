@@ -1,0 +1,144 @@
+
+/* Deprecated vars */
+@borderLight: #CCC;
+@borderDark: #666;
+
+/* ----------------------------------------- */
+/*  Fonts                                    */
+/* ----------------------------------------- */
+
+@font-face {
+  font-family: "Signika", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../fonts/signika/signika-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Signika", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../fonts/signika/signika-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "SourceSansPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/SourceSansPro-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: "SourceSansPro", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/SourceSansPro-Bold.otf') format('otf');
+}
+
+@font-face {
+  font-family: "MinionPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/MinionPro-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: "Tormenta20", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Tormenta20x.tff') format('tff');
+}
+
+@font-face {
+  font-family: "Iowan Old Style", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Iowan Old Style.tcc') format('tcc');
+}
+
+.modesto {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.signika {
+  font-family: "Signika", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.fontT20 {
+  font-family: "Tormenta20", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* ----------------------------------------- */
+/*  Fonts Height                             */
+/* ----------------------------------------- */
+
+@fontHead: 24px;
+@fontRead: 18px;
+@fontFoot: 12px;
+
+/* ----------------------------------------- */
+/*  Sheet Styles                             */
+/* ----------------------------------------- */
+
+@colorDark: #191813;
+@colorFaint: #c9c7b8;
+@colorBeige: #b5b3a4;
+@colorTan: #7a7971;
+@colorOlive: #4b4a44;
+// @colorCrimson: #44191A;
+@colorCrimson: #7b3324;
+@colorRuby: #b52d34;
+@colorYellow: #f6d57b;
+// @borderGroove: 2px groove #0b0b08;
+@borderGroove: 2px groove #eeede0;
+@sheetBackground: url("assets/parchment.jpg") repeat;
+
+
+/* @sheetBackground: url("assets/parchment.jpg") repeat; */
+
+/* ----------------------------------------- */
+/*  Flexbox                                  */
+/* ----------------------------------------- */
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  > * {
+    flex: 1;
+  }
+
+  .flex1 { flex: 1; }
+  .flex2 { flex: 2; }
+  .flex3 { flex: 3; }
+  .flex4 { flex: 4; }
+  .flexF { flex: 100%; }
+
+  .flex-center { justify-content: center; }
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  > * {
+    flex: 1;
+  }
+
+  .flex1 { flex: 1; }
+  .flex2 { flex: 2; }
+  .flex3 { flex: 3; }
+  .flex4 { flex: 4; }
+  .flexF { flex: 100%; }
+
+  .flex-center { justify-content: center; }
+}

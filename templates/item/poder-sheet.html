@@ -18,16 +18,15 @@
 			<div class="form-group">
 				<label>{{ localize "T20.Type" }}</label>
 				<div class="form-fields">
-					<select name="data.tipo">
-						{{#select data.tipo}}
-						<option value="classe">Classe</option>
-						<option value="concedido">Concedido</option>
-						<option value="geral">Geral</option>
-						<option value="origem">Origem</option>
-						<option value="racial">Racial</option>
+					<select name="system.tipo">
+						{{#select item.system.tipo}}
+						{{selectOptions config.powerType selected=item.system.tipo localize=true}}
 						{{/select}}
 					</select>
-					<input type="text" title="Subtipo" name="data.subtipo" value="{{data.subtipo}}" data-dtype="String" />
+					<input type="text" title="Subtipo" list="list-subtipo" name="system.subtipo" value="{{item.system.subtipo}}"/>
+					<datalist id="list-subtipo">
+						{{selectOptions config.powerSubType localize=true}}
+					</datalist>
 				</div>
 			</div>
 			
@@ -36,7 +35,7 @@
 			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
 			
 			<hr>
-			<h3>Ativação</h3>
+			<h3>{{ localize "T20.Activation" }}</h3>
 			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
 			{{> "systems/tormenta20/templates/item/parts/item-resistencia.html"}}
 
@@ -44,13 +43,13 @@
 			{{!-- Chat Message Flavor --}}
 			<div class="form-group stacked">
 				<label>{{ localize "T20.ChatFlavor" }}</label>
-				<textarea name="data.chatFlavor" contenteditable="true">{{data.chatFlavor}}</textarea>
+				<textarea name="system.chatFlavor" contenteditable="true">{{item.system.chatFlavor}}</textarea>
 			</div>
 		</div>
 		
 		{{!-- Effects Tab --}}
 		<div class="tab effects" data-group="primary" data-tab="effects">
-			{{> "systems/tormenta20/templates/actor/parts/active-effects.html"}}
+			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
 		</div>
 	</section>
 </form>
