@@ -154,7 +154,7 @@
 				</ol>
 				{{#each system.atributos as |atr key|}}
 					{{#if (eq key ../system.attributes.conjuracao)}}
-					{{localize 'T20.AbbreviationDC'}} {{add ../system.attributes.cd atr.mod}}
+					{{localize 'T20.AbbreviationDC'}} {{add ../system.attributes.cd atr.value}}
 					{{/if}}
 				{{/each}}
 			</div>
@@ -166,7 +166,7 @@
 <div class="flexrow text-center abl-line">
 	{{#each system.atributos as |atr key|}}
 		<span class="rollable atributo-rollable" data-item-id="{{key}}">
-			<label title="{{atr.label}} {{atr.mod}}"> {{localize (lookup ../config.atributosAbr key)}}: </label> {{atr.value}}
+			<label title="{{atr.label}} {{atr.value}}"> {{localize (lookup ../config.atributosAbr key)}}: </label> {{atr.value}}
 		</span>
 	{{/each}}
 </div>

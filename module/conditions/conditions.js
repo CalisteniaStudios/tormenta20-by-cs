@@ -5,7 +5,7 @@ T20Conditions.abalado = {
 	id: "abalado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/abalado.svg",
-	flags: {core:{statusId:"abalado"},tormenta20:{condition:true,durationScene:true,stack:"apavorado"}},
+	flags: {core:{statusId:"abalado"},tormenta20:{condition:true,durationScene:true,stack:"apavorado",category:'medo'}},
 	changes: [
 		{key: "system.pericias.acro.condi", mode:3, value:-2},
 		{key: "system.pericias.ades.condi", mode:3, value:-2},
@@ -43,7 +43,7 @@ T20Conditions.agarrado = {
 	id: "agarrado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/agarrado.svg",
-	flags: {core:{statusId:"agarrado"},tormenta20:{condition:true,childEffect:["desprevenido","imovel"]}},
+	flags: {core:{statusId:"agarrado"},tormenta20:{condition:true,childEffect:["desprevenido","imovel"],category:'movimento'}},
 	changes: [{key: "system.pericias.luta.condi", mode:3, value:-2},
 		{key: "system.pericias.pont.condi", mode:3, value:-2}]
 }
@@ -53,7 +53,7 @@ T20Conditions.alquebrado = {
 	id: "alquebrado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/alquebrado.svg",
-	flags: {core:{statusId:"alquebrado"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"alquebrado"},tormenta20:{condition:true,durationScene:true,category:'mental'}},
 	changes: [{key: "system.modificadores.custoPM", mode:2, value:1}]
 }
 
@@ -62,7 +62,7 @@ T20Conditions.apavorado = {
 	id: "apavorado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/apavorado.svg",
-	flags: {core:{statusId:"apavorado"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"apavorado"},tormenta20:{condition:true,durationScene:true,category:'medo'}},
 	changes: [{key: "system.pericias.acro.condi", mode:3, value:-5},
 		{key: "system.pericias.ades.condi", mode:3, value:-5},
 		{key: "system.pericias.atle.condi", mode:3, value:-5},
@@ -99,7 +99,7 @@ T20Conditions.atordoado = {
 	id: "atordoado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/atordoado.svg",
-	flags: {core:{statusId:"atordoado"},tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido"]}}
+	flags: {core:{statusId:"atordoado"},tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido"],category:'mental'}}
 }
 
 T20Conditions.caido = {
@@ -121,7 +121,7 @@ T20Conditions.cego = {
 	id: "blind",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/cego.svg",
-	flags: {core:{statusId:"blind"},tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido","lento"]}},
+	flags: {core:{statusId:"blind"},tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido","lento"],category:'sentidos'}},
 	changes: [{key: "system.pericias.acro.condi", mode:3, value:-2},
 		{key: "system.pericias.atle.condi", mode:3, value:-2},
 		{key: "system.pericias.cava.condi", mode:3, value:-2},
@@ -138,7 +138,7 @@ T20Conditions.confuso = {
 	id: "confuso",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/confuso.svg",
-	flags: {core:{statusId:"confuso"},tormenta20:{condition:true,durationScene:true}}
+	flags: {core:{statusId:"confuso"},tormenta20:{condition:true,durationScene:true,category:'mental'}}
 }
 
 T20Conditions.debilitado = {
@@ -177,7 +177,7 @@ T20Conditions.doente = {
 	id: "doente",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/doente.svg",
-	flags: {core:{statusId:"doente"},tormenta20:{condition:true,durationScene:true}}
+	flags: {core:{statusId:"doente"},tormenta20:{condition:true,durationScene:true,category:'metabolismo'}}
 }
 
 T20Conditions.emchamas = {
@@ -189,12 +189,20 @@ T20Conditions.emchamas = {
 	changes:[{key:'dano',mode:0,value:'1d6[fogo]'}]
 }
 
+T20Conditions.enfeiticado = {
+	label: "Enfeitiçado",
+	id: "enfeiticado",
+	duration: {rounds:999},
+	icon: "systems/tormenta20/icons/conditions/enjoado.svg",
+	flags: {core:{statusId:"enfeiticado"},tormenta20:{condition:true,durationScene:true,category:'mental'}}
+}
+
 T20Conditions.enjoado = {
 	label: "Enjoado",
 	id: "enjoado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/enjoado.svg",
-	flags: {core:{statusId:"enjoado"},tormenta20:{condition:true,durationScene:true}}
+	flags: {core:{statusId:"enjoado"},tormenta20:{condition:true,durationScene:true,category:'metabolismo'}}
 }
 
 T20Conditions.enredado = {
@@ -202,7 +210,7 @@ T20Conditions.enredado = {
 	id: "enredado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/enredado.svg",
-	flags: {core:{statusId:"enredado"},tormenta20:{condition:true,durationScene:true,childEffect:["lento","vulneravel"]}},
+	flags: {core:{statusId:"enredado"},tormenta20:{condition:true,durationScene:true,childEffect:["lento","vulneravel"],category:'movimento'}},
 	changes: [{key: "system.pericias.luta.condi", mode:3, value:-2},
 		{key: "system.pericias.pont.condi", mode:3, value:-2}]
 }
@@ -212,7 +220,7 @@ T20Conditions.envenenado = {
 	id: "envenenado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/envenenado.svg",
-	flags: {core:{statusId:"envenenado"},tormenta20:{condition:true,durationScene:true}}
+	flags: {core:{statusId:"envenenado"},tormenta20:{condition:true,durationScene:true,category:'veneno'}}
 }
 
 T20Conditions.esmorecido = {
@@ -220,7 +228,7 @@ T20Conditions.esmorecido = {
 	id: "esmorecido",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/esmorecido.svg",
-	flags: {core:{statusId:"esmorecido"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"esmorecido"},tormenta20:{condition:true,durationScene:true,category:'mental'}},
 	changes: [{key: "system.modificadores.atributos.int", mode:2, value:-5},
 		{key: "system.modificadores.atributos.sab", mode:2, value:-5},
 		{key: "system.modificadores.atributos.con", mode:2, value:-5},
@@ -251,7 +259,7 @@ T20Conditions.exausto = {
 	id: "exausto",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/exausto.svg",
-	flags: {core:{statusId:"exausto"},tormenta20:{condition:true,durationScene:true,stack:"inconsciente",childEffect:["debilitado","lento","vulneravel"]}}
+	flags: {core:{statusId:"exausto"},tormenta20:{condition:true,durationScene:true,stack:"inconsciente",childEffect:["debilitado","lento","vulneravel"],category:'cansaço'}}
 }
 
 T20Conditions.fascinado = {
@@ -259,7 +267,7 @@ T20Conditions.fascinado = {
 	id: "fascinado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/fascinado.svg",
-	flags: {core:{statusId:"fascinado"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"fascinado"},tormenta20:{condition:true,durationScene:true,category:'mental'}},
 	changes: [{key: "system.pericias.perc.condi", mode:3, value:-5}]
 }
 
@@ -268,9 +276,8 @@ T20Conditions.fatigado = {
 	id: "fatigado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/fatigado.svg",
-	flags: {core:{statusId:"fatigado"},tormenta20:{condition:true,durationScene:true,stack:"exausto",childEffect:["fraco","vulneravel"]}}
+	flags: {core:{statusId:"fatigado"},tormenta20:{condition:true,durationScene:true,stack:"exausto",childEffect:["fraco","vulneravel"],category:'cansaço'}}
 }
-
 
 T20Conditions.fraco = {
 	label: "Fraco",
@@ -298,7 +305,7 @@ T20Conditions.frustrado = {
 	id: "frustrado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/frustrado.svg",
-	flags: {core:{statusId:"frustrado"},tormenta20:{condition:true,durationScene:true,stack:"esmorecido"}},
+	flags: {core:{statusId:"frustrado"},tormenta20:{condition:true,durationScene:true,stack:"esmorecido",category:'mental'}},
 	changes: [{key: "system.modificadores.atributos.int", mode:2, value:-2},
 		{key: "system.modificadores.atributos.sab", mode:2, value:-2},
 		{key: "system.modificadores.atributos.con", mode:2, value:-2},
@@ -329,7 +336,7 @@ T20Conditions.imovel = {
 	id: "imovel",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/imovel.svg",
-	flags: {core:{statusId:"imovel"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"imovel"},tormenta20:{condition:true,durationScene:true,category:'movimento'}},
 	changes: [{ key: "system.attributes.movement.walk", mode: 3, value: 0 },
 		{ key: "system.attributes.movement.burrow", mode: 3, value: 0 },
 		{ key: "system.attributes.movement.climb", mode: 3, value: 0 },
@@ -367,7 +374,7 @@ T20Conditions.lento = {
 	id: "lento",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/lento.svg",
-	flags: {core:{statusId:"lento"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"lento"},tormenta20:{condition:true,durationScene:true,category:'movimento'}},
 	changes: [{ key: "system.attributes.movement.walk", mode: 1, value: 0.5 },
         { key: "system.attributes.movement.burrow", mode: 1, value: 0.5 },
         { key: "system.attributes.movement.climb", mode: 1, value: 0.5 },
@@ -388,7 +395,7 @@ T20Conditions.ofuscado = {
 	id: "ofuscado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/ofuscado.svg",
-	flags: {core:{statusId:"ofuscado"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"ofuscado"},tormenta20:{condition:true,durationScene:true,category:'sentidos'}},
 	changes: [{key: "system.pericias.perc.condi", mode:3, value:-2}]
 }
 
@@ -397,7 +404,7 @@ T20Conditions.paralisado = {
 	id: "paralisado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/paralisado.svg",
-	flags: {core:{statusId:"paralisado"},tormenta20:{condition:true,durationScene:true,childEffect:["imovel","indefeso"]}}
+	flags: {core:{statusId:"paralisado"},tormenta20:{condition:true,durationScene:true,childEffect:["imovel","indefeso"],category:'movimento'}}
 }
 
 T20Conditions.pasmo = {
@@ -405,7 +412,7 @@ T20Conditions.pasmo = {
 	id: "pasmo",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/pasmo.svg",
-	flags: {core:{statusId:"pasmo"},tormenta20:{condition:true,durationScene:true}}
+	flags: {core:{statusId:"pasmo"},tormenta20:{condition:true,durationScene:true,category:'mental'}}
 }
 
 T20Conditions.petrificado = {
@@ -413,7 +420,7 @@ T20Conditions.petrificado = {
 	id: "petrificado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/petrificado.svg",
-	flags: {core:{statusId:"petrificado"},tormenta20:{condition:true,durationScene:true,childEffect:["inconsciente"]}},
+	flags: {core:{statusId:"petrificado"},tormenta20:{condition:true,durationScene:true,childEffect:["inconsciente"],category:'metamorfose'}},
 	changes: [ { key: "system.tracos.resistencias.dano.value", mode: 3, value: 8 } ]
 }
 
@@ -422,7 +429,7 @@ T20Conditions.sangrando = {
 	id: "sangrando",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/sangrando.svg",
-	flags: {core:{statusId:"sangrando"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"sangrando"},tormenta20:{condition:true,durationScene:true,category:'metabolismo'}},
 	changes: [{key: "dano", mode:0, value:'1d6[perda]'}]
 }
 
@@ -440,7 +447,7 @@ T20Conditions.surdo = {
 	id: "surdo",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/surdo.svg",
-	flags: {core:{statusId:"surdo"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"surdo"},tormenta20:{condition:true,durationScene:true,category:'sentidos'}},
 	changes: [{key: "system.pericias.inic.condi", mode:3, value:-2}]
 }
 
@@ -466,7 +473,7 @@ T20Conditions.sobrecarregado = {
 	id: "sobrecarregado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/sobrecarregado.svg",
-	flags: {core:{statusId:"sobrecarregado"},tormenta20:{condition:true,durationScene:true}},
+	flags: {core:{statusId:"sobrecarregado"},tormenta20:{condition:true,durationScene:true,category:'movimento'}},
 	changes: [{key: "system.attributes.defesa.pda", mode:2, value:-2},
 		{ key: "system.attributes.movement.walk", mode: 2, value: -3 },
 		{ key: "system.attributes.movement.burrow", mode: 2, value: -3 },

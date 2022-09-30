@@ -2,7 +2,7 @@
 	<li class="item item-header" style="text-align: center;">
 		{{#each system.atributos as |atr key|}}
 		{{#if (eq key ../system.attributes.conjuracao)}}
-		<label>{{localize 'T20.SpellDC'}} {{add ../system.attributes.cd atr.mod}} =</label>
+		<label>{{localize 'T20.SpellDC'}} {{add ../system.attributes.cd atr.value}} =</label>
 		<label title="{{localize 'T20.SpellDCFormula'}}">{{../system.attributes.cd}} +</label>
 		{{/if}}
 		{{/each}}

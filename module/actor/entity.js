@@ -80,7 +80,7 @@ export default class ActorT20 extends Actor {
 
 	/**
 	 * Derived Data:
-	 * [Ability Modifier, Skill Value, Defense, CD, Emcumbrance]
+	 * [Ability Modifier, Skill Value, Defense, CD, Encumbrance]
 	 * 
 	 * */
 	/** @override */
@@ -94,7 +94,7 @@ export default class ActorT20 extends Actor {
 		// Loop through ability and add modifiers
 		for (let [key, ability] of Object.entries(system.atributos)) {
 			ability.name = CONFIG.T20.atributos[key];
-			ability.mod = ActorT20._prepareModifier(ability);
+			ability.value = (ability.base + ability.racial + ability.bonus);
 		}
 		
 		// Defense
@@ -106,8 +106,6 @@ export default class ActorT20 extends Actor {
 			// pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
 			this._prepareSkills(key, pericia, system, rollData);
 		}
-		
-		
 		
 		// BASE CD
 		system.attributes.cd = reforma ? system.attributes.cd : 10 + Math.floor(nivel / 2);
@@ -227,7 +225,7 @@ export default class ActorT20 extends Actor {
 		let parts = [defense.base];
 		let pda = 0;
 		let ability = defense.atributo;
-		let mod = system.atributos[ability]?.mod || 0;
+		let abl = system.atributos[ability]?.value || 0;
 		let maxAbl = false;
 		
 		// Defense Calculation
@@ -262,7 +260,7 @@ export default class ActorT20 extends Actor {
 							 + @ability, outros, bonus, condi;
 		 */
 		if( !reforma ){
-			parts.push( maxAbl === false ? mod : Math.min( mod , maxAbl ) );
+			parts.push( maxAbl === false ? abl : Math.min( abl , maxAbl ) );
 			parts.push(defense.outros || 0);
 		}
 		parts.push(defense.bonus || 0);
@@ -299,14 +297,6 @@ export default class ActorT20 extends Actor {
 			pericia.pda = pericia.label.match(/\+/g) ? true : false;
 		}
 		
-		//PRELOCALIZED pericia.label = game.i18n.localize( pericia.label );
-
-		let atributo = pericia.atributo || "for";
-		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && !reforma ) {
-			let mod = system.atributos[atributo].mod;
-			// pericia.mod = system.atributos[atributo].mod;
-		}
-
 		pericia.outros = pericia.outros;//Number(pericia.outros) || 0;
 		pericia.bonus = pericia.bonus || 0;//Number(pericia.bonus) || 0;
 
@@ -352,51 +342,85 @@ export default class ActorT20 extends Actor {
 	* @private
 	*/
 	_computeEncumbrance(system) {
-		let rule = game.settings.get("tormenta20", "weightRule");
-		if( rule == 'core' ){
+		const goty = true;
+		/* FLAGS */
+		const flags = {}
+		flags['wideBack'] = true; this.flags.tormenta20.costasLargas;
+		flags['organised'] = true; this.flags.tormenta20.inventarioOrganizado;
+		if ( goty ){
+			let weight = system.attributes.carga;
+			// { value: 0, max: 20, pct: 0, encumbered: false };
 			const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
 			// Get the total weight from items
-			let weight = this.items.reduce((weight, i) => {
-				if ( !physicalItems.includes(i.type) || !i.system.carregado ) return weight;
-				const q = i.system.qtd || 0;
-				const w = i.system.peso || 0;
-				return weight + (q * w);
-			}, 0);
-			// Compute Encumbrance percentage
-			weight = weight.toNearest(0.1);
-			const atrFor = system.atributos.for;
-			const atrCrg = system.attributes.carga ?? {value:0, max:0};
-			const max = (( atrFor.value + atrFor.bonus ) * 10) + (Number(atrCrg.max) || 0) ;
-			const emc = (( atrFor.value + atrFor.bonus ) * 3) + (Number(atrCrg.lev) || 0) ;
-			const pct = Math.clamped((weight * 100) / max, 0, 100).toNearest(0.1);
-			return { value: weight, max, pct, encumbered: weight > emc };
-		}
-		else if( rule == 'espacos' ){
-			
-			const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
-			// Get the total weight from items
-			let weight = this.items.reduce((weight, i) => {
+			weight.value = this.items.reduce((weight, i) => {
 				if ( !physicalItems.includes(i.type) || !i.system.carregado || i.system.container) return weight;
 				const q = i.system.qtd || 0;
-				const w = i.system.espacos || 0;
+				const w = (flags.organised && i.system.espacos == 0.5 ? 0.25 : i.system.espacos) || 0;
+				// const w = i.system.espacos || 0;
 				return weight + (q * w);
 			}, 0);
 
+			// Get the total weight from coins (1 == 1000)
 			let coins = Object.values( system.dinheiro ).reduce((a, b) => a + b);
-			weight = weight + Math.floor( coins / 1000);
-			weight = Math.floor( weight );
+			weight.value = weight.value + Math.floor( coins / 1000);
+			// weight.value = Math.floor( weight.value );
+
 			// Compute Encumbrance percentage
-			const atrFor = system.atributos.for;
-			const atrCrg = system.attributes.carga;
-			const max = (( atrFor.value + atrFor.bonus ) * 2) + (Number(atrCrg.max) || 0) ;
-			const emc = (( atrFor.value + atrFor.bonus ) * 1) + (Number(atrCrg.lev) || 0) ;
-			const pct = Math.clamped((weight * 100) / max, 0, 100);
-			return { value: weight, max, pct, encumbered: weight > emc };
-		}
-		else if( rule == 'manual' ){
-			return { value: 0, max: 100, pct: 30, encumbered: false };
+			const str = system.atributos.for.value;
+			const int = system.atributos.int.value;
+			const base = 10 + ( flags.wideBack ? 5 : 0) + ( flags.organised ? int : 0);
+			const limit = base + ( str > 0 ? str*2 : str );
+			weight.max = limit * 2;
+			weight.encumbered = weight > limit;
+			weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
+			return weight;
 		} else {
-			return { value: 0, max: 100, pct: 30, encumbered: false };
+			let rule = game.settings.get("tormenta20", "weightRule");
+			if( rule == 'core' ){
+				const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
+				// Get the total weight from items
+				let weight = this.items.reduce((weight, i) => {
+					if ( !physicalItems.includes(i.type) || !i.system.carregado ) return weight;
+					const q = i.system.qtd || 0;
+					const w = i.system.peso || 0;
+					return weight + (q * w);
+				}, 0);
+				// Compute Encumbrance percentage
+				weight = weight.toNearest(0.1);
+				const atrFor = system.atributos.for;
+				const atrCrg = system.attributes.carga ?? {value:0, max:0};
+				const max = (( atrFor.value + atrFor.bonus ) * 10) + (Number(atrCrg.max) || 0) ;
+				const emc = (( atrFor.value + atrFor.bonus ) * 3) + (Number(atrCrg.lev) || 0) ;
+				const pct = Math.clamped((weight * 100) / max, 0, 100).toNearest(0.1);
+				return { value: weight, max, pct, encumbered: weight > emc };
+			}
+			else if( rule == 'espacos' ){
+				
+				const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
+				// Get the total weight from items
+				let weight = this.items.reduce((weight, i) => {
+					if ( !physicalItems.includes(i.type) || !i.system.carregado || i.system.container) return weight;
+					const q = i.system.qtd || 0;
+					const w = i.system.espacos || 0;
+					return weight + (q * w);
+				}, 0);
+	
+				let coins = Object.values( system.dinheiro ).reduce((a, b) => a + b);
+				weight = weight + Math.floor( coins / 1000);
+				weight = Math.floor( weight );
+				// Compute Encumbrance percentage
+				const atrFor = 1; //system.atributos.for.value;
+				const atrCrg = system.attributes.carga;
+				const max = 10 + ( atrFor > 0 ? atrFor*2 : atrFor );
+				const emc = weight;
+				const pct = Math.clamped((weight * 100) / max, 0, 100);
+				return { value: weight, max, pct, encumbered: weight > emc };
+			}
+			else if( rule == 'manual' ){
+				return { value: 0, max: 100, pct: 30, encumbered: false };
+			} else {
+				return { value: 0, max: 100, pct: 30, encumbered: false };
+			}
 		}
 	}
 
@@ -409,7 +433,7 @@ export default class ActorT20 extends Actor {
 	_calcPVPM() {
 		const updateData = {};
 		const nivel = Number( this.system.attributes.nivel.value );
-		const con = this.system.atributos.con.mod;
+		const con = this.system.atributos.con.value;
 
 		const soma = {pv:0,pm:0};
 		let lvlc = this.getFlag("tormenta20", "lvlconfig");
@@ -434,10 +458,10 @@ export default class ActorT20 extends Actor {
 		if( lvlc.pmBonus[0] ) soma.pm += Number(lvlc.pmBonus[0]);
 		if( lvlc.pmBonus[1] ) soma.pm += Math.floor(Number(lvlc.pmBonus[1]) * nivel);
 		for (let [atr, value] of Object.entries(lvlc.pv)){
-			if(value) soma.pv += Number(this.system.atributos[atr].mod);
+			if(value) soma.pv += Number(this.system.atributos[atr].value);
 		}
 		for (let [atr, value] of Object.entries(lvlc.pm)){
-			if(value) soma.pm += Number(this.system.atributos[atr].mod);
+			if(value) soma.pm += Number(this.system.atributos[atr].value);
 		}
 		updateData["system.attributes.pv.min"] = (Math.floor(soma.pv/2)*-1);
 		updateData["system.attributes.pv.max"] = soma.pv;
@@ -505,7 +529,7 @@ export default class ActorT20 extends Actor {
 		//super.getRollData();
 		// Set abilities abbreviation
 		for (let abl in data.atributos) {
-			data[abl] = data.atributos[abl].mod
+			data[abl] = data.atributos[abl].value;
 		}
 
 		// Set level abbreviation
@@ -537,7 +561,7 @@ export default class ActorT20 extends Actor {
 		// Set casting ability
 		/* TODO CLASS SPELLBOOK */
 		let atbchave = this.system.attributes.conjuracao;
-		data["atributoChave"] = this.system.atributos[atbchave]?.mod ?? 0;
+		data["atributoChave"] = this.system.atributos[atbchave]?.value ?? 0;
 
 		// Set defense bonuses modifiers
 		let defMods = this.system.modificadores.defesa || {};
@@ -1220,8 +1244,7 @@ export default class ActorT20 extends Actor {
 		let rollMode = game.settings.get("core", "rollMode");
 
 		// Construct parts
-		const parts = ["1d20","@mod"];
-		const rollData = mergeObject({ mod: abl.mod }, this.getRollData());
+		const parts = ["1d20",`@${key}`];
 
 		// Add global actor bonus GERAL | FISICOS | MENTAIS | KEY
 		const bonuses = getProperty(this.system, "modificadores.atributos") || {};
@@ -1235,9 +1258,9 @@ export default class ActorT20 extends Actor {
 			parts.push(...options.parts);
 		}
 		abl.parts = parts;
-		// let itemData = abl;
+
 		let itemData = {
-			name: abl.name, //PRELOCALIZED game.i18n.localize(abl.name),
+			name: abl.name,
 			type: "atributo",
 			parts: parts,
 			id: key,
@@ -1272,7 +1295,7 @@ export default class ActorT20 extends Actor {
 		// rollData
 		const rollConfig = mergeObject({
 			parts: parts.filter(Boolean),
-			data: rollData,
+			data: this.getRollData(),
 			event: event,
 			title: game.i18n.format("T20.AbilityPromptTitle", { atributo: label }),
 			flavor: game.i18n.localize("T20.AbilityCheck"),

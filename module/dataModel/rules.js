@@ -38,7 +38,7 @@ class systemRules {
 		rollData = actor.getRollData();
 		rollData['halflevel'] = Math.floor( actor.system.attributes.nivel.value / 2 );
 		rollData['training'] = actor.system.attributes.treino;
-		rollData['abl'] = actor.system.atributos[skill.atributo]?.mod || 0;
+		rollData['abl'] = actor.system.atributos[skill.atributo]?.value || 0;
 		rollData['other'] = actor.system.atributos[skill.atributo]?.outros || 0;
 		rollData['bonus'] = actor.system.atributos[skill.atributo]?.bonus || 0;
 		modificador.pericia.geral

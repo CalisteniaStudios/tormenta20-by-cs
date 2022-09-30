@@ -214,9 +214,10 @@ function getRollData(){
 const AbilitiesSchema = () => {
 	let getSchema = () => {
 		return new fields.SchemaField({
-			value: new fields.NumberField({ required: true, nullable:false, initial:10, min:0 }),
-			bonus: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-			mod: new fields.NumberField({ required: true, nullable:false, initial:0 })
+			value: new fields.NumberField({ required: true, nullable:false, initial:0, min:-5 }),
+			base: new fields.NumberField({ required: true, nullable:false, initial:0}),
+			racial: new fields.NumberField({ required: true, nullable:false, initial:0}),
+			bonus: new fields.NumberField({ required: true, nullable:false, initial:0}),
 		});
 	}
 	

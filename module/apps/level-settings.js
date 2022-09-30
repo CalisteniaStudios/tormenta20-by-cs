@@ -18,7 +18,7 @@ export default class LevelSettings extends FormApplication {
 	getData() {
 		let classes = [];
 		let flags = this.object.flags.tormenta20 || {};
-		const con = this.object.system.atributos.con.mod;
+		const con = this.object.system.atributos.con.value;
 		const cls = this.object.items.filter(i => i.type === "classe");
 		if ( cls ) {
 			for ( let [key, data] of Object.entries(cls) ) {

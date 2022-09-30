@@ -228,7 +228,7 @@ export default class ItemT20 extends Item {
 			const actorData = this.actor?.system ?? null;
 			const actorFlags = this.actor?.flags ?? null;
 			const nivel = actorData?.attributes.nivel.value ?? 0;
-			const atr = actorData?.atributos[save.atributo]?.mod ?? 0;
+			const atr = actorData?.atributos[save.atributo]?.value ?? 0;
 			let base = this.isOwned && actorData ? Math.floor(nivel/2) ?? 0 : 0;
 			let mod = this.isOwned && atr ? atr : 0;
 
@@ -335,7 +335,7 @@ export default class ItemT20 extends Item {
 		// Ability-score
 		resistencia.cd = null;
 		if ( this.isOwned ){
-			let atr = getProperty(this.actor.system, `atributos.${resistencia.atributo}.mod`);
+			let atr = getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
 			let nvl = Math.floor(getProperty(this.actor.system, `attributes.nivel.value`)/2);
 			resistencia.cd = 10 + nvl + atr + resistencia.bonus;
 			if ( this.actor.type == 'npc' && this.actor.getFlag('tormenta20', 'npcReform') ){
@@ -381,7 +381,7 @@ export default class ItemT20 extends Item {
 			if( roll.parts[1][1] ){
 				const skill = actorData.pericias[roll.parts[1][0]];
 				const abls = actorData.atributos;
-				rollData.skill = skill.value - abls[skill.atributo].mod + abls[roll.parts[1][1]].mod;
+				rollData.skill = skill.value - abls[skill.atributo].value + abls[roll.parts[1][1]].value;
 			}
 		}
 
@@ -452,14 +452,14 @@ export default class ItemT20 extends Item {
 		const atributoChave = this.actor.system.attributes.conjuracao;
 		rollData["atributoChave"] = 0;
 		if( T20.atributos[atributoChave] ){
-			rollData["atributoChave"] = this.actor.system.atributos[atributoChave].mod;
+			rollData["atributoChave"] = this.actor.system.atributos[atributoChave].value;
 		}
 
 		// Include an ability score modifier if one exists
 		const atr = this.system.atrBns;
 		if ( atr ) {
 			const atributo = rollData.atributos[atr];
-			rollData["mod"] = atributo.mod || 0;
+			rollData["abl"] = atributo.value || 0;
 		}
 		for ( let [key, skl] of  Object.entries(this.actor.system.pericias) ){
 			rollData[key] = skl.value;

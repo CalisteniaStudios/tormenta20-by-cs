@@ -1,12 +1,12 @@
 import ItemT20 from '../../item/entity.js';
-import AbilityUseDialog from "../../apps/ability-use-dialog.js";
+import { T20 } from '../../config.js';
+
 import TraitSelector from "../../apps/trait-selector.js";
 import ActorSettings from "../../apps/actor-settings.js";
 import ActorMovementConfig from "../../apps/movement-config.js";
 import ActorResistanceConfig from "../../apps/resistance-config.js";
-// TODO TYPE ActorTypeConfig
-import { T20 } from '../../config.js';
 import LevelSettings from "../../apps/level-settings.js";
+import AbilityCalculator from "../../apps/ability-calculator.js";
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../../effects.js";
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -201,6 +201,10 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find("#configure-actor").click(ev => {
 				new ActorSettings(this.actor).render(true);
 			});
+
+			// html.find("#ability-calculator").click(ev => {
+			// 	new AbilityCalculator(this.actor).render(true);
+			// });
 
 			// Update Inventory Item
 			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
@@ -491,6 +495,9 @@ export default class ActorSheetT20 extends ActorSheet {
 				break;
 			case "resistance":
 				app = new ActorResistanceConfig(this.object);
+				break;
+			case "ability":
+				app = new AbilityCalculator(this.object).render(true);
 				break;
 			// case "senses":
 			// 	app = new ActorSensesConfig(this.object);
