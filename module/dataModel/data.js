@@ -67,7 +67,7 @@ function getActivationItemData() {
 		}),
 		// ativacao
 		ativacao: new fields.SchemaField({
-			custo: new fields.NumberField({  requirede:true, initial:0 }),
+			custo: new fields.NumberField({  required:true, initial:0 }),
 			condicao: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			execucao: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			qtd: new fields.StringField({ initial: '' }),

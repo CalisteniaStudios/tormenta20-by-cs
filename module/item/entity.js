@@ -207,7 +207,7 @@ export default class ItemT20 extends Item {
 
 			// Duration
 			let dur = system.duracao || {};
-			if (["inst", "perm", "cena","sust"].includes(dur.units)) dur.value = null;
+			if (["inst", "perm", "cena","sust"].includes(dur.units)) dur.value = 0;
 			if ( dur.value ) {
 				labels.duration = [dur.value, T20.timePeriods[dur.units]].filterJoin(" ");
 				// PRELOCALIZED
@@ -227,7 +227,7 @@ export default class ItemT20 extends Item {
 			let save = system.resistencia || {};
 			const actorData = this.actor?.system ?? null;
 			const actorFlags = this.actor?.flags ?? null;
-			const nivel = actorData?.attributes.nivel.value ?? 0;
+			const nivel = actorData?.attributes?.nivel?.value ?? 0;
 			const atr = actorData?.atributos[save.atributo]?.value ?? 0;
 			let base = this.isOwned && actorData ? Math.floor(nivel/2) ?? 0 : 0;
 			let mod = this.isOwned && atr ? atr : 0;
@@ -376,7 +376,9 @@ export default class ItemT20 extends Item {
 		// Add skill bonus
 		if ( roll.parts[1][0] ) {
 			parts[1] = "@skill";
-			rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
+			if ( !isEmpty(actorData.pericias) ) {
+				rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
+			}
 			// Change Skill Ability modifier
 			if( roll.parts[1][1] ){
 				const skill = actorData.pericias[roll.parts[1][0]];
@@ -461,8 +463,10 @@ export default class ItemT20 extends Item {
 			const atributo = rollData.atributos[atr];
 			rollData["abl"] = atributo.value || 0;
 		}
-		for ( let [key, skl] of  Object.entries(this.actor.system.pericias) ){
-			rollData[key] = skl.value;
+		if ( this.actor.system.pericias ) {
+			for ( let [key, skl] of  Object.entries(this.actor.system.pericias) ){
+				rollData[key] = skl.value;
+			}
 		}
 		return rollData;
 	}

@@ -93,7 +93,17 @@
 			{{/if}}
 			<hr>
 			
-			
+			<div class="form-group">
+				<label for="TAGS">TAGS</label>
+				<input type="text" name="tag" class="tag-input"><br>
+			</div>
+			{{#if item.system.tags }}
+			<div class="tag-list">
+				{{#each item.system.tags as |tag t| }}
+				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
+				{{/each}}
+			</div>
+			{{/if}}
 			<div class="form-group">
 				<label for="chatFlavor">{{ localize "T20.ChatFlavor" }}</label>
 				<textarea name="system.chatFlavor" contenteditable="true">{{item.system.chatFlavor}}</textarea>

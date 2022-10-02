@@ -259,7 +259,7 @@ T20Conditions.exausto = {
 	id: "exausto",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/exausto.svg",
-	flags: {core:{statusId:"exausto"},tormenta20:{condition:true,durationScene:true,stack:"inconsciente",childEffect:["debilitado","lento","vulneravel"],category:'cansaço'}}
+	flags: {core:{statusId:"exausto"},tormenta20:{condition:true,durationScene:true,stack:"inconsciente",childEffect:["debilitado","lento","vulneravel"],category:'cansaco'}}
 }
 
 T20Conditions.fascinado = {
@@ -276,7 +276,7 @@ T20Conditions.fatigado = {
 	id: "fatigado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/fatigado.svg",
-	flags: {core:{statusId:"fatigado"},tormenta20:{condition:true,durationScene:true,stack:"exausto",childEffect:["fraco","vulneravel"],category:'cansaço'}}
+	flags: {core:{statusId:"fatigado"},tormenta20:{condition:true,durationScene:true,stack:"exausto",childEffect:["fraco","vulneravel"],category:'cansaco'}}
 }
 
 T20Conditions.fraco = {

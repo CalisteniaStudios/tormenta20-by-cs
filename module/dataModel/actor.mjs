@@ -575,7 +575,6 @@ class systemActorSimpleData extends foundry.abstract.DataModel {
 				pm: _resourceSchema(),
 				defesa: new fields.SchemaField({
 					value: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-					base: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 				}),
 				carga: new fields.SchemaField({
 					value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),

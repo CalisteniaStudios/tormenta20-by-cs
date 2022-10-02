@@ -83,6 +83,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			cssClass: isOwner ? "editable" : "locked",
 			isCharacter: this.actor.type === "character",
 			isNPC: this.actor.type === "npc",
+			isSimple: this.actor.type === "simple",
+			isVehicle: this.actor.type === "vehicle",
 			config: CONFIG.T20,
 			rollData: this.actor.getRollData.bind(this.actor),
 			//Flags
@@ -533,7 +535,29 @@ export default class ActorSheetT20 extends ActorSheet {
 		event.preventDefault();
 		const a = event.currentTarget;
 		const label = a.parentElement.querySelector("label");
-		const choices = CONFIG.T20[a.dataset.options];
+		let choices = {};
+		if ( a.dataset.options == 'conditionTypes' ){
+			let cdtypes = CONFIG.T20.conditions;
+			let eftypes = CONFIG.T20.effectTypes;
+			let ftypes = CONFIG.T20.conditionTypes;
+			let done = [];
+			for ( let [fk, fv] of Object.entries(ftypes)) {
+				if( done.includes(fk) ) continue;
+				if( Object.keys(eftypes).includes(fk) ){
+					choices[fk] = {label:fv, choices: {}};
+					let ch = Object.values(cdtypes).filter( (i) => i.flags?.tormenta20?.category==fk);
+					if ( ch ){
+						ch.map( i=> choices[fk]['choices'][i.id] = {label:i.label} );
+						//  ch.map(i => {return {label:i.label}}) };
+						done = [...done, ...(ch.map(i => i.id))];
+					}
+				} else if( Object.keys(cdtypes).includes(fk) && !fv.flags?.tormenta20?.category ){
+					choices[fk] = {label:fv, choices: []};
+				}
+			}
+		} else {
+			choices = CONFIG.T20[a.dataset.options];
+		}
 		const options = { name: a.dataset.target, title: label.innerText, choices };
 		return new TraitSelector(this.actor, options).render(true);
 	}

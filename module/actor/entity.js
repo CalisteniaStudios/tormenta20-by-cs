@@ -85,10 +85,14 @@ export default class ActorT20 extends Actor {
 	 * */
 	/** @override */
 	prepareDerivedData() {
-		if ( ["vehicle","simple"].includes(this.type) ) return;
 		
 		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const system = this.system;
+		if ( ["vehicle","simple"].includes(this.type) ){
+			system.attributes.carga = this._computeEncumbrance(system);
+			return;
+		}
+
 		const nivel = system.attributes.nivel.value;
 
 		// Loop through ability and add modifiers
@@ -345,8 +349,8 @@ export default class ActorT20 extends Actor {
 		const goty = true;
 		/* FLAGS */
 		const flags = {}
-		flags['wideBack'] = true; this.flags.tormenta20.costasLargas;
-		flags['organised'] = true; this.flags.tormenta20.inventarioOrganizado;
+		flags['wideBack'] = this.getFlag('tormenta20', 'costasLargas');
+		flags['organised'] = this.getFlag('tormenta20', 'inventarioOrganizado');
 		if ( goty ){
 			let weight = system.attributes.carga;
 			// { value: 0, max: 20, pct: 0, encumbered: false };
@@ -359,12 +363,15 @@ export default class ActorT20 extends Actor {
 				// const w = i.system.espacos || 0;
 				return weight + (q * w);
 			}, 0);
-
 			// Get the total weight from coins (1 == 1000)
 			let coins = Object.values( system.dinheiro ).reduce((a, b) => a + b);
 			weight.value = weight.value + Math.floor( coins / 1000);
 			// weight.value = Math.floor( weight.value );
-
+			if ( ["vehicle","simple"].includes(this.type) ){
+				weight.encumbered = weight > (weight.max / 2);
+				weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
+				return weight;
+			}
 			// Compute Encumbrance percentage
 			const str = system.atributos.for.value;
 			const int = system.atributos.int.value;
@@ -533,7 +540,7 @@ export default class ActorT20 extends Actor {
 		}
 
 		// Set level abbreviation
-		data["nivel"] =  Number(this.system.attributes.nivel.value || 1);
+		data["nivel"] =  Number(this.system.attributes?.nivel?.value || 1);
 		data["meionivel"] = Math.floor(data["nivel"] / 2) || 0;
 
 		// Set class level
@@ -560,24 +567,24 @@ export default class ActorT20 extends Actor {
 
 		// Set casting ability
 		/* TODO CLASS SPELLBOOK */
-		let atbchave = this.system.attributes.conjuracao;
+		let atbchave = this.system.attributes.conjuracao || '';
 		data["atributoChave"] = this.system.atributos[atbchave]?.value ?? 0;
 
 		// Set defense bonuses modifiers
-		let defMods = this.system.modificadores.defesa || {};
+		let defMods = this.system.modificadores?.defesa || {};
 		data["armadura"] = defMods.armadura || 0;
 		data["armaduraLeve"] = defMods.armaduraLeve || 0;
 		data["armaduraPesada"] = defMods.armaduraPesada || 0;
 		data["escudo"] = defMods.escudo || 0;
 
 		// Set skill bonuses modifiers
-		let skillMods = this.system.modificadores.pericias;
+		let skillMods = this.system.modificadores?.pericias || {};
 		const size = this.system.tracos.tamanho;
 		const sizeMod = { "min": 5, "peq": 2, "med": 0, "gra":-2, "eno":-5, "col": -10 };
 		
-		data["treino"] = this.system.attributes.treino;
+		data["treino"] = this.system.attributes?.treino || 0;
 		data["tamanho"] = sizeMod[size];
-		data["pda"] = this.system.attributes.defesa.pda;
+		data["pda"] = this.system.attributes?.defesa.pda || 0;
 		
 		data["pericia"] = skillMods.geral;
 		data["semataque"] = skillMods.semataque;
@@ -585,21 +592,19 @@ export default class ActorT20 extends Actor {
 		data["resistencia"] = skillMods.resistencia;
 
 		// Set ability bonuses modifiers
-		let ablMods = this.system.modificadores.atributos;
+		let ablMods = this.system.modificadores?.atributos || {};
 		data["atributo"] = ablMods.geral;
 		data["fisicos"] = ablMods.fisicos;
 		data["mentais"] = ablMods.mentais;
 
 		// Set damage bonuses modifiers
-		let dmgMods = this.system.modificadores.dano;
+		let dmgMods = this.system.modificadores?.dano || {};
 		data["dano"] = dmgMods.geral;
 		data["danoMagico"] = dmgMods.mag;
 		data["danoCAC"] = dmgMods.cac;
 		data["danoAD"] = dmgMods.ad;
 		data["danoALQ"] = dmgMods.alq;
-
 		
-
 		return data;
 	}
 

@@ -1,5 +1,13 @@
 <ul class="ability-scores {{#if (eq layout 'tabbed')}}flexcol{{else}}flexrow{{/if}}">
 	{{#each system.atributos as |atr key|}}
+	{{#if @root.isSimple}}
+	<li class="ability" data-item-id="{{key}}">
+		<h4 class="ability-name box-title rollable atributo-rollable">{{localize (lookup ../config.atributosAbr key)}}</h4>
+		<footer class="attribute-footer flexrow">
+			<input type="number" name="system.atributos.{{key}}.value" value="{{atr.value}}" title="{{ localize 'T20.Ability'}}"/>
+		</footer>
+	</li>
+	{{else}}
 	<li class="ability" data-item-id="{{key}}">
 		<h4 class="ability-name box-title rollable atributo-rollable">{{localize (lookup ../config.atributosAbr key)}}</h4>
 		<span class="rollable atributo-rollable">
@@ -10,5 +18,6 @@
 			<input type="number" name="system.atributos.{{key}}.racial" value="{{atr.racial}}" title="{{ localize 'T20.AbilityRace'}}" >
 		</footer>
 	</li>
+	{{/if}}
 	{{/each}}
 </ul>

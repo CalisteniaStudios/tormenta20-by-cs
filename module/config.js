@@ -8,6 +8,7 @@ export const SYSTEMRULES = {};
 /* ---------------------------------------- */
 
 CONFIG.Item.compendiumIndexFields.push('type');
+CONFIG.Item.compendiumIndexFields.push('system.tags');
 CONFIG.Item.compendiumIndexFields.push('system.tipo');
 CONFIG.Item.compendiumIndexFields.push('system.subtipo');
 // await compendium.getDocuments({'system.subtipo':{$in:['Bardo']}});
@@ -25,11 +26,33 @@ CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/tormenta20/templates/chat/roll.htm
 /* ---------------------------------------- */
 /*  Effect Data                             */
 /* ---------------------------------------- */
-
+T20.conditions = T20Conditions;
 T20.statusEffectIcons = Object.values(T20Conditions);
 
-T20.conditionTypes = T20.statusEffectIcons.reduce(function(o, s) { o[s.id] = s.label; return o;}, {});
-
+T20.effectTypes = {
+	"arcano":"T20.EffectTypeArcane",
+	"atordoamento":"T20.EffectTypeStun",
+	"cansaco":"T20.EffectTypeWeariness",
+	"climatico":"T20.EffectTypeClimatic",
+	"cura":"T20.EffectTypeHealing",
+	"dano":"T20.EffectTypeDamage",
+	"divino":"T20.EffectTypeHoly",
+	"luz":"T20.EffectTypeLight",
+	"magico":"T20.EffectTypeMagic",
+	"medo":"T20.EffectTypeFear",
+	"mental":"T20.EffectTypeMental",
+	"metabolismo":"T20.EffectTypeMetabolism",
+	"metamorfose":"T20.EffectTypePolymorph",
+	"movimento":"T20.EffectTypeMovement",
+	"sentidos":"T20.EffectTypeSenses",
+	"trevas":"T20.EffectTypeDarkness",
+	"veneno":"T20.EffectTypePoison",
+}
+preLocalize("effectTypes");
+T20.conditionTypes = mergeObject( Object.assign({},T20.effectTypes),
+	T20.statusEffectIcons.reduce(function(o, s) { o[s.id] = s.label; return o;}, {})
+)
+preLocalize("conditionTypes");
 /* ---------------------------------------- */
 /*  System Data                             */
 /* ---------------------------------------- */
@@ -82,15 +105,16 @@ T20.creatureRoles = {
 preLocalize("creatureRoles");
 
 /* ---------------- Armour ---------------- */
-
+/* TODO change to equipment type */
 T20.armorTypes = {
-	"leve": "T20.ArmorLight",
-	"pesada": "T20.ArmorHeavy",
-	"escudo": "T20.ArmorShield",
-	"traje": "T20.ArmorCloth",
-	"bonus": "T20.ArmorMagicBonus",
-	"natural": "T20.ArmorNatural",
-	"acessorio": "T20.ArmorAccessory",
+	"leve": "T20.EquipmentLight",
+	"pesada": "T20.EquipmentHeavy",
+	"escudo": "T20.EquipmentShield",
+	"bonus": "T20.EquipmentMagicBonus",
+	"natural": "T20.EquipmentNatural",
+	"acessorio": "T20.EquipmentAccessory",
+	"traje": "T20.EquipmentClothing",
+	"esoterico": "T20.EquipmentEsoteric",
 }
 preLocalize("armorTypes");
 
@@ -106,10 +130,9 @@ T20.damageTypes = {
 	"frio": "T20.DamageCold",
 	"impacto": "T20.DamageBludgeoning",
 	"luz": "T20.DamageRadiant",
-	"mental": "T20.DamagePsychic",
+	"psiquico": "T20.DamagePsychic",
 	"perfuracao": "T20.DamagePiercing",
 	"trevas": "T20.DamageNecrotic",
-	"veneno": "T20.DamagePoison",
 };
 preLocalize("damageTypes");
 

@@ -44,6 +44,18 @@
 					<input type="number" name="system.armadura.penalidade" value="{{item.system.armadura.penalidade}}" data-dtype="Number" max="0" />
 				</div>
 			</div>
+			<hr>
+			<div class="form-group">
+				<label for="TAGS">TAGS</label>
+				<input type="text" name="tag" class="tag-input"><br>
+			</div>
+			{{#if item.system.tags }}
+			<div class="tag-list">
+				{{#each item.system.tags as |tag t| }}
+				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
+				{{/each}}
+			</div>
+			{{/if}}
 		</div>
 
 		<div class="tab effects" data-group="primary" data-tab="effects">

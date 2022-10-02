@@ -73,6 +73,19 @@
 					</ul>
 				</div>
 			</div>
+			
+			<hr>
+			<div class="form-group">
+				<label for="TAGS">TAGS</label>
+				<input type="text" name="tag" class="tag-input"><br>
+			</div>
+			{{#if item.system.tags }}
+			<div class="tag-list">
+				{{#each item.system.tags as |tag t| }}
+				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
+				{{/each}}
+			</div>
+			{{/if}}
 		</div>
 		
 		<div class="tab config" data-group="primary" data-tab="config">
@@ -87,5 +100,6 @@
 			</div>
 			{{/if}}
 		</div>
+
 	</section>
 </form>

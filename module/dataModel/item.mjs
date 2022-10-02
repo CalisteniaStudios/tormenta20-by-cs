@@ -96,6 +96,14 @@ class systemItemConsumableData extends foundry.abstract.DataModel {
 			})
 		}
 	}
+
+	/** @inheritdoc */
+	static migrateData(data) {
+		if( !isFinite(data.duracao.value) || data.duracao.value == null ){
+			data.duracao.value = 0;
+		}
+		return super.migrateData(data);
+	}
 }
 
 class systemItemLootData extends foundry.abstract.DataModel {

@@ -264,6 +264,7 @@ function getObjectBaseData() {
 		}),
 		source: new fields.StringField({ initial: '' }),
 		origin: new fields.StringField({ initial: '' }),
+		tags: new fields.ArrayField(new fields.StringField()),
 		chatFlavor: new fields.StringField({ required: true, nullable:false, initial: '' }),
 	}
 }
@@ -290,7 +291,7 @@ function getActivationItemData() {
 	return {
 		// ativacao
 		ativacao: new fields.SchemaField({
-			custo: new fields.NumberField({  requirede:true, initial:0 }),
+			custo: new fields.NumberField({  required:true, initial:0 }),
 			condicao: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			execucao: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			qtd: new fields.StringField({ initial: '' }),

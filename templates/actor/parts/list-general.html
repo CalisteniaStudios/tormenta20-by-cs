@@ -1,5 +1,7 @@
 <ul class="item-list">
+	{{#unless isSimple}}
 	<li class="item flexrow item-header flex-center">{{localize "T20.Inventory"}}</li>
+	{{/unless}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-name flex2">{{ localize 'T20.Name' }}</div>

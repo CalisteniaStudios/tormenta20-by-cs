@@ -136,11 +136,11 @@ Hooks.once("init", async function () {
 		label: game.i18n.localize("T20.CharacterBuilderSheet"), //"Progressão de Personagem"
 	});
 	
-	// Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
-	// 	types: ["simple"],
-	// 	makeDefault: true,
-	// 	label: game.i18n.localize("T20.SimpleActorSheet"), //"Ficha de Simple"
-	// });
+	Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
+		types: ["simple"],
+		makeDefault: true,
+		label: game.i18n.localize("T20.SimpleActorSheet"), //"Ficha de Simple"
+	});
 
 	// Actors.registerSheet("tormenta20", ActorSheetT20Vehicle, {
 	// 	types: ["vehicle"],

@@ -11,7 +11,7 @@ export default class TraitSelector extends FormApplication {
 			classes: ["tormenta20"],
 			title: game.i18n.localize('T20.ActorTraitSelection'),
 			template: "systems/tormenta20/templates/apps/trait-selector.html",
-			width: 320,
+			width: 350,
 			height: "auto",
 			choices: {},
 			allowCustom: true,
@@ -39,21 +39,25 @@ export default class TraitSelector extends FormApplication {
 		let attr = foundry.utils.getProperty(this.object, this.attribute);
 		if ( getType(attr) !== "Object" ) attr = {value: [], custom: ""};
 		// Populate choices
-		let choices = "";
+		let choices = {};
+		let columns = 1;
 		if (this.options.choices != undefined) {
 			choices = duplicate(this.options.choices);
 			for ( let [k, v] of Object.entries(choices) ) {
 				choices[k] = {
-					label: v,
+					label: v.label ? v.label : v,
+					choices: v.choices ? v.choices : [],
 					chosen: attr ? attr.value.includes(k) : false
 				}
+				columns = v.choices ? 2 : 1;
 			}
 		}
 		// Return data
 		return {
 			allowCustom: this.options.allowCustom,
 			choices: choices,
-			custom: attr ? attr.custom : ""
+			custom: attr ? attr.custom : "",
+			columns: columns,
 		}
 	}
 

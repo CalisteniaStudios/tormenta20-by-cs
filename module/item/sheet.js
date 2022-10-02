@@ -186,11 +186,14 @@ export default class ItemSheetT20 extends ItemSheet {
 			html.find(".rolls-control").click(this._onRollsControl.bind(this));
 			html.find(".parts-control").click(this._onPartsControl.bind(this));
 
+			html.find(".tag-input").keydown(this._onTagChange.bind(this));
+			html.find(".tag-delete").click(this._onTagDelete.bind(this));
+			
 			// Progression Tab
 			html.find(".progression-control").click(this._onProgressionControl.bind(this));
 			html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
 
-			html.find('.trait-selector').click(this._onConfigureTraits.bind(this));
+			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
 			html.find(".effect-control").click(ev => {
 				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
 				onManageActiveEffect(ev, this.item)
@@ -202,6 +205,38 @@ export default class ItemSheetT20 extends ItemSheet {
 	/* -------------------------------------------- */
 	/*  Interactions                                */
 	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onSubmit(event, options={}) {
+		// Process the form data
+    const formData = this._getSubmitData(null);
+		if ( formData.tag ){
+			const tags = [...this.item.system.tags, formData.tag];
+			formData[`system.tags`] = tags;
+			delete formData.tag;
+			options.updateData = formData;
+		}
+		await super._onSubmit(event, options);
+	}
+
+	async _onTagChange(event) {
+		const key = event.key;
+		// Valid entries
+		if ( !key.match(/([A-z]|\d|-|:)/) ) {
+			event.preventDefault();
+		}
+		if ( key.match(/(Enter|;|,|\s)/) ){
+			return this._onSubmit(event);
+		}
+	}
+
+	async _onTagDelete(event) {
+		const tag = event.currentTarget;
+		const idx = tag.dataset.tagId;
+		const tags = this.item.system.tags;
+		tags.splice(idx,1);
+		this.item.update({[`system.tags`]:tags});
+	}
 
 	/** @inheritdoc */
 	async _onDrop(event) {

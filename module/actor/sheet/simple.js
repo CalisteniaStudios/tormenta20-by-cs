@@ -5,13 +5,13 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 	
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions,
-			{
-				tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
-				width: 400,
-				height: 600,
-			}
-		);
+		return mergeObject(super.defaultOptions, {
+			classes: ["tormenta20", "sheet", "actor", "simple"],
+			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+			scrollY: [".sheet-body"],
+			width: 600,
+			height: 600,
+		});
 	}
 
 	/** @override */
@@ -30,6 +30,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 			isCharacter: this.actor.type === "character",
 			isNPC: this.actor.type === "npc",
 			isSimple: this.actor.type === "simple",
+			isVehicle: this.actor.type === "vehicle",
 			config: CONFIG.T20,
 		};
 		// The Actor and its Items
@@ -121,10 +122,8 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 		actorData.poderes = poderes;
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
-		
+		inventario.itens = {label: "Itens", items: items};
 		actorData.inventario = inventario;
-		// inventario.itens = {label: "Itens", items: items};
-		// actorData.inventario = inventario;
 
 	}
 }
