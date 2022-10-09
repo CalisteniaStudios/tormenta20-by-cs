@@ -97,25 +97,27 @@ export default class ActorT20 extends Actor {
 			return;
 		}
 
-		const nivel = system.attributes.nivel.value;
+		const nivel = system.attributes.nivel?.value || 0;
 
 		// Loop through ability and add modifiers
 		for (let [key, ability] of Object.entries(system.atributos)) {
 			ability.name = CONFIG.T20.atributos[key];
-			ability.value = (ability.value + ability.base + ability.racial + ability.bonus);
+			ability.value = (ability.base + ability.racial + ability.bonus);
 		}
 	}
 
 	preparePosDerivedData() {
 		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const system = this.system;
-		const nivel = system.attributes.nivel.value;
+		const nivel = system.attributes.nivel?.value || 0;
 
 		// Skills
 		const rollData = this.getRollData();
-		for (let [key, pericia] of Object.entries(system.pericias)) {
-			// pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
-			this._prepareSkills(key, pericia, system, rollData);
+		if ( system.pericias ) {
+			for (let [key, pericia] of Object.entries(system.pericias)) {
+				// pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
+				this._prepareSkills(key, pericia, system, rollData);
+			}
 		}
 		
 		// Defense
@@ -311,7 +313,7 @@ export default class ActorT20 extends Actor {
 			parts.push( maxAbl === false ? abl : Math.min( abl , maxAbl ) );
 			parts.push(defense.outros || 0);
 		}
-		if ( defense.bonus.length ) parts.push(...defense.bonus);
+		if ( defense.bonus?.length ) parts.push(...defense.bonus);
 		if ( defense.condi ) parts.push(defense.condi);
 		
 		const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
@@ -582,24 +584,24 @@ export default class ActorT20 extends Actor {
 		data["tamanho"] = sizeMod[size];
 		data["pda"] = this.system.attributes?.defesa.pda || 0;
 		
-		data["pericia"] = skillMods.geral.filter(Boolean).join(' + ') || 0;
-		data["semataque"] = skillMods.semataque.filter(Boolean).join(' + ') || 0;
-		data["ataque"] = skillMods.ataque.filter(Boolean).join(' + ') || 0;
-		data["resistencia"] = skillMods.resistencia.filter(Boolean).join(' + ') || 0;
+		data["pericia"] = skillMods.geral?.filter(Boolean).join(' + ') || 0;
+		data["semataque"] = skillMods.semataque?.filter(Boolean).join(' + ') || 0;
+		data["ataque"] = skillMods.ataque?.filter(Boolean).join(' + ') || 0;
+		data["resistencia"] = skillMods.resistencia?.filter(Boolean).join(' + ') || 0;
 		
 		// Set ability bonuses modifiers
 		let ablMods = this.system.modificadores?.atributos || {};
-		data["atributo"] = ablMods.geral.filter(Boolean).join(' + ') || 0;
-		data["fisicos"] = ablMods.fisicos.filter(Boolean).join(' + ') || 0;
-		data["mentais"] = ablMods.mentais.filter(Boolean).join(' + ') || 0;
+		data["atributo"] = ablMods.geral?.filter(Boolean).join(' + ') || 0;
+		data["fisicos"] = ablMods.fisicos?.filter(Boolean).join(' + ') || 0;
+		data["mentais"] = ablMods.mentais?.filter(Boolean).join(' + ') || 0;
 
 		// Set damage bonuses modifiers
 		let dmgMods = this.system.modificadores?.dano || {};
-		data["dano"] = dmgMods.geral.filter(Boolean).join(' + ') || 0;
-		data["danoMagico"] = dmgMods.mag.filter(Boolean).join(' + ') || 0;
-		data["danoCAC"] = dmgMods.cac.filter(Boolean).join(' + ') || 0;
-		data["danoAD"] = dmgMods.ad.filter(Boolean).join(' + ') || 0;
-		data["danoALQ"] = dmgMods.alq.filter(Boolean).join(' + ') || 0;
+		data["dano"] = dmgMods.geral?.filter(Boolean).join(' + ') || 0;
+		data["danoMagico"] = dmgMods.mag?.filter(Boolean).join(' + ') || 0;
+		data["danoCAC"] = dmgMods.cac?.filter(Boolean).join(' + ') || 0;
+		data["danoAD"] = dmgMods.ad?.filter(Boolean).join(' + ') || 0;
+		data["danoALQ"] = dmgMods.alq?.filter(Boolean).join(' + ') || 0;
 		
 		return data;
 	}
