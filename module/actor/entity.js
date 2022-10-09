@@ -47,8 +47,13 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
-		super.prepareData();
-
+		// console.log('prepareData');
+		this.prepareBaseData();
+		this.preparePreDerivedData();
+		this.prepareEmbeddedDocuments();
+		this.preparePosDerivedData();
+		// super.prepareData();
+		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
 	}
@@ -57,7 +62,7 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareBaseData() {
-		
+		// console.log('prepareBaseData');
 		const system = this.system;
 		for (let [key, resource] of Object.entries(system.resources)) {
 			if ( ["vehicle","simple"].includes(this.type) ) break;
@@ -84,8 +89,47 @@ export default class ActorT20 extends Actor {
 	 * 
 	 * */
 	/** @override */
-	prepareDerivedData() {
+	preparePreDerivedData() {
+		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
+		const system = this.system;
+		if ( ["vehicle","simple"].includes(this.type) ){
+			system.attributes.carga = this._computeEncumbrance(system);
+			return;
+		}
+
+		const nivel = system.attributes.nivel.value;
+
+		// Loop through ability and add modifiers
+		for (let [key, ability] of Object.entries(system.atributos)) {
+			ability.name = CONFIG.T20.atributos[key];
+			ability.value = (ability.value + ability.base + ability.racial + ability.bonus);
+		}
+	}
+
+	preparePosDerivedData() {
+		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
+		const system = this.system;
+		const nivel = system.attributes.nivel.value;
+
+		// Skills
+		const rollData = this.getRollData();
+		for (let [key, pericia] of Object.entries(system.pericias)) {
+			// pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
+			this._prepareSkills(key, pericia, system, rollData);
+		}
 		
+		// Defense
+		this._prepareDefense(system);
+
+		// BASE CD
+		system.attributes.cd = reforma ? system.attributes.cd : 10 + Math.floor(nivel / 2);
+
+		// Encumbrance
+		system.attributes.carga = this._computeEncumbrance(system);
+	}
+
+	prepareDerivedData() {
+		// console.log('prepareDerivedData');
 		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const system = this.system;
 		if ( ["vehicle","simple"].includes(this.type) ){
@@ -267,9 +311,9 @@ export default class ActorT20 extends Actor {
 			parts.push( maxAbl === false ? abl : Math.min( abl , maxAbl ) );
 			parts.push(defense.outros || 0);
 		}
-		parts.push(defense.bonus || 0);
-		parts.push(defense.condi);
-
+		if ( defense.bonus.length ) parts.push(...defense.bonus);
+		if ( defense.condi ) parts.push(defense.condi);
+		
 		const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		
 		system.attributes.defesa.value = parseInt(result);
@@ -302,25 +346,25 @@ export default class ActorT20 extends Actor {
 		}
 		
 		pericia.outros = pericia.outros;//Number(pericia.outros) || 0;
-		pericia.bonus = pericia.bonus || 0;//Number(pericia.bonus) || 0;
+		// pericia.bonus = pericia.bonus || 0;//Number(pericia.bonus) || 0;
+		// if ( pericia.bonus.length ) parts.push(...pericia.bonus);
 
 		const parts = [];
 		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && reforma ) {
-			parts.push(pericia.outros, pericia.bonus);
+			parts.push(pericia.outros, ...pericia.bonus);
 		} else {
-			parts.push("@meionivel", treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, pericia.bonus);
+			parts.push("@meionivel", treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, ...pericia.bonus);
 		}
-
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = getProperty(this.system, "modificadores.pericias") || {};
-		if (bonuses.geral) parts.push("@pericia");
-		if (!["luta", "pont"].includes(key) && bonuses.semataque) parts.push("@semataque");
-		if (["luta", "pont"].includes(key) && bonuses.ataque) parts.push("@ataque");
-		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia) parts.push("@resistencia");
-		if (bonuses.atr && bonuses.atr[pericia.atributo]) parts.push(bonuses.atr[pericia.atributo]);
+		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
+		if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
+		if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
+		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length) parts.push("@resistencia");
+		if (bonuses.atr && bonuses.atr[pericia.atributo].filter(Boolean).length) parts.push(bonuses.atr[pericia.atributo]);
 		if (pericia.condi) parts.push(pericia.condi);
 		if ( key == "furt" ) parts.push("@tamanho");
-
+		
 		if ( !roll ) {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			pericia.value = parseInt(result.replace(" ","")) || 0;
@@ -346,89 +390,41 @@ export default class ActorT20 extends Actor {
 	* @private
 	*/
 	_computeEncumbrance(system) {
-		const goty = true;
 		/* FLAGS */
 		const flags = {}
-		flags['wideBack'] = this.getFlag('tormenta20', 'costasLargas');
 		flags['organised'] = this.getFlag('tormenta20', 'inventarioOrganizado');
-		if ( goty ){
-			let weight = system.attributes.carga;
-			// { value: 0, max: 20, pct: 0, encumbered: false };
-			const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
-			// Get the total weight from items
-			weight.value = this.items.reduce((weight, i) => {
-				if ( !physicalItems.includes(i.type) || !i.system.carregado || i.system.container) return weight;
-				const q = i.system.qtd || 0;
-				const w = (flags.organised && i.system.espacos == 0.5 ? 0.25 : i.system.espacos) || 0;
-				// const w = i.system.espacos || 0;
-				return weight + (q * w);
-			}, 0);
-			// Get the total weight from coins (1 == 1000)
-			let coins = Object.values( system.dinheiro ).reduce((a, b) => a + b);
-			weight.value = weight.value + Math.floor( coins / 1000);
-			// weight.value = Math.floor( weight.value );
-			if ( ["vehicle","simple"].includes(this.type) ){
-				weight.encumbered = weight > (weight.max / 2);
-				weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
-				return weight;
-			}
-			// Compute Encumbrance percentage
-			const str = system.atributos.for.value;
-			const int = system.atributos.int.value;
-			const base = 10 + ( flags.wideBack ? 5 : 0) + ( flags.organised ? int : 0);
-			const limit = base + ( str > 0 ? str*2 : str );
-			weight.max = limit * 2;
-			weight.encumbered = weight > limit;
+		let weight = system.attributes.carga;
+		// { value: 0, max: 20, pct: 0, encumbered: false };
+		const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
+		// Get the total weight from items
+		weight.value = this.items.reduce((weight, i) => {
+			if ( !physicalItems.includes(i.type) || !i.system.carregado || i.system.container) return weight;
+			const q = i.system.qtd || 0;
+			const w = (flags.organised && i.system.espacos == 0.5 ? 0.25 : i.system.espacos) || 0;
+			// const w = i.system.espacos || 0;
+			return weight + (q * w);
+		}, 0);
+		// Get the total weight from coins (1 == 1000)
+		let coins = Object.values( system.dinheiro ).reduce((a, b) => a + b);
+		weight.value = weight.value + Math.floor( coins / 1000);
+		// weight.value = Math.floor( weight.value );
+		if ( ["vehicle","simple"].includes(this.type) ){
+			weight.encumbered = weight > (weight.max / 2);
 			weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
 			return weight;
-		} else {
-			let rule = game.settings.get("tormenta20", "weightRule");
-			if( rule == 'core' ){
-				const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
-				// Get the total weight from items
-				let weight = this.items.reduce((weight, i) => {
-					if ( !physicalItems.includes(i.type) || !i.system.carregado ) return weight;
-					const q = i.system.qtd || 0;
-					const w = i.system.peso || 0;
-					return weight + (q * w);
-				}, 0);
-				// Compute Encumbrance percentage
-				weight = weight.toNearest(0.1);
-				const atrFor = system.atributos.for;
-				const atrCrg = system.attributes.carga ?? {value:0, max:0};
-				const max = (( atrFor.value + atrFor.bonus ) * 10) + (Number(atrCrg.max) || 0) ;
-				const emc = (( atrFor.value + atrFor.bonus ) * 3) + (Number(atrCrg.lev) || 0) ;
-				const pct = Math.clamped((weight * 100) / max, 0, 100).toNearest(0.1);
-				return { value: weight, max, pct, encumbered: weight > emc };
-			}
-			else if( rule == 'espacos' ){
-				
-				const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
-				// Get the total weight from items
-				let weight = this.items.reduce((weight, i) => {
-					if ( !physicalItems.includes(i.type) || !i.system.carregado || i.system.container) return weight;
-					const q = i.system.qtd || 0;
-					const w = i.system.espacos || 0;
-					return weight + (q * w);
-				}, 0);
-	
-				let coins = Object.values( system.dinheiro ).reduce((a, b) => a + b);
-				weight = weight + Math.floor( coins / 1000);
-				weight = Math.floor( weight );
-				// Compute Encumbrance percentage
-				const atrFor = 1; //system.atributos.for.value;
-				const atrCrg = system.attributes.carga;
-				const max = 10 + ( atrFor > 0 ? atrFor*2 : atrFor );
-				const emc = weight;
-				const pct = Math.clamped((weight * 100) / max, 0, 100);
-				return { value: weight, max, pct, encumbered: weight > emc };
-			}
-			else if( rule == 'manual' ){
-				return { value: 0, max: 100, pct: 30, encumbered: false };
-			} else {
-				return { value: 0, max: 100, pct: 30, encumbered: false };
-			}
 		}
+		// Compute Encumbrance percentage
+		const str = system.atributos.for.value;
+		const int = system.atributos.int.value;
+		const parts = [weight.base, ...weight.bonus];
+		const rollData = this.getRollData();
+		// const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
+		const base = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
+		const limit = (Number(base) || 10) + ( str > 0 ? str*2 : str );
+		weight.max = limit * 2;
+		weight.encumbered = weight > limit;
+		weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
+		return weight;
 	}
 
 	/* -------------------------------------------- */
@@ -586,24 +582,24 @@ export default class ActorT20 extends Actor {
 		data["tamanho"] = sizeMod[size];
 		data["pda"] = this.system.attributes?.defesa.pda || 0;
 		
-		data["pericia"] = skillMods.geral;
-		data["semataque"] = skillMods.semataque;
-		data["ataque"] = skillMods.ataque;
-		data["resistencia"] = skillMods.resistencia;
-
+		data["pericia"] = skillMods.geral.filter(Boolean).join(' + ') || 0;
+		data["semataque"] = skillMods.semataque.filter(Boolean).join(' + ') || 0;
+		data["ataque"] = skillMods.ataque.filter(Boolean).join(' + ') || 0;
+		data["resistencia"] = skillMods.resistencia.filter(Boolean).join(' + ') || 0;
+		
 		// Set ability bonuses modifiers
 		let ablMods = this.system.modificadores?.atributos || {};
-		data["atributo"] = ablMods.geral;
-		data["fisicos"] = ablMods.fisicos;
-		data["mentais"] = ablMods.mentais;
+		data["atributo"] = ablMods.geral.filter(Boolean).join(' + ') || 0;
+		data["fisicos"] = ablMods.fisicos.filter(Boolean).join(' + ') || 0;
+		data["mentais"] = ablMods.mentais.filter(Boolean).join(' + ') || 0;
 
 		// Set damage bonuses modifiers
 		let dmgMods = this.system.modificadores?.dano || {};
-		data["dano"] = dmgMods.geral;
-		data["danoMagico"] = dmgMods.mag;
-		data["danoCAC"] = dmgMods.cac;
-		data["danoAD"] = dmgMods.ad;
-		data["danoALQ"] = dmgMods.alq;
+		data["dano"] = dmgMods.geral.filter(Boolean).join(' + ') || 0;
+		data["danoMagico"] = dmgMods.mag.filter(Boolean).join(' + ') || 0;
+		data["danoCAC"] = dmgMods.cac.filter(Boolean).join(' + ') || 0;
+		data["danoAD"] = dmgMods.ad.filter(Boolean).join(' + ') || 0;
+		data["danoALQ"] = dmgMods.alq.filter(Boolean).join(' + ') || 0;
 		
 		return data;
 	}
@@ -1253,10 +1249,10 @@ export default class ActorT20 extends Actor {
 
 		// Add global actor bonus GERAL | FISICOS | MENTAIS | KEY
 		const bonuses = getProperty(this.system, "modificadores.atributos") || {};
-		if (bonuses.geral) parts.push("@atributo");
-		if (["for", "des", "con"].includes(key) && bonuses.fisicos) parts.push("@fisicos");
-		if (["int", "sab", "car"].includes(key) && bonuses.mentais) parts.push("@mentais");
-		if (Object.keys(bonuses).includes(key) && bonuses[key]) parts.push(bonuses[key]);
+		if (bonuses.geral.filter(Boolean).length) parts.push("@atributo");
+		if (["for", "des", "con"].includes(key) && bonuses.fisicos.filter(Boolean).length) parts.push("@fisicos");
+		if (["int", "sab", "car"].includes(key) && bonuses.mentais.filter(Boolean).length) parts.push("@mentais");
+		if (Object.keys(bonuses).includes(key) && bonuses[key].filter(Boolean).length) parts.push(bonuses[key]);
 
 		// Add provided extra roll parts
 		if (options.parts?.length > 0) {
@@ -1334,31 +1330,20 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	applyActiveEffects() {
 		const overrides = {};
+		
 		// Organize non-disabled effects by their application priority
-		let changes = this.effects.reduce((changes, e) => {
-			if ( e.disabled ) return changes;
-			if ( e.flags?.tormenta20?.onuse ) return changes;
+		const changes = this.effects.reduce((changes, e) => {
+			if ( e.disabled || e.isSuppressed || e.flags?.tormenta20?.onuse ) return changes;
 			return changes.concat(e.changes.map(c => {
-				c = duplicate(c);
-				if (c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value|.pda)|(system.|data.)modificadores/i) && c.mode === 2 && !c.value.toString().match(/^[+|-][\d+|@\w+]/i)) {
-					c.value = "+"+c.value.toString();
-				}
-				else if ( c.key.match(/tamanho/i) ){
-					let size = Object.keys( CONFIG.T20.actorSizes ).includes(c.value) ? c.value : "med";
-					if( Object.values( CONFIG.T20.actorSizes ).includes(c.value) ){
-						size = Object.assign({}, ...Object.entries(CONFIG.T20.actorSizes).map(([a,b]) => ({ [b]: a })))[c.value];
-					}
-					c.value = size;
-				}
+				c = foundry.utils.duplicate(c);
 				c.effect = e;
 				c.priority = c.priority ?? (c.mode * 10);
 				return c;
 			}));
 		}, []);
 		changes.sort((a, b) => a.priority - b.priority);
+
 		// Apply all changes
-		changes = changes.filter(c=> c.key.match(/(system.|data.)(.*)(.condi|.outros|.bonus|.value|.pda)|(system.|data.)modificadores/i));
-		
 		for ( let change of changes ) {
 			if ( !change.key ) continue;
 			const changes = change.effect.apply(this, change);

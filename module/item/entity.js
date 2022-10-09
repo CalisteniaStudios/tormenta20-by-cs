@@ -397,12 +397,12 @@ export default class ItemT20 extends Item {
 
 		// Actor-level global bonus to attack rolls
 		const bonuses = this.actor.system.modificadores?.ataque || {};
-		if ( bonuses.geral ) parts.push(bonuses.geral);
+		if ( bonuses.geral ) parts.push(...bonuses.geral);
 		if ( bonuses.cac && roll.parts[1][0] !== "pont"){
-			parts.push(bonuses.cac);
+			parts.push(...bonuses.cac);
 		}
 		if ( bonuses.ad && roll.parts[1][0] === "pont" ){
-			parts.push(bonuses.ad);
+			parts.push(...bonuses.ad);
 		}
 
 		// One-time bonus provided by consumed ammunition
@@ -818,6 +818,7 @@ export default class ItemT20 extends Item {
 			return ChatMessage.create({content:msg});
 		}
 		options.itemId = this.id;
+		console.log(options, rollMode, createMessage);
 		return item.displayCard({options, rollMode, createMessage});
 	}
 

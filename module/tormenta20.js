@@ -35,7 +35,6 @@ import * as hooks from "./hooks.js";
 import * as chat from "./chat.js";
 import * as dice from "./dice.js";
 import * as macros from "./macros.js";
-import * as migrations from "./migration.js";
 import "./modules.js";
 import * as utils from "./utils.js";
 
@@ -71,7 +70,6 @@ Hooks.once("init", async function () {
 			ItemT20
 		},
 		macros: macros,
-		migrations: migrations,
 		rollItemMacro: macros.rollItemMacro,
 		rollSkillMacro: macros.rollSkillMacro,
 	}
@@ -155,7 +153,6 @@ Hooks.once("init", async function () {
 	});
 	
 	if( game.settings.get('tormenta20', 'prototypeDataModel') ) {
-		console.log(('REGISTER DMs'));
 		// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
 		// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
 		CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;

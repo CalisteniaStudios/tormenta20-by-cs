@@ -640,7 +640,20 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		options.effects.push(tempEffect);
 		
 	});
-	
+	// Add Child Effects
+	let curEFS = options.effects.map( ef => ef.flags?.core?.statusId );
+	let childEFS = options.effects.flatMap( ef => ef.flags?.tormenta20?.childEffect );
+	let addEFS = [ ...new Set([
+		...options.effects.flatMap( ef => ef.flags?.tormenta20?.childEffect ),
+		...options.effects.map( ef => ef.flags?.tormenta20?.stack ),
+	])].filter(Boolean);
+
+	for (let addEF of addEFS) {
+		let nSEF = T20Conditions[addEF];
+		if ( !curEFS.includes( addEF ) && nSEF ){
+			options.effects.push( nSEF );
+		}
+	}
 	// Brew Potion
 	options.brew = configuration.brew;
 	// Logs

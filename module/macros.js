@@ -105,7 +105,6 @@ export async function createT20Macro(data, slot) {
 				},
 			});
 		}
-		console.log(macro);
 		game.user.assignHotbarMacro(macro, slot);
 		return true;
 	}

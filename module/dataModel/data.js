@@ -463,7 +463,6 @@ class systemActorCharacterData extends systemActorBaseData {
 				}),
 			}),
 		};
-		console.warn(schema);
 		return schema;
 		return mergeObject( super.defineSchema() , schema, {insertKeys: true, insertValues: true, recursive: true, overwrite: false} );
 	}

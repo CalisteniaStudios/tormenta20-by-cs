@@ -137,7 +137,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		// Update traits
 		this._prepareTraits(data.data.tracos);
 		// Update bonuses
-		data.modificadores = this._prepareModificadores();
+		data.modificadores = []; //this._prepareModificadores();
 
 		// Prepare owned items
 		await this._prepareItems(data);
@@ -357,7 +357,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			{name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
 		];
 		for ( let b of modificadores ) {
-			b.value = getProperty(this.object._source, b.name) || "";
+			b.value = getProperty(this.object._source, b.name) || [];
 		}
 		return modificadores;
 	}

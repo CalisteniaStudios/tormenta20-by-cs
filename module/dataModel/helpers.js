@@ -128,7 +128,7 @@ class SkillData extends foundry.abstract.DataModel {
 			value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
 			outros: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 			condi: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-			bonus: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			bonus: new fields.ArrayField(new fields.StringField()),
 			custom: new fields.BooleanField({ required: true, nullable:false, initial: false }),
 			label: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			nome: new fields.StringField({ required: true, nullable:false, initial: '' }),
