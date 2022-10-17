@@ -93,8 +93,14 @@ T20.creatureTypes = {
 }
 preLocalize("creatureTypes");
 
-
 T20.creatureRoles = {
+	"special": "T20.FoeRoleSpecial",
+	"lackey": "T20.FoeRoleLackey",
+	"solo": "T20.FoeRoleSolo",
+}
+preLocalize("creatureRoles");
+
+T20.DBcreatureRoles = {
 	"combatant": "T20.FoeRoleCombatant",
 	"caster": "T20.FoeRoleCaster",
 	"trickster": "T20.FoeRoleTrickster",
@@ -121,6 +127,7 @@ preLocalize("armorTypes");
 /* ---------------- Damage ---------------- */
 
 T20.damageTypes = {
+	"dano": "T20.Damage",
 	"perda": "T20.DamageLoss",
 	"acido": "T20.DamageAcid",
 	"corte": "T20.DamageSlashing",
@@ -146,7 +153,7 @@ T20.healingTypes = {
 preLocalize("healingTypes");
 
 T20.damageResistanceTypes = mergeObject(foundry.utils.deepClone(T20.damageTypes), {
-"fisico": "T20.DamagePhysical",
+	"fisico": "T20.DamagePhysical",
 });
 preLocalize("damageResistanceTypes");
 
@@ -687,7 +694,49 @@ T20.tableAbilities = {
 	'val': ["1","2-5","6-9","10-13","14-17","18-21","22-25","26+"]
 }
 
+
 T20.RoleMods = {
+	"special": {good:[], bad:[]},
+	"lackey": {good:['attack','damage'], bad:['hp']},
+	"boss": {good:['hp'], bad:[]},
+}
+
+T20.NDparams = {
+	labels: ['','T20.AbbreviationCR','T20.Attack', 'T20.Damage','T20.Defense','T20.HP','T20.Skills','T20.NPCB_SaveGood','T20.NPCB_SaveNormal','T20.NPCB_SaveBad','T20.AbbreviationDC'],
+  pat: ['i','i','i','i','i','i','v','v','v','v','v','v','c','c','c','c','c','c','l','l','l','l'],
+  cr: ['1/4','1/2','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'],
+	attack: [7,7,9,11,13,15,18,20,22,24,26,29,32,35,37,40,42,45,47,50,52,55],
+	attackqty: [1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4],
+	damage: ['1d6+3','1d6+3','1d8+6','1d10+10','1d12+12','2d6+14','1d12+11','2d6+15','2d8+19','2d10+20','2d12+21','3d6+26','3d8+24','3d10+26','3d12+28','4d6+38','4d8+40','4d10+42','4d12+35','4d12+40','4d12+45','4d12+50'],
+	defense: [15,15,16,18,21,24,28,31,34,37,40,43,46,48,50,52,54,56,59,61,63,65],
+	hp: [10,10,20,40,70,110,150,190,230,270,310,350,400,450,550,600,650,700,750,800,850,900],
+	topskill: [4,4,6,8,10,12,14,16,18,20,22,24,25,26,27,28,29,30,32,33,34,35],
+	botskill: [0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+	topsave: [3,6,11,13,15,16,16,18,20,21,21,22,29,30,30,31,31,32,32,33,33,34],
+	midsave: [0,3,5,7,9,10,10,12,14,15,15,16,23,24,24,25,25,26,26,27,27,28],
+	botsave: [-2,-1,0,2,4,5,5,7,9,10,10,11,18,19,19,20,20,21,21,22,22,23],
+	dc: [14,14,15,16,17,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50],
+}
+
+
+T20.NPCParams = ( cr ) => {
+	let idx = T20.NDparams.cr.indexOf(cr.toString());
+	
+	if ( idx < 0 ){
+		// ui.notifications.warn(game.i18n.format("T20.CRInvalid", {cr: cr}));
+		// console.warn(game.i18n.format("T20.CRInvalid", {cr: cr}));
+		idx = 0;
+	}
+	
+	let param = Object.entries(T20.NDparams).reduce(( acc, p )=>{
+		acc[p[0]] = p[1][idx];
+		return acc;
+	},{});
+	return param;
+}
+
+
+T20.DBRoleMods = {
 	"combatant": {good:['attack','damage','defense','hp'], bad:[]},
 	"caster": {good:['vont'], bad:['attack','damage','defense','hp']},
 	"trickster": {good:['vont'], bad:['attack','damage','defense','hp']},
@@ -695,7 +744,7 @@ T20.RoleMods = {
 	"boss": {good:['hp'], bad:[]},
 }
 
-T20.NDparams = {
+T20.DBNDparams = {
 	labels: ['','T20.AbbreviationCR','T20.Attack','T20.Damage','T20.Defense','T20.NPCB_SaveGood','T20.NPCB_SaveNormal','T20.NPCB_SaveBad','T20.HP','T20.AbbreviationDC'],
   pat: ['i','i','i','i','i','i','v','v','v','v','v','v','c','c','c','c','c','c','l','l','l','l'],
   cr: ['1/4','1/2','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'],
@@ -707,18 +756,4 @@ T20.NDparams = {
   botsave: [-2,-1,0,2,4,5,5,7,9,10,10,11,18,19,19,20,20,21,21,22,22,23],
   hp: [7,15,35,70,105,140,200,240,280,320,360,400,550,600,650,700,750,800,1020,1080,1140,1200],
   dc: [12,14,15,16,17,18,20,22,24,26,28,30,31,33,35,38,40,42,44,47,47,49]
-}
-
-T20.NPCParams = ( cr ) => {
-	let idx = T20.NDparams.cr.indexOf(cr.toString());
-	if ( idx < 0 ){
-		ui.notifications.warn(game.i18n.format("T20.CRInvalid", {cr: cr}));
-		idx = 0;
-	}
-	
-	let param = Object.entries(T20.NDparams).reduce(( acc, p )=>{
-		acc[p[0]] = p[1][idx];
-		return acc;
-	},{});
-	return param;
 }

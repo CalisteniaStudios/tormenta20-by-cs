@@ -15,17 +15,10 @@
 			<label>{{ localize "T20.Quantity" }}</label>
 			<input type="text" name="system.qtd" value="{{item.system.qtd}}" data-dtype="Number"/>
 		</div>
-		{{#unless (eq weightRule "espacos") }}
-		<div class="form-group">
-			<label>{{ localize "T20.Weight" }}</label>
-			<input type="text" name="system.peso" value="{{item.system.peso}}" data-dtype="Number"/>
-		</div>
-		{{else}}
 		<div class="form-group">
 			<label>{{ localize "T20.Slots" }}</label>
 			<input type="text" name="system.espacos" value="{{item.system.espacos}}" data-dtype="Number"/>
 		</div>
-		{{/unless}}
 		<div class="form-group">
 			<label>{{ localize "T20.Price" }}</label>
 			<input type="text" name="system.preco" value="{{item.system.preco}}" data-dtype="Number" placeholder="0" data-dtype="Number"/>

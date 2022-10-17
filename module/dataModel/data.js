@@ -64,6 +64,7 @@ function getActivationItemData() {
 			type: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			target: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			amount: new fields.NumberField({ initial:0 }),
+			mpMultiplier: new fields.BooleanField({ required:true, initial:false }),
 		}),
 		// ativacao
 		ativacao: new fields.SchemaField({
@@ -533,7 +534,7 @@ class systemItemWeaponData extends systemItemBaseData {
 			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),
 			equipado: new fields.NumberField({ required: true, nullable:false, initial: 0, min:0, max:2 }),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			tipoUso: new fields.StringField({ required: true, nullable:false, initial: 'simples' }),
+			tipoUso: new fields.StringField({ required: true, nullable:false, initial: 'sim' }),
 			alcance: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			criticoM: new fields.NumberField({ required:true, nullable:false, initial:20 }),
 			criticoX: new fields.NumberField({ required:true, nullable:false, initial:2 }),

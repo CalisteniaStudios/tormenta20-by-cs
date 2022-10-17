@@ -42,8 +42,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Experience Tracking
 		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
 		sheetData["disableJournal"] = game.settings.get("tormenta20", "disableJournal");
-		let weightTypes = {'core':'Peso','espacos':'Esp.'};
-		sheetData["weightCol"] = weightTypes[game.settings.get("tormenta20", "weightRule")];
 
 		// FLAGS
 		sheetData["isPreparationCaster"] = this.actor.getFlag("tormenta20", "mago");
@@ -220,13 +218,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Organize items
 		for ( let i of items ) {
 			i.system.qtd = i.system.qtd || 0;
-			i.system.peso = i.system.peso || 0;
 			i.system.espacos = i.system.espacos || 0;
-			if ( game.settings.get("tormenta20", "weightRule") == 'core' ) {
-				i.pesoTotal = (i.system.qtd * i.system.peso).toNearest(0.1);
-			} else if( game.settings.get("tormenta20", "weightRule") == 'espacos' ) {
-				i.pesoTotal = (i.system.qtd * i.system.espacos).toNearest(0.1);
-			}
+			i.espacosTotal = (i.system.qtd * i.system.espacos);
 			inventario[i.type].items.push(i);
 		}
 

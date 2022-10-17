@@ -34,7 +34,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		sheetData.builder = {};
 		sheetData.isNPCBuilder = true;
 		// GET ATTRIBUTE CLOSEST CR
-		const cr = this.actor.system.detalhes.nd; // actorData.attributes.cr;
+		const cr = this.actor.system.attributes.nd; // actorData.attributes.cr;
 		const currAttr = this._getActorAttr(this.actor);
 		let closestCR = {};
 		for ( let [key, attr] of Object.entries(currAttr) ) {
@@ -74,6 +74,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 			refl: game.i18n.localize( ranksTitle[actorData.attributes?.fort?.rank ?? 0] ),
 			vont: game.i18n.localize( ranksTitle[actorData.attributes?.fort?.rank ?? 0] ),
 		}
+		console.log(sheetData);
 		return sheetData;
 	}
 
@@ -109,8 +110,8 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		// Organize items
 		for ( let i of items ) {
 			i.system.qtd = i.system.qtd || 0;
-			i.system.peso = i.system.peso || 0;
-			i.pesoTotal = (i.system.qtd * i.system.peso).toNearest(0.1);
+			i.system.espaco = i.system.espaco || 0;
+			i.espacosTotal = (i.system.qtd * i.system.espaco);
 			inventario[i.type].items.push(i);
 		}
 
@@ -146,7 +147,8 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		let title = ['Abaixo do ND','Acima do ND'];
 		if ( ['fort','refl','vont'].includes(key) ) {
 			key = ['botsave','midsave','topsave'][attr.rank] ?? 'botsave';
-		}
+		} else if ( key == 'skills' ) key = 'topskill';
+
 		const params = CONFIG.T20.NDparams[key];
 		const closestValue = params.reduce((prev, curr) => Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
 		
@@ -163,7 +165,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 	}
 
 	_getActorAttr(actor){
-		const attrPaths = ['attributes.attack', 'attributes.damage', 'attributes.defense', 'attributes.topsave', 'attributes.midsave', 'attributes.botsave', 'attributes.hp', 'attributes.dc', 'attributes.fort','attributes.refl','attributes.vont'];
+		const attrPaths = ['attributes.attack', 'attributes.damage', 'attributes.defense', 'attributes.topsave', 'attributes.midsave', 'attributes.botsave', 'attributes.hp', 'attributes.dc', 'attributes.fort','attributes.refl','attributes.vont', 'attributes.skills'];
 		const attr = {};
 		for (let path of attrPaths ) {
 			let key = path.split('.')[1];

@@ -26,6 +26,9 @@ import ActorSheetT20Vehicle from "./actor/sheet/vehicle.js";
 import ItemSheetT20 from "./item/sheet.js";
 import TraitSelector from "./apps/trait-selector.js";
 import {applyOnUseEffects} from "./apps/ability-use.js";
+import StatblockParser from "./apps/statblock-parser.js";
+import ActiveEffectEdit from "./apps/active-effects-edit.js";
+
 
 import { T20Conditions } from "./conditions/conditions.js";
 import ActiveEffectConfigT20 from "./apps/ae-config.js";
@@ -57,7 +60,9 @@ Hooks.once("init", async function () {
 			ActorSheetT20Builder,
 			ItemSheetT20,
 			TraitSelector,
-			ActorSettings
+			ActorSettings,
+			StatblockParser,
+			ActiveEffectEdit
 		},
 		canvas: {
 			AbilityTemplate
@@ -152,23 +157,23 @@ Hooks.once("init", async function () {
 		makeDefault: true,
 	});
 	
-	if( game.settings.get('tormenta20', 'prototypeDataModel') ) {
-		// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
-		// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
-		CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;
-		CONFIG.Actor.systemDataModels["npc"] = systemActorNPCData;
-		CONFIG.Actor.systemDataModels["vehicle"] = systemActorVehicleData;
-		CONFIG.Actor.systemDataModels["simple"] = systemActorSimpleData;
+	// DATA MODEL
+	// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
+	// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
+	CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;
+	CONFIG.Actor.systemDataModels["npc"] = systemActorNPCData;
+	CONFIG.Actor.systemDataModels["vehicle"] = systemActorVehicleData;
+	CONFIG.Actor.systemDataModels["simple"] = systemActorSimpleData;
 
-		// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
-		CONFIG.Item.systemDataModels["arma"] = systemItemWeaponData;
-		CONFIG.Item.systemDataModels["classe"] = systemItemClassData;
-		CONFIG.Item.systemDataModels["consumivel"] = systemItemConsumableData;
-		CONFIG.Item.systemDataModels["equipamento"] = systemItemEquipmentData;
-		CONFIG.Item.systemDataModels["magia"] = systemItemSpellData;
-		CONFIG.Item.systemDataModels["poder"] = systemItemPowerData;
-		CONFIG.Item.systemDataModels["tesouro"] = systemItemLootData;
-	}
+	// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
+	CONFIG.Item.systemDataModels["arma"] = systemItemWeaponData;
+	CONFIG.Item.systemDataModels["classe"] = systemItemClassData;
+	CONFIG.Item.systemDataModels["consumivel"] = systemItemConsumableData;
+	CONFIG.Item.systemDataModels["equipamento"] = systemItemEquipmentData;
+	CONFIG.Item.systemDataModels["magia"] = systemItemSpellData;
+	CONFIG.Item.systemDataModels["poder"] = systemItemPowerData;
+	CONFIG.Item.systemDataModels["tesouro"] = systemItemLootData;
+	
 
 	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
 

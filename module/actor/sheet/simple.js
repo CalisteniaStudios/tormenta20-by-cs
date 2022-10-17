@@ -97,8 +97,8 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 		// Organize items
 		for ( let i of items ) {
 			i.system.qtd = i.system.qtd || 0;
-			i.system.peso = i.system.peso || 0;
-			i.pesoTotal = (i.system.qtd * i.system.peso).toNearest(0.1);
+			i.system.espacos = i.system.espacos || 0;
+			i.espacosTotal = (i.system.qtd * i.system.espacos);
 			inventario[i.type].items.push(i);
 		}
 

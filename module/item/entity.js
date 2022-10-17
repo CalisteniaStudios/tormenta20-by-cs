@@ -233,7 +233,7 @@ export default class ItemT20 extends Item {
 			let mod = this.isOwned && atr ? atr : 0;
 
 			let cd = 10 + base + mod + (Number(save.bonus) || 0);
-			if ( this.actor?.type == 'npc' && this.actor?.getFlag('tormenta20','npcReform') ){
+			if ( this.actor?.type == 'npc' ){
 				cd = this.actor.system.attributes.cd;
 			}
 			if( this.isOwned && actorFlags) {
@@ -338,7 +338,7 @@ export default class ItemT20 extends Item {
 			let atr = getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
 			let nvl = Math.floor(getProperty(this.actor.system, `attributes.nivel.value`)/2);
 			resistencia.cd = 10 + nvl + atr + resistencia.bonus;
-			if ( this.actor.type == 'npc' && this.actor.getFlag('tormenta20', 'npcReform') ){
+			if ( this.actor.type == 'npc' ){
 				resistencia.cd = this.actor.system.attributes.cd;
 			}
 		}
@@ -521,6 +521,7 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	_onUpdate(changed, options, user){
+		console.log('_onUpdate');
 		// console.log(changed, options, user);
 		super._onUpdate(changed, options, user);
 		// Set Initial Class
@@ -540,6 +541,7 @@ export default class ItemT20 extends Item {
 			}
 			if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
 		}
+		console.log('/_onUpdate');
 	}
 
 	/* -------------------------------------------- */
@@ -579,7 +581,7 @@ export default class ItemT20 extends Item {
 	 */
 	_onCreateOwnedSpell(data, actorData, isNPC) {
 		const updates = {};
-		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+		if( isNPC ) {
 			try {
 				if ( data.system.resistencia ){
 					updates["system.resistencia.atributo"] = '';
@@ -600,7 +602,7 @@ export default class ItemT20 extends Item {
 	 */
 	_onCreateOwnedPower(data, actorData, isNPC) {
 		const updates = {};
-		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+		if( isNPC ) {
 			try {
 				if ( data.system.resistencia ){
 					updates["system.resistencia.atributo"] = '';
@@ -621,7 +623,7 @@ export default class ItemT20 extends Item {
 	 */
 	_onCreateOwnedWeapon(data, actorData, isNPC) {
 		const updates = {};
-		if( isNPC && this.actor.getFlag('tormenta20', 'npcReform') ) {
+		if( isNPC ) {
 			try {
 				let attack = actorData.builder.attributes?.attack?.value ?? 0;
 				let damage = actorData.builder.attributes?.damage?.value ?? 0;
@@ -629,9 +631,9 @@ export default class ItemT20 extends Item {
 					let attackRoll = data.system.rolls.find( r => r.type == 'ataque' );
 					let damageRoll = data.system.rolls.find( r => r.type == 'dano' );
 					if( attackRoll && damageRoll ){
-						attackRoll.parts = [['1d20',''],['',''],[attack,'']];
+						attackRoll.parts = [['1d20','',''],['','',''],[attack,'','']];
 						let wroll = damageRoll.parts[0][0];
-						damageRoll.parts = [[`${wroll}+${damage}`,''],['','']];
+						damageRoll.parts = [[`${wroll}+${damage}`,'',''],['','','']];
 						updates["system.rolls"] = [attackRoll,damageRoll];
 					}
 				};
@@ -676,7 +678,6 @@ export default class ItemT20 extends Item {
 		let consumeSelf = this.type == 'consumivel';
 		let consumeQuantity = ['ammo','material'].includes(resource.type) && resource.target;
 		// Consume mana
-		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
 		let consumeMana = id.ativacao?.custo > 0 ? true : false;
 		let hasManaCost = id.ativacao?.custo > 0 ? true : false;
 		let options = {};
@@ -754,7 +755,7 @@ export default class ItemT20 extends Item {
 		
 		options.hasManaCost = hasManaCost;
 		// Determine whether the item can be used by testing for resource consumption
-		if( autoSpendMana && !options.truque && consumeMana ) {
+		if( !options.truque && consumeMana ) {
 			consumeMana = Math.max(item.system.ativacao.custo, 1);
 		} else consumeMana = false;
 		
@@ -818,7 +819,6 @@ export default class ItemT20 extends Item {
 			return ChatMessage.create({content:msg});
 		}
 		options.itemId = this.id;
-		console.log(options, rollMode, createMessage);
 		return item.displayCard({options, rollMode, createMessage});
 	}
 
@@ -856,7 +856,8 @@ export default class ItemT20 extends Item {
 		}
 
 		// Consume Mana Points
-		if ( consumeMana && Number.isNumeric(consumeMana)) {
+		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
+		if ( autoSpendMana && consumeMana && Number.isNumeric(consumeMana)) {
 			if( consumeMana && this.actor.system.modificadores.custoPM ){
 				consumeMana += Number(this.actor.system.modificadores.custoPM);
 			}
@@ -873,8 +874,9 @@ export default class ItemT20 extends Item {
 		// Reduce quantity
 		if ( consumeQuantity && id.consume.target.length ) {
 			let resourceItem = this.actor.items.get(id.consume.target);
-			if ( resourceItem.system.qtd >= id.consume.amount ) {
-				let remaining = resourceItem.system.qtd - id.consume.amount;
+			let amount = id.consume.amount * (id.consume.mpMultiplier && consumeMana ? consumeMana : 1);
+			if ( resourceItem.system.qtd >= amount ) {
+				let remaining = resourceItem.system.qtd - amount;
 				itemsUpdate.push({_id: resourceItem.id, "system.qtd": remaining});
 			} else {
 				ui.notifications.warn(game.i18n.format("T20.ItemNoUses", {name: resourceItem.name}));

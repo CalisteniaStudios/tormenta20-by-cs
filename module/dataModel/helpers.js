@@ -300,6 +300,7 @@ function getActivationItemData() {
 		// consume
 		consume: new fields.SchemaField({
 			amount: new fields.NumberField({ initial:0 }),
+			mpMultiplier: new fields.BooleanField({ required:true, initial:false }),
 			target: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			type: new fields.StringField({ required: true, nullable:false, initial: '' }),
 		}),

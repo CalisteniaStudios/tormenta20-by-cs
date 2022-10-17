@@ -194,7 +194,6 @@ export async function msgFromJournal(name, source, sourceName) {
 	if (  game.tormenta20.config.statusEffectIcons.find( i => i.label === name )  ){
 		style = 'style="position:relative; background: #ddd9d5;padding: 0.5rem; margin-left:-7px;margin-right:-7px;margin-bottom:-7px;margin-top:-27px"';
 	}
-	if ( !page ) page = journal.pages.find( p => p );
 	if( !page ) return;
 
 	let chatData = {

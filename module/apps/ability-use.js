@@ -7,14 +7,19 @@ const C = T20;
 /*  Helpers                                     */
 /* -------------------------------------------- */
 
+/**
+ * /(?<die>(?<qty>\d+)(d)(?<faces>\d+)(?<bonus>[\+|\-]\d+)?(?<dmgType>\[\w+\]))|(?<perDie>(d)(\*)(?<pdbonus>\d+))/
+ * */ 
+
 /** 
  * Regular Expressions to find roll Modifiers
  */
 const re = {
 	faces: /^d\d+$/,
 	die: /\d+d\d+[\+|\-]?[\d+]?/,
-	split: /(d)|([\+|\-])|(\d+)|(\@\w+)/g,
-	perd: /d\*\d+/
+	split: /(d)|([\+|\-])|(\d+)|(\@\w+)|\[(\w+)\]/g,
+	perd: /d\*\d+/,
+	dieGroup: /(?<die>(?<qty>\d+)(d)(?<faces>\d+)(?<bonus>[\+|\-]\d+)?(?<dmgType>\[\w+\]))?/
 }
 
 /**
@@ -56,10 +61,14 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 	// ROLLS ARRAY
 	const _campos = {};
 	let rolls = [];
+	let damageTypeTarget;
 	if ( ['atributo','pericia'].includes(item.type) ) {
 		item.key = 'roll';// item.id;
 		rolls = [item];
 	} else {
+		if ( ch.key.match(/dano\:\w+/) ) {
+			[ch.key, damageTypeTarget] = ch.key.split(':');
+		}
 		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key) || ch.key.match(/\@([^\#]+)\#/) ) ) );
 	}
 	ch.key = ch.key.toString();
@@ -80,6 +89,8 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		let p = 0;
 		if ( rollMods && ef._sourceName ){
 			p = Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0);
+		} else if ( damageTypeTarget ){
+			p = Math.max( rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget ), 0);
 		}
 		if( ch.mode == 0 ) {
 			// To Change die => d12 (d#NUMBEROFFACES)
@@ -103,6 +114,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				// match at object? || rollMods[r.key][p].match(re.die)
 				let tempAp = [];
 				ch.value.match(re.split).forEach(rt => tempAp.push(Number(rt) * qty||rt));
+				console.log(r);
 				if( tempAp[0] ) rollMods[r.key][p].addDie += tempAp[0];
 				if( tempAp[4] ) rollMods[r.key][p].addNum += tempAp[4];
 			}
@@ -169,6 +181,8 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 					r.parts[1][0] = ch.value.charAt(0) == "@" ? ch.value : `@${ch.value}`;
 				} else if( item.type == "arma" && ch.key == "tipoDano" ) {
 					r.parts[0][1] = ch.value;
+				} else if( ch.key == "tipoDano" ) {
+					r.parts[p][1] = ch.value;
 				} else if( ["","-"].includes(ch.value) ) {
 					r.parts = [];
 				} else if(Number(ch.value) || ch.value.charAt(0) == "@" || ch.value.match(re.die)) {
@@ -207,6 +221,7 @@ const itemFields = {
 	resistencia:	["resistencia.txt", null ],
 	atributoCD:		["resistencia.atributo", C.atributos ],
 	cd:						["resistencia.bonus", null ],
+
 	// efeito: 			["efeito", null ],
 	// PERICIA
 	// atributo:			["atributo", null],
@@ -256,6 +271,7 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 	}
 	// OVERRIDE CHANGES
 	else if( ch.mode == 5 ) {
+		console.log( ch );
 		if( campos[ch.key][1] ) {
 			if ( ch.key == 'duracao' ) {
 				let str = ch.value.match(/[A-z]+/);
@@ -265,6 +281,10 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 			} else {
 				_campos[campos[ch.key][0]] = itemKey( ch.value , campos[ch.key][1]);
 			}
+		} else if ( ch.key.match(/consume.target/) ) {
+			let it = item.actor.items.find( i => i.name == ch.value );
+			_campos[campos[ch.key][0]] = ch.value;
+			console.log(it);
 		} else _campos[campos[ch.key][0]] = ch.value;
 	}
 	
@@ -435,7 +455,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	if( item.type != 'pericia' && item.type != 'atributo' ){
 		rollMods = id.rolls.reduce(function(acc, r){ 
 			acc[r.key] = r.parts.map(i=> ({die:null, dmgStep:0, override:null,
-				addDie:0, addNum:0, extraDie:0, perDie:0 }) );
+				addDie:0, addNum:0, extraDie:0, perDie:0, dmgType: i[1], src:i[2] }) );
 			return acc;
 		}, {});
 	} else {
@@ -543,6 +563,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	effectList.forEach(function(ef, index){
 		let tempEffect = ef.toObject();
 		let duration = {};
+		let children = [];
 		let durValue = Number(id.duracao?.value) ?? 1;
 		let flags = { temp: true, tormenta20:{ durationScene: false} };
 		if ( id.duracao?.units == 'scene' || ef.flags.tormenta20.durationScene) {
@@ -559,6 +580,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		if(T20Conditions[efl]){
 			tempEffect = new ActiveEffect(T20Conditions[efl]);
 			tempEffect = tempEffect.toObject();
+			children = tempEffect.flags?.tormenta20?.childEffect.map( ch => T20Conditions[ch] ) || [];
 		} else {
 			tempEffect.label ??= this.name;
 			tempEffect.icon ??= this.img;
@@ -630,6 +652,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 					}
 					return object;
 				}, []);
+				tempEffect.changes.forEach( m => m.key = m.key.replace(/\&\w+$/,''));
 			}
 		}
 		// Set Origin as the Actor who caused the effects
@@ -637,27 +660,15 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		// tempEffect.origin = ef.uuid ?? item.uuid ?? actor.uuid;
 		tempEffect.origin = item.uuid ?? actor.uuid;
 		tempEffect.origin = tempEffect.origin?.replace(/.?ActiveEffect.\w+/,'');
-		options.effects.push(tempEffect);
+		options.effects.push([tempEffect, ...children]);
 		
 	});
-	// Add Child Effects
-	let curEFS = options.effects.map( ef => ef.flags?.core?.statusId );
-	let childEFS = options.effects.flatMap( ef => ef.flags?.tormenta20?.childEffect );
-	let addEFS = [ ...new Set([
-		...options.effects.flatMap( ef => ef.flags?.tormenta20?.childEffect ),
-		...options.effects.map( ef => ef.flags?.tormenta20?.stack ),
-	])].filter(Boolean);
 
-	for (let addEF of addEFS) {
-		let nSEF = T20Conditions[addEF];
-		if ( !curEFS.includes( addEF ) && nSEF ){
-			options.effects.push( nSEF );
-		}
-	}
 	// Brew Potion
 	options.brew = configuration.brew;
 	// Logs
 	// console.log(item, rollMods, changes, options);
+	console.log(options.effects)
 	return options;
 }
 

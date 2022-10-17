@@ -398,7 +398,8 @@
         "nd": "",
         "equipamento": "",
         "resistencias": "",
-        "tesouro": ""
+        "tesouro": "",
+        "role": ""
       }
     }
   },

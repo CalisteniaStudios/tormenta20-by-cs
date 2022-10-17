@@ -323,13 +323,13 @@ export const ApplyButtons = function (app, html, data){
 		const actors = canvas.tokens.controlled;
 		if ( actors.length && buttonId>=0){
 			const chatEffect = game.messages.get(chatCardId).flags.tormenta20?.effects[buttonId];
-			if( chatEffect.duration.seconds ) {
-				chatEffect.duration.startTime = game.time.worldTime;
+			if( chatEffect[0].duration.seconds ) {
+				chatEffect[0].duration.startTime = game.time.worldTime;
 			}
 			
 			let toChat = true;
 			for ( let ac of actors ) {
-				await ac.actor.createEmbeddedDocuments("ActiveEffect", [chatEffect], {
+				await ac.actor.createEmbeddedDocuments("ActiveEffect", [...chatEffect], {
 					toChat: toChat
 				});
 				toChat = false;

@@ -17,9 +17,8 @@
 
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes flexcol " data-group="primary" data-tab="attributes">
-			{{#if isReformed }}
-			<a class="toggleNPCSheet" style="align-self: center;flex:0 0 30px">Seguir o Guia de Construção de Ameaças <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-			{{/if}}
+			<!-- <a class="toggleNPCSheet" style="align-self: center;flex:0 0 30px">Seguir o Guia de Construção de Ameaças <i class="fa-solid fa-arrow-up-right-from-square"></i></a> -->
+			
 			{{!-- Sheet Header --}}
 			{{> "systems/tormenta20/templates/actor/parts/sheet-header-npc.html"}}
 			<nav class="sheet-tabs tabs secondary" data-group="secondary">
@@ -44,7 +43,11 @@
 						{{> "systems/tormenta20/templates/actor/parts/traits.html"}}
 					</div>
 					<div class="traits">
-						<label>Linhas descritivas</label>
+						<label>Linhas descritivas</label><br>
+						<div class="form">
+							<label>{{localize 'T20.DifficultClass'}} ({{localize 'T20.AbbreviationDC'}})</label>
+							<input type="number" name="system.attributes.cd" value="{{system.attributes.cd}}"/>
+						</div>
 						<label>{{localize 'T20.Resistances'}}</label>
 						<input type="text" name="system.detalhes.resistencias" value="{{system.detalhes.resistencias}}" placeholder="{{localize 'T20.Resistances'}}"/>
 						<label>{{localize 'T20.Equipments'}}</label>

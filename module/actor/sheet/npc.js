@@ -1,4 +1,6 @@
 import ActorSheetT20 from "./base.js";
+import StatblockParser from "../../apps/statblock-parser.js";
+ 
 /**
  * An Actor sheet for NPC type characters.
  * Extends the base ActorSheetT20 class.
@@ -34,7 +36,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		
 		// FLAGS
 		sheetData.isReformed = this.actor.type === "npc" && this.actor.getFlag("tormenta20", "npcReform");
-		if ( sheetData.isReformed ) {
+		if ( false && sheetData.isReformed ) {
 			sheetData.skills = sheetData.skills.filter( s => !['luta','pont','fort','refl','vont'].includes(s.key) );
 
 			let builder = this.actor.system.builder || {};
@@ -112,7 +114,12 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			// html.find('.pericia-rollable').click(event => this._onRollPericia(event)); super
 			
 			html.find('.toggleNPCSheet').click(event => this._toggleNPCSheet(event));
-
+			html.find("#parse-statblock").click(ev => {
+				new StatblockParser({
+					actor: this.actor,
+					statblock:'', schema:{}, items:[], log:[],
+				}).render(true);
+			});
 			html.find('.magia-rollable').on("contextmenu", this._onItemEdit.bind(this));
 			html.find('.arma-rollable').on("contextmenu", this._onItemEdit.bind(this));
 			html.find('.poder-rollable').on("contextmenu", this._onItemEdit.bind(this));
@@ -207,8 +214,8 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Organize items
 		for ( let i of items ) {
 			i.system.qtd = i.system.qtd || 0;
-			i.system.peso = i.system.peso || 0;
-			i.pesoTotal = (i.system.qtd * i.system.peso).toNearest(0.1);
+			i.system.espacos = i.system.espacos || 0;
+			i.espacosTotal = (i.system.qtd * i.system.espacos);
 			inventario[i.type].items.push(i);
 		}
 

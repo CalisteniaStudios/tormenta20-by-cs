@@ -3,14 +3,16 @@
 	<aside class="flexrow">
 		<h2>
 			<label>{{localize 'T20.AbbreviationCR'}}</label>
-			<span>{{system.detalhes.nd}}</span>
+			<span>{{system.attributes.nd}}</span>
 		</h2>
 	</aside>
 </div>
 <i>
 	{{ localize (lookup config.creatureTypes system.detalhes.tipo) }}
-	{{#unless isReformed}}{{system.attributes.nivel.value}}{{/unless}},
+	{{#if system.detalhes.raca }} ({{system.detalhes.raca}}) {{/if}}
 	{{ localize (lookup config.actorSizes system.tracos.tamanho) }}
+	
+	{{#if system.detalhes.role}}({{ localize (lookup config.creatureRoles system.detalhes.role) }}){{/if}}
 </i>
 
 <hr>
@@ -152,11 +154,7 @@
 					{{/if}}
 				{{/each}}
 				</ol>
-				{{#each system.atributos as |atr key|}}
-					{{#if (eq key ../system.attributes.conjuracao)}}
-					{{localize 'T20.AbbreviationDC'}} {{add ../system.attributes.cd atr.value}}
-					{{/if}}
-				{{/each}}
+				{{localize 'T20.AbbreviationDC'}} {{system.attributes.cd}}
 			</div>
 		</li>
 	</ul>

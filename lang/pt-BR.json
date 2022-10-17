@@ -7,7 +7,7 @@
 
   "T20.S2": "/* ----------------- ITEM ----------------- */",
   "ITEM.TypeArma": "Arma",
-  "ITEM.TypeEquipamento": "Armadura",
+  "ITEM.TypeEquipamento": "Equipamentos",
   "ITEM.TypeEquip": "Deprecated - Não usar",
   "ITEM.TypeClasse": "Classe",
   "ITEM.TypeConsumivel": "Consumível",
@@ -32,6 +32,7 @@
   "T20.New": "Nova",
   "T20.Value": "Valor",
   "T20.Search": "Buscar",
+  "T20.ParseStatblock": "Importar do Bloco de Estatísticas",
   
   "T20.Die": "Dado",
   "T20.Dice": "Dados",
@@ -93,6 +94,7 @@
   "T20.Weight": "Peso",
   "T20.Price": "Preço",
   "T20.Slots": "Espaços",
+  "T20.SlotsAbbr": "Esp.",
   "T20.Carrying": "Carregando",
   "T20.Recipient": "Recipiente",
 
@@ -330,6 +332,8 @@
   "T20.Equipped": "Equipado",
   "T20.Equip": "Equipar",
   "T20.Unequip": "Desequipar",
+  "T20.Weared": "Vestido/a",
+  "T20.Wielded": "Empunhado/a",
   
   "T20.ClassLevels": "Níveis de Classe",
   "T20.ClassHPLevels": "Pontos de Vida por Nível",
@@ -388,6 +392,7 @@
   "T20.ConsumeAmmunition": "Munição",
   "T20.ConsumeAttribute": "Recurso",
   "T20.ConsumeMaterial": "Material",
+  "T20.ConsumeMPMultiplier": "Multiplicar consumo por gasto de Mana",
   
   "T20.AbbreviationKgs": "kgs",
   "T20.AbbreviationConc": "Sust.",
@@ -602,8 +607,11 @@
   "T20.FoeRoleCaster": "Conjurador",
   "T20.FoeRoleTrickster": "Trapaceiro",
   "T20.FoeRoleLackey": "Lacaio",
+  "T20.FoeRoleSpecial": "Especial",
+  "T20.FoeRoleSolo": "Solo",
   "T20.FoeRoleCaptain": "Capitão",
   "T20.FoeRoleBoss": "Chefão",
+
 
   "T20.NPCB_Concept": "Conceito e Nome",
   "T20.NPCB_Type": "Tipo e Tamanho",
@@ -633,6 +641,10 @@
   "T20.NPCB_SizeNRange": "Espaço / Alcance",
   "T20.NPCB_SizeFurtNManeuver": "Furtividade / Manobras",
 
+  "T20.NCPB_SkillGood": "Per. Forte",
+  "T20.NCPB_SkillBad": "Per. Fraca",
+  
+  
   "T20.NPCB_SaveGood": "Res. Forte",
   "T20.NPCB_SaveNormal": "Res. Média",
   "T20.NPCB_SaveBad": "Res. Fraca",
@@ -645,15 +657,19 @@
   "T20.NPCB_AttacksHint": "Defina as armas que a criatura usa para atacar, se ela possui múltiplos ataques, ataques secundários podem ter um Bônus de Ataque menor. Cálcule a média de dano das armas e complemente com um bônus até alcançar a média de dano.",
   "T20.NPCB_PowersHint": "Escolha as habilidades das criaturas, pense em 1 ou 2 por patamar da de jogo. Equilibre as escolhas entre formas especiais de ataque, habilidades defensivas e habilidades sensoriais ou de movimentação.",
   "T20.NPCB_TraitsHint": "Para definir os valores de atributo escolha valores compatíveis com o conceito da criatura de acordo com a tabela. \nEntão defina as perícias que a criatura é treinada e defina seu valor pelas regras normais, usando ND como nível de personagem.",
-  "T20.NPCB_LootHint": "Com base nas estatísticas da criatura e do patamar defina os esquipamentos que ela trás (Ex. se uma criatura humanóide tem defesa alta, seu tesouro pode incluir armadura e escudo). \nAlém disso defina o seu tesouro que ela renderá ao grupo de acordo com a tabela de tesouro do Capítulo 7 de Tormenta20.",
+  "T20.NPCB_LootHint": "Com base nas estatísticas da criatura e do patamar defina os equipamentos que ela trás (Ex. se uma criatura humanóide tem defesa alta, seu tesouro pode incluir armadura e escudo). \nAlém disso defina o seu tesouro que ela renderá ao grupo de acordo com a tabela de tesouro do Capítulo 7 de Tormenta20.",
 
 
   "T20.NPCB_FoeRoleCombatantHint": "COMBATENTE. Poder Ofensivo e Defensivo elevado. Exemplos: mercenário, urso.",
   "T20.NPCB_FoeRoleCasterHint": "CONJURADOR. Poder Ofensivo e Defensivo reduzido, mas com efeitos de dano em área, condições e controle de terreno. Exemplos: mago, engenhoqueiro.",
   "T20.NPCB_FoeRoleTricksterHint": "TRAPACEIRO. Poder Ofensivo e Defensivo reduzido, mas com efeitos para confundir e prejudicar, como perícias sociais ou especialistas. Exemplos: cortesão, ladino.",
-  "T20.NPCB_FoeRoleLackeyHint": "LACAIO. Poder Ofensivo elevado e Defensivo reduzido, faceis de derrotar mas capazes de causar problemas. Exemplos: capangas, soldados.",
+  "T20.NPCB_FoeRoleLackeyDBHint": "LACAIO. Poder Ofensivo elevado e Defensivo reduzido, faceis de derrotar mas capazes de causar problemas. Exemplos: capangas, soldados.",
   "T20.NPCB_FoeRoleCaptainHint": "CAPITÃO. Poder variado, usualmente acompanhando de lacaios e com habilidades para lhes fornecer bônus. Exemplos: necromante, sargento.",
   "T20.NPCB_FoeRoleBossHint": "CHEFÃO. Poder variados, mas capazes de lutar sozinho, com multiplas ações em uma rodada, efeitos de dano em área, condições e alcance elevado.",
+
+  "T20.NPCB_FoeRoleSpecialHint": "Especial. A criatura possui diversas habilidades especiais e/ou foi feita para ser usada em situações fora de combate direto (por exemplo, pode ser usada para enganar ou roubar os personagens). Este papel é ocupado principalmente por conjuradores ou líderes (criaturas cujas habilidades fortalecem outras, e consequentemente devem ser usadas em conjunto com lacaios). Procure analisar a ficha de uma criatura especial antes de usá-la!",
+  "T20.NPCB_FoeRoleSoloHint": "Solo. A criatura foi construída para enfrentar os personagens sozinha. Ela possui estatísticas equilibradas; especialmente, possui muitos pontos de vida, para garantir que o combate dure um tempo bom (por volta de 3 a 5 rodadas). Este papel é ocupado principalmente por grandes monstros e vilões.",
+  "T20.NPCB_FoeRoleLackeyHint": "Lacaio. A criatura foi construída para enfrentar os personagens em grandes quantidades. Por conta disso, você normalmente usará lacaios de ND menor do que o nível do grupo. Por exemplo, um grupo de 5º nível pode enfrentar um bando de lacaios de ND 1. Lacaios possuem valores de ataque e dano mais altos, para garantir que continuem sendo uma ameaça real para personagens, mesmo considerando que seu ND será menor que o nível deles, mas menos pontos de vida, para serem derrotadas mais rapidamente e não deixarem o combate excessivamente lento. Este papel é ocupado primariamente por humanoides e monstros pequenos.",
   
   "T20.CreatureBeastHint": "ANIMAL. Criaturas com inteligência limitada, com armas e habilidades naturais como veneno, teia e podem ter visão no escuro ou visão na penumbra.",
   "T20.CreatureConstructHint": "CONSTRUTO. Objetos animados ou criaturas artificiais. Possuem as habilidades: imunidade a doenças, fadiga, sangramento, sono e veneno; não precisam respirar, alimentar-se e dormir; não recuperam pontos de vida por descanso e habilidades de cura, exceto aquelas que afetam especificamente construtos; visão no escuro.",

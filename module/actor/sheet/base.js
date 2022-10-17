@@ -104,8 +104,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			return i;
 		});
 		data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		data.data = deepClone(this.actor.system);//this.actor.system;
-		data.skills = deepClone(this.actor.system.pericias);
+		data.data = this.actor.system.toObject(false);//deepClone(this.actor.system);
+		data.skills = data.data.pericias; //deepClone(this.actor.system.pericias);
 		// TODO checar pq causou erros: structuredClone(data.data.pericias);
 
 		// LABELS?
@@ -365,6 +365,12 @@ export default class ActorSheetT20 extends ActorSheet {
 	/* -------------------------------------------- */
 	/*  Interactions                                */
 	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onSubmit(...args) {
+		console.log(...args);
+		await super._onSubmit(...args);
+	}
 
 	_moveTooltips(event) {
 		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);

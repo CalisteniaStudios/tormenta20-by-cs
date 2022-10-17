@@ -21,7 +21,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			scrollY: [".tab.details"],
 			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
 			dragDrop: [
-				// {dragSelector: ".effects-list .item", dropSelector: '.effects-list'},
+				{dragSelector: "[data-effect-id]", dropSelector: ".effects-list"},
 				{dropSelector: '.opt-drop'}
 			],
 		});
@@ -100,11 +100,14 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		data.itemType = data.item.type.capitalize();
 		if( this.item.type == 'classe' ){
-			data.itemStatus = itemData.inicial ? game.i18n.localize('T20.ClassOriginal') : "";
+			// data.itemStatus = itemData.inicial ? game.i18n.localize('T20.ClassOriginal') : "";
+			data.itemStatus = this._getItemStatus(this.item);
 		} else if ( this.item.type == 'equipamento' ) {
-			data.itemStatus = itemData.equipado ? game.i18n.localize('T20.Equipped') : "";
+			// data.itemStatus = itemData.equipado ? game.i18n.localize('T20.Equipped') : "";
+			data.itemStatus = this._getItemStatus(this.item);
 		} else if ( this.item.type == 'magia' ){
-			data.itemStatus = itemData.preparada ? game.i18n.localize('T20.Prepared') : "";
+			// data.itemStatus = itemData.preparada ? game.i18n.localize('T20.Prepared') : "";
+			data.itemStatus = this._getItemStatus(this.item);
 		}
 
 		data.itemProperties = this._getItemProperties();
@@ -207,7 +210,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	async _onSubmit(event, options={}) {
+	async _onSubmit(...args) {
 		// Process the form data
     const formData = this._getSubmitData(null);
 		if ( formData.tag ){
@@ -216,7 +219,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			delete formData.tag;
 			options.updateData = formData;
 		}
-		await super._onSubmit(event, options);
+		await super._onSubmit(...args);
 	}
 
 	async _onTagChange(event) {
@@ -306,11 +309,12 @@ export default class ItemSheetT20 extends ItemSheet {
 	* @retun {string}
 	*/
 	_getItemStatus(item) {
-		if( item.type === "magia" ){
+		if( this.item.type == 'classe' ){
+			return game.i18n.localize(item.system.inicial ? "T20.ClassOriginal" : "");
+		} else if( item.type === "magia" ){
 			return game.i18n.localize(item.system.preparada ? "T20.SpellPrepPrepared" : "");
-		}
-		else if ( ["arma", "equipamento"] .includes(item.type) ){
-			return game.i18n.localize(item.system.equipado ? "T20.Equipped" : "");
+		} else if ( ["arma", "equipamento"].includes(item.type) ){
+			return game.i18n.localize(item.system.equipado ? ( item.type == 'arma' ? "T20.Wielded" : "T20.Weared" ) : "");
 		}
 	}
 

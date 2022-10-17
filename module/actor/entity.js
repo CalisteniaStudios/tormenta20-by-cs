@@ -47,7 +47,7 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
-		// console.log('prepareData');
+		console.log('prepareData');
 		this.prepareBaseData();
 		this.preparePreDerivedData();
 		this.prepareEmbeddedDocuments();
@@ -56,17 +56,18 @@ export default class ActorT20 extends Actor {
 		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
+		console.log('/prepareData');
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
 	prepareBaseData() {
-		// console.log('prepareBaseData');
+		console.log('prepareBaseData');
 		const system = this.system;
 		for (let [key, resource] of Object.entries(system.resources)) {
 			if ( ["vehicle","simple"].includes(this.type) ) break;
-			resource.label = T20.resources[key];
+			if ( !resource.label ) resource.label = T20.resources[key];
 		}
 		
 		switch (this.type) {
@@ -79,6 +80,7 @@ export default class ActorT20 extends Actor {
 			case "simple":
 				return this._prepareSimpleActorData();
 		}
+		console.log('/prepareBaseData');
 	}
 
 	/* -------------------------------------------- */
@@ -90,7 +92,7 @@ export default class ActorT20 extends Actor {
 	 * */
 	/** @override */
 	preparePreDerivedData() {
-		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
+		console.log('preparePreDerivedData');
 		const system = this.system;
 		if ( ["vehicle","simple"].includes(this.type) ){
 			system.attributes.carga = this._computeEncumbrance(system);
@@ -104,10 +106,11 @@ export default class ActorT20 extends Actor {
 			ability.name = CONFIG.T20.atributos[key];
 			ability.value = (ability.base + ability.racial + ability.bonus);
 		}
+		console.log('/preparePreDerivedData');
 	}
 
 	preparePosDerivedData() {
-		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
+		console.log('preparePosDerivedData');
 		const system = this.system;
 		const nivel = system.attributes.nivel?.value || 0;
 
@@ -115,7 +118,6 @@ export default class ActorT20 extends Actor {
 		const rollData = this.getRollData();
 		if ( system.pericias ) {
 			for (let [key, pericia] of Object.entries(system.pericias)) {
-				// pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
 				this._prepareSkills(key, pericia, system, rollData);
 			}
 		}
@@ -124,15 +126,21 @@ export default class ActorT20 extends Actor {
 		this._prepareDefense(system);
 
 		// BASE CD
-		system.attributes.cd = reforma ? system.attributes.cd : 10 + Math.floor(nivel / 2);
+		if ( this.type == 'npc' ){
+			// let nd = system.builder.attributes.dc.cr;
+			// const crData = T20.NPCParams(nd);
+			// system.attributes.cd = crData.dc;
+		} else {
+			system.attributes.cd = 10 + Math.floor(nivel / 2);
+		}
 
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
+		console.log('/preparePosDerivedData');
 	}
 
 	prepareDerivedData() {
 		// console.log('prepareDerivedData');
-		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const system = this.system;
 		if ( ["vehicle","simple"].includes(this.type) ){
 			system.attributes.carga = this._computeEncumbrance(system);
@@ -153,15 +161,15 @@ export default class ActorT20 extends Actor {
 		// Skills
 		const rollData = this.getRollData();
 		for (let [key, pericia] of Object.entries(system.pericias)) {
-			// pericia.treino = !pericia.treinado ? 0 : system.attributes.treino;
 			this._prepareSkills(key, pericia, system, rollData);
 		}
 		
 		// BASE CD
-		system.attributes.cd = reforma ? system.attributes.cd : 10 + Math.floor(nivel / 2);
+		system.attributes.cd = this.type == 'npc' ? system.attributes.cd : 10 + Math.floor(nivel / 2);
 		
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
+
 	}
 
 	/* -------------------------------------------- */
@@ -208,19 +216,20 @@ export default class ActorT20 extends Actor {
 		const system = this.system;
 		const flags = this.flags;
 		let npcFlags = {};
-		let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
-		if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
-		if ( reformSheet ) npcFlags.npcReform = reformSheet;
+		// let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
+		// if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
+		// if ( reformSheet ) npcFlags.npcReform = reformSheet;
 		if ( this.getFlag("tormenta20", "showCD") === undefined ) npcFlags.showCD = true;
 
-		const reforma = npcFlags.npcReform || this.getFlag("tormenta20", "npcReform");
-		let nd = system.detalhes.nd;
+		let nd = system.attributes.nd;
+		const nivel = (Number(nd)||1); //TODO REMOVE
+		const crData = T20.NPCParams(nd);
 		
-		const nivel = reforma ? (Number(nd)||1) : system.attributes.nivel.value;
-		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
+		// system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
+		system.attributes.treino = crData.topskill;
 		// Experience Reward
 		system.attributes.defesa.condi = 0;
-		system.attributes.nivel.xp.value = this.getCDExp(nd);
+		system.attributes.nivel.xp.value = this.getCRExp(nd);
 
 		if ( system.biography?.value ) {
 			system.detalhes.biography.value += system.biography.value;
@@ -262,9 +271,11 @@ export default class ActorT20 extends Actor {
 	* @private
 	*/
 	_prepareDefense(system){
-		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const rollData = this.getRollData();
-		
+		if ( this.type == 'simple' ) {
+			system.attributes.defesa.value = system.attributes.defesa.value
+			return;
+		}
 
 		let defense = system.attributes.defesa;
 		if ( !defense.base ) system.attributes.defesa.base = 10;
@@ -280,7 +291,7 @@ export default class ActorT20 extends Actor {
 		
 		// Defense Calculation
 		for (let item of this.items.filter( i => i.type == 'equipamento') ) {
-			if( reforma ) break;
+			if( this.type == 'npc' ) break;
 			if( !item.system.equipado ) continue;
 			let tipo = item.system.tipo;
 			let value = Number(item.system.armadura.value);
@@ -309,7 +320,7 @@ export default class ActorT20 extends Actor {
 			DEF = 10 + armor + (@armor) + shield + (@shield)
 							 + @ability, outros, bonus, condi;
 		 */
-		if( !reforma ){
+		if( this.type == 'npc' ){
 			parts.push( maxAbl === false ? abl : Math.min( abl , maxAbl ) );
 			parts.push(defense.outros || 0);
 		}
@@ -329,9 +340,9 @@ export default class ActorT20 extends Actor {
 	* @private
 	*/
 	_prepareSkills(key, pericia, system, rollData, roll = false) {
-		const reforma = this.getFlag("tormenta20", "npcReform") && this.type == 'npc';
 		const pda = system.attributes.defesa.pda ? -Math.abs(system.attributes.defesa.pda) : 0;
 		const treino = !pericia.treinado ? 0 : system.attributes.treino;
+
 		pericia.label = pericia.label || CONFIG.T20.pericias[key] || '';
 		pericia.label = key == 'ofi0'? CONFIG.T20.pericias['ofic'] : pericia.label;
 		pericia.custom = false;
@@ -352,8 +363,15 @@ export default class ActorT20 extends Actor {
 		// if ( pericia.bonus.length ) parts.push(...pericia.bonus);
 
 		const parts = [];
-		if ( ["luta","pont","fort", "refl", "vont"].includes(key) && reforma ) {
+		if ( false && ["luta","pont","fort", "refl", "vont"].includes(key) && this.type == 'npc' ) {
 			parts.push(pericia.outros, ...pericia.bonus);
+		} else if ( this.type == 'npc' ) {
+			let nd = system.builder.attributes.skills.cr || system.attributes.nd;
+			const crData = T20.NPCParams(nd);
+			
+			let ndskill = pericia.treinado ? crData.topskill : crData.botskill;
+			parts.push(ndskill, pericia.outros, ...pericia.bonus);
+
 		} else {
 			parts.push("@meionivel", treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, ...pericia.bonus);
 		}
@@ -424,7 +442,7 @@ export default class ActorT20 extends Actor {
 		const base = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		const limit = (Number(base) || 10) + ( str > 0 ? str*2 : str );
 		weight.max = limit * 2;
-		weight.encumbered = weight > limit;
+		weight.encumbered = weight.value > limit;
 		weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
 		return weight;
 	}
@@ -623,7 +641,7 @@ export default class ActorT20 extends Actor {
 	* @param cr {Number}		 The creature's challenge rating
 	* @return {Number}			 The amount of experience granted per kill
 	*/
-	getCDExp(cr) {
+	getCRExp(cr) {
 		return Number(cr) * 1000 || (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(cr) ? 1000 * eval(cr).toFixed(3) : 0);
 	}
 
@@ -656,13 +674,16 @@ export default class ActorT20 extends Actor {
 		skills.refl = this.system.builder.attributes.refl ?? {};
 		skills.vont = this.system.builder.attributes.vont ?? {};
 		const ranks = ['botsave','midsave','topsave'];
-		const attrs = ['attack','damage','defense','hp','dc','topsave','midsave','botsave'];
-		
+		const attrs = ['attack','damage','defense','hp','dc','topsave','midsave','botsave', 'skills'];
+		console.log( crData );
 		if( attr == 'all') {
 			for ( let att of attrs ){
 				updateData['system.builder.attributes.'+att+'.value'] = crData[att];
 				updateData['system.builder.attributes.'+att+'.cr'] = cr;
 			}
+		} else if ( attr == 'skills' ) {
+			updateData['system.builder.attributes.'+attr+'.value'] = crData['topskill'];
+			updateData['system.builder.attributes.'+attr+'.cr'] = cr;
 		} else {
 			updateData['system.builder.attributes.'+attr+'.value'] = crData[attr];
 			updateData['system.builder.attributes.'+attr+'.cr'] = cr;
@@ -676,6 +697,7 @@ export default class ActorT20 extends Actor {
 				}
 			}
 		}
+		console.log( updateData );
 		this.update(updateData);
 	}
 
@@ -709,6 +731,7 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
+		console.log('_preUpdate');
 		await super._preUpdate(changed, options, user);
 		// Apply changes in Actor size to Token width/height
 		const newSize = getProperty(changed, "system.tracos.tamanho");
@@ -721,7 +744,7 @@ export default class ActorT20 extends Actor {
 			}
 		}
 		const sheetClass = getProperty(changed, "flags.core.sheetClass");
-		if( sheetClass && sheetClass == 'tormenta20.ActorSheetT20Builder' ){
+		if( false && sheetClass && sheetClass == 'tormenta20.ActorSheetT20Builder' ){
 			setProperty(changed, 'flags.tormenta20.npcReform', true);
 			const builder = getProperty(this.system, "builder.attributes");
 			if( !['0','1','2'].includes(builder.fort?.rank) ){
@@ -735,10 +758,11 @@ export default class ActorT20 extends Actor {
 			}
 		}
 		// NPC REFORM
-		if ( this.type == 'npc' && this.getFlag('tormenta20','npcReform') ){
+		if ( false && this.type == 'npc' && this.getFlag('tormenta20','npcReform') ){
+			// TODO MAY NEED REFACTORING
 			let attributes = {};
 			let skills = {};
-			let cr = getProperty(changed, 'system.detalhes.nd');
+			let cr = getProperty(changed, 'system.attributes.nd');
 			let defense = getProperty(changed, 'system.builder.attributes.defense.value');
 			let hp = getProperty(changed, 'system.builder.attributes.hp.value');
 			let mp = getProperty(changed, 'system.builder.attributes.mp.value');
@@ -782,8 +806,31 @@ export default class ActorT20 extends Actor {
 			if (!isEmpty(attributes)) changed.system.attributes = attributes;
 			if (!isEmpty(skills)) changed.system.pericias = skills;
 		}
+		console.log('/_preUpdate');
 	}
 
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	_onUpdate(changed, options, userId){
+		console.log(changed, options, userId);
+		super._onUpdate(changed, options, userId);
+
+		/* Check Encumbered Status and Add/Remove its ActiveEffect */
+		if ( this.type=="character" ) {
+			if( game.userId !== userId ) return;
+			const ef = this.effects.find( ef => ef.flags?.core?.statusId == "sobrecarregado");
+			const wasEncumbered = Boolean(ef);
+			const isEncumbered = this.system.attributes?.carga?.encumbered;
+			if ( isEncumbered != wasEncumbered ) {
+				if ( isEncumbered && !ef ) {
+					this.createEmbeddedDocuments('ActiveEffect', [T20Conditions['sobrecarregado']]);
+				} else if( !isEncumbered && ef ) {
+					this.deleteEmbeddedDocuments('ActiveEffect', [ef._id]);
+				}
+			}
+		}
+	}
 	/* -------------------------------------------- */
 
 	async _preCreateStatusEffects(result, options, userId){
@@ -835,6 +882,7 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	async _preCreateEmbeddedDocuments(embeddedName, result, options, userId){
+		console.log('_preCreateEmbeddedDocuments');
 		await super._preCreateEmbeddedDocuments(embeddedName, result, options, userId);
 		if( game.userId !== userId ) return;
 		// Show chat message if condition;
@@ -846,6 +894,7 @@ export default class ActorT20 extends Actor {
 				game.tormenta20.macros.msgFromJournal(effect.label, "tormenta20.basico", 'Condições');
 			}
 		}
+		console.log('/_preCreateEmbeddedDocuments');
 	}
 
 	/* -------------------------------------------- */
@@ -1331,6 +1380,7 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	applyActiveEffects() {
+		console.log('applyActiveEffects');
 		const overrides = {};
 		
 		// Organize non-disabled effects by their application priority
@@ -1354,6 +1404,7 @@ export default class ActorT20 extends Actor {
 
 		// Expand the set of final overrides
 		this.overrides = foundry.utils.expandObject(overrides);
+		console.log('/applyActiveEffects');
 	}
 
 	/* -------------------------------------------- */

@@ -3,7 +3,7 @@
 		<div class="item-name flex2">{{ localize 'T20.Equipment'}}</div>
 		<div class="item-def" data-tooltip="{{ localize 'T20.Defense'}} / {{ localize 'T20.ArmorPenalty'}}"><i class="fa-solid fa-shield"></i> / <i class="fa-solid fa-person-hiking"></i></div>
 		<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
-		<div class="item-weight">{{weightCol}}</div>
+		<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
 		<div class="item-controls">
 			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Equipment'}}" data-type="equipamento"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
 		</div>
@@ -24,7 +24,7 @@
 					{{item.system.qtd}}
 				{{/if}}
 			</div>
-			<div class="item-weight">{{item.pesoTotal}}</div>
+			<div class="item-weight">{{item.espacosTotal}}</div>
 			<div class="item-controls">
 				<a class="item-control item-toggle toggle-armor{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}"><i class="fas fa-shield-alt"></i></a>
 				<a class="item-control item-edit" title="{{localize 'T20.Edit'}}"><i class="fas fa-edit"></i></a>

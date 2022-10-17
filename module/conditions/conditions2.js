@@ -170,7 +170,7 @@ T20Conditions.vulneravel = {
 	description: "O personagem sofre -2 na Defesa.",
 	flavor: ""
 }
-T20Conditions,sobrecarregado = {
+T20Conditions.sobrecarregado = {
 	type: "",
 	description: "",
 	flavor: "",

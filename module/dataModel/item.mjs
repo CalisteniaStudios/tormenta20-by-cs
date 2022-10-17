@@ -20,6 +20,7 @@ class systemItemWeaponData extends foundry.abstract.DataModel {
 			}),
 			consume: new fields.SchemaField({
 				amount: new fields.NumberField({ required:true }),
+				mpMultiplier: new fields.BooleanField({ required:true, initial:false }),
 				type: new fields.StringField({ required: true, nullable:false, initial: '' }),
 				target: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			}),

@@ -8,13 +8,13 @@
 		{{/if}}
 		<div class="property-attribution tooltip"></div>
 	</div>
-	{{#if (or isReformed isCharacter)}}
+	{{#if (or isNPC isCharacter)}}
 	<footer class="attribute-footer">
 		<div class="flexrow">
-			{{#if isReformed}}
+			{{#if isNPC}}
 			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.BaseDefense'}}">
 			{{else if isCharacter}}
-			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityModifierBonus'}}">
+			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityBonus'}}">
 				{{#select system.attributes.defesa.atributo}}
 				<option value=""></option>
 				{{#each config.atributosAbr as |name abl|}}

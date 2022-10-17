@@ -63,7 +63,7 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 			}),
 			attributes: new fields.SchemaField({
 				cd: new fields.NumberField({ required: true, nullable:false, initial:10 }),
-				conjuracao: new fields.StringField({ choices: Object.keys(T20.atributos), initial: 'int' }),
+				conjuracao: new fields.StringField({blank:true, choices: ['', ...Object.keys(T20.atributos)], initial: 'int' }),
 				treino: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 				pv: _resourceSchema(),
 				pm: _resourceSchema(),
@@ -198,7 +198,7 @@ class systemActorCharacterData extends foundry.abstract.DataModel {
 			}),
 			attributes: new fields.SchemaField({
 				cd: new fields.NumberField({ required: true, nullable:false, initial:10 }),
-				conjuracao: new fields.StringField({ choices: Object.keys(T20.atributos), initial: 'int' }),
+				conjuracao: new fields.StringField({blank:true, choices: ['', ...Object.keys(T20.atributos)], initial: 'int' }),
 				treino: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 				pv: _resourceSchema(),
 				pm: _resourceSchema(),
@@ -360,7 +360,7 @@ class systemActorNPCData extends foundry.abstract.DataModel {
 			}),
 			attributes: new fields.SchemaField({
 				cd: new fields.NumberField({ required: true, nullable:false, initial:10 }),
-				conjuracao: new fields.StringField({ choices: Object.keys(T20.atributos), initial: 'int' }),
+				conjuracao: new fields.StringField({blank:true, choices: ['', ...Object.keys(T20.atributos)], initial: '' }),
 				treino: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 				pv: _resourceSchema(),
 				pm: _resourceSchema(),
@@ -417,7 +417,7 @@ class systemActorNPCData extends foundry.abstract.DataModel {
 						rank: new fields.StringField({ initial: '' }),
 					}),
 					damage: new fields.SchemaField({
-						value: new fields.NumberField({ required: true, nullable:false, initial:0}),
+						value: new fields.StringField({ required: true, nullable:false, initial:0}),
 						cr: new fields.StringField({ initial: '' }),
 					}),
 					dc: new fields.SchemaField({
@@ -425,6 +425,10 @@ class systemActorNPCData extends foundry.abstract.DataModel {
 						cr: new fields.StringField({ initial: '' }),
 					}),
 					defense: new fields.SchemaField({
+						value: new fields.NumberField({ required: true, nullable:false, initial:0}),
+						cr: new fields.StringField({ initial: '' }),
+					}),
+					skills: new fields.SchemaField({
 						value: new fields.NumberField({ required: true, nullable:false, initial:0}),
 						cr: new fields.StringField({ initial: '' }),
 					}),
@@ -481,6 +485,7 @@ class systemActorNPCData extends foundry.abstract.DataModel {
 				equipamento: new fields.StringField({ initial: '' }),
 				resistencias: new fields.StringField({ initial: '' }),
 				tesouro: new fields.StringField({ initial: '' }),
+				role: new fields.StringField({ initial: '' }),
 			}),
 			tracos: new fields.SchemaField({
 				ic: new fields.SchemaField({
@@ -512,6 +517,10 @@ class systemActorNPCData extends foundry.abstract.DataModel {
 			data.detalhes.tipo = cType ?? 'hum';
 		}
 
+		if( data.detalhes.nd && data.detalhes.nd > data.attributes.nd ){
+			data.attributes.nd = data.detalhes.nd;
+		}
+		
 		if( isNaN(data.attributes.nivel.value) || !isFinite( data.attributes.nivel.value ) ){
 			data.attributes.nivel.value = 1;
 		}
