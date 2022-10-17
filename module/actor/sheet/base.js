@@ -675,14 +675,14 @@ export default class ActorSheetT20 extends ActorSheet {
 		id.equipado = !id.equipado;
 		const items = this.actor.items;
 		let updateItems = [];
-		updateItems.push({_id: item.id, "data.equipado": id.equipado});
+		updateItems.push({_id: item.id, "system.equipado": id.equipado});
 		const armor = ["leve", "pesada"];
-		const exclusiveSlot = ["leve", "pesada", "escudo", "traje"];
+		const exclusiveSlot = ["leve", "pesada", "escudo"];
 		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
 			let unequipped = items.some(element => { //some() === forEach() with a return
 				if(element.type === "equipamento" && element.system.equipado && element.id != item.id) {
 					if (element.system.tipo === id.tipo || (armor.includes(element.system.tipo) && armor.includes(id.tipo))) {
-						updateItems.push({_id: element.id, "data.equipado": false});
+						updateItems.push({_id: element.id, "system.equipado": false});
 						return true;
 					}
 				}

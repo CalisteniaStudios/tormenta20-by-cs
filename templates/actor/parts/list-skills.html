@@ -61,7 +61,7 @@
 			<input disabled type="text" data-dtype="Number" name="system.pericias.{{skill.key}}.total" value="{{numberFormat skill.value sign=true}}"  />
 			<input type="hidden"  data-dtype="Number" name="system.pericias.{{skill.key}}.treino" value="{{skill.treino}}" />
 		</div>
-		{{#if isCharacter}}
+		{{#if ../isCharacter}}
 		<div class="item-abl">
 			<select class="selectatr" name="system.pericias.{{skill.key}}.atributo" value={{skill.atributo}}>
 			{{#select skill.atributo}}
