@@ -27,7 +27,6 @@ import ItemSheetT20 from "./item/sheet.js";
 import TraitSelector from "./apps/trait-selector.js";
 import {applyOnUseEffects} from "./apps/ability-use.js";
 import StatblockParser from "./apps/statblock-parser.js";
-import ActiveEffectEdit from "./apps/active-effects-edit.js";
 
 
 import { T20Conditions } from "./conditions/conditions.js";
@@ -62,7 +61,6 @@ Hooks.once("init", async function () {
 			TraitSelector,
 			ActorSettings,
 			StatblockParser,
-			ActiveEffectEdit
 		},
 		canvas: {
 			AbilityTemplate
