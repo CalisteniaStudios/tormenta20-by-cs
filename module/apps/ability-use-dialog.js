@@ -73,6 +73,7 @@ export default class AbilityUseDialog extends Dialog {
 			atributo:'ability', pericia:'skill',
 			arma:'attack', magia:'spell',
 			poder:'power', consumivel:'consumable',
+			equipamento:'equipment'
 		}
 		let utype = '';
 		switch (item.type){
@@ -87,6 +88,7 @@ export default class AbilityUseDialog extends Dialog {
 			case "arma":
 			case "magia":
 			case "poder":
+			case "equipamento":
 			case "consumivel":
 				utype = relate[item.type];
 				aprimoramentos = [
@@ -106,7 +108,7 @@ export default class AbilityUseDialog extends Dialog {
 			note: "",
 			custo: itemData?.custo ?? null,
 			formula: (["arma", "poder", "pericia", "magia", "atributo", "consumivel"].includes(item.type)),
-			formuladano: (["arma", "poder", "magia", "consumivel"].includes(item.type)),
+			formuladano: (["arma", "poder", "magia", "consumivel","equipamento"].includes(item.type)),
 			itype: item.type,
 			consumeMP: pmCost,
 			aprimoramentos: aprimoramentos,

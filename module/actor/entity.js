@@ -40,6 +40,67 @@ export default class ActorT20 extends Actor {
 	}
 
 	/* -------------------------------------------- */
+
+	get skillFormula() {
+		// later ...@bonus, @pda
+		if (this.type == 'character' ){
+			return ['@meionivel','@treino','@atributo','@outros','@condi'];
+		} else if (this.type == 'npc' ){
+			return ['@treino','@outros','@condi'];
+		} else {
+			return ['@atributo','@outros','@condi'];
+		}
+	}
+	/* -------------------------------------------- */
+
+	get defenseFormula() {
+		// later ...@bonus
+		if (this.type == 'character' ){
+			return ['@base','@atributo','@armadura','@escudo','@outros','@condi'];
+		} else if (this.type == 'npc' ){
+			return ['@base','@outros','@condi'];
+		} else {
+			return ['@base','@outros','@condi'];
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	get dcFormula() {
+		// later ...@bonus
+		if (this.type == 'character' ){
+			return ['@base','@meionivel','@atributo','@outros'];
+		} else if (this.type == 'npc' ){
+			return ['@base','@outros'];
+		} else {
+			return ['@base','@outros'];
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	get encumbranceFormula() {
+		// later ...@bonus
+		if (this.type == 'character' ){
+			return ['@base','@atributo'];
+		} else if (this.type == 'npc' ){
+			return ['@base'];
+		} else {
+			return ['@base'];
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	get attackRollFormula() {
+		if (this.type == 'character' ){
+			return ['1d20', ...this.skillFormula,'@arma'];
+		} else if (this.type == 'npc' ){
+			return ['1d20', ...this.skillFormula,'@arma'];
+		} else {
+			return ['1d20', ...this.skillFormula,'@arma'];
+		}
+	}
 	
 	/* -------------------------------------------- */
 	/*  DataPreparation                             */
@@ -47,7 +108,6 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
-		console.log('prepareData');
 		this.prepareBaseData();
 		this.preparePreDerivedData();
 		this.prepareEmbeddedDocuments();
@@ -56,14 +116,12 @@ export default class ActorT20 extends Actor {
 		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
-		console.log('/prepareData');
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
 	prepareBaseData() {
-		console.log('prepareBaseData');
 		const system = this.system;
 		for (let [key, resource] of Object.entries(system.resources)) {
 			if ( ["vehicle","simple"].includes(this.type) ) break;
@@ -80,7 +138,6 @@ export default class ActorT20 extends Actor {
 			case "simple":
 				return this._prepareSimpleActorData();
 		}
-		console.log('/prepareBaseData');
 	}
 
 	/* -------------------------------------------- */
@@ -92,7 +149,6 @@ export default class ActorT20 extends Actor {
 	 * */
 	/** @override */
 	preparePreDerivedData() {
-		console.log('preparePreDerivedData');
 		const system = this.system;
 		if ( ["vehicle","simple"].includes(this.type) ){
 			system.attributes.carga = this._computeEncumbrance(system);
@@ -106,24 +162,21 @@ export default class ActorT20 extends Actor {
 			ability.name = CONFIG.T20.atributos[key];
 			ability.value = (ability.base + ability.racial + ability.bonus);
 		}
-		console.log('/preparePreDerivedData');
 	}
 
 	preparePosDerivedData() {
-		console.log('preparePosDerivedData');
 		const system = this.system;
 		const nivel = system.attributes.nivel?.value || 0;
 
+		// Defense
+		this._prepareDefense();
+
 		// Skills
-		const rollData = this.getRollData();
 		if ( system.pericias ) {
 			for (let [key, pericia] of Object.entries(system.pericias)) {
-				this._prepareSkills(key, pericia, system, rollData);
+				this._prepareSkills(key, pericia);
 			}
 		}
-		
-		// Defense
-		this._prepareDefense(system);
 
 		// BASE CD
 		if ( this.type == 'npc' ){
@@ -136,11 +189,9 @@ export default class ActorT20 extends Actor {
 
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
-		console.log('/preparePosDerivedData');
 	}
 
 	prepareDerivedData() {
-		// console.log('prepareDerivedData');
 		const system = this.system;
 		if ( ["vehicle","simple"].includes(this.type) ){
 			system.attributes.carga = this._computeEncumbrance(system);
@@ -159,9 +210,10 @@ export default class ActorT20 extends Actor {
 		this._prepareDefense(system);
 
 		// Skills
-		const rollData = this.getRollData();
-		for (let [key, pericia] of Object.entries(system.pericias)) {
-			this._prepareSkills(key, pericia, system, rollData);
+		if ( system.pericias ) {
+			for (let [key, pericia] of Object.entries(system.pericias)) {
+				this._prepareSkills(key, pericia);
+			}
 		}
 		
 		// BASE CD
@@ -270,63 +322,39 @@ export default class ActorT20 extends Actor {
 	* Prepare defense value.
 	* @private
 	*/
-	_prepareDefense(system){
+	_prepareDefense(){
+		const system = this.system;
 		const rollData = this.getRollData();
-		if ( this.type == 'simple' ) {
-			system.attributes.defesa.value = system.attributes.defesa.value
-			return;
-		}
-
-		let defense = system.attributes.defesa;
-		if ( !defense.base ) system.attributes.defesa.base = 10;
-		if ( !defense.value ) system.attributes.defesa.value = 0;
-		if ( !defense.pda ) system.attributes.defesa.pda = 0;
-		if ( !Number(defense.condi) ) system.attributes.defesa.condi = 0;
-
-		let parts = [defense.base];
+		const defense = system.attributes.defesa;
+		let parts = this.defenseFormula;
 		let pda = 0;
-		let ability = defense.atributo;
-		let abl = system.atributos[ability]?.value || 0;
-		let maxAbl = false;
 		
-		// Defense Calculation
-		for (let item of this.items.filter( i => i.type == 'equipamento') ) {
-			if( this.type == 'npc' ) break;
-			if( !item.system.equipado ) continue;
-			let tipo = item.system.tipo;
-			let value = Number(item.system.armadura.value);
-			let penalidade = item.system.armadura.penalidade;
-			let maxAtr = item.system.armadura.maxAtr;
+		const items = this.items.filter( i => i.type == 'equipamento' && i.system.equipado);
+		const armor = items.find( i => i.type == 'equipamento' && ['leve','pesada'].includes(i.system.tipo) && i.system.equipado);
+		const shield = items.find( i => i.type == 'equipamento' && i.system.tipo == 'escudo' && i.system.equipado);
+		const accessories = items.filter( i => i.type == 'equipamento' && !['escudo','leve','pesada'].includes(i.system.tipo) && i.system.equipado);
+		
+		// 
+		let accDef = accessories.map( m => m.system.armadura.value ).reduce((sum, v) => sum + v, 0);
+		parts.push(accDef);
+		pda += armor ? armor.system.armadura.penalidade : 0;
+		pda += shield ? shield.system.armadura.penalidade : 0;
+		// console.warn( this.name, defense.bonus);
+		parts.push(...defense.bonus);
+		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
+		let atributo = rollData[defense.atributo];
+		if ( armor && armor.system.tipo == 'pesada' ) {
+			atributo = Math.min(maxAtr, atributo);
+		}
 
-			if (tipo == "leve" || tipo == "pesada") {
-				// armadura = tipo;
-				if(Number(defense.armadura)){
-					value += Number(defense.armadura);
-				}
-				if ( tipo == "pesada" ) maxAbl = Number(maxAtr) || 0;
-				parts.push( value );
-			} else if (tipo == "escudo") {
-				// escudo = true;
-				if(Number(defense.escudo)){
-					value += Number(defense.escudo);
-				}
-				parts.push( value );
-			} else {
-				parts.push( value );
-			}
-			pda += Math.abs(penalidade);
-		}
-		/* 
-			DEF = 10 + armor + (@armor) + shield + (@shield)
-							 + @ability, outros, bonus, condi;
-		 */
-		if( this.type == 'npc' ){
-			parts.push( maxAbl === false ? abl : Math.min( abl , maxAbl ) );
-			parts.push(defense.outros || 0);
-		}
-		if ( defense.bonus?.length ) parts.push(...defense.bonus);
-		if ( defense.condi ) parts.push(defense.condi);
+		rollData['base'] = this.type == 'character' ? 10 : (defense.base || 10);
+		rollData['atributo'] = defense.atributo ? rollData[defense.atributo] : 0;
+		rollData['armadura'] = armor ? armor.system.armadura.value : 0;
+		rollData['escudo'] = shield ? shield.system.armadura.value : 0;
+		rollData['outros'] = defense.outros;
+		rollData['condi'] = defense.condi;
 		
+
 		const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		
 		system.attributes.defesa.value = parseInt(result);
@@ -339,67 +367,48 @@ export default class ActorT20 extends Actor {
 	* Prepare skill value.
 	* @private
 	*/
-	_prepareSkills(key, pericia, system, rollData, roll = false) {
-		const pda = system.attributes.defesa.pda ? -Math.abs(system.attributes.defesa.pda) : 0;
-		const treino = !pericia.treinado ? 0 : system.attributes.treino;
-
-		pericia.label = pericia.label || CONFIG.T20.pericias[key] || '';
-		pericia.label = key == 'ofi0'? CONFIG.T20.pericias['ofic'] : pericia.label;
-		pericia.custom = false;
-		if ( !Number(pericia.condi) ) pericia.condi = 0;
-		if (!key.match(/ofi[1-9]|_pc[1-9]/)) {
-			pericia.pda = ["acro", "furt", "ladi"].includes(key);
-			pericia.st = ["ades", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key);
-			pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
-		} else {
-			pericia.custom = true;
-			pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
-			pericia.st = pericia.label.match(/\*/g) ? true : false;
-			pericia.pda = pericia.label.match(/\+/g) ? true : false;
-		}
+	_prepareSkills(key, pericia, roll = false) {
+		const system = this.system;
+		// const pericia = system.pericias[key] || false;
+		if ( key == 'ofic' ) return;
+		const rollData = this.getRollData();
+		let parts = this.skillFormula;
 		
-		pericia.outros = pericia.outros;//Number(pericia.outros) || 0;
-		// pericia.bonus = pericia.bonus || 0;//Number(pericia.bonus) || 0;
-		// if ( pericia.bonus.length ) parts.push(...pericia.bonus);
+		pericia.label = pericia.label || CONFIG.T20.pericias[key] || '';
+		pericia.pda = ["acro", "furt", "ladi"].includes(key) || Boolean(pericia.label.match(/\+/g));
+		pericia.st = ["ades", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key) || Boolean(key.match(/ofi[1-9]/)) || Boolean(pericia.label.match(/\*/g));
+		pericia.custom = Boolean(key.match(/ofi[1-9]|_pc[1-9]/));
+		pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
 
-		const parts = [];
-		if ( false && ["luta","pont","fort", "refl", "vont"].includes(key) && this.type == 'npc' ) {
-			parts.push(pericia.outros, ...pericia.bonus);
-		} else if ( this.type == 'npc' ) {
-			let nd = system.builder.attributes.skills.cr || system.attributes.nd;
-			const crData = T20.NPCParams(nd);
-			
-			let ndskill = pericia.treinado ? crData.topskill : crData.botskill;
-			parts.push(ndskill, pericia.outros, ...pericia.bonus);
-
-		} else {
-			parts.push("@meionivel", treino, `@${pericia.atributo}`, (pericia.pda ? pda : 0), pericia.outros, ...pericia.bonus);
+		if ( !pericia.treinado ) {
+			parts = parts.filter( f => f != '@treino');
 		}
+		if ( pericia.pda ) parts.push("-@pda");
+		if ( key == "furt" ) parts.push("@tamanho");
+
+		let atributo = rollData[pericia.atributo];
+		rollData['atributo'] = atributo || 0;
+		rollData['outros'] = pericia.outros || 0;
+		rollData['condi'] = pericia.condi || 0;
+		
 		// GET GLOBAL ACTOR MODIFIERS
-		const bonuses = getProperty(this.system, "modificadores.pericias") || {};
+		const bonuses = getProperty(system, "modificadores.pericias") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
 		if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
 		if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
 		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length) parts.push("@resistencia");
-		if (bonuses.atr && bonuses.atr[pericia.atributo].filter(Boolean).length) parts.push(bonuses.atr[pericia.atributo]);
-		if (pericia.condi) parts.push(pericia.condi);
-		if ( key == "furt" ) parts.push("@tamanho");
-		
+		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length) parts.push(bonuses.atr[pericia.atributo]);
+
 		if ( !roll ) {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			pericia.value = parseInt(result.replace(" ","")) || 0;
 		} else {
+			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			let dice = pericia.parts ? pericia.parts[0] : "1d20";
-			return [dice].concat(parts);
+			if ( this.type == 'npc' ) return [dice, result];
+			return [dice, ...parts]; //.concat(parts);
 		}
-
 	}
-	/* 
-		SKL = @meionivel + @treino + @ability + @outros + @bonus + @condi
-		+ (@tamanho) + (@pda) + (@ataque) + (@ataqueCAC) + (@ataqueAD)
-		+ (@pericia) + (@resistencia) + (@semataque)
-		+ (@mental) + (@fisico) + (@social);
-	 */
 
 	/* -------------------------------------------- */
 
@@ -566,7 +575,6 @@ export default class ActorT20 extends Actor {
 		}, {});
 		data["nvl"] = classes;
 		// Set power type modifiers (ie.: tormenta, distinction)
-		/* TODO include tag to items */
 		const powers = this.items.reduce(function (cn, it) {
 			if (it.type === "poder"){
 				let slug = it.system.subtipo.slugify();
@@ -675,7 +683,7 @@ export default class ActorT20 extends Actor {
 		skills.vont = this.system.builder.attributes.vont ?? {};
 		const ranks = ['botsave','midsave','topsave'];
 		const attrs = ['attack','damage','defense','hp','dc','topsave','midsave','botsave', 'skills'];
-		console.log( crData );
+		
 		if( attr == 'all') {
 			for ( let att of attrs ){
 				updateData['system.builder.attributes.'+att+'.value'] = crData[att];
@@ -697,7 +705,6 @@ export default class ActorT20 extends Actor {
 				}
 			}
 		}
-		console.log( updateData );
 		this.update(updateData);
 	}
 
@@ -731,7 +738,6 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
-		console.log('_preUpdate');
 		await super._preUpdate(changed, options, user);
 		// Apply changes in Actor size to Token width/height
 		const newSize = getProperty(changed, "system.tracos.tamanho");
@@ -806,14 +812,12 @@ export default class ActorT20 extends Actor {
 			if (!isEmpty(attributes)) changed.system.attributes = attributes;
 			if (!isEmpty(skills)) changed.system.pericias = skills;
 		}
-		console.log('/_preUpdate');
 	}
 
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
 	_onUpdate(changed, options, userId){
-		console.log(changed, options, userId);
 		super._onUpdate(changed, options, userId);
 
 		/* Check Encumbered Status and Add/Remove its ActiveEffect */
@@ -882,7 +886,6 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	async _preCreateEmbeddedDocuments(embeddedName, result, options, userId){
-		console.log('_preCreateEmbeddedDocuments');
 		await super._preCreateEmbeddedDocuments(embeddedName, result, options, userId);
 		if( game.userId !== userId ) return;
 		// Show chat message if condition;
@@ -894,7 +897,6 @@ export default class ActorT20 extends Actor {
 				game.tormenta20.macros.msgFromJournal(effect.label, "tormenta20.basico", 'Condições');
 			}
 		}
-		console.log('/_preCreateEmbeddedDocuments');
 	}
 
 	/* -------------------------------------------- */
@@ -929,7 +931,6 @@ export default class ActorT20 extends Actor {
 				}
 			}
 		}
-		// console.log(embeddedName, documents, result, options);
 	}
 
 
@@ -1206,7 +1207,7 @@ export default class ActorT20 extends Actor {
 			isOwned: true,
 		}
 		itemData = mergeObject( itemData, pericia);
-		let parts = cloneActor._prepareSkills(key, pericia, ad, cloneActor.getRollData(), true );
+		let parts = cloneActor._prepareSkills(key, pericia, true );
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
 		
@@ -1380,7 +1381,6 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	applyActiveEffects() {
-		console.log('applyActiveEffects');
 		const overrides = {};
 		
 		// Organize non-disabled effects by their application priority
@@ -1404,7 +1404,6 @@ export default class ActorT20 extends Actor {
 
 		// Expand the set of final overrides
 		this.overrides = foundry.utils.expandObject(overrides);
-		console.log('/applyActiveEffects');
 	}
 
 	/* -------------------------------------------- */

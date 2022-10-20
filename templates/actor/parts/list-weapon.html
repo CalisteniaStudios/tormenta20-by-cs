@@ -26,6 +26,7 @@
 		</div>
 		<div class="item-weight">{{item.espacosTotal}}</div>
 		<div class="item-controls">
+			<a class="item-control item-toggle toggle-weapon{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}">{{#if item.system.equipado}}{{item.system.equipado}}{{/if}}<i class="fa-solid fa-hand-back-fist"></i></a>
 			{{#if (eq ../layout "tabbed")}}
 			<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >
 				<i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i>

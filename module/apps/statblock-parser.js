@@ -23,7 +23,7 @@ export default class StatblockParser extends FormApplication {
 		formData['schema'] = this.object.schema;
 		formData['items'] = this.object.items;
 		formData['log'] = this.object.log;
-		console.log(this);
+		// console.log(this);
 		
 		return formData;
 	}
@@ -38,7 +38,7 @@ export default class StatblockParser extends FormApplication {
 
 	_applyToActor(ev){
 		ev.preventDefault();
-		console.log('_applyToActor');
+		// console.log('_applyToActor');
 		let actor = this.object.actor;
 		let items = actor.items.map( m => m.id );
 		actor.deleteEmbeddedDocuments('Item', items);
@@ -47,7 +47,7 @@ export default class StatblockParser extends FormApplication {
 		
 		actor.update({type: 'npc', name: this.object.schema.name, system: this.object.schema});
 		actor.createEmbeddedDocuments('Item', this.object.items);
-		console.log(actor);
+		// console.log(actor);
 		return this.close();
 	}
 
@@ -69,7 +69,7 @@ export default class StatblockParser extends FormApplication {
 		this.object.items = items;
 		this.object.log = log;
 		
-		console.log(this.object);
+		// console.log(this.object);
 		this.render(true);
 	}
 
@@ -284,6 +284,50 @@ export default class StatblockParser extends FormApplication {
 		}
 	}
 
+	/**
+	 * Search for world collenction and compendiums for item @name and @type
+	 */
+	searchItem(name, type){
+		let names = [];
+		let words = name.split(' ', 5);
+		let conc = '';
+		for ( let i=0; i <= words.length; i++){
+			for(let j=1; j < 6; j++){
+				if ( i+j > words.length ) continue;
+				conc = words.slice(i, i+j).join(' ');
+				names.push(conc.slugify());
+				conc = words.map( m => m.replace(/.$/,'')).slice(i, i+j).join(' ');
+				names.push(conc.slugify());
+			}
+		}
+
+		const pack = {
+			arma: 'tormenta20.equipamentos', equipamento: 'tormenta20.equipamentos',
+			magia: 'tormenta20.magias', poder: 'tormenta20.poderes',
+		}
+		// console.log(name);
+		// console.log(words);
+		// console.log(names);
+		let item = game.items.find( f => f.type == type && names.includes(f.name.slugify()) );
+
+		if ( !item ) {
+			if ( type == '*') {
+				item = game.packs.get(pack['equipamento']).index.find( f => names.includes(f.name.slugify()) );
+			} else {
+				item = game.packs.get(pack[type]).index.find( f => names.includes(f.name.slugify()) );
+			}
+		}
+		if ( !item ) {
+			type = type == '*' ? 'tesouro' : type;
+			item = new game.tormenta20.entities.ItemT20({type:type, name: name});
+		}
+		
+		item = item.toObject();
+		delete item._id;
+		// console.log(item);
+		return item;
+	}
+
 	parseAbilities(statblock, schema, items, log){
 		let msg ='';
 		try {
@@ -340,30 +384,17 @@ export default class StatblockParser extends FormApplication {
 					}
 				}
 				
-				let itemTemplate;
-				itemTemplate = game.items.find( f => f.name == ability.name && f.type == (spell?'magia':'poder') );
-				if ( spell && !itemTemplate ) {
-					itemTemplate = game.packs.get("tormenta20.magias").index.find(i => i.name == ability.name );
-				} else if ( !spell && !itemTemplate ) {
-					itemTemplate = game.packs.get("tormenta20.poderes").index.find(i => i.name == ability.name );
-				}
-				if ( !itemTemplate ) {
-					itemTemplate = new game.tormenta20.entities.ItemT20({name: ability.name, type:(spell?'magia':'poder')});
-				}
-				itemTemplate = itemTemplate.toObject();
-				delete itemTemplate._id;
+				let item = this.searchItem( ability.name, (spell?'magia':'poder'));
 				if ( spell ) {
-					console.log(itemTemplate, ability);
-					itemTemplate.system.description.value = `<section class="secret">${ability.descOri}</section>${itemTemplate.system.description.value}`;
+					item.system.description.value = `<section class="secret">${ability.descOri}</section>${item.system.description.value}`;
 				}
 				if ( !spell ) {
-					itemTemplate.system.ativacao.custo = ability.pm;
-					itemTemplate.system.ativacao.execucao = ability.action;
-					itemTemplate.system.description.value = ability.desc;
+					item.system.ativacao.custo = ability.pm;
+					item.system.ativacao.execucao = ability.action;
+					item.system.description.value = ability.desc;
 				}
 				ability.spell = spell;
-				console.log(itemTemplate);
-				ability.item = itemTemplate;
+				ability.item = item;
 			});
 			items.push(...abilities.map( m => m.item));
 
@@ -392,17 +423,8 @@ export default class StatblockParser extends FormApplication {
 	
 			// Extrai os dados das armas
 			armaData = armaData.map( arma => arma.match(/(?<name>.*[^\+|\-]) (?<atk>[+|-]\d+) \((?<dmg>.*)\)/).groups );
-			// TODO Limpar o nome - remover quantidades (dois, quatro, x2), características (aumentada, da tormenta)
-	
 			armaData.forEach( (arma) => {
-				let item = game.items.find( f => f.name == arma.name && f.type == 'arma' );
-				if ( !item ) {
-					item = game.packs.get("tormenta20.equipamentos").index.find(i => i.name == arma.name );
-				}
-				if ( !item ) {
-					item = new game.tormenta20.entities.ItemT20({name: arma.name, type:'arma'});
-				}
-				item = item.toObject();
+				let item = this.searchItem(arma.name, 'arma');
 				let rolls = [];
 				// Prepara Rolagem de Ataque
 				if ( arma.atk ) {
@@ -414,6 +436,7 @@ export default class StatblockParser extends FormApplication {
 							[arma.atk,"","weaponbonus"],
 						],
 					}
+					// console.log(arma, item, attackRoll);
 					rolls.push(attackRoll);
 				}
 				// Prepara Rolagem de Dano
@@ -438,6 +461,7 @@ export default class StatblockParser extends FormApplication {
 					
 				}
 				item.system.rolls = rolls;
+				item.system.description.value = `<section class="secret">${arma.name}</section>${item.system.description.value}`
 				
 				arma.item = item;
 			});
@@ -461,31 +485,15 @@ export default class StatblockParser extends FormApplication {
 			if ( equipamentos ) {
 				equipamentos = equipamentos.replace(/Equipamento|Tesouro/ig, '').split(',').map( m => m.replace('.','').trim());
 				equipamentos.forEach( (equip) => {
-					let itemSearch = [
-						equip.match(/(?:[A-Za-z]+ ){2}[A-Za-z]+/)[0],
-						equip.match(/(?:[A-Za-z]+ ){1}[A-Za-z]+/)[0],
-						equip.match(/(?:[A-Za-z]+ ){0}[A-Za-z]+/)[0]
-					];
-					itemSearch.push(...itemSearch.map( m => m.replace(/(s|es)(\s|$)/g,' ').trim() ));
-					let itemTemplate;
 					let jaExiste = false;
-					for (const itm of itemSearch ) {
-						jaExiste = equip.find( i => i.name == itm );
-						
-						itemTemplate = game.items.find( f => f.name == itm.capitalize() && ['arma','equipamento','consumivel','tesouro'].includes[f.type] );
-						if ( itemTemplate ) break;
-						itemTemplate = game.packs.get("tormenta20.equipamentos").index.find(i => i.name == itm.capitalize() );
-					}
-					if ( jaExiste ) return;
-					if ( !itemTemplate ) {
-						itemTemplate = new game.tormenta20.entities.ItemT20({name: itm.capitalize(), type:'tesouro'});
-					}
-					if ( itemTemplate ) itemTemplate = itemTemplate.toObject();
+					let item = this.searchItem(equip, '*');
+					// ['arma','equipamento','consumivel','tesouro']
+					jaExiste = items.find( i => i.name == item.name );
+					if( jaExiste ) return;
 					let qtd = equip.match(/x(?<qtd>\d+)/);
-					if ( qtd ) itemTemplate.system.qtd = qtd.groups?.qtd || 1;
-					itemTemplate.system.description.value = item + '<br>' + itemTemplate.system.description.value;
-					delete itemTemplate._id;
-					equip.item = itemTemplate;
+					if ( qtd ) item.system.qtd = qtd.groups?.qtd || 1;
+					item.system.description.value = equip + '<br>' + item.system.description.value;
+					equip.item = item;
 				});
 				
 				items.push( ... equipamentos.map( m => m.item ) );

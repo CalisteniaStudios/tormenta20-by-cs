@@ -57,7 +57,8 @@
             "value": 0,
             "outros": 0,
             "atributo": "des",
-            "pda": 0
+            "pda": 0,
+            "bonus": []
           }
         },
         "detalhes": {
@@ -404,7 +405,7 @@
     }
   },
   "Item": {
-    "types": ["arma","equipamento","classe","consumivel","magia","poder","tesouro","equip"],
+    "types": ["arma","equipamento","classe","consumivel","magia","poder","tesouro"],
     "templates": {
       "base": {
         "description": {
@@ -507,7 +508,18 @@
       "lancinante": false,
       "alcance": "",
       "tipoUso": "simples",
-      "propriedades": {}
+      "propriedades": {
+        "ada": false,
+        "agi": false,
+        "alo": false,
+        "arr": false,
+        "dst": false,
+        "dms": false,
+        "dup": false,
+        "lev": false,
+        "mun": false,
+        "ver": false
+      }
     },
     "consumivel": {
       "templates": ["base","objeto", "efeitoAtivado", "resistencia"],

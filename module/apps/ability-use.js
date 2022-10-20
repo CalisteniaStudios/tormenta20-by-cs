@@ -114,7 +114,6 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				// match at object? || rollMods[r.key][p].match(re.die)
 				let tempAp = [];
 				ch.value.match(re.split).forEach(rt => tempAp.push(Number(rt) * qty||rt));
-				console.log(r);
 				if( tempAp[0] ) rollMods[r.key][p].addDie += tempAp[0];
 				if( tempAp[4] ) rollMods[r.key][p].addNum += tempAp[4];
 			}
@@ -271,7 +270,6 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 	}
 	// OVERRIDE CHANGES
 	else if( ch.mode == 5 ) {
-		console.log( ch );
 		if( campos[ch.key][1] ) {
 			if ( ch.key == 'duracao' ) {
 				let str = ch.value.match(/[A-z]+/);
@@ -284,7 +282,6 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 		} else if ( ch.key.match(/consume.target/) ) {
 			let it = item.actor.items.find( i => i.name == ch.value );
 			_campos[campos[ch.key][0]] = ch.value;
-			console.log(it);
 		} else _campos[campos[ch.key][0]] = ch.value;
 	}
 	
@@ -552,7 +549,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		// Apply the modifications to the rolls data
 		id.rolls = applyRollModifiers( item, rollMods );
 	} else if ( item.type == 'pericia' ) {
-		item.parts = actor._prepareSkills(item.id, item, ad, actor.getRollData(), true );
+		item.parts = actor._prepareSkills(item.id, item, true );
 		if ( configuration.bonus ) item.parts.push( configuration.bonus );
 	}
 
@@ -668,7 +665,6 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	options.brew = configuration.brew;
 	// Logs
 	// console.log(item, rollMods, changes, options);
-	console.log(options.effects)
 	return options;
 }
 

@@ -165,7 +165,7 @@ class RollData extends DataModel {
 			name: new fields.StringField({ required: true, nullable:false, initial:'Roll' }),
 			// parts: new fields.ArrayField(new fields.ObjectField({initial: {0:'1d4',1:'acido'}})),
 			// parts: new fields.ArrayField(new fields.ObjectField({initial: ['1d4','acido']})),
-			parts: new fields.ObjectField({ initial:{ 0:['1d4','ac'] } }),
+			parts: new fields.ObjectField({ initial:{ 0:['1d4','ac',''] } }),
 			type: new fields.StringField({ required: true, nullable:false, choices:['ataque','dano','formula'], initial:'dano'}),
 			versatil: new fields.StringField({ nullable:false, initial:'' }),
 		};

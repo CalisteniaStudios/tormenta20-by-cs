@@ -210,6 +210,9 @@ export default class ActorSheetT20 extends ActorSheet {
 
 			// Update Inventory Item
 			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
+			html.find('.toggle-weapon').on('click',this._onCicleWeapon.bind(this));
+			html.find('.toggle-weapon').on('contextmenu',this._onCicleWeapon.bind(this));
+			
 			html.find('.update-cd').click(this._onUpdateCD.bind(this));
 
 			// Item management
@@ -368,7 +371,6 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	/** @inheritdoc */
 	async _onSubmit(...args) {
-		console.log(...args);
 		await super._onSubmit(...args);
 	}
 
@@ -477,7 +479,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 		const rollConfigs = {}
 		rollConfigs.configureDialog = event.shiftKey;
-		const ignoreList = ["equipamento", "tesouro"];
+		const ignoreList = ["tesouro"];
 		const item = this.actor.items.get(itemId);
 		if ( !item || ignoreList.includes(item.type) ) return;
 		return item.roll(rollConfigs);
@@ -667,7 +669,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	/* -------------------------------------------- */
 
 	// Update equippament state, unequipping unique ones;
-	// TODO weapon version;
+	// TODO slotSytem [lhand, rhand, thand, body1, body2, body3, body4, body5, body5]
 	async _onToggleArmor(ev) {
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.items.get(li.data("itemId"));
@@ -688,6 +690,19 @@ export default class ActorSheetT20 extends ActorSheet {
 				}
 			});
 		}
+		await this.actor.updateEmbeddedDocuments("Item", updateItems);
+	}
+
+	async _onCicleWeapon(ev) {
+		const li = $(ev.currentTarget).parents(".item");
+		const item = this.actor.items.get(li.data("itemId"));
+		const id = item.system;
+		const items = this.actor.items;
+		let updateItems = [];
+		let step = ev.type == 'click' ? 1 : -1;
+		let status = (id.equipado + step < 0 ? 2 : (id.equipado + step > 2 ? 0 : id.equipado + step));
+		updateItems.push({_id: item.id, "system.equipado": status});
+		
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 

@@ -59,7 +59,7 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 		}
 		if (formData.flags?.tormenta20?.onuse) {
 			let f = formData.flags.tormenta20;
-			formData.transfer = (!f.durationScene && (f.attack || f.skill || f.ability || f.power || f.spell || f.consumable));
+			formData.transfer = (!f.durationScene && (f.attack || f.skill || f.ability || f.power || f.spell || f.consumable || f.equipment));
 		}
 		return this.object.update(formData);
 	}

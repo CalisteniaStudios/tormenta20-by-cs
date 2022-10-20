@@ -40,7 +40,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get isVersatile() {
-		return !!(this.hasDamage && this.system.propriedades.ver);
+		return !!(this.hasDamage && this.system.propriedades.ada);
 	}
 
 	/* -------------------------------------------- */
@@ -88,7 +88,7 @@ export default class ItemT20 extends Item {
 		const name = this.name;
 		let effects = [];
 
-		const types = {magia:"spell",arma:"attack",pericia:"skill",atributo:"ability",consumivel:"consumable",poder:"power"};
+		const types = {magia:"spell",arma:"attack",pericia:"skill",atributo:"ability",consumivel:"consumable",poder:"power",equipamento:"equipment"};
 
 		for ( let i of this.actor.effects.values() ) {
 			if( !i.getFlag("tormenta20","onuse") ) continue;
@@ -318,7 +318,6 @@ export default class ItemT20 extends Item {
 
 		const rollData = {}; //this.getRollData();
 		this.labels.dano = simplifyRollFormula(this.labels.dano, rollData, { constantFirst: false });
-		
 		return this.labels.dano;
 	}
 	
@@ -513,7 +512,6 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
-		// console.log(changed, options, user);
 		await super._preUpdate(changed, options, user);
 	}
 
@@ -521,7 +519,6 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	_onUpdate(changed, options, user){
-		console.log('_onUpdate');
 		// console.log(changed, options, user);
 		super._onUpdate(changed, options, user);
 		// Set Initial Class
@@ -541,7 +538,6 @@ export default class ItemT20 extends Item {
 			}
 			if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
 		}
-		console.log('/_onUpdate');
 	}
 
 	/* -------------------------------------------- */
@@ -623,7 +619,19 @@ export default class ItemT20 extends Item {
 	 */
 	_onCreateOwnedWeapon(data, actorData, isNPC) {
 		const updates = {};
+		
 		if( isNPC ) {
+			if ( data.system.rolls ) {
+				let attackRoll = data.system.rolls.find( r => r.type == 'ataque' );
+				let damageRoll = data.system.rolls.find( r => r.type == 'dano' );
+				if( attackRoll && damageRoll ){
+					attackRoll.parts[0][1] = '';
+					attackRoll.parts[1][0] = '';
+					damageRoll.parts[1][0] = '';
+					updates["system.rolls"] = [attackRoll,damageRoll];
+				}
+			};
+		} else if( isNPC ) {
 			try {
 				let attack = actorData.builder.attributes?.attack?.value ?? 0;
 				let damage = actorData.builder.attributes?.damage?.value ?? 0;
@@ -671,8 +679,15 @@ export default class ItemT20 extends Item {
 		let createMeasuredTemplate;
 		const resource = id.consume || {};     // Resource consumption
 		
+		if ( item.type == 'arma' && id.equipado == 2 ) {
+			item.system.rolls.forEach( (r) => {
+				if ( r.type == 'dano' && r.versatil ){
+					r.parts[0][0] = r.versatil;
+				}
+			});
+		}
 		
-		// TODO: Consume a linked (non-ammo) resource
+		// Consume a linked (non-ammo) resource
 		let consumeResource = !!resource.target && resource.type == "attribute";
 		// Consume item quantity
 		let consumeSelf = this.type == 'consumivel';
@@ -706,6 +721,7 @@ export default class ItemT20 extends Item {
 				atributo:'ability', pericia:'skill',
 				arma:'attack', magia:'spell',
 				poder:'power', consumivel:'consumable',
+				equipamento:'equipment'
 			}
 			let efType = relate[item.type];
 			active = active.filter( ef => ef.flags.tormenta20[efType] );
@@ -739,7 +755,7 @@ export default class ItemT20 extends Item {
 			if ( extra?.margemCritico?.match(/^=/) ) item.system.criticoM = extra.margemCritico.replace("=","");
 			else if ( Number(extra.margemCritico) ) item.system.criticoM += Number(extra.margemCritico);
 		}
-		
+
 		// Execute Rolls
 		options.rolls = [];
 		item.system.rolled = {};
@@ -1148,21 +1164,15 @@ export default class ItemT20 extends Item {
 			
 			// Add damage bonus formula
 			const bonuses = getProperty(actorData, "modificadores.dano") || {};
-			if ( bonuses.geral ) parts.push([bonuses.geral, ""]);
-			if ( pericia=="luta" && bonuses.cac ) parts.push([bonuses.cac, ""]);
-			if ( pericia=="pont" && bonuses.ad ) parts.push([bonuses.ad,""]);
-			if ( this.type=="magia" && bonuses.mag ) parts.push([bonuses.mag,""]);
-			if ( this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq ) parts.push([bonuses.alq,""]);
-			// Handle ammunition damage
-			// PREPARE
-			
-			// only add the ammunition damage if the ammution is a consumable with type 'ammo'
-			// PREPARE
+			if ( bonuses.geral.filter(Boolean).length ) parts.push(['@dano','','']);
+			if ( pericia=="luta" && bonuses.cac.filter(Boolean).length ) parts.push(['@danoCAC','','']);
+			if ( pericia=="pont" && bonuses.ad.filter(Boolean).length ) parts.push(['@danoAD','','']);
+			if ( this.type=="magia" && bonuses.mag.filter(Boolean).length ) parts.push(['@danoMagico','','']);
+			if ( this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq.filter(Boolean).length ) parts.push(['@danoALQ','','']);
 			
 			// Call the roll helper utility
-			// return damageRoll(mergeObject(rollConfig, options));
-			// result.push(await damageRoll(mergeObject(rollConfig, options)));
-			itemData.rolled[r.name] = await damageRoll(mergeObject(rollConfig, options));
+			mergeObject(rollConfig, options);
+			itemData.rolled[r.name] = await damageRoll(rollConfig);
 		}
 		// return result;
 	}

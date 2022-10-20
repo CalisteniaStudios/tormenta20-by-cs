@@ -68,11 +68,13 @@ export default class ItemSheetT20 extends ItemSheet {
 		// else data = expandObject(data);
 
 		// Handle rolls array
-		formData.system.rolls = Object.values(formData.system.rolls || []);
-		let rolls = Object.entries(formData.system?.rolls || []);
-		for (let [key, roll] of rolls){
-			if ( roll ) roll.parts = Object.values(roll?.parts || {}).map(d => [d[0] || "", d[1] || ""]);
-			if ( roll ) roll.key = roll.type + key;
+		if ( formData.system?.rolls ) {
+			formData.system.rolls = Object.values(formData.system.rolls || []);
+			let rolls = Object.entries(formData.system?.rolls || []);
+			for (let [key, roll] of rolls){
+				if ( roll ) roll.parts = Object.values(roll?.parts || {}).map(d => [d[0] || "", d[1] || ""]);
+				if ( roll ) roll.key = roll.type + key;
+			}
 		}
 
 		// Handle progression array
@@ -313,8 +315,10 @@ export default class ItemSheetT20 extends ItemSheet {
 			return game.i18n.localize(item.system.inicial ? "T20.ClassOriginal" : "");
 		} else if( item.type === "magia" ){
 			return game.i18n.localize(item.system.preparada ? "T20.SpellPrepPrepared" : "");
-		} else if ( ["arma", "equipamento"].includes(item.type) ){
-			return game.i18n.localize(item.system.equipado ? ( item.type == 'arma' ? "T20.Wielded" : "T20.Weared" ) : "");
+		} else if ( ["arma"].includes(item.type) ){
+			return game.i18n.localize(item.system.equipado ? ( item.system.equipado == 2 ? "T20.WieldedDual" : "T20.Wielded" ) : "");
+		} else if ( ["equipamento"].includes(item.type) ){
+			return game.i18n.localize(item.system.equipado ? "T20.Weared" : "");
 		}
 	}
 
