@@ -297,7 +297,6 @@ class systemActorCharacterData extends foundry.abstract.DataModel {
 				resistencias: new fields.SchemaField(ResistanceSchema()),
 				tamanho: new fields.StringField({ required: true, nullable:false, choices: Object.keys(T20.actorSizes), initial: 'med' }),
 			}),
-			teste: new fields.ArrayField(new fields.StringField()),
 		}
 	}
 

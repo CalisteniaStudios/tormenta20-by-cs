@@ -729,7 +729,21 @@ export default class ActorT20 extends Actor {
 				// this.update({ "system.pericias": skills });
 				break;
 			default:
-				// NO CHANGES;
+				if ( !this._stats || this._stats.systemVersion < '1.4.100' ){
+					// UPDATE ABILITIES TO GOTY
+					const updateData = {};
+					for (let [key, ability] of Object.entries(this._source.system.atributos)) {
+						updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
+						updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
+					}
+					// UPDATE NPC DEFENSE TO GOTY
+					if (this.type == 'npc') {
+						updateData['system.attributes.defesa.base'] = 10 + this._source.system.attributes.defesa.outros;
+						updateData['system.attributes.defesa.outros'] = 0;
+					}
+					this.updateSource(updateData);
+				}
+				
 				break;
 		}
 	}

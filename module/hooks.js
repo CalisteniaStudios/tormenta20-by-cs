@@ -20,6 +20,25 @@ export default function () {
 				return false;
 			}
 		});
+
+		
+		let oldActors = game.actors.filter( f => !f._stats.systemVersion || f._stats.systemVersion < '1.4.100' );
+		// Migration
+		for (const actor of oldActors) {
+			let updateData = {};
+			for (let [key, ability] of Object.entries(actor._source.system.atributos)) {
+				updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
+				updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
+			}
+			
+			if (actor.type == 'npc') {
+				updateData['system.attributes.defesa.base'] = 10 + actor._source.system.attributes.defesa.outros;
+				updateData['system.attributes.defesa.outros'] = 0;
+			}
+			await actor.update(updateData);
+		}
+		
+		return game.settings.set("tormenta20", "systemMigrationVersion", game.system.version);
 	});
 
 
