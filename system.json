@@ -3,7 +3,7 @@
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.4.100",
+  "version": "1.4.1000",
   "minimumCoreVersion": "10",
   "compatibleCoreVersion": "10",
   "compatibility": {
@@ -17,6 +17,13 @@
   "styles": ["tormenta20.css"],
   "scripts": [],
   "packs": [
+    {
+      "name": "classes",
+      "label": "Classes",
+      "system": "tormenta20",
+      "path": "./packs/classes.db",
+      "type": "Item"
+    },
     {
       "name": "poderes",
       "label": "Poderes",
@@ -39,17 +46,24 @@
       "type": "Item"
     },
     {
-      "name": "macros",
-      "label": "Macros",
-      "system": "tormenta20",
-      "path": "./packs/macros.db",
-      "type": "Macro"
-    },
-    {
       "name": "magias",
       "label": "Magias",
       "system": "tormenta20",
       "path": "./packs/magias.db",
+      "type": "Item"
+    },
+    {
+      "name": "pocoes",
+      "label": "Poções",
+      "system": "tormenta20",
+      "path": "./packs/pocoes.db",
+      "type": "Item"
+    },
+    {
+      "name": "parceiros",
+      "label": "Parceiros",
+      "system": "tormenta20",
+      "path": "./packs/parceiros.db",
       "type": "Item"
     },
     {
@@ -60,18 +74,18 @@
       "type": "Actor"
     },
     {
+      "name": "convocacoes",
+      "label": "Convocações",
+      "system": "tormenta20",
+      "path": "./packs/convocacoes.db",
+      "type": "Actor"
+    },
+    {
       "name": "condicoes",
       "label": "Condições",
       "system": "tormenta20",
       "path": "./packs/condicoes.db",
       "type": "JournalEntry"
-    },
-    {
-      "name": "classes",
-      "label": "Classes",
-      "system": "tormenta20",
-      "path": "./packs/classes.db",
-      "type": "Item"
     },
     {
       "name": "basico",
@@ -88,13 +102,6 @@
       "type": "JournalEntry"
     },
     {
-      "name": "pocoes",
-      "label": "Poções",
-      "system": "tormenta20",
-      "path": "./packs/pocoes.db",
-      "type": "Item"
-    },
-    {
       "name": "tabelas-de-tesouro",
       "label": "Tabelas de Tesouro",
       "system": "tormenta20",
@@ -102,11 +109,11 @@
       "type": "RollTable"
     },
     {
-      "name": "errata-e-faq",
-      "label": "Errata e FAQ",
+      "name": "macros",
+      "label": "Macros",
       "system": "tormenta20",
-      "path": "./packs/errata-e-faq.db",
-      "type": "JournalEntry"
+      "path": "./packs/macros.db",
+      "type": "Macro"
     }
   ],
   "languages": [

@@ -1,4 +1,6 @@
 # Lista de Mudanças
+## Versão 1.4.100
+- Atualização: Tormenta20 Versão Jogo do Ano;
 
 ## Versão 1.4.005
 - Corrigido: Fichas não abriam por erro na descrição de itens;
@@ -359,7 +361,7 @@
 - Suporte ao módulo Drag Ruler adicionado.
 
 ### Consertos de Bugs
-- A magia Sopro das Uivantes agora tem rolagem de dano.
+- A magia Sopro das Montanhas Gélidas agora tem rolagem de dano.
 - Aprimoramentos da magia Luz consertados.
 
 ## Versão 1.1.36
