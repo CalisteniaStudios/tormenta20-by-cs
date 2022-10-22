@@ -924,7 +924,7 @@ T20.shieldEnchantmentsTooltips = {
 }
 for ( let [k, v] of Object.entries(T20.armorEnchantments) ) {
 	T20.shieldEnchantments[k] = T20.armorEnchantments[k];
-	T20.shieldEnchantments[k] = T20.armorEnchantmentsTooltips[k];
+	T20.shieldEnchantmentsTooltips[k] = T20.armorEnchantmentsTooltips[k];
 }
 preLocalize("shieldEnchantments");
 preLocalize("shieldEnchantmentsTooltips");
