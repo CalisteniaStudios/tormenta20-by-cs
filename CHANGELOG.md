@@ -1,6 +1,7 @@
 # Lista de Mudanças
 ## Versão 1.4.100
 - Atualização: Tormenta20 Versão Jogo do Ano;
+- Atualização: Compêndios Atualizados. Agradecimentos a @naotenhoid, @Gustavo Reis, @nightflight, @MrRavnark e @FalArthur
 
 ## Versão 1.4.005
 - Corrigido: Fichas não abriam por erro na descrição de itens;

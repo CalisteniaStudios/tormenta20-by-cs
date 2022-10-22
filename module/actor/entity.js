@@ -383,14 +383,14 @@ export default class ActorT20 extends Actor {
 		if ( !pericia.treinado ) {
 			parts = parts.filter( f => f != '@treino');
 		}
+		if ( pericia.bonus.length ) parts.push(...pericia.bonus);
 		if ( pericia.pda ) parts.push("-@pda");
 		if ( key == "furt" ) parts.push("@tamanho");
 
 		let atributo = rollData[pericia.atributo];
 		rollData['atributo'] = atributo || 0;
-		rollData['outros'] = pericia.outros || 0;
-		rollData['condi'] = pericia.condi || 0;
-		
+		pericia.outros ? rollData['outros'] = pericia.outros : parts = parts.filter( f => f != '@outros');
+		pericia.condi ? rollData['condi'] = pericia.condi : parts = parts.filter( f => f != '@condi');
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = getProperty(system, "modificadores.pericias") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
@@ -405,7 +405,8 @@ export default class ActorT20 extends Actor {
 		} else {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			let dice = pericia.parts ? pericia.parts[0] : "1d20";
-			if ( this.type == 'npc' ) return [dice, result];
+			if ( this.type == 'npc' ) return Roll.replaceFormulaData([dice, result].join('+'), rollData).split('+');
+			return Roll.replaceFormulaData([dice, ...parts].join('+'), rollData).split('+');
 			return [dice, ...parts]; //.concat(parts);
 		}
 	}
