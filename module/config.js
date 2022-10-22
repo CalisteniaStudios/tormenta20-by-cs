@@ -120,6 +120,7 @@ T20.armorTypes = {
 	"natural": "T20.EquipmentNatural",
 	"acessorio": "T20.EquipmentAccessory",
 	"traje": "T20.EquipmentClothing",
+	"ferramenta": "T20.EquipmentTool",
 	"esoterico": "T20.EquipmentEsoteric",
 }
 preLocalize("armorTypes");
@@ -151,11 +152,6 @@ T20.healingTypes = {
 	"curatpm": "T20.ManaTemp",
 }
 preLocalize("healingTypes");
-
-T20.damageResistanceTypes = mergeObject(foundry.utils.deepClone(T20.damageTypes), {
-	"fisico": "T20.DamagePhysical",
-});
-preLocalize("damageResistanceTypes");
 
 
 /* ----------------- Time ----------------- */
@@ -653,20 +649,292 @@ T20.weaponProperties = {
 };
 preLocalize("weaponProperties");
 
-T20.encantosArmas = { //Não Implementado
-	"arremesso": {
-		"id": "arremesso",
-		"name": "Arremesso",
-		"tooltip": "A arma pode ser arremessada em alcance curto. Caso já pudesse ser arremessada, seu alcance aumenta em uma categoria. No fim do seu turno, a arma volta voando para você. Pegar a arma é uma ação livre."
-	},
-	"lancinante": {
-			"id": "lancinante",
-			"name": "Lancinante",
-			"tooltip": "A arma inflige ferimentos mortais. Quando faz um acerto crítico com a arma, além de multiplicar os dados de dano, você também multiplica quaisquer bônus numéricos."
-	}
+T20.weaponSizes = {
+	"reduzida": "T20.WeaponSizeReduced",
+	"normal": "T20.WeaponSizeNormal",
+	"aumentada": "T20.WeaponSizeEnlarged",
+	"gigante": "T20.WeaponSizeGiant",
 };
+preLocalize("weaponSizes");
+
+/* -------------------------------------------- */
+
+/**
+ * Define Item Upgrades and Tooltips
+ */ 
+
+T20.itemUpgrades = {
+	"golden": "T20.ItemUpgradesGoldPlated",
+	"gems": "T20.ItemUpgradesGemsStudded",
+	"discreet": "T20.ItemUpgradesDiscreet",
+	"macabre": "T20.ItemUpgradesMacabre",
+}
+preLocalize("itemUpgrades");
+
+T20.itemUpgradesTooltips = {
+	"golden": "T20.ItemUpgradesTooltipGoldPlated",
+	"gems": "T20.ItemUpgradesTooltipGemsStudded",
+	"discreet": "T20.ItemUpgradesTooltipDiscreet",
+	"macabre": "T20.ItemUpgradesTooltipMacabre",
+}
+preLocalize("itemUpgradesTooltips");
+
+T20.toolUpgrades = {
+	"enhanced": "T20.ToolUpgradesEnhanced",
+}
+T20.toolUpgradesTooltips = {
+	"enhanced": "T20.ToolUpgradesTooltipEnhanced",
+}
+for ( let [k, v] of Object.entries(T20.itemUpgrades) ) {
+	T20.toolUpgrades[k] = T20.itemUpgrades[k];
+	T20.toolUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
+}
+preLocalize("toolUpgrades");
+preLocalize("toolUpgradesTooltips");
+
+T20.weaponUpgrades = {
+	"accurate": "T20.WeaponUpgradesAccurate",
+	"pungent": "T20.WeaponUpgradesPungent",
+	"cruel": "T20.WeaponUpgradesCruel",
+	"atrocious": "T20.WeaponUpgradesAtrocious",
+	"balanced": "T20.WeaponUpgradesBalanced",
+	"harmonized": "T20.WeaponUpgradesHarmonized",
+	"injection": "T20.WeaponUpgradesAlchemicalInjection",
+	"massive": "T20.WeaponUpgradesMassive",
+	"specialmaterial": "T20.WeaponUpgradesSpecialMaterial",
+	"scope": "T20.WeaponUpgradesScope",
+	"precise": "T20.WeaponUpgradesPrecise",
+}
+T20.weaponUpgradesTooltips = {
+	"accurate": "T20.WeaponUpgradesTooltipAccurate",
+	"pungent": "T20.WeaponUpgradesTooltipPungent",
+	"cruel": "T20.WeaponUpgradesTooltipCruel",
+	"atrocious": "T20.WeaponUpgradesTooltipAtrocious",
+	"balanced": "T20.WeaponUpgradesTooltipBalanced",
+	"harmonized": "T20.WeaponUpgradesTooltipHarmonized",
+	"injection": "T20.WeaponUpgradesTooltipAlchemicalInjection",
+	"massive": "T20.WeaponUpgradesTooltipMassive",
+	"specialmaterial": "T20.WeaponUpgradesTooltipSpecialMaterial",
+	"scope": "T20.WeaponUpgradesTooltipScope",
+	"precise": "T20.WeaponUpgradesTooltipPrecise",
+}
+for ( let [k, v] of Object.entries(T20.itemUpgrades) ) {
+	T20.weaponUpgrades[k] = T20.itemUpgrades[k];
+	T20.weaponUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
+}
+preLocalize("weaponUpgrades");
+preLocalize("weaponUpgradesTooltips");
+
+T20.armorUpgrades = {
+	"adjusted": "T20.ArmorUpgradesAdjusted",
+	"undermeasure": "T20.ArmorUpgradesUnderMeasure",
+	"delicate": "T20.ArmorUpgradesDelicate",
+	"thorny": "T20.ArmorUpgradesThorny",
+	"specialmaterial": "T20.ArmorUpgradesSpecialMaterial",
+	"polished": "T20.ArmorUpgradesPolished",
+	"reinforced": "T20.ArmorUpgradesReinforced",
+	"sealed": "T20.ArmorUpgradesSealed",
+}
+T20.armorUpgradesTooltips = {
+	"adjusted": "T20.ArmorUpgradesTooltipAdjusted",
+	"undermeasure": "T20.ArmorUpgradesTooltipUnderMeasure",
+	"delicate": "T20.ArmorUpgradesTooltipDelicate",
+	"thorny": "T20.ArmorUpgradesTooltipThorny",
+	"specialmaterial": "T20.ArmorUpgradesTooltipSpecialMaterial",
+	"polished": "T20.ArmorUpgradesTooltipPolished",
+	"reinforced": "T20.ArmorUpgradesTooltipReinforced",
+	"sealed": "T20.ArmorUpgradesTooltipSealed",
+}
+
+T20.shieldUpgrades = {
+	"thorny":"T20.ShieldUpgradesThorny"
+}
+T20.shieldUpgradesTooltips = {
+	"thorny":"T20.ShieldUpgradesTooltipThorny"
+}
+for ( let [k, v] of Object.entries(T20.armorUpgrades) ) {
+	if ( k == 'thorny' ) continue;
+	T20.shieldUpgrades[k] = T20.armorUpgrades[k];
+	T20.shieldUpgradesTooltips[k] = T20.armorUpgradesTooltips[k];
+}
+for ( let [k, v] of Object.entries(T20.itemUpgrades) ) {
+	T20.armorUpgrades[k] = T20.itemUpgrades[k];
+	T20.armorUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
+	T20.shieldUpgrades[k] = T20.itemUpgrades[k];
+	T20.shieldUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
+}
+preLocalize("armorUpgrades");
+preLocalize("armorUpgradesTooltips");
+preLocalize("shieldUpgrades");
+preLocalize("shieldUpgradesTooltips");
+
+T20.esotericUpgrades = {
+	"energetic": "T20.EsotericUpgradesEnergetic",
+	"harmonized": "T20.EsotericUpgradesHarmonized",
+	"specialmaterial": "T20.EsotericUpgradesSpecialMaterial",
+	"powerful": "T20.EsotericUpgradesPowerful",
+	"enhancer": "T20.EsotericUpgradesEnhancer",
+	"vigilant": "T20.EsotericUpgradesVigilant",
+}
+
+T20.esotericUpgradesTooltips = {
+	"energetic": "T20.EsotericUpgradesTooltipEnergetic",
+	"harmonized": "T20.EsotericUpgradesTooltipHarmonized",
+	"specialmaterial": "T20.EsotericUpgradesTooltipSpecialMaterial",
+	"powerful": "T20.EsotericUpgradesTooltipPowerful",
+	"enhancer": "T20.EsotericUpgradesTooltipEnhancer",
+	"vigilant": "T20.EsotericUpgradesTooltipVigilant",
+}
+for ( let [k, v] of Object.entries(T20.itemUpgrades) ) {
+	T20.esotericUpgrades[k] = T20.itemUpgrades[k];
+	T20.esotericUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
+}
+preLocalize("esotericUpgrades");
+preLocalize("esotericUpgradesTooltips");
+
+/* -------------------------------------------- */
+
+/**
+ * Define Item Enchantment and Tooltips
+ */
+
+T20.weaponEnchantments = {
+	"keen": "T20.WeaponEnchantKeen",
+	"bane": "T20.WeaponEnchantBane",
+	"throwable": "T20.WeaponEnchantThrowable",
+	"assassin": "T20.WeaponEnchantAssassin",
+	"seeking": "T20.WeaponEnchantSeeking",
+	"frost": "T20.WeaponEnchantFrost",
+	"caster": "T20.WeaponEnchantCaster",
+	"corrosive": "T20.WeaponEnchantCorrosive",
+	"dancing": "T20.WeaponEnchantDancing",
+	"defending": "T20.WeaponEnchantDefending",
+	"destructive": "T20.WeaponEnchantDestructive",
+	"lacerating": "T20.WeaponEnchantLacerating",
+	"draining": "T20.WeaponEnchantDraining",
+	"shock": "T20.WeaponEnchantShock",
+	"energy": "T20.WeaponEnchantEnergy",
+	"excruciating": "T20.WeaponEnchantExcruciating",
+	"flaming": "T20.WeaponEnchantFlaming",
+	"formidable": "T20.WeaponEnchantFormidable",
+	"lancinating": "T20.WeaponEnchantLancinating",
+	"magnificent": "T20.WeaponEnchantMagnificent",
+	"merciful": "T20.WeaponEnchantMerciful",
+	"unholy": "T20.WeaponEnchantUnholy",
+	"holy": "T20.WeaponEnchantHoly",
+	"bloodthirsty": "T20.WeaponEnchantBloodthirsty",
+	"thundering": "T20.WeaponEnchantThundering",
+	"sepulchral": "T20.WeaponEnchantSepulchral",
+	"speed": "T20.WeaponEnchantSpeed",
+	"poisonous": "T20.WeaponEnchantPoisonous",
+}
+T20.weaponEnchantmentsTooltips = {
+	"keen": "T20.WeaponEnchantTooltipKeen",
+	"anticreature": "T20.WeaponEnchantTooltipAntiCreature",
+	"throwable": "T20.WeaponEnchantTooltipThrowable",
+	"assassin": "T20.WeaponEnchantTooltipAssassin",
+	"hunter": "T20.WeaponEnchantTooltipHunter",
+	"freezing": "T20.WeaponEnchantTooltipFreezing",
+	"caster": "T20.WeaponEnchantTooltipCaster",
+	"corrosive": "T20.WeaponEnchantTooltipCorrosive",
+	"dancing": "T20.WeaponEnchantTooltipDancing",
+	"defender": "T20.WeaponEnchantTooltipDefender",
+	"destructive": "T20.WeaponEnchantTooltipDestructive",
+	"lacerating": "T20.WeaponEnchantTooltipLacerating",
+	"draining": "T20.WeaponEnchantTooltipDraining",
+	"eletric": "T20.WeaponEnchantTooltipEletric",
+	"energy": "T20.WeaponEnchantTooltipEnergy",
+	"excruciating": "T20.WeaponEnchantTooltipExcruciating",
+	"flaming": "T20.WeaponEnchantTooltipFlaming",
+	"formidable": "T20.WeaponEnchantTooltipFormidable",
+	"lancinating": "T20.WeaponEnchantTooltipLancinating",
+	"magnificent": "T20.WeaponEnchantTooltipMagnificent",
+	"merciful": "T20.WeaponEnchantTooltipMerciful",
+	"unholy": "T20.WeaponEnchantTooltipUnholy",
+	"holy": "T20.WeaponEnchantTooltipHoly",
+	"bloodthirsty": "T20.WeaponEnchantTooltipBloodthirsty",
+	"thundering": "T20.WeaponEnchantTooltipThundering",
+	"sepulchral": "T20.WeaponEnchantTooltipSepulchral",
+	"speed": "T20.WeaponEnchantTooltipSpeed",
+	"poisonous": "T20.WeaponEnchantTooltipPoisonous",
+}
+preLocalize("weaponEnchantments");
+preLocalize("weaponEnchantmentsTooltips");
+
+T20.armorEnchantments = {
+	"abascanth": "T20.EquipmentEnchantmentAbascanth",
+	"blessed": "T20.EquipmentEnchantmentBlessed",
+	"acrobatic": "T20.EquipmentEnchantmentAcrobatic",
+	"winged": "T20.EquipmentEnchantmentWinged",
+	"frightful": "T20.EquipmentEnchantmentFrightful",
+	"caustic": "T20.EquipmentEnchantmentCaustic",
+	"defending": "T20.EquipmentEnchantmentDefending",
+	"slick": "T20.EquipmentEnchantmentSlick",
+	"ghostly": "T20.EquipmentEnchantmentGhostly",
+	"ortification": "T20.EquipmentEnchantmenFortification",
+	"frost": "T20.EquipmentEnchantmentFrost",
+	"guardian": "T20.EquipmentEnchantmentGuardian",
+	"hypnotic": "T20.EquipmentEnchantmentHypnotic",
+	"illusory": "T20.EquipmentEnchantmentIllusory",
+	"incandescent": "T20.EquipmentEnchantmentIncandescent",
+	"invulnerable": "T20.EquipmentEnchantmentInvulnerable",
+	"opaque": "T20.EquipmentEnchantmentOpaque",
+	"protector": "T20.EquipmentEnchantmentProtector",
+	"reflecting": "T20.EquipmentEnchantmentReflecting",
+	"lightning": "T20.EquipmentEnchantmentLightning",
+	"blinding": "T20.EquipmentEnchantmentBlinding",
+	"shadow": "T20.EquipmentEnchantmentShadow",
+	"zealous": "T20.EquipmentEnchantmentZealous",
+}
+T20.armorEnchantmentsTooltips = {
+	"abascanth": "T20.EquipmentEnchantmentTooltipAbascanth",
+	"blessed": "T20.EquipmentEnchantmentTooltipBlessed",
+	"acrobatic": "T20.EquipmentEnchantmentTooltipAcrobatic",
+	"winged": "T20.EquipmentEnchantmentTooltipWinged",
+	"frightful": "T20.EquipmentEnchantmentTooltipFrightful",
+	"caustic": "T20.EquipmentEnchantmentTooltipCaustic",
+	"defending": "T20.EquipmentEnchantmentTooltipDefending",
+	"slick": "T20.EquipmentEnchantmentTooltipSlick",
+	"ghostly": "T20.EquipmentEnchantmentTooltipGhostly",
+	"ortification": "T20.EquipmentEnchantmenFTooltiportification",
+	"frost": "T20.EquipmentEnchantmentTooltipFrost",
+	"guardian": "T20.EquipmentEnchantmentTooltipGuardian",
+	"hypnotic": "T20.EquipmentEnchantmentTooltipHypnotic",
+	"illusory": "T20.EquipmentEnchantmentTooltipIllusory",
+	"incandescent": "T20.EquipmentEnchantmentTooltipIncandescent",
+	"invulnerable": "T20.EquipmentEnchantmentTooltipInvulnerable",
+	"opaque": "T20.EquipmentEnchantmentTooltipOpaque",
+	"protector": "T20.EquipmentEnchantmentTooltipProtector",
+	"reflecting": "T20.EquipmentEnchantmentTooltipReflecting",
+	"lightning": "T20.EquipmentEnchantmentTooltipLightning",
+	"blinding": "T20.EquipmentEnchantmentTooltipBlinding",
+	"shadow": "T20.EquipmentEnchantmentTooltipShadow",
+	"zealous": "T20.EquipmentEnchantmentTooltipZealous",
+}
+preLocalize("armorEnchantments");
+preLocalize("armorEnchantmentsTooltips");
+
+T20.shieldEnchantments = {
+	"animateed": "T20.EquipmentEnchantmentAnimateed",
+	"bashing": "T20.EquipmentEnchantmentBashing",
+}
+T20.shieldEnchantmentsTooltips = {
+	"animateed": "T20.EquipmentEnchantmentTooltipAnimateed",
+	"bashing": "T20.EquipmentEnchantmentTooltipBashing",
+}
+for ( let [k, v] of Object.entries(T20.armorEnchantments) ) {
+	T20.shieldEnchantments[k] = T20.armorEnchantments[k];
+	T20.shieldEnchantments[k] = T20.armorEnchantmentsTooltips[k];
+}
+preLocalize("shieldEnchantments");
+preLocalize("shieldEnchantmentsTooltips");
+
 
 T20.passosDano = ['1','1d2','1d3','1d4','1d6','1d8','1d10','1d12','3d6','4d6','4d8','4d10','4d12'];
+
+/* -------------------------------------------- */
+
+
 
 // NPC STATS
 T20.tableSize = {

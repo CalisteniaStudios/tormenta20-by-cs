@@ -43,7 +43,7 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/item/parts/item-header.html",
 		"systems/tormenta20/templates/item/parts/item-rolls.html",
 		"systems/tormenta20/templates/item/parts/item-ativacao.html",
-		"systems/tormenta20/templates/item/parts/item-enchantments.html",
+		"systems/tormenta20/templates/item/parts/item-enhancements.html",
 		"systems/tormenta20/templates/item/parts/item-description.html",
 		"systems/tormenta20/templates/item/parts/item-modificacoes.html",
 		"systems/tormenta20/templates/item/parts/item-resistencia.html",

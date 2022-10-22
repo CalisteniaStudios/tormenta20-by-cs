@@ -46,7 +46,7 @@ export default class ActorT20 extends Actor {
 		if (this.type == 'character' ){
 			return ['@meionivel','@treino','@atributo','@outros','@condi'];
 		} else if (this.type == 'npc' ){
-			return ['@treino','@outros','@condi'];
+			return ['@ndtreinado','@ndsemtreino','@outros','@condi'];
 		} else {
 			return ['@atributo','@outros','@condi'];
 		}
@@ -279,6 +279,7 @@ export default class ActorT20 extends Actor {
 		
 		// system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		system.attributes.treino = crData.topskill;
+		system.attributes.meionivel = crData.botskill;
 		// Experience Reward
 		system.attributes.defesa.condi = 0;
 		system.attributes.nivel.xp.value = this.getCRExp(nd);
@@ -380,7 +381,13 @@ export default class ActorT20 extends Actor {
 		pericia.custom = Boolean(key.match(/ofi[1-9]|_pc[1-9]/));
 		pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
 
-		if ( !pericia.treinado ) {
+		if ( this.type == 'npc' ) {
+			if ( !pericia.treinado ) {
+				parts = parts.filter( f => f != '@ndtreinado');
+			} else {
+				parts = parts.filter( f => f != '@ndsemtreino');
+			}
+		} else if ( !pericia.treinado ) {
 			parts = parts.filter( f => f != '@treino');
 		}
 		if ( pericia.bonus.length ) parts.push(...pericia.bonus);
@@ -568,7 +575,12 @@ export default class ActorT20 extends Actor {
 		// Set level abbreviation
 		data["nivel"] =  Number(this.system.attributes?.nivel?.value || 1);
 		data["meionivel"] = Math.floor(data["nivel"] / 2) || 0;
-
+		if ( this.type == 'npc') {
+			let nd = data.attributes.nd;
+			const crData = T20.NPCParams(nd);
+			data["ndtreinado"] = crData.topskill || 0;
+			data["ndsemtreino"] = crData.botskill || 0;
+		}
 		// Set class level
 		const classes = this.items.reduce(function (cn, it) {
 			if (it.type === "classe") cn[it.name.slugify()] = it.system.niveis;

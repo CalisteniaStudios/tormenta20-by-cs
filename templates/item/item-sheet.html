@@ -11,6 +11,9 @@
 		{{#if TODO }}
 		<a class="item" data-tab="progression">{{ localize "T20.Progression" }}</a>
 		{{/if}}
+		{{#if (and (eq item.type "consumivel" (eq item.system.tipo 'ammo')))}}
+		<a class="item" data-tab="enhancements">{{ localize "T20.Enhancements" }}</a>
+		{{/if}}
 		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
 	</nav>
 
@@ -70,6 +73,11 @@
 		{{#if TODO }}
 		{{!-- Progression Tab --}}
 		{{> "systems/tormenta20/templates/item/parts/item-progression.html"}}
+		{{/if}}
+
+		{{#if (eq item.system.tipo "ammo")}}
+		{{!-- Enchantments Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-enchantments.html"}}
 		{{/if}}
 
 		{{!-- Effects Tab --}}

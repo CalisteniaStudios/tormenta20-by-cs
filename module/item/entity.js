@@ -1149,7 +1149,7 @@ export default class ItemT20 extends Item {
 				actor: this.actor,
 				critical: critical ?? false,
 				criticalMultiplier: itemData.criticoX,
-				lancinante: itemData.encantos?.lancinante,
+				lancinante: itemData.encantos?.lancinating,
 				data: rollData,
 				event: event,
 				parts: parts,

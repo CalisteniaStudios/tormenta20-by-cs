@@ -175,7 +175,7 @@
 	<label>{{localize 'T20.Skills'}}: </label>
 	{{#each skills as |skill key|}}
 		{{#unless (or (eq skill.key "perc") (eq skill.key "inic") (eq skill.key "fort") (eq skill.key "refl") (eq skill.key "vont"))}}
-			{{#if (or skill.treino skill.outros) }}
+			{{#if (or skill.treinado skill.outros) }}
 			<span class="skill rollable pericia-rollable" data-item-id="{{skill.key}}">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
 			{{/if}}
 		{{/unless}}

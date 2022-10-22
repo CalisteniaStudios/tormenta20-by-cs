@@ -31,8 +31,53 @@ class systemItemWeaponData extends foundry.abstract.DataModel {
 			criticoM: new fields.NumberField({ required:true, nullable:false, initial:20 }),
 			criticoX: new fields.NumberField({ required:true, nullable:false, initial:2 }),
 			propriedades: new fields.ObjectField(),
+			size: new fields.StringField({ required: true, nullable:false, initial: 'normal' }),
+			melhorias: new fields.ObjectField({
+				accurate: new fields.BooleanField({required: true, initial:false}),
+				pungent: new fields.BooleanField({required: true, initial:false}),
+				cruel: new fields.BooleanField({required: true, initial:false}),
+				atrocious: new fields.BooleanField({required: true, initial:false}),
+				balanced: new fields.BooleanField({required: true, initial:false}),
+				harmonized: new fields.BooleanField({required: true, initial:false}),
+				injection: new fields.BooleanField({required: true, initial:false}),
+				massive: new fields.BooleanField({required: true, initial:false}),
+				specialmaterial: new fields.BooleanField({required: true, initial:false}),
+				scope: new fields.BooleanField({required: true, initial:false}),
+				precise: new fields.BooleanField({required: true, initial:false}),
+				golden: new fields.BooleanField({required: true, initial:false}),
+				gems: new fields.BooleanField({required: true, initial:false}),
+				discreet: new fields.BooleanField({required: true, initial:false}),
+				macabre: new fields.BooleanField({required: true, initial:false}),
+			}),
 			encantos: new fields.ObjectField({
-				lancinante: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+				keen: new fields.BooleanField({required: true, initial:false}),
+				bane: new fields.BooleanField({required: true, initial:false}),
+				throwable: new fields.BooleanField({required: true, initial:false}),
+				assassin: new fields.BooleanField({required: true, initial:false}),
+				seeking: new fields.BooleanField({required: true, initial:false}),
+				frost: new fields.BooleanField({required: true, initial:false}),
+				caster: new fields.BooleanField({required: true, initial:false}),
+				corrosive: new fields.BooleanField({required: true, initial:false}),
+				dancing: new fields.BooleanField({required: true, initial:false}),
+				defending: new fields.BooleanField({required: true, initial:false}),
+				destructive: new fields.BooleanField({required: true, initial:false}),
+				lacerating: new fields.BooleanField({required: true, initial:false}),
+				draining: new fields.BooleanField({required: true, initial:false}),
+				shock: new fields.BooleanField({required: true, initial:false}),
+				energy: new fields.BooleanField({required: true, initial:false}),
+				excruciating: new fields.BooleanField({required: true, initial:false}),
+				flaming: new fields.BooleanField({required: true, initial:false}),
+				formidable: new fields.BooleanField({required: true, initial:false}),
+				lancinating: new fields.BooleanField({required: true, initial:false}),
+				magnificent: new fields.BooleanField({required: true, initial:false}),
+				merciful: new fields.BooleanField({required: true, initial:false}),
+				unholy: new fields.BooleanField({required: true, initial:false}),
+				holy: new fields.BooleanField({required: true, initial:false}),
+				bloodthirsty: new fields.BooleanField({required: true, initial:false}),
+				thundering: new fields.BooleanField({required: true, initial:false}),
+				sepulchral: new fields.BooleanField({required: true, initial:false}),
+				speed: new fields.BooleanField({required: true, initial:false}),
+				poisonous: new fields.BooleanField({required: true, initial:false}),
 			}),
 		}
 	}
@@ -45,8 +90,9 @@ class systemItemWeaponData extends foundry.abstract.DataModel {
 		if( data.propriedades ){
 			/* old >> new */
 		}
-		if( data.encantos ){
-			/* old >> new */
+		if( data.encantos.lancinante ){
+			data.encantos.lancinating = Boolean(data.encantos.lancinante);
+			delete data.encantos.lancinante;
 		}
 		return super.migrateData(data);
 	}
@@ -69,7 +115,10 @@ class systemItemEquipmentData extends foundry.abstract.DataModel {
 			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),
 			equipado: new fields.BooleanField({ required: true, nullable:false, initial: false}),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: 'leve' }),
+			melhorias: new fields.ObjectField(),
+			encantos: new fields.ObjectField(),
 		}
+		
 	}
 
 	/** @inheritdoc */
@@ -94,7 +143,9 @@ class systemItemConsumableData extends foundry.abstract.DataModel {
 			subtipo: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			uses: new fields.SchemaField({
 				autoDestroy: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-			})
+			}),
+			melhorias: new fields.ObjectField(),
+			encantos: new fields.ObjectField(),
 		}
 	}
 
