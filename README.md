@@ -5,8 +5,9 @@ Este é um sistema NÃO OFICIAL feito e mantido por fãs, sem qualquer afiliaç�
 Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 
 
-
 ## Colaboradores
+* Eunaumtenhoid
+* Gustavo Reis
 * TheTruePortal
 * Mateus Marochi
 * Matheus Clemente
@@ -15,11 +16,8 @@ Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 * Alexandre Galdino
 * André Oliveira
 * Vinicius Lima Silva
-* Gustavo Reis
 
 ## Atribuições
-- Arte de alguns ícones de magias: J. W. Bjerk (eleazzaar) -- www.jwbjerk.com/art -- find this and other open art at: http://opengameart.org
+- [FoundryVTT](https://github.com/FoundryVTT/) pelo módulo [dnd5e](https://github.com/FoundryVTT/dnd5e), cujo código foi adaptado neste sistema.
 - [sdenec](https://github.com/sdenec/) pelo módulo [Tidy5e Sheet](https://github.com/sdenec/tidy5e-sheet), cujo código foi adaptado neste sistema.
-- [syl3r86](https://github.com/syl3r86) pelo módulo [FavTab](https://github.com/syl3r86/favtab), que foi adaptado neste sistema.
-- [Tijmen Bok](https://gitlab.com/Furyspark) pelo sistema [Pathfinder 1e for Foundry VTT](https://gitlab.com/Furyspark/foundryvtt-pathfinder1), cujo código foi adaptado neste sistema.
-- Este sistema usa artes de tokens do [Forgotten Adventures](https://www.forgotten-adventures.net). This system uses token arts from [Forgotten Adventures](https://www.forgotten-adventures.net).
+- Este sistema usa artes de tokens do [2 Minute TableTop](https://2minutetabletop.com/).

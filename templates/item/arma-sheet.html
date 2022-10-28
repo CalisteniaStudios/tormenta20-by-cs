@@ -19,10 +19,26 @@
 			
 			{{!-- Weapon Type --}}
 			<div class="form-group">
-				<label>{{ localize "T20.Type" }}</label>
+				<label>{{ localize "T20.WeaponProficiency" }}</label>
 				<div class="form-fields">
-					<select name="system.tipoUso">
-						{{selectOptions config.weaponTypes selected=item.system.tipoUso localize=true}}
+					<select name="system.proficiencia">
+						{{selectOptions config.weaponTypes selected=item.system.proficiencia localize=true}}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.WeaponPurpose" }}</label>
+				<div class="form-fields">
+					<select name="system.proposito">
+						{{selectOptions config.weaponPurposeTypes selected=item.system.proposito localize=true}}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.WeaponWielding" }}</label>
+				<div class="form-fields">
+					<select name="system.empunhadura">
+						{{selectOptions config.weaponWieldingTypes selected=item.system.empunhadura localize=true}}
 					</select>
 				</div>
 			</div>
@@ -63,6 +79,7 @@
 					<input type="checkbox" name="system.propriedades.{{prop}}" value="{{name}}" {{checked (lookup ../item.system.propriedades prop)}} data-dtype="Boolean" /> {{ localize name }}
 				</label>
 				{{/each}}
+
 			</div>
 			<hr>
 			{{!-- Rolls --}}
@@ -75,7 +92,7 @@
 					<input type="number" title="{{ localize 'T20.CriticalHitMultiplier' }}" name="system.criticoX" value="{{item.system.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
-			{{#if (or item.system.propriedades.arr item.system.propriedades.dst)}}
+			{{#unless (eq item.system.proposito "corpo-a-corpo")}}
 			<div class="form-group">
 				<label>{{ localize "T20.Range" }}</label>
 				
@@ -90,7 +107,7 @@
 					</select>
 				</div>
 			</div>
-			{{/if}}
+			{{/unless}}
 			<hr>
 			
 			<div class="form-group">

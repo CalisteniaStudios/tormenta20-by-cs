@@ -13,7 +13,7 @@
   },
   "author": "Vizael",
   "authors": [{"name": "Vizael"}],
-  "esmodules": ["module/tormenta20.js"],
+  "esmodules": ["tormenta20.mjs"],
   "styles": ["tormenta20.css"],
   "scripts": [],
   "packs": [

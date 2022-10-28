@@ -1,0 +1,196 @@
+/**
+ * Extend the base ActiveEffect class to implement system-specific logic.
+ */
+export default class ActiveEffectT20 extends ActiveEffect {
+
+	/**
+	 * Is this active effect currently suppressed?
+	 * @type {boolean}
+	 */
+	isSuppressed = false;
+
+	/**
+	 * Describe whether the ActiveEffect has a temporary duration based on combat turns or rounds.
+	 * @type {boolean}
+	 */
+	get isTemporary() {
+		const scene = this.getFlag('tormenta20','durationScene');
+		const duration = this.duration.seconds ?? (this.duration.rounds || this.duration.turns) ?? 0;
+		return scene || (duration > 0) || this.getFlag("core", "statusId");
+	}
+	/* --------------------------------------------- */
+
+	/** @inheritdoc */
+	apply(actor, change) {
+		if ( this.isSuppressed ) return null;
+		if ( change.key.startsWith("flags.tormenta20.") ) change = this._prepareFlagChange(actor, change);
+		return super.apply(actor, change);
+	}
+
+	/* --------------------------------------------- */
+
+	/**
+	 * Prepare derived data related to active effect duration
+	 * @internal
+	 */
+	_prepareDuration() {
+		const d = this.duration;
+		const isScene = this.getFlag('tormenta20','durationScene');
+
+		// Scene-based duration
+		if ( isScene ) {
+			const start = (d.startTime || game.time.worldTime);
+			const elapsed = game.time.worldTime - start;
+			const remaining = d.seconds - elapsed;
+			return foundry.utils.mergeObject(d, {
+				type: "scene",
+				duration: d.seconds,
+				remaining: remaining,
+				label: game.i18n.localize("T20.TimeScene")
+			});
+		}
+		super._prepareDuration();
+	}
+
+	/* --------------------------------------------- */
+	
+	
+	/**
+	 * Transform the data type of the change to match the type expected for flags.
+	 * @param {ActorT20} actor           The Actor to whom this effect should be applied.
+	 * @param {EffectChangeData} change  The change being applied.
+	 * @returns {EffectChangeData}       The change with altered types if necessary.
+	 */
+	_prepareFlagChange(actor, change) {
+		const { key, value } = change;
+		const data = CONFIG.T20.characterFlags[key.replace("flags.tormenta20.", "")];
+		if ( !data ) return change;
+
+		// Set flag to initial value if it isn't present
+		const current = foundry.utils.getProperty(actor, key) ?? null;
+		if ( current === null ) {
+			let initialValue = null;
+			if ( data.placeholder ) initialValue = data.placeholder;
+			else if ( data.type === Boolean ) initialValue = false;
+			else if ( data.type === Number ) initialValue = 0;
+			foundry.utils.setProperty(actor, key, initialValue);
+		}
+
+		// Coerce change data into the correct type
+		if ( data.type === Boolean ) {
+			if ( value === "false" ) change.value = false;
+			else change.value = Boolean(value);
+		}
+		return change;
+	}
+
+	/* --------------------------------------------- */
+
+	/**
+	 * Determine whether this Active Effect is suppressed or not.
+	 */
+	determineSuppression() {
+		return false;
+		this.isSuppressed = false;
+		if ( this.disabled || (this.parent.documentName !== "Actor") ) return;
+		const [parentType, parentId, documentType, documentId] = this.origin?.split(".") ?? [];
+		if ( (parentType !== "Actor") || (parentId !== this.parent.id) || (documentType !== "Item") ) return;
+		const item = this.parent.items.get(documentId);
+		if ( !item ) return;
+		this.isSuppressed = item.areEffectsSuppressed;
+	}
+
+	/* --------------------------------------------- */
+
+	/**
+ * Manage Active Effect instances through the Actor Sheet via effect control buttons.
+ * @param {MouseEvent} event        The left-click event on the effect control
+ * @param {ActorT20|ItemT20} owner  The owning document which manages this effect
+ * @returns {Promise|null}          Promise that resolves when the changes are complete.
+ */
+	static onManageActiveEffect(event, owner) {
+		event.preventDefault();
+		const a = event.currentTarget;
+		const li = a.closest("li");
+		const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null;
+		const type = li.dataset.effectType == "onuseTemp" ? "onuse" : li.dataset.effectType;
+		const temp = li.dataset.effectType == "onuseTemp" ? true : false;
+		switch ( a.dataset.action ) {
+			case "create":
+			return owner.createEmbeddedDocuments("ActiveEffect", [{
+				label:  type=="onuse" ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
+				icon: ( type=="onuse" ? "icons/svg/upgrade.svg" :
+												owner.documentName == "Item" ? owner.img : "icons/svg/aura.svg"),
+				origin: owner.uuid,
+				tint: "#FFFFFF",
+				flags: { tormenta20: { onuse: type=="onuse", durationScene: temp } },
+				"duration.rounds": type === "temporary" || temp ? 1 : undefined,
+				"duration.seconds": undefined,
+				disabled: ["inactive","onuse"].includes(type)
+			}]);
+			case "edit":
+			return effect.sheet.render(true);
+			case "delete":
+			return effect.delete();
+			case "toggle":
+			return effect.update({disabled: !effect.disabled});
+		}
+	}
+
+	/* --------------------------------------------- */
+
+	/**
+	 * Prepare the data structure for Active Effects which are currently applied to an Actor or Item.
+	 * @param {ActiveEffect[]} effects    The array of Active Effect instances to prepare sheet data for
+	 * @return {object}                   Data for rendering
+	 */
+	static prepareActiveEffectCategories(effects) {
+
+		// Define effect header categories
+		const categories = {
+			onuse: {
+				type: "onuse",
+				label: game.i18n.localize("T20.OnUseEffect"),//"Efeitos de Uso",
+				effects: []
+			},
+			onuseTemp: {
+				type: "onuseTemp",
+				label: game.i18n.localize("T20.OnUseEffectTemporary"),//"Efeitos de Uso Temporários",
+				effects: []
+			},
+			temporary: {
+				type: "temporary",
+				label: game.i18n.localize("T20.EffectTemporary"),//"Efeitos Temporários",
+				effects: []
+			},
+			passive: {
+				type: "passive",
+				label: game.i18n.localize("T20.EffectPassive"),//"Efeitos Passivos",
+				effects: []
+			},
+			inactive: {
+				type: "inactive",
+				label: game.i18n.localize("T20.EffectInactive"),//"Efeitos Inativos",
+				effects: []
+			}
+		};
+		// Iterate over active effects, classifying them into categories
+		for ( let e of effects ) {
+			e._getSourceName(); // Trigger a lookup for the source name
+			if(e.parent.documentName == "Actor" && e.origin && e.origin.split(".")[3]) {
+				const actor = e.parent;
+				const item = actor.items.get(e.origin.split(".")[3]);
+				if(item && item.type == "equipamento" && (e.disabled !== !item.system.equipado) ){
+					e.update({disabled: !item.system.equipado});
+				}
+			}
+			if ( e.flags.tormenta20?.onuse && e.isTemporary ) categories.onuseTemp.effects.push(e);
+			else if ( e.flags.tormenta20?.onuse ) categories.onuse.effects.push(e);
+			else if ( e.disabled ) categories.inactive.effects.push(e);
+			else if ( e.isTemporary ) categories.temporary.effects.push(e);
+			else categories.passive.effects.push(e);
+		}
+		
+		return categories;
+	}
+}

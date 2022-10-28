@@ -15,7 +15,9 @@
 		</span>
 		<footer class="attribute-footer flexrow">
 			<input type="number" name="system.atributos.{{key}}.base" value="{{atr.base}}" title="{{ localize 'T20.AbilityBase'}}"/>
+			{{#if mostrarAtributoTemp }}
 			<input type="number" name="system.atributos.{{key}}.bonus" value="{{atr.bonus}}" title="{{ localize 'T20.AbilityBonus'}}" >
+			{{/if}}
 		</footer>
 	</li>
 	{{/if}}
