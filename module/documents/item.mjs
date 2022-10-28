@@ -1069,10 +1069,12 @@ export default class ItemT20 extends Item {
 		const itemData = this.system;
 		const actorData = this.actor.system;
 		let pericia;
+		let lancinante = false;
 		options.type = 'damage';
 		if(this.type == "arma") {
 			critical = itemData.rolled?.Ataque?._critical || false;
 			pericia = itemData.rolls.find(i => i.type == "ataque")?.parts[1][0];
+			lancinante = Object.values(itemData.upgrades)?.includes('lancinating');
 		}
 		for (let r of itemData.rolls.filter(i => i.type == "dano")) {
 			// Get roll data
@@ -1084,7 +1086,7 @@ export default class ItemT20 extends Item {
 				actor: this.actor,
 				critical: critical ?? false,
 				criticalMultiplier: itemData.criticoX,
-				lancinante: Object.values(itemData.upgrades).inlcudes('lancinating'),
+				lancinante: lancinante,
 				data: rollData,
 				event: event,
 				parts: parts,

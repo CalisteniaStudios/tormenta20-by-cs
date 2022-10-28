@@ -586,13 +586,16 @@ export default class ActorT20 extends Actor {
 		}, {});
 		data["nvl"] = classes;
 		// Set power type modifiers (ie.: tormenta, distinction)
-		const powers = this.items.reduce(function (cn, it) {
-			if (it.type === "poder"){
-				let slug = it.system.subtipo.slugify();
-				cn[slug] = (cn[slug] ?? 0) + 1;
-			}
-			return cn;
-		}, {});
+		const powers = {};
+		this.items.map(m=>m.system.tags).flat().map(f=>f.capitalize()).forEach(f=>powers[f] = (powers[f] ?? 0) +1 );
+
+		// const powers = this.items.reduce(function (cn, it) {
+		// 	if (it.type === "poder"){
+		// 		let slug = it.system.subtipo.slugify();
+		// 		cn[slug] = (cn[slug] ?? 0) + 1;
+		// 	}
+		// 	return cn;
+		// }, {});
 		for (let [k, v] of Object.entries(powers)) {
 			powers[k+'2'] = 1+ Math.floor( (powers[k] - 1) / 2);
 			powers[k+'3'] = 1+ Math.floor( (powers[k] - 1) / 3);

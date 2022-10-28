@@ -53,6 +53,13 @@
       "type": "Item"
     },
     {
+      "name": "habilidades-de-criaturas",
+      "label": "Habilidades de Criaturas",
+      "system": "tormenta20",
+      "path": "./packs/habilidades-de-criaturas.db",
+      "type": "Item"
+    },
+    {
       "name": "pocoes",
       "label": "Poções",
       "system": "tormenta20",
@@ -81,24 +88,10 @@
       "type": "Actor"
     },
     {
-      "name": "condicoes",
-      "label": "Condições",
-      "system": "tormenta20",
-      "path": "./packs/condicoes.db",
-      "type": "JournalEntry"
-    },
-    {
       "name": "basico",
       "label": "Livro Básico",
       "system": "tormenta20",
       "path": "./packs/basico.db",
-      "type": "JournalEntry"
-    },
-    {
-      "name": "pericias",
-      "label": "Perícias",
-      "system": "tormenta20",
-      "path": "./packs/pericias.db",
       "type": "JournalEntry"
     },
     {

@@ -1,5 +1,5 @@
 # Lista de Mudanças
-## Versão 1.4.100
+## Versão 1.4.101
 - Atualização: Tormenta20 Versão Jogo do Ano;
 - Atualização: Compêndios Atualizados. Agradecimentos a @eunaumtenhoid, @Gustavo Reis, @nightflight, @MrRavnark e @FalArthur
 

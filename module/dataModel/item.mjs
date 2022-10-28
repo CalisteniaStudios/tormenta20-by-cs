@@ -145,6 +145,8 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 				encanto2: new fields.StringField({ required: true, blank:true, initial: '', label:"T20.ItemEnchantmentUpgrade", hint:"T20.ItemEnchantmentUpgradeHint" }),
 				encanto3: new fields.StringField({ required: true, blank:true, initial: '', label:"T20.ItemEnchantmentUpgrade", hint:"T20.ItemEnchantmentUpgradeHint" }),
 			}),
+			melhorias: new fields.ObjectField(),
+			encantos: new fields.ObjectField(),
 		}
 
 		if( type == 'arma' ) {
@@ -165,9 +167,10 @@ class systemItemWeaponData extends systemItemBaseData {
 			...this.schemaActivation(type),
 			...this.schemaUpgrades(type),
 			equipado: new fields.NumberField({ required: true, nullable:false, initial: 0, min:0, max:2, label:"T20.ItemEquipped", hint:"T20.ItemEquippedHint" }),
-			proficiencia: new fields.StringField({ required: true, nullable:false, choices:Object.keys(T20.weaponTypes), initial: 'simples', label:"T20.ItemWeaponProficiency", hint:"T20.ItemWeaponProficiencyHint" }),
-			proposito: new fields.StringField({ required: true, nullable:false, choices:Object.keys(T20.weaponPurposeTypes), initial: 'cac', label:"T20.ItemWeaponPurpose", hint:"T20.ItemWeaponPurposeHint" }),
-			empunhadura: new fields.StringField({ required: true, nullable:false, choices:Object.keys(T20.weaponWieldingTypes), initial: 'leve', label:"T20.ItemWeaponWielding", hint:"T20.ItemWeaponWieldingHint" }),
+			tipoUso: new fields.StringField({initial: 'sim' }),
+			proficiencia: new fields.StringField({ required: true, nullable:false, blank:true, choices:Object.keys(T20.weaponTypes), initial: '', label:"T20.ItemWeaponProficiency", hint:"T20.ItemWeaponProficiencyHint" }),
+			proposito: new fields.StringField({ required: true, nullable:false, blank:true, choices:Object.keys(T20.weaponPurposeTypes), initial: '', label:"T20.ItemWeaponPurpose", hint:"T20.ItemWeaponPurposeHint" }),
+			empunhadura: new fields.StringField({ required: true, nullable:false, blank:true, choices:Object.keys(T20.weaponWieldingTypes), initial: '', label:"T20.ItemWeaponWielding", hint:"T20.ItemWeaponWieldingHint" }),
 			criticoM: new fields.NumberField({ required:true, nullable:false, initial:20, label:"T20.ItemWeaponCriticalRange", hint:"T20.ItemWeaponCriticalRangeHint" }),
 			criticoX: new fields.NumberField({ required:true, nullable:false, initial:2, label:"T20.ItemWeaponCriticalMultiplier", hint:"T20.ItemWeaponCriticalMultiplierHint" }),
 			propriedades: new fields.ObjectField(),
@@ -180,7 +183,7 @@ class systemItemWeaponData extends systemItemBaseData {
 		if( typeof data.equipado === 'boolean' ){
 			data.equipado = data.equipado ? 1 : 0;
 		}
-		if( hasProperty(data, 'tipoUso') ){
+		if( !data.proficiencia && hasProperty(data, 'tipoUso') && data.tipoUso ){
 			let proficiencia = {
 				sim: "simples",
 				mar: "marcial",
@@ -190,24 +193,24 @@ class systemItemWeaponData extends systemItemBaseData {
 				imp: "improvisada",
 			}
 			data.proficiencia = proficiencia[data.tipoUso];
-			delete data.tipoUso;
+			data.tipoUso = null;
 		}
 
-		if ( hasProperty(data.propriedades, 'arr') && hasProperty(data.propriedades, 'mun') && hasProperty(data.propriedades, 'dst') ){
+		if ( !data.proposito && hasProperty(data.propriedades, 'arr') && hasProperty(data.propriedades, 'mun') && hasProperty(data.propriedades, 'dst') ){
 			let proposito = data.propriedades.arr ? 'arremesso' : (data.propriedades.mun ? 'disparo' : (data.propriedades.dst ? 'disparo' : 'corpo-a-corpo' ) );
 			data.proposito = proposito;
 			delete data.propriedades.arr;
 			delete data.propriedades.mun;
 			delete data.propriedades.dst;
 		}
-		if( hasProperty(data.propriedades, 'lev') && hasProperty(data.propriedades, 'dms') ){
+		if( !data.empunhadura && hasProperty(data.propriedades, 'lev') && hasProperty(data.propriedades, 'dms') ){
 			let empunhadura = data.propriedades.lev ? 'leve' : (data.propriedades.dms ? 'duas' : 'uma' );
 			data.empunhadura = empunhadura;
 			delete data.propriedades.lev;
 			delete data.propriedades.dms;
 		}
 
-		if( data.melhorias ){
+		if( hasProperty(data, 'melhorias') ){
 			/* old >> new */
 			let i = 1;
 			for (let [key, value] of Object.entries(data.melhorias)) {
@@ -217,15 +220,15 @@ class systemItemWeaponData extends systemItemBaseData {
 					i++;
 				}
 			}
-			delete data.melhorias;
+			// delete data.melhorias;
 		}
 		
 		if(hasProperty(data.encantos, 'lancinante') ){
 			data.encantos.lancinating = Boolean(data.encantos.lancinante);
-			delete data.encantos.lancinante;
+			// delete data.encantos.lancinante;
 		}
 		
-		if( data.encantos ){
+		if( hasProperty(data, 'encantos') ){
 			let i = 1;
 			for (let [key, value] of Object.entries(data.encantos)) {
 				if ( i > 3 ) break;
@@ -234,7 +237,7 @@ class systemItemWeaponData extends systemItemBaseData {
 					i++;
 				}
 			}
-			delete data.encantos;
+			// delete data.encantos;
 		}
 
 		return super.migrateData(data);
@@ -434,8 +437,8 @@ class systemItemWeaponData2 extends foundry.abstract.DataModel {
 			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),
 			equipado: new fields.NumberField({ required: true, nullable:false, initial: 0, min:0, max:2 }),
 			tipoUso: new fields.StringField({ required: true, nullable:false, initial: 'sim' }),
-			proficiencia: new fields.StringField({ required: true, nullable:false, initial: 'simples' }),
-			proposito: new fields.StringField({ required: true, nullable:false, initial: 'corpo' }),
+			proficiencia: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			proposito: new fields.StringField({ required: true, nullable:false, initial:'' }),
 			empunhadura: new fields.StringField({ required: true, nullable:false, initial: 'leve' }),
 			alcance: new fields.StringField({ required: true, nullable:false, initial: '' }),
 			criticoM: new fields.NumberField({ required:true, nullable:false, initial:20 }),
