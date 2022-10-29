@@ -177,9 +177,11 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		// Iterate over active effects, classifying them into categories
 		for ( let e of effects ) {
 			e._getSourceName(); // Trigger a lookup for the source name
-			if(e.parent.documentName == "Actor" && e.origin && e.origin.split(".")[3]) {
+			// "Scene.LHCnclhpzL2HLRXl.Token.FESsOwM4T5KDlvL3.Item.7CJLsHVzGvDXZdkp"
+			let origin = e.origin.split(".") || [];
+			if(e.parent.documentName == "Actor" && origin.includes("Item")) {
 				const actor = e.parent;
-				const item = actor.items.get(e.origin.split(".")[3]);
+				const item = actor.items.get(origin.pop());
 				if(item && item.type == "equipamento" && (e.disabled !== !item.system.equipado) ){
 					e.update({disabled: !item.system.equipado});
 				}

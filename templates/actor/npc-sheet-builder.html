@@ -392,7 +392,6 @@
 						<div class="item-bonus">{{localize 'T20.Bonus'}}</div>
 					</li>
 					{{#each skills as | skill key |}}
-						{{log key}}{{log skill}}
 						{{#unless (or (gt key 12) (eq skill.key 'luta') (eq skill.key 'pont') (eq skill.key 'fort') (eq skill.key 'refl') (eq skill.key 'vont') (eq skill.key 'defe') (eq skill.key 'ocul') ) }}
 						<li class="skill item flexrow">
 							<div class="item-name">{{skill.label}}</div>

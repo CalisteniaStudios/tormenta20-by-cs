@@ -28,8 +28,8 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 			actor: actorData,
 			source: source.system,
 			system: actorData.system,
-			// data: actorData.system.toObject(false),
-			skills: actorData.system.toObject(false).pericias,
+			// data: actorData.system,
+			skills: actorData.system.pericias,
 			items: actorData.items,
 			movement: this._prepareMovementSpeed(actorData),
 			senses: this._prepareSenses(actorData),
@@ -41,6 +41,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 			cssClass: this.actor.isOwner ? "editable" : "locked",
 			isCharacter: this.actor.type === "character",
 			isNPC: this.actor.type === "npc",
+			isSimple: this.actor.type === "simple",
 			config: CONFIG.T20,
 		};
 		

@@ -201,8 +201,8 @@ export const SystemSettings = function() {
 		name: game.i18n.localize("T20.SettingEmcumbrancreRule"),
 		hint: game.i18n.localize("T20.SettingEmcumbrancreRuleHint"),
 		scope: "world",
-		config: true,
-		default: "core",
+		config: false,
+		default: "espacos",
 		type: String,
 		choices: {
 			"core": game.i18n.localize("T20.SettingEmcumbrancreRuleCore"),

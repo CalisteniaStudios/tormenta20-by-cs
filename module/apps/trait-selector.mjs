@@ -49,9 +49,16 @@ export default class TraitSelector extends FormApplication {
 					choices: v.choices ? v.choices : [],
 					chosen: attr ? attr.value.includes(k) : false
 				}
+				for ( let [ck,cv] of Object.entries(choices[k].choices)) {
+					choices[k].choices[ck] = {
+						label: cv.label ? cv.label : cv,
+						chosen: attr ? attr.value.includes(ck) : false
+					}
+				}
 				columns = v.choices ? 2 : 1;
 			}
 		}
+		console.log( this.options.choices, choices);
 		// Return data
 		return {
 			allowCustom: this.options.allowCustom,

@@ -109,7 +109,9 @@ export default class ItemT20 extends Item {
 
 	prepareBaseData() {
 		super.prepareBaseData();
-		
+		if ( this.type === "equipamento" && this.parent?.type !== "character" ) {
+			this.system.equipado = false;
+		}
 		/* FIX item description issues */
 		if ( typeof this.system.description === 'string' || this.system.description instanceof String ) {
 			this.system.description = {value: this.system.description};
@@ -562,7 +564,7 @@ export default class ItemT20 extends Item {
 	_onCreateOwnedEquipment(data, actorData, isNPC) {
 		const updates = {};
 		if ( foundry.utils.getProperty(data, "system.equipado") === undefined ) {
-			updates["system.equipado"] = isNPC;       // NPCs automatically equip equipment
+			updates["system.equipado"] = false;
 		}
 		return updates;
 	}
@@ -620,6 +622,7 @@ export default class ItemT20 extends Item {
 		
 		if( isNPC ) {
 			if ( data.system.rolls ) {
+				updates["system.ataques"] = 1;
 				let attackRoll = data.system.rolls.find( r => r.type == 'ataque' );
 				let damageRoll = data.system.rolls.find( r => r.type == 'dano' );
 				if( attackRoll && damageRoll ){

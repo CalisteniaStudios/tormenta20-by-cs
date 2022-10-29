@@ -99,7 +99,7 @@ export default class StatblockParser extends FormApplication {
 			const cRole = Object.fromEntries( Object.entries(CONFIG.T20.creatureRoles).map(([key, value]) => [value, key]) );
 			const cSize = Object.fromEntries( Object.entries(CONFIG.T20.actorSizes).map(([key, value]) => [value, key]) );
 	
-			let types = statblock.capitalize().match(/.* \((especial|solo|lacaio)\)/i)[0].replace(/Iniciativa|\(|\)/g,'').trim().split(' ').map( m => cType[m] || cRole[m.capitalize()] || cSize[m] || m );
+			let types = statblock.capitalize().match(/.* (especial|solo|lacaio)/i)[0].replace(/Iniciativa|\(|\)/g,'').trim().split(' ').map( m => cType[m] || cRole[m.capitalize()] || cSize[m] || m );
 			for (let t of types) {
 				if( CONFIG.T20.creatureTypes[t] ) {
 					schema.detalhes.tipo = t;
@@ -327,15 +327,25 @@ export default class StatblockParser extends FormApplication {
 			arma: 'packequipamentos', equipamento: 'packequipamentos',
 			magia: 'packsmagias', poder: 'packspoderes',
 		}
-		let item = game.items.find( f => f.type == type && names.includes(f.name.slugify()) );
-		if ( !item ) {
-			let pack;
+		console.log(names);
+		names.sort((a, b)=> b.length - a.length);
+		// let item = game.items.find( f => f.type == type && names.includes(f.name.slugify()) );
+		let item = false;
+		names.every((n)=>{
 			if ( type == '*') {
-				item = this.object[packs['equipamento']].find( f => f.type == type && names.includes(f.name.slugify()) );
+				console.log(item, n, type);
+				item = game.items.find( (f)=> !['poder','magia','arma','classe'].includes(f.type) && f.name.slugify() == n );
+				if ( item ) return;
+				item = this.object[packs['equipamento']].find( f => f.type == type && f.name.slugify() == n );
 			} else {
-				item = this.object[packs[type]].find( f => f.type == type && names.includes(f.name.slugify()) );
+				item = game.items.find( (f)=> f.type==type && f.name.slugify() == n );
+				if ( item ) return;
+				item = this.object[packs[type]].find( f => f.type == type && f.name.slugify() == n );
 			}
-		}
+			if ( item ) return;
+			return true;
+		});
+		
 		if ( !item ) {
 			type = type == '*' ? 'tesouro' : type;
 			item = new game.tormenta20.entities.ItemT20({type:type, name: words.join(' ')});

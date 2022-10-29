@@ -96,32 +96,34 @@ export default class ItemSheetT20 extends ItemSheet {
 	/** @override */
 	async getData(options) {
 		const sheetData = await super.getData(options);
+		const item = sheetData.item;
+		const source = item.toObject();
 		const itemData =  this.item.system;
-		sheetData.labels = this.item.labels;
-		sheetData.config = CONFIG.T20;
 
-		sheetData.itemType = sheetData.item.type.capitalize();
-		if( this.item.type == 'classe' ){
-			sheetData.itemStatus = this._getItemStatus(this.item);
-		} else if ( this.item.type == 'equipamento' ) {
-			sheetData.itemStatus = this._getItemStatus(this.item);
-		} else if ( this.item.type == 'magia' ){
-			sheetData.itemStatus = this._getItemStatus(this.item);
-		}
+		foundry.utils.mergeObject(sheetData, {
+			source: source.system,
+			system: item.system,
+			labels: this.item.labels,
+			isOwned: item.isOwned,
+			isCharacterOwned: item.isOwned && item.parent.type==="character",
+			isNPCOwned: item.isOwned && item.parent.type==="npc",
+			isSimpleOwned: item.isOwned && item.parent.type==="simle",
 
-		sheetData.itemProperties = this._getItemProperties();
-		sheetData.isPhysical = itemData.hasOwnProperty("qtd");
-		sheetData.weightRule = game.settings.get("tormenta20", "weightRule");
-		sheetData.isOwned = sheetData.item.isOwned;
-		// Resource to Consume
-		sheetData.abilityConsumptionTargets = this._getItemConsumptionTargets(itemData);
-		// Prepare Active Effects
-		sheetData.effects = ActiveEffectT20.prepareActiveEffectCategories(this.item.effects);
-
-		sheetData.system = itemData;
+			config: CONFIG.T20,
+			// itemType: sheetData.item.type.capitalize(),
+			itemType: game.i18n.localize(`ITEM.Type${item.type.titleCase()}`),
+			itemStatus: this._getItemStatus(),
+			itemProperties: this._getItemProperties(),
+			isPhysical: item.system.hasOwnProperty("qtd"),
+			
+			// Prepare Active Effects
+			effects: ActiveEffectT20.prepareActiveEffectCategories(item.effects),
+			// Resource to Consume
+			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system),
+		});
 		
 		sheetData.system.description.value = await TextEditor.enrichHTML(sheetData.system.description.value, {
-			secrets: this.item.isOwner,
+			secrets: item.isOwner,
 			async: true,
 			relativeTo: this.item
 		});
@@ -302,15 +304,17 @@ export default class ItemSheetT20 extends ItemSheet {
 	* Get status text for itens;
 	* @retun {string}
 	*/
-	_getItemStatus(item) {
+	_getItemStatus() {
 		if( this.item.type == 'classe' ){
-			return game.i18n.localize(item.system.inicial ? "T20.ClassOriginal" : "");
-		} else if( item.type === "magia" ){
-			return game.i18n.localize(item.system.preparada ? "T20.SpellPrepPrepared" : "");
-		} else if ( ["arma"].includes(item.type) ){
-			return game.i18n.localize(item.system.equipado ? ( item.system.equipado == 2 ? "T20.WieldedDual" : "T20.Wielded" ) : "");
-		} else if ( ["equipamento"].includes(item.type) ){
-			return game.i18n.localize(item.system.equipado ? "T20.Weared" : "");
+			return game.i18n.localize(this.item.system.inicial ? "T20.ClassOriginal" : "");
+		} else if( this.item.type === "magia" ){
+			return game.i18n.localize(this.item.system.preparada ? "T20.SpellPrepPrepared" : "");
+		} else if ( ["arma"].includes(this.item.type) ){
+			return game.i18n.localize(this.item.system.equipado ? ( this.item.system.equipado == 2 ? "T20.WieldedDual" : "T20.Wielded" ) : "");
+		} else if ( ["equipamento"].includes(this.item.type) ){
+			return game.i18n.localize(this.item.system.equipado ? "T20.Weared" : "");
+		} else {
+			return false;
 		}
 	}
 

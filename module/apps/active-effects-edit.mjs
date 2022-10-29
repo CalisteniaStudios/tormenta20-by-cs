@@ -18,7 +18,6 @@ export default class ActiveEffectEdit extends FormApplication {
 		// formData['effects'] = this.object.item.effects.map( m => new ActiveEffect(m.toObject()) );
 		// formData['effects'] = prepareActiveEffectCategories(this.object.item.effects);
 		formData['effects'] = ActiveEffectT20.prepareActiveEffectCategories(this.object.effects);
-		console.log(this);
 		return formData;
 	}
 

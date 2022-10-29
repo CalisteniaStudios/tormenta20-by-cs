@@ -87,7 +87,10 @@
 			<div style="flex:0 0 10px"></div>
 			<div class="item-name">
 				<span class="rollable arma-rollable" data-item-id="{{item._id}}">
-				<h4 class="item-name" style="flex: 5;">{{#if (gt item.system.qtd 1)}}{{item.system.qtd}}x{{/if}} {{item.name}}
+				<h4 class="item-name" style="flex: 5;">
+					{{#if (gt item.system.qtd 1)}}{{item.system.qtd}}{{/if}}
+					{{item.name}}
+					{{#if (gt item.system.ataques 1)}}{{item.system.ataques}}x{{/if}}
 					{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
 				</h4>
 				</span>

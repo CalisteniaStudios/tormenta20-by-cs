@@ -166,6 +166,7 @@ class systemItemWeaponData extends systemItemBaseData {
 			...this.schemaPhysicalItem(type),
 			...this.schemaActivation(type),
 			...this.schemaUpgrades(type),
+			ataques: new fields.NumberField({initial:0, label:"T20.ItemAttackQuantity", hint:"T20.ItemAttackQuantityHint"}),
 			equipado: new fields.NumberField({ required: true, nullable:false, initial: 0, min:0, max:2, label:"T20.ItemEquipped", hint:"T20.ItemEquippedHint" }),
 			tipoUso: new fields.StringField({initial: 'sim' }),
 			proficiencia: new fields.StringField({ required: true, nullable:false, blank:true, choices:Object.keys(T20.weaponTypes), initial: '', label:"T20.ItemWeaponProficiency", hint:"T20.ItemWeaponProficiencyHint" }),

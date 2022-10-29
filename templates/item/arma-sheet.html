@@ -92,10 +92,8 @@
 					<input type="number" title="{{ localize 'T20.CriticalHitMultiplier' }}" name="system.criticoX" value="{{item.system.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
-			{{#unless (eq item.system.proposito "corpo-a-corpo")}}
 			<div class="form-group">
 				<label>{{ localize "T20.Range" }}</label>
-				
 				<div class="form-fields">
 					<select class="selectatr" name="system.alcance" value={{item.system.alcance}} data-type="String">
 						{{#select item.system.alcance}}
@@ -107,7 +105,6 @@
 					</select>
 				</div>
 			</div>
-			{{/unless}}
 			<hr>
 			
 			<div class="form-group">
