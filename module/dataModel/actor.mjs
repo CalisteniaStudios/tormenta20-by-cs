@@ -138,7 +138,7 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 			nivel: this.schemaLevel(type),
 			pv: this.schemaResources(),
 			pm: this.schemaResources(),
-			sentidos: this.schemaMovement(),
+			sentidos: this.schemaSenses(),
 			treino: new fields.NumberField({ required: true, nullable:false, initial:0, label: "T20.AttributeTrainingValue", hint: "T20.AttributeTrainingValueHint" }),
 		}
 		if ( type == 'npc' ){
