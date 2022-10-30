@@ -1365,7 +1365,7 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	applyActiveEffects() {
 		const overrides = {};
-		
+		this.effects.forEach(e => e.determineSuppression());
 		// Organize non-disabled effects by their application priority
 		const changes = this.effects.reduce((changes, e) => {
 			if ( e.disabled || e.isSuppressed || e.flags?.tormenta20?.onuse ) return changes;

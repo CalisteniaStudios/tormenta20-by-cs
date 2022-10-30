@@ -90,11 +90,10 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	 * Determine whether this Active Effect is suppressed or not.
 	 */
 	determineSuppression() {
-		return false;
 		this.isSuppressed = false;
 		if ( this.disabled || (this.parent.documentName !== "Actor") ) return;
 		const [parentType, parentId, documentType, documentId] = this.origin?.split(".") ?? [];
-		if ( (parentType !== "Actor") || (parentId !== this.parent.id) || (documentType !== "Item") ) return;
+		if ( (parentType !== "Actor" && parentType !== "Token") || (parentId !== this.parent.id) || (documentType !== "Item") ) return;
 		const item = this.parent.items.get(documentId);
 		if ( !item ) return;
 		this.isSuppressed = item.areEffectsSuppressed;
@@ -172,21 +171,19 @@ export default class ActiveEffectT20 extends ActiveEffect {
 				type: "inactive",
 				label: game.i18n.localize("T20.EffectInactive"),//"Efeitos Inativos",
 				effects: []
+			},
+			suppressed: {
+				type: "suppressed",
+				label: game.i18n.localize("T20.EffectSuppressed"),
+				effects: [],
+				info: [game.i18n.localize("T20.EffectSuppressedHint")]
 			}
 		};
 		// Iterate over active effects, classifying them into categories
 		for ( let e of effects ) {
 			e._getSourceName(); // Trigger a lookup for the source name
-			// "Scene.LHCnclhpzL2HLRXl.Token.FESsOwM4T5KDlvL3.Item.7CJLsHVzGvDXZdkp"
-			let origin = e.origin.split(".") || [];
-			if(e.parent.documentName == "Actor" && origin.includes("Item")) {
-				const actor = e.parent;
-				const item = actor.items.get(origin.pop());
-				if(item && item.type == "equipamento" && (e.disabled !== !item.system.equipado) ){
-					e.update({disabled: !item.system.equipado});
-				}
-			}
-			if ( e.flags.tormenta20?.onuse && e.isTemporary ) categories.onuseTemp.effects.push(e);
+			if ( e.isSuppressed ) categories.suppressed.effects.push(e);
+			else if ( e.flags.tormenta20?.onuse && e.isTemporary ) categories.onuseTemp.effects.push(e);
 			else if ( e.flags.tormenta20?.onuse ) categories.onuse.effects.push(e);
 			else if ( e.disabled ) categories.inactive.effects.push(e);
 			else if ( e.isTemporary ) categories.temporary.effects.push(e);

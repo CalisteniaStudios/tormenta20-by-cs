@@ -103,6 +103,16 @@ export default class ItemT20 extends Item {
 		return effects;
 	}
 
+	/**
+	 * Should this item's active effects be suppressed.
+	 * @type {boolean}
+	 */
+	get areEffectsSuppressed() {
+		const requireEquipped = ["arma", "equipamento"].includes(this.type);
+		if ( requireEquipped && (this.system.equipado === false || this.system.equipado == 0) ) return true;
+		return false;
+	}
+	
 	/* -------------------------------------------- */
 	/*  DataPreparation                             */
 	/* -------------------------------------------- */
