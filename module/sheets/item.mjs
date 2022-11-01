@@ -314,7 +314,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		} else if ( ["equipamento"].includes(this.item.type) ){
 			return game.i18n.localize(this.item.system.equipado ? "T20.Weared" : "");
 		} else {
-			return false;
+			return '';
 		}
 	}
 
@@ -552,15 +552,18 @@ export default class ItemSheetT20 extends ItemSheet {
 	 */
 	_createScroll(){
 		let itemData = {};
-		itemData.data = deepClone( this.object.system );
+		itemData.system = deepClone( this.object.system );
 		itemData.type = "consumivel";
 		itemData.name = game.i18n.format('T20.ConsumableSpellName',{
 			item: game.i18n.localize('T20.ConsumableSubtypeScroll'),
 			name:this.object.name
 		}),
 		itemData.img = "icons/sundries/scrolls/scroll-bound-black-tan.webp",
-		itemData.data.ativacao.custo = 0; 
-		itemData.data.tipo = "scroll";
+		itemData.system.qtd = 1;
+		itemData.system.espacos = 0.5;
+		itemData.system.preco = 30 * (itemData.system.ativacao.custo**2);
+		itemData.system.ativacao.custo = 0; 
+		itemData.system.tipo = "scroll";
 		if( this.actor ){
 			this.actor.createEmbeddedDocuments("Item", [itemData]);
 			if( this.actor.type == "character" ){
