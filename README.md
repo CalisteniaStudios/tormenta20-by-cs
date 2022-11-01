@@ -6,7 +6,7 @@ Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 
 
 ## Colaboradores
-* Eunaumtenhoid
+* André Oliveira
 * Gustavo Reis
 * TheTruePortal
 * Mateus Marochi
@@ -14,7 +14,6 @@ Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 * Roberto Caetano
 * Victor Kullack
 * Alexandre Galdino
-* André Oliveira
 * Vinicius Lima Silva
 
 ## Atribuições

@@ -58,7 +58,6 @@ export default class TraitSelector extends FormApplication {
 				columns = v.choices ? 2 : 1;
 			}
 		}
-		console.log( this.options.choices, choices);
 		// Return data
 		return {
 			allowCustom: this.options.allowCustom,

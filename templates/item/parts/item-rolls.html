@@ -30,7 +30,7 @@
 			<ol class="roll-parts form-group">
 				<li class="roll-part flexrow">
 					<input type="hidden" name="system.rolls.{{key}}.parts.0.0" value="1d20" />
-					{{#if @root.isCharacterOwned}}
+					{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
 					<select name="system.rolls.{{key}}.parts.1.0">
 						{{#select (lookup (lookup roll.parts 1) 0) }}
 							<option value="">{{ localize "T20.None" }}</option>
@@ -89,7 +89,7 @@
 					{{else}}
 					<input type="hidden" name="system.rolls.{{key}}.versatil" value="" />
 					{{/if}}
-					{{#if @root.isCharacterOwned}}
+					{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
 					<select name="system.rolls.{{key}}.parts.1.0" title="Atributo">
 						{{#select (lookup (lookup roll.parts 1) 0)}}
 							<option value=""></option>

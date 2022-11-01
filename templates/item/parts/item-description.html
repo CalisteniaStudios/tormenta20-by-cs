@@ -19,12 +19,12 @@
 			<label>{{ localize "T20.Slots" }}</label>
 			<input type="text" name="system.espacos" value="{{item.system.espacos}}" data-dtype="Number"/>
 		</div>
-		{{#unless isCharacterOwned }}
+		{{#if isNPCOwned }}
 		<div class="form-group">
 			<label>{{ localize "T20.Attacks" }}</label>
 			<input type="text" name="system.ataques" value="{{item.system.ataques}}" data-dtype="Number"/>
 		</div>
-		{{/unless}}
+		{{/if}}
 		<div class="form-group">
 			<label>{{ localize "T20.Price" }}</label>
 			<input type="text" name="system.preco" value="{{item.system.preco}}" data-dtype="Number" placeholder="0" data-dtype="Number"/>

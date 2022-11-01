@@ -327,13 +327,11 @@ export default class StatblockParser extends FormApplication {
 			arma: 'packequipamentos', equipamento: 'packequipamentos',
 			magia: 'packsmagias', poder: 'packspoderes',
 		}
-		console.log(names);
 		names.sort((a, b)=> b.length - a.length);
 		// let item = game.items.find( f => f.type == type && names.includes(f.name.slugify()) );
 		let item = false;
 		names.every((n)=>{
 			if ( type == '*') {
-				console.log(item, n, type);
 				item = game.items.find( (f)=> !['poder','magia','arma','classe'].includes(f.type) && f.name.slugify() == n );
 				if ( item ) return;
 				item = this.object[packs['equipamento']].find( f => f.type == type && f.name.slugify() == n );

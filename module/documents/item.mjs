@@ -808,6 +808,42 @@ export default class ItemT20 extends Item {
 			}
 		}
 
+		
+		// Create or return the Chat Message data
+		if( configuration.brew ){
+			let potion = "T20.ConsumableSubtypePotion";
+			let icon = "pocao";
+			if( item.system.area ) {
+				potion = "T20.ConsumableSubtypeGranade";
+				icon = "pocao-granada";
+			}
+			if( item.system.alvo.match(/objeto/) ) {
+				potion = "T20.ConsumableSubtypeOil";
+				icon = "pocao-oleo";
+			}
+			let potionData = Object.assign({}, item.system );
+			potionData.tipo = "potion";
+			potionData.qtd = 1;
+			potionData.espacos = 0.5;
+			potionData.rolls = item.system.rolls.map(m=>m);
+			potionData.preco = 30 * (item.system.ativacao.custo**2);
+			potionData.ativacao.custo = 0;
+			
+			const itemData = {
+				name: game.i18n.format('T20.ConsumableSpellName',{
+					item: game.i18n.localize(potion),
+					name:item.name
+				}),
+				type: "consumivel",
+				img: `systems/tormenta20/icons/itens/itens-magicos/${icon}.webp`,
+				system: potionData
+			};
+			let newPotion = await actor.createEmbeddedDocuments("Item", [itemData]);
+			await newPotion[0].update({"system.rolls":item.system.rolls});
+			let msg = game.i18n.format('T20.ConsumableCreated', {actor:item.actor.name, name:itemData.name} );
+			return ChatMessage.create({content:msg});
+		}
+
 		// Reference aspects of the item data necessary for usage
 		const hasArea = item.hasAreaTarget;       // Is the ability usage an AoE?
 		// Define follow-up actions resulting from the item usage
@@ -824,27 +860,6 @@ export default class ItemT20 extends Item {
 			}
 		}
 		
-		
-		// Create or return the Chat Message data
-		if( configuration.brew ){
-			let potion = "T20.ConsumableSubtypePotion";
-			if( item.system.area ) potion = "T20.ConsumableSubtypeGranade";
-			if( item.system.alvo.match(/objeto/) ) potion = "T20.ConsumableSubtypeOil";
-			const itemData = {
-				name: game.i18n.format('T20.ConsumableSpellName',{
-					item: game.i18n.localize(potion),
-					name:item.name
-				}),
-				type: "consumivel",
-				img: "icons/consumables/potions/bottle-bulb-corked-glowing-red.webp",
-				system: item.system
-			};
-			itemData.system.tipo = "potion";
-			itemData.system.ativacao.custo = 0;
-			actor.createEmbeddedDocuments("Item", [itemData]);
-			let msg = game.i18n.format('T20.ConsumableCreated', {actor:item.actor.name, name:itemData.name} );
-			return ChatMessage.create({content:msg});
-		}
 		options.itemId = this.id;
 		return item.displayCard({options, rollMode, createMessage});
 	}
