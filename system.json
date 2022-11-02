@@ -3,7 +3,7 @@
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.4.1008",
+  "version": "1.4.1009",
   "minimumCoreVersion": "10",
   "compatibleCoreVersion": "10",
   "compatibility": {
@@ -29,6 +29,13 @@
       "label": "Poderes",
       "system": "tormenta20",
       "path": "./packs/poderes.db",
+      "type": "Item"
+    },
+    {
+      "name": "poderes-distincao",
+      "label": "Poderes de Distinção",
+      "system": "tormenta20",
+      "path": "./packs/poderes-distincao.db",
       "type": "Item"
     },
     {

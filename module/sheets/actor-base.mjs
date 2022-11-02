@@ -99,7 +99,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			config: CONFIG.T20,
 			rollData: this.actor.getRollData.bind(this.actor),
 			//Flags
-			mostrarDivindade: this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
+			mostrarDivindade: true,//this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
 			mostrarAtributoTemp: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoTemp"),
 			botaoEditarItens: true, //this.actor.getFlag("tormenta20", "sheet.botaoEditarItens"),
 			mostrarPlatina: this.actor.getFlag("tormenta20", "sheet.mostrarPlatina"),

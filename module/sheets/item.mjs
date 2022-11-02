@@ -558,7 +558,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			item: game.i18n.localize('T20.ConsumableSubtypeScroll'),
 			name:this.object.name
 		}),
-		itemData.img = "icons/sundries/scrolls/scroll-bound-black-tan.webp",
+		itemData.img = "systems/tormenta20/icons/itens/itens-magicos/pergaminho.webp",
 		itemData.system.qtd = 1;
 		itemData.system.espacos = 0.5;
 		itemData.system.preco = 30 * (itemData.system.ativacao.custo**2);
