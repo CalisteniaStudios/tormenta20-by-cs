@@ -903,7 +903,7 @@ export default class ActorT20 extends Actor {
 					choices.push(choice);
 				}
 			}
-			if ( !isEmpty(choices) ) {
+			if ( !isEmpty(choices) && (userId == game.userId) ) {
 				let chosen = await ChoicesDialog.create( choices, this );
 				chosen = expandObject(chosen);
 				for ( let [ id, c] of Object.entries(chosen) ){
