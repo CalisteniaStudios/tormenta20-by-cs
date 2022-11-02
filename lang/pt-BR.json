@@ -293,6 +293,7 @@
 
   "T20.DamImm": "Imunidade a Dano",
   "T20.StatusImm": "Imunidade a Condições",
+  "T20.StatusEffects": "Condições",
   "T20.DamRes": "Resistência a Dano",
   "T20.DR": "RD",
   "T20.DamVuln": "Vulnerabilidade a Dano",

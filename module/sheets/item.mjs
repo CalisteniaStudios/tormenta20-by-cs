@@ -194,6 +194,16 @@ export default class ItemSheetT20 extends ItemSheet {
 			html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
 
 			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
+			
+			html.find(".effect-control-list").click(ev => {
+				let parent = ev.currentTarget.closest('.effect-controls');
+				let list = $(parent).find('.add-status-effects');
+				$(list).addClass('active');
+			});
+			html.find(".effect-control-status").click(ev => {
+				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
+				ActiveEffectT20.onManageActiveEffect(ev, this.item)
+			});
 			html.find(".effect-control").click(ev => {
 				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
 				ActiveEffectT20.onManageActiveEffect(ev, this.item)

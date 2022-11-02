@@ -127,6 +127,11 @@ export default class ActiveEffectT20 extends ActiveEffect {
 				"duration.seconds": undefined,
 				disabled: ["inactive","onuse"].includes(type)
 			}]);
+			case "create-status":
+				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];
+				if ( !statusEffect ) return false;
+				statusEffect.transfer = false;
+				return owner.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
 			case "edit":
 			return effect.sheet.render(true);
 			case "delete":

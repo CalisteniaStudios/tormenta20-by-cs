@@ -742,6 +742,8 @@ export default class ItemT20 extends Item {
 			}, {});
 			options = applyOnUseEffects( item, configuration );
 		}
+		consumeMana = consumeMana ? consumeMana : consumeMana != (item.system.ativacao?.custo > 0);
+		hasManaCost = hasManaCost ? hasManaCost : hasManaCost != (item.system.ativacao?.custo > 0);
 
 		if ( !isEmpty( extra ) || configuration.bonus || configuration.bonusdano ) {
 			item.system.rolls.forEach( r => {
