@@ -242,6 +242,11 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 				mentais: new fields.ArrayField(new fields.StringField(), {label: "T20.ModsAbilityMentalEffectsValues", hint: "T20.ModsAbilityMentalEffectsValuesHint"}),
 				geral: new fields.ArrayField(new fields.StringField(), {label: "T20.ModsAbilityGeneralEffectsValues", hint: "T20.ModsAbilityGeneralEffectsValuesHint"}),
 			}),
+			ataque: new fields.SchemaField({
+				geral: new fields.ArrayField(new fields.StringField(), {label: "T20.ModsDamageRangedEffectsValues", hint: "T20.ModsDamageRangedEffectsValuesHint"}),
+				cac: new fields.ArrayField(new fields.StringField(), {label: "T20.ModsDamageRangedEffectsValues", hint: "T20.ModsDamageRangedEffectsValuesHint"}),
+				ad: new fields.ArrayField(new fields.StringField(), {label: "T20.ModsDamageRangedEffectsValues", hint: "T20.ModsDamageRangedEffectsValuesHint"}),
+			}),
 			dano: new fields.SchemaField({
 				ad: new fields.ArrayField(new fields.StringField(), {label: "T20.ModsDamageRangedEffectsValues", hint: "T20.ModsDamageRangedEffectsValuesHint"}),
 				alq: new fields.ArrayField(new fields.StringField(), {label: "T20.ModsDamageAlchemyEffectsValues", hint: "T20.ModsDamageAlchemyEffectsValuesHint"}),

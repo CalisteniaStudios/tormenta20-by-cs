@@ -289,41 +289,7 @@
             "value": ["comum"]
           }
         },
-        "modificadores": {
-          "atributos": {
-            "geral": "",
-            "fisicos": "",
-            "mentais": "",
-            "for": "",
-            "des": "",
-            "con": "",
-            "int": "",
-            "sab": "",
-            "car": ""
-          },
-          "dano": {
-            "geral": "",
-            "cac": "",
-            "ad": "",
-            "mag": "",
-            "alq": ""
-          },
-          "custoPM":0,
-          "pericias": {
-            "geral": "",
-            "semataque": "", 
-            "ataque": "", 
-            "resistencia": "", 
-            "atr": {
-              "for": "",
-              "des": "",
-              "con": "",
-              "int": "",
-              "sab": "",
-              "car": ""
-            }
-          }
-        }
+        "modificadores": {}
       },
       "builder": {
         "builder": {
