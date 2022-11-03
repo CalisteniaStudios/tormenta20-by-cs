@@ -12,8 +12,6 @@ export default class ActorT20 extends Actor {
 
 	constructor(data, context) {
 		super(data, context);
-
-		// this.tags = this.tags || '';
 	}
 
 	/* -------------------------------------------- */

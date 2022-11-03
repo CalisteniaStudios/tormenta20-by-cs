@@ -221,7 +221,8 @@ export default class ItemSheetT20 extends ItemSheet {
 		// Process the form data
 		const formData = this._getSubmitData(null);
 		if ( formData.tag ){
-			const tags = [...this.item.system.tags, formData.tag];
+			let tags = [...this.item.system.tags, formData.tag];
+			tags = tags.map(m=> m.capitalize());
 			formData[`system.tags`] = tags;
 			delete formData.tag;
 			options.updateData = formData;
