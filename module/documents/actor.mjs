@@ -387,8 +387,8 @@ export default class ActorT20 extends Actor {
 			parts = parts.filter( f => f != '@treino');
 		}
 		if ( pericia.bonus.length ) parts.push(...pericia.bonus);
-		if ( pericia.pda ) parts.push("-@pda");
-		if ( key == "furt" ) parts.push("@tamanho");
+		if ( pericia.pda && rollData['pda'] ) parts.push("-@pda");
+		if ( key == "furt" && rollData['tamanho'] ) parts.push("@tamanho");
 
 		let atributo = rollData[pericia.atributo];
 		rollData['atributo'] = atributo || 0;

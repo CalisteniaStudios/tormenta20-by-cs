@@ -155,9 +155,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 													.system.rolls.find(r=>r.type=="dano");
 				r.parts.push(itr.parts[0]);
 			} else if(item.type == "pericia"){
-				_campos.bonus = item.bonus? 
-									item.bonus + "+" + (Number(ch.value * qty) || ch.value)
-									:	(Number(ch.value * qty) || ch.value);
+				item.bonus.push( (Number(ch.value * qty) || ch.value) );
 			} else if(item.type == "atributo"){
 				r.parts.push( Number(ch.value * qty) || ch.value )
 			// To add one extra dice from source 1d => 2d6 + 1d6
@@ -332,6 +330,7 @@ const applyActorChanges = (ch, qty, ef, item, id, ad) => {
 		else if(campos[ch.key]) _campos[campos[ch.key][0]] = ch.value;
 		
 	}
+	
 	mergeObject(item, expandObject(_campos));
 }
 
