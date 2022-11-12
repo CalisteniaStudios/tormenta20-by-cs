@@ -997,6 +997,7 @@ export default class ItemT20 extends Item {
 			content: html,
 			flavor: options.chatFlavor || this.system.chatFlavor || "",
 			speaker: ChatMessage.getSpeaker({actor: this.actor}),
+			sound: "sounds/dice.wav",
 			flags: {
 				"core.canPopout": true,
 				"tormenta20.onUseEffects": options.onUseEffects,

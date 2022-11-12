@@ -130,11 +130,10 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 					rollMods[r.key][p].dmgStep += Number(ch.value) * qty;
 				} else {
 					try {
-						let x = ch.value.replace("@","");
-						ch.value = item.getRollData()[x];
+						ch.value = simplifyRollFormula(ch.value, item.getRollData());
 						rollMods[r.key][p].dmgStep += Number(ch.value) * qty;
 					} catch (error) {
-						
+						console.warn(error);
 					}
 				}
 			}

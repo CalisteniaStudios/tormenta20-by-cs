@@ -933,6 +933,7 @@ export default class ActorT20 extends Actor {
 	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
 	async applyDamageV2(roll, multiplier = 1, applyRD = false) {
+		console.log('applyDamageV2',roll);
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
@@ -969,7 +970,7 @@ export default class ActorT20 extends Actor {
 		for ( let [type, dmg] of Object.entries(damage) ){
 			dmg.value = Math.floor(dmg.value * multiplier);
 			dmg.vuln = Math.floor(dmg.vuln * multiplier);
-			if ( type == 'curapv' || type == 'perda' || dmg.value < 0 ) {
+			if ( type == 'curapv' || type == 'perda' ) {
 				final.damage += dmg.value;
 			} else if ( type == 'curatpv' ) {
 				final.tempHP += dmg.value;
