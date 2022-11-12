@@ -1,16 +1,25 @@
 <ul class="ability-scores {{#if (eq layout 'tabbed')}}flexcol{{else}}flexrow{{/if}}">
 	{{#each system.atributos as |atr key|}}
+	{{#if @root.isSimple}}
+	<li class="ability" data-item-id="{{key}}">
+		<h4 class="ability-name box-title rollable atributo-rollable">{{localize (lookup ../config.atributosAbr key)}}</h4>
+		<footer class="attribute-footer flexrow">
+			<input type="number" name="system.atributos.{{key}}.value" value="{{atr.value}}" title="{{ localize 'T20.Ability'}}"/>
+		</footer>
+	</li>
+	{{else}}
 	<li class="ability" data-item-id="{{key}}">
 		<h4 class="ability-name box-title rollable atributo-rollable">{{localize (lookup ../config.atributosAbr key)}}</h4>
 		<span class="rollable atributo-rollable">
-			<h1>{{numberFormat atr.mod decimals=0 sign=true}}</h1>
+			<h1>{{numberFormat atr.value decimals=0 sign=true}}</h1>
 		</span>
 		<footer class="attribute-footer flexrow">
-			<input type="number" placeholder="0" name="system.atributos.{{key}}.value" value="{{atr.value}}" min="0"  title="{{ localize 'T20.AbilityBase'}}"/>
-			{{#if ../mostrarAtributoTemp}}
-				<input type="number" placeholder="0" name="system.atributos.{{key}}.bonus" value="{{atr.bonus}}" title="{{ localize 'T20.AbilityBonus'}}" >
+			<input type="number" name="system.atributos.{{key}}.base" value="{{atr.base}}" title="{{ localize 'T20.AbilityBase'}}"/>
+			{{#if @root.mostrarAtributoTemp }}
+			<input type="number" name="system.atributos.{{key}}.bonus" value="{{atr.bonus}}" title="{{ localize 'T20.AbilityBonus'}}" >
 			{{/if}}
 		</footer>
 	</li>
+	{{/if}}
 	{{/each}}
 </ul>

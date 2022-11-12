@@ -1,18 +1,22 @@
 <ul class="item-list">
 	<li class="item item-header" style="text-align: center;">
-		{{#each system.atributos as |atr key|}}
-		{{#if (eq key ../system.attributes.conjuracao)}}
-		<label>{{localize 'T20.SpellDC'}} {{add ../system.attributes.cd atr.mod}} =</label>
-		<label title="{{localize 'T20.SpellDCFormula'}}">{{../system.attributes.cd}} +</label>
+		{{#if isNPC}}
+			<label>{{localize 'T20.SpellDC'}} {{system.attributes.cd}}</label>
+		{{else}}
+			{{#each system.atributos as |atr key|}}
+			{{#if (eq key ../system.attributes.conjuracao)}}
+			<label>{{localize 'T20.SpellDC'}} {{add ../system.attributes.cd atr.value}} =</label>
+			<label title="{{localize 'T20.SpellDCFormula'}}">{{../system.attributes.cd}} +</label>
+			{{/if}}
+			{{/each}}
+			<select class="selectAtr" title="{{localize 'T20.KeyAbility'}}" name="system.attributes.conjuracao">
+				{{#select system.attributes.conjuracao}}
+				<option value=""></option>
+				{{selectOptions config.atributos selected=system.attributes.conjuracao localize=true}}
+				{{/select}}
+			</select>
+			<a class="update-cd" title="{{localize 'T20.UpdateSpellKeyAbility'}}" data-atrRes="{{system.attributes.conjuracao}}"><i class="fas fa-sync"></i></a>
 		{{/if}}
-		{{/each}}
-		<select class="selectAtr" title="{{localize 'T20.KeyAbility'}}" name="system.attributes.conjuracao">
-			{{#select system.attributes.conjuracao}}
-			<option value=""></option>
-			{{selectOptions config.atributos selected=system.attributes.conjuracao localize=true}}
-			{{/select}}
-		</select>
-		<a class="update-cd" title="{{localize 'T20.UpdateSpellKeyAbility'}}" data-atrRes="{{system.attributes.conjuracao}}"><i class="fas fa-sync"></i></a>
 	</li>
 	{{#each actor.magias as |circulo i|}}
 	{{#if circulo.spells.length}}
@@ -45,7 +49,6 @@
 			</div>
 			<div class="item-controls">
 				{{#if (eq ../../layout "tabbed")}}
-				{{log item.flags}}
 				<a class="item-control item-fav" title="{{#if m.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >
 					<i class="{{#if m.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i>
 				</a>

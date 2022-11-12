@@ -70,10 +70,17 @@
 	{{#if effects}}
 	<div class="card-item-effects flexcol">
 		{{#each effects as |ef i|}}
+			{{#if ef.length }}
+			<button class="chat-apply-ae" data-effect-index="{{i}}">
+				<img src="{{ef.0.icon}}">
+				{{{ef.0.label}}}
+			</button>
+			{{else}}
 			<button class="chat-apply-ae" data-effect-index="{{i}}">
 				<img src="{{ef.icon}}">
 				{{{ef.label}}}
 			</button>
+			{{/if}}
 		{{/each}}
 	</div>
 	<hr>

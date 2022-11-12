@@ -3,14 +3,16 @@
 	<aside class="flexrow">
 		<h2>
 			<label>{{localize 'T20.AbbreviationCR'}}</label>
-			<span>{{system.detalhes.nd}}</span>
+			<span>{{system.attributes.nd}}</span>
 		</h2>
 	</aside>
 </div>
 <i>
 	{{ localize (lookup config.creatureTypes system.detalhes.tipo) }}
-	{{#unless isReformed}}{{system.attributes.nivel.value}}{{/unless}},
+	{{#if system.detalhes.raca }} ({{system.detalhes.raca}}) {{/if}}
 	{{ localize (lookup config.actorSizes system.tracos.tamanho) }}
+	
+	{{#if system.detalhes.role}}({{ localize (lookup config.creatureRoles system.detalhes.role) }}){{/if}}
 </i>
 
 <hr>
@@ -85,7 +87,10 @@
 			<div style="flex:0 0 10px"></div>
 			<div class="item-name">
 				<span class="rollable arma-rollable" data-item-id="{{item._id}}">
-				<h4 class="item-name" style="flex: 5;">{{#if (gt item.system.qtd 1)}}{{item.system.qtd}}x{{/if}} {{item.name}}
+				<h4 class="item-name" style="flex: 5;">
+					{{#if (gt item.system.qtd 1)}}{{item.system.qtd}}{{/if}}
+					{{item.name}}
+					{{#if (gt item.system.ataques 1)}}{{item.system.ataques}}x{{/if}}
 					{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
 				</h4>
 				</span>
@@ -152,11 +157,7 @@
 					{{/if}}
 				{{/each}}
 				</ol>
-				{{#each system.atributos as |atr key|}}
-					{{#if (eq key ../system.attributes.conjuracao)}}
-					{{localize 'T20.AbbreviationDC'}} {{add ../system.attributes.cd atr.mod}}
-					{{/if}}
-				{{/each}}
+				{{localize 'T20.AbbreviationDC'}} {{system.attributes.cd}}
 			</div>
 		</li>
 	</ul>
@@ -166,7 +167,7 @@
 <div class="flexrow text-center abl-line">
 	{{#each system.atributos as |atr key|}}
 		<span class="rollable atributo-rollable" data-item-id="{{key}}">
-			<label title="{{atr.label}} {{atr.mod}}"> {{localize (lookup ../config.atributosAbr key)}}: </label> {{atr.value}}
+			<label title="{{atr.label}} {{atr.value}}"> {{localize (lookup ../config.atributosAbr key)}}: </label> {{atr.value}}
 		</span>
 	{{/each}}
 </div>
@@ -177,7 +178,7 @@
 	<label>{{localize 'T20.Skills'}}: </label>
 	{{#each skills as |skill key|}}
 		{{#unless (or (eq skill.key "perc") (eq skill.key "inic") (eq skill.key "fort") (eq skill.key "refl") (eq skill.key "vont"))}}
-			{{#if (or skill.treino skill.outros) }}
+			{{#if (or skill.treinado skill.outros) }}
 			<span class="skill rollable pericia-rollable" data-item-id="{{skill.key}}">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
 			{{/if}}
 		{{/unless}}

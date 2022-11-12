@@ -1,0 +1,31 @@
+<form id="statblock-parser">
+	<div class="flexrow">
+		<article class="statblock">
+			<textarea name="teste" id="statblock" cols="0" rows="20">{{statblock}}</textarea>
+		</article>
+		<aside>
+			<h2>DATA</h2>
+			<button class="validate">{{localize 'T20.Validate'}}</button>
+			<button class="apply">{{localize 'T20.Apply'}}</button>
+
+			<ul>
+				{{#each log as | l k | }}
+					<li class="{{#if l.success}}success{{else}}fail{{/if}}" >{{l.message}}</li>
+				{{/each}}
+			</ul>
+		</aside>
+	</div>
+</form>
+
+<style>
+.statblock {
+	flex:2;
+}
+li.success {
+	background-color: lightgreen;
+}
+
+li.fail {
+	background-color: lightcoral;
+}
+</style>

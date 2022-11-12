@@ -24,7 +24,8 @@
 			{{/each}}
 			{{/select}}
 		</select>
-		<input type="text" name="system.consume.amount" value="{{system.consume.amount}}" data-dtype="Number"/>
+		<input type="number" name="system.consume.amount" value="{{system.consume.amount}}" placeholder="{{localize 'T20.QuantityAbbr'}}"/>
+		<input type="checkbox" name="system.consume.mpMultiplier" data-dtype="Boolean" {{checked system.consume.mpMultiplier}} title="{{localize 'T20.ConsumeMPMultiplier'}}">
 	</div>
 </div>
 

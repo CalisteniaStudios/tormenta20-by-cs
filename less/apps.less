@@ -122,11 +122,20 @@
   }
 
   /* Tags */
+  .tag-list {
+    clear: both;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    margin: 3px 0;
+    align-items: center;
+  }
   .tag {
-    display: inline-block;
+    // display: inline-block;
+    flex: 0 0 auto;
     margin: 0 2px 0 0;
     padding: 0 3px;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 16px;
     border: 1px solid #999;
     border-radius: 3px;
@@ -525,6 +534,21 @@
         font-size: 12px;
         text-align: center;
       }
+      .effect-control-list {
+        flex: 0;
+      }
+      .add-status-effects {
+        display: none;
+        position: absolute;
+        right: 80px;
+        width: 190px;
+        background: rgba(0,0,0,0.7);
+        border-radius: 15px;
+        padding: 7px;
+        .active {
+          display: block;
+        }
+      }
     }
 
     
@@ -607,6 +631,7 @@
 /* ----------------------------------------- */
 
 .trait-selector {
+  .tag-list,
   .trait-list {
     list-style: none;
     margin: 0;

@@ -1,10 +1,12 @@
 <ul class="item-list">
+	{{#unless isSimple}}
 	<li class="item flexrow item-header flex-center">{{localize "T20.Inventory"}}</li>
+	{{/unless}}
 	<ol class="item-list">
 		<li class="item flexrow item-header">
 			<div class="item-name flex2">{{ localize 'T20.Name' }}</div>
 			<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
-			<div class="item-weight">{{weightCol}}</div>
+			<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
 			<div class="item-controls"></div>
 		</li>
 		{{#each actor.inventario.itens.items as |item id|}}
@@ -17,7 +19,7 @@
 			<div class="item-qty">
 				<input type="text" data-dtype="Number" placeholder="0" classe="item-qtd" value="{{item.system.qtd}}">
 			</div>
-			<div class="item-weight">{{item.pesoTotal}}</div>
+			<div class="item-weight">{{item.espacosTotal}}</div>
 			<div class="item-controls">
 				{{#if (eq ../layout "tabbed")}}
 				<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >

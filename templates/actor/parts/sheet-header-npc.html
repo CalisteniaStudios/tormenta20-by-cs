@@ -3,7 +3,7 @@
 		<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}" />
 		<aside class="charlevel flexrow">
 			<label>{{localize 'T20.AbbreviationCR'}}</label>
-			<input type="text" name="system.detalhes.nd" value="{{system.detalhes.nd}}" placeholder="0">
+			<input type="text" name="system.attributes.nd" value="{{system.attributes.nd}}" placeholder="0">
 			<input disabled type="text" value="{{system.attributes.nivel.xp.value}} XP">
 		</aside>
 	</div>
@@ -21,10 +21,14 @@
 		<li>
 			<input type="text" title="{{ localize 'T20.Race'}}" placeholder="{{ localize 'T20.Race'}}"  name="system.detalhes.raca" value="{{system.detalhes.raca}}" />
 		</li>
-		{{#unless isReformed}}
 		<li>
-			<input type="text" title="{{ localize 'T20.Level'}}" placeholder="{{ localize 'T20.Level'}}"  name="system.attributes.nivel.value" value="{{system.attributes.nivel.value}}"/>
+			<select class="selectAtr" name="system.detalhes.role" title="{{ localize 'T20.Role'}}" >
+				{{#select system.detalhes.role}}
+				{{#each config.creatureRoles as |label type|}}
+				<option value="{{type}}">{{localize label}}</option>
+				{{/each}}
+				{{/select}}
+			</select>
 		</li>
-		{{/unless}}
 	</ul>
 </header>

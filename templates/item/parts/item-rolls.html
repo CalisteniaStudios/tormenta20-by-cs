@@ -30,6 +30,7 @@
 			<ol class="roll-parts form-group">
 				<li class="roll-part flexrow">
 					<input type="hidden" name="system.rolls.{{key}}.parts.0.0" value="1d20" />
+					{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
 					<select name="system.rolls.{{key}}.parts.1.0">
 						{{#select (lookup (lookup roll.parts 1) 0) }}
 							<option value="">{{ localize "T20.None" }}</option>
@@ -55,6 +56,10 @@
 							{{/each}}
 						{{/select}}
 					</select>
+					{{else}}
+					<input type="hidden" name="system.rolls.{{key}}.parts.1.0" value="" />
+					<input type="hidden" name="system.rolls.{{key}}.parts.1.1" value="" />
+					{{/if}}
 					<input type="text" name="system.rolls.{{key}}.parts.2.0" value="{{lookup (lookup roll.parts 2) 0}}" placeholder="Bônus" />
 				</li>
 				{{#if ready}}
@@ -76,36 +81,39 @@
 		<div class="form-group">
 			<ol class="roll-parts form-group flexcol">
 				{{#if (eq ../item.type "arma") }}
-					<li class="roll-part flexrow" data-roll-part="{{i}}">
-						<input type="text" name="system.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"
-							title="Dano" />
-						{{#if ../system.propriedades.ada }}
-							<input type="text" name="system.rolls.{{key}}.versatil" value="{{roll.versatil}}" placeholder="Adaptável" />
-						{{else}}
-							<input type="hidden" name="system.rolls.{{key}}.versatil" value="" />
-						{{/if}}
+				<li class="roll-part flexrow" data-roll-part="{{i}}">
+					<input type="text" name="system.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"
+					title="Dano" />
+					{{#if ../system.propriedades.ada }}
+					<input type="text" name="system.rolls.{{key}}.versatil" value="{{roll.versatil}}" placeholder="Adaptável" />
+					{{else}}
+					<input type="hidden" name="system.rolls.{{key}}.versatil" value="" />
+					{{/if}}
+					{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
+					<select name="system.rolls.{{key}}.parts.1.0" title="Atributo">
+						{{#select (lookup (lookup roll.parts 1) 0)}}
+							<option value=""></option>
+							{{#each ../config.atributos as |name type|}}
+								<option value="@{{type}}">{{localize name}}</option>
+							{{/each}}
+						{{/select}}
+					</select>
+					{{else}}
+					<input type="hidden" name="system.rolls.{{key}}.parts.1.0" value="" />
+					{{/if}}
 
-						<select name="system.rolls.{{key}}.parts.1.0" title="Atributo">
-							{{#select (lookup (lookup roll.parts 1) 0)}}
-								<option value=""></option>
-								{{#each ../config.atributos as |name type|}}
-									<option value="@{{type}}">{{localize name}}</option>
-								{{/each}}
-							{{/select}}
-						</select>
-
-						<select name="system.rolls.{{key}}.parts.0.1" title="Tipo de Dano">
-							{{#select (lookup (lookup roll.parts 0) 1)}}
-								<option value="">{{ localize "T20.None" }}</option>
-								{{#each ../config.damageTypes as |name type|}}
-									<option value="{{type}}">{{localize name}}</option>
-								{{/each}}
-								{{#each ../config.healingTypes as |name type|}}
-									<option value="{{type}}">{{localize name}}</option>
-								{{/each}}
-							{{/select}}
-						</select>
-					</li>
+					<select name="system.rolls.{{key}}.parts.0.1" title="Tipo de Dano">
+						{{#select (lookup (lookup roll.parts 0) 1)}}
+							<option value="">{{ localize "T20.None" }}</option>
+							{{#each ../config.damageTypes as |name type|}}
+								<option value="{{type}}">{{localize name}}</option>
+							{{/each}}
+							{{#each ../config.healingTypes as |name type|}}
+								<option value="{{type}}">{{localize name}}</option>
+							{{/each}}
+						{{/select}}
+					</select>
+				</li>
 				{{/if}}
 				{{#each roll.parts as |part i| }}
 					{{#if (and (eq ../../item.type "arma") (lt i 2) )}}

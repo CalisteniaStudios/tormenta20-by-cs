@@ -5,6 +5,10 @@
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item active" data-tab="description">{{ localize "T20.Description" }}</a>
 		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
+		{{#if (or (eq item.system.tipo 'leve' ) (eq item.system.tipo 'pesada' ) (eq item.system.tipo 'escudo' ) (eq item.system.tipo 'esoterico' ) (eq item.system.tipo 'traje' ) (eq item.system.tipo 'ferramenta'))}}
+		<a class="item" data-tab="enhancements">{{ localize "T20.Enhancements" }}</a>
+		{{/if}}
+
 		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
 	</nav>
 
@@ -44,7 +48,32 @@
 					<input type="number" name="system.armadura.penalidade" value="{{item.system.armadura.penalidade}}" data-dtype="Number" max="0" />
 				</div>
 			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.Cost" }}</label>
+				<div class="form-fields">
+					<input type="number" data-dtype="Number" placeholder="0" name="system.ativacao.custo" value="{{item.system.ativacao.custo}}"/><label>{{localize 'T20.MP'}}</label>
+				</div>
+			</div>
+			{{!-- Rolls --}}
+			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
+			<hr>
+			<div class="form-group">
+				<label for="TAGS">TAGS</label>
+				<input type="text" name="tag" class="tag-input"><br>
+			</div>
+			{{#if item.system.tags }}
+			<div class="tag-list">
+				{{#each item.system.tags as |tag t| }}
+				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
+				{{/each}}
+			</div>
+			{{/if}}
 		</div>
+		
+		{{#if (or (eq item.system.tipo "leve") (eq item.system.tipo "pesada") (eq item.system.tipo "escudo") (eq item.system.tipo "esoterico") (eq item.system.tipo "traje") (eq item.system.tipo "ferramenta")) }}
+		{{!-- Enhancements Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-enhancements.html"}}
+		{{/if}}
 
 		<div class="tab effects" data-group="primary" data-tab="effects">
 			{{> "systems/tormenta20/templates/partials/active-effects.html"}}

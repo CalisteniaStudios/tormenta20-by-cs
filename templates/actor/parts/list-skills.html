@@ -3,7 +3,7 @@
 		<div class="item-image"></div>
 		<div class="item-name" >{{ localize 'T20.Skills'}}</div>
 		<div class="item-total">{{ localize 'T20.Total'}}</div>
-		<div class="item-mod">{{ localize 'T20.AbilityModifierBonus'}}</div>
+		{{#if isCharacter}}<div class="item-abl">{{ localize 'T20.AbilityBonus'}}</div>{{/if}}
 		<div class="item-outros">{{ localize 'T20.Other'}}</div>
 	</li>
 	{{#if mostrarBonusTreino}}
@@ -21,7 +21,7 @@
 			<b>{{ localize 'T20.SkillOfic'}} +</b>
 		</div>
 		<div class="item-total"></div>
-		<div class="item-mod">
+		<div class="item-abl">
 			<a class="item-control skill-create" title="{{ localize 'T20.Add'}} {{ localize 'T20.SkillOfic'}}" data-tipo="oficio"><i class="fa-solid fa-plus"></i> {{ localize 'T20.Add'}}</a>
 		</div>
 		<div class="item-outros">
@@ -33,7 +33,7 @@
 		<div class="item-image"></div>
 		<div class="item-name">{{ localize 'T20.New'}} {{ localize 'T20.Skill'}}</div>
 		<div class="item-total"></div>
-		<div class="item-mod">
+		<div class="item-abl">
 			<a class="item-control skill-create" title="{{ localize 'T20.Add'}} {{ localize 'T20.Skill'}}" data-tipo="pericia"><i class="fa-solid fa-plus"></i> {{ localize 'T20.Add'}}</a>
 		</div>
 		<div class="item-outros">
@@ -61,7 +61,8 @@
 			<input disabled type="text" data-dtype="Number" name="system.pericias.{{skill.key}}.total" value="{{numberFormat skill.value sign=true}}"  />
 			<input type="hidden"  data-dtype="Number" name="system.pericias.{{skill.key}}.treino" value="{{skill.treino}}" />
 		</div>
-		<div class="item-mod">
+		{{#if ../isCharacter}}
+		<div class="item-abl">
 			<select class="selectatr" name="system.pericias.{{skill.key}}.atributo" value={{skill.atributo}}>
 			{{#select skill.atributo}}
 				{{#each ../config.atributosAbr as |name abl|}}
@@ -70,6 +71,7 @@
 			{{/select}}
 			</select>
 		</div>
+		{{/if}}
 		<div class="item-outros">
 			<input type="text" class="skill-outros" data-dtype="Number" name="system.pericias.{{skill.key}}.outros" value="{{skill.outros}}"/>
 			{{#if skill.custom}}

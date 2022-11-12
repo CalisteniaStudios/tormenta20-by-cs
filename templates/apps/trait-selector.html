@@ -1,5 +1,5 @@
 <form autocomplete="off" onsubmit="event.preventDefault();">
-	<ul class="trait-list">
+	<ul class="trait-list" style="columns:{{columns}};">
 		{{#each choices as |choice key|}}
 		<li>
 			<label class="checkbox">
@@ -7,6 +7,18 @@
 				{{localize choice.label}}
 			</label>
 		</li>
+			{{#if choice.choices }}
+			<ul class="trait-list">
+				{{#each choice.choices as |schoice skey|}}
+				<li>
+					<label class="checkbox">
+						<input type="checkbox" name="{{skey}}" data-dtype="Boolean" {{checked schoice.chosen}}>
+						{{localize schoice.label}}
+					</label>
+				</li>
+				{{/each}}
+			</ul>
+			{{/if}}
 		{{/each}}
 	</ul>
 	{{#if allowCustom}}

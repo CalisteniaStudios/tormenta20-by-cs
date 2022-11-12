@@ -1,19 +1,24 @@
 <li class="attribute defense">
 	<h4 class="attribute-name box-title">{{ localize "T20.Defense"}}</h4>
 	<div class="attribute-value">
+		{{#if (or isSimple isVehicle)}}
+		<input type="number" data-dtype="Number" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.Defense'}}">
+		{{else}}
 		<h1 style="height:auto">{{system.attributes.defesa.value}}</h1>
+		{{/if}}
 		<div class="property-attribution tooltip"></div>
 	</div>
+	{{#if (or isNPC isCharacter)}}
 	<footer class="attribute-footer">
 		<div class="flexrow">
-			{{#if (or isReformed (eq actor.type 'vehicle') (eq actor.type 'simple'))}}
+			{{#if isNPC}}
 			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.BaseDefense'}}">
-			{{else}}
-			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityModifierBonus'}}">
+			{{else if isCharacter}}
+			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityBonus'}}">
 				{{#select system.attributes.defesa.atributo}}
 				<option value=""></option>
 				{{#each config.atributosAbr as |name abl|}}
-					<option value="{{abl}}">{{localize name}}</option>
+				<option value="{{abl}}">{{localize name}}</option>
 				{{/each}}
 				{{/select}}
 			</select>
@@ -21,28 +26,5 @@
 			{{/if}}
 		</div>
 	</footer>
+	{{/if}}
 </li>
-
-
-<!--
-	<div class="property-attribution tooltip">
-		<table>
-			<tbody><tr>
-				<td class="attribution-value mode-5">
-					14
-				</td>
-				<td class="attribution-label">Scale Mail</td>
-			</tr>
-			<tr>
-				<td class="attribution-value mode-2">
-					2
-				</td>
-				<td class="attribution-label">Shield</td>
-			</tr>
-			<tr class="total">
-				<td class="attribution-value">16</td>
-				<td class="attribution-label">Total</td>
-			</tr>
-		</tbody></table>
-	</div>
--->

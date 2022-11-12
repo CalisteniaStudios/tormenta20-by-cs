@@ -12,7 +12,7 @@
 				</label>
 				<label for="Name">
 					{{localize 'T20.AbbreviationCR'}}
-					{{system.detalhes.nd}}
+					{{system.attributes.nd}}
 				</label>
 			</div>
 			<div class="form-group">
@@ -58,8 +58,8 @@
 					<label for="Name">
 						{{localize 'T20.FoeRole'}}
 					</label>
-					<select name="system.builder.details.role">
-						{{#select system.builder.details.role}}
+					<select name="system.detalhes.role">
+						{{#select system.detalhes.role}}
 						{{#each config.creatureRoles as |label type|}}
 						<option value="{{type}}">{{localize label}}</option>
 						{{/each}}
@@ -71,23 +71,29 @@
 			<div class="right-side flexcol">
 				<aside>
 					<p>
-					{{#if (eq system.builder.details.role 'combatant' )}}
+					{{#if (eq system.detalhes.role 'combatant' )}}
 						{{localize 'T20.NPCB_FoeRoleCombatantHint'}}
 					{{/if}}
-					{{#if (eq system.builder.details.role 'caster' )}}
+					{{#if (eq system.detalhes.role 'caster' )}}
 						{{localize 'T20.NPCB_FoeRoleCasterHint'}}
 					{{/if}}
-					{{#if (eq system.builder.details.role 'trickster' )}}
+					{{#if (eq system.detalhes.role 'trickster' )}}
 						{{localize 'T20.NPCB_FoeRoleTricksterHint'}}
 					{{/if}}
-					{{#if (eq system.builder.details.role 'lackey' )}}
+					{{#if (eq system.detalhes.role 'lackey' )}}
 						{{localize 'T20.NPCB_FoeRoleLackeyHint'}}
 					{{/if}}
-					{{#if (eq system.builder.details.role 'captain' )}}
+					{{#if (eq system.detalhes.role 'captain' )}}
 						{{localize 'T20.NPCB_FoeRoleCaptainHint'}}
 					{{/if}}
-					{{#if (eq system.builder.details.role 'boss' )}}
+					{{#if (eq system.detalhes.role 'boss' )}}
 						{{localize 'T20.NPCB_FoeRoleBossHint'}}
+					{{/if}}
+					{{#if (eq system.detalhes.role 'solo' )}}
+						{{localize 'T20.NPCB_FoeRoleSoloHint'}}
+					{{/if}}
+					{{#if (eq system.detalhes.role 'special' )}}
+						{{localize 'T20.NPCB_FoeRoleSpecialHint'}}
 					{{/if}}
 					</p>
 				</aside>
@@ -207,7 +213,7 @@
 				<label for="Name">
 					{{localize 'T20.AbbreviationCR'}}
 				</label>
-				<input type="text" list="list-nd" name="system.detalhes.nd" value="{{system.detalhes.nd}}"/>
+				<input type="text" list="list-nd" name="system.attributes.nd" value="{{system.attributes.nd}}"/>
 				<datalist id="list-nd">
 					{{#each config.NDparams.cr as | cr i | }}
 					<option value="{{cr}}">{{cr}}</option>
@@ -230,7 +236,7 @@
 					{{localize 'T20.Damage'}}
 				</label>
 				<i class="{{builder.attrClosestCR.damage.icon}}" title="{{builder.attrClosestCR.damage.title}}"></i>
-				<input  type="number" name="system.builder.attributes.damage.value" value="{{system.builder.attributes.damage.value}}"/>
+				<input  type="text" name="system.builder.attributes.damage.value" value="{{system.builder.attributes.damage.value}}"/>
 				<label for="Name">
 					{{localize 'T20.Defense'}}
 				</label>
@@ -290,18 +296,19 @@
 				</thead>
 				<tbody>
 					{{#each config.NDparams.cr as | cr i |}}
-					<tr class="pat-{{lookup ../config.NDparams.pat i }} {{#if (eq ../system.detalhes.nd cr)}}active{{/if}}" data-cr="{{cr}}">
+					<tr class="pat-{{lookup ../config.NDparams.pat i }} {{#if (eq ../system.attributes.nd cr)}}active{{/if}}" data-cr="{{cr}}">
 						<td></td>
 						<td class="setParam" data-param="all">
 								{{lookup ../config.NDparams.cr i }}
 						</td>
-						<td class="setParam {{#if (eq ../builder.attrClosestCR.attack.clos i)}}active{{/if}}" data-param="attack">{{lookup ../config.NDparams.attack i }}</td>
+						<td class="setParam {{#if (eq ../builder.attrClosestCR.attack.clos i)}}active{{/if}}" data-param="attack">{{lookup ../config.NDparams.attack i }}, x{{lookup ../config.NDparams.attackqty i }}</td>
 						<td class="setParam {{#if (eq ../builder.attrClosestCR.damage.clos i)}}active{{/if}}" data-param="damage">{{lookup ../config.NDparams.damage i }}</td>
 						<td class="setParam {{#if (eq ../builder.attrClosestCR.defense.clos i)}}active{{/if}}" data-param="defense">{{lookup ../config.NDparams.defense i }}</td>
+						<td class="setParam {{#if (eq ../builder.attrClosestCR.hp.clos i)}}active{{/if}}" data-param="hp">{{lookup ../config.NDparams.hp i }}</td>
+						<td class="setParam {{#if (eq ../builder.attrClosestCR.skills.clos i)}}active{{/if}}" data-param="skills">+{{lookup ../config.NDparams.topskill i }} / +{{lookup ../config.NDparams.botskill i }}</td>
 						<td class="setParam {{#if (eq ../builder.attrClosestCR.topsave.clos i)}}active{{/if}}" data-param="topsave">{{lookup ../config.NDparams.topsave i }}</td>
 						<td class="setParam {{#if (eq ../builder.attrClosestCR.midsave.clos i)}}active{{/if}}" data-param="midsave">{{lookup ../config.NDparams.midsave i }}</td>
 						<td class="setParam {{#if (eq ../builder.attrClosestCR.botsave.clos i)}}active{{/if}}" data-param="botsave">{{lookup ../config.NDparams.botsave i }}</td>
-						<td class="setParam {{#if (eq ../builder.attrClosestCR.hp.clos i)}}active{{/if}}" data-param="hp">{{lookup ../config.NDparams.hp i }}</td>
 						<td class="setParam {{#if (eq ../builder.attrClosestCR.dc.clos i)}}active{{/if}}" data-param="dc">{{lookup ../config.NDparams.dc i }}</td>
 					</tr>
 					{{/each}}
@@ -373,7 +380,7 @@
 					<label for="">
 						{{localize (lookup ../config.atributosAbr key)}}
 					</label>
-					<input  type="number" name="system.atributos.{{key}}.value" value="{{atr.value}}"/>
+					<input  type="number" name="system.atributos.{{key}}.base" value="{{atr.base}}"/>
 				{{/each}}
 			</div>
 			<div class="flexrow">
@@ -382,23 +389,16 @@
 						<div class="item-name">{{localize 'T20.Skill'}}</div>
 						<div class="item-value"></div>
 						<div class="item-trained">{{localize 'T20.Trained'}}</div>
-						<div class="item-ability">{{localize 'T20.Ability'}}</div>
 						<div class="item-bonus">{{localize 'T20.Bonus'}}</div>
 					</li>
-					{{#each system.pericias as | skill key |}}
-						{{#unless (or (gt @index 12) (eq key 'luta') (eq key 'pont') (eq key 'fort') (eq key 'refl') (eq key 'vont') (eq key 'defe') (eq key 'ocul') ) }}
+					{{#each skills as | skill key |}}
+						{{#unless (or (gt key 12) (eq skill.key 'luta') (eq skill.key 'pont') (eq skill.key 'fort') (eq skill.key 'refl') (eq skill.key 'vont') (eq skill.key 'defe') (eq skill.key 'ocul') ) }}
 						<li class="skill item flexrow">
 							<div class="item-name">{{skill.label}}</div>
 							<div class="item-value">{{skill.value}}</div>
 							<div class="item-trained">
-								<input  type="checkbox" name="system.pericias.{{key}}.treinado" value="1" {{checked skill.treinado}} />
-							</div>
-							<div class="item-ability">
-								<select name="system.pericias.{{key}}.atributo">
-								{{#select skill.atributo}}
-								{{selectOptions ../config.atributosAbr selected=skill.atributo localize=true}}
-								{{/select}}
-								</select>
+								<a class="training-toggle skill-training" title="{{ localize 'T20.Trained'}}"><i class="{{skill.symbol}}"></i></a>
+								<!-- <input type="checkbox" name="system.pericias.{{key}}.treinado" value="1" {{checked skill.treinado}} /> -->
 							</div>
 							<div class="item-bonus">
 								<input  type="number" name="system.pericias.{{key}}.outros" value="{{skill.outros}}"/>
@@ -412,7 +412,6 @@
 						<div class="item-name">{{localize 'T20.Skill'}}</div>
 						<div class="item-value"></div>
 						<div class="item-trained">{{localize 'T20.Trained'}}</div>
-						<div class="item-ability">{{localize 'T20.Ability'}}</div>
 						<div class="item-bonus">{{localize 'T20.Bonus'}}</div>
 					</li>
 					{{#each system.pericias as | skill key |}}
@@ -422,13 +421,6 @@
 							<div class="item-value">{{skill.value}}</div>
 							<div class="item-trained">
 								<input  type="checkbox" name="system.pericias.{{key}}.treinado" value="1" {{checked skill.treinado}} />
-							</div>
-							<div class="item-ability">
-								<select name="system.pericias.{{key}}.atributo">
-								{{#select skill.atributo}}
-								{{selectOptions ../config.atributosAbr selected=skill.atributo localize=true}}
-								{{/select}}
-								</select>
 							</div>
 							<div class="item-bonus">
 								<input  type="number" name="system.pericias.{{key}}.outros" value="{{skill.outros}}"/>

@@ -11,6 +11,9 @@
 		{{#if TODO }}
 		<a class="item" data-tab="progression">{{ localize "T20.Progression" }}</a>
 		{{/if}}
+		{{#if (and (eq item.type "consumivel" (eq item.system.tipo 'ammo')))}}
+		<a class="item" data-tab="enhancements">{{ localize "T20.Enhancements" }}</a>
+		{{/if}}
 		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
 	</nav>
 
@@ -47,6 +50,18 @@
 			{{> "systems/tormenta20/templates/item/parts/item-resistencia.html"}}
 
 			<hr>
+			<div class="form-group">
+				<label for="TAGS">TAGS</label>
+				<input type="text" name="tag" class="tag-input"><br>
+			</div>
+			{{#if item.system.tags }}
+			<div class="tag-list">
+				{{#each item.system.tags as |tag t| }}
+				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
+				{{/each}}
+			</div>
+			{{/if}}
+			
 			{{!-- Chat Message Flavor --}}
 			<div class="form-group stacked">
 				<label>{{ localize "T20.ChatFlavor" }}</label>
@@ -58,6 +73,11 @@
 		{{#if TODO }}
 		{{!-- Progression Tab --}}
 		{{> "systems/tormenta20/templates/item/parts/item-progression.html"}}
+		{{/if}}
+
+		{{#if (eq item.system.tipo "ammo")}}
+		{{!-- Enhancements Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-enhancements.html"}}
 		{{/if}}
 
 		{{!-- Effects Tab --}}

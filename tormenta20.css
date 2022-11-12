@@ -250,11 +250,19 @@
   font-size: 18px;
   font-weight: 400;
 }
-.tormenta20 .tag {
-  display: inline-block;
+.tag-list {
+  clear: both;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  margin: 3px 0;
+  align-items: center;
+}
+.tag {
+  flex: 0 0 auto;
   margin: 0 2px 0 0;
   padding: 0 3px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 16px;
   border: 1px solid #999;
   border-radius: 3px;
@@ -577,6 +585,22 @@
 .tormenta20 .effects-list .item-controls {
   flex: 0 0 60px;
   justify-content: space-between;
+}
+.tormenta20 .effects-list .item-controls .effect-control-list {
+  flex: 0;
+}
+
+.tormenta20 .effects-list .item-controls .add-status-effects {
+  display: none;
+  position: absolute;
+  right: 80px;
+  width: 190px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 15px;
+  padding: 7px;
+}
+.tormenta20 .effects-list .item-controls .add-status-effects.active {
+  display: block;
 }
 .tormenta20 .effects-list .item-controls a {
   font-size: 12px;
@@ -1144,10 +1168,12 @@
   display: flex;
 }
 .tormenta20.sheet.actor .traits .trait-list {
+  list-style: none;
   margin: 0;
   padding: 0 0 0 0.5em;
 }
 .tormenta20.sheet.actor .traits .trait-list .tag {
+  display: inline-flex;
   background-color: rgba(0, 0, 0, 0.05);
 }
 .tormenta20.sheet.actor .traits .trait-list .speedtag {
@@ -1282,7 +1308,7 @@
   border-right: 1px solid #c9c7b8;
 }
 .tormenta20.sheet.actor .item-list .item-controls {
-  flex: 0 0 44px;
+  flex: 0 0 50px;
   font-size: 12px;
   text-align: right;
 }
@@ -1342,7 +1368,7 @@
 .tormenta20.sheet.actor .skills-list .skill .item-total {
   flex: 0 0 48px;
 }
-.tormenta20.sheet.actor .skills-list .skill .item-mod {
+.tormenta20.sheet.actor .skills-list .skill .item-abl {
   flex: 0 0 60px;
 }
 .tormenta20.sheet.actor .skills-list .skill .item-outros {
@@ -1388,6 +1414,9 @@
 }
 .tormenta20.sheet.actor .encumbrance .encumbrance-breakpoint.encumbrance-30 {
   left: 30%;
+}
+.tormenta20.sheet.actor .encumbrance .encumbrance-breakpoint.encumbrance-50 {
+  left: 50%;
 }
 .tormenta20.sheet.actor .encumbrance .arrow-up {
   bottom: 0;
@@ -2155,6 +2184,7 @@
   text-align: right;
   padding-right: 10px;
 }
+.tormenta20.sheet.actor.simple .inventory-list .item-header:last-child .item-controls,
 .tormenta20.sheet.actor.character .inventory-list .item-header:last-child .item-controls {
   flex: 0 0 100%;
 }

@@ -7,6 +7,14 @@
 		<div class="effect-source">{{localize 'T20.Duration'}}</div>
 		{{/unless}}
 		<div class="item-controls effect-controls flexrow">
+			{{#if (and (not @root.isOwned) (eq @root.documentName 'Item') (eq sid 'temporary'))}}
+			<div class="add-status-effects">
+				{{#each @root.config.conditions as | data id | }}
+					<a class="effect-control-status" data-action="create-status" data-status-id="{{id}}" title="{{localize data.label}}"><img src="{{data.icon}}" width="32" height="32"></a>
+				{{/each}}
+			</div>
+			<a class="effect-control-list" data-action="create" title="{{localize 'T20.Add'}} {{localize 'T20.Effect'}}"><i class="fa-solid fa-list-ul"></i></a>
+			{{/if}}
 			<a class="effect-control" data-action="create" title="{{localize 'T20.Add'}} {{localize 'T20.Effect'}}">
 				<i class="fas fa-plus"></i> {{localize 'T20.Add'}}
 			</a>
@@ -56,3 +64,4 @@
 	</ol>
 	{{/each}}
 </ol>
+

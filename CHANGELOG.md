@@ -1,4 +1,32 @@
 # Lista de Mudanças
+## Versão 1.4.101
+- Atualização: Tormenta20 Versão Jogo do Ano;
+- Atualização: Compêndios Atualizados. Agradecimentos a @eunaumtenhoid, @Gustavo Reis, @nightflight, @MrRavnark e @FalArthur
+
+## Versão 1.4.005
+- Corrigido: Fichas não abriam por erro na descrição de itens;
+- Corrigido: Soltar uma classe que o personagem já possuía não atualizava o nivel;
+- Corrigido: Foundry criava uma macro de exibição em cima da macro de item;
+- Corrigido: Magias na Ficha de Abas não apresentavam o ícone de favoritar;
+- Corrigido: Cálculo de RollData de poderes por tipo, ajustado pra ser mais abrangente e funcionar com Poderes de Distinções, além de Poderes da Tormenta (TODO: Alterar no futuro, possivelmente criando um campo Tag nos itens);
+- Adicionado: [Protótipo] DataModels - a nova maneira de registrar e migrar as estruturas de dados dos Personagens e Itens;
+    - PARA TESTAR, DETECTAR BUGS E COLHER FEEDBACK;
+    - Essa configuração pode causar a perda de informações em Personagens e Itens;
+    - Personagens e Itens que não estejam de acordo com a estrutura estabelecida não serão exibidos, mas continuam existindo;
+
+## Versão 1.4.003 a 1.4.004
+- Corrigido: Diversas correções;
+
+## Versão 1.4.002
+- Atualização: compatibilidade com o FoundryVTT v10
+- Adicionado: Ajustes nos cálculos de Ameaças seguindo a Reforma Monstrográfica;
+- Adicionado: Redução de dano para todos os tipos de dano e mensagem de dano foi atualizada;
+- Adicionado: Recursos, campos de controle para recursos secundários e recursos de Skyfall (Pontos de Sombra, Catarse, e falhas na Morte)
+- Adicionado: Nova categoria de ActiveEffects 'Efeitos de Uso Temporários';
+- Adicionado: Efeitos de Uso podem ser aplicados em rolagens de itens específicos;
+- Adicionado: A duração do efeito de um Item deve ser aplicada no efeito que ele gera;
+- Adicionado: [Protótipo] Efeitos `sustentando` e `dano` que ativam no inicio do turno;
+- Adicionado: [Protótipo] Efeito de Uso permite escolher uma arma especifica a ser aplicada `?.items.arma`, como Arma Mágica;
 
 ## Versão 1.4.005
 - Corrigido: Fichas não abriam por erro na descrição de itens;
@@ -359,7 +387,7 @@
 - Suporte ao módulo Drag Ruler adicionado.
 
 ### Consertos de Bugs
-- A magia Sopro das Uivantes agora tem rolagem de dano.
+- A magia Sopro das Montanhas Gélidas agora tem rolagem de dano.
 - Aprimoramentos da magia Luz consertados.
 
 ## Versão 1.1.36

@@ -5,7 +5,7 @@
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item active" data-tab="description">{{ localize "T20.Description" }}</a>
 		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
-		<a class="item" data-tab="enchantments">{{ localize "T20.Enchantments" }}</a>
+		<a class="item" data-tab="enhancements">{{ localize "T20.Enhancements" }}</a>
 		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
 	</nav>
 
@@ -19,10 +19,26 @@
 			
 			{{!-- Weapon Type --}}
 			<div class="form-group">
-				<label>{{ localize "T20.Type" }}</label>
+				<label>{{ localize "T20.WeaponProficiency" }}</label>
 				<div class="form-fields">
-					<select name="system.tipoUso">
-						{{selectOptions config.weaponTypes selected=item.system.tipoUso localize=true}}
+					<select name="system.proficiencia">
+						{{selectOptions config.weaponTypes blank="" selected=item.system.proficiencia localize=true}}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.WeaponPurpose" }}</label>
+				<div class="form-fields">
+					<select name="system.proposito">
+						{{selectOptions config.weaponPurposeTypes blank="" selected=item.system.proposito localize=true}}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.WeaponWielding" }}</label>
+				<div class="form-fields">
+					<select name="system.empunhadura">
+						{{selectOptions config.weaponWieldingTypes blank="" selected=item.system.empunhadura localize=true}}
 					</select>
 				</div>
 			</div>
@@ -63,6 +79,7 @@
 					<input type="checkbox" name="system.propriedades.{{prop}}" value="{{name}}" {{checked (lookup ../item.system.propriedades prop)}} data-dtype="Boolean" /> {{ localize name }}
 				</label>
 				{{/each}}
+
 			</div>
 			<hr>
 			{{!-- Rolls --}}
@@ -75,10 +92,8 @@
 					<input type="number" title="{{ localize 'T20.CriticalHitMultiplier' }}" name="system.criticoX" value="{{item.system.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
-			{{#if (or item.system.propriedades.arr item.system.propriedades.dst)}}
 			<div class="form-group">
 				<label>{{ localize "T20.Range" }}</label>
-				
 				<div class="form-fields">
 					<select class="selectatr" name="system.alcance" value={{item.system.alcance}} data-type="String">
 						{{#select item.system.alcance}}
@@ -90,18 +105,27 @@
 					</select>
 				</div>
 			</div>
-			{{/if}}
 			<hr>
 			
-			
+			<div class="form-group">
+				<label for="TAGS">TAGS</label>
+				<input type="text" name="tag" class="tag-input"><br>
+			</div>
+			{{#if item.system.tags }}
+			<div class="tag-list">
+				{{#each item.system.tags as |tag t| }}
+				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
+				{{/each}}
+			</div>
+			{{/if}}
 			<div class="form-group">
 				<label for="chatFlavor">{{ localize "T20.ChatFlavor" }}</label>
 				<textarea name="system.chatFlavor" contenteditable="true">{{item.system.chatFlavor}}</textarea>
 			</div>
 		</div>
 		
-		{{!-- Enchantments Tab --}}
-		{{> "systems/tormenta20/templates/item/parts/item-enchantments.html"}}
+		{{!-- Enhancements Tab --}}
+		{{> "systems/tormenta20/templates/item/parts/item-enhancements.html"}}
 		
 		<div class="tab effects" data-group="primary" data-tab="effects">
 			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
