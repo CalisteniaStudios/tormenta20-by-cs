@@ -771,9 +771,11 @@ export default class ActorSheetT20 extends ActorSheet {
 		const li = event.currentTarget.closest('li');
 		const id = li.dataset.itemId;
 		if ( !this.actor.system.pericias[id] ) return;
-		const value = this.actor.system.pericias[id].treinado;
-		const field = `system.pericias.${id}.treinado`;
-		this.actor.update({[field]: 1 - (Number(value) ?? 0)});
+		const trained = this.actor.system.pericias[id].treinado;
+		const ability = this.actor.system.pericias[id].atributo;
+		const treinado = `system.pericias.${id}.treinado`;
+		const atributo = `system.pericias.${id}.atributo`;
+		this.actor.update({[treinado]: !trained, [atributo]: ability});
 	}
 
 	_toggleControls(event) {

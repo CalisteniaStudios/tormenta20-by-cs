@@ -44,6 +44,7 @@
 	<li class="skill flexrow {{#if skill.custom }}custom{{/if}}" data-item-id="{{skill.key}}">
 		<div class="item-image">
 			<a class="training-toggle skill-training" title="{{ localize 'T20.Trained'}}"><i class="{{skill.symbol}}"></i></a>
+			<input type="hidden" name="system.pericias.{{skill.key}}.treinado" value="{{skill.treinado}}" />
 		</div>
 		<div class="item-name" data-item-id="{{skill.key}}">
 			{{#if skill.custom}}
@@ -58,8 +59,8 @@
 			{{/if}}
 		</div>
 		<div class="item-total">
-			<input disabled type="text" data-dtype="Number" name="system.pericias.{{skill.key}}.total" value="{{numberFormat skill.value sign=true}}"  />
-			<input type="hidden"  data-dtype="Number" name="system.pericias.{{skill.key}}.treino" value="{{skill.treino}}" />
+			<input disabled type="text" data-dtype="Number" name="system.pericias.{{skill.key}}.total" value="{{numberFormat skill.value sign=true}}" />
+			<input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.treino" value="{{skill.treino}}" />
 		</div>
 		{{#if ../isCharacter}}
 		<div class="item-abl">

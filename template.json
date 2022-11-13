@@ -192,130 +192,13 @@
           "alinhamento": "",
           "divindade": ""
         },
-        "pericias": {
-          "acro": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "ades": {
-            "value": 0,"atributo": "car", "outros": 0, "treinado":0
-          },
-          "atle": {
-            "value": 0,"atributo": "for", "outros": 0, "treinado":0
-          },
-          "atua": {
-            "value": 0,"atributo": "car", "outros": 0, "treinado":0
-          },
-          "cava": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "conh": {
-            "value": 0,"atributo": "int", "outros": 0, "treinado":0
-          },
-          "cura": {
-            "value": 0,"atributo": "sab", "outros": 0, "treinado":0
-          },
-          "dipl": {
-            "value": 0,"atributo": "car", "outros": 0, "treinado":0
-          },
-          "enga": {
-            "value": 0,"atributo": "car", "outros": 0, "treinado":0
-          },
-          "fort": {
-            "value": 0,"atributo": "con", "outros": 0, "treinado":0
-          },
-          "furt": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "guer": {
-            "value": 0,"atributo": "int", "outros": 0, "treinado":0
-          },
-          "inic": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "inti": {
-            "value": 0,"atributo": "car", "outros": 0, "treinado":0
-          },
-          "intu": {
-            "value": 0,"atributo": "sab", "outros": 0, "treinado":0
-          },
-          "inve": {
-            "value": 0,"atributo": "int", "outros": 0, "treinado":0
-          },
-          "joga": {
-            "value": 0,"atributo": "car", "outros": 0, "treinado":0
-          },
-          "ladi": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "luta": {
-            "value": 0,"atributo": "for", "outros": 0, "treinado":0
-          },
-          "mist": {
-            "value": 0,"atributo": "int", "outros": 0, "treinado":0
-          },
-          "nobr": {
-            "value": 0,"atributo": "int", "outros": 0, "treinado":0
-          },
-          "ofi0": {
-            "value": 0,"atributo": "int", "outros": 0, "treinado":0
-          },
-          "perc": {
-            "value": 0,"atributo": "sab", "outros": 0, "treinado":0
-          },
-          "pilo": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "pont": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "refl": {
-            "value": 0,"atributo": "des", "outros": 0, "treinado":0
-          },
-          "reli": {
-            "value": 0,"atributo": "sab", "outros": 0, "treinado":0
-          },
-          "sobr": {
-            "value": 0,"atributo": "sab", "outros": 0, "treinado":0
-          },
-          "vont": {
-            "value": 0,"atributo": "sab", "outros": 0, "treinado":0
-          },
-          "_pc0": {
-            "value": 0,"atributo": "for", "outros": 0, "treinado":0
-          }
-        },
+        "pericias": {},
         "tracos": {
           "idiomas": {
             "value": ["comum"]
           }
         },
         "modificadores": {}
-      },
-      "builder": {
-        "builder": {
-          "attributes":{
-            "cr": "",
-            "size": "",
-            "attack": {"value":0,"cr":""},
-            "damage": {"value":0,"cr":""},
-            "defense": {"value":0,"cr":""},
-            "fort": {"value":0,"rank":2,"cr":""},
-            "refl": {"value":0,"rank":1,"cr":""},
-            "vont": {"value":0,"rank":0,"cr":""},
-            "topsave": {"value":0,"cr":""},
-            "midsave": {"value":0,"cr":""},
-            "botsave": {"value":0,"cr":""},
-            "hp": {"value":0,"cr":""},
-            "mp": {"value":0,"cr":""},
-            "dc": {"value":0,"cr":""}
-          },
-          "details":{
-            "concept": "",
-            "creatureType": "",
-            "role": "",
-            "treasure": ""
-          }
-        }
       },
       "builder": {
         "builder": {
@@ -499,18 +382,7 @@
       "criticoX": 2,
       "alcance": "",
       "tipoUso": "simples",
-      "propriedades": {
-        "ada": false,
-        "agi": false,
-        "alo": false,
-        "arr": false,
-        "dst": false,
-        "dms": false,
-        "dup": false,
-        "lev": false,
-        "mun": false,
-        "ver": false
-      }
+      "propriedades": {}
     },
     "consumivel": {
       "templates": ["base","objeto", "efeitoAtivado", "resistencia"],
