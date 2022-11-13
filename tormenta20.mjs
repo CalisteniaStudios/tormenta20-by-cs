@@ -132,11 +132,11 @@ Hooks.once("init", async function () {
 		label: game.i18n.localize("T20.NPCSheet"), //"Ficha de NPC"
 	});
 
-	Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
-		types: ["npc"],
-		makeDefault: false,
-		label: game.i18n.localize("T20.CharacterBuilderSheet"), //"Progressão de Personagem"
-	});
+	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
+	// 	types: ["npc"],
+	// 	makeDefault: false,
+	// 	label: game.i18n.localize("T20.CharacterBuilderSheet"), //"Progressão de Personagem"
+	// });
 	
 	Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
 		types: ["simple"],
