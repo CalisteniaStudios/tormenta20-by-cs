@@ -81,6 +81,23 @@ T20.tokenMPColors = {
 /*  Tormenta20 Types                        */
 /* ---------------------------------------- */
 
+/* --------------- Character --------------- */
+
+T20.characterFlags = {
+	inventarioOrganizado: {
+		type: Boolean
+	},
+	createPotion: {
+		type: Boolean
+	},
+	createScroll: {
+		type: Boolean
+	},
+	mago: {
+		type: Boolean
+	},
+}
+
 /* --------------- Creature --------------- */
 
 T20.creatureTypes = {
