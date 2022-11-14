@@ -652,6 +652,7 @@ preLocalize("weaponTypes");
  */
 T20.weaponPurposeTypes = {
 	"corpo-a-corpo": "T20.WeaponMelee",
+	"corpo-a-corpo-arremesso": "T20.WeaponMeleeThrowing",
 	"disparo": "T20.WeaponRanged",
 	"arremesso": "T20.WeaponThrowing",
 };

@@ -838,7 +838,6 @@ export default class ActorT20 extends Actor {
 	/** @inheritdoc */
 	_onUpdate(changed, options, userId){
 		super._onUpdate(changed, options, userId);
-
 		/* Check Encumbered Status and Add/Remove its ActiveEffect */
 		if ( this.type=="character" ) {
 			if( game.userId !== userId ) return;

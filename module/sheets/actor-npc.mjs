@@ -185,7 +185,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		// Initialize containers.
 		// Categorize items as inventory
 		const inventario = {
-			arma: {label: "Armas", items: [], dataset: {type: "arma"} },
+			arma: {label: "Armas", items: [], dataset: {type: "arma"}, melee:0, ranged:0 },
 			equipamento: {label: "Equipamentos", items: [], dataset: {type: "equipamento"} },
 			consumivel: {label: "Consumível", items: [], dataset: {type: "consumivel"} },
 			tesouro: {label: "Tesouro", items: [], dataset: {type: "tesouro"} }
@@ -215,9 +215,17 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
 			i.espacosTotal = (i.system.qtd * i.system.espacos);
+			if ( i.type == 'arma' ) {
+				i.melee = ['corpo-a-corpo','corpo-a-corpo-arremesso'].includes(i.system.proposito);
+				i.ranged = ['arremesso','disparo'].includes(i.system.proposito);
+			}
 			inventario[i.type].items.push(i);
 		}
 
+		// Weapon Types
+		inventario.arma.melee = inventario.arma.items.filter(f => f.type=='arma' && f.melee ).length;
+		inventario.arma.ranged = inventario.arma.items.filter(f => f.type=='arma' && f.ranged ).length;
+		// console.log(inventario.arma);
 		// Organize spells and count the number of prepared spells
 		const grimorio = {
 			1: { spells: [], custo: 1 },

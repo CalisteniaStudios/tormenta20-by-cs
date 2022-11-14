@@ -12,106 +12,104 @@ const fields = foundry.data.fields;
  * @param {DataFieldOptions} [options={}]  Options which configure the behavior of the field
  */
 class MappingField extends fields.ObjectField {
-
 	constructor(model, options) {
-		// TODO: Should this also allow the validation of keys?
-		super(options);
-		if ( !isSubclass(model, foundry.abstract.DataModel) ) {
-			throw new Error("An EmbeddedDataField must specify a DataModel class as its type");
+		if ( !(model instanceof foundry.data.fields.DataField) ) {
+			console.warn(model.constructor.name );
+			throw new Error("MappingField must have a DataField as its contained element");
 		}
+		super(options);
+
 		/**
-		 * The embedded DataModel definition which is contained in this field.
-		 * @type {*}
+		 * The embedded DataField definition which is contained in this field.
+		 * @type {DataField}
 		 */
 		this.model = model;
 	}
 
+	/* -------------------------------------------- */
+
 	/** @inheritdoc */
-	clean(value, data, options) {
-		value = super.clean(value, data, options);
-		for ( let v of Object.values(value) ) {
-			if ( this.options.clean instanceof Function ) v = this.options.clean.call(this, v);
-			v = this.model.cleanData(v, options);
-		}
+	static get _defaults() {
+		return foundry.utils.mergeObject(super._defaults, {
+			initialKeys: null,
+			initialValue: null
+		});
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	_cleanType(value, options) {
+		Object.values(value).forEach(v => this.model.clean(v, options));
 		return value;
 	}
+
+	/* -------------------------------------------- */
 
 	/** @inheritdoc */
 	getInitialValue(data) {
 		let keys = this.options.initialKeys;
-		if ( !keys || !foundry.utils.isEmpty(this.initial) ) return super.getInitialValue(data);
+		if ( !keys || !foundry.utils.isEmpty(this.initial()) ) return super.getInitialValue(data);
 		if ( !(keys instanceof Array) ) keys = Object.keys(keys);
 		const initial = {};
 		for ( const key of keys ) {
-			initial[key] = {};
+			const modelInitial = this.model.getInitialValue();
+			initial[key] = this.initialValue?.(key, modelInitial) ?? modelInitial;
 		}
 		return initial;
 	}
 
-	/** @override */
-	validate(value, options={}) {
-		const errors = {};
-		for ( const [k, v] of Object.entries(value) ) {
-			const err = this.model.schema.validate(v, options);
-			if ( !isEmpty(err) ) errors[k] = err;
-		}
-		if ( !isEmpty(errors) ) throw new Error(foundry.abstract.DataModel.formatValidationErrors(errors));
-		return super.validate(value, options);
-	}
+	/* -------------------------------------------- */
 
 	/** @override */
-	initialize(value, model, name) {
-		if ( !value ) return value;
-		value = foundry.utils.deepClone(value);
-		for ( let v of Object.values(value) ) {
-			v = new this.model(v, {parent: model});
+	_validateType(value, options={}) {
+		if ( typeof value !== "object" ) throw new Error("must by an Object");
+		const errors = this._validateValues(value, options);
+		if ( !foundry.utils.isEmpty(errors) ) throw new foundry.data.fields.ModelValidationError(errors);
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Validate each value of the object.
+	 * @param {object} value    The object to validate.
+	 * @param {object} options  Validation options.
+	 * @returns {object}        An object of value-specific errors by key.
+	 */
+	_validateValues(value, options) {
+		const errors = {};
+		for ( const [k, v] of Object.entries(value) ) {
+			const error = this.model.validate(v, options);
+			if ( error ) errors[k] = error;
 		}
+		return errors;
+	}
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	initialize(value, model) {
+		if ( !value ) return value;
+		Object.values(value).forEach(v => this.model.initialize(v, model));
 		return value;
 	}
 }
 
 class ActorSkillsField extends MappingField {
-
-	/** @override */
+	/** @inheritdoc */
 	getInitialValue(data) {
 		let keys = this.options.initialKeys;
-		if ( !keys ) return super.getInitialValue(data);
-		if ( !(keys instanceof Array) ) keys = Object.keys(keys);
+		if ( !keys || !foundry.utils.isEmpty(this.initial()) ) return super.getInitialValue(data);
+		if ( !(keys instanceof Array) ) {
+			const gameSystem = game.settings.get('tormenta20', 'gameSystem');
+			keys = Object.entries(keys).filter((f)=> f[1].systems.some(s=>['core',gameSystem].includes(s))).map(m=>m[0]);
+		}
 		const initial = {};
 		for ( const key of keys ) {
-			initial[key] = {};
+			const modelInitial = this.model.getInitialValue();
+			initial[key] = this.initialValue?.(key, modelInitial) ?? modelInitial;
 		}
-		if ( !foundry.utils.isEmpty(this.initial) ) this.initial = initial;
-		return this.initial instanceof Function ? this.initial(data) : this.initial;
-	}
-	
-	/** @override */
-	initialize(value, model, name) {
-		if ( !value ) return value;
-		value = foundry.utils.deepClone(value);
-		const skills = SYSTEMRULES.skills;
-		const gameSystem = game.settings.get('tormenta20', 'gameSystem');
-		for ( let [k, v] of Object.entries(value) ) {
-			(sys => str1.includes(el));
-			if( !skills[k]?.systems.some( sys => ['core', gameSystem].includes(sys)) ) continue;
-			v.atributo = v.atributo ?? skills[k].abl;
-			v.pda = v.pda ?? skills[k].armorPenalty;
-			v.st = v.st ?? skills[k].trainedOnly;
-			v.size = v.size ?? skills[k].sizeMod;
-			v = new this.model(v, {parent: model});
-		}
-		return value;
-	}
-
-	/** @override */
-	validate(value, options={}) {
-		const errors = {};
-		for ( const [k, v] of Object.entries(value) ) {
-			const err = this.model.schema.validate(v, options);
-			if ( !isEmpty(err) ) errors[k] = err;
-		}
-		if ( !isEmpty(errors) ) throw new Error(foundry.abstract.DataModel.formatValidationErrors(errors));
-		return super.validate(value, options);
+		return initial;
 	}
 }
 

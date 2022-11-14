@@ -211,36 +211,6 @@ class systemItemWeaponData extends systemItemBaseData {
 			delete data.propriedades.dms;
 		}
 
-		if( hasProperty(data, 'melhorias') ){
-			/* old >> new */
-			let i = 1;
-			for (let [key, value] of Object.entries(data.melhorias)) {
-				if ( i > 4 ) break;
-				if ( value ) {
-					data.upgrades[`melhoria${i}`] = key;
-					i++;
-				}
-			}
-			// delete data.melhorias;
-		}
-		
-		if(hasProperty(data.encantos, 'lancinante') ){
-			data.encantos.lancinating = Boolean(data.encantos.lancinante);
-			// delete data.encantos.lancinante;
-		}
-		
-		if( hasProperty(data, 'encantos') ){
-			let i = 1;
-			for (let [key, value] of Object.entries(data.encantos)) {
-				if ( i > 3 ) break;
-				if ( value ) {
-					data.upgrades[`encanto${i}`] = key;
-					i++;
-				}
-			}
-			// delete data.encantos;
-		}
-
 		return super.migrateData(data);
 	}
 }
@@ -267,29 +237,7 @@ class systemItemEquipmentData extends systemItemBaseData {
 	
 	/** @inheritdoc */
 	static migrateData(data) {
-		if( data.melhorias ){
-			/* old >> new */
-			let i = 1;
-			for (let [key, value] of Object.entries(data.melhorias)) {
-				if ( i > 4 ) break;
-				if ( value ) {
-					data.upgrades[`melhoria${i}`] = key;
-					i++;
-				}
-			}
-		}
 		
-		if( data.encantos ){
-			/* old >> new */
-			let i = 1;
-			for (let [key, value] of Object.entries(data.encantos)) {
-				if ( i > 3 ) break;
-				if ( value ) {
-					data.upgrades[`encanto${i}`] = key;
-					i++;
-				}
-			}
-		}
 		return super.migrateData(data);
 	}
 }
@@ -316,30 +264,7 @@ class systemItemConsumableData extends systemItemBaseData {
 		if( !isFinite(data.duracao.value) || data.duracao.value == null ){
 			data.duracao.value = 0;
 		}
-
-		if( data.melhorias ){
-			/* old >> new */
-			let i = 1;
-			for (let [key, value] of Object.entries(data.melhorias)) {
-				if ( i > 4 ) break;
-				if ( value ) {
-					data.upgrades[`melhoria${i}`] = key;
-					i++;
-				}
-			}
-		}
 		
-		if( data.encantos ){
-			/* old >> new */
-			let i = 1;
-			for (let [key, value] of Object.entries(data.encantos)) {
-				if ( i > 3 ) break;
-				if ( value ) {
-					data.upgrades[`encanto${i}`] = key;
-					i++;
-				}
-			}
-		}
 		return super.migrateData(data);
 	}
 }

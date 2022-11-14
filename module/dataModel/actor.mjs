@@ -2,6 +2,7 @@ import { T20, SYSTEMRULES } from '../config.mjs';
 const fields = foundry.data.fields;
 
 import {
+	MappingField,
 	ActorSkillsField,
 	SkillData,
   AbilitiesSchema,
@@ -25,10 +26,28 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 			detalhes: this.schemaDetails(),
 			dinheiro: this.schemaCurrency(),
 			modificadores: this.schemaModifiers(),
-			pericias: new ActorSkillsField(SkillData, {initialKeys: Object.keys(SYSTEMRULES.skills)}),
+			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
+				initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue
+			}),
 			resources: new fields.ObjectField(), //this.schemaResources(),
 			tracos: this.schemaTraits(),
 		}
+	}
+
+	static _initialSkillValue(key, initial) {
+		if ( SYSTEMRULES.skills[key]?.abl ){
+			initial.atributo = SYSTEMRULES.skills[key].abl;
+		}
+		if ( SYSTEMRULES.skills[key]?.trainedOnly ){
+			initial.pda = SYSTEMRULES.skills[key].trainedOnly;
+		}
+		if ( SYSTEMRULES.skills[key]?.armorPenalty ){
+			initial.st = SYSTEMRULES.skills[key].armorPenalty;
+		}
+		if ( SYSTEMRULES.skills[key]?.sizeMod ) {
+			initial.size = SYSTEMRULES.skills[key].sizeMod;
+		}
+		return initial;
 	}
 
 	/* ACTOR SCHEMAS */
@@ -44,6 +63,32 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 		
 		let schema = {};
 		Object.keys(T20.atributos).forEach( abl => schema[abl] = getSchema());
+		return new fields.SchemaField(schema);
+		return schema;
+	}
+
+	static schemaSkills(type="character"){
+		let getSchema = (skill) => {
+			return new fields.SchemaField({
+				atributo: new fields.StringField({ required: true, nullable:false, blank: false, choices: Object.keys(T20.atributos), initial: 'for'}),
+				treinado: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+				st: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+				pda: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+				size: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+				value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
+				outros: new fields.NumberField({ required: true, nullable:false, initial:0 }),
+				condi: new fields.NumberField({ required: true, nullable:false, initial:0 }),
+				bonus: new fields.StringField({ required: true, nullable:false, initial: '' }),
+				custom: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+				label: new fields.StringField({ required: true, nullable:false, initial: '' }),
+				nome: new fields.StringField({ required: true, nullable:false, initial: '' }),
+				// order: new fields.NumberField({ required: true, nullable:false, initial:0 }),
+			});
+		}
+		
+		let schema = {};
+		Object.keys(T20.pericias).forEach( skill => schema[skill] = getSchema(skill));
+		fields.embedded
 		return new fields.SchemaField(schema);
 		return schema;
 	}
@@ -331,14 +376,20 @@ class systemActorCharacterData extends systemActorBaseData {
 			detalhes: this.schemaDetails(type),
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
-			pericias: new ActorSkillsField(SkillData, {initialKeys: Object.keys(SYSTEMRULES.skills)}),
+			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
+				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue
+			}),
+			teste: this.schemaSkills(),
 			resources: new fields.ObjectField(),
 			tracos: this.schemaTraits(type),
 		}
 	}
 
+	
+
 	/** @inheritdoc */
 	static migrateData(data) {
+		// console.warn('migrateData', data);
 		if( !Object.keys(T20.creatureTypes).includes(data.detalhes.tipo) ){
 			let cType = Object.keys(T20.creatureTypes).find( c => data.detalhes.tipo.match(c));
 			data.detalhes.tipo = cType ?? 'hum';
@@ -357,7 +408,9 @@ class systemActorNPCData extends systemActorBaseData {
 			detalhes: this.schemaDetails(type),
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
-			pericias: new ActorSkillsField(SkillData, {initialKeys: Object.keys(SYSTEMRULES.skills)}),
+			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
+				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue
+			}),
 			resources: new fields.ObjectField(),
 			tracos: this.schemaTraits(type),
 		}
@@ -391,7 +444,9 @@ class systemActorSimpleData extends systemActorBaseData {
 			detalhes: this.schemaDetails(type),
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
-			pericias: new ActorSkillsField(SkillData, {initialKeys: Object.keys(SYSTEMRULES.skills)}),
+			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
+				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue
+			}),
 			resources: new fields.ObjectField(),
 			tracos: this.schemaTraits(type),
 		}
