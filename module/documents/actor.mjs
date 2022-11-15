@@ -615,24 +615,24 @@ export default class ActorT20 extends Actor {
 		data["tamanho"] = sizeMod[size];
 		data["pda"] = this.system.attributes?.defesa.pda || 0;
 		
-		data["pericia"] = skillMods.geral?.filter(Boolean).join(' + ') || 0;
-		data["semataque"] = skillMods.semataque?.filter(Boolean).join(' + ') || 0;
-		data["ataque"] = skillMods.ataque?.filter(Boolean).join(' + ') || 0;
-		data["resistencia"] = skillMods.resistencia?.filter(Boolean).join(' + ') || 0;
+		data["pericia"] = simplifyRollFormula(skillMods.geral?.filter(Boolean).join(' + '), data) || 0;
+		data["semataque"] = simplifyRollFormula(skillMods.semataque?.filter(Boolean).join(' + '), data) || 0;
+		data["ataque"] = simplifyRollFormula(skillMods.ataque?.filter(Boolean).join(' + '), data) || 0;
+		data["resistencia"] = simplifyRollFormula(skillMods.resistencia?.filter(Boolean).join(' + '), data) || 0;
 		
 		// Set ability bonuses modifiers
 		let ablMods = this.system.modificadores?.atributos || {};
-		data["atributo"] = ablMods.geral?.filter(Boolean).join(' + ') || 0;
-		data["fisicos"] = ablMods.fisicos?.filter(Boolean).join(' + ') || 0;
-		data["mentais"] = ablMods.mentais?.filter(Boolean).join(' + ') || 0;
+		data["atributo"] = simplifyRollFormula(ablMods.geral?.filter(Boolean).join(' + '), data) || 0;
+		data["fisicos"] = simplifyRollFormula(ablMods.fisicos?.filter(Boolean).join(' + '), data) || 0;
+		data["mentais"] = simplifyRollFormula(ablMods.mentais?.filter(Boolean).join(' + '), data) || 0;
 
 		// Set damage bonuses modifiers
 		let dmgMods = this.system.modificadores?.dano || {};
-		data["dano"] = dmgMods.geral?.filter(Boolean).join(' + ') || 0;
-		data["danoMagico"] = dmgMods.mag?.filter(Boolean).join(' + ') || 0;
-		data["danoCAC"] = dmgMods.cac?.filter(Boolean).join(' + ') || 0;
-		data["danoAD"] = dmgMods.ad?.filter(Boolean).join(' + ') || 0;
-		data["danoALQ"] = dmgMods.alq?.filter(Boolean).join(' + ') || 0;
+		data["dano"] = simplifyRollFormula(dmgMods.geral?.filter(Boolean).join(' + '), data) || 0;
+		data["danoMagico"] = simplifyRollFormula(dmgMods.mag?.filter(Boolean).join(' + '), data) || 0;
+		data["danoCAC"] = simplifyRollFormula(dmgMods.cac?.filter(Boolean).join(' + '), data) || 0;
+		data["danoAD"] = simplifyRollFormula(dmgMods.ad?.filter(Boolean).join(' + '), data) || 0;
+		data["danoALQ"] = simplifyRollFormula(dmgMods.alq?.filter(Boolean).join(' + '), data) || 0;
 		
 		return data;
 	}
@@ -758,6 +758,7 @@ export default class ActorT20 extends Actor {
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
 		await super._preUpdate(changed, options, user);
+		// console.log(flattenObject(changed));
 		// Apply changes in Actor size to Token width/height
 		const newSize = getProperty(changed, "system.tracos.tamanho");
 		if (newSize && (newSize !== foundry.utils.getProperty(this.system, "tracos.tamanho"))) {

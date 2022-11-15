@@ -134,6 +134,11 @@ class SkillData extends foundry.abstract.DataModel {
 			// order: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 		}
 	};
+	
+	static migrateData(data) {
+		if ( data.bonus?.length > 0 ) data.bonus = [];
+		return super.migrateData(data);
+	}
 }
 
 /* ----------- Items ----------- */

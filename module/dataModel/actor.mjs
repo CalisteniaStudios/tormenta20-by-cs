@@ -379,7 +379,6 @@ class systemActorCharacterData extends systemActorBaseData {
 			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
 				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue
 			}),
-			teste: this.schemaSkills(),
 			resources: new fields.ObjectField(),
 			tracos: this.schemaTraits(type),
 		}
