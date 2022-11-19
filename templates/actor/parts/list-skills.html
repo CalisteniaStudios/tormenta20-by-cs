@@ -60,7 +60,6 @@
 		</div>
 		<div class="item-total">
 			<input disabled type="text" data-dtype="Number" name="system.pericias.{{skill.key}}.total" value="{{numberFormat skill.value sign=true}}" />
-			<input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.treino" value="{{skill.treino}}" />
 		</div>
 		{{#if ../isCharacter}}
 		<div class="item-abl">
@@ -79,7 +78,7 @@
 			<a class="item-control skill-delete" style="display: none;" data-item-id="{{skill.key}}" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
 			{{/if}}
 		</div>
-		<input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.condi" value="{{skill.condi}}"/>
+		<input type="hidden" data-dtype="Number" name="system.pericias.{{skill.key}}.condi" value="0"/>
 	</li>
 	{{/if}}
 	{{/each}}

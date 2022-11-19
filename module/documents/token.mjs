@@ -15,4 +15,18 @@
 		}
 		return data;
 	}
+
+	/** @inheritdoc */
+	async _preUpdate(changed, options, user) {
+		// Bugfix Leftover `skill.treino` on sheet was causing issues on token config
+		if ( this.actorData?.system?.pericias ){
+			const skills = this.actorData.system.pericias;
+			for (const [key, value] of Object.entries(skills)) {
+				if ( hasProperty(value, 'treino') ) {
+					changed[`actorData.system.pericias.${key}.-=treino`] = null;
+				}
+			}
+		}
+		super._preUpdate(changed, options, user);
+	}
 }

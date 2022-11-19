@@ -333,9 +333,11 @@ export default class ActorT20 extends Actor {
 		
 		// 
 		let accDef = accessories.map( m => m.system.armadura.value ).reduce((sum, v) => sum + v, 0);
+		let accPda = accessories.map( m => m.system.armadura.penalidade ).reduce((sum, v) => sum + v, 0);
 		parts.push(accDef);
 		pda += armor ? armor.system.armadura.penalidade : 0;
 		pda += shield ? shield.system.armadura.penalidade : 0;
+		pda += accPda ? accPda : 0;
 		// console.warn( this.name, defense.bonus);
 		parts.push(...defense.bonus);
 		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;

@@ -1,4 +1,13 @@
 # Lista de Mudanças
+
+## Versão 1.4.102 a 1.4.108
+- Corrigido: Perícias - atualizar treino alterava atributo e vice-versa;
+- Corrigido: Perícias - efeitos acumulavam infinitamente sempre que a ficha atualizava;
+- Corrigido: Perícias - efeitos de condição não eram removidos com as condições;
+- Corrigido: Items - Alguns Equipamentos não somavam penalidade de armadura;
+- Corrigido: Condições - Esmorecido e Frustrado afetavam perícias erradas;
+- Corrigido: Ajustes em alguns poderes;
+
 ## Versão 1.4.101
 - Atualização: Tormenta20 Versão Jogo do Ano;
 - Atualização: Compêndios Atualizados. Agradecimentos a @eunaumtenhoid, @Gustavo Reis, @nightflight, @MrRavnark e @FalArthur

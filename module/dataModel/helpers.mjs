@@ -137,6 +137,7 @@ class SkillData extends foundry.abstract.DataModel {
 	
 	static migrateData(data) {
 		if ( data.bonus?.length > 0 ) data.bonus = [];
+		if ( data.condi != 0 ) data.condi = 0;
 		return super.migrateData(data);
 	}
 }
