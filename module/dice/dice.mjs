@@ -83,7 +83,7 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 			return  acc;
 		}, []);
 		parts = parts.map( function(e) { 
-			if(e[1]) return e[0]+`[${e[1]}]`;
+			if(e[0] && e[1]) return e[0]+`[${e[1]}]`;
 			else return e[0];
 		});
 		roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);

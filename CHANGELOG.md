@@ -1,5 +1,9 @@
 # Lista de Mudanças
 
+## Versão 1.4.109
+- Corrigido: Ao usar itens com rolagem vazia causava erro.
+- Corrigido: Erro ao aplicar Efeitos de uso quando nome está errado.
+
 ## Versão 1.4.102 a 1.4.108
 - Corrigido: Perícias - atualizar treino alterava atributo e vice-versa;
 - Corrigido: Perícias - efeitos acumulavam infinitamente sempre que a ficha atualizava;

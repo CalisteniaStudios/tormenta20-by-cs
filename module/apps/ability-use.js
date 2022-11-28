@@ -23,6 +23,7 @@ const re = {
  * @param {Object} configKey   Object CONFIG.T20
  */
 const itemKey = (value, configKey) => {
+	if ( !configKey ) return;
 	const lang = game.i18n.translations.T20;
 	value = value.toLowerCase().capitalize();
 	let temp = Object.entries(lang).find(t=> t[1] == value);
