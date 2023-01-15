@@ -97,7 +97,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				rollMods[r.key][p].die = ch.value;
 			}
 			// To add Roll Modifiers => kh
-			else if( Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/, "")] && !["min","max"].includes(ch.value) ){
+			else if( Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/g, "")] && !["min","max"].includes(ch.value) ){
 				if( ch.value.match(/k|kh|kl/) ){
 					if ( r.parts[p][0] == '1d20' ) {
 						r.parts[p][0] = r.parts[p][0].replace("1d","2d")+ch.value;

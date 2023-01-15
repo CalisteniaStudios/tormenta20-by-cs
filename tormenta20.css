@@ -338,6 +338,7 @@
 .tormenta20.sheet .window-content .tab {
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   align-content: flex-start;
 }
 .tormenta20.sheet .window-content form.base .sheet-body {
@@ -929,13 +930,6 @@
 .tormenta20.sheet.actor .sheet-header .attributes .attribute .attribute-value {
   height: 30px;
   line-height: 30px;
-}
-.tormenta20.sheet.actor .sheet-header .attributes .attribute .config-button {
-  position: absolute;
-  display: none;
-}
-.tormenta20.sheet.actor .sheet-header .attributes .attribute:hover .config-button {
-  display: block;
 }
 .tormenta20.sheet.actor .sheet-header .attributes .attribute input.temphp {
   width: 48%;
@@ -1877,6 +1871,14 @@
 }
 .chat-message:hover .message-metadata * + * {
   margin: 0px 1px;
+}
+.chat-message .tormenta20.item-card .roll.critico .dice-total {
+  border: 2px solid #006c00;
+  color: #006c00;
+}
+.chat-message .tormenta20.item-card .roll.falha .dice-total {
+  border: 2px solid #AF0000;
+  color: #BF0000;
 }
 .chat-message:hover .tormenta20.item-card .roll .dice-btn {
   display: inline-block;

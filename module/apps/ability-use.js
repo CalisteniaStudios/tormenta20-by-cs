@@ -55,6 +55,7 @@ const rollFields = {
  */
 const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 	// ROLLS ARRAY
+	
 	const _campos = {};
 	let rolls = [];
 	if ( ['atributo','pericia'].includes(item.type) ) {
@@ -84,6 +85,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		}
 		if( ch.mode == 0 ) {
 			// To Change die => d12 (d#NUMBEROFFACES)
+			
 			if( ch.value.match(re.faces) ){
 				rollMods[r.key][p].die = ch.value;
 			}

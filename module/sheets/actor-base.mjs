@@ -8,6 +8,7 @@ import ActorMovementConfig from "../apps/movement-config.mjs";
 import ActorResistanceConfig from "../apps/resistance-config.mjs";
 import LevelSettings from "../apps/level-settings.mjs";
 import AbilityCalculator from "../apps/ability-calculator.mjs";
+import RestConfigDialog from "../apps/rest-config.mjs";
 
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -98,6 +99,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			isNPC: this.actor.type === "npc",
 			config: CONFIG.T20,
 			rollData: this.actor.getRollData.bind(this.actor),
+			// TextEditors
+			htmlFields: {},
 			//Flags
 			mostrarDivindade: true,//this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
 			mostrarAtributoTemp: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoTemp"),
@@ -144,7 +147,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		await this._prepareItems(sheetData);
 
 		// Enrich HTML text
-		sheetData.system.detalhes.biography.value = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
+		sheetData.htmlFields.biography = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
 		
 		sheetData.documentName = "Actor";
 		// Return data to the sheet
@@ -504,6 +507,9 @@ export default class ActorSheetT20 extends ActorSheet {
 				break;
 			case "ability":
 				app = new AbilityCalculator(this.object).render(true);
+				break;
+			case "rest":
+				RestConfigDialog.create([this.object]);
 				break;
 			// case "senses":
 			// 	app = new ActorSensesConfig(this.object);

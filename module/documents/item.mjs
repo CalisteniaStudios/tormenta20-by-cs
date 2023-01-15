@@ -1022,7 +1022,7 @@ export default class ItemT20 extends Item {
 
 		// Rich text description
 		system.description = system.description || {value:"",chat:"",unidentified:""};
-		system.description.value = await TextEditor.enrichHTML(system.description.value, htmlOptions)
+		system.description.value = await TextEditor.enrichHTML(system.description.value, htmlOptions);
 
 		if( this.type === "magia" || ( this.type === "consumivel" && ["scroll", "potion"].includes(system.subtipo) ) ){
 			const headerTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", duracao:"T20.Duration", save:"T20.Resistance" };

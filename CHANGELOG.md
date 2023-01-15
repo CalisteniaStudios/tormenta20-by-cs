@@ -1,5 +1,13 @@
 # Lista de Mudanças
 
+## Versão 1.4.110
+- Atualização: Macro de descanso e botão de descanso na ficha.
+- Atualização: Configuração de PV/PM movido para perto dos campos.
+- Adicionado: Configuração de PV/PM Manual.
+- Corrigido: Efeito de Reroll `r<2` não estava funcionando.
+- Corrigido: Itens que alteravam carga mas adicionavam apenas metade.
+- Corrigido: Links se mantinham como Link quando um texto era editado, impossibilitando sua edição e perdendo sua conexão com o item.
+
 ## Versão 1.4.109
 - Corrigido: Ao usar itens com rolagem vazia causava erro.
 - Corrigido: Erro ao aplicar Efeitos de uso quando nome está errado.

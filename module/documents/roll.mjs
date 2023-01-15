@@ -28,7 +28,7 @@ export default class RollT20 extends Roll {
 		if ( options.type == this.ROLLTYPES.FORMULA ) this.configureFormulaModifiers();
 		if ( options.type == this.ROLLTYPES.ATTACK ) this.configureAttackModifiers();
 		if ( options.type == this.ROLLTYPES.DAMAGE ) this.configureDamageModifiers();
-		console.log(this);
+		// console.log(this);
 	}
 
 	/* -------------------------------------------- */

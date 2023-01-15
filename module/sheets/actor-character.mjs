@@ -49,17 +49,18 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData["botaoEditarItens"] = this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
 
 		sheetData["showResources"] = this.actor.getFlag("tormenta20", "sheet.showResources");
-		
+		const levelConfig = this.actor.getFlag("tormenta20", "lvlconfig");
+		sheetData["autoCalcResources"] = !levelConfig.manual ?? true;
 		
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
 		this.actor.system.attributes.defesa.pda = this.actor.system.attributes.defesa.pda ?? 0;
 		
-		sheetData.system.detalhes.diario.value = await this.enrichHTML(sheetData.system.detalhes.diario.value, sheetData);
-		sheetData.system.detalhes.diario1.value = await this.enrichHTML(sheetData.system.detalhes.diario1.value, sheetData);
-		sheetData.system.detalhes.diario2.value = await this.enrichHTML(sheetData.system.detalhes.diario2.value, sheetData);
-		sheetData.system.detalhes.diario3.value = await this.enrichHTML(sheetData.system.detalhes.diario3.value, sheetData);
-		sheetData.system.detalhes.diario4.value = await this.enrichHTML(sheetData.system.detalhes.diario4.value, sheetData);
+		sheetData.htmlFields.diario = await this.enrichHTML(sheetData.system.detalhes.diario.value, sheetData);
+		sheetData.htmlFields.diario1 = await this.enrichHTML(sheetData.system.detalhes.diario1.value, sheetData);
+		sheetData.htmlFields.diario2 = await this.enrichHTML(sheetData.system.detalhes.diario2.value, sheetData);
+		sheetData.htmlFields.diario3 = await this.enrichHTML(sheetData.system.detalhes.diario3.value, sheetData);
+		sheetData.htmlFields.diario4 = await this.enrichHTML(sheetData.system.detalhes.diario4.value, sheetData);
 		return sheetData;
 	}
 
@@ -111,7 +112,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					pv: { for: false, des: false, int: false, sab: false, car: false },
 					pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
 					pvBonus: ["0","0"],
-					pmBonus: ["0","0"]
+					pmBonus: ["0","0"],
+					manual: false
 				}
 				this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
 			}
@@ -120,14 +122,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				let priorLevel = cls.system.niveis ?? 0;
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
 				await cls.update({"system.niveis": next});
-				return this.actor._calcPVPM();
+				return;
 			}
 			// Primeiro Nivel do Personagem
 			else if ( !this.actor.itemTypes.classe.length ) {
 				itemData.system.inicial = true;
 			}
 			await super._onDropItemCreate(itemData);
-			return this.actor._calcPVPM();
+			return;
 		}
 
 		// Default drop handling if levels were not added

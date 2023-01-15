@@ -115,6 +115,14 @@ export default class ItemSheetT20 extends ItemSheet {
 			itemStatus: this._getItemStatus(),
 			itemProperties: this._getItemProperties(),
 			isPhysical: item.system.hasOwnProperty("qtd"),
+			// TextEditors
+			htmlFields: {
+				description: await TextEditor.enrichHTML(item.system.description.value, {
+					secrets: item.isOwner,
+					async: true,
+					relativeTo: this.item
+				})
+			},
 			
 			// Prepare Active Effects
 			effects: ActiveEffectT20.prepareActiveEffectCategories(item.effects),
@@ -122,11 +130,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system),
 		});
 		
-		sheetData.system.description.value = await TextEditor.enrichHTML(sheetData.system.description.value, {
-			secrets: item.isOwner,
-			async: true,
-			relativeTo: this.item
-		});
+		
 
 		sheetData.documentName = "Item";
 		return sheetData;
@@ -253,8 +257,8 @@ export default class ItemSheetT20 extends ItemSheet {
 	async _onDrop(event) {
 		const data = TextEditor.getDragEventData(event);
 		// const actor = this.actor;
-		//console.log(data);
-		//console.log(this);
+		// console.log(data);
+		// console.log(this);
 		// Handle different data types
 		switch ( data.type ) {
 			case "ActiveEffect":

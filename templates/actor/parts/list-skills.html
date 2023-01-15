@@ -59,7 +59,8 @@
 			{{/if}}
 		</div>
 		<div class="item-total">
-			<input disabled type="text" data-dtype="Number" name="system.pericias.{{skill.key}}.total" value="{{numberFormat skill.value sign=true}}" />
+			{{#if wip}}data-tooltip="{{fieldBonuses @root path=(concat 'system.pericias.' skill.key '.bonus')}}" data-tooltip-direction="LEFT"{{/if}}
+			<input disabled type="text" data-dtype="Number" name="system.pericias.{{skill.key}}.total" value="{{numberFormat skill.value sign=true}}"/>
 		</div>
 		{{#if ../isCharacter}}
 		<div class="item-abl">

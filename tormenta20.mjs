@@ -31,6 +31,8 @@ import ActorSettings from "./module/apps/actor-settings.mjs";
 import TraitSelector from "./module/apps/trait-selector.mjs";
 import {applyOnUseEffects} from "./module/apps/ability-use.mjs";
 import StatblockParser from "./module/apps/statblock-parser.mjs";
+import RestConfigDialog from "./module/apps/rest-config.mjs";
+
 
 // Import Helpers
 import * as hooks from "./module/hooks.mjs";
@@ -61,6 +63,7 @@ Hooks.once("init", async function () {
 			TraitSelector,
 			ActorSettings,
 			StatblockParser,
+			RestConfigDialog,
 		},
 		canvas: {
 			AbilityTemplate

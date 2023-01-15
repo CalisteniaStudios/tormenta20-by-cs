@@ -47,7 +47,6 @@ export default class LevelSettings extends FormApplication {
 		const data = expandObject(formData);
 		delete data.classes;
 		await this.object.setFlag("tormenta20", "lvlconfig", data);
-		await this.object._calcPVPM();
 		return;
 	}
 }

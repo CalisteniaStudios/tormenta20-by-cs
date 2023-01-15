@@ -11,6 +11,7 @@
 	<li class="ability" data-item-id="{{key}}">
 		<h4 class="ability-name box-title rollable atributo-rollable">{{localize (lookup ../config.atributosAbr key)}}</h4>
 		<span class="rollable atributo-rollable">
+			{{#if wip}}data-tooltip="{{fieldBonuses @root path=(concat 'system.atributos.' key '.value')}}" data-tooltip-direction="LEFT"{{/if}}
 			<h1>{{numberFormat atr.value decimals=0 sign=true}}</h1>
 		</span>
 		<footer class="attribute-footer flexrow">

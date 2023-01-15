@@ -35,6 +35,22 @@ export default class ActorT20 extends Actor {
 		return types;
 	}
 
+	get modifiedFields() {
+		return this.effects.reduce((acc, ef) => {
+			if( ef.modifiesActor ) {
+				for (let ch of ef.changes) {
+					if ( !acc[ch.key] ) acc[ch.key] = [];
+					if ( ch.mode == 2 && !acc[ch.key].find( f => f.mode == 5 ) ) {
+						acc[ch.key].push({label:ef.label, value:ch.value, mode:ch.mode});
+					} else if ( ch.mode == 5 ) {
+						acc[ch.key] = [{label:ef.label, value:ch.value, mode:ch.mode}];
+					}
+				}
+			}
+			return acc;
+		}, {});
+	}
+
 	/* -------------------------------------------- */
 
 	get skillFormula() {
@@ -185,6 +201,10 @@ export default class ActorT20 extends Actor {
 
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
+
+		if ( this.type == 'character' ){
+			this._preparePVPMTotal();
+		}
 	}
 
 	prepareDerivedData() {
@@ -428,6 +448,8 @@ export default class ActorT20 extends Actor {
 		/* FLAGS */
 		const flags = {}
 		flags['organised'] = this.getFlag('tormenta20', 'inventarioOrganizado');
+		flags['strMulti'] = this.getFlag('tormenta20', 'todoFind');
+
 		let weight = system.attributes.carga;
 		// { value: 0, max: 20, pct: 0, encumbered: false };
 		const physicalItems = ["arma", "equipamento", "consumivel", "tesouro"];
@@ -455,7 +477,7 @@ export default class ActorT20 extends Actor {
 		const rollData = this.getRollData();
 		// const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		const base = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
-		const limit = (Number(base) || 10) + ( str > 0 ? str*2 : str );
+		const limit = (Number(base) || 10) + ( str > 0 ? str * (flags.strMulti ?? 2) : str );
 		weight.max = limit * 2;
 		weight.encumbered = weight.value > limit;
 		weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
@@ -468,10 +490,12 @@ export default class ActorT20 extends Actor {
 	* Prepare HP and MP max value.
 	* @private
 	*/
-	_calcPVPM() {
-		const updateData = {};
+	_preparePVPMTotal(){
+		const resourcePV = this.system.attributes.pv;
+		const resourcePM = this.system.attributes.pm;
+
 		const nivel = Number( this.system.attributes.nivel.value );
-		const con = this.system.atributos.con.value;
+		const con = this.system.atributos.con.base;
 
 		const soma = {pv:0,pm:0};
 		let lvlc = this.getFlag("tormenta20", "lvlconfig");
@@ -480,10 +504,12 @@ export default class ActorT20 extends Actor {
 				pv: { for: false, des: false, int: false, sab: false, car: false },
 				pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
 				pvBonus: ["0","0"],
-				pmBonus: ["0","0"]
+				pmBonus: ["0","0"],
+				manual: false
 			}
 			this.setFlag("tormenta20", "lvlconfig", lvlc);
 		}
+		if ( lvlc.manual ) return;
 		
 		for ( let classe of this.itemTypes.classe ) {
 			let c = classe.system;
@@ -496,15 +522,15 @@ export default class ActorT20 extends Actor {
 		if( lvlc.pmBonus[0] ) soma.pm += Number(lvlc.pmBonus[0]);
 		if( lvlc.pmBonus[1] ) soma.pm += Math.floor(Number(lvlc.pmBonus[1]) * nivel);
 		for (let [atr, value] of Object.entries(lvlc.pv)){
-			if(value) soma.pv += Number(this.system.atributos[atr].value);
+			if(value) soma.pv += Number(this.system.atributos[atr].base);
 		}
 		for (let [atr, value] of Object.entries(lvlc.pm)){
-			if(value) soma.pm += Number(this.system.atributos[atr].value);
+			if(value) soma.pm += Number(this.system.atributos[atr].base);
 		}
-		updateData["system.attributes.pv.min"] = (Math.floor(soma.pv/2)*-1);
-		updateData["system.attributes.pv.max"] = soma.pv;
-		updateData["system.attributes.pm.max"] = soma.pm;
-		this.update(updateData);
+
+		resourcePV.min = (Math.floor(soma.pv/2)*-1);
+		resourcePV.max = soma.pv;
+		resourcePM.max = soma.pm;
 	}
 
 	/* -------------------------------------------- */

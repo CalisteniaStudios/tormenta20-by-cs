@@ -321,6 +321,8 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 		let getSchema = () => {
 			return new fields.SchemaField({
 				value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label: "T20.DamageReductionValue", hint: "T20.DamageReductionValueHint" }),
+				// base: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label: "T20.DamageReductionBaseValue", hint: "T20.DamageReductionBaseValueHint" }),
+				// bonus: new fields.ArrayField(new fields.StringField(), {label: "T20.DamageReductionEffectValues", hint: "T20.DamageReductionEffectValuesHint"}),
 				imunidade: new fields.BooleanField({ required: true, nullable:false, initial: false, label: "T20.DamageReductionImunity", hint: "T20.DamageReductionImunityHint" }),
 				vulnerabilidade: new fields.BooleanField({ required: true, nullable:false, initial: false, label: "T20.DamageReductionVulnerability", hint: "T20.DamageReductionVulnerabilityHint" }),
 			});

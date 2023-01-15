@@ -414,7 +414,7 @@ class systemActorBaseData extends DataModel {
 	/** @inheritdoc */
 	static migrateData(data) {
 		if( typeof data.tracos.ic === Object ){
-			console.log(data.tracos.ic)
+			// console.log(data.tracos.ic)
 		}
 		super.migrateData(data);
 	}

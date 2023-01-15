@@ -29,7 +29,6 @@ export default class AbilityCalculator extends FormApplication {
 
 	async _updateObject(event, formData) {
 		const data = expandObject(formData);
-		// await this.object._calcPVPM();
 		return;
 	}
 }
