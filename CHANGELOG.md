@@ -1,9 +1,13 @@
 # Lista de Mudanças
 
+## Versão 1.4.111
+- Corrigido: Efeitos que aumentavam a quantidade de dados estava concatenando.
+
 ## Versão 1.4.110
 - Atualização: Macro de descanso e botão de descanso na ficha.
 - Atualização: Configuração de PV/PM movido para perto dos campos.
 - Adicionado: Configuração de PV/PM Manual.
+- Corrigido: Realce em Testes com resultado Critico e Falha.
 - Corrigido: Efeito de Reroll `r<2` não estava funcionando.
 - Corrigido: Itens que alteravam carga mas adicionavam apenas metade.
 - Corrigido: Links se mantinham como Link quando um texto era editado, impossibilitando sua edição e perdendo sua conexão com o item.
