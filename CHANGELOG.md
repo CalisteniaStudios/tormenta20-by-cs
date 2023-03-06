@@ -1,5 +1,21 @@
 # Lista de Mudanças
 
+## Versão 1.4.112
+- Adicionado: RD Calculável. O campo `system.tracos.resistencias.###.bonus` pode receber bônus de váriaveis (ex: `@con`).
+- Adicionado: Atributo Racial. O campo `system.atributos.###.racial` é usado no cálculo do valor final do atributo e no cálculo de PV/PM.
+- - Há uma conifguração na ficha para exibir o campo.
+- Adicionado: Controle de Itens Empunhados/Vestidos.
+- - Efeitos podem aumentar a quantidade que pode ser equipado com `system.equipamentos.limiteEmpunhado` e `system.equipamentos.limiteVestido`;
+- Atualização: Efeitos de Poderes Raciais de Atributo e Aumento de Atributo devem usar o campo `system.atributos.###.racial` para afetar o cálculo de PV/PM.
+- Atualização: Texto das Condições com atulizações do JdA.
+- Atualização: Items não Carregados. O item aparecerá com um ícone de baú e transparência. (Felipe Constantino)
+- Corrigido: Passos de Dano. Suporte para dano base 2d8 e 2d10 (Vítor Barcellos)
+- Corrigido: Exibição do diário na ficha de PdM.
+- Corrigido: Ordem das colunas na janela de configuração de PV/PM.
+- Corrigido: Campo de Item Especifico do Dedo Verde, Sombras Profanas, Saqueador de Tumbas, Mente Criminosa.
+- Corrigido: Efeito de Uso de Arremessador, Raio Arcano e Raio Poderoso.
+- Corrigido: Textos de poderes desatualizados.
+
 ## Versão 1.4.111
 - Corrigido: Efeitos que aumentavam a quantidade de dados estava concatenando.
 

@@ -142,6 +142,13 @@ T20.armorTypes = {
 }
 preLocalize("armorTypes");
 
+/* TODO change to equipment type */
+T20.itemSlotTypes = {
+	"hand": "T20.ItemSlotHand",
+	"body": "T20.ItemSlotBody",
+	"both": "T20.ItemSlotBoth",
+}
+preLocalize("itemSlotTypes");
 /* ---------------- Damage ---------------- */
 
 T20.damageTypes = {
@@ -597,7 +604,8 @@ preLocalize("powerSubType");
 T20.spellType = {
 	"arc": "T20.SpellArc",
 	"div": "T20.SpellDiv",
-	"uni": "T20.SpellUni"
+	"uni": "T20.SpellUni",
+	"eng": "T20.SpellEng",
 }
 preLocalize("spellType");
 
@@ -985,6 +993,11 @@ preLocalize("shieldEnchantmentsTooltips");
 
 T20.passosDano = ['1','1d2','1d3','1d4','1d6','1d8','1d10','1d12','3d6','4d6','4d8','4d10','4d12'];
 
+T20.passosDano = [
+	['1','1d2','1d3','1d4','1d6','1d8', '1d10','1d12','3d6','4d6', '4d8', '4d10','4d12'],
+	['1','1d2','1d3','1d4','1d6','1d8','1d10','2d6', '2d8', '3d8','4d8', '4d10','4d12'],
+	['1','1d2','1d3','1d4','1d6','1d8', '1d10','2d6', '2d8','2d10','3d10','4d10','4d12']
+];
 /* -------------------------------------------- */
 
 

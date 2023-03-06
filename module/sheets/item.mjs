@@ -194,8 +194,8 @@ export default class ItemSheetT20 extends ItemSheet {
 			html.find(".tag-delete").click(this._onTagDelete.bind(this));
 			
 			// Progression Tab
-			html.find(".progression-control").click(this._onProgressionControl.bind(this));
-			html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
+			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
+			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
 
 			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
 			
@@ -325,9 +325,17 @@ export default class ItemSheetT20 extends ItemSheet {
 		} else if( this.item.type === "magia" ){
 			return game.i18n.localize(this.item.system.preparada ? "T20.SpellPrepPrepared" : "");
 		} else if ( ["arma"].includes(this.item.type) ){
-			return game.i18n.localize(this.item.system.equipado ? ( this.item.system.equipado == 2 ? "T20.WieldedDual" : "T20.Wielded" ) : "");
+			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
+				return game.i18n.localize(this.item.system.equipado2.slot ? ( parseInt(this.item.system.equipado2.slot) == 12 ? "T20.WieldedDual" : "T20.Wielded" ) : "");
+			} else {
+				return game.i18n.localize(this.item.system.equipado ? ( this.item.system.equipado == 2 ? "T20.WieldedDual" : "T20.Wielded" ) : "");
+			}
 		} else if ( ["equipamento"].includes(this.item.type) ){
-			return game.i18n.localize(this.item.system.equipado ? "T20.Weared" : "");
+			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
+				return game.i18n.localize(this.item.system.equipado2.slot ? "T20.Weared" : "");
+			} else {
+				return game.i18n.localize(this.item.system.equipado ? "T20.Weared" : "");
+			}
 		} else {
 			return '';
 		}
@@ -468,61 +476,6 @@ export default class ItemSheetT20 extends ItemSheet {
 			rolls.splice(Number(a.dataset.rollId), 1);
 			return this.item.update({[`system.rolls`]:rolls});
 		}
-	}
-
-	/* -------------------------------------------- */
-
-	async _onProgressionControl(event){
-		event.preventDefault();
-		const a = event.currentTarget;
-		let progression = deepClone(this.item.system.progression) ?? [];
-		let action = a.dataset.action;
-		// Add a progression component
-		if ( action == "create" ) {
-			progression.push({
-				isChoices: false,
-				numChoices: 0,
-				list: []
-			});
-		}
-		
-		// Remove a progression component
-		if ( action == "delete" ) {
-			console.log(a);
-			progression.splice(Number(a.dataset.index), 1);
-		}
-
-		console.log(progression);
-		return this.item.update({[`system.progression`]:progression});
-	}
-
-	async _onProgressionOptionControl(event){
-		event.preventDefault();
-		const a = event.currentTarget;
-		let progression = deepClone(this.item.system.progression) ?? [];
-		let action = a.dataset.action;
-		let pIndex = Number(a.dataset.pIndex);
-		let oIndex = Number(a.dataset.oIndex);
-		console.log(a);
-		console.log(pIndex);
-		console.log(oIndex);
-		// Add a progression component
-		if ( action == "create" && pIndex >= 0) {
-			progression[pIndex].list.push({
-				type: '', //attribute || item
-				path: '', // 
-				value: '', // UUID || VALUE
-				selected: false
-			});
-		}
-		
-		// Remove a progression component
-		if ( action == "delete" ) {
-			console.log(a);
-			progression[pIndex].list.splice(Number(oIndex), 1);
-		}
-		console.log(progression);
-		return this.item.update({[`system.progression`]:progression});
 	}
 
 	/* -------------------------------------------- */

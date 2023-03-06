@@ -1,8 +1,15 @@
+import * as migrations from "./migrations.mjs";
 /**
  * Extend the base ActiveEffect class to implement system-specific logic.
  */
 export default class ActiveEffectT20 extends ActiveEffect {
 
+	/** @inheritdoc */
+	static migrateData(data) {
+		// console.warn( 'ActiveEffect migrateData', data)
+		if( data ) migrations.effect14112(data);
+		return super.migrateData(data);
+	}
 	/**
 	 * Is this active effect currently suppressed?
 	 * @type {boolean}

@@ -387,15 +387,21 @@ function applyRollModifiers(item, rollMods) {
 			
 			if ( dano.toString().match(re.die) && rollMods[r.key][i]?.dmgStep ) {
 				let indx = -1;
+				let passosIndx = 0;
 				let danoBase = dano.match(/^\d+d\d+/)[0];
-
 				if( danoBase == '2d4' ) danoBase = '1d8';
 				if( danoBase == '2d6' || danoBase == '3d4' ) danoBase = '1d12';
 
-				indx = C.passosDano.indexOf(danoBase);
-				if ( indx != -1 ) {
-					danoBase = C.passosDano[ indx + rollMods[r.key][i].dmgStep ];
-					dano = dano.replace(/^\d+d\d+/, danoBase)
+				for (passosIndx = 0; passosIndx < C.passosDano.length; passosIndx++) {
+					indx = C.passosDano[passosIndx].indexOf(danoBase);
+					if (indx != -1) break;
+				}
+
+				if (passosIndx < C.passosDano.length) {
+					if (indx + rollMods[r.key][i].dmgStep < 0) rollMods[r.key][i].dmgStep = -indx;
+					else if (indx + rollMods[r.key][i].dmgStep >= C.passosDano[passosIndx].length) rollMods[r.key][i].dmgStep = C.passosDano[passosIndx].length - 1 - indx;
+					danoBase = C.passosDano[passosIndx][ indx + rollMods[r.key][i].dmgStep ];
+					dano = dano.replace(/^\d+d\d+/, danoBase);
 				}
 			}
 			
@@ -458,7 +464,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	}
 	
 	// Get Applied On Use Effects
-	const applied = expandObject(configuration).aprs;
+	const applied = expandObject(configuration).aprs ?? {};
 	const onUseEffects = item.validOnUseEffects.filter(ef => applied[ef.id]?.aplica );
 	// Get Active Effects From Item
 	const effectList = item.effects.filter( ef => (ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && !ef.disabled) || (!ef.flags.tormenta20.onuse && !ef.disabled) );

@@ -194,23 +194,19 @@ export const SystemSettings = function() {
 		onChange: () => location.reload()
 	});
 
+	
 	/**
-	 * Option to define weight Rule calculation
+	 * Option to item slots instead of boolean equipped status.
 	 */
-	 game.settings.register("tormenta20", "weightRule", {
-		name: game.i18n.localize("T20.SettingEmcumbrancreRule"),
-		hint: game.i18n.localize("T20.SettingEmcumbrancreRuleHint"),
+	game.settings.register("tormenta20", "equipmentSlots", {
+		name: game.i18n.localize("T20.SettingEquipmentSlots"),
+		hint: game.i18n.localize("T20.SettingEquipmentSlotsHint"),
 		scope: "world",
-		config: false,
-		default: "espacos",
-		type: String,
-		choices: {
-			"core": game.i18n.localize("T20.SettingEmcumbrancreRuleCore"),
-			"espacos": game.i18n.localize("T20.SettingEmcumbrancreRuleSlots"),
-		},
+		config: true,
+		default: false,
+		type: Boolean,
 		onChange: () => location.reload()
 	});
-
 	/**
 	 * Options for testing WIP features.
 	 */

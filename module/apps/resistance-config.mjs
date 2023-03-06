@@ -28,7 +28,7 @@
 		const sourceResistance = foundry.utils.getProperty(this.document._source, "system.tracos.resistencias") || {};
 		
 		const resist = Object.keys(CONFIG.T20.damageTypes).reduce((o, k)=> {
-			o[k] = {value:0, imunidade:false, vulnerabilidade:false};
+			o[k] = {value:0, base:0, bonus:[], imunidade:false, vulnerabilidade:false};
 			return o;
 		}, {});
 		

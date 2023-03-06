@@ -1,3 +1,4 @@
+import ActorT20 from "../documents/actor.mjs";
 import {applyOnUseEffects} from "./ability-use.mjs";
 /**
  * A specialized Dialog subclass for ability usage
