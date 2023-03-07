@@ -50,7 +50,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		sheetData["showResources"] = this.actor.getFlag("tormenta20", "sheet.showResources");
 		const levelConfig = this.actor.getFlag("tormenta20", "lvlconfig");
-		sheetData["autoCalcResources"] = levelConfig ? !levelConfig.manual : true;
+		sheetData["autoCalcResources"] = !levelConfig.manual ?? true;
 		
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
@@ -222,10 +222,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
 			i.espacosTotal = (i.system.qtd * i.system.espacos);
-			// Equipament Slots.
-			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
-				this._itemSlotIcon(i);
-			}
 			inventario[i.type].items.push(i);
 		}
 
@@ -239,11 +235,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		};
 		const nPreparadas = 0;
 		let maiorCirculo = 0;
-		for (let m of magias) {
+		magias.forEach(function(m){
 			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);
-			if ( m.system.tipo == 'eng' ) this._itemSlotIcon(m);
 			grimorio[m.system.circulo].spells.push(m);
-		}
+		});
 		
 		// classes.sort
 		classes.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0));
@@ -274,23 +269,4 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
-	_itemSlotIcon(i){
-		// Font Awesome Stacked. icon1 = back | icon2 = front
-		i.equipado = i.system.equipado2;
-		// i.equipado.icon2 = parseInt(i.equipado.slot) == 12 ? 2 : '';
-		i.equipado.icon2 = '<b class="fa-stack-1x" style="color:white;font-size:10px;">'+(parseInt(i.equipado.slot) == 12 ? 2 : '')+'</b>'
-		if ( i.equipado.type == 'hand' ) {
-			i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>'
-		} else if ( i.equipado.type == 'body' ) {
-			i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>'
-		} else if ( i.equipado.type == 'both' ) {
-			if ( i.equipado.slot == 0 ) {
-				i.equipado.icon1 = '<i class="fa-solid fa-shield fa-stack-1x"></i>'
-			} else if ( i.equipado.slot.toString().split('.')[1] == 1 ) {
-				i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>'
-			} else if ( i.equipado.slot.toString().split('.')[1] == 2 ) {
-				i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>'
-			}
-		}
-	}
 }

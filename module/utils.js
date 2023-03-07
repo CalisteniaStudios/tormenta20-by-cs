@@ -73,36 +73,3 @@
      }
    }
  }
-
- function name(params) {
-  
- }
-
-function findFieldPath(search, dataField){
-  if ( search.split('.')[0] !== dataField.fieldPath.split('.')[0] ) return false;
-  if ( dataField.fieldPath == search ) {
-    return dataField;
-  } else if ( dataField.fields ) {
-    for (let field of Object.values(dataField.fields) ) {
-      const found = findFieldPath( search, field );
-      if ( found ) return found;
-    }
-  }
-  return false;
-}
-
-
-export function getDocumentSystemList(document){
-  const charKeys = Object.keys(flattenObject(document.system.toObject()))
-  let charKeyLabel = {}
-
-  for (let key of charKeys) {
-    let field = findFieldPath( [document.system.schema.fieldPath, key].join('.'), document.system.schema )
-    if ( !field ) continue;
-    fieldPath = field.fieldPath.split('.');
-    fieldPath[0] = 'system'
-    fieldPath = fieldPath.join('.');
-    charKeyLabel[ fieldPath ] = field.label;
-  }
-  return charKeyLabel;
-}

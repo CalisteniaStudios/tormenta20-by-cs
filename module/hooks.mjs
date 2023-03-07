@@ -61,14 +61,13 @@ export default function () {
 	// Render Sidebar
 	Hooks.on("renderSidebarTab", (app, html) => {
 		if (app instanceof Settings) {
-			// Add Butons
-			// Wiki
-			let wiki = $(`<button>Ajuda T20</button>`);
-			html.find("#game-details").append(wiki);
-			wiki.click(() => {
+			// Add changelog button
+			let button = $(`<button>Ajuda T20</button>`);
+			html.find("#game-details").append(button);
+			button.click(() => {
 				window.open("https://vizael.gitlab.io/tormenta20-fvtt/");
 			});
-			// JamboEditora
+			// Add Jambo button
 			let jambo = $(`<button>JamboEditora</button>`);
 			html.find("#game-details").append(jambo);
 			jambo.click(() => {

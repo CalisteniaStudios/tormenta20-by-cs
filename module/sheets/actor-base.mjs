@@ -103,14 +103,12 @@ export default class ActorSheetT20 extends ActorSheet {
 			htmlFields: {},
 			//Flags
 			mostrarDivindade: true,//this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
-			mostrarAtributoRacial: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoRacial"),
 			mostrarAtributoTemp: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoTemp"),
 			botaoEditarItens: true, //this.actor.getFlag("tormenta20", "sheet.botaoEditarItens"),
 			mostrarPlatina: this.actor.getFlag("tormenta20", "sheet.mostrarPlatina"),
 			editarPericias: true, //this.actor.getFlag("tormenta20", "sheet.editarPericias"),
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages"),
-			equipmentSlots: game.settings.get("tormenta20", "equipmentSlots"),
-			gameSystem: game.settings.get("tormenta20", "gameSystem"),
+			gameSystem: game.settings.get("tormenta20", "gameSystem")
 		};
 		
 		// Sort Owned Items
@@ -209,7 +207,10 @@ export default class ActorSheetT20 extends ActorSheet {
 			// 	new AbilityCalculator(this.actor).render(true);
 			// });
 
-			
+			// Update Inventory Item
+			html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
+			html.find('.toggle-weapon').on('click',this._onCicleWeapon.bind(this));
+			html.find('.toggle-weapon').on('contextmenu',this._onCicleWeapon.bind(this));
 			
 			html.find('.update-cd').click(this._onUpdateCD.bind(this));
 
@@ -247,16 +248,6 @@ export default class ActorSheetT20 extends ActorSheet {
 			// Roll item
 			html.find('.item .item-image').click(event => this._onItemRoll(event));
 
-			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
-				// Item Equip Context Menu
-				html.find(".toggle-armor,.toggle-weapon").on('click', this._contextMenu.bind(this));
-				new ContextMenu(html, ".toggle-armor,.toggle-weapon", [], {onOpen: this._onItemToggleContext.bind(this)});
-			} else {
-				// Update Inventory Item
-				html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
-				html.find('.toggle-weapon').on('click',this._onCicleWeapon.bind(this));
-				html.find('.toggle-weapon').on('contextmenu',this._onCicleWeapon.bind(this));
-			}
 		}
 
 		// Otherwise remove rollable classes
@@ -268,117 +259,6 @@ export default class ActorSheetT20 extends ActorSheet {
 		super.activateListeners(html);
 	}
 	
-	/* -------------------------------------------- */
-
-	_contextMenu(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		$(event.currentTarget).trigger('contextmenu');
-  }
-	/**
-   * Handle activation of a context menu for an embedded Item document.
-   * Dynamically populate the array of context menu options.
-   * Reuse the item context options provided by the base ActorSheetT20 class.
-   * @param {HTMLElement} element       The HTML element for which the context menu is activated
-   * @protected
-   */
-  _onItemToggleContext(element) {
-		const item = this.actor.items.get(element.closest('li').dataset.itemId);
-    if ( !item ) return;
-    ui.context.menuItems = ActorSheetT20.prototype._getItemToggleContextOptions.call(this, item);
-    Hooks.call("tormenta20.getItemToggleContextOptions", item, ui.context.menuItems);
-  }
-
-	/**
-	 * Prepare an array of context menu options which are available for owned Item documents.
-	 * @param {ItemT20} item                   The Item for which the context menu is activated
-	 * @returns {ContextMenuEntry[]}          An array of context menu options offered for the Item
-	 * @protected
-	 */
-	_getItemToggleContextOptions(item) {
-		const actor = this.actor;
-		const equips = this.actor.system.equipamentos;
-		const options = [];
-		let equipados = actor.items.filter( (it) =>  (it.system.equipado2?.slot > 0) );
-		const img = (image) => "<img src='"+image+"' width='20px' height='20px' style='vertical-align: middle;'>";
-		const dec = (number) => ((number % 1).toFixed(1) * 10);
-		
-		if ( ['hand','both'].includes(item.system.equipado2.type) ) {
-			options.push({name: ("T20.Handling"), icon: '<i class="fa-solid fa-sort-down"></i>'}); //SECTION
-			let twoHanded = equipados.find( it => it.system.equipado2.slot == 12.1);
-			options.push({
-				name: ( twoHanded?.name ?? 'T20.Empty' ),
-				icon: "<i class='fa-solid fa-hand-back-fist'></i><i class='fa-solid fa-hand-back-fist'></i>" + (twoHanded ? img(twoHanded.img) : ''),
-				callback: () => this._onToggleItem(item, 'hand', 12, twoHanded?.id)
-			});
-			for ( let slot=1; slot <= equips.limiteEmpunhado; slot++ ){
-				let slotItem = twoHanded && [1,2].includes(slot) ? null :
-				equipados.find( it => dec(it.system.equipado2.slot) == 1 && Math.floor(it.system.equipado2.slot) == slot );
-				options.push({
-					name: ( (twoHanded && [1,2].includes(slot) ? `${slot}` : null) ?? slotItem?.name ?? 'T20.Empty' ),
-					icon: '<i class="fa-solid fa-hand-back-fist"></i>' + ( (twoHanded && [1,2].includes(slot) ? img(twoHanded.img) : null) ?? (slotItem ? img(slotItem.img) : '')),
-					callback: () => this._onToggleItem(item, 'hand', slot, slotItem?.id)
-				});
-			}
-			
-		}
-		if ( ['body','both'].includes(item.system.equipado2.type) ) {
-			options.push({name: ("T20.Wearing"), icon: '<i class="fa-solid fa-sort-down"></i>'}); //SECTION
-			for ( let slot=1; slot <= equips.limiteVestido; slot++ ){
-				let slotItem = equipados.find( it => dec(it.system.equipado2.slot) == 2 && Math.floor(it.system.equipado2.slot) == slot );
-				// && (it.system.preparada == slot || it.system.equipado == slot) 
-				options.push({
-					name: ( slotItem?.name ?? 'T20.Empty' ),
-					icon: '<i class="fa-solid fa-shirt"></i>' + (slotItem ? img(slotItem.img) : ''),
-					callback: () => this._onToggleItem(item, 'body', slot, slotItem?.id)
-				});
-			}
-		}
-		return options;
-	}
-
-	_onToggleItem(item, context, index, currentId) {
-		const updateItems = [];
-		if ( currentId ) {
-			updateItems.push({
-				_id: currentId, "system.equipado2.slot": 0
-			});
-		}
-		if ( item.id == currentId ) {
-			// When same just remove;
-		} else if ( context == 'hand' ){
-			updateItems.push({
-				_id: item.id, "system.equipado2.slot": index + 0.1
-			});
-			let oldItems = [];
-			if ( index > 2 ) { // Remove only current // Cant TwoHand
-			} else if ( index == 12 ){ // Remove one handed if equipping two handed
-				oldItems = this.actor.items.filter( it => item.id != it.id && ([1.1,2.1].includes(it.system.equipado2?.slot)) );
-			} else { // Remove two handed if equipping one handed
-				oldItems = this.actor.items.filter( it => item.id != it.id && ([12.1].includes(it.system.equipado2?.slot)) );
-			}
-			
-			for (const oldItem of oldItems) {
-				updateItems.push({
-					_id: oldItem.id, "system.equipado2.slot": 0
-				})
-			}
-			
-		} else if ( context == 'body' ){
-			updateItems.push({
-				_id: item.id, "system.equipado2.slot": index + 0.2
-			});
-			let oldItems = this.actor.items.filter( it => item.id != it.id && (['leve','pesada'].includes(item.system.tipo) && ['leve','pesada'].includes(it.system.tipo)) );
-			// it.system.tipo == item.system.tipo
-			for (const oldItem of oldItems) {
-				updateItems.push({
-					_id: oldItem.id, "system.equipado2.slot": 0
-				})
-			}
-		}
-		this.actor.updateEmbeddedDocuments("Item", updateItems);
-	}
-
 	/* -------------------------------------------- */
 
 	/**

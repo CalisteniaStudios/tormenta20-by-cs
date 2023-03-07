@@ -43,8 +43,6 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 			isNPC: this.actor.type === "npc",
 			isSimple: this.actor.type === "simple",
 			config: CONFIG.T20,
-			// TextEditors
-			htmlFields: {},
 		};
 		
 		// Sort Owned Items
@@ -64,9 +62,6 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 		
 		// Prepare owned items
 		await this._prepareItems(sheetData);
-
-		// Enrich HTML text
-		sheetData.htmlFields.biography = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
 
 		sheetData.documentName = "Actor";
 		return sheetData;

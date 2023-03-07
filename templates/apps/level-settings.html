@@ -3,10 +3,10 @@
 	<table class="trait-list" style="text-align:center;">
 		<tr>
 			<td>{{ localize 'T20.Class'}}</td>
-			<td>{{ localize 'T20.HPTotal'}}</td>
 			<td>{{ localize 'T20.HPPerLevel'}}</td>
-			<td>{{ localize 'T20.MPTotal'}}</td>
+			<td>{{ localize 'T20.HPTotal'}}</td>
 			<td>{{ localize 'T20.MPPerLevel'}}</td>
+			<td>{{ localize 'T20.MPTotal'}}</td>
 		</tr>
 		{{#each classes as |data key|}}
 		<tr>
@@ -55,6 +55,7 @@
 		</tr>
 	</table>
 	<label class="checkbox">{{localize "T20.Manual"}}
+		{{log flags.lvlconfig.manual}}
 		<input type="checkbox" name="manual" {{checked flags.lvlconfig.manual}} data-dtype="Boolean">
 	</label>
 	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{ localize 'T20.Submit'}}</button>

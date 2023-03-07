@@ -580,9 +580,6 @@
           background-size: cover;
           margin-right: 3px;
         }
-        input.stored {
-          opacity: 0.75;
-        }
         &.rollable:hover {
           color: red;
           text-shadow: 0 0 10px red;
@@ -653,22 +650,15 @@
 
     // Item Control Buttons
     .item-controls {
-      // todo Tabbed 64px;
       flex: 0 0 50px;
       font-size: 12px;
       text-align: right;
 
-      .item-control.item-toggle i {
+      .item-control.item-toggle {
         opacity: 0.5;
       }
-      .item-control.item-toggle.active i {
+      .item-control.item-toggle.active {
         opacity: 1;
-      }
-
-      nav#context-menu {
-        text-align: left;
-        width: auto;
-        white-space: nowrap;
       }
     }
 
@@ -677,17 +667,11 @@
       text-align: center;
       font-size: 16px;
       
-      .item-toggle i {
+      .item-toggle {
         opacity: 0.5;
       }
-      .item-toggle.active i {
+      .item-toggle.active {
         opacity: 1;
-      }
-
-      nav#context-menu {
-        text-align: left;
-        width: auto;
-        white-space: nowrap;
       }
     }
 

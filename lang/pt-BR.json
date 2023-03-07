@@ -35,12 +35,7 @@
   "T20.Custom": "Personalizado",
   "T20.ParseStatblock": "Importar do Bloco de Estatísticas",
   "T20.StatblockParser": "Importar do Bloco de Estatísticas",
-  "T20.Manual": "Manual",
-  "T20.Empty": "Vazio",
-  "T20.Handling": "Empunhando",
-  "T20.Wearing": "Vestindo",
   
-
   "T20.Die": "Dado",
   "T20.Dice": "Dados",
   "T20.Bonus": "Bônus",
@@ -115,8 +110,7 @@
   "T20.Ability": "Atributo",
   "T20.Abilities": "Atributos",
   "T20.AbilityBase": "Valor de Atributo",
-  "T20.AbilityRacial": "Valor Racial de Atributo",
-  "T20.AbilityBonus": "Bônus Temporário",
+  "T20.AbilityBonus": "Bônus de Atributo",
   "T20.AbilityStr": "Força",
   "T20.AbilityStrAbbr": "For",
   "T20.AbilityCon": "Constituição",
@@ -273,7 +267,6 @@
   "T20.BonusCDMagia": "Bônus Global na CD de Magias",
   "T20.Bonuses": "Modificadores Bônus Globais",
 
-  "T20.ShowRacialAbilityBonus": "Mostrar campo 'Atributo Racial'",
   "T20.ShowTemporaryAbilityBonus": "Mostrar campo 'Bônus Temporário'",
   "T20.ShowCurrencyPlatinum": "Mostrar campo Platina",
   "T20.ShowProficiencyBônus": "Mostrar bônus de treinamento",
@@ -387,11 +380,10 @@
   "T20.SpellArc": "Arcana",
   "T20.SpellDiv": "Divina",
   "T20.SpellUni": "Universal",
-  "T20.SpellEng": "Engenhoca",
 
   "T20.SpellSchool": "Escola",
   "T20.SchoolAbj": "Abjuração",
-  "T20.SchoolAdv": "Adivinhação",
+  "T20.SchoolAdv": "Advinhação",
   "T20.SchoolCon": "Convocação",
   "T20.SchoolEnc": "Encantamento",
   "T20.SchoolEvo": "Evocação",
@@ -559,11 +551,6 @@
   "T20.EquipmentClothing": "Vestuário",
   "T20.EquipmentTool": "Ferramenta",
   "T20.EquipmentEsoteric": "Esotérico",
-  
-  "T20.ItemEquippedType": "Tipo de Uso",
-  "T20.ItemSlotHand": "Empunhado",
-  "T20.ItemSlotBody": "Vestido",
-  "T20.ItemSlotBoth": "Ambos",
 
   "T20.Consumable": "Consumível",
   "T20.Consumables": "Consumíveis",
@@ -1125,9 +1112,6 @@
   "T20.SettingEmcumbrancreRuleSlots": "Regra de Espaços, Dragão Brasil #171",
   "T20.SettingsCampaignSettingRule": "Cenário de Jogo",
   "T20.SettingsCampaignSettingHint": "Altera regras de acordo com cenários de Jogo.",
-
-  "T20.SettingEquipmentSlots": "Controle de Itens Empunhados/Vestidos",
-  "T20.SettingEquipmentSlotsHint": "Altera a forma como controlar items equipados.",
   
   "T20.WarningEditOwnedItemEffect": "Alteração de Efeitos em itens possuidos por Personagens não é suportada atualmente.",
   

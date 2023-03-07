@@ -10,6 +10,7 @@ export const measureDistances = function(segments, options={}) {
 	// Iterate over measured segments
 	return segments.map(s => {
 		let r = s.ray;
+
 		// Determine the total distance traveled
 		let nx = Math.abs(Math.ceil(r.dx / d.size));
 		let ny = Math.abs(Math.ceil(r.dy / d.size));
