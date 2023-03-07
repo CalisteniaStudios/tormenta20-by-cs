@@ -74,7 +74,6 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 			refl: game.i18n.localize( ranksTitle[actorData.attributes?.fort?.rank ?? 0] ),
 			vont: game.i18n.localize( ranksTitle[actorData.attributes?.fort?.rank ?? 0] ),
 		}
-		console.log(sheetData);
 		return sheetData;
 	}
 

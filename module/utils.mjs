@@ -106,3 +106,12 @@ export function getDocumentSystemList(document){
   }
   return charKeyLabel;
 }
+
+export function uuidToObject(uuid){
+  uuid.split('.').reduce(function(result, value, index, array) {
+    if ( !value ) value = `undefined${index}`;
+    if (index % 2 === 0)
+      result[value] = array[index+1];
+    return result;
+  }, {});
+}

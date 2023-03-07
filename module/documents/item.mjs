@@ -3,12 +3,22 @@ import { simplifyRollFormula, d20Roll, damageRoll } from '../dice/dice.mjs';
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import {applyOnUseEffects} from "../apps/ability-use.mjs";
 import AbilityTemplate from "../pixi/ability-template.mjs";
+import * as migrations from "./migrations.mjs";
 
 /**
  * Override and extend the basic :class:`Item` implementation
  */
 export default class ItemT20 extends Item {
 
+	/** @inheritdoc */
+	static migrateData(data) {
+		if ( data._stats ){
+			if( data._stats.systemVersion < '1.4.001' ) migrations.item14001(data);
+			if( data._stats.systemVersion < '1.4.101' ) migrations.item14101(data);
+			if( data._stats.systemVersion < '1.4.112' ) migrations.item14112(data);
+		}
+		return super.migrateData(data);
+	}
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -109,7 +119,9 @@ export default class ItemT20 extends Item {
 	 */
 	get areEffectsSuppressed() {
 		const requireEquipped = ["arma", "equipamento"].includes(this.type);
-		if ( requireEquipped && (this.system.equipado === false || this.system.equipado == 0) ) return true;
+		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
+		if ( requireEquipped && equipmentSlots && this.system.equipado2.slot == 0 ) return true;
+		else if ( requireEquipped && (this.system.equipado === false || this.system.equipado == 0) ) return true;
 		return false;
 	}
 	
@@ -122,6 +134,27 @@ export default class ItemT20 extends Item {
 		if ( this.type === "equipamento" && this.parent?.type !== "character" ) {
 			this.system.equipado = false;
 		}
+		// 
+		if ( game.settings.get("tormenta20", "equipmentSlots") ) {
+			if ( this.type === "equipamento" && this.parent?.type == "character" ) {
+				this.system.equipado = false;
+			}
+			if ( this.type === "arma" && this.parent?.type == "character" ) {
+				this.system.equipado = 0;
+			}
+			if ( this.parent?.type == "character" && this.system.equipado && this.system.equipado2.slot == 0 ) {
+				const equip2 = this.system.equipado2;
+				if ( this.system.equipado2.type=='hand' && this.system.equipado == 2 ) {
+					this.system.equipado2.slot = 12.1;
+				} else {
+					let equips = this.actor.items.filter( it => it.system.equipado && it.system.equipado2.type == equip2.type );
+					let limite = equip2.type == 'hand' ? 'limiteEmpunhado' : 'limiteVestido';
+					equips = equips.map( it => it.id );
+					this.system.equipado2.slot = ( equip2.type == 'hand' ? 1.1 : 1.2) + Math.min( equips.indexOf(this.id), this.actor.system.equipamentos[limite] );
+				}
+			}
+		}
+
 		/* FIX item description issues */
 		if ( typeof this.system.description === 'string' || this.system.description instanceof String ) {
 			this.system.description = {value: this.system.description};
@@ -678,6 +711,7 @@ export default class ItemT20 extends Item {
 	async roll({configureDialog=true, rollMode, createMessage=true, extra={}}={}) {
 		let item = this;
 		rollMode = game.settings.get("core", "rollMode");
+		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
 		// Hold to check later
 		if ( true ) {
 			item = this.clone({keepId: true});
@@ -689,8 +723,8 @@ export default class ItemT20 extends Item {
 		
 		let createMeasuredTemplate;
 		const resource = id.consume || {};     // Resource consumption
-		
-		if ( item.type == 'arma' && id.equipado == 2 ) {
+
+		if ( item.type == 'arma' && ( equipmentSlots ? parseInt(id.equipado2.slot)==12 : id.equipado == 2) ) {
 			item.system.rolls.forEach( (r) => {
 				if ( r.type == 'dano' && r.versatil ){
 					r.parts[0][0] = r.versatil;
@@ -851,7 +885,7 @@ export default class ItemT20 extends Item {
 		// Define follow-up actions resulting from the item usage
 		createMeasuredTemplate = hasArea;       // Trigger a template creation
 		// Initiate measured template creation
-		if ( createMeasuredTemplate ) {
+		if ( canvas.scene && createMeasuredTemplate ) {
 			const template = AbilityTemplate.fromItem(item);
 			if ( template ) {
 				template.drawPreview();
@@ -862,6 +896,48 @@ export default class ItemT20 extends Item {
 			}
 		}
 		
+		options.itemId = this.id;
+		return item.displayCard({options, rollMode, createMessage});
+	}
+
+	async rollV2({configureDialog=true, createMessage=true, extra={}}={}) {
+		// Data
+		let rollMode = game.settings.get("core", "rollMode");
+
+		// Duplicate the item
+		let item = this.clone({keepId: true});
+		let actor = item.actor;     // Actor parent
+		if ( !this.isEmbedded ) {
+			let actor = new Actor({name:'dummy',type:'character', items:[item.toObject()]});
+			item = actor.item.find(i => true);
+		} else {
+			item.prepareFinalAttributes(); // Spell save DC, etc...
+		}
+		// Data
+		const id = item.system;       // Item system data
+		const ad = actor.system;      // Actor system data
+		
+		// TODO
+		// APPLY EFFECTS TO ROLL
+		if ( true ){
+			adsa
+		}
+		// APPLY EFFECTS TO EFFECTS
+		if ( true ){
+			let itemEffect = item.effects.filter([])
+			
+		}
+		// APPLY EFFECTS TO ITEMS
+		if ( true ){
+			let itemUpdates = {};
+			item.updateSource(itemUpdates);
+		}
+		// APPLY EFFECTS TO ACTOR
+		if ( true ){
+			let actorUpdates = {};
+			item.actor.updateSource(actorUpdates);
+		}
+
 		options.itemId = this.id;
 		return item.displayCard({options, rollMode, createMessage});
 	}

@@ -159,14 +159,9 @@ export default class RollT20 extends Roll {
 			if ( !(term instanceof DiceTerm) ) continue;
 			if ( flavor && !flavor.includes(term.options.flavor)) continue;
 			if ( origin && !origin.includes(term.options.origin)) continue;
-			let termIndex = -1;
-			let passosIndx = 0;
-			for (passosIndx = 0; passosIndx < C.passosDano.length; passosIndx++) {
-				termIndex = T20.passosDano[passosIndx].indexOf(term.expression);
-				if (termIndex != -1) break;
-			}
-			if ( passosIndx >= passosDano.length || termIndex < 0 || !T20.passosDano[passosIndx][ termIndex + mod.value ] ) continue;
-			[term.number, term.faces] = T20.passosDano[passosIndx][ termIndex + mod.value ].split('d');
+			let termIndex = T20.passosDano.indexOf(term.expression);
+			if ( !termIndex || !T20.passosDano[ termIndex + mod.value ] ) continue;
+			[term.number, term.faces] = T20.passosDano[ termIndex + mod.value ].split('d');
 		}
 	}
 	

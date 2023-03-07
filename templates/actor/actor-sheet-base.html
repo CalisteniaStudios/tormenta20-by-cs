@@ -2,7 +2,6 @@
 	{{!-- Sheet Tab Navigation --}}
 	{{> "systems/tormenta20/templates/partials/nav-bar.html"}}
 	
-
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
 		{{!-- Attributes Tab --}}
@@ -19,6 +18,7 @@
 				<div class="resources-main">
 					<ul class="attributes flexrow">
 					{{> "systems/tormenta20/templates/actor/parts/resources.html"}}
+					{{> "systems/tormenta20/templates/actor/parts/defense.html"}}
 					</ul>
 				</div>
 				
@@ -36,9 +36,7 @@
 
 				{{!-- Defense Inventory Equipment --}}
 				<div class="inventory-equipment flexrow">
-					<ul class="attributes flexrow">
-					{{> "systems/tormenta20/templates/actor/parts/defense.html"}}
-					</ul>
+					<!-- <ul class="attributes flexrow"></ul> -->
 					{{> "systems/tormenta20/templates/actor/parts/list-equipment.html"}}
 				</div>
 

@@ -18,7 +18,7 @@ export default class LevelSettings extends FormApplication {
 	getData() {
 		let classes = [];
 		let flags = this.object.flags.tormenta20 || {};
-		const con = this.object.system.atributos.con.value;
+		const con = this.object.system.atributos.con;
 		const cls = this.object.items.filter(i => i.type === "classe");
 		if ( cls ) {
 			for ( let [key, data] of Object.entries(cls) ) {
@@ -29,7 +29,7 @@ export default class LevelSettings extends FormApplication {
 					pvPorNivel: c.pvPorNivel,
 					pmPorNivel: c.pmPorNivel,
 					niveis: c.niveis,
-					pvTotal: Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con )),
+					pvTotal: Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con.base + con.racial )),
 					pmTotal: c.niveis * c.pmPorNivel
 				}
 			}
@@ -38,7 +38,7 @@ export default class LevelSettings extends FormApplication {
 			actor: this.object,
 			classes: classes,
 			flags: flags,
-			con: con,
+			con: con.base + con.racial,
 			config: CONFIG.T20
 		};
 	}

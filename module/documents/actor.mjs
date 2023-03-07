@@ -4,6 +4,7 @@ import { simplifyRollFormula, d20Roll, damageRoll } from '../dice/dice.mjs';
 import {applyOnUseEffects} from "../apps/ability-use.mjs";
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import ChoicesDialog from "../apps/choices-dialog.mjs";
+import * as migrations from "./migrations.mjs";
 
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -13,7 +14,17 @@ export default class ActorT20 extends Actor {
 	constructor(data, context) {
 		super(data, context);
 	}
-
+	
+	/** @inheritdoc */
+	static migrateData(data) {
+		if ( data._stats ){
+			if( data._stats.systemVersion < '1.4.001' ) migrations.actor14001(data);
+			if( data._stats.systemVersion < '1.4.101' ) migrations.actor14101(data);
+			if( data._stats.systemVersion < '1.4.112' ) migrations.actor14112(data);
+		}
+		return super.migrateData(data);
+	}
+	
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -180,6 +191,18 @@ export default class ActorT20 extends Actor {
 		const system = this.system;
 		const nivel = system.attributes.nivel?.value || 0;
 
+		// THIS IS AN ABERRATION
+		// IT'S PURPOSE IS TO ALLOW ACTIVE EFFECTS TO SET RACIAL ABILITY VALUES
+		// THEN USE THOSE VALUES AT HP/MP CALC
+		if ( this.overrides.system?.atributos ) {
+			const overrides = this.overrides.system;
+			for (let [key, ability] of Object.entries(overrides.atributos)) {
+				if ( ability.racial && system.atributos[key] ) {
+					system.atributos[key].value += ability.racial ?? 0 ;
+				}
+			}
+		}
+		
 		// Defense
 		this._prepareDefense();
 
@@ -202,42 +225,19 @@ export default class ActorT20 extends Actor {
 		// Encumbrance
 		system.attributes.carga = this._computeEncumbrance(system);
 
+		// Damage Resistances
+		this._prepareResistances(system);
+
 		if ( this.type == 'character' ){
 			this._preparePVPMTotal();
 		}
 	}
 
+	/**
+	 * Unused in favor of preparePreDerivedData & preparePosDerivedData
+	 **/
 	prepareDerivedData() {
-		const system = this.system;
-		if ( ["vehicle","simple"].includes(this.type) ){
-			system.attributes.carga = this._computeEncumbrance(system);
-			return;
-		}
-
-		const nivel = system.attributes.nivel.value;
-
-		// Loop through ability and add modifiers
-		for (let [key, ability] of Object.entries(system.atributos)) {
-			ability.name = CONFIG.T20.atributos[key];
-			ability.value = (ability.base + ability.racial + ability.bonus);
-		}
 		
-		// Defense
-		this._prepareDefense(system);
-
-		// Skills
-		if ( system.pericias ) {
-			for (let [key, pericia] of Object.entries(system.pericias)) {
-				this._prepareSkills(key, pericia);
-			}
-		}
-		
-		// BASE CD
-		system.attributes.cd = this.type == 'npc' ? system.attributes.cd : 10 + Math.floor(nivel / 2);
-		
-		// Encumbrance
-		system.attributes.carga = this._computeEncumbrance(system);
-
 	}
 
 	/* -------------------------------------------- */
@@ -252,11 +252,22 @@ export default class ActorT20 extends Actor {
 		const flags = this.flags;
 		const classes = [];
 		
+		let baseFlags = { tormenta20: {} };
 		let sheetFlags = {};
 		if ( this.getFlag("tormenta20", "sheet.editarPericias") === undefined ) sheetFlags.editarPericias = true;
 		if ( this.getFlag("tormenta20", "sheet.botaoEditarItens") === undefined ) sheetFlags.botaoEditarItens = true;
-
-		let baseFlags = { tormenta20: { sheet: sheetFlags } };
+		
+		if ( this.getFlag("tormenta20", "lvlconfig") === undefined ){
+			let levelConfig = {
+				pv: { for: false, des: false, int: false, sab: false, car: false },
+				pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
+				pvBonus: ["0","0"],
+				pmBonus: ["0","0"],
+				manual: false
+			}
+			baseFlags.tormenta20.lvlconfig = levelConfig;
+		}
+		baseFlags.tormenta20.sheet = sheetFlags;
 		if( !isEmpty(sheetFlags) ) mergeObject( flags, baseFlags );
 
 		const nivel = this.items.reduce((arr, item) => {
@@ -343,13 +354,14 @@ export default class ActorT20 extends Actor {
 		const system = this.system;
 		const rollData = this.getRollData();
 		const defense = system.attributes.defesa;
+		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
 		let parts = this.defenseFormula;
 		let pda = 0;
 		
-		const items = this.items.filter( i => i.type == 'equipamento' && i.system.equipado);
-		const armor = items.find( i => i.type == 'equipamento' && ['leve','pesada'].includes(i.system.tipo) && i.system.equipado);
-		const shield = items.find( i => i.type == 'equipamento' && i.system.tipo == 'escudo' && i.system.equipado);
-		const accessories = items.filter( i => i.type == 'equipamento' && !['escudo','leve','pesada'].includes(i.system.tipo) && i.system.equipado);
+		const items = this.items.filter( i => i.type == 'equipamento' && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const armor = items.find( i => i.type == 'equipamento' && ['leve','pesada'].includes(i.system.tipo) && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const shield = items.find( i => i.type == 'equipamento' && i.system.tipo == 'escudo' && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const accessories = items.filter( i => i.type == 'equipamento' && !['escudo','leve','pesada'].includes(i.system.tipo) && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
 		
 		// 
 		let accDef = accessories.map( m => m.system.armadura.value ).reduce((sum, v) => sum + v, 0);
@@ -436,6 +448,19 @@ export default class ActorT20 extends Actor {
 		}
 	}
 
+
+
+	/* -------------------------------------------- */
+	
+	_prepareResistances(system){
+		const rollData = this.getRollData();
+		for (const [key, res] of Object.entries( system.tracos.resistencias ) ) {
+			let parts = [res.base, ...res.bonus];
+			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
+			system.tracos.resistencias[key].value = result;
+		}
+	}
+
 	/* -------------------------------------------- */
 
 	/**
@@ -495,26 +520,16 @@ export default class ActorT20 extends Actor {
 		const resourcePM = this.system.attributes.pm;
 
 		const nivel = Number( this.system.attributes.nivel.value );
-		const con = this.system.atributos.con.base;
+		const con = this.system.atributos.con;
 
 		const soma = {pv:0,pm:0};
 		let lvlc = this.getFlag("tormenta20", "lvlconfig");
-		if ( !lvlc ){
-			lvlc = {
-				pv: { for: false, des: false, int: false, sab: false, car: false },
-				pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
-				pvBonus: ["0","0"],
-				pmBonus: ["0","0"],
-				manual: false
-			}
-			this.setFlag("tormenta20", "lvlconfig", lvlc);
-		}
-		if ( lvlc.manual ) return;
+		if ( !lvlc || lvlc.manual ) return;
 		
 		for ( let classe of this.itemTypes.classe ) {
 			let c = classe.system;
 			let iniPV = c.inicial? c.pvPorNivel * 3 : 0;
-			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con ));
+			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con.base + con.racial ));
 			soma.pm += c.niveis * c.pmPorNivel;
 		}
 		if( lvlc.pvBonus[0] ) soma.pv += Number(lvlc.pvBonus[0]);
@@ -522,10 +537,12 @@ export default class ActorT20 extends Actor {
 		if( lvlc.pmBonus[0] ) soma.pm += Number(lvlc.pmBonus[0]);
 		if( lvlc.pmBonus[1] ) soma.pm += Math.floor(Number(lvlc.pmBonus[1]) * nivel);
 		for (let [atr, value] of Object.entries(lvlc.pv)){
-			if(value) soma.pv += Number(this.system.atributos[atr].base);
+			let abl = this.system.atributos[atr];
+			if(value) soma.pv += Number(abl.base) + Number(abl.racial);
 		}
 		for (let [atr, value] of Object.entries(lvlc.pm)){
-			if(value) soma.pm += Number(this.system.atributos[atr].base);
+			let abl = this.system.atributos[atr];
+			if(value) soma.pm += Number(abl.base) + Number(abl.racial);
 		}
 
 		resourcePV.min = (Math.floor(soma.pv/2)*-1);
@@ -884,6 +901,12 @@ export default class ActorT20 extends Actor {
 	}
 	/* -------------------------------------------- */
 
+	/** @inheritdoc */
+	_onCreate(data, options, userId) {
+		super._onCreate(data, options, userId);
+		
+	}
+
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
@@ -961,7 +984,7 @@ export default class ActorT20 extends Actor {
 	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
 	async applyDamageV2(roll, multiplier = 1, applyRD = false) {
-		console.log('applyDamageV2',roll);
+		// console.log('applyDamageV2',roll);
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
@@ -1009,9 +1032,9 @@ export default class ActorT20 extends Actor {
 			} else {
 				let r = 0;
 				if( applyRD && type == 'dano' ){
-					r = ( rds[type]?.value ?? 0 );
+					r = Number( rds[type]?.value ?? 0 );
 				} else if( applyRD ) {
-					r = (rds.dano?.value ?? 0) + ( rds[type]?.value ?? 0 );
+					r = Number(rds.dano?.value ?? 0) + Number( rds[type]?.value ?? 0 );
 				}
 				if( NPCVuln && rds[type]?.vulnerabilidade ){
 					dmg.value = Math.floor(dmg.value * 1.5);
@@ -1044,7 +1067,7 @@ export default class ActorT20 extends Actor {
 			"system.attributes.pm.temp": tmpMP - mpt - final.tempMP,
 			"system.attributes.pm.value": dmp,
 		};
-
+		console.log(updates);
 		await this.update(updates);
 		let show =  game.settings.get("tormenta20", "showDamageCards");
 		if ( show != 'none' ) {

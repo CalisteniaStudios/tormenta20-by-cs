@@ -206,7 +206,7 @@ export default class StatblockParser extends FormApplication {
 			msg = '';
 			let tmp = Object.assign({}, ...rd);
 			for ( let [k, v] of Object.entries(tmp) ){
-				schema.tracos.resistencias[k].value = parseInt(v) || 0;
+				schema.tracos.resistencias[k].base = parseInt(v) || 0;
 				msg += `${k}: ${v}; `;
 			}
 			log.push({success: true, message: `Resistência a dano: ${msg}`});
