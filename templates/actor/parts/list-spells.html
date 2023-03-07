@@ -32,9 +32,19 @@
 		</li>
 		{{#each circulo.spells as |m index|}}
 		<li class="item flexrow" data-item-id="{{m._id}}">
-			{{#if ../../isPreparationCaster}}
+			{{#if (and @root.isPreparationCaster (ne m.system.tipo 'eng')) }}
 			<div class="item-toggles">
 				<a class="item-toggle preparation-toggle {{#if m.system.preparada }}active{{/if}}" title="{{localize 'T20.SpellPrepPrepared'}}"><i class="fas fa-sun"></i></a>
+			</div>
+			{{/if}}
+			{{#if (and @root.equipmentSlots (eq m.system.tipo 'eng')) }}
+			<div class="item-toggles">
+				<a class="item-toggle toggle-armor {{#if m.equipado.slot }}active{{/if}}" title="{{localize 'T20.SpellPrepPrepared'}}">
+					<span class="fa-stack" style="width:1em;font-size: 14px;">
+						{{{m.equipado.icon1}}}
+						{{{m.equipado.icon2}}}
+					</span>
+				</a>
 			</div>
 			{{/if}}
 			<div class="item-name flexrow rollable flex2" data-label="{{m.name}}">

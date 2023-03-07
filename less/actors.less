@@ -192,7 +192,7 @@
         white-space: nowrap
       }
       // Defense panel
-
+      
     }
   }
 
@@ -290,7 +290,7 @@
       }
     }
   }
-
+  
 
   // Proficiency Toggle Buttons
   .proficiency-toggle {
@@ -566,7 +566,7 @@
       align-items: center;
     }
     .item {
-
+      
       &:first-child {
         font-weight: bold;
       }
@@ -581,7 +581,7 @@
           margin-right: 3px;
         }
         input.stored {
-          opacity: 0.5;
+          opacity: 0.75;
         }
         &.rollable:hover {
           color: red;
@@ -620,7 +620,7 @@
       }
     }
 
-
+    
     // Inventory Header
     .item-header {
       line-height: 24px;
@@ -653,15 +653,22 @@
 
     // Item Control Buttons
     .item-controls {
+      // todo Tabbed 64px;
       flex: 0 0 50px;
       font-size: 12px;
       text-align: right;
 
-      .item-control.item-toggle {
+      .item-control.item-toggle i {
         opacity: 0.5;
       }
-      .item-control.item-toggle.active {
+      .item-control.item-toggle.active i {
         opacity: 1;
+      }
+
+      nav#context-menu {
+        text-align: left;
+        width: auto;
+        white-space: nowrap;
       }
     }
 
@@ -669,12 +676,18 @@
       flex: 0 0 40px;
       text-align: center;
       font-size: 16px;
-
-      .item-toggle {
+      
+      .item-toggle i {
         opacity: 0.5;
       }
-      .item-toggle.active {
+      .item-toggle.active i {
         opacity: 1;
+      }
+
+      nav#context-menu {
+        text-align: left;
+        width: auto;
+        white-space: nowrap;
       }
     }
 
@@ -745,7 +758,7 @@
 
   /* Encumbrance Bar */
   .encumbrance {
-
+    
     // margin-right: 14px;
     background: @colorTan;
     border-radius: 5px;

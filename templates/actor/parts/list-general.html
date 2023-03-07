@@ -11,10 +11,9 @@
 		</li>
 		{{#each actor.inventario.itens.items as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
-			<div class="item-name flexrow rollable flex2">
+			<div class="item-name flexrow rollable flex2 {{#unless item.system.carregado}}stored{{/unless}}">
 				<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-				<label class="{{#unless item.system.carregado}}stored{{/unless}}">{{item.name}}</label>
-				{{#unless item.system.carregado}}<i style="display: inline-block; margin: 0 4px; opacity: 0.5;" class="fal fa-treasure-chest"></i>{{/unless}}
+				<label class="">{{item.name}} {{#unless item.system.carregado}}<i class="fal fa-treasure-chest"></i>{{/unless}}</label>
 			</h4>
 			</div>
 			<div class="item-qty">

@@ -193,7 +193,7 @@ T20Conditions.enfeiticado = {
 	label: "Enfeitiçado",
 	id: "enfeiticado",
 	duration: {rounds:999},
-	icon: "systems/tormenta20/icons/conditions/enjoado.svg",
+	icon: "systems/tormenta20/icons/conditions/enfeiticado.svg",
 	flags: {core:{statusId:"enfeiticado"},tormenta20:{condition:true,durationScene:true,category:'mental'}}
 }
 

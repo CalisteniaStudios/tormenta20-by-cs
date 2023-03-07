@@ -26,7 +26,18 @@
 		</div>
 		<div class="item-weight">{{item.espacosTotal}}</div>
 		<div class="item-controls">
-			<a class="item-control item-toggle toggle-weapon{{#if item.system.equipado}} active{{/if}}" title="{{#if item.system.equipado}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}">{{#if item.system.equipado}}{{item.system.equipado}}{{/if}}<i class="fa-solid fa-hand-back-fist"></i></a>
+			{{#if @root.isCharacter }}
+				{{#if @root.equipmentSlots}}
+					<a class="item-control item-toggle toggle-weapon {{#if item.equipado.slot}}active{{/if}}" title="{{#if item.equipado.slot}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}">
+						<span class="fa-stack" style="width:1em;font-size: 14px;">
+							{{{item.equipado.icon1}}}
+							{{{item.equipado.icon2}}}
+						</span>
+					</a>
+				{{else}}
+					<a class="item-control aaa item-toggle toggle-weapon {{#if (gt item.system.equipado 0)}}active{{/if}}" title="{{#if item.system.equipado}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}">{{#if item.system.equipado}}{{item.system.equipado}}{{/if}}<i class="fa-solid fa-hand-back-fist"></i></a>
+				{{/if}}
+			{{/if}}
 			{{#if (eq ../layout "tabbed")}}
 			<a class="item-control item-fav" title="{{#if item.flags.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >
 				<i class="{{#if item.flags.favorito}}fas{{else}}far{{/if}} fa-star" ></i>

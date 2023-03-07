@@ -21,6 +21,16 @@
 					{{selectOptions config.spellType selected=item.system.tipo localize=true}}
 				</select>
 			</div>
+			{{#if (eq item.system.tipo 'eng') }}
+			<div class="form-group">
+				<label>{{ localize "T20.ItemEquippedType" }}</label>
+				<div class="form-fields">
+					<select name="system.equipado2.type">
+						{{selectOptions config.itemSlotTypes selected=item.system.equipado2.type localize=true blank=""}}
+					</select>
+				</div>
+			</div>
+			{{/if}}
 			<div class="form-group">
 				<label>{{ localize "T20.SpellCircle" }}</label>
 				<select name="system.circulo" data-type="Number">
