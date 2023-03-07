@@ -376,15 +376,22 @@ function applyRollModifiers(item, rollMods) {
 			
 			if ( dano.toString().match(re.die) && rollMods[r.key][i]?.dmgStep ) {
 				let indx = -1;
+				let passosIndx = 0;
 				let danoBase = dano.match(/^\d+d\d+/)[0];
 
 				if( danoBase == '2d4' ) danoBase = '1d8';
 				if( danoBase == '2d6' || danoBase == '3d4' ) danoBase = '1d12';
 
-				indx = C.passosDano.indexOf(danoBase);
-				if ( indx != -1 ) {
-					danoBase = C.passosDano[ indx + rollMods[r.key][i].dmgStep ];
-					dano = dano.replace(/^\d+d\d+/, danoBase)
+				for (passosIndx = 0; passosIndx < C.passosDano.length; passosIndx++) {
+					indx = C.passosDano[passosIndx].indexOf(danoBase);
+					if (indx != -1) break;
+				}
+
+				if (passosIndx < passosDano.length) {
+					if (indx + dmgStep < 0) dmgStep = -indx;
+					else if (indx + dmgStep >= passosDano[passosIndx].length) dmgStep = passosDano[passosIndx].length - 1 - indx;
+					danoBase = C.passosDano[passosIndx][ indx + rollMods[r.key][i].dmgStep ];
+					dano = dano.replace(/^\d+d\d+/, danoBase);
 				}
 			}
 			
