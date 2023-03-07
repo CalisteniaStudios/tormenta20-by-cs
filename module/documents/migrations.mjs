@@ -30,6 +30,7 @@ export function actor14112(data){
 	for (const res of Object.values( data.system.tracos.resistencias )) {
 		res.base = res.value;
 		res.value = 0;
+		if ( !Array.isArray(res.bonus) ) res.bonus = [];
 	}
 }
 
@@ -116,7 +117,7 @@ export function item14101(data){
 			delete data.system.propriedades.dms;
 		}
 	
-		if( hasProperty(data.system, 'melhorias') ){
+		if( hasProperty(data.system, 'melhorias') && hasProperty(data.system, 'upgrades') ){
 			let i = 1;
 			for (let [key, value] of Object.entries(data.system.melhorias)) {
 				if ( i > 4 ) break;
@@ -132,7 +133,7 @@ export function item14101(data){
 			delete data.system.encantos.lancinante;
 		}
 		
-		if( hasProperty(data.system, 'encantos') ){
+		if( hasProperty(data.system, 'encantos') && hasProperty(data.system, 'upgrades') ){
 			let i = 1;
 			for (let [key, value] of Object.entries(data.system.encantos)) {
 				if ( i > 3 ) break;
