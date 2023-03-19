@@ -9,6 +9,7 @@ import ActorResistanceConfig from "../apps/resistance-config.mjs";
 import LevelSettings from "../apps/level-settings.mjs";
 import AbilityCalculator from "../apps/ability-calculator.mjs";
 import RestConfigDialog from "../apps/rest-config.mjs";
+import CharacterProgression from '../apps/character-progression.mjs';
 
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -630,6 +631,10 @@ export default class ActorSheetT20 extends ActorSheet {
 				break;
 			case "rest":
 				RestConfigDialog.create([this.object]);
+				break;
+			case "progression":
+				return;
+				app = new CharacterProgression(this.object);
 				break;
 			// case "senses":
 			// 	app = new ActorSensesConfig(this.object);

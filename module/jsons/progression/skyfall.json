@@ -1,0 +1,62 @@
+{
+  "race": {
+    "name": "",
+    "items": []
+  },
+  "biography": {
+    "name": "",
+    "items": []
+  },
+  "devotion": {
+    "name": "",
+    "items": []
+  },
+  "level": {
+    "1": {
+      "class": "",
+      "items": []
+    },
+    "2": {
+      "class": "",
+			"subclass": "",
+      "items": []
+    },
+    "3": {
+      "class": "",
+      "items": []
+    },
+    "4": {
+      "class": "",
+      "items": []
+    },
+    "5": {
+      "class": "",
+      "items": []
+    },
+    "6": {
+      "class": "",
+			"subclass": "",
+      "items": []
+    },
+    "7": {
+      "class": "",
+      "items": []
+    },
+    "8": {
+      "class": "",
+      "items": []
+    },
+    "9": {
+      "class": "",
+      "items": []
+    },
+    "10": {
+      "class": "",
+      "items": []
+    },
+    "11": {
+      "class": "",
+      "items": []
+    }
+  }
+}

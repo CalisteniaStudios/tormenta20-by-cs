@@ -1,5 +1,11 @@
 # Lista de Mudanças
 
+## Versão 1.4.113
+- Atualizado: Tabelas de Tesouro.
+- Corrigido: Efeitos com `.???.` causavam erro no cálculo de PV/PM.
+- Corrigido: Efeitos de itens equipáveis não eram ativados com a nova opção de Controle de Itens Empunhados/Vestidos.
+- Corrigido: Poderes, Itens e Magias com informações divergentes entre a 1ª versão da edição JdA e mais atual.
+
 ## Versão 1.4.112
 - Adicionado: RD Calculável. O campo `system.tracos.resistencias.###.bonus` pode receber bônus de váriaveis (ex: `@con`).
 - Adicionado: Atributo Racial. O campo `system.atributos.###.racial` é usado no cálculo do valor final do atributo e no cálculo de PV/PM.

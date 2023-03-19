@@ -22,6 +22,7 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 			source: new fields.StringField({ initial: '', label:"T20.ItemSourceReference", hint:"T20.ItemSourceReferenceHint" }),
 			origin: new fields.StringField({ initial: '', label:"T20.ItemOrigin", hint:"T20.ItemOriginHint" }),
 			tags: new fields.ArrayField(new fields.StringField(), {label:"T20.ItemTagsList", hint:"T20.ItemTagsListHint" }),
+			rolltags: new fields.ArrayField(new fields.StringField(), {label:"T20.ItemTagsList", hint:"T20.ItemTagsListHint" }),
 			chatFlavor: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemChatFlavor", hint:"T20.ItemChatFlavorHint" }),
 			chatGif: new fields.StringField({ initial: '', label:"T20.ItemChatGif", hint:"T20.ItemChatGifHint" }),
 			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),

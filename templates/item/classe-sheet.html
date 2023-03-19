@@ -4,6 +4,9 @@
 	{{!-- Item Sheet Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item active" data-tab="details">{{ localize "T20.Details" }}</a>
+		{{#if false}}
+		<a class="item" data-tab="progression">{{ localize "T20.Progression" }}</a>
+		{{/if}}
 		{{#if isGM}}<a class="item" data-tab="config">Configuração (GM)</a>{{/if}}
 	</nav>
 	
@@ -79,17 +82,19 @@
 			<hr>
 			<div class="form-group">
 				<label for="TAGS">TAGS</label>
-				<input type="text" name="tag" class="tag-input"><br>
+				<input type="text" name="rolltags" class="tag-input"><br>
 			</div>
-			{{#if item.system.tags }}
+			{{#if item.system.rolltags }}
 			<div class="tag-list">
-				{{#each item.system.tags as |tag t| }}
+				{{#each item.system.rolltags as |tag t| }}
 				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
 				{{/each}}
 			</div>
 			{{/if}}
 		</div>
 		
+		{{> "systems/tormenta20/templates/item/parts/item-progression.html"}}
+
 		<div class="tab config" data-group="primary" data-tab="config">
 			{{#if isGM}}
 			<div class="form-group stacked weapon-properties">

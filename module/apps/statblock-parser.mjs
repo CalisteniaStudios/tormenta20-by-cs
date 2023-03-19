@@ -1,5 +1,3 @@
-import ActorT20 from "../documents/item.mjs";
-
 export default class StatblockParser extends FormApplication {
 	
 	constructor(object={}, options={}) {

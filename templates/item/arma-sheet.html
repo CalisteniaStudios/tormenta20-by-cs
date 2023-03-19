@@ -109,11 +109,11 @@
 			
 			<div class="form-group">
 				<label for="TAGS">TAGS</label>
-				<input type="text" name="tag" class="tag-input"><br>
+				<input type="text" name="rolltags" class="tag-input"><br>
 			</div>
-			{{#if item.system.tags }}
+			{{#if item.system.rolltags }}
 			<div class="tag-list">
-				{{#each item.system.tags as |tag t| }}
+				{{#each item.system.rolltags as |tag t| }}
 				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
 				{{/each}}
 			</div>

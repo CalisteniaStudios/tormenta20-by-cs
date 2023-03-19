@@ -224,11 +224,11 @@ export default class ItemSheetT20 extends ItemSheet {
 	async _onSubmit(event, options = {}) {
 		// Process the form data
 		const formData = this._getSubmitData(null);
-		if ( formData.tag ){
-			let tags = [...this.item.system.tags, formData.tag];
-			tags = tags.map(m=> m.capitalize());
-			formData[`system.tags`] = tags;
-			delete formData.tag;
+		if ( formData.rolltags ){
+			let rolltags = [...this.item.system.rolltags, formData.rolltags];
+			rolltags = rolltags.map(m=> m.capitalize());
+			formData[`system.rolltags`] = rolltags;
+			delete formData.rolltags;
 			options.updateData = formData;
 		}
 		await super._onSubmit(event, options);
@@ -248,9 +248,9 @@ export default class ItemSheetT20 extends ItemSheet {
 	async _onTagDelete(event) {
 		const tag = event.currentTarget;
 		const idx = tag.dataset.tagId;
-		const tags = this.item.system.tags;
+		const rolltags = this.item.system.rolltags;
 		tags.splice(idx,1);
-		this.item.update({[`system.tags`]:tags});
+		this.item.update({[`system.rolltags`]:rolltags});
 	}
 
 	/** @inheritdoc */

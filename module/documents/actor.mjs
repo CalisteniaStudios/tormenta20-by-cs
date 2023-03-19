@@ -630,7 +630,7 @@ export default class ActorT20 extends Actor {
 		data["nvl"] = classes;
 		// Set power type modifiers (ie.: tormenta, distinction)
 		const powers = {};
-		this.items.map(m=>m.system.tags).flat().map(f=>f.capitalize()).forEach(f=>powers[f] = (powers[f] ?? 0) +1 );
+		this.items.map(m=>m.system.rolltags).flat().map(f=>f.capitalize()).forEach(f=>powers[f] = (powers[f] ?? 0) +1 );
 
 		for (let [k, v] of Object.entries(powers)) {
 			powers[k+'2'] = Math.floor( (powers[k] - 1) / 2);
@@ -1423,7 +1423,7 @@ export default class ActorT20 extends Actor {
 
 		// Apply all changes
 		for ( let change of changes ) {
-			if ( !change.key ) continue;
+			if ( !change.key || change.key.match(/\?/) ) continue;
 			const changes = change.effect.apply(this, change);
 			Object.assign(overrides, changes);
 		}

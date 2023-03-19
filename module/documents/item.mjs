@@ -16,6 +16,7 @@ export default class ItemT20 extends Item {
 			if( data._stats.systemVersion < '1.4.001' ) migrations.item14001(data);
 			if( data._stats.systemVersion < '1.4.101' ) migrations.item14101(data);
 			if( data._stats.systemVersion < '1.4.112' ) migrations.item14112(data);
+			if( data._stats.systemVersion < '1.4.113' ) migrations.item14113(data);
 		}
 		return super.migrateData(data);
 	}
@@ -120,8 +121,9 @@ export default class ItemT20 extends Item {
 	get areEffectsSuppressed() {
 		const requireEquipped = ["arma", "equipamento"].includes(this.type);
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
-		if ( requireEquipped && equipmentSlots && this.system.equipado2.slot == 0 ) return true;
-		else if ( requireEquipped && (this.system.equipado === false || this.system.equipado == 0) ) return true;
+		if ( !requireEquipped ) return false;
+		if ( equipmentSlots && this.system.equipado2.slot == 0 ) return true;
+		else if ( !equipmentSlots && (this.system.equipado === false || this.system.equipado == 0) ) return true;
 		return false;
 	}
 	
@@ -1216,6 +1218,7 @@ export default class ItemT20 extends Item {
 			
 			// Call the roll helper utility
 			mergeObject(rollConfig, options);
+			console.log(rollConfig);
 			itemData.rolled[r.name] = await damageRoll(rollConfig);
 		}
 		// return result;

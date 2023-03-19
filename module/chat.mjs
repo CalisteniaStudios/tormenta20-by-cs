@@ -57,7 +57,7 @@ export const addChatMessageContextOptions = function (html, options) {
  * Render Action Buttons Over chat-card
  */
 export const ApplyButtons = function (app, html, data){
-	let chatHTML = html.find(".tormenta20.chat-card");
+	let chatHTML = html.find(".message-content");//.find(".tormenta20.chat-card");
 	if ( !chatHTML[0] ) return;
 	chatHTML = chatHTML[0];
 	
@@ -95,6 +95,7 @@ export const ApplyButtons = function (app, html, data){
 	// btnparent = chatHTML.querySelectorAll('.roll--dano .dice-total')[0];
 	// btnparent = chatHTML.querySelectorAll('.roll.roll--dano')[0];
 	let btnparents = chatHTML.querySelectorAll('.roll.roll--dano');
+	
 	for (const btnparent of btnparents) {
 		if( btnparent ){
 			// Buttons Left
@@ -129,6 +130,21 @@ export const ApplyButtons = function (app, html, data){
 		
 	}
 
+}
+
+export const hideDieFlavor = function (ChatMessage, html, data){
+	const coreMessage = !$(html).find(".tormenta20")[0];
+	const haveDamageRoll = ChatMessage.rolls.find(r=> r._formula.match(/\[(\w+)\]/) && game.tormenta20.config.damageTypes[r._formula.match(/\[(\w+)\]/)[1]]);
+	const rolls = $(html).find(".dice-roll");
+	if ( coreMessage && haveDamageRoll ){
+		$(html).find('.message-content').append('<div class="roll roll--dano"></div>');
+		$(html).find('.message-content').addClass('tormenta20 chat-card item-card');
+		
+		for (const roll of rolls) {
+			$(roll).find('.dice-formula')[0].textContent = $(roll).find('.dice-formula')[0].textContent.replace(/\[\w+\]/g, '');
+			$(html).find(".roll.roll--dano").append($(roll));
+		}
+	}
 }
 
 	export const chatListeners = function (html){

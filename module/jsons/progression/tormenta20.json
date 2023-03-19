@@ -1,0 +1,99 @@
+{
+  "race": {
+    "name": "",
+    "choices": [],
+    "items": []
+  },
+  "biography": {
+    "name": "",
+    "choices": [],
+    "items": []
+  },
+  "devotion": {
+    "name": "",
+    "choices": [],
+    "items": []
+  },
+  "level": {
+    "1": {
+      "class": "",
+      "items": []
+    },
+    "2": {
+      "class": "",
+      "items": []
+    },
+    "3": {
+      "class": "",
+      "items": []
+    },
+    "4": {
+      "class": "",
+      "items": []
+    },
+    "5": {
+      "class": "",
+      "items": []
+    },
+    "6": {
+      "class": "",
+      "items": []
+    },
+    "7": {
+      "class": "",
+      "items": []
+    },
+    "8": {
+      "class": "",
+      "items": []
+    },
+    "9": {
+      "class": "",
+      "items": []
+    },
+    "10": {
+      "class": "",
+      "items": []
+    },
+    "11": {
+      "class": "",
+      "items": []
+    },
+    "12": {
+      "class": "",
+      "items": []
+    },
+    "13": {
+      "class": "",
+      "items": []
+    },
+    "14": {
+      "class": "",
+      "items": []
+    },
+    "15": {
+      "class": "",
+      "items": []
+    },
+    "16": {
+      "class": "",
+      "items": []
+    },
+    "17": {
+      "class": "",
+      "items": []
+    },
+    "18": {
+      "class": "",
+      "items": []
+    },
+    "19": {
+      "class": "",
+      "items": []
+    },
+    "20": {
+      "class": "",
+      "items": []
+    }
+  }
+}

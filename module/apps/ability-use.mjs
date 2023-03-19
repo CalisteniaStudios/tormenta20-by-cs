@@ -18,7 +18,8 @@ const re = {
 	die: /\d+d\d+[\+|\-]?[\d+]?/,
 	split: /(d)|([\+|\-])|(\d+)|(\@\w+)|\[(\w+)\]/g,
 	perd: /d\*\d+/,
-	dieGroup: /(?<die>(?<qty>\d+)(d)(?<faces>\d+)(?<bonus>[\+|\-]\d+)?(?<dmgType>\[\w+\]))?/
+	dieGroup: /(?<die>(?<qty>\d+)(d)(?<faces>\d+)(?<bonus>[\+|\-]\d+)?(?<dmgType>\[\w+\]))?/,
+	dmgType: /(?<die>\d+d\d+)\s?\[?(?<dtype>\w+)?\]?/
 }
 
 /**
@@ -89,7 +90,9 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		if ( rollMods && ef._sourceName ){
 			p = Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0);
 		} else if ( damageTypeTarget ){
-			p = Math.max( rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget ), 0);
+			// p = Math.max( rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget ), 0);
+			p = rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget );
+			if ( p == -1) continue;
 		}
 		if( ch.mode == 0 ) {
 			// To Change die => d12 (d#NUMBEROFFACES)
@@ -162,7 +165,11 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				let n = parseInt(ch.value) ?? 0;
 				if( n ) rollMods[r.key][p].extraDie = n;
 			} else {
+				
+				const dmgTypeG = ch.value.match(re.dmgType);
+				ch.value = dmgTypeG.groups.die ?? ch.value;
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG.groups.dtype ?? ''), src: '' } );
 			}
 			
 			if( rollMods && ef._sourceName ){
@@ -453,9 +460,9 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	
 	let rollMods;
 	if( item.type != 'pericia' && item.type != 'atributo' ){
-		rollMods = id.rolls.reduce(function(acc, r){ 
-			acc[r.key] = r.parts.map(i=> ({die:null, dmgStep:0, override:null,
-				addDie:0, addNum:0, extraDie:0, perDie:0, dmgType: i[1], src:i[2] }) );
+	rollMods = id.rolls.reduce(function(acc, r){ 
+		acc[r.key] = r.parts.map(i=> ({die:null, dmgStep:0, override:null,
+			addDie:0, addNum:0, extraDie:0, perDie:0, dmgType: i[1], src:i[2] }) );
 			return acc;
 		}, {});
 	} else {
@@ -661,7 +668,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		tempEffect.origin = item.uuid ?? actor.uuid;
 		tempEffect.origin = tempEffect.origin?.replace(/.?ActiveEffect.\w+/,'');
 		options.effects.push([tempEffect, ...children]);
-		
+
 	});
 
 	// Brew Potion

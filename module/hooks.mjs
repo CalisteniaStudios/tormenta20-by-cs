@@ -79,8 +79,9 @@ export default function () {
 
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {
+		
+		chat.hideDieFlavor(app, html, data);
 		chat.ApplyButtons(app, html, data);
-
 		// Highlight critical success or failure die
 		// chat.highlightCriticalSuccessFailure(app, html, data);
 
@@ -107,4 +108,9 @@ export default function () {
 	// Hooks.on("preCreateActiveEffect", (ActiveEffect, object, options, userId) => {
 		
 	// });
+
+	Hooks.on("closeCompendiumT20", (compendium, html) => {
+		compendium.collection.apps = [ new Compendium(compendium.collection) ];
+	});
+	
 }

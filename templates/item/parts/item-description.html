@@ -69,7 +69,7 @@
 			<input type="text" name="system.source" value="{{item.system.source}}"/>
 		</div>
 		{{#if (or (eq item.system.description.value "") item.system.description.value ) }}
-		{{editor htmlFields.description target="system.description.value" button=true owner=owner editable=editable}}
+		{{editor htmlFields.description target="system.description.value" button=true owner=owner editable=editable engine="prosemirror"}}
 		{{/if}}
 	</div>
 </div>
