@@ -1,5 +1,8 @@
 # Lista de Mudanças
 
+## Versão 1.4.114
+- Corrigido: Efeitos de Uso de dano numérico haviam quebrado.
+
 ## Versão 1.4.113
 - Atualizado: Tabelas de Tesouro.
 - Corrigido: Efeitos com `.???.` causavam erro no cálculo de PV/PM.

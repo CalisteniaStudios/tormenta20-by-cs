@@ -167,9 +167,9 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			} else {
 				
 				const dmgTypeG = ch.value.match(re.dmgType);
-				ch.value = dmgTypeG.groups.die ?? ch.value;
+				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG.groups.dtype ?? ''), src: '' } );
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: '' } );
 			}
 			
 			if( rollMods && ef._sourceName ){

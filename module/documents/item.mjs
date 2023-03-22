@@ -1218,7 +1218,6 @@ export default class ItemT20 extends Item {
 			
 			// Call the roll helper utility
 			mergeObject(rollConfig, options);
-			console.log(rollConfig);
 			itemData.rolled[r.name] = await damageRoll(rollConfig);
 		}
 		// return result;
