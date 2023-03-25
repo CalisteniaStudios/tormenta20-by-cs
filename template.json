@@ -447,6 +447,10 @@
       },
       "objeto":{
         "equipado": false,
+        "equipado2": {
+          "slot": 0,
+          "type": ""
+        },
         "carregado": true,
         "peso": 0,
         "espacos": 0,

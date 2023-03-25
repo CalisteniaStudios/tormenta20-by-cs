@@ -1,5 +1,11 @@
 # Lista de Mudanças
 
+## Versão 1.4.115
+- Corrigido: Alguns Efeitos de Uso que alteravam características causavam erro.
+- Corrigido: Campos de Itens Empunhados/Vestidos não haviam sido migrados corretamente e impediam que fichas abrisse.
+- Corrigido: Exibição de resistência a condições e efeitos em fichas de NPC.
+- Corrigido: A soma dos espaços não era arredondada corretamente.
+
 ## Versão 1.4.114
 - Corrigido: Efeitos de Uso de dano numérico haviam quebrado.
 

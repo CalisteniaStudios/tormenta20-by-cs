@@ -57,11 +57,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		}
 		const res = this.actor.system.tracos.resistencias;
 		const ics = this.actor.system.tracos.ic;
-		// Map statusEffect.id => key
-		const resIdKeys = Object.entries(CONFIG.T20.conditions).reduce((obj, c)=>{
-			obj[c[1].id] = c[0];
-			return obj;
-		}, {})
+		
 		Object.entries(res).map(function(r) {
 			if ( r[1].imunidade ) resText.imu.push(r[0]);
 			else if ( r[1].vulnerabilidade ) resText.vul.push(r[0]);
@@ -75,7 +71,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		}
 		sheetData['resistencias'] = '';
 		if ( !isEmpty(resText.imu) ) {
-			resText.imu = resText.imu.map( i => resIdKeys[i]);
+			resText.imu = resText.imu.map( i => CONFIG.T20.conditionTypes[i] ?? i );
 			resText.imuTxt += 'imunidade a ' + resText.imu.join(', ');
 			sheetData['resistencias'] += resText.imuTxt;
 		}

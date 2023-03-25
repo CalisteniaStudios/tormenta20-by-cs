@@ -357,7 +357,7 @@ const applyEffectChanges = (ch, qty, ef, optEffectList, effectList) => {
 		// include effect from the item
 		if ( !tef && ef.origin.match(/Item.[A-Za-z0-9]+/) ) {
 			let itemId = ef.origin.match(/Item.[A-Za-z0-9]+/)[0].split('.')[1] ?? false;
-			let it = ef.parent?.items.find(i => i.id == itemId);
+			let it = ef.parent?.items?.find(i => i.id == itemId);
 			if( it ) tef = it.effects.find( e => e.label == ch.value );
 		}
 		if ( tef ) effectList.push(tef);

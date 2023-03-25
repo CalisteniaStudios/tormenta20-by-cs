@@ -49,14 +49,16 @@ export function item14112(data){
 	if ( ['arma','equipamento'].includes(data.type) ) {
 		if ( !data.system.equipado2 ) {
 			data.system.equipado2 = {};
+		}
+		if( !data.system.equipado2.slot ){
 			data.system.equipado2.slot = 0;
-			if ( data.system.empunhadura || ['escudo','esoterico','ferramenta'].includes(data.system.tipo) ){
-				data.system.equipado2.type = 'hand';
-			} else if ( ['leve','pesada','traje','acessorio'].includes(data.system.tipo) ){
-				data.system.equipado2.type = 'body';
-			} else if ( (['eng'].includes(data.system.tipo) && data.system.escola) ) {
-				data.system.equipado2.type = 'both';
-			}
+		}
+		if ( data.system.empunhadura || ['escudo','esoterico','ferramenta'].includes(data.system.tipo) ){
+			data.system.equipado2.type = 'hand';
+		} else if ( ['leve','pesada','traje','acessorio'].includes(data.system.tipo) ){
+			data.system.equipado2.type = 'body';
+		} else if ( (['eng'].includes(data.system.tipo) && data.system.escola) ) {
+			data.system.equipado2.type = 'both';
 		}
 	}
 }

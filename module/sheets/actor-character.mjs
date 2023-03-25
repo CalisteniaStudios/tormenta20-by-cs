@@ -221,7 +221,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		for ( let i of items ) {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
-			i.espacosTotal = (i.system.qtd * i.system.espacos);
+			i.espacosTotal = Number((i.system.qtd * i.system.espacos).toFixed(2));
 			// Equipament Slots.
 			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
 				this._itemSlotIcon(i);
@@ -277,6 +277,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	_itemSlotIcon(i){
 		// Font Awesome Stacked. icon1 = back | icon2 = front
 		i.equipado = i.system.equipado2;
+		if ( !i.equipado ) return;
 		// i.equipado.icon2 = parseInt(i.equipado.slot) == 12 ? 2 : '';
 		i.equipado.icon2 = '<b class="fa-stack-1x" style="color:white;font-size:10px;">'+(parseInt(i.equipado.slot) == 12 ? 2 : '')+'</b>'
 		if ( i.equipado.type == 'hand' ) {

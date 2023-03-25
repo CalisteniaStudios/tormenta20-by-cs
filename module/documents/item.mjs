@@ -15,8 +15,8 @@ export default class ItemT20 extends Item {
 		if ( data._stats ){
 			if( data._stats.systemVersion < '1.4.001' ) migrations.item14001(data);
 			if( data._stats.systemVersion < '1.4.101' ) migrations.item14101(data);
-			if( data._stats.systemVersion < '1.4.112' ) migrations.item14112(data);
 			if( data._stats.systemVersion < '1.4.113' ) migrations.item14113(data);
+			if( data._stats.systemVersion < '1.4.115' ) migrations.item14112(data);
 		}
 		return super.migrateData(data);
 	}
