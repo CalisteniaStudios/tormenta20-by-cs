@@ -81,11 +81,11 @@ export function registerHandlebarsHelpers() {
 		let total = 0;
 		for (const item of listEffects.filter(Boolean)) {
 			if (item.mode == 5) {
-				listItems = `<li class="flexrow">${item.label}: <span style="text-align:right;">${item.value}</span></li>`;
+				listItems = `<li class="flexrow">${item.name}: <span style="text-align:right;">${item.value}</span></li>`;
 				total = item.value;
 				break;
 			} else {
-				listItems += `<li class="flexrow">${item.label}: <span style="text-align:right;">${item.value}</span></li>`;
+				listItems += `<li class="flexrow">${item.name}: <span style="text-align:right;">${item.value}</span></li>`;
 				total += Number(item.value);
 			}
 		}

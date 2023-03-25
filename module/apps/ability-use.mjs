@@ -353,12 +353,12 @@ const effectFields = {
  */
 const applyEffectChanges = (ch, qty, ef, optEffectList, effectList) => {
 	if( ch.key === "efeito"){
-		let tef = optEffectList.find( e => e.label === ch.value );
+		let tef = optEffectList.find( e => e.name === ch.value );
 		// include effect from the item
 		if ( !tef && ef.origin.match(/Item.[A-Za-z0-9]+/) ) {
 			let itemId = ef.origin.match(/Item.[A-Za-z0-9]+/)[0].split('.')[1] ?? false;
 			let it = ef.parent?.items?.find(i => i.id == itemId);
-			if( it ) tef = it.effects.find( e => e.label == ch.value );
+			if( it ) tef = it.effects.find( e => e.name == ch.value );
 		}
 		if ( tef ) effectList.push(tef);
 	}
@@ -503,8 +503,8 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	for ( let ef of onUseEffects ){
 		// Prepare onUseEffects chat content;
 		let ouEff = {};
-		ouEff.description = item.type !== "arma"? ef.label : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.label}` : ef._sourceName );
-		if ( ["Unknown",actor.name].includes(ouEff.description) ) ouEff.description = ef.label;
+		ouEff.description = item.type !== "arma"? ef.name : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : ef._sourceName );
+		if ( ["Unknown",actor.name].includes(ouEff.description) ) ouEff.description = ef.name;
 		ouEff.cost = Number(applied[ef.id]?.custo) * applied[ef.id]?.aplica || applied[ef.id]?.custo;
 		// Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
 		ouEff.qty = Number(applied[ef.id]?.aplica) || 1;
@@ -583,13 +583,13 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		if ( id.duracao?.units == 'hour' ) duration.seconds = durValue * 60 * 60;
 		if ( id.duracao?.units == 'day' ) duration.seconds = durValue * 60 * 60 * 24;
 		if ( id.duracao?.units == 'month' ) duration.seconds = durValue * 60 * 60 * 24 * 30;
-		let efl = ef.label.slugify().replace("-","");
+		let efl = ef.name.slugify().replace("-","");
 		if(T20.conditions[efl]){
 			tempEffect = new ActiveEffect(T20.conditions[efl]);
 			tempEffect = tempEffect.toObject();
 			children = tempEffect.flags?.tormenta20?.childEffect?.map( ch => T20.conditions[ch] ) || [];
 		} else {
-			tempEffect.label ??= this.name;
+			tempEffect.name ??= this.name;
 			tempEffect.icon ??= this.img;
 			tempEffect.flags = mergeObject(ef.flags, flags);
 			tempEffect.duration = !isEmpty(duration) ? duration : ef.duration;

@@ -71,7 +71,7 @@ export function effect14112(data){
 				change.key = change.key.replace(/\.value/, ".bonus");
 			}
 			
-			if ( data.label.match(/\w - Atributos|Atributos - \w|Aumento de Atributo - \w/) && change.key.match(/system\.atributos\.\w+\.value/) ){
+			if ( data.name.match(/\w - Atributos|Atributos - \w|Aumento de Atributo - \w/) && change.key.match(/system\.atributos\.\w+\.value/) ){
 				change.key = change.key.replace(/\.value/, ".racial");
 			}
 		}

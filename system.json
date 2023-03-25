@@ -5,11 +5,11 @@
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
   "version": "1.4.115",
   "minimumCoreVersion": "10",
-  "compatibleCoreVersion": "10",
+  "compatibleCoreVersion": "11",
   "compatibility": {
     "minimum": "10",
     "verified": "10",
-    "maximum": "10"
+    "maximum": "11"
   },
   "author": "Vizael",
   "authors": [{"name": "Vizael"}],

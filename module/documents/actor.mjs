@@ -52,9 +52,9 @@ export default class ActorT20 extends Actor {
 				for (let ch of ef.changes) {
 					if ( !acc[ch.key] ) acc[ch.key] = [];
 					if ( ch.mode == 2 && !acc[ch.key].find( f => f.mode == 5 ) ) {
-						acc[ch.key].push({label:ef.label, value:ch.value, mode:ch.mode});
+						acc[ch.key].push({label:ef.name, value:ch.value, mode:ch.mode});
 					} else if ( ch.mode == 5 ) {
-						acc[ch.key] = [{label:ef.label, value:ch.value, mode:ch.mode}];
+						acc[ch.key] = [{label:ef.name, value:ch.value, mode:ch.mode}];
 					}
 				}
 			}
@@ -919,7 +919,7 @@ export default class ActorT20 extends Actor {
 			const showCard = game.settings.get("tormenta20", "showStatusCards");
 			const effect = result.find(doc => doc.flags?.core?.statusId );
 			if(showCard && effect){
-				game.tormenta20.macros.msgFromJournal(effect.label, "tormenta20.basico", 'Condições');
+				game.tormenta20.macros.msgFromJournal(effect.name, "tormenta20.basico", 'Condições');
 			}
 		}
 	}
@@ -939,7 +939,7 @@ export default class ActorT20 extends Actor {
 				let choice = {};
 				for ( let ch of changes ){
 					choice.id = ef.id;
-					choice.label = ef.label;
+					choice.label = ef.name;
 					choice.key = ch.key.split('.');
 					choice.value = ch.value.split('.');
 					choices.push(choice);

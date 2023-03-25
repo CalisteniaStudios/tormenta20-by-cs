@@ -6,9 +6,13 @@ export default class ActiveEffectT20 extends ActiveEffect {
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		// console.warn( 'ActiveEffect migrateData', data)
+		super.migrateData(data);
+		if( data.name === undefined && data.label) {
+			console.error(data);
+			data.name = data.label;
+		}
 		if( data ) migrations.effect14112(data);
-		return super.migrateData(data);
+		return data;
 	}
 	/**
 	 * Is this active effect currently suppressed?
@@ -124,7 +128,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		switch ( a.dataset.action ) {
 			case "create":
 			return owner.createEmbeddedDocuments("ActiveEffect", [{
-				label:  type=="onuse" ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
+				name:  type=="onuse" ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
 				icon: ( type=="onuse" ? "icons/svg/upgrade.svg" :
 												owner.documentName == "Item" ? owner.img : "icons/svg/aura.svg"),
 				origin: owner.uuid,

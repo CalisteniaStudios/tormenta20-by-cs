@@ -111,7 +111,7 @@ export default class ItemSheetT20 extends ItemSheet {
 
 			config: CONFIG.T20,
 			// itemType: sheetData.item.type.capitalize(),
-			itemType: game.i18n.localize(`ITEM.Type${item.type.titleCase()}`),
+			itemType: game.i18n.localize(`Types.Item.${item.type.titleCase()}`),
 			itemStatus: this._getItemStatus(),
 			itemProperties: this._getItemProperties(),
 			isPhysical: item.system.hasOwnProperty("qtd"),
@@ -205,11 +205,9 @@ export default class ItemSheetT20 extends ItemSheet {
 				$(list).addClass('active');
 			});
 			html.find(".effect-control-status").click(ev => {
-				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
 				ActiveEffectT20.onManageActiveEffect(ev, this.item)
 			});
 			html.find(".effect-control").click(ev => {
-				if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize('T20.WarningEditOwnedItemEffect'))
 				ActiveEffectT20.onManageActiveEffect(ev, this.item)
 			});
 		}

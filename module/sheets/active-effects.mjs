@@ -12,7 +12,7 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 		if (this.object.flags?.tormenta20?.onuse) {
 			return `Efeito de Uso: ${this.object.sourceName}`;
 		} else {
-			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.object.label}`;
+			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.object.name}`;
 		}
 	}
 	/** @override */

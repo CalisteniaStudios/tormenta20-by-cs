@@ -1,7 +1,7 @@
 export const T20Conditions = {};
 
 T20Conditions.abalado = {
-	label: "Abalado",
+	name: "Abalado",
 	id: "abalado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/abalado.svg",
@@ -39,7 +39,7 @@ T20Conditions.abalado = {
 }
 
 T20Conditions.agarrado = {
-	label: "Agarrado",
+	name: "Agarrado",
 	id: "agarrado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/agarrado.svg",
@@ -49,7 +49,7 @@ T20Conditions.agarrado = {
 }
 
 T20Conditions.alquebrado = {
-	label: "Alquebrado",
+	name: "Alquebrado",
 	id: "alquebrado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/alquebrado.svg",
@@ -58,7 +58,7 @@ T20Conditions.alquebrado = {
 }
 
 T20Conditions.apavorado = {
-	label: "Apavorado",
+	name: "Apavorado",
 	id: "apavorado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/apavorado.svg",
@@ -95,7 +95,7 @@ T20Conditions.apavorado = {
 }
 
 T20Conditions.atordoado = {
-	label: "Atordoado",
+	name: "Atordoado",
 	id: "atordoado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/atordoado.svg",
@@ -103,7 +103,7 @@ T20Conditions.atordoado = {
 }
 
 T20Conditions.caido = {
-	label: "Caído",
+	name: "Caído",
 	id: "caido",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/caido.svg",
@@ -117,7 +117,7 @@ T20Conditions.caido = {
 }
 
 T20Conditions.cego = {
-	label: "Cego",
+	name: "Cego",
 	id: "blind",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/cego.svg",
@@ -134,7 +134,7 @@ T20Conditions.cego = {
 }
 
 T20Conditions.confuso = {
-	label: "Confuso",
+	name: "Confuso",
 	id: "confuso",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/confuso.svg",
@@ -142,7 +142,7 @@ T20Conditions.confuso = {
 }
 
 T20Conditions.debilitado = {
-	label: "Debilitado",
+	name: "Debilitado",
 	id: "debilitado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/debilitado.svg",
@@ -163,7 +163,7 @@ T20Conditions.debilitado = {
 }
 
 T20Conditions.desprevenido = {
-	label: "Desprevenido",
+	name: "Desprevenido",
 	id: "desprevenido",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/desprevenido.svg",
@@ -173,7 +173,7 @@ T20Conditions.desprevenido = {
 }
 
 T20Conditions.doente = {
-	label: "Doente",
+	name: "Doente",
 	id: "doente",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/doente.svg",
@@ -181,7 +181,7 @@ T20Conditions.doente = {
 }
 
 T20Conditions.emchamas = {
-	label: "Em Chamas",
+	name: "Em Chamas",
 	id: "emchamas",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/em-chamas.svg",
@@ -190,7 +190,7 @@ T20Conditions.emchamas = {
 }
 
 T20Conditions.enfeiticado = {
-	label: "Enfeitiçado",
+	name: "Enfeitiçado",
 	id: "enfeiticado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/enfeiticado.svg",
@@ -198,7 +198,7 @@ T20Conditions.enfeiticado = {
 }
 
 T20Conditions.enjoado = {
-	label: "Enjoado",
+	name: "Enjoado",
 	id: "enjoado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/enjoado.svg",
@@ -206,7 +206,7 @@ T20Conditions.enjoado = {
 }
 
 T20Conditions.enredado = {
-	label: "Enredado",
+	name: "Enredado",
 	id: "enredado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/enredado.svg",
@@ -216,7 +216,7 @@ T20Conditions.enredado = {
 }
 
 T20Conditions.envenenado = {
-	label: "Envenenado",
+	name: "Envenenado",
 	id: "envenenado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/envenenado.svg",
@@ -224,7 +224,7 @@ T20Conditions.envenenado = {
 }
 
 T20Conditions.esmorecido = {
-	label: "Esmorecido",
+	name: "Esmorecido",
 	id: "esmorecido",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/esmorecido.svg",
@@ -253,7 +253,7 @@ T20Conditions.esmorecido = {
 }
 
 T20Conditions.exausto = {
-	label: "Exausto",
+	name: "Exausto",
 	id: "exausto",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/exausto.svg",
@@ -261,7 +261,7 @@ T20Conditions.exausto = {
 }
 
 T20Conditions.fascinado = {
-	label: "Fascinado",
+	name: "Fascinado",
 	id: "fascinado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/fascinado.svg",
@@ -270,7 +270,7 @@ T20Conditions.fascinado = {
 }
 
 T20Conditions.fatigado = {
-	label: "Fatigado",
+	name: "Fatigado",
 	id: "fatigado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/fatigado.svg",
@@ -278,7 +278,7 @@ T20Conditions.fatigado = {
 }
 
 T20Conditions.fraco = {
-	label: "Fraco",
+	name: "Fraco",
 	id: "fraco",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/fraco.svg",
@@ -299,7 +299,7 @@ T20Conditions.fraco = {
 }
 
 T20Conditions.frustrado = {
-	label: "Frustrado",
+	name: "Frustrado",
 	id: "frustrado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/frustrado.svg",
@@ -328,7 +328,7 @@ T20Conditions.frustrado = {
 }
 
 T20Conditions.imovel = {
-	label: "Imóvel",
+	name: "Imóvel",
 	id: "imovel",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/imovel.svg",
@@ -341,7 +341,7 @@ T20Conditions.imovel = {
 }
 
 T20Conditions.inconsciente = {
-	label: "Inconsciente",
+	name: "Inconsciente",
 	id: "inconsciente",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/inconsciente.svg",
@@ -349,7 +349,7 @@ T20Conditions.inconsciente = {
 }
 
 T20Conditions.indefeso = {
-	label: "Indefeso",
+	name: "Indefeso",
 	id: "indefeso",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/indefeso.svg",
@@ -358,7 +358,7 @@ T20Conditions.indefeso = {
 }
 
 T20Conditions.invisivel = {
-	label: "Invisível",
+	name: "Invisível",
 	id: "invisible",
 	duration: {rounds:999},
 	icon: "icons/svg/invisible.svg",
@@ -366,7 +366,7 @@ T20Conditions.invisivel = {
 }
 
 T20Conditions.lento = {
-	label: "Lento",
+	name: "Lento",
 	id: "lento",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/lento.svg",
@@ -379,7 +379,7 @@ T20Conditions.lento = {
 }
 
 T20Conditions.morto = {
-	label: "Morto",
+	name: "Morto",
 	id: "morto",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/morto.svg",
@@ -387,7 +387,7 @@ T20Conditions.morto = {
 }
 
 T20Conditions.ofuscado = {
-	label: "Ofuscado",
+	name: "Ofuscado",
 	id: "ofuscado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/ofuscado.svg",
@@ -396,7 +396,7 @@ T20Conditions.ofuscado = {
 }
 
 T20Conditions.paralisado = {
-	label: "Paralisado",
+	name: "Paralisado",
 	id: "paralisado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/paralisado.svg",
@@ -404,7 +404,7 @@ T20Conditions.paralisado = {
 }
 
 T20Conditions.pasmo = {
-	label: "Pasmo",
+	name: "Pasmo",
 	id: "pasmo",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/pasmo.svg",
@@ -412,7 +412,7 @@ T20Conditions.pasmo = {
 }
 
 T20Conditions.petrificado = {
-	label: "Petrificado",
+	name: "Petrificado",
 	id: "petrificado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/petrificado.svg",
@@ -421,7 +421,7 @@ T20Conditions.petrificado = {
 }
 
 T20Conditions.sangrando = {
-	label: "Sangrando",
+	name: "Sangrando",
 	id: "sangrando",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/sangrando.svg",
@@ -430,7 +430,7 @@ T20Conditions.sangrando = {
 }
 
 T20Conditions.sustentando = {
-	label: "Sustentando",
+	name: "Sustentando",
 	id: "sustentando",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/sustentando.svg",
@@ -439,7 +439,7 @@ T20Conditions.sustentando = {
 }
 
 T20Conditions.surdo = {
-	label: "Surdo",
+	name: "Surdo",
 	id: "surdo",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/surdo.svg",
@@ -448,7 +448,7 @@ T20Conditions.surdo = {
 }
 
 T20Conditions.surpreendido = {
-	label: "Surpreendido",
+	name: "Surpreendido",
 	id: "surpreendido",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/surpreendido.svg",
@@ -456,7 +456,7 @@ T20Conditions.surpreendido = {
 }
 
 T20Conditions.vulneravel = {
-	label: "Vulnerável",
+	name: "Vulnerável",
 	id: "vulneravel",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/vulneravel.svg",
@@ -465,7 +465,7 @@ T20Conditions.vulneravel = {
 }
 
 T20Conditions.sobrecarregado = {
-	label: "Sobrecarregado",
+	name: "Sobrecarregado",
 	id: "sobrecarregado",
 	duration: {rounds:999},
 	icon: "systems/tormenta20/icons/conditions/sobrecarregado.svg",

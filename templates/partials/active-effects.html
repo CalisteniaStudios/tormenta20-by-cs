@@ -10,7 +10,7 @@
 			{{#if (and (not @root.isOwned) (eq @root.documentName 'Item') (eq sid 'temporary'))}}
 			<div class="add-status-effects">
 				{{#each @root.config.conditions as | data id | }}
-					<a class="effect-control-status" data-action="create-status" data-status-id="{{id}}" title="{{localize data.label}}"><img src="{{data.icon}}" width="32" height="32"></a>
+					<a class="effect-control-status" data-action="create-status" data-status-id="{{id}}" title="{{localize data.name}}"><img src="{{data.icon}}" width="32" height="32"></a>
 				{{/each}}
 			</div>
 			<a class="effect-control-list" data-action="create" title="{{localize 'T20.Add'}} {{localize 'T20.Effect'}}"><i class="fa-solid fa-list-ul"></i></a>
@@ -26,7 +26,7 @@
 			<div class="item-name effect-name flexrow">
 				{{#unless (or (eq sid 'onuse') (eq sid 'onuseTemp'))}}
 				<img class="item-image" src="{{effect.icon}}"/>
-				<h4 class="item-name">{{effect.label}}</h4>
+				<h4 class="item-name">{{effect.name}}</h4>
 				{{else}}
 				<h4 class="item-name"><b>
 				{{effect.flags.tormenta20.custo}}
@@ -35,7 +35,7 @@
 				{{else if (eq effect.flags.tormenta20.custo '')}}—
 				{{else}}{{localize 'T20.MP'}}:{{/if}}
 				</b>
-				{{effect.label}}</h4>
+				{{effect.name}}</h4>
 				{{/unless}}
 			</div>
 			{{#unless (or (eq sid 'onuse') (eq sid 'onuseTemp'))}}

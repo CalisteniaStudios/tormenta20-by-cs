@@ -157,20 +157,17 @@ Hooks.once("init", async function () {
 	});
 	
 	// DATA MODEL
-	// game.documentTypes.Actor.forEach(type => CONFIG.Actor.systemDataModels[type] = getSystemActorData(type));
-	// CONFIG.Actor.systemDataModels["character"] = systemActorBaseData;
-	CONFIG.Actor.systemDataModels["character"] = systemActorCharacterData;
-	CONFIG.Actor.systemDataModels["npc"] = systemActorNPCData;
-	CONFIG.Actor.systemDataModels["simple"] = systemActorSimpleData;
+	CONFIG.Actor.dataModels["character"] = systemActorCharacterData;
+	CONFIG.Actor.dataModels["npc"] = systemActorNPCData;
+	CONFIG.Actor.dataModels["simple"] = systemActorSimpleData;
 
-	// game.documentTypes.Item.forEach(type => CONFIG.Item.systemDataModels[type] = getSystemItemData(type));
-	CONFIG.Item.systemDataModels["arma"] = systemItemWeaponData;
-	CONFIG.Item.systemDataModels["classe"] = systemItemClassData;
-	CONFIG.Item.systemDataModels["consumivel"] = systemItemConsumableData;
-	CONFIG.Item.systemDataModels["equipamento"] = systemItemEquipmentData;
-	CONFIG.Item.systemDataModels["magia"] = systemItemSpellData;
-	CONFIG.Item.systemDataModels["poder"] = systemItemPowerData;
-	CONFIG.Item.systemDataModels["tesouro"] = systemItemLootData;
+	CONFIG.Item.dataModels["arma"] = systemItemWeaponData;
+	CONFIG.Item.dataModels["classe"] = systemItemClassData;
+	CONFIG.Item.dataModels["consumivel"] = systemItemConsumableData;
+	CONFIG.Item.dataModels["equipamento"] = systemItemEquipmentData;
+	CONFIG.Item.dataModels["magia"] = systemItemSpellData;
+	CONFIG.Item.dataModels["poder"] = systemItemPowerData;
+	CONFIG.Item.dataModels["tesouro"] = systemItemLootData;
 	
 
 	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
