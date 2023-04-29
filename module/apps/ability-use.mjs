@@ -85,15 +85,17 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				ch.key = m[2];
 			}
 		}
-		// CUSTOM CHANGES
 		let p = 0;
 		if ( rollMods && ef._sourceName ){
 			p = Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0);
+			console.log( rollMods, r, ef, p );
+			// p-=1;
 		} else if ( damageTypeTarget ){
 			// p = Math.max( rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget ), 0);
 			p = rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget );
 			if ( p == -1) continue;
 		}
+		// CUSTOM CHANGES
 		if( ch.mode == 0 ) {
 			// To Change die => d12 (d#NUMBEROFFACES)
 			if( ch.value.match(re.faces) ){
@@ -169,10 +171,13 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				const dmgTypeG = ch.value.match(re.dmgType);
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: '' } );
+				console.log(r, ch);
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (ef._sourceName ?? '') } );
+				continue;
 			}
 			
 			if( rollMods && ef._sourceName ){
+				console.log(r, ch);
 				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, src: ef._sourceName } );
 			}
 		}
