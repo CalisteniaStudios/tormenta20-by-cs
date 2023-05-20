@@ -197,7 +197,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		};
 		// Iterate over active effects, classifying them into categories
 		for ( let e of effects ) {
-			e._getSourceName(); // Trigger a lookup for the source name
+			// e.sourceName // Trigger a lookup for the source name
 			if ( e.isSuppressed ) categories.suppressed.effects.push(e);
 			else if ( e.flags.tormenta20?.onuse && e.isTemporary ) categories.onuseTemp.effects.push(e);
 			else if ( e.flags.tormenta20?.onuse ) categories.onuse.effects.push(e);

@@ -7,10 +7,15 @@ export const SYSTEMRULES = {};
 /*  Compendium Indexing                     */
 /* ---------------------------------------- */
 
+CONFIG.Actor.compendiumIndexFields.push('system.attributes.nd');
+
 CONFIG.Item.compendiumIndexFields.push('type');
+CONFIG.Item.compendiumIndexFields.push('system.description.value');
+
 CONFIG.Item.compendiumIndexFields.push('system.tags');
 CONFIG.Item.compendiumIndexFields.push('system.tipo');
 CONFIG.Item.compendiumIndexFields.push('system.subtipo');
+
 // await compendium.getDocuments({'system.subtipo':{$in:['Bardo']}});
 
 

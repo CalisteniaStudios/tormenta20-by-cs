@@ -910,8 +910,8 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	async _preCreateEmbeddedDocuments(embeddedName, result, options, userId){
-		await super._preCreateEmbeddedDocuments(embeddedName, result, options, userId);
+	async _preCreateDescendantDocuments(embeddedName, result, options, userId){
+		await super._preCreateDescendantDocuments(embeddedName, result, options, userId);
 		if( game.userId !== userId ) return;
 		// Show chat message if condition;
 		options.toChat = options.toChat === undefined ? true : options.toChat;
@@ -927,8 +927,8 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId){
-		await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
+	async _onCreateDescendantDocuments(embeddedName, documents, result, options, userId){
+		await super._onCreateDescendantDocuments(embeddedName, documents, result, options, userId);
 
 
 		if( embeddedName == "ActiveEffect" ){

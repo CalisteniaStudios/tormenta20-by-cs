@@ -116,6 +116,28 @@
       "type": "Macro"
     }
   ],
+  "packFolders": [
+    {
+      "name": "Actors", "sorting": "m", "color": "#000000",
+      "packs": ["ameacas","convocacoes"]
+    },
+    {
+      "name": "Items", "sorting": "m", "color": "#000000",
+      "packs": ["classes", "poderes", "poderes-distincao", "equipamentos", "equipamentos-magicos", "magias", "habilidades-de-criaturas", "pocoes", "parceiros"]
+    },
+    {
+      "name": "Journals", "sorting": "m", "color": "#000000",
+      "packs": ["basico"]
+    },
+    {
+      "name": "RollTables", "sorting": "m", "color": "#000000",
+      "packs": ["tabelas-de-tesouro"]
+    },
+    {
+      "name": "Macros", "sorting": "m", "color": "#000000",
+      "packs": ["macros"]
+    }
+  ],
   "languages": [
     {
       "lang": "en",
