@@ -3,7 +3,7 @@
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.4.115",
+  "version": "1.4.116",
   "minimumCoreVersion": "10",
   "compatibleCoreVersion": "11",
   "compatibility": {
@@ -155,9 +155,9 @@
   "primaryTokenAttribute": "attributes.pv",
   "secondaryTokenAttribute": "attributes.pm",
   "url": "https://gitlab.com/vizael/Tormenta20",
-  "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/1.4.115/system.json",
-  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/1.4.115/Tormenta20-1.4.115.zip",
-  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/1.4.115",
+  "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/1.4.116/system.json",
+  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/1.4.116/Tormenta20-1.4.116.zip",
+  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/1.4.116",
   "license": "LICENSE.txt",
   "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues",
   "allowBugReporter": true

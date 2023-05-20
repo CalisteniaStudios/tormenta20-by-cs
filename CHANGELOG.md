@@ -1,5 +1,9 @@
 # Lista de Mudanças
 
+## Versão 1.4.116
+- Corrigido: Bug em Efeitos de Uso que Adicionam Dados e Aumentavam a Quantidade;
+- Corrigido: Menu de Itens Empunhados/Vestidos ficava cortado nos limites da ficha de abas.
+
 ## Versão 1.4.115
 - Corrigido: Alguns Efeitos de Uso que alteravam características causavam erro.
 - Corrigido: Campos de Itens Empunhados/Vestidos não haviam sido migrados corretamente e impediam que fichas abrisse.
