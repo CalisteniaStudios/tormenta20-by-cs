@@ -1,7 +1,7 @@
-2023/05/20-13:43:18.650 5468 Recovering log #36
-2023/05/20-13:43:18.761 5468 Delete type=0 #36
-2023/05/20-13:43:18.762 5468 Delete type=3 #34
-2023/05/20-15:01:34.829 1958 Level-0 table #41: started
-2023/05/20-15:01:34.829 1958 Level-0 table #41: 0 bytes OK
-2023/05/20-15:01:34.879 1958 Delete type=0 #39
-2023/05/20-15:01:35.006 1958 Manual compaction at level-0 from '!items!01iybKQ4oXHTDKnR' @ 72057594037927935 : 1 .. '!items.effects!y9YQu2wxYDpMEDtU.mhMNYFNWFT6UyhFS' @ 0 : 0; will stop at (end)
+2023/05/20-21:51:20.995 2a4c Recovering log #56
+2023/05/20-21:51:21.101 2a4c Delete type=0 #56
+2023/05/20-21:51:21.101 2a4c Delete type=3 #54
+2023/05/20-22:07:20.461 7354 Level-0 table #62: started
+2023/05/20-22:07:20.461 7354 Level-0 table #62: 0 bytes OK
+2023/05/20-22:07:20.495 7354 Delete type=0 #60
+2023/05/20-22:07:20.523 7354 Manual compaction at level-0 from '!folders!0G5uMjOsWAFaPYAZ' @ 72057594037927935 : 1 .. '!items.effects!y9YQu2wxYDpMEDtU.mhMNYFNWFT6UyhFS' @ 0 : 0; will stop at (end)

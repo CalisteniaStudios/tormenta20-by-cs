@@ -50,17 +50,15 @@ export default class ActiveEffectT20 extends ActiveEffect {
 
 		// Scene-based duration
 		if ( isScene ) {
-			const start = (d.startTime || game.time.worldTime);
-			const elapsed = game.time.worldTime - start;
-			const remaining = d.seconds - elapsed;
-			return foundry.utils.mergeObject(d, {
+			return {
 				type: "scene",
-				duration: d.seconds,
-				remaining: remaining,
-				label: game.i18n.localize("T20.TimeScene")
-			});
+				duration: null,
+				remaining: null,
+				label: game.i18n.localize("T20.TimeScene"),
+				_worldTime: game.time.worldTime
+			};
 		}
-		super._prepareDuration();
+		return super._prepareDuration();
 	}
 
 	/* --------------------------------------------- */
