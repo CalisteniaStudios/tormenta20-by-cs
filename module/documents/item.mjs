@@ -3,7 +3,7 @@ import { simplifyRollFormula, d20Roll, damageRoll } from '../dice/dice.mjs';
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import {applyOnUseEffects} from "../apps/ability-use.mjs";
 import AbilityTemplate from "../pixi/ability-template.mjs";
-import * as migrations from "./migrations.mjs";
+import { itemMigration } from './migrations.mjs';
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -12,11 +12,18 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		if ( data._stats ){
-			if( data._stats.systemVersion < '1.4.001' ) migrations.item14001(data);
-			if( data._stats.systemVersion < '1.4.101' ) migrations.item14101(data);
-			if( data._stats.systemVersion < '1.4.113' ) migrations.item14113(data);
-			if( data._stats.systemVersion < '1.4.115' ) migrations.item14112(data);
+		const start = deepClone(data);
+		itemMigration.migrateDuration(data);
+		itemMigration.migrateEquipStatus(data);
+		itemMigration.migrateProficiencyTypes(data);
+		itemMigration.migratePurposeTypes(data);
+		itemMigration.migrateWieldTypes(data);
+		itemMigration.migrateEquipAugments(data);
+		itemMigration.migrateEquipSlot(data);
+		itemMigration.migrateRollTags(data);
+
+		if( !isEmpty( foundry.utils.diffObject(start, data) ) ) {
+			setProperty(data,'flags.tormenta20.needCommit', true);
 		}
 		return super.migrateData(data);
 	}
@@ -133,6 +140,7 @@ export default class ItemT20 extends Item {
 
 	prepareBaseData() {
 		super.prepareBaseData();
+
 		if ( this.type === "equipamento" && this.parent?.type !== "character" ) {
 			this.system.equipado = false;
 		}

@@ -16,7 +16,7 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 	static defineSchema() {
 		return {
 			description: new fields.SchemaField({
-				value: new fields.HTMLField({ required: true, nullable:false, initial:'', label:"T20.ItemDescription", hint:"T20.ItemDescriptionHint" }),
+				value: new fields.HTMLField({ required: true, nullable:false, initial:'', label:"T20.ItemDescription", hint:"T20.ItemDescriptionHint"}),
 				unidentified: new fields.HTMLField({ initial:'', label:"T20.ItemUnidentifiedDescription", hint:"T20.ItemUnidentifiedDescriptionHint" }),
 			}),
 			source: new fields.StringField({ initial: '', label:"T20.ItemSourceReference", hint:"T20.ItemSourceReferenceHint" }),

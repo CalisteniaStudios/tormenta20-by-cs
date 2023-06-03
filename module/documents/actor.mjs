@@ -5,6 +5,7 @@ import {applyOnUseEffects} from "../apps/ability-use.mjs";
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import ChoicesDialog from "../apps/choices-dialog.mjs";
 import * as migrations from "./migrations.mjs";
+import {actorMigration} from "./migrations.mjs";
 
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -17,10 +18,13 @@ export default class ActorT20 extends Actor {
 	
 	/** @inheritdoc */
 	static migrateData(data) {
-		if ( data._stats ){
-			if( data._stats.systemVersion < '1.4.001' ) migrations.actor14001(data);
-			if( data._stats.systemVersion < '1.4.101' ) migrations.actor14101(data);
-			if( data._stats.systemVersion < '1.4.112' ) migrations.actor14112(data);
+		const start = deepClone(data);
+		actorMigration.migrateCreatureType(data);
+		actorMigration.migrateCRLevel(data);
+		actorMigration.migrateResistances(data);
+		
+		if( !isEmpty( foundry.utils.diffObject(start, data) ) ) {
+			setProperty(data,'flags.tormenta20.needCommit', true);
 		}
 		return super.migrateData(data);
 	}
@@ -457,7 +461,7 @@ export default class ActorT20 extends Actor {
 		for (const [key, res] of Object.entries( system.tracos.resistencias ) ) {
 			let parts = [res.base, ...res.bonus];
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
-			system.tracos.resistencias[key].value = result;
+			system.tracos.resistencias[key].value = Number(result) == Number.prototype ? Number(result) : result ;
 		}
 	}
 
@@ -802,8 +806,8 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
-		await super._preUpdate(changed, options, user);
 		// console.log(flattenObject(changed));
+		await super._preUpdate(changed, options, user);
 		// Apply changes in Actor size to Token width/height
 		const newSize = getProperty(changed, "system.tracos.tamanho");
 		if (newSize && (newSize !== foundry.utils.getProperty(this.system, "tracos.tamanho"))) {

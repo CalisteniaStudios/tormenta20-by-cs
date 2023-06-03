@@ -1,4 +1,4 @@
-import * as migrations from "./migrations.mjs";
+import { effectMigration } from "./migrations.mjs";
 /**
  * Extend the base ActiveEffect class to implement system-specific logic.
  */
@@ -7,11 +7,16 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	/** @inheritdoc */
 	static migrateData(data) {
 		super.migrateData(data);
-		if( data.name === undefined && data.label) {
-			console.error(data);
-			data.name = data.label;
+		const start = deepClone(data);
+		// if( data.name === undefined && data.label) {
+		// 	console.error(data);
+		// 	data.name = data.label;
+		// }
+		effectMigration.migrateAbilitiesPath(data);
+		effectMigration.migrateResistancesPath(data);
+		if( !isEmpty( foundry.utils.diffObject(start, data) ) ) {
+			setProperty(data,'flags.tormenta20.needCommit', true);
 		}
-		if( data ) migrations.effect14112(data);
 		return data;
 	}
 	/**

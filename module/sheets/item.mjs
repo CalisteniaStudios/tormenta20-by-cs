@@ -247,7 +247,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		const tag = event.currentTarget;
 		const idx = tag.dataset.tagId;
 		const rolltags = this.item.system.rolltags;
-		tags.splice(idx,1);
+		rolltags.splice(idx,1);
 		this.item.update({[`system.rolltags`]:rolltags});
 	}
 
@@ -517,14 +517,17 @@ export default class ItemSheetT20 extends ItemSheet {
 	 * @private
 	 */
 	_createScroll(){
-		let itemData = {};
-		itemData.system = deepClone( this.object.system );
+		let itemData = this.object.toObject();
+		delete itemData._id;
+		delete itemData.stats;
+		
 		itemData.type = "consumivel";
 		itemData.name = game.i18n.format('T20.ConsumableSpellName',{
 			item: game.i18n.localize('T20.ConsumableSubtypeScroll'),
 			name:this.object.name
 		}),
 		itemData.img = "systems/tormenta20/icons/itens/itens-magicos/pergaminho.webp",
+		itemData.flags.core.sourceId = this.object.uuid;
 		itemData.system.qtd = 1;
 		itemData.system.espacos = 0.5;
 		itemData.system.preco = 30 * (itemData.system.ativacao.custo**2);

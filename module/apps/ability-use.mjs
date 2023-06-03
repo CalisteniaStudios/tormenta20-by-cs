@@ -81,14 +81,13 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		if (ch.key.match(/\@([^\#]+)\#/)){
 			let m = ch.key.match(/@(.*)#(.*)/);
 			if( m[1] && m[2] ){
-				ef._sourceName = m[1];
+				ef.sourceName = m[1];
 				ch.key = m[2];
 			}
 		}
 		let p = 0;
-		if ( rollMods && ef._sourceName ){
-			p = Math.max( rollMods[r.key].findIndex(i=> i.src == ef._sourceName), 0);
-			console.log( rollMods, r, ef, p );
+		if ( rollMods && ef.sourceName ){
+			p = Math.max( rollMods[r.key].findIndex(i=> i.src == ef.sourceName), 0);
 			// p-=1;
 		} else if ( damageTypeTarget ){
 			// p = Math.max( rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget ), 0);
@@ -146,7 +145,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		// MULTIPLY CHANGES
 		else if( ch.mode == 1 ) {
 			// Only multiply from the same src
-			if( rollMods[r.key].find(m=> m.src == ef._sourceName ) ){
+			if( rollMods[r.key].find(m=> m.src == ef.sourceName ) ){
 				let temp = r.parts.pop();
 				r.parts.push([temp[0]*(Number(ch.value)+qty-1), ""]);
 			}
@@ -171,14 +170,13 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				const dmgTypeG = ch.value.match(re.dmgType);
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
-				console.log(r, ch);
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (ef._sourceName ?? '') } );
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (ef.sourceName ?? '') } );
 				continue;
 			}
 			
-			if( rollMods && ef._sourceName ){
+			if( rollMods && ef.sourceName ){
 				console.log(r, ch);
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, src: ef._sourceName } );
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, src: ef.sourceName } );
 			}
 		}
 		// OVERRIDE CHANGES
@@ -508,7 +506,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	for ( let ef of onUseEffects ){
 		// Prepare onUseEffects chat content;
 		let ouEff = {};
-		ouEff.description = item.type !== "arma"? ef.name : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : ef._sourceName );
+		ouEff.description = item.type !== "arma"? ef.name : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : ef.sourceName );
 		if ( ["Unknown",actor.name].includes(ouEff.description) ) ouEff.description = ef.name;
 		ouEff.cost = Number(applied[ef.id]?.custo) * applied[ef.id]?.aplica || applied[ef.id]?.custo;
 		// Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;

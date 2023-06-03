@@ -216,7 +216,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		for ( let i of items ) {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
-			i.espacosTotal = (i.system.qtd * i.system.espacos);
+			i.espacosTotal = (i.system.qtd * i.system.espacos).toFixed(2);
 			if ( i.type == 'arma' ) {
 				i.melee = ['corpo-a-corpo','corpo-a-corpo-arremesso'].includes(i.system.proposito);
 				i.ranged = ['arremesso','disparo'].includes(i.system.proposito);
