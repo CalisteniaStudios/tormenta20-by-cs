@@ -599,7 +599,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 		const rollConfigs = {}
 		rollConfigs.configureDialog = event.shiftKey;
-		const ignoreList = ["tesouro"];
+		const ignoreList = [];
 		const item = this.actor.items.get(itemId);
 		if ( !item || ignoreList.includes(item.type) ) return;
 		return item.roll(rollConfigs);
@@ -682,7 +682,7 @@ export default class ActorSheetT20 extends ActorSheet {
 					choices[fk] = {label:fv, choices: {}};
 					let ch = Object.values(cdtypes).filter( (i) => i.flags?.tormenta20?.category==fk);
 					if ( ch ){
-						ch.map( i=> choices[fk]['choices'][i.id] = {label:i.label} );
+						ch.map( i=> choices[fk]['choices'][i.id] = {label:i.name} );
 						//  ch.map(i => {return {label:i.label}}) };
 						done = [...done, ...(ch.map(i => i.id))];
 					}

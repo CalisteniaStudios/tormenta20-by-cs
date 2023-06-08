@@ -175,7 +175,6 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			}
 			
 			if( rollMods && ef.sourceName ){
-				console.log(r, ch);
 				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, src: ef.sourceName } );
 			}
 		}

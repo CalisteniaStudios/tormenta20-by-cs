@@ -25,6 +25,16 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	 */
 	isSuppressed = false;
 
+	/** @override */
+	get active() {
+		return !this.disabled && !this.isSuppressed && !this.isUsage;
+	}
+	
+	/** @override */
+	get isUsage() {
+		return this.getFlag('tormenta20','onuse');
+	}
+
 	/**
 	 * Describe whether the ActiveEffect has a temporary duration based on combat turns or rounds.
 	 * @type {boolean}
@@ -32,13 +42,14 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	get isTemporary() {
 		const scene = this.getFlag('tormenta20','durationScene');
 		const duration = this.duration.seconds ?? (this.duration.rounds || this.duration.turns) ?? 0;
-		return scene || (duration > 0) || this.getFlag("core", "statusId");
+		return scene || (duration > 0) || this.statuses.size;
 	}
 	/* --------------------------------------------- */
 
 	/** @inheritdoc */
 	apply(actor, change) {
 		if ( this.isSuppressed ) return null;
+		if ( change.key.match(/\.\?+\./) ) return null;
 		if ( change.key.startsWith("flags.tormenta20.") ) change = this._prepareFlagChange(actor, change);
 		return super.apply(actor, change);
 	}
@@ -106,9 +117,18 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	determineSuppression() {
 		this.isSuppressed = false;
 		if ( this.disabled || (this.parent.documentName !== "Actor") ) return;
-		const [parentType, parentId, documentType, documentId] = this.origin?.split(".") ?? [];
-		if ( (parentType !== "Actor" && parentType !== "Token") || (parentId !== this.parent.id) || (documentType !== "Item") ) return;
-		const item = this.parent.items.get(documentId);
+		const [parentType, parentId, documentType, documentId, syntheticItem, syntheticItemId] = this.origin?.split(".") ?? [];
+		let item;
+		// Case 1: This is a linked or sidebar actor
+		if ( parentType === "Actor" ) {
+			if ( (parentId !== this.parent.id) || (documentType !== "Item") ) return;
+			item = this.parent.items.get(documentId);
+		}
+		// Case 2: This is a synthetic actor on the scene
+		else if ( parentType === "Scene" ) {
+			if ( (documentId !== this.parent.token?.id) || (syntheticItem !== "Item") ) return;
+			item = this.parent.items.get(syntheticItemId);
+		}
 		if ( !item ) return;
 		this.isSuppressed = item.areEffectsSuppressed;
 	}

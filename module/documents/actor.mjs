@@ -891,7 +891,7 @@ export default class ActorT20 extends Actor {
 		/* Check Encumbered Status and Add/Remove its ActiveEffect */
 		if ( this.type=="character" ) {
 			if( game.userId !== userId ) return;
-			const ef = this.effects.find( ef => ef.flags?.core?.statusId == "sobrecarregado");
+			const ef = this.effects.find( ef => ef.statuses.has("sobrecarregado"));
 			const wasEncumbered = Boolean(ef);
 			const isEncumbered = this.system.attributes?.carga?.encumbered;
 			if ( isEncumbered != wasEncumbered ) {
@@ -921,7 +921,7 @@ export default class ActorT20 extends Actor {
 		options.toChat = options.toChat === undefined ? true : options.toChat;
 		if(embeddedName == "ActiveEffect" && options.toChat){
 			const showCard = game.settings.get("tormenta20", "showStatusCards");
-			const effect = result.find(doc => doc.flags?.core?.statusId );
+			const effect = result.find(doc => doc.statuses.size );
 			if(showCard && effect){
 				game.tormenta20.macros.msgFromJournal(effect.name, "tormenta20.basico", 'Condições');
 			}
@@ -1071,7 +1071,7 @@ export default class ActorT20 extends Actor {
 			"system.attributes.pm.temp": tmpMP - mpt - final.tempMP,
 			"system.attributes.pm.value": dmp,
 		};
-		console.log(updates);
+		
 		await this.update(updates);
 		let show =  game.settings.get("tormenta20", "showDamageCards");
 		if ( show != 'none' ) {
@@ -1409,31 +1409,10 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	/** @override */
+	/** @inheritDoc */
 	applyActiveEffects() {
-		const overrides = {};
 		this.effects.forEach(e => e.determineSuppression());
-		// Organize non-disabled effects by their application priority
-		const changes = this.effects.reduce((changes, e) => {
-			if ( e.disabled || e.isSuppressed || e.flags?.tormenta20?.onuse ) return changes;
-			return changes.concat(e.changes.map(c => {
-				c = foundry.utils.duplicate(c);
-				c.effect = e;
-				c.priority = c.priority ?? (c.mode * 10);
-				return c;
-			}));
-		}, []);
-		changes.sort((a, b) => a.priority - b.priority);
-
-		// Apply all changes
-		for ( let change of changes ) {
-			if ( !change.key || change.key.match(/\?/) ) continue;
-			const changes = change.effect.apply(this, change);
-			Object.assign(overrides, changes);
-		}
-
-		// Expand the set of final overrides
-		this.overrides = foundry.utils.expandObject(overrides);
+		return super.applyActiveEffects();
 	}
 
 	/* -------------------------------------------- */

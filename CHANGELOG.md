@@ -1,5 +1,14 @@
 # Lista de Mudanças
 
+## Versão 1.4.201
+- Corrigido: Condições Especiais (cego, invisível) não estavam aplicando o efeito especial de visão e detecção;
+- Corrigido: O ícone das condições Enfeitiçãdo e Sustentado impediam a Cena de carregar no Firefox;
+- Corrigido: Configuração de Imunidades a Condições não estava abrindo;
+
+## Versão 1.4.200
+- Atualizado: Compatibilidade com V11;
+- Corrigido: Criar Pergaminho não copiava os Efeitos e Aprimoramentos;
+
 ## Versão 1.4.116
 - Corrigido: Bug em Efeitos de Uso que Adicionam Dados e Aumentavam a Quantidade;
 - Corrigido: Menu de Itens Empunhados/Vestidos ficava cortado nos limites da ficha de abas.
