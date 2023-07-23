@@ -914,14 +914,14 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	async _preCreateDescendantDocuments(embeddedName, result, options, userId){
-		await super._preCreateDescendantDocuments(embeddedName, result, options, userId);
+	async _preCreateDescendantDocuments(parent, collection, data, options, userId){
+		await super._preCreateDescendantDocuments(parent, collection, data, options, userId);
 		if( game.userId !== userId ) return;
 		// Show chat message if condition;
 		options.toChat = options.toChat === undefined ? true : options.toChat;
-		if(embeddedName == "ActiveEffect" && options.toChat){
+		if(collection == "effects" && options.toChat){
 			const showCard = game.settings.get("tormenta20", "showStatusCards");
-			const effect = result.find(doc => doc.statuses.size );
+			const effect = data.find(doc => doc.statuses.length );
 			if(showCard && effect){
 				game.tormenta20.macros.msgFromJournal(effect.name, "tormenta20.basico", 'Condições');
 			}
@@ -931,11 +931,10 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	async _onCreateDescendantDocuments(embeddedName, documents, result, options, userId){
-		await super._onCreateDescendantDocuments(embeddedName, documents, result, options, userId);
+	async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId){
+		await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
 
-
-		if( embeddedName == "ActiveEffect" ){
+		if( collection == "effect" ){
 			let effs = documents.filter(ef => ef.changes.find( ch => ch.key.match(/^\?/) ) );
 			let choices = [];
 			for ( let ef of effs ){

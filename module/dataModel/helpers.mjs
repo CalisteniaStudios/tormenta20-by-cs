@@ -14,7 +14,6 @@ const fields = foundry.data.fields;
 class MappingField extends fields.ObjectField {
 	constructor(model, options) {
 		if ( !(model instanceof foundry.data.fields.DataField) ) {
-			console.warn(model.constructor.name );
 			throw new Error("MappingField must have a DataField as its contained element");
 		}
 		super(options);
@@ -32,7 +31,8 @@ class MappingField extends fields.ObjectField {
 	static get _defaults() {
 		return foundry.utils.mergeObject(super._defaults, {
 			initialKeys: null,
-			initialValue: null
+			initialValue: null,
+      initialKeysOnly: false
 		});
 	}
 
@@ -40,7 +40,7 @@ class MappingField extends fields.ObjectField {
 
 	/** @inheritdoc */
 	_cleanType(value, options) {
-		Object.values(value).forEach(v => this.model.clean(v, options));
+		Object.entries(value).forEach(([k, v]) => value[k] = this.model.clean(v, options));
 		return value;
 	}
 
@@ -48,22 +48,32 @@ class MappingField extends fields.ObjectField {
 
 	/** @inheritdoc */
 	getInitialValue(data) {
-		let keys = this.options.initialKeys;
-		if ( !keys || !foundry.utils.isEmpty(this.initial()) ) return super.getInitialValue(data);
+		let keys = this.initialKeys;
+		const initial = super.getInitialValue(data);
+		if ( !keys || !foundry.utils.isEmpty(initial) ) return initial;
 		if ( !(keys instanceof Array) ) keys = Object.keys(keys);
-		const initial = {};
-		for ( const key of keys ) {
-			const modelInitial = this.model.getInitialValue();
-			initial[key] = this.initialValue?.(key, modelInitial) ?? modelInitial;
-		}
+		for ( const key of keys ) initial[key] = this._getInitialValueForKey(key);
 		return initial;
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Get the initial value for the provided key.
+	 * @param {string} key       Key within the object being built.
+	 * @param {object} [object]  Any existing mapping data.
+	 * @returns {*}              Initial value based on provided field type.
+	 */
+	_getInitialValueForKey(key, object) {
+		const initial = this.model.getInitialValue();
+		return this.initialValue?.(key, initial, object) ?? initial;
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
 	_validateType(value, options={}) {
-		if ( typeof value !== "object" ) throw new Error("must by an Object");
+		if ( foundry.utils.getType(value) !== "Object" ) throw new Error("must be an Object");
 		const errors = this._validateValues(value, options);
 		if ( !foundry.utils.isEmpty(errors) ) throw new foundry.data.fields.ModelValidationError(errors);
 	}
@@ -88,16 +98,40 @@ class MappingField extends fields.ObjectField {
 	/* -------------------------------------------- */
 
 	/** @override */
-	initialize(value, model) {
+	initialize(value, model, options={}) {
 		if ( !value ) return value;
-		Object.values(value).forEach(v => this.model.initialize(v, model));
-		return value;
+		const obj = {};
+		const initialKeys = (this.initialKeys instanceof Array) ? this.initialKeys : Object.keys(this.initialKeys ?? {});
+		const keys = this.initialKeysOnly ? initialKeys : Object.keys(value);
+		for ( const key of keys ) {
+			const data = value[key] ?? this._getInitialValueForKey(key, value);
+			obj[key] = this.model.initialize(data, model, options);
+		}
+		return obj;
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	_getField(path) {
+		if ( path.length === 0 ) return this;
+		else if ( path.length === 1 ) return this.model;
+		path.shift();
+		return this.model._getField(path);
 	}
 }
 
 class ActorSkillsField extends MappingField {
 	/** @inheritdoc */
 	getInitialValue(data) {
+		let keys = this.initialKeys;
+		const initial = super.getInitialValue(data);
+		if ( !keys || !foundry.utils.isEmpty(initial) ) return initial;
+		if ( !(keys instanceof Array) ) keys = Object.keys(keys);
+		for ( const key of keys ) initial[key] = this._getInitialValueForKey(key);
+		return initial;
+	}
+	getInitialValue2(data) {
 		let keys = this.options.initialKeys;
 		if ( !keys || !foundry.utils.isEmpty(this.initial()) ) return super.getInitialValue(data);
 		if ( !(keys instanceof Array) ) {

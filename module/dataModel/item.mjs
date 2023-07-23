@@ -346,11 +346,10 @@ class systemItemSpellData extends systemItemBaseData {
 			}),
 		}
 	}
-
 	
 	/** @inheritdoc */
 	static migrateData(data) {
-		if ( isNaN(data.duracao.value) || !isFinite(data.duracao.value) ){
+		if ( data.duracao && (isNaN(data.duracao?.value) || !isFinite(data.duracao?.value)) ){
 			data.duracao.value = 0;
 		}
 		return super.migrateData(data);

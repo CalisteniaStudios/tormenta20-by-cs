@@ -27,26 +27,34 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 			dinheiro: this.schemaCurrency(),
 			modificadores: this.schemaModifiers(),
 			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
-				initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue
+				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue.bind(this), initialKeysOnly: false
 			}),
+			// pericias: new MappingField(new SkillData(),{initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue.bind(this), initialKeysOnly: false}),
 			resources: new fields.ObjectField(), //this.schemaResources(),
 			tracos: this.schemaTraits(),
 		}
 	}
 
-	static _initialSkillValue(key, initial) {
-		if ( SYSTEMRULES.skills[key]?.abl ){
-			initial.atributo = SYSTEMRULES.skills[key].abl;
+	static _initialSkillValue(key, initial, existing) {
+		const config = SYSTEMRULES.skills[key];
+		if ( config ) {
+			initial.atributo = config.abl ?? initial.atributo;
+			initial.pda = config.trainedOnly ?? initial.pda;
+			initial.st = config.armorPenalty ?? initial.st;
+			initial.size = config.sizeMod ?? initial.size;
 		}
-		if ( SYSTEMRULES.skills[key]?.trainedOnly ){
-			initial.pda = SYSTEMRULES.skills[key].trainedOnly;
-		}
-		if ( SYSTEMRULES.skills[key]?.armorPenalty ){
-			initial.st = SYSTEMRULES.skills[key].armorPenalty;
-		}
-		if ( SYSTEMRULES.skills[key]?.sizeMod ) {
-			initial.size = SYSTEMRULES.skills[key].sizeMod;
-		}
+		// if ( SYSTEMRULES.skills[key]?.abl ){
+		// 	initial.atributo = SYSTEMRULES.skills[key].abl;
+		// }
+		// if ( SYSTEMRULES.skills[key]?.trainedOnly ){
+		// 	initial.pda = SYSTEMRULES.skills[key].trainedOnly;
+		// }
+		// if ( SYSTEMRULES.skills[key]?.armorPenalty ){
+		// 	initial.st = SYSTEMRULES.skills[key].armorPenalty;
+		// }
+		// if ( SYSTEMRULES.skills[key]?.sizeMod ) {
+		// 	initial.size = SYSTEMRULES.skills[key].sizeMod;
+		// }
 		return initial;
 	}
 
@@ -379,8 +387,9 @@ class systemActorCharacterData extends systemActorBaseData {
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
 			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
-				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue
+				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue.bind(this), initialKeysOnly: false
 			}),
+			// pericias: new MappingField(new SkillData(),{required: true, initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue, initialKeysOnly: false}),
 			equipamentos: new fields.SchemaField({
 				limiteEmpunhado: new fields.NumberField({ required: true, nullable:false, initial:2, min:1 }),
 				limiteVestido: new fields.NumberField({ required: true, nullable:false, initial:4, min:1 }),
@@ -395,7 +404,7 @@ class systemActorCharacterData extends systemActorBaseData {
 	/** @inheritdoc */
 	static migrateData(data) {
 		// console.warn('migrateData', data);
-		if( !Object.keys(T20.creatureTypes).includes(data.detalhes.tipo) ){
+		if( data.detalhes?.tipo && !Object.keys(T20.creatureTypes).includes(data.detalhes.tipo) ){
 			let cType = Object.keys(T20.creatureTypes).find( c => data.detalhes.tipo.match(c));
 			data.detalhes.tipo = cType ?? 'hum';
 		}
@@ -414,8 +423,9 @@ class systemActorNPCData extends systemActorBaseData {
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
 			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
-				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue
+				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue.bind(this), initialKeysOnly: false
 			}),
+			// pericias: new MappingField(new SkillData(), {required: true, initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue, initialKeysOnly: false}),
 			resources: new fields.ObjectField(),
 			tracos: this.schemaTraits(type),
 		}
@@ -450,8 +460,9 @@ class systemActorSimpleData extends systemActorBaseData {
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
 			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
-				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue
+				initialKeys: SYSTEMRULES.skills, initialValue: super._initialSkillValue.bind(this), initialKeysOnly: false
 			}),
+			// pericias: new MappingField(new SkillData(),{required: true, initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue, initialKeysOnly: false}),
 			resources: new fields.ObjectField(),
 			tracos: this.schemaTraits(type),
 		}

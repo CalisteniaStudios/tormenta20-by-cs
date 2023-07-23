@@ -1,5 +1,11 @@
 # Lista de Mudanças
 
+## Versão 1.4.202
+- Corrigido: Adicionar/Apagar Partes um uma rolagem de item;
+- Corrigido: Apagar Perícias de Oficios/Customizadas;
+- Corrigido: Descrição de Condições no Chat;
+- Corrigido: Textos desatualizados e a falta do Ramo Verdejante;
+
 ## Versão 1.4.201
 - Corrigido: Condições Especiais (cego, invisível) não estavam aplicando o efeito especial de visão e detecção;
 - Corrigido: O ícone das condições Enfeitiçãdo e Sustentado impediam a Cena de carregar no Firefox;

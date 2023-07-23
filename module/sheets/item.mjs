@@ -431,9 +431,9 @@ export default class ItemSheetT20 extends ItemSheet {
 		if ( a.classList.contains("add-part") && a.dataset.rollId ) {
 			await this._onSubmit(event);  // Submit any unsaved changes
 			const key = a.dataset.rollId;
-			const rolls = foundry.utils.deepClone(this.item.system.rolls);
-			rolls[key].parts = rolls[key].parts.concat([["",""]]);
-			return this.item.update({ [`system.rolls`]: rolls });
+			const rolls = this.item.system.toObject().rolls;
+			rolls[key].parts.push(["","",""]);
+			return await this.item.update({"system.rolls": rolls });
 		}
 
 		// Remove a damage component
@@ -441,7 +441,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			await this._onSubmit(event);  // Submit any unsaved changes
 			const key = a.dataset.rollId;
 			const li = a.closest(".roll-part");
-			const rolls = foundry.utils.deepClone(this.item.system.rolls);
+			const rolls = this.item.system.toObject().rolls;
 			rolls[key].parts.splice(Number(li.dataset.rollPart), 1);
 			return this.item.update({ [`system.rolls`]: rolls });
 		}

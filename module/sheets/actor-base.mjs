@@ -890,7 +890,7 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	async _onPericiaCustomDelete(event) {
 		const id = event.currentTarget.dataset.itemId;
-		let updateData = [];
+		let updateData = {};
 		updateData[`system.pericias.-=${id}`] = null;
 		this.actor.update(updateData);
 		await this.render();
