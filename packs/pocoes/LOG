@@ -1,3 +1,7 @@
 2023/07/23-18:49:00.231 30c4 Recovering log #170
 2023/07/23-18:49:00.357 30c4 Delete type=0 #170
 2023/07/23-18:49:00.357 30c4 Delete type=3 #168
+2023/07/23-21:07:36.456 770 Level-0 table #175: started
+2023/07/23-21:07:36.456 770 Level-0 table #175: 0 bytes OK
+2023/07/23-21:07:36.489 770 Delete type=0 #173
+2023/07/23-21:07:36.533 770 Manual compaction at level-0 from '!items!02q1pu5Oyj3LtvZx' @ 72057594037927935 : 1 .. '!items.effects!wAbbICpd57DcDV9s.KyXQGrlfILGsnOb8' @ 0 : 0; will stop at (end)

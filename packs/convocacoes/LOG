@@ -1,3 +1,7 @@
 2023/07/23-18:49:00.452 1c40 Recovering log #169
 2023/07/23-18:49:00.597 1c40 Delete type=0 #169
 2023/07/23-18:49:00.598 1c40 Delete type=3 #167
+2023/07/23-21:07:36.589 770 Level-0 table #174: started
+2023/07/23-21:07:36.589 770 Level-0 table #174: 0 bytes OK
+2023/07/23-21:07:36.622 770 Delete type=0 #172
+2023/07/23-21:07:36.681 770 Manual compaction at level-0 from '!actors!0WvjcC61fHUOPXte' @ 72057594037927935 : 1 .. '!actors.items!ynuGUvPC8X83n8Th.F72JJvljkQkuVsnx' @ 0 : 0; will stop at (end)
