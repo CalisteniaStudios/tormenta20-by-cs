@@ -1,4 +1,4 @@
-import { T20, SYSTEMRULES } from '../config.mjs';
+// import { T20, SYSTEMRULES } from '../config.mjs';
 const fields = foundry.data.fields;
 
 /* ---------------------------------------- */

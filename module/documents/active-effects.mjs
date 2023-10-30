@@ -100,11 +100,17 @@ export default class ActiveEffectT20 extends ActiveEffect {
 			else if ( data.type === Number ) initialValue = 0;
 			foundry.utils.setProperty(actor, key, initialValue);
 		}
-
+		
 		// Coerce change data into the correct type
 		if ( data.type === Boolean ) {
 			if ( value === "false" ) change.value = false;
 			else change.value = Boolean(value);
+		} else if ( data.type === Number ) {
+			if ( value.startsWith("@") ) {
+				let rolldata =  actor.getRollData();
+				let numvalue = Roll.replaceFormulaData(value, rolldata);
+				change.value = Number(numvalue);
+			}
 		}
 		return change;
 	}

@@ -1,4 +1,4 @@
-import { T20 } from "../config.mjs";
+// import { T20 } from "../config.mjs";
 
 export default class RollT20 extends Roll {
 	

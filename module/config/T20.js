@@ -1,5 +1,6 @@
-import { preLocalize } from "./utils.mjs";
-import { T20Conditions } from "./conditions/conditions.mjs";
+import { preLocalize } from "../utils.mjs";
+import { T20Conditions } from "../conditions/conditions.mjs";
+import { CHALLENGELEVEL, AMEACATYPES } from "./ameaca.js";
 export const T20 = {};
 export const SYSTEMRULES = {};
 
@@ -100,6 +101,9 @@ T20.characterFlags = {
 	},
 	mago: {
 		type: Boolean
+	},
+	teste: {
+		type: Number
 	},
 }
 
@@ -1011,7 +1015,7 @@ T20.passosDano = [
 T20.tableSize = {
 	size: ["min","peq","med","gra","eno","col"],
 	grid: [1.5,1.5,1.5,3,4.5,9],
-	stealth:  [5,2,0,-2,-5,-10],
+	stealth: [5,2,0,-2,-5,-10],
 	maneuver: [-5,-2,0,2,5,10],
 }
 
@@ -1074,25 +1078,10 @@ T20.NPCParams = ( cr ) => {
 	return param;
 }
 
+T20.CHALLENGELEVEL = CHALLENGELEVEL;
+T20.AMEACAS = AMEACATYPES;
 
-T20.DBRoleMods = {
-	"combatant": {good:['attack','damage','defense','hp'], bad:[]},
-	"caster": {good:['vont'], bad:['attack','damage','defense','hp']},
-	"trickster": {good:['vont'], bad:['attack','damage','defense','hp']},
-	"lackey": {good:['attack','hp'], bad:[]},
-	"boss": {good:['hp'], bad:[]},
-}
-
-T20.DBNDparams = {
-	labels: ['','T20.AbbreviationCR','T20.Attack','T20.Damage','T20.Defense','T20.NPCB_SaveGood','T20.NPCB_SaveNormal','T20.NPCB_SaveBad','T20.HP','T20.AbbreviationDC'],
-  pat: ['i','i','i','i','i','i','v','v','v','v','v','v','c','c','c','c','c','c','l','l','l','l'],
-  cr: ['1/4','1/2','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'],
-  attack: [6,7,9,12,14,16,17,20,24,26,27,29,34,36,37,39,43,46,47,49,52,54],
-  damage: [8,10,15,18,21,24,40,56,62,68,74,80,130,144,158,172,186,200,270,288,306,324],
-  defense: [11,14,16,19,21,23,24,27,31,33,34,36,41,43,44,46,50,53,54,56,59,61],
-  topsave: [3,6,11,13,15,16,16,18,20,21,21,22,29,30,30,31,31,32,32,33,33,34],
-  midsave: [0,3,5,7,9,10,10,12,14,15,15,16,23,24,24,25,25,26,26,27,27,28],
-  botsave: [-2,-1,0,2,4,5,5,7,9,10,10,11,18,19,19,20,20,21,21,22,22,23],
-  hp: [7,15,35,70,105,140,200,240,280,320,360,400,550,600,650,700,750,800,1020,1080,1140,1200],
-  dc: [12,14,15,16,17,18,20,22,24,26,28,30,31,33,35,38,40,42,44,47,47,49]
+T20.FoeParams = ( type, cr ) => {
+	let params = T20.AMEACAS[type]?.[cr] ?? T20.AMEACAS['solo']['1'];
+	return params;
 }

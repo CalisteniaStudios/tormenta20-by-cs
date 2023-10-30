@@ -1,4 +1,4 @@
-import { T20 } from "../config.mjs";
+// import { T20 } from "../config.mjs";
 /* 
 // Differences in item data due to applied data migrations
 foundry.utils.diffObject(game.doc.items, game.items._source);

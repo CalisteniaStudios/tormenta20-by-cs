@@ -1,4 +1,4 @@
-import { T20 } from '../config.mjs';
+// import { T20 } from '../config.mjs';
 import { simplifyRollFormula, d20Roll, damageRoll } from '../dice/dice.mjs';
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import {applyOnUseEffects} from "../apps/ability-use.mjs";

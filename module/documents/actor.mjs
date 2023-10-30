@@ -1,5 +1,5 @@
 import ItemT20 from "../documents/item.mjs";
-import { T20 } from '../config.mjs';
+// import { T20 } from '../config.mjs';
 import { simplifyRollFormula, d20Roll, damageRoll } from '../dice/dice.mjs';
 import {applyOnUseEffects} from "../apps/ability-use.mjs";
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
@@ -73,6 +73,7 @@ export default class ActorT20 extends Actor {
 		if (this.type == 'character' ){
 			return ['@meionivel','@treino','@atributo','@outros','@condi'];
 		} else if (this.type == 'npc' ){
+			return ['@meionivel','@treino','@atributo','@outros','@condi'];
 			return ['@ndtreinado','@ndsemtreino','@outros','@condi'];
 		} else {
 			return ['@atributo','@outros','@condi'];
@@ -234,6 +235,8 @@ export default class ActorT20 extends Actor {
 
 		if ( this.type == 'character' ){
 			this._preparePVPMTotal();
+		} else if ( this.type == 'npc' ){
+			system.attributes.pv.min = (Math.floor(system.attributes.pv.max/2)*-1);
 		}
 	}
 
@@ -299,18 +302,23 @@ export default class ActorT20 extends Actor {
 		const system = this.system;
 		const flags = this.flags;
 		let npcFlags = {};
-		// let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
-		// if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
-		// if ( reformSheet ) npcFlags.npcReform = reformSheet;
+		let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
+		if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
+		if ( reformSheet ) npcFlags.npcReform = reformSheet;
 		if ( this.getFlag("tormenta20", "showCD") === undefined ) npcFlags.showCD = true;
 
 		let nd = system.attributes.nd;
-		const nivel = (Number(nd)||1); //TODO REMOVE
 		const crData = T20.NPCParams(nd);
 		
-		// system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
-		system.attributes.treino = crData.topskill;
-		system.attributes.meionivel = crData.botskill;
+		if ( ['1/2','1/4'].includes(nd) ) system.attributes.nivel.value = 1;
+		else if ( ['S','S+'].includes(nd) ) system.attributes.nivel.value = 20;
+		else system.attributes.nivel.value = Number(nd) ?? 1;
+		const nivel = system.attributes.nivel.value;
+		
+		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
+		system.attributes.meionivel = Math.floor(system.attributes.nivel.value/2);
+		// system.attributes.treino = crData.topskill;
+		// system.attributes.meionivel = crData.botskill;
 		// Experience Reward
 		system.attributes.defesa.condi = 0;
 		system.attributes.nivel.xp.value = this.getCRExp(nd);
@@ -406,24 +414,21 @@ export default class ActorT20 extends Actor {
 		const system = this.system;
 		// const pericia = system.pericias[key] || false;
 		if ( key == 'ofic' ) return;
+		
 		const rollData = this.getRollData();
 		let parts = this.skillFormula;
 		
 		pericia.label = pericia.label || CONFIG.T20.pericias[key] || '';
 		pericia.pda = ["acro", "furt", "ladi"].includes(key) || Boolean(pericia.label.match(/\+/g));
-		pericia.st = ["ades", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key) || Boolean(key.match(/ofi[1-9]/)) || Boolean(pericia.label.match(/\*/g));
+		pericia.st = ["ades", 'atua', "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key) || Boolean(key.match(/ofi[1-9]/)) || Boolean(pericia.label.match(/\*/g));
 		pericia.custom = Boolean(key.match(/ofi[1-9]|_pc[1-9]/));
 		pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
-
-		if ( this.type == 'npc' ) {
-			if ( !pericia.treinado ) {
-				parts = parts.filter( f => f != '@ndtreinado');
-			} else {
-				parts = parts.filter( f => f != '@ndsemtreino');
-			}
-		} else if ( !pericia.treinado ) {
-			parts = parts.filter( f => f != '@treino');
+		
+		if ( this.type == 'npc' && ['fort','refl','vont','luta','pont'].includes(key)){
+			parts = ['@outros','@condi'];
 		}
+		
+		if ( !pericia.treinado ) parts = parts.filter( f => f != '@treino');
 		if ( pericia.bonus.length ) parts.push(...pericia.bonus);
 		if ( pericia.pda && rollData['pda'] ) parts.push("-@pda");
 		if ( key == "furt" && rollData['tamanho'] ) parts.push("@tamanho");
@@ -477,7 +482,6 @@ export default class ActorT20 extends Actor {
 		/* FLAGS */
 		const flags = {}
 		flags['organised'] = this.getFlag('tormenta20', 'inventarioOrganizado');
-		flags['strMulti'] = this.getFlag('tormenta20', 'todoFind');
 
 		let weight = system.attributes.carga;
 		// { value: 0, max: 20, pct: 0, encumbered: false };
@@ -500,13 +504,12 @@ export default class ActorT20 extends Actor {
 			return weight;
 		}
 		// Compute Encumbrance percentage
-		const str = system.atributos.for.value;
-		const int = system.atributos.int.value;
+		const atr = system.atributos[weight.atributo].value;
 		const parts = [weight.base, ...weight.bonus];
 		const rollData = this.getRollData();
 		// const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		const base = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
-		const limit = (Number(base) || 10) + ( str > 0 ? str * (flags.strMulti ?? 2) : str );
+		const limit = (Number(base) || 10) + ( atr > 0 ? atr * 2 : atr );
 		weight.max = limit * 2;
 		weight.encumbered = weight.value > limit;
 		weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
@@ -991,6 +994,8 @@ export default class ActorT20 extends Actor {
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
+		const rdsEx = Object.entries(rds).filter(i => i[1].excecao ).reduce((acc, d) => (acc[d[0]]= d[1].excecao,acc),{});
+
 		const PCVuln = this.type == "character" ? true : false;
 		const NPCVuln = this.type == "npc" ? true : false;
 		let damage;
@@ -1020,7 +1025,7 @@ export default class ActorT20 extends Actor {
 			mana: 0,
 			tempMP: 0
 		};
-
+		
 		for ( let [type, dmg] of Object.entries(damage) ){
 			dmg.value = Math.floor(dmg.value * multiplier);
 			dmg.vuln = Math.floor(dmg.vuln * multiplier);
@@ -1038,6 +1043,9 @@ export default class ActorT20 extends Actor {
 					r = Number( rds[type]?.value ?? 0 );
 				} else if( applyRD ) {
 					r = Number(rds.dano?.value ?? 0) + Number( rds[type]?.value ?? 0 );
+				}
+				if( applyRD && !isEmpty(rdsEx) && !rdsEx[type] ) {
+					r += Number(Object.values(rdsEx)[0]);
 				}
 				if( NPCVuln && rds[type]?.vulnerabilidade ){
 					dmg.value = Math.floor(dmg.value * 1.5);

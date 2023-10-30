@@ -275,6 +275,15 @@
   line-height: 16px;
   flex: 1!important;
 }
+
+/* ----------------------------------------- */
+/*  Damage Resistances                       */
+/* ----------------------------------------- */
+
+.tormenta20.rd-config input {
+  max-width: 70px;
+}
+
 /* ----------------------------------------- */
 /*  Hit Dice Config Sheet Specifically       */
 /* ----------------------------------------- */

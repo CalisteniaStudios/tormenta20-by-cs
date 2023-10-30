@@ -19,22 +19,22 @@
 	<div class="card-damage-details">
 		<ul class="flexcol">
 			<li class="flexrow">
-				<div class="flex2">Tipo</div>
-				<div>Dano (+Vuln)</div>
+				<div style="flex:0 0 35%;">Tipo</div>
+				<div style="flex:0 0 35%;">Dano (+Vuln)</div>
 				<div>RD</div>
 				<div>Final</div>
 			</li>
 		{{#each damage as | dmg d |}}
 			<li class="flexrow">
-				<div class="flex2">{{d}}</div>
-				<div>{{dmg.value}} (+{{dmg.vuln}} )</div>
+				<div style="flex:0 0 35%;">{{d}}</div>
+				<div style="flex:0 0 35%;">{{dmg.value}} (+{{dmg.vuln}} )</div>
 				<div>{{dmg.rd}}</div>
 				<div>{{dmg.final}}</div>
 			</li>
 		{{/each}}
 		<li class="flexrow">
-			<div class="flex2"></div>
-			<div>{{chatDMG.total}}</div>
+			<div style="flex:0 0 35%;"></div>
+			<div style="flex:0 0 35%;">{{chatDMG.total}}</div>
 			<div></div>
 			<div>{{chatDMG.value}}</div>
 		</li>

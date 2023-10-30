@@ -10,6 +10,7 @@ export default class StatblockParser extends FormApplication {
 		this.object.packequipamentos.getDocuments();
 		this.object.packsmagias.getDocuments();
 		this.object.packspoderes.getDocuments();
+		
 	}
 
 	/** @override */
@@ -43,6 +44,19 @@ export default class StatblockParser extends FormApplication {
 		html.find('.apply').click(this._applyToActor.bind(this));
 	}
 
+	toRegExpOr(list, values=false) {
+		let j;
+		if ( list instanceof Array && list.every(i => typeof(i) == "string") ) {
+			j = list.join('|');
+		} else if ( list instanceof Object && values ) {
+			j = Object.values(list).join('|')
+		} else if ( list instanceof Object && !values ) {
+			j = Object.keys(list).join('|')
+		} else return false;
+		
+		return new RegExp(`(${j})`,'i')
+	}
+
 	_applyToActor(ev){
 		ev.preventDefault();
 		let actor = this.object.actor;
@@ -58,12 +72,35 @@ export default class StatblockParser extends FormApplication {
 
 	_parseStatblock(ev){
 		ev.preventDefault();
-		const statblock = ev.currentTarget.closest('form').statblock.value.replace('–','-');
+		console.groupCollapsed("Statblock Parser");
+		const statblock = ev.currentTarget.closest('form').statblock.value.replaceAll('–','-');
 		const schema = new Actor({type:'npc',name:'template'}).system.toObject();
 		const log = [];
 		const itemsList = [];
 		this.object.items = [];
-		
+		const statblock2 = statblock.split('\n').filter(Boolean);
+		const log2 = {
+			name: {success: false, message:"Nome"},
+			cr: {success: false, message:"ND"},
+			type: {success: false, message:"Tipo"},
+			size: {success: false, message:"Tamanho"},
+			role: {success: false, message:"Papel em Combate"},
+			abilities: {success: false, message:"Atributos"},
+			hp: {success: false, message:"PV"},
+			mp: {success: false, message:"PM"},
+			defense: {success: false, message:"Defesa"},
+			immunities: {success: false, message:"Imunidades a Condições"},
+			dr: {success: false, message:"Reduções de Dano"},
+			movement: {success: false, message:"Deslocamentos"},
+			senses: {success: false, message:"Sentidos"},
+			skills: {success: false, message:"Perícias"},
+			powers: {success: false, message:"Poderes e Magias"},
+			weapons: {success: false, message:"Armas"},
+			equipment: {success: false, message:"Equipamentos"},
+			loot: {success: false, message:"ND"},
+		}
+		// console.log(statblock2);
+		// this.parseData2(statblock2, schema, itemsList, log2); //LINHA A LINHA
 		this.parseData(statblock, schema, itemsList, log);
 		this.parseSkills(statblock, schema, itemsList, log);
 		this.parseAbilities(statblock, schema, itemsList, log);
@@ -73,10 +110,83 @@ export default class StatblockParser extends FormApplication {
 		this.object.schema = schema;
 		this.object.items = itemsList;
 		this.object.log = log;
-		
 		this.render(true);
+		console.groupEnd();
 	}
 
+	parseData2(statblock, schema, itemsList, log){
+		const updateData = {};
+		let line;
+		
+		// GET NAME AND CR;
+		line = statblock.find((i)=> i.match(/ND \w+$/i));
+		if( line ) {
+			let {name, nd} = line.split(/ ND /i);
+			schema.name = name;
+			schema.attributes.nd = nd;
+			log.name = {success: true, message: `Nome: ${schema.name}`};
+			log.cr = {success: true, message: `ND: ${schema.attributes.nd}`};
+		}
+
+		// GET TYPE (SUBTYPE), SIZE AND ROLE;
+		line = statblock.find((i)=> i.match(this.toRegExpOr(T20.creatureTypes)) && i.match(this.toRegExpOr(T20.actorSizes)));
+		if( line ) {
+			let t = line.match(this.toRegExpOr(T20.creatureTypes, true))?.[0] ?? 'Monstro';
+			let st = line.match(/\((\w+)\)/i)?.[0] ?? '';
+			let s = line.match(this.toRegExpOr(T20.actorSizes, true))?.[0] ?? 'Médio';
+			let r = line.match(this.toRegExpOr(T20.creatureRoles, true))?.[0] ?? 'Solo';
+			schema.detalhes.tipo = invertObject(T20.creatureTypes)[t[0]];
+			schema.detalhes.raca = st;
+			log.type = {success: true, message: `Tipo: ${t} ${st ? '('+st+')' : '' }`};
+			schema.tracos.tamanho = invertObject(T20.actorSizes)[s[0]] ?? '';
+			log.size = {success: true, message: `Tamanho: ${s}`};
+			schema.detalhes.role = invertObject(T20.creatureRoles)[r[0]] ?? '';
+			log.role = {success: true, message: `Papel: ${r}`};
+		}
+		
+		// GET ABILITIES;
+		line = statblock.find((i)=> i.match(/([A-z]{3} ([\-]?[\d|\—])+, ){5}/gi));
+		if( line ) {
+			let abilities = line.toLowerCase().split(',').map(i=> i.trim().split(' '));
+			for (const [abl, value] of abilities) {
+				schema.atributos[abl] = Number(value);
+			}
+			log.atributos = {success: true, message: `Atributos: ${line}`};
+		}
+
+		// GET RESOURCES HP
+		let re = new RegExp(`${game.i18n.translations.T20.HitPoints} \\d+`,'i');
+		line = statblock.find((i)=> i.match(re));
+		if( line ) {
+			schema.attributes.pv.value = parseInt( line.match(/\d+/)?.[0] ?? 0 );
+			schema.attributes.pv.max = parseInt( line.match(/\d+/)?.[0] ?? 0 );
+			log.hp = {success: true, message: `${line}`};
+		}
+		// GET RESOURCES MP
+		re = new RegExp(`${game.i18n.translations.T20.ManaPoints} \\d+`,'i');
+		line = statblock.find((i)=> i.match(re));
+		if( line ) {
+			schema.attributes.pm.value = parseInt( line.match(/\d+/)?.[0] ?? 0 );
+			schema.attributes.pm.max = parseInt( line.match(/\d+/)?.[0] ?? 0 );
+			log.mp = {success: true, message: `${line}`};
+		}
+		// GET DEFENSE
+		re = new RegExp(`${game.i18n.translations.T20.Defense} \\d+`,'i');
+		line = statblock.find((i)=> i.match(re));
+		if( line ) {
+			schema.attributes.defense.base = parseInt( line.match(/\d+/)?.[0] ?? 0 );
+			log.defense = {success: true, message: `${line}`};
+		}
+		// GET RESISTANCES
+		if( line ) {
+			res = res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-]?\d+[,]?)/g,'').trim() || '';
+			schema.detalhes.resistencias = res;
+			// log.res = {success: true, message: `Resistencias (Texto): ${res}`};
+
+		}
+		console.log(schema, log);
+	}
+	
 	parseData(statblock, schema, itemsList, log){
 		let msg = '';
 		// Extrai o nome e ND
@@ -223,10 +333,14 @@ export default class StatblockParser extends FormApplication {
 		
 		// Extrai Deslocamentos
 		try {
-			let movement = statblock.toLowerCase().match(/(\w+ \d+m \(\d+q\))/ig).map( m => [m.match(/deslocamento|escalar|escavar|natação|voo/i)[0], m.match(/\d+/)[0]]);
+			// let movement = statblock.toLowerCase().match(/\n(\w+ \d+m \(\d+q\))/ig).map( m => [m.match(/deslocamento|escalar|escavar|natação|voo/i)[0], m.match(/\d+/)[0]]);
+			let movement = statblock.split('\n').find(l => l.match(/^Deslocamento( \w+)? \d+m/i)).slugify().replaceAll('-',' ').replace(/^Deslocamento ([A-z]+)/i,'$1').split(',')
+				.map(m=> [m.match(/\w+/)[0], m.match(/\d+/)[0]])
+			
+			// movement2.split(',').map(d => d.split(' '));
 			msg = '';
 			for (let [move, value] of movement) {
-				let ms = { deslocamento: 'walk', escalar:'climb', escavar:'burrow', natação:'swim', voo:'fly'};
+				let ms = { deslocamento: 'walk', escalar:'climb', escavar:'burrow', natacao:'swim', voo:'fly'};
 				if ( ms[move] ){
 					schema.attributes.movement[ms[move]] = parseInt(value);
 					msg += `${move} ${value}; `;
@@ -256,30 +370,48 @@ export default class StatblockParser extends FormApplication {
 	parseSkills(statblock, schema, itemsList, log){
 		let msg ='';
 		try {
-			const ndparams = CONFIG.T20.NPCParams( schema.attributes.nd );
-			const topsave = ndparams.topskill;
-			const botsave = ndparams.botskill;
-			let sks = Object.fromEntries( Object.entries(CONFIG.T20.pericias).map(([key, value]) => [value, key]) );
+			const ndparams = T20.FoeParams( schema.detalhes.role, schema.attributes.nd );
+			let sks = invertObject(T20.pericias);
 			sks['Fort'] = 'fort';
 			sks['Ref'] = 'refl';
 			sks['Von'] = 'vont';
+			// this.toRegExpOr(sks);
 			let skills = statblock.replace(/\n/g,' ').replace('–','-').match(/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/g);
 			skills = skills.map( m => {return {[sks[m.split(' ')[0]]]: {value: parseInt(m.split(' ')[1])} }});
 			skills = Object.assign({}, ...skills);
 			msg = '';
 			for (let [key, skill] of Object.entries(skills)) {
-				if ( skill.value < 0 ){
-					skill.outros = (botsave - skill.value)*-1;
-				} else if ( skill.value >= topsave ) {
-					skill.outros = skill.value - topsave;
-					skill.treinado = true;
-				} else if ( skill.value < topsave && skill.value >= topsave - (topsave - botsave)/2 ) {
-					skill.outros = skill.value - topsave;
-					skill.treinado = true;
-				} else if ( skill.value >= botsave ) {
-					skill.outros = skill.value - botsave;
-				} else if ( skill.value < botsave ) {
-					skill.outros = botsave - skill.value;
+				if ( ['luta','pont'].includes(key) ) {
+					skill.outros = ndparams.ataque;
+					skill.value = 0;
+				} else if ( ['fort','refl','vont'].includes(key) ) {
+					skill.outros = skill.value;
+					skill.value = 0;
+				} else {
+					skill.atributo = SYSTEMRULES.skills[key].abl;
+					let nd = schema.attributes.nd;
+					let nivel = 1;
+					if ( ['1/2','1/4'].includes(nd) ) nivel = 1;
+					else if ( ['S','S+'].includes(nd) ) nivel = 20;
+					else nivel = Number(nd) ?? 1;
+					
+					let sizeStealth = {"min":5, "peq":2, "med":0, "gra":-2, "eno":-5, "col":-10}
+					let meionivel = Math.floor(nivel/2);
+					let treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
+					let atributo = (schema.atributos[skill.atributo].base) ?? 'for';
+					let tamanho = (key == 'furt' ? (sizeStealth[schema.tracos.tamanho]) : 0 );
+					
+					let comTreino = meionivel + treino + atributo + tamanho;
+					let semTreino = meionivel + atributo + tamanho;
+					if ( comTreino == skill.value ) skill.treinado = true;
+					else if ( semTreino == skill.value ) skill.treinado = false;
+					else if ( Math.abs(comTreino - skill.value) < Math.abs(semTreino - skill.value) ) {
+						skill.treinado = true;
+						skill.outros = skill.value - comTreino;
+					} else if ( Math.abs(comTreino - skill.value) > Math.abs(semTreino - skill.value) ) {
+						skill.treinado = false;
+						skill.outros = skill.value - semTreino;
+					}
 				}
 				msg += `${key}: ${skill.value}; `;
 				schema.pericias[key] = skill;

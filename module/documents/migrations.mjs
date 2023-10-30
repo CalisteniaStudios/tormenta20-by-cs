@@ -1,4 +1,3 @@
-import { T20 } from "../config.mjs";
 /* 
  * Migration utilities
  * functions names <DocumentName><VersionNumber>

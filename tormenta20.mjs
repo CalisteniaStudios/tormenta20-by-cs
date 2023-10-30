@@ -1,5 +1,9 @@
+// Import Config
+import { T20, SYSTEMRULES } from "./module/config/T20.js";
+globalThis.T20 = T20;
+globalThis.SYSTEMRULES = SYSTEMRULES;
+
 // Import Modules
-import { T20 } from "./module/config.mjs";
 import { Tormenta20ActorSheetSettings } from "./module/apps/form-apps.mjs";
 import { SystemSettings } from "./module/settings.mjs";
 import { preloadHandlebarsTemplates } from "./module/templates.mjs";

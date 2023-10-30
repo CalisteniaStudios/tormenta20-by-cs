@@ -1,4 +1,3 @@
-import { T20 } from "../config.mjs";
 
 const _TokenToggleEffect = Token.prototype.toggleEffect;
 export const toggleEffect = async function (...args) {

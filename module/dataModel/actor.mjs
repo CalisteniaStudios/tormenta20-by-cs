@@ -1,4 +1,4 @@
-import { T20, SYSTEMRULES } from '../config.mjs';
+// import { T20, SYSTEMRULES } from '../config.mjs';
 const fields = foundry.data.fields;
 
 import {
@@ -126,6 +126,7 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 	static schemaEncumbrance(type="character"){
 		return new fields.SchemaField({
 			value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label: "T20.EncumbranceValue", hint: "T20.EncumbranceValueHint" }),
+			atributo: new fields.StringField({ required: true, nullable:false, blank: false, choices: Object.keys(T20.atributos), initial: 'for'}),
 			base: new fields.NumberField({ required: true, nullable:false, initial:10, min:0, label: "T20.EncumbranceBase", hint: "T20.EncumbranceBaseHint" }),
 			bonus: new fields.ArrayField(new fields.StringField(), {label: "T20.EncumbranceEffectsValues", hint: "T20.EncumbranceEffectsValuesHint"}),
 			max: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label: "T20.EncumbranceMax", hint: "T20.EncumbranceMaxHint" }),
@@ -331,6 +332,7 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 				value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label: "T20.DamageReductionValue", hint: "T20.DamageReductionValueHint" }),
 				base: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label: "T20.DamageReductionBaseValue", hint: "T20.DamageReductionBaseValueHint" }),
 				bonus: new fields.ArrayField(new fields.StringField(), {label: "T20.DamageReductionEffectValues", hint: "T20.DamageReductionEffectValuesHint"}),
+				excecao: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label: "T20.DamageReductionException", hint: "T20.DamageReductionExceptionHint" }),
 				imunidade: new fields.BooleanField({ required: true, nullable:false, initial: false, label: "T20.DamageReductionImunity", hint: "T20.DamageReductionImunityHint" }),
 				vulnerabilidade: new fields.BooleanField({ required: true, nullable:false, initial: false, label: "T20.DamageReductionVulnerability", hint: "T20.DamageReductionVulnerabilityHint" }),
 			});
@@ -433,16 +435,16 @@ class systemActorNPCData extends systemActorBaseData {
 	
 	/** @inheritdoc */
 	static migrateData(data) {
-		if( !Object.keys(T20.creatureTypes).includes(data.detalhes.tipo) ){
+		if( data.detalhes?.tipo && !Object.keys(T20.creatureTypes).includes(data.detalhes.tipo) ){
 			let cType = Object.keys(T20.creatureTypes).find( c => data.detalhes.tipo.match(c));
 			data.detalhes.tipo = cType ?? 'hum';
 		}
 
-		if( data.detalhes.nd && data.detalhes.nd > data.attributes.nd ){
+		if( data.detalhes?.nd && data.detalhes.nd > data.attributes.nd ){
 			data.attributes.nd = data.detalhes.nd;
 		}
 		
-		if( isNaN(data.attributes.nivel.value) || !isFinite( data.attributes.nivel.value ) ){
+		if( data.attributes?.nivel && (isNaN(data.attributes?.nivel.value) || !isFinite( data.attributes?.nivel.value) ) ){
 			data.attributes.nivel.value = 1;
 		}
 		return super.migrateData(data);

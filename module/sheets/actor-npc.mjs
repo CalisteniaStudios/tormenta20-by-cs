@@ -85,7 +85,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			if (sheetData['resistencias']) sheetData['resistencias'] += ', '+resText.vulTxt;
 			else sheetData['resistencias'] += resText.vulTxt;
 		}
-
+		sheetData.manualSkills = ["luta","pont","fort","refl","vont"];
 		if( this.isEditable ) {
 			sheetData["editarPericias"] = true;
 			//this.actor.getFlag("tormenta20", "sheet.editarPericias");

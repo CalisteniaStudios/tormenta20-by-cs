@@ -1,6 +1,6 @@
 import ItemT20 from '../documents/item.mjs';
 import ActiveEffectT20 from "../documents/active-effects.mjs";
-import { T20 } from '../config.mjs';
+// import { T20 } from '../config.mjs';
 
 import TraitSelector from "../apps/trait-selector.mjs";
 import ActorSettings from "../apps/actor-settings.mjs";

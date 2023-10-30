@@ -148,4 +148,8 @@ export function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("ift", function (v, rtrue, rfalse) {
 		return (v ? rtrue : rfalse);
 	});
+
+	Handlebars.registerHelper("includes", function (v, choices=[]) {
+		return choices.includes(v);
+	});
 }

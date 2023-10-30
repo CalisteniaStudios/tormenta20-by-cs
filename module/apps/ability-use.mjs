@@ -1,4 +1,4 @@
-import { T20 } from '../config.mjs';
+import { T20 } from '../config/T20.js';
 import { simplifyRollFormula } from '../dice/dice.mjs';
 const C = T20;
 

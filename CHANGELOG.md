@@ -1,5 +1,10 @@
 # Lista de Mudanças
 
+## Versão 1.4.203d1 - Em Desenvolvimento
+- Atualizado: Perícias de Ameaças usam o cálculo padrão, exceto ataques e resistências;
+- Atualizado: Resistencia a Dano Excecão - Casos como 10/luz reduz dano de todas as fontes exceto luz;
+- Atualizado: Atributo de Carga pode ser alterado com `system.attributes.carga.atributo` `Sobrepor` `des`;
+
 ## Versão 1.4.202
 - Corrigido: Adicionar/Apagar Partes um uma rolagem de item;
 - Corrigido: Apagar Perícias de Oficios/Customizadas;
