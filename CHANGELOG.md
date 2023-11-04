@@ -1,9 +1,15 @@
 # Lista de Mudanças
 
-## Versão 1.4.203d1 - Em Desenvolvimento
+## Versão 1.4.203d2 - Em Desenvolvimento
 - Atualizado: Perícias de Ameaças usam o cálculo padrão, exceto ataques e resistências;
-- Atualizado: Resistencia a Dano Excecão - Casos como 10/luz reduz dano de todas as fontes exceto luz;
-- Atualizado: Atributo de Carga pode ser alterado com `system.attributes.carga.atributo` `Sobrepor` `des`;
+- Corrigido (Eu acho): Efeito de uso de `@Golpe Divino#dano`;
+- Adicionado: Resistencia a Dano Excecão - Casos como 10/luz reduz dano de todas as fontes exceto luz;
+- Adicionado: Atributo de Carga pode ser alterado com `system.attributes.carga.atributo` `Sobrepor` `des`;
+- Adicionado: Em efeitos de uso `danoCritico` `Adicionar` `10` adiciona um bônus de dano somente quando o ataque é um acerto crítico;
+- Adicionado: Campos de texto pra deslocamento, ataques corpo-a-corpo / à distância para Ameaças;
+- Adicionado: Configuração de Lancinante, escolher se quer a multiplicação do Livro Básico (Qualquer valor numérico) ou do Ameaças (O valor do lancinante);
+- Adicionado: Configuração para inverter a Configuração de Uso, com shift não exibe o menu, sem shift exibe o menu.
+- Adicionado: Configuração de Melhor/Pior de dois Dados no menu de Configuração de Uso.
 
 ## Versão 1.4.202
 - Corrigido: Adicionar/Apagar Partes um uma rolagem de item;

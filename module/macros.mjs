@@ -115,11 +115,11 @@ export async function createT20Macro(data, slot) {
 				"Não há uma macro para este tipo de item."
 				);
 		
-		command = macroScripts.EFFECT.replace('{label}',effect.label);
-		let macro = game.macros.find( (m) => m.name === effect.label && m.command === command );
+		command = macroScripts.EFFECT.replace('{label}',effect.name);
+		let macro = game.macros.find( (m) => m.name === effect.name && m.command === command );
 		if (!macro) {
 			macro = await Macro.create({
-				name: effect.label,
+				name: effect.name,
 				type: "script",
 				img: effect.icon,
 				command: command
@@ -157,7 +157,11 @@ export async function rollItemMacro(itemName, extra = {}) {
 
 
 	const rollConfigs = {}
-	rollConfigs.configureDialog = event.shiftKey;
+	if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+		rollConfigs.configureDialog = !event.shiftKey;
+	} else {
+		rollConfigs.configureDialog = event.shiftKey;
+	}
 	rollConfigs.extra	= extra;
 	// Trigger the item roll
 	return item.roll( rollConfigs );

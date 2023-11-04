@@ -701,6 +701,7 @@ T20.weaponProperties = {
 	"des": "T20.WeaponPropertiesUnbalanced",
 	"dup": "T20.WeaponPropertiesDouble",//WeaponPropertiesDou
 	"ver": "T20.WeaponPropertiesVersatile",//WeaponPropertiesVer
+	"hib": "T20.WeaponPropertiesHibrid",//WeaponPropertiesVer
 };
 // "arr": "T20.WeaponPropertiesThr",
 // "dst": "T20.WeaponPropertiesRan",
@@ -731,6 +732,16 @@ T20.specialMaterials = {
 	"dark-wood": "T20.SpecialMaterialDarkWood",
 	"red-matter": "T20.SpecialMaterialRedMatter",
 	"mithril": "T20.SpecialMaterialMithril",
+	"rainbow-metal": "T20.SpecialMaterialRainbowMetal",
+	"silver": "T20.SpecialMaterialSilver", 
+	"dragon-leather": "T20.SpecialMaterialDragonLeather", 
+	"monster-hull": "T20.SpecialMaterialMonsterHull", 
+	"kaiju-plating": "T20.SpecialMaterialKaijuPlating", 
+	"bulette-leather": "T20.SpecialMaterialBuletteLeather", 
+	"sun-crystal": "T20.SpecialMaterialSunCrystal", 
+	"iron-coral": "T20.SpecialMaterialIronCoral", 
+	"kraken-feather": "T20.SpecialMaterialKrakenFeather", 
+	"razza-chitin": "T20.SpecialMaterialRazzaChitin", 
 }
 
 T20.itemUpgrades = {
@@ -738,6 +749,7 @@ T20.itemUpgrades = {
 	"gems": "T20.ItemUpgradesGemsStudded",
 	"discreet": "T20.ItemUpgradesDiscreet",
 	"macabre": "T20.ItemUpgradesMacabre",
+	"multifunctional": "T20.ItemUpgradesMultifunctional",
 }
 preLocalize("itemUpgrades");
 
@@ -746,6 +758,7 @@ T20.itemUpgradesTooltips = {
 	"gems": "T20.ItemUpgradesTooltipGemsStudded",
 	"discreet": "T20.ItemUpgradesTooltipDiscreet",
 	"macabre": "T20.ItemUpgradesTooltipMacabre",
+	"multifunctional": "T20.ItemUpgradesTooltipMultifunctional",
 }
 preLocalize("itemUpgradesTooltips");
 
@@ -774,6 +787,7 @@ T20.weaponUpgrades = {
 	"specialmaterial": "T20.WeaponUpgradesSpecialMaterial",
 	"scope": "T20.WeaponUpgradesScope",
 	"precise": "T20.WeaponUpgradesPrecise",
+	"penetrating": "T20.ItemUpgradesPenetrating",
 }
 T20.weaponUpgradesTooltips = {
 	"accurate": "T20.WeaponUpgradesTooltipAccurate",
@@ -787,6 +801,7 @@ T20.weaponUpgradesTooltips = {
 	"specialmaterial": "T20.WeaponUpgradesTooltipSpecialMaterial",
 	"scope": "T20.WeaponUpgradesTooltipScope",
 	"precise": "T20.WeaponUpgradesTooltipPrecise",
+	"penetrating": "T20.ItemUpgradesTooltipPenetrating",
 }
 for ( let [k, v] of Object.entries(T20.itemUpgrades) ) {
 	T20.weaponUpgrades[k] = T20.itemUpgrades[k];
@@ -839,15 +854,17 @@ preLocalize("shieldUpgrades");
 preLocalize("shieldUpgradesTooltips");
 
 T20.esotericUpgrades = {
+	"channeler": "T20.EsotericUpgradesChanneler",
 	"energetic": "T20.EsotericUpgradesEnergetic",
 	"harmonized": "T20.EsotericUpgradesHarmonized",
 	"specialmaterial": "T20.EsotericUpgradesSpecialMaterial",
 	"powerful": "T20.EsotericUpgradesPowerful",
-	"enhancer": "T20.EsotericUpgradesEnhancer",
 	"vigilant": "T20.EsotericUpgradesVigilant",
+	"enhancer": "T20.EsotericUpgradesEnhancer",
 }
 
 T20.esotericUpgradesTooltips = {
+	"channeler": "T20.EsotericUpgradesEnhancer",
 	"energetic": "T20.EsotericUpgradesTooltipEnergetic",
 	"harmonized": "T20.EsotericUpgradesTooltipHarmonized",
 	"specialmaterial": "T20.EsotericUpgradesTooltipSpecialMaterial",

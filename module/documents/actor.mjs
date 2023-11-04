@@ -1247,8 +1247,12 @@ export default class ActorT20 extends Actor {
 		let parts = cloneActor._prepareSkills(key, pericia, true );
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
-		
-		const needsConfiguration = options.event?.shiftKey ?? false;
+		let needsConfiguration;
+		if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+			needsConfiguration = !(options.event?.shiftKey ?? false);
+		} else {
+			needsConfiguration = (options.event?.shiftKey ?? false);
+		}
 		let configuration = {};
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create(itemData);
@@ -1362,7 +1366,12 @@ export default class ActorT20 extends Actor {
 		}
 
 		let rConfig = {};
-		const needsConfiguration = event?.shiftKey ?? false;
+		let needsConfiguration;
+		if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+			needsConfiguration = !(options.event?.shiftKey ?? false);
+		} else {
+			needsConfiguration = (options.event?.shiftKey ?? false);
+		}
 		let configuration = {};
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create(itemData);

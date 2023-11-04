@@ -498,6 +498,7 @@
   "T20.WeaponPropertiesUnbalanced": "Desbalanceada",
   "T20.WeaponPropertiesDouble": "Dupla",
   "T20.WeaponPropertiesVersatile": "Versátil",
+  "T20.WeaponPropertiesHibrid": "Hibrida",
 
   "T20.WeaponPropertiesThr": "Arremesso",
   "T20.WeaponPropertiesRan": "À Distância",
@@ -645,7 +646,16 @@
   "T20.SpecialMaterialDarkWood": "Madeira Tollon",
   "T20.SpecialMaterialRedMatter": "Matéria Vermelha",
   "T20.SpecialMaterialMithril": "Mitral",
+	"T20.SpecialMaterialDragonLeather": "Couro de Dragão",
   "T20.SpecialMaterialRainbowMetal": "Metal Arco-Íris",
+  "T20.SpecialMaterialSilver": "Prata",
+  "T20.SpecialMaterialMonsterHull": "Casco de Monstro",
+  "T20.SpecialMaterialKaijuPlating": "Couraça de Kaiju",
+  "T20.SpecialMaterialBuletteLeather": "Couro de Bulette",
+  "T20.SpecialMaterialSunCrystal": "Cristal de Sol",
+  "T20.SpecialMaterialIronCoral": "Ianajuste",
+  "T20.SpecialMaterialKrakenFeather": "Pena de Kraken",
+  "T20.SpecialMaterialRazzaChitin": "Quitina Razza",
 
   "T20.WeaponUpgradesAccurate": "Certeira",
   "T20.WeaponUpgradesPungent": "Pungente",
@@ -658,7 +668,8 @@
   "T20.WeaponUpgradesSpecialMaterial": "Material especial",
   "T20.WeaponUpgradesScope": "Mira Telescópica",
   "T20.WeaponUpgradesPrecise": "Precisa",
-
+  "T20.ItemUpgradesPenetrating": "Penetrante",
+	
   "T20.ArmorUpgradesAdjusted": "Ajustada",
   "T20.ArmorUpgradesUnderMeasure": "Sob medida",
   "T20.ArmorUpgradesDelicate": "Delicada",
@@ -674,6 +685,7 @@
   "T20.EsotericUpgradesSpecialMaterial": "Material especial",
   "T20.EsotericUpgradesPowerful": "Poderoso",
   "T20.EsotericUpgradesEnhancer": "Potencializador",
+  "T20.EsotericUpgradesChanneler": "Canalizador",
   "T20.EsotericUpgradesVigilant": "Vigilante",
 
   "T20.ToolUpgradesEnhanced": "Aprimorado",
@@ -682,6 +694,8 @@
   "T20.ItemUpgradesGemsStudded": "Cravejado de gemas",
   "T20.ItemUpgradesDiscreet": "Discreto",
   "T20.ItemUpgradesMacabre": "Macabro",
+  "T20.ItemUpgradesMultifunctional": "Multifuncional",
+  
   
   "T20.WeaponUpgradesTooltipAccurate": "Fabricada para ser mais precisa e balanceada, a arma fornece +1 nos testes de ataque.",
   "T20.WeaponUpgradesTooltipPungent": "Temperada diversas vezes para adquirir o fio ou o equilíbrio perfeito, a arma fornece +2 nos testes de ataque. Pré-requisito: Certeira.",
@@ -694,6 +708,7 @@
   "T20.WeaponUpgradesTooltipSpecialMaterial": "A arma, armadura, escudo ou item esotérico é feito de, ou banhado com, um material especial. Cada material fornece um benefício, cumulativo com outros benefícios de melhorias, mas possui um preço adicional que deve ser pago além do preço da melhoria. Veja a seção a seguir para a descrição dos materiais especiais. Fabricar um item de material especial é uma melhoria porque materiais especiais exigem um trabalho mais complexo do que materiais comuns.",
   "T20.WeaponUpgradesTooltipScope": "Aumenta o alcance da arma em uma categoria (de curto para médio, de médio para longo) e o alcance da habilidade Ataque Furtivo para médio. Esta melhoria só pode ser aplicada em armas de disparo (exceto fundas).",
   "T20.WeaponUpgradesTooltipPrecise": "Cuidado especial foi tomado ao temperar o aço desta arma, para que seu fio se mantenha sempre como uma navalha. A margem de ameaça aumenta em 1 ponto. Uma arma não pode ser precisa e maciça.",
+  "T20.WeaponUpgradesTooltipPenetrating": "A arma ignora 5 pontos da redução de dano. Pré-requisito: cruel.",
 
   "T20.ArmorUpgradesTooltipAdjusted": "Feito com peças medidas com precisão, o item tem a sua penalidade de armadura diminuída em 1.",
   "T20.ArmorUpgradesTooltipUnderMeasure": "Embora muitas armaduras sejam feitas especificamente para um usuário, esta passou por um período extenso de ajustes e refinamento, adequando-se com perfeição ao seu corpo. Reduz a penalidade por armadura em 2, mas apenas para o usuário específico (para outros, comporta-se como um item ajustado). Pré-requisito: Ajustada.",
@@ -718,6 +733,8 @@
   "T20.ItemUpgradesTooltipGemsStudded": "É fácil ser persuadido por alguém opulento o bastante para ostentar um item cravejado de gemas. Fornece +2 em Enganação. Assim como um item banhado a ouro, um item cravejado de gemas pode atrair a cobiça de ladrões.",
   "T20.ItemUpgradesTooltipDiscreet": "O item é disfarçado como outro item inócuo (como um florete escondido em uma bengala) ou modificado para ser telescópico (podendo se dobrar em si mesmo para ocupar menos espaço). O item ocupa –1 espaço (mínimo 1) e fornece +5 em testes de Ladinagem para ser ocultado.",
   "T20.ItemUpgradesTooltipMacabre": "Um item macabro é pintado com sangue seco, esculpido na forma de uma caveira ou decorado com pedaços de orelhas, dedos e olhos. Essa aparência assustadora fornece +2 em testes de Intimidação, mas impõe uma penalidade de –2 em testes de Diplomacia.",
+  "T20.ItemUpgradesTooltipMultifunctional": "Esta melhoria só pode ser aplicada em um item que modifica uma perícia (fornecendo bônus ou reduzindo penalidade). Escolha outra perícia que usa o mesmo atributo-chave; o item passa a funcionar também para a segunda perícia escolhida (mas não se aplica a testes de ataque).",
+
   
   "T20.S10": "/* ------------ Item Enchants ------------ */",
 
@@ -1129,6 +1146,13 @@
   "T20.SettingEquipmentSlots": "Controle de Itens Empunhados/Vestidos",
   "T20.SettingEquipmentSlotsHint": "Altera a forma como controlar items equipados.",
   
+  "T20.SettingInvertUsageConfig": "Inverter Configuração de Uso",
+  "T20.SettingInvertUsageConfigHint": "Se marcado o menu de Configuração de Uso aparecerá sempre que usar um item.",
+
+  "T20.SettingLancinatingVersion": "Versão do Lancinante",
+  "T20.SettingLancinatingVersionHint": "Usa o Lancinante do Livro Básico ou do Ameaças de Arton",
+  "T20.SeetingLancinatingDefault": "Livro Básico: Multiplica Numérico",
+  "T20.SeetingLancinatingRevised": "Ameaças de Arton: Multiplica Dilacerante",
   
   "T20.S90": "/* --------------- Status --------------- */",
   

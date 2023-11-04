@@ -52,7 +52,8 @@
 	</span>
 	{{#if resistencias }}
 	, {{resistencias}}
-	{{else}}
+	{{/if}}
+	{{#if system.detalhes.resistencias }}
 	, {{system.detalhes.resistencias}}
 	{{/if}}
 </div>
@@ -67,6 +68,9 @@
 		{{#each movement as | move key | }}
 		{{move}}{{#unless @last}},{{/unless}}
 		{{/each}}
+		{{#if system.detalhes.movimento }}
+		, {{system.detalhes.movimento}}
+		{{/if}}
 	</a>
 </div>
 <hr>
@@ -81,6 +85,7 @@
 	<ul class="item-list listcol" style="margin: 0;">
 		{{#if (gt actor.inventario.arma.melee 0) }}
 		<label>{{localize 'T20.Melee'}}: </label>
+		{{#if system.detalhes.ataquescac }}{{system.detalhes.ataquescac}}{{/if}}
 		{{#each actor.inventario.arma.items as |item id|}}
 		{{#if item.melee }}
 		<li class="item flexrow" data-item-id="{{item._id}}">
@@ -100,7 +105,9 @@
 		{{/each}}
 		{{/if}}
 		{{#if (gt actor.inventario.arma.ranged 0) }}
-		<label>{{localize 'T20.Ranged'}}: </label>
+		<label>{{localize 'T20.Ranged'}}: 
+		{{#if system.detalhes.ataquesad }}{{system.detalhes.ataquesad}}{{/if}}
+		</label>
 		{{#each actor.inventario.arma.items as |item id|}}
 		{{#if item.ranged }}
 		<li class="item flexrow" data-item-id="{{item._id}}">

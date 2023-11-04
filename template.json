@@ -32,15 +32,15 @@
         "attributes": {
           "cd": 10,
           "pv": {
-            "value": 8,
-            "min": -500,
-            "max": 8,
+            "value": 0,
+            "min": 0,
+            "max": 0,
             "temp": 0
           },
           "pm": {
-            "value": 3,
+            "value": 0,
             "min": 0,
-            "max": 3,
+            "max": 0,
             "temp": 0
           },
           "movement": {
@@ -50,7 +50,8 @@
             "swim": 0,
             "walk": 9,
             "unit": "m",
-            "hover": false
+            "hover": false,
+            "notes": ""
           },
           "defesa":{
             "base": 10,

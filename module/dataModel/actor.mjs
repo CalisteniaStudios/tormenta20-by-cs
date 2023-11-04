@@ -178,7 +178,7 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 			value: new fields.NumberField({ required: true, nullable:false, initial:0, step:1, integer:true, label: "T20.ResourceValue", hint: "T20.ResourceValueHint" }),
 			temp: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, step:1, integer:true, label: "T20.ResourceTemporaryValue", hint: "T20.ResourceTemporaryHint" }),
 			min: new fields.NumberField({ required: true, nullable:false, initial:0, integer:true, label: "T20.ResourceMinValue", hint: "T20.ResourceMinValueHint" }),
-			max: new fields.NumberField({ required: true, nullable:false, initial:3, integer:true, label: "T20.ResourceMaxValue", hint: "T20.ResourceMaxValueHint" }),
+			max: new fields.NumberField({ required: true, nullable:false, initial:0, integer:true, label: "T20.ResourceMaxValue", hint: "T20.ResourceMaxValueHint" }),
 		});
 	}
 
@@ -254,10 +254,13 @@ class systemActorBaseData extends foundry.abstract.DataModel {
 		}
 		
 		if ( type == 'npc' ){
-			schema["equipamento"] = new fields.StringField({ initial: '', label: "T20.FoeEquipment", hint: "T20.T20.FoeEquipmentHint" });
-			schema["resistencias"] = new fields.StringField({ initial: '', label: "T20.FoeResistances", hint: "T20.T20.FoeResistancesHint" });
-			schema["tesouro"] = new fields.StringField({ initial: '', label: "T20.FoeTreasure", hint: "T20.T20.FoeTreasureHint" });
-			schema["role"] = new fields.StringField({ initial: '', label: "T20.FoeRole", hint: "T20.T20.FoeRoleHint" });
+			schema["equipamento"] = new fields.StringField({ initial: '', label: "T20.FoeEquipment", hint: "T20.FoeEquipmentHint" });
+			schema["resistencias"] = new fields.StringField({ initial: '', label: "T20.FoeResistances", hint: "T20.FoeResistancesHint" });
+			schema["movimento"] = new fields.StringField({ initial: '', label: "T20.FoeMovement", hint: "T20.FoeMovementHint" });
+			schema["ataquescac"] = new fields.StringField({ initial: '', label: "T20.FoeMelee", hint: "T20.FoeMeleeHint" });
+			schema["ataquesad"] = new fields.StringField({ initial: '', label: "T20.FoeRanged", hint: "T20.FoeRangedHint" });
+			schema["tesouro"] = new fields.StringField({ initial: '', label: "T20.FoeTreasure", hint: "T20.FoeTreasureHint" });
+			schema["role"] = new fields.StringField({ initial: '', label: "T20.FoeRole", hint: "T20.FoeRoleHint" });
 			delete schema.info;
 			delete schema.diario;
 			delete schema.diario1;

@@ -1,0 +1,161 @@
+export const T20Augments = {};
+T20Augments.MELHORIAS = {};
+T20Augments.MELHORIAS.ARMA = {};
+T20Augments.MELHORIAS.ARMADURA = {};
+T20Augments.MELHORIAS.ESCUDO = {};
+T20Augments.MELHORIAS.ITEM = {};
+T20Augments.MELHORIAS.FERRAMENTA = {};
+T20Augments.MELHORIAS.ESOTERICO = {};
+T20Augments.ENCANTOS = {};
+T20Augments.ENCANTOS.ARMA = {};
+T20Augments.ENCANTOS.ARMADURA = {};
+T20Augments.ENCANTOS.ESCUDO = {};
+T20Augments.ENCANTOS.ITEM = {};
+T20Augments.ENCANTOS.FERRAMENTA = {};
+T20Augments.ENCANTOS.ESOTERICO = {};
+T20Augments.MATERIAL.ARMA = {};
+T20Augments.MATERIAL.ARMADURA = {};
+T20Augments.MATERIAL.ESCUDO = {};
+T20Augments.MATERIAL.ESOTERICO = {};
+
+T20Augments.MELHORIAS.ITEM['golden'] = {}
+T20Augments.MELHORIAS.ITEM['gems'] = {}
+T20Augments.MELHORIAS.ITEM['discreet'] = {}
+T20Augments.MELHORIAS.ITEM['macabre'] = {}
+
+T20Augments.MELHORIAS.FERRAMENTA['enhanced'] = {}
+
+T20Augments.MELHORIAS.ARMA['accurate'] = {}
+T20Augments.MELHORIAS.ARMA['pungent'] = {}
+T20Augments.MELHORIAS.ARMA['cruel'] = {}
+T20Augments.MELHORIAS.ARMA['atrocious'] = {}
+T20Augments.MELHORIAS.ARMA['balanced'] = {}
+T20Augments.MELHORIAS.ARMA['harmonized'] = {}
+T20Augments.MELHORIAS.ARMA['injection'] = {}
+T20Augments.MELHORIAS.ARMA['massive'] = {}
+T20Augments.MELHORIAS.ARMA['specialmaterial'] = {}
+T20Augments.MELHORIAS.ARMA['scope'] = {}
+T20Augments.MELHORIAS.ARMA['precise'] = {}
+
+T20Augments.MELHORIAS.ARMADURA['adjusted'] = {}
+T20Augments.MELHORIAS.ARMADURA['undermeasure'] = {}
+T20Augments.MELHORIAS.ARMADURA['delicate'] = {}
+T20Augments.MELHORIAS.ARMADURA['thorny'] = {}
+T20Augments.MELHORIAS.ARMADURA['specialmaterial'] = {}
+T20Augments.MELHORIAS.ARMADURA['polished'] = {}
+T20Augments.MELHORIAS.ARMADURA['reinforced'] = {}
+T20Augments.MELHORIAS.ARMADURA['sealed'] = {}
+
+T20Augments.MELHORIAS.ESCUDO['thorny'] = {}
+
+T20Augments.MELHORIAS.ESOTERICO['channeler'] = {}
+T20Augments.MELHORIAS.ESOTERICO['energetic'] = {}
+T20Augments.MELHORIAS.ESOTERICO['harmonized'] = {}
+T20Augments.MELHORIAS.ESOTERICO['specialmaterial'] = {}
+T20Augments.MELHORIAS.ESOTERICO['powerful'] = {}
+T20Augments.MELHORIAS.ESOTERICO['vigilant'] = {}
+
+
+T20Augments.ENCANTOS.ARMA['keen'] = {}
+T20Augments.ENCANTOS.ARMA['bane'] = {}
+T20Augments.ENCANTOS.ARMA['throwable'] = {}
+T20Augments.ENCANTOS.ARMA['assassin'] = {}
+T20Augments.ENCANTOS.ARMA['seeking'] = {}
+T20Augments.ENCANTOS.ARMA['frost'] = {}
+T20Augments.ENCANTOS.ARMA['caster'] = {}
+T20Augments.ENCANTOS.ARMA['corrosive'] = {}
+T20Augments.ENCANTOS.ARMA['dancing'] = {}
+T20Augments.ENCANTOS.ARMA['defending'] = {}
+T20Augments.ENCANTOS.ARMA['destructive'] = {}
+T20Augments.ENCANTOS.ARMA['lacerating'] = {}
+T20Augments.ENCANTOS.ARMA['draining'] = {}
+T20Augments.ENCANTOS.ARMA['shock'] = {}
+T20Augments.ENCANTOS.ARMA['energy'] = {}
+T20Augments.ENCANTOS.ARMA['excruciating'] = {}
+T20Augments.ENCANTOS.ARMA['flaming'] = {}
+T20Augments.ENCANTOS.ARMA['formidable'] = {}
+T20Augments.ENCANTOS.ARMA['lancinating'] = {}
+T20Augments.ENCANTOS.ARMA['magnificent'] = {}
+T20Augments.ENCANTOS.ARMA['merciful'] = {}
+T20Augments.ENCANTOS.ARMA['unholy'] = {}
+T20Augments.ENCANTOS.ARMA['holy'] = {}
+T20Augments.ENCANTOS.ARMA['bloodthirsty'] = {}
+T20Augments.ENCANTOS.ARMA['thundering'] = {}
+T20Augments.ENCANTOS.ARMA['sepulchral'] = {}
+T20Augments.ENCANTOS.ARMA['speed'] = {}
+T20Augments.ENCANTOS.ARMA['poisonous'] = {}
+
+T20Augments.ENCANTOS.ARMADURA['abascanth'] = {}
+T20Augments.ENCANTOS.ARMADURA['blessed'] = {}
+T20Augments.ENCANTOS.ARMADURA['acrobatic'] = {}
+T20Augments.ENCANTOS.ARMADURA['winged'] = {}
+T20Augments.ENCANTOS.ARMADURA['frightful'] = {}
+T20Augments.ENCANTOS.ARMADURA['caustic'] = {}
+T20Augments.ENCANTOS.ARMADURA['defending'] = {}
+T20Augments.ENCANTOS.ARMADURA['slick'] = {}
+T20Augments.ENCANTOS.ARMADURA['ghostly'] = {}
+T20Augments.ENCANTOS.ARMADURA['ortification'] = {}
+T20Augments.ENCANTOS.ARMADURA['frost'] = {}
+T20Augments.ENCANTOS.ARMADURA['guardian'] = {}
+T20Augments.ENCANTOS.ARMADURA['hypnotic'] = {}
+T20Augments.ENCANTOS.ARMADURA['illusory'] = {}
+T20Augments.ENCANTOS.ARMADURA['incandescent'] = {}
+T20Augments.ENCANTOS.ARMADURA['invulnerable'] = {}
+T20Augments.ENCANTOS.ARMADURA['opaque'] = {}
+T20Augments.ENCANTOS.ARMADURA['protector'] = {}
+T20Augments.ENCANTOS.ARMADURA['reflecting'] = {}
+T20Augments.ENCANTOS.ARMADURA['lightning'] = {}
+T20Augments.ENCANTOS.ARMADURA['blinding'] = {}
+T20Augments.ENCANTOS.ARMADURA['shadow'] = {}
+T20Augments.ENCANTOS.ARMADURA['zealous'] = {}
+
+
+T20Augments.ENCANTOS.ESCUDO['animateed'] = {}
+T20Augments.ENCANTOS.ESCUDO['bashing'] = {}
+
+T20Augments.MATERIAL.ARMA['ruby-steel'] = {}
+T20Augments.MATERIAL.ARMA['adamant'] = {}
+T20Augments.MATERIAL.ARMA['everlasting-ice'] = {}
+T20Augments.MATERIAL.ARMA['dark-wood'] = {}
+T20Augments.MATERIAL.ARMA['red-matter'] = {}
+T20Augments.MATERIAL.ARMA['mithril'] = {}
+T20Augments.MATERIAL.ARMA['silver'] = {}
+T20Augments.MATERIAL.ARMA['monster-hull'] = {}
+T20Augments.MATERIAL.ARMA['kaiju-plating'] = {}
+T20Augments.MATERIAL.ARMA['sun-crystal'] = {}
+T20Augments.MATERIAL.ARMA['iron-coral'] = {}
+T20Augments.MATERIAL.ARMA['kraken-feather'] = {}
+T20Augments.MATERIAL.ARMA['razza-chitin'] = {}
+
+T20Augments.MATERIAL.ARMADURA['ruby-steel'] = {}
+T20Augments.MATERIAL.ARMADURA['adamant'] = {}
+T20Augments.MATERIAL.ARMADURA['everlasting-ice'] = {}
+T20Augments.MATERIAL.ARMADURA['dark-wood'] = {}
+T20Augments.MATERIAL.ARMADURA['red-matter'] = {}
+T20Augments.MATERIAL.ARMADURA['mithril'] = {}
+T20Augments.MATERIAL.ARMADURA['silver'] = {}
+T20Augments.MATERIAL.ARMADURA['dragon-leather'] = {}
+T20Augments.MATERIAL.ARMADURA['monster-hull'] = {}
+T20Augments.MATERIAL.ARMADURA['kaiju-plating'] = {}
+T20Augments.MATERIAL.ARMADURA['bulette-leather '] = {}
+T20Augments.MATERIAL.ARMADURA['sun-crystal'] = {}
+T20Augments.MATERIAL.ARMADURA['iron-coral'] = {}
+T20Augments.MATERIAL.ARMADURA['kraken-feather'] = {}
+T20Augments.MATERIAL.ARMADURA['razza-chitin'] = {}
+
+T20Augments.MATERIAL.ESOTERICO['ruby-steel'] = {}
+T20Augments.MATERIAL.ESOTERICO['adamant'] = {}
+T20Augments.MATERIAL.ESOTERICO['everlasting-ice'] = {}
+T20Augments.MATERIAL.ESOTERICO['dark-wood'] = {}
+T20Augments.MATERIAL.ESOTERICO['red-matter'] = {}
+T20Augments.MATERIAL.ESOTERICO['mithril'] = {}
+T20Augments.MATERIAL.ESOTERICO['silver'] = {}
+T20Augments.MATERIAL.ESOTERICO['dragon-leather'] = {}
+T20Augments.MATERIAL.ESOTERICO['monster-hull'] = {}
+T20Augments.MATERIAL.ESOTERICO['kaiju-plating'] = {}
+T20Augments.MATERIAL.ESOTERICO['bulette-leather '] = {}
+T20Augments.MATERIAL.ESOTERICO['sun-crystal'] = {}
+T20Augments.MATERIAL.ESOTERICO['iron-coral'] = {}
+T20Augments.MATERIAL.ESOTERICO['kraken-feather'] = {}
+T20Augments.MATERIAL.ESOTERICO['razza-chitin'] = {}
+

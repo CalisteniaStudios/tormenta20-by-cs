@@ -598,7 +598,12 @@ export default class ActorSheetT20 extends ActorSheet {
 			itemId = event.currentTarget.dataset.itemId;
 		}
 		const rollConfigs = {}
-		rollConfigs.configureDialog = event.shiftKey;
+		if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+			rollConfigs.configureDialog = !event.shiftKey;
+		} else {
+			rollConfigs.configureDialog = event.shiftKey;
+		}
+		rollConfigs.event = event;
 		const ignoreList = [];
 		const item = this.actor.items.get(itemId);
 		if ( !item || ignoreList.includes(item.type) ) return;

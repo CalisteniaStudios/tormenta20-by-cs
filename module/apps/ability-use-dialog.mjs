@@ -115,6 +115,8 @@ export default class AbilityUseDialog extends Dialog {
 			aprimoramentos: aprimoramentos,
 			rollMode: game.settings.get("core", "rollMode"),
 			rollModes: CONFIG.Dice.rollModes,
+			rollKeeping: (event.altKey ? "khd20" : (event.ctrlKey ? "kld20" : "")),
+			rollKeep: {"khd20":"Melhor de 2d20","kld20":"Pior de 2d20"},
 			errors: []
 		};
 

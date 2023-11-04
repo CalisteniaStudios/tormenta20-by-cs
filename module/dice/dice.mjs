@@ -2,8 +2,8 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 
 	parts = parts.concat(["@bonus"]);
 	let adv = 0;
-	if( advantage || event.altKey || parts[0].includes('kh')) adv = 1;
-	else if ( disadvantage || event.ctrlKey || parts[0].includes('kl')) adv = -1;
+	if( options.rollKeep=="khd20" || event.altKey || parts[0].includes('kh')) adv = 1;
+	else if ( options.rollKeep=="kld20" || event.ctrlKey || parts[0].includes('kl')) adv = -1;
 
 	
 	
@@ -96,13 +96,39 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 				roll._formula = roll.formula;
 			}
 			if(lancinante){
-				roll.terms.forEach(function(term, index){
-					if( term instanceof NumericTerm ){
-						roll.terms[index].number = term.number * criticalMultiplier;
-					}
-				});
+				switch (game.settings.get("tormenta20","lancinatingVersion")) {
+					case "revised":
+						roll.terms.forEach(function(term, index){
+							if( term instanceof NumericTerm && term.options.flavor == "danoCritico" ){
+								roll.terms[index].number = term.number * criticalMultiplier;
+								roll.terms[index].options.flavor = "";
+							}
+						});
+						break;
+					default:
+						roll.terms.forEach(function(term, index){
+							if( term instanceof NumericTerm ){
+								roll.terms[index].number = term.number * criticalMultiplier;
+							}
+						});
+						break;
+				}
 				roll._formula = roll.formula;
 			}
+		} else {
+			let _fterms = [];
+			roll.terms.forEach((term, i) => {
+				if ( term.options.flavor == "danoCritico" ) {
+					if ( _fterms[i-1] instanceof OperatorTerm ) {
+						_fterms.pop();
+					}
+					
+				} else {
+					_fterms.push(term);
+				}
+			});
+			roll.terms = _fterms;
+			roll.resetFormula();
 		}
 		// minMax
 		const min = minmax && minmax == "min" ? true : false;

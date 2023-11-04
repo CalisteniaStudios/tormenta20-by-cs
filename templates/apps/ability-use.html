@@ -63,6 +63,15 @@
 	</div>
 
 	<div class="form-group">
+		<label>Melhor/Pior de 2d20</label>
+		{{log this}}
+		<select name="rollKeep">
+		{{#select rollKeep}}
+		{{selectOptions rollKeep selected=rollKeeping blank="Normal" localize=true }}
+		{{/select}}
+		</select>
+	</div>
+	<div class="form-group">
 		<label>Roll Mode</label>
 		<select name="rollMode">
 		{{#select rollMode}}

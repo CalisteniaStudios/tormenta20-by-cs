@@ -69,7 +69,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		if ( ch.key.match(/dano\:\w+/) ) {
 			[ch.key, damageTypeTarget] = ch.key.split(':');
 		}
-		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos"].includes(ch.key) || ch.key.match(/\@([^\#]+)\#/) ) ) );
+		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos","danoCritico","critico"].includes(ch.key) || ch.key.match(/\@([^\#]+)\#/) ) ) );
 	}
 	ch.key = ch.key.toString();
 	if( ch.value.toString().match(/^:/) ){
@@ -77,17 +77,19 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		ef.flags.tormenta20.aumenta = false;
 	}
 	for(let r of rolls){
+		let sourceName = ef.sourceName;
 		// Target another onUseEffect ie.: @some#roll
 		if (ch.key.match(/\@([^\#]+)\#/)){
 			let m = ch.key.match(/@(.*)#(.*)/);
 			if( m[1] && m[2] ){
-				ef.sourceName = m[1];
+				sourceName = m[1];
+				if ( m[2] != r.type ) continue;
 				ch.key = m[2];
 			}
 		}
 		let p = 0;
-		if ( rollMods && ef.sourceName ){
-			p = Math.max( rollMods[r.key].findIndex(i=> i.src == ef.sourceName), 0);
+		if ( rollMods && sourceName ){
+			p = Math.max( rollMods[r.key].findIndex(i=> i.src == sourceName ), 0);
 			// p-=1;
 		} else if ( damageTypeTarget ){
 			// p = Math.max( rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget ), 0);
@@ -145,7 +147,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		// MULTIPLY CHANGES
 		else if( ch.mode == 1 ) {
 			// Only multiply from the same src
-			if( rollMods[r.key].find(m=> m.src == ef.sourceName ) ){
+			if( rollMods[r.key].find(m=> m.src == sourceName ) ){
 				let temp = r.parts.pop();
 				r.parts.push([temp[0]*(Number(ch.value)+qty-1), ""]);
 			}
@@ -161,21 +163,28 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				item.bonus.push( (Number(ch.value * qty) || ch.value) );
 			} else if(item.type == "atributo"){
 				r.parts.push( Number(ch.value * qty) || ch.value )
-			// To add one extra dice from source 1d => 2d6 + 1d6
-			} else if ( ch.key == "dano" && ch.value.match(/^1d$/)){
+			} // To add one extra dice from source 1d => 2d6 + 1d6
+			else if ( ch.key == "dano" && ch.value.match(/^1d$/)){
 				let n = parseInt(ch.value) ?? 0;
 				if( n ) rollMods[r.key][p].extraDie = n;
+			} // To add one extra dice from source 1d => 2d6 + 1d6
+			else if ( ch.key == "danoCritico" ){
+				if( r.type != 'dano' ) continue;
+				const dmgTypeG = ch.value.match(re.dmgType);
+				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
+				r.parts.push([Number(ch.value * qty) || ch.value,"danoCritico",]);
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (sourceName ?? '') } );
+				continue;
 			} else {
-				
 				const dmgTypeG = ch.value.match(re.dmgType);
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (ef.sourceName ?? '') } );
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (sourceName ?? '') } );
 				continue;
 			}
 			
-			if( rollMods && ef.sourceName ){
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, src: ef.sourceName } );
+			if( rollMods && sourceName ){
+				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, src: sourceName } );
 			}
 		}
 		// OVERRIDE CHANGES
@@ -505,7 +514,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	for ( let ef of onUseEffects ){
 		// Prepare onUseEffects chat content;
 		let ouEff = {};
-		ouEff.description = item.type !== "arma"? ef.name : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : ef.sourceName );
+		ouEff.description = item.type !== "arma"? ef.name : ( item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : (ef.sourceName) );
 		if ( ["Unknown",actor.name].includes(ouEff.description) ) ouEff.description = ef.name;
 		ouEff.cost = Number(applied[ef.id]?.custo) * applied[ef.id]?.aplica || applied[ef.id]?.custo;
 		// Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
