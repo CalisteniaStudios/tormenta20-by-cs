@@ -184,7 +184,7 @@ export default class StatblockParser extends FormApplication {
 			// log.res = {success: true, message: `Resistencias (Texto): ${res}`};
 
 		}
-		console.log(schema, log);
+		// console.log(schema, log);
 	}
 	
 	parseData(statblock, schema, itemsList, log){
@@ -331,10 +331,19 @@ export default class StatblockParser extends FormApplication {
 			log.push({success: false, message: `Imunidades a Condições e Reduções de Dano`});
 		}
 		
+
 		// Extrai Deslocamentos
 		try {
 			// let movement = statblock.toLowerCase().match(/\n(\w+ \d+m \(\d+q\))/ig).map( m => [m.match(/deslocamento|escalar|escavar|natação|voo/i)[0], m.match(/\d+/)[0]]);
-			let movement = statblock.split('\n').find(l => l.match(/^Deslocamento( \w+)? \d+m/i)).slugify().replaceAll('-',' ').replace(/^Deslocamento ([A-z]+)/i,'$1').split(',')
+			let movementTxt = statblock.split('\n').find(l => l.match(/^Deslocamento( \w+)? \d+m/i));
+			let temp = movementTxt.split('q),');
+			temp = temp.pop().trim();
+			if ( !temp.match(/\(\d+q\)/) ) {
+				schema.detalhes.movimento = temp;
+				movementTxt = movementTxt.replace(', ' + temp, '', movementTxt);
+			}
+			
+			let movement = movementTxt.slugify().replaceAll('-',' ').replace(/^Deslocamento ([A-z]+)/i,'$1').split(',')
 				.map(m=> [m.match(/\w+/)[0], m.match(/\d+/)[0]])
 			
 			// movement2.split(',').map(d => d.split(' '));
@@ -489,18 +498,30 @@ export default class StatblockParser extends FormApplication {
 			
 			let actions = Object.fromEntries( Object.entries(CONFIG.T20.abilityActivationTypes).map(([key, value]) => [value, key]) );
 			let abilities = '';
-			if ( statblock.match(/À Distância (.|\n)*/) ) {
-				abilities = statblock.match(/À Distância (.|\n)*/)[0]
-			} else if ( statblock.match(/Corpo a Corpo (.|\n)*/) ) {
-				abilities = statblock.match(/Corpo a Corpo (.|\n)*/)[0]
-			} else { // if ( statblock.match(/Deslocamento (.|\n)*/) ) {
-				abilities = statblock.match(/Deslocamento (.|\n)*/)[0]
+			let lines = statblock.split(/\n/);
+			if ( statblock.match(/À Distância .*(\n)/) ) {
+				abilities = statblock.match(/À Distância .*(\n)/)[0];
+				abilities = lines.find( l => l.match(/^À Distância /i));
+				schema.detalhes.ataquesad = abilities.replace('À Distância ','');
+			} 
+			if ( statblock.match(/Corpo a Corpo .*(\n)/) ) {
+				abilities = statblock.match(/Corpo a Corpo .*(\n)/)[0];
+				abilities = lines.find( l => l.match(/^Corpo a Corpo /i));
+				schema.detalhes.ataquescac = abilities.replace('Corpo a Corpo ','');
+			} 
+			if ( statblock.match(/Deslocamento (.|\n)*/) ) {
+				abilities = statblock.match(/Deslocamento .*(\n)/)[0];
+				abilities = lines.find( l => (l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/i)));
+				// schema.detalhes.movimento = abilities.split(',')[1] ?? '';
 			}
-			abilities = abilities.match(/((.|\n)*)\nFor /)[1];
-			abilities = abilities.replace(/(\.|\))\n/g,'</abl>#<abl>').split('#');
-			abilities.shift();
-			abilities = abilities.filter( m => !m.match(/(For ([\-|\–]?[\d|\—]+), Des)|(Perícias )|(Equipamento )|(Tesouro )/) );
-			abilities = abilities.map( m =>  m.replace(/<abl>|<\/abl>/g,'').replace(/\n/g,' ').trim());
+			// abilities = abilities.match(/((.|\n)*)\nFor /)[1];
+			// abilities = abilities.replace(/(\.|\))\n/g,'</abl>#<abl>').split('#');
+			// abilities.shift();
+			// abilities = abilities.filter( m => !m.match(/(For ([\-|\–]?[\d|\—]+), Des)|(Perícias )|(Equipamento )|(Tesouro )/) );
+			// abilities = abilities.map( m =>  m.replace(/<abl>|<\/abl>/g,'').replace(/\n/g,' ').trim());
+			
+			
+			abilities = lines.filter(l => !l.match(/ND (\d+|\d+\/\d+)$/i) && !l.match(/^Defesa \d+, Fort (\+|\-)\d+, Ref (\+|\-)\d+/i) && !l.match(/^Corpo a Corpo /i) && !l.match(/^À Distância /i) && !(l.match(/^Deslocamento /) && l.match(/\d+m (\d+q)/) ) && !l.match(/^Iniciativa (\+|\-)\d+, Percepção (\+|\-)\d+/) && !l.match(/^Deslocamento / ) && !l.match(/^Pontos de (Vida|Mana) \d+/i) && !l.match(/^Perícias \w+ (\+|\-)\d+/i) && !l.match(/^(Equipamentos|Tesouro)/) && !l.match(/^Parceiro/) && !l.match(/^For (\-?\d+|—)/i) && !(l.match(/^(Animal|Humanoide|Construto|Morto-vivo|Mosntro|Espirito)/i) && l.match(/(Minusculo|Pequeno|Médio|Grande|Enorme|Colossal)/i)));
 			abilities = abilities.map( m => {return {desc:m}});
 			abilities.forEach( (ability) => {
 				
@@ -651,7 +672,7 @@ export default class StatblockParser extends FormApplication {
 		}
 		
 		try {
-			let tesouros = statblock.replace(/\n/g,' ').match(/Tesouro .*/)[0];
+			let tesouros = statblock.replace(/\n/g,' ').match(/Tesouro .*\n/)[0];
 			tesouros = tesouros.replace(/Tesouro/,'').trim();
 			schema.detalhes.tesouro = tesouros;
 			log.push({success: true, message: `Tesouro (Texto): ${schema.detalhes.tesouro}`});

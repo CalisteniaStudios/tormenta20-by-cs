@@ -106,6 +106,11 @@ export default class ItemT20 extends Item {
 
 		const types = {magia:"spell",arma:"attack",pericia:"skill",atributo:"ability",consumivel:"consumable",poder:"power",equipamento:"equipment"};
 
+		for ( let i of this.effects.values() ) {
+			if( !i.getFlag("tormenta20","onuse") ) continue;
+			if( i.getFlag("tormenta20", "self") ) effects.push(i);
+		}
+		
 		for ( let i of this.actor.effects.values() ) {
 			if( !i.getFlag("tormenta20","onuse") ) continue;
 			let items = i.getFlag("tormenta20", 'items');
@@ -114,10 +119,6 @@ export default class ItemT20 extends Item {
 			} else if( items && items.match(name) >=0 ) effects.push(i);
 		}
 
-		for ( let i of this.effects.values() ) {
-			if( !i.getFlag("tormenta20","onuse") ) continue;
-			if( i.getFlag("tormenta20", "self") ) effects.push(i);
-		}
 		return effects;
 	}
 
@@ -1066,7 +1067,7 @@ export default class ItemT20 extends Item {
 
 		
 		for( let [key, roll] of Object.entries(this.system.rolled) ) {
-			roll.tipo = roll.dice[0]?.faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
+			roll.tipo = (roll.options.type == 'damage' || roll.dice[0]?.faces !== 20) ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
 			roll.options.title = key || "";
 			await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
 		}

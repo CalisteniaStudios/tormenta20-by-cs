@@ -302,9 +302,9 @@ export default class ActorT20 extends Actor {
 		const system = this.system;
 		const flags = this.flags;
 		let npcFlags = {};
-		let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
-		if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
-		if ( reformSheet ) npcFlags.npcReform = reformSheet;
+		// let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
+		// if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
+		// if ( reformSheet ) npcFlags.npcReform = reformSheet;
 		if ( this.getFlag("tormenta20", "showCD") === undefined ) npcFlags.showCD = true;
 
 		let nd = system.attributes.nd;
@@ -387,7 +387,7 @@ export default class ActorT20 extends Actor {
 		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
 		let atributo = rollData[defense.atributo];
 		if ( armor && armor.system.tipo == 'pesada' ) {
-			atributo = Math.min(maxAtr, atributo);
+			atributo = Math.clamped(atributo, 0, maxAtr);
 		}
 
 		rollData['base'] = this.type == 'character' ? 10 : (defense.base || 10);
@@ -432,7 +432,7 @@ export default class ActorT20 extends Actor {
 		if ( pericia.bonus.length ) parts.push(...pericia.bonus);
 		if ( pericia.pda && rollData['pda'] ) parts.push("-@pda");
 		if ( key == "furt" && rollData['tamanho'] ) parts.push("@tamanho");
-
+		
 		let atributo = rollData[pericia.atributo];
 		rollData['atributo'] = atributo || 0;
 		pericia.outros ? rollData['outros'] = pericia.outros : parts = parts.filter( f => f != '@outros');
@@ -444,7 +444,7 @@ export default class ActorT20 extends Actor {
 		if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
 		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length) parts.push("@resistencia");
 		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length) parts.push(bonuses.atr[pericia.atributo]);
-
+		
 		if ( !roll ) {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			pericia.value = parseInt(result.replace(" ","")) || 0;
@@ -990,7 +990,7 @@ export default class ActorT20 extends Actor {
 	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
 	async applyDamageV2(roll, multiplier = 1, applyRD = false) {
-		// console.log('applyDamageV2',roll);
+		// console.log('applyDamageV2', roll, multiplier );
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
@@ -1029,7 +1029,7 @@ export default class ActorT20 extends Actor {
 		for ( let [type, dmg] of Object.entries(damage) ){
 			dmg.value = Math.floor(dmg.value * multiplier);
 			dmg.vuln = Math.floor(dmg.vuln * multiplier);
-			if ( type == 'curapv' || type == 'perda' ) {
+			if ( type == 'curapv' || type == 'perda' || multiplier == -1 ) {
 				final.damage += dmg.value;
 			} else if ( type == 'curatpv' ) {
 				final.tempHP += dmg.value;

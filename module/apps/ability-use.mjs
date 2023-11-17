@@ -1,7 +1,7 @@
 import { T20 } from '../config/T20.js';
 import { simplifyRollFormula } from '../dice/dice.mjs';
 const C = T20;
-
+const CHANGEMODES = CONST.ACTIVE_EFFECT_MODES;
 /* -------------------------------------------- */
 /*  Helpers                                     */
 /* -------------------------------------------- */
@@ -59,6 +59,7 @@ const rollFields = {
  */
 const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 	// ROLLS ARRAY
+	const _chkey = ch.key;
 	const _campos = {};
 	let rolls = [];
 	let damageTypeTarget;
@@ -97,7 +98,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			if ( p == -1) continue;
 		}
 		// CUSTOM CHANGES
-		if( ch.mode == 0 ) {
+		if( ch.mode == CHANGEMODES.CUSTOM ) {
 			// To Change die => d12 (d#NUMBEROFFACES)
 			if( ch.value.match(re.faces) ){
 				rollMods[r.key][p].die = ch.value;
@@ -214,6 +215,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 	if ( ['atributo','pericia'].includes(item.type) ) {
 		mergeObject(item, _campos);
 	}
+	ch.key = _chkey;
 }
 
 const itemFields = {
@@ -351,7 +353,12 @@ const applyActorChanges = (ch, qty, ef, item, id, ad) => {
 	mergeObject(item, expandObject(_campos));
 }
 
-const effectFields = {
+const effectFields = (key) => {
+	if( ['efeito','condicao','treino'].includes(key) ) return true;
+	else if ( key.startsWith('$') ) return true;
+	return false;
+}
+const effectFields2 = {
 	efeito:			[],
 	condicao:		[],
 	treino:			[]
@@ -362,7 +369,7 @@ const effectFields = {
  * @param {Array} optEffectList   List of ActiveEffect from Item
  * @param {Array} effectList      List of ActiveEffect that will go to be applied
  */
-const applyEffectChanges = (ch, qty, ef, optEffectList, effectList) => {
+const applyEffectChanges = (ch, qty, ef, optEffectList, effectList, effectChanges) => {
 	if( ch.key === "efeito"){
 		let tef = optEffectList.find( e => e.name === ch.value );
 		// include effect from the item
@@ -377,6 +384,39 @@ const applyEffectChanges = (ch, qty, ef, optEffectList, effectList) => {
 	else if( ch.key === "condicao"){
 		let tef = game.tormenta20.conditions[ch.value.toLowerCase().trim()];
 		if ( tef ) effectList.push(new ActiveEffect(tef));
+	}
+	// Modify effect
+	else if (false && ch.key.match(/\$([^\#]+)\#/)){
+		if ( qty && !ch.value.startsWith("@") ) {
+			ch.value = new Roll(ch.value).alter(qty,0,{multiplyNumeric:true}).formula;
+		}
+		effectChanges.push(ch);
+		return;
+		let m = ch.key.match(/\$(.*)#(.*)/);
+		console.warn(m, optEffectList, effectList);
+		let _ef = effectList.find(eff => eff.name == m[1]);
+		let index = effectList.map(eff => eff.name ).indexOf(m[1]);
+		// for (const iterator of Object.entries( effectList ) ) {
+			
+		// }
+		for (const _ch of _ef.changes) {
+			if( _ch.key != m[2] ) continue;
+			if( ch.mode == CHANGEMODES.CUSTOM ) {
+			} else if( ch.mode == CHANGEMODES.MULTIPLY ) {
+			} else if( ch.mode == CHANGEMODES.ADD ) {
+			} else if( ch.mode == CHANGEMODES.DOWNGRADE ) {
+			} else if( ch.mode == CHANGEMODES.UPGRADE ) {
+			} else if( ch.mode == CHANGEMODES.OVERRIDE ) {
+				_ch.value = ch.value;
+				console.log(ch.value);
+			}
+		}
+		// effectList = effectList.filter(eff => eff.name != m[1]);
+		effectList.pop();
+		effectList.push(_ef);
+		
+		// effectList[index] = _ef;
+		console.log(effectList.find(ef => ef.name == m[1]));
 	}
 }
 
@@ -489,6 +529,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	const optEffectList = item.effects.filter( ef => (ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && ef.disabled) || (!ef.flags.tormenta20.onuse && ef.disabled));
 
 	// 
+	const effectChanges = [];
 	const changes = [];
 	[effectList,optEffectList].forEach(function(list){
 		list.forEach(function(ef, index){
@@ -542,7 +583,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 			if( ch.key.match(/^\?/) ) continue;
 			if (itemFields[ch.key]) applyItemChanges( ch, ouEff.qty, ef, item, id );
 			else if (actorFields[ch.key]) applyActorChanges( ch, ouEff.qty, ef, item, id, ad );
-			else if (effectFields[ch.key]) applyEffectChanges( ch, ouEff.qty, ef, optEffectList, effectList );
+			else if (effectFields(ch.key)) applyEffectChanges( ch, ouEff.qty, ef, optEffectList, effectList, effectChanges);
 			else applyRollChanges( ch, ouEff.qty, ef, item, id, rollMods, options );
 			
 			changes.forEach(function(efch){
@@ -607,7 +648,21 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 			// tempEffect.duration ??= undefined; mergeObject(ef.duration, duration);
 			tempEffect.disabled = false;
 			tempEffect.changes = changes[index] ?? ef.changes;
-			// tempEffect.changes = tempEffect.changes.filter(ch => ch.key.match(/^system./i));
+			for (const efch of effectChanges) {
+				let m = efch.key.match(/\$(.*)#(.*)/);
+				for (const _ch of tempEffect.changes) {
+					if( _ch.key != m[2] ) continue;
+					if( efch.mode == CHANGEMODES.CUSTOM ) {
+					} else if( efch.mode == CHANGEMODES.MULTIPLY ) {
+					} else if( efch.mode == CHANGEMODES.ADD ) {
+					} else if( efch.mode == CHANGEMODES.DOWNGRADE ) {
+					} else if( efch.mode == CHANGEMODES.UPGRADE ) {
+					} else if( efch.mode == CHANGEMODES.OVERRIDE ) {
+						_ch.value = efch.value;
+					}
+				}
+			}
+			
 			if( tempEffect.changes ){
 				tempEffect.changes.sort((c,d)=> !Number(c.value) || c.key.match(/efeito.\w+/) ? 1 : -1 );
 				tempEffect.changes = tempEffect.changes.reduce((object, ch) => {

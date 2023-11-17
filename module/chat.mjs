@@ -1,3 +1,4 @@
+import ChoicesDialog from "./apps/choices-dialog.mjs";
 import ItemT20 from "./documents/item.mjs";
 
 	/* -------------------------------------------- */
@@ -13,7 +14,7 @@ import ItemT20 from "./documents/item.mjs";
  *
  * @return {Array} The extended options Array including new context choices
  */
-export const addChatMessageContextOptions = function (html, options) {
+export const  addChatMessageContextOptions = function (html, options) {
 	let canApply = li => {
 		const message = game.messages.get(li.data("messageId"));
 		return ( li.find(".roll--dano").length || message?.isRoll ) && message?.isContentVisible && canvas.tokens?.controlled.length;
@@ -181,6 +182,17 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 		const message = game.messages.get(chatCardId);
 	}
 
+	function _callApplyDamage( roll, multiplier ){
+		if (canvas.tokens.controlled.length) {
+			return Promise.all(canvas.tokens.controlled.map(tk => {
+				if( roll ) return tk.actor.applyDamageV2(roll, multiplier, true);
+				// return tk.actor.applyDamage(amount, multiplier, true);
+			}));
+		} else {
+			ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
+		}
+	}
+
 	/**
 	* Get rolled damage value and call Actor apply damage Method
 	*/
@@ -210,13 +222,43 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 	* Apply rolled dice damage to the token or tokens which are currently controlled.
 	* This allows for damage to be scaled by a multiplier to account for healing, critical hits, or resistance
 	*
-	* @param {HTMLElement} message The chat entry which contains the roll data
+	* @param {HTMLElement} li The chat entry which contains the roll data
 	* @param {Number} multiplier A damage multiplier to apply to the rolled damage.
 	* @return {Promise}
 	*/
-	function applyChatCardDamage(message, multiplier) {
+	async function applyChatCardDamage(li, multiplier) {
+		const message = game.messages.get( li.data('messageId') );
+		const rolls =  message.rolls.filter( r => r.options.type == 'damage' );
+		let roll;
+		if ( rolls.length > 1 ) {
+			let options = rolls.map(r => `<option value="${r.options.title}">${r.options.title} (${r.total})</option>`)
+			let chosen;
+			await new Dialog({
+				title: "Escolha a rolagem",
+				content: `<select name="roll" style="width:30%; margin:10px 35%;">${options.join()}</select>`,
+				buttons: {
+					yes: {
+						label: "Confirma",
+						callback: html => {
+							chosen = html.find("[name=roll]")[0].value;
+							roll = rolls.find(r => r.options.title == chosen );
+							if ( roll ) _callApplyDamage( roll , multiplier );
+						}
+					},
+					no: { label: "Cancela" }
+				}
+			}).render(true);
+			return;
+		} else { 
+			roll = rolls.pop();
+			if ( roll ) _callApplyDamage( roll , multiplier );
+		}
+	}
+
+	function applyChatCardDamageOld(message, multiplier) {
 		if (canvas.tokens.controlled.length) {
-			const amount = message.find('.roll--dano, .dice-roll').find('.dice-total').text();
+			let roll = message.find('.roll--dano') ?? message.find('.dice-roll');
+			const amount = roll.find('.dice-total').text();
 			return Promise.all(canvas.tokens.controlled.map(t => {
 				const a = t.actor;
 				return a.applyDamage(amount, multiplier, true);

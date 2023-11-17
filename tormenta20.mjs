@@ -108,7 +108,6 @@ Hooks.once("init", async function () {
 
 	// T20 cone RAW should be 53.13 degrees
 	// CONFIG.MeasuredTemplate.defaults.angle = 53.13;
-
 	
 	// Register System Settings
 	SystemSettings();
@@ -124,45 +123,7 @@ Hooks.once("init", async function () {
 	CONFIG.Dice.rolls.D20Roll = dice.d20Roll;
 	CONFIG.Dice.rolls.DamageRoll = dice.damageRoll;
 	CONFIG.Dice.rolls.RollT20 = RollT20;
-	
-
-	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("tormenta20", ActorSheetT20Character, {
-		types: ["character"],
-		makeDefault: true,
-		label: game.i18n.localize("T20.CharacterSheet"), //"Ficha de Personagem"
-	});
-	Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
-		types: ["character"],
-		makeDefault: false,
-		label: game.i18n.localize("T20.CharacterSheetTabbed"), //"Ficha de Personagem - Abas"
-	});
-	
-	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
-		types: ["npc"],
-		makeDefault: true,
-		label: game.i18n.localize("T20.NPCSheet"), //"Ficha de NPC"
-	});
-
-	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
-	// 	types: ["npc"],
-	// 	makeDefault: false,
-	// 	label: game.i18n.localize("T20.CharacterBuilderSheet"), //"Progressão de Personagem"
-	// });
-	
-	Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
-		types: ["simple"],
-		makeDefault: true,
-		label: game.i18n.localize("T20.SimpleActorSheet"), //"Ficha de Simple"
-	});
-	
-	
-	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("tormenta20", ItemSheetT20, {
-		makeDefault: true,
-	});
-	
+		
 	// DATA MODEL
 	CONFIG.Actor.dataModels["character"] = systemActorCharacterData;
 	CONFIG.Actor.dataModels["npc"] = systemActorNPCData;
@@ -176,15 +137,47 @@ Hooks.once("init", async function () {
 	CONFIG.Item.dataModels["poder"] = systemItemPowerData;
 	CONFIG.Item.dataModels["tesouro"] = systemItemLootData;
 	
+	
+	// Register sheet application classes
+	Actors.unregisterSheet("core", ActorSheet);
+	Actors.registerSheet("tormenta20", ActorSheetT20Character, {
+		types: ["character"],
+		makeDefault: true,
+		label: 'T20.CharacterSheet', //"Ficha de Personagem"
+	});
+	Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
+		types: ["character"],
+		makeDefault: false,
+		label: 'T20.CharacterSheetTabbed', //"Ficha de Personagem - Abas"
+	});
+	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
+		types: ["npc"],
+		makeDefault: true,
+		label: "T20.NPCSheet"
+	});
+
+	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
+	// 	types: ["npc"],
+	// 	makeDefault: false,
+	// 	label: 'T20.CharacterBuilderSheet', //"Progressão de Personagem"
+	// });
+	
+	Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
+		types: ["simple"],
+		makeDefault: true,
+		label: 'T20.SimpleActorSheet', //"Ficha de Simple"
+	});
+	
+	
+	Items.unregisterSheet("core", ItemSheet);
+	Items.registerSheet("tormenta20", ItemSheetT20, {
+		makeDefault: true,
+	});
 
 	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {makeDefault :true});
 
-	// SET VISION MODES
-	// CONFIG.Canvas.visionModes = 
-
-	
-
-
+	// Core Application Overrides
+  // CONFIG.ui.compendium = CompendiumDirectoryT20;
 	// Preload Handlebars Templates
 	preloadHandlebarsTemplates();
 	registerHandlebarsHelpers();

@@ -30,10 +30,10 @@
 			<ol class="roll-parts form-group">
 				<li class="roll-part flexrow">
 					<input type="hidden" name="system.rolls.{{key}}.parts.0.0" value="1d20" />
-					{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
+					
 					<select name="system.rolls.{{key}}.parts.1.0">
 						{{#select (lookup (lookup roll.parts 1) 0) }}
-							<option value="">{{ localize "T20.None" }}</option>
+							<!-- <option value="">{{ localize "T20.None" }}</option> -->
 							<optgroup label="Pardrões">
 								<option value="luta">{{ localize (lookup ../config.pericias 'luta')}}</option>
 								<option value="pont">{{ localize (lookup ../config.pericias 'pont')}}</option>
@@ -56,10 +56,6 @@
 							{{/each}}
 						{{/select}}
 					</select>
-					{{else}}
-					<input type="hidden" name="system.rolls.{{key}}.parts.1.0" value="" />
-					<input type="hidden" name="system.rolls.{{key}}.parts.1.1" value="" />
-					{{/if}}
 					<input type="text" name="system.rolls.{{key}}.parts.2.0" value="{{lookup (lookup roll.parts 2) 0}}" placeholder="Bônus" />
 				</li>
 				{{#if ready}}

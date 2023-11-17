@@ -193,6 +193,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 	 * Toggle NPC Sheet
 	 */
 	 async _toggleNPCSheet(){
+		return;
 		// De-register the current sheet class
 		const sheet = this.object.sheet;
 		await sheet.close();

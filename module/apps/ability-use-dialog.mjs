@@ -93,8 +93,8 @@ export default class AbilityUseDialog extends Dialog {
 			case "consumivel":
 				utype = relate[item.type];
 				aprimoramentos = [
+					...item.effects.filter(ae => filterAE( ae , ['onuse', 'self']) ),
 					...item.actor.effects.filter(ae => filterAE( ae , ['onuse', utype]) ),
-					...item.effects.filter(ae => filterAE( ae , ['onuse', 'self']) )
 				];
 				break;
 		}
