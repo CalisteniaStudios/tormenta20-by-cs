@@ -653,9 +653,9 @@
   "T20.SpecialMaterialKaijuPlating": "Couraça de Kaiju",
   "T20.SpecialMaterialBuletteLeather": "Couro de Bulette",
   "T20.SpecialMaterialSunCrystal": "Cristal de Sol",
-  "T20.SpecialMaterialIronCoral": "Ianajuste",
+  "T20.SpecialMaterialIronCoral": "Ferro Coral",
   "T20.SpecialMaterialKrakenFeather": "Pena de Kraken",
-  "T20.SpecialMaterialRazzaChitin": "Quitina Razza",
+  "T20.SpecialMaterialRazzaChitin": "Quitina Quelicerossauro",
 
   "T20.WeaponUpgradesAccurate": "Certeira",
   "T20.WeaponUpgradesPungent": "Pungente",
@@ -668,7 +668,7 @@
   "T20.WeaponUpgradesSpecialMaterial": "Material especial",
   "T20.WeaponUpgradesScope": "Mira Telescópica",
   "T20.WeaponUpgradesPrecise": "Precisa",
-  "T20.ItemUpgradesPenetrating": "Penetrante",
+  "T20.WeaponUpgradesPenetrating": "Penetrante",
 	
   "T20.ArmorUpgradesAdjusted": "Ajustada",
   "T20.ArmorUpgradesUnderMeasure": "Sob medida",
@@ -708,7 +708,7 @@
   "T20.WeaponUpgradesTooltipSpecialMaterial": "A arma, armadura, escudo ou item esotérico é feito de, ou banhado com, um material especial. Cada material fornece um benefício, cumulativo com outros benefícios de melhorias, mas possui um preço adicional que deve ser pago além do preço da melhoria. Veja a seção a seguir para a descrição dos materiais especiais. Fabricar um item de material especial é uma melhoria porque materiais especiais exigem um trabalho mais complexo do que materiais comuns.",
   "T20.WeaponUpgradesTooltipScope": "Aumenta o alcance da arma em uma categoria (de curto para médio, de médio para longo) e o alcance da habilidade Ataque Furtivo para médio. Esta melhoria só pode ser aplicada em armas de disparo (exceto fundas).",
   "T20.WeaponUpgradesTooltipPrecise": "Cuidado especial foi tomado ao temperar o aço desta arma, para que seu fio se mantenha sempre como uma navalha. A margem de ameaça aumenta em 1 ponto. Uma arma não pode ser precisa e maciça.",
-  "T20.WeaponUpgradesTooltipPenetrating": "A arma ignora 5 pontos da redução de dano. Pré-requisito: cruel.",
+  "T20.WeaponUpgradesTooltipPenetrating": "Ameaças de Arton pg. 399",
 
   "T20.ArmorUpgradesTooltipAdjusted": "Feito com peças medidas com precisão, o item tem a sua penalidade de armadura diminuída em 1.",
   "T20.ArmorUpgradesTooltipUnderMeasure": "Embora muitas armaduras sejam feitas especificamente para um usuário, esta passou por um período extenso de ajustes e refinamento, adequando-se com perfeição ao seu corpo. Reduz a penalidade por armadura em 2, mas apenas para o usuário específico (para outros, comporta-se como um item ajustado). Pré-requisito: Ajustada.",
@@ -733,7 +733,7 @@
   "T20.ItemUpgradesTooltipGemsStudded": "É fácil ser persuadido por alguém opulento o bastante para ostentar um item cravejado de gemas. Fornece +2 em Enganação. Assim como um item banhado a ouro, um item cravejado de gemas pode atrair a cobiça de ladrões.",
   "T20.ItemUpgradesTooltipDiscreet": "O item é disfarçado como outro item inócuo (como um florete escondido em uma bengala) ou modificado para ser telescópico (podendo se dobrar em si mesmo para ocupar menos espaço). O item ocupa –1 espaço (mínimo 1) e fornece +5 em testes de Ladinagem para ser ocultado.",
   "T20.ItemUpgradesTooltipMacabre": "Um item macabro é pintado com sangue seco, esculpido na forma de uma caveira ou decorado com pedaços de orelhas, dedos e olhos. Essa aparência assustadora fornece +2 em testes de Intimidação, mas impõe uma penalidade de –2 em testes de Diplomacia.",
-  "T20.ItemUpgradesTooltipMultifunctional": "Esta melhoria só pode ser aplicada em um item que modifica uma perícia (fornecendo bônus ou reduzindo penalidade). Escolha outra perícia que usa o mesmo atributo-chave; o item passa a funcionar também para a segunda perícia escolhida (mas não se aplica a testes de ataque).",
+  "T20.ItemUpgradesTooltipMultifunctional": "Ameaças de Arton pg. 399",
 
   
   "T20.S10": "/* ------------ Item Enchants ------------ */",

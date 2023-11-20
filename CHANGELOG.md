@@ -2,10 +2,12 @@
 
 ## Versão 1.4.203
 - Atualizado: Perícias de Ameaças usam o cálculo padrão, exceto ataques e resistências;
-- Atualizado: Rolagem de Ataque das Armas de Ameaças possuem o campo de perícia para propósito de calcular modificadores e condiçõess.
+- Atualizado: Rolagem de Ataque das Armas de Ameaças possuem o campo de perícia para propósito de calcular modificadores e condições.
 - Atualizado: Ameaças do Compêndio tiveram suas perícias corrigidas para o novo cálculo.
 - Corrigido (Eu acho): Efeito de uso de `@Golpe Divino#dano`;
 - Corrigido: Armadura pesada não soma o atributo caso seja negativo.
+- Corrigido: Aplicar dano pelo menu de contexto de um mensagem não identificava rolagem de dano com d20;
+- Adicionado: Aplicar dano pelo menu de contexto exibira um popup de seleção de rolagem quando mais de uma rolagem de dano for identificada.
 - Adicionado: Resistencia a Dano Excecão - Casos como 10/luz reduz dano de todas as fontes exceto luz;
 - Adicionado: Atributo de Carga pode ser alterado com `system.attributes.carga.atributo` `Sobrepor` `des`;
 - Adicionado: Em efeitos de uso `danoCritico` `Adicionar` `10` adiciona um bônus de dano somente quando o ataque é um acerto crítico;

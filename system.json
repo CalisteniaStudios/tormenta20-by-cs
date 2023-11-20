@@ -4,10 +4,10 @@
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
   "version": "1.4.203",
-  "minimumCoreVersion": "11",
+  "minimumCoreVersion": "11.313",
   "compatibleCoreVersion": "11",
   "compatibility": {
-    "minimum": "11",
+    "minimum": "11.313",
     "verified": "11",
     "maximum": "11"
   },

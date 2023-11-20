@@ -787,7 +787,7 @@ T20.weaponUpgrades = {
 	"specialmaterial": "T20.WeaponUpgradesSpecialMaterial",
 	"scope": "T20.WeaponUpgradesScope",
 	"precise": "T20.WeaponUpgradesPrecise",
-	"penetrating": "T20.ItemUpgradesPenetrating",
+	"penetrating": "T20.WeaponUpgradesPenetrating",
 }
 T20.weaponUpgradesTooltips = {
 	"accurate": "T20.WeaponUpgradesTooltipAccurate",
