@@ -123,6 +123,18 @@ export const SystemSettings = function() {
 	});
 
 	/**
+	 * Option to automatic spend mana on ability use
+	 */
+	game.settings.register("tormenta20", "foeSheetCompactSpell", {
+		name: game.i18n.localize("T20.SettingFoeSheetCompactSpell"),
+		hint: game.i18n.localize("T20.SettingFoeSheetCompactSpellHint"),
+		scope: "world",
+		config: true,
+		default: true,
+		type: Boolean
+	});
+
+	/**
 	 * Register diagonal movement rule setting
 	 */
 	game.settings.register("tormenta20", "diagonalMovement", {

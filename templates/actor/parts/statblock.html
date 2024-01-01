@@ -145,29 +145,48 @@
 		</li>
 		{{/each}}
 		{{/if}}
-	</ul>
-	{{#if actor.magias}}
-	<ul class="item-list" style="margin: 0;">
-		<li class="item flexrow">
-			<div class="item-name magias"><label>{{localize 'T20.Spells'}}: </label>
-				<ol class="item-list">
-				{{#each actor.magias as |circulo i|}}
-					{{#if circulo.spells}}
-					<li class="item">
-						{{i}}º —
-						<ol class="item-list">
-						{{#each circulo.spells as |m index|}}
-							<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>{{#unless @last}},{{else}}<i>;</i>{{/unless}}
-						{{/each}}
-						</ol>
-					</li>
-					{{/if}}
-				{{/each}}
-				</ol>
-				{{localize 'T20.AbbreviationDC'}} {{system.attributes.cd}}
+		{{#unless compactSpells }}
+		{{#if actor.magias}}
+		{{#each actor.magias as |circulo i|}}
+		{{#each circulo.spells as |m index|}}
+		<li class="item flexrow spell-desc" data-item-id="{{m._id}}">
+			<div class="item-name">
+				<span class="list-symbol">•</span>
+				<span class="rollable magia-rollable" data-item-id="{{m._id}}">
+					<i>{{m.name}}</i>
+					{{{stripTagsInline m.system.description.value}}}
+				</span>
 			</div>
 		</li>
+		{{/each}}
+		{{/each}}
+		{{/if}}
+		{{/unless}}
 	</ul>
+	{{#if compactSpells }}
+		{{#if actor.magias}}
+		<ul class="item-list" style="margin: 0;">
+			<li class="item flexrow">
+				<div class="item-name magias"><label>{{localize 'T20.Spells'}}: </label>
+					<ol class="item-list">
+					{{#each actor.magias as |circulo i|}}
+						{{#if circulo.spells}}
+						<li class="item">
+							{{i}}º —
+							<ol class="item-list">
+							{{#each circulo.spells as |m index|}}
+								<span class="item rollable magia-rollable" data-item-id="{{m._id}}"><i>{{m.name}}</i></span>{{#unless @last}},{{else}}<i>;</i>{{/unless}}
+							{{/each}}
+							</ol>
+						</li>
+						{{/if}}
+					{{/each}}
+					</ol>
+					{{localize 'T20.AbbreviationDC'}} {{system.attributes.cd}}
+				</div>
+			</li>
+		</ul>
+		{{/if}}
 	{{/if}}
 	<hr>
 </div>

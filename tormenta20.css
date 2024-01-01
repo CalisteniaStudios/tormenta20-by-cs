@@ -2512,6 +2512,14 @@
 .tormenta20.sheet.actor.npc .statblock .item-list .item-name h4.item-name {
   margin: 0;
 }
+.tormenta20.sheet.actor.npc .statblock .item-list .item.spell-desc .item-name {
+  position: relative;
+  padding: 0 0 0 10px;
+}
+.tormenta20.sheet.actor.npc .statblock .item-list .item.spell-desc .list-symbol {
+  position: absolute;
+  left: 0px;
+}
 .tormenta20.sheet.actor.npc .statblock .item-list .magias .item-list {
   display: inline;
 }

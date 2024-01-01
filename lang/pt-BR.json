@@ -1121,6 +1121,8 @@
   "T20.SettingSheetTemplateTabbed": "Layout VTT (abas)",
   "T20.SettingAutomaticManaSpend": "Gasto de Mana Automático",
   "T20.SettingAutomaticManaSpendHint": "Ao utilizar um poder ou magia, a mana do personagem é gasta automaticamente",
+  "T20.SettingFoeSheetCompactSpell": "Lista de Magias Compactas",
+  "T20.SettingFoeSheetCompactSpellHint": "Ameaças: Mostrar lista de magias compactas",
   "T20.SettingDiagonalMovement": "Movimento Diagonal",
   "T20.SettingDiagonalMovementHint": "Configura qual regra de movimento diagonal será usada no sistema.",
   "T20.SettingDiagonalMovementMANHATTAN": "Padrão (3m)",

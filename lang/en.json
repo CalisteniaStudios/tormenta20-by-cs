@@ -1104,6 +1104,9 @@
   "T20.SettingSheetTemplateTabbed": "VTT layout (tabs)",
   "T20.SettingAutomaticManaSpend": "Automatic Mana Spend",
   "T20.SettingAutomaticManaSpendHint": "When using a power or spell, the character's mana is spent automatically",
+  "T20.SettingFoeSheetCompactSpell": "Compact Spell List",
+  "T20.SettingFoeSheetCompactSpellHint": "Foes: Show compact spell list",
+  
   "T20.SettingDiagonalMovement": "Diagonal Movement",
   "T20.SettingDiagonalMovementHint": "Sets which diagonal movement rule will be used in the system.",
   "T20.SettingDiagonalMovementMANHATTAN": "Default (3m)",

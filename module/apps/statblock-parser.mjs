@@ -179,7 +179,7 @@ export default class StatblockParser extends FormApplication {
 		}
 		// GET RESISTANCES
 		if( line ) {
-			res = res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-]?\d+[,]?)/g,'').trim() || '';
+			res = res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-]?\d+[,]?)/ig,'').trim() || '';
 			schema.detalhes.resistencias = res;
 			// log.res = {success: true, message: `Resistencias (Texto): ${res}`};
 
@@ -207,7 +207,7 @@ export default class StatblockParser extends FormApplication {
 			const cRole = Object.fromEntries( Object.entries(CONFIG.T20.creatureRoles).map(([key, value]) => [value, key]) );
 			const cSize = Object.fromEntries( Object.entries(CONFIG.T20.actorSizes).map(([key, value]) => [value, key]) );
 	
-			let types = statblock.capitalize().match(/.* (especial|solo|lacaio)/i)[0].replace(/Iniciativa|\(|\)/g,'').trim().split(' ').map( m => cType[m] || cRole[m.capitalize()] || cSize[m] || m );
+			let types = statblock.capitalize().match(/.* (especial|solo|lacaio)/i)[0].replace(/Iniciativa|\(|\)/ig,'').trim().split(' ').map( m => cType[m] || cRole[m.capitalize()] || cSize[m] || m );
 			for (let t of types) {
 				if( CONFIG.T20.creatureTypes[t] ) {
 					schema.detalhes.tipo = t;
@@ -230,7 +230,7 @@ export default class StatblockParser extends FormApplication {
 		
 		// Extrai atributos
 		try {
-			let abilities = statblock.match(/For ([\-|\–]?[\d|\—]+), *[^\n]*/);
+			let abilities = statblock.match(/For ([\-|\–]?[\d|\—]+), *[^\n]*/i);
 			abilities = abilities[0].toLowerCase().match(/(\w+) ([\-|\–]?[\d|\—]+)/g).map( m => {return {[m.split(' ')[0]]: m.split(' ')[1]}});
 			abilities = Object.assign({}, ...abilities);
 			msg = '';
@@ -246,8 +246,8 @@ export default class StatblockParser extends FormApplication {
 
 		// Extrai Recursos
 		try {
-			let hp = statblock.match(/Pontos de Vida (?<value>\d+)/);
-			let mp = statblock.match(/Pontos de Mana (?<value>\d+)/);
+			let hp = statblock.match(/Pontos de Vida (?<value>\d+)/i);
+			let mp = statblock.match(/Pontos de Mana (?<value>\d+)/i);
 			if ( hp && hp.groups ) {
 				schema.attributes.pv.value = parseInt(hp.groups.value);
 				schema.attributes.pv.max = parseInt(hp.groups.value);
@@ -268,7 +268,7 @@ export default class StatblockParser extends FormApplication {
 
 		// Extrai Defesa
 		try {
-			let def = statblock.match(/Defesa (?<value>\d+)/).groups;
+			let def = statblock.match(/Defesa (?<value>\d+)/i).groups;
 			schema.attributes.defesa.base = def.value || 10;
 			log.push({success: true, message: `Defesa: ${schema.attributes.defesa.base}`});
 		} catch (error) {
@@ -278,14 +278,14 @@ export default class StatblockParser extends FormApplication {
 		
 		// Extrai Resistências
 		try {
-			let res = statblock.replace(/\n/g,' ').match(/Defesa .* Pontos de Vida/);
-			res = res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-|\–]?\d+[,]?|Pontos de Vida)/g,'').trim() || '';
+			let res = statblock.replace(/\n/g,' ').match(/Defesa .* Pontos de Vida/i);
+			res = res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-|\–]?\d+[,]?|Pontos de Vida)/ig,'').trim() || '';
 			schema.detalhes.resistencias = res;
 			log.push({success: true, message: `Resistências (Texto): ${schema.detalhes.resistencias}`});
 			
 			res = res.replace(/ |,/g,'_').slugify().replace(/_/g,' ');
 			res = res.replace(/imunidade|reducao|resistencia|vulnerabilidade/ig, (match) => '#' + match).split('#').filter(Boolean).map(m => m.trim());
-			res = res.map( m => {return {[m.match(/imunidade|reducao|resistencia|vulnerabilidade/)]: m.split(' ')}});
+			res = res.map( m => {return {[m.match(/imunidade|reducao|resistencia|vulnerabilidade/i)]: m.split(' ')}});
 			
 			let ic = [];
 			let rd = [];
@@ -364,8 +364,8 @@ export default class StatblockParser extends FormApplication {
 		// Extrai Sentidos percepção às cegas
 		try {
 			let senses = Object.fromEntries( Object.entries(CONFIG.T20.senses).map(([key, value]) => [value.slugify(), key]) );
-			let sentidos = statblock.replace(/\n/g,' ').match(/Iniciativa .* Defesa/)[0];
-			sentidos = sentidos.replace(/Defesa/,'');
+			let sentidos = statblock.replace(/\n/g,' ').match(/Iniciativa .* Defesa/i)[0];
+			sentidos = sentidos.replace(/Defesa/i,'');
 			sentidos = sentidos.split(',').map( m => m.trim().slugify() );
 			sentidos = sentidos.filter( f => senses[f] ).map( m => senses[m] );
 			schema.attributes.sentidos.value = sentidos;
@@ -385,7 +385,7 @@ export default class StatblockParser extends FormApplication {
 			sks['Ref'] = 'refl';
 			sks['Von'] = 'vont';
 			// this.toRegExpOr(sks);
-			let skills = statblock.replace(/\n/g,' ').replace('–','-').match(/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/g);
+			let skills = statblock.replace(/\n/g,' ').replace('–','-').match(/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/ig);
 			skills = skills.map( m => {return {[sks[m.split(' ')[0]]]: {value: parseInt(m.split(' ')[1])} }});
 			skills = Object.assign({}, ...skills);
 			msg = '';
@@ -499,18 +499,18 @@ export default class StatblockParser extends FormApplication {
 			let actions = Object.fromEntries( Object.entries(CONFIG.T20.abilityActivationTypes).map(([key, value]) => [value, key]) );
 			let abilities = '';
 			let lines = statblock.split(/\n/);
-			if ( statblock.match(/À Distância .*(\n)/) ) {
-				abilities = statblock.match(/À Distância .*(\n)/)[0];
+			if ( statblock.match(/À Distância .*(\n)/i) ) {
+				abilities = statblock.match(/À Distância .*(\n)/i)[0];
 				abilities = lines.find( l => l.match(/^À Distância /i));
 				schema.detalhes.ataquesad = abilities.replace('À Distância ','');
 			} 
-			if ( statblock.match(/Corpo a Corpo .*(\n)/) ) {
-				abilities = statblock.match(/Corpo a Corpo .*(\n)/)[0];
+			if ( statblock.match(/Corpo a Corpo .*(\n)/i) ) {
+				abilities = statblock.match(/Corpo a Corpo .*(\n)/i)[0];
 				abilities = lines.find( l => l.match(/^Corpo a Corpo /i));
 				schema.detalhes.ataquescac = abilities.replace('Corpo a Corpo ','');
 			} 
-			if ( statblock.match(/Deslocamento (.|\n)*/) ) {
-				abilities = statblock.match(/Deslocamento .*(\n)/)[0];
+			if ( statblock.match(/Deslocamento (.|\n)*/i) ) {
+				abilities = statblock.match(/Deslocamento .*(\n)/i)[0];
 				abilities = lines.find( l => (l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/i)));
 				// schema.detalhes.movimento = abilities.split(',')[1] ?? '';
 			}
@@ -521,7 +521,7 @@ export default class StatblockParser extends FormApplication {
 			// abilities = abilities.map( m =>  m.replace(/<abl>|<\/abl>/g,'').replace(/\n/g,' ').trim());
 			
 			
-			abilities = lines.filter(l => !l.match(/ND (\d+|\d+\/\d+)$/i) && !l.match(/^Defesa \d+, Fort (\+|\-)\d+, Ref (\+|\-)\d+/i) && !l.match(/^Corpo a Corpo /i) && !l.match(/^À Distância /i) && !(l.match(/^Deslocamento /) && l.match(/\d+m (\d+q)/) ) && !l.match(/^Iniciativa (\+|\-)\d+, Percepção (\+|\-)\d+/) && !l.match(/^Deslocamento / ) && !l.match(/^Pontos de (Vida|Mana) \d+/i) && !l.match(/^Perícias \w+ (\+|\-)\d+/i) && !l.match(/^(Equipamentos|Tesouro)/) && !l.match(/^Parceiro/) && !l.match(/^For (\-?\d+|—)/i) && !(l.match(/^(Animal|Humanoide|Construto|Morto-vivo|Mosntro|Espirito)/i) && l.match(/(Minusculo|Pequeno|Médio|Grande|Enorme|Colossal)/i)));
+			abilities = lines.filter(l => !l.match(/ND (\d+|\d+\/\d+)$/i) && !l.match(/^Defesa \d+, Fort (\+|\-)\d+, Ref (\+|\-)\d+/i) && !l.match(/^Corpo a Corpo /i) && !l.match(/^À Distância /i) && !(l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/) ) && !l.match(/^Iniciativa (\+|\-)\d+, Percepção (\+|\-)\d+/i) && !l.match(/^Deslocamento /i) && !l.match(/^Pontos de (Vida|Mana) \d+/i) && !l.match(/^Perícias \w+ (\+|\-) ?\d+/i) && !l.match(/^(Equipamento|Equipamentos|Tesouro)/i) && !l.match(/^Parceiro/i) && !l.match(/^For (\-?\d+|—)/i) && !(l.match(/^(Animal|Humanoide|Construto|Morto-vivo|Mosntro|Espirito)/i) && l.match(/(Minusculo|Pequeno|Médio|Grande|Enorme|Colossal)/i)));
 			abilities = abilities.map( m => {return {desc:m}});
 			abilities.forEach( (ability) => {
 				
@@ -580,12 +580,12 @@ export default class StatblockParser extends FormApplication {
 		let msg = '';
 		try {
 			// Filtra as Linhas de Corpo a Corpo|À Distância;
-			let armaData = statblock.match(/((Corpo a Corpo|À Distância) [^\.]*)/);
+			let armaData = statblock.match(/((Corpo a Corpo|À Distância) [^\.]*)/i);
 			if ( !armaData[0] ) return;
 			armaData = armaData[0];
 			
 			// Limpa e separa as armas;
-			armaData = armaData.replace(/Corpo a Corpo|À Distância/g, '').replace(/\n/g,' ').replace(' e ', '|').replace(' ou ', '|').replace('), ', ')|').trim().split('|');
+			armaData = armaData.replace(/Corpo a Corpo|À Distância/ig, '').replace(/\n/g,' ').replace(' e ', '|').replace(' ou ', '|').replace('), ', ')|').trim().split('|');
 	
 			// Extrai os dados das armas
 			armaData = armaData.map( arma => arma.match(/(?<name>.*[^\+|\-]) (?<atk>[+|-]\d+) \((?<dmg>.*)\)/).groups );
@@ -646,7 +646,7 @@ export default class StatblockParser extends FormApplication {
 	parseTreasure(statblock, schema, itemsList, log){
 		let msg = '';
 		try {
-			let equipamentos = statblock.replace(/\n/g,' ').match(/Equipamento[s]? .* Tesouro/);
+			let equipamentos = statblock.replace(/\n/g,' ').match(/Equipamento[s]? .* Tesouro/i);
 			equipamentos = equipamentos ? equipamentos[0] : false;
 			if ( equipamentos ) {
 				equipamentos = equipamentos.replace(/Equipamento|Equipamentos|Tesouro/ig, '').split(',').map( m => m.replace('.','').trim());
@@ -672,8 +672,8 @@ export default class StatblockParser extends FormApplication {
 		}
 		
 		try {
-			let tesouros = statblock.replace(/\n/g,' ').match(/Tesouro .*\n/)[0];
-			tesouros = tesouros.replace(/Tesouro/,'').trim();
+			let tesouros = statblock.replace(/\n/g,' ').match(/Tesouro .*\n/i)[0];
+			tesouros = tesouros.replace(/Tesouro/i,'').trim();
 			schema.detalhes.tesouro = tesouros;
 			log.push({success: true, message: `Tesouro (Texto): ${schema.detalhes.tesouro}`});
 		} catch (error) {

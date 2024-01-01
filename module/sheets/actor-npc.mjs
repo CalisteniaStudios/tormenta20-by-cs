@@ -45,7 +45,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 				if ( attr.cr == '' ) sheetData.unbuilded = true;
 			}
 		}
-		
+		sheetData.compactSpells = game.settings.get("tormenta20", "foeSheetCompactSpell");
 		
 		let resText = {
 			imu: [],
@@ -199,10 +199,17 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			item.img = item.img || CONST.DEFAULT_TOKEN;
 			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
 			item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
-				secrets: item.isOwner,
+				secrets: true,
 				async: true,
 				relativeTo: item
 			});
+			if ( item.type == 'magia' ) {
+				let element = document.createElement('div');
+				element.innerHTML = item.system.description.value;
+				let description = element.querySelector('.secret').innerText;
+				description = description.replace(item.name, '');
+				item.system.description.value = `<span>${description}</span>`;
+			}
 			
 			if ( !Array.isArray(arr) ) arr = await arr;
 			// Classify items into types
@@ -238,6 +245,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		};
 		const nPreparadas = 0;
 		let maiorCirculo = 0;
+
 		magias.forEach(function(m){
 			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);
 			grimorio[m.system.circulo].spells.push(m);
