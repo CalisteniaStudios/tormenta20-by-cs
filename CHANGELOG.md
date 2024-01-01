@@ -1,4 +1,8 @@
 # Lista de Mudanças
+## Versão 1.4.204
+- Corrigido: Poder Racial de Medusas Natureza Veneno, bônus em testes de resistência contra veneno;
+- Adicionado: Configuração Exibir Magias Compactas para a ficha de Ameaças, permitindo mostrar somento o nome ou o resumo de como é usada.
+- Atualizado: O Parser de Ficha de Ameaça não é mais Case Sensitive.
 
 ## Versão 1.4.203
 - Atualizado: Perícias de Ameaças usam o cálculo padrão, exceto ataques e resistências;
