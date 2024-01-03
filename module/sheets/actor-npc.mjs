@@ -206,9 +206,11 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			if ( item.type == 'magia' ) {
 				let element = document.createElement('div');
 				element.innerHTML = item.system.description.value;
-				let description = element.querySelector('.secret').innerText;
-				description = description.replace(item.name, '');
-				item.system.description.value = `<span>${description}</span>`;
+				if ( element.querySelector('.secret') ) {
+					let description = element.querySelector('.secret').innerText;
+					description = description.replace(item.name, '');
+					item.system.description.value = `<span>${description}</span>`;
+				}
 			}
 			
 			if ( !Array.isArray(arr) ) arr = await arr;

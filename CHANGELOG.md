@@ -1,4 +1,8 @@
 # Lista de Mudanças
+
+## Versão 1.4.205
+- Corrigido: Incluir uma magia na ficha de um npc impedia que ela fosse aberta.
+
 ## Versão 1.4.204
 - Corrigido: Poder Racial de Medusas Natureza Veneno, bônus em testes de resistência contra veneno;
 - Adicionado: Configuração Exibir Magias Compactas para a ficha de Ameaças, permitindo mostrar somento o nome ou o resumo de como é usada.
