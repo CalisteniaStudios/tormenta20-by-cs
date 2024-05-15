@@ -1,0 +1,163 @@
+{
+  "_id": "fdHDY8tcvrhNY5r7",
+  "name": "Vingador Sagrado",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/combatentes/vingador-sagrado.webp",
+  "effects": [
+    {
+      "label": "Vingador Sagrado",
+      "icon": "systems/tormenta20/icons/classes/paladino.webp",
+      "origin": "Item.fdHDY8tcvrhNY5r7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 999,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "IpxgIFssVUgivkmY",
+      "changes": [
+        {
+          "key": "system.tracos.resistencias.dano.value",
+          "mode": 2,
+          "value": "20",
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.fly",
+          "mode": 2,
+          "value": "18",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!fdHDY8tcvrhNY5r7.IpxgIFssVUgivkmY"
+    },
+    {
+      "label": "Vingador Sagrado: Reduz o custo em PM de golpe divino pela metade e aumenta em 2 dados seu dano.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.fdHDY8tcvrhNY5r7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": "-1",
+          "equipment": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "rZooFG4VatvF6BST",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "2d8",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!fdHDY8tcvrhNY5r7.rZooFG4VatvF6BST"
+    }
+  ],
+  "folder": "VwM7ZxttHPFuX6M4",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.fdHDY8tcvrhNY5r7"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">No 20&ordm; n&iacute;vel, voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 10 PM para se cobrir de energia divina, assumindo a forma de um vingador sagrado at&eacute; o fim da cena. Nesta forma, voc&ecirc; recebe deslocamento de voo 18m e redu&ccedil;&atilde;o de dano 20. Al&eacute;m disso, seu Golpe Divino tem seu custo &eacute; reduzido &agrave; metade e causa mais dois dados de dano.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 84 (JdA)",
+    "ativacao": {
+      "execucao": "full",
+      "custo": 10,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Paladino",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184751,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!fdHDY8tcvrhNY5r7"
+}

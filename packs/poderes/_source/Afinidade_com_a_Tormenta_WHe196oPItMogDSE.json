@@ -1,0 +1,122 @@
+{
+  "_id": "WHe196oPItMogDSE",
+  "name": "Afinidade com a Tormenta",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos-tormenta.webp",
+  "effects": [
+    {
+      "_id": "fXmIUu9fBkcrHiUl",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "10",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Afinidade com a Tormenta",
+      "origin": "Item.E5nmNldWyeyk0421",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "attack": false,
+          "skill": true,
+          "self": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "",
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!WHe196oPItMogDSE.fXmIUu9fBkcrHiUl"
+    }
+  ],
+  "folder": "HjhUvn5HZU3mYJoL",
+  "sort": 100000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.WHe196oPItMogDSE"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; recebe +10 em testes de resist&ecirc;ncia contra efeitos da Tormenta, de suas criaturas e de seus devotos. Al&eacute;m disso, seu primeiro poder da Tormenta n&atilde;o conta para perda de Carisma.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 132 (JdA)",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Tormenta",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184720,
+    "modifiedTime": 1684800472565,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!WHe196oPItMogDSE"
+}

@@ -1,0 +1,138 @@
+{
+  "name": "Sopa de Peixe",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/sopa-peixe.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um cozido de peixe com verduras. &Eacute; um prato humilde, mas garante um descanso relaxante. Em sua pr&oacute;xima noite de sono, voc&ecirc; aumenta a sua recupera&ccedil;&atilde;o de pontos de mana em +1 por n&iacute;vel.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 162 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 1,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "food",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Sopa de Peixe",
+      "icon": "icons/consumables/food/soup-broth-bowl-wooden-yellow.webp",
+      "origin": "Item.fv6c3O5CXphtXilA",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "lN6d6cXwkPycdLJy",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!fv6c3O5CXphtXilA.lN6d6cXwkPycdLJy"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.3LefusVANWmllIec"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663365561715,
+    "modifiedTime": 1684618216450,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "fv6c3O5CXphtXilA",
+  "folder": "sO4Gcu7Fm1dJ1sxI",
+  "sort": 800000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!fv6c3O5CXphtXilA"
+}

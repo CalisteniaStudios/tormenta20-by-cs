@@ -1,0 +1,120 @@
+{
+  "name": "Mochila de Aventureiro",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/mochila-de-aventureiro.webp",
+  "system": {
+    "description": {
+      "value": "<p>Feita de couro resistente, esta mochila &eacute; repleta de bolsos para prender equipamento. Vestir uma mochila de aventureiro aumenta sua capacidade de carga em 2 espa&ccedil;os (ela pr&oacute;pria n&atilde;o gasta um espa&ccedil;o).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 155 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0,
+    "qtd": 1,
+    "preco": 50,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Mochila de Aventureiro",
+      "icon": "systems/tormenta20/icons/itens/gerais/mochila-de-aventureiro.webp",
+      "origin": "Item.pteAAJNAkuo7C2Uv",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "HYGVzsqcMHVsamFR",
+      "changes": [
+        {
+          "key": "system.attributes.carga.bonus",
+          "mode": 2,
+          "value": "2"
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!pteAAJNAkuo7C2Uv.HYGVzsqcMHVsamFR"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.pteAAJNAkuo7C2Uv"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665712298180,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "pteAAJNAkuo7C2Uv",
+  "folder": "0G5uMjOsWAFaPYAZ",
+  "sort": 400000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!pteAAJNAkuo7C2Uv"
+}

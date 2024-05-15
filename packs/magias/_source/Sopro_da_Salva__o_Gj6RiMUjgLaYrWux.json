@@ -1,0 +1,190 @@
+{
+  "_id": "Gj6RiMUjgLaYrWux",
+  "name": "Sopro da Salvação",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/sopro-da-salvacao.webp",
+  "effects": [
+    {
+      "_id": "J2p8XWtwE68zTyQ3",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": true
+        }
+      },
+      "changes": [
+        {
+          "key": "dano",
+          "value": "1d8",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta a quantidade de cura em 1d8+2.",
+      "origin": "Compendium.tormenta20.magias.Gj6RiMUjgLaYrWux",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!Gj6RiMUjgLaYrWux.J2p8XWtwE68zTyQ3"
+    },
+    {
+      "_id": "4AbPHIc75Tf1GXkQ",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "4",
+          "aumenta": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "além do normal, se um aliado estiver com PV negativos, seus PV são levados a 0 e então a cura é aplicada.",
+      "origin": "Compendium.tormenta20.magias.Gj6RiMUjgLaYrWux",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!Gj6RiMUjgLaYrWux.4AbPHIc75Tf1GXkQ"
+    },
+    {
+      "_id": "lWcJ1YAte7SXpUl0",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "4",
+          "aumenta": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "remove todas as condições listadas, em vez de apenas uma.",
+      "origin": "Compendium.tormenta20.magias.Gj6RiMUjgLaYrWux",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!Gj6RiMUjgLaYrWux.lWcJ1YAte7SXpUl0"
+    }
+  ],
+  "folder": "g3m5JWv836MEhs83",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.3h1neY0e1kWcDJrD"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; enche seus pulm&otilde;es de energia positiva e sopra um cone de poeira reluzente. O sopro afeta apenas seus aliados na &aacute;rea, curando 2d8+4 pontos de vida e removendo uma das seguintes condi&ccedil;&otilde;es de todos os alvos: @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ccqJXj25EVIzUhzo]{Abalado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ]{Atordoado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.5n105JaAFlwIfkyX]{Apavorado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.uub1TaaEaq0Vuncl]{Alquebrado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.qN5JjvnXDq4Xak1K]{Cego},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ynLMPpmMnZwV6rxf]{Confuso},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.AlTDv5dptSLGiZel]{Debilitado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.BUMyxT4YI9mdC8Aj]{Enjoado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.YpyVEwCbNVAfFLBm]{Esmorecido},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.6yXEaW3dSXtfsJ4i]{Exausto},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.R5FPPrfq68i9ddyv]{Fascinado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.MCED18aEe4UFeEVf]{Fatigado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.Q6GUW7cDfTW5AXRz]{Fraco},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.XvqIlV5v4YBeFUBs]{Frustrado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.e8JmqkgvL3H26vbi]{Lento},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.3dcJKe2SGu8mnafU]{Paralisado},&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.CMPtwuGkHgeKu8CC]{Pasmo}&nbsp; e&nbsp; &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.eaJwtq58TBZw0Oyo]{Surdo}.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 207 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 6,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "inst",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "self",
+    "alvo": "",
+    "area": "cone de 9m",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [
+      {
+        "name": "Cura",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "2d8+4",
+            "curapv",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "div",
+    "circulo": "3",
+    "preparada": false,
+    "escola": "evo",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461812,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!Gj6RiMUjgLaYrWux"
+}

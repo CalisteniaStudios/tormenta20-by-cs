@@ -1,0 +1,80 @@
+{
+  "_id": "kuaSYghrOnRFa1Om",
+  "name": "Loriga segmentada",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/equipamentos/loriga-segmentada.webp",
+  "effects": [],
+  "folder": "KTYYM7B9o8xVYRLQ",
+  "sort": 100049,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.kuaSYghrOnRFa1Om"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Composta por tiras horizontais de metal, esta armadura pesada é muito utilizada por legionários do Império.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 154 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 17,
+    "espacos": 5,
+    "qtd": 1,
+    "preco": 250,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "pesada",
+    "armadura": {
+      "value": 7,
+      "penalidade": -3,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772418,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!kuaSYghrOnRFa1Om"
+}

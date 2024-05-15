@@ -64,8 +64,8 @@ export default class ItemSheetT20 extends ItemSheet {
 		// 	let nkey = key.replace(/^system./, 'data.');
 		// 	data[ nkey ] = tdata[key];
 		// }
-		// if ( updateData ) formData = mergeObject(formData, updateData);
-		// else data = expandObject(data);
+		// if ( updateData ) formData = foundry.utils.mergeObject(formData, updateData);
+		// else data = foundry.utils.expandObject(data);
 
 		// Handle rolls array
 		if ( formData.system?.rolls ) {
@@ -86,7 +86,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		// 	} else prog.list = [];
 		// }
 		// Return the flattened submission data
-		return flattenObject(formData);
+		return foundry.utils.flattenObject(formData);
 	}
 	
 	/* -------------------------------------------- */
@@ -276,7 +276,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		let pIndex = Number(tgt.dataset.pIndex);
 		let oIndex = Number(tgt.dataset.oIndex);
 		if( pIndex>=0 && oIndex>=0 && data.uuid ){
-			let progression = deepClone(this.item.system.progression);
+			let progression = foundry.utils.deepClone(this.item.system.progression);
 			progression[pIndex]['list'][oIndex] = {
 				type: "item",
 				value: data.uuid,

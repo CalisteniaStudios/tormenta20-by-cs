@@ -1,0 +1,101 @@
+{
+  "name": "Doença",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/ameacas/doenca.webp",
+  "system": {
+    "description": {
+      "value": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Doente",
+      "icon": "systems/tormenta20/icons/conditions/doente.svg",
+      "origin": "Item.2PGff2UEhYoQf4yb",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "rHjhBOWDbYavMO85",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!2PGff2UEhYoQf4yb.rHjhBOWDbYavMO85"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1666321001849,
+    "modifiedTime": 1668270615329,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "2PGff2UEhYoQf4yb",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!2PGff2UEhYoQf4yb"
+}

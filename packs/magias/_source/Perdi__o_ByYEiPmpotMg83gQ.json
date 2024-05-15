@@ -1,0 +1,177 @@
+{
+  "_id": "ByYEiPmpotMg83gQ",
+  "name": "Perdição",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/perdicao.webp",
+  "effects": [
+    {
+      "_id": "mwaLI4ZQNS2pvBDX",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.geral",
+          "mode": 2,
+          "value": "-1",
+          "priority": 0
+        },
+        {
+          "key": "system.modificadores.dano.geral",
+          "mode": 2,
+          "value": "-1",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta as penalidades em –1, limitado pelo círculo máximo de magia que você pode lançar.",
+      "origin": "Compendium.tormenta20.magias.ByYEiPmpotMg83gQ",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!ByYEiPmpotMg83gQ.mwaLI4ZQNS2pvBDX"
+    },
+    {
+      "_id": "Nzx93ileTOT6jhFR",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.geral",
+          "mode": 2,
+          "value": "-1",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.dano.geral",
+          "mode": 2,
+          "value": "-1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/perdicao.webp",
+      "label": "Perdição - PENALIDADE",
+      "origin": "Item.sMwaPJUeQEl5NK2f",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        },
+        "t20": null
+      },
+      "tint": null,
+      "_key": "!items.effects!ByYEiPmpotMg83gQ.Nzx93ileTOT6jhFR"
+    }
+  ],
+  "folder": "exKmpBOKJtRjgbsN",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.FVpNBFNhi0XAVGXE"
+    },
+    "tormenta20": {
+      "version": "1.3.0.0"
+    },
+    "importid": "fStd1y5azxP3rRkt",
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Amaldi&ccedil;oa os alvos, que recebem &ndash;1 em testes de ataque e rolagens de dano. <em>Perdi&ccedil;&atilde;o</em> anula <em>B&ecirc;n&ccedil;&atilde;o</em>.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 201 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "Criaturas Escolhidas",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": "nenhuma"
+    },
+    "rolls": [],
+    "tipo": "div",
+    "circulo": "1",
+    "preparada": false,
+    "escola": "nec",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461780,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!ByYEiPmpotMg83gQ"
+}

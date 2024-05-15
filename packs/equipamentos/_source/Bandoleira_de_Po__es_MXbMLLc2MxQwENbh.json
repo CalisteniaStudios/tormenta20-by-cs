@@ -1,0 +1,77 @@
+{
+  "name": "Bandoleira de Poções",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/bandoleira-de-pocoes.webp",
+  "system": {
+    "description": {
+      "value": "<p>Um cinto de couro&nbsp; com bolsos que comportam pequenos frascos. Se voc&ecirc; estiver vestindo uma bandoleira, pode sacar itens alqu&iacute;micos e po&ccedil;&otilde;es como uma a&ccedil;&atilde;o livre.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 155 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 20,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "rolls": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665712525904,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "MXbMLLc2MxQwENbh",
+  "folder": "3kNyXnAknru6qWyM",
+  "sort": 2000000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!MXbMLLc2MxQwENbh"
+}

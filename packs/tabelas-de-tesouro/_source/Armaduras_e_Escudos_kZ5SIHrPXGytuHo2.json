@@ -1,0 +1,225 @@
+{
+  "_id": "kZ5SIHrPXGytuHo2",
+  "name": "Armaduras e Escudos",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "YDN1rPtaFJnpOxOE",
+      "flags": {},
+      "type": 2,
+      "text": "Armadura acolchoada",
+      "img": "systems/tormenta20/icons/itens/acolchoada.webp",
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "1YPU63ssevbZjxzw",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.YDN1rPtaFJnpOxOE"
+    },
+    {
+      "_id": "QXefv5LGgybIYFXY",
+      "flags": {},
+      "type": 2,
+      "text": "Armadura completa",
+      "img": "systems/tormenta20/icons/itens/completa.webp",
+      "weight": 1,
+      "range": [
+        6,
+        20
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "CTeeKAq8zZlaJTpA",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.QXefv5LGgybIYFXY"
+    },
+    {
+      "_id": "YOS6UsipI3eFUmW3",
+      "flags": {},
+      "type": 2,
+      "text": "Armadura de couro",
+      "img": "systems/tormenta20/icons/itens/couro.webp",
+      "weight": 1,
+      "range": [
+        21,
+        25
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "Yz49Gs97dQw2emgU",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.YOS6UsipI3eFUmW3"
+    },
+    {
+      "_id": "uBszeZp6zA417BDI",
+      "flags": {},
+      "type": 2,
+      "text": "Brunea",
+      "img": "systems/tormenta20/icons/itens/brunea.webp",
+      "weight": 1,
+      "range": [
+        26,
+        30
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "0Zlo3JJpJsaZwyNS",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.uBszeZp6zA417BDI"
+    },
+    {
+      "_id": "xk0ESVfjPzp5Gor3",
+      "flags": {},
+      "type": 2,
+      "text": "Cota de malha",
+      "img": "systems/tormenta20/icons/itens/malha.webp",
+      "weight": 1,
+      "range": [
+        31,
+        35
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "wvwi8zPSP8mRx7LO",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.xk0ESVfjPzp5Gor3"
+    },
+    {
+      "_id": "1qZvuSouHWiFVBd0",
+      "flags": {},
+      "type": 2,
+      "text": "Couraça",
+      "img": "systems/tormenta20/icons/itens/couraca.webp",
+      "weight": 1,
+      "range": [
+        36,
+        50
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "JVB4JAaxPjf0PFFN",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.1qZvuSouHWiFVBd0"
+    },
+    {
+      "_id": "IS1ys7WnPcA2nL0y",
+      "flags": {},
+      "type": 2,
+      "text": "Couro batido",
+      "img": "systems/tormenta20/icons/itens/couro-batido.webp",
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "WgvSphAYGMovXy4w",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.IS1ys7WnPcA2nL0y"
+    },
+    {
+      "_id": "owtLI6m4JSkTycvk",
+      "flags": {},
+      "type": 2,
+      "text": "Escudo leve",
+      "img": "systems/tormenta20/icons/itens/escudo-leve.webp",
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "0w1vZm2RGM40opxT",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.owtLI6m4JSkTycvk"
+    },
+    {
+      "_id": "JqXpNGLxkSLbw0ms",
+      "flags": {},
+      "type": 2,
+      "text": "Escudo pesado",
+      "img": "systems/tormenta20/icons/itens/escudo-pesado.webp",
+      "weight": 1,
+      "range": [
+        71,
+        80
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "1yGTB9tyXXSaN1wS",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.JqXpNGLxkSLbw0ms"
+    },
+    {
+      "_id": "XhJipk6WLIY5GBwQ",
+      "flags": {},
+      "type": 2,
+      "text": "Gibão de peles",
+      "img": "systems/tormenta20/icons/itens/peles.webp",
+      "weight": 1,
+      "range": [
+        81,
+        85
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "JKt9XIXTwuIjMbLD",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.XhJipk6WLIY5GBwQ"
+    },
+    {
+      "_id": "84FpEgr6CcUfZImJ",
+      "flags": {},
+      "type": 2,
+      "text": "Loriga segmentada",
+      "img": "systems/tormenta20/icons/itens/loriga.webp",
+      "weight": 1,
+      "range": [
+        86,
+        90
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "kuaSYghrOnRFa1Om",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.84FpEgr6CcUfZImJ"
+    },
+    {
+      "_id": "K9ZNcGpKmRDzzwrJ",
+      "flags": {},
+      "type": 2,
+      "text": "Meia armadura",
+      "img": "systems/tormenta20/icons/itens/meia-armadura.webp",
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "nFV1X6lQbAhbocA6",
+      "_key": "!tables.results!kZ5SIHrPXGytuHo2.K9ZNcGpKmRDzzwrJ"
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "RollTable.pjDukl8RXNgrpS5f"
+    },
+    "importid": "UAouRqIpVKhRfARH",
+    "cf": null
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665118,
+    "modifiedTime": 1667354515224,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!kZ5SIHrPXGytuHo2"
+}

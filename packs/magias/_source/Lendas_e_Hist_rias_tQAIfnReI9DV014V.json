@@ -1,0 +1,124 @@
+{
+  "_id": "tQAIfnReI9DV014V",
+  "name": "Lendas e Histórias",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/lendas-historias.webp",
+  "effects": [
+    {
+      "_id": "38qQpPaoMbUr1US2",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "4",
+          "aumenta": false
+        }
+      },
+      "changes": [
+        {
+          "key": "execucao",
+          "value": "1 dia",
+          "mode": 5,
+          "priority": null
+        },
+        {
+          "key": "alcance",
+          "value": "ilimitado",
+          "mode": 5,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda a execução para 1 dia, o alcance para ilimitado e adiciona componente material (cuba de ouro cheia d’água e ingredientes mágicos, no valor de T$ 1.000). Você ainda precisa ter alguma informação sobre o alvo, como um nome, descrição ou localização.",
+      "origin": "Compendium.tormenta20.magias.tQAIfnReI9DV014V",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!tQAIfnReI9DV014V.38qQpPaoMbUr1US2"
+    }
+  ],
+  "folder": "HyfzyzZmGAlHTRd3",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.HYUbDs8EipA6TE8g"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; descobre informa&ccedil;&otilde;es sobre uma criatura, objeto ou local que esteja tocando. O que exatamente voc&ecirc; descobre depende do mestre: talvez voc&ecirc; n&atilde;o descubra tudo que h&aacute; para saber, mas ganhe pistas para continuar a investiga&ccedil;&atilde;o. A cada rodada que mantiver a magia, voc&ecirc; descobre:</p>\n<ul>\n<li style=\"text-align: justify;\">Todas as informa&ccedil;&otilde;es sobre o alvo, como se tivesse passado em todos os testes de Conhecimento para tal.</li>\n<li style=\"text-align: justify;\">Todas as habilidades do alvo. Se for uma criatura, voc&ecirc; sabe suas estat&iacute;sticas de jogo como ra&ccedil;a, classe, n&iacute;vel, atributos, magias, resist&ecirc;ncias e fraquezas. Se for um item m&aacute;gico, aprende seu efeito e funcionamento.</li>\n<li style=\"text-align: justify;\">Se o alvo est&aacute; sob influ&ecirc;ncia de alguma magia e todas as informa&ccedil;&otilde;es sobre as magias ativas, se houver alguma.</li>\n</ul>\n<p>&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 196 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 6,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "sust",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "touch",
+    "alvo": "1 craitura, objeto ou local",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "uni",
+    "circulo": "3",
+    "preparada": false,
+    "escola": "adv",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310462826,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!tQAIfnReI9DV014V"
+}

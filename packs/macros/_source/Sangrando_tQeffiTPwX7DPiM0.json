@@ -1,0 +1,30 @@
+{
+  "name": "Sangrando",
+  "type": "script",
+  "author": "zypc4ueMMbKFzteu",
+  "img": "icons/svg/blood.svg",
+  "scope": "global",
+  "command": "// Macro desenvolvida por Sapodinho#0859 inspirado no exemplo de BrunoCF086#7267.\n// Teste de Morte do Tormenta20;\n(async () => {\n\tif (!token) {\n\t\tui.notifications.warn(\"Nenhum personagem selecionado!\");\n\t\treturn;\n\t}\n\tconst rollMode = game.settings.get(\"core\", \"rollMode\");\n\tconst rollData = token.actor.getRollData();\n\tlet rolls = [];\n\t//const testeMorte = await new Roll(`1d20 + @con`, token.actor.getRollData()).evaluate();\n\tconst testeMorte = await game.tormenta20.dice.d20Roll({parts:['1d20','@con'], data: rollData, targetValue:15});\n\ttesteMorte.options.title = 'Teste de Constituição';\n\trolls.push(testeMorte);\n\t\n\tif (testeMorte.total < 15) {\n\t\t//let dano = await new Roll(`1d6[perda]`).evaluate();\n\t\tconst dano = await game.tormenta20.dice.damageRoll({parts:[['1d6','perda']]});\n\t        dano.options.title = 'Dano';\n\t\trolls.push(dano);\n\t}\n\tconst messageData = {\n\t\trolls: rolls,\n\t\ttemplateData: { item: { name: \"Teste de Morte\", img: \"icons/svg/blood.svg\" }, system: { description: { value: \"<p style='text-align:justify'>Se ficar com 0 PV ou menos, você cai inconsciente e começa a sangrar. No início de seu turno, faça um teste de Constituição (CD 15). Se passar, você estabiliza e não precisa mais fazer esse teste. Se falhar, você perde 1d6 pontos de vida e continua sangrando. Você deve repetir o teste a cada rodada, até estabilizar ou morrer. Um personagem sangrando pode ser estabilizado com um teste de Cura (CD 15) ou com qualquer efeito que cure pelo menos 1 PV.</p>\" } } }\n\t}\n\n\tgame.tormenta20.macros.rollChatMessage(messageData);\n})();",
+  "flags": {
+    "core": {
+      "sourceId": "Macro.TR2jZSmmys915xUD"
+    }
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3,
+    "zypc4ueMMbKFzteu": 3
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.002",
+    "coreVersion": "10.285",
+    "createdTime": 1662828133854,
+    "modifiedTime": 1662923863998,
+    "lastModifiedBy": "izTN2S0Mlytej3sI"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "tQeffiTPwX7DPiM0",
+  "_key": "!macros!tQeffiTPwX7DPiM0"
+}

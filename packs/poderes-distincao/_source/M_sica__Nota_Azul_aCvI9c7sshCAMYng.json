@@ -1,0 +1,164 @@
+{
+  "name": "Música: Nota Azul",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">&Eacute; um risco se deixar levar pela m&uacute;sica de um menestrel maldito. Os acordes hipn&oacute;ticos podem n&atilde;o apenas conquistar sua aten&ccedil;&atilde;o, mas tamb&eacute;m consumir sua mente e levar &agrave; morte.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Voc&ecirc; pode emitir uma nota musical carregada de tristeza e dor. Fa&ccedil;a um &uacute;nico teste de Atua&ccedil;&atilde;o oposto &agrave; Vontade de cada criatura a sua escolha. Criaturas que falharem sofrem 1d6 pontos de dano mental. Para cada outro poder de Menestrel Maldito que possuir, voc&ecirc; pode gastar +1 PM para aumentar este dano em +1d6. Usar esta m&uacute;sica conta como se concentrar para manter o efeito de Fascinar.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisitos</em>: Fascinar, T&eacute;cnica Endiabrada.</p>\n<p style=\"text-align: justify;\"><strong>M&uacute;sicas de Bardo</strong></p>\n<p style=\"text-align: justify;\">Alguns poderes do bardo s&atilde;o M&uacute;sicas. Esses poderes compartilham as seguintes regras.</p>\n<p style=\"text-align: justify;\">&bull; Para ativar uma m&uacute;sica, voc&ecirc; precisa ser treinado em Atua&ccedil;&atilde;o e empunhar um instrumento musical (veja a p&aacute;gina 159).</p>\n<p style=\"text-align: justify;\">&bull; Ativar uma m&uacute;sica gasta uma a&ccedil;&atilde;o padr&atilde;o e 1 PM.</p>\n<p style=\"text-align: justify;\">&bull; Efeitos de m&uacute;sicas t&ecirc;m alcance curto.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 38-39",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": "vontade"
+    },
+    "rolls": [
+      {
+        "name": "Teste de Atuação",
+        "key": "ataque0",
+        "type": "ataque",
+        "parts": [
+          [
+            "1d20",
+            "",
+            ""
+          ],
+          [
+            "atua",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      },
+      {
+        "name": "Dano",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "1d6",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "distincao",
+    "subtipo": "Menestrel Maldito",
+    "origin": "",
+    "tags": [
+      "MenestrelMaldito"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Novo Efeito",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.aCvI9c7sshCAMYng",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": "1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "YxYtMmrHTTQn9pmq",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 0,
+          "value": "1d6",
+          "priority": 0
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!aCvI9c7sshCAMYng.YxYtMmrHTTQn9pmq"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "aCvI9c7sshCAMYng",
+  "folder": "y8ETZkiSeolvnkXp",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!aCvI9c7sshCAMYng"
+}

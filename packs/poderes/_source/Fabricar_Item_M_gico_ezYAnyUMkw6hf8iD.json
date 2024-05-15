@@ -1,0 +1,86 @@
+{
+  "name": "Fabricar Item Mágico",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/especialistas/fabricar-item-magico.webp",
+  "effects": [],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.VOAXm7R0Xjsv9uLS",
+      "defaultPermission": 3,
+      "hash": "e866549fc0964dbab93de6526ef233c9e77d32f6"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.VMVA95NuHABMfwa8"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">No 9&ordm; n&iacute;vel, voc&ecirc; recebe um item m&aacute;gico menor e passa a poder fabricar itens m&aacute;gicos menores. Veja o Cap&iacute;tulo 8: Recompensas para as regras de itens m&aacute;gicos no Livro B&aacute;sico.</p>\n<p style=\"text-align: justify;\">Nos n&iacute;veis 13 e 17, voc&ecirc; pode substituir esse item por um item m&aacute;gico m&eacute;dio e maior, respectivamente, e passa a poder fabricar itens m&aacute;gicos dessas categorias. Considera-se que voc&ecirc; estava trabalhando nos itens que recebe e voc&ecirc; n&atilde;o gasta dinheiro, tempo ou pontos de mana neles (mas gasta em itens que fabricar futuramente).&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 70 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "inventor",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051644440,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "ezYAnyUMkw6hf8iD",
+  "folder": "iHjbUWZ9cRzIVZ3E",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!ezYAnyUMkw6hf8iD"
+}

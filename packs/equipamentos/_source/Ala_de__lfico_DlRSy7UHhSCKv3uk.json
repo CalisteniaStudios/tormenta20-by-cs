@@ -1,0 +1,120 @@
+{
+  "name": "Alaúde Élfico",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/alaude-elfico.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Feito com madeira de alta qualidade e manufatura delicada, este ala&uacute;de gera notas v&iacute;vidas e emocionantes. Enquanto empunha este item, voc&ecirc; pode usar a habilidade Inspira&ccedil;&atilde;o como uma a&ccedil;&atilde;o de movimento. Conta como um instrumento musical.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 158 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 300,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "ferramenta",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Alaúde Élfico: Pode usar Inspiração como ação de movimento.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.DlRSy7UHhSCKv3uk",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "CZDT8a9BqJr3X4Bs",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!DlRSy7UHhSCKv3uk.CZDT8a9BqJr3X4Bs"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663512910780,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "DlRSy7UHhSCKv3uk",
+  "folder": "VqWdhvUwkVTlura5",
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!DlRSy7UHhSCKv3uk"
+}

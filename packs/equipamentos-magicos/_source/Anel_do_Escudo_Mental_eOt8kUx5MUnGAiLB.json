@@ -1,0 +1,80 @@
+{
+  "_id": "eOt8kUx5MUnGAiLB",
+  "name": "Anel do Escudo Mental",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/anel.webp",
+  "effects": [],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 800000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.eOt8kUx5MUnGAiLB"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Você recebe imunidade a magias de adivinhação.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 342 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 9000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000108,
+    "modifiedTime": 1684622966500,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!eOt8kUx5MUnGAiLB"
+}

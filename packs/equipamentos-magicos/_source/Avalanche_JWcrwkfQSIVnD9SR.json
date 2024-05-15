@@ -1,0 +1,420 @@
+{
+  "_id": "JWcrwkfQSIVnD9SR",
+  "name": "Avalanche",
+  "type": "arma",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/avalanche.webp",
+  "effects": [
+    {
+      "label": "Resistencia a Fogo",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/avalanche.webp",
+      "origin": "Item.JWcrwkfQSIVnD9SR",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "Xvi41VLcE5lSK6Ou",
+      "changes": [
+        {
+          "key": "system.tracos.resistencias.fogo.value",
+          "mode": 2,
+          "value": "10",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!JWcrwkfQSIVnD9SR.Xvi41VLcE5lSK6Ou"
+    },
+    {
+      "label": "Congelante",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.JWcrwkfQSIVnD9SR",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "2"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "8OlsNgSEdnxqjCeb",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!JWcrwkfQSIVnD9SR.8OlsNgSEdnxqjCeb"
+    },
+    {
+      "label": "Enredado",
+      "duration": {
+        "rounds": 999,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/conditions/enredado.svg",
+      "flags": {
+        "core": {
+          "statusId": "enredado"
+        },
+        "tormenta20": {
+          "condition": true,
+          "durationScene": true,
+          "childEffect": [
+            "lento",
+            "vulneravel"
+          ],
+          "category": "movimento"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.pericias.luta.condi",
+          "mode": 3,
+          "value": "-2",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.pont.condi",
+          "mode": 3,
+          "value": "-2",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_id": "rO3AWRuYZwXaODj1",
+      "disabled": false,
+      "origin": null,
+      "tint": null,
+      "_key": "!items.effects!JWcrwkfQSIVnD9SR.rO3AWRuYZwXaODj1"
+    },
+    {
+      "label": "gelo eterno congelante formidável",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.JWcrwkfQSIVnD9SR",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "puFSGOVQPuOwPr6U",
+      "changes": [
+        {
+          "key": "dano:frio",
+          "mode": 2,
+          "value": "1d6+2",
+          "priority": 0
+        },
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        },
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!JWcrwkfQSIVnD9SR.puFSGOVQPuOwPr6U"
+    },
+    {
+      "label": "tempestade de gelo",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.JWcrwkfQSIVnD9SR",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "6"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "VuN9msMljTCvgOLA",
+      "changes": [
+        {
+          "key": "dano:frio",
+          "mode": 2,
+          "value": "3d6",
+          "priority": 0
+        },
+        {
+          "key": "dano:impacto",
+          "mode": 2,
+          "value": "3d6",
+          "priority": 0
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!JWcrwkfQSIVnD9SR.VuN9msMljTCvgOLA"
+    }
+  ],
+  "folder": "9ki1HFV3bfmVkHBh",
+  "sort": 150000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.JWcrwkfQSIVnD9SR"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Este <em>machado de guerra de gelo eterno congelante formid&aacute;vel</em> fornece resist&ecirc;ncia a fogo 10. Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 6 PM para brandi-lo acima de sua cabe&ccedil;a e invocar uma tempestade de gelo que afeta alcance curto ao seu redor. Criaturas na &aacute;rea recebem camuflagem e sofrem <a class=\"inline-roll roll\" data-mode=\"roll\" data-flavor=\"\" data-formula=\"3d6\">3d6</a> pontos de dano de impacto e <a class=\"inline-roll roll\" data-mode=\"roll\" data-flavor=\"\" data-formula=\"3d6\">3d6</a> pontos de frio por rodada. Voc&ecirc; n&atilde;o sofre os efeitos nocivos da tempestade (o dano e a chance de falha pela camuflagem) e pode gastar 1 PM no in&iacute;cio de cada um de seus turnos para mant&ecirc;-la.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 337 (JdA)",
+    "equipado": 0,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 6,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 140000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "rolls": [
+      {
+        "name": "Ataque",
+        "key": "ataque0",
+        "type": "ataque",
+        "parts": [
+          [
+            "1d20",
+            "",
+            ""
+          ],
+          [
+            "luta",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      },
+      {
+        "name": "Dano",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "1d12",
+            "corte",
+            ""
+          ],
+          [
+            "@for",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "criticoM": 20,
+    "criticoX": 3,
+    "alcance": "",
+    "tipoUso": "sim",
+    "propriedades": {
+      "ada": false,
+      "agi": false,
+      "alo": false,
+      "dup": false,
+      "ver": false,
+      "adaptavel": false,
+      "agil": false,
+      "alongada": false,
+      "arremesso": false,
+      "ataqueDistancia": false,
+      "duasMaos": true,
+      "dupla": false,
+      "leve": false,
+      "municao": false,
+      "versatil": false,
+      "des": false
+    },
+    "encantos": {
+      "arremesso": false,
+      "lancinante": false,
+      "keen": null,
+      "bane": null,
+      "throwable": null,
+      "assassin": null,
+      "seeking": null,
+      "frost": "Congelante",
+      "caster": null,
+      "corrosive": null,
+      "dancing": null,
+      "defending": null,
+      "destructive": null,
+      "lacerating": null,
+      "draining": null,
+      "shock": null,
+      "energy": null,
+      "excruciating": null,
+      "flaming": null,
+      "formidable": "Formidável",
+      "lancinating": false,
+      "magnificent": null,
+      "merciful": null,
+      "unholy": null,
+      "holy": null,
+      "bloodthirsty": null,
+      "thundering": null,
+      "sepulchral": null,
+      "speed": null,
+      "poisonous": null
+    },
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "chatFlavor": "",
+    "melhorias": {
+      "accurate": null,
+      "pungent": null,
+      "cruel": null,
+      "atrocious": null,
+      "balanced": null,
+      "harmonized": null,
+      "injection": null,
+      "massive": null,
+      "specialmaterial": "Material especial",
+      "scope": null,
+      "precise": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "upgrades": {
+      "material": "everlasting-ice",
+      "melhoria1": "specialmaterial",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "encanto1": "frost",
+      "encanto2": "formidable",
+      "encanto3": ""
+    },
+    "proficiencia": "marcial",
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "ataques": 0,
+    "proposito": "corpo-a-corpo",
+    "empunhadura": "duas",
+    "size": "normal"
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000094,
+    "modifiedTime": 1684622919303,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!JWcrwkfQSIVnD9SR"
+}

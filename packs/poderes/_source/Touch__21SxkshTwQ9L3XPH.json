@@ -1,0 +1,129 @@
+{
+  "_id": "21SxkshTwQ9L3XPH",
+  "name": "Touché",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/bucaneiro.webp",
+  "effects": [
+    {
+      "label": "Touché",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Y7bTynfTV4uCDycC",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "2"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "wPLHfySzaYq9mSn1",
+      "changes": [
+        {
+          "key": "passos",
+          "mode": 0,
+          "value": "1",
+          "priority": 0
+        },
+        {
+          "key": "criticoM",
+          "mode": 2,
+          "value": "-5",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!21SxkshTwQ9L3XPH.wPLHfySzaYq9mSn1"
+    }
+  ],
+  "folder": "86kIqRb842xHRnBV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.21SxkshTwQ9L3XPH"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando se aproxima de um inimigo e o ataca com uma arma corpo a corpo leve ou &aacute;gil no mesmo turno, voc&ecirc; pode gastar 2 PM para aumentar seu dano em um passo e receber +5 na margem de amea&ccedil;a neste ataque.</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisitos: Esgrimista, 10&ordm; n&iacute;vel de bucaneiro.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 48 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Bucaneiro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361716778,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!21SxkshTwQ9L3XPH"
+}

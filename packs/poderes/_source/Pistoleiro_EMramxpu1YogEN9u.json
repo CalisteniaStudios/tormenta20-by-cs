@@ -1,0 +1,117 @@
+{
+  "_id": "EMramxpu1YogEN9u",
+  "name": "Pistoleiro",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/bucaneiro.webp",
+  "effects": [
+    {
+      "_id": "EWSJevpTx4qOEJKx",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.ad",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/classes/bucaneiro.webp",
+      "label": "Pistoleiro",
+      "origin": "Item.FHwjDu1BgaNmwGm2",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!EMramxpu1YogEN9u.EWSJevpTx4qOEJKx"
+    }
+  ],
+  "folder": "86kIqRb842xHRnBV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.EMramxpu1YogEN9u"
+    },
+    "tormenta20": {
+      "version": "1.3.0.0"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; recebe profici&ecirc;ncia com armas de fogo e +2 nas rolagens de dano com essas armas.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 48 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "for",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Bucaneiro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361716913,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!EMramxpu1YogEN9u"
+}

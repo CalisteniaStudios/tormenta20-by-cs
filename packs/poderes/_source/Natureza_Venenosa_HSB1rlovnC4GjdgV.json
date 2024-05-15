@@ -1,0 +1,182 @@
+{
+  "_id": "HSB1rlovnC4GjdgV",
+  "name": "Natureza Venenosa",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/medusa.webp",
+  "effects": [
+    {
+      "icon": "systems/tormenta20/icons/racas/medusa.webp",
+      "origin": "Item.HSB1rlovnC4GjdgV",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "Fortitude;Reflexos;Vontade",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "6WrgfWDzw5m4hjpr",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "5",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "name": "Natureza Venenosa",
+      "description": "",
+      "statuses": [],
+      "_key": "!items.effects!HSB1rlovnC4GjdgV.6WrgfWDzw5m4hjpr"
+    },
+    {
+      "label": "Natureza Venenosa",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.HSB1rlovnC4GjdgV",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "4QsRr4WpeeVxWznX",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d12",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!HSB1rlovnC4GjdgV.4QsRr4WpeeVxWznX"
+    }
+  ],
+  "folder": "WBW7mJa7n0MHwWe7",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.HSB1rlovnC4GjdgV"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; recebe resist&ecirc;ncia a veneno +5 e pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para envenenar uma arma que esteja usando. A arma causa perda de 1d12 pontos de vida. O veneno dura at&eacute; voc&ecirc; acertar um ataque ou at&eacute; o fim da cena (o que acontecer primeiro). <em>Veneno</em></p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 29 (JdA)",
+    "ativacao": {
+      "execucao": "move",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [
+      {
+        "name": "Perda de Pontos de Vida",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "1d12",
+            "perda",
+            ""
+          ]
+        ]
+      }
+    ],
+    "tipo": "racial",
+    "subtipo": "Medusa",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.203",
+    "coreVersion": "11.315",
+    "createdTime": 1664306183903,
+    "modifiedTime": 1704130139208,
+    "lastModifiedBy": "5frcpPVF3cVfLwZA"
+  },
+  "_key": "!items!HSB1rlovnC4GjdgV"
+}

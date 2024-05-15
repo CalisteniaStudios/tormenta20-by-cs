@@ -1,0 +1,85 @@
+{
+  "name": "Herói da Realidade",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Por saberem que seu dever &eacute; o mais exigente de todos, os guardi&otilde;es da realidade possuem uma reserva de fibra e for&ccedil;a de vontade que nenhum outro her&oacute;i possui.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Quando sofre dano ou falha em um teste de resist&ecirc;ncia, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 5 PM para reduzir esse dano &agrave; metade ou repetir este teste de resist&ecirc;ncia. Se a fonte do efeito for uma criatura extraplanar, em vez disso voc&ecirc; ignora o dano ou recebe +5 no teste de resist&ecirc;ncia. O custo deste poder diminui em &ndash;1 PM para cada dois outros poderes de guardi&atilde;o da realidade que voc&ecirc; possuir. <em>Pr&eacute;-requisito:</em> Basti&atilde;o da Realidade, outro poder de guardi&atilde;o da realidade.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 25",
+    "ativacao": {
+      "execucao": "reaction",
+      "custo": 5,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Guardião da Realidade",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [
+      "GuardiaodaRealidade"
+    ],
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "tormentaverse",
+      "system": "tormenta20",
+      "coreVersion": "10.286",
+      "systemVersion": "1.4.006"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1662564018340,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "sIQlK0eY5ZjIE7Qc",
+  "folder": "YXlTMaY22gwCu0fc",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!sIQlK0eY5ZjIE7Qc"
+}

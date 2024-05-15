@@ -1,0 +1,124 @@
+{
+  "name": "Saúde Perfeita",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Um bom m&eacute;dico sabe cuidar de si mesmo (ou assim esperamos).</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Voc&ecirc; se torna imune a condi&ccedil;&otilde;es de fadiga, doen&ccedil;as e venenos e recebe +5 PV e +1 PM para cada poder de M&eacute;dico Ateu que possui.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> treinado em Fortitude, Acompanhamento M&eacute;dico, Medicina Avan&ccedil;ada.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 28-29",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Médico Ateu",
+    "origin": "",
+    "tags": [
+      "MedicoAteu"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Saúde Perfeita",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.J8Sq4bazoZ8UODMS",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "6iIfp4Y00IWBiNvL",
+      "changes": [
+        {
+          "key": "system.tracos.ic.value",
+          "mode": 2,
+          "value": "doente",
+          "priority": null
+        },
+        {
+          "key": "system.tracos.ic.value",
+          "mode": 2,
+          "value": "veneno",
+          "priority": null
+        },
+        {
+          "key": "system.tracos.ic.value",
+          "mode": 2,
+          "value": "fatigado",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!J8Sq4bazoZ8UODMS.6iIfp4Y00IWBiNvL"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "J8Sq4bazoZ8UODMS",
+  "folder": "EckmJGi0doueXy41",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!J8Sq4bazoZ8UODMS"
+}

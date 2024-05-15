@@ -19,9 +19,7 @@
 				<label>{{ localize "T20.Type" }}</label>
 				<div class="form-fields">
 					<select name="system.tipo">
-						{{#select item.system.tipo}}
 						{{selectOptions config.powerType selected=item.system.tipo localize=true}}
-						{{/select}}
 					</select>
 					<input type="text" title="Subtipo" list="list-subtipo" name="system.subtipo" value="{{item.system.subtipo}}"/>
 					<datalist id="list-subtipo">

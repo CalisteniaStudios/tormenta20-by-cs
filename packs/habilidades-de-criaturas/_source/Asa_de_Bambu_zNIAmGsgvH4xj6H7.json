@@ -1,0 +1,114 @@
+{
+  "name": "Asa de Bambu",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/poderes/ameacas/asas.webp",
+  "effects": [
+    {
+      "_id": "CRX7wBp8q9Zkv9z2",
+      "changes": [
+        {
+          "key": "system.attributes.movement.fly",
+          "mode": 2,
+          "value": "12",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/voo.webp",
+      "label": "Asa de Bambu",
+      "origin": "Item.TNU7KWJ843G0GKJN",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!zNIAmGsgvH4xj6H7.CRX7wBp8q9Zkv9z2"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.Vlk6hS0fo0iWKkKi"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">O engenhoqueiro recebe deslocamento de voo 12m at&eacute; o fim da cena.</p>",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 211 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "self",
+    "alvo": "você",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "arc",
+    "circulo": "3",
+    "preparada": false,
+    "escola": "tra",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1664310461901,
+    "modifiedTime": 1668270615327,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "zNIAmGsgvH4xj6H7",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!zNIAmGsgvH4xj6H7"
+}

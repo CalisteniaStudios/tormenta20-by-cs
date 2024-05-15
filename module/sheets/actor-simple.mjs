@@ -4,7 +4,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 	
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "simple"],
 			tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
 			scrollY: [".sheet-body"],

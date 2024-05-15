@@ -1,0 +1,124 @@
+{
+  "_id": "SNw2I6JAd0ukMx8B",
+  "name": "Elmo do Teletransporte",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/elmo-teletransporte.webp",
+  "effects": [
+    {
+      "label": "Elmo do Teletransporte",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.SNw2I6JAd0ukMx8B",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": true,
+          "consumable": false,
+          "items": "Salto Dimensional;Teletransporte",
+          "aumenta": false,
+          "custo": "-1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "adsmMuThM2NVsyfv",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!SNw2I6JAd0ukMx8B.adsmMuThM2NVsyfv"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 1900000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.SNw2I6JAd0ukMx8B"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Voc&ecirc; pode lan&ccedil;ar @UUID[Compendium.tormenta20.magias.xEMJvJY8eHwg8oVV]{Salto Dimensional} e @UUID[Compendium.tormenta20.magias.4pyX8lB2cfdfIBzL]{Teletransporte} , mas apenas em voc&ecirc; mesmo. Caso j&aacute; conhe&ccedil;a as magias, o custo para lan&ccedil;&aacute;-las diminui em &ndash;1 PM.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 344 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 30000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000102,
+    "modifiedTime": 1684622966500,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!SNw2I6JAd0ukMx8B"
+}

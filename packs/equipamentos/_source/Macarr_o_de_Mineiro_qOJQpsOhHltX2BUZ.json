@@ -1,0 +1,137 @@
+{
+  "_id": "qOJQpsOhHltX2BUZ",
+  "name": "Macarrão de Mineiro",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/macarrao-de-mineiro.webp",
+  "effects": [
+    {
+      "label": "Macarrão de Mineiro",
+      "icon": "icons/consumables/food/pot-soup-white.webp",
+      "origin": "Item.TUM3FVy5jefA7T9h",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "jWGo8qEHzY59JNop",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!qOJQpsOhHltX2BUZ.jWGo8qEHzY59JNop"
+    }
+  ],
+  "folder": "sO4Gcu7Fm1dJ1sxI",
+  "sort": 400000,
+  "flags": {
+    "core": {
+      "sourceId": "Item.3LefusVANWmllIec"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Origin&aacute;rio de uma cidade mineradora na fronteira com as montanhas. Seus habitantes criaram este prato refor&ccedil;ado (macarr&atilde;o, bacon e creme de leite!) para encarar suas &aacute;rduas jornadas de trabalho nas minas. Delicioso, o prato se espalhou por outras cidades e reinos. Voc&ecirc; recebe +5 PV tempor&aacute;rios.&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 162 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 6,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "food",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663365561715,
+    "modifiedTime": 1684617796296,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!qOJQpsOhHltX2BUZ"
+}

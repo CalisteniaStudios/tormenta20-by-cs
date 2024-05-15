@@ -54,7 +54,7 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 					ChatMessage.create({content:'Sustentar Magia'});
 				}
 				if( e = ef.changes.find(c=> c.key == 'dano' )  ){
-					new Roll(e.value).toMessage({async:false});
+					new Roll(e.value).toMessage();
 				}
 			}
 		}
@@ -74,7 +74,7 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 			let e;
 			for( let ef of eff ){
 				if( e = ef.changes.find(c=> c.key == '@dano' )  ){
-					new Roll(e.value).toMessage({async:false});
+					new Roll(e.value).toMessage();
 				}
 			}
 		}

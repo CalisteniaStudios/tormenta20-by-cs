@@ -1,0 +1,240 @@
+{
+  "name": "Ajudante",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/itens/gerais/parceiros.webp",
+  "effects": [
+    {
+      "label": "Ajudante",
+      "icon": "icons/environment/settlement/wagon-black.webp",
+      "origin": "Item.ROdJSxDCkvamfzX7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "C06goUbm1jgse6u7",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!ROdJSxDCkvamfzX7.C06goUbm1jgse6u7"
+    },
+    {
+      "label": "Ajudante Iniciante: Fornece +2 em duas perícias.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.ROdJSxDCkvamfzX7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "rtfkLSe3Z1nLfZQx",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!ROdJSxDCkvamfzX7.rtfkLSe3Z1nLfZQx"
+    },
+    {
+      "label": "Ajudante Veterano: Fornece +2 em três perícias.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.ROdJSxDCkvamfzX7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "D8NFGf1P2stb8D4p",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!ROdJSxDCkvamfzX7.D8NFGf1P2stb8D4p"
+    },
+    {
+      "label": "Ajudante Mestre: Fornece +4 em três perícias.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.ROdJSxDCkvamfzX7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "iDaDrjYqP1X5B5Jb",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "4",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!ROdJSxDCkvamfzX7.iDaDrjYqP1X5B5Jb"
+    }
+  ],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.rOO6U1bkk4xrlize",
+      "defaultPermission": 2,
+      "hash": "489a612a8235f62cd560028b82b1bf4c35524979"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.Y57phnZDw4ejnfas"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Cada parceiro pode ajudar apenas um personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro personagem em alcance curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>\n<p style=\"text-align: justify;\">Um bardo, nobre ou s&aacute;bio que ajuda com palavras firmes ou encorajadoras.</p>\n<p style=\"text-align: justify;\"><strong>Iniciante</strong>: voc&ecirc; recebe +2 em duas per&iacute;cias.</p>\n<p style=\"text-align: justify;\"><strong>Veterano</strong>: muda para +2 em tr&ecirc;s per&iacute;cias.</p>\n<p style=\"text-align: justify;\"><strong>Mestre</strong>: muda para +4 em tr&ecirc;s per&iacute;cias. As per&iacute;cias s&atilde;o definidas pelo aliado.</p>\n<p style=\"text-align: justify;\">Um ajudante n&atilde;o pode fornecer b&ocirc;nus em Luta ou Pontaria.</p>",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 260 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Parceiros",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1663051700555,
+    "modifiedTime": 1668270847523,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "ROdJSxDCkvamfzX7",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!ROdJSxDCkvamfzX7"
+}

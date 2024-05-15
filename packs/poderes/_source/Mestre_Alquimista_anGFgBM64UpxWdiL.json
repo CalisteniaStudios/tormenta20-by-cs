@@ -1,0 +1,86 @@
+{
+  "name": "Mestre Alquimista",
+  "type": "poder",
+  "img": "icons/commodities/tech/cog-brass.webp",
+  "effects": [],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.rIZqrA7uAFQzu8Rn",
+      "defaultPermission": 3,
+      "hash": "4a37f388886a24c6a47dc5e9abfc577e56ddf7d6"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.MJO5Ee6yXmZWzkuh"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode fabricar po&ccedil;&otilde;es com f&oacute;rmulas que conhe&ccedil;a de qualquer c&iacute;rculo.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> Int 3, Sab 3, Alquimista Iniciado, 10&ordm; n&iacute;vel de inventor.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 69 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "inventor",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051645800,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "anGFgBM64UpxWdiL",
+  "folder": "iHjbUWZ9cRzIVZ3E",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!anGFgBM64UpxWdiL"
+}

@@ -1,0 +1,120 @@
+{
+  "_id": "n2GhiAzdK2Fv0atk",
+  "name": "Anel da Proteção",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/anel.webp",
+  "effects": [
+    {
+      "label": "Anel da Proteção",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/anel.webp",
+      "origin": "Item.n2GhiAzdK2Fv0atk",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "UHj4gl4Uc0Ypw5y7",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!n2GhiAzdK2Fv0atk.UHj4gl4Uc0Ypw5y7"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 5600000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.n2GhiAzdK2Fv0atk"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Este anel desvia ataques contra seu usuário. Você recebe +2 de Defesa.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 342 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 9000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 2,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000113,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!n2GhiAzdK2Fv0atk"
+}

@@ -1,0 +1,86 @@
+{
+  "name": "Autômato",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/inventor.webp",
+  "effects": [],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.WSs0RZeuEJN3eQp4",
+      "defaultPermission": 3,
+      "hash": "c551d14f5fe0ae60ba371a9d200bae5e2c027dbf"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.y9pF8gaM1t7D2dX6"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; fabrica um aut&ocirc;mato, um construto que obedece a seus comandos. Ele &eacute; um parceiro iniciante de um tipo a sua escolha entre ajudante, assassino, atirador, combatente, guardi&atilde;o, montaria ou vigilante. No 7&ordm; n&iacute;vel, ele muda para veterano e, no 15&ordm; n&iacute;vel, para mestre. Se o aut&ocirc;mato for destru&iacute;do, voc&ecirc; pode fabricar um novo com uma semana de trabalho e T$ 100.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> Engenhoqueiro.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 69 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "inventor",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051642707,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "ptPx5rxZdlUfsM9t",
+  "folder": "iHjbUWZ9cRzIVZ3E",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!ptPx5rxZdlUfsM9t"
+}

@@ -1,0 +1,118 @@
+{
+  "name": "Fé Guerreira",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos-guerra.webp",
+  "effects": [
+    {
+      "label": "Fé Guerreira",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.kyPHPi4M03FnThps",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "2"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "ErHcGEPQVc5TlgK8",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!kyPHPi4M03FnThps.ErHcGEPQVc5TlgK8"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.Dwbr8XnZGv9XlIYX"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode usar Sabedoria para Guerra (em vez de Intelig&ecirc;ncia). Al&eacute;m disso, em combate, pode gastar 2 PM para substituir um teste de per&iacute;cia (exceto testes de ataque) por um teste de Guerra.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 133 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Guerra",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183826,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "kyPHPi4M03FnThps",
+  "folder": "kdQy5G7zb5MvHB7N",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!kyPHPi4M03FnThps"
+}

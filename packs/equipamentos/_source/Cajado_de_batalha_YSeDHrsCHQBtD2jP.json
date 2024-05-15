@@ -1,0 +1,151 @@
+{
+  "_id": "YSeDHrsCHQBtD2jP",
+  "name": "Cajado de batalha",
+  "type": "arma",
+  "img": "systems/tormenta20/icons/itens/equipamentos/cajado-de-batalha.webp",
+  "effects": [],
+  "folder": "HkeRANb2t5R9UKLQ",
+  "sort": 125000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.YSeDHrsCHQBtD2jP"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Um cajado de madeira forte, reforçado com chapas de metal nas pontas. é uma arma discreta, usada por andarilhos que não querem levantar suspeitas ou parecer ameaçadores. O cajado de batalha é uma arma dupla.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Guia NPC, pg. 16 (1.1)",
+    "equipado": 0,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 4,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 10,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "rolls": [
+      {
+        "name": "Ataque",
+        "key": "ataque0",
+        "type": "ataque",
+        "parts": [
+          [
+            "1d20",
+            "",
+            ""
+          ],
+          [
+            "luta",
+            "",
+            ""
+          ],
+          [
+            "0",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      },
+      {
+        "name": "Dano",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "1d8",
+            "impacto",
+            ""
+          ],
+          [
+            "@for",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "criticoM": 20,
+    "criticoX": 2,
+    "alcance": "",
+    "tipoUso": "sim",
+    "propriedades": {
+      "ada": false,
+      "agi": false,
+      "alo": false,
+      "dup": true,
+      "ver": false,
+      "adaptavel": false,
+      "agil": false,
+      "alongada": false,
+      "arremesso": false,
+      "ataqueDistancia": false,
+      "duasMaos": true,
+      "dupla": true,
+      "leve": false,
+      "municao": false,
+      "versatil": false
+    },
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "chatFlavor": "",
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "encantos": {
+      "lancinante": false,
+      "lancinating": false
+    },
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "ataques": 0,
+    "proficiencia": "marcial",
+    "proposito": "corpo-a-corpo",
+    "empunhadura": "duas",
+    "size": "normal"
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772409,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!YSeDHrsCHQBtD2jP"
+}

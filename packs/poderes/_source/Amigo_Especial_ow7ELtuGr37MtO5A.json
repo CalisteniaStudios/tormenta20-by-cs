@@ -1,0 +1,114 @@
+{
+  "_id": "ow7ELtuGr37MtO5A",
+  "name": "Amigo Especial",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/origem.webp",
+  "effects": [
+    {
+      "_id": "6KQeIuU81gmgTElE",
+      "changes": [
+        {
+          "key": "system.pericias.ades.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/poderes/origem.webp",
+      "label": "Amigo Especial",
+      "origin": "Item.hlDi94dgqELYEYCq",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!ow7ELtuGr37MtO5A.6KQeIuU81gmgTElE"
+    }
+  ],
+  "folder": "O7XebEr47qNV8g6X",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.ow7ELtuGr37MtO5A"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; recebe +5 em testes de @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.GGVyGDvqfIQKFLch]{Adestramento} com animais. Al&eacute;m disso, possui um animal de estima&ccedil;&atilde;o que o auxilia e o acompanha em suas aventuras. Em termos de jogo, &eacute; um parceiro que fornece +2 em uma per&iacute;cia a sua escolha (exceto Luta ou Pontaria e aprovada pelo mestre) e n&atilde;o conta em seu limite de parceiros.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 85 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "origem",
+    "subtipo": "Amigo dos Animais",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185204,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!ow7ELtuGr37MtO5A"
+}

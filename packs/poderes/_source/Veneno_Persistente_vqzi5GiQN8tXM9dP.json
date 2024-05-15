@@ -1,0 +1,116 @@
+{
+  "_id": "vqzi5GiQN8tXM9dP",
+  "name": "Veneno Persistente",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/ladino.webp",
+  "effects": [
+    {
+      "label": "Veneno Persistente",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.vqzi5GiQN8tXM9dP",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "h43oezvmG8hJPayp",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!vqzi5GiQN8tXM9dP.h43oezvmG8hJPayp"
+    }
+  ],
+  "folder": "E9EyD0Wrr8C91ZpV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.vqzi5GiQN8tXM9dP"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando aplica uma dose de veneno a uma arma, este veneno dura por tr&ecirc;s ataques (em vez de apenas um).</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> Veneno Potente, 8&ordm; n&iacute;vel de ladino.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 74 (JdA)",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Ladino",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185698,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!vqzi5GiQN8tXM9dP"
+}

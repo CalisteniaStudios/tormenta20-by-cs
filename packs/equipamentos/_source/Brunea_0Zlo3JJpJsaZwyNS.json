@@ -1,0 +1,80 @@
+{
+  "_id": "0Zlo3JJpJsaZwyNS",
+  "name": "Brunea",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/equipamentos/brunea.webp",
+  "effects": [],
+  "folder": "KTYYM7B9o8xVYRLQ",
+  "sort": 125000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.0Zlo3JJpJsaZwyNS"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Colete de couro coberto com plaquetas de metal sobrepostas, como escamas de um peixe. Por ser barata de produzir, é a armadura mais utilizada por soldados de infantaria e guardas de castelo.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 154 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 15,
+    "espacos": 5,
+    "qtd": 1,
+    "preco": 50,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "pesada",
+    "armadura": {
+      "value": 5,
+      "penalidade": -2,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772389,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!0Zlo3JJpJsaZwyNS"
+}

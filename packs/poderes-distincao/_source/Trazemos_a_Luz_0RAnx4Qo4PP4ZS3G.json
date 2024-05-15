@@ -1,0 +1,82 @@
+{
+  "name": "Trazemos a Luz",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Com o aprimoramento de suas t&eacute;cnicas, o Cavaleiro do Corvo torna-se uma arma precisa e infal&iacute;vel, que usa corpo, mente e conhecimento para formar um &uacute;nico conjunto letal.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Uma vez por combate, voc&ecirc; pode gastar 2 PM para fazer um teste de Guerra com um b&ocirc;nus igual ao n&uacute;mero de poderes de Cavaleiro do Corvo que possui. Voc&ecirc; recebe uma quantidade de PV tempor&aacute;rios igual ao resultado do teste e, se o resultado for 35 ou mais, pode ignorar a imunidade a acertos cr&iacute;ticos e ataques furtivos de seus inimigos. Al&eacute;m disso, para cada 10 pontos no resultado do teste, voc&ecirc; recebe +1 em testes de ataque e rolagens de dano. Todos estes efeitos duram at&eacute; o fim da cena. <em>Pr&eacute;-requisitos:</em> Das Trevas e dois outros poderes de Cavaleiro do Corvo.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 18",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Cavaleiro do Corvo",
+    "origin": "",
+    "tags": [
+      "CavaleirodoCorvo"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.FJsShM7OC6TWqQqq"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1666312768880,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "0RAnx4Qo4PP4ZS3G",
+  "folder": "HmYZ3wnVn66EAlGT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!0RAnx4Qo4PP4ZS3G"
+}

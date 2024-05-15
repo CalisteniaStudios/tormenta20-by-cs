@@ -1,0 +1,123 @@
+{
+  "_id": "3Hr5IHsISX8a4cRS",
+  "name": "Cura Gentil",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos-vida.webp",
+  "effects": [
+    {
+      "_id": "yd5flarcNr5aQcbk",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "@car",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Cura Gentil",
+      "origin": "Item.A2c4ojXc9AWWb4gi",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "spell": true,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "",
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!3Hr5IHsISX8a4cRS.yd5flarcNr5aQcbk"
+    }
+  ],
+  "folder": "qMH9dFHhYkOmlTmF",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.3Hr5IHsISX8a4cRS"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Você soma seu Carisma aos PV restaurados por seus efeitos mágicos de cura.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 133 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Vida",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183306,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!3Hr5IHsISX8a4cRS"
+}

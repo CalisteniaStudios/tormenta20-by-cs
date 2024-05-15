@@ -1,0 +1,217 @@
+{
+  "_id": "AUDPOjclJNiX4Xlm",
+  "name": "Baluarte Anão",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp",
+  "effects": [
+    {
+      "label": "Reforçada",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp",
+      "origin": "Item.AUDPOjclJNiX4Xlm",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "qZBJ8jeRhobfW6ac",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!AUDPOjclJNiX4Xlm.qZBJ8jeRhobfW6ac"
+    },
+    {
+      "label": "Defensora",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp",
+      "origin": "Item.AUDPOjclJNiX4Xlm",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "s3NoIM8jTAC0BePe",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!AUDPOjclJNiX4Xlm.s3NoIM8jTAC0BePe"
+    },
+    {
+      "label": "Adamante",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp",
+      "origin": "Item.AUDPOjclJNiX4Xlm",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "gT3xbNrrfk2no5BG",
+      "changes": [
+        {
+          "key": "system.tracos.resistencias.dano.value",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!AUDPOjclJNiX4Xlm.gT3xbNrrfk2no5BG"
+    }
+  ],
+  "folder": "SkZDe8cUamd0vHjD",
+  "sort": 200000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.AUDPOjclJNiX4Xlm"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Esta <strong>armadura completa reforçada defensora de adamante</strong> fornece proteção sem igual. Se você não se deslocar em seu turno, a RD que ela fornece aumenta para 10 até seu próximo turno.</p>\n<p style=\"text-align:justify;\"><strong>Reforçada.</strong>&nbsp;Placas adicionais, uma camada extra de cota de malha ou acolchoamento, proteção dobrada nas juntas e áreas vulneráveis... O bônus na Defesa e a penalidade de armadura de uma armadura ou escudo com esta modificação aumentam em +1. Uma armadura não pode ser reforçada e delicada.</p>\n<p style=\"text-align:justify;\"><strong>Defensora.</strong> O item é encantado para desviar golpes. O bônus na Defesa do item aumenta em +2</p>\n<p style=\"text-align:justify;\"><strong>Adamante.</strong> Encontrado apenas em meteoritos (e por isso também chamado de \"ferro-meteórico\"), o adamante é um metal escuro, fosco e mais denso que o aço. Armaduras e escudos fornecem resistência a dano, de acordo com seu tipo: armaduras leves e escudos, RD 2; armaduras pesadas, RD 5.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 340 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 25,
+    "espacos": 5,
+    "qtd": 1,
+    "preco": 50000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "pesada",
+    "armadura": {
+      "value": 10,
+      "penalidade": -6,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "adjusted": null,
+      "undermeasure": null,
+      "delicate": null,
+      "thorny": null,
+      "specialmaterial": "Material especial",
+      "polished": null,
+      "reinforced": "Reforçada",
+      "sealed": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "encantos": {
+      "abascanth": null,
+      "blessed": null,
+      "acrobatic": null,
+      "winged": null,
+      "frightful": null,
+      "caustic": null,
+      "defending": "Defensor",
+      "slick": null,
+      "ghostly": null,
+      "ortification": null,
+      "frost": null,
+      "guardian": null,
+      "hypnotic": null,
+      "illusory": null,
+      "incandescent": null,
+      "invulnerable": null,
+      "opaque": null,
+      "protector": null,
+      "reflecting": null,
+      "lightning": null,
+      "blinding": null,
+      "shadow": null,
+      "zealous": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "specialmaterial",
+      "melhoria2": "reinforced",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "defending",
+      "encanto2": "",
+      "encanto3": ""
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000090,
+    "modifiedTime": 1684622924342,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!AUDPOjclJNiX4Xlm"
+}

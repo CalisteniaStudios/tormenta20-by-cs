@@ -1,0 +1,113 @@
+{
+  "_id": "SEoIE7cAzTVXn00n",
+  "name": "Devagar e sempre",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/anao.webp",
+  "effects": [
+    {
+      "label": "Devagar e sempre",
+      "icon": "systems/tormenta20/icons/racas/anao.webp",
+      "origin": "Item.SEoIE7cAzTVXn00n",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "WmFcjgmehMbaKWby",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk",
+          "mode": 5,
+          "value": "6",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!SEoIE7cAzTVXn00n.WmFcjgmehMbaKWby"
+    }
+  ],
+  "folder": "QXmpsdR2yksENTdS",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.SEoIE7cAzTVXn00n"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Seu deslocamento é 6m (em vez de 9m). Porém, seu deslocamento não é reduzido por uso de armadura ou excesso de carga.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 20 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Anão",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184306,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!SEoIE7cAzTVXn00n"
+}

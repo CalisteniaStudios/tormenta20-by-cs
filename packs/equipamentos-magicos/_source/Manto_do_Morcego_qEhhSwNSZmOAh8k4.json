@@ -1,0 +1,120 @@
+{
+  "_id": "qEhhSwNSZmOAh8k4",
+  "name": "Manto do Morcego",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/manto-do-morcego.webp",
+  "effects": [
+    {
+      "label": "Manto do Morcego",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/manto-do-morcego.webp",
+      "origin": "Item.qEhhSwNSZmOAh8k4",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "7JaBX4Yxvj0SVW3l",
+      "changes": [
+        {
+          "key": "system.pericias.furt.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!qEhhSwNSZmOAh8k4.7JaBX4Yxvj0SVW3l"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 3500000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.qEhhSwNSZmOAh8k4"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Este manto marrom escuro ou negro fornece +5 em Furtividade e permite que voc&ecirc; fique pendurado de ponta-cabe&ccedil;a no teto, como um morcego. Al&eacute;m disso, voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o para segurar as pontas do manto e se transformar em um morcego. Seu tamanho muda para Min&uacute;sculo e voc&ecirc; recebe deslocamento de voo 12m e uma arma natural de mordida (dano 1d4, perfura&ccedil;&atilde;o). Em outros aspectos, isso funciona como a Forma Selvagem do druida. Voc&ecirc; s&oacute; pode se transformar em morcego &agrave; noite ou em ambientes escuros.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 344 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 25500,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000114,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!qEhhSwNSZmOAh8k4"
+}

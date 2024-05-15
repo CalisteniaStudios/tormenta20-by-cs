@@ -7,15 +7,15 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	/** @inheritdoc */
 	static migrateData(data) {
 		super.migrateData(data);
-		const start = deepClone(data);
+		const start = foundry.utils.deepClone(data);
 		// if( data.name === undefined && data.label) {
 		// 	console.error(data);
 		// 	data.name = data.label;
 		// }
 		effectMigration.migrateAbilitiesPath(data);
 		effectMigration.migrateResistancesPath(data);
-		if( !isEmpty( foundry.utils.diffObject(start, data) ) ) {
-			setProperty(data,'flags.tormenta20.needCommit', true);
+		if( !foundry.utils.isEmpty( foundry.utils.diffObject(start, data) ) ) {
+			foundry.utils.setProperty(data,'flags.tormenta20.needCommit', true);
 		}
 		return data;
 	}

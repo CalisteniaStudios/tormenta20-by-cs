@@ -10,6 +10,7 @@ import LevelSettings from "../apps/level-settings.mjs";
 import AbilityCalculator from "../apps/ability-calculator.mjs";
 import RestConfigDialog from "../apps/rest-config.mjs";
 import CharacterProgression from '../apps/character-progression.mjs';
+import ActorSync from '../apps/actor-sync.mjs';
 
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -40,7 +41,7 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions,
+		return foundry.utils.mergeObject(super.defaultOptions,
 			{
 				scrollY: [
 					".tormenta20.base .sheet-body",
@@ -451,7 +452,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			if ( trait.custom ) {
 				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
 			}
-			trait.cssClass = !isEmpty(trait.selected) ? "" : "inactive";
+			trait.cssClass = !foundry.utils.isEmpty(trait.selected) ? "" : "inactive";
 		}
 	}
 
@@ -485,7 +486,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			{name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
 		];
 		for ( let b of modificadores ) {
-			b.value = getProperty(this.object._source, b.name) || [];
+			b.value = foundry.utils.getProperty(this.object._source, b.name) || [];
 		}
 		return modificadores;
 	}
@@ -509,6 +510,12 @@ export default class ActorSheetT20 extends ActorSheet {
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 		// Add button for help
+		// buttons.unshift({
+		// 	label: game.i18n.localize('T20.ActorSync'),
+		// 	class: "actor-sync",
+		// 	icon: "fa-solid fa-rotate",
+		// 	onclick: () => (new ActorSync(this.actor)).render(true)
+		// });
 	 	// Add button for sheet settings?
 		return buttons;
 	}

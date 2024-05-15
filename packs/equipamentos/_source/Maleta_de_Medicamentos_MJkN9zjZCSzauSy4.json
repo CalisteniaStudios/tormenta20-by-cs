@@ -1,0 +1,76 @@
+{
+  "_id": "MJkN9zjZCSzauSy4",
+  "name": "Maleta de Medicamentos",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/maleta-de-medicamentos.webp",
+  "effects": [],
+  "folder": "VqWdhvUwkVTlura5",
+  "sort": 100391,
+  "flags": {},
+  "system": {
+    "description": {
+      "value": "<p>Caixa de madeira com ervas, unguentos, bandagens e outros materiais &uacute;teis. Um personagem sem este item sofre &ndash;5 em Cura.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 158 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 50,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "ferramenta",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "rolls": [],
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667249971243,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!MJkN9zjZCSzauSy4"
+}

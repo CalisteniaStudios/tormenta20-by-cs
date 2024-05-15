@@ -1,0 +1,19 @@
+{
+  "name": "Armas",
+  "sorting": "m",
+  "folder": null,
+  "type": "Item",
+  "_id": "AMUsSTs0XvNMWu3Y",
+  "sort": 0,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.200",
+    "coreVersion": "11.299",
+    "createdTime": null,
+    "modifiedTime": 1685246740316,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!folders!AMUsSTs0XvNMWu3Y"
+}

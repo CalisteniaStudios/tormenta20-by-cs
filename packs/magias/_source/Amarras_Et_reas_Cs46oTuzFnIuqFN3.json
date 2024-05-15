@@ -1,0 +1,230 @@
+{
+  "_id": "Cs46oTuzFnIuqFN3",
+  "name": "Amarras Etéreas",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/amarras-etereas.webp",
+  "effects": [
+    {
+      "_id": "Of4OHjVeJJYFGMVR",
+      "flags": {
+        "onuse": true,
+        "t20": null,
+        "tormenta20": {
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": true,
+          "custo": "2",
+          "durationScene": false,
+          "onuse": true
+        }
+      },
+      "changes": [
+        {
+          "key": "alvo",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/aura.svg",
+      "label": "aumenta o número de alvos em +1.",
+      "origin": "Item.9H5WUoQd6wIrSKDQ",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!Cs46oTuzFnIuqFN3.Of4OHjVeJJYFGMVR"
+    },
+    {
+      "_id": "nh1Tjykbn8LIPdO3",
+      "flags": {
+        "onuse": true,
+        "t20": null,
+        "tormenta20": {
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": true,
+          "custo": "2",
+          "durationScene": false,
+          "onuse": true,
+          "equipment": false,
+          "items": ""
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/aura.svg",
+      "label": "aumenta o número de laços em um alvo a sua escolha em +1. (bônus máximo limitado pelo círculo máximo de magia que você pode lançar)",
+      "origin": "Item.9H5WUoQd6wIrSKDQ",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!Cs46oTuzFnIuqFN3.nh1Tjykbn8LIPdO3"
+    },
+    {
+      "_id": "7jKy7zfPfM0bHxB9",
+      "flags": {
+        "onuse": true,
+        "t20": null,
+        "tormenta20": {
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "3",
+          "durationScene": false,
+          "onuse": true,
+          "items": "",
+          "equipment": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/aura.svg",
+      "label": "em vez do normal, cada laço é destruído automaticamente com um único ataque bem-sucedido; porém, cada laço destruído libera um choque de energia que causa 1d8+1 pontos de dano de essência na criatura amarrada. Requer 3º círculo.",
+      "origin": "Item.9H5WUoQd6wIrSKDQ",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!Cs46oTuzFnIuqFN3.7jKy7zfPfM0bHxB9"
+    },
+    {
+      "_id": "cWFLapgWypf0TiZM",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/amarras-etereas.webp",
+      "label": "Amarras Etéreas",
+      "origin": "Item.Ene0TK73dvXiF3tl",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!Cs46oTuzFnIuqFN3.cWFLapgWypf0TiZM"
+    }
+  ],
+  "folder": "zq0Qy1eE5QlMSaax",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.gZHdduS9LUpK8a57"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Tr&ecirc;s la&ccedil;os de energia surgem e se enroscam no alvo, deixando-o agarrado. A v&iacute;tima pode tentar se livrar, gastando uma a&ccedil;&atilde;o padr&atilde;o para fazer um teste de Atletismo (CD igual &agrave; da magia). Se passar, destr&oacute;i um la&ccedil;o, mais um la&ccedil;o adicional para cada 5 pontos pelos quais superou a CD. Os la&ccedil;os tamb&eacute;m podem ser atacados e destru&iacute;dos: cada um tem Defesa 10, 10 PV, RD 5 e imunidade a dano m&aacute;gico. Se todos os la&ccedil;os forem destru&iacute;dos, a magia &eacute; dissipada. Por serem feitos de energia, os la&ccedil;os afetam criaturas incorp&oacute;reas.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 197 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 3,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "medium",
+    "alvo": "1 criatura",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "int",
+      "bonus": 0,
+      "txt": "Reflexos anula"
+    },
+    "rolls": [],
+    "tipo": "arc",
+    "circulo": "2",
+    "preparada": false,
+    "escola": "con",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461801,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!Cs46oTuzFnIuqFN3"
+}

@@ -1,0 +1,79 @@
+{
+  "_id": "FcWJu2hcuEvBxKCF",
+  "name": "Ripostar",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/bucaneiro.webp",
+  "effects": [],
+  "folder": "86kIqRb842xHRnBV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.FcWJu2hcuEvBxKCF"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando usa a habilidade aparar e evita o ataque, voc&ecirc; pode gastar 1 PM. Se fizer isso, pode fazer um ataque corpo a corpo imediato contra o inimigo que o atacou (se ele estiver em alcance).</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos: </em>Aparar, 12&ordm; n&iacute;vel de bucaneiro.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 48 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Bucaneiro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361716919,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!FcWJu2hcuEvBxKCF"
+}

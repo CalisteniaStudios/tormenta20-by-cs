@@ -1,0 +1,297 @@
+{
+  "name": "Cetro Elemental",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/cetro-elemental.webp",
+  "effects": [
+    {
+      "label": "Cetro Elemental: 1d4.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Ye9upc42yVz6pHwH",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "eHWCJclZDfxaVxFQ",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d4",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Ye9upc42yVz6pHwH.eHWCJclZDfxaVxFQ"
+    },
+    {
+      "label": "Cetro Elemental: 1d6.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Ye9upc42yVz6pHwH",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "VNJPI930pkZmLABu",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d6",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Ye9upc42yVz6pHwH.VNJPI930pkZmLABu"
+    },
+    {
+      "label": "Cetro Elemental: 1d8.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Ye9upc42yVz6pHwH",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "aNBrT2QMSchRkluT",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d8",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Ye9upc42yVz6pHwH.aNBrT2QMSchRkluT"
+    },
+    {
+      "label": "Cetro Elemental: 1d10.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Ye9upc42yVz6pHwH",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "ooh0MRqnyTqqzM9c",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d10",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Ye9upc42yVz6pHwH.ooh0MRqnyTqqzM9c"
+    },
+    {
+      "label": "Cetro Elemental: 1d12.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Ye9upc42yVz6pHwH",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "tJ8agVURwnDzSkqk",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d12",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Ye9upc42yVz6pHwH.tJ8agVURwnDzSkqk"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.WAObGl5rjxba8J8s"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Este cetro de madeira ou metal possui uma pedra preciosa em sua ponta. De acordo com a pedra, ele ser&aacute; afinado a um tipo de dano: esmeralda (&aacute;cido), top&aacute;zio (eletricidade), rubi (fogo), safira (frio). Quando lan&ccedil;a uma magia que causa dano do tipo do cetro, o dano da magia aumenta em um dado do mesmo tipo.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 160 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 750,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "esoterico",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663377681721,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "Ye9upc42yVz6pHwH",
+  "folder": "q5xr48fQpaZDdVTn",
+  "sort": 150000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!Ye9upc42yVz6pHwH"
+}

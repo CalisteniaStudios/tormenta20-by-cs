@@ -1,0 +1,113 @@
+{
+  "_id": "AVx9eTYu8gnVuHwy",
+  "name": "Habitante do Deserto",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos-deus-sol.webp",
+  "effects": [
+    {
+      "label": "Habitante do Deserto",
+      "icon": "systems/tormenta20/icons/poderes/concedidos-deus-sol.webp",
+      "origin": "Item.AVx9eTYu8gnVuHwy",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "zB6gchRQbFfRVZXC",
+      "changes": [
+        {
+          "key": "system.tracos.resistencias.fogo.value",
+          "mode": 2,
+          "value": "10",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!AVx9eTYu8gnVuHwy.zB6gchRQbFfRVZXC"
+    }
+  ],
+  "folder": "zose22Lb5Fcz5t8J",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.AVx9eTYu8gnVuHwy"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; recebe redu&ccedil;&atilde;o de fogo 10 e pode pagar 1 PM para criar &aacute;gua pura e pot&aacute;vel suficiente para um odre (ou outro recipiente pequeno).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 134 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Sol",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183805,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!AVx9eTYu8gnVuHwy"
+}

@@ -1,0 +1,271 @@
+{
+  "_id": "Ih5qBTlgQyY2WhiS",
+  "name": "Anular a Luz",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/anular-luz.webp",
+  "effects": [
+    {
+      "_id": "qo4G5dtFQfZJ3hpw",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": true,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta o bônus na Defesa em +1.",
+      "origin": "Item.Fviqk5ohbYlvRgvz",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!Ih5qBTlgQyY2WhiS.qo4G5dtFQfZJ3hpw"
+    },
+    {
+      "_id": "N2qZYyJIjFQ390ah",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "4",
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "durationScene": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda o círculo máximo de magias dissipadas para 4º. Requer 4º Círculo.",
+      "origin": "Item.Fviqk5ohbYlvRgvz",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!Ih5qBTlgQyY2WhiS.N2qZYyJIjFQ390ah"
+    },
+    {
+      "_id": "Xnw2EPozN5CIB508",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "9",
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "durationScene": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda o círculo máximo de magias dissipadas para 5º. Requer 5º Círculo.",
+      "origin": "Item.Fviqk5ohbYlvRgvz",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!Ih5qBTlgQyY2WhiS.Xnw2EPozN5CIB508"
+    },
+    {
+      "_id": "oq21KrClIzX37uDs",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "rounds": 999,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/anular-luz.webp",
+      "label": "Anular a Luz (Bônus)",
+      "origin": "Item.Fviqk5ohbYlvRgvz",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!Ih5qBTlgQyY2WhiS.oq21KrClIzX37uDs"
+    },
+    {
+      "_id": "lsVny2cN4ORKBpbf",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/anular-luz.webp",
+      "label": "Inimigos Afetados",
+      "origin": "Item.IfaGMjeO8p0YO1pz",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!Ih5qBTlgQyY2WhiS.lsVny2cN4ORKBpbf"
+    }
+  ],
+  "folder": "ZsMFHeZUqcUIgAtU",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.axYSo81ouHtGA4WH"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Esta magia cria uma onda de escurid&atilde;o que causa diversos efeitos. Todas as magias de 3&ordm; c&iacute;rculo ou menor ativas na &aacute;rea s&atilde;o dissipadas se voc&ecirc; passar num teste de Religi&atilde;o contra a CD de cada magia. Seus aliados na &aacute;rea s&atilde;o protegidos por uma aura sombria e recebem +4 na Defesa at&eacute; o fim da cena. Inimigos na &aacute;rea ficam <a class=\"content-link\" draggable=\"true\" data-uuid=\"JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.BUMyxT4YI9mdC8Aj\" data-id=\"BUMyxT4YI9mdC8Aj\" data-type=\"JournalEntryPage\" data-tooltip=\"Text Page\">Enjoado</a>por 1d4 rodadas (apenas uma vez por cena). <em>Anular a Luz</em> anula <em>Dispersar as Trevas</em> (este efeito tem dura&ccedil;&atilde;o instant&acirc;nea).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 180 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 6,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": "Ver Texto"
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "self",
+    "alvo": "",
+    "area": "esfera de 6m de raio",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [
+      {
+        "name": "Enjoado",
+        "key": "formula0",
+        "type": "formula",
+        "parts": [
+          [
+            "1d4",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "div",
+    "circulo": "3",
+    "preparada": false,
+    "escola": "nec",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461818,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!Ih5qBTlgQyY2WhiS"
+}

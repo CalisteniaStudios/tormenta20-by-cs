@@ -1,0 +1,83 @@
+{
+  "name": "Chapéu Arcano",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/chapeu-arcano.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Com pinturas e bordados de s&iacute;mbolos m&iacute;sticos, este chap&eacute;u pontudo ajuda a canalizar energias m&aacute;gicas. Ele fornece +1 ponto de mana, mas apenas se voc&ecirc; possuir a habilidade de classe Caminho do Arcanista.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 159 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 0.1,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 50,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663532558587,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "oT1tZGBnQuUkJmUJ",
+  "folder": "3kNyXnAknru6qWyM",
+  "sort": 1400000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!oT1tZGBnQuUkJmUJ"
+}

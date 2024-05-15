@@ -1,0 +1,114 @@
+{
+  "name": "Esgrimista (Guerreiro)",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/guerreiro.webp",
+  "effects": [
+    {
+      "label": "Esgrimista",
+      "icon": "systems/tormenta20/icons/classes/guerreiro.webp",
+      "origin": "Item.4kjvx9DHlb04ImrO",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "FbymAeL2o4yUHWmv",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "(min(@int, @nvl.guerreiro))",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!4kjvx9DHlb04ImrO.FbymAeL2o4yUHWmv"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.CaGE3aysp30cMvVw"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando usa uma arma corpo a corpo leve ou &aacute;gil, voc&ecirc; soma sua Intelig&ecirc;ncia em rolagens de dano (limitada pelo seu n&iacute;vel).</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> Int 1</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20 - JdA, PG.65",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Guerreiro",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183820,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "4kjvx9DHlb04ImrO",
+  "folder": "LJQ1SKk2Y0QmZI03",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!4kjvx9DHlb04ImrO"
+}

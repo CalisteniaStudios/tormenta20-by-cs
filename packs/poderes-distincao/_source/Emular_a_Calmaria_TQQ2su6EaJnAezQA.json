@@ -1,0 +1,130 @@
+{
+  "name": "Emular a Calmaria",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Nos momentos mais tensos, um Presa de Coral pode usar a magia do mar para limpar corpo, mente e esp&iacute;rito.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 4 PM para fazer uma medita&ccedil;&atilde;o r&aacute;pida. Voc&ecirc; recupera 4d6 pontos de vida e pode repetir um teste de resist&ecirc;ncia contra um efeito que esteja o afetando. Al&eacute;m disso, at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno voc&ecirc; recebe +2 em testes de per&iacute;cia (exceto Luta e Pontaria). Para cada dois outros poderes de Presa de Coral que voc&ecirc; possui, este b&ocirc;nus aumenta em +1 e cada dado e cura do efeito aumenta em um passo.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisito</em>: um poder de Presa de Coral.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 40-41",
+    "ativacao": {
+      "execucao": "move",
+      "custo": 4,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [
+      {
+        "name": "Cura",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "4d6",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "distincao",
+    "subtipo": "Presa de Coral",
+    "origin": "",
+    "tags": [
+      "PresadeCoral"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Emular a Calmaria",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.TQQ2su6EaJnAezQA",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "5C4rTyaqcWYE3Qn8",
+      "changes": [
+        {
+          "key": "system.modificadores.pericias.geral",
+          "mode": 2,
+          "value": "1+(@PresadeCoral2*1)",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!TQQ2su6EaJnAezQA.5C4rTyaqcWYE3Qn8"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "TQQ2su6EaJnAezQA",
+  "folder": "vsGbYK3LgW5Oreol",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!TQQ2su6EaJnAezQA"
+}

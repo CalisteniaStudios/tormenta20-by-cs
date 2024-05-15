@@ -1,0 +1,107 @@
+{
+  "name": "Ração de viagem",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/racao-viagem.webp",
+  "system": {
+    "description": {
+      "value": "<p>Pr&oacute;pria para viagens, uma por&ccedil;&atilde;o desta ra&ccedil;&atilde;o alimenta uma pessoa por um dia. &Eacute; feita de alimentos conservados, como carne defumada, frutas secas, p&atilde;o, queijo e biscoitos. Se mantida seca dura bastante, mas quando molhada se estraga em 24 horas.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 162 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 0.5,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "food",
+    "uses": {
+      "autoDestroy": false
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665006048303,
+    "modifiedTime": 1684618207028,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "idPweKe7ZWln7xQf",
+  "folder": "sO4Gcu7Fm1dJ1sxI",
+  "sort": 600000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!idPweKe7ZWln7xQf"
+}

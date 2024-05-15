@@ -1,0 +1,433 @@
+{
+  "_id": "bc3rvZ76RKxnh8xN",
+  "name": "Itens Diversos",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "OLgi6EcvvWXabDAM",
+      "type": 2,
+      "text": "Ácido",
+      "img": "systems/tormenta20/icons/itens/acido.webp",
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "8xfLuPry0uNNnYfz",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.OLgi6EcvvWXabDAM"
+    },
+    {
+      "_id": "ApQbIguJGoYQqCzP",
+      "type": 2,
+      "text": "Água benta",
+      "img": "systems/tormenta20/icons/itens/agua-benta.webp",
+      "weight": 1,
+      "range": [
+        6,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "labWwyXiXHl7JvE0",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.ApQbIguJGoYQqCzP"
+    },
+    {
+      "_id": "cs4fvypKyXJd7Mgg",
+      "type": 2,
+      "text": "Algemas",
+      "img": "systems/tormenta20/icons/itens/algemas.webp",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "lkNT2EjekhRIb5vt",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.cs4fvypKyXJd7Mgg"
+    },
+    {
+      "_id": "KGYancfRzFtlM375",
+      "type": 2,
+      "text": "Bálsamo restaurador",
+      "img": "systems/tormenta20/icons/itens/balsamo.webp",
+      "weight": 1,
+      "range": [
+        12,
+        26
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "26L5Yr66Qmiu02oY",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.KGYancfRzFtlM375"
+    },
+    {
+      "_id": "HKfqIbg7VoABYZ4r",
+      "type": 2,
+      "text": "Corda (10m)",
+      "img": "systems/tormenta20/icons/itens/corda.webp",
+      "weight": 1,
+      "range": [
+        27,
+        31
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "zhN019SNUiYzz3aU",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.HKfqIbg7VoABYZ4r"
+    },
+    {
+      "_id": "JqHjlpWDgvfkQ7GD",
+      "type": 2,
+      "text": "Bomba",
+      "img": "systems/tormenta20/icons/itens/bomba.webp",
+      "weight": 1,
+      "range": [
+        32,
+        32
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "tvG1l6hpNOc7XnP8",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.JqHjlpWDgvfkQ7GD"
+    },
+    {
+      "_id": "VAnd3EeLyzhSV6lV",
+      "type": 2,
+      "text": "Essência de mana",
+      "img": "systems/tormenta20/icons/itens/mana.webp",
+      "weight": 1,
+      "range": [
+        33,
+        47
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "JC6bm2uh4g7oaGge",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.VAnd3EeLyzhSV6lV"
+    },
+    {
+      "_id": "yTX7kLz8DJciyEI5",
+      "type": 2,
+      "text": "Espelho de metal",
+      "img": "systems/tormenta20/icons/itens/espelho-de-metal.webp",
+      "weight": 1,
+      "range": [
+        48,
+        49
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "o5AfIxUf49F8UHv4",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.yTX7kLz8DJciyEI5"
+    },
+    {
+      "_id": "5DeRLMrPcmYmFiiM",
+      "type": 2,
+      "text": "Fogo alquímico",
+      "img": "systems/tormenta20/icons/itens/fogo.webp",
+      "weight": 1,
+      "range": [
+        50,
+        54
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "bqvXc1d8etuqgOTy",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.5DeRLMrPcmYmFiiM"
+    },
+    {
+      "_id": "CYGuWxWOmSgpU2Ui",
+      "type": 2,
+      "text": "Instrumento musical",
+      "img": "systems/tormenta20/icons/itens/instrumento-musical.webp",
+      "weight": 1,
+      "range": [
+        55,
+        56
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "uq053FGugxkBTn7W",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.CYGuWxWOmSgpU2Ui"
+    },
+    {
+      "_id": "ONGjbiOJT58PakNK",
+      "type": 2,
+      "text": "Kit de Ofício",
+      "img": "systems/tormenta20/icons/itens/kit-oficio.webp",
+      "weight": 1,
+      "range": [
+        57,
+        58
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "mMPUi2VjdE3rNGkg",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.ONGjbiOJT58PakNK"
+    },
+    {
+      "_id": "dUUhwvM8TLPxGvn4",
+      "type": 2,
+      "text": "Kit de disfarces",
+      "img": "systems/tormenta20/icons/itens/kit-disfarce.webp",
+      "weight": 1,
+      "range": [
+        59,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "7d9rOIGNdGSTnXUG",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.dUUhwvM8TLPxGvn4"
+    },
+    {
+      "_id": "YWSalbYGiFhtRbmE",
+      "type": 2,
+      "text": "Kit de ladrão",
+      "img": "systems/tormenta20/icons/itens/kit-ladrao.webp",
+      "weight": 1,
+      "range": [
+        61,
+        62
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "Wjpiz1Um7NkFXPDa",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.YWSalbYGiFhtRbmE"
+    },
+    {
+      "_id": "zctA3QIOOIqUDaaS",
+      "type": 2,
+      "text": "Kit de medicamentos",
+      "img": "systems/tormenta20/icons/itens/kit-medico.webp",
+      "weight": 1,
+      "range": [
+        63,
+        64
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "MJkN9zjZCSzauSy4",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.zctA3QIOOIqUDaaS"
+    },
+    {
+      "_id": "UGDHvrgw1wOXj2Se",
+      "type": 2,
+      "text": "Lampião",
+      "img": "systems/tormenta20/icons/itens/lampiao.webp",
+      "weight": 1,
+      "range": [
+        65,
+        69
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "hSNkEKLoTHuywNya",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.UGDHvrgw1wOXj2Se"
+    },
+    {
+      "_id": "Y1enbJVQBOKNlGys",
+      "type": 2,
+      "text": "Mochila",
+      "img": "systems/tormenta20/icons/itens/mochila.webp",
+      "weight": 1,
+      "range": [
+        70,
+        74
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "aEa1jA74DcgjMdlC",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.Y1enbJVQBOKNlGys"
+    },
+    {
+      "_id": "nebQJjz8ix0sOuNy",
+      "type": 2,
+      "text": "Odre",
+      "img": "systems/tormenta20/icons/itens/odre.webp",
+      "weight": 1,
+      "range": [
+        75,
+        79
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "tfn3Pvgp2qQBz6ZP",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.nebQJjz8ix0sOuNy"
+    },
+    {
+      "_id": "ka7xEvjy4fLdeNkY",
+      "type": 2,
+      "text": "Pé de cabra",
+      "img": "systems/tormenta20/icons/itens/pe-de-cabra.webp",
+      "weight": 1,
+      "range": [
+        80,
+        81
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "0QLhtTZeNl25J8sg",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.ka7xEvjy4fLdeNkY"
+    },
+    {
+      "_id": "TYvgfm4qEtAYo2QD",
+      "type": 2,
+      "text": "Pederneira",
+      "img": "systems/tormenta20/icons/itens/pederneira.webp",
+      "weight": 1,
+      "range": [
+        82,
+        83
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "ccWud10GWKY34k9t",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.TYvgfm4qEtAYo2QD"
+    },
+    {
+      "_id": "6sdtRHvq3XvdxKWn",
+      "type": 2,
+      "text": "Ração de viagem (por dia)",
+      "img": "systems/tormenta20/icons/itens/racao.webp",
+      "weight": 1,
+      "range": [
+        84,
+        88
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "zGMMNqHS1uxdxZGZ",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.6sdtRHvq3XvdxKWn"
+    },
+    {
+      "_id": "pJtKUXtFFVFb19gR",
+      "type": 0,
+      "text": "[[1d6]] rações",
+      "weight": 1,
+      "range": [
+        84,
+        88
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.pJtKUXtFFVFb19gR"
+    },
+    {
+      "_id": "ezHXICmgLqdMdHEB",
+      "type": 2,
+      "text": "Saco de Dormir",
+      "img": "systems/tormenta20/icons/itens/saco-de-dormir.webp",
+      "weight": 1,
+      "range": [
+        89,
+        93
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "ohZXRVN8Ji4Z1uSm",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.ezHXICmgLqdMdHEB"
+    },
+    {
+      "_id": "PB9nCYjq386SBEUF",
+      "type": 2,
+      "text": "Tocha",
+      "img": "systems/tormenta20/icons/itens/tocha.webp",
+      "weight": 1,
+      "range": [
+        94,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "ujmPaJ9SNjtVnfLB",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.PB9nCYjq386SBEUF"
+    },
+    {
+      "_id": "iP5mpFtOH8i9m5X5",
+      "type": 2,
+      "text": "Vara de madeira (3m)",
+      "img": "systems/tormenta20/icons/itens/vara.webp",
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "iLBmT2s4tuCfvT8R",
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.iP5mpFtOH8i9m5X5"
+    },
+    {
+      "_id": "g2wt5TCDg6zpLQjc",
+      "type": 0,
+      "text": "[[1d3]] tochas",
+      "weight": 1,
+      "range": [
+        94,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!bc3rvZ76RKxnh8xN.g2wt5TCDg6zpLQjc"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "importid": "g2aQeqfSWIrCB1Ld",
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.moduloguilda.world-guildatabelas-1646800495579.zqyEiG3jBNoLKCrO"
+    }
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665102,
+    "modifiedTime": 1667354515232,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!bc3rvZ76RKxnh8xN"
+}

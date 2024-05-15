@@ -1,0 +1,177 @@
+{
+  "_id": "IBwUmEPs2A0fGnQ2",
+  "name": "Riqueza Média",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "OxLs4sVFR7s1XjOJ",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[2d4*10]], que podem ser: Estatueta de osso ou marfim entalhado; pequeno bracelete de ouro finamente trabalhado; rolo de seda; vaso de prata.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.OxLs4sVFR7s1XjOJ"
+    },
+    {
+      "_id": "NyJReSzZlUnn0IpJ",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[4d6*10]], que podem ser: Lingote de prata; ametista; pérola branca; cálice de prata com gemas de lápis-lazúli; tapeçaria grande e bem-feita de lã.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        11,
+        30
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.NyJReSzZlUnn0IpJ"
+    },
+    {
+      "_id": "djeoLSzpj1aSMBir",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[1d6*100]], que podem ser: Alexandrita; pérola negra; pente de prata com pedras preciosas; espada cerimonial ornada com prata e gema negra no cabo.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        31,
+        50
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.djeoLSzpj1aSMBir"
+    },
+    {
+      "_id": "QFbP5A91msvOXAOx",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[2d6*100]], que podem ser: Harpa de madeira exótica com ornamentos de zircão e marfim; pente em forma de dragão com olhos de gema vermelha.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        51,
+        65
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.QFbP5A91msvOXAOx"
+    },
+    {
+      "_id": "oaE4AcMG2FFhuQkl",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[2d8*100]], que podem ser:Lingote de ouro; safira azul; opala negra; tapa-olho com um olho falso de safira; pingente de opala vermelha em uma correntinha de ouro; pintura antiga; luva bordada e adornada com gemas.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        66,
+        80
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.oaE4AcMG2FFhuQkl"
+    },
+    {
+      "_id": "JoGOkpNknJihMElI",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[4d10*100]], que podem ser: Esmeralda verde; manto bordado em veludo e seda com inúmeras pedras preciosas; pingente de safira; tornozeleira com gemas; caixinha de música de ouro.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.JoGOkpNknJihMElI"
+    },
+    {
+      "_id": "LJNdhRuLGRafa55z",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[6d12*100]], que podem ser: Diamante branco; anel de prata e safira; correntinha com pequenas pérolas rosas; ídolo de ouro puro maciço.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.LJNdhRuLGRafa55z"
+    },
+    {
+      "_id": "9yicUum3AgkOLzBC",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[2d10*1000]], que podem ser: Diamante vermelho; anel de ouro e rubi; conjunto de taças de ouro decoradas com esmeraldas.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        96,
+        99
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.9yicUum3AgkOLzBC"
+    },
+    {
+      "_id": "T1jiDQ0KBwusVHLo",
+      "flags": {},
+      "type": 0,
+      "text": "Mercadorias no valor de T$[[6d8*1000]], que podem ser: Coroa de ouro adornada com centenas de gemas, pertencente a um antigo monarca.",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!IBwUmEPs2A0fGnQ2.T1jiDQ0KBwusVHLo"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "RollTable.n2awW9oZ0y1v0V8f"
+    },
+    "importid": "pOQw2VAMAK70BiWp",
+    "cf": null
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665010,
+    "modifiedTime": 1667354515239,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!IBwUmEPs2A0fGnQ2"
+}

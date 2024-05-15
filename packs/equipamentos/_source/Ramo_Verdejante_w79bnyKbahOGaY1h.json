@@ -1,0 +1,157 @@
+{
+  "name": "Ramo Verdejante",
+  "type": "consumivel",
+  "img": "icons/consumables/plants/fern-stem-curved-green.webp",
+  "system": {
+    "description": {
+      "value": "<p>Esta combinação de ervas potencializa magias de cura, aumentando sua cura em +1 PV por dado.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0,
+    "qtd": 0,
+    "preco": 0,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 3
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": 0,
+      "width": 0,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": 0,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": 0,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "origin": "",
+    "tags": [],
+    "rolltags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "subtipo": ""
+  },
+  "effects": [
+    {
+      "name": "Ramo Verdejante",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.T55ThywaLuAge1YV",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "7CUCJ8NabSZLwPSv",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 0,
+          "value": "d*1",
+          "priority": 0
+        }
+      ],
+      "description": "",
+      "transfer": true,
+      "statuses": [],
+      "_key": "!items.effects!w79bnyKbahOGaY1h.7CUCJ8NabSZLwPSv"
+    }
+  ],
+  "folder": "QiIu6dfsnRA5FIHj",
+  "ownership": {
+    "default": 0,
+    "izTN2S0Mlytej3sI": 3
+  },
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.201",
+    "coreVersion": "11.306",
+    "createdTime": 1690151259819,
+    "modifiedTime": 1690151592430,
+    "lastModifiedBy": "izTN2S0Mlytej3sI"
+  },
+  "_id": "w79bnyKbahOGaY1h",
+  "sort": 0,
+  "_key": "!items!w79bnyKbahOGaY1h"
+}

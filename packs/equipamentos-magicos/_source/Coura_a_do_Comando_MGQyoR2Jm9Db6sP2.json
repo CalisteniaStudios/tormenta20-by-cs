@@ -1,0 +1,294 @@
+{
+  "_id": "MGQyoR2Jm9Db6sP2",
+  "name": "Couraça do Comando",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp",
+  "effects": [
+    {
+      "label": "Banhada a ouro",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp",
+      "origin": "Item.MGQyoR2Jm9Db6sP2",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "Qxt0OZht8i68jDiO",
+      "changes": [
+        {
+          "key": "system.pericias.dipl.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!MGQyoR2Jm9Db6sP2.Qxt0OZht8i68jDiO"
+    },
+    {
+      "label": "Sob medida",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp",
+      "origin": "Item.MGQyoR2Jm9Db6sP2",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "QVBsccfKQnMBKwpA",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.pda",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!MGQyoR2Jm9Db6sP2.QVBsccfKQnMBKwpA"
+    },
+    {
+      "label": "Defensora",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp",
+      "origin": "Item.MGQyoR2Jm9Db6sP2",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "H321M4Evtmiu74hD",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!MGQyoR2Jm9Db6sP2.H321M4Evtmiu74hD"
+    },
+    {
+      "label": "Comandar",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.MGQyoR2Jm9Db6sP2",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "FJNRfzwlnk60NZg4",
+      "changes": [
+        {
+          "key": "system.atributos.car.value",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!MGQyoR2Jm9Db6sP2.FJNRfzwlnk60NZg4"
+    },
+    {
+      "label": "Couraça do Comando",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp",
+      "origin": "Item.MGQyoR2Jm9Db6sP2",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "yothk5q9V5aB358t",
+      "changes": [
+        {
+          "key": "system.atributos.car.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!MGQyoR2Jm9Db6sP2.yothk5q9V5aB358t"
+    }
+  ],
+  "folder": "SkZDe8cUamd0vHjD",
+  "sort": 112500,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.MGQyoR2Jm9Db6sP2"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Esta <strong>couraça banhada a ouro sob medida defensora</strong> irradia uma aura de autoridade. Você recebe +2 em Carisma. Se usar o poder Comandar, o bônus fornecido aumenta para +2.</p><p style=\"text-align:justify;\"><b>Banhada a ouro</b> Uma modificação favorita de nobres pomposos ou aventureiros que acabaram de enriquecer. Um item banhado a ouro concede um bônus de +2 em testes de Diplomacia. O mestre pode mudar o bônus para uma penalidade de –2, caso você esteja interagindo com pessoas que desprezam tal ostentação. Além disso, pode atrair a cobiça de ladrões.</p><p style=\"text-align:justify;\"><b>Sob medida</b> Embora muitas armaduras sejam feitas especificamente para um usuário, esta passou por um período extenso de ajustes e refinamento, adequando-se com perfeição ao seu corpo. Reduz a penalidade por armadura em 2, mas apenas para o usuário específico (para outros, comporta-se como um item ajustado). Pré-requisito: Ajustada.</p><p style=\"text-align:justify;\"><b>Defensora</b> A arma se movimenta para aparar ataques contra você. Você recebe +2 na Defesa.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 340 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 15,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 45000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "leve",
+    "armadura": {
+      "value": 5,
+      "penalidade": -4,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "adjusted": null,
+      "undermeasure": "Sob medida",
+      "delicate": null,
+      "thorny": null,
+      "specialmaterial": null,
+      "polished": null,
+      "reinforced": null,
+      "sealed": null,
+      "golden": "Banhado a ouro",
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "encantos": {
+      "abascanth": null,
+      "blessed": null,
+      "acrobatic": null,
+      "winged": null,
+      "frightful": null,
+      "caustic": null,
+      "defending": "Defensor",
+      "slick": null,
+      "ghostly": null,
+      "ortification": null,
+      "frost": null,
+      "guardian": null,
+      "hypnotic": null,
+      "illusory": null,
+      "incandescent": null,
+      "invulnerable": null,
+      "opaque": null,
+      "protector": null,
+      "reflecting": null,
+      "lightning": null,
+      "blinding": null,
+      "shadow": null,
+      "zealous": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "undermeasure",
+      "melhoria2": "golden",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "defending",
+      "encanto2": "",
+      "encanto3": ""
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000098,
+    "modifiedTime": 1684622962183,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!MGQyoR2Jm9Db6sP2"
+}

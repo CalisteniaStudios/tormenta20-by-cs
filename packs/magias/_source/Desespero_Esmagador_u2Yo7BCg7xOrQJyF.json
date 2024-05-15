@@ -1,0 +1,223 @@
+{
+  "_id": "u2Yo7BCg7xOrQJyF",
+  "name": "Desespero Esmagador",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/desespero-esmagador.webp",
+  "effects": [
+    {
+      "_id": "6fhmY20GSejtqLgU",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false
+        }
+      },
+      "changes": [
+        {
+          "key": "condicao",
+          "value": "debilitado",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "condicao",
+          "value": "esmorecido",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "em vez do normal, as condições adquiridas são debilitado e esmorecido.",
+      "origin": "Compendium.tormenta20.magias.u2Yo7BCg7xOrQJyF",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!u2Yo7BCg7xOrQJyF.6fhmY20GSejtqLgU"
+    },
+    {
+      "_id": "HsX3fBjwZwMTO2bb",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "3",
+          "aumenta": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "em vez do normal, afeta qualquer tipo de criatura.",
+      "origin": "Compendium.tormenta20.magias.u2Yo7BCg7xOrQJyF",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!u2Yo7BCg7xOrQJyF.HsX3fBjwZwMTO2bb"
+    },
+    {
+      "_id": "SFqxKl2kgQ69jfzA",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "3",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "condicao",
+          "mode": 0,
+          "value": "pasmo",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "além do normal, criaturas que falhem na resistência ficam aos prantos (em termos de jogo, adquirem a condição pasmo) por 1 rodada (apenas uma vez por cena). Requer 3º círculo.",
+      "origin": "Compendium.tormenta20.magias.u2Yo7BCg7xOrQJyF",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!u2Yo7BCg7xOrQJyF.SFqxKl2kgQ69jfzA"
+    },
+    {
+      "_id": "SKAFxmVCXlbjW5aR",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/desespero-esmagador.webp",
+      "label": "Desespero Esmagador",
+      "origin": "Item.z7QzFtHupsPxkLvT",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!u2Yo7BCg7xOrQJyF.SKAFxmVCXlbjW5aR"
+    }
+  ],
+  "folder": "OhcRkxh8f9gK9sZ7",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.l9gxrlKYBkmJLnXZ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Humanoides na &aacute;rea s&atilde;o acometidos de grande tristeza, adquirindo as condi&ccedil;&otilde;es @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.Q6GUW7cDfTW5AXRz]{Fraco} e @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.XvqIlV5v4YBeFUBs]{Frustrado}. Se passarem na resist&ecirc;ncia, adquirem essas condi&ccedil;&otilde;es por uma rodada.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 190 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 3,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "self",
+    "alvo": "",
+    "area": "Cone de 6m",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "int",
+      "bonus": 0,
+      "txt": "Vontade parcial"
+    },
+    "rolls": [],
+    "tipo": "arc",
+    "circulo": "2",
+    "preparada": false,
+    "escola": "enc",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310462827,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!u2Yo7BCg7xOrQJyF"
+}

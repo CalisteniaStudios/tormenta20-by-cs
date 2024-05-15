@@ -1,0 +1,110 @@
+{
+  "_id": "MKVXiFMW6z5HBC1Z",
+  "name": "Refeição comum",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/refeicao-comum.webp",
+  "effects": [],
+  "folder": "sO4Gcu7Fm1dJ1sxI",
+  "sort": 700000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.MKVXiFMW6z5HBC1Z"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Uma refei&ccedil;&atilde;o t&iacute;pica inclui p&atilde;o, queijo, cozido de carne ou galinha com legumes e uma caneca de bebida</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 162 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 0.3,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "food",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "subtipo": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772402,
+    "modifiedTime": 1684618208752,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!MKVXiFMW6z5HBC1Z"
+}

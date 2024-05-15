@@ -1,0 +1,233 @@
+{
+  "_id": "9Dw4t70KSmIOWiDg",
+  "name": "Missão Divina",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/missao-divina.webp",
+  "effects": [
+    {
+      "_id": "Behtd3HjHNdASQ5f",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "alcance",
+          "mode": 5,
+          "value": "Toque",
+          "priority": 0
+        },
+        {
+          "key": "duracao",
+          "mode": 5,
+          "value": "permanente",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda o alcance para toque, a\nduração para permanente e adiciona\npenalidade de –1 PM. Em vez do normal,\nvocê inscreve uma marca (como uma tatuagem) na pele do alvo e escolhe um tipo de ação que ativará a marca. Normalmente, será cometer um crime (roubar, matar...) ou outra coisa contrária às Obrigações & Restrições de sua divindade. Sempre que a marca é ativada, o alvo recebe uma penalidade cumulativa de –2 em todos os testes. Muitas vezes, portar essa marca é um estigma por si só, já que esta magia normalmente é lançada em criminosos ou traidores. Uma magia que dissipe outras suprime a marca e suas penalidades por um dia; elas só podem ser totalmente removidas pelo conjurador original ou pela magia Purificação.",
+      "origin": "Compendium.tormenta20.magias.9Dw4t70KSmIOWiDg",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!9Dw4t70KSmIOWiDg.Behtd3HjHNdASQ5f"
+    },
+    {
+      "_id": "s8a46dyo05cIfakD",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "4",
+          "aumenta": true
+        }
+      },
+      "changes": [
+        {
+          "key": "duracao",
+          "value": "1 ano ou até ser descarregada",
+          "mode": 5,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta a duração para 1 ano ou até ser descarregada.",
+      "origin": "Compendium.tormenta20.magias.9Dw4t70KSmIOWiDg",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!9Dw4t70KSmIOWiDg.s8a46dyo05cIfakD"
+    },
+    {
+      "_id": "e4ENPbyQLqqRC0LF",
+      "changes": [
+        {
+          "key": "system.modificadores.pericias.geral",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.dano.geral",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/missao-divina.webp",
+      "label": "Missão Divina (Penalidade)",
+      "origin": "Item.irBgTTIBNXURe6Ld",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!9Dw4t70KSmIOWiDg.e4ENPbyQLqqRC0LF"
+    },
+    {
+      "_id": "ZmOQMahsIn6mkhsC",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/missao-divina.webp",
+      "label": "Marcar Alvo",
+      "origin": "Item.irBgTTIBNXURe6Ld",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!9Dw4t70KSmIOWiDg.ZmOQMahsIn6mkhsC"
+    }
+  ],
+  "folder": "ToOk7JFkymVR4FA6",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.bYDkK2EtBE2FMA0C"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Esta magia obriga o alvo a cumprir uma tarefa a sua escolha. Ela dura uma semana ou at&eacute; o alvo cumprir a tarefa, o que vier primeiro. O alvo pode recusar a miss&atilde;o &mdash; mas, no fim de cada dia em que n&atilde;o se esfor&ccedil;ar para cumprir a tarefa, deve fazer um teste de Vontade; se falhar, sofre uma penalidade cumulativa de &ndash;2 em todos os testes e rolagens.</p>\n<p style=\"text-align: justify;\">A <em>Miss&atilde;o Divina</em> n&atilde;o pode for&ccedil;ar uma criatura a um ato suicida, nem designar uma miss&atilde;o imposs&iacute;vel (como matar uma criatura que n&atilde;o existe).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 205 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 6,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "special",
+      "special": "1 semana ou até ser descarregada"
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "1 criatura",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": "Vontade anula (veja texto)"
+    },
+    "rolls": [],
+    "tipo": "div",
+    "circulo": "3",
+    "preparada": false,
+    "escola": "enc",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461771,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!9Dw4t70KSmIOWiDg"
+}

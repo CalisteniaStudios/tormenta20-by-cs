@@ -1,0 +1,123 @@
+{
+  "_id": "fVPH9kywOoQ7eluT",
+  "name": "Golpe Cruel",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/combatentes/golpe-cruel.webp",
+  "effects": [
+    {
+      "label": "Golpe Cruel",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.fVPH9kywOoQ7eluT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "kuBUsLlfmuPsxJDc",
+      "changes": [
+        {
+          "key": "criticoM",
+          "mode": 2,
+          "value": "-1",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!fVPH9kywOoQ7eluT.kuBUsLlfmuPsxJDc"
+    }
+  ],
+  "folder": "csRpG81AedPycko0",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.fVPH9kywOoQ7eluT"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">No 5&ordm; n&iacute;vel, voc&ecirc; acerta onde d&oacute;i. Sua margem de amea&ccedil;a com ataques desarmados aumenta em +1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 77 (JdA)",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Lutador",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184751,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!fVPH9kywOoQ7eluT"
+}

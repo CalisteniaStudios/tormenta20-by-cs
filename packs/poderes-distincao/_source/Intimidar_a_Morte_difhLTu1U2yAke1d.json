@@ -1,0 +1,78 @@
+{
+  "name": "Intimidar a Morte",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; parece capaz de assustar a pr&oacute;pria morte com sua f&uacute;ria.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Uma vez por rodada, quando sofre dano, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 2 PM para fazer um teste de Intimida&ccedil;&atilde;o e reduzir o dano sofrido em um valor igual ao resultado deste teste.</p>\n<p class=\"MsoNormal\">Pr&eacute;-requisitos: treinado em Intimida&ccedil;&atilde;o, F&uacute;ria dos Gigantes.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 23",
+    "ativacao": {
+      "execucao": "reaction",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Gigante Furioso",
+    "origin": "",
+    "tags": [
+      "GiganteFurioso"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667075515824,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "difhLTu1U2yAke1d",
+  "folder": "Zr1HgroTTH1NqRJ3",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!difhLTu1U2yAke1d"
+}

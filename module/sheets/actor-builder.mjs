@@ -9,7 +9,7 @@ import ActorSheetT20 from "./actor-base.mjs";
 export default class ActorSheetT20Builder extends ActorSheetT20 {
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "character","npc-builder"],
 			scrollY: [
 				".sheet-body",
@@ -169,7 +169,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		for (let path of attrPaths ) {
 			let key = path.split('.')[1];
 			let def = ['fort','refl','vont'].includes(key) ? {value: 0, cr:'1', rank:0} : {value: 0, cr:'1'};
-			attr[key] = getProperty( actor.system.builder , path) ?? def;
+			attr[key] = foundry.utils.getProperty( actor.system.builder , path) ?? def;
 		}
 		return attr;
 	}
@@ -239,7 +239,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		const item = this.actor.items.get( itemId );
 		if( !item ) return;
 		const rolls = item.system.rolls;
-		if( !rolls || isEmpty(rolls) ) return ui.notifications.warn('T20.WarnItemHaveNoRolls');
+		if( !rolls || foundry.utils.isEmpty(rolls) ) return ui.notifications.warn('T20.WarnItemHaveNoRolls');
 
 		for ( let [ i, roll ] of Object.entries(rolls) ){
 			if ( roll.type != rollType ) continue;

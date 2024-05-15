@@ -1,0 +1,79 @@
+{
+  "_id": "pGwlyl63wgYeqwrQ",
+  "name": "Surto Heroico",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/destino.webp",
+  "effects": [],
+  "folder": "NvFFFNI6JHPuMkck",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.pGwlyl63wgYeqwrQ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Uma vez por rodada, você pode gastar 5 PM para realizar uma ação padrão ou de movimento adicional.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 131 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 5,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Destino",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185207,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!pGwlyl63wgYeqwrQ"
+}

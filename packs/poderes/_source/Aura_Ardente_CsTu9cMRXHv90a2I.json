@@ -1,0 +1,95 @@
+{
+  "_id": "CsTu9cMRXHv90a2I",
+  "name": "Aura Ardente",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/paladino.webp",
+  "effects": [],
+  "folder": "VwM7ZxttHPFuX6M4",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.CsTu9cMRXHv90a2I"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Enquanto sua aura estiver ativa, no in&iacute;cio de cada um de seus turnos, esp&iacute;ritos e mortos-vivos a sua escolha dentro dela sofrem dano de luz igual a 5 + seu&nbsp; Carisma.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> 10&deg; n&iacute;vel de paladino.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 83 (JdA)",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [
+      {
+        "name": "Dano",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "5+@car",
+            "luz",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "classe",
+    "subtipo": "Paladino",
+    "chatFlavor": "",
+    "tags": [
+      "magico"
+    ],
+    "origin": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183822,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!CsTu9cMRXHv90a2I"
+}

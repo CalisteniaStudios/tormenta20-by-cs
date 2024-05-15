@@ -1,0 +1,113 @@
+{
+  "_id": "QGrIxgErNXRuUsZe",
+  "name": "Trincado",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/lutador.webp",
+  "effects": [
+    {
+      "label": "Trincado",
+      "icon": "systems/tormenta20/icons/classes/lutador.webp",
+      "origin": "Item.QGrIxgErNXRuUsZe",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "whL2CvpNPLyB0WSU",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "@con",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!QGrIxgErNXRuUsZe.whL2CvpNPLyB0WSU"
+    }
+  ],
+  "folder": "csRpG81AedPycko0",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.QGrIxgErNXRuUsZe"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Esculpido &agrave; exaust&atilde;o, seu corpo se tornou uma m&aacute;quina. Voc&ecirc; soma sua Constitui&ccedil;&atilde;o nas rolagens de dano desarmado.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> Con 3, Sarado, 10&ordm; n&iacute;vel de lutador.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg.77 (JdA)",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Lutador",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184297,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!QGrIxgErNXRuUsZe"
+}

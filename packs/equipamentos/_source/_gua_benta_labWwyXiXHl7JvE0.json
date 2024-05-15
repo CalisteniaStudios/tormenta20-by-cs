@@ -1,0 +1,122 @@
+{
+  "_id": "labWwyXiXHl7JvE0",
+  "name": "Água benta",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/agua-benta.webp",
+  "effects": [],
+  "folder": "0G5uMjOsWAFaPYAZ",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.labWwyXiXHl7JvE0"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Produzida com a magia @UUID[Compendium.tormenta20.magias.ZzDo9khqHDty1iDV]{Aben&ccedil;oar Alimentos}, esta &aacute;gua sagrada &eacute; um poderoso recurso na luta contra o mal. Para usar a &aacute;gua benta, voc&ecirc; gasta uma a&ccedil;&atilde;o padr&atilde;o e escolhe um morto-vivo, dem&ocirc;nio ou diabo em alcance curto (a &aacute;gua benta &eacute; inofensiva contra outras criaturas). O alvo sofre 2d10 pontos de dano de luz (Reflexos CD Sab reduz &agrave; metade).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 155 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 10,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "action",
+      "custo": null,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "inst",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "1 criatura",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "des",
+      "bonus": null,
+      "txt": "Reflexos reduz a metade"
+    },
+    "rolls": [
+      {
+        "name": "Dano",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "2d10",
+            "luz"
+          ]
+        ]
+      }
+    ],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "subtipo": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772418,
+    "modifiedTime": 1684616774528,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!labWwyXiXHl7JvE0"
+}

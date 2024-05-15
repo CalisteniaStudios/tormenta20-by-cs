@@ -1,0 +1,86 @@
+{
+  "name": "Mestre Cuca",
+  "type": "poder",
+  "img": "icons/commodities/tech/cog-brass.webp",
+  "effects": [],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.ipbMzDzA1QNs0XO6",
+      "defaultPermission": 3,
+      "hash": "f7b7522ebaea31f383130b6c4d07479917a1ec43"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.1p6OCdGhws3Lv9TX"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Todas as comidas que voc&ecirc; cozinha t&ecirc;m seu b&ocirc;nus num&eacute;rico aumentado em +1.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> treinado em Of&iacute;cio (cozinheiro).</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 69 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "inventor",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051645915,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "a1iGcFVdiWzPPVoD",
+  "folder": "iHjbUWZ9cRzIVZ3E",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!a1iGcFVdiWzPPVoD"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Inventor",
+  "type": "classe",
+  "img": "systems/tormenta20/icons/classes/inventor.webp",
+  "system": {
+    "description": {
+      "value": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "niveis": 1,
+    "pvPorNivel": 3,
+    "pmPorNivel": 4,
+    "inicial": false,
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "rolls": [],
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1665005503826,
+    "modifiedTime": 1668270628858,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "WAyBowpFRVKRr0mq",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!WAyBowpFRVKRr0mq"
+}

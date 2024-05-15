@@ -1,0 +1,124 @@
+{
+  "_id": "3EgQ8dXJNByFCZI6",
+  "name": "Eclético",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/especialistas/ecletico.webp",
+  "effects": [
+    {
+      "label": "Eclético",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.1J3bKpKykW6wv3P4",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "1",
+          "equipment": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "U83hA4ExwMNGvArn",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "@treino",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!3EgQ8dXJNByFCZI6.U83hA4ExwMNGvArn"
+    }
+  ],
+  "folder": "vXRLLa3BIKBZdiua",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.3EgQ8dXJNByFCZI6"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">A partir do 2&ordm; n&iacute;vel, voc&ecirc; pode gastar 1 PM para receber todos os benef&iacute;cios de ser treinado em uma per&iacute;cia por um teste.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 45 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Bardo",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361716786,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!3EgQ8dXJNByFCZI6"
+}

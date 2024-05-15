@@ -1,0 +1,55 @@
+{
+  "_id": "TH7OIKaDqtLLQUrs",
+  "name": "Arcanista",
+  "type": "classe",
+  "img": "systems/tormenta20/icons/classes/arcanista.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "exportSource": {
+      "world": "tormenta-20-teste",
+      "system": "tormenta20",
+      "coreVersion": "0.7.9",
+      "systemVersion": "1.1.21"
+    },
+    "core": {
+      "sourceId": "Compendium.tormenta20.classes.TH7OIKaDqtLLQUrs"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "niveis": 1,
+    "pvPorNivel": 2,
+    "pmPorNivel": 6,
+    "inicial": false,
+    "pericias": {
+      "numero": 2,
+      "inatas": "",
+      "escolhas": [],
+      "value": []
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.205",
+    "coreVersion": "11.315",
+    "createdTime": 1664312712755,
+    "modifiedTime": 1708835903242,
+    "lastModifiedBy": "LlgjSTfityhQWMtF"
+  },
+  "_key": "!items!TH7OIKaDqtLLQUrs"
+}

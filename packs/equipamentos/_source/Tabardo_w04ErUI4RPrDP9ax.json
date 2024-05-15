@@ -1,0 +1,121 @@
+{
+  "name": "Tabardo",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/tabardo.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Uma pe&ccedil;a de tecido usada como um colete, cobrindo o peito e as costas. Geralmente ostenta a her&aacute;ldica de um reino, igreja, casa nobre ou ordem de cavaleiros. Fornece +1 em Diplomacia.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 159 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 1.5,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 10,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Tabardo",
+      "icon": "systems/tormenta20/icons/itens/gerais/tabardo.webp",
+      "origin": "Item.w04ErUI4RPrDP9ax",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "IBmJ7fRYD38XhsqL",
+      "changes": [
+        {
+          "key": "system.pericias.dipl.bonus",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!w04ErUI4RPrDP9ax.IBmJ7fRYD38XhsqL"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.oZlDoq0HxOucTgGK"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663532558587,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "w04ErUI4RPrDP9ax",
+  "folder": "3kNyXnAknru6qWyM",
+  "sort": 125000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!w04ErUI4RPrDP9ax"
+}

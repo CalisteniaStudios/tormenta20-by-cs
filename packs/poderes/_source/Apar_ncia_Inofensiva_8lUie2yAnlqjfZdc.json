@@ -1,0 +1,79 @@
+{
+  "_id": "8lUie2yAnlqjfZdc",
+  "name": "Aparência Inofensiva",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/destino.webp",
+  "effects": [],
+  "folder": "NvFFFNI6JHPuMkck",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.8lUie2yAnlqjfZdc"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">A primeira criatura inteligente (Int -3 ou maior) que atacar voc&ecirc; em uma cena deve fazer um teste de Vontade (CD Car). Se falhar, perder&aacute; sua a&ccedil;&atilde;o. Este poder s&oacute; funciona uma vez por cena; independentemente de a criatura falhar ou n&atilde;o no teste, poder&aacute; atac&aacute;-lo nas rodadas seguintes.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> Car 1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 130 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "car",
+      "bonus": 0,
+      "txt": "Vontade"
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Destino",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183332,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!8lUie2yAnlqjfZdc"
+}

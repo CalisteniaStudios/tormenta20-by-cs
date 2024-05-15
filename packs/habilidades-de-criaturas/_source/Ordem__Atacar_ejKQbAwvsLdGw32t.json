@@ -1,0 +1,177 @@
+{
+  "name": "Ordem: Atacar",
+  "type": "poder",
+  "system": {
+    "description": {
+      "value": "<p>Carni&ccedil;al: como o esqueleto, mas tem For 16, Des 16, 12 PV e causa 1d8+3 pontos de dano de trevas mais perda de 1d8 PV por veneno. Al&eacute;m disso, criaturas atingidas por um carni&ccedil;al devem passar num teste de Fortitude (CD igual &agrave; da magia) ou ficam paralisadas por 1 rodada. Uma criatura que passe no teste de resist&ecirc;ncia fica imune &agrave; paralisia dos carni&ccedil;ais por 24 horas.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": 0,
+      "width": 0,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": 0,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": 0,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "touch",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": "Fortitude (CD Magia)"
+    },
+    "rolls": [
+      {
+        "name": "Dano",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "1d6+3",
+            "trevas",
+            ""
+          ]
+        ],
+        "versatil": ""
+      },
+      {
+        "name": "Veneno",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "1d8",
+            "perda",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "img": "systems/tormenta20/icons/poderes/ameacas/ataque-trevas.webp",
+  "effects": [
+    {
+      "label": "+1d6+2 (esqueletos adjacentes)",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Ey13BCyYSiskMUsM",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "21qX4wyfrA31uMBT",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 0,
+          "value": "1d6+2",
+          "priority": 0
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!ejKQbAwvsLdGw32t.21qX4wyfrA31uMBT"
+    },
+    {
+      "label": "Paralisado",
+      "icon": "icons/svg/aura.svg",
+      "origin": "Item.ejKQbAwvsLdGw32t",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "vx6EXBQ6Q3K4Mq4u",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!ejKQbAwvsLdGw32t.vx6EXBQ6Q3K4Mq4u"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Actor.fRdEKyc1N2BhBZR9.Item.o2Q3wOOzq6mcYFdI"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664755136558,
+    "modifiedTime": 1667350796117,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "ejKQbAwvsLdGw32t",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!ejKQbAwvsLdGw32t"
+}

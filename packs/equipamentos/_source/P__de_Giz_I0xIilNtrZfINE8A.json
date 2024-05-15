@@ -1,0 +1,144 @@
+{
+  "name": "Pó de Giz",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/po-de-giz.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Calc&aacute;rio esmagado em p&oacute;, uma subst&acirc;ncia comum que, usada como catalisador, diminui o custo de magias de convoca&ccedil;&atilde;o em &ndash;1 PM.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 161 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.1,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 30,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Pó de Giz: diminui o custo de magias de convocação em -1PM.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.MT4QgnaAwWgr4pet",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": true,
+          "items": "",
+          "aumenta": false,
+          "custo": "-1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "mhMNYFNWFT6UyhFS",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!I0xIilNtrZfINE8A.mhMNYFNWFT6UyhFS"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663365561715,
+    "modifiedTime": 1684618200363,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "I0xIilNtrZfINE8A",
+  "folder": "QiIu6dfsnRA5FIHj",
+  "sort": 700000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!I0xIilNtrZfINE8A"
+}

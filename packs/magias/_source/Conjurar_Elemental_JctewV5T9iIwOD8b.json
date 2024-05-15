@@ -1,0 +1,599 @@
+{
+  "_id": "JctewV5T9iIwOD8b",
+  "name": "Conjurar Elemental",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+  "effects": [
+    {
+      "_id": "3Q6aRRLjOb8h5kFp",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "5",
+          "aumenta": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "o elemental muda para Enorme e recebe dois tipos de aliado indicados no seu elemento.",
+      "origin": "Compendium.tormenta20.magias.JctewV5T9iIwOD8b",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.3Q6aRRLjOb8h5kFp"
+    },
+    {
+      "_id": "DPXnyWDQQxzUOpi3",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "5",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "durationScene": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "você convoca um elemental de cada tipo. Quando lança a magia, você pode escolher se cada elemental vai auxiliar você ou um aliado no alcance. Requer 5º círculo.",
+      "origin": "Compendium.tormenta20.magias.JctewV5T9iIwOD8b",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.DPXnyWDQQxzUOpi3"
+    },
+    {
+      "_id": "ZjjDD6sfPEyTebNW",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "2d6",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.dano.ad",
+          "mode": 2,
+          "value": "2d6",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.ataque.cac",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental do Ar Assassino",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.ZjjDD6sfPEyTebNW"
+    },
+    {
+      "_id": "xGV66nLa5dqIL1Jx",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental do Ar Perseguidor",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.xGV66nLa5dqIL1Jx"
+    },
+    {
+      "_id": "YXLU6iLqqU2Gw0eC",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental do Ar Vigilante",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.YXLU6iLqqU2Gw0eC"
+    },
+    {
+      "_id": "2uitfX35jMNADQOa",
+      "changes": [
+        {
+          "key": "system.pericias.???.bonus",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.???.bonus",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.???.bonus",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental da Água Ajudante",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.2uitfX35jMNADQOa"
+    },
+    {
+      "_id": "LL89OjzKMJLsTVqN",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.fort.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.refl.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.vont.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental da Água Guardião",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.LL89OjzKMJLsTVqN"
+    },
+    {
+      "_id": "Q45ubi3p8pdZnGt8",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental da Água Médico",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.Q45ubi3p8pdZnGt8"
+    },
+    {
+      "_id": "bgrACGakK3NBNkcS",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.ad",
+          "mode": 2,
+          "value": "2d8",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental do Fogo Atirador",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.bgrACGakK3NBNkcS"
+    },
+    {
+      "_id": "rx4zmSmXq846kv9j",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.cac",
+          "mode": 2,
+          "value": "3",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.ataque.ad",
+          "mode": 2,
+          "value": "3",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental do Fogo Combatente",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.rx4zmSmXq846kv9j"
+    },
+    {
+      "_id": "3JzHVxSdR96KTuOv",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "3d6",
+          "priority": 0
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental do Fogo Fortão",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": true,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "0"
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.3JzHVxSdR96KTuOv"
+    },
+    {
+      "_id": "KQFqSonMRC9Uxkk5",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.cac",
+          "mode": 2,
+          "value": "3",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.ataque.ad",
+          "mode": 2,
+          "value": "3",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental da Terra Combatente",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.KQFqSonMRC9Uxkk5"
+    },
+    {
+      "_id": "5GBLKb6S8ymJnYYI",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.fort.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.refl.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.vont.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental da Terra guardião",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.5GBLKb6S8ymJnYYI"
+    },
+    {
+      "_id": "AsD9TcYdabP4PUcp",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/conjurar-elemental.webp",
+      "label": "Elemental da Terra Montaria",
+      "origin": "Item.bToFBkzXceKMrqBH",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!JctewV5T9iIwOD8b.AsD9TcYdabP4PUcp"
+    }
+  ],
+  "folder": "SwSkQekDGTtZV4gB",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.jhLani6bivpW9vFn"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Esta magia transforma uma por&ccedil;&atilde;o de um elemento inerte em uma criatura elemental Grande do tipo do elemento alvo. Por exemplo, lan&ccedil;ar esta magia numa fogueira ou tocha cria um elemental do fogo. Voc&ecirc; pode criar elementais do ar, &aacute;gua, fogo e terra com essa magia. O elemental obedece a todos os seus comandos e pode funcionar como um parceiro mestre do tipo destruidor (cuja habilidade custa apenas 2 PM para ser usada) e mais um tipo entre os indicados na lista abaixo. O elemental auxilia apenas voc&ecirc; e n&atilde;o conta em seu limite de parceiros.</p>\n<p style=\"text-align: justify;\"><em>Ar:</em> assassino, perseguidor ou vigilante. Dano de eletricidade.</p>\n<p style=\"text-align: justify;\"><em>&Aacute;gua:</em> ajudante, guardi&atilde;o ou m&eacute;dico. Dano de frio.</p>\n<p style=\"text-align: justify;\"><em>Fogo:</em> atirador, combatente ou fort&atilde;o. Dano de fogo.</p>\n<p style=\"text-align: justify;\"><em>Terra:</em> combatente, guardi&atilde;o ou montaria. Dano de impacto.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 195 (JdA)",
+    "ativacao": {
+      "execucao": "full",
+      "custo": 10,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "sust",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "parceiro elemental",
+    "alcance": "medium",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "int",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "arc",
+    "circulo": "4",
+    "preparada": false,
+    "escola": "con",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461821,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!JctewV5T9iIwOD8b"
+}

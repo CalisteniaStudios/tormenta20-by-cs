@@ -1,0 +1,138 @@
+{
+  "name": "Gorad Quente",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/gorad-quente.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Gorad e leite, servidos quentes. N&atilde;o tem erro. O gorad ativa o c&eacute;rebro, fornecendo +2 PM tempor&aacute;rios.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 162 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 18,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "food",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Gorad Quente",
+      "icon": "icons/consumables/drinks/coconut-fruit-milk.webp",
+      "origin": "Item.MdkgD1o9m4WHNZJs",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "cHPmE2xOjaWzNzeN",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!MdkgD1o9m4WHNZJs.cHPmE2xOjaWzNzeN"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.3LefusVANWmllIec"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663365561715,
+    "modifiedTime": 1684617649437,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "MdkgD1o9m4WHNZJs",
+  "folder": "sO4Gcu7Fm1dJ1sxI",
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!MdkgD1o9m4WHNZJs"
+}

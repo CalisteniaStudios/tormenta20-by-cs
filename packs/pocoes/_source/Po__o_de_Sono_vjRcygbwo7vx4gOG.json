@@ -1,0 +1,146 @@
+{
+  "_id": "vjRcygbwo7vx4gOG",
+  "name": "Poção de Sono",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/pocao.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "importid": "xRv4z1ZBrSuymb1t",
+    "core": {
+      "sourceId": "Compendium.tormenta20.pocoes.vjRcygbwo7vx4gOG"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um cansa&ccedil;o m&iacute;stico recai sobre o alvo. Se falhar na resist&ecirc;ncia, ele fica inconsciente e ca&iacute;do ou, se estiver envolvido em combate ou outra situa&ccedil;&atilde;o perigosa, fica exausto por 1 rodada, depois fatigado. Em ambos os casos, se passar, o alvo fica fatigado por 1d4 rodadas.</p>",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 207 (JdA)",
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 30,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "action",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "touch",
+    "alvo": "1 criatura de ND 2 ou menor",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": "Vontade parcial"
+    },
+    "rolls": [],
+    "tipo": "potion",
+    "chatFlavor": "",
+    "melhorias": {
+      "accurate": null,
+      "pungent": null,
+      "cruel": null,
+      "atrocious": null,
+      "balanced": null,
+      "harmonized": null,
+      "injection": null,
+      "massive": null,
+      "specialmaterial": null,
+      "scope": null,
+      "precise": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "encantos": {
+      "keen": null,
+      "bane": null,
+      "throwable": null,
+      "assassin": null,
+      "seeking": null,
+      "frost": null,
+      "caster": null,
+      "corrosive": null,
+      "dancing": null,
+      "defending": null,
+      "destructive": null,
+      "lacerating": null,
+      "draining": null,
+      "shock": null,
+      "energy": null,
+      "excruciating": null,
+      "flaming": null,
+      "formidable": null,
+      "lancinating": null,
+      "magnificent": null,
+      "merciful": null,
+      "unholy": null,
+      "holy": null,
+      "bloodthirsty": null,
+      "thundering": null,
+      "sepulchral": null,
+      "speed": null,
+      "poisonous": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "subtipo": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664314007044,
+    "modifiedTime": 1667351628040,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!items!vjRcygbwo7vx4gOG"
+}

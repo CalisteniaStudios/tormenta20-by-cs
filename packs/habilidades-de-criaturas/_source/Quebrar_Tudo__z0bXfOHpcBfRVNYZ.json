@@ -1,0 +1,78 @@
+{
+  "type": "poder",
+  "name": "Quebrar Tudo!",
+  "img": "systems/tormenta20/icons/poderes/ameacas/quebrar-tudo.webp",
+  "system": {
+    "description": {
+      "value": "<p>O ganchador recebe +2 em testes de ataque para quebrar e causa +1d8 pontos de dano contra objetos</p>",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Actor.jS2c38gj0TLUuOgr.Item.rncHpg0iHQdO7s4V"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1667022537094,
+    "modifiedTime": 1668270615331,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "z0bXfOHpcBfRVNYZ",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!z0bXfOHpcBfRVNYZ"
+}

@@ -1,0 +1,48 @@
+{
+  "_id": "ROLLbOHDe9gWNazQ",
+  "name": "Druida",
+  "type": "classe",
+  "img": "systems/tormenta20/icons/classes/druida.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "exportSource": {
+      "world": "tormenta-20-teste",
+      "system": "tormenta20",
+      "coreVersion": "0.7.9",
+      "systemVersion": "1.1.21"
+    },
+    "core": {
+      "sourceId": "Compendium.tormenta20.classes.ROLLbOHDe9gWNazQ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "niveis": 1,
+    "pvPorNivel": 4,
+    "pmPorNivel": 4,
+    "inicial": false,
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1664312712755,
+    "modifiedTime": 1668270628858,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!items!ROLLbOHDe9gWNazQ"
+}

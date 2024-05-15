@@ -1,0 +1,128 @@
+{
+  "name": "Atributos - Kliren",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/kliren.webp",
+  "effects": [
+    {
+      "label": "Atributos - Kliren",
+      "icon": "systems/tormenta20/icons/racas/kliren.webp",
+      "origin": "Item.3AxwnpSAY02QAH7F",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "2nJzMXR66rFZNrt0",
+      "changes": [
+        {
+          "key": "system.atributos.int.value",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.car.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.for.value",
+          "mode": 2,
+          "value": "-1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!19U3dH5XU1v2oPXO.2nJzMXR66rFZNrt0"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.kV4orwvtjHg0Ao2M"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Int +2, Carisma +1, For&ccedil;a -1.</p>\n<p>&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 28 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Kliren",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3,
+    "jJlhMQyjTGPyLMsV": 3
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185135,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "folder": "6zI7CiCTyZW5lI4F",
+  "sort": 0,
+  "_id": "19U3dH5XU1v2oPXO",
+  "_key": "!items!19U3dH5XU1v2oPXO"
+}

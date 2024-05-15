@@ -1,0 +1,288 @@
+{
+  "_id": "cwlpIzSBlx11nMmi",
+  "name": "Armadura da Luz",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp",
+  "effects": [
+    {
+      "label": "Reforçada",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp",
+      "origin": "Item.cwlpIzSBlx11nMmi",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "JgDx0P1BcV4EtZMK",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!cwlpIzSBlx11nMmi.JgDx0P1BcV4EtZMK"
+    },
+    {
+      "label": "Banhada a ouro",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp",
+      "origin": "Item.cwlpIzSBlx11nMmi",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "K1hzUihHXzRDdijY",
+      "changes": [
+        {
+          "key": "system.pericias.dipl.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!cwlpIzSBlx11nMmi.K1hzUihHXzRDdijY"
+    },
+    {
+      "label": "Guardiã",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp",
+      "origin": "Item.cwlpIzSBlx11nMmi",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "O8RfBUPOTNquWqfy",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!cwlpIzSBlx11nMmi.O8RfBUPOTNquWqfy"
+    },
+    {
+      "label": "Resistencia a dano",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp",
+      "origin": "Item.cwlpIzSBlx11nMmi",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "tTMaP692MM5Eh0S0",
+      "changes": [
+        {
+          "key": "system.tracos.resistencias.dano.value",
+          "mode": 2,
+          "value": "",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!cwlpIzSBlx11nMmi.tTMaP692MM5Eh0S0"
+    },
+    {
+      "label": "Zeloso",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.cwlpIzSBlx11nMmi",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "pAgoWjfqLW49sdn2",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!cwlpIzSBlx11nMmi.pAgoWjfqLW49sdn2"
+    }
+  ],
+  "folder": "SkZDe8cUamd0vHjD",
+  "sort": 100000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.cwlpIzSBlx11nMmi"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Esta <strong>armadura completa banhada a ouro refor&ccedil;ada guardi&atilde; zelosa</strong> possui o s&iacute;mbolo da Justi&ccedil;a gravado no peitoral. Se voc&ecirc; possuir um c&oacute;digo de conduta (de honra, do her&oacute;i...) ou for devoto de uma divindade do Bem, recebe resist&ecirc;ncia a dano igual ao seu modificador de Carisma.</p>\n<p style=\"text-align: justify;\"><strong>Refor&ccedil;ada</strong> Placas adicionais, uma camada extra de cota de malha ou acolchoamento, prote&ccedil;&atilde;o dobrada nas juntas e &aacute;reas vulner&aacute;veis... O b&ocirc;nus na Defesa e a penalidade de armadura de uma armadura ou escudo com esta modifica&ccedil;&atilde;o aumentam em +1. Uma armadura n&atilde;o pode ser refor&ccedil;ada e delicada.</p>\n<p style=\"text-align: justify;\"><strong>Banhada a ouro</strong> Uma modifica&ccedil;&atilde;o favorita de nobres pomposos ou aventureiros que acabaram de enriquecer. Um item banhado a ouro concede um b&ocirc;nus de +2 em testes de Diplomacia. O mestre pode mudar o b&ocirc;nus para uma penalidade de &ndash;2, caso voc&ecirc; esteja interagindo com pessoas que desprezam tal ostenta&ccedil;&atilde;o. Al&eacute;m disso, pode atrair a cobi&ccedil;a de ladr&otilde;es.</p>\n<p style=\"text-align: justify;\"><strong>Guardi&atilde;</strong>&nbsp;O item emite um campo de for&ccedil;a que desvia ataques. O b&ocirc;nus na Defesa do item aumenta em +4. Pr&eacute;-requisito:defensor.</p>\n<p style=\"text-align: justify;\"><strong>Zeloso</strong> Uma vez por rodada, se um aliado adjacente for alvo de um ataque, voc&ecirc; pode gastar 1 PM para se tornar o alvo do ataque, que ent&atilde;o &eacute; resolvido normalmente.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 340 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 25,
+    "espacos": 5,
+    "qtd": 1,
+    "preco": 150000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "pesada",
+    "armadura": {
+      "value": 10,
+      "penalidade": -6,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "adjusted": null,
+      "undermeasure": null,
+      "delicate": null,
+      "thorny": null,
+      "specialmaterial": null,
+      "polished": null,
+      "reinforced": "Reforçada",
+      "sealed": null,
+      "golden": "Banhado a ouro",
+      "gems": null,
+      "discreet": null,
+      "macabre": null,
+      "enhanced": null
+    },
+    "encantos": {
+      "abascanth": null,
+      "blessed": null,
+      "acrobatic": null,
+      "winged": null,
+      "frightful": null,
+      "caustic": null,
+      "defending": null,
+      "slick": null,
+      "ghostly": null,
+      "ortification": null,
+      "frost": null,
+      "guardian": "Guardião",
+      "hypnotic": null,
+      "illusory": null,
+      "incandescent": null,
+      "invulnerable": null,
+      "opaque": null,
+      "protector": null,
+      "reflecting": null,
+      "lightning": null,
+      "blinding": null,
+      "shadow": null,
+      "zealous": "Zeloso"
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "reinforced",
+      "melhoria2": "golden",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "guardian",
+      "encanto2": "zealous",
+      "encanto3": ""
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000107,
+    "modifiedTime": 1684622917731,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!cwlpIzSBlx11nMmi"
+}

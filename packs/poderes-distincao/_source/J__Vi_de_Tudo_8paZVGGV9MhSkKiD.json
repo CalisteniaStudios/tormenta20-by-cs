@@ -1,0 +1,118 @@
+{
+  "name": "Já Vi de Tudo",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Em suas andan&ccedil;as, o andarilho do horizonte entra em contato com tudo que o universo tem a mostrar.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; pode usar <a class=\"content-link\" draggable=\"true\" data-uuid=\"JournalEntry.cvmCTh9o45aiBHmJ.JournalEntryPage.SdS8pxPmbSpjv5Ml\" data-id=\"SdS8pxPmbSpjv5Ml\" data-type=\"JournalEntryPage\" data-tooltip=\"Text Page\">Sobreviv&ecirc;ncia</a> para identificar qualquer tipo de criatura e recebe +2 em @UUID[JournalEntry.cvmCTh9o45aiBHmJ.JournalEntryPage.PcT6ZdZqQgsF5xh2]{Fortitude} e&nbsp;<span style=\"white-space: nowrap; background-color: rgba(255, 0, 0, 0.05);\"> <a class=\"content-link\" draggable=\"true\" data-uuid=\"JournalEntry.cvmCTh9o45aiBHmJ.JournalEntryPage.TjjV15fV27nEoWyX\" data-id=\"TjjV15fV27nEoWyX\" data-type=\"JournalEntryPage\" data-tooltip=\"Text Page\">Conhecimento</a></span>&nbsp;Para cada dois outros poderes de andarilho do horizonte, este b&ocirc;nus aumenta em +1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 13",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Andarilho do Horizonte",
+    "origin": "",
+    "tags": [
+      "AndarilhodoHorizonte"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "+2 em conhecimento e fortitude",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.8paZVGGV9MhSkKiD",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "A9PyORy5E78JSuL2",
+      "changes": [
+        {
+          "key": "system.pericias.conh.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.fort.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!8paZVGGV9MhSkKiD.A9PyORy5E78JSuL2"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665850170299,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "8paZVGGV9MhSkKiD",
+  "folder": "CivN4iqFKpA5ogfm",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!8paZVGGV9MhSkKiD"
+}

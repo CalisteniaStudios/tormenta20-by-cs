@@ -1,0 +1,155 @@
+{
+  "_id": "pG2mhXPGveTdGuDG",
+  "name": "Virotes",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/equipamentos/virotes.webp",
+  "effects": [],
+  "folder": "AMUsSTs0XvNMWu3Y",
+  "sort": 300000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.pG2mhXPGveTdGuDG"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Uma aljava com 20 setas de madeira. Recarregar uma besta leve &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 151 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.075,
+    "espacos": 0.05,
+    "qtd": 20,
+    "preco": 2,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ammo",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "melhorias": {
+      "accurate": null,
+      "pungent": null,
+      "cruel": null,
+      "atrocious": null,
+      "balanced": null,
+      "harmonized": null,
+      "injection": null,
+      "massive": null,
+      "specialmaterial": null,
+      "scope": null,
+      "precise": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "encantos": {
+      "keen": null,
+      "bane": null,
+      "throwable": null,
+      "assassin": null,
+      "seeking": null,
+      "frost": null,
+      "caster": null,
+      "corrosive": null,
+      "dancing": null,
+      "defending": null,
+      "destructive": null,
+      "lacerating": null,
+      "draining": null,
+      "shock": null,
+      "energy": null,
+      "excruciating": null,
+      "flaming": null,
+      "formidable": null,
+      "lancinating": null,
+      "magnificent": null,
+      "merciful": null,
+      "unholy": null,
+      "holy": null,
+      "bloodthirsty": null,
+      "thundering": null,
+      "sepulchral": null,
+      "speed": null,
+      "poisonous": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "subtipo": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772421,
+    "modifiedTime": 1684618128473,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!pG2mhXPGveTdGuDG"
+}

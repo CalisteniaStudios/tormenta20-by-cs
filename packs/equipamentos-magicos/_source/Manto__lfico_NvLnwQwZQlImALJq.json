@@ -1,0 +1,131 @@
+{
+  "_id": "NvLnwQwZQlImALJq",
+  "name": "Manto Élfico",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/manto-elfico.webp",
+  "effects": [
+    {
+      "label": "Manto Élfico",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.NvLnwQwZQlImALJq",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "HJ3ddWTQLf8Spock",
+      "changes": [
+        {
+          "key": "system.pericias.furt.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!NvLnwQwZQlImALJq.HJ3ddWTQLf8Spock"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 4000000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.NvLnwQwZQlImALJq"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "Indistinguível de um manto cinza comum. Entretanto, quando usado com o capuz cobrindo o rosto, fornece +5 em Furtividade.",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 345 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 3000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000099,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!NvLnwQwZQlImALJq"
+}

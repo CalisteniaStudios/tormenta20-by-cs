@@ -1,0 +1,116 @@
+{
+  "_id": "0xjrY8gMCz8uLT2M",
+  "name": "Tatuagem Mística",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/qareen.webp",
+  "effects": [
+    {
+      "_id": "VoFQZDNhQh5TMn0U",
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Tatuagem Mística",
+      "origin": "Item.EzpuMbb1P0wh9cYR",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "spell": true,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "-1",
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!0xjrY8gMCz8uLT2M.VoFQZDNhQh5TMn0U"
+    }
+  ],
+  "folder": "bT1FLsOz6hPzs6kE",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.0xjrY8gMCz8uLT2M"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode lan&ccedil;ar uma magia de 1&ordm; c&iacute;rculo a sua escolha (atributo-chave Carisma). Caso aprenda novamente essa magia, seu custo diminui em &ndash;1 PM.</p>\n<p>&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 26 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Qareen",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183285,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!0xjrY8gMCz8uLT2M"
+}

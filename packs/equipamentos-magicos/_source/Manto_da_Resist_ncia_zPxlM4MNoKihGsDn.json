@@ -1,0 +1,120 @@
+{
+  "_id": "zPxlM4MNoKihGsDn",
+  "name": "Manto da Resistência",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/manto-da-resistencia.webp",
+  "effects": [
+    {
+      "label": "Manto da Resistência",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/manto-da-resistencia.webp",
+      "origin": "Item.zPxlM4MNoKihGsDn",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "p3l6lvXx7HMjVtS0",
+      "changes": [
+        {
+          "key": "system.modificadores.pericias.resistencia",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!zPxlM4MNoKihGsDn.p3l6lvXx7HMjVtS0"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 3400000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.zPxlM4MNoKihGsDn"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "Este manto de tecido grosso e pesado protege seu usuário. Você recebe +2 em testes de resistência.",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 344 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 4500,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000121,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!zPxlM4MNoKihGsDn"
+}

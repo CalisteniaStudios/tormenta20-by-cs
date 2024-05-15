@@ -4,7 +4,7 @@
 export default class D20Roll extends Roll {
   constructor(formula, data, options) {
     super(formula, data, options);
-    if ( !((this.terms[0] instanceof Die) && (this.terms[0].faces === 20)) ) {
+    if ( !((this.terms[0] instanceof foundry.dice.terms.Die) && (this.terms[0].faces === 20)) ) {
       throw new Error(`Invalid D20Roll formula provided ${this._formula}`);
     }
     this.configureModifiers();

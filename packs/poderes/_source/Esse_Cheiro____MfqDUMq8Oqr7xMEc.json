@@ -1,0 +1,113 @@
+{
+  "_id": "MfqDUMq8Oqr7xMEc",
+  "name": "Esse Cheiro...",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/origem.webp",
+  "effects": [
+    {
+      "label": "Esse Cheiro...",
+      "icon": "systems/tormenta20/icons/poderes/origem.webp",
+      "origin": "Item.MfqDUMq8Oqr7xMEc",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "MEpf8LGT8Pmnfui5",
+      "changes": [
+        {
+          "key": "system.pericias.attributes.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!MfqDUMq8Oqr7xMEc.MEpf8LGT8Pmnfui5"
+    }
+  ],
+  "folder": "O7XebEr47qNV8g6X",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.MfqDUMq8Oqr7xMEc"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; recebe +2 em @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.PcT6ZdZqQgsF5xh2]{Fortitude} e detecta automaticamente a presen&ccedil;a (mas n&atilde;o a localiza&ccedil;&atilde;o ou natureza) de itens alqu&iacute;micos em alcance curto.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 88 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "origem",
+    "subtipo": "Assistente de Laboratório",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184248,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!MfqDUMq8Oqr7xMEc"
+}

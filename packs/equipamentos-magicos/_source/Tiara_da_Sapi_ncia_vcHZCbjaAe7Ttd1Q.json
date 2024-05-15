@@ -1,0 +1,120 @@
+{
+  "_id": "vcHZCbjaAe7Ttd1Q",
+  "name": "Tiara da Sapiência",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/tiara.webp",
+  "effects": [
+    {
+      "label": "Tiara da Sapiência",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/tiara.webp",
+      "origin": "Item.vcHZCbjaAe7Ttd1Q",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "0YRTpYe01nk82QCR",
+      "changes": [
+        {
+          "key": "system.atributos.int.value",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!vcHZCbjaAe7Ttd1Q.0YRTpYe01nk82QCR"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 4293750,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.vcHZCbjaAe7Ttd1Q"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Esta tiara delicada possui uma gema que descansa sobre a testa. Voc&ecirc; recebe +2 em Intelig&ecirc;ncia (somente ap&oacute;s um dia de uso).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 345 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 25500,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000118,
+    "modifiedTime": 1684623048254,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!vcHZCbjaAe7Ttd1Q"
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Reparar Injustiça",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos-justica.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.NUxqUQUhiByDPK6Z"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Uma vez por rodada, quando um oponente em alcance curto acerta um ataque em voc&ecirc; ou em um de seus aliados, voc&ecirc; pode gastar 2 PM para fazer este oponente repetir o ataque, escolhendo o pior entre os dois resultados.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 135 (JdA)",
+    "ativacao": {
+      "execucao": "reaction",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Justiça",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184253,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "enc2pWpBKqJcbjre",
+  "folder": "MaRTmHnjYmTuY9Y4",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!enc2pWpBKqJcbjre"
+}

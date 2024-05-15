@@ -1,0 +1,199 @@
+{
+  "_id": "KOH9FfI4JjFQ2Qjb",
+  "name": "Escaramuça Superior",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/cacador.webp",
+  "effects": [
+    {
+      "label": "Escaramuça Superior (dano).",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.KOH9FfI4JjFQ2Qjb",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "IAAD3D3L3DTG0Uko",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d12",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!KOH9FfI4JjFQ2Qjb.IAAD3D3L3DTG0Uko"
+    },
+    {
+      "label": "Escaramuça Superior (Reflexos).",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.KOH9FfI4JjFQ2Qjb",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "reflexos",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "pqiZxFor3i09ZuVn",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!KOH9FfI4JjFQ2Qjb.pqiZxFor3i09ZuVn"
+    },
+    {
+      "label": "Escaramuça Superior",
+      "icon": "systems/tormenta20/icons/classes/cacador.webp",
+      "origin": "Item.KOH9FfI4JjFQ2Qjb",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "Hg0G7fye0EPuvrxX",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!KOH9FfI4JjFQ2Qjb.Hg0G7fye0EPuvrxX"
+    }
+  ],
+  "folder": "iT3rUBmGhu5hbNic",
+  "sort": 1600000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.KOH9FfI4JjFQ2Qjb"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando usa Escaramu&ccedil;a, seus b&ocirc;nus aumentam para +5 na Defesa e Reflexos e +1d12 em rolagens de dano.</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisito: Escaramu&ccedil;a, 12&ordm; n&iacute;vel de ca&ccedil;ador.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 51 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Caçador",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361717044,
+    "modifiedTime": 1684630426990,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!KOH9FfI4JjFQ2Qjb"
+}

@@ -1,0 +1,123 @@
+{
+  "_id": "5SnRRfXhW6BiJ5h0",
+  "name": "Poção de Camuflagem Ilusória",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/pocao.webp",
+  "effects": [
+    {
+      "label": "Camuflagem Ilusória",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/pocao.webp",
+      "origin": "Item.mskTz7xduDCxVHm4",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": null,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "tICH1KSv0NUSQk1p",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!5SnRRfXhW6BiJ5h0.tICH1KSv0NUSQk1p"
+    }
+  ],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": {
+      "value": "<p>O alvo fica com sua imagem nublada, como se vista atrav&eacute;s de um l&iacute;quido, recebendo os efeitos de camuflagem leve.</p>",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 183 (JdA)",
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 270,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "potion",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "subtipo": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1666998714890,
+    "modifiedTime": 1667351628036,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!items!5SnRRfXhW6BiJ5h0"
+}

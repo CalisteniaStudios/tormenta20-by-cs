@@ -1,0 +1,77 @@
+{
+  "name": "Instrumento musical exótico",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/instrumento-musical-exotico.webp",
+  "system": {
+    "description": {
+      "value": "<p><strong>[Item de Origem]</strong>&nbsp;</p>\n<p>+1 em uma per&iacute;cia de Carisma&nbsp; aprovada pelo mestre</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 90 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0,
+    "qtd": 1,
+    "preco": 0,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "ferramenta",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "rolls": [],
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667251987141,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "3HxySPDqYzqwf9UD",
+  "folder": "jMEkEeU9nUclA8No",
+  "sort": 101563,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!3HxySPDqYzqwf9UD"
+}

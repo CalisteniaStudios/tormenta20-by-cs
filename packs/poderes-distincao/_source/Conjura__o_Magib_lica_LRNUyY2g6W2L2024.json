@@ -1,0 +1,82 @@
+{
+  "name": "Conjuração Magibélica",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">As t&eacute;cnicas de conjura&ccedil;&atilde;o do arcano de guerra tornam suas magias devastadoras, mas colocam grande stress sobre o corpo do conjurador.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Escolha uma das t&eacute;cnicas a seguir. Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para potencializar sua pr&oacute;xima magia neste turno com esta t&eacute;cnica. Fa&ccedil;a um teste de Misticismo (CD 10 + o custo em PM da magia). Se passar, voc&ecirc; aplica a t&eacute;cnica &agrave; magia. Se falhar, voc&ecirc; fica fatigado at&eacute; o final da cena (imunidade a fadiga n&atilde;o impede essa condi&ccedil;&atilde;o). A CD aumenta em 5 para cada uso anterior de conjura&ccedil;&atilde;o magib&eacute;lica na mesma cena. Voc&ecirc; pode escolher esse poder outras vezes para aprender t&eacute;cnicas diferentes.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisitos</em>: treinado em Misticismo, habilidade Magias, capacidade de lan&ccedil;ar magias arcanas de 2&ordm; c&iacute;rculo.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">&bull; <strong>Expandir</strong>. Aumenta a &aacute;rea de efeito da magia em +3m (de raio ou lado), +3m para cada dois outros poderes de arcano de guerra que voc&ecirc; possui.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">&bull; <strong>Fortalecer</strong>. A magia causa dois dados de dano adicional, mais um dado para cada dois outros poderes de arcano de guerra que voc&ecirc; possui.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">&bull; <strong>Intensificar</strong>. A magia ignora at&eacute; 5 pontos de resist&ecirc;ncia a dano dos alvos. Esse valor aumenta em 5 para cada dois outros poderes de arcano de guerra que voc&ecirc; possui.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">&bull; <strong>Potencializar</strong>. O limite de PM da magia aumenta em +2. Este limite aumenta em +1 para cada dois outros poderes de arcano de guerra que voc&ecirc; possui (estes PM adicionais n&atilde;o contam para a CD do teste de Misticismo deste poder).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 36-37",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Arcano de Guerra",
+    "origin": "",
+    "tags": [
+      "ArcanodeGuerra"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "LRNUyY2g6W2L2024",
+  "folder": "XTLQDvRqYbTCPiCK",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!LRNUyY2g6W2L2024"
+}

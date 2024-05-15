@@ -1,0 +1,196 @@
+{
+  "_id": "p7MZK1XnNPSXxbmy",
+  "name": "Alabarda",
+  "type": "arma",
+  "img": "systems/tormenta20/icons/itens/equipamentos/alabarda.webp",
+  "effects": [],
+  "folder": "HkeRANb2t5R9UKLQ",
+  "sort": 100000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.p7MZK1XnNPSXxbmy"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Uma haste de madeira com 2m de comprimento e uma lâmina de machado na ponta. A alabarda é uma arma alongada.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 146 (JdA)",
+    "equipado": 0,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 6,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 10,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "rolls": [
+      {
+        "name": "Ataque",
+        "key": "ataque0",
+        "type": "ataque",
+        "parts": [
+          [
+            "1d20",
+            "",
+            ""
+          ],
+          [
+            "luta",
+            "",
+            ""
+          ],
+          [
+            "0",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      },
+      {
+        "name": "Dano",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "1d10",
+            "corte",
+            ""
+          ],
+          [
+            "@for",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "criticoM": 20,
+    "criticoX": 3,
+    "alcance": "",
+    "tipoUso": "sim",
+    "propriedades": {
+      "ada": false,
+      "agi": false,
+      "alo": true,
+      "dup": false,
+      "ver": false,
+      "adaptavel": false,
+      "agil": false,
+      "alongada": true,
+      "arremesso": false,
+      "ataqueDistancia": false,
+      "duasMaos": true,
+      "dupla": false,
+      "leve": false,
+      "municao": false,
+      "versatil": false,
+      "des": false
+    },
+    "encantos": {
+      "arremesso": false,
+      "lancinante": false,
+      "keen": null,
+      "bane": null,
+      "throwable": null,
+      "assassin": null,
+      "seeking": null,
+      "frost": null,
+      "caster": null,
+      "corrosive": null,
+      "dancing": null,
+      "defending": null,
+      "destructive": null,
+      "lacerating": null,
+      "draining": null,
+      "shock": null,
+      "energy": null,
+      "excruciating": null,
+      "flaming": null,
+      "formidable": null,
+      "lancinating": false,
+      "magnificent": null,
+      "merciful": null,
+      "unholy": null,
+      "holy": null,
+      "bloodthirsty": null,
+      "thundering": null,
+      "sepulchral": null,
+      "speed": null,
+      "poisonous": null
+    },
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "chatFlavor": "",
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "melhorias": {
+      "accurate": null,
+      "pungent": null,
+      "cruel": null,
+      "atrocious": null,
+      "balanced": null,
+      "harmonized": null,
+      "injection": null,
+      "massive": null,
+      "specialmaterial": null,
+      "scope": null,
+      "precise": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "ataques": 0,
+    "proficiencia": "marcial",
+    "proposito": "corpo-a-corpo",
+    "empunhadura": "duas",
+    "size": "normal"
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772421,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!p7MZK1XnNPSXxbmy"
+}

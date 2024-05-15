@@ -1,0 +1,110 @@
+{
+  "_id": "jChv6jdqw0QvRFaW",
+  "name": "Bomba de Fumaça",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/bomba-fumaca.webp",
+  "effects": [],
+  "folder": "FUrcrKKV6smuHI1v",
+  "sort": 250000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.jChv6jdqw0QvRFaW"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um saco de estopa com um pavio contendo p&oacute;lvora especial que faz mais fuma&ccedil;a do que fogo. Para us&aacute;-la, voc&ecirc; precisa empunh&aacute;-la, gastar uma a&ccedil;&atilde;o de movimento para acender seu pavio e uma a&ccedil;&atilde;o padr&atilde;o para arremess&aacute;-la em um ponto em alcance curto. Ela gera uma nuvem de fuma&ccedil;a espessa de 6m de raio, que obscurece a vis&atilde;o &mdash; criaturas a at&eacute; 1,5m t&ecirc;m camuflagem e criaturas a partir de 3m t&ecirc;m camuflagem total.&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Guia NPC, pg. 20 (1.1)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 0,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "full",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "",
+    "area": "esfera 6m",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "subtipo": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772417,
+    "modifiedTime": 1684617122354,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!jChv6jdqw0QvRFaW"
+}

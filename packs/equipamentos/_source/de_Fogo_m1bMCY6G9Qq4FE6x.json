@@ -1,0 +1,19 @@
+{
+  "name": "de Fogo",
+  "sorting": "a",
+  "folder": "AMUsSTs0XvNMWu3Y",
+  "type": "Item",
+  "_id": "m1bMCY6G9Qq4FE6x",
+  "sort": 0,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.200",
+    "coreVersion": "11.299",
+    "createdTime": null,
+    "modifiedTime": 1685245501756,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!folders!m1bMCY6G9Qq4FE6x"
+}

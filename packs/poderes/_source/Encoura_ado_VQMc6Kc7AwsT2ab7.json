@@ -1,0 +1,114 @@
+{
+  "_id": "VQMc6Kc7AwsT2ab7",
+  "name": "Encouraçado",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/combate.webp",
+  "effects": [
+    {
+      "_id": "GXVs0iml2rfBR3UV",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "+2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/poderes/combate.webp",
+      "label": "Encouraçado",
+      "origin": "Item.6givdZg4v60NZMC4",
+      "tint": null,
+      "transfer": true,
+      "_key": "!items.effects!VQMc6Kc7AwsT2ab7.GXVs0iml2rfBR3UV"
+    }
+  ],
+  "folder": "Rgbah8U70jOKi5DF",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.VQMc6Kc7AwsT2ab7"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Se estiver usando uma armadura pesada, voc&ecirc; recebe +2 na Defesa. Esse b&ocirc;nus aumenta em +2 para cada outro poder que voc&ecirc; possua que tenha Encoura&ccedil;ado como pr&eacute;-requisito.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> profici&ecirc;ncia com armaduras pesadas.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 125 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Combate",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184715,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!VQMc6Kc7AwsT2ab7"
+}

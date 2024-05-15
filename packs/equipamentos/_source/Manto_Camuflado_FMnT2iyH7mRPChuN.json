@@ -1,0 +1,131 @@
+{
+  "name": "Manto Camuflado",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/manto-camuflado.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um manto camuflado &eacute; feito para um tipo de terreno espec&iacute;fico (veja a habilidade Explorador, na p&aacute;gina 51). Por exemplo, um manto camuflado para floresta pode ser verde e marrom e coberto de folhas, enquanto um manto urbano pode ser cinza ou negro. Usar um manto camuflado no terreno correto fornece +2 em Furtividade.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 159 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 1.5,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 12,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Manto Camuflado: +2 em furtividade no terreno escolhido.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.FMnT2iyH7mRPChuN",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "AgNWYLEKRS205xvS",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!FMnT2iyH7mRPChuN.AgNWYLEKRS205xvS"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.oZlDoq0HxOucTgGK"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663532558587,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "FMnT2iyH7mRPChuN",
+  "folder": "3kNyXnAknru6qWyM",
+  "sort": 800000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!FMnT2iyH7mRPChuN"
+}

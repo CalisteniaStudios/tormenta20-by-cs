@@ -104,7 +104,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				rollMods[r.key][p].die = ch.value;
 			}
 			// To add Roll Modifiers => kh
-			else if( !ch.value.match(re.die) && Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/g, "")] && !["min","max"].includes(ch.value) ){
+			else if( !ch.value.match(re.die) && foundry.dice.terms.Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/g, "")] && !["min","max"].includes(ch.value) ){
 				if( ch.value.match(/k|kh|kl/) ){
 					if ( r.parts[p][0] == '1d20' ) {
 						r.parts[p][0] = r.parts[p][0].replace("1d","2d")+ch.value;
@@ -213,7 +213,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		}
 	}
 	if ( ['atributo','pericia'].includes(item.type) ) {
-		mergeObject(item, _campos);
+		foundry.utils.mergeObject(item, _campos);
 	}
 	ch.key = _chkey;
 }
@@ -301,7 +301,7 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 		} else _campos[campos[ch.key][0]] = ch.value;
 	}
 	
-	mergeObject(id, expandObject(_campos));
+	foundry.utils.mergeObject(id, foundry.utils.expandObject(_campos));
 }
 
 
@@ -350,7 +350,7 @@ const applyActorChanges = (ch, qty, ef, item, id, ad) => {
 		
 	}
 	
-	mergeObject(item, expandObject(_campos));
+	foundry.utils.mergeObject(item, foundry.utils.expandObject(_campos));
 }
 
 const effectFields = (key) => {
@@ -522,7 +522,7 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 	}
 	
 	// Get Applied On Use Effects
-	const applied = expandObject(configuration).aprs ?? {};
+	const applied = foundry.utils.expandObject(configuration).aprs ?? {};
 	const onUseEffects = item.validOnUseEffects.filter(ef => applied[ef.id]?.aplica );
 	// Get Active Effects From Item
 	const effectList = item.effects.filter( ef => (ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && !ef.disabled) || (!ef.flags.tormenta20.onuse && !ef.disabled) );
@@ -643,9 +643,9 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		} else {
 			tempEffect.name ??= this.name;
 			tempEffect.icon ??= this.img;
-			tempEffect.flags = mergeObject(ef.flags, flags);
-			tempEffect.duration = !isEmpty(duration) ? duration : ef.duration;
-			// tempEffect.duration ??= undefined; mergeObject(ef.duration, duration);
+			tempEffect.flags = foundry.utils.mergeObject(ef.flags, flags);
+			tempEffect.duration = !foundry.utils.isEmpty(duration) ? duration : ef.duration;
+			// tempEffect.duration ??= undefined; foundry.utils.mergeObject(ef.duration, duration);
 			tempEffect.disabled = false;
 			tempEffect.changes = changes[index] ?? ef.changes;
 			for (const efch of effectChanges) {

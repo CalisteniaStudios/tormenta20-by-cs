@@ -1,0 +1,82 @@
+{
+  "name": "Das Trevas",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Para o Cavaleiro do Corvo, a melhor t&aacute;tica &eacute; matar o inimigo antes que ele perceba a morte chegando.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Quando ataca um inimigo escolhido para sua habilidade Duelo que esteja @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.my1HxIcUGVr2Mbii]{Desprevenido}<span style=\"white-space: nowrap; background-color: rgb(221, 221, 221);\">&nbsp;</span>ou flanqueado por voc&ecirc;, seus b&ocirc;nus concedidos por essa habilidade em testes de ataque e rolagens de dano contra ele s&atilde;o dobrados. <em>Pr&eacute;-requisitos:</em> Duelo, N&atilde;o Tenho Nome.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 18",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Cavaleiro do Corvo",
+    "origin": "",
+    "tags": [
+      "CavaleirodoCorvo"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.FJsShM7OC6TWqQqq"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1666312768880,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "5hbXTU7U00hF5ju5",
+  "folder": "HmYZ3wnVn66EAlGT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!5hbXTU7U00hF5ju5"
+}

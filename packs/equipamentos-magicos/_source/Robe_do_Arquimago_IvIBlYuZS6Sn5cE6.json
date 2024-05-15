@@ -1,0 +1,126 @@
+{
+  "_id": "IvIBlYuZS6Sn5cE6",
+  "name": "Robe do Arquimago",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/robe-do-arquimago.webp",
+  "effects": [
+    {
+      "label": "Robe do Arquimago",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/robe-do-arquimago.webp",
+      "origin": "Item.IvIBlYuZS6Sn5cE6",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "J6HahyQCdUrhC6d3",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.pericias.resistencia",
+          "mode": 2,
+          "value": "",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!IvIBlYuZS6Sn5cE6.J6HahyQCdUrhC6d3"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 4275000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.IvIBlYuZS6Sn5cE6"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Este traje pesado alinha-se com as energias arcanas emitidas por seu usu&aacute;rio para gerar um campo protetor. Se voc&ecirc; for um conjurador arcano, recebe um b&ocirc;nus na Defesa igual a 5 + o c&iacute;rculo de magia mais alto que puder lan&ccedil;ar e um b&ocirc;nus em testes de resist&ecirc;ncia igual &agrave; metade do b&ocirc;nus na Defesa. Assim, um arcanista de 9&ordm; n&iacute;vel (capaz de lan&ccedil;ar magias de 3&ordm; c&iacute;rculo) recebe +8 na Defesa e +4 em testes de resist&ecirc;ncia.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 345 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 90000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 5,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000093,
+    "modifiedTime": 1684623044316,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!IvIBlYuZS6Sn5cE6"
+}

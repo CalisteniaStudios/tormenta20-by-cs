@@ -1,0 +1,221 @@
+{
+  "_id": "GIW26oN36GYT1UNX",
+  "name": "Couro de Monstro",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp",
+  "effects": [
+    {
+      "label": "Ataque Poderoso ou investida",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.GIW26oN36GYT1UNX",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "2I8j9qTANEJMBivp",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "2d6",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!GIW26oN36GYT1UNX.2I8j9qTANEJMBivp"
+    },
+    {
+      "label": "Defensora",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp",
+      "origin": "Item.GIW26oN36GYT1UNX",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "tvBH20DVoDjHochC",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!GIW26oN36GYT1UNX.tvBH20DVoDjHochC"
+    },
+    {
+      "label": "Couro de Monstro",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp",
+      "origin": "Item.GIW26oN36GYT1UNX",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "5Bp9TyGWcfhb6DVr",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!GIW26oN36GYT1UNX.5Bp9TyGWcfhb6DVr"
+    }
+  ],
+  "folder": "SkZDe8cUamd0vHjD",
+  "sort": 106250,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.GIW26oN36GYT1UNX"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Usado por chefes b&aacute;rbaros das Montanhas Sanguin&aacute;rias, este <strong>gib&atilde;o de peles defensor</strong> &eacute; feito do couro de monstros, como basiliscos e serpes. Se voc&ecirc; usar o poder Ataque Poderoso ou fizer uma investida, recebe um b&ocirc;nus de +2d6 nas rolagens de dano.</p>\n<p style=\"text-align: justify;\"><strong>Defensor</strong> O item &eacute; encantado para desviar golpes. O b&ocirc;nus na Defesa do item aumenta em +2</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 340 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 12,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 36000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "leve",
+    "armadura": {
+      "value": 4,
+      "penalidade": -3,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "adjusted": null,
+      "undermeasure": null,
+      "delicate": null,
+      "thorny": null,
+      "specialmaterial": null,
+      "polished": null,
+      "reinforced": null,
+      "sealed": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "encantos": {
+      "abascanth": null,
+      "blessed": null,
+      "acrobatic": null,
+      "winged": null,
+      "frightful": null,
+      "caustic": null,
+      "defending": "Defensor",
+      "slick": null,
+      "ghostly": null,
+      "ortification": null,
+      "frost": null,
+      "guardian": null,
+      "hypnotic": null,
+      "illusory": null,
+      "incandescent": null,
+      "invulnerable": null,
+      "opaque": null,
+      "protector": null,
+      "reflecting": null,
+      "lightning": null,
+      "blinding": null,
+      "shadow": null,
+      "zealous": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "defending",
+      "encanto2": "",
+      "encanto3": ""
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000093,
+    "modifiedTime": 1684622964854,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!GIW26oN36GYT1UNX"
+}

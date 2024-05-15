@@ -1,0 +1,111 @@
+{
+  "name": "Visão Ampla",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp",
+  "system": {
+    "description": {
+      "value": "<p>Um lefeu recebe +5 em Percep&ccedil;&atilde;o e n&atilde;o pode ser flanqueado.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "name": "Visão Ampla",
+      "icon": "systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp",
+      "origin": "Compendium.tormenta20.habilidades-de-criaturas.Item.EIYfP5jU2e73gtyR",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "hzHR5CmkAoSjbmwI",
+      "changes": [
+        {
+          "key": "system.pericias.perc.bonus",
+          "mode": 2,
+          "value": "5"
+        }
+      ],
+      "description": "",
+      "transfer": true,
+      "statuses": [],
+      "_key": "!items.effects!EIYfP5jU2e73gtyR.hzHR5CmkAoSjbmwI"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.203d2",
+    "coreVersion": "11.315",
+    "createdTime": 1666320018824,
+    "modifiedTime": 1700000199181,
+    "lastModifiedBy": "5frcpPVF3cVfLwZA"
+  },
+  "_id": "EIYfP5jU2e73gtyR",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!EIYfP5jU2e73gtyR"
+}

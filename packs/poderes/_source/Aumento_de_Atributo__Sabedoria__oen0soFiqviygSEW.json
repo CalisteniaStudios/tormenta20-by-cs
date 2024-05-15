@@ -1,0 +1,115 @@
+{
+  "name": "Aumento de Atributo (Sabedoria)",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/destino.webp",
+  "effects": [
+    {
+      "label": "Aumento de Atributo - Sabedoria",
+      "icon": "systems/tormenta20/icons/poderes/destino.webp",
+      "origin": "Item.zgrD6NUQrtEdK3Hj",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "t0Imw5DLPdgBTOqA",
+      "changes": [
+        {
+          "key": "system.atributos.sab.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!oen0soFiqviygSEW.t0Imw5DLPdgBTOqA"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.QrsQzzdGDWjgXNF5"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Voc&ecirc; recebe +1 em um atributo. Voc&ecirc; pode escolher este poder v&aacute;rias vezes, mas apenas uma vez por patamar para um mesmo atributo.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Geral",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3,
+    "8vJXttdYUDY3KdEe": 3
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184299,
+    "modifiedTime": 1684630491026,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "folder": "8epgcaCOcfgSspZf",
+  "sort": 700000,
+  "_id": "oen0soFiqviygSEW",
+  "_key": "!items!oen0soFiqviygSEW"
+}

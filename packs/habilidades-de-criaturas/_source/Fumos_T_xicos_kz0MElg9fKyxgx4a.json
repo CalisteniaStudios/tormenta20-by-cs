@@ -1,0 +1,101 @@
+{
+  "name": "Fumos Tóxicos",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/ameacas/fumos-toxicos.webp",
+  "system": {
+    "description": {
+      "value": "<p>Uma criatura que comece seu turno em alcance curto do colosso perde 4d6 PV e fica enjoada&nbsp; Fortitude CD 38 evita). Veneno</p>",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "none",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": "Fortitude evita"
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "enjoado",
+      "icon": "systems/tormenta20/icons/conditions/enjoado.svg",
+      "origin": "Item.kz0MElg9fKyxgx4a",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "15RGaTmwEo8s4cC7",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!kz0MElg9fKyxgx4a.15RGaTmwEo8s4cC7"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1666321513948,
+    "modifiedTime": 1668270615329,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "kz0MElg9fKyxgx4a",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!kz0MElg9fKyxgx4a"
+}

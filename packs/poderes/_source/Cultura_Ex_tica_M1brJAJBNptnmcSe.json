@@ -1,0 +1,122 @@
+{
+  "_id": "M1brJAJBNptnmcSe",
+  "name": "Cultura Exótica",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/origem.webp",
+  "effects": [
+    {
+      "_id": "wCkw87K2YVqyCqUI",
+      "changes": [
+        {
+          "key": "treinado",
+          "mode": 5,
+          "value": "true",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Cultura Exótica",
+      "origin": "Item.yEzw7z7YtccgktKf",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "attack": false,
+          "skill": true,
+          "self": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "1",
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!M1brJAJBNptnmcSe.wCkw87K2YVqyCqUI"
+    }
+  ],
+  "folder": "O7XebEr47qNV8g6X",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.M1brJAJBNptnmcSe"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Por sua diferente vis&atilde;o de mundo, voc&ecirc; encontra solu&ccedil;&otilde;es inesperadas. Voc&ecirc; pode gastar 1 PM para fazer um teste de per&iacute;cia somente treinada, mesmo sem ser treinado na per&iacute;cia.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 90 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "origem",
+    "subtipo": "Forasteiro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184246,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!M1brJAJBNptnmcSe"
+}

@@ -1,0 +1,117 @@
+{
+  "_id": "Mce6xvlRf48rWmMf",
+  "name": "Visco Rubro",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/tormenta.webp",
+  "effects": [
+    {
+      "_id": "XfsrjWXV3xA2ybOJ",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "1+(@Tormenta2*1)"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 99,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/poderes/tormenta.webp",
+      "label": "Visco Rubro",
+      "origin": "Item.OaODAVqPWU2Fs7yi",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!Mce6xvlRf48rWmMf.XfsrjWXV3xA2ybOJ"
+    }
+  ],
+  "folder": "m6ny7g3VciUkKZ3t",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.Mce6xvlRf48rWmMf"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode gastar 1 PM para expelir um l&iacute;quido grosso e corrosivo. At&eacute; o final da cena, voc&ecirc; recebe +1 nas rolagens de dano corpo a corpo. Este b&ocirc;nus aumenta em +1 para cada dois outros poderes da Tormenta que voc&ecirc; possui.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 137 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Tormenta",
+    "chatFlavor": "",
+    "tags": [
+      "Tormenta"
+    ],
+    "origin": "",
+    "chatGif": "",
+    "rolltags": [
+      "Tormenta"
+    ]
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184248,
+    "modifiedTime": 1684803453538,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!Mce6xvlRf48rWmMf"
+}

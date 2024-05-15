@@ -1,0 +1,152 @@
+{
+  "_id": "I7if4gOoxqXhdjcK",
+  "name": "Chuva de Meteoros",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/chuva-de-meteoros.webp",
+  "effects": [
+    {
+      "_id": "EiA6E64UonEUYa8o",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "items": "",
+          "equipment": false
+        }
+      },
+      "changes": [
+        {
+          "key": "dano:fogo",
+          "mode": 0,
+          "value": "2d6",
+          "priority": 0
+        },
+        {
+          "key": "dano:impacto",
+          "mode": 0,
+          "value": "2d6",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta o número de meteoros que atingem a área, o que aumenta o dano em +2d6 de impacto e +2d6 de fogo.",
+      "origin": "Compendium.tormenta20.magias.I7if4gOoxqXhdjcK",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!I7if4gOoxqXhdjcK.EiA6E64UonEUYa8o"
+    }
+  ],
+  "folder": "qpQwhvyiq8EJgExj",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.s2LpPdDAp7PjShYl"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Meteoros caem dos c&eacute;us, devastando a &aacute;rea afetada. Criaturas na &aacute;rea sofrem 15d6 pontos de dano de impacto, 15d6 pontos de dano de fogo e ficam @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.fJFNeZeKmfHMpblz]{Ca&iacute;do} e presas sob os escombros (<a class=\"content-link\" draggable=\"true\" data-uuid=\"JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.TSRZ1cAIIIpsvOfK\" data-id=\"TSRZ1cAIIIpsvOfK\" data-type=\"JournalEntryPage\" data-tooltip=\"Text Page\">Agarrado</a>).</p>\n<p style=\"text-align: justify;\">Uma criatura que passe no teste de resist&ecirc;ncia sofre metade do dano total e n&atilde;o fica ca&iacute;da e agarrada. Uma criatura agarrada pode escapar gastando uma a&ccedil;&atilde;o padr&atilde;o e passando em um teste de Atletismo (CD da magia). Toda a &aacute;rea afetada fica coberta de escombros, sendo considerada terreno dif&iacute;cil, e imersa numa nuvem de poeira (camuflagem leve). Esta magia s&oacute; pode ser utilizada a c&eacute;u aberto.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 178 (JdA)",
+    "ativacao": {
+      "execucao": "full",
+      "custo": 15,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "inst",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "long",
+    "alvo": "",
+    "area": "quadrado com 18m de lado",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "int",
+      "bonus": 0,
+      "txt": "Reflexos parcial"
+    },
+    "rolls": [
+      {
+        "name": "Dano",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "15d6",
+            "fogo",
+            ""
+          ],
+          [
+            "15d6",
+            "impacto",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "arc",
+    "circulo": "5",
+    "preparada": false,
+    "escola": "con",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461817,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!I7if4gOoxqXhdjcK"
+}

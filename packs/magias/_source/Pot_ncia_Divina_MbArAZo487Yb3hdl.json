@@ -1,0 +1,260 @@
+{
+  "_id": "MbArAZo487Yb3hdl",
+  "name": "Potência Divina",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/potencia-divina.webp",
+  "effects": [
+    {
+      "_id": "LZeLNUKYa4Wrj3uR",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "items": "",
+          "equipment": false
+        }
+      },
+      "changes": [
+        {
+          "key": "system.atributos.for.value",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta o bônus de Força em +1.",
+      "origin": "Compendium.tormenta20.magias.MbArAZo487Yb3hdl",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!MbArAZo487Yb3hdl.LZeLNUKYa4Wrj3uR"
+    },
+    {
+      "_id": "DrnQ3G5GdlguRFMR",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "5",
+          "aumenta": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "system.tracos.resistencias.dano.value",
+          "mode": 2,
+          "value": "5",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta a resistência a dano em +5.",
+      "origin": "Compendium.tormenta20.magias.MbArAZo487Yb3hdl",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!MbArAZo487Yb3hdl.DrnQ3G5GdlguRFMR"
+    },
+    {
+      "_id": "gT58wfOEzw5hn1E3",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "alcance",
+          "mode": 5,
+          "value": "Toque",
+          "priority": 0
+        },
+        {
+          "key": "alvo",
+          "mode": 5,
+          "value": "1 criatura",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda o alcance para toque e o alvo para 1 criatura. A magia falha se você e o alvo não forem devotos da mesma divindade.",
+      "origin": "Compendium.tormenta20.magias.MbArAZo487Yb3hdl",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!MbArAZo487Yb3hdl.gT58wfOEzw5hn1E3"
+    },
+    {
+      "_id": "CYW1kpakzd0nMIx8",
+      "changes": [
+        {
+          "key": "system.atributos.for.value",
+          "mode": 2,
+          "value": "4",
+          "priority": null
+        },
+        {
+          "key": "system.tracos.resistencias.dano.value",
+          "mode": 2,
+          "value": "10",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/potencia-divina.webp",
+      "label": "Potência Divina",
+      "origin": "Item.bgvsLIzf9M8zUfZa",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!MbArAZo487Yb3hdl.CYW1kpakzd0nMIx8"
+    }
+  ],
+  "folder": "d32UX2lzIXG6Ew2L",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.DQi2UVtxtEC89ebZ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; canaliza o poder de sua divindade. Voc&ecirc; aumenta uma categoria de tamanho (seu equipamento muda de acordo) e recebe For&ccedil;a +4 e RD 10. Voc&ecirc; n&atilde;o pode lan&ccedil;ar magias enquanto estiver sob efeito de Pot&ecirc;ncia Divina.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 201 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 6,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "sust",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "self",
+    "alvo": "você",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "div",
+    "circulo": "3",
+    "preparada": false,
+    "escola": "tra",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461901,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!MbArAZo487Yb3hdl"
+}

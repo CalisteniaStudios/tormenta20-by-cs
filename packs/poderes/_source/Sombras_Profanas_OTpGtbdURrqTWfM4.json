@@ -1,0 +1,157 @@
+{
+  "_id": "OTpGtbdURrqTWfM4",
+  "name": "Sombras Profanas",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/suraggel.webp",
+  "effects": [
+    {
+      "_id": "7y2bemiGX7Js4Zy6",
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Sombras Profanas",
+      "origin": "Item.22jQBOeNpCDDsO4z",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "spell": true,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "-1",
+          "durationScene": false,
+          "items": "Escuridão",
+          "equipment": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!OTpGtbdURrqTWfM4.7y2bemiGX7Js4Zy6"
+    },
+    {
+      "_id": "LFTR2VivKIk5zReC",
+      "changes": [
+        {
+          "key": "system.pericias.furt.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.enga.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/racas/suraggel.webp",
+      "label": "Sombras Profanas",
+      "origin": "Item.22jQBOeNpCDDsO4z",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!OTpGtbdURrqTWfM4.LFTR2VivKIk5zReC"
+    }
+  ],
+  "folder": "ynxWPPRSK2yaInsF",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.OTpGtbdURrqTWfM4"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; recebe +2 em Engana&ccedil;&atilde;o e Furtividade. Al&eacute;m disso, pode lan&ccedil;ar <a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.tormenta20.magias.Bt364TPpNUI1QVPP\" data-id=\"Bt364TPpNUI1QVPP\" data-type=\"Item\" data-pack=\"tormenta20.magias\" data-tooltip=\"Magia Item\">Escurid&atilde;o</a> (como uma magia divina; atributo-chave Intelig&ecirc;ncia). Caso aprenda novamente essa magia, seu custo diminui em &ndash;1 PM.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 31 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Suraggel (Sulfure)",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184255,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!OTpGtbdURrqTWfM4"
+}

@@ -1,0 +1,93 @@
+{
+  "_id": "hSNkEKLoTHuywNya",
+  "name": "Lampião",
+  "type": "tesouro",
+  "img": "systems/tormenta20/icons/itens/gerais/lampiao.webp",
+  "effects": [],
+  "folder": "0G5uMjOsWAFaPYAZ",
+  "sort": 6250,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.hSNkEKLoTHuywNya"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um cilindro com uma al&ccedil;a e duas portinholas. Uma chama alimentada por &oacute;leo &eacute; acesa dentro do cilindro e uma das portinholas aberta deixa a luz sair. Acender um lampi&atilde;o &eacute; uma a&ccedil;&atilde;o padr&atilde;o e sua luz ilumina um raio com alcance m&eacute;dio. Um frasco de &oacute;leo (veja abaixo) dura uma cena.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 155 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 1,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 7,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "container": false,
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "amount": 0,
+      "mpMultiplier": false,
+      "target": "",
+      "type": ""
+    },
+    "duracao": {
+      "units": "",
+      "value": 0,
+      "special": ""
+    },
+    "range": {
+      "units": "",
+      "value": 0
+    },
+    "target": {
+      "type": "",
+      "value": 0,
+      "width": 0
+    },
+    "alcance": "",
+    "alvo": "",
+    "area": "",
+    "efeito": "",
+    "resistencia": {
+      "txt": "",
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772416,
+    "modifiedTime": 1684617585263,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!hSNkEKLoTHuywNya"
+}

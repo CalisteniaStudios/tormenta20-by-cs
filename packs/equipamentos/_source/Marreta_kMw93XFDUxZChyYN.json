@@ -1,0 +1,135 @@
+{
+  "name": "Marreta",
+  "type": "arma",
+  "img": "systems/tormenta20/icons/itens/equipamentos/marreta.webp",
+  "system": {
+    "description": {
+      "value": "<p>Uma haste de madeira resistente com uma pesada cabe&ccedil;a de metal ou pedra</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 149 (JdA)",
+    "equipado": 0,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 20,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "rolls": [
+      {
+        "name": "Ataque",
+        "key": "ataque0",
+        "type": "ataque",
+        "parts": [
+          [
+            "1d20",
+            ""
+          ],
+          [
+            "luta",
+            ""
+          ],
+          [
+            "0",
+            ""
+          ]
+        ]
+      },
+      {
+        "name": "Dano",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "3d4",
+            "impacto"
+          ],
+          [
+            "@for",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "criticoM": 20,
+    "criticoX": 2,
+    "alcance": "",
+    "tipoUso": "sim",
+    "propriedades": {
+      "ada": false,
+      "agi": false,
+      "alo": false,
+      "arr": false,
+      "dst": false,
+      "dms": false,
+      "dup": false,
+      "lev": false,
+      "mun": false,
+      "ver": false,
+      "des": false
+    },
+    "proficiencia": "marcial",
+    "proposito": "corpo-a-corpo",
+    "empunhadura": "duas",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "amount": 0,
+      "mpMultiplier": false,
+      "target": "",
+      "type": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "ataques": 0,
+    "size": "normal"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667145400053,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "kMw93XFDUxZChyYN",
+  "folder": "HkeRANb2t5R9UKLQ",
+  "sort": 1300000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!kMw93XFDUxZChyYN"
+}

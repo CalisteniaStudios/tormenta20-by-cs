@@ -13,7 +13,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "npc"],
 			tabs: [
 				{navSelector: ".primary", contentSelector: ".sheet-body.primary", initial: "statblock"},
@@ -63,24 +63,24 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			else if ( r[1].vulnerabilidade ) resText.vul.push(r[0]);
 			else if ( r[1].value > 0 ) resText.res.push(`${r[0]} ${r[1].value}`);
 		});
-		if ( ics.value && !isEmpty(ics.value) ) {
+		if ( ics.value && !foundry.utils.isEmpty(ics.value) ) {
 			resText.imu.push( ...ics.value );
 		}
 		if ( ics.custom ) {
 			resText.imu.push( ics.custom );
 		}
 		sheetData['resistencias'] = '';
-		if ( !isEmpty(resText.imu) ) {
+		if ( !foundry.utils.isEmpty(resText.imu) ) {
 			resText.imu = resText.imu.map( i => CONFIG.T20.conditionTypes[i] ?? i );
 			resText.imuTxt += 'imunidade a ' + resText.imu.join(', ');
 			sheetData['resistencias'] += resText.imuTxt;
 		}
-		if ( !isEmpty(resText.res) ) {
+		if ( !foundry.utils.isEmpty(resText.res) ) {
 			resText.resTxt += 'resistência a ' + resText.res.join(', ');
 			if (sheetData['resistencias']) sheetData['resistencias'] += ', '+resText.resTxt;
 			else sheetData['resistencias'] += resText.resTxt;
 		}
-		if ( !isEmpty(resText.vul) ) {
+		if ( !foundry.utils.isEmpty(resText.vul) ) {
 			resText.vulTxt += 'vulnerabilidade a ' + resText.vul.join(', ');
 			if (sheetData['resistencias']) sheetData['resistencias'] += ', '+resText.vulTxt;
 			else sheetData['resistencias'] += resText.vulTxt;

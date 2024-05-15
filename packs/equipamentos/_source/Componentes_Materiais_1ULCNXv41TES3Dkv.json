@@ -1,0 +1,107 @@
+{
+  "name": "Componentes Materiais",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/componentes-materiais.webp",
+  "system": {
+    "description": {
+      "value": "<p>S&atilde;o ingredientes especiais para ser usado na ativa&ccedil;ao de determinadas habilidade, a especifica&ccedil;&atilde;o de cada um e o valor a ser utilizado &eacute; determinado na habilidade.</p>\n<p>Esses ingredientes devem estar na m&atilde;o do personagem e s&atilde;o consumidos<br>com o uso (mesmo que a habilidade falhe).</p>\n<p>&nbsp;</p>\n<p><strong><em>Cada quantidade desse item equivale a 5 T$ em materiais, ent&atilde;o para configurar ele na ficha em Ativa&ccedil;&atilde;o &gt;&gt; Consum&iacute;vel &gt;&gt; escolha, Material e fazer uma conta de multiplica&ccedil;&atilde;o para colocar a quantidade que sera consumida, por exemplo, para usar em ora&ccedil;ao iria usar 5 componentes materiais para cada PM.</em></strong></p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 224 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0.005,
+    "qtd": 1,
+    "preco": 5,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "material",
+    "uses": {
+      "autoDestroy": false
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665836040178,
+    "modifiedTime": 1684617275558,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "1ULCNXv41TES3Dkv",
+  "folder": "vJ3nxvT9nhOts2Xv",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!1ULCNXv41TES3Dkv"
+}

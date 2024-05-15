@@ -1,0 +1,121 @@
+{
+  "name": "Flauta Mística",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/flauta-mistica.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um instrumento delicado, repleto de runas e pequenas gemas m&iacute;sticas. Um bardo que empunhe este item aumenta a CD para resistir &agrave;s magias lan&ccedil;adas por ele em +1. Conta como um instrumento musical.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 158 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 150,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "ferramenta",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Flauta Mística: aumenta em +1 a CD para resistir às suas magias de bardo.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.48AZOSnlc4gRYffv",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "bQoexW1WrGdPD7pS",
+      "changes": [
+        {
+          "key": "cd",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!48AZOSnlc4gRYffv.bQoexW1WrGdPD7pS"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663512910780,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "48AZOSnlc4gRYffv",
+  "folder": "VqWdhvUwkVTlura5",
+  "sort": 112500,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!48AZOSnlc4gRYffv"
+}

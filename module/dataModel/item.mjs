@@ -189,7 +189,7 @@ class systemItemWeaponData extends systemItemBaseData {
 		if( typeof data.equipado === 'boolean' ){
 			data.equipado = data.equipado ? 1 : 0;
 		}
-		if( !data.proficiencia && hasProperty(data, 'tipoUso') && data.tipoUso ){
+		if( !data.proficiencia && foundry.utils.hasProperty(data, 'tipoUso') && data.tipoUso ){
 			let proficiencia = {
 				sim: "simples",
 				mar: "marcial",
@@ -202,14 +202,14 @@ class systemItemWeaponData extends systemItemBaseData {
 			data.tipoUso = null;
 		}
 
-		if ( !data.proposito && hasProperty(data.propriedades, 'arr') && hasProperty(data.propriedades, 'mun') && hasProperty(data.propriedades, 'dst') ){
+		if ( !data.proposito && foundry.utils.hasProperty(data.propriedades, 'arr') && foundry.utils.hasProperty(data.propriedades, 'mun') && foundry.utils.hasProperty(data.propriedades, 'dst') ){
 			let proposito = data.propriedades.arr ? 'arremesso' : (data.propriedades.mun ? 'disparo' : (data.propriedades.dst ? 'disparo' : 'corpo-a-corpo' ) );
 			data.proposito = proposito;
 			delete data.propriedades.arr;
 			delete data.propriedades.mun;
 			delete data.propriedades.dst;
 		}
-		if( !data.empunhadura && hasProperty(data.propriedades, 'lev') && hasProperty(data.propriedades, 'dms') ){
+		if( !data.empunhadura && foundry.utils.hasProperty(data.propriedades, 'lev') && foundry.utils.hasProperty(data.propriedades, 'dms') ){
 			let empunhadura = data.propriedades.lev ? 'leve' : (data.propriedades.dms ? 'duas' : 'uma' );
 			data.empunhadura = empunhadura;
 			delete data.propriedades.lev;

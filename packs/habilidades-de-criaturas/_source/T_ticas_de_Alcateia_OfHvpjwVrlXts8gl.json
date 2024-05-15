@@ -1,0 +1,125 @@
+{
+  "name": "Táticas de Alcateia",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/ameacas/taticas-alcateia.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando flanqueia um inimigo, o lobo recebe +2 no teste de ataque e na rolagem de dano (al&eacute;m do b&ocirc;nus normal por flanquear, para um total de +4 no ataque e +2 no dano).</p>",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Táticas de Alcateia",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.OfHvpjwVrlXts8gl",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "Bb64N9sZSwvarWT0",
+      "changes": [
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "4",
+          "priority": 0
+        },
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!OfHvpjwVrlXts8gl.Bb64N9sZSwvarWT0"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1666321513948,
+    "modifiedTime": 1668270615332,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "OfHvpjwVrlXts8gl",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!OfHvpjwVrlXts8gl"
+}

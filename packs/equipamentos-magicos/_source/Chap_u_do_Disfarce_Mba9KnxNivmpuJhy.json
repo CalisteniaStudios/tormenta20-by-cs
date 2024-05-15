@@ -1,0 +1,80 @@
+{
+  "_id": "Mba9KnxNivmpuJhy",
+  "name": "Chapéu do Disfarce",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/chapeu-do-disfarse.webp",
+  "effects": [],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 2400000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.Mba9KnxNivmpuJhy"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Voc&ecirc; pode lan&ccedil;ar @UUID[Compendium.tormenta20.magias.19donXyns0pliwj9]{Disfarce Ilus&oacute;rio}&nbsp;(CD Car), com o aprimoramento que inclui odores e sensa&ccedil;&otilde;es e muda o b&ocirc;nus em Engana&ccedil;&atilde;o para disfarces para +20, sem pagar seu custo em PM. Voc&ecirc; n&atilde;o pode usar outros aprimoramentos. Como parte do disfarce, o chap&eacute;u pode mudar para um elmo, faixa, tiara, gorro, touca e assim por diante.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 343 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 6000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000099,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!Mba9KnxNivmpuJhy"
+}

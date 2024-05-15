@@ -6,7 +6,7 @@ export default class TraitSelector extends FormApplication {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "trait-selector",
 			classes: ["tormenta20"],
 			title: game.i18n.localize('T20.ActorTraitSelection'),
@@ -42,7 +42,7 @@ export default class TraitSelector extends FormApplication {
 		let choices = {};
 		let columns = 1;
 		if (this.options.choices != undefined) {
-			choices = duplicate(this.options.choices);
+			choices = foundry.utils.duplicate(this.options.choices);
 			for ( let [k, v] of Object.entries(choices) ) {
 				choices[k] = {
 					label: v.label ? v.label : v,

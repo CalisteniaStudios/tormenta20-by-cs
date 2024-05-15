@@ -1,0 +1,85 @@
+{
+  "name": "Detectar Aberração",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Voc&ecirc; sabe instintivamente o que &eacute; ou n&atilde;o real.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; est&aacute; sempre sob efeito b&aacute;sico da magia <a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.tormenta20.magias.H7tJCAL2UNJ8QLPN\" data-id=\"H7tJCAL2UNJ8QLPN\" data-type=\"Item\" data-pack=\"tormenta20.magias\" data-tooltip=\"Magia Item\">Detectar Amea&ccedil;as</a>, mas apenas para seres extraplanares, e nunca fica&nbsp; <a class=\"content-link\" draggable=\"true\" data-uuid=\"JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.xOaeTMaijYgXoNJG\" data-id=\"xOaeTMaijYgXoNJG\" data-type=\"JournalEntryPage\" data-tooltip=\"Text Page\">Surpreendido</a>por uma destas criaturas.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> treinado em Percep&ccedil;&atilde;o, Basti&atilde;o da Realidade.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 24",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Guardião da Realidade",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [
+      "GuardiaodaRealidade"
+    ],
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "tormentaverse",
+      "system": "tormenta20",
+      "coreVersion": "10.286",
+      "systemVersion": "1.4.006"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1662561918887,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "IcsDK0oMrLOo09lT",
+  "folder": "YXlTMaY22gwCu0fc",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!IcsDK0oMrLOo09lT"
+}

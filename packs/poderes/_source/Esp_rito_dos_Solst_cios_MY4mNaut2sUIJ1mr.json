@@ -1,0 +1,116 @@
+{
+  "_id": "MY4mNaut2sUIJ1mr",
+  "name": "Espírito dos Solstícios",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/druida.webp",
+  "effects": [
+    {
+      "label": "Espírito dos Solstícios: Maximiza efeitos numéricos variáveis.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.MY4mNaut2sUIJ1mr",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "4"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "DNZ5s8DFKolbHoDo",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!MY4mNaut2sUIJ1mr.DNZ5s8DFKolbHoDo"
+    }
+  ],
+  "folder": "8LraP5E2KHsZTAz8",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.MY4mNaut2sUIJ1mr"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; transita entre os extremos do mundo natural. Quando lan&ccedil;a uma magia, pode gastar +4 PM para maximizar os efeitos num&eacute;ricos vari&aacute;veis dela. Por exemplo, uma magia <em>Curar Ferimentos</em> aprimorada para curar 5d8+5 PV ir&aacute; curar automaticamente 45 PV, sem a necessidade de rolar dados. Uma magia sem efeitos vari&aacute;veis n&atilde;o pode ser afetada por este poder.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> Aspecto do Inverno, Aspecto do Ver&atilde;o, 10&ordm; n&iacute;vel de druida.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 62 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 4,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Druida",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184247,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!MY4mNaut2sUIJ1mr"
+}

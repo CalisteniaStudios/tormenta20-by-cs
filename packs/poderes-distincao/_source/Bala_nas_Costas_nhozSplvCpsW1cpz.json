@@ -1,0 +1,123 @@
+{
+  "name": "Bala nas Costas",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Se um chap&eacute;u preto realmente h&aacute;bil quiser mat&aacute;-lo, voc&ecirc; n&atilde;o ficar&aacute; sabendo &mdash; j&aacute; estar&aacute; morto.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Sempre que atacar um oponente pela primeira vez na cena, voc&ecirc; pode gastar 1 PM para receber +10 na margem de amea&ccedil;a deste ataque.</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisitos: Cora&ccedil;&atilde;o duro, dois outros poderes de chap&eacute;u preto.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 20",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Chapeu Preto",
+    "origin": "",
+    "tags": [
+      "ChapeuPreto"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Bala nas Costas",
+      "icon": "icons/skills/targeting/crosshair-pointed-orange.webp",
+      "origin": "Item.nhozSplvCpsW1cpz",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "ikIlF2FnhhxqkSDr",
+      "changes": [
+        {
+          "key": "criticoM",
+          "mode": 2,
+          "value": "-10",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!nhozSplvCpsW1cpz.ikIlF2FnhhxqkSDr"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667074044311,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "nhozSplvCpsW1cpz",
+  "folder": "ELRx5oblpz3uQpB7",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!nhozSplvCpsW1cpz"
+}

@@ -1,0 +1,142 @@
+{
+  "name": "Bastião da Realidade",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>O guardi&atilde;o da realidade se afirma como parte da cria&ccedil;&atilde;o, usando essa certeza como escudo contra os horrores da anticria&ccedil;&atilde;o.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; n&atilde;o fica frustrado quando entra em uma &aacute;rea de Tormenta. Al&eacute;m disso, recebe +2 em testes de resist&ecirc;ncia contra efeitos da Tormenta e habilidades de seres extraplanares. Esse b&ocirc;nus aumenta em +1 para cada dois outros poderes de guardi&atilde;o da realidade que voc&ecirc; possuir. <em>Pr&eacute;-requisitos:</em> treinado em Fortitude, Vontade de Ferro.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 24",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Guardião da Realidade",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [
+      "GuardiaodaRealidade"
+    ],
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Bastião da Realidade",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.HGSxOKWYbKlM61eQ",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "cCYF8Mgg3bmlsgMI",
+      "changes": [
+        {
+          "key": "system.pericias.fort.bonus",
+          "mode": 2,
+          "value": "1+(@GuardiaodaRealidade2*1)",
+          "priority": 0
+        },
+        {
+          "key": "system.pericias.refl.bonus",
+          "mode": 2,
+          "value": "1+(@GuardiaodaRealidade2*1)",
+          "priority": 0
+        },
+        {
+          "key": "system.pericias.vont.bonus",
+          "mode": 2,
+          "value": "1+(@GuardiaodaRealidade2*1)",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!HGSxOKWYbKlM61eQ.cCYF8Mgg3bmlsgMI"
+    }
+  ],
+  "flags": {
+    "exportSource": {
+      "world": "tormentaverse",
+      "system": "tormenta20",
+      "coreVersion": "10.286",
+      "systemVersion": "1.4.006"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1662561471648,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "HGSxOKWYbKlM61eQ",
+  "folder": "YXlTMaY22gwCu0fc",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!HGSxOKWYbKlM61eQ"
+}

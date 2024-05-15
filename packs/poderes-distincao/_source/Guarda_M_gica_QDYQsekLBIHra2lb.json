@@ -1,0 +1,128 @@
+{
+  "name": "Guarda Mágica",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Mestre em utilizar a magia em combate, o arcano de guerra tamb&eacute;m aprende a se defender de poderosos advers&aacute;rios m&aacute;gicos</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Voc&ecirc; recebe resist&ecirc;ncia a magia +2. Esta resist&ecirc;ncia aumenta em +1 para cada dois outros poderes de arcano de guerra que voc&ecirc; possui.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisitos</em>: Conjura&ccedil;&atilde;o Magib&eacute;lica, ter passado em ao menos dez testes de resist&ecirc;ncia contra magias.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">&nbsp;</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 36-37",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Arcano de Guerra",
+    "origin": "",
+    "tags": [
+      "ArcanodeGuerra"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Guarda Mágica",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.QDYQsekLBIHra2lb",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "kUXbz2Vj2mRNwVJ4",
+      "changes": [
+        {
+          "key": "system.pericias.refl.bonus",
+          "mode": 2,
+          "value": "2+(@ArcanodeGuerra2*1)",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.fort.bonus",
+          "mode": 2,
+          "value": "2+(@ArcanodeGuerra2*1)",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.vont.bonus",
+          "mode": 2,
+          "value": "2+(@ArcanodeGuerra2*1)",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!QDYQsekLBIHra2lb.kUXbz2Vj2mRNwVJ4"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "QDYQsekLBIHra2lb",
+  "folder": "XTLQDvRqYbTCPiCK",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!QDYQsekLBIHra2lb"
+}

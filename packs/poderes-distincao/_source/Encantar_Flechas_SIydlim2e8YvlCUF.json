@@ -1,0 +1,79 @@
+{
+  "name": "Encantar Flechas",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">O arqueiro arcano aprende a usar sua magia para criar flechas encantadas.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; recebe 20 flechas m&aacute;gicas com um encanto &agrave; sua escolha, e passa a poder fabricar flechas m&aacute;gicas com um encanto. Isso funciona como fabricar itens m&aacute;gicos, exceto que voc&ecirc; paga apenas metade do custo, as flechas perdem o encanto quando s&atilde;o disparadas e voc&ecirc; recupera os PM gastos para encant&aacute;-las quando dispara a &uacute;ltima flecha ou quando cancela o encanto (uma a&ccedil;&atilde;o livre). Para cada c&iacute;rculo de magias arcanas a que voc&ecirc; tiver acesso al&eacute;m do 2&ordm;, voc&ecirc; pode fabricar flechas com um encanto adicional.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> lan&ccedil;ar magias arcanas de 2&ordm; c&iacute;rculo, treinado em Of&iacute;cio (Armeiro), Arco Arcano.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 16",
+    "ativacao": {
+      "execucao": "",
+      "custo": null,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Arqueiro Arcano",
+    "origin": "",
+    "tags": [
+      "Magico",
+      "ArqueiroArcano"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665856654745,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "SIydlim2e8YvlCUF",
+  "folder": "Rj1a3BRGbCJZHIUT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!SIydlim2e8YvlCUF"
+}

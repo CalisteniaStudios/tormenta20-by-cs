@@ -64,11 +64,7 @@
 		</div>
 		<div class="item-abl">
 			<select class="selectatr" name="system.pericias.{{skill.key}}.atributo" value={{skill.atributo}}>
-			{{#select skill.atributo}}
-				{{#each ../config.atributosAbr as |name abl|}}
-					<option value="{{abl}}">{{localize name}}</option>
-				{{/each}}
-			{{/select}}
+				{{selectOptions ../config.atributosAbr selected=skill.atributo}}
 			</select>
 		</div>
 		<div class="item-outros">

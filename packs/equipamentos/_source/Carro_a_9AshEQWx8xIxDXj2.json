@@ -1,0 +1,97 @@
+{
+  "name": "Carroça",
+  "type": "tesouro",
+  "img": "systems/tormenta20/icons/itens/gerais/carroca.webp",
+  "system": {
+    "description": {
+      "value": "<p>Ve&iacute;culo de duas ou quatro rodas, aberto, normalmente usado para transportar cargas pesadas. &Eacute; puxada por dois cavalos ou um trobo. Inclui os arreios necess&aacute;rios para controlar os animais. Uma carro&ccedil;a tem tamanho Grande, deslocamento 9m, Defesa 8 (+ Des do condutor), 50 PV e pode carregar at&eacute; 4 criaturas M&eacute;dias ou 80 espa&ccedil;os.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 163 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0,
+    "qtd": 1,
+    "preco": 30,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "container": false,
+    "rolls": [],
+    "origin": "",
+    "chatFlavor": "",
+    "tags": [],
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "amount": 0,
+      "mpMultiplier": false,
+      "target": "",
+      "type": ""
+    },
+    "duracao": {
+      "units": "",
+      "value": 0,
+      "special": ""
+    },
+    "range": {
+      "units": "",
+      "value": 0
+    },
+    "target": {
+      "type": "",
+      "value": 0,
+      "width": 0
+    },
+    "alcance": "",
+    "alvo": "",
+    "area": "",
+    "efeito": "",
+    "resistencia": {
+      "txt": "",
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "tormentaverse",
+      "system": "tormenta20",
+      "coreVersion": "10.286",
+      "systemVersion": "1.4.006"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": null,
+    "modifiedTime": 1684617214661,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "9AshEQWx8xIxDXj2",
+  "folder": "hmV5qDTRHMohkjKb",
+  "sort": 150000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!9AshEQWx8xIxDXj2"
+}

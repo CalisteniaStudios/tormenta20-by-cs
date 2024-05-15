@@ -1,0 +1,82 @@
+{
+  "_id": "JwWMw9SpTVXSVIBp",
+  "name": "Traje da corte",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/traje-da-corte.webp",
+  "effects": [],
+  "folder": "3kNyXnAknru6qWyM",
+  "sort": 112500,
+  "flags": {},
+  "system": {
+    "description": {
+      "value": "<p>Roupas de luxo, feitas sob medida e adequadas &agrave; nobreza e realeza. Inclui algumas joias, como aneis e colares. Em certos ambientes (um baile, um sal&atilde;o de pal&aacute;cio), um personagem que n&atilde;o esteja vestindo este item sofre &ndash;5 em per&iacute;cias baseadas em Carisma.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 159 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 100,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665688325250,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!JwWMw9SpTVXSVIBp"
+}

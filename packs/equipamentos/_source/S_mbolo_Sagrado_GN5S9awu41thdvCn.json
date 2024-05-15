@@ -1,0 +1,115 @@
+{
+  "name": "Símbolo Sagrado",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/simbolo-sagrado.webp",
+  "system": {
+    "description": {
+      "value": "<p>Um medalh&atilde;o de madeira ou metal com o s&iacute;mbolo de uma divindade. Se voc&ecirc; estiver vestindo (normalmente com uma corrente ao redor do pesco&ccedil;o) ou empunhando o s&iacute;mbolo sagrado de um deus do qual &eacute; devoto, recebe +1 em testes de resist&ecirc;ncia.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 157 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "both"
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 5,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "rolls": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Símbolo Sagrado",
+      "icon": "systems/tormenta20/icons/itens/gerais/simbolo-sagrado.webp",
+      "origin": "Item.GN5S9awu41thdvCn",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "UYpiiWb9bIoCph6a",
+      "changes": [
+        {
+          "key": "system.modificadores.pericias.resistencias",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!GN5S9awu41thdvCn.UYpiiWb9bIoCph6a"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.GN5S9awu41thdvCn"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665712733997,
+    "modifiedTime": 1684809366201,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "GN5S9awu41thdvCn",
+  "folder": "0G5uMjOsWAFaPYAZ",
+  "sort": 196,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!GN5S9awu41thdvCn"
+}

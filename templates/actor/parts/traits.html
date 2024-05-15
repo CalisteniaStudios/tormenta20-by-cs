@@ -5,11 +5,7 @@
 <div>
 	<label>{{ localize 'T20.Size'}}</label>
 	<select class="actor-size" name="system.tracos.tamanho">
-		{{#select system.tracos.tamanho}}
-		{{#each config.actorSizes as |label size|}}
-		<option value="{{size}}">{{localize label}}</option>
-		{{/each}}
-		{{/select}}
+		{{selectOptions config.actorSizes selected=system.tracos.tamanho}}
 	</select>
 </div>
 <div>

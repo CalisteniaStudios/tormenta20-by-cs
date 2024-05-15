@@ -1,0 +1,86 @@
+{
+  "_id": "sAFkdfHvHDqyZlZl",
+  "name": "Anel da Liberdade",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/anel.webp",
+  "effects": [],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 5800000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.sAFkdfHvHDqyZlZl"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Forjado em ouro, este anel &eacute; uma rel&iacute;quia da Igreja de Valkaria. Voc&ecirc; fica permanentemente sob efeito de @UUID[Item.ELDmNrdpN7g8M3iJ]{Liberta&ccedil;&atilde;o}</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 342 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 60000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000116,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!sAFkdfHvHDqyZlZl"
+}

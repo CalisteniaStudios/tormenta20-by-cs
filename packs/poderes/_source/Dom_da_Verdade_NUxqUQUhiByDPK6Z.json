@@ -1,0 +1,120 @@
+{
+  "_id": "NUxqUQUhiByDPK6Z",
+  "name": "Dom da Verdade",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos-justica.webp",
+  "effects": [
+    {
+      "_id": "4LBpVfsTnNsjD1uJ",
+      "changes": [
+        {
+          "key": "system.pericias.intu.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.perc.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/poderes/concedidos-justica.webp",
+      "label": "Dom da Verdade",
+      "origin": "Item.6kilkCgEWYi4AXCw",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!NUxqUQUhiByDPK6Z.4LBpVfsTnNsjD1uJ"
+    }
+  ],
+  "folder": "MaRTmHnjYmTuY9Y4",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.NUxqUQUhiByDPK6Z"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode pagar 2 PM para receber +5 em testes de Intui&ccedil;&atilde;o, e em testes de Percep&ccedil;&atilde;o contra Engana&ccedil;&atilde;o e Furtividade, at&eacute; o fim da cena.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 133 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Justiça",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184253,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!NUxqUQUhiByDPK6Z"
+}

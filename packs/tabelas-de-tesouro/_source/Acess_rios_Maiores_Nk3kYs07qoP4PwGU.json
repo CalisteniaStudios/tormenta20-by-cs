@@ -1,0 +1,385 @@
+{
+  "_id": "Nk3kYs07qoP4PwGU",
+  "name": "Acessórios Maiores",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "SSqXGKQkMt2WEzbe",
+      "flags": {},
+      "type": 2,
+      "text": "Elmo do Teletransporte",
+      "img": "systems/tormenta20/icons/itens/elmo.webp",
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "SNw2I6JAd0ukMx8B",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.SSqXGKQkMt2WEzbe"
+    },
+    {
+      "_id": "BSqJGmQshPhAnUKz",
+      "flags": {},
+      "type": 2,
+      "text": "Gema da Telepatia",
+      "img": "systems/tormenta20/icons/itens/gema-da-telepatia.webp",
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "OtW7whLVNzm2utSb",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.BSqJGmQshPhAnUKz"
+    },
+    {
+      "_id": "fauz1dNzUAYB4YnA",
+      "flags": {},
+      "type": 2,
+      "text": "Gema Elemental",
+      "img": "systems/tormenta20/icons/itens/gema-elemental.webp",
+      "weight": 1,
+      "range": [
+        5,
+        9
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "ClsAwXF91HUeKnPb",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.fauz1dNzUAYB4YnA"
+    },
+    {
+      "_id": "Hg7q6d9dGHdrhq21",
+      "flags": {},
+      "type": 2,
+      "text": "Manual da Saúde Corporal",
+      "img": "systems/tormenta20/icons/itens/manual-da-saude-corporal.webp",
+      "weight": 1,
+      "range": [
+        10,
+        15
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "goKcWiXKZdwMlXqn",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.Hg7q6d9dGHdrhq21"
+    },
+    {
+      "_id": "7gGkBAIVsSvcmxwo",
+      "flags": {},
+      "type": 2,
+      "text": "Manual do Bom Exercício",
+      "img": "systems/tormenta20/icons/itens/manual-do-bom-exercicio.webp",
+      "weight": 1,
+      "range": [
+        16,
+        21
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "dxsoRAc3W1CaQMQE",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.7gGkBAIVsSvcmxwo"
+    },
+    {
+      "_id": "umfHGk1xrAkMjOkX",
+      "flags": {},
+      "type": 2,
+      "text": "Manual dos Movimentos Precisos",
+      "img": "systems/tormenta20/icons/itens/manual-dos-movimentos-precisos.webp",
+      "weight": 1,
+      "range": [
+        22,
+        27
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "MSPF3mDfZ4Od4eDh",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.umfHGk1xrAkMjOkX"
+    },
+    {
+      "_id": "4RDF9q5g6oLcZYVi",
+      "flags": {},
+      "type": 2,
+      "text": "Medalhão da deusa da vida",
+      "img": "systems/tormenta20/icons/itens/medalhao-deusa-da-vida.webp",
+      "weight": 1,
+      "range": [
+        28,
+        34
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "sP4Nlz0cFAjxbzg5",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.4RDF9q5g6oLcZYVi"
+    },
+    {
+      "_id": "f6Ym2SVBVO31vrXh",
+      "flags": {},
+      "type": 2,
+      "text": "Tomo da Compreensão",
+      "img": "systems/tormenta20/icons/itens/tomo-da-compreensao.webp",
+      "weight": 1,
+      "range": [
+        35,
+        40
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "z8YmxSob2luUuWeM",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.f6Ym2SVBVO31vrXh"
+    },
+    {
+      "_id": "SWj0EAVvH5qzjc42",
+      "flags": {},
+      "type": 2,
+      "text": "Tomo da Liderança e Influência",
+      "img": "systems/tormenta20/icons/itens/tomo-da-lideranca-influencia.webp",
+      "weight": 1,
+      "range": [
+        41,
+        46
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "ylIVTOBIvhJggWhE",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.SWj0EAVvH5qzjc42"
+    },
+    {
+      "_id": "9FSVVVkpfv69iLzD",
+      "flags": {},
+      "type": 2,
+      "text": "Tomo dos Grandes Pensamentos",
+      "img": "systems/tormenta20/icons/itens/tomo-dos-grandes-pensamentos.webp",
+      "weight": 1,
+      "range": [
+        47,
+        52
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "PWx9hBiySNNchHbA",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.9FSVVVkpfv69iLzD"
+    },
+    {
+      "_id": "Q6YEalhOG4V6TAO6",
+      "flags": {},
+      "type": 2,
+      "text": "Anel Refletor",
+      "img": "systems/tormenta20/icons/itens/anel-refletor.webp",
+      "weight": 1,
+      "range": [
+        53,
+        57
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "M4E3uPL5jOZn9xjy",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.Q6YEalhOG4V6TAO6"
+    },
+    {
+      "_id": "JfTI4lQkUoLp7vmw",
+      "flags": {},
+      "type": 2,
+      "text": "Cinto do Campeão",
+      "img": "systems/tormenta20/icons/itens/cinto-do-campeao.webp",
+      "weight": 1,
+      "range": [
+        58,
+        60
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "402QJlcWzp7gaZYo",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.JfTI4lQkUoLp7vmw"
+    },
+    {
+      "_id": "CiYK13ggWPuWdCHG",
+      "flags": {},
+      "type": 2,
+      "text": "Colar Guardião",
+      "img": "systems/tormenta20/icons/itens/colar.webp",
+      "weight": 1,
+      "range": [
+        61,
+        67
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "AJEwZYS6iJvqdQlr",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.CiYK13ggWPuWdCHG"
+    },
+    {
+      "_id": "CSko4GCgdWqEqG74",
+      "flags": {},
+      "type": 2,
+      "text": "Estatueta Animista",
+      "img": "systems/tormenta20/icons/itens/estatua.webp",
+      "weight": 1,
+      "range": [
+        68,
+        72
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "LN0jEKvCz1Rb3bOo",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.CSko4GCgdWqEqG74"
+    },
+    {
+      "_id": "wXl8mhrUKtKerwVC",
+      "flags": {},
+      "type": 2,
+      "text": "Anel da Liberdade",
+      "img": "systems/tormenta20/icons/itens/anel.webp",
+      "weight": 1,
+      "range": [
+        73,
+        77
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "sAFkdfHvHDqyZlZl",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.wXl8mhrUKtKerwVC"
+    },
+    {
+      "_id": "huDglHBZ0vHIPmSE",
+      "flags": {},
+      "type": 2,
+      "text": "Tapete Voador",
+      "img": "systems/tormenta20/icons/itens/tapete.webp",
+      "weight": 1,
+      "range": [
+        78,
+        82
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "xvnLFzKVvqZPFOSM",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.huDglHBZ0vHIPmSE"
+    },
+    {
+      "_id": "bnI5rfL0upix3stJ",
+      "flags": {},
+      "type": 2,
+      "text": "Braceletes de Ouro",
+      "img": "systems/tormenta20/icons/itens/bracelete-ouro.webp",
+      "weight": 1,
+      "range": [
+        83,
+        87
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "eWqbWJ4vZUyEIVLF",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.bnI5rfL0upix3stJ"
+    },
+    {
+      "_id": "ROJLtkoxWALU6oj9",
+      "flags": {},
+      "type": 2,
+      "text": "Espelho da Oposição",
+      "img": "systems/tormenta20/icons/itens/espelho_da_oposicao.webp",
+      "weight": 1,
+      "range": [
+        88,
+        89
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "xasIzkosQaQ0Ln3Y",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.ROJLtkoxWALU6oj9"
+    },
+    {
+      "_id": "MSBCp7IoMpMHmxN8",
+      "flags": {},
+      "type": 2,
+      "text": "Robe do Arquimago",
+      "img": "systems/tormenta20/icons/itens/robe-do-arquimago.webp",
+      "weight": 1,
+      "range": [
+        90,
+        94
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "IvIBlYuZS6Sn5cE6",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.MSBCp7IoMpMHmxN8"
+    },
+    {
+      "_id": "uM5f11qJzo0j5dtr",
+      "flags": {},
+      "type": 2,
+      "text": "Orbe das Tempestades",
+      "img": "systems/tormenta20/icons/itens/orbe-da-tempestade.webp",
+      "weight": 1,
+      "range": [
+        95,
+        96
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "oMZO36ZBHsOykHb0",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.uM5f11qJzo0j5dtr"
+    },
+    {
+      "_id": "EDdzD1hxcGr0I1bv",
+      "flags": {},
+      "type": 2,
+      "text": "Anel da Regeneração",
+      "img": "systems/tormenta20/icons/itens/anel.webp",
+      "weight": 1,
+      "range": [
+        97,
+        98
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "lMOzFa02WRFQrfnA",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.EDdzD1hxcGr0I1bv"
+    },
+    {
+      "_id": "3Twu9DKcHHHkLlha",
+      "flags": {},
+      "type": 2,
+      "text": "Espelho do Aprisionamento",
+      "img": "systems/tormenta20/icons/itens/espelho-do-aprisonamento.webp",
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos-magicos",
+      "documentId": "KcDQ91RPuDgistWJ",
+      "_key": "!tables.results!Nk3kYs07qoP4PwGU.3Twu9DKcHHHkLlha"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "RollTable.cfrvGJZ3KaPbZndW"
+    },
+    "importid": "3YMFOfUdQHiLzUBn",
+    "cf": null
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665022,
+    "modifiedTime": 1667354515219,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!Nk3kYs07qoP4PwGU"
+}

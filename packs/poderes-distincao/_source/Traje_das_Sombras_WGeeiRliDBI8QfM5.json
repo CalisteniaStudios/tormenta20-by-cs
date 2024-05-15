@@ -1,0 +1,118 @@
+{
+  "name": "Traje das Sombras",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">O vigilante mascarado oculta sua identidade com um traje especial, facilmente reconhec&iacute;vel por seus inimigos.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Voc&ecirc; transforma sua fantasia improvisada em um verdadeiro traje das sombras. Esse traje concede +2 em Furtividade e Intimida&ccedil;&atilde;o e reduz a penalidade por armadura de sua armadura neste mesmo valor. Este b&ocirc;nus (e a redu&ccedil;&atilde;o na penalidade) aumenta em +1 para cada dois outros poderes de vigilante mascarado que voc&ecirc; possuir. Se perder seu traje, voc&ecirc; pode criar outro com um dia de trabalho e o gasto de T$ 100.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> treinado em Furtividade, Intimida&ccedil;&atilde;o e Luta.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 31-32",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Vigilante Mascarado",
+    "origin": "",
+    "tags": [
+      "VigilanteMascarado"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Traje das Sombras",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.WGeeiRliDBI8QfM5",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "bJBMV2h9DOnvQi3w",
+      "changes": [
+        {
+          "key": "system.pericias.furt.bonus",
+          "mode": 2,
+          "value": "1+(@VigilanteMascarado)",
+          "priority": null
+        },
+        {
+          "key": "system.pericias.inti.bonus",
+          "mode": 2,
+          "value": "1+(@VigilanteMascarado)",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!WGeeiRliDBI8QfM5.bJBMV2h9DOnvQi3w"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083905345,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "WGeeiRliDBI8QfM5",
+  "folder": "NxFKO0AHIR0pQgBN",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!WGeeiRliDBI8QfM5"
+}

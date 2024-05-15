@@ -52,20 +52,10 @@
 				<label>{{ localize "T20.ConsumeTitle" }}</label>
 				<div class="form-fields">
 					<select name="system.consume.type">
-							{{#select system.consume.type}}
-							<option value=""></option>
-							{{#each config.abilityConsumptionTypes as |name key|}}
-							<option value="{{key}}">{{localize name}}</option>
-							{{/each}}
-							{{/select}}
+						{{selectOptions config.abilityConsumptionTypes selected=item.system.consume.type blank=''}}
 					</select>
 					<select name="system.consume.target">
-						{{#select system.consume.target}}
-						<option value=""></option>
-						{{#each abilityConsumptionTargets as |name key|}}
-						<option value="{{key}}">{{localize name}}</option>
-						{{/each}}
-						{{/select}}
+						{{selectOptions abilityConsumptionTargets selected=item.system.consume.target blank=''}}
 					</select>
 					<input type="text" name="system.consume.amount" value="{{system.consume.amount}}" data-dtype="Number"/>
 				</div>

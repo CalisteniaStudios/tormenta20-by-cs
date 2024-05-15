@@ -1,0 +1,80 @@
+{
+  "_id": "JKt9XIXTwuIjMbLD",
+  "name": "Gibão de peles",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/equipamentos/gibao-peles.webp",
+  "effects": [],
+  "folder": "KTYYM7B9o8xVYRLQ",
+  "sort": 100098,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.JKt9XIXTwuIjMbLD"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Usada principalmente por bárbaros e selvagens, esta armadura é formada por várias camadas de peles e couro de animais.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 154 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 12,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 25,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "leve",
+    "armadura": {
+      "value": 4,
+      "penalidade": -3,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772400,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!JKt9XIXTwuIjMbLD"
+}

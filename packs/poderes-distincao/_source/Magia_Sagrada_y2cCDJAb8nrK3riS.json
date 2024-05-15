@@ -1,0 +1,167 @@
+{
+  "name": "Magia Sagrada",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">As magias de um inquisidor de Wynna s&atilde;o capazes de destruir malfeitores.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Quando lan&ccedil;a uma magia que causa dano, voc&ecirc; pode gastar 2 PM para aumentar a CD para resistir a essa magia em +2 e aumentar o dano da magia em +2d8. Para cada dois outros poderes de Inquisidor da Magia que possuir, voc&ecirc; pode gastar +1 PM para aumentar o dano em +1d8.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Pr&eacute;-requisito: B&ecirc;n&ccedil;&atilde;o Arcana</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 26-27",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Inquisidor da Magia",
+    "origin": "",
+    "tags": [
+      "InquisidordaMagia"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Magia Sagrada",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.y2cCDJAb8nrK3riS",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "2"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "npkyifRfMa4mFKaD",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.mag",
+          "mode": 2,
+          "value": "2d8",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!y2cCDJAb8nrK3riS.npkyifRfMa4mFKaD"
+    },
+    {
+      "label": "Magia Sagrada +1d8",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.y2cCDJAb8nrK3riS",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": "1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "AOSH8Ai2VKxINY6K",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.mag",
+          "mode": 2,
+          "value": "1d8",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!y2cCDJAb8nrK3riS.AOSH8Ai2VKxINY6K"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667076732160,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "y2cCDJAb8nrK3riS",
+  "folder": "bDWqZH90EQD7dlfe",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!y2cCDJAb8nrK3riS"
+}

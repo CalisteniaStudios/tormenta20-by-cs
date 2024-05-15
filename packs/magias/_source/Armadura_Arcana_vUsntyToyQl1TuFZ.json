@@ -1,0 +1,257 @@
+{
+  "_id": "vUsntyToyQl1TuFZ",
+  "name": "Armadura Arcana",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/armadura-arcana.webp",
+  "effects": [
+    {
+      "_id": "W1WgvYbVsADr5MNL",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "1",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "equipment": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "execucao",
+          "mode": 5,
+          "value": "reacao",
+          "priority": 0
+        },
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "0",
+          "priority": 0
+        },
+        {
+          "key": "duracao",
+          "mode": 5,
+          "value": "1 turno",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda a execução para reação. Em vez do normal, você cria um escudo mágico que fornece +5 na Defesa contra o próximo ataque que sofrer até o fim do turno atual (cumulativo com o bônus fornecido pelo efeito básico desta magia e armaduras).",
+      "origin": "Item.6tacmHJDvuMoxe8v",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!vUsntyToyQl1TuFZ.W1WgvYbVsADr5MNL"
+    },
+    {
+      "_id": "cOarntwGdXunJRyH",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta o bônus na Defesa em +1.",
+      "origin": "Item.6tacmHJDvuMoxe8v",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!vUsntyToyQl1TuFZ.cOarntwGdXunJRyH"
+    },
+    {
+      "_id": "CRwrKNwVnkcuyYGR",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "duracao",
+          "value": "1 dia",
+          "mode": 5,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda a duração para 1 dia. Requer 2º círculo.",
+      "origin": "Item.6tacmHJDvuMoxe8v",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!vUsntyToyQl1TuFZ.CRwrKNwVnkcuyYGR"
+    },
+    {
+      "_id": "DXFHELXQkzrakHqN",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "rounds": 999,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/armadura-arcana.webp",
+      "label": "Armadura Arcana",
+      "origin": "Item.6tacmHJDvuMoxe8v",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!vUsntyToyQl1TuFZ.DXFHELXQkzrakHqN"
+    }
+  ],
+  "folder": "OkpR6UdPNpR8mrad",
+  "sort": 0,
+  "flags": {
+    "core": {}
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Esta magia cria uma pel&iacute;cula protetora invis&iacute;vel, mas tang&iacute;vel, fornecendo +4 na Defesa. Esse b&ocirc;nus &eacute; cumulativo com outras magias, mas n&atilde;o com b&ocirc;nus fornecido por armaduras.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 181 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "self",
+    "alvo": "Você",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "int",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "arc",
+    "circulo": "1",
+    "preparada": false,
+    "escola": "abj",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.205",
+    "coreVersion": "11.315",
+    "createdTime": 1664310462898,
+    "modifiedTime": 1708837253616,
+    "lastModifiedBy": "LlgjSTfityhQWMtF"
+  },
+  "_key": "!items!vUsntyToyQl1TuFZ"
+}

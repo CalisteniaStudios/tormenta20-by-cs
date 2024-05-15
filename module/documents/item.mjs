@@ -12,7 +12,7 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		const start = deepClone(data);
+		const start = foundry.utils.deepClone(data);
 		itemMigration.migrateDuration(data);
 		itemMigration.migrateEquipStatus(data);
 		itemMigration.migrateProficiencyTypes(data);
@@ -22,8 +22,8 @@ export default class ItemT20 extends Item {
 		itemMigration.migrateEquipSlot(data);
 		itemMigration.migrateRollTags(data);
 
-		if( !isEmpty( foundry.utils.diffObject(start, data) ) ) {
-			setProperty(data,'flags.tormenta20.needCommit', true);
+		if( !foundry.utils.isEmpty( foundry.utils.diffObject(start, data) ) ) {
+			foundry.utils.setProperty(data,'flags.tormenta20.needCommit', true);
 		}
 		return super.migrateData(data);
 	}
@@ -184,7 +184,7 @@ export default class ItemT20 extends Item {
 		if ( this.type === "classe" ) {
 			// TODO Skyfall Class/Archetype
 			let maxLvl = gameSystem == "Skyfall" ? 10 : 20;
-			system.niveis = Math.clamped(system.niveis, 1, maxLvl);
+			system.niveis = Math.clamp(system.niveis, 1, maxLvl);
 		}
 		// Weapons
 		else if ( this.type === "arma" ) {
@@ -302,7 +302,7 @@ export default class ItemT20 extends Item {
 		if ( system.rolls?.find(r=> r.type == "dano") ) {
 			let dano = system.rolls.find(r=> r.type == "dano") || {};
 			if ( dano.parts ) {
-				labels.dano = dano.parts.map(d => d[0]).join(" + ").replace(/\+ -/g, "- ");
+				labels.dano = dano.parts.filter( p => p[0] != '' ).map(d => d[0]).join(" + ").replace(/\+ -/g, "- ");
 				labels.damageTypes = dano.parts.map(d => T20.damageTypes[d[1]]).join(", ");
 			}
 		}
@@ -388,8 +388,8 @@ export default class ItemT20 extends Item {
 		// Ability-score
 		resistencia.cd = null;
 		if ( this.isOwned ){
-			let atr = getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
-			let nvl = Math.floor(getProperty(this.actor.system, `attributes.nivel.value`)/2);
+			let atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
+			let nvl = Math.floor(foundry.utils.getProperty(this.actor.system, `attributes.nivel.value`)/2);
 			resistencia.cd = 10 + nvl + atr + resistencia.bonus;
 			if ( this.actor.type == 'npc' ){
 				resistencia.cd = this.actor.system.attributes.cd;
@@ -429,7 +429,7 @@ export default class ItemT20 extends Item {
 		// Add skill bonus
 		if ( roll.parts[1][0] ) {
 			parts[1] = "@skill";
-			if ( !isEmpty(actorData.pericias) ) {
+			if ( !foundry.utils.isEmpty(actorData.pericias) ) {
 				rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
 			}
 			// Change Skill Ability modifier
@@ -790,7 +790,7 @@ export default class ItemT20 extends Item {
 		consumeMana = consumeMana ? consumeMana : consumeMana != (item.system.ativacao?.custo > 0);
 		hasManaCost = hasManaCost ? hasManaCost : hasManaCost != (item.system.ativacao?.custo > 0);
 
-		if ( !isEmpty( extra ) || configuration.bonus || configuration.bonusdano ) {
+		if ( !foundry.utils.isEmpty( extra ) || configuration.bonus || configuration.bonusdano ) {
 			item.system.rolls.forEach( r => {
 				if( r.type == "ataque" ) {
 					if ( !["","0",undefined].includes(configuration.bonus) ) r.parts.push([configuration.bonus, ""]);
@@ -840,17 +840,17 @@ export default class ItemT20 extends Item {
 			const {actorUpdates, itemsUpdate, itemUpdates, resourceUpdates, manaUpdate} = usage;
 
 			// Commit pending data updates 
-			if ( !isEmpty(itemsUpdate) ) {
+			if ( !foundry.utils.isEmpty(itemsUpdate) ) {
 				this.actor.updateEmbeddedDocuments('Item', itemsUpdate);
 			}
-			if ( !isEmpty(itemUpdates) ) {
+			if ( !foundry.utils.isEmpty(itemUpdates) ) {
 				itemUpdates._id = this.id;
 				this.actor.updateEmbeddedDocuments('Item', [itemUpdates]);
 			}
-			if ( !isEmpty(manaUpdate) ) {
+			if ( !foundry.utils.isEmpty(manaUpdate) ) {
 				this.actor.spendMana(manaUpdate.value, 0, false);
 			}
-			if ( !isEmpty(resourceUpdates) ) {
+			if ( !foundry.utils.isEmpty(resourceUpdates) ) {
 				this.actor.update(resourceUpdates);
 			}
 		}
@@ -872,7 +872,7 @@ export default class ItemT20 extends Item {
 			potionData.tipo = "potion";
 			potionData.qtd = 1;
 			potionData.espacos = 0.5;
-			potionData.rolls = item.system.rolls.map(m=>m);
+			potionData.rolls = item.system.rolls.map(m=>m.toObject(false));
 			potionData.preco = 30 * (item.system.ativacao.custo**2);
 			potionData.ativacao.custo = 0;
 			
@@ -885,8 +885,10 @@ export default class ItemT20 extends Item {
 				img: `systems/tormenta20/icons/itens/itens-magicos/${icon}.webp`,
 				system: potionData
 			};
-			let newPotion = await actor.createEmbeddedDocuments("Item", [itemData]);
-			await newPotion[0].update({"system.rolls":item.system.rolls});
+			let warn = 1;
+			itemData.system.rolled = [];
+			
+			await actor.createEmbeddedDocuments("Item", [itemData]);
 			let msg = game.i18n.format('T20.ConsumableCreated', {actor:item.actor.name, name:itemData.name} );
 			return ChatMessage.create({content:msg});
 		}
@@ -978,7 +980,7 @@ export default class ItemT20 extends Item {
 		// consumeResource = false;
 		if ( consumeResource ) {
 			let resourceAttr = this.actor?.system.resources[id.consume.target] ?? {};
-			if( !isEmpty(resourceAttr) && resourceAttr.value >= id.consume.amount ){
+			if( !foundry.utils.isEmpty(resourceAttr) && resourceAttr.value >= id.consume.amount ){
 				let remaining = resourceAttr.value - id.consume.amount;
 				let key = `system.resources.${id.consume.target}.value`;
 				resourceUpdates[key] = remaining;
@@ -1153,7 +1155,7 @@ export default class ItemT20 extends Item {
 			// TODO
 
 			// Compose roll options
-			const rollConfig = mergeObject({
+			const rollConfig = foundry.utils.mergeObject({
 				parts: parts,
 				actor: this.actor,
 				data: rollData,
@@ -1218,7 +1220,7 @@ export default class ItemT20 extends Item {
 			}
 			
 			// Add damage bonus formula
-			const bonuses = getProperty(actorData, "modificadores.dano") || {};
+			const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
 			if ( bonuses.geral.filter(Boolean).length ) parts.push(['@dano','','']);
 			if ( pericia=="luta" && bonuses.cac.filter(Boolean).length ) parts.push(['@danoCAC','','']);
 			if ( pericia=="pont" && bonuses.ad.filter(Boolean).length ) parts.push(['@danoAD','','']);
@@ -1226,7 +1228,7 @@ export default class ItemT20 extends Item {
 			if ( this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq.filter(Boolean).length ) parts.push(['@danoALQ','','']);
 			
 			// Call the roll helper utility
-			mergeObject(rollConfig, options);
+			foundry.utils.mergeObject(rollConfig, options);
 			itemData.rolled[r.name] = await damageRoll(rollConfig);
 		}
 		// return result;

@@ -1,0 +1,129 @@
+{
+  "_id": "5KE43Jef0bsueKX7",
+  "name": "A Pessoa Certa para o Trabalho",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/especialistas/pessoa-certa-para-trabalho.webp",
+  "effects": [
+    {
+      "_id": "IXHml8bwb0hUQBwL",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "10",
+          "priority": 0
+        },
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "10",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "A Pessoa Certa para o Trabalho",
+      "origin": "Item.baMLLeHaYp7lgiPF",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "attack": true,
+          "skill": true,
+          "self": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "5",
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!5KE43Jef0bsueKX7.IXHml8bwb0hUQBwL"
+    }
+  ],
+  "folder": "E9EyD0Wrr8C91ZpV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.5KE43Jef0bsueKX7"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">No 20&ordm; n&iacute;vel, voc&ecirc; se torna um mestre da @UUID[Compendium.tormenta20.pericias.lcgrJelGuEGZ96C0]{Ladinagem}. Ao fazer um ataque furtivo ou usar uma per&iacute;cia da lista de ladino, voc&ecirc; pode gastar 5 PM para receber +10 no teste.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 74 (JdA)",
+    "ativacao": {
+      "execucao": "reaction",
+      "custo": 5,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Ladino",
+    "chatFlavor": "",
+    "tags": [],
+    "origin": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183313,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!5KE43Jef0bsueKX7"
+}

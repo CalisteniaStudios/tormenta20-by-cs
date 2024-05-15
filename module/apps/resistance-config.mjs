@@ -6,7 +6,7 @@
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20"],
 			template: "systems/tormenta20/templates/apps/resistance-config.html",
 			width: 300,
@@ -33,7 +33,7 @@
 		}, {});
 		
 		const data = {
-			resistance: mergeObject(resist, sourceResistance),
+			resistance: foundry.utils.mergeObject(resist, sourceResistance),
 			//foundry.utils.deepClone(sourceResistance),
 			config: CONFIG.T20
 		}

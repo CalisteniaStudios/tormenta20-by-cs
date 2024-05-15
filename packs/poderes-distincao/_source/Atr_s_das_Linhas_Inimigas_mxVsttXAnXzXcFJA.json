@@ -1,0 +1,122 @@
+{
+  "name": "Atrás das Linhas Inimigas",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>O Cavaleiro do Corvo aprende a sobreviver em territ&oacute;rio hostil, mesmo aquele dominado pelo inimigo.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; se torna imune &agrave; condi&ccedil;&atilde;o <a class=\"content-link\" draggable=\"true\" data-uuid=\"JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.MCED18aEe4UFeEVf\" data-id=\"MCED18aEe4UFeEVf\" data-type=\"JournalEntryPage\" data-tooltip=\"Text Page\">Fatigado</a>&nbsp;e @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ]{Atordoado} e sua recupera&ccedil;&atilde;o de pontos de vida e pontos de mana por descanso nunca &eacute; inferior &agrave; normal, independente das condi&ccedil;&otilde;es do local. <em>Pr&eacute;-Requisito:</em> Reconhecimento e Infiltra&ccedil;&atilde;o.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 18",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Cavaleiro do Corvo",
+    "origin": "",
+    "tags": [
+      "CavaleirodoCorvo"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Atrás das Linhas Inimigas",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.mxVsttXAnXzXcFJA",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "FcDDe6SUFVj2RdD8",
+      "changes": [
+        {
+          "key": "system.tracos.ic.value",
+          "mode": 2,
+          "value": "fatigado",
+          "priority": null
+        },
+        {
+          "key": "system.tracos.ic.value",
+          "mode": 2,
+          "value": "atordoado",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!mxVsttXAnXzXcFJA.FcDDe6SUFVj2RdD8"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.FJsShM7OC6TWqQqq"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1666312768880,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "mxVsttXAnXzXcFJA",
+  "folder": "HmYZ3wnVn66EAlGT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!mxVsttXAnXzXcFJA"
+}

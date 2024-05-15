@@ -1,0 +1,364 @@
+{
+  "_id": "atEVWEfDYu76wyCO",
+  "name": "Névoa",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/nevoa.webp",
+  "effects": [
+    {
+      "_id": "klkObcd5CG66Sshf",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "1",
+          "aumenta": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "a magia também funciona sob a água, criando uma nuvem de tinta.",
+      "origin": "Compendium.tormenta20.magias.atEVWEfDYu76wyCO",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!atEVWEfDYu76wyCO.klkObcd5CG66Sshf"
+    },
+    {
+      "_id": "ftkwbiVy2pQf3klg",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "você pode escolher criaturas no alcance ao lançar a magia; elas enxergam através do efeito. Requer 2º círculo.",
+      "origin": "Compendium.tormenta20.magias.atEVWEfDYu76wyCO",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!atEVWEfDYu76wyCO.ftkwbiVy2pQf3klg"
+    },
+    {
+      "_id": "Bu3xxk5TAhtWYoYu",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "a nuvem tem um cheiro horrível. No início de seus turnos, qualquer criatura dentro dela, ou qualquer criatura com faro em alcance curto da nuvem, deve fazer um teste de Fortitude. Se falhar, fica enjoada por uma rodada.",
+      "origin": "Compendium.tormenta20.magias.atEVWEfDYu76wyCO",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!atEVWEfDYu76wyCO.Bu3xxk5TAhtWYoYu"
+    },
+    {
+      "_id": "AdteyDMTn54EcUP3",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 5,
+          "value": "2d4",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "a nuvem tem um tom esverdeado e se torna cáustica. No início de seus turnos, criaturas dentro dela sofrem 2d4 pontos de dano de ácido.",
+      "origin": "Compendium.tormenta20.magias.atEVWEfDYu76wyCO",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!atEVWEfDYu76wyCO.AdteyDMTn54EcUP3"
+    },
+    {
+      "_id": "rFg3jSdwQCKJBXeB",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "3",
+          "aumenta": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "dano",
+          "value": "2d4",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta o dano de ácido em +2d4.",
+      "origin": "Compendium.tormenta20.magias.atEVWEfDYu76wyCO",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!atEVWEfDYu76wyCO.rFg3jSdwQCKJBXeB"
+    },
+    {
+      "_id": "DZlkMCHT475MLItN",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "5",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk",
+          "value": "3",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.pericias.ataque",
+          "value": "-2",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.dano.geral",
+          "value": "-2",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "além do normal, a nuvem fica espessa, quase sólida. Qualquer criatura dentro dela tem seu deslocamento reduzido para 3m (independentemente de seu deslocamento normal) e sofre –2 em testes de ataque e rolagens de dano.",
+      "origin": "Compendium.tormenta20.magias.atEVWEfDYu76wyCO",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!atEVWEfDYu76wyCO.DZlkMCHT475MLItN"
+    },
+    {
+      "_id": "xw3nw36GxpEkyTXZ",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.geral",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.ataque.cac",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.ataque.ad",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/nevoa.webp",
+      "label": "Névoa Sólida",
+      "origin": "Item.gmAnhGn92yyGzAd2",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!atEVWEfDYu76wyCO.xw3nw36GxpEkyTXZ"
+    }
+  ],
+  "folder": "P5hsBGYhlcMn0xva",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.DjKTHezkBUqcKCqO"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Uma névoa espessa eleva-se de um ponto a sua escolha, obscurecendo toda a visão — criaturas a até 1,5m têm camuflagem e criaturas a partir de 3m têm camuflagem total. Um vento forte dispersa a névoa em 4 rodadas e um vendaval a dispersa em 1 rodada. Esta magia não funciona sob a água.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 200 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "nuvem com 6m de raio e 6m de altura",
+    "alcance": "short",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "uni",
+    "circulo": "1",
+    "preparada": false,
+    "escola": "con",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310462766,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!atEVWEfDYu76wyCO"
+}

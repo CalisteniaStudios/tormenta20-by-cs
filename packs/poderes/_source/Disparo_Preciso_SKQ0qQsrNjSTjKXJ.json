@@ -1,0 +1,79 @@
+{
+  "_id": "SKQ0qQsrNjSTjKXJ",
+  "name": "Disparo Preciso",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/combate.webp",
+  "effects": [],
+  "folder": "Rgbah8U70jOKi5DF",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.SKQ0qQsrNjSTjKXJ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode fazer ataques &agrave; dist&acirc;ncia contra oponentes envolvidos em combate corpo a corpo sem sofrer a penalidade padr&atilde;o de &ndash;5 no teste de ataque.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> Estilo de Disparo ou Estilo de Arremesso.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 125 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Combate",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184306,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!SKQ0qQsrNjSTjKXJ"
+}

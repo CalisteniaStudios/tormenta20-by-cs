@@ -1,0 +1,132 @@
+{
+  "_id": "OpmkKWhRdkKrWRdR",
+  "name": "Raio Poderoso",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/arcanista.webp",
+  "effects": [
+    {
+      "_id": "WAfdXxJgGR1OUoUz",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 0,
+          "value": "d12",
+          "priority": 0
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Raio Poderoso: Aumenta o dado de dano do raio arcano para d12 e o alcance para médio.",
+      "origin": "Item.SzhfK3k83HMVpGiS",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "power": true,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "0",
+          "durationScene": false,
+          "items": "Raio Arcano",
+          "equipment": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!OpmkKWhRdkKrWRdR.WAfdXxJgGR1OUoUz"
+    }
+  ],
+  "folder": "dB8yQeNYIsAMdhNN",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.OpmkKWhRdkKrWRdR"
+    },
+    "exportSource": {
+      "world": "andreverse-t20",
+      "system": "tormenta20",
+      "coreVersion": "9.268",
+      "systemVersion": "1.3.0.18"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Os dados de dano do seu Raio Arcano aumentam para d12 e o alcance dele aumenta para m&eacute;dio. <em>Pr&eacute;-requisito:</em> Raio Arcano.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 39 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Arcanista",
+    "chatFlavor": "",
+    "tags": [
+      "Arcanista"
+    ],
+    "origin": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184257,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!OpmkKWhRdkKrWRdR"
+}

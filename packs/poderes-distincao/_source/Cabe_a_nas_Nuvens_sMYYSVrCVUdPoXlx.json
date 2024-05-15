@@ -1,0 +1,112 @@
+{
+  "name": "Cabeça nas Nuvens",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>O aeronauta goblin se sente em casa nos c&eacute;us, sua mente inspirada pela liberdade de voar.</blockquote>\n<p style=\"text-align: justify;\">Quando est&aacute; pilotando uma aeronave, voc&ecirc; recebe +2 em testes de per&iacute;cia (exceto Luta e Pontaria). Este b&ocirc;nus aumenta em +1 para cada dois outros poderes de aeronauta goblin que voc&ecirc; possui. <em>Pr&eacute;-requisitos:</em> Int 1, treinado em Pilotagem.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 7",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Aeronauta Goblin",
+    "origin": "",
+    "tags": [
+      "AeronautaGoblin"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Cabeça nas Nuvens",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.sMYYSVrCVUdPoXlx",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "zRUscPz6CExpWb79",
+      "changes": [
+        {
+          "key": "system.modificadores.pericias.geral",
+          "mode": 2,
+          "value": "2+(@AeronautaGoblin2*1)",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!sMYYSVrCVUdPoXlx.zRUscPz6CExpWb79"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665844629782,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "sMYYSVrCVUdPoXlx",
+  "folder": "62pUBDtKHHsJNktu",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!sMYYSVrCVUdPoXlx"
+}

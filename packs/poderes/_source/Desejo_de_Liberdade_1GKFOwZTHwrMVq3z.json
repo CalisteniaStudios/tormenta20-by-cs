@@ -1,0 +1,129 @@
+{
+  "_id": "1GKFOwZTHwrMVq3z",
+  "name": "Desejo de Liberdade",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/origem.webp",
+  "effects": [
+    {
+      "label": "Desejo de Liberdade",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.1GKFOwZTHwrMVq3z",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": true,
+          "ability": true,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "e7UoGGONglikz4gC",
+      "changes": [
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "5",
+          "priority": 0
+        },
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "5",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!1GKFOwZTHwrMVq3z.e7UoGGONglikz4gC"
+    }
+  ],
+  "folder": "O7XebEr47qNV8g6X",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.1GKFOwZTHwrMVq3z"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Ningu&eacute;m voltar&aacute; a torn&aacute;-lo um escravo! Voc&ecirc; recebe +5 em testes contra a manobra agarrar e efeitos de movimento.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 90 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "origem",
+    "subtipo": "Escravo",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183293,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!1GKFOwZTHwrMVq3z"
+}

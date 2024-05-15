@@ -1,0 +1,130 @@
+{
+  "_id": "U4K0kvB5kultmltV",
+  "name": "Mira Apurada",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/combate.webp",
+  "effects": [
+    {
+      "_id": "2uvbnCG6kbtxNMpr",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "attack": true,
+          "self": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "",
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        },
+        {
+          "key": "criticoM",
+          "mode": 2,
+          "value": "-2",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/aura.svg",
+      "label": "Mira Apurada",
+      "origin": "Item.sRcoIuUJBcI4X9Ly",
+      "tint": null,
+      "transfer": true,
+      "_key": "!items.effects!U4K0kvB5kultmltV.2uvbnCG6kbtxNMpr"
+    }
+  ],
+  "folder": "Rgbah8U70jOKi5DF",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.U4K0kvB5kultmltV"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando usa a a&ccedil;&atilde;o mirar, voc&ecirc; recebe +2 em testes de ataque e na margem de amea&ccedil;a com ataques &agrave; dist&acirc;ncia at&eacute; o fim do turno.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> Sab 1, Disparo Preciso.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 128 (JdA)",
+    "ativacao": {
+      "execucao": "move",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Combate",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184314,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!U4K0kvB5kultmltV"
+}

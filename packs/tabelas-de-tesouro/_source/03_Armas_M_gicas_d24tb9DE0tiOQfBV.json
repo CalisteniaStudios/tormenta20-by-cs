@@ -1,0 +1,481 @@
+{
+  "_id": "d24tb9DE0tiOQfBV",
+  "name": "03 Armas Mágicas",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "y5Uz5bTMSVoebt6z",
+      "flags": {},
+      "type": 0,
+      "text": "Ameaçadora",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.y5Uz5bTMSVoebt6z"
+    },
+    {
+      "_id": "PR6w2x7dMKvzqiEX",
+      "flags": {},
+      "type": 0,
+      "text": "Anticriatura",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        6,
+        10
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.PR6w2x7dMKvzqiEX"
+    },
+    {
+      "_id": "DtdblzBdIRlaHPB5",
+      "flags": {},
+      "type": 0,
+      "text": "Arremesso",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.DtdblzBdIRlaHPB5"
+    },
+    {
+      "_id": "0eY5obsluJbzAbID",
+      "flags": {},
+      "type": 0,
+      "text": "Assassina",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        13,
+        14
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.0eY5obsluJbzAbID"
+    },
+    {
+      "_id": "wNt7XKRfFbvhWpEf",
+      "flags": {},
+      "type": 0,
+      "text": "Caçadora",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        15,
+        16
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.wNt7XKRfFbvhWpEf"
+    },
+    {
+      "_id": "mqA4OOXOqUAEHcNe",
+      "flags": {},
+      "type": 0,
+      "text": "Congelante",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        17,
+        21
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.mqA4OOXOqUAEHcNe"
+    },
+    {
+      "_id": "9wJL5UJnhSOO8L38",
+      "flags": {},
+      "type": 0,
+      "text": "Conjuradora",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        22,
+        23
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.9wJL5UJnhSOO8L38"
+    },
+    {
+      "_id": "XznOsOae2mCf11JV",
+      "flags": {},
+      "type": 0,
+      "text": "Corrosiva",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        24,
+        28
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.XznOsOae2mCf11JV"
+    },
+    {
+      "_id": "i1GSiCjd73Fr9Htn",
+      "flags": {},
+      "type": 0,
+      "text": "Dançarina",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        29,
+        30
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.i1GSiCjd73Fr9Htn"
+    },
+    {
+      "_id": "FSAJsIyzD7HQWARN",
+      "flags": {},
+      "type": 0,
+      "text": "Defensora",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        31,
+        34
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.FSAJsIyzD7HQWARN"
+    },
+    {
+      "_id": "I3Vo4O0jboba5WgB",
+      "flags": {},
+      "type": 0,
+      "text": "Drestruidora",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        35,
+        36
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.I3Vo4O0jboba5WgB"
+    },
+    {
+      "_id": "1i0yBSdHdpE9Qxkw",
+      "flags": {},
+      "type": 0,
+      "text": "Drenante",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        37,
+        38
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.1i0yBSdHdpE9Qxkw"
+    },
+    {
+      "_id": "F8Jm045wrjBMRhkj",
+      "flags": {},
+      "type": 0,
+      "text": "Elétrica",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        39,
+        43
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.F8Jm045wrjBMRhkj"
+    },
+    {
+      "_id": "kMZqptrEcakOknIY",
+      "flags": {},
+      "type": 0,
+      "text": "Energética (Conta como dois encantos)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        44,
+        45
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.kMZqptrEcakOknIY"
+    },
+    {
+      "_id": "FojmoFWIix4Meae8",
+      "flags": {},
+      "type": 0,
+      "text": "Excruciante",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        46,
+        47
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.FojmoFWIix4Meae8"
+    },
+    {
+      "_id": "7TmtRd5sqJHdCYO5",
+      "flags": {},
+      "type": 0,
+      "text": "Flamejante",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        48,
+        52
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.7TmtRd5sqJHdCYO5"
+    },
+    {
+      "_id": "f2oDX6xnwxNKap2M",
+      "flags": {},
+      "type": 0,
+      "text": "Formidável",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        53,
+        62
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.f2oDX6xnwxNKap2M"
+    },
+    {
+      "_id": "t1d1ZRGBCNkJOfWt",
+      "flags": {},
+      "type": 0,
+      "text": "Lancinante",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        63,
+        64
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.t1d1ZRGBCNkJOfWt"
+    },
+    {
+      "_id": "RfGk1xmCngn1F7hD",
+      "flags": {},
+      "type": 0,
+      "text": "Magnífica (Conta como dois encantos)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        65,
+        72
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.RfGk1xmCngn1F7hD"
+    },
+    {
+      "_id": "3lpTfxbOl3eUrd8w",
+      "flags": {},
+      "type": 0,
+      "text": "Piedosa",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        73,
+        74
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.3lpTfxbOl3eUrd8w"
+    },
+    {
+      "_id": "x51AJjaufbw6iSb4",
+      "flags": {},
+      "type": 0,
+      "text": "Profana",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        75,
+        76
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.x51AJjaufbw6iSb4"
+    },
+    {
+      "_id": "NcnMSdFIWLCnEszC",
+      "flags": {},
+      "type": 0,
+      "text": "Sagrada",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        77,
+        78
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.NcnMSdFIWLCnEszC"
+    },
+    {
+      "_id": "XCFhR7PRbrNZDUK7",
+      "flags": {},
+      "type": 0,
+      "text": "Sanguinária",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        79,
+        80
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.XCFhR7PRbrNZDUK7"
+    },
+    {
+      "_id": "synpdzc2v3zLcTdY",
+      "flags": {},
+      "type": 0,
+      "text": "Trovejante",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        81,
+        82
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.synpdzc2v3zLcTdY"
+    },
+    {
+      "_id": "GV1X2J4Dt8rMwRaU",
+      "flags": {},
+      "type": 0,
+      "text": "Tumular",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        83,
+        84
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.GV1X2J4Dt8rMwRaU"
+    },
+    {
+      "_id": "z9B2je9Xj3Rp1Hkr",
+      "flags": {},
+      "type": 0,
+      "text": "Veloz",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        85,
+        88
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.z9B2je9Xj3Rp1Hkr"
+    },
+    {
+      "_id": "fzGxeXpycY7epd42",
+      "flags": {},
+      "type": 0,
+      "text": "Venenosa",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        89,
+        90
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.fzGxeXpycY7epd42"
+    },
+    {
+      "_id": "kp99p4YA1glVKbEe",
+      "type": 0,
+      "text": "Arma específica",
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!d24tb9DE0tiOQfBV.kp99p4YA1glVKbEe"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "RollTable.P4UZE4CwL3Hx3ya5"
+    },
+    "importid": "cJIMPXJSORBAxI0w",
+    "cf": null
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665113,
+    "modifiedTime": 1667354515213,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!d24tb9DE0tiOQfBV"
+}

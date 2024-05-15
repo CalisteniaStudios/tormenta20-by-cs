@@ -1,0 +1,78 @@
+{
+  "name": "Procurado Vivo ou Morto",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Quando um chap&eacute;u-preto chega &agrave; cidade, &eacute; melhor fugir. E quando ele olha em seus olhos, voc&ecirc; logo precisa de uma cal&ccedil;a limpa.</p>\n</blockquote>\n<p style=\"text-align: justify;\"><br>Todas as criaturas em alcance curto sofrem &ndash;2 nas rolagens de dano contra voc&ecirc; e na Defesa. Essa penalidade aumenta em &ndash;1 para cada dois outros poderes de chap&eacute;u preto que voc&ecirc; possuir. Este &eacute; um efeito de medo.</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisitos: Cora&ccedil;&atilde;o Duro, ser procurado pelas autoridades por um crime.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 21",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Chapeu Preto",
+    "origin": "",
+    "tags": [
+      "ChapeuPreto"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667074226526,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "VqdXL2oaf0E0f95T",
+  "folder": "ELRx5oblpz3uQpB7",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!VqdXL2oaf0E0f95T"
+}

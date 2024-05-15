@@ -1,0 +1,78 @@
+{
+  "name": "Engenharia Aeronáutica",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Tendo finalmente compreendido os princ&iacute;pios da fabrica&ccedil;&atilde;o de aeronaves, &eacute; hora de aprimorar seu ornit&oacute;ptero.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; pode usar a habilidade Fabricar Item Superior para fabricar ornit&oacute;pteros superiores (veja Ornit&oacute;pteros Goblins). <em>Pr&eacute;-requisitos:</em> treinado em Of&iacute;cio (artesanato), Cabe&ccedil;a nas Nuvens, Fabricar Item Superior.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 9",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Aeronauta Goblin",
+    "origin": "",
+    "tags": [
+      "AeronautaGoblin"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665847012768,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "pFPUzE0ReK7KZX4l",
+  "folder": "62pUBDtKHHsJNktu",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!pFPUzE0ReK7KZX4l"
+}

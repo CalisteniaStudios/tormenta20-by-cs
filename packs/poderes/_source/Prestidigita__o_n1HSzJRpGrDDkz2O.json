@@ -1,0 +1,79 @@
+{
+  "_id": "n1HSzJRpGrDDkz2O",
+  "name": "Prestidigitação",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/bardo.webp",
+  "effects": [],
+  "folder": "vXRLLa3BIKBZdiua",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.n1HSzJRpGrDDkz2O"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando faz uma a&ccedil;&atilde;o padr&atilde;o, voc&ecirc; pode aproveitar seus gestos para lan&ccedil;ar uma magia com execu&ccedil;&atilde;o de a&ccedil;&atilde;o completa ou menor. Fa&ccedil;a um teste de Atua&ccedil;&atilde;o (CD 15 + custo em PM da magia). Se passar, voc&ecirc; lan&ccedil;a a magia como uma a&ccedil;&atilde;o livre. Se falhar, a magia n&atilde;o funciona, mas voc&ecirc; gasta os PM mesmo assim. Outros personagens s&oacute; percebem que voc&ecirc; lan&ccedil;ou uma magia com um teste de Misticismo (CD 20).</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisito: 6&ordm; n&iacute;vel de bardo.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 45 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Bardo",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361717648,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!n1HSzJRpGrDDkz2O"
+}

@@ -1,0 +1,123 @@
+{
+  "_id": "ZfvrgyuDZB7CAptc",
+  "name": "Tradição",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/anao.webp",
+  "effects": [
+    {
+      "_id": "CFa98uGhH9FyF6oB",
+      "changes": [
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Tradição de Heredrimm",
+      "origin": "Item.itxhR4yeQgkkB4pE",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "attack": true,
+          "self": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "",
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!ZfvrgyuDZB7CAptc.CFa98uGhH9FyF6oB"
+    }
+  ],
+  "folder": "QXmpsdR2yksENTdS",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.ZfvrgyuDZB7CAptc"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; &eacute; perito nas armas tradicionais an&atilde;s, seja por ter treinado com elas, seja por us&aacute;-las como ferramentas de of&iacute;cio. Para voc&ecirc;, todos os machados, martelos, marretas e picaretas s&atilde;o armas simples. Voc&ecirc; recebe +2 em ataques com essas armas.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 20 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Anão",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184734,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!ZfvrgyuDZB7CAptc"
+}

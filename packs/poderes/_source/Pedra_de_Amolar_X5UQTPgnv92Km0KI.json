@@ -1,0 +1,163 @@
+{
+  "name": "Pedra de Amolar",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/inventor.webp",
+  "effects": [
+    {
+      "_id": "7nh8DccudJfFGKrX",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "0",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/classes/inventor.webp",
+      "label": "Pedra de Amolar",
+      "origin": "Item.k9pNoC1oHJE7mlLu",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!X5UQTPgnv92Km0KI.7nh8DccudJfFGKrX"
+    },
+    {
+      "_id": "gO5pvVfOsdwVQCyc",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Pedra de amolar",
+      "origin": "Item.k9pNoC1oHJE7mlLu",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": true,
+          "custo": "1",
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!X5UQTPgnv92Km0KI.gO5pvVfOsdwVQCyc"
+    }
+  ],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.k9pNoC1oHJE7mlLu",
+      "defaultPermission": 3,
+      "hash": "8f14c5ea9d56586d1a7680b13472b96fad47a9ea"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.WYjj6NlewYgqMyyO"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e uma quantidade de PM a sua escolha (limitado por sua Intelig&ecirc;ncia) para aprimorar uma arma corpo a corpo que esteja empunhando.</p>\n<p style=\"text-align: justify;\">Para cada PM que gastar, voc&ecirc; recebe +1 em rolagens de dano com a arma at&eacute; o final da cena.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> Armeiro.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 70 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "inventor",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051646547,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "X5UQTPgnv92Km0KI",
+  "folder": "iHjbUWZ9cRzIVZ3E",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!X5UQTPgnv92Km0KI"
+}

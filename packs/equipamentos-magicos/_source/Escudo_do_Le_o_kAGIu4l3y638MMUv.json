@@ -1,0 +1,197 @@
+{
+  "_id": "kAGIu4l3y638MMUv",
+  "name": "Escudo do Leão",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/escudo-do-leao.webp",
+  "effects": [
+    {
+      "label": "Defensor",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/escudo-do-leao.webp",
+      "origin": "Item.kAGIu4l3y638MMUv",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "Kd6R6aGUkqwisEfD",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!kAGIu4l3y638MMUv.Kd6R6aGUkqwisEfD"
+    },
+    {
+      "label": "Mordida",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.kAGIu4l3y638MMUv",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "RgW2yfgQGiGYCi9x",
+      "changes": [
+        {
+          "key": "dabo",
+          "mode": 2,
+          "value": "2d6+2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!kAGIu4l3y638MMUv.RgW2yfgQGiGYCi9x"
+    }
+  ],
+  "folder": "SkZDe8cUamd0vHjD",
+  "sort": 100391,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.kAGIu4l3y638MMUv"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Este <strong>escudo pesado defensor</strong> é forjado como uma cabeça de leão rugindo. Uma vez por rodada, você pode gastar 2 PM para fazer a cabeça criar vida e morder uma criatura adjacente. A mordida acerta automaticamente e causa [[/r 2d6+2]] de dano de perfuração.</p><p style=\"text-align:justify;\"><b>Defensor</b> O item é encantado para desviar golpes. O bônus na Defesa do item aumenta em +2</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 340 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 7,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 50000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "escudo",
+    "armadura": {
+      "value": 2,
+      "penalidade": -2,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "thorny": null,
+      "adjusted": null,
+      "undermeasure": null,
+      "delicate": null,
+      "specialmaterial": null,
+      "polished": null,
+      "reinforced": null,
+      "sealed": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "encantos": {
+      "animateed": null,
+      "bashing": null,
+      "abascanth": null,
+      "blessed": null,
+      "acrobatic": null,
+      "winged": null,
+      "frightful": null,
+      "caustic": null,
+      "defending": "Defensor",
+      "slick": null,
+      "ghostly": null,
+      "ortification": null,
+      "frost": null,
+      "guardian": null,
+      "hypnotic": null,
+      "illusory": null,
+      "incandescent": null,
+      "invulnerable": null,
+      "opaque": null,
+      "protector": null,
+      "reflecting": null,
+      "lightning": null,
+      "blinding": null,
+      "shadow": null,
+      "zealous": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "defending",
+      "encanto2": "",
+      "encanto3": ""
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000111,
+    "modifiedTime": 1684622973238,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!kAGIu4l3y638MMUv"
+}

@@ -1,0 +1,80 @@
+{
+  "_id": "Fbdu5n9CAaiknpAS",
+  "name": "Brincos da Paz",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/brincos.webp",
+  "effects": [],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 1500000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.Fbdu5n9CAaiknpAS"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Este par de brincos brancos &eacute; aben&ccedil;oado pela Deusa da Paz. A primeira criatura que o atacar em uma cena deve fazer um teste de Vontade (CD Car). Se falhar, perder&aacute; a a&ccedil;&atilde;o. Se voc&ecirc; atacar uma criatura, o efeito dos brincos &eacute; cancelado por um dia. Se voc&ecirc; possuir Apar&ecirc;ncia Inofensiva (ou um poder similar) os efeitos acumulam, afetando as duas primeiras criaturas que o atacarem em uma cena</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 343 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 21000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000092,
+    "modifiedTime": 1684622966500,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!Fbdu5n9CAaiknpAS"
+}

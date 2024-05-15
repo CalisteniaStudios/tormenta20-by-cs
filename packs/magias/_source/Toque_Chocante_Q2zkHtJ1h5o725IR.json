@@ -1,0 +1,228 @@
+{
+  "_id": "Q2zkHtJ1h5o725IR",
+  "name": "Toque Chocante",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/toque-chocante.webp",
+  "effects": [
+    {
+      "_id": "YyP4qNu40Ggkwz0a",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "1",
+          "aumenta": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 0,
+          "value": "1d8+1",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta o dano em 1d8+1.",
+      "origin": "Compendium.tormenta20.magias.Q2zkHtJ1h5o725IR",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!Q2zkHtJ1h5o725IR.YyP4qNu40Ggkwz0a"
+    },
+    {
+      "_id": "jKiy3mRU5EbSl9LA",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "durationScene": false
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda a resistências para nenhum. Como parte da execução da magia, você faz um ataque corpo a corpo contra o alvo. Se acertar, causa o dano do ataque e da magia.",
+      "origin": "Compendium.tormenta20.magias.Q2zkHtJ1h5o725IR",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!Q2zkHtJ1h5o725IR.jKiy3mRU5EbSl9LA"
+    },
+    {
+      "_id": "oIteVo1ef18mDkof",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "2",
+          "aumenta": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "durationScene": false,
+          "equipment": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "alcance",
+          "mode": 5,
+          "value": "pessoal",
+          "priority": 0
+        },
+        {
+          "key": "area",
+          "mode": 5,
+          "value": "círculo com 6m de raio",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda o alcance para pessoal e o alvo para área: esfera com 6m de raio. Você dispara raios pelas pontas dos dedos que afetam todas as criaturas na área.",
+      "origin": "Compendium.tormenta20.magias.Q2zkHtJ1h5o725IR",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!Q2zkHtJ1h5o725IR.oIteVo1ef18mDkof"
+    }
+  ],
+  "folder": "KOlUvn9hRr5MhzaH",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.8bINHKgmg0uVS0QQ"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Arcos elétricos envolvem sua mão, causando 2d8+2 pontos de dano de eletricidade. Se o alvo usa armadura de metal (ou carrega muito metal, a critério do mestre), sofre uma penalidade de –5 no teste de resistência.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 209 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "inst",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "touch",
+    "alvo": "1 criatura",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "int",
+      "bonus": 0,
+      "txt": "Fortitude reduz à metade"
+    },
+    "rolls": [
+      {
+        "name": "Dano",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "2d8+2",
+            "eletricidade",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "arc",
+    "circulo": "1",
+    "preparada": false,
+    "escola": "evo",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310461908,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!Q2zkHtJ1h5o725IR"
+}

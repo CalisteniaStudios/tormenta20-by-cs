@@ -6,7 +6,7 @@ export default class ActorMovementConfig extends DocumentSheet {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20"],
 			template: "systems/tormenta20/templates/apps/movement-config.html",
 			width: 300,

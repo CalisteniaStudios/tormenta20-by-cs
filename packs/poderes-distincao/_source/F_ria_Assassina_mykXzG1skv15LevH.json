@@ -1,0 +1,123 @@
+{
+  "name": "Fúria Assassina",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; aprende o verdadeiro &ecirc;xtase da carnificina.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Enquanto estiver em f&uacute;ria, voc&ecirc; recebe +1 na margem de amea&ccedil;a de seus ataques. Para cada categoria de tamanho acima de M&eacute;dia que voc&ecirc; tiver, este b&ocirc;nus aumenta em +1.</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisito: F&uacute;ria dos Gigantes</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 23",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "perm",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "self",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Gigante Furioso",
+    "origin": "",
+    "tags": [
+      "GiganteFurioso"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Novo Efeito",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.mykXzG1skv15LevH",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "Fúria",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "4oRk2dMoD4JpD49G",
+      "changes": [
+        {
+          "key": "criticoM",
+          "mode": 2,
+          "value": "-1",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!mykXzG1skv15LevH.4oRk2dMoD4JpD49G"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667075515824,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "mykXzG1skv15LevH",
+  "folder": "Zr1HgroTTH1NqRJ3",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!mykXzG1skv15LevH"
+}

@@ -1,0 +1,114 @@
+{
+  "_id": "asJJmcBkZ5TP6Mnp",
+  "name": "Braçadeiras do Arqueiro",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/bracadeiras-do-arqueiro.webp",
+  "effects": [
+    {
+      "label": "Braçadeiras do Arqueiro",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/bracadeiras-do-arqueiro.webp",
+      "origin": "Item.asJJmcBkZ5TP6Mnp",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "N0bXSMfLiLyi2AZJ",
+      "changes": [
+        {
+          "key": "system.modificadores.dano.ad",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!asJJmcBkZ5TP6Mnp.N0bXSMfLiLyi2AZJ"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 5500000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.asJJmcBkZ5TP6Mnp"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "Estes protetores de punho fornecem +2 em rolagens de dano com armas de ataque à distância.",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 342 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 21000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000106,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!asJJmcBkZ5TP6Mnp"
+}

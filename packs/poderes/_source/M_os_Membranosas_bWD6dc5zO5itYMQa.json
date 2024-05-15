@@ -1,0 +1,166 @@
+{
+  "_id": "bWD6dc5zO5itYMQa",
+  "name": "Mãos Membranosas",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/tormenta.webp",
+  "effects": [
+    {
+      "_id": "DYUEPPxBtS8XLtbD",
+      "changes": [
+        {
+          "key": "system.pericias.atle.bonus",
+          "mode": 2,
+          "value": "1+(@Tormenta2*1)"
+        },
+        {
+          "key": "system.pericias.fort.bonus",
+          "mode": 2,
+          "value": "1+(@Tormenta2*1)"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/poderes/tormenta.webp",
+      "label": "Mãos Membranosas",
+      "origin": "Item.WHqkJvqp98zleJtM",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!bWD6dc5zO5itYMQa.DYUEPPxBtS8XLtbD"
+    },
+    {
+      "label": "Mãos Membranosas",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.bWD6dc5zO5itYMQa",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "",
+          "equipment": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "0RIzWOlPRiJB9qW8",
+      "changes": [
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "1+(@Tormenta2*1)",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!bWD6dc5zO5itYMQa.0RIzWOlPRiJB9qW8"
+    }
+  ],
+  "folder": "m6ny7g3VciUkKZ3t",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.bWD6dc5zO5itYMQa"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Você recebe +1 em Atletismo, Fortitude e testes de agarrar. Este bônus aumenta em +1 para cada dois outros poderes da Tormenta que você possui.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 137 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Tormenta",
+    "chatFlavor": "",
+    "tags": [
+      "Tormenta"
+    ],
+    "origin": "",
+    "chatGif": "",
+    "rolltags": [
+      "Tormenta"
+    ]
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184740,
+    "modifiedTime": 1684803410533,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!bWD6dc5zO5itYMQa"
+}

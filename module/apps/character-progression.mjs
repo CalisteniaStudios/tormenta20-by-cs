@@ -5,7 +5,7 @@ export default class CharacterProgression extends FormApplication {
 	
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "character-progression",
 			classes: ["tormenta20"],
 			title: game.i18n.localize('T20.CharacterProgression'),
@@ -36,7 +36,7 @@ export default class CharacterProgression extends FormApplication {
 	}
 
 	async _updateObject(event, formData) {
-		// const data = expandObject(formData);
+		// const data = foundry.utils.expandObject(formData);
 		// delete data.classes;
 		// await this.object.setFlag("tormenta20", "lvlconfig", data);
 		return;

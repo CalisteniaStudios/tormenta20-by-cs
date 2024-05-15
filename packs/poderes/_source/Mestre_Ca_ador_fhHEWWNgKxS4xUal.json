@@ -1,0 +1,124 @@
+{
+  "_id": "fhHEWWNgKxS4xUal",
+  "name": "Mestre Caçador",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/especialistas/mestre-cacador.webp",
+  "effects": [
+    {
+      "_id": "o1UQTuu8ae8mTBA4",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "attack": false,
+          "self": false,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "5",
+          "durationScene": false,
+          "items": "Marca da Presa"
+        }
+      },
+      "changes": [
+        {
+          "key": "efeito.criticoM",
+          "mode": 2,
+          "value": "-2",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Mestre Caçador",
+      "origin": "Item.VnNNg36C45RL8jQj",
+      "tint": null,
+      "transfer": true,
+      "_key": "!items.effects!fhHEWWNgKxS4xUal.o1UQTuu8ae8mTBA4"
+    }
+  ],
+  "folder": "iT3rUBmGhu5hbNic",
+  "sort": 2200000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.fhHEWWNgKxS4xUal"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">No 20&ordm; n&iacute;vel, voc&ecirc; pode usar a habilidade Marca da Presa como uma a&ccedil;&atilde;o livre. Al&eacute;m disso, quando usa a habilidade, pode pagar 5 PM para aumentar sua margem de amea&ccedil;a contra a criatura em +2. Se voc&ecirc; reduz uma criatura contra a qual usou Marca da Presa a 0 pontos de vida, recupera 5 PM.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 51 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 5,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Caçador",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361717636,
+    "modifiedTime": 1684630426990,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!fhHEWWNgKxS4xUal"
+}

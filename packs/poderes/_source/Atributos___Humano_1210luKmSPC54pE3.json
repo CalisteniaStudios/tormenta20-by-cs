@@ -1,0 +1,127 @@
+{
+  "name": "Atributos - Humano",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/humano.webp",
+  "effects": [
+    {
+      "label": "Atributos - Humano",
+      "icon": "systems/tormenta20/icons/racas/humano.webp",
+      "origin": "Item.k0UFQyGBOJPWD46m",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "N7GTRl4fxXcbhz7E",
+      "changes": [
+        {
+          "key": "system.atributos.???.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.???.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.???.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!1210luKmSPC54pE3.N7GTRl4fxXcbhz7E"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.9QQnUgUh5ThF96Cd"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">+1 em Tr&ecirc;s Atributos Diferentes.</p>\n<p style=\"text-align: justify;\">Filhos de Valkaria, Deusa da Ambi&ccedil;&atilde;o, humanos podem se destacar em qualquer caminho que escolherem.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 19 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Humano",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3,
+    "jJlhMQyjTGPyLMsV": 3
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183397,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "folder": "OHxuzam0yAATcoQ8",
+  "sort": 0,
+  "_id": "1210luKmSPC54pE3",
+  "_key": "!items!1210luKmSPC54pE3"
+}

@@ -1,0 +1,156 @@
+{
+  "name": "Domínio de Terreno: Colina",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Outros exploradores conhecem determinados tipos de terreno. O andarilho do horizonte os domina.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Escolha dois tipos de terreno entre os tipos a seguir. Voc&ecirc; recebe os benef&iacute;cios dos tipos escolhidos mesmo que n&atilde;o esteja neste terreno. Voc&ecirc; pode escolher este poder outras vezes para terrenos diferentes. <em>Pr&eacute;-requisitos:</em> treinado em Conhecimento, Fortitude e Sobreviv&ecirc;ncia.</p>\n<p style=\"text-align: justify;\"><strong>Colina.</strong> Voc&ecirc; recebe resist&ecirc;ncia a eletricidade 5 e +2 em suas rolagens de dano em posi&ccedil;&atilde;o elevada.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 12",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Andarilho do Horizonte",
+    "origin": "",
+    "tags": [
+      "AndarilhodoHorizonte"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Domínio de Terreno: Colina",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.Rs60BNVuRq5v29on",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "TVFYksR4wfPEgFja",
+      "changes": [
+        {
+          "key": "system.tracos.resistencias.eletricidade.value",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Rs60BNVuRq5v29on.TVFYksR4wfPEgFja"
+    },
+    {
+      "label": "+2 em posições elevadas",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.Rs60BNVuRq5v29on",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "rounds": 5,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "exMr9ksvqq6DXDPD",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.geral",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Rs60BNVuRq5v29on.exMr9ksvqq6DXDPD"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665850170299,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "Rs60BNVuRq5v29on",
+  "folder": "CivN4iqFKpA5ogfm",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!Rs60BNVuRq5v29on"
+}

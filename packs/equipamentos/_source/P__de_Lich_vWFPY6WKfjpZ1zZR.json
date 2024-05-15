@@ -1,0 +1,158 @@
+{
+  "name": "Pó de Lich",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/veneno.webp",
+  "effects": [
+    {
+      "label": "Pó de Lich",
+      "icon": "systems/tormenta20/icons/itens/gerais/veneno.webp",
+      "origin": "Item.vWFPY6WKfjpZ1zZR",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 5,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "23OrTTeDDStEaaSL",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!vWFPY6WKfjpZ1zZR.23OrTTeDDStEaaSL"
+    }
+  ],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.EavX0QjiwFBy8b39",
+      "defaultPermission": 2,
+      "hash": "10878844192978324aafb778b10e22702edda732"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.diQvwQAw9zRnOHtP"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Veneno letal, usado para assassinar alvos poderosos.</p>\n<p style=\"text-align: justify;\"><strong>Tipo: </strong><em>Ingest&atilde;o.</em></p>\n<p style=\"text-align: justify;\"><strong>Efeito: </strong>P<em>erde 4d12 PV por rodada durante 5 rodadas (perde 4d12 PV). </em></p>\n<p style=\"text-align: justify;\"><em>A CD para </em><em>fabricar e para resistir a este veneno aumenta em +5.</em></p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 162 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 3000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [
+      {
+        "name": "Dano",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "4d12",
+            "perda",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051720277,
+    "modifiedTime": 1684618194143,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "vWFPY6WKfjpZ1zZR",
+  "folder": "bxpHxgHjOuykr5Rh",
+  "sort": 900000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!vWFPY6WKfjpZ1zZR"
+}

@@ -1,0 +1,131 @@
+{
+  "name": "Peçonha Comum",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/veneno.webp",
+  "effects": [],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.JfE9jaQjXzWsbZND",
+      "defaultPermission": 2,
+      "hash": "83d171333455e78841be411b729b2dded8722620"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.yQBj45qw9hARFvSh"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Veneno t&iacute;pico, extra&iacute;do de animais ou plantas t&oacute;xicas.</p>\n<p><strong>Tipo: </strong><em>Contato.</em></p>\n<p><strong>Efeito: </strong><em>Perde 1d12 PV.</em></p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 161 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 15,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [
+      {
+        "name": "Dano",
+        "key": "dano0",
+        "type": "dano",
+        "parts": [
+          [
+            "1d12",
+            "perda",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051720106,
+    "modifiedTime": 1684618190341,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "V8YwNH55UVO1jo74",
+  "folder": "bxpHxgHjOuykr5Rh",
+  "sort": 600000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!V8YwNH55UVO1jo74"
+}

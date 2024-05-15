@@ -1,0 +1,737 @@
+{
+  "_id": "nQznnXX8yrSfFmwR",
+  "name": "Armas",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "reczOx6Rditf7Lph",
+      "flags": {},
+      "type": 2,
+      "text": "Adaga",
+      "img": "systems/tormenta20/icons/itens/adaga.webp",
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "XuObO7LzBBNoIsGv",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.reczOx6Rditf7Lph"
+    },
+    {
+      "_id": "2bGKS9wvdqaeL3lo",
+      "flags": {},
+      "type": 2,
+      "text": "Alabarda",
+      "img": "systems/tormenta20/icons/itens/alabarda.webp",
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "p7MZK1XnNPSXxbmy",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.2bGKS9wvdqaeL3lo"
+    },
+    {
+      "_id": "avRUeoJbddyTLqjV",
+      "flags": {},
+      "type": 2,
+      "text": "Alfange",
+      "img": "systems/tormenta20/icons/itens/alfange.webp",
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "zdzrCLMsiO2LJYiS",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.avRUeoJbddyTLqjV"
+    },
+    {
+      "_id": "dm7zD3osLawb8aSA",
+      "flags": {},
+      "type": 2,
+      "text": "Arco curto",
+      "img": "systems/tormenta20/icons/itens/arco-curto.webp",
+      "weight": 1,
+      "range": [
+        8,
+        10
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "E8czrmn4rH7Fqyea",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.dm7zD3osLawb8aSA"
+    },
+    {
+      "_id": "z9W1NARF8K2SD7aY",
+      "flags": {},
+      "type": 2,
+      "text": "Arco longo",
+      "img": "systems/tormenta20/icons/itens/arco-longo.webp",
+      "weight": 1,
+      "range": [
+        11,
+        13
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "B1hiWU8eEI1NHwcv",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.z9W1NARF8K2SD7aY"
+    },
+    {
+      "_id": "lTtb7XIb1vAGExgq",
+      "flags": {},
+      "type": 2,
+      "text": "Azagaia",
+      "img": "systems/tormenta20/icons/itens/azagaia.webp",
+      "weight": 1,
+      "range": [
+        14,
+        15
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "7KL4b6CtfUP0rFqi",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.lTtb7XIb1vAGExgq"
+    },
+    {
+      "_id": "gEcND3ZJQJOONFCy",
+      "flags": {},
+      "type": 2,
+      "text": "Besta leve",
+      "img": "systems/tormenta20/icons/itens/besta-leve.webp",
+      "weight": 1,
+      "range": [
+        17,
+        18
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "dUtNefh57IswhzOr",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.gEcND3ZJQJOONFCy"
+    },
+    {
+      "_id": "REizXkR9AqazLCNP",
+      "flags": {},
+      "type": 2,
+      "text": "Besta pesada",
+      "img": "systems/tormenta20/icons/itens/besta-pesada.webp",
+      "weight": 1,
+      "range": [
+        19,
+        20
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "iYY0Jr19T5ERm43G",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.REizXkR9AqazLCNP"
+    },
+    {
+      "_id": "eQSKkEXrhiqswOVO",
+      "flags": {},
+      "type": 2,
+      "text": "Bordão",
+      "img": "systems/tormenta20/icons/itens/bordao.webp",
+      "weight": 1,
+      "range": [
+        21,
+        23
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "HyJBwTLK0vY5F1Vp",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.eQSKkEXrhiqswOVO"
+    },
+    {
+      "_id": "F5V9Nh5zA4rodEKg",
+      "flags": {},
+      "type": 2,
+      "text": "Chicote",
+      "img": "systems/tormenta20/icons/itens/chicote.webp",
+      "weight": 1,
+      "range": [
+        24,
+        24
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "j9gfVNTufgCPJ2AN",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.F5V9Nh5zA4rodEKg"
+    },
+    {
+      "_id": "uRMMpUrLJvGXQZxS",
+      "flags": {},
+      "type": 2,
+      "text": "Cimitarra",
+      "img": "systems/tormenta20/icons/itens/cimitarra.webp",
+      "weight": 1,
+      "range": [
+        25,
+        27
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "y6IKZPxsQebq1AkW",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.uRMMpUrLJvGXQZxS"
+    },
+    {
+      "_id": "61yRFm6A6J0LPyOb",
+      "flags": {},
+      "type": 2,
+      "text": "Clava",
+      "img": "systems/tormenta20/icons/itens/clava.webp",
+      "weight": 1,
+      "range": [
+        28,
+        30
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "JUlyA7UGoTGdXkCP",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.61yRFm6A6J0LPyOb"
+    },
+    {
+      "_id": "tokCNHwJBsDQE3rM",
+      "flags": {},
+      "type": 2,
+      "text": "Corrente de espinhos",
+      "img": "systems/tormenta20/icons/itens/corrente-de-espinhos.webp",
+      "weight": 1,
+      "range": [
+        31,
+        31
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "sbeOrX6B3VZIuQcL",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.tokCNHwJBsDQE3rM"
+    },
+    {
+      "_id": "qknlbYOhl9IagEdD",
+      "flags": {},
+      "type": 2,
+      "text": "Espada bastarda",
+      "img": "systems/tormenta20/icons/itens/espada-bastarda.webp",
+      "weight": 1,
+      "range": [
+        32,
+        33
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "Vl8EoLKtzI7wyT1V",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.qknlbYOhl9IagEdD"
+    },
+    {
+      "_id": "hDOxsZgInlIqkeeB",
+      "flags": {},
+      "type": 2,
+      "text": "Espada curta",
+      "img": "systems/tormenta20/icons/itens/espada-curta.webp",
+      "weight": 1,
+      "range": [
+        34,
+        38
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "boM5sIgADaFaQ3xG",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.hDOxsZgInlIqkeeB"
+    },
+    {
+      "_id": "dmqrZstGjkPMbxOn",
+      "flags": {},
+      "type": 2,
+      "text": "Espada longa",
+      "img": "systems/tormenta20/icons/itens/espada-longa.webp",
+      "weight": 1,
+      "range": [
+        39,
+        43
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "LirOBCaOzAEWQpFk",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.dmqrZstGjkPMbxOn"
+    },
+    {
+      "_id": "gU4RP6Bvjr2QXNeL",
+      "flags": {},
+      "type": 2,
+      "text": "Florete",
+      "img": "systems/tormenta20/icons/itens/florete.webp",
+      "weight": 1,
+      "range": [
+        47,
+        49
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "r3tlhprPUh8qHesx",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.gU4RP6Bvjr2QXNeL"
+    },
+    {
+      "_id": "9ToCmgaIJS6qhfnw",
+      "flags": {},
+      "type": 2,
+      "text": "Foice",
+      "img": "systems/tormenta20/icons/itens/foice.webp",
+      "weight": 1,
+      "range": [
+        50,
+        51
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "NN09gZa79LpQdBqK",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.9ToCmgaIJS6qhfnw"
+    },
+    {
+      "_id": "HVXbTvTw9hccP4c8",
+      "flags": {},
+      "type": 2,
+      "text": "Funda",
+      "img": "systems/tormenta20/icons/itens/funda.webp",
+      "weight": 1,
+      "range": [
+        52,
+        53
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "DjqrTflaHyUetx0k",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.HVXbTvTw9hccP4c8"
+    },
+    {
+      "_id": "ptxorn8u5LvgY3sH",
+      "flags": {},
+      "type": 2,
+      "text": "Gadanho",
+      "img": "systems/tormenta20/icons/itens/gadanho.webp",
+      "weight": 1,
+      "range": [
+        54,
+        55
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "qTYbTAG5ABiuZD0o",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.ptxorn8u5LvgY3sH"
+    },
+    {
+      "_id": "DNNgdZaQyTKbCnmR",
+      "flags": {},
+      "type": 2,
+      "text": "Katana",
+      "img": "systems/tormenta20/icons/itens/katana.webp",
+      "weight": 1,
+      "range": [
+        56,
+        56
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "Flif0uZZpMv1qcQw",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.DNNgdZaQyTKbCnmR"
+    },
+    {
+      "_id": "NF52GFtwRjptEwvH",
+      "flags": {},
+      "type": 2,
+      "text": "Lança",
+      "img": "systems/tormenta20/icons/itens/lanca.webp",
+      "weight": 1,
+      "range": [
+        57,
+        59
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "vaCe85lpdH10teLi",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.NF52GFtwRjptEwvH"
+    },
+    {
+      "_id": "DW12Xfm2GNYnz2fy",
+      "flags": {},
+      "type": 2,
+      "text": "Lança montada",
+      "img": "systems/tormenta20/icons/itens/lan%C3%A7a-montada.webp",
+      "weight": 1,
+      "range": [
+        60,
+        60
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "HZyncQBfcntF9cF1",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.DW12Xfm2GNYnz2fy"
+    },
+    {
+      "_id": "vYoYnKCnlCLgcdq5",
+      "flags": {},
+      "type": 2,
+      "text": "Maça",
+      "img": "systems/tormenta20/icons/itens/maca.webp",
+      "weight": 1,
+      "range": [
+        61,
+        63
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "FYDbB42HXoTetKnT",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.vYoYnKCnlCLgcdq5"
+    },
+    {
+      "_id": "SmGATv9qaCVZNAMw",
+      "flags": {},
+      "type": 2,
+      "text": "Machadinha",
+      "img": "systems/tormenta20/icons/itens/machadinha.webp",
+      "weight": 1,
+      "range": [
+        64,
+        66
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "EiWBTKrxf7NqpZoK",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.SmGATv9qaCVZNAMw"
+    },
+    {
+      "_id": "1lPMrRBEw9L22zur",
+      "flags": {},
+      "type": 2,
+      "text": "Machado anão",
+      "img": "systems/tormenta20/icons/itens/machado-anao.webp",
+      "weight": 1,
+      "range": [
+        67,
+        67
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "xXK2IqgRyxPdhdmQ",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.1lPMrRBEw9L22zur"
+    },
+    {
+      "_id": "inwDEvC07KqXWvOq",
+      "flags": {},
+      "type": 2,
+      "text": "Machado de batalha",
+      "img": "systems/tormenta20/icons/itens/machado-de-batalha.webp",
+      "weight": 1,
+      "range": [
+        68,
+        70
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "v5HYdRxOsBcnXATP",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.inwDEvC07KqXWvOq"
+    },
+    {
+      "_id": "ALPXa8iuAtMlRRMl",
+      "flags": {},
+      "type": 2,
+      "text": "Machado de guerra",
+      "img": "systems/tormenta20/icons/itens/machado-de-guerra.webp",
+      "weight": 1,
+      "range": [
+        71,
+        73
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "P4MW0Ezhmya6Hm89",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.ALPXa8iuAtMlRRMl"
+    },
+    {
+      "_id": "OMAYaTvIW0yfCz1J",
+      "flags": {},
+      "type": 2,
+      "text": "Machado táurico",
+      "img": "systems/tormenta20/icons/itens/machado-taurico.webp",
+      "weight": 1,
+      "range": [
+        74,
+        74
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "INnoDDDGvmHKvnlM",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.OMAYaTvIW0yfCz1J"
+    },
+    {
+      "_id": "UHEvlfO9mLyMLlzl",
+      "flags": {},
+      "type": 2,
+      "text": "Mangual",
+      "img": "systems/tormenta20/icons/itens/mangual.webp",
+      "weight": 1,
+      "range": [
+        75,
+        76
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "k4aGem7SrVRtJ9tO",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.UHEvlfO9mLyMLlzl"
+    },
+    {
+      "_id": "KdZxLZSKMeQWm6i1",
+      "flags": {},
+      "type": 2,
+      "text": "Manopla",
+      "img": "systems/tormenta20/icons/itens/manopla.webp",
+      "weight": 1,
+      "range": [
+        77,
+        77
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "bsKUfUMnqIXt4dGl",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.KdZxLZSKMeQWm6i1"
+    },
+    {
+      "_id": "wM6YPzDWf940vOTr",
+      "flags": {},
+      "type": 2,
+      "text": "Martelo de guerra",
+      "img": "systems/tormenta20/icons/itens/martelo-de-guerra.webp",
+      "weight": 1,
+      "range": [
+        78,
+        80
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "VxjPnjvWAKkpjMLE",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.wM6YPzDWf940vOTr"
+    },
+    {
+      "_id": "xDb91ktfXE84zCDs",
+      "flags": {},
+      "type": 2,
+      "text": "Montante",
+      "img": "systems/tormenta20/icons/itens/montante.webp",
+      "weight": 1,
+      "range": [
+        81,
+        83
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "fohj08MaFfvVAo40",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.xDb91ktfXE84zCDs"
+    },
+    {
+      "_id": "OndgR7KFNtQZMu0v",
+      "flags": {},
+      "type": 2,
+      "text": "Mosquete",
+      "img": "systems/tormenta20/icons/itens/mosquete.webp",
+      "weight": 1,
+      "range": [
+        84,
+        84
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "UCovm0cenCi7hgvf",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.OndgR7KFNtQZMu0v"
+    },
+    {
+      "_id": "GYqvkXGOfGQDUEFy",
+      "flags": {},
+      "type": 2,
+      "text": "Picareta",
+      "img": "systems/tormenta20/icons/itens/picareta.webp",
+      "weight": 1,
+      "range": [
+        86,
+        88
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "nsTbFWXERXChuTS4",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.GYqvkXGOfGQDUEFy"
+    },
+    {
+      "_id": "hvLnPzOoRREnz5mi",
+      "flags": {},
+      "type": 2,
+      "text": "Pique",
+      "img": "systems/tormenta20/icons/itens/pique.webp",
+      "weight": 1,
+      "range": [
+        89,
+        90
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "O1sws1dJsnFQBxpR",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.hvLnPzOoRREnz5mi"
+    },
+    {
+      "_id": "2Fw2XfboW2rqjWOC",
+      "flags": {},
+      "type": 2,
+      "text": "Pistola",
+      "img": "systems/tormenta20/icons/itens/pistola.webp",
+      "weight": 1,
+      "range": [
+        91,
+        92
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "TILlgOKqyS3Ps4le",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.2Fw2XfboW2rqjWOC"
+    },
+    {
+      "_id": "vSXX3t2q5vRfAC6F",
+      "flags": {},
+      "type": 2,
+      "text": "Rede",
+      "img": "systems/tormenta20/icons/itens/rede.webp",
+      "weight": 1,
+      "range": [
+        93,
+        93
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "d7ghPf8u43lS2KL6",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.vSXX3t2q5vRfAC6F"
+    },
+    {
+      "_id": "JJn8dV7iauuK5tUQ",
+      "flags": {},
+      "type": 2,
+      "text": "Tacape",
+      "img": "systems/tormenta20/icons/itens/tacape.webp",
+      "weight": 1,
+      "range": [
+        94,
+        96
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "fRe995zLI8GOydRo",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.JJn8dV7iauuK5tUQ"
+    },
+    {
+      "_id": "NoH3AQ4QaQ4NhOyC",
+      "flags": {},
+      "type": 2,
+      "text": "Tridente",
+      "img": "systems/tormenta20/icons/itens/tridente.webp",
+      "weight": 1,
+      "range": [
+        97,
+        98
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "SlLNgSGJaWZfiDtx",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.NoH3AQ4QaQ4NhOyC"
+    },
+    {
+      "_id": "J3Tqef5OCeDv9N1O",
+      "type": 2,
+      "text": "Virotes",
+      "img": "systems/tormenta20/icons/itens/virote.webp",
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "pG2mhXPGveTdGuDG",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.J3Tqef5OCeDv9N1O"
+    },
+    {
+      "_id": "vuQLI3iZqky2HSi6",
+      "type": 2,
+      "text": "Flechas",
+      "img": "systems/tormenta20/icons/itens/flecha.webp",
+      "weight": 1,
+      "range": [
+        44,
+        46
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "UI59UM7vpFaHRc18",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.vuQLI3iZqky2HSi6"
+    },
+    {
+      "_id": "YRzY5jcBk1wlHnQj",
+      "type": 2,
+      "text": "Munição",
+      "img": "systems/tormenta20/icons/itens/municao.webp",
+      "weight": 1,
+      "range": [
+        85,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "3kWjlkSaIAiYa4lm",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.YRzY5jcBk1wlHnQj"
+    },
+    {
+      "_id": "6thLAoB2TrnqWVlK",
+      "type": 2,
+      "text": "Balas",
+      "img": "systems/tormenta20/icons/itens/bala.webp",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentCollection": "tormenta20.equipamentos",
+      "documentId": "GTZWWQYHPxR6hZqb",
+      "_key": "!tables.results!nQznnXX8yrSfFmwR.6thLAoB2TrnqWVlK"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "RollTable.myBzAzlMszFXWDvl"
+    },
+    "importid": "swWlZI27zbVxWsWd",
+    "cf": null
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665199,
+    "modifiedTime": 1667354515229,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!nQznnXX8yrSfFmwR"
+}

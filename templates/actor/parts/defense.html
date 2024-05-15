@@ -15,12 +15,7 @@
 			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.BaseDefense'}}">
 			{{else if isCharacter}}
 			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityBonus'}}">
-				{{#select system.attributes.defesa.atributo}}
-				<option value=""></option>
-				{{#each config.atributosAbr as |name abl|}}
-				<option value="{{abl}}">{{localize name}}</option>
-				{{/each}}
-				{{/select}}
+				{{selectOptions config.atributosAbr selected=system.attributes.defesa.atributo blank=''}}
 			</select>
 			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.outros" value="{{system.attributes.defesa.outros}}" title="{{localize 'T20.Other'}}">
 			{{/if}}

@@ -1,0 +1,116 @@
+{
+  "_id": "zNBMPW0dWTXMVdjF",
+  "name": "Bote",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/cacador.webp",
+  "effects": [
+    {
+      "label": "Bote",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.zNBMPW0dWTXMVdjF",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "oasyKrd3SEi1b8ex",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!zNBMPW0dWTXMVdjF.oasyKrd3SEi1b8ex"
+    }
+  ],
+  "folder": "iT3rUBmGhu5hbNic",
+  "sort": 2700000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.zNBMPW0dWTXMVdjF"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Se estiver empunhando duas armas e fizer uma investida, voc&ecirc; pode pagar 1 PM para fazer um ataque adicional com sua arma secund&aacute;ria.</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisito: Ambidestria, 6&ordm; n&iacute;vel de ca&ccedil;ador.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 50 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Caçador",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361717764,
+    "modifiedTime": 1684630426990,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!zNBMPW0dWTXMVdjF"
+}

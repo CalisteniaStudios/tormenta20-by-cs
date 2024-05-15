@@ -13,7 +13,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "character"],
 			width: 900,
 			height: 600

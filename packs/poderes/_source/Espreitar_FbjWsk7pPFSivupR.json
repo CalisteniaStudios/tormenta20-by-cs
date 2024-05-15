@@ -1,0 +1,123 @@
+{
+  "_id": "FbjWsk7pPFSivupR",
+  "name": "Espreitar",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/cacador.webp",
+  "effects": [
+    {
+      "label": "Espreitar",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.avXWR5uFqBmWNpwW",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "spell": false,
+          "consumable": false,
+          "items": "Marca da Presa",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "z1JAuwbGbvyq6ttW",
+      "changes": [
+        {
+          "key": "efeito.ataque",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!FbjWsk7pPFSivupR.z1JAuwbGbvyq6ttW"
+    }
+  ],
+  "folder": "iT3rUBmGhu5hbNic",
+  "sort": 1400000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.FbjWsk7pPFSivupR"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando usa a habilidade Marca da Presa, voc&ecirc; recebe um b&ocirc;nus de +1 em testes de per&iacute;cia contra a criatura marcada. Esse b&ocirc;nus aumenta em +1 para cada PM adicional gasto na habilidade e tamb&eacute;m dobra com a habilidade Inimigo.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 51 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Caçador",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361716919,
+    "modifiedTime": 1684630426990,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!FbjWsk7pPFSivupR"
+}

@@ -1,0 +1,129 @@
+{
+  "_id": "PUiaAuvbt0NDLBR0",
+  "name": "Liberdade Irrestrita",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos.webp",
+  "effects": [
+    {
+      "label": "Liberdade Irrestrita",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.PUiaAuvbt0NDLBR0",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": true,
+          "ability": true,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "135ot2f15RpkFCbj",
+      "changes": [
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        },
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!PUiaAuvbt0NDLBR0.135ot2f15RpkFCbj"
+    }
+  ],
+  "folder": "u5oEaw0L24kwVigu",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.PUiaAuvbt0NDLBR0"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando faz um teste para evitar condi&ccedil;&otilde;es de medo, paralisia e petrifica&ccedil;&atilde;o, voc&ecirc; pode rolar esse teste novamente. Isso inclui testes de manobra contra agarrar, testes de resist&ecirc;ncia contra magias como <em>Imobilizar</em> etc. Se ainda assim falhar, no in&iacute;cio de seus pr&oacute;ximos turnos pode rolar novamente, at&eacute; se libertar. Cada tentativa recebe um b&ocirc;nus cumulativo de +1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Guia NPC, pg. 16 (1.1)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Libertadora",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184258,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!PUiaAuvbt0NDLBR0"
+}

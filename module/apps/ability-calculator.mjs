@@ -1,7 +1,7 @@
 export default class AbilityCalculator extends FormApplication {
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "ability-calculator",
 			classes: ["tormenta20"],
 			title: game.i18n.localize('T20.AbilityCalculator'),
@@ -28,7 +28,7 @@ export default class AbilityCalculator extends FormApplication {
 	}
 
 	async _updateObject(event, formData) {
-		const data = expandObject(formData);
+		const data = foundry.utils.expandObject(formData);
 		return;
 	}
 }

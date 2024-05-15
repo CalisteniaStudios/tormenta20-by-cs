@@ -1,0 +1,124 @@
+{
+  "_id": "VQejbgKNGVTmwxUK",
+  "name": "Folião",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/bucaneiro.webp",
+  "effects": [
+    {
+      "label": "Folião",
+      "icon": "icons/magic/light/beams-explosion-blue.webp",
+      "origin": "Item.VQejbgKNGVTmwxUK",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": true,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "rc9uUiHFZjfL68ep",
+      "changes": [
+        {
+          "key": "system.modificadores.pericias.car",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!VQejbgKNGVTmwxUK.rc9uUiHFZjfL68ep"
+    }
+  ],
+  "folder": "86kIqRb842xHRnBV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.VQejbgKNGVTmwxUK"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; sabe fazer amizades durante festas, de noitadas em tavernas a bailes na corte. Nesses locais, voc&ecirc; recebe +2 em testes de per&iacute;cias de Carisma e a atitude de todas as pessoas em rela&ccedil;&atilde;o a voc&ecirc; melhora em uma categoria.</p>\n<p style=\"text-align: justify;\">Pr&eacute;-requisito: Car 1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 48 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Bucaneiro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361717170,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!VQejbgKNGVTmwxUK"
+}

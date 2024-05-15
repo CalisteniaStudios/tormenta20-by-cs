@@ -27,7 +27,7 @@ function itemKeysList() {
 	arrSchemas = []
 	Item.TYPES.forEach( t => {
 		i = new Item.implementation({type:t,name:'temp'})
-		arrSchemas.push( flattenObject(i.system.toObject()) );
+		arrSchemas.push( foundry.utils.flattenObject(i.system.toObject()) );
 	})
 	arrKeys = [];
 	arrSchemas.map( m=> Object.keys(m)).forEach(f=>{
@@ -41,7 +41,7 @@ function actorKeysList() {
 	arrSchemas = []
 	Actor.TYPES.forEach( t => {
 		i = new Actor.implementation({type:t,name:'temp'})
-		arrSchemas.push( flattenObject(i.system.toObject()) );
+		arrSchemas.push( foundry.utils.flattenObject(i.system.toObject()) );
 	})
 	arrKeys = [];
 	arrSchemas.map( m=> Object.keys(m)).forEach(f=>{
@@ -153,7 +153,7 @@ function findFieldPath(search, dataField){
 
 Actor.implementation({type:'character',name:'temp'});
 function getDocumentSystemList(document){
-  const charKeys = Object.keys(flattenObject(document.system.toObject()))
+  const charKeys = Object.keys(foundry.utils.flattenObject(document.system.toObject()))
   let charKeyLabel = {}
 
   for (let key of charKeys) {

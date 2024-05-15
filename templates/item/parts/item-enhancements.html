@@ -5,11 +5,7 @@
 			<label for="">{{localize "T20.Size"}}</label>
 			<div class="form-fields">
 				<select name="system.size" value="{{system.size}}" title="{{ localize 'T20.Size'}}">
-					{{#select system.size}}
-					{{#each config.weaponSizes as |value key|}}
-					<option value="{{key}}">{{value}}</option>
-					{{/each}}
-					{{/select}}
+					{{selectOptions config.weaponSizes selected=system.size}}
 				</select>
 			</div>
 		</div>
@@ -90,122 +86,5 @@
 		</div>
 		{{/if}}
 	{{/each}}
-	{{/if}}
-	{{#if oldWay }}
-		{{#if (or (eq item.type "arma") (and (eq item.type "consumivel") (eq item.system.tipo "ammo"))  ) }}
-		<div class="form-group">
-			<label for="">{{localize "T20.Size"}}</label>
-			<div class="form-fields">
-				<select name="system.size" value="{{system.size}}" title="{{ localize 'T20.Size'}}">
-					{{#select system.size}}
-					{{#each config.weaponSizes as |value key|}}
-					<option value="{{key}}">{{value}}</option>
-					{{/each}}
-					{{/select}}
-				</select>
-			</div>
-		</div>
-
-		<h2>{{localize "T20.ItemUpgrades"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-			{{#each config.weaponUpgrades as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup ../config.weaponUpgradesTooltips key}}">
-					<input type="checkbox" name="system.melhorias.{{key}}" value="{{value}}" {{checked (lookup ../system.melhorias key)}}>
-					{{value}}
-				</label>
-			</li>
-			{{/each}}
-		</ul>
-		<h2>{{localize "T20.Enchantments"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-		{{#each config.weaponEnchantments as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup ../config.weaponEnchantmentsTooltips key}}">
-					<input type="checkbox" name="system.encantos.{{key}}" value="{{value}}" {{checked (lookup ../system.encantos key)}}>
-					{{value}}
-				</label>
-			</li>
-		{{/each}}
-		</ul>
-		{{/if}}
-
-		{{#if (and (eq item.type "equipamento") (or (eq item.system.tipo "leve") (eq item.system.tipo "pesada")))}}
-		<h2>{{localize "T20.ItemUpgrades"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-		{{#each config.armorUpgrades as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup config.armorUpgradesTooltips key}}">
-					<input type="checkbox" name="system.melhorias.{{key}}" value="{{value}}" {{checked (lookup ../system.melhorias key)}}>
-					{{value}}
-				</label>
-			</li>
-		{{/each}}
-		</ul>
-		<h2>{{localize "T20.Enchantments"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-		{{#each config.armorEnchantments as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup config.armorEnchantmentsTooltips key}}">
-					<input type="checkbox" name="system.encantos.{{key}}" value="{{value}}" {{checked (lookup ../system.encantos key)}}>
-					{{value}}
-				</label>
-			</li>
-		{{/each}}
-		</ul>
-		{{/if}}
-
-		{{#if (and (eq item.type "equipamento") (eq item.system.tipo "escudo"))}}
-		<h2>{{localize "T20.ItemUpgrades"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-		{{#each config.shieldUpgrades as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup config.shieldUpgradesTooltips key}}">
-					<input type="checkbox" name="system.melhorias.{{key}}" value="{{value}}" {{checked (lookup ../system.melhorias key)}}>
-					{{value}}
-				</label>
-			</li>
-		{{/each}}
-		</ul>
-		<h2>{{localize "T20.Enchantments"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-		{{#each config.shieldEnchantments as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup config.shieldEnchantmentsTooltips key}}">
-					<input type="checkbox" name="system.encantos.{{key}}" value="{{value}}" {{checked (lookup ../system.encantos key)}}>
-					{{value}}
-				</label>
-			</li>
-		{{/each}}
-		</ul>
-		{{/if}}
-
-		{{#if (and (eq item.type "equipamento") (eq item.system.tipo "esoterico"))}}
-		<h2>{{localize "T20.ItemUpgrades"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-		{{#each config.esotericUpgrades as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup config.esotericUpgradesTooltips key}}">
-					<input type="checkbox" name="system.melhorias.{{key}}" value="{{value}}" {{checked (lookup ../system.melhorias key)}}>
-					{{value}}
-				</label>
-			</li>
-		{{/each}}
-		</ul>
-		{{/if}}
-
-		{{#if (and (eq item.type "equipamento") (or (eq item.system.tipo "traje") (eq item.system.tipo "ferramenta")))}}
-		<h2>{{localize "T20.ItemUpgrades"}}</h2>
-		<ul class="item-properties" style="list-style: none; columns:3;">
-		{{#each config.toolUpgrades as |value key|}}
-			<li class="flexrow">
-				<label class="checkbox" data-tooltip="{{lookup config.toolUpgradesTooltips key}}">
-					<input type="checkbox" name="system.melhorias.{{key}}" value="{{value}}" {{checked (lookup ../system.melhorias key)}}>
-					{{value}}
-				</label>
-			</li>
-		{{/each}}
-		</ul>
-		{{/if}}
 	{{/if}}
 </div>

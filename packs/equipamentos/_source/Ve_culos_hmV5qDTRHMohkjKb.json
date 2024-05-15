@@ -1,0 +1,19 @@
+{
+  "name": "Veículos",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "hmV5qDTRHMohkjKb",
+  "sort": 0,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": null,
+    "systemVersion": null,
+    "coreVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!hmV5qDTRHMohkjKb"
+}

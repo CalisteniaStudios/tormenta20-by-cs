@@ -1,0 +1,48 @@
+{
+  "_id": "uvMolF7vcMs0KbQl",
+  "name": "Bucaneiro",
+  "type": "classe",
+  "img": "systems/tormenta20/icons/classes/bucaneiro.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "exportSource": {
+      "world": "tormenta-20-teste",
+      "system": "tormenta20",
+      "coreVersion": "0.7.9",
+      "systemVersion": "1.1.21"
+    },
+    "core": {
+      "sourceId": "Compendium.tormenta20.classes.uvMolF7vcMs0KbQl"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "niveis": 1,
+    "pvPorNivel": 4,
+    "pmPorNivel": 3,
+    "inicial": false,
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1664312712758,
+    "modifiedTime": 1668270628857,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!items!uvMolF7vcMs0KbQl"
+}

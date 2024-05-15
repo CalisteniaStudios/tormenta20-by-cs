@@ -1,0 +1,359 @@
+{
+  "name": "Magivocador",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/itens/gerais/parceiros.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Cada parceiro pode ajudar apenas um personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro personagem em alcance curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>\n<p style=\"text-align: justify;\">Um conjurador especializado em magias ofensivas.</p>\n<p style=\"text-align: justify;\"><strong>Iniciante:&nbsp;</strong>o dano de suas magias aumenta em +1 dado do mesmo tipo.</p>\n<p style=\"text-align: justify;\"><strong>Veterano:</strong>&nbsp;como acima, e a CD para resistir a suas magias aumenta em +1.</p>\n<p style=\"text-align: justify;\"><strong>Mestre:</strong> como acima, e o dano de suas magias aumenta em +1 por dado (para um total de +2 dados).</p>",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 261 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Parceiros",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Magivocador: o dano de suas magias aumenta em +1d4 se for iniciante, ou +2d4 se for mestre.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.EBDU8TfXg0iVLvCT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "wZ1Ro41vqj7GploK",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d4",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!EBDU8TfXg0iVLvCT.wZ1Ro41vqj7GploK"
+    },
+    {
+      "label": "Magivocador: o dano de suas magias aumenta em +1d6 se for iniciante, ou +2d6 se for mestre.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.EBDU8TfXg0iVLvCT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "8CQ3h2IajvHrSnYb",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d6",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!EBDU8TfXg0iVLvCT.8CQ3h2IajvHrSnYb"
+    },
+    {
+      "label": "Magivocador: o dano de suas magias aumenta em +1d8 se for iniciante, ou +2d8 se for mestre.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.EBDU8TfXg0iVLvCT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "Nspr5owZ6FpCoVeZ",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d8",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!EBDU8TfXg0iVLvCT.Nspr5owZ6FpCoVeZ"
+    },
+    {
+      "label": "Magivocador: o dano de suas magias aumenta em +1d10 se for iniciante, ou +2d10 se for mestre.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.EBDU8TfXg0iVLvCT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "y0zrxJShyVVGWpWu",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d10",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!EBDU8TfXg0iVLvCT.y0zrxJShyVVGWpWu"
+    },
+    {
+      "label": "Magivocador: o dano de suas magias aumenta em +1d12 se for iniciante, ou +2d12 se for mestre.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.EBDU8TfXg0iVLvCT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": true,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "u3gTkV1k8lj1GttV",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d12",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!EBDU8TfXg0iVLvCT.u3gTkV1k8lj1GttV"
+    },
+    {
+      "label": "Magivocador Veterano: como acima, e a CD para resistir a suas magias aumenta em +1.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.EBDU8TfXg0iVLvCT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "zi4HsVUupDZQNV0d",
+      "changes": [
+        {
+          "key": "cd",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!EBDU8TfXg0iVLvCT.zi4HsVUupDZQNV0d"
+    },
+    {
+      "label": "Magivocador",
+      "icon": "icons/environment/settlement/wagon-black.webp",
+      "origin": "Item.EBDU8TfXg0iVLvCT",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "aDt6ucvrUZPc0QBF",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!EBDU8TfXg0iVLvCT.aDt6ucvrUZPc0QBF"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1663620833662,
+    "modifiedTime": 1668270847525,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "EBDU8TfXg0iVLvCT",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!EBDU8TfXg0iVLvCT"
+}

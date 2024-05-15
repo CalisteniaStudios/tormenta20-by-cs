@@ -1,0 +1,78 @@
+{
+  "name": "A Qualquer Custo",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Para um Cavaleiro do Corvo, nada &eacute; mais importante que o sucesso da miss&atilde;o. Os mais graduados na ordem aprendem a se preparar de forma extremamente minuciosa, empregando m&eacute;todos pr&oacute;prios dos Corvos que nenhuma outra ordem de cavaleiros ousaria sequer contemplar.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; pode declarar que cumprir um determinado objetivo &eacute; sua miss&atilde;o. Esse objetivo deve ser algo espec&iacute;fico, como &ldquo;eliminar o drag&atilde;o da Floresta dos Olhos&rdquo; ou &ldquo;resgatar o sacerdote capturado pelos bandidos de estrada&rdquo;. A prepara&ccedil;&atilde;o para a miss&atilde;o leva um dia e exige o gasto de T$ 50 em materiais e servi&ccedil;os (mapas, informantes etc). Ao fim deste tempo, voc&ecirc; recebe um dos benef&iacute;cios abaixo. Para cada outros dois poderes de Cavaleiro do Corvo, voc&ecirc; pode gastar mais T$ 50 ao se preparar para receber um benef&iacute;cio adicional diferente.</p>\n<ul>\n<li style=\"text-align: justify;\"><strong>Busca e Destrui&ccedil;&atilde;o.</strong> Uma de suas armas empunhadas se torna uma arma anticriatura contra um tipo de criatura a sua escolha relacionada &agrave; miss&atilde;o.</li>\n<li style=\"text-align: justify;\"><strong>Guerra n&atilde;o Convencional.</strong> Voc&ecirc; se torna treinado em uma per&iacute;cia a sua escolha.</li>\n<li style=\"text-align: justify;\"><strong>Intelig&ecirc;ncia.</strong> Voc&ecirc; pode usar Guerra no lugar de Conhecimento e Investiga&ccedil;&atilde;o para assuntos relacionados &agrave; miss&atilde;o.</li>\n</ul>\n<p style=\"text-align: justify;\">Voc&ecirc; s&oacute; pode ter uma miss&atilde;o de cada vez. Os efeitos deste poder terminam quando a miss&atilde;o for conclu&iacute;da ou voc&ecirc; desistir dela. <em>Pr&eacute;-requisito:</em> N&atilde;o Tenho Nome.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 17",
+    "ativacao": {
+      "execucao": "day",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Cavaleiro do Corvo",
+    "origin": "",
+    "tags": [
+      "CavaleirodoCorvo"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1666312768880,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "FJsShM7OC6TWqQqq",
+  "folder": "HmYZ3wnVn66EAlGT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!FJsShM7OC6TWqQqq"
+}

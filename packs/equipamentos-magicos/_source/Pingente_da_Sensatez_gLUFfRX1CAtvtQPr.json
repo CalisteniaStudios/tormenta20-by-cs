@@ -1,0 +1,120 @@
+{
+  "_id": "gLUFfRX1CAtvtQPr",
+  "name": "Pingente da Sensatez",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/pingente.webp",
+  "effects": [
+    {
+      "label": "Pingente da Sensatez",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/pingente.webp",
+      "origin": "Item.gLUFfRX1CAtvtQPr",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "T9Jqh2npY6IMXgP3",
+      "changes": [
+        {
+          "key": "system.atributos.sab.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!gLUFfRX1CAtvtQPr.T9Jqh2npY6IMXgP3"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 4250000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.gLUFfRX1CAtvtQPr"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Esta pequena p&eacute;rola com uma corrente leve &eacute; usada como um colar. Voc&ecirc; recebe +1 em Sabedoria (somente ap&oacute;s um dia de uso).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 345 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 4500,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000110,
+    "modifiedTime": 1684623040485,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!gLUFfRX1CAtvtQPr"
+}

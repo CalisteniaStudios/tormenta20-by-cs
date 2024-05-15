@@ -1,0 +1,78 @@
+{
+  "name": "Domínio Planar",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>O andarilho do horizonte consegue encontrar uma forma de chegar em qualquer lugar, mesmo aqueles fora de Arton.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; aprende e pode lan&ccedil;ar a magia <a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.tormenta20.magias.FxAlmaFR7sYRJD5z\" data-id=\"FxAlmaFR7sYRJD5z\" data-type=\"Item\" data-pack=\"tormenta20.magias\" data-tooltip=\"Magia Item\">Salto Dimensional</a>. Al&eacute;m disso, se estiver em um tipo de terreno para o qual possua o poder Dom&iacute;nio de Terreno, pode gastar oito horas para fazer um teste de @UUID[JournalEntry.cvmCTh9o45aiBHmJ.JournalEntryPage.SdS8pxPmbSpjv5Ml]{Sobreviv&ecirc;ncia} (CD 30) para encontrar um atalho planar para um dos mundos dos deuses. Caso tenha sucesso, pode lan&ccedil;ar a magia <a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.tormenta20.magias.3rR4d2fWU6uIqVNv\" data-id=\"3rR4d2fWU6uIqVNv\" data-type=\"Item\" data-pack=\"tormenta20.magias\" data-tooltip=\"Magia Item\">Viagem Planar</a><em> </em>com esse destino. <em>Pr&eacute;-requisitos:</em> tr&ecirc;s outros poderes de andarilho do horizonte.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 12",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Andarilho do Horizonte",
+    "origin": "",
+    "tags": [
+      "AndarilhodoHorizonte"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665850170299,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "znrRnI5zQJGPVK1v",
+  "folder": "CivN4iqFKpA5ogfm",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!znrRnI5zQJGPVK1v"
+}

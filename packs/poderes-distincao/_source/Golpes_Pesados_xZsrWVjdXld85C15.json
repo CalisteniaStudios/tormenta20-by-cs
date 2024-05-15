@@ -1,0 +1,78 @@
+{
+  "name": "Golpes Pesados",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Seu tamanho e volume s&atilde;o t&atilde;o grandes que seus oponentes mal conseguem aguentar parados!</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Quando faz um ataque corpo a corpo em f&uacute;ria, voc&ecirc; pode gastar 1 PM. Se fizer isso e acertar o ataque, al&eacute;m do dano voc&ecirc; faz uma manobra empurrar contra o alvo como uma a&ccedil;&atilde;o livre. Apenas o alvo &eacute; empurrado (voc&ecirc; n&atilde;o se desloca durante a manobra) mas, se houver uma parede ou outro objeto s&oacute;lido (n&atilde;o uma criatura) no caminho dele, ele sofre 1d6 pontos de dano de impacto para cada 3m que for empurrado. Se possuir o poder Ataque Pesado e usar os dois no mesmo ataque, voc&ecirc; executa uma &uacute;nica manobra empurrar, mas recebe +5 no teste de manobra.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Pr&eacute;-requisitos: treinado em Atletismo, F&uacute;ria dos Gigantes.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 23",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Gigante Furioso",
+    "origin": "",
+    "tags": [
+      "GiganteFurioso"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667075515824,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "xZsrWVjdXld85C15",
+  "folder": "Zr1HgroTTH1NqRJ3",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!xZsrWVjdXld85C15"
+}

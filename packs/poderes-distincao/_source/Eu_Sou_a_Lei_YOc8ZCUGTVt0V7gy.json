@@ -1,0 +1,82 @@
+{
+  "name": "Eu Sou a Lei",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Oficialmente sagrado, o xerife do Sol se torna um agente da lei reconhecido em todos os lugares.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Voc&ecirc; recebe um sol vigilante, o s&iacute;mbolo m&aacute;gico dos xerifes de Azgher, e passa a considerar a pistola como uma das armas preferidas de Azgher (al&eacute;m da cimitarra). Por fim, voc&ecirc; pode usar o poder Espada Solar em pistolas e, para cada dois outros poderes de xerife do Sol que voc&ecirc; possui, o dado de dano de fogo concedido por este poder aumenta em um passo.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisitos</em>: treinado em Intui&ccedil;&atilde;o e Sobreviv&ecirc;ncia, Espada Solar.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 33-35",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Xerife do Sol",
+    "origin": "",
+    "tags": [
+      "XerifedoSol"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "YOc8ZCUGTVt0V7gy",
+  "folder": "TcfLBMkSXCsZliFQ",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!YOc8ZCUGTVt0V7gy"
+}

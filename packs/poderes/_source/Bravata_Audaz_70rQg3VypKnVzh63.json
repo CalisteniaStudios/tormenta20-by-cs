@@ -1,0 +1,79 @@
+{
+  "_id": "70rQg3VypKnVzh63",
+  "name": "Bravata Audaz",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/bucaneiro.webp",
+  "effects": [],
+  "folder": "86kIqRb842xHRnBV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.70rQg3VypKnVzh63"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; jura fazer uma fa&ccedil;anha espec&iacute;fica, como roubar o tesouro de Sckhar ou ganhar um beijo do pr&iacute;ncipe e da princesa at&eacute; o fim do baile. Se cumprir a bravata, seus PM aumentam em +2 por n&iacute;vel de bucaneiro at&eacute; o fim da aventura.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>\n<p style=\"text-align: justify;\"><strong>Bravatas</strong></p>\n<p style=\"text-align: justify;\">Todas as Bravatas compartilham as seguintes regras.</p>\n<p style=\"text-align: justify;\">&bull; Uma Bravata deve envolver um desafio real. Em termos de jogo, deve ser uma a&ccedil;&atilde;o com ND igual ou maior que o n&iacute;vel do bucaneiro.</p>\n<p style=\"text-align: justify;\">&bull; Voc&ecirc; s&oacute; pode ter uma Bravata de cada tipo ativa por vez. Caso falhe em uma Bravata ou desista dela, voc&ecirc; perde todos os seus PM e s&oacute; pode recuper&aacute;-los a partir do pr&oacute;ximo dia.</p>\n<p style=\"text-align: justify;\">&bull; Quando voc&ecirc; cumpre uma Bravata, recebe um benef&iacute;cio que dura at&eacute; o fim da aventura. De acordo com o mestre, caso isso aconte&ccedil;a perto do fim da aventura, o benef&iacute;cio pode se estender at&eacute; a pr&oacute;xima.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 48 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Bucaneiro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361716797,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!70rQg3VypKnVzh63"
+}

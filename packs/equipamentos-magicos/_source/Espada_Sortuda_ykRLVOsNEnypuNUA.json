@@ -1,0 +1,200 @@
+{
+  "_id": "ykRLVOsNEnypuNUA",
+  "name": "Espada Sortuda",
+  "type": "arma",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/espada-sortuda.webp",
+  "effects": [],
+  "folder": "9ki1HFV3bfmVkHBh",
+  "sort": 103125,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.ykRLVOsNEnypuNUA"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Esta <strong>espada curta formidável</strong> é cravejada de brilhantes. Você recebe +2 nos testes de resistência e pode gastar 3 PM para rolar novamente um teste qualquer recém realizado (apenas uma vez por teste). Se possuir o poder Sortudo, em vez disso seu custo diminui em –1 PM.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "equipado": 0,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 1,
+    "espacos": 0,
+    "qtd": 1,
+    "preco": 0,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "rolls": [
+      {
+        "name": "Ataque",
+        "key": "ataque0",
+        "type": "ataque",
+        "parts": [
+          [
+            "1d20",
+            "",
+            ""
+          ],
+          [
+            "luta",
+            "",
+            ""
+          ],
+          [
+            "2",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      },
+      {
+        "name": "Dano",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "1d6",
+            "perfuracao",
+            ""
+          ],
+          [
+            "@for",
+            "",
+            ""
+          ],
+          [
+            "+2",
+            "perfuracao",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "criticoM": 19,
+    "criticoX": 2,
+    "alcance": "",
+    "tipoUso": "sim",
+    "propriedades": {
+      "ada": false,
+      "agi": false,
+      "alo": false,
+      "dup": false,
+      "ver": false,
+      "adaptavel": false,
+      "agil": false,
+      "alongada": false,
+      "arremesso": false,
+      "ataqueDistancia": false,
+      "duasMaos": false,
+      "dupla": false,
+      "leve": false,
+      "municao": false,
+      "versatil": false
+    },
+    "encantos": {
+      "arremesso": false,
+      "lancinante": false,
+      "keen": null,
+      "bane": null,
+      "throwable": null,
+      "assassin": null,
+      "seeking": null,
+      "frost": null,
+      "caster": null,
+      "corrosive": null,
+      "dancing": null,
+      "defending": null,
+      "destructive": null,
+      "lacerating": null,
+      "draining": null,
+      "shock": null,
+      "energy": null,
+      "excruciating": null,
+      "flaming": null,
+      "formidable": "Formidável",
+      "lancinating": false,
+      "magnificent": null,
+      "merciful": null,
+      "unholy": null,
+      "holy": null,
+      "bloodthirsty": null,
+      "thundering": null,
+      "sepulchral": null,
+      "speed": null,
+      "poisonous": null
+    },
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "chatFlavor": "",
+    "melhorias": {
+      "accurate": null,
+      "pungent": null,
+      "cruel": null,
+      "atrocious": null,
+      "balanced": null,
+      "harmonized": null,
+      "injection": null,
+      "massive": null,
+      "specialmaterial": null,
+      "scope": null,
+      "precise": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "formidable",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "ataques": 0,
+    "proficiencia": "simples",
+    "proposito": "corpo-a-corpo",
+    "empunhadura": "uma",
+    "size": "normal"
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000119,
+    "modifiedTime": 1684622978620,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!ykRLVOsNEnypuNUA"
+}

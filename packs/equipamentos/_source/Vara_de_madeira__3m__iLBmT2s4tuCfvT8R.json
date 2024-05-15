@@ -1,0 +1,93 @@
+{
+  "_id": "iLBmT2s4tuCfvT8R",
+  "name": "Vara de madeira (3m)",
+  "type": "tesouro",
+  "img": "systems/tormenta20/icons/itens/gerais/vara-madeira.webp",
+  "effects": [],
+  "folder": "0G5uMjOsWAFaPYAZ",
+  "sort": 200000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.iLBmT2s4tuCfvT8R"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Uma haste com 3m de comprimento, geralmente usada para alcançar pontos distantes. Tem muitas utilidades, mas é frágil demais para servir como arma.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 157 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 4,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 0.2,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "container": false,
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "amount": 0,
+      "mpMultiplier": false,
+      "target": "",
+      "type": ""
+    },
+    "duracao": {
+      "units": "",
+      "value": 0,
+      "special": ""
+    },
+    "range": {
+      "units": "",
+      "value": 0
+    },
+    "target": {
+      "type": "",
+      "value": 0,
+      "width": 0
+    },
+    "alcance": "",
+    "alvo": "",
+    "area": "",
+    "efeito": "",
+    "resistencia": {
+      "txt": "",
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772416,
+    "modifiedTime": 1684618118704,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!iLBmT2s4tuCfvT8R"
+}

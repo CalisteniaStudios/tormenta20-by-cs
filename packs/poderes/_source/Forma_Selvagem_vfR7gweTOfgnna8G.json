@@ -1,0 +1,300 @@
+{
+  "_id": "vfR7gweTOfgnna8G",
+  "name": "Forma Selvagem",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/druida.webp",
+  "effects": [
+    {
+      "label": "Forma Selvagem Agil",
+      "icon": "systems/tormenta20/icons/classes/druida.webp",
+      "origin": "Item.vfR7gweTOfgnna8G",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 999,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "qtVRI3GPI4fcSWRJ",
+      "changes": [
+        {
+          "key": "system.atributos.des.value",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!vfR7gweTOfgnna8G.qtVRI3GPI4fcSWRJ"
+    },
+    {
+      "label": "Forma Selvagem Feroz",
+      "icon": "systems/tormenta20/icons/classes/druida.webp",
+      "origin": "Item.vfR7gweTOfgnna8G",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 999,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "WuOJYPQZLbjGylY8",
+      "changes": [
+        {
+          "key": "system.atributos.for.value",
+          "mode": 2,
+          "value": "3",
+          "priority": null
+        },
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!vfR7gweTOfgnna8G.WuOJYPQZLbjGylY8"
+    },
+    {
+      "label": "Forma Selvagem Resistente",
+      "icon": "systems/tormenta20/icons/classes/druida.webp",
+      "origin": "Item.vfR7gweTOfgnna8G",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 999,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "r3lHKmR7uR8JNezj",
+      "changes": [
+        {
+          "key": "system.attributes.defesa.bonus",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        },
+        {
+          "key": "system.tracos.resistencias.dano.value",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!vfR7gweTOfgnna8G.r3lHKmR7uR8JNezj"
+    },
+    {
+      "label": "Forma Selvagem Sorrateira",
+      "icon": "systems/tormenta20/icons/classes/druida.webp",
+      "origin": "Item.vfR7gweTOfgnna8G",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 999,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "yzkj1cCAxfXp37cN",
+      "changes": [
+        {
+          "key": "system.atributos.des.value",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!vfR7gweTOfgnna8G.yzkj1cCAxfXp37cN"
+    },
+    {
+      "label": "Forma Selvagem Veloz",
+      "icon": "systems/tormenta20/icons/classes/druida.webp",
+      "origin": "Item.vfR7gweTOfgnna8G",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 999,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "uTxCYN3VjSnQxgdu",
+      "changes": [
+        {
+          "key": "system.atributos.des.value",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!vfR7gweTOfgnna8G.uTxCYN3VjSnQxgdu"
+    },
+    {
+      "label": "Forma Ágil: -2 em ataques quando ataca com as duas armas naturais.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.vfR7gweTOfgnna8G",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "53q0R7EfJIXH5TEs",
+      "changes": [
+        {
+          "key": "ataque",
+          "mode": 2,
+          "value": "-2",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!vfR7gweTOfgnna8G.53q0R7EfJIXH5TEs"
+    }
+  ],
+  "folder": "8LraP5E2KHsZTAz8",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.vfR7gweTOfgnna8G"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 3PM para adquirir a forma de uma criatura selvagem. Em termos de jogo, quando usa esta habilidade voc&ecirc; adquire os modificadores de uma das formas abaixo. Caracter&iacute;sticas n&atilde;o mencionadas n&atilde;o mudam.&nbsp;</p>\n<p style=\"text-align: justify;\">Na forma selvagem voc&ecirc; n&atilde;o pode falar, empunhar itens ou lan&ccedil;ar magias. Seu equipamento desaparece (mas voc&ecirc; mant&eacute;m os benef&iacute;cios de qualquer itens vestidos), ressurgindo quando voc&ecirc; voltao ao normal. Outras criaturas podem fazer um teste de percep&ccedil;&atilde;o oposto pelo seu teste de Engana&ccedil;&atilde;o para perceber que voc&ecirc; n&atilde;o &eacute; um animal comum (Voc&ecirc; recebe +10 no teste). Cada transforma&ccedil;&atilde;o dura pelo tempo que voc&ecirc; quiser, mas voc&ecirc; reverte &agrave; forma normal se ficar inconsciente ou morrer.&nbsp;</p>\n<ul>\n<li style=\"text-align: justify;\"><strong>Forma &Aacute;gil</strong>: Voc&ecirc; recebe Destreza +2 e duas armas naturais que causam 1d6 pontos de dano e tem margem de amea&ccedil;a 19. Se atacar com ambas, sofre -2 em todos os seus testes de ataque at&eacute; o seu pr&oacute;ximo turno.&nbsp;</li>\n<li style=\"text-align: justify;\"><strong>Forma Feroz:&nbsp;</strong>Voc&ecirc; recebe For&ccedil;a +3, +2 na Defesa e uma arma natural que causa 1d8 pontos de dano.&nbsp;</li>\n<li style=\"text-align: justify;\"><strong>Forma Resistente:&nbsp;</strong>Voc&ecirc; recebe +5 na Defesa, Redu&ccedil;&atilde;o de dano 5 e uma arma natural que causa 1d6 pontos de dano.&nbsp;</li>\n<li style=\"text-align: justify;\"><strong>Forma Sorrateira:&nbsp;</strong>Voc&ecirc; recebe Destreza +2 e uma arma natural que causa 1d4 pontos de dano. Seu tamanho muda para Pequeno (+2 em furtividade, -2 em testes de manobra).</li>\n<li style=\"text-align: justify;\"><strong>Forma Veloz:&nbsp;</strong>Voc&ecirc; recebe Destreza +2, uma arma natural que causa 1d6 pontos de dano e um dos benef&iacute;cios a seguir: deslocamento 15m, deslocamento de escalada 9m ou deslocamento de nata&ccedil;&atilde;o 9m.&nbsp;</li>\n</ul>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 62 e 63 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 3,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Druida",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185697,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!vfR7gweTOfgnna8G"
+}

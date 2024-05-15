@@ -10,8 +10,8 @@ export default class AbilityTemplate extends MeasuredTemplate {
 	 * @return {AbilityTemplate|null}     The template object, or null if the item does not produce a template
 	 */
 	static fromItem(item) {
-		let area = getProperty(item, "system.area").toLowerCase() || "";
-		let alcance = getProperty(item, "system.alcance").toLowerCase() || "";
+		let area = foundry.utils.getProperty(item, "system.area").toLowerCase() || "";
+		let alcance = foundry.utils.getProperty(item, "system.alcance").toLowerCase() || "";
 		if( !area.match(/\d/) ){
 			if ( alcance == "short" ) area += " 9m";
 			else if ( alcance == "medium" ) area += " 30m";

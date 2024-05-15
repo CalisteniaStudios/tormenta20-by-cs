@@ -53,7 +53,7 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 
 	/** @override */
 	async _updateObject(event, formData) {
-		formData = expandObject(formData);
+		formData = foundry.utils.expandObject(formData);
 		formData.changes = Object.values(formData.changes || {});
 		for (let c of formData.changes) {
 			if (c.mode !== 2 && Number.isNumeric(c.value)) c.value = parseFloat(c.value);

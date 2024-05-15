@@ -1,0 +1,81 @@
+{
+  "_id": "w48gktCMFpuvvHoO",
+  "name": "Linhagem Dracônica",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/conjuradores/linhagem-draconica.webp",
+  "effects": [],
+  "folder": "dB8yQeNYIsAMdhNN",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.w48gktCMFpuvvHoO"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um de seus antepassados foi um majestoso drag&atilde;o. Escolha um tipo de dano entre &aacute;cido, eletricidade, fogo ou frio.</p>\n<ul>\n<li><strong>B&aacute;sica. </strong>Voc&ecirc; soma seu modificador de Carisma em seus pontos de vida iniciais e recebe redu&ccedil;&atilde;o de dano 5 ao tipo escolhido.</li>\n<li><strong>Aprimorada.</strong> Suas magias do tipo escolhido custam &ndash;1 PM e causam +1 ponto de dano por dado.</li>\n<li><strong>Superior.</strong> Voc&ecirc; passa a somar o dobro do seu modificador de Carisma em seus pontos de vida iniciais e se torna imune a dano do tipo escolhido. Al&eacute;m disso, sempre que reduz um ou mais inimigos a 0 PV ou menos com uma magia do tipo escolhido, voc&ecirc; recebe uma quantidade de PM tempor&aacute;rios igual ao c&iacute;rculo da magia.</li>\n</ul>\n<p>&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 39 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Arcanista",
+    "tags": [
+      "Arcanista"
+    ],
+    "origin": "",
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185698,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!w48gktCMFpuvvHoO"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Material Especial",
+  "sorting": "a",
+  "folder": "5PDivJJGRX0EFLEP",
+  "type": "Item",
+  "_id": "xqMxYK1BhlZ6ktNc",
+  "sort": 100000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.200",
+    "coreVersion": "11.299",
+    "createdTime": null,
+    "modifiedTime": 1685245415349,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!folders!xqMxYK1BhlZ6ktNc"
+}

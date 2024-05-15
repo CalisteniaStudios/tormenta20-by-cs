@@ -9,7 +9,7 @@ export class Tormenta20BaseSettings extends FormApplication {
 	 * Default Options for this FormApplication
 	 */
 	 static get defaultOptions () {
-		 return mergeObject(super.defaultOptions, {
+		 return foundry.utils.mergeObject(super.defaultOptions, {
 			id : 'tormenta20-settings-form',
 			title : 'Configurações',
 			template : './systems/tormenta20/templates/apps/settings.html',
@@ -26,7 +26,7 @@ export class Tormenta20BaseSettings extends FormApplication {
 	getData (options) {
 		function prepSetting (key) {
 			let data = game.settings.settings.get(`tormenta20.${key}`);
-			return mergeObject( data ,{
+			return foundry.utils.mergeObject( data ,{
 				value: game.settings.get('tormenta20', key),
 				type : data.type
 			});
@@ -95,7 +95,7 @@ export class Tormenta20ActorSheetSettings extends Tormenta20BaseSettings {
 	 * Default Options for this FormApplication
 	 */
 	 static get defaultOptions () {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 		 title : 'Configurações de Ficha',
 		 template : './systems/tormenta20/templates/apps/settings.hbs',
 		 submitOnChange: false,

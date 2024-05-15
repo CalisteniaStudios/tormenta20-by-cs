@@ -93,7 +93,7 @@ function findFieldPath(search, dataField){
 
 
 export function getDocumentSystemList(document){
-  const charKeys = Object.keys(flattenObject(document.system.toObject()))
+  const charKeys = Object.keys(foundry.utils.flattenObject(document.system.toObject()))
   let charKeyLabel = {}
 
   for (let key of charKeys) {

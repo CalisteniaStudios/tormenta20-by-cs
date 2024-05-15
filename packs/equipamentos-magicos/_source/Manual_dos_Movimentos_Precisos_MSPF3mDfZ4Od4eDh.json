@@ -1,0 +1,127 @@
+{
+  "_id": "MSPF3mDfZ4Od4eDh",
+  "name": "Manual dos Movimentos Precisos",
+  "type": "tesouro",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/manual-dos-movimentos-precisos.webp",
+  "effects": [
+    {
+      "label": "Manual dos Movimentos Precisos",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/manual-dos-movimentos-precisos.webp",
+      "origin": "Item.MSPF3mDfZ4Od4eDh",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "d2M2W9qqYAffcvnd",
+      "changes": [
+        {
+          "key": "system.atributos.des.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!MSPF3mDfZ4Od4eDh.d2M2W9qqYAffcvnd"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 4100000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.MSPF3mDfZ4Od4eDh"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Este tomo volumoso descreve exerc&iacute;cios de coordena&ccedil;&atilde;o e equil&iacute;brio, mas mesclado &agrave;s palavras h&aacute; um poderoso efeito m&aacute;gico. Funciona como um Manual do Bom Exerc&iacute;cio, mas fornece +1 de Destreza.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 345 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0,
+    "qtd": 1,
+    "preco": 30000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "container": false,
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "amount": 0,
+      "mpMultiplier": false,
+      "target": "",
+      "type": ""
+    },
+    "duracao": {
+      "units": "",
+      "value": 0,
+      "special": ""
+    },
+    "range": {
+      "units": "",
+      "value": 0
+    },
+    "target": {
+      "type": "",
+      "value": 0,
+      "width": 0
+    },
+    "alcance": "",
+    "alvo": "",
+    "area": "",
+    "efeito": "",
+    "resistencia": {
+      "txt": "",
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000098,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!MSPF3mDfZ4Od4eDh"
+}

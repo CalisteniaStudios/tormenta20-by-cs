@@ -1,0 +1,130 @@
+{
+  "name": "Invenção Potente",
+  "type": "poder",
+  "img": "icons/commodities/tech/cog-brass.webp",
+  "effects": [
+    {
+      "_id": "OinaYpWMzsTEadNR",
+      "changes": [
+        {
+          "key": "cd",
+          "mode": 2,
+          "value": "2",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Invenção potente",
+      "origin": "Item.BLNdDR80Xs02ocjo",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "consumable": true,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "aumenta": false,
+          "custo": "1",
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!siUgo1SjC1CbAAPr.OinaYpWMzsTEadNR"
+    }
+  ],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.BLNdDR80Xs02ocjo",
+      "defaultPermission": 3,
+      "hash": "48805a03929afb235b78b58cbab56133094caac3"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.JtCV5zmtMSvTSkKm"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando usa um item ou engenhoca fabricado por voc&ecirc; mesmo, voc&ecirc; pode pagar 1 PM para aumentar em +2 a CD para resistir a ele.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 69 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "inventor",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051645360,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "siUgo1SjC1CbAAPr",
+  "folder": "iHjbUWZ9cRzIVZ3E",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!siUgo1SjC1CbAAPr"
+}

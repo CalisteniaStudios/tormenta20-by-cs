@@ -1,0 +1,114 @@
+{
+  "_id": "KcDQ91RPuDgistWJ",
+  "name": "Espelho do Aprisionamento",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/espelho-do-aprisonamento.webp",
+  "effects": [],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 2000000,
+  "flags": {},
+  "system": {
+    "description": {
+      "value": "<p>Este item de cristal, com 1,5m de altura e moldura de metal, pode ser fixado em qualquer superf&iacute;cie e ativado (ou desativado) com um comando. Qualquer criatura que se aproxime a alcance curto do espelho do aprisionamento e enxergue seu pr&oacute;prio reflexo deve passar em um teste de Reflexos (CD Int) ou ser&aacute; transportada magicamente para um espa&ccedil;o extradimensional dentro do espelho, ficando presa ali. O tamanho da criatura n&atilde;o importa &mdash; mas construtos, mortos-vivos e objetos n&atilde;o podem ser transportados. Com um comando, &eacute; poss&iacute;vel conversar com uma criatura presa no espelho ou libert&aacute;-la. Se o espelho for quebrado, todas as criaturas dentro dele s&atilde;o libertadas.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 344 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 150000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "rolls": [],
+    "melhorias": {
+      "adjusted": null,
+      "undermeasure": null,
+      "delicate": null,
+      "thorny": null,
+      "specialmaterial": null,
+      "polished": null,
+      "reinforced": null,
+      "sealed": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null,
+      "enhanced": null
+    },
+    "encantos": {
+      "abascanth": null,
+      "blessed": null,
+      "acrobatic": null,
+      "winged": null,
+      "frightful": null,
+      "caustic": null,
+      "defending": null,
+      "slick": null,
+      "ghostly": null,
+      "ortification": null,
+      "frost": null,
+      "guardian": null,
+      "hypnotic": null,
+      "illusory": null,
+      "incandescent": null,
+      "invulnerable": null,
+      "opaque": null,
+      "protector": null,
+      "reflecting": null,
+      "lightning": null,
+      "blinding": null,
+      "shadow": null,
+      "zealous": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1666280340211,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!KcDQ91RPuDgistWJ"
+}

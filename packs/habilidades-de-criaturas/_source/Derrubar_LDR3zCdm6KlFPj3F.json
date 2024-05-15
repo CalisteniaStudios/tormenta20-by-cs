@@ -1,0 +1,101 @@
+{
+  "name": "Derrubar",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/ameacas/derrubar.webp",
+  "system": {
+    "description": {
+      "value": "<p>Se o lobo acerta um ataque de mordida, pode fazer a manobra derrubar (teste +7).</p>",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "free",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Caido",
+      "icon": "systems/tormenta20/icons/conditions/caido.svg",
+      "origin": "Item.LDR3zCdm6KlFPj3F",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "Jynccku7ba0yL8ny",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!LDR3zCdm6KlFPj3F.Jynccku7ba0yL8ny"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1666321513948,
+    "modifiedTime": 1668270615329,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "LDR3zCdm6KlFPj3F",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!LDR3zCdm6KlFPj3F"
+}

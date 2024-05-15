@@ -1,0 +1,121 @@
+{
+  "name": "Bandana",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/bandana.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Um len&ccedil;o tipicamente usado por bandidos e piratas. Fornece +1 em Intimida&ccedil;&atilde;o.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 159 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 0.1,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 5,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Bandana",
+      "icon": "systems/tormenta20/icons/itens/gerais/bandana.webp",
+      "origin": "Item.uW6vX3p8G168OxUq",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "qRRg2q6XCuChhuqv",
+      "changes": [
+        {
+          "key": "system.pericias.inti.bonus",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!uW6vX3p8G168OxUq.qRRg2q6XCuChhuqv"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.oT1tZGBnQuUkJmUJ"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663532558587,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "uW6vX3p8G168OxUq",
+  "folder": "jMEkEeU9nUclA8No",
+  "sort": 237500,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!uW6vX3p8G168OxUq"
+}

@@ -33,7 +33,7 @@
 		// Extract health data
 
 		const actorData = this.document.actor.system;
-		let {value, max, temp, tempmax, min} = getProperty(actorData, data.attribute);
+		let {value, max, temp, tempmax, min} = foundry.utils.getProperty(actorData, data.attribute);
 		
 		temp = Number(temp || 0);
 		tempmax = Number(tempmax || 0);
@@ -43,10 +43,10 @@
 		let displayMax = max + (tempmax > 0 ? tempmax : 0);
 
 		// Allocate percentages of the total
-		const tempPct = Math.clamped(temp, 0, displayMax) / displayMax;
-		const valuePct = Math.clamped(value, 0, effectiveMax) / displayMax;
-		const negativePct = Math.clamped(value, min, 0) / min;
-		const colorPct = Math.clamped(value, 0, effectiveMax) / displayMax;
+		const tempPct = Math.clamp(temp, 0, displayMax) / displayMax;
+		const valuePct = Math.clamp(value, 0, effectiveMax) / displayMax;
+		const negativePct = Math.clamp(value, min, 0) / min;
+		const colorPct = Math.clamp(value, 0, effectiveMax) / displayMax;
 
 		// Determine colors to use
 		const blk = 0x000000;
@@ -61,7 +61,7 @@
 		const w = this.w;
 		let h = Math.max((canvas.dimensions.size / 12), 8);
 		if ( this.document.height >= 2 ) h *= 1.6;  // Enlarge the bar for large tokens
-		const bs = Math.clamped(h / 8, 1, 2);
+		const bs = Math.clamp(h / 8, 1, 2);
 		const bs1 = bs+1;
 
 		// Overall bar container

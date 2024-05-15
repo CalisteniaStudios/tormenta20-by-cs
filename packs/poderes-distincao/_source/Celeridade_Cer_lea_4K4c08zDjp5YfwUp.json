@@ -1,0 +1,82 @@
+{
+  "name": "Celeridade Cerúlea",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">N&atilde;o basta ser mais preciso que qualquer outro m&uacute;sico, um menestrel maldito &eacute; tamb&eacute;m mais r&aacute;pido.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Uma vez por rodada, quando usa Inspira&ccedil;&atilde;o ou uma m&uacute;sica de bardo, voc&ecirc; pode gastar 2 PM para usar outra m&uacute;sica de bardo como parte da mesma a&ccedil;&atilde;o, pagando seu custo normalmente.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisito</em>: T&eacute;cnica Endiabrada, outro poder de menestrel amaldi&ccedil;oado</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 38-39",
+    "ativacao": {
+      "execucao": "",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Menestrel Maldito",
+    "origin": "",
+    "tags": [
+      "MenestrelMaldito"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "4K4c08zDjp5YfwUp",
+  "folder": "y8ETZkiSeolvnkXp",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!4K4c08zDjp5YfwUp"
+}

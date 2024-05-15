@@ -1,0 +1,130 @@
+{
+  "_id": "ma3p9pqGlGsneo2Q",
+  "name": "Acuidade com Arma",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/combate.webp",
+  "effects": [
+    {
+      "label": "Acuidade com Arma",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.ma3p9pqGlGsneo2Q",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "equipment": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "OSbYNk1D6XaNB7S6",
+      "changes": [
+        {
+          "key": "atributoAtq",
+          "mode": 5,
+          "value": "des",
+          "priority": 0
+        },
+        {
+          "key": "atributoDano",
+          "mode": 5,
+          "value": "des",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!ma3p9pqGlGsneo2Q.OSbYNk1D6XaNB7S6"
+    }
+  ],
+  "folder": "Rgbah8U70jOKi5DF",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.ma3p9pqGlGsneo2Q"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando usa uma arma leve de corpo a corpo ou uma arma de arremesso, voc&ecirc; pode usar seu modificador de Destreza em vez de For&ccedil;a nos testes de ataque e rolagens de dano.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> Des 1&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 124 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Combate",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185147,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!ma3p9pqGlGsneo2Q"
+}

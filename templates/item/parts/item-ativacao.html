@@ -9,20 +9,10 @@
 	<label>{{ localize "T20.ConsumeTitle" }}</label>
 	<div class="form-fields">
 		<select name="system.consume.type">
-				{{#select system.consume.type}}
-				<option value=""></option>
-				{{#each config.abilityConsumptionTypes as |name key|}}
-				<option value="{{key}}">{{localize name}}</option>
-				{{/each}}
-				{{/select}}
+			{{selectOptions config.abilityConsumptionTypes selected=system.consume.type blank=''}}
 		</select>
 		<select name="system.consume.target">
-			{{#select system.consume.target}}
-			<option value=""></option>
-			{{#each abilityConsumptionTargets as |name key|}}
-			<option value="{{key}}">{{localize name}}</option>
-			{{/each}}
-			{{/select}}
+			{{selectOptions abilityConsumptionTargets selected=system.consume.target blank=''}}
 		</select>
 		<input type="number" name="system.consume.amount" value="{{system.consume.amount}}" placeholder="{{localize 'T20.QuantityAbbr'}}"/>
 		<input type="checkbox" name="system.consume.mpMultiplier" data-dtype="Boolean" {{checked system.consume.mpMultiplier}} title="{{localize 'T20.ConsumeMPMultiplier'}}">
@@ -34,10 +24,7 @@
 	<label>{{ localize "T20.ActivationCost" }}</label>
 	<div class="form-fields">
 		<select name="system.ativacao.execucao">
-			{{#select item.system.ativacao.execucao}}
-				<option value=""></option>
-				{{selectOptions config.abilityActivationTypes selected=item.system.ativacao.execucao localize=true}}
-			{{/select}}
+			{{selectOptions config.abilityActivationTypes selected=item.system.ativacao.execucao localize=true blank=''}}
 		</select>
 		{{#if (eq system.ativacao.execucao "special") }}
 			<div class="form-fields">
@@ -72,9 +59,7 @@
 			<input type="text" name="system.range.value" value="{{item.system.range.value}}" data-dtype="Number">
 		{{/if}}
 		<select name="system.alcance">
-			{{#select item.system.alcance}}
-				{{selectOptions config.distanceUnits selected=item.system.alcance localize=true}}
-			{{/select}}
+			{{selectOptions config.distanceUnits selected=item.system.alcance localize=true}}
 		</select>
 	</div>
 </div>
@@ -109,10 +94,7 @@
 			<input type="text" name="system.duracao.value" value="{{item.system.duracao.value}}" placeholder="{{ localize 'T20.Quantity' }}" />
 		{{/if}}
 		<select name="system.duracao.units">
-			{{#select item.system.duracao.units}}
-				<option value=""></option>
-				{{selectOptions config.timePeriods selected=item.system.circulo localize=true}}
-			{{/select}}
+			{{selectOptions config.timePeriods selected=item.system.circulo localize=true blank=''}}
 		</select>
 		{{#if (eq item.system.duracao.units "special")}}
 			<input type="text" name="system.duracao.special" value="{{item.system.duracao.special}}" placeholder="{{ localize 'T20.Description' }}" />

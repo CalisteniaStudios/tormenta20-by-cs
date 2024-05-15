@@ -1,0 +1,286 @@
+{
+  "_id": "kgD9swQEhzwDC1tb",
+  "name": "Alarme",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/alarme.webp",
+  "effects": [
+    {
+      "_id": "OYOQjSwW2hUP5Z3n",
+      "flags": {
+        "onuse": true,
+        "t20": null,
+        "tormenta20": {
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "2",
+          "durationScene": false,
+          "onuse": true
+        }
+      },
+      "changes": [
+        {
+          "key": "alcance",
+          "value": "pessoal",
+          "mode": 5,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/aura.svg",
+      "label": "muda o alcance para pessoal. A área é emanada a partir de você.",
+      "origin": "Item.6HxDuhAq9n3tmqTe",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!kgD9swQEhzwDC1tb.OYOQjSwW2hUP5Z3n"
+    },
+    {
+      "_id": "bfMpC2zKMn2fxsqt",
+      "flags": {
+        "onuse": true,
+        "t20": null,
+        "tormenta20": {
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "5",
+          "durationScene": false,
+          "onuse": true
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/aura.svg",
+      "label": "além do normal, você também percebe qualquer efeito de adivinhação que seja usado dentro da área ou atravesse a área. Você pode fazer um teste oposto de Misticismo contra quem usou o efeito; se passar, tem um vislumbre de seu rosto e uma ideia aproximada de sua localização (“três dias de viagem ao norte”, por exemplo).",
+      "origin": "Item.6HxDuhAq9n3tmqTe",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!kgD9swQEhzwDC1tb.bfMpC2zKMn2fxsqt"
+    },
+    {
+      "_id": "Z5HPTpIRymv7xenI",
+      "flags": {
+        "onuse": true,
+        "t20": null,
+        "tormenta20": {
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "9",
+          "durationScene": false,
+          "onuse": true,
+          "items": "",
+          "equipment": false
+        }
+      },
+      "changes": [
+        {
+          "key": "duracao",
+          "mode": 5,
+          "value": "1 dia ou até ser descarregada",
+          "priority": 0
+        },
+        {
+          "key": "resistência",
+          "mode": 5,
+          "value": "Vontade anula",
+          "priority": 0
+        },
+        {
+          "key": "condicao",
+          "mode": 0,
+          "value": "Paralisado",
+          "priority": 0
+        },
+        {
+          "key": "",
+          "mode": 2,
+          "value": "",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/aura.svg",
+      "label": "muda a duração para 1 dia ou até ser descarregada e a resistência para Vontade anula. Quando um intruso entra na área, você pode descarregar a magia. Se o intruso falhar na resistência, ficará paralisado por 1d4 rodadas. Além disso, pelas próximas 24 horas você e as criaturas escolhidas ganham +10 em testes de Sobrevivência para rastrear o intruso.",
+      "origin": "Item.6HxDuhAq9n3tmqTe",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!kgD9swQEhzwDC1tb.Z5HPTpIRymv7xenI"
+    },
+    {
+      "_id": "NXCJVw3Mkl7WfdsC",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/alarme.webp",
+      "label": "Alarme",
+      "origin": "Item.MqQCNZCfQCg7WIlh",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!kgD9swQEhzwDC1tb.NXCJVw3Mkl7WfdsC"
+    },
+    {
+      "_id": "aGkwkxy35YEqTAgL",
+      "changes": [
+        {
+          "key": "system.pericias.sobr.bonus",
+          "mode": 2,
+          "value": "10",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/alarme.webp",
+      "label": "Alarme (+10 para rastrear)",
+      "origin": "Item.MqQCNZCfQCg7WIlh",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!kgD9swQEhzwDC1tb.aGkwkxy35YEqTAgL"
+    }
+  ],
+  "folder": "OkpR6UdPNpR8mrad",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.X1EZvFTsMUrqQ4eJ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; cria uma barreira protetora invis&iacute;vel que detecta qualquer criatura que tocar ou entrar na &aacute;rea protegida. Ao lan&ccedil;ar a magia, voc&ecirc; pode escolher quais criaturas podem entrar na &aacute;rea sem ativar seus efeitos. <em>Alarme</em> pode emitir um aviso telep&aacute;tico ou sonoro, decidido quando a magia &eacute; lan&ccedil;ada. Um aviso telep&aacute;tico alerta apenas voc&ecirc;, inclusive acordando-o se estiver dormindo, mas apenas se estiver a at&eacute; 1km da &aacute;rea protegida. Um aviso sonoro alerta todas as criaturas em alcance longo.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 178 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 1,
+      "units": "day",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "",
+    "area": "Esfera de 9m de raio",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "int",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "arc",
+    "circulo": "1",
+    "preparada": false,
+    "escola": "abj",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310462797,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!kgD9swQEhzwDC1tb"
+}

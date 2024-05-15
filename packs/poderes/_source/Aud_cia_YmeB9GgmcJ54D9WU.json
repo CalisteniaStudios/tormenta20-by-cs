@@ -1,0 +1,136 @@
+{
+  "_id": "YmeB9GgmcJ54D9WU",
+  "name": "Audácia",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/especialistas/audacia.webp",
+  "effects": [
+    {
+      "_id": "vKUI4c2RbhCkoW9v",
+      "flags": {
+        "t20": null,
+        "ActiveAuras": {
+          "isAura": false,
+          "ignoreSelf": false,
+          "hidden": false,
+          "height": false,
+          "aura": "None",
+          "radius": null
+        },
+        "tormenta20": {
+          "onuse": true,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "2",
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "@car",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/classes/bucaneiro.webp",
+      "label": "Audácia",
+      "origin": "Item.Lu4oWVJzDJaekUsB",
+      "tint": null,
+      "transfer": true,
+      "_key": "!items.effects!YmeB9GgmcJ54D9WU.vKUI4c2RbhCkoW9v"
+    }
+  ],
+  "folder": "86kIqRb842xHRnBV",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.YmeB9GgmcJ54D9WU"
+    },
+    "tormenta20": {
+      "version": "1.3.0.0"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Quando faz um teste de per&iacute;cia, voc&ecirc; pode gastar 2 PM para somar seu Carisma no teste. Voc&ecirc; n&atilde;o pode usar esta habilidade em testes de ataque.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 47 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "for",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Bucaneiro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361717177,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!YmeB9GgmcJ54D9WU"
+}

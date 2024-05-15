@@ -11,11 +11,7 @@
 		<li class="flexrow flex2">
 			<label>{{localize 'T20.CreatureType'}}: </label>
 			<select class="selectAtr" name="system.detalhes.tipo">
-				{{#select system.detalhes.tipo}}
-				{{#each config.creatureTypes as |label type|}}
-				<option value="{{type}}">{{localize label}}</option>
-				{{/each}}
-				{{/select}}
+				{{selectOptions config.creatureTypes selected=system.detalhes.tipo}}
 			</select>
 		</li>
 		<li>
@@ -23,11 +19,7 @@
 		</li>
 		<li>
 			<select class="selectAtr" name="system.detalhes.role" title="{{ localize 'T20.Role'}}" >
-				{{#select system.detalhes.role}}
-				{{#each config.creatureRoles as |label type|}}
-				<option value="{{type}}">{{localize label}}</option>
-				{{/each}}
-				{{/select}}
+				{{selectOptions config.creatureRoles selected=system.detalhes.role}}
 			</select>
 		</li>
 	</ul>

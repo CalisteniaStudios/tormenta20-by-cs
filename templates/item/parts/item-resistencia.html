@@ -10,10 +10,7 @@
 	<label>{{ localize "T20.DCAbilityBonus" }}</label>
 	<div class="form-fields">
 		<select name="system.resistencia.atributo">
-			{{#select item.system.resistencia.atributo}}
-			<option value=""></option>
-			{{selectOptions config.atributos selected=item.system.resistencia.atributo localize=true}}
-			{{/select}}
+			{{selectOptions config.atributos selected=item.system.resistencia.atributo localize=true blank=''}}
 		</select>
 		<input type="text" name="system.resistencia.bonus" value="{{item.system.resistencia.bonus}}" data-dtype="Number" />
 	</div>

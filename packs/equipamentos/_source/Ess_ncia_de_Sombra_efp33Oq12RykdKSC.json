@@ -1,0 +1,144 @@
+{
+  "name": "Essência de Sombra",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/veneno.webp",
+  "effects": [
+    {
+      "label": "Essência de Sombra",
+      "icon": "systems/tormenta20/icons/itens/gerais/veneno.webp",
+      "origin": "Item.efp33Oq12RykdKSC",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "stc4x2ShKjXHF0jx",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!efp33Oq12RykdKSC.stc4x2ShKjXHF0jx"
+    }
+  ],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.2PVxgN7130JPQdK1",
+      "defaultPermission": 2,
+      "hash": "0a0cc3e0e0da2cace431934e7050ef4d0d05e262"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.sYvkh7lB4gQsRhPT"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Produzido a partir de compostos alqu&iacute;micos que canalizam energia de trevas.</p>\n<p><strong>Tipo: </strong><em>Contato.</em></p>\n<p><strong>Efeito:</strong><em> v&iacute;tima fica debilitada (fraca).</em></p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 161 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 100,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663051718699,
+    "modifiedTime": 1684617651448,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "efp33Oq12RykdKSC",
+  "folder": "bxpHxgHjOuykr5Rh",
+  "sort": 400000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!efp33Oq12RykdKSC"
+}

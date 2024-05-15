@@ -1,0 +1,178 @@
+{
+  "_id": "5WrlYKOHYLWpI9jD",
+  "name": "Fúria",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/combatentes/furia.webp",
+  "effects": [
+    {
+      "_id": "4qslmsqb7i46QNkE",
+      "flags": {
+        "t20": null,
+        "ActiveAuras": {
+          "isAura": false,
+          "ignoreSelf": false,
+          "hidden": false,
+          "height": false,
+          "aura": "None",
+          "radius": null
+        },
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": true,
+          "custo": "1",
+          "durationScene": false,
+          "items": "",
+          "equipment": false
+        }
+      },
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.cac",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        },
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumentar os bônus em +1.",
+      "origin": "Item.7KsLp4tzmWDJJbTL",
+      "tint": null,
+      "transfer": false,
+      "_key": "!items.effects!5WrlYKOHYLWpI9jD.4qslmsqb7i46QNkE"
+    },
+    {
+      "label": "Fúria",
+      "icon": "systems/tormenta20/icons/poderes/classes/combatentes/furia.webp",
+      "origin": "Item.z6CRj0mD1F8fmXBV",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "ivFBBzT74mDJAAqK",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.cac",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!5WrlYKOHYLWpI9jD.ivFBBzT74mDJAAqK"
+    }
+  ],
+  "folder": "UhsYJ0BvPTkMyG53",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.5WrlYKOHYLWpI9jD"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode gastar 2 PM para invocar uma f&uacute;ria selvagem. Voc&ecirc; recebe +2 em testes de ataque e rolagens de dano corpo a corpo, mas n&atilde;o pode fazer nenhuma a&ccedil;&atilde;o que exija calma e concentra&ccedil;&atilde;o (como usar a per&iacute;cia Furtividade ou lan&ccedil;ar magias). A cada cinco n&iacute;veis, pode gastar +1 PM para aumentar os b&ocirc;nus em +1.</p>\n<p style=\"text-align: justify;\">A F&uacute;ria termina se, ao fim da rodada, voc&ecirc; n&atilde;o tiver atacado nem sido alvo de um efeito (ataque, habilidade, magia...) hostil.</p>\n<p style=\"text-align: justify;\">&nbsp;</p>\n<p style=\"text-align: justify;\">&nbsp;</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 41 (JdA",
+    "ativacao": {
+      "execucao": "",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 10,
+      "units": "round",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Bárbaro",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1658361716794,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!5WrlYKOHYLWpI9jD"
+}

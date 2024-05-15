@@ -1,0 +1,126 @@
+{
+  "name": "Gritador",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/poderes/ameacas/gritador.webp",
+  "effects": [
+    {
+      "_id": "Nzx93ileTOT6jhFR",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.geral",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.dano.geral",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/perdicao.webp",
+      "label": "Gritador",
+      "origin": "Item.sMwaPJUeQEl5NK2f",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        },
+        "t20": null
+      },
+      "tint": null,
+      "_key": "!items.effects!f0LosNC45Jb0g0H7.Nzx93ileTOT6jhFR"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.FVpNBFNhi0XAVGXE"
+    },
+    "tormenta20": {
+      "version": "1.3.0.0"
+    },
+    "importid": "fStd1y5azxP3rRkt",
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Produz um ru&iacute;do ensurdecedor. Todas as criaturas em alcance curto escolhidas pelo goblin engenhoqueiro sofrem &minus;2 em testes de ataque e rolagens de dano at&eacute; o fim da cena.</p>",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "Criaturas Escolhidas",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": "nenhuma"
+    },
+    "rolls": [],
+    "tipo": "div",
+    "circulo": "1",
+    "preparada": false,
+    "escola": "nec",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1664310461780,
+    "modifiedTime": 1668270615330,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "f0LosNC45Jb0g0H7",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!f0LosNC45Jb0g0H7"
+}

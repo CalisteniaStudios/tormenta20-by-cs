@@ -1,0 +1,216 @@
+{
+  "_id": "sG4l65MMEA2JtHLq",
+  "name": "Aliado Animal",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/aliado-animal.webp",
+  "effects": [
+    {
+      "label": "Aliado Animal",
+      "icon": "systems/tormenta20/icons/magias/aliado-animal.webp",
+      "origin": "Item.sG4l65MMEA2JtHLq",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "6XMgwwGxVU0KntRm",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!sG4l65MMEA2JtHLq.6XMgwwGxVU0KntRm"
+    },
+    {
+      "label": "muda o alvo para 1 animal Minúsculo e a duração para 1 semana. Em vez do normal, o animal se desloca no melhor de suas capacidades até um local designado por você — em geral, para levar um item, carta ou similar. Quando o animal chega ao destino, fica esperando até o fim da magia, permitindo apenas que uma ou mais criaturas escolhidas por você se aproximem e peguem o que ele estiver carregando.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.sG4l65MMEA2JtHLq",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "1"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "pVIofb0DpfBqPSDV",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!sG4l65MMEA2JtHLq.pVIofb0DpfBqPSDV"
+    },
+    {
+      "label": "muda o parceiro para mestre. Requer 3º círculo.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.sG4l65MMEA2JtHLq",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "7"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "bxRMJ4TvSEXFSKAF",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!sG4l65MMEA2JtHLq.bxRMJ4TvSEXFSKAF"
+    },
+    {
+      "label": "muda o alvo para 2 animais prestativos. Cada animal funciona como um parceiro de um tipo diferente, e você pode receber a ajuda de ambos (mas ainda precisa seguir o limite de parceiros de acordo com o seu nível de personagem). Requer 4º círculo.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.sG4l65MMEA2JtHLq",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": "12"
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "ZVIHm9hZDKcoqONa",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!sG4l65MMEA2JtHLq.ZVIHm9hZDKcoqONa"
+    }
+  ],
+  "folder": "eDRs6rp0uirDl74f",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.vg3jzyGuVolBpvbZ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; cria um v&iacute;nculo mental com um animal prestativo em rela&ccedil;&atilde;o a voc&ecirc;. O <em>Aliado Animal</em> obedece a voc&ecirc; no melhor de suas capacidades, mesmo que isso arrisque a vida dele. Ele funciona como um parceiro veterano, de um tipo a sua escolha entre ajudante, combatente, fort&atilde;o, guardi&atilde;o, montaria ou perseguidor.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 178 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 3,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "day",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "1 animal prestativo",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "div",
+    "circulo": "2",
+    "preparada": false,
+    "escola": "enc",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310462819,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!sG4l65MMEA2JtHLq"
+}

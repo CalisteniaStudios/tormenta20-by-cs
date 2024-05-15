@@ -15,7 +15,7 @@ export default class StatblockParser extends FormApplication {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "statblock-parser",
 			classes: ["tormenta20"],
 			title: game.i18n.localize('T20.StatblockParser'),

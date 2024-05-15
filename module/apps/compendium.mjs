@@ -20,7 +20,7 @@ export default class CompendiumT20 extends Compendium {
 		if ( this.query ) {
 			const queryKey = Object.entries(this.query)[0][0];
 			const queryVal = Object.entries(this.query)[0][1];
-			context.index = context.index.filter(i => getProperty(i, queryKey) == queryVal);
+			context.index = context.index.filter(i => foundry.utils.getProperty(i, queryKey) == queryVal);
 		}
 		return context;
 	}

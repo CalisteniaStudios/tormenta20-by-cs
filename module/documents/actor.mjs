@@ -18,13 +18,13 @@ export default class ActorT20 extends Actor {
 	
 	/** @inheritdoc */
 	static migrateData(data) {
-		const start = deepClone(data);
+		const start = foundry.utils.deepClone(data);
 		actorMigration.migrateCreatureType(data);
 		actorMigration.migrateCRLevel(data);
 		actorMigration.migrateResistances(data);
 		
-		if( !isEmpty( foundry.utils.diffObject(start, data) ) ) {
-			setProperty(data,'flags.tormenta20.needCommit', true);
+		if( !foundry.utils.isEmpty( foundry.utils.diffObject(start, data) ) ) {
+			foundry.utils.setProperty(data,'flags.tormenta20.needCommit', true);
 		}
 		return super.migrateData(data);
 	}
@@ -136,11 +136,11 @@ export default class ActorT20 extends Actor {
 
 	/** @override */
 	prepareData() {
-		this.prepareBaseData();
-		this.preparePreDerivedData();
-		this.prepareEmbeddedDocuments();
+		super.prepareData();
+		// this.prepareBaseData();
+		// this.preparePreDerivedData();
+		// this.prepareEmbeddedDocuments();
 		this.preparePosDerivedData();
-		// super.prepareData();
 		
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
@@ -158,14 +158,19 @@ export default class ActorT20 extends Actor {
 		
 		switch (this.type) {
 			case "character":
-				return this._prepareCharacterData();
+				this._prepareCharacterData();
+				break;
 			case "npc":
-				return this._prepareNPCData();
+				this._prepareNPCData();
+				break;
 			case "vehicle":
-				return this._prepareVehicleData();
+				this._prepareVehicleData();
+				break;
 			case "simple":
-				return this._prepareSimpleActorData();
+				this._prepareSimpleActorData();
+				break;
 		}
+		this.preparePreDerivedData();
 	}
 
 	/* -------------------------------------------- */
@@ -266,7 +271,7 @@ export default class ActorT20 extends Actor {
 		
 		if ( this.getFlag("tormenta20", "lvlconfig") === undefined ){
 			let levelConfig = {
-				pv: { for: false, des: false, int: false, sab: false, car: false },
+				pv: { for: false, des: false, con: true , int: false, sab: false, car: false },
 				pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
 				pvBonus: ["0","0"],
 				pmBonus: ["0","0"],
@@ -275,7 +280,7 @@ export default class ActorT20 extends Actor {
 			baseFlags.tormenta20.lvlconfig = levelConfig;
 		}
 		baseFlags.tormenta20.sheet = sheetFlags;
-		if( !isEmpty(sheetFlags) ) mergeObject( flags, baseFlags );
+		if( !foundry.utils.isEmpty(sheetFlags) ) foundry.utils.mergeObject( flags, baseFlags );
 
 		const nivel = this.items.reduce((arr, item) => {
 			if (item.type === "classe") {
@@ -293,7 +298,7 @@ export default class ActorT20 extends Actor {
 		const anterior = this.getLevelExp(nivel - 1 || 0);
 		const necessario = xp.proximo - anterior;
 		const pct = Math.round((xp.value - anterior) * 100 / necessario);
-		xp.pct = Math.clamped(pct, 0, 100);
+		xp.pct = Math.clamp(pct, 0, 100);
 	}
 
 	/* -------------------------------------------- */
@@ -328,7 +333,7 @@ export default class ActorT20 extends Actor {
 		}
 
 		let baseFlags = { tormenta20: npcFlags };
-		if( !isEmpty(npcFlags) ) mergeObject( flags, baseFlags );
+		if( !foundry.utils.isEmpty(npcFlags) ) foundry.utils.mergeObject( flags, baseFlags );
 	}
 
 	/* -------------------------------------------- */
@@ -387,7 +392,7 @@ export default class ActorT20 extends Actor {
 		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
 		let atributo = rollData[defense.atributo];
 		if ( armor && armor.system.tipo == 'pesada' ) {
-			atributo = Math.clamped(atributo, 0, maxAtr);
+			atributo = Math.clamp(atributo, 0, maxAtr);
 		}
 
 		rollData['base'] = this.type == 'character' ? 10 : (defense.base || 10);
@@ -438,7 +443,7 @@ export default class ActorT20 extends Actor {
 		pericia.outros ? rollData['outros'] = pericia.outros : parts = parts.filter( f => f != '@outros');
 		pericia.condi ? rollData['condi'] = pericia.condi : parts = parts.filter( f => f != '@condi');
 		// GET GLOBAL ACTOR MODIFIERS
-		const bonuses = getProperty(system, "modificadores.pericias") || {};
+		const bonuses = foundry.utils.getProperty(system, "modificadores.pericias") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
 		if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
 		if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
@@ -500,7 +505,7 @@ export default class ActorT20 extends Actor {
 		// weight.value = Math.floor( weight.value );
 		if ( ["vehicle","simple"].includes(this.type) ){
 			weight.encumbered = weight > (weight.max / 2);
-			weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
+			weight.pct = Math.clamp((weight.value * 100) / weight.max, 0, 100);
 			return weight;
 		}
 		// Compute Encumbrance percentage
@@ -512,7 +517,7 @@ export default class ActorT20 extends Actor {
 		const limit = (Number(base) || 10) + ( atr > 0 ? atr * 2 : atr );
 		weight.max = limit * 2;
 		weight.encumbered = weight.value > limit;
-		weight.pct = Math.clamped((weight.value * 100) / weight.max, 0, 100);
+		weight.pct = Math.clamp((weight.value * 100) / weight.max, 0, 100);
 		return weight;
 	}
 
@@ -644,7 +649,7 @@ export default class ActorT20 extends Actor {
 			powers[k+'3'] = Math.floor( (powers[k] - 1) / 3);
 			powers[k+'4'] = Math.floor( (powers[k] - 1) / 4);
 		}
-		mergeObject(data, powers);
+		foundry.utils.mergeObject(data, powers);
 
 		// Set casting ability
 		/* TODO CLASS SPELLBOOK */
@@ -777,7 +782,7 @@ export default class ActorT20 extends Actor {
 		const system = game.settings.get("tormenta20", "gameSystem");
 		switch (system) {
 			case "Skyfall":
-				// const skills = mergeObject(this.system.pericias, {
+				// const skills = foundry.utils.mergeObject(this.system.pericias, {
 				// 	defe: { value: 0, atributo: "des" },
 				// 	ocul: { value: 0, atributo: "int" },
 				// });
@@ -792,6 +797,9 @@ export default class ActorT20 extends Actor {
 					for (let [key, ability] of Object.entries(this._source.system.atributos)) {
 						updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
 						updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
+					}
+					if (this.type == 'character') {
+						updateData['prototypeToken.actorLink'] = true;
 					}
 					// UPDATE NPC DEFENSE TO GOTY
 					if (this.type == 'npc') {
@@ -809,10 +817,10 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
-		// console.log(flattenObject(changed));
+		// console.log(foundry.utils.flattenObject(changed));
 		await super._preUpdate(changed, options, user);
 		// Apply changes in Actor size to Token width/height
-		const newSize = getProperty(changed, "system.tracos.tamanho");
+		const newSize = foundry.utils.getProperty(changed, "system.tracos.tamanho");
 		if (newSize && (newSize !== foundry.utils.getProperty(this.system, "tracos.tamanho"))) {
 			let size = CONFIG.T20.tokenSizes[newSize];
 			if (!foundry.utils.hasProperty(changed, "prototypeToken.width")) {
@@ -821,18 +829,18 @@ export default class ActorT20 extends Actor {
 				changed.prototypeToken.width = size;
 			}
 		}
-		const sheetClass = getProperty(changed, "flags.core.sheetClass");
+		const sheetClass = foundry.utils.getProperty(changed, "flags.core.sheetClass");
 		if( false && sheetClass && sheetClass == 'tormenta20.ActorSheetT20Builder' ){
-			setProperty(changed, 'flags.tormenta20.npcReform', true);
-			const builder = getProperty(this.system, "builder.attributes");
+			foundry.utils.setProperty(changed, 'flags.tormenta20.npcReform', true);
+			const builder = foundry.utils.getProperty(this.system, "builder.attributes");
 			if( !['0','1','2'].includes(builder.fort?.rank) ){
-				setProperty(changed, 'system.builder.attributes.fort.rank', '0');
+				foundry.utils.setProperty(changed, 'system.builder.attributes.fort.rank', '0');
 			}
 			if( !['0','1','2'].includes(builder.refl?.rank) ){
-				setProperty(changed, 'system.builder.attributes.refl.rank', '0');
+				foundry.utils.setProperty(changed, 'system.builder.attributes.refl.rank', '0');
 			}
 			if( !['0','1','2'].includes(builder.vont?.rank) ){
-				setProperty(changed, 'system.builder.attributes.vont.rank', '0');
+				foundry.utils.setProperty(changed, 'system.builder.attributes.vont.rank', '0');
 			}
 		}
 		// NPC REFORM
@@ -840,49 +848,49 @@ export default class ActorT20 extends Actor {
 			// TODO MAY NEED REFACTORING
 			let attributes = {};
 			let skills = {};
-			let cr = getProperty(changed, 'system.attributes.nd');
-			let defense = getProperty(changed, 'system.builder.attributes.defense.value');
-			let hp = getProperty(changed, 'system.builder.attributes.hp.value');
-			let mp = getProperty(changed, 'system.builder.attributes.mp.value');
-			let dc = getProperty(changed, 'system.builder.attributes.dc.value');
-			let fort = getProperty(changed, 'system.builder.attributes.fort.value');
-			let refl = getProperty(changed, 'system.builder.attributes.refl.value');
-			let vont = getProperty(changed, 'system.builder.attributes.vont.value');
+			let cr = foundry.utils.getProperty(changed, 'system.attributes.nd');
+			let defense = foundry.utils.getProperty(changed, 'system.builder.attributes.defense.value');
+			let hp = foundry.utils.getProperty(changed, 'system.builder.attributes.hp.value');
+			let mp = foundry.utils.getProperty(changed, 'system.builder.attributes.mp.value');
+			let dc = foundry.utils.getProperty(changed, 'system.builder.attributes.dc.value');
+			let fort = foundry.utils.getProperty(changed, 'system.builder.attributes.fort.value');
+			let refl = foundry.utils.getProperty(changed, 'system.builder.attributes.refl.value');
+			let vont = foundry.utils.getProperty(changed, 'system.builder.attributes.vont.value');
 
-			let _cr = getProperty(changed, 'system.attributes.nivel.value');
-			let _defense = getProperty(changed, 'system.attributes.defesa.base');
-			let _hp = getProperty(changed, 'system.attributes.pv.max');
-			let _mp = getProperty(changed, 'system.attributes.pm.max');
-			let _dc = getProperty(changed, 'system.attributes.dc');
-			let _fort = getProperty(changed, 'system.pericias.fort.outros');
-			let _refl = getProperty(changed, 'system.pericias.refl.outros');
-			let _vont = getProperty(changed, 'system.pericias.vont.outros');
-			if ( cr && (cr != getProperty(this.system, _cr)) ){
+			let _cr = foundry.utils.getProperty(changed, 'system.attributes.nivel.value');
+			let _defense = foundry.utils.getProperty(changed, 'system.attributes.defesa.base');
+			let _hp = foundry.utils.getProperty(changed, 'system.attributes.pv.max');
+			let _mp = foundry.utils.getProperty(changed, 'system.attributes.pm.max');
+			let _dc = foundry.utils.getProperty(changed, 'system.attributes.dc');
+			let _fort = foundry.utils.getProperty(changed, 'system.pericias.fort.outros');
+			let _refl = foundry.utils.getProperty(changed, 'system.pericias.refl.outros');
+			let _vont = foundry.utils.getProperty(changed, 'system.pericias.vont.outros');
+			if ( cr && (cr != foundry.utils.getProperty(this.system, _cr)) ){
 				attributes.nivel = {value: cr};
 			}
-			if ( defense && (defense != getProperty(this.system, _defense)) ){
+			if ( defense && (defense != foundry.utils.getProperty(this.system, _defense)) ){
 				attributes.defesa = {base: defense};
 			}
-			if ( hp && (hp != getProperty(this.system, _hp)) ){
+			if ( hp && (hp != foundry.utils.getProperty(this.system, _hp)) ){
 				attributes.pv = {max: hp};
 			}
-			if ( mp && (mp != getProperty(this.system, _mp)) ){
+			if ( mp && (mp != foundry.utils.getProperty(this.system, _mp)) ){
 				attributes.pm = {max: mp};
 			}
-			if ( dc && (dc != getProperty(this.system, _dc)) ){
+			if ( dc && (dc != foundry.utils.getProperty(this.system, _dc)) ){
 				attributes.cd = dc;
 			}
-			if ( fort && (fort != getProperty(this.system, _fort)) ){
+			if ( fort && (fort != foundry.utils.getProperty(this.system, _fort)) ){
 				skills.fort = {outros: fort};
 			}
-			if ( refl && (refl != getProperty(this.system, _refl)) ){
+			if ( refl && (refl != foundry.utils.getProperty(this.system, _refl)) ){
 				skills.refl = {outros: refl};
 			}
-			if ( vont && (vont != getProperty(this.system, _vont)) ){
+			if ( vont && (vont != foundry.utils.getProperty(this.system, _vont)) ){
 				skills.vont = {outros: vont};
 			}
-			if (!isEmpty(attributes)) changed.system.attributes = attributes;
-			if (!isEmpty(skills)) changed.system.pericias = skills;
+			if (!foundry.utils.isEmpty(attributes)) changed.system.attributes = attributes;
+			if (!foundry.utils.isEmpty(skills)) changed.system.pericias = skills;
 		}
 	}
 
@@ -951,9 +959,9 @@ export default class ActorT20 extends Actor {
 					choices.push(choice);
 				}
 			}
-			if ( !isEmpty(choices) && (userId == game.userId) ) {
+			if ( !foundry.utils.isEmpty(choices) && (userId == game.userId) ) {
 				let chosen = await ChoicesDialog.create( choices, this );
-				chosen = expandObject(chosen);
+				chosen = foundry.utils.expandObject(chosen);
 				for ( let [ id, c] of Object.entries(chosen) ){
 					let ef = this.effects.find( e => e.id == id );
 					for ( let [ key, value ] of Object.entries(c) ){
@@ -972,7 +980,7 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	async modifyTokenAttribute(attribute, value, isDelta, isBar) {
 		if (attribute === "attributes.pv" || attribute === "attributes.pm") {
-			const hp = getProperty(this.system, attribute);
+			const hp = foundry.utils.getProperty(this.system, attribute);
 			const delta = isDelta ? (-1 * value) : (hp.value + hp.temp) - value;
 			if( attribute === "attributes.pm" ){
 				return this.spendMana(delta);
@@ -1019,7 +1027,7 @@ export default class ActorT20 extends Actor {
 
 		// Apply Damage Reduction for each type of damage
 		let final = {
-			damage: 0,
+			damage: 0 - (rds.dano?.value ? rds.dano.value : 0),
 			total: 0,
 			tempHP: 0,
 			mana: 0,
@@ -1040,11 +1048,13 @@ export default class ActorT20 extends Actor {
 			} else {
 				let r = 0;
 				if( applyRD && type == 'dano' ){
-					r = Number( rds[type]?.value ?? 0 );
+					// r = Number( rds[type]?.value ?? 0 );
 				} else if( applyRD ) {
-					r = Number(rds.dano?.value ?? 0) + Number( rds[type]?.value ?? 0 );
+					// OLD: Number(rds.dano?.value ?? 0) +
+					// Somava RD do tipo 'dano' a todos os tipos;
+					r = Number( rds[type]?.value ?? 0 );
 				}
-				if( applyRD && !isEmpty(rdsEx) && !rdsEx[type] ) {
+				if( applyRD && !foundry.utils.isEmpty(rdsEx) && !rdsEx[type] ) {
 					r += Number(Object.values(rdsEx)[0]);
 				}
 				if( NPCVuln && rds[type]?.vulnerabilidade ){
@@ -1068,8 +1078,8 @@ export default class ActorT20 extends Actor {
 		const hpt = final.damage > 0 ? Math.min(tmpHP, final.damage) : 0;
 		const mpt = final.damage > 0 ? Math.min(tmpMP, final.mana) : 0;
 		// Remaining goes to attr
-		const dhp = Math.clamped(pv.value - (final.damage - hpt), pv.min, pv.max);
-		const dmp = Math.clamped(pm.value - (final.mana - mpt), pm.min, pm.max);
+		const dhp = Math.clamp(pv.value - (final.damage - hpt), pv.min, pv.max);
+		const dmp = Math.clamp(pm.value - (final.mana - mpt), pm.min, pm.max);
 
 		// Update the Actor
 		const updates = {
@@ -1153,7 +1163,7 @@ export default class ActorT20 extends Actor {
 		const dt = amount > 0 ? Math.min(tmp, amount) : 0;
 
 		// Remaining goes to health
-		const dh = Math.clamped(pv.value - (amount - dt), pv.min, pv.max);
+		const dh = Math.clamp(pv.value - (amount - dt), pv.min, pv.max);
 
 		// Update the Actor
 		const updates = {
@@ -1192,7 +1202,7 @@ export default class ActorT20 extends Actor {
 		if (recover) {
 			tmpPMspend = 0;
 			newSptAmount = amount;
-			spendMana = Math.clamped(pm.value + newSptAmount, 0, pm.max);
+			spendMana = Math.clamp(pm.value + newSptAmount, 0, pm.max);
 			chatMessage = `<i class="fas fa-user-plus"></i> +${newSptAmount} PM`;
 		} else {
 			amount = Math.floor(parseInt(amount) + adjust);
@@ -1201,7 +1211,7 @@ export default class ActorT20 extends Actor {
 			tmpPMspend = newSptAmount > 0 ? Math.min(tmpPM, newSptAmount) : 0;
 			chatMessage = `<i class="fas fa-user-minus"></i> ${newSptAmount} PMs`;
 			// Remove Mana
-			spendMana = Math.clamped(pm.value - (newSptAmount - tmpPMspend), 0, pm.max);
+			spendMana = Math.clamp(pm.value - (newSptAmount - tmpPMspend), 0, pm.max);
 		}
 		// Update the Actor
 		await this.update({
@@ -1225,7 +1235,7 @@ export default class ActorT20 extends Actor {
 	*/
 	async rollPericia(key, options = {message: true}) {
 		const actor = this;
-		const cloneActor = this.clone({name: `${this.name} (Temp)`},
+		const cloneActor = await this.clone({name: `${this.name} (Temp)`},
 																	{save: false, keepId: true});
 		let pericia = foundry.utils.deepClone( cloneActor.system.pericias[key] );
 		const ad = cloneActor.system;
@@ -1243,7 +1253,7 @@ export default class ActorT20 extends Actor {
 			system: {ativacao:{custo:0}},
 			isOwned: true,
 		}
-		itemData = mergeObject( itemData, pericia);
+		itemData = foundry.utils.mergeObject( itemData, pericia);
 		let parts = cloneActor._prepareSkills(key, pericia, true );
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
@@ -1257,7 +1267,7 @@ export default class ActorT20 extends Actor {
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create(itemData);
 			if (!configuration) return;
-			rConfig = mergeObject(rConfig, configuration);
+			rConfig = foundry.utils.mergeObject(rConfig, configuration);
 
 			rollMode = configuration.rollMode;
 		} else {
@@ -1272,7 +1282,7 @@ export default class ActorT20 extends Actor {
 		rConfig.itemData = itemData;
 		
 		// Compose roll options
-		const rollConfig = mergeObject({
+		const rollConfig = foundry.utils.mergeObject({
 			parts: rConfig.itemData?.parts.map(i => typeof i === "string" ? i.replace(/^\+| /, "") : i ).filter(Boolean) || [],
 			actor: cloneActor,
 			event: event,
@@ -1306,7 +1316,7 @@ export default class ActorT20 extends Actor {
 		
 		if( consumeMana ){
 			const manaUpdate = rConfig.itemData.system.ativacao.custo;
-			if ( !isEmpty(manaUpdate) ) {
+			if ( !foundry.utils.isEmpty(manaUpdate) ) {
 				this.spendMana(manaUpdate, 0, false);
 			}
 		}
@@ -1341,7 +1351,7 @@ export default class ActorT20 extends Actor {
 		const parts = ["1d20",`@${key}`];
 
 		// Add global actor bonus GERAL | FISICOS | MENTAIS | KEY
-		const bonuses = getProperty(this.system, "modificadores.atributos") || {};
+		const bonuses = foundry.utils.getProperty(this.system, "modificadores.atributos") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@atributo");
 		if (["for", "des", "con"].includes(key) && bonuses.fisicos.filter(Boolean).length) parts.push("@fisicos");
 		if (["int", "sab", "car"].includes(key) && bonuses.mentais.filter(Boolean).length) parts.push("@mentais");
@@ -1376,7 +1386,7 @@ export default class ActorT20 extends Actor {
 		if( needsConfiguration ){
 			configuration = await AbilityUseDialog.create(itemData);
 			if (!configuration) return;
-			rConfig = mergeObject(rConfig, configuration);
+			rConfig = foundry.utils.mergeObject(rConfig, configuration);
 			
 			if ( configuration.bonus ) parts.push( configuration.bonus );
 			rollMode = configuration.rollMode;
@@ -1392,7 +1402,7 @@ export default class ActorT20 extends Actor {
 		}
 		rConfig.itemData = itemData;
 		// rollData
-		const rollConfig = mergeObject({
+		const rollConfig = foundry.utils.mergeObject({
 			parts: parts.filter(Boolean),
 			data: this.getRollData(),
 			event: event,
@@ -1409,7 +1419,7 @@ export default class ActorT20 extends Actor {
 		
 		if( consumeMana ){
 			const manaUpdate = rConfig.itemData.system.ativacao.custo;
-			if ( !isEmpty(manaUpdate) ) {
+			if ( !foundry.utils.isEmpty(manaUpdate) ) {
 				this.spendMana(manaUpdate, 0, false);
 			}
 		}

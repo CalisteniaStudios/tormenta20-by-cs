@@ -1,0 +1,116 @@
+{
+  "_id": "2IgYxeYjSZTa0b3z",
+  "name": "Aura de Invencibilidade",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/classes/paladino.webp",
+  "effects": [
+    {
+      "label": "Aura de Invencibilidade.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.2IgYxeYjSZTa0b3z",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "spell": false,
+          "consumable": false,
+          "items": "aura sagrada",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "fcQ6LO5tdkk2Hfhq",
+      "changes": [],
+      "transfer": true,
+      "_key": "!items.effects!2IgYxeYjSZTa0b3z.fcQ6LO5tdkk2Hfhq"
+    }
+  ],
+  "folder": "VwM7ZxttHPFuX6M4",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.2IgYxeYjSZTa0b3z"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Enquanto sua aura estiver ativa, voc&ecirc; ignora o primeiro dano que sofrer na cena. O mesmo se aplica a seus aliados dentro da aura.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisito:</em> 18&deg; n&iacute;vel de paladino.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 83 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "classe",
+    "subtipo": "Paladino",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183300,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!2IgYxeYjSZTa0b3z"
+}

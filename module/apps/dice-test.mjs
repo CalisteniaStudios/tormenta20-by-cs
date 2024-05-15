@@ -11,7 +11,7 @@ export default class DiceTest extends FormApplication {
 	
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "dice-test",
 			classes: ["tormenta20"],
 			title: 'dice-test',
@@ -40,8 +40,8 @@ export default class DiceTest extends FormApplication {
 	
 	addTerm(event){
 		console.log(event);
-		// r.terms.push(new OperatorTerm({operator:'+'}))
-		// r.terms.push(new Die({number: 4, faces: 8}))
+		// r.terms.push(new foundry.dice.terms.OperatorTerm({operator:'+'}))
+		// r.terms.push(new foundry.dice.terms.Die({number: 4, faces: 8}))
 	}
 
 	deleteTerm(event){

@@ -1,7 +1,7 @@
 export default class LevelSettings extends FormApplication {
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "trait-selector",
 			classes: ["tormenta20"],
 			title: "Configuração de Nível",
@@ -44,7 +44,7 @@ export default class LevelSettings extends FormApplication {
 	}
 
 	async _updateObject(event, formData) {
-		const data = expandObject(formData);
+		const data = foundry.utils.expandObject(formData);
 		delete data.classes;
 		await this.object.setFlag("tormenta20", "lvlconfig", data);
 		return;

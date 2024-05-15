@@ -1,0 +1,323 @@
+{
+  "name": "Dente-de-Dragão",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/dente-de-dragao.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Uma flor comum em regi&otilde;es montanhosas, especialmente nas Sanguin&aacute;rias, possui formato parecido com uma presa de monstro. Suas propriedades m&iacute;sticas aumentam o dano de magias em um dado do mesmo tipo.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 161 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0.1,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 30,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "alchemy",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "subtipo": "",
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Dente-de-Dragão (1d4).",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.MT4QgnaAwWgr4pet",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "mhMNYFNWFT6UyhFS",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d4",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!JgHtHH40AcZqCRg1.mhMNYFNWFT6UyhFS"
+    },
+    {
+      "label": "Dente-de-Dragão (1d6).",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.JgHtHH40AcZqCRg1",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "5b0bqnhG3aIoRDGi",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d6",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!JgHtHH40AcZqCRg1.5b0bqnhG3aIoRDGi"
+    },
+    {
+      "label": "Dente-de-Dragão (1d8).",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.JgHtHH40AcZqCRg1",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "9hrm4iG7xdhTgJ5N",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d8",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!JgHtHH40AcZqCRg1.9hrm4iG7xdhTgJ5N"
+    },
+    {
+      "label": "Dente-de-Dragão (1d10).",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.JgHtHH40AcZqCRg1",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "8SzYgaQgaiBnIJPe",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d10",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!JgHtHH40AcZqCRg1.8SzYgaQgaiBnIJPe"
+    },
+    {
+      "label": "Dente-de-Dragão (1d12).",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.JgHtHH40AcZqCRg1",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": true,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "lSw0RPtIiEXJd2Gm",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d12",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!JgHtHH40AcZqCRg1.lSw0RPtIiEXJd2Gm"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663365561715,
+    "modifiedTime": 1684617447745,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "JgHtHH40AcZqCRg1",
+  "folder": "QiIu6dfsnRA5FIHj",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!JgHtHH40AcZqCRg1"
+}

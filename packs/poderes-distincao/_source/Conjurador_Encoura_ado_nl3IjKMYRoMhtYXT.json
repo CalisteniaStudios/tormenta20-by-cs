@@ -1,0 +1,82 @@
+{
+  "name": "Conjurador Encouraçado",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Como uma fortaleza m&oacute;vel no campo de batalha, o arcano de guerra avan&ccedil;a implac&aacute;vel, despejando morte e destrui&ccedil;&atilde;o sobre seus inimigos.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Voc&ecirc; recebe profici&ecirc;ncia em armaduras pesadas e &eacute; capaz de lan&ccedil;ar magias arcanas sem precisar fazer testes de Misticismo enquanto veste armaduras.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Pr&eacute;-requisitos: Conjura&ccedil;&atilde;o Magib&eacute;lica, Vitalidade.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 36-37",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Arcano de Guerra",
+    "origin": "",
+    "tags": [
+      "ArcanodeGuerra"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "nl3IjKMYRoMhtYXT",
+  "folder": "XTLQDvRqYbTCPiCK",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!nl3IjKMYRoMhtYXT"
+}

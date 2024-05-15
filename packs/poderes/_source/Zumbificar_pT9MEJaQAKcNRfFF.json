@@ -1,0 +1,80 @@
+{
+  "name": "Zumbificar",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/concedidos-trevas.webp",
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.H44C0wAQby5qnVrx"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 3 PM para reanimar o cad&aacute;ver de uma criatura Pequena ou M&eacute;dia adjacente por um dia. O cad&aacute;ver funciona como um parceiro iniciante de um tipo a sua escolha entre combatente, fort&atilde;o ou guardi&atilde;o. Al&eacute;m disso, quando sofre dano, voc&ecirc; pode sacrificar esse parceiro; se fizer isso, voc&ecirc; sofre apenas metade do dano, mas o cad&aacute;ver &eacute; destru&iacute;do.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 136 (JdA)",
+    "ativacao": {
+      "execucao": "full",
+      "custo": 3,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "concedido",
+    "subtipo": "Trevas",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183900,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "pT9MEJaQAKcNRfFF",
+  "folder": "vjNvA2uCSyNhVjrU",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!pT9MEJaQAKcNRfFF"
+}

@@ -1,0 +1,82 @@
+{
+  "name": "Duro na Queda",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">O xerife do Sol est&aacute; acostumado a receber os mais severos golpes e mesmo assim continuar de p&eacute;; ele sabe que, se cair, ningu&eacute;m ir&aacute; ajud&aacute;-lo.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Uma vez por rodada, quando sofre dano, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 1 PM para receber resist&ecirc;ncia a dano 5 at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno. Para cada dois outros poderes de xerife do Sol, voc&ecirc; pode gastar +1 PM quando usa este poder para aumentar em +5 a RD recebida.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> Eu Sou a Lei, Vitalidade.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 33-35",
+    "ativacao": {
+      "execucao": "reaction",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Xerife do Sol",
+    "origin": "",
+    "tags": [
+      "XerifedoSol"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Item.HkVDWzvGSMxF3Yx8"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667083101946,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "BGHJy9PzdrgLuzie",
+  "folder": "TcfLBMkSXCsZliFQ",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!BGHJy9PzdrgLuzie"
+}

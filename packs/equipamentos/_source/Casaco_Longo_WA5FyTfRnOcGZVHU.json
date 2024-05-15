@@ -1,0 +1,131 @@
+{
+  "name": "Casaco Longo",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/gerais/casaco-longo.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Feito de peles ou couro grosso forrado com l&atilde;, e impermeabilizado com &oacute;leo, este casaco &eacute; quente e pesado. Fornece +5 em testes de Fortitude para resistir a efeitos de frio, mas imp&otilde;e penalidade de armadura de &ndash;2.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 159 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "body"
+    },
+    "carregado": true,
+    "peso": 1.5,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 20,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "traje",
+    "armadura": {
+      "value": 0,
+      "penalidade": -2,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "ativacao": {
+      "custo": null,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "effects": [
+    {
+      "label": "Casaco Longo: +5 em testes de fortitude contra efeitos de clima frio.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.WA5FyTfRnOcGZVHU",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": true,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "UDasoC17Jvb6wdWS",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "5",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!WA5FyTfRnOcGZVHU.UDasoC17Jvb6wdWS"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Item.oZlDoq0HxOucTgGK"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1663532558587,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "WA5FyTfRnOcGZVHU",
+  "folder": "3kNyXnAknru6qWyM",
+  "sort": 1500000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!WA5FyTfRnOcGZVHU"
+}

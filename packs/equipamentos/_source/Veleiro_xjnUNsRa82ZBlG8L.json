@@ -1,0 +1,97 @@
+{
+  "name": "Veleiro",
+  "type": "tesouro",
+  "img": "systems/tormenta20/icons/itens/gerais/veleiro.webp",
+  "system": {
+    "description": {
+      "value": "<p><span class=\"fontstyle0\">Com tr&ecirc;s mastros, &eacute; o t&iacute;pico navio de viagem, muito popular entre mercadores.</span> </p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 163 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0,
+    "qtd": 1,
+    "preco": 10000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "container": false,
+    "rolls": [],
+    "origin": "",
+    "chatFlavor": "",
+    "tags": [],
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "amount": 0,
+      "mpMultiplier": false,
+      "target": "",
+      "type": ""
+    },
+    "duracao": {
+      "units": "",
+      "value": 0,
+      "special": ""
+    },
+    "range": {
+      "units": "",
+      "value": 0
+    },
+    "target": {
+      "type": "",
+      "value": 0,
+      "width": 0
+    },
+    "alcance": "",
+    "alvo": "",
+    "area": "",
+    "efeito": "",
+    "resistencia": {
+      "txt": "",
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0
+    }
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "tormentaverse",
+      "system": "tormenta20",
+      "coreVersion": "10.286",
+      "systemVersion": "1.4.006"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": null,
+    "modifiedTime": 1684618123345,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "xjnUNsRa82ZBlG8L",
+  "folder": "hmV5qDTRHMohkjKb",
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!xjnUNsRa82ZBlG8L"
+}

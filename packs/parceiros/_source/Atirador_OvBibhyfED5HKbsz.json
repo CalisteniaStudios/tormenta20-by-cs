@@ -1,0 +1,214 @@
+{
+  "name": "Atirador",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/itens/gerais/parceiros.webp",
+  "effects": [
+    {
+      "label": "Atirador Iniciante: +1d6 em dano a distância.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.OvBibhyfED5HKbsz",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "aGKHyfe3ZIFotFPH",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d6",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!OvBibhyfED5HKbsz.aGKHyfe3ZIFotFPH"
+    },
+    {
+      "label": "Atirador Veterano: +1d10 em dano a distância.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.OvBibhyfED5HKbsz",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "WqqplYGsgxfWlEgm",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "1d10",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!OvBibhyfED5HKbsz.WqqplYGsgxfWlEgm"
+    },
+    {
+      "label": "Atirador Mestre: +2d8 em dano a distância.",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.OvBibhyfED5HKbsz",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": true,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "items": "",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "SBHFvdLgWNHSVRCs",
+      "changes": [
+        {
+          "key": "dano",
+          "mode": 2,
+          "value": "2d8",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!OvBibhyfED5HKbsz.SBHFvdLgWNHSVRCs"
+    }
+  ],
+  "flags": {
+    "scene-packer": {
+      "sourceId": "Item.rOO6U1bkk4xrlize",
+      "defaultPermission": 2,
+      "hash": "489a612a8235f62cd560028b82b1bf4c35524979"
+    },
+    "cf": null,
+    "core": {
+      "sourceId": "Compendium.world.world-arielton-1663050699947.Y57phnZDw4ejnfas"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Cada parceiro pode ajudar apenas um personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro personagem em alcance curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>\n<p>Um arqueiro, besteiro ou outro combatente &agrave; dist&acirc;ncia.</p>\n<p><strong>Iniciante</strong>: uma vez por rodada, voc&ecirc; recebe +1d6 em rolagens de dano &agrave; dist&acirc;ncia.</p>\n<p><strong>Veterano</strong>: muda para +1d10.</p>\n<p><strong>Mestre</strong>: muda para +2d8.</p>\n<p>Esse b&ocirc;nus de dano pode ser utilizado apenas em um ataque por rodada.</p>",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 261 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "geral",
+    "subtipo": "Parceiros",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1663051700555,
+    "modifiedTime": 1668270847523,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "OvBibhyfED5HKbsz",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!OvBibhyfED5HKbsz"
+}

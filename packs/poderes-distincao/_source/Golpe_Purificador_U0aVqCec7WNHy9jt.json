@@ -1,0 +1,78 @@
+{
+  "name": "Golpe Purificador",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">O poder divino do inquisidor pode remover o efeito de uma magia em andamento.</p>\n</blockquote>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Quando faz um ataque corpo a corpo, voc&ecirc; pode gastar 2 PM para desferir um golpe purificador. Voc&ecirc; soma seu b&ocirc;nus de Carisma no teste de ataque e, se acertar, gera o efeito b&aacute;sico da magia @UUID[Item.rfTGYwrXLjcIAIP5]{Dissipar Magia}&nbsp; tendo como alvo a criatura atingida.</p>\n<p class=\"MsoNormal\" style=\"text-align: justify;\">Pr&eacute;-requisito: Ben&ccedil;&atilde;o Arcana.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 26-27",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Inquisidor da Magia",
+    "origin": "",
+    "tags": [
+      "InquisidordaMagia"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1667076732160,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "U0aVqCec7WNHy9jt",
+  "folder": "bDWqZH90EQD7dlfe",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!U0aVqCec7WNHy9jt"
+}

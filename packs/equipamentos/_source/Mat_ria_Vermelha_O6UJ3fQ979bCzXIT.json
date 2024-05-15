@@ -1,0 +1,114 @@
+{
+  "name": "Matéria Vermelha",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/gerais/materia-vermelha.webp",
+  "system": {
+    "description": {
+      "value": "<p><span class=\"fontstyle0\"><strong style=\"text-align: justify;\">[Material Especial]</strong></span></p>\n<p>Qualquer material de origem aberrante &mdash; desde suas garras e carapa&ccedil;as, at&eacute; min&eacute;rios e partes de estruturas encontradas em &aacute;reas de Tormenta &mdash; apresenta propriedades parecidas, sendo conhecido como &ldquo;mat&eacute;ria vermelha&rdquo;. Estes itens assustadores imp&otilde;em ao usu&aacute;rio penalidade de &ndash;2 em per&iacute;cias baseadas em Carisma (exceto Intimida&ccedil;&atilde;o).<br><strong>Arma.</strong> Causa +1d6 de dano extra. Por&eacute;m, sempre que voc&ecirc; acerta um ataque com a arma, perde 1 ponto de vida. Aberrantes s&atilde;o imunes tanto ao dano adicional de mat&eacute;ria vermelha quanto &agrave; perda de vida por usar armas desse material.<br><strong>Armadura e Escudo.</strong> Por sua apar&ecirc;ncia &ldquo;borrada&rdquo;, fornecem chance de falha para cada ataque: 10% para escudos e armaduras leves, 25% para armaduras pesadas (cumulativas entre si). Aberrante ignoram este efeito.<br><strong>Esot&eacute;rico.</strong> Voc&ecirc; e todos os seus inimigos em alcance curto sofrem &ndash;2 em testes de resist&ecirc;ncia contra efeitos m&aacute;gicos.</p>\n<p>&nbsp;</p>\n<p><span class=\"fontstyle0\"><strong style=\"text-align: justify;\">Pre&ccedil;o:</strong></span></p>\n<p><span class=\"fontstyle0\"><span style=\"text-align: justify;\">Armas:&nbsp; +T$ 1500</span></span></p>\n<p><span class=\"fontstyle0\"><span style=\"text-align: justify;\">Armaduras pesadas:&nbsp;<span style=\"font-family: var(--font-primary); font-size: var(--font-size-14);\">+T$ 18000</span></span></span></p>\n<p><span class=\"fontstyle0\"><span style=\"text-align: justify;\">Armaduras leves e Escudo:&nbsp; +T$ 6000</span></span></p>\n<p><span class=\"fontstyle0\"><span style=\"text-align: justify;\">Esot&eacute;ricos: <span style=\"font-family: var(--font-primary); font-size: var(--font-size-14);\">+T$ 3000</span></span></span></p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 167 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 18000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "material",
+    "uses": {
+      "autoDestroy": false
+    },
+    "chatFlavor": "",
+    "origin": "",
+    "subtipo": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "tormentaverse",
+      "system": "tormenta20",
+      "coreVersion": "10.286",
+      "systemVersion": "1.4.006"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.200",
+    "coreVersion": "11.299",
+    "createdTime": null,
+    "modifiedTime": 1685245429236,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "O6UJ3fQ979bCzXIT",
+  "folder": "xqMxYK1BhlZ6ktNc",
+  "sort": 500000,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!O6UJ3fQ979bCzXIT"
+}

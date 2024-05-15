@@ -1,0 +1,175 @@
+{
+  "name": "Atributos - Lefou",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/lefou.webp",
+  "effects": [
+    {
+      "_id": "E36WkUZzBOStSU3u",
+      "changes": [
+        {
+          "key": "roll",
+          "mode": 2,
+          "value": "5",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "Cria da Tormenta",
+      "origin": "Item.11k8G1dbmvyRYcFr",
+      "transfer": true,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "skill": true,
+          "self": false,
+          "attack": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": false,
+          "custo": "",
+          "durationScene": false
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!Qm9q8wlabF5yEyuk.E36WkUZzBOStSU3u"
+    },
+    {
+      "label": "Atributos - Lefou",
+      "icon": "systems/tormenta20/icons/racas/lefou.webp",
+      "origin": "Item.dFy9izFnNFnEkFFB",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "BHmyU8E26KrxAluK",
+      "changes": [
+        {
+          "key": "system.atributos.???.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.???.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.???.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.car.value",
+          "mode": 2,
+          "value": "-1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!Qm9q8wlabF5yEyuk.BHmyU8E26KrxAluK"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.THViIBP6Jy53moVQ"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">+1 em Tr&ecirc;s Atributos Diferentes (exceto Carisma), Carisma-1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 24 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Lefou",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3,
+    "jJlhMQyjTGPyLMsV": 3
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184312,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "folder": "nUJwKGomhoD2p4J3",
+  "sort": 0,
+  "_id": "Qm9q8wlabF5yEyuk",
+  "_key": "!items!Qm9q8wlabF5yEyuk"
+}

@@ -1,0 +1,80 @@
+{
+  "_id": "1yGTB9tyXXSaN1wS",
+  "name": "Escudo pesado",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/equipamentos/escudo-pesado.webp",
+  "effects": [],
+  "folder": "KTYYM7B9o8xVYRLQ",
+  "sort": 100391,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos.1yGTB9tyXXSaN1wS"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Normalmente feito de aço, este escudo é preso ao antebraço  e  também  deve  ser  empunhado com firmeza, impedindo o usuário de usar aquela mão.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 154 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": "hand"
+    },
+    "carregado": true,
+    "peso": 7,
+    "espacos": 2,
+    "qtd": 1,
+    "preco": 15,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "escudo",
+    "armadura": {
+      "value": 2,
+      "penalidade": -2,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664312772390,
+    "modifiedTime": 1684809353177,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!1yGTB9tyXXSaN1wS"
+}

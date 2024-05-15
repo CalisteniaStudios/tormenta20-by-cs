@@ -1,0 +1,76 @@
+{
+  "name": "Percepção Temporal",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/ameacas/percepcao-temporal.webp",
+  "system": {
+    "description": {
+      "value": "<p>Um lefeu soma sua Sabedoria em testes de ataque, Defesa e Reflexos (j&aacute; contabilizado na ficha).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.203d2",
+    "coreVersion": "11.315",
+    "createdTime": 1666319947131,
+    "modifiedTime": 1700000302279,
+    "lastModifiedBy": "5frcpPVF3cVfLwZA"
+  },
+  "_id": "5hX4IRxSL81T6Oo8",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!5hX4IRxSL81T6Oo8"
+}

@@ -1,0 +1,136 @@
+{
+  "name": "Adaga Aberrante",
+  "type": "arma",
+  "img": "systems/tormenta20/icons/poderes/ameacas/adaga-aberrante.webp",
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Esta &eacute; uma arma m&aacute;gica espec&iacute;fica que conta como uma adaga formid&aacute;vel tumular. Sua l&acirc;mina &eacute; longa e ondulada e seu cabo lembra uma carapa&ccedil;a. A adaga secreta muco adesivo pelo cabo, que mant&eacute;m a arma firme na m&atilde;o, fornecendo +5 em testes contra desarmar. Soltar uma adaga da Tormenta gasta uma a&ccedil;&atilde;o de movimento.</p>",
+      "unidentified": ""
+    },
+    "source": "",
+    "equipado": 0,
+    "carregado": true,
+    "peso": 0,
+    "espacos": 0,
+    "qtd": 1,
+    "preco": 0,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "rolls": [
+      {
+        "name": "Ataque",
+        "key": "ataque0",
+        "type": "ataque",
+        "parts": [
+          [
+            "1d20",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            ""
+          ],
+          [
+            "1",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      },
+      {
+        "name": "Dano",
+        "key": "dano1",
+        "type": "dano",
+        "parts": [
+          [
+            "1d4",
+            "perfuracao",
+            ""
+          ],
+          [
+            "",
+            "",
+            ""
+          ]
+        ],
+        "versatil": ""
+      }
+    ],
+    "criticoM": 20,
+    "criticoX": 2,
+    "alcance": "",
+    "tipoUso": "sim",
+    "propriedades": {
+      "ada": false,
+      "agi": false,
+      "alo": false,
+      "arr": false,
+      "dst": false,
+      "dms": false,
+      "dup": false,
+      "lev": false,
+      "mun": false,
+      "ver": false,
+      "des": false
+    },
+    "proficiencia": "simples",
+    "proposito": "corpo-a-corpo",
+    "empunhadura": "uma",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "consume": {
+      "amount": 0,
+      "mpMultiplier": false,
+      "target": "",
+      "type": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "formidable",
+      "encanto2": "sepulchral",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "size": "normal",
+    "ataques": 0
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.101",
+    "coreVersion": "10.288",
+    "createdTime": 1667029401568,
+    "modifiedTime": 1668270615327,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_id": "MGWZ4GvcEIvWPpA8",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!MGWZ4GvcEIvWPpA8"
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Chuva de Flechas",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">O arqueiro arcano aprende a utilizar sua magia para multiplicar suas flechas sobre seus inimigos.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 2 PM para disparar uma flecha em cada inimigo (at&eacute; o m&aacute;ximo de seu modificador de atributo-chave para magias arcanas). Fa&ccedil;a um ataque &agrave; dist&acirc;ncia com seu arco e compare-o com a Defesa de cada inimigo escolhido. Ent&atilde;o fa&ccedil;a uma &uacute;nica rolagem de dano e aplique-a em cada inimigo atingido.</p>\n<p style=\"text-align: justify;\"><em>Pr&eacute;-requisitos:</em> lan&ccedil;ar magias arcanas de 3&ordm; c&iacute;rculo, Arco Arcano.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 16",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 2,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "inst",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Arqueiro Arcano",
+    "origin": "",
+    "tags": [
+      "Magico",
+      "ArqueiroArcano"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665856654745,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "bbUYPYiBz9xFOfhO",
+  "folder": "Rj1a3BRGbCJZHIUT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!bbUYPYiBz9xFOfhO"
+}

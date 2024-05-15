@@ -1,0 +1,145 @@
+{
+  "name": "Domínio de Terreno: Montanha",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p>Outros exploradores conhecem determinados tipos de terreno. O andarilho do horizonte os domina.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Escolha dois tipos de terreno entre os tipos a seguir. Voc&ecirc; recebe os benef&iacute;cios dos tipos escolhidos mesmo que n&atilde;o esteja neste terreno. Voc&ecirc; pode escolher este poder outras vezes para terrenos diferentes. <em>Pr&eacute;-requisitos:</em> treinado em Conhecimento, Fortitude e Sobreviv&ecirc;ncia.</p>\n<p style=\"text-align: justify;\"><strong>Montanha.</strong> Voc&ecirc; recebe deslocamento de escalada 9m. Se j&aacute; possui deslocamento de escalada, ele se torna 9m ou aumenta em +3m (o que for maior).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 12",
+    "ativacao": {
+      "execucao": "passive",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Andarilho do Horizonte",
+    "origin": "",
+    "tags": [
+      "AndarilhodoHorizonte"
+    ],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "effects": [
+    {
+      "label": "Deslocamento escalada 9m",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.z3jWvODx94urdqJ7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "RXOzxRIBBtW15uyE",
+      "changes": [
+        {
+          "key": "system.attributes.movement.climb",
+          "mode": 5,
+          "value": "9",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!z3jWvODx94urdqJ7.RXOzxRIBBtW15uyE"
+    },
+    {
+      "label": "+3m de escalada, se já for 9m",
+      "icon": "systems/tormenta20/icons/poderes/distincao.webp",
+      "origin": "Item.z3jWvODx94urdqJ7",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "adI49lWVBUWljR9M",
+      "changes": [
+        {
+          "key": "system.attributes.movement.climb",
+          "mode": 2,
+          "value": "3",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!z3jWvODx94urdqJ7.adI49lWVBUWljR9M"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1665850170299,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "z3jWvODx94urdqJ7",
+  "folder": "CivN4iqFKpA5ogfm",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!z3jWvODx94urdqJ7"
+}

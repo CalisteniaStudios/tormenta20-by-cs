@@ -1,0 +1,128 @@
+{
+  "_id": "02q1pu5Oyj3LtvZx",
+  "name": "Poção de Concentração de Combate (cena)",
+  "type": "consumivel",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/pocao.webp",
+  "effects": [
+    {
+      "label": "Concentração de Combate (cena)",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/pocao.webp",
+      "origin": "Item.02q1pu5Oyj3LtvZx",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "duration": {
+        "rounds": null,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "YWYwq1NZ8eFMclyQ",
+      "changes": [],
+      "transfer": false,
+      "_key": "!items.effects!02q1pu5Oyj3LtvZx.YWYwq1NZ8eFMclyQ"
+    }
+  ],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "importid": "vEWUeZsapLe9fyPa",
+    "core": {
+      "sourceId": "Compendium.tormenta20.pocoes.02q1pu5Oyj3LtvZx"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align:justify;\">Voc&ecirc; amplia sua percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando brechas em sua defesa. Quando faz um ataque, voc&ecirc; rola dois dados e usa o melhor resultado.</p>",
+      "unidentified": ""
+    },
+    "source": "",
+    "carregado": true,
+    "peso": 0.5,
+    "espacos": 0.5,
+    "qtd": 1,
+    "preco": 270,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "ativacao": {
+      "execucao": "action",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "touch",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "potion",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": "",
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "melhorias": {},
+    "encantos": {},
+    "subtipo": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664314007030,
+    "modifiedTime": 1667351628037,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!items!02q1pu5Oyj3LtvZx"
+}

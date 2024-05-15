@@ -1,0 +1,157 @@
+{
+  "_id": "HhO0oqwrgIBaUq8K",
+  "name": "Gritar Ordens",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/especialistas/gritar-ordens.webp",
+  "effects": [
+    {
+      "_id": "QvyGGYdG7eHpb92I",
+      "changes": [
+        {
+          "key": "system.pericias.modificadores.geral",
+          "mode": 2,
+          "value": "1",
+          "priority": 0
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "gritar ordens",
+      "origin": "Item.AyYNmfar0uOivyhu",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": false,
+          "spell": false,
+          "consumable": false,
+          "aumenta": true,
+          "custo": "1",
+          "durationScene": false,
+          "items": ""
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!HhO0oqwrgIBaUq8K.QvyGGYdG7eHpb92I"
+    },
+    {
+      "label": "Gritar Ordens",
+      "icon": "systems/tormenta20/icons/classes/nobre.webp",
+      "origin": "Item.HhO0oqwrgIBaUq8K",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "lGk1uUjNlLKbcmEO",
+      "changes": [
+        {
+          "key": "system.modificadores.pericias.geral",
+          "mode": 2,
+          "value": "0",
+          "priority": null
+        }
+      ],
+      "transfer": false,
+      "_key": "!items.effects!HhO0oqwrgIBaUq8K.lGk1uUjNlLKbcmEO"
+    }
+  ],
+  "folder": "1gk4CeDo7oR1b0oD",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.HhO0oqwrgIBaUq8K"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">A partir do 4&ordm; n&iacute;vel, voc&ecirc; pode gastar uma quantidade de PM a sua escolha (limitado pelo seu Carisma). At&eacute; o in&iacute;cio de seu pr&oacute;ximo turno, todos os seus aliados em alcance curto recebem um b&ocirc;nus nos testes de per&iacute;cia igual &agrave; quantidade de PM que voc&ecirc; gastou.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 80 (JdA)",
+    "ativacao": {
+      "execucao": "free",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "medium",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Nobre",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183905,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!HhO0oqwrgIBaUq8K"
+}

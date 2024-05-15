@@ -1,0 +1,126 @@
+{
+  "name": "Atributos - Qareen",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/qareen.webp",
+  "effects": [
+    {
+      "label": "Atributos - Qareen",
+      "icon": "systems/tormenta20/icons/racas/qareen.webp",
+      "origin": "Item.R9nDVriyePsBCoRh",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "iyDKEzeLMTp9Q6xk",
+      "changes": [
+        {
+          "key": "system.atributos.car.value",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.int.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.sab.value",
+          "mode": 2,
+          "value": "-1",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!R9nDVriyePsBCoRh.iyDKEzeLMTp9Q6xk"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.hpb7TnXraUY1qevb"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Carisma +2, Intelig&ecirc;ncia +1, Sabedoria -1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 26 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Qareen",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306185121,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "R9nDVriyePsBCoRh",
+  "folder": "bT1FLsOz6hPzs6kE",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!R9nDVriyePsBCoRh"
+}

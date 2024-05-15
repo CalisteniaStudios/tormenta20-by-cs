@@ -1,0 +1,123 @@
+{
+  "_id": "893W9N6002rbwgy9",
+  "name": "Realeza",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/classes/especialistas/realeza.webp",
+  "effects": [
+    {
+      "label": "Realeza",
+      "icon": "icons/svg/upgrade.svg",
+      "origin": "Item.893W9N6002rbwgy9",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": true,
+          "durationScene": false,
+          "self": false,
+          "attack": false,
+          "skill": false,
+          "ability": false,
+          "power": true,
+          "spell": false,
+          "consumable": false,
+          "items": "presenca aristocratica",
+          "aumenta": false,
+          "custo": ""
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": true,
+      "_id": "Gk8gAJCrzm0WqcMz",
+      "changes": [
+        {
+          "key": "cd",
+          "mode": 2,
+          "value": "5",
+          "priority": 0
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!893W9N6002rbwgy9.Gk8gAJCrzm0WqcMz"
+    }
+  ],
+  "folder": "1gk4CeDo7oR1b0oD",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.893W9N6002rbwgy9"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">No 20&ordm; n&iacute;vel, a CD para resistir a sua Presen&ccedil;a Aristocr&aacute;tica aumenta em +5 e uma criatura que falhe no teste de Vontade por 10 ou mais se arrepende tanto de ter tentado machuc&aacute;-lo que passa a lutar ao seu lado (e seguir suas ordens, se puder entend&ecirc;-lo) pelo resto da cena. Al&eacute;m disso, uma criatura que seja reduzida a 0 PV por Palavras Afiadas n&atilde;o sofre este dano; em vez disso, passa a lutar ao seu lado pelo resto da cena.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 80 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": "Vontade"
+    },
+    "rolls": [],
+    "tipo": "ability",
+    "subtipo": "Nobre",
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306183332,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!893W9N6002rbwgy9"
+}

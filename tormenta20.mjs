@@ -27,6 +27,8 @@ import ActorSheetT20NPC from "./module/sheets/actor-npc.mjs";
 import ActorSheetT20Simple from "./module/sheets/actor-simple.mjs";
 import ActiveEffectConfigT20 from "./module/sheets/active-effects.mjs";
 import ItemSheetT20 from "./module/sheets/item.mjs";
+import JournalSheetT20 from "./module/sheets/journal.mjs";
+
 
 // Import Applications
 import AbilityTemplate from "./module/pixi/ability-template.mjs";
@@ -86,7 +88,24 @@ Hooks.once("init", async function () {
 		rollItemMacro: macros.rollItemMacro,
 		rollSkillMacro: macros.rollSkillMacro,
 	}
-
+	if ( game.version.startsWith('11.') ) {
+		foundry.dice = {
+			terms: {
+				Coin: Coin,
+				DiceTerm: DiceTerm,
+				Die: Die,
+				FateDie: FateDie,
+				FunctionTerm: MathTerm, // MathTerm was renamed to FunctionTerm in v12
+				NumericTerm: NumericTerm,
+				OperatorTerm: OperatorTerm,
+				ParentheticalTerm: ParentheticalTerm,
+				PoolTerm: PoolTerm,
+				RollTerm: RollTerm,
+				StringTerm: StringTerm
+			}
+		}
+		Math.clamp = Math.clamped;
+	}
 	// Record Cnfiguration Values
 	CONFIG.T20 = T20;
 	CONFIG.Actor.documentClass = ActorT20;

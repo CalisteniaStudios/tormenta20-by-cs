@@ -55,7 +55,7 @@ T20.effectTypes = {
 	"veneno":"T20.EffectTypePoison",
 }
 preLocalize("effectTypes");
-T20.conditionTypes = mergeObject( Object.assign({},T20.effectTypes),
+T20.conditionTypes = foundry.utils.mergeObject( Object.assign({},T20.effectTypes),
 	T20.statusEffectIcons.reduce(function(o, s) { o[s.id] = s.name; return o;}, {})
 )
 preLocalize("conditionTypes");

@@ -1,0 +1,129 @@
+{
+  "_id": "eY03q7WJFk4ZwNfQ",
+  "name": "05 Material Especial",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "8YMPWIPO3wk5tuKX",
+      "flags": {},
+      "type": 0,
+      "text": "Aço-Rubi",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!eY03q7WJFk4ZwNfQ.8YMPWIPO3wk5tuKX"
+    },
+    {
+      "_id": "Uh8ZvDu5SlbN1h3u",
+      "flags": {},
+      "type": 0,
+      "text": "Adamante",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!eY03q7WJFk4ZwNfQ.Uh8ZvDu5SlbN1h3u"
+    },
+    {
+      "_id": "HZE6FTrmtuCmu0Pl",
+      "flags": {},
+      "type": 0,
+      "text": "Gelo Eterno",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!eY03q7WJFk4ZwNfQ.HZE6FTrmtuCmu0Pl"
+    },
+    {
+      "_id": "elEDOD8btblKz0Ck",
+      "flags": {},
+      "type": 0,
+      "text": "Madeira Tollon",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!eY03q7WJFk4ZwNfQ.elEDOD8btblKz0Ck"
+    },
+    {
+      "_id": "mrVzufl4E9K6tC30",
+      "flags": {},
+      "type": 0,
+      "text": "Matéria Vermelha",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!eY03q7WJFk4ZwNfQ.mrVzufl4E9K6tC30"
+    },
+    {
+      "_id": "15BqdLgqoGfFrVeS",
+      "flags": {},
+      "type": 0,
+      "text": "Mitral",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "documentId": null,
+      "_key": "!tables.results!eY03q7WJFk4ZwNfQ.15BqdLgqoGfFrVeS"
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "RollTable.u7f1QoN3RaCKpHsL"
+    },
+    "importid": "DQyoWoCyOuzWwnju",
+    "cf": null
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665115,
+    "modifiedTime": 1667354515216,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!eY03q7WJFk4ZwNfQ"
+}

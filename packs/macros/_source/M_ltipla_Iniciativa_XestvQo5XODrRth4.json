@@ -1,0 +1,30 @@
+{
+  "name": "Múltipla Iniciativa",
+  "type": "script",
+  "scope": "global",
+  "author": "zypc4ueMMbKFzteu",
+  "img": "icons/svg/combat.svg",
+  "command": "// Usável para adicionar múltiplas iniciativas a chefões!\n\nconst combat = game.combat;\nif(token && combat) {\n  let create = {\n    tokenId: token.id,\n    sceneId: token.scene.id,\n    actorId: token.actor.id,\n    hidden: token.document.hidden\n  };\n  await combat.createEmbeddedDocuments(\"Combatant\", [create]);\n}",
+  "ownership": {
+    "default": 0,
+    "izTN2S0Mlytej3sI": 3,
+    "zypc4ueMMbKFzteu": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Macro.bGbfBnb4g3nN4jDo"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.002",
+    "coreVersion": "10.285",
+    "createdTime": 1658360179912,
+    "modifiedTime": 1662866680923,
+    "lastModifiedBy": "zypc4ueMMbKFzteu"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "XestvQo5XODrRth4",
+  "_key": "!macros!XestvQo5XODrRth4"
+}

@@ -1,0 +1,223 @@
+{
+  "_id": "wuqyoslFlYe2zgCp",
+  "name": "Tranquilidade",
+  "type": "magia",
+  "img": "systems/tormenta20/icons/magias/tranquilidade.webp",
+  "effects": [
+    {
+      "_id": "NVI6QjnLauWHcDLx",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "1",
+          "aumenta": false
+        }
+      },
+      "changes": [
+        {
+          "key": "alvo",
+          "value": "1 criatura",
+          "mode": 5,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda o alvo para 1 criatura.",
+      "origin": "Compendium.tormenta20.magias.wuqyoslFlYe2zgCp",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!wuqyoslFlYe2zgCp.NVI6QjnLauWHcDLx"
+    },
+    {
+      "_id": "HvFXSGLtaUOURcBd",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "1",
+          "aumenta": true
+        }
+      },
+      "changes": [],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "aumenta o número de alvos em +1.",
+      "origin": "Compendium.tormenta20.magias.wuqyoslFlYe2zgCp",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!wuqyoslFlYe2zgCp.HvFXSGLtaUOURcBd"
+    },
+    {
+      "_id": "M3sGod8S4s0hvu8A",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": true,
+          "self": true,
+          "custo": "5",
+          "aumenta": false
+        }
+      },
+      "changes": [
+        {
+          "key": "alcance",
+          "value": "médio",
+          "mode": 5,
+          "priority": null
+        },
+        {
+          "key": "alvo",
+          "value": "criaturas escolhidas",
+          "mode": 5,
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "icons/svg/upgrade.svg",
+      "label": "muda o alcance para médio e o alvo para criaturas escolhidas. Requer 3º círculo.",
+      "origin": "Compendium.tormenta20.magias.wuqyoslFlYe2zgCp",
+      "transfer": false,
+      "tint": null,
+      "_key": "!items.effects!wuqyoslFlYe2zgCp.M3sGod8S4s0hvu8A"
+    },
+    {
+      "_id": "Kb2Ft0450viFIuQr",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.geral",
+          "mode": 2,
+          "value": "-2",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "rounds": 1,
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/magias/tranquilidade.webp",
+      "label": "Alvo Afetado",
+      "origin": "Item.h1DFW7RU5rbIA0oM",
+      "transfer": false,
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": true
+        }
+      },
+      "tint": null,
+      "_key": "!items.effects!wuqyoslFlYe2zgCp.Kb2Ft0450viFIuQr"
+    }
+  ],
+  "folder": "rYuXjvRuDEXa7GNY",
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.cr97efu5mEuVAS9e"
+    },
+    "cf": null
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">Voc&ecirc; emana ondas de serenidade. Se falhar na resist&ecirc;ncia, o alvo tem sua atitude mudada para indiferente (veja a p&aacute;gina 259) e n&atilde;o pode atacar ou realizar qualquer a&ccedil;&atilde;o agressiva. Se passar, sofre &ndash;2 em testes de ataque. Qualquer a&ccedil;&atilde;o hostil contra o alvo ou seus aliados dissipa a magia e faz ele retornar &agrave; atitude que tinha antes (ou pior, de acordo com o mestre).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 210 (JdA)",
+    "ativacao": {
+      "execucao": "action",
+      "custo": 1,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "1 animal ou humanóide",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": "Vontade parcial"
+    },
+    "rolls": [],
+    "tipo": "div",
+    "circulo": "1",
+    "preparada": false,
+    "escola": "enc",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664310462904,
+    "modifiedTime": 1684622830660,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!wuqyoslFlYe2zgCp"
+}

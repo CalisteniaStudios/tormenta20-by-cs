@@ -1,0 +1,126 @@
+{
+  "_id": "JqiWjXlU9pdOZTeb",
+  "name": "Faixas do Pugilista",
+  "type": "equipamento",
+  "img": "systems/tormenta20/icons/itens/itens-magicos/faixas-do-pugilista.webp",
+  "effects": [
+    {
+      "label": "Faixas do Pugilista",
+      "icon": "systems/tormenta20/icons/itens/itens-magicos/faixas-do-pugilista.webp",
+      "origin": "Item.JqiWjXlU9pdOZTeb",
+      "tint": "#FFFFFF",
+      "flags": {
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "_id": "LNHXtqNgtxR2jAPs",
+      "changes": [
+        {
+          "key": "system.modificadores.ataque.cac",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.modificadores.dano.cac",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "transfer": true,
+      "_key": "!items.effects!JqiWjXlU9pdOZTeb.LNHXtqNgtxR2jAPs"
+    }
+  ],
+  "folder": "BgJUCrqjG6EVBIfP",
+  "sort": 5300000,
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.equipamentos-magicos.JqiWjXlU9pdOZTeb"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "Estas faixas de pano surrado são amarradas nos punhos, nos braços ou na testa. Você recebe +2 em testes de ataque e rolagens de dano com ataques desarmados.",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 344 (JdA)",
+    "equipado": false,
+    "equipado2": {
+      "slot": 0,
+      "type": ""
+    },
+    "carregado": true,
+    "peso": 0,
+    "espacos": 1,
+    "qtd": 1,
+    "preco": 21000,
+    "pv": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "rd": 0,
+    "tipo": "acessorio",
+    "armadura": {
+      "value": 0,
+      "penalidade": 0,
+      "maxAtr": 0
+    },
+    "rolls": [],
+    "melhorias": {
+      "enhanced": null,
+      "golden": null,
+      "gems": null,
+      "discreet": null,
+      "macabre": null
+    },
+    "origin": "",
+    "tags": [],
+    "chatFlavor": "",
+    "chatGif": "",
+    "ativacao": {
+      "custo": 0,
+      "condicao": "",
+      "execucao": "",
+      "qtd": "",
+      "special": ""
+    },
+    "upgrades": {
+      "melhoria1": "",
+      "melhoria2": "",
+      "melhoria3": "",
+      "melhoria4": "",
+      "material": "",
+      "encanto1": "",
+      "encanto2": "",
+      "encanto3": ""
+    },
+    "encantos": {}
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664314000095,
+    "modifiedTime": 1684623039339,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_key": "!items!JqiWjXlU9pdOZTeb"
+}

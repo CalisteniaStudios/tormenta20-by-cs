@@ -141,7 +141,7 @@ export function registerHandlebarsHelpers() {
 	});
 
 	Handlebars.registerHelper("find", function (arr, key, value, flat=false) {
-		if(flat) return arr.find(i => flattenObject(i)[key] == value) ? true : false;
+		if(flat) return arr.find(i => foundry.utils.flattenObject(i)[key] == value) ? true : false;
 		return arr.find(i => i[key] == value) ? true : false;
 	});
 

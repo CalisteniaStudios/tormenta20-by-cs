@@ -1,0 +1,85 @@
+{
+  "name": "Restabelecer a Realidade",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/poderes/distincao.webp",
+  "system": {
+    "description": {
+      "value": "<blockquote>\n<p style=\"text-align: justify;\">Os guardi&otilde;es da realidade mais poderosos podem impor sua pr&oacute;pria vontade acima da corrup&ccedil;&atilde;o da Tormenta. Criam o&aacute;sis em plena anticria&ccedil;&atilde;o, bols&otilde;es de Arton em meio &agrave; loucura.</p>\n</blockquote>\n<p style=\"text-align: justify;\">Voc&ecirc; pode gastar 15 PM para emitir uma aura de realidade com alcance curto por uma cena. Dentro desta aura, os efeitos da Tormenta s&atilde;o negados e qualquer criatura a sua escolha &eacute; considerada um ser extraplanar. <em>Pr&eacute;-requisitos:</em> seis poderes de guardi&atilde;o da realidade, j&aacute; ter derrotado um lefeu de ND 15 ou mais.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Distinções, pg. 25",
+    "ativacao": {
+      "execucao": "free",
+      "custo": 15,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "scene",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "short",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "distincao",
+    "subtipo": "Guardião da Realidade",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [
+      "GuardiaodaRealidade"
+    ],
+    "chatGif": ""
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "tormentaverse",
+      "system": "tormenta20",
+      "coreVersion": "10.286",
+      "systemVersion": "1.4.006"
+    }
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1662564410980,
+    "modifiedTime": 1684614605298,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "_id": "cF9Rfvf9rpKue5y9",
+  "folder": "YXlTMaY22gwCu0fc",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3
+  },
+  "_key": "!items!cF9Rfvf9rpKue5y9"
+}

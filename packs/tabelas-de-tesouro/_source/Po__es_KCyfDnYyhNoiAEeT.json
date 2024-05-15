@@ -1,0 +1,657 @@
+{
+  "_id": "KCyfDnYyhNoiAEeT",
+  "name": "Poções",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "aL5fJIYgm0v4sgZj",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Abençoar Alimentos",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "5sxPQieeeYZYbJAZ",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.aL5fJIYgm0v4sgZj"
+    },
+    {
+      "_id": "ep2Z6pWThb6HUmDF",
+      "flags": {},
+      "type": 2,
+      "text": "Granada de Área Escorregadia",
+      "img": "systems/tormenta20/icons/itens/granada.webp",
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "XgRYUChRMmaCzVdw",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.ep2Z6pWThb6HUmDF"
+    },
+    {
+      "_id": "qey0tK6HGAUeSm12",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Arma Mágica",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "lUvXanXBUKxGOd2M",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.qey0tK6HGAUeSm12"
+    },
+    {
+      "_id": "UFBII4dqBT9VhHJr",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Compreensão",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "ApeazL6hVnTroAOz",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.UFBII4dqBT9VhHJr"
+    },
+    {
+      "_id": "oSv28FG3hX14vtc4",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Curar Ferimentos (2d8+2 PV)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        8,
+        15
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "TrQw6O1ebgl4AGvY",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.oSv28FG3hX14vtc4"
+    },
+    {
+      "_id": "FYduUrmqqywS7Q7Z",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Disfarce Ilusório",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        16,
+        18
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "9FkEtT2rpDxBZmEQ",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.FYduUrmqqywS7Q7Z"
+    },
+    {
+      "_id": "EXyGX7SVCrYLWLlE",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Enfeitiçar",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        19,
+        20
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "fFpSZAPGZDUVJNOG",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.EXyGX7SVCrYLWLlE"
+    },
+    {
+      "_id": "qmr1BSRbjAwPk1d2",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Escuridão",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        21,
+        22
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "cF4QKw8RShT0h7O7",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.qmr1BSRbjAwPk1d2"
+    },
+    {
+      "_id": "tYPY9TfAmmBb6Mbt",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Luz",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        23,
+        24
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "izCFE9JWjDxcDShN",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.tYPY9TfAmmBb6Mbt"
+    },
+    {
+      "_id": "P55toNH7IkpY9R08",
+      "flags": {},
+      "type": 2,
+      "text": "Granada de Névoa",
+      "img": "systems/tormenta20/icons/itens/granada.webp",
+      "weight": 1,
+      "range": [
+        25,
+        26
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "m8Iw8iH1H0OkWeYj",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.P55toNH7IkpY9R08"
+    },
+    {
+      "_id": "XIcdSjjNXquF2F9G",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Primor Atlético",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        27,
+        28
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "A4wH7EMrKzOtlt3Q",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.XIcdSjjNXquF2F9G"
+    },
+    {
+      "_id": "Y3a7kNOu99ErJ0lQ",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Proteção Divina",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        29,
+        30
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "ldhWaTsXkntJuUtU",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.Y3a7kNOu99ErJ0lQ"
+    },
+    {
+      "_id": "TLgvVqSF7R8G0HrG",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Resistência a Energia",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        31,
+        32
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "WrtZs4ql74DKHLKm",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.TLgvVqSF7R8G0HrG"
+    },
+    {
+      "_id": "RryvA6XDrFNm9n5I",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Sono",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        33,
+        34
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "vjRcygbwo7vx4gOG",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.RryvA6XDrFNm9n5I"
+    },
+    {
+      "_id": "tQwuDgoz7v63Aejn",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Suporte Ambiental",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        35,
+        35
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "YrcnZsYGhSYovuVN",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.tQwuDgoz7v63Aejn"
+    },
+    {
+      "_id": "s3Oba54RP6Op8Ovj",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Tranca Arcana",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        36,
+        36
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "ffDA6IdF1QAMWu8L",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.s3Oba54RP6Op8Ovj"
+    },
+    {
+      "_id": "TE4RARF5MMc33cZt",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Visão Mística",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        37,
+        37
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "wAbbICpd57DcDV9s",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.TE4RARF5MMc33cZt"
+    },
+    {
+      "_id": "FIFbTpsbN08qkE9m",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Vitalidade Fantasma",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        38,
+        38
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "LnW6eVQyg7hhefHt",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.FIFbTpsbN08qkE9m"
+    },
+    {
+      "_id": "mGBfODUtlOHTQU9t",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Escudo da Fé (cena)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        39,
+        41
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "cLTZXcoMq9C8oNpB",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.mGBfODUtlOHTQU9t"
+    },
+    {
+      "_id": "fAo7F3x4M7zbmyLW",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Alterar Tamanho",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        42,
+        43
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "RYMxcUZXKLWCCSff",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.fAo7F3x4M7zbmyLW"
+    },
+    {
+      "_id": "P6P7sr6Q0nAvEL9z",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Aparência Perfeita",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        44,
+        45
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "ZYU4TTCb2Eod8CyD",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.P6P7sr6Q0nAvEL9z"
+    },
+    {
+      "_id": "Lu1o2R836KWaGQRK",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Armamento da Natureza",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        46,
+        46
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "28yPkXVQIVmlfF3W",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.Lu1o2R836KWaGQRK"
+    },
+    {
+      "_id": "R2REYwgEGafwCGEB",
+      "flags": {},
+      "type": 2,
+      "text": "Granada de Bola de Fogo",
+      "img": "systems/tormenta20/icons/itens/granada.webp",
+      "weight": 1,
+      "range": [
+        47,
+        52
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "okK7ZXnCohxFizUe",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.R2REYwgEGafwCGEB"
+    },
+    {
+      "_id": "LNNyvkfr0laDKtJu",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Camuflagem llusória",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        53,
+        53
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "5SnRRfXhW6BiJ5h0",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.LNNyvkfr0laDKtJu"
+    },
+    {
+      "_id": "Gj3EdHxX04uVshX4",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Concentração de Combate (cena)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        54,
+        55
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "02q1pu5Oyj3LtvZx",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.Gj3EdHxX04uVshX4"
+    },
+    {
+      "_id": "cmS4LM6h02A6snxf",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Curar Ferimentos (4d8+4 PV)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        56,
+        62
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "yuDsiJccSfFOTmsR",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.cmS4LM6h02A6snxf"
+    },
+    {
+      "_id": "LtnBL6R80cwhSlxz",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Físico Divino",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        63,
+        66
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "hjvqA8b5pxriWBRh",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.LtnBL6R80cwhSlxz"
+    },
+    {
+      "_id": "K1BUfVEiEqMy4jTd",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Mente Divina",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        67,
+        68
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "8MZOwDXGchwZ0Jkp",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.K1BUfVEiEqMy4jTd"
+    },
+    {
+      "_id": "tMoFo0Hw3NwbmiFM",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Metamorfose",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        69,
+        70
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "Rfqa9MsOHuXLMg9D",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.tMoFo0Hw3NwbmiFM"
+    },
+    {
+      "_id": "hcODTc2mQXgU5H4W",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Purificação",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "8zETItgIUrQgW0ck",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.hcODTc2mQXgU5H4W"
+    },
+    {
+      "_id": "erB91pnwjTxiQCcg",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Velocidade",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        76,
+        77
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "7MWQRNmlsHSYPZT1",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.erB91pnwjTxiQCcg"
+    },
+    {
+      "_id": "ciHFsikTp1XzqNu1",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Vestimenta da Fé",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        78,
+        79
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "4oSYUfK8BYgEP2Ep",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.ciHFsikTp1XzqNu1"
+    },
+    {
+      "_id": "tTZOROFa3PvIoF8R",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Voz Divina",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        80,
+        80
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "denQPHbRznsXm0uy",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.tTZOROFa3PvIoF8R"
+    },
+    {
+      "_id": "xo3YykwtmVUbjdXn",
+      "flags": {},
+      "type": 2,
+      "text": "Óleo de Arma Mágica (+3)",
+      "img": "systems/tormenta20/icons/itens/oleo.webp",
+      "weight": 1,
+      "range": [
+        81,
+        82
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "6olGswsHYsq8aiGw",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.xo3YykwtmVUbjdXn"
+    },
+    {
+      "_id": "OyWOYuadeAGnrSF4",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Curar Ferimentos (7d8+7 PV)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        83,
+        88
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "q32Ve67NR8AOyNmq",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.OyWOYuadeAGnrSF4"
+    },
+    {
+      "_id": "v7mNCE3mesUudyDZ",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Físico Divino (três atributos)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        89,
+        89
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "LkTy80bVtw0jegr3",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.v7mNCE3mesUudyDZ"
+    },
+    {
+      "_id": "7PsKD5fxB4fkjxZc",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Invisibilidade (cena)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        90,
+        92
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "gaMgO0yUZEGM13XG",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.7PsKD5fxB4fkjxZc"
+    },
+    {
+      "_id": "0ycFl1y1HIhVLCwS",
+      "flags": {},
+      "type": 2,
+      "text": "Granada de Bola de Fogo (10d6)",
+      "img": "systems/tormenta20/icons/itens/granada.webp",
+      "weight": 1,
+      "range": [
+        93,
+        96
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "uujNCTQJR9CjJg2N",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.0ycFl1y1HIhVLCwS"
+    },
+    {
+      "_id": "pmLeqbWS5QsEN7zQ",
+      "flags": {},
+      "type": 2,
+      "text": "Poção de Curar Ferimentos (11d8+11 PV)",
+      "img": "systems/tormenta20/icons/itens/pocao.webp",
+      "weight": 1,
+      "range": [
+        97,
+        100
+      ],
+      "drawn": false,
+      "documentCollection": "tormenta20.pocoes",
+      "documentId": "stCPViFywNCL5EsG",
+      "_key": "!tables.results!KCyfDnYyhNoiAEeT.pmLeqbWS5QsEN7zQ"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "RollTable.J6huompYZrT1nM0M"
+    },
+    "importid": "heK0MOGiKwOZFVPJ",
+    "cf": null
+  },
+  "ownership": {
+    "default": 0,
+    "0bS8PF9mUpBd2z0H": 3
+  },
+  "description": "",
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.1008",
+    "coreVersion": "10.288",
+    "createdTime": 1664312665017,
+    "modifiedTime": 1667354515235,
+    "lastModifiedBy": "tIn9sSkrT3mDWirx"
+  },
+  "_key": "!tables!KCyfDnYyhNoiAEeT"
+}

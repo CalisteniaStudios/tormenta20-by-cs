@@ -1,0 +1,128 @@
+{
+  "name": "Atributos - Golem",
+  "type": "poder",
+  "img": "systems/tormenta20/icons/racas/golem.webp",
+  "effects": [
+    {
+      "_id": "HJ7YBMhISOpPnXIC",
+      "flags": {
+        "t20": null,
+        "tormenta20": {
+          "onuse": false,
+          "durationScene": false
+        }
+      },
+      "changes": [
+        {
+          "key": "system.atributos.for.value",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.con.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "system.atributos.car.value",
+          "mode": 2,
+          "value": "-1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "icon": "systems/tormenta20/icons/racas/golem.webp",
+      "label": "Atributos - Golem",
+      "origin": "Item.d0iJrjrphvuiQkER",
+      "tint": null,
+      "transfer": true,
+      "_key": "!items.effects!d6cBkXb9AHi4vN6V.HJ7YBMhISOpPnXIC"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.tormenta20.poderes.NXxYBFilt7FbyZ2q"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p style=\"text-align: justify;\">For&ccedil;a +2, Constitui&ccedil;&atilde;o +1, Carisma -1.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "T20, pg. 27 (JdA)",
+    "ativacao": {
+      "execucao": "",
+      "custo": 0,
+      "qtd": "",
+      "condicao": "",
+      "special": ""
+    },
+    "duracao": {
+      "value": 0,
+      "units": "",
+      "special": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "units": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "mpMultiplier": false
+    },
+    "efeito": "",
+    "alcance": "none",
+    "alvo": "",
+    "area": "",
+    "resistencia": {
+      "pericia": "",
+      "atributo": "sab",
+      "bonus": 0,
+      "txt": ""
+    },
+    "rolls": [],
+    "tipo": "racial",
+    "subtipo": "Golem",
+    "chatFlavor": "",
+    "origin": "",
+    "tags": [],
+    "chatGif": ""
+  },
+  "ownership": {
+    "default": 0,
+    "tIn9sSkrT3mDWirx": 3,
+    "jJlhMQyjTGPyLMsV": 3
+  },
+  "_stats": {
+    "systemId": "tormenta20",
+    "systemVersion": "1.4.116",
+    "coreVersion": "11.298",
+    "createdTime": 1664306184254,
+    "modifiedTime": 1684630371462,
+    "lastModifiedBy": "ZWR5Tn3AhSIFqwp6"
+  },
+  "folder": "JbWoTw5WRQStJu6M",
+  "sort": 0,
+  "_id": "d6cBkXb9AHi4vN6V",
+  "_key": "!items!d6cBkXb9AHi4vN6V"
+}
