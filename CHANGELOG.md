@@ -1,6 +1,9 @@
 # Lista de Mudanças
 
 ## Versão 1.4.206
+- Corrigido: Efeitos no compêndio com imagens quebradas
+
+## Versão 1.4.206
 - Atualizado: Compatibilidade com V12;
 - Corrigido: Bug ao gerar Poções.
 - Corrigido: Resistência a `dano` é aplicada uma unica vez, não mais somada aos outros tipos de dano.
