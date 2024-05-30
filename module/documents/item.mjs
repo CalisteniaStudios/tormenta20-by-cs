@@ -780,7 +780,7 @@ export default class ItemT20 extends Item {
 				equipamento:'equipment'
 			}
 			let efType = relate[item.type];
-			active = active.filter( ef => ef.flags.tormenta20[efType] );
+			active = active.filter( ef => ef.flags.tormenta20[efType] || ef.flags.tormenta20.self );
 			configuration.aprs = active.reduce((o,ef)=>{
 				o[ef.id] = {aplica:1, custo: ef.flags.tormenta20.custo||"0"};
 				return o;
@@ -1081,7 +1081,6 @@ export default class ItemT20 extends Item {
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 			rolls: Object.values( this.system.rolled ),
 			content: html,
 			flavor: options.chatFlavor || this.system.chatFlavor || "",

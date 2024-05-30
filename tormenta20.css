@@ -143,6 +143,9 @@
 #sidebar button {
   font-family: "Signika", sans-serif;
 }
+.sidebar-popout .scene-segment {
+  background: #0d0d0d;
+}
 .app {
   background: url(assets/side-bar.png) repeat;
 }

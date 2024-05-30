@@ -63,7 +63,7 @@ export default class AbilityUseDialog extends Dialog {
 			const name = item.name;
 			let items = ae.getFlag('tormenta20','items');
 			items = items ? items.split(';').map( i => i.trim()) : [];
-			if ( !foundry.utils.deepClone(items) && !items.includes(name) ) return false;
+			if ( !foundry.utils.isEmpty(items) && !items.includes(name) ) return false;
 			for ( let k of keys ){
 				if ( !ae.flags?.tormenta20 || !ae.flags?.tormenta20[k] ) return false;
 			}

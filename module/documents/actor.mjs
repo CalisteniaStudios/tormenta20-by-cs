@@ -998,7 +998,7 @@ export default class ActorT20 extends Actor {
 	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
 	async applyDamageV2(roll, multiplier = 1, applyRD = false) {
-		// console.log('applyDamageV2', roll, multiplier );
+		applyRD = true;
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
@@ -1035,15 +1035,17 @@ export default class ActorT20 extends Actor {
 		};
 		
 		for ( let [type, dmg] of Object.entries(damage) ){
-			dmg.value = Math.floor(dmg.value * multiplier);
-			dmg.vuln = Math.floor(dmg.vuln * multiplier);
-			if ( type == 'curapv' || type == 'perda' || multiplier == -1 ) {
+			if ( type == 'curapv' || type == 'perda') {
+				final.damage = 0;
 				final.damage += dmg.value;
 			} else if ( type == 'curatpv' ) {
+				final.damage = 0;
 				final.tempHP += dmg.value;
 			} else if ( type == 'curapm' ) {
+				final.damage = 0;
 				final.mana += dmg.value;
 			} else if ( type == 'curatpm' ) {
+				final.damage = 0;
 				final.tempMP += dmg.value;
 			} else {
 				let r = 0;
@@ -1071,7 +1073,13 @@ export default class ActorT20 extends Actor {
 				final.damage += acc;
 			}
 		}
-
+		// Apply the multiplier
+		final.damage = Math.floor(final.damage * multiplier);
+		final.total = Math.floor(final.total * multiplier);
+		final.tempHP = Math.floor(final.tempHP * multiplier);
+		final.mana = Math.floor(final.mana * multiplier);
+		final.tempMP = Math.floor(final.tempMP * multiplier);
+		
 		// Deduct value from temp attr first
 		const tmpHP = parseInt(pv.temp) || 0;
 		const tmpMP = parseInt(pm.temp) || 0;

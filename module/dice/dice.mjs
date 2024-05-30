@@ -246,7 +246,7 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 
 	if ( /[*/]/.test(roll.formula) ) {
 		return ( roll.isDeterministic ) && ( !/\[/.test(roll.formula) || !preserveFlavor )
-			? roll.evaluate({ async: false }).total.toString()
+			? roll.evaluateSync().total.toString()
 			: roll.constructor.getFormula(roll.terms);
 	}
 

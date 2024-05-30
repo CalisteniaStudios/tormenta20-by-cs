@@ -1,6 +1,15 @@
 # Lista de Mudanças
 
-## Versão 1.4.206
+## Versão 1.4.209
+- Corrigido: Efeitos aplicados em items específicos não apareciam.
+- Corrigido: Efeitos com variáveis de personagem quebravam a ficha.
+- Corrigido: Aplicação Dano/Recuperação de PM.
+
+## Versão 1.4.208
+- Corrigido: Efeitos de Uso com Items Especificos estavam aparecendo sempre.
+- Corrigido: Pequenos ajustes visuais da v12.
+
+## Versão 1.4.207
 - Corrigido: Efeitos no compêndio com imagens quebradas
 
 ## Versão 1.4.206

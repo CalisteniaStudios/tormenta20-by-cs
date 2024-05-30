@@ -1,11 +1,24 @@
 {
   "T20.S1": "/* ---------------- ACTOR ----------------- */",
+  "TYPES.Actor.character": "Personagem de Jogador",
+  "TYPES.Actor.npc": "Ameaça",
+  "TYPES.Actor.vehicle": "Veículos",
+  "TYPES.Actor.simple": "Personagem do Mestre",
+
   "Types.Actor.character": "Personagem de Jogador",
   "Types.Actor.npc": "Ameaça",
   "Types.Actor.vehicle": "Veículos",
   "Types.Actor.simple": "Personagem do Mestre",
 
   "T20.S2": "/* ----------------- ITEM ----------------- */",
+  "TYPES.Item.arma": "Arma",
+  "TYPES.Item.equipamento": "Equipamentos",
+  "TYPES.Item.classe": "Classe",
+  "TYPES.Item.consumivel": "Consumível",
+  "TYPES.Item.magia": "Magia",
+  "TYPES.Item.poder": "Poder",
+  "TYPES.Item.tesouro": "Tesouro",
+
   "Types.Item.arma": "Arma",
   "Types.Item.equipamento": "Equipamentos",
   "Types.Item.classe": "Classe",
@@ -13,6 +26,7 @@
   "Types.Item.magia": "Magia",
   "Types.Item.poder": "Poder",
   "Types.Item.tesouro": "Tesouro",
+  
   
   "T20.S3": "/* ---------------- SYSTEM ---------------- */",
   "T20.title": "Sistema Tormenta20",
@@ -136,6 +150,7 @@
   "T20.AbilityPromptText": "???",
   "T20.AbilityPromptTitle": "Teste de Atributo {atributo}",
   "T20.AbilityUseHint": "Configuração de uso de {type}: {name}",
+  "EFFECT.ConfigTitle": "Configuração de Efeito",
 
   "T20.S5": "/* ---------------- SKILLS ---------------- */",
   "T20.Skill": "Perícia",
