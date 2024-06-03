@@ -25,10 +25,10 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 	}
 
 	/** @override */
-	getData() {
-		const data = super.getData();
+	async getData() {
+		const data = await super.getData();
 		data.documentName = "ActiveEffect";
-		//console.log(data);
+		data.effect.img ??= data.effect.icon;
 		return data;
 	}
 

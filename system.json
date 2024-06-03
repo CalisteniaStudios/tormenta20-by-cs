@@ -3,7 +3,7 @@
   "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.4.209",
+  "version": "1.4.210",
   "minimumCoreVersion": "11.313",
   "compatibleCoreVersion": "11",
   "compatibility": {
@@ -11,7 +11,6 @@
     "verified": "12",
     "maximum": "12"
   },
-  "author": "Vizael",
   "authors": [{"name": "Vizael"}],
   "esmodules": ["tormenta20.mjs"],
   "styles": ["tormenta20.css"],
@@ -155,12 +154,16 @@
   },
   "gridDistance": 1.5,
   "gridUnits": "m",
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
   "primaryTokenAttribute": "attributes.pv",
   "secondaryTokenAttribute": "attributes.pm",
   "url": "https://gitlab.com/vizael/Tormenta20",
-  "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/master/system.json",
-  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/1.4.209/Tormenta20-1.4.209.zip",
-  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/1.4.209",
+  "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/1.4.210/system.json",
+  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/1.4.210/Tormenta20-1.4.210.zip",
+  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/1.4.210",
   "license": "LICENSE.txt",
   "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues",
   "allowBugReporter": true

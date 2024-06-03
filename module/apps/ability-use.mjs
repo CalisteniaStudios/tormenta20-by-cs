@@ -642,7 +642,12 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 			children = tempEffect.flags?.tormenta20?.childEffect?.map( ch => T20.conditions[ch] ) || [];
 		} else {
 			tempEffect.name ??= ef?.parent?.name ?? "Efeito";
-			tempEffect.icon ??= ef?.parent?.img ?? "icons/svg/aura.svg";
+			if ( game.release.generation < 12 ) {
+				tempEffect.icon ??= ef?.parent?.img ?? "icons/svg/aura.svg";
+			} else {
+				tempEffect.img ??= ef?.parent?.img ?? "icons/svg/aura.svg";
+			}
+
 			tempEffect.flags = foundry.utils.mergeObject(ef.flags, flags);
 			tempEffect.duration = !foundry.utils.isEmpty(duration) ? duration : ef.duration;
 			// tempEffect.duration ??= undefined; foundry.utils.mergeObject(ef.duration, duration);

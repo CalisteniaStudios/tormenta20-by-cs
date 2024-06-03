@@ -887,7 +887,7 @@ export default class ItemT20 extends Item {
 			};
 			let warn = 1;
 			itemData.system.rolled = [];
-			
+			itemData.effects = options.effects.map(efs => efs[0] );
 			await actor.createEmbeddedDocuments("Item", [itemData]);
 			let msg = game.i18n.format('T20.ConsumableCreated', {actor:item.actor.name, name:itemData.name} );
 			return ChatMessage.create({content:msg});

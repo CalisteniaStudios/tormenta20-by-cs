@@ -245,9 +245,13 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 	roll.terms = _simplifyOperatorTerms(roll.terms);
 
 	if ( /[*/]/.test(roll.formula) ) {
-		return ( roll.isDeterministic ) && ( !/\[/.test(roll.formula) || !preserveFlavor )
-			? roll.evaluateSync().total.toString()
-			: roll.constructor.getFormula(roll.terms);
+		return (( roll.isDeterministic ) && ( !/\[/.test(roll.formula) || !preserveFlavor )
+			? ( game.release.generation < 12
+				? roll.evaluate({async: false}).total.toString()
+				: roll.evaluateSync().total.toString()
+				)
+			: roll.constructor.getFormula(roll.terms)
+		);
 	}
 
 	// Flatten the roll formula and eliminate string terms.
