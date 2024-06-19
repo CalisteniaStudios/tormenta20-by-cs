@@ -42,18 +42,6 @@ export default function () {
 		
 	});
 
-
-	/* -------------------------------------------- */
-	/*  Canvas Initialization                       */
-	/* -------------------------------------------- */
-
-	Hooks.on("canvasInit", function () {
-		// Extend Diagonal Measurement
-		canvas.grid.diagonalRule = game.settings.get("tormenta20", "diagonalMovement");
-		SquareGrid.prototype.measureDistances = measureDistances;
-	});
-
-
 	/* -------------------------------------------- */
 	/*  Other Hooks                                 */
 	/* -------------------------------------------- */
