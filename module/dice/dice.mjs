@@ -135,7 +135,7 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 		const max = minmax && minmax == "max" ? true : false;
 		// Execute the roll
 		try {
-			let l = await roll.evaluate({ maximize:max, minimize:min, async:true });
+			let l = await roll.evaluate({ maximize:max, minimize:min });
 			l._formula = l._formula.replaceAll(/(\[\w*\])/g, '');
 			return l;
 		} catch(err) {

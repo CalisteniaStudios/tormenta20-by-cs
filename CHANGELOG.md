@@ -1,5 +1,9 @@
 # Lista de Mudanças
 
+## Versão 1.4.210
+- Corrigido: Efeitos com variáveis de personagem quebravam a ficha (Agora também na v11)
+- Corrigido: Efeitos não eram transferidos para as poções.
+
 ## Versão 1.4.209
 - Corrigido: Efeitos aplicados em items específicos não apareciam.
 - Corrigido: Efeitos com variáveis de personagem quebravam a ficha.
