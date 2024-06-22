@@ -101,4 +101,16 @@ export default function () {
 		compendium.collection.apps = [ new Compendium(compendium.collection) ];
 	});
 	
+	
+	/* -------------------------------------------- */
+	/*  Canvas Initialization                       */
+	/* -------------------------------------------- */
+
+	Hooks.on("canvasInit", function () {
+		// Extend Diagonal Measurement
+		if ( game.version.startsWith('11.') ) {
+			canvas.grid.diagonalRule = game.settings.get("tormenta20", "diagonalMovement");
+			SquareGrid.prototype.measureDistances = measureDistances;
+		}
+	});
 }
