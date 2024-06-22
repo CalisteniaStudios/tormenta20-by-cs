@@ -29,7 +29,7 @@ T20Conditions.abalado = {
 		{key: "system.pericias.luta.condi", mode:3, value:-2},
 		{key: "system.pericias.mist.condi", mode:3, value:-2},
 		{key: "system.pericias.nobr.condi", mode:3, value:-2},
-		{key: "system.pericias.ofic.condi", mode:3, value:-2},
+		// {key: "system.pericias.ofic.condi", mode:3, value:-2},
 		{key: "system.pericias.perc.condi", mode:3, value:-2},
 		{key: "system.pericias.pilo.condi", mode:3, value:-2},
 		{key: "system.pericias.pont.condi", mode:3, value:-2},
@@ -88,7 +88,7 @@ T20Conditions.apavorado = {
 		{key: "system.pericias.luta.condi", mode:3, value:-5},
 		{key: "system.pericias.mist.condi", mode:3, value:-5},
 		{key: "system.pericias.nobr.condi", mode:3, value:-5},
-		{key: "system.pericias.ofic.condi", mode:3, value:-5},
+		// {key: "system.pericias.ofic.condi", mode:3, value:-5},
 		{key: "system.pericias.perc.condi", mode:3, value:-5},
 		{key: "system.pericias.pilo.condi", mode:3, value:-5},
 		{key: "system.pericias.pont.condi", mode:3, value:-5},
@@ -129,15 +129,15 @@ T20Conditions.cego = {
 	statuses: ["cego","blind","sentidos"],
 	icon: "systems/tormenta20/icons/conditions/cego.svg",
 	flags: {tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido","lento"],category:'sentidos'}},
-	changes: [{key: "system.pericias.acro.condi", mode:3, value:-2},
-		{key: "system.pericias.atle.condi", mode:3, value:-2},
-		{key: "system.pericias.cava.condi", mode:3, value:-2},
-		{key: "system.pericias.furt.condi", mode:3, value:-2},
-		{key: "system.pericias.inic.condi", mode:3, value:-2},
-		{key: "system.pericias.luta.condi", mode:3, value:-2},
-		{key: "system.pericias.pilo.condi", mode:3, value:-2},
-		{key: "system.pericias.pont.condi", mode:3, value:-2},
-		{key: "system.pericias.refl.condi", mode:3, value:-2}]
+	changes: [{key: "system.pericias.acro.condi", mode:3, value:-5},
+		{key: "system.pericias.atle.condi", mode:3, value:-5},
+		{key: "system.pericias.cava.condi", mode:3, value:-5},
+		{key: "system.pericias.furt.condi", mode:3, value:-5},
+		{key: "system.pericias.inic.condi", mode:3, value:-5},
+		{key: "system.pericias.luta.condi", mode:3, value:-5},
+		{key: "system.pericias.pilo.condi", mode:3, value:-5},
+		{key: "system.pericias.pont.condi", mode:3, value:-5},
+		{key: "system.pericias.refl.condi", mode:3, value:-5}]
 }
 
 T20Conditions.confuso = {
@@ -248,7 +248,7 @@ T20Conditions.esmorecido = {
 	flags: {tormenta20:{condition:true,durationScene:true,category:'mental'}},
 	changes: [{key: "system.modificadores.atributos.int", mode:2, value:-5},
 		{key: "system.modificadores.atributos.sab", mode:2, value:-5},
-		{key: "system.modificadores.atributos.con", mode:2, value:-5},
+		{key: "system.modificadores.atributos.car", mode:2, value:-5},
 		{key: "system.pericias.ades.condi", mode:3, value:-5},
 		{key: "system.pericias.atua.condi", mode:3, value:-5},
 		{key: "system.pericias.conh.condi", mode:3, value:-5},
@@ -262,7 +262,7 @@ T20Conditions.esmorecido = {
 		{key: "system.pericias.joga.condi", mode:3, value:-5},
 		{key: "system.pericias.mist.condi", mode:3, value:-5},
 		{key: "system.pericias.nobr.condi", mode:3, value:-5},
-		{key: "system.pericias.ofic.condi", mode:3, value:-5},
+		// {key: "system.pericias.ofic.condi", mode:3, value:-5},
 		{key: "system.pericias.perc.condi", mode:3, value:-5},
 		{key: "system.pericias.reli.condi", mode:3, value:-5},
 		{key: "system.pericias.sobr.condi", mode:3, value:-5},
@@ -328,7 +328,7 @@ T20Conditions.frustrado = {
 	flags: {tormenta20:{condition:true,durationScene:true,stack:"esmorecido",category:'mental'}},
 	changes: [{key: "system.modificadores.atributos.int", mode:2, value:-2},
 		{key: "system.modificadores.atributos.sab", mode:2, value:-2},
-		{key: "system.modificadores.atributos.con", mode:2, value:-2},
+		{key: "system.modificadores.atributos.car", mode:2, value:-2},
 		{key: "system.pericias.ades.condi", mode:3, value:-2},
 		{key: "system.pericias.atua.condi", mode:3, value:-2},
 		{key: "system.pericias.conh.condi", mode:3, value:-2},
@@ -342,7 +342,7 @@ T20Conditions.frustrado = {
 		{key: "system.pericias.joga.condi", mode:3, value:-2},
 		{key: "system.pericias.mist.condi", mode:3, value:-2},
 		{key: "system.pericias.nobr.condi", mode:3, value:-2},
-		{key: "system.pericias.ofic.condi", mode:3, value:-2},
+		// {key: "system.pericias.ofic.condi", mode:3, value:-2},
 		{key: "system.pericias.perc.condi", mode:3, value:-2},
 		{key: "system.pericias.reli.condi", mode:3, value:-2},
 		{key: "system.pericias.sobr.condi", mode:3, value:-2},
@@ -421,7 +421,11 @@ T20Conditions.ofuscado = {
 	statuses: ["ofuscado"],
 	icon: "systems/tormenta20/icons/conditions/ofuscado.svg",
 	flags: {tormenta20:{condition:true,durationScene:true,category:'sentidos'}},
-	changes: [{key: "system.pericias.perc.condi", mode:3, value:-2}]
+	changes: [
+		{key: "system.pericias.perc.condi", mode:3, value:-2},
+		{key: "system.pericias.luta.condi", mode:3, value:-2},
+		{key: "system.pericias.pont.condi", mode:3, value:-2},
+	]
 }
 
 T20Conditions.paralisado = {
@@ -479,7 +483,7 @@ T20Conditions.surdo = {
 	statuses: ["surdo"],
 	icon: "systems/tormenta20/icons/conditions/surdo.svg",
 	flags: {tormenta20:{condition:true,durationScene:true,category:'sentidos'}},
-	changes: [{key: "system.pericias.inic.condi", mode:3, value:-2}]
+	changes: [{key: "system.pericias.inic.condi", mode:3, value:-5}]
 }
 
 T20Conditions.surpreendido = {

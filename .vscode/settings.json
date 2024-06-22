@@ -1,3 +1,4 @@
 {
-	"less.compile": {}
+    "less.compile": {},
+    "editor.formatOnSave": false
 }
