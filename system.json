@@ -156,7 +156,8 @@
   "gridUnits": "m",
   "grid": {
     "distance": 1.5,
-    "units": "m"
+    "units": "m",
+    "diagonals": 3
   },
   "primaryTokenAttribute": "attributes.pv",
   "secondaryTokenAttribute": "attributes.pm",
