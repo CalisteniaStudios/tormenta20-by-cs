@@ -40,6 +40,7 @@ import StatblockParser from "./module/apps/statblock-parser.mjs";
 import RestConfigDialog from "./module/apps/rest-config.mjs";
 import CompendiumT20 from "./module/apps/compendium.mjs";
 import CharacterProgression from "./module/apps/character-progression.mjs";
+// import CombatTrackerT20 from "./module/apps/combat.mjs";
 
 // Import Helpers
 import * as hooks from "./module/hooks.mjs";
@@ -88,7 +89,7 @@ Hooks.once("init", async function () {
 		rollItemMacro: macros.rollItemMacro,
 		rollSkillMacro: macros.rollSkillMacro,
 	}
-	if ( game.version.startsWith('11.') ) {
+	if ( game.release.generation < 12 ) {
 		foundry.dice = {
 			terms: {
 				Coin: Coin,
@@ -105,6 +106,8 @@ Hooks.once("init", async function () {
 			}
 		}
 		Math.clamp = Math.clamped;
+	} else if ( game.release.generation >= 12 ) {
+		CONFIG.ActiveEffect.legacyTransferral = true;
 	}
 	// Record Cnfiguration Values
 	CONFIG.T20 = T20;
@@ -132,6 +135,8 @@ Hooks.once("init", async function () {
 	SystemSettings();
 
 	// Patch Core Functions
+	// CONFIG.ui.combat = CombatTrackerT20;
+	
 	CONFIG.Combat.initiative = {
 		formula: "1d20 + @pericias.inic.value",
 		decimals: 2,

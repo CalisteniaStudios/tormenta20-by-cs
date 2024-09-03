@@ -58,7 +58,10 @@ export default class ActorSheetT20 extends ActorSheet {
 
 	/** @override */
 	get template() {
-		if ( !game.user.isGM && this.actor.limited ) return "systems/tormenta20/templates/actors/limited-sheet.html";
+		const limitedSetting = game.settings.get('tormenta20','limitedSheet');
+		if ( !game.user.isGM && limitedSetting == 'limited' && this.actor.limited ) {
+			return "systems/tormenta20/templates/actors/limited-sheet.html";
+		}
 		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
 	}
 	
@@ -256,8 +259,10 @@ export default class ActorSheetT20 extends ActorSheet {
 
 			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
 				// Item Equip Context Menu
-				html.find(".toggle-armor,.toggle-weapon").on('click', this._contextMenu.bind(this));
-				new ContextMenu(html, ".toggle-armor,.toggle-weapon", [], {onOpen: this._onItemToggleContext.bind(this)});
+				new ContextMenu(html, '.window-content .toggle-armor, .window-content .toggle-weapon', [], {
+					eventName: "click",
+					onOpen: this._onItemToggleContext.bind(this),
+				});
 			} else {
 				// Update Inventory Item
 				html.find('.toggle-armor').click(this._onToggleArmor.bind(this));

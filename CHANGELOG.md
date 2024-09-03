@@ -1,5 +1,11 @@
 # Lista de Mudanças
 
+## Versão 1.4.212
+- Corrigido: Menu de alteração de equipamento era cordado pelos limites da ficha de abas.
+- Corrigido: Cálculo de PV somava constituição duas vezes.
+- Corrigido: Erro ao ativar condição cego.
+- Adicionado: ScrollText no token ao sofrer dano ou receber cura.
+
 ## Versão 1.4.211
 - Corrigido: Condições com ofic impediam que a ficha abrisse.
 - Corrigido: Algumas Condições tiveram seu efeito atualizado.

@@ -46,6 +46,23 @@ export const SystemSettings = function() {
 	});
 
 	/**
+	 * Option to define mechanics for Campaign Settings
+	 */
+	game.settings.register("tormenta20", "limitedSheet", {
+		name: game.i18n.localize("T20.SettingsLimitedSheet"),
+		hint: game.i18n.localize("T20.SettingsLimitedSheetHint"),
+		scope: "world",
+		config: true,
+		default: "limited",
+		type: String,
+		choices: {
+			default: "Default",
+			limited: "Limitada",
+		},
+		onChange: () => location.reload(),
+	});
+
+	/**
 	 * Option to disable XP bar for session-based or story-based advancement.
 	 */
 	game.settings.register("tormenta20", "disableExperience", {

@@ -1092,6 +1092,8 @@
 
   "T20.SettingDisableExperience": "Advance by Milestones",
   "T20.SettingDisableExperienceHint": "Characters do not receive experience points. Instead, they level up whenever they reach a certain milestone in the story.",
+  "T20.SettingsLimitedSheet": "Limited Sheet Visibility",
+  "T20.SettingsLimitedSheetHint": "Define which template will be loaded for a player with limited ownership.",
   "T20.SettingEnableLanguages": "Languages",
   "T20.SettingEnableLanguagesHint": "Adds a list of languages to the Player Character sheet. Cosmetic option, no additional effects.",
   "T20.SettingDisableJournal": "Disable Journal",

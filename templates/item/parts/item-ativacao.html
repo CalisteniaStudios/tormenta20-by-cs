@@ -94,7 +94,7 @@
 			<input type="text" name="system.duracao.value" value="{{item.system.duracao.value}}" placeholder="{{ localize 'T20.Quantity' }}" />
 		{{/if}}
 		<select name="system.duracao.units">
-			{{selectOptions config.timePeriods selected=item.system.circulo localize=true blank=''}}
+			{{selectOptions config.timePeriods selected=item.system.duracao.units localize=true blank=''}}
 		</select>
 		{{#if (eq item.system.duracao.units "special")}}
 			<input type="text" name="system.duracao.special" value="{{item.system.duracao.special}}" placeholder="{{ localize 'T20.Description' }}" />

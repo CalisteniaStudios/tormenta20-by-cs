@@ -1124,6 +1124,8 @@
 
   "T20.SettingDisableExperience": "Avanço por Marcos",
   "T20.SettingDisableExperienceHint": "Os personagens não recebem pontos de experiência. Em vez disso, sobem de nível sempre que alcançam um determinado marco na história.",
+  "T20.SettingsLimitedSheet": "Visibilidade de Ficha Limitada",
+  "T20.SettingsLimitedSheetHint": "Define qual template é exibido pra fichas com Permissão Limitada.",
   "T20.SettingEnableLanguages": "Idiomas",
   "T20.SettingEnableLanguagesHint": "Adiciona uma lista de idiomas à ficha de Personagens de Jogador. Opção cosmética, sem efeitos adicionais.",
   "T20.SettingDisableJournal": "Desabilitar Diário",

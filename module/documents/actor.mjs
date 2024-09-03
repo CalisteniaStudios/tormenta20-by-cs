@@ -271,7 +271,8 @@ export default class ActorT20 extends Actor {
 		
 		if ( this.getFlag("tormenta20", "lvlconfig") === undefined ){
 			let levelConfig = {
-				pv: { for: false, des: false, con: true , int: false, sab: false, car: false },
+				pv: { for: false, des: false, con: true, int: false, sab: false, car: false },
+				// con: true,
 				pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
 				pvBonus: ["0","0"],
 				pmBonus: ["0","0"],
@@ -541,7 +542,7 @@ export default class ActorT20 extends Actor {
 		for ( let classe of this.itemTypes.classe ) {
 			let c = classe.system;
 			let iniPV = c.inicial? c.pvPorNivel * 3 : 0;
-			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con.base + con.racial ));
+			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) ));
 			soma.pm += c.niveis * c.pmPorNivel;
 		}
 		if( lvlc.pvBonus[0] ) soma.pv += Number(lvlc.pvBonus[0]);
@@ -712,7 +713,9 @@ export default class ActorT20 extends Actor {
 	* @return {Number}			 The amount of experience granted per kill
 	*/
 	getCRExp(cr) {
-		return Number(cr) * 1000 || (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(cr) ? 1000 * eval(cr).toFixed(3) : 0);
+		if ( ["S", "S+"].includes(cr) ) return 20 * 1000;
+		else if ( ["1/2", "1/3", "1/4", "1/6", "1/8"].includes(cr) ) return 1000 * eval(cr).toFixed(3);
+		else (Number(cr) || 0) * 1000;
 	}
 
 	/* -------------------------------------------- */

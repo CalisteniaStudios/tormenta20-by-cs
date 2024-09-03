@@ -1,7 +1,7 @@
 export const endSegment = async function (app, html) {
 	if (app.options.id == "combat" && game.user.isGM) {
 		let button = $(
-			"<button class='scene-segment' title='Terminar a Cena'><img src='systems/tormenta20/icons/clapperboard.svg' width='32' height='32' /></i></button>"
+			"<button class='scene-segment flexF' title='Terminar a Cena'><img src='systems/tormenta20/icons/clapperboard.svg' width='32' height='32' /></i></button>"
 		);
 
 		button.click(async function () {

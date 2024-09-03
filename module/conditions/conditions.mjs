@@ -126,7 +126,7 @@ T20Conditions.cego = {
 	name: "Cego",
 	id: "cego",
 	duration: {rounds:999},
-	statuses: ["cego","blind","sentidos"],
+	statuses: ["cego"],
 	icon: "systems/tormenta20/icons/conditions/cego.svg",
 	flags: {tormenta20:{condition:true,durationScene:true,childEffect:["desprevenido","lento"],category:'sentidos'}},
 	changes: [{key: "system.pericias.acro.condi", mode:3, value:-5},

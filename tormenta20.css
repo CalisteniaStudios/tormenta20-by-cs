@@ -1329,6 +1329,8 @@
   text-align: left;
   width: auto;
   white-space: nowrap;
+  right: 0;
+  left: unset;
 }
 .tormenta20.sheet.actor .item-list .item-toggles {
   flex: 0 0 40px;
@@ -1345,6 +1347,8 @@
   text-align: left;
   width: auto;
   white-space: nowrap;
+  right: 0;
+  left: unset;
 }
 .tormenta20.sheet.actor .item-list .item-summary {
   flex: 0 0 100%;

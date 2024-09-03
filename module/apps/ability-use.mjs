@@ -180,7 +180,17 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				const dmgTypeG = ch.value.match(re.dmgType);
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
 				r.parts.push([Number(ch.value * qty) || ch.value,""]);
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (sourceName ?? '') } );
+				rollMods[r.key].push({
+					die: null,
+					dmgStep: 0,
+					override: null,
+					addDie:0,
+					addNum:0,
+					perDie:0,
+					extraDie:0,
+					dmgType: (dmgTypeG?.groups?.dtype ?? ''),
+					src: (sourceName ?? '')
+				});
 				continue;
 			}
 			
@@ -575,11 +585,16 @@ function applyOnUseEffects( rolledItem, configuration=null ) {
 		id.ativacao.custo += Number(ouEff.cost) || 0;
 		if( !Number(applied[ef.id]?.custo+1) && item.type == "magia" ) options.truque = true;
 
+		const temBonusTeste = ef.changes.filter( ch => ['roll', 'ataque'].includes(ch.key)).length > 1;
 		// Prepare onUseEffects rollModifiers
 		for ( let ch of ef.changes ){
 			if( ch.key == 'custo' ){
 				if( ch.value == '/2' ) options.halfCost = true;
 			}
+			if ( item.type == 'pericia' && temBonusTeste && ch.key == 'ataque' ){
+				continue;
+			}
+			
 			if( ch.key.match(/^\?/) ) continue;
 			if (itemFields[ch.key]) applyItemChanges( ch, ouEff.qty, ef, item, id );
 			else if (actorFields[ch.key]) applyActorChanges( ch, ouEff.qty, ef, item, id, ad );
