@@ -67,6 +67,8 @@ preLocalize("conditionTypes");
  * @enum {number}
  */
  T20.tokenHPColors = {
+	damage: 0xFF0000,
+  	healing: 0x00FF00,
 	temp: 0xFF0000,
 	tempmax: 0x440066,
 	negmax: 0xAA0000

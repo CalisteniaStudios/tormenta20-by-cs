@@ -828,6 +828,9 @@ export default class ActorT20 extends Actor {
 				changed.prototypeToken.width = size;
 			}
 		}
+		if ("pv" in (this.system.attributes || {})) {
+			foundry.utils.setProperty(options, "tormenta20.pv", { ...this.system.attributes.pv });
+		}
 		const sheetClass = foundry.utils.getProperty(changed, "flags.core.sheetClass");
 		if( false && sheetClass && sheetClass == 'tormenta20.ActorSheetT20Builder' ){
 			foundry.utils.setProperty(changed, 'flags.tormenta20.npcReform', true);
@@ -911,6 +914,16 @@ export default class ActorT20 extends Actor {
 					this.deleteEmbeddedDocuments('ActiveEffect', [ef._id]);
 				}
 			}
+		}
+		const { pv } = (options?.tormenta20 || {});
+		if (pv) {
+			const curr = this.system.attributes.pv;
+			const changes = {
+				pv: curr.value - pv.value,
+				temp: curr.temp - pv.temp
+			};
+			changes.total = changes.pv + changes.temp;
+			if ( Number.isInteger(changes.total) && (changes.total !== 0) ) this._displayTokenEffect(changes);
 		}
 	}
 	/* -------------------------------------------- */
@@ -1513,4 +1526,46 @@ export default class ActorT20 extends Actor {
 		}
 	}
 
+	/**
+	 * Flash ring & display changes to health as scrolling combat text.
+	 * @param {object} changes          Object of changes to hit points.
+	 * @param {number} changes.pv		Changes to `pv.value`.
+	 * @param {number} changes.temp     The change to `pv.temp`.
+	 * @param {number} changes.total    The total change to hit points.
+	 * @protected
+	 */
+	_displayTokenEffect(changes) {
+		let key;
+		let value;
+		if ( changes.pv < 0 ) {
+			key = "damage";
+			value = changes.total;
+		} else if ( changes.pv > 0 ) {
+			key = "healing";
+			value = changes.total;
+		} else if ( changes.temp ) {
+			value = changes.temp;
+		}
+		if ( !value ) return;
+
+		const tokens = this.isToken ? [this.token] : this.getActiveTokens(true, true);
+		if ( !tokens.length ) return;
+
+		const pct = Math.clamp(Math.abs(value) / this.system.attributes.pv.max, 0, 1);
+		const fill = CONFIG.T20.tokenHPColors[key] ?? "#ffffff";
+
+		for ( const token of tokens ) {
+			if ( !token.object?.visible || token.isSecret ) continue;
+			const t = token.object;
+			canvas.interface.createScrollingText(t.center, value.signedString(), {
+				anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
+				// Adapt the font size relative to the Actor's HP total to emphasize more significant blows
+				fontSize: 16 + (32 * pct), // Range between [16, 48]
+				fill,
+				stroke: 0x000000,
+				strokeThickness: 4,
+				jitter: 0.25
+			});
+		}
+	}
 }
