@@ -1,5 +1,8 @@
 # Lista de Mudanças
 
+## Hotfix 1.4.213
+- Corrigido: Cálculo de PV não somava Constituição após nível 1;
+
 ## Versão 1.4.212
 - Corrigido: Menu de alteração de equipamento era cordado pelos limites da ficha de abas.
 - Corrigido: Cálculo de PV somava constituição duas vezes.

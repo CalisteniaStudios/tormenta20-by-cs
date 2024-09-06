@@ -35,7 +35,7 @@
 			<td>{{localize "T20.Ability"}} {{localize "T20.HP"}}</td>
 			<td colspan="4">
 				{{#each config.atributosAbr as |name prop|}}
-					<label class="checkbox">
+					<label class="checkbox {{ifThen (eq prop 'con') 'hidden' '' }}">
 						<input type="checkbox" name="pv.{{prop}}" value="{{name}}" {{checked (lookup ../flags.lvlconfig.pv prop)}} data-dtype="Boolean" /> {{localize name }}
 					</label>
 				{{/each}}

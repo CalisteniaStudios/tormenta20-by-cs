@@ -541,15 +541,18 @@ export default class ActorT20 extends Actor {
 		
 		for ( let classe of this.itemTypes.classe ) {
 			let c = classe.system;
-			let iniPV = c.inicial? c.pvPorNivel * 3 : 0;
-			soma.pv += Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) ));
+			let iniPV = c.inicial ? c.pvPorNivel * 3 : 0;
+			soma.pv += Number(iniPV);
+			soma.pv += (Number(c.niveis) * Number(c.pvPorNivel));
 			soma.pm += c.niveis * c.pmPorNivel;
 		}
+		if( con ) soma.pv += con.value * nivel;
 		if( lvlc.pvBonus[0] ) soma.pv += Number(lvlc.pvBonus[0]);
 		if( lvlc.pvBonus[1] ) soma.pv += Math.floor(Number(lvlc.pvBonus[1]) * nivel);
 		if( lvlc.pmBonus[0] ) soma.pm += Number(lvlc.pmBonus[0]);
 		if( lvlc.pmBonus[1] ) soma.pm += Math.floor(Number(lvlc.pmBonus[1]) * nivel);
 		for (let [atr, value] of Object.entries(lvlc.pv)){
+			if ( atr == 'con') continue;
 			let abl = this.system.atributos[atr];
 			if(value) soma.pv += Number(abl.base) + Number(abl.racial);
 		}
