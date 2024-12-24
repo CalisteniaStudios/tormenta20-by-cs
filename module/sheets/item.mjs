@@ -229,6 +229,11 @@ export default class ItemSheetT20 extends ItemSheet {
 			delete formData.rolltags;
 			options.updateData = formData;
 		}
+
+		const expandedFormData = foundry.utils.expandObject(formData);
+		if (expandedFormData.system?.upgrades) {
+			this._createEffects(expandedFormData.system?.upgrades);
+		}
 		await super._onSubmit(event, options);
 	}
 
@@ -544,4 +549,40 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 	}
 
+
+	/* -------------------------------------------- */
+	/** Create effects based on upgrades 
+	 * @param upgrades
+	 * @private
+	*/
+	_createEffects(upgrades){
+		const values = Object.values(upgrades);
+
+		const existingEffects = this.item.getEmbeddedCollection("ActiveEffect")
+			.contents
+			.filter(e => !!e.flags.tormenta20.upgrade);
+
+		// Delete old effects
+		const effectsToDelete = existingEffects
+			.filter(e => !values.includes(e.flags.tormenta20.upgrade))
+			.map(e => e.id);
+		if ( effectsToDelete.length ) {
+			this.item.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+		}
+
+		// Create new effects
+		const effects = values
+			.filter(v => T20.upgrades[v]
+				&& !existingEffects.some(e => e.flags.tormenta20.upgrade == v))
+			.map(v => ({ 
+				...T20.upgrades[v],
+				name: game.i18n.localize(T20.upgrades[v].name),
+				icon: this.item.img,
+				origin: this.item.uuid,
+			}));
+
+		if ( !effects.length ) return;
+		
+		this.item.createEmbeddedDocuments("ActiveEffect", effects);
+	}
 }
