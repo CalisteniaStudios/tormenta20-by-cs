@@ -558,31 +558,58 @@ export default class ItemSheetT20 extends ItemSheet {
 	_createEffects(upgrades){
 		const values = Object.values(upgrades);
 
-		const existingEffects = this.item.getEmbeddedCollection("ActiveEffect")
-			.contents
-			.filter(e => !!e.flags.tormenta20.upgrade);
+		const existingEffects = [
+			this.item.getEmbeddedCollection("ActiveEffect").contents,
+			this.item.actor?.getEmbeddedCollection("ActiveEffect").contents
+		]
+			.flat()
+			.filter(e => !!e && !!e.flags.tormenta20.upgrade);
 
 		// Delete old effects
 		const effectsToDelete = existingEffects
-			.filter(e => !values.includes(e.flags.tormenta20.upgrade))
-			.map(e => e.id);
-		if ( effectsToDelete.length ) {
-			this.item.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+			.filter(e => !values.includes(e.flags.tormenta20.upgrade));
+		if (effectsToDelete.length) {
+			const actorEffectsToDelete = effectsToDelete
+				.filter(e => e.parent.id === this.item.actor?.id)
+				.map(e => e.id);
+			const itemEffectsToDelete = effectsToDelete
+				.filter(e => e.parent.id === this.item.id)
+				.map(e => e.id);
+
+			this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete);
+			this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete);
 		}
 
 		// Create new effects
 		const effects = values
 			.filter(v => T20.upgrades[v]
-				&& !existingEffects.some(e => e.flags.tormenta20.upgrade == v))
+				&& !existingEffects.some(e => e.flags.tormenta20.upgrade === v))
 			.map(v => ({ 
 				...T20.upgrades[v],
 				name: game.i18n.localize(T20.upgrades[v].name),
 				icon: this.item.img,
 				origin: this.item.uuid,
+				// We need to internationalize the items list
+				flags: {
+					...T20.upgrades[v].flags,
+					tormenta20: {
+						...T20.upgrades[v].flags.tormenta20,
+						items: (T20.upgrades[v].flags.tormenta20.items || '')
+							.split(';')
+							.map(i => i.trim())
+							.filter(i => !!i)
+							.map(i => game.i18n.localize(i))
+							.join(';'),
+						custo: T20.upgrades[v].flags.tormenta20.custo || ''
+					}
+				}
 			}));
 
 		if ( !effects.length ) return;
 		
+		const actorEffects = effects.filter(e => e.transfer);
+		
+		this.item.actor?.createEmbeddedDocuments("ActiveEffect", actorEffects);
 		this.item.createEmbeddedDocuments("ActiveEffect", effects);
 	}
 }
