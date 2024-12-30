@@ -581,26 +581,29 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 
 		// Create new effects
+		const availableEffects = this._availableUpgradesByItem
+		if (!availableEffects) return;
+
 		const effects = values
-			.filter(v => T20.upgrades[v]
+			.filter(v => availableEffects[v]
 				&& !existingEffects.some(e => e.flags.tormenta20.upgrade === v))
 			.map(v => ({ 
-				...T20.upgrades[v],
-				name: game.i18n.localize(T20.upgrades[v].name),
+				...availableEffects[v],
+				name: game.i18n.localize(availableEffects[v].name),
 				icon: this.item.img,
 				origin: this.item.uuid,
 				// We need to internationalize the items list
 				flags: {
-					...T20.upgrades[v].flags,
+					...availableEffects[v].flags,
 					tormenta20: {
-						...T20.upgrades[v].flags.tormenta20,
-						items: (T20.upgrades[v].flags.tormenta20.items || '')
+						...availableEffects[v].flags.tormenta20,
+						items: (availableEffects[v].flags.tormenta20.items || '')
 							.split(';')
 							.map(i => i.trim())
 							.filter(i => !!i)
 							.map(i => game.i18n.localize(i))
 							.join(';'),
-						custo: T20.upgrades[v].flags.tormenta20.custo || ''
+						custo: availableEffects[v].flags.tormenta20.custo || ''
 					}
 				}
 			}));
@@ -611,5 +614,29 @@ export default class ItemSheetT20 extends ItemSheet {
 		
 		this.item.actor?.createEmbeddedDocuments("ActiveEffect", actorEffects);
 		this.item.createEmbeddedDocuments("ActiveEffect", effects);
+	}
+
+	get _availableUpgradesByItem() {
+		if (!['arma', 'equipamento'].includes(this.item.type)) return null;
+		if (this.item.system.tipo
+			&& !['esoterico', 'pesada', 'leve', 'escudo', 'ferramenta', 'traje']
+				.includes(this.item.system.tipo)) return null;
+
+		if (this.item.type === 'arma') {
+			return Object.assign({}, T20.upgrades.general, T20.upgrades.weapon);
+		}
+
+		if (this.item.system.tipo === 'esoterico') {
+			return Object.assign({}, T20.upgrades.general, T20.upgrades.esoteric);
+		}
+
+		if (['traje', 'ferramenta'].includes(this.item.system.tipo)) {
+			return Object.assign({}, T20.upgrades.general, T20.upgrades.tools);
+		}
+
+		return Object.assign({},
+			T20.upgrades.general,
+			T20.upgrades.armor.general,
+			T20.upgrades.armor[this.item.system.tipo]);
 	}
 }
