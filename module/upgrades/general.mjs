@@ -1,1 +1,3 @@
-export const T20UpgradesGeneral = {};
+export const T20GeneralUpgrades = {};
+
+T20GeneralUpgrades.status = {};

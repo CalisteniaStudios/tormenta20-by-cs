@@ -7,10 +7,10 @@ T20WeaponUpgrades.status = {
 	atrocious: 'DONE',
 	balanced: 'DONE',
 	harmonized: 'DONE',
-	alchemicalInjection:'MANUAL',
+	injection:'MANUAL',
 	massive: 'DONE',
-	specialMaterial: 'MANUAL',
-	telescopicSight: 'MANUAL',
+	specialmaterial: 'MANUAL',
+	scope: 'MANUAL',
 	precise: 'DONE',
 };
 

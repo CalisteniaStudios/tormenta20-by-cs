@@ -1,6 +1,6 @@
 import { T20ArmorUpgrades } from "./armor.mjs";
 import { T20EsotericUpgrades } from "./esoteric.mjs";
-import { T20UpgradesGeneral } from "./general.mjs";
+import { T20GeneralUpgrades } from "./general.mjs";
 import { T20ToolsUpgrades } from "./tools.mjs";
 import { T20WeaponUpgrades } from "./weapon.mjs";
 
@@ -15,5 +15,5 @@ export const T20Upgrades = {
 	armor: T20ArmorUpgrades,
 	esoteric: T20EsotericUpgrades,
 	tools: T20ToolsUpgrades,
-	general: T20UpgradesGeneral
+	general: T20GeneralUpgrades
 };

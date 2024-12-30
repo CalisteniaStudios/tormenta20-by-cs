@@ -1631,6 +1631,36 @@
   padding: 0 5px;
   overflow: hidden auto;
 }
+.tormenta20.sheet.item .sheet-body .tab .wip-title {
+  margin-bottom: 0.2rem;
+  display: inline-block;
+}
+.tormenta20.sheet.item .sheet-body .tab .form-group:first-child {
+  margin-bottom: 0.2rem;
+}
+.tormenta20.sheet.item .sheet-body .tab .size {
+  margin-top: 0.5rem;
+}
+.tormenta20.sheet.item .sheet-body .tab .form-group .wip-fields {
+  margin-bottom: 0.5em;
+}
+.tormenta20.sheet.item .sheet-body .tab .form-group .wip-fields :first-child {
+  text-align: left;
+  padding: 0;
+}
+.tormenta20.sheet.item .sheet-body .tab .form-group .wip-fields :last-child {
+  text-align: right;
+  padding: 0;
+}
+.tormenta20.sheet.item .sheet-body .tab .form-group .not-selected {
+  color: #191813;
+}
+.tormenta20.sheet.item .sheet-body .tab .form-group .implemented {
+  color: #3bb52d;
+}
+.tormenta20.sheet.item .sheet-body .tab .form-group .not-implemented {
+  color: #b5782d;
+}
 .tormenta20.sheet.item .sheet-body .item-properties {
   flex: 0 0 120px;
   margin: 5px 5px 5px 0;

@@ -652,8 +652,14 @@
 
   "T20.S09": "/* ------------ Item Upgrades ------------ */",
 
-  "T20.WIPEnhancements": "Efeitos dessa sessão ainda não foram implementados (Exceto pelo efeito antigo de Lancinante)",
-  
+  "T20.WIPEnhancements": "Obs: Nem todos os aprimoramentos desta seção foram automatizados. Os ícones abaixo indicam se foram automatizados ou não, conforme a legenda.",
+  "T20.WIPEnhancementsImplemented": "Automatizado",
+  "T20.WIPEnhancementsNotImplemented": "Não Automatizado",
+  "T20.WIPEnhancementsNotSelected": "Não selecionado",
+
+  "T20.EnhancementsAutomationEnable": "Ativar automação de aprimoramentos",
+  "T20.EnhancementsAutomationEnableHint": "Caso ativado, os efeitos dos aprimoramentos serão criados automaticamente",
+
   "T20.SpecialMaterial": "Material Especial",
   "T20.SpecialMaterialRubySteel": "Aço-Rubi",
   "T20.SpecialMaterialAdamant": "Adamante",

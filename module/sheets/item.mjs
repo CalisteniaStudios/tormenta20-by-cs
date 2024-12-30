@@ -109,6 +109,8 @@ export default class ItemSheetT20 extends ItemSheet {
 			isNPCOwned: item.isOwned && item.parent.type==="npc",
 			isSimpleOwned: item.isOwned && item.parent.type==="simle",
 
+			itemUpgradeStatus: this._itemUpgradeStatus,
+
 			config: CONFIG.T20,
 			// itemType: sheetData.item.type.capitalize(),
 			itemType: game.i18n.localize(`Types.Item.${item.type}`),
@@ -231,9 +233,10 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 
 		const expandedFormData = foundry.utils.expandObject(formData);
-		if (expandedFormData.system?.upgrades) {
+		if (expandedFormData.system?.enableAutoUpgrades && expandedFormData.system?.upgrades) {
 			this._createEffects(expandedFormData.system?.upgrades);
 		}
+
 		await super._onSubmit(event, options);
 	}
 
@@ -581,7 +584,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 
 		// Create new effects
-		const availableEffects = this._availableUpgradesByItem
+		const availableEffects = this._availableEffects
 		if (!availableEffects) return;
 
 		const effects = values
@@ -615,28 +618,69 @@ export default class ItemSheetT20 extends ItemSheet {
 		this.item.actor?.createEmbeddedDocuments("ActiveEffect", actorEffects);
 		this.item.createEmbeddedDocuments("ActiveEffect", effects);
 	}
+	get _itemUpgradeStatus() {
+		const status = this._upgradeStatus;
+		if (!status || !this.item.system?.upgrades) return '';
 
-	get _availableUpgradesByItem() {
-		if (!['arma', 'equipamento'].includes(this.item.type)) return null;
-		if (this.item.system.tipo
-			&& !['esoterico', 'pesada', 'leve', 'escudo', 'ferramenta', 'traje']
-				.includes(this.item.system.tipo)) return null;
+		const statusByType = {};
 
-		if (this.item.type === 'arma') {
-			return Object.assign({}, T20.upgrades.general, T20.upgrades.weapon);
+		Object.values(this.item.system.upgrades)
+			.forEach(v => {
+				if (!v || !v.length) return;
+				statusByType[v] = status[v] === "DONE" ? "implemented" : 'not-implemented'
+		});
+
+		return statusByType;
+	}
+
+	get _availableEffects() {
+		if (!this._isUpgradable) return null;
+
+		const upgrades = Object.assign({}, T20.upgrades.general);
+
+		if (this.item.type === "arma" || this.item.system.tipo === "ammo") {
+			return Object.assign(upgrades, T20.upgrades.weapon);
 		}
 
-		if (this.item.system.tipo === 'esoterico') {
-			return Object.assign({}, T20.upgrades.general, T20.upgrades.esoteric);
+		if (this.item.system.tipo === "esoterico") {
+			return Object.assign(upgrades, T20.upgrades.esoteric);
 		}
 
-		if (['traje', 'ferramenta'].includes(this.item.system.tipo)) {
-			return Object.assign({}, T20.upgrades.general, T20.upgrades.tools);
+		if (["traje", "ferramenta"].includes(this.item.system.tipo)) {
+			return Object.assign(upgrades, T20.upgrades.tools);
 		}
 
-		return Object.assign({},
-			T20.upgrades.general,
+		return Object.assign(upgrades,
 			T20.upgrades.armor.general,
 			T20.upgrades.armor[this.item.system.tipo]);
+	}
+
+	get _upgradeStatus() {
+		if (!this._isUpgradable) return null;
+
+		const status = Object.assign({}, T20.upgrades.general.status);
+
+		if (this.item.type === "arma" || this.item.system.tipo === "ammo") {
+			return Object.assign(status, T20.upgrades.weapon.status);
+		}
+
+		if (this.item.system.tipo === "esoterico") {
+			return Object.assign(status, T20.upgrades.esoteric.status);
+		}
+
+		if (["traje", "ferramenta"].includes(this.item.system.tipo)) {
+			return Object.assign(status, T20.upgrades.tools.status);
+		}
+
+		return Object.assign(status, T20.upgrades.armor.status);
+	}
+
+	get _isUpgradable() {
+		if (!["arma", "equipamento", "consumivel"].includes(this.item.type)) return false;
+		if (this.item.system.tipo
+			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje"]
+				.includes(this.item.system.tipo)) return false;
+		
+		return true;
 	}
 }
