@@ -234,7 +234,7 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		const expandedFormData = foundry.utils.expandObject(formData);
 		if (expandedFormData.system?.enableAutoUpgrades && expandedFormData.system?.upgrades) {
-			this._createEffects(expandedFormData.system?.upgrades);
+			this._createEffects(expandedFormData.system.upgrades);
 		}
 
 		await super._onSubmit(event, options);
@@ -638,8 +638,12 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		const upgrades = Object.assign({}, T20.upgrades.general);
 
-		if (this.item.type === "arma" || this.item.system.tipo === "ammo") {
+		if (this.item.type === "arma") {
 			return Object.assign(upgrades, T20.upgrades.weapon);
+		}
+
+		if (this.item.system.tipo === "ammo") {
+			return Object.assign(upgrades, T20.upgrades.ammo);
 		}
 
 		if (this.item.system.tipo === "esoterico") {
@@ -660,8 +664,12 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		const status = Object.assign({}, T20.upgrades.general.status);
 
-		if (this.item.type === "arma" || this.item.system.tipo === "ammo") {
+		if (this.item.type === "arma") {
 			return Object.assign(status, T20.upgrades.weapon.status);
+		}
+
+		if (this.item.system.tipo === "ammo") {
+			return Object.assign(status, T20.upgrades.ammo.status);
 		}
 
 		if (this.item.system.tipo === "esoterico") {
@@ -678,7 +686,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	get _isUpgradable() {
 		if (!["arma", "equipamento", "consumivel"].includes(this.item.type)) return false;
 		if (this.item.system.tipo
-			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje"]
+			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje", "ammo"]
 				.includes(this.item.system.tipo)) return false;
 		
 		return true;
