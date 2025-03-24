@@ -612,7 +612,7 @@
   border-radius: 15px;
   padding: 7px;
 }
-.tormenta20 .effects-list .item-controls .add-status-effects .active {
+.tormenta20 .effects-list .item-controls .add-status-effects.active {
   display: block;
 }
 .tormenta20 .effects-list .item {

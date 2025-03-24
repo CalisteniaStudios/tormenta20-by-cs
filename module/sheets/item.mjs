@@ -202,7 +202,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			html.find(".effect-control-list").click(ev => {
 				let parent = ev.currentTarget.closest('.effect-controls');
 				let list = $(parent).find('.add-status-effects');
-				$(list).addClass('active');
+				$(list).toggleClass('active');
 			});
 			html.find(".effect-control-status").click(ev => {
 				ActiveEffectT20.onManageActiveEffect(ev, this.item)
