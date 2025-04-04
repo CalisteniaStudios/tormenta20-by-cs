@@ -508,6 +508,9 @@
 .tormenta20.sheet .sheet-tabs .item:not(:last-child) {
   flex: 1;
 }
+.tormenta20.sheet.npc .sheet-tabs .item {
+  flex: 0 1 auto;
+}
 .tormenta20.sheet .sheet-body {
   flex: 1;
 }
