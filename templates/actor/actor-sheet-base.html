@@ -1,7 +1,7 @@
 <form class="tormenta20 base" autocomplete="off">
 	{{!-- Sheet Tab Navigation --}}
 	{{> "systems/tormenta20/templates/partials/nav-bar.html"}}
-	
+
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
 		{{!-- Attributes Tab --}}
@@ -13,7 +13,7 @@
 			<div class="attributes-left flexcol">
 				{{!-- Abilities --}}
 				{{> "systems/tormenta20/templates/actor/parts/abilities.html"}}
-				
+
 				{{!-- HP/MP Resources --}}
 				<div class="resources-main">
 					<ul class="attributes flexrow">
@@ -21,7 +21,7 @@
 					{{> "systems/tormenta20/templates/actor/parts/defense.html"}}
 					</ul>
 				</div>
-				
+
 				{{!-- Extra Resources --}}
 				{{#if (or system.resources.shadow system.resources.shadow ) }}
 				<div class="resource">
@@ -45,10 +45,12 @@
 					{{> "systems/tormenta20/templates/actor/parts/list-powers.html"}}
 				</div>
 
+				{{#if actor.maiorCirculo}}
 				{{!-- Spells --}}
 				<div class="list-spells">
 					{{> "systems/tormenta20/templates/actor/parts/list-spells.html"}}
 				</div>
+				{{/if}}
 
 				{{!-- Traits --}}
 				<div class="traits">
