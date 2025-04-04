@@ -15,8 +15,10 @@
     }
 
     .item-subtitle {
-      flex: 0 0 100px;
+      flex: 0 0 auto;
       height: 60px;
+      max-width: 195px;
+      min-width: 100px;
       margin: 0;
       padding: 5px;
       text-align: right;
@@ -100,6 +102,12 @@
         }
         input {
           text-align: right;
+          &[type="checkbox"] {
+            flex: 0 0 15px;
+            width: 15px;
+            height: 15px;
+            margin: 0;
+          }
         }
       }
 

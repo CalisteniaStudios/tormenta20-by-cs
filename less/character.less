@@ -10,7 +10,7 @@
   /* ----------------------------------------- */
   /*  Sheet Header                             */
   /* ----------------------------------------- */
-  
+
   .sheet-header {
 
     // Character Level
@@ -100,7 +100,7 @@
                 margin: none;
               }
             }
-            
+
             // background-color: @colorFaint;
           }
         }
@@ -109,7 +109,7 @@
   }
   form.base {
     margin-top: -5px;
-    
+
     img.profile {
       flex: 0 0 100px;
       max-width: 100px;
@@ -159,10 +159,10 @@
       min-width: 330px;
       flex: 0 0 40%;
     }
-    
+
     .ability-scores {
       flex: 0 0 auto;
-      .ability {
+      .ability:not(:last-child) {
         border-right: @borderGroove;
       }
     }
@@ -174,7 +174,7 @@
       .ability {
         border-bottom: @borderGroove;
       }
-      
+
       &:last-child {
         border-bottom: none;
         margin-bottom: -3px;
@@ -184,14 +184,14 @@
     .attributes-mid {
       flex: 0 0 350px;
     }
-    
+
     .item-list {
       .item-def {
         flex:2;
       }
     }
   }
-  
+
   // Custom Resources
   .resource .attribute-value {
     > input {
@@ -254,7 +254,7 @@
       }
     }
     // .item-controls {
-      
+
     //   .item-toggle {
     //     color: @colorBeige;
     //     &.active {
@@ -340,7 +340,7 @@
         }
       }
 
-      
+
       &:hover .editor .editor-edit {
         display: block;
       }
@@ -350,7 +350,7 @@
         padding: 0;
         position: static;
 
-        
+
         .editor-edit {
           background: transparent;
           display: none;

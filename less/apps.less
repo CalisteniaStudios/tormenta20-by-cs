@@ -11,7 +11,7 @@
 #sidebar {
   border: 1px solid #782e22;
   color: #ffffff !important;
-  
+
   .tab:not(#chat) button {
     color: #fff;
     /*#f18c17;*/
@@ -30,7 +30,7 @@
 .sidebar-popout {
   .scene-segment {
     background: #0d0d0d;
-  } 
+  }
 }
 
 .app {
@@ -340,7 +340,7 @@
 
   .sheet-header {
     flex: 0 0 @headerHeight;
-    border-bottom: @borderGroove;
+    // border-bottom: @borderGroove;
 
     .header-details {
       .modesto();
@@ -421,6 +421,10 @@
       height: 30px;
       line-height: 32px;
       padding: 0;
+
+      &:not(:last-child) {
+        flex: 1;
+      }
     }
   }
 
@@ -523,7 +527,7 @@
       flex: 2;
       margin: 0;
       overflow: hidden;
-      
+
       text-align: left;
       align-items: center;
       h3, h4 {
@@ -532,8 +536,8 @@
         border: unset;
       }
     }
-    
-    
+
+
     // &.ae-onuse {
     //   // Individual Item
     //   .item.effect {
@@ -567,13 +571,13 @@
       }
     }
 
-    
+
     .item {
       align-items: center;
       height: auto;
       line-height: 24px;
       padding: 0 2px;
-      
+
       border-bottom: 1px solid @colorFaint;
       &:last-child { border-bottom: none; }
       .item-name {
