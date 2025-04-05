@@ -350,14 +350,9 @@
   overflow-x: hidden;
   align-content: flex-start;
 }
-.tormenta20.sheet .window-content form.base .sheet-body {
+.tormenta20.sheet .window-content form .sheet-body {
   overflow-y: auto;
-  height: calc(100% - 50px);
-  padding-bottom: 5px;
-}
-.tormenta20.sheet .window-content form.tabbed .sheet-body {
-  overflow-y: auto;
-  height: calc(100% - 230px);
+  height: 100%;
   padding-bottom: 5px;
 }
 .tormenta20.sheet .window-content form.npc .sheet-body.primary {

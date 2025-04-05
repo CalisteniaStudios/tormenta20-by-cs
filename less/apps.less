@@ -224,19 +224,22 @@
     }
 
     // scrollY
-    form.base {
+    form {
       .sheet-body {
         overflow-y: auto;
-        // height: 94%;
-        height: calc(100% - 50px);
+        height: 100%;
         padding-bottom: 5px;
       }
-    }
-    form.tabbed {
-      .sheet-body {
-        overflow-y: auto;
-        height: calc(100% - 230px);
-        padding-bottom: 5px;
+      .base {
+        .sheet-body {
+          // height: 94%;
+          // height: calc(100% - 50px);
+        }
+      }
+      .tabbed {
+        .sheet-body {
+          // height: calc(100% - 230px);
+        }
       }
     }
     form.npc {
