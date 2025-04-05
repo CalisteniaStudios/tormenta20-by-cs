@@ -35,10 +35,10 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 			carregado: new fields.BooleanField({ required: true, nullable:false, initial: true, label:"T20.ItemCarrying", hint:"T20.ItemCarryingHint"}),
 			espacos: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label:"T20.ItemSlot", hint:"T20.ItemSlotsHint"}),
 			peso: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label:"T20.ItemWeight", hint:"T20.ItemWeightHint"}),
-			qtd: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label:"T20.ItemQuantity", hint:"T20.ItemQuantityHint"}),
+			qtd: new fields.NumberField({ required: true, nullable:false, initial:1, min:0, label:"T20.ItemQuantity", hint:"T20.ItemQuantityHint"}),
 			preco: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, label:"T20.ItemPrice", hint:"T20.ItemPriceHint"}),
 			pv: new fields.SchemaField({
-				value: new fields.NumberField({ required: true, nullable:false, initial:0, step:1, integer:true, label:"T20.ItemHitPoints", hint:"T20.ItemHitPointsHint" }),
+				value: new fields.NumberField({ required: true, nullable:false, initial:3, step:1, integer:true, label:"T20.ItemHitPoints", hint:"T20.ItemHitPointsHint" }),
 				min: new fields.NumberField({ required: true, nullable:false, initial:0, integer:true, label:"T20.ItemHitPointsMin", hint:"T20.ItemHitPointsMinHint" }),
 				max: new fields.NumberField({ required: true, nullable:false, initial:3, integer:true, label:"T20.ItemHitPointsMax", hint:"T20.ItemHitPointsMaxHint" }),
 			}),
@@ -60,20 +60,20 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 				qtd: new fields.StringField({ initial: '', label:"T20.ItemActivationActionQuantity", hint:"T20.ItemActivationActionQuantityHint" }),
 				special: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemActivationSpecial", hint:"T20.ItemActivationSpecialHint" }),
 			}),
-			// consume 
+			// consume
 			consume: new fields.SchemaField({
 				amount: new fields.NumberField({ initial:0, label:"T20.ItemConsuptionQuantity", hint:"T20.ItemConsuptionQuantityHint" }),
 				mpMultiplier: new fields.BooleanField({ required:true, initial:false, label:"T20.ItemConsuptionMultiplier", hint:"T20.ItemConsuptionMultiplierHint" }),
 				target: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemConsuptionTarget", hint:"T20.ItemConsuptionTargetHint" }),
 				type: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemConsuptionType", hint:"T20.ItemConsuptionTypeHint" }),
 			}),
-			// duracao 
+			// duracao
 			duracao: new fields.SchemaField({
 				units: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemDurationUnit", hint:"T20.ItemDurationUnitHint" }),
 				value: new fields.NumberField({ required: true, nullable:false, initial:0, label:"T20.ItemDurationValue", hint:"T20.ItemDurationValueHint" }),
 				special: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemDurationSpecial", hint:"T20.ItemDurationSpecialHint" }),
 			}),
-			// range 
+			// range
 			range: new fields.SchemaField({
 				units: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemRangeUnits", hint:"T20.ItemRangeUnitsHint" }),
 				value: new fields.NumberField({ initial:0, label:"T20.ItemRangeValue", hint:"T20.ItemRangeValueHint" }),
@@ -84,7 +84,7 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 				value: new fields.NumberField({ initial:0, label:"T20.ItemTargeValue", hint:"T20.ItemTargeValueHint" }),
 				width: new fields.NumberField({ initial:0, label:"T20.ItemTargeWidth", hint:"T20.ItemTargeWidthHint" }),
 			}),
-			
+
 			alcance: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemRangeDescription", hint:"T20.ItemRangeDescriptionHint" }),
 			alvo: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemTargetDescription", hint:"T20.ItemTargetDescriptionHint" }),
 			area: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemAreaOfEffectDescription", hint:"T20.ItemAreaOfEffectDescriptionHint" }),
@@ -225,7 +225,7 @@ class systemItemWeaponData extends systemItemBaseData {
 			} else if ( (['eng'].includes(data.tipo) && data.escola) ) {
 				data.equipado2.type = 'both';
 			}
-			// data.equipado2.slot = data.equipado ? 
+			// data.equipado2.slot = data.equipado ?
 		}
 		return super.migrateData(data);
 	}
@@ -254,7 +254,7 @@ class systemItemEquipmentData extends systemItemBaseData {
 			tipo: new fields.StringField({ required: true, nullable:false, initial:'leve', label:"T20.ItemType", hint:"T20.ItemTypeHint" }),
 		}
 	}
-	
+
 	/** @inheritdoc */
 	static migrateData(data) {
 		if ( !data.equipado2 ) {
@@ -266,7 +266,7 @@ class systemItemEquipmentData extends systemItemBaseData {
 			} else if ( (['eng'].includes(data.tipo) && data.escola) ) {
 				data.equipado2.type = 'both';
 			}
-			// data.equipado2.slot = data.equipado ? 
+			// data.equipado2.slot = data.equipado ?
 		}
 		return super.migrateData(data);
 	}
@@ -294,7 +294,7 @@ class systemItemConsumableData extends systemItemBaseData {
 		if( !isFinite(data.duracao.value) || data.duracao.value == null ){
 			data.duracao.value = 0;
 		}
-		
+
 		return super.migrateData(data);
 	}
 }
@@ -346,7 +346,7 @@ class systemItemSpellData extends systemItemBaseData {
 			}),
 		}
 	}
-	
+
 	/** @inheritdoc */
 	static migrateData(data) {
 		if ( data.duracao && (isNaN(data.duracao?.value) || !isFinite(data.duracao?.value)) ){
@@ -369,7 +369,7 @@ class systemItemPowerData extends systemItemBaseData {
 		}
 	}
 
-	
+
 	/** @inheritdoc */
 	static migrateData(data) {
 		if ( isNaN(data.duracao.value) || !isFinite(data.duracao.value) ){
