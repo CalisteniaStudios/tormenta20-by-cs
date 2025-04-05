@@ -48,6 +48,7 @@ import * as utils from "./module/utils.mjs";
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.mjs";
 import { systemActorCharacterData, systemActorNPCData, systemActorSimpleData } from "./module/dataModel/actor.mjs";
 import { systemItemClassData, systemItemConsumableData, systemItemEquipmentData, systemItemLootData, systemItemPowerData, systemItemSpellData, systemItemWeaponData } from "./module/dataModel/item.mjs";
+import ActorDirectoryTormenta20 from "./module/sidebar/actor-directory.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -130,6 +131,7 @@ Hooks.once("init", async function () {
 	SystemSettings();
 
 	// Patch Core Functions
+	CONFIG.ui.actors = ActorDirectoryTormenta20;
 	// CONFIG.ui.combat = CombatTrackerT20;
 
 	CONFIG.Combat.initiative = {

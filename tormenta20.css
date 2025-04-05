@@ -2604,3 +2604,19 @@
   min-width: 720px;
   min-height: 680px;
 }
+.directory-item .entity-name,
+.directory-item .document-name,
+.directory-item .entry-name {
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+.actors-sidebar .directory-item.actor h4 {
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.actors-sidebar .directory-item.actor .actor-level {
+  font-size: x-small;
+  color: var(--color-text-light-primary);
+}

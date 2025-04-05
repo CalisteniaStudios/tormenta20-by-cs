@@ -6,7 +6,7 @@ import ActorSheetT20 from "./actor-base.mjs";
  * @type {ActorSheetT20}
  */
 export default class ActorSheetT20Character extends ActorSheetT20 {
-	
+
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -31,11 +31,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
 		}
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
-	
+
 	/** @override */
 	async getData() {
 		const sheetData = await super.getData();
@@ -51,11 +51,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData["showResources"] = this.actor.getFlag("tormenta20", "sheet.showResources");
 		const levelConfig = this.actor.getFlag("tormenta20", "lvlconfig");
 		sheetData["autoCalcResources"] = levelConfig ? !levelConfig.manual : true;
-		
+
 		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
 
 		this.actor.system.attributes.defesa.pda = this.actor.system.attributes.defesa.pda ?? 0;
-		
+
 		sheetData.htmlFields.diario = await this.enrichHTML(sheetData.system.detalhes.diario.value, sheetData);
 		sheetData.htmlFields.diario1 = await this.enrichHTML(sheetData.system.detalhes.diario1.value, sheetData);
 		sheetData.htmlFields.diario2 = await this.enrichHTML(sheetData.system.detalhes.diario2.value, sheetData);
@@ -72,7 +72,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// Item summaries
 		html.find('.item .item-name label').click(event => this._onItemSummary(event));
-		
+
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
 
@@ -82,10 +82,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const item = this.actor.items.get(li.data("itemId"));
 				item.update({ "flags.favorito": !item.flags.favorito });
 			});
-			
+
 			// Prepare spells
 			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
-			
+
 			// Drag events for macros.
 			let handler = ev => this._onDragStart(ev);
 			html.find('li.skill').each((i, li) => {
@@ -95,11 +95,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			});
 		}
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  Interactions                                */
 	/* -------------------------------------------- */
-	
+
 	/** @override */
 	async _onDropItemCreate(itemData) {
 		// Increment the number of class levels a character instead of creating a new item
@@ -118,10 +118,11 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
 			}
 			// Novo nivel de classe preexistente
-			if ( !!cls ) { 
+			if ( !!cls ) {
 				let priorLevel = cls.system.niveis ?? 0;
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
 				await cls.update({"system.niveis": next});
+				await this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
 				return;
 			}
 			// Primeiro Nivel do Personagem
@@ -129,13 +130,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				itemData.system.inicial = true;
 			}
 			await super._onDropItemCreate(itemData);
+			await this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
 			return;
 		}
 
 		// Default drop handling if levels were not added
 		super._onDropItemCreate(itemData);
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -166,7 +168,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			consumivel: {label: "Consumível", items: [], dataset: {type: "consumivel"} },
 			tesouro: {label: "Tesouro", items: [], dataset: {type: "tesouro"} }
 		}
-		
+
 		// Partition items by category
 		let [items, magias, poderes, classes] = await data.items.reduce(async (arr, item) => {
 			// Item details
@@ -190,7 +192,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			if ( item.type === "classe" ) {
 				item.abbr = item.name.substr(0,4);
 			}
-			
+
 			let isFav = item.flags.favorito || false;
 			if( isFav ) {
 				if( item.type === "arma" ){
@@ -204,7 +206,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					favoritos.itens.push(item);
 				}
 			}
-			
+
 			if ( !Array.isArray(arr) ) arr = await arr;
 			// Classify items into types
 			if ( item.type === "magia" ) arr[1].push(item);
@@ -244,7 +246,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			if ( m.system.tipo == 'eng' ) this._itemSlotIcon(m);
 			grimorio[m.system.circulo].spells.push(m);
 		}
-		
+
 		// classes.sort
 		classes.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0));
 

@@ -1,7 +1,7 @@
 // import { T20 } from '../config.mjs';
-import { simplifyRollFormula, d20Roll, damageRoll } from '../dice/dice.mjs';
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
-import {applyOnUseEffects} from "../apps/ability-use.mjs";
+import { applyOnUseEffects } from "../apps/ability-use.mjs";
+import { d20Roll, damageRoll, simplifyRollFormula } from '../dice/dice.mjs';
 import AbilityTemplate from "../pixi/ability-template.mjs";
 import { itemMigration } from './migrations.mjs';
 
@@ -30,7 +30,7 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
-	
+
 	/**
 	 * Does the Item implement a attack roll as part of its usage
 	 * @type {boolean}
@@ -110,7 +110,7 @@ export default class ItemT20 extends Item {
 			if( !i.getFlag("tormenta20","onuse") ) continue;
 			if( i.getFlag("tormenta20", "self") ) effects.push(i);
 		}
-		
+
 		for ( let i of this.actor.effects.values() ) {
 			if( !i.getFlag("tormenta20","onuse") ) continue;
 			let items = i.getFlag("tormenta20", 'items');
@@ -134,7 +134,7 @@ export default class ItemT20 extends Item {
 		else if ( !equipmentSlots && (this.system.equipado === false || this.system.equipado == 0) ) return true;
 		return false;
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  DataPreparation                             */
 	/* -------------------------------------------- */
@@ -145,7 +145,7 @@ export default class ItemT20 extends Item {
 		if ( this.type === "equipamento" && this.parent?.type !== "character" ) {
 			this.system.equipado = false;
 		}
-		// 
+		//
 		if ( game.settings.get("tormenta20", "equipmentSlots") ) {
 			if ( this.type === "equipamento" && this.parent?.type == "character" ) {
 				this.system.equipado = false;
@@ -179,7 +179,7 @@ export default class ItemT20 extends Item {
 		const C = CONFIG.T20;
 		const labels = this.labels = {};
 		const gameSystem = game.settings.get("tormenta20", "gameSystem");
-		
+
 		// Classes
 		if ( this.type === "classe" ) {
 			// TODO Skyfall Class/Archetype
@@ -191,7 +191,7 @@ export default class ItemT20 extends Item {
 			labels.critico = `${system.criticoM}/${system.criticoX}x`
 			let rollAttack = this.system.rolls.find( r => r.type == 'ataque' );
 			let rollDamage = this.system.rolls.find( r => r.type == 'dano' );
-			
+
 			if ( this.isEmbedded && this.parent.type == 'npc'){ //TODO ERRO
 				if(rollAttack) labels.npcattack = rollAttack?.parts[2][0] ?? '';
 				if(rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? '';//
@@ -234,7 +234,7 @@ export default class ItemT20 extends Item {
 				// PRELOCALIZED
 				// labels.ativacao = game.i18n.localize(T20.abilityActivationTypes[act.execucao]);
 			}
-		
+
 				if ( act && act.custo > 0) labels.custoPM = act.custo + " PM";
 
 			// Target
@@ -314,7 +314,7 @@ export default class ItemT20 extends Item {
 		if ( this.type === "magia" ) {
 			//Execução: padrão; Alcance: curto; Alvo: 1 criatura; Area:; Efeito:; Duração: instantânea; Resistência: Vontade parcial.
 			const hTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", area: 'T20.Area', effect: 'T20.Effect', duracao:"T20.Duration", save:"T20.Resistance" };
-			
+
 			for ( let [h, tag] of Object.entries(hTags) ){
 				hTags[h] = game.i18n.localize(tag);
 			}
@@ -363,7 +363,7 @@ export default class ItemT20 extends Item {
 	/**
 	 * Populate a label with the compiled and simplified damage formula
 	 * based on owned item actor system. This is only used for display
-	 * 
+	 *
 	 * @returns {Array} array of objects with `formula` and `damageType`
 	 */
 	getDerivedDamageLabel() {
@@ -374,7 +374,7 @@ export default class ItemT20 extends Item {
 		this.labels.dano = simplifyRollFormula(this.labels.dano, rollData, { constantFirst: false });
 		return this.labels.dano;
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -401,7 +401,7 @@ export default class ItemT20 extends Item {
 		this.labels.resistencia = game.i18n.format("T20.SaveDC", {cd: resistencia.cd || "", pericia: skill});
 		return resistencia.dc;
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -421,11 +421,11 @@ export default class ItemT20 extends Item {
 		if ( !this.hasAttack || !itemData || roll.parts.length < 2 ) return;
 		// Define Roll bonuses
 		const parts = roll.parts.map(p=> p[0] ?? p);//;
-		
+
 		// Take no further action for un-owned items
 		if ( !this.isOwned ) return {rollData, parts};
 		const actorData = this.actor.system;
-		
+
 		// Add skill bonus
 		if ( roll.parts[1][0] ) {
 			parts[1] = "@skill";
@@ -576,21 +576,26 @@ export default class ItemT20 extends Item {
 		//console.log(changed, options, user);
 		super._onUpdate(changed, options, user);
 		// Set Initial Class
-		if( this.parent && this.type === "classe" && changed.system?.hasOwnProperty("inicial") ){
-			const classes = this.actor.items.filter(i => i.type === "classe" && i.id != this.id);
-			let updateItems;
-			// When set as initial, unset other classes
-			if( changed.system.inicial ){
-				updateItems = classes.map(i => {
-					return {_id: i.id, "system.inicial": false};
-				});
+		if( this.parent && this.type === "classe" ) {
+			if (changed.system?.hasOwnProperty("inicial") ){
+				const classes = this.actor.items.filter(i => i.type === "classe" && i.id != this.id);
+				let updateItems;
+				// When set as initial, unset other classes
+				if( changed.system.inicial ){
+					updateItems = classes.map(i => {
+						return {_id: i.id, "system.inicial": false};
+					});
+				}
+				// If unseted initial, find first class and set it as initial
+				else if( this.actor.items.find(i => i.type === "classe" && !i.system.inicial ) ) {
+					let newInicial = this.actor.items.find(i => i.type === "classe" && i.id != this.id);
+					updateItems = [{_id: newInicial.id, "system.inicial": true}];
+				}
+				if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
 			}
-			// If unseted initial, find first class and set it as initial
-			else if( this.actor.items.find(i => i.type === "classe" && !i.system.inicial ) ) {
-				let newInicial = this.actor.items.find(i => i.type === "classe" && i.id != this.id);
-				updateItems = [{_id: newInicial.id, "system.inicial": true}];
+			if (changed.system?.hasOwnProperty("niveis")){
+				this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
 			}
-			if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
 		}
 	}
 
@@ -673,7 +678,7 @@ export default class ItemT20 extends Item {
 	 */
 	_onCreateOwnedWeapon(data, actorData, isNPC) {
 		const updates = {};
-		
+
 		if( isNPC ) {
 			if ( data.system.rolls ) {
 				updates["system.ataques"] = 1;
@@ -710,7 +715,7 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 	/*  Gameplay Mechanics                          */
 	/* -------------------------------------------- */
-	
+
 	/**
 	 * Roll the item to Chat, creating a chat card which contains follow up attack or damage roll options
 	 * @param {boolean} [configureDialog]     Display a configuration dialog for the item roll, if applicable?
@@ -731,7 +736,7 @@ export default class ItemT20 extends Item {
 		const id = this.system;                // Item system data
 		const actor = this.actor;
 		const ad = actor.system;               // Actor system data
-		
+
 		let createMeasuredTemplate;
 		const resource = id.consume || {};     // Resource consumption
 
@@ -742,7 +747,7 @@ export default class ItemT20 extends Item {
 				}
 			});
 		}
-		
+
 		// Consume a linked (non-ammo) resource
 		let consumeResource = !!resource.target && resource.type == "attribute";
 		// Consume item quantity
@@ -760,7 +765,7 @@ export default class ItemT20 extends Item {
 			configuration = await AbilityUseDialog.create(item);
 			// configuration = await new AbilityUseDialog(item).render(true);
 			if (!configuration) return;
-			
+
 			options = configuration;
 			// Determine consumption preferences
 			// createMeasuredTemplate = Boolean(configuration.placeTemplate);
@@ -826,20 +831,20 @@ export default class ItemT20 extends Item {
 		if( item.system.rolls.find(r=>r.type == "dano" && r.parts.length && r.parts[0][0]) ){
 			await item.rollDamage({options:options});
 		}
-		
+
 		options.hasManaCost = hasManaCost;
 		// Determine whether the item can be used by testing for resource consumption
 		if( !options.truque && consumeMana ) {
 			consumeMana = Math.max(item.system.ativacao.custo, 1);
 		} else consumeMana = false;
-		
+
 		const consumeSettings = consumeResource || consumeMana || consumeQuantity || consumeSelf;
 		if( consumeSettings ){
 			const usage = item._getUsageUpdates({consumeResource, consumeMana, consumeQuantity, consumeSelf});
 			if ( !usage ) return;
 			const {actorUpdates, itemsUpdate, itemUpdates, resourceUpdates, manaUpdate} = usage;
 
-			// Commit pending data updates 
+			// Commit pending data updates
 			if ( !foundry.utils.isEmpty(itemsUpdate) ) {
 				this.actor.updateEmbeddedDocuments('Item', itemsUpdate);
 			}
@@ -855,7 +860,7 @@ export default class ItemT20 extends Item {
 			}
 		}
 
-		
+
 		// Create or return the Chat Message data
 		if( configuration.brew ){
 			let potion = "T20.ConsumableSubtypePotion";
@@ -875,7 +880,7 @@ export default class ItemT20 extends Item {
 			potionData.rolls = item.system.rolls.map(m=>m.toObject(false));
 			potionData.preco = 30 * (item.system.ativacao.custo**2);
 			potionData.ativacao.custo = 0;
-			
+
 			const itemData = {
 				name: game.i18n.format('T20.ConsumableSpellName',{
 					item: game.i18n.localize(potion),
@@ -908,7 +913,7 @@ export default class ItemT20 extends Item {
 				}
 			}
 		}
-		
+
 		options.itemId = this.id;
 		return item.displayCard({options, rollMode, createMessage});
 	}
@@ -929,7 +934,7 @@ export default class ItemT20 extends Item {
 		// Data
 		const id = item.system;       // Item system data
 		const ad = actor.system;      // Actor system data
-		
+
 		// TODO
 		// APPLY EFFECTS TO ROLL
 		if ( true ){
@@ -938,7 +943,7 @@ export default class ItemT20 extends Item {
 		// APPLY EFFECTS TO EFFECTS
 		if ( true ){
 			let itemEffect = item.effects.filter([])
-			
+
 		}
 		// APPLY EFFECTS TO ITEMS
 		if ( true ){
@@ -1028,7 +1033,7 @@ export default class ItemT20 extends Item {
 				return false;
 			}
 		}
-		
+
 		// Return the configured usage
 		return {itemUpdates, itemsUpdate, actorUpdates, resourceUpdates, manaUpdate};
 	}
@@ -1047,11 +1052,11 @@ export default class ItemT20 extends Item {
 	async displayCard({options, rollMode, createMessage=true}={}) {
 		// Basic template rendering data
 		const token = this.actor.token;
-		
+
 		let manaCost = Number(this.system.ativacao.custo) || (options.hasManaCost ? 1 : null );
 		if ( options.truque ) manaCost = 0;
 		else if ( options.halfCost ) manaCost = Math.floor(manaCost / 2);
-		
+
 		const templateData = {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
@@ -1067,13 +1072,13 @@ export default class ItemT20 extends Item {
 			rolls: []
 		};
 
-		
+
 		for( let [key, roll] of Object.entries(this.system.rolled) ) {
 			roll.tipo = (roll.options.type == 'damage' || roll.dice[0]?.faces !== 20) ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
 			roll.options.title = key || "";
 			await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
 		}
-		
+
 		// Render the chat card template
 		let template = "systems/tormenta20/templates/chat/chat-card.html";
 		const html = await renderTemplate(template, templateData);
@@ -1094,10 +1099,10 @@ export default class ItemT20 extends Item {
 				"tormenta20.template": options.template
 			}
 		};
-		
+
 		// Apply the roll mode to adjust message visibility
 		ChatMessage.applyRollMode(chatData, rollMode || game.settings.get("core", "rollMode"));
-		
+
 		// Create the Chat Message or return its data
 		return createMessage ? ChatMessage.create(chatData) : chatData;
 	}
@@ -1117,7 +1122,7 @@ export default class ItemT20 extends Item {
 			const r = Object.entries(labels).map(function(t){
 				if( headerTags.hasOwnProperty(t[0]) && t[1]){
 					let tag = game.i18n.localize( headerTags[t[0]] );
-					
+
 					return `<b>${tag}:</b> ${t[1]};`
 				} else return;
 			});
@@ -1165,13 +1170,13 @@ export default class ItemT20 extends Item {
 
 			// Expanded critical hit thresholds
 			rollConfig.critical = itemData.criticoM;
-			
+
 			// Invoke the d20 roll helper
 			const roll = await d20Roll(rollConfig);
 			if ( roll === false ) return null;
 			roll._critical = roll.terms[0].total >= itemData.criticoM;
 			roll._fumble = roll.terms[0].total == 1;
-			
+
 			itemData.rolled[r.name] = roll;
 		}
 	}
@@ -1212,12 +1217,12 @@ export default class ItemT20 extends Item {
 				title: title,
 				flavor: title
 			};
-			
+
 			// Adjust damage from versatile usage
 			if ( versatile && r.versatil ) {
 				parts[0][0] = r.versatil;
 			}
-			
+
 			// Add damage bonus formula
 			const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
 			if ( bonuses.geral.filter(Boolean).length ) parts.push(['@dano','','']);
@@ -1225,7 +1230,7 @@ export default class ItemT20 extends Item {
 			if ( pericia=="pont" && bonuses.ad.filter(Boolean).length ) parts.push(['@danoAD','','']);
 			if ( this.type=="magia" && bonuses.mag.filter(Boolean).length ) parts.push(['@danoMagico','','']);
 			if ( this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq.filter(Boolean).length ) parts.push(['@danoALQ','','']);
-			
+
 			// Call the roll helper utility
 			foundry.utils.mergeObject(rollConfig, options);
 			itemData.rolled[r.name] = await damageRoll(rollConfig);
@@ -1247,7 +1252,7 @@ export default class ItemT20 extends Item {
 		const rollData = this.getRollData();
 		// Invoke the roll and submit it to chat
 		for (let r of itemData.rolls.filter(i => i.type == "formula")) {
-			// rolls[r.name] = 
+			// rolls[r.name] =
 			let temp = new Roll(r.parts[0][0], rollData);
 			itemData.rolled[r.name] = await temp.roll({async:true});
 		}
