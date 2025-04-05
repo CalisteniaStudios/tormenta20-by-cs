@@ -424,17 +424,15 @@
       height: 30px;
       line-height: 32px;
       padding: 0;
-
-      &:not(:last-child) {
-        flex: 1;
-      }
     }
   }
 
-  &.npc {
+  &.actor.character {
     .sheet-tabs {
       .item {
-        flex: 0 1 auto;
+        &:not(:last-child) {
+          flex: 1;
+        }
       }
     }
   }
