@@ -456,12 +456,16 @@ export default class ItemSheetT20 extends ItemSheet {
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			let rolltype = a.dataset.rollType;
 			let roll = foundry.utils.deepClone(this.item.system.rolls);
-			let r = {};
-			r.parts = [["", ""]];
-			r.name = rolltype.capitalize();
-			r.type = rolltype;
-			r.key = "ataque";
-			if( rolltype == "dano" ) r.versatil = "";
+			const r = {
+				parts: [],
+				name: rolltype.capitalize(),
+				type: rolltype,
+				key: rolltype,
+			};
+			if (rolltype === "dano") {
+				r.parts = [["1d6", "dano"], [""]];
+				r.versatil = "";
+			}
 			roll.push(r);
 			return this.item.update({[`system.rolls`]:roll});
 		}

@@ -1728,6 +1728,12 @@
   flex: 0 0 48px;
   margin-right: 10px;
 }
+.tormenta20.sheet.item .rolls h3 {
+  border: 0;
+}
+.tormenta20.sheet.item .rolls .rolls-controls {
+  flex: initial;
+}
 .tormenta20.sheet.item h4.damage-header {
   margin: 0;
   padding: 0;

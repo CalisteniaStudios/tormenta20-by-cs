@@ -2,11 +2,7 @@
 const fields = foundry.data.fields;
 
 import {
-	getObjectBaseData,
-	getObjectItemData,
-	getActivationItemData,
-	getSaveItemData,
-	RollData,
+	RollData
 } from './helpers.mjs';
 
 /* Item Base */
@@ -25,7 +21,6 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 			rolltags: new fields.ArrayField(new fields.StringField(), {label:"T20.ItemTagsList", hint:"T20.ItemTagsListHint" }),
 			chatFlavor: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemChatFlavor", hint:"T20.ItemChatFlavorHint" }),
 			chatGif: new fields.StringField({ initial: '', label:"T20.ItemChatGif", hint:"T20.ItemChatGifHint" }),
-			rolls: new fields.ArrayField( new fields.EmbeddedDataField(RollData) ),
 		}
 	}
 
@@ -119,6 +114,32 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 		return schema;
 	}
 
+	static schemaRolls(type) {
+		const schema = {};
+		if (type === "arma") {
+			schema.rolls = new fields.ArrayField( new fields.EmbeddedDataField(RollData), {
+				initial: () => [
+					{
+						parts: [], // [[vazio], [perícia, atributo], [bonus]]
+						name: "Ataque",
+						type: "ataque",
+						key: "ataque"
+					},
+					{
+						parts: [["1d6", "dano"], [""]], // [[dano, tipo], [atributo]]
+						versatil: "",
+						name: "Dano",
+						type: "dano",
+						key: "dano"
+					},
+				]
+			} );
+		} else {
+			schema.rolls = new fields.ArrayField( new fields.EmbeddedDataField(RollData) );
+		}
+		return schema;
+	}
+
 	static schemaSavingThrow(type="arma"){
 		let schema = {
 			resistencia: new fields.SchemaField({
@@ -167,6 +188,7 @@ class systemItemWeaponData extends systemItemBaseData {
 			...this.schemaPhysicalItem(type),
 			...this.schemaActivation(type),
 			...this.schemaUpgrades(type),
+			...this.schemaRolls(type),
 			ataques: new fields.NumberField({initial:0, label:"T20.ItemAttackQuantity", hint:"T20.ItemAttackQuantityHint"}),
 			equipado: new fields.NumberField({ required: true, nullable:false, initial: 0, min:0, max:2, label:"T20.ItemEquipped", hint:"T20.ItemEquippedHint" }),
 			equipado2: new fields.SchemaField({
@@ -241,6 +263,7 @@ class systemItemEquipmentData extends systemItemBaseData {
 			...this.schemaPhysicalItem(type),
 			...this.schemaActivation(type),
 			...this.schemaUpgrades(type),
+			...this.schemaRolls(),
 			equipado: new fields.BooleanField({ required: true, nullable:false, initial: false, label:"T20.ItemEquipped", hint:"T20.ItemEquippedHint"}),
 			equipado2: new fields.SchemaField({
 				slot: new fields.NumberField({ required: true, nullable:false, initial: 0, label:"T20.ItemSlot", hint:"T20.ItemSlotHint" }),
@@ -282,6 +305,7 @@ class systemItemConsumableData extends systemItemBaseData {
 			...this.schemaActivation(type),
 			...this.schemaSavingThrow(type),
 			...this.schemaUpgrades(type),
+			...this.schemaRolls(),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemType", hint:"T20.ItemTypeHint" }),
 			subtipo: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemSubType", hint:"T20.ItemSubTypeHint" }),
 		}
@@ -308,6 +332,7 @@ class systemItemLootData extends systemItemBaseData {
 			...this.schemaPhysicalItem(type),
 			...this.schemaActivation(type),
 			...this.schemaSavingThrow(type),
+			...this.schemaRolls(),
 			container: new fields.BooleanField({ required: true, nullable:false, initial: false, label:"T20.ItemIsContainer", hint:"T20.ItemIsContainerHint" }),
 		}
 	}
@@ -320,6 +345,7 @@ class systemItemClassData extends systemItemBaseData {
 		let type = 'classe';
 		return {
 			...super.defineSchema(),
+			...this.schemaRolls(),
 			niveis: new fields.NumberField({ required: true , initial:1, label:"T20.ItemClassLevels", hint:"T20.ItemClassLevelsHint" }),
 			pvPorNivel: new fields.NumberField({ required: true , initial:1, label:"T20.ItemClassHPLevel", hint:"T20.ItemClassHPLevelHint" }),
 			pmPorNivel: new fields.NumberField({ required: true , initial:1, label:"T20.ItemClassMPLevel", hint:"T20.ItemClassMPLevelHint" }),
@@ -336,6 +362,7 @@ class systemItemSpellData extends systemItemBaseData {
 			...super.defineSchema(),
 			...this.schemaActivation(type),
 			...this.schemaSavingThrow(type),
+			...this.schemaRolls(),
 			circulo: new fields.StringField({ required: true, nullable:false, initial: '1', label:"T20.ItemSpellCircle", hint:"T20.ItemSpellCircleHint" }),
 			escola: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemSpellSchool", hint:"T20.ItemSpellSchoolHint" }),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemType", hint:"T20.ItemTypeHint" }),
@@ -364,6 +391,7 @@ class systemItemPowerData extends systemItemBaseData {
 			...super.defineSchema(),
 			...this.schemaActivation(type),
 			...this.schemaSavingThrow(type),
+			...this.schemaRolls(),
 			tipo: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemType", hint:"T20.ItemTypeHint" }),
 			subtipo: new fields.StringField({ required: true, nullable:false, initial: '', label:"T20.ItemSubType", hint:"T20.ItemSubTypeHint" }),
 		}
@@ -381,11 +409,6 @@ class systemItemPowerData extends systemItemBaseData {
 
 
 export {
-	systemItemWeaponData,
-	systemItemEquipmentData,
-	systemItemConsumableData,
-	systemItemLootData,
-	systemItemClassData,
-	systemItemSpellData,
-	systemItemPowerData,
-}
+	systemItemClassData, systemItemConsumableData, systemItemEquipmentData, systemItemLootData, systemItemPowerData, systemItemSpellData, systemItemWeaponData
+};
+

@@ -1,15 +1,17 @@
-<h3>{{ localize "T20.Rolls" }}
-	<a class="rolls-control add-roll" data-roll-type="ataque"><i class="fas fa-plus"></i> {{ localize "T20.Attack" }}</a>
-	<a class="rolls-control add-roll" data-roll-type="dano"><i class="fas fa-plus"></i> {{ localize "T20.Damage" }}</a>
-	<a class="rolls-control add-roll" data-roll-type="formula"><i class="fas fa-plus"></i> {{ localize "T20.Formula" }}</a>
-</h3>
+<div class="rolls flexrow">
+	<h3>{{ localize "T20.Rolls" }}</h3>
+	<span class="rolls-controls">
+		<a class="rolls-control add-roll" data-roll-type="ataque"><i class="fas fa-plus"></i> {{ localize "T20.Attack" }}</a>
+		<a class="rolls-control add-roll" data-roll-type="dano"><i class="fas fa-plus"></i> {{ localize "T20.Damage" }}</a>
+		<a class="rolls-control add-roll" data-roll-type="formula"><i class="fas fa-plus"></i> {{ localize "T20.Formula" }}</a>
+	</span>
+</div>
 {{#each item.system.rolls as |roll key| }}
-	
+
 	{{!-- roll.key --}}
 	{{!-- roll.name --}}
 	{{!-- roll.type --}}
 	{{!-- roll.versatil --}}
-	<hr>
 	<div class="form-group">
 		<h4 class="roll-header flexrow">
 			<input type="text" class="flex-2" name="system.rolls.{{key}}.name" value="{{roll.name}}" title="Referência: {{roll.key}}" />
@@ -30,7 +32,7 @@
 			<ol class="roll-parts form-group">
 				<li class="roll-part flexrow">
 					<input type="hidden" name="system.rolls.{{key}}.parts.0.0" value="1d20" />
-					
+
 					<select name="system.rolls.{{key}}.parts.1.0">
 						{{#select (lookup (lookup roll.parts 1) 0) }}
 							<!-- <option value="">{{ localize "T20.None" }}</option> -->
@@ -136,7 +138,7 @@
 		</div>
 	{{/if}}
 
-	
+
 	{{#if (eq roll.type "formula" ) }}
 		<div class="form-group">
 			<ol class="roll-parts form-group">
@@ -147,4 +149,5 @@
 			</ol>
 		</div>
 	{{/if}}
+	<hr>
 {{/each}}
