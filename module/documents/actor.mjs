@@ -548,9 +548,11 @@ export default class ActorT20 extends Actor {
 		}
 		if( con ) soma.pv += con.value * nivel;
 		if( lvlc.pvBonus[0] ) soma.pv += Number(lvlc.pvBonus[0]);
-		if( lvlc.pvBonus[1] ) soma.pv += Math.floor(Number(lvlc.pvBonus[1]) * nivel);
+		if( lvlc.pvBonus[1] ) soma.pv += Number(lvlc.pvBonus[1]) * nivel;
+		soma.pv = Math.floor(soma.pv);
 		if( lvlc.pmBonus[0] ) soma.pm += Number(lvlc.pmBonus[0]);
-		if( lvlc.pmBonus[1] ) soma.pm += Math.floor(Number(lvlc.pmBonus[1]) * nivel);
+		if( lvlc.pmBonus[1] ) soma.pm += Number(lvlc.pmBonus[1]) * nivel;
+		soma.pm = Math.floor(soma.pm);
 		for (let [atr, value] of Object.entries(lvlc.pv)){
 			if ( atr == 'con') continue;
 			let abl = this.system.atributos[atr];
