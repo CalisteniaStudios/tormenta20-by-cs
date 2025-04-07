@@ -611,6 +611,7 @@ export default class ItemT20 extends Item {
 				const updateItems = [{_id: newInicial.id, "system.inicial": true}];
 				if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
 			}
+			this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
 		}
 	}
 
