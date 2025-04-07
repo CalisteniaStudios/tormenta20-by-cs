@@ -73,7 +73,7 @@ export default class ActorT20 extends Actor {
 			return ['@meionivel','@treino','@atributo','@outros','@condi'];
 		} else if (this.type == 'npc' ){
 			return ['@meionivel','@treino','@atributo','@outros','@condi'];
-			return ['@ndtreinado','@ndsemtreino','@outros','@condi'];
+			// return ['@ndtreinado','@ndsemtreino','@outros','@condi'];
 		} else {
 			return ['@atributo','@outros','@condi'];
 		}
@@ -459,7 +459,7 @@ export default class ActorT20 extends Actor {
 			let dice = pericia.parts ? pericia.parts[0] : "1d20";
 			if ( this.type == 'npc' ) return Roll.replaceFormulaData([dice, result].join('+'), rollData).split('+');
 			return Roll.replaceFormulaData([dice, ...parts].join('+'), rollData).split('+');
-			return [dice, ...parts]; //.concat(parts);
+			// return [dice, ...parts]; //.concat(parts);
 		}
 	}
 

@@ -2,7 +2,7 @@
  * A helper class for building MeasuredTemplates for spells and abilities
  * @extends {MeasuredTemplate}
  */
-export default class AbilityTemplate extends MeasuredTemplate {
+export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredTemplate {
 
 	/**
 	 * A factory method to create an AbilityTemplate instance using provided data from an Item5e instance
@@ -19,7 +19,7 @@ export default class AbilityTemplate extends MeasuredTemplate {
 		}
 		let type, distance, units;
 		if( area.match(/cone/) ) type = "cone";
-		else if( area.match(/linha|parede|muralha/) ) type = "ray"; 
+		else if( area.match(/linha|parede|muralha/) ) type = "ray";
 		else if( area.match(/quadrado|cubo/) ) type = "rect";
 		else if( area.match(/esfera|circulo|círculo|raio|cilindro|explosão|emanação/) ) type = "circle";
 		if( area.match(/\d+[,|.]?\d?(m|km|q)/) ) units = area.match(/\d+[,|.]?\d?(m|km|q)/)[1];
@@ -27,7 +27,7 @@ export default class AbilityTemplate extends MeasuredTemplate {
 			if (area.match(/diametro|diâmetro/i)) distance = area.match(/(\d+[,|.]?\d?)[m|km|q]/)[1].replace(",",".") * 1 / 2;
 			else distance = area.match(/(\d+[,|.]?\d?)[m|km|q]/)[1].replace(",",".") * 1;
 		}
-		
+
 		if (!distance || !["cone", "circle", "rect", "ray"].includes(type)) return null;
 		// Prepare template data
 		const templateData = {

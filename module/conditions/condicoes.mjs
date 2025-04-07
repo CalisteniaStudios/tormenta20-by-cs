@@ -1,10 +1,3 @@
-
-const _TokenToggleEffect = Token.prototype.toggleEffect;
-export const toggleEffect = async function (...args) {
-	const data = _TokenToggleEffect.bind(this)(...args);
-	return data;
-};
-
 async function chatCondition(actor, condicao) {
 	let activeCond = findCondition(actor.effects, condicao);
 	if (activeCond == null && condicao != undefined) {

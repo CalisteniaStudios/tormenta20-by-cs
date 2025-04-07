@@ -6,7 +6,7 @@
 		<h3 class="item-name">
 			<div>{{item.name}}</div>
 		</h3>
-		
+
 		{{!-- Mana Cost --}}
 		{{#if custo}}
 		<button class="chat-spend-mana" value="{{{custo}}}">
@@ -30,7 +30,7 @@
 	{{#if (and (eq item.type "poder") power.resistencia)}}
 		<div class="card-item-header">
 			<p>
-				{{#if power.resistencia}}<b> {{localize 'T20.Resistance'}}:</b> {{{power.resistencia}}} ({{localize 'T20.AbbreviationDC'}} {{{power.cd}}}){{/if}} 
+				{{#if power.resistencia}}<b> {{localize 'T20.Resistance'}}:</b> {{{power.resistencia}}} ({{localize 'T20.AbbreviationDC'}} {{{power.cd}}}){{/if}}
 			</p>
 		</div>
 	{{/if}}
@@ -61,13 +61,13 @@
 		</ul>
 	</div>
 	{{/if}}
-	
+
 	{{#each rolls as |r id|}}
 		<div class="row">{{r.roll.options.title}}</div>
 		<div class="roll {{r.roll.tipo}}" data-roll-title="{{r.roll.options.title}}">{{{r.template}}}</div>
 	{{/each}}
-	<hr>
 	{{#if effects}}
+	<hr>
 	<div class="card-item-effects flexcol">
 		{{#each effects as |ef i|}}
 			{{#if ef.length }}
@@ -83,9 +83,9 @@
 			{{/if}}
 		{{/each}}
 	</div>
-	<hr>
 	{{/if}}
 	{{#if placeTemplate}}
+	<hr>
 	<div class="card-item-template" id="placeTemplate">
 		<button class="chat-place-template">
 			<span><i class="fas fa-ruler-combined"></i></span>

@@ -3,7 +3,7 @@
  * Extend the base Token class to implement additional system-specific logic.
  * @extends {Token}
  */
- export default class TokenT20 extends Token {
+ export default class TokenT20 extends foundry.canvas.placeables.Token {
 
 	/** @inheritdoc */
 	// toggleEffect(effect, options) {
@@ -34,7 +34,7 @@
 
 		const actorData = this.document.actor.system;
 		let {value, max, temp, tempmax, min} = foundry.utils.getProperty(actorData, data.attribute);
-		
+
 		temp = Number(temp || 0);
 		tempmax = Number(tempmax || 0);
 
@@ -56,7 +56,7 @@
 		]
 		const hpColor = PIXI.utils.rgb2hex(tknBarColor[number]);
 		const c = data.attribute === "attributes.pm" ? CONFIG.T20.tokenMPColors : CONFIG.T20.tokenHPColors;
-		
+
 		// Determine the container size (logic borrowed from core)
 		const w = this.w;
 		let h = Math.max((canvas.dimensions.size / 12), 8);

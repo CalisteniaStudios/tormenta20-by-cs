@@ -1,4 +1,4 @@
-export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
+export default class ActiveEffectConfigT20 extends foundry.applications.sheets.ActiveEffectConfig {
 	/** @override */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
@@ -6,7 +6,7 @@ export default class ActiveEffectConfigT20 extends ActiveEffectConfig {
 			resizable: true,
 		});
 	}
-	
+
 	/*override*/
 	get title() {
 		if (this.object.flags?.tormenta20?.onuse) {

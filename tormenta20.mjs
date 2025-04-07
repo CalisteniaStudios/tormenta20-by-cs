@@ -196,7 +196,7 @@ Hooks.once("init", async function () {
 		label: "T20.ItemSheet"
 	});
 
-	DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {
+	foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {
 		makeDefault :true,
 		label: 'T20.ActiveEffectSheet',
 	});

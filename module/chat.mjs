@@ -1,5 +1,3 @@
-import ChoicesDialog from "./apps/choices-dialog.mjs";
-import ItemT20 from "./documents/item.mjs";
 
 	/* -------------------------------------------- */
 	/*  Chat Message Overrides                      */
@@ -58,10 +56,9 @@ export const  addChatMessageContextOptions = function (html, options) {
  * Render Action Buttons Over chat-card
  */
 export const ApplyButtons = function (app, html, data){
-	let chatHTML = html.find(".message-content");//.find(".tormenta20.chat-card");
-	if ( !chatHTML[0] ) return;
-	chatHTML = chatHTML[0];
-	
+	let chatHTML = html.querySelector(".message-content");//.find(".tormenta20.chat-card");
+	if ( !chatHTML ) return;
+
 	let button;
 	let btnparent;
 	let btncontainer;
@@ -88,47 +85,47 @@ export const ApplyButtons = function (app, html, data){
 
 		button = btnCreate('<i class="fas fa-redo"></i>', ['chat-reroll'], "Re-rolar");
 		btncontainer.append(button);
-		
+
 		btnparent.append(btncontainer);
 	}
-	
+
 	// Get Element To Append to;
 	// btnparent = chatHTML.querySelectorAll('.roll--dano .dice-total')[0];
 	// btnparent = chatHTML.querySelectorAll('.roll.roll--dano')[0];
 	let btnparents = chatHTML.querySelectorAll('.roll.roll--dano');
-	
+
 	for (const btnparent of btnparents) {
 		if( btnparent ){
 			// Buttons Left
 			btncontainer = document.createElement("span");
 			btncontainer.classList.add('dice-btn', 'result', 'left');
-		
+
 			// Button Apply Damage
 			button = btnCreate('<i class="fas fa-user-minus"></i>', ['apply-dmg'], "Aplicar Dano", [['mod',1]]);
 			btncontainer.append(button);
-	
+
 			// Button Apply Damage Double
 			button = btnCreate('2x', ['apply-dmg'], "Aplicar Dano em Dobro", [['mod',2]]);
 			btncontainer.append(button);
-			
+
 			btnparent.append(btncontainer);
-	
+
 			// Buttons Right
 			btncontainer = document.createElement("span");
 			btncontainer.classList.add('dice-btn', 'result', 'right');
-			
+
 			// Button Apply Damage Half
 			button = btnCreate('½', ['apply-dmg'], "Aplicar Metade do Dano", [['mod',0.5]]);
 			btncontainer.append(button);
-			
+
 			// Button Apply Damage as Heal
 			button = btnCreate('<i class="fas fa-user-plus"></i>', ['apply-dmg'], "Aplicar Cura", [['mod',-1]]);
 			btncontainer.append(button);
-	
+
 			btnparent.append(btncontainer);
-			
+
 		}
-		
+
 	}
 
 }
@@ -140,7 +137,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 	if ( coreMessage && haveDamageRoll ){
 		$(html).find('.message-content').append('<div class="roll roll--dano"></div>');
 		$(html).find('.message-content').addClass('tormenta20 chat-card item-card');
-		
+
 		for (const roll of rolls) {
 			$(roll).find('.dice-formula')[0].textContent = $(roll).find('.dice-formula')[0].textContent.replace(/\[\w+\]/g, '');
 			$(html).find(".roll.roll--dano").append($(roll));
@@ -148,21 +145,10 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 	}
 }
 
-	export const chatListeners = function (html){
-		html.on('click', '.item-name', _onChatCardToggleContent.bind(this));
-		html.on('click', '.chat-message', _onChatCardToggleDamage.bind(this));
-		html.on('click', '.chat-apply-ae', _onChatCardApplyEffect.bind(this));
-		html.on('click', '.chat-place-template', _onChatPlaceTemplate.bind(this));
-		
-		//html.on('click', '.chat-reroll', _onChatReRoll.bind(this));
-		html.on('click', '.apply-dmg', _onChatApplyDamage.bind(this));
-		html.on('click', '.chat-spend-mana', _onChatSpendMana.bind(this));
-	}
-
 	/* -------------------------------------------- */
 	/*  Chat Message Helpers                        */
 	/* -------------------------------------------- */
-	
+
 	/**
 	 * TODO [Delayed to V10 to use Message With Multi Rolls]
 	 * Call Reroll Method for selected roll and update chat card
@@ -196,7 +182,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 	/**
 	* Get rolled damage value and call Actor apply damage Method
 	*/
-	function _onChatApplyDamage(event) {
+	export function _onChatApplyDamage(event) {
 		event.preventDefault();
 		const btn = event.currentTarget;
 		const amount = Number(btn.closest(".roll").querySelector(".dice-total").innerText);
@@ -205,7 +191,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 		const message = game.messages.get(chatCardId);
 		const rollTitle = btn.closest(".roll").dataset.rollTitle;
 		const roll =  message.rolls.find( r => r.options.title == rollTitle && r.options.type == 'damage' );
-		
+
 		if( amount && multiplier ){
 			if (canvas.tokens.controlled.length) {
 				return Promise.all(canvas.tokens.controlled.map(tk => {
@@ -249,7 +235,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 				}
 			}).render(true);
 			return;
-		} else { 
+		} else {
 			roll = rolls.pop();
 			if ( roll ) _callApplyDamage( roll , multiplier );
 		}
@@ -274,7 +260,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	function _onChatSpendMana(event) {
+	export function _onChatSpendMana(event) {
 		event.preventDefault();
 		const btn = event.currentTarget;
 		const amount = Number(btn.value);
@@ -289,7 +275,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 		}
 	}
 
-	
+
 /**
  * Apply mana points spent to the token or tokens which are currently controlled.
  * This allows for damage to be adjusted due to reduced or expanded cost
@@ -316,14 +302,14 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	function _onChatCardToggleContent(event) {
+	export function _onChatCardToggleContent(event) {
 		event.preventDefault();
 		const chatCard = event.currentTarget.closest(".chat-message");
 		const content = chatCard.querySelector(".card-content");
 		content.style.display = content.style.display === "none" ? "block" : "none";
 	}
 
-	function _onChatCardToggleDamage(event) {
+	export function _onChatCardToggleDamage(event) {
 		event.preventDefault();
 		const chatCard = event.currentTarget.closest(".chat-message");
 		const minimal = chatCard.querySelector(".card-damage");
@@ -333,14 +319,14 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 			details.style.display = details.style.display === "none" ? "block" : "none";
 		}
 	}
-	
+
 
 	/**
 		* Retrieve AbilityTemplate data and Draw on Canvas
 		* @param {Event} event   The originating click event
 		* @private
 		*/
-	function _onChatPlaceTemplate(event) {
+	export function _onChatPlaceTemplate(event) {
 		event.preventDefault();
 		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
 		const chatCard = game.messages.get(chatCardId);
@@ -359,7 +345,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 		if( !item ) return;
 		item.system.area = storedTemplate.area;
 		item.system.alcance = storedTemplate.alcance;
-		
+
 		const template = game.tormenta20.canvas.AbilityTemplate.fromItem(item);
 		if ( template ) {
 			template.drawPreview();
@@ -372,7 +358,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 	* @param {Event} event   The originating click event
 	* @private
 	*/
-	async function _onChatCardApplyEffect(event) {
+	export async function _onChatCardApplyEffect(event) {
 		event.preventDefault();
 		const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
 		const actorId = event.currentTarget.closest(".item-card").dataset.actorId;
@@ -383,7 +369,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 			if( chatEffect[0].duration.seconds ) {
 				chatEffect[0].duration.startTime = game.time.worldTime;
 			}
-			
+
 			let toChat = true;
 			for ( let ac of actors ) {
 				await ac.actor.createEmbeddedDocuments("ActiveEffect", [...chatEffect], {

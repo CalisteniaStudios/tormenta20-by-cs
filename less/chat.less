@@ -5,13 +5,10 @@
 /* ----------------------------------------- */
 
 .tormenta20.chat-card {
-  font-style: normal;
-  font-size: 12px;
-
   .card-header {
+    font-size: 12px;
     padding: 3px 0;
     border-top: 2px groove #FFF;
-    border-bottom: 2px groove #FFF;
 
     img {
       flex: 0 0 36px;
@@ -109,14 +106,6 @@
 /*                           Chat-Message                           */
 /* ################################################################ */
 .chat-message {
-  padding: 0;
-  position: relative;
-  .signika();
-
-  .message-header {
-    padding: 5px 5px 0px 5px;
-  }
-  
   .chat-portrait {
     max-width: 48px;
     max-height: 48px;
@@ -129,16 +118,16 @@
     .flavor-text {
       flex-shrink: inherit;
     }
-    
+
     .message-metadata {
       display: none;
-      
+
       &:hover .message-timestamp {
         display: inline-block;
       }
     }
   }
-  
+
   button {
     background: rgba(255, 255, 240, 0.8);
     font-size: 14px;
@@ -152,14 +141,10 @@
     .message-metadata * + * {
       margin: 0px 1px;
     }
-    
+
     .tormenta20.item-card .roll .dice-btn {
       display: inline-block;
     }
-  }
-  
-  .message-content {
-    padding: 0px 5px 5px 5px;
   }
 
   .message-content.damage-card {
@@ -190,7 +175,7 @@
 }
 
 .tormenta20.item-card{
-  
+
   .card-item-header p {
     text-align: justify;
   }
@@ -208,14 +193,14 @@
       align-self: center;
     }
   }
-  
+
   .chat-spend-mana {
     font-size: 12px;
     line-height: 12px;
     max-width: 36px;
     height: 36px;
   }
-  
+
   .dice-result button {
     width: 24px;
     height: 24px;
@@ -223,7 +208,7 @@
     margin: 0;
     color: black;
   }
-  
+
   .roll {
     position: relative;
 
@@ -232,7 +217,7 @@
       z-index: 2;
       position: absolute;
       max-height: 26px;
-      
+
       button {
         border: 1px solid #782e22;
         position: relative;
@@ -242,7 +227,7 @@
         width: 28px;
         height: 26px;
       }
-      
+
       &.right {
         right: 0px;
       }
@@ -270,7 +255,7 @@
     display: flex;
     font-size: 14px;
   }
-  
+
   .card-item-template,
   .card-item-effects {
     button {
@@ -292,7 +277,7 @@
       text-align: center;
     }
   }
-  
+
 }
 
 /* ################################################################ */

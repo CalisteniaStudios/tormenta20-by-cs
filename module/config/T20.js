@@ -1,6 +1,6 @@
-import { preLocalize } from "../utils.mjs";
 import { T20Conditions } from "../conditions/conditions.mjs";
-import { CHALLENGELEVEL, AMEACATYPES } from "./ameaca.js";
+import { preLocalize } from "../utils.mjs";
+import { AMEACATYPES, CHALLENGELEVEL } from "./ameaca.js";
 export const T20 = {};
 export const SYSTEMRULES = {};
 
@@ -26,8 +26,7 @@ CONFIG.Item.compendiumIndexFields.push('system.subtipo');
 
 
 
-CONFIG.ChatMessage.template = "systems/tormenta20/templates/chat/chat-message.html"
-CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/tormenta20/templates/chat/roll.html';
+CONFIG.ChatMessage.template = "systems/tormenta20/templates/chat/chat-message.hbs"
 
 /* ---------------------------------------- */
 /*  Effect Data                             */
@@ -464,7 +463,7 @@ T20.skillCompendiumEntries = {
 /* -------------- Experience -------------- */
 
 T20.xpPorNivel = [
-	0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000, 
+	0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000,
 ];
 
 
@@ -571,7 +570,7 @@ T20.atributoPV = {
 	"carPV": "T20.AbilityCha"
 }
 preLocalize("atributoPV");
-	
+
 T20.atributoPM = {
 	"forPM": "T20.AbilityStr",
 	"desPM": "T20.AbilityDex",
@@ -724,7 +723,7 @@ preLocalize("weaponSizes");
 
 /**
  * Define Item Upgrades and Tooltips
- */ 
+ */
 
 
 T20.specialMaterials = {
@@ -735,15 +734,15 @@ T20.specialMaterials = {
 	"red-matter": "T20.SpecialMaterialRedMatter",
 	"mithril": "T20.SpecialMaterialMithril",
 	"rainbow-metal": "T20.SpecialMaterialRainbowMetal",
-	"silver": "T20.SpecialMaterialSilver", 
-	"dragon-leather": "T20.SpecialMaterialDragonLeather", 
-	"monster-hull": "T20.SpecialMaterialMonsterHull", 
-	"kaiju-plating": "T20.SpecialMaterialKaijuPlating", 
-	"bulette-leather": "T20.SpecialMaterialBuletteLeather", 
-	"sun-crystal": "T20.SpecialMaterialSunCrystal", 
-	"iron-coral": "T20.SpecialMaterialIronCoral", 
-	"kraken-feather": "T20.SpecialMaterialKrakenFeather", 
-	"razza-chitin": "T20.SpecialMaterialRazzaChitin", 
+	"silver": "T20.SpecialMaterialSilver",
+	"dragon-leather": "T20.SpecialMaterialDragonLeather",
+	"monster-hull": "T20.SpecialMaterialMonsterHull",
+	"kaiju-plating": "T20.SpecialMaterialKaijuPlating",
+	"bulette-leather": "T20.SpecialMaterialBuletteLeather",
+	"sun-crystal": "T20.SpecialMaterialSunCrystal",
+	"iron-coral": "T20.SpecialMaterialIronCoral",
+	"kraken-feather": "T20.SpecialMaterialKrakenFeather",
+	"razza-chitin": "T20.SpecialMaterialRazzaChitin",
 }
 
 T20.itemUpgrades = {
@@ -1083,13 +1082,13 @@ T20.NDparams = {
 
 T20.NPCParams = ( cr ) => {
 	let idx = T20.NDparams.cr.indexOf(cr.toString());
-	
+
 	if ( idx < 0 ){
 		// ui.notifications.warn(game.i18n.format("T20.CRInvalid", {cr: cr}));
 		// console.warn(game.i18n.format("T20.CRInvalid", {cr: cr}));
 		idx = 0;
 	}
-	
+
 	let param = Object.entries(T20.NDparams).reduce(( acc, p )=>{
 		acc[p[0]] = p[1][idx];
 		return acc;

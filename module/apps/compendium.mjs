@@ -4,7 +4,7 @@
  * @param {CompendiumCollection} collection  The {@link CompendiumCollection} object represented by this interface.
  * @param {ApplicationOptions} [options]     Application configuration options.
  */
-export default class CompendiumT20 extends Compendium {
+export default class CompendiumT20 extends foundry.applications.sidebar.apps.Compendium {
 	constructor(collection, options) {
     super(collection, options);
 

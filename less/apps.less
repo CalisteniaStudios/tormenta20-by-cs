@@ -9,8 +9,10 @@
 /* ----------------------------------------- */
 
 #sidebar {
-  border: 1px solid #782e22;
-  color: #ffffff !important;
+  #sidebar-content {
+    border: 1px solid #782e22;
+    border-radius: 4px 0 0 4px;
+  }
 
   .tab:not(#chat) button {
     color: #fff;
@@ -18,13 +20,10 @@
     background: #0d0d0d;
     border: 1px solid #782e22;
   }
-  .tab #chat-log button {
+  .tab .chat-log button {
     color: initial;
     background: rgba(255, 255, 240, 0.8);
     border: @borderGroove;
-  }
-  button {
-    font-family: "Signika", sans-serif;
   }
 }
 .sidebar-popout {
