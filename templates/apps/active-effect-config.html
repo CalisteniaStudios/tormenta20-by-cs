@@ -1,7 +1,7 @@
 <form autocomplete="off">
 	<!-- Effect Header -->
 	<header class="sheet-header">
-		<img class="effect-icon" src="{{ effect.icon }}" data-edit="icon">
+		<img class="effect-icon" src="{{ effect.img }}" data-edit="icon">
 		<h1 class="effect-title">{{ effect.name }}</h1>
 	</header>
 
@@ -26,7 +26,7 @@
 			<label>{{ localize "EFFECT.Image" }}</label>
 			<div class="form-fields">
 				{{filePicker target="icon" type="image"}}
-				<input class="image" type="text" name="icon" placeholder="path/image.png" value="{{effect.icon}}" />
+				<input class="image" type="text" name="icon" placeholder="path/image.png" value="{{effect.img}}" />
 			</div>
 		</div>
 
@@ -48,7 +48,7 @@
 				{{/if}}
 			</div>
 		</div>
-		
+
 		{{#if effect.flags.tormenta20.onuse }}
 		<div class="form-group">
 			<label>{{ localize 'T20.ApplyTo' }}: </label>
@@ -67,7 +67,7 @@
 		<div class="form-group">
 			<label>{{ localize 'T20.SpecificItems'}}:</label>
 			<div class="form-fields">
-				
+
 			<input type="text" name="flags.tormenta20.items" value="{{effect.flags.tormenta20.items}}" data-dtype="String"/>
 			</div>
 		</div>
@@ -94,7 +94,7 @@
 			<input type="text" name="origin" value="{{ effect.origin }}" disabled />
 			</div>
 		</div>
-		
+
 		<div class="form-group stacked">
 			<label>{{ localize "EFFECT.Description" }}</label>
 			{{editor descriptionHTML target="description" compact=true button=false editable=editable engine="prosemirror" collaborate=false}}
@@ -175,7 +175,7 @@
 			{{#each effect.changes as |change i|}}
 			<li class="effect-change flexrow" data-index="{{i}}">
 				<div class="formgroup">
-					<!-- 
+					<!--
 					<div class="keylist">
 						<select name="selectedKey" data-dtype="String">
 							<option>Select pra auxiliar nas variaveis</option>
