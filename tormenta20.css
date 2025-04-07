@@ -282,6 +282,12 @@
   height: 100%;
   padding-bottom: 5px;
 }
+.tormenta20.sheet .window-content form.base .sheet-body {
+  height: calc(100% - 25px);
+}
+.tormenta20.sheet .window-content form.tabbed .sheet-body {
+  height: calc(100% - 210px);
+}
 .tormenta20.sheet .window-content form.npc .sheet-body.primary {
   overflow-y: auto;
   height: calc(100% - 50px);
