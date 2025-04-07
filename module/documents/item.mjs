@@ -588,9 +588,10 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	_onUpdate(changed, options, user){
+	_onUpdate(changed, options, userId){
 		//console.log(changed, options, user);
-		super._onUpdate(changed, options, user);
+		super._onUpdate(changed, options, userId);
+		if( game.userId !== userId ) return;
 		// Set Initial Class
 		if( this.parent && this.type === "classe" ) {
 			if (changed.system?.hasOwnProperty("inicial") ){
@@ -620,6 +621,7 @@ export default class ItemT20 extends Item {
 	/** @inheritdoc */
 	_onDelete(options, userId) {
 		super._onDelete(options, userId);
+		if( game.userId !== userId ) return;
 		// Assign a new primary class
 		if ( this.parent && this.type === "classe" )  {
 			if( this.actor.items.find(i => i.type === "classe" && !i.system.inicial ) ) {
