@@ -9,6 +9,22 @@ import { itemMigration } from './migrations.mjs';
  * Override and extend the basic :class:`Item` implementation
  */
 export default class ItemT20 extends Item {
+	static getDefaultArtwork(itemData) {
+		if (itemData.type === "arma") {
+			return { img: "icons/svg/sword.svg" };
+		} else if (itemData.type === "classe") {
+			return { img: "systems/tormenta20/icons/svg/strong.svg" };
+		} else if (itemData.type === "consumivel") {
+			return { img: "systems/tormenta20/icons/svg/potion-ball.svg" };
+		} else if (itemData.type === "equipamento") {
+			return { img: "systems/tormenta20/icons/svg/armor-vest.svg" };
+		} else if (itemData.type === "magia") {
+			return { img: "systems/tormenta20/icons/svg/scroll-unfurled.svg" };
+		} else if (itemData.type === "poder") {
+			return { img: "systems/tormenta20/icons/svg/skills.svg" };
+		}
+		return { img: this.DEFAULT_ICON };
+	}
 
 	/** @inheritdoc */
 	static migrateData(data) {
