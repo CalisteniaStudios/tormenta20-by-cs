@@ -120,7 +120,7 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 			schema.rolls = new fields.ArrayField( new fields.EmbeddedDataField(RollData), {
 				initial: () => [
 					{
-						parts: [], // [[vazio], [perícia, atributo], [bonus]]
+						parts: [[], ["luta", ""], [""]], // [[vazio], [perícia, atributo], [bonus]]
 						name: "Ataque",
 						type: "ataque",
 						key: "ataque"
