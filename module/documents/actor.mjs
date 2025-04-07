@@ -10,9 +10,11 @@ import { actorMigration } from "./migrations.mjs";
  * Extend the base Actor class to implement additional system-specific logic.
  */
 export default class ActorT20 extends Actor {
-
-	constructor(data, context) {
-		super(data, context);
+	static getDefaultArtwork(itemData) {
+		if (itemData.type === "npc") {
+			return { img: "systems/tormenta20/icons/svg/orc-head.svg" };
+		}
+		return { img: this.DEFAULT_ICON };
 	}
 
 	/** @inheritdoc */
