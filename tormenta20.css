@@ -1903,6 +1903,7 @@
 }
 .chat-message:hover .tormenta20.item-card .roll .dice-btn {
   display: inline-block;
+  font-size: initial;
 }
 .chat-message .message-content {
   padding: 0px 5px 5px 5px;
