@@ -1021,7 +1021,7 @@ export default class ActorT20 extends Actor {
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
 		const rdsEx = Object.entries(rds).filter(i => i[1].excecao ).reduce((acc, d) => (acc[d[0]]= d[1].excecao,acc),{});
-
+		
 		const PCVuln = this.type == "character" ? true : false;
 		const NPCVuln = this.type == "npc" ? true : false;
 		let damage;
@@ -1042,15 +1042,33 @@ export default class ActorT20 extends Actor {
 				return acc;
 			}, {});
 		}
+		
+		let rdIgnorada = Math.abs(roll.options.rd ?? 0);
+		function ignoraRD(damageType) {
+			if ( rdIgnorada == rds[damageType].value ) {
+				rdIgnorada = 0;
+				rds[damageType].value = 0;
+			} else if ( rdIgnorada > rds[damageType].value ) {
+				rdIgnorada = rdIgnorada - rds[damageType].value;
+				rds[damageType].value = 0;
+			} else {
+				rds[damageType].value = rds[damageType].value - rdIgnorada;
+				rdIgnorada = 0;
+			}
+		}
 
+		ignoraRD('dano');
+		
 		// Apply Damage Reduction for each type of damage
 		let final = {
 			damage: 0 - (rds.dano?.value ? rds.dano.value : 0),
 			total: 0,
 			tempHP: 0,
 			mana: 0,
-			tempMP: 0
+			tempMP: 0,
 		};
+		
+		
 		
 		for ( let [type, dmg] of Object.entries(damage) ){
 			if ( type == 'curapv' || type == 'perda') {
@@ -1072,8 +1090,10 @@ export default class ActorT20 extends Actor {
 				} else if( applyRD ) {
 					// OLD: Number(rds.dano?.value ?? 0) +
 					// Somava RD do tipo 'dano' a todos os tipos;
+					ignoraRD(type);
 					r = Number( rds[type]?.value ?? 0 );
 				}
+				
 				if( applyRD && !foundry.utils.isEmpty(rdsEx) && !rdsEx[type] ) {
 					r += Number(Object.values(rdsEx)[0]);
 				}
@@ -1091,6 +1111,7 @@ export default class ActorT20 extends Actor {
 				final.damage += acc;
 			}
 		}
+		console.log(damage);
 		// Apply the multiplier
 		final.damage = Math.floor(final.damage * multiplier);
 		final.total = Math.floor(final.total * multiplier);
@@ -1284,7 +1305,9 @@ export default class ActorT20 extends Actor {
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
 		let needsConfiguration;
-		if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+		
+		const UsageConfig = game.settings.get('tormenta20','UsageConfig');
+		if ( UsageConfig == 'default' ) {
 			needsConfiguration = !(options.event?.shiftKey ?? false);
 		} else {
 			needsConfiguration = (options.event?.shiftKey ?? false);
@@ -1403,7 +1426,8 @@ export default class ActorT20 extends Actor {
 
 		let rConfig = {};
 		let needsConfiguration;
-		if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+		const UsageConfig = game.settings.get('tormenta20','UsageConfig');
+		if ( UsageConfig == 'default' ) {
 			needsConfiguration = !(options.event?.shiftKey ?? false);
 		} else {
 			needsConfiguration = (options.event?.shiftKey ?? false);

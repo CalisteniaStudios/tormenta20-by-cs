@@ -807,13 +807,19 @@ export default class ItemT20 extends Item {
 					else if ( !["","0",undefined].includes(extra.dano) ) r.parts.push([extra.dano, ""]);
 				}
 			});
-
+			console.log(configuration);
+			console.log(item.system.rolls);
+			console.log(options);
+			
 			if ( extra?.multCritico?.match(/^=/) ) item.system.criticoX = 1* extra.multCritico.replace("=","");
 			else if ( Number(extra.multCritico) ) item.system.criticoX += Number(extra.multCritico);
 			if ( extra?.margemCritico?.match(/^=/) ) item.system.criticoM = extra.margemCritico.replace("=","");
 			else if ( Number(extra.margemCritico) ) item.system.criticoM += Number(extra.margemCritico);
 		}
-
+		
+		console.log(configuration);
+		console.log(item.system.rolls);
+		console.log(options);
 		// Execute Rolls
 		options.rolls = [];
 		item.system.rolled = {};
@@ -1202,6 +1208,7 @@ export default class ItemT20 extends Item {
 			// Configure the damage roll
 			const title = this.name;
 			const rollConfig = {
+				rd: r.rd,
 				actor: this.actor,
 				critical: critical ?? false,
 				criticalMultiplier: itemData.criticoX,

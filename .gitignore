@@ -13,3 +13,5 @@ npm-debug.log
 
 # Local Files
 *.lock
+
+packs/ameacas

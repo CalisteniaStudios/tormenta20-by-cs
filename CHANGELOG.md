@@ -1,5 +1,12 @@
 # Lista de Mudanças
 
+## Hotfix 1.4.214
+- Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;
+- Adicionado: Efeito de Uso `danoMultiplicavel`, o valor adicionado é multiplicado no crítico.
+- Adicionado: Configuração para Área de Efeito precisas.
+- Alterado: Configuração de Uso, ajustada para que o padrão seja Clique Esquerdo para abrir a janela de configurar.
+
+
 ## Hotfix 1.4.213
 - Corrigido: Cálculo de PV não somava Constituição após nível 1;
 

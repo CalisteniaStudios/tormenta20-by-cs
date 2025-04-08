@@ -615,7 +615,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			itemId = event.currentTarget.dataset.itemId;
 		}
 		const rollConfigs = {}
-		if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+		const UsageConfig = game.settings.get('tormenta20','UsageConfig');
+		if ( UsageConfig == 'default' ) {
 			rollConfigs.configureDialog = !event.shiftKey;
 		} else {
 			rollConfigs.configureDialog = event.shiftKey;
