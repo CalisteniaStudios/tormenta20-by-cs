@@ -1,9 +1,7 @@
-import { toggleEffect } from "./conditions/condicoes.mjs";
 import { endSegment } from "./apps/time-segment.mjs";
-import { measureDistances } from "./pixi/canvas.mjs";
-import ItemT20 from "./documents/item.mjs";
 import * as chat from "./chat.mjs";
 import * as macros from "./macros.mjs";
+import { measureDistances } from "./pixi/canvas.mjs";
 
 export default function () {
 
@@ -11,7 +9,7 @@ export default function () {
 	* Once the entire VTT framework is initialized, check to see if we should perform a data migration
 	*/
 	Hooks.once("ready", async function () {
-		
+
 		// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 		Hooks.on("hotbarDrop", (bar, data, slot) => {
 			if ( ["Item", "ActiveEffect"].includes(data.type) ) {
@@ -20,8 +18,8 @@ export default function () {
 			}
 		});
 
-		
-		if ( game.user.isGM ) { 
+
+		if ( game.user.isGM ) {
 			let oldActors = game.actors.filter( f => !f._stats.systemVersion || f._stats.systemVersion < '1.4.100' );
 			// Migration
 			for (const actor of oldActors) {
@@ -30,7 +28,7 @@ export default function () {
 					updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
 					updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
 				}
-				
+
 				if (actor.type == 'npc') {
 					updateData['system.attributes.defesa.base'] = 10 + actor._source.system.attributes.defesa.outros;
 					updateData['system.attributes.defesa.outros'] = 0;
@@ -39,7 +37,7 @@ export default function () {
 			}
 			return game.settings.set("tormenta20", "systemMigrationVersion", game.system.version);
 		}
-		
+
 	});
 
 	/* -------------------------------------------- */
@@ -57,7 +55,7 @@ export default function () {
 				window.open("https://vizael.gitlab.io/tormenta20-fvtt/");
 			});
 			// JamboEditora
-			let jambo = $(`<button>JamboEditora</button>`);
+			let jambo = $(`<button>Jambô Editora</button>`);
 			html.find("#game-details").append(jambo);
 			jambo.click(() => {
 				window.open("https://jamboeditora.com.br/");
@@ -67,7 +65,7 @@ export default function () {
 
 	/* Chat Hooks */
 	Hooks.on("renderChatMessage", (app, html, data) => {
-		
+
 		chat.hideDieFlavor(app, html, data);
 		chat.ApplyButtons(app, html, data);
 		// Highlight critical success or failure die
@@ -78,7 +76,7 @@ export default function () {
 
 		if ( html.find(".card-damage-details") ) html.find(".card-damage-details").hide();
 	});
-	
+
 	/* Add hook for the context menu over the rolled damage */
 	Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
 
@@ -94,14 +92,14 @@ export default function () {
 	// }) ;
 	/* Measured Templates*/
 	// Hooks.on("preCreateActiveEffect", (ActiveEffect, object, options, userId) => {
-		
+
 	// });
 
 	Hooks.on("closeCompendiumT20", (compendium, html) => {
 		compendium.collection.apps = [ new Compendium(compendium.collection) ];
 	});
-	
-	
+
+
 	/* -------------------------------------------- */
 	/*  Canvas Initialization                       */
 	/* -------------------------------------------- */
