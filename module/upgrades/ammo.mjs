@@ -16,6 +16,7 @@ T20AmmoUpgrades.status = {
 
 T20AmmoUpgrades.accurate = {
 	name: "T20.WeaponUpgradesAccurate",
+	description: "T20.WeaponUpgradesTooltipAccurate",
 	tint: "#FFFFFF",
 	changes: [
 		{
@@ -40,6 +41,7 @@ T20AmmoUpgrades.accurate = {
 
 T20AmmoUpgrades.pungent = {
 	name: "T20.WeaponUpgradesPungent",
+	description: "T20.WeaponUpgradesTooltipPungent",
 	tint: "#FFFFFF",
 	changes: [
 		{
@@ -64,6 +66,7 @@ T20AmmoUpgrades.pungent = {
 
 T20AmmoUpgrades.cruel = {
 	name: "T20.WeaponUpgradesCruel",
+	description: "T20.WeaponUpgradesTooltipCruel",
 	tint: "#FF0000",
 	changes: [
 		{
@@ -88,6 +91,7 @@ T20AmmoUpgrades.cruel = {
 
 T20AmmoUpgrades.atrocious = {
 	name: "T20.WeaponUpgradesAtrocious",
+	description: "T20.WeaponUpgradesTooltipAtrocious",
 	tint: "#FF0000",
 	changes: [
 		{
@@ -112,6 +116,7 @@ T20AmmoUpgrades.atrocious = {
 
 T20AmmoUpgrades.balanced = {
 	name: "T20.WeaponUpgradesBalanced",
+	description: "T20.WeaponUpgradesTooltipBalanced",
 	tint: "#00FF00",
 	changes: [
 		{
@@ -138,6 +143,7 @@ T20AmmoUpgrades.balanced = {
 
 T20AmmoUpgrades.harmonized = {
 	name: "T20.WeaponUpgradesHarmonized",
+	description: "T20.WeaponUpgradesTooltipHarmonized",
 	tint: "#FFFF00",
 	changes: [],
 	flags: { 
@@ -156,6 +162,7 @@ T20AmmoUpgrades.harmonized = {
 
 T20AmmoUpgrades.massive = {
 	name: "T20.WeaponUpgradesMassive",
+	description: "T20.WeaponUpgradesTooltipMassive",
 	tint: "#800080",
 	changes: [
 		{
@@ -180,6 +187,7 @@ T20AmmoUpgrades.massive = {
 
 T20AmmoUpgrades.precise = {
 	name: "T20.WeaponUpgradesPrecise",
+	description: "T20.WeaponUpgradesTooltipPrecise",
 	tint: "#808080",
 	changes: [
 		{

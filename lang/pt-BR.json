@@ -404,6 +404,7 @@
   "T20.SpellDiv": "Divina",
   "T20.SpellUni": "Universal",
   "T20.SpellEng": "Engenhoca",
+  "T20.SpellSim": "Simulada",
 
   "T20.SpellSchool": "Escola",
   "T20.SchoolAbj": "Abjuração",
@@ -1182,8 +1183,8 @@
 
   "T20.SettingLancinatingVersion": "Versão do Lancinante",
   "T20.SettingLancinatingVersionHint": "Usa o Lancinante do Livro Básico ou do Ameaças de Arton",
-  "T20.SeetingLancinatingDefault": "Livro Básico: Multiplica Numérico",
-  "T20.SeetingLancinatingRevised": "Ameaças de Arton: Multiplica Dilacerante",
+  "T20.SettingLancinatingDefault": "Livro Básico: Multiplica Numérico",
+  "T20.SettingLancinatingRevised": "Ameaças de Arton: Multiplica Dilacerante",
 
   "T20.SettingOverrideMeasuredTemplatesConfig": "Área de Efeito Tormenta20",
   "T20.SettingOverrideMeasuredTemplatesConfigHint": "Altera a forma de calcular Área de Efeito para corresponder as regras do sistema.",

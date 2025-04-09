@@ -5,6 +5,8 @@
 - Adicionado: Efeito de Uso `danoMultiplicavel`, o valor adicionado é multiplicado no crítico.
 - Adicionado: Configuração para Área de Efeito precisas.
 - Alterado: Configuração de Uso, ajustada para que o padrão seja Clique Esquerdo para abrir a janela de configurar.
+- Corrigido: Sobrecarregado reduzia a penalidade de armadura.
+- Adicionado: Automação para Melhorias de equipamentos.
 
 
 ## Hotfix 1.4.213

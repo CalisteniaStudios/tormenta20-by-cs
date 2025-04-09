@@ -614,6 +614,7 @@ export default class ItemT20 extends Item {
 				this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
 			}
 		}
+		if( this.actor && game.userId === userId ) this.actor._checkEncumbered();
 	}
 
 	/* -------------------------------------------- */

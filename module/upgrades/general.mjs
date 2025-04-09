@@ -9,6 +9,7 @@ T20GeneralUpgrades.status = {
 
 T20GeneralUpgrades.golden = {
   name: "T20.ItemUpgradesGoldPlated",
+	description: "T20.ItemUpgradesTooltipGoldPlated",
   tint: "#FFD700",
   changes: [
     {
@@ -32,6 +33,7 @@ T20GeneralUpgrades.golden = {
 
 T20GeneralUpgrades.gems = {
   name: "T20.ItemUpgradesGemsStudded",
+	description: "T20.ItemUpgradesTooltipGemsStudded",
   tint: "#8B008B",
   changes: [
     {
@@ -55,6 +57,7 @@ T20GeneralUpgrades.gems = {
 
 T20GeneralUpgrades.discreet = {
   name: "T20.ItemUpgradesDiscreet",
+	description: "T20.ItemUpgradesTooltipDiscreet",
   tint: "#808080",
   changes: [
     {
@@ -84,6 +87,7 @@ T20GeneralUpgrades.discreet = {
 
 T20GeneralUpgrades.macabre = {
   name: "T20.ItemUpgradesMacabre",
+	description: "T20.ItemUpgradesTooltipMacabre",
   tint: "#8B0000",
   changes: [
     {

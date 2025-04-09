@@ -564,7 +564,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	*/
 	_createEffects(upgrades){
 		const values = Object.values(upgrades);
-
+		
 		const existingEffects = [
 			this.item.getEmbeddedCollection("ActiveEffect").contents,
 			this.item.actor?.getEmbeddedCollection("ActiveEffect").contents
@@ -597,6 +597,7 @@ export default class ItemSheetT20 extends ItemSheet {
 			.map(v => ({ 
 				...availableEffects[v],
 				name: game.i18n.localize(availableEffects[v].name),
+				description: game.i18n.localize(availableEffects[v].description ?? ''),
 				icon: this.item.img,
 				origin: this.item.uuid,
 				// We need to internationalize the items list

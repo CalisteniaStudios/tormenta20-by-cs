@@ -618,6 +618,7 @@ T20.spellType = {
 	"div": "T20.SpellDiv",
 	"uni": "T20.SpellUni",
 	"eng": "T20.SpellEng",
+	"sim": "T20.SpellSim",
 }
 preLocalize("spellType");
 

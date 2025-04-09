@@ -6,6 +6,7 @@ T20ToolsUpgrades.status = {
 
 T20ToolsUpgrades.enhanced = {
 	name: "T20.ToolUpgradesEnhanced",
+	description: "T20.ToolUpgradesTooltipEnhanced",
 	tint: "#00FF00",
 	changes: [
 		{

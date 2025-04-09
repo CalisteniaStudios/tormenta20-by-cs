@@ -19,6 +19,7 @@ T20ArmorUpgrades.status = {
 /* GENERAL - Available for all armor */
 T20ArmorUpgrades.general.adjusted = {
 		name: "T20.ArmorUpgradesAdjusted",
+		description: "T20.ArmorUpgradesTooltipAdjusted",
 		tint: "#FFFFFF",
 		changes: [
 				{
@@ -41,6 +42,7 @@ T20ArmorUpgrades.general.adjusted = {
 
 T20ArmorUpgrades.general.undermeasure = {
 		name: "T20.ArmorUpgradesUnderMeasure",
+		description: "T20.ArmorUpgradesTooltipUnderMeasure",
 		tint: "#AAAAAA",
 		changes: [
 				{
@@ -64,6 +66,7 @@ T20ArmorUpgrades.general.undermeasure = {
 
 T20ArmorUpgrades.general.polished = {
 		name: "T20.ArmorUpgradesPolished",
+		description: "T20.ArmorUpgradesTooltipPolished",
 		tint: "#C0C0C0",
 		duration: {
 			duration: 1,
@@ -93,6 +96,7 @@ T20ArmorUpgrades.general.polished = {
 
 T20ArmorUpgrades.general.reinforced = {
 		name: "T20.ArmorUpgradesReinforced",
+		description: "T20.ArmorUpgradesTooltipReinforced",
 		tint: "#808080",
 		changes: [
 				{
@@ -123,6 +127,7 @@ T20ArmorUpgrades.general.reinforced = {
 /** PESADA - Available only for heavy armor */
 T20ArmorUpgrades.pesada.delicate = {
 		name: "T20.ArmorUpgradesDelicate",
+		description: "T20.ArmorUpgradesTooltipDelicate",
 		tint: "#FFDDDD",
 		changes: [
 				{
@@ -146,6 +151,7 @@ T20ArmorUpgrades.pesada.delicate = {
 
 T20ArmorUpgrades.pesada.sealed = {
 		name: "T20.ArmorUpgradesSealed",
+		description: "T20.ArmorUpgradesTooltipSealed",
 		tint: "#0000FF",
 		changes: [
 				{

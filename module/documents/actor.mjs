@@ -294,6 +294,7 @@ export default class ActorT20 extends Actor {
 		if( !foundry.utils.isEmpty(sheetFlags) ) foundry.utils.mergeObject( flags, baseFlags );
 
 		const nivel = this.nivel;
+		system.attributes.nivel.value = nivel;
 		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience required for next level
 		const xp = system.attributes.nivel.xp;
@@ -912,19 +913,8 @@ export default class ActorT20 extends Actor {
 	_onUpdate(changed, options, userId){
 		super._onUpdate(changed, options, userId);
 		/* Check Encumbered Status and Add/Remove its ActiveEffect */
-		if ( this.type=="character" ) {
-			if( game.userId !== userId ) return;
-			const ef = this.effects.find( ef => ef.statuses.has("sobrecarregado"));
-			const wasEncumbered = Boolean(ef);
-			const isEncumbered = this.system.attributes?.carga?.encumbered;
-			if ( isEncumbered != wasEncumbered ) {
-				if ( isEncumbered && !ef ) {
-					this.createEmbeddedDocuments('ActiveEffect', [T20.conditions['sobrecarregado']]);
-				} else if( !isEncumbered && ef ) {
-					this.deleteEmbeddedDocuments('ActiveEffect', [ef._id]);
-				}
-			}
-		}
+		if( game.userId === userId ) this._checkEncumbered();
+
 		const { pv } = (options?.tormenta20 || {});
 		if (pv) {
 			const curr = this.system.attributes.pv;
@@ -936,6 +926,23 @@ export default class ActorT20 extends Actor {
 			if ( Number.isInteger(changes.total) && (changes.total !== 0) ) this._displayTokenEffect(changes);
 		}
 	}
+
+	_checkEncumbered() {
+		if ( this.type=="character" ) {
+			const ef = this.effects.find( ef => ef.statuses.has("sobrecarregado"));
+			const wasEncumbered = Boolean(ef);
+			const isEncumbered = this.system.attributes?.carga?.encumbered;
+			if ( isEncumbered != wasEncumbered ) {
+				if ( isEncumbered && !ef ) {
+					this.createEmbeddedDocuments('ActiveEffect', [T20.conditions['sobrecarregado']]);
+				} else if( !isEncumbered && ef ) {
+					this.deleteEmbeddedDocuments('ActiveEffect', [ef._id]);
+				}
+			}
+		}
+		
+	}
+
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */

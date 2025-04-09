@@ -11,6 +11,7 @@ T20EsotericUpgrades.status = {
 
 T20EsotericUpgrades.energetic = {
 		name: "T20.EsotericUpgradesEnergetic",
+		description: "T20.EsotericUpgradesTooltipEnergetic",
 		tint: "#FFA500",
 		changes: [
 				{
@@ -35,6 +36,7 @@ T20EsotericUpgrades.energetic = {
 
 T20EsotericUpgrades.harmonized = {
 		name: "T20.EsotericUpgradesHarmonized",
+		description: "T20.EsotericUpgradesHTooltiparmonized",
 		tint: "#800080",
 		changes: [],
 		flags: {
@@ -53,6 +55,7 @@ T20EsotericUpgrades.harmonized = {
 
 T20EsotericUpgrades.vigilant = {
 		name: "T20.EsotericUpgradesVigilant",
+		description: "T20.EsotericUpgradeTooltipsVigilant",
 		tint: "#00FF00",
 		changes: [
 				{
