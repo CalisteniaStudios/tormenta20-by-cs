@@ -294,6 +294,7 @@ export default class ActorT20 extends Actor {
 		if( !foundry.utils.isEmpty(sheetFlags) ) foundry.utils.mergeObject( flags, baseFlags );
 
 		const nivel = this.nivel;
+		system.attributes.nivel.value = nivel;
 		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
 		// Experience required for next level
 		const xp = system.attributes.nivel.xp;
