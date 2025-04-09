@@ -55,7 +55,7 @@ export default function () {
 				window.open("https://vizael.gitlab.io/tormenta20-fvtt/");
 			});
 			// JamboEditora
-			let jambo = $(`<button>JamboEditora</button>`);
+			let jambo = $(`<button>Jambô Editora</button>`);
 			html.find("#game-details").append(jambo);
 			jambo.click(() => {
 				window.open("https://jamboeditora.com.br/");
