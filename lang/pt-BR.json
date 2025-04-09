@@ -26,8 +26,8 @@
   "Types.Item.magia": "Magia",
   "Types.Item.poder": "Poder",
   "Types.Item.tesouro": "Tesouro",
-  
-  
+
+
   "T20.S3": "/* ---------------- SYSTEM ---------------- */",
   "T20.title": "Sistema Tormenta20",
   "T20.Name": "Nome",
@@ -53,7 +53,7 @@
   "T20.Empty": "Vazio",
   "T20.Handling": "Empunhando",
   "T20.Wearing": "Vestindo",
-  
+
 
   "T20.Die": "Dado",
   "T20.Dice": "Dados",
@@ -61,6 +61,7 @@
   "T20.Half": "Metade",
   "T20.Double": "Dobro",
   "T20.Proficiency": "Proficiência",
+  "T20.Proficiencies": "Proficiências",
   "T20.Languages": "Idiomas",
   "T20.Total": "Total",
   "T20.Source": "Fonte",
@@ -99,7 +100,7 @@
   "T20.CurrencySilverAbbr": "T$",
   "T20.CurrencyCopper": "Cobre",
   "T20.CurrencyCopperAbbr": "TC",
-  
+
   "T20.Type": "Tipo",
   "T20.Cost": "Custo",
   "T20.PMCost": "Custo em PM",
@@ -109,10 +110,10 @@
   "T20.Submit": "Enviar",
   "T20.CommaSeparated": "Separe com ponto e vírgula",
   "T20.CheckBonus": "Bônus no Teste",
-  
+
   "T20.Roll": "Rolagem",
   "T20.Rolls": "Rolagens",
-  
+
   "T20.Quantity": "Quantidade",
   "T20.QuantityAbbr": "Qtd",
   "T20.Race": "Raça",
@@ -238,7 +239,7 @@
   "T20.HP": "PV",
   "T20.MP": "PM",
   "T20.HPInicial": "PV Inicial",
-  "T20.HPTotal": "PV Total",  
+  "T20.HPTotal": "PV Total",
   "T20.MPTotal": "PM Total",
   "T20.HPPerLevel": "PV por Nível",
   "T20.MPPerLevel": "PM por Nível",
@@ -300,7 +301,7 @@
   "T20.ShowDC": "Mostrar CD",
   "T20.ShowRD": "Mostrar RD",
   "T20.ShowResources": "Mostrar Recursos",
-  
+
   "T20.Alignment": "Alinhamento",
   "T20.AlignmentCE": "Caótico e Mal",
   "T20.AlignmentCG": "Caótico e Bom",
@@ -311,7 +312,7 @@
   "T20.AlignmentNE": "Neutro e Mal",
   "T20.AlignmentNG": "Neutro e Bom",
   "T20.AlignmentTN": "Neutro",
-  
+
   "T20.S7": "/* ----------------- TYPES ---------------- */",
 
   "T20.DamImm": "Imunidade a Dano",
@@ -336,7 +337,7 @@
   "T20.DamageRadiant": "Luz",
   "T20.DamageSlashing": "Corte",
   "T20.DamageRoll": "Rolagem de Dano",
-  
+
   "T20.Healing": "Cura",
   "T20.HealingTemp": "PV Temporário",
   "T20.ManaRecovery": "Recuperação de Mana",
@@ -356,9 +357,9 @@
   "T20.ActionPl": "Ações",
   "T20.ActionOther": "Outra",
   "T20.ActionOthers": "Outras",
-  
+
   "T20.SaveDC": "{pericia} (CD {cd})",
-  
+
   "T20.Enhancement": "Aprimoramento",
   "T20.Enhancements": "Aprimoramentos",
   "T20.Enchantment": "Encanto",
@@ -369,9 +370,9 @@
   "T20.Equip": "Equipar",
   "T20.Unequip": "Desequipar",
   "T20.Weared": "Vestido/a",
-  "T20.Wielded": "Empunhado/a",
-  "T20.WieldedDual": "Empunhado/a (Duas Mãos)",
-  
+  "T20.Wielded": "Empunhada",
+  "T20.WieldedDual": "Empunhada (Duas Mãos)",
+
   "T20.ClassLevels": "Níveis de Classe",
   "T20.ClassHPLevels": "Pontos de Vida por Nível",
   "T20.ClassMPLevels": "Pontos de Mana por Nível",
@@ -403,6 +404,7 @@
   "T20.SpellDiv": "Divina",
   "T20.SpellUni": "Universal",
   "T20.SpellEng": "Engenhoca",
+  "T20.SpellSim": "Simulada",
 
   "T20.SpellSchool": "Escola",
   "T20.SchoolAbj": "Abjuração",
@@ -413,7 +415,7 @@
   "T20.SchoolIlu": "Ilusão",
   "T20.SchoolNec": "Necromancia",
   "T20.SchoolTra": "Transmutação",
-   
+
   "T20.Cantrip": "Truque",
   "T20.SpellCircle": "Círculo",
   "T20.SpellLevel": "{lvl}º Círculo",
@@ -431,7 +433,7 @@
   "T20.ConsumeAttribute": "Recurso",
   "T20.ConsumeMaterial": "Material",
   "T20.ConsumeMPMultiplier": "Multiplicar consumo por gasto de Mana",
-  
+
   "T20.AbbreviationKgs": "kgs",
   "T20.AbbreviationConc": "Sust.",
 
@@ -455,7 +457,7 @@
   "T20.SizeMedium": "Médio",
   "T20.SizeSmall": "Pequeno",
   "T20.SizeTiny": "Minúsculo",
-  
+
   "T20.CreatureType": "Tipo de Criatura",
   "T20.CreatureBeast": "Animal",
   "T20.CreatureBeastPl": "Animals",
@@ -525,13 +527,13 @@
   "T20.WeaponSizeNormal": "Normal",
   "T20.WeaponSizeEnlarged": "Aumentada",
   "T20.WeaponSizeGiant": "Gigante",
-  
+
   "T20.ActivationCost": "Execução",
   "T20.Duration": "Duração",
   "T20.Range": "Alcance",
   "T20.Target": "Alvo",
   "T20.Area": "Área",
-  
+
   "T20.DistAny": "Ilimitado",
   "T20.DistM": "Metros",
   "T20.DistKM": "Kilômetros",
@@ -540,7 +542,7 @@
   "T20.DistShort": "Curto",
   "T20.DistMedium": "Médio",
   "T20.DistLong": "Longo",
-  
+
   "T20.TimeInst": "Instantânea",
   "T20.TimeTurn": "Turno",
   "T20.TimeRound": "Rodada",
@@ -552,7 +554,7 @@
   "T20.TimePerm": "Permanente",
   "T20.TimeScene": "Cena",
   "T20.TimeSust": "Sustentada",
-  
+
   "T20.Senses": "Sentidos",
   "T20.SenseDimVision": "Visão na Penumbra",
   "T20.SenseDarkVision": "Visão no Escuro",
@@ -575,7 +577,7 @@
   "T20.EquipmentClothing": "Vestuário",
   "T20.EquipmentTool": "Ferramenta",
   "T20.EquipmentEsoteric": "Esotérico",
-  
+
   "T20.ItemEquippedType": "Tipo de Uso",
   "T20.ItemSlotHand": "Empunhado",
   "T20.ItemSlotBody": "Vestido",
@@ -612,7 +614,7 @@
 
   "T20.Treasure": "Tesouro",
   "T20.Treasures": "Tesouros",
-  "T20.LootAndTreasures": "Items e Tesouros",
+  "T20.LootAndTreasures": "Itens e Tesouros",
 
   "T20.ArmorMaxAblBonus": "Bônus Máximo de Atributo",
   "T20.ArmorPenalty": "Penalidade de Armadura",
@@ -637,14 +639,14 @@
   "T20.ActionUtil": "Utilidade",
 
   "T20.PlaceAbilityTemplate": "Colocar Área de Efeito",
-  
+
   "T20.ActionWarningItemNotOwned": "Um item precisa pertencer a um personagem para ser usado.",
   "T20.ActionWarningNoItem": "O item {item} não está presente no Ator {name}",
   "T20.ActionWarningNoToken": "É necessário ter um ou mais Tokens selecionado para usar esta opção.",
 
   "T20.AddEmbeddedItemPromptHint": "Deseja adicionar estes itens a ficha de personagem?",
   "T20.SelectItemsPromptTitle": "Selecionar Itens",
-  
+
   "T20.ConsumeWarningNoResource": "{name} indica o consumo de {type}, mas não foi espeficiado qual!",
   "T20.ConsumeWarningNoSource": "O recurso {type} especificado para o uso de {name} não existe!",
   "T20.ItemNoUses": "Não há mais unidades disponíveis de {name}.",
@@ -652,8 +654,14 @@
 
   "T20.S09": "/* ------------ Item Upgrades ------------ */",
 
-  "T20.WIPEnhancements": "Efeitos dessa sessão ainda não foram implementados (Exceto pelo efeito antigo de Lancinante)",
-  
+  "T20.WIPEnhancements": "Obs: Nem todos os aprimoramentos desta seção foram automatizados. Os ícones abaixo indicam se foram automatizados ou não, conforme a legenda.",
+  "T20.WIPEnhancementsImplemented": "Automatizado",
+  "T20.WIPEnhancementsNotImplemented": "Não Automatizado",
+  "T20.WIPEnhancementsNotSelected": "Não selecionado",
+
+  "T20.EnhancementsAutomationEnable": "Ativar automatização de aprimoramentos",
+  "T20.EnhancementsAutomationEnableHint": "Caso ativado, os efeitos dos aprimoramentos serão criados automaticamente",
+
   "T20.SpecialMaterial": "Material Especial",
   "T20.SpecialMaterialRubySteel": "Aço-Rubi",
   "T20.SpecialMaterialAdamant": "Adamante",
@@ -684,7 +692,7 @@
   "T20.WeaponUpgradesScope": "Mira Telescópica",
   "T20.WeaponUpgradesPrecise": "Precisa",
   "T20.WeaponUpgradesPenetrating": "Penetrante",
-	
+
   "T20.ArmorUpgradesAdjusted": "Ajustada",
   "T20.ArmorUpgradesUnderMeasure": "Sob medida",
   "T20.ArmorUpgradesDelicate": "Delicada",
@@ -704,14 +712,14 @@
   "T20.EsotericUpgradesVigilant": "Vigilante",
 
   "T20.ToolUpgradesEnhanced": "Aprimorado",
-  
+
   "T20.ItemUpgradesGoldPlated": "Banhado a ouro",
   "T20.ItemUpgradesGemsStudded": "Cravejado de gemas",
   "T20.ItemUpgradesDiscreet": "Discreto",
   "T20.ItemUpgradesMacabre": "Macabro",
   "T20.ItemUpgradesMultifunctional": "Multifuncional",
-  
-  
+
+
   "T20.WeaponUpgradesTooltipAccurate": "Fabricada para ser mais precisa e balanceada, a arma fornece +1 nos testes de ataque.",
   "T20.WeaponUpgradesTooltipPungent": "Temperada diversas vezes para adquirir o fio ou o equilíbrio perfeito, a arma fornece +2 nos testes de ataque. Pré-requisito: Certeira.",
   "T20.WeaponUpgradesTooltipCruel": "Rebarbas, espinhos e até mesmo lâminas adicionais compõem uma arma cruel. Ela fornece +1 nas rolagens de dano.",
@@ -741,7 +749,7 @@
   "T20.EsotericUpgradesTooltipPowerful": "A CD para resistir a suas magias aumenta em +1.",
   "T20.EsotericUpgradesTooltipEnhancer": "Uma gema mística inserida no item permite que você acumule mais mana do que normalmente seria capaz. O limite de PM que você pode gastar em magias aumenta em +1.",
   "T20.EsotericUpgradesTooltipVigilant": "O item usa parte de sua mana pessoal para gerar um campo que desvia ataques. Você recebe +2 em Defesa.",
-  
+
   "T20.ToolUpgradesTooltipEnhanced": "O item é construído de forma dosa e com os melhores materiais. Esta melhoria só pode ser aplicada em uma ferramenta ou ário que modifique uma perícia (reduza uma idade ou forneça um bônus) e fornece +1 nessa ia (ou aumenta o bônus fornecido em +1). Por lo, uma maleta de medicamentos aprimorada ce +1 em Cura, enquanto uma luva de pelica orada fornece +2 em Ladinagem. Esta melhoria não pode ser aplicada a Luta e Pontaria.",
 
   "T20.ItemUpgradesTooltipGoldPlated": "Uma melhoria favorita de nobres pomposos ou de aventureiros que acabaram de enriquecer. Fornece +2 em Diplomacia. O mestre pode mudar o bônus para uma penalidade de –2 contra pessoas que desprezam ostentação. Além disso, pode atrair a cobiça de ladrões.",
@@ -750,7 +758,7 @@
   "T20.ItemUpgradesTooltipMacabre": "Um item macabro é pintado com sangue seco, esculpido na forma de uma caveira ou decorado com pedaços de orelhas, dedos e olhos. Essa aparência assustadora fornece +2 em testes de Intimidação, mas impõe uma penalidade de –2 em testes de Diplomacia.",
   "T20.ItemUpgradesTooltipMultifunctional": "Ameaças de Arton pg. 399",
 
-  
+
   "T20.S10": "/* ------------ Item Enchants ------------ */",
 
   "T20.WeaponEnchantKeen": "Ameaçadora",
@@ -807,7 +815,7 @@
   "T20.EquipmentEnchantmentBlinding": "Reluzente",
   "T20.EquipmentEnchantmentShadow": "Sombrio",
   "T20.EquipmentEnchantmentZealous": "Zeloso",
-  
+
   "T20.WeaponEnchantTooltipKeen": "A margem de ameaça da arma duplica. Por exemplo, uma espada longa ameaçadora tem margem de ameaça 17. Efeitos que duplicam a margem de ameaça são aplicados antes de quaisquer efeitos que a aumentem.",
   "T20.WeaponEnchantTooltipBane": "A arma é letal contra um tipo de criatura (ou uma raça de humanoides). Uma vez por rodada, quando ataca uma criatura desse tipo, você pode gastar 2 PM. Se fizer isso e acertar o ataque, causa +4d8 de dano. Para determinar o tipo de criatura aleatoriamente, role 1d6: 1) animal; 2) construto; 3) espírito; 4) monstro; 5) morto-vivo; 6) uma raça de humanoides.",
   "T20.WeaponEnchantTooltipThrowable": "A arma pode ser arremessada em alcance curto. Caso já pudesse ser arremessada, seu alcance aumenta em uma categoria. Após o ataque, se estiver livre, a arma volta voando para você. Pegá-la é uma reação.",
@@ -836,7 +844,7 @@
   "T20.WeaponEnchantTooltipSepulchral": "A arma causa +1d8 de dano de trevas. Uma vez por rodada, quando ataca, você pode gastar 2 PM. Se fizer isso, o bônus de dano aumenta para +2d8, mas você sofre 1d8 pontos de dano de trevas. Uma arma tumular drena o calor ao redor.",
   "T20.WeaponEnchantTooltipSpeed": "Você recebe a habilidade Ataque Extra, do guerreiro, mas só pode usá-la com esta arma. Se já possui, em vez disso, o custo para usá-la com esta arma diminui em –1 PM.",
   "T20.WeaponEnchantTooltipPoisonous": "Uma vez por rodada, quando ataca, você pode gastar 2 PM. Se fizer isso e acertar o ataque, a vítima fica envenenada, perdendo 1d12 pontos de vida por rodada durante 3 rodadas. Uma arma venenosa verte um líquido verde e viscoso.",
-  
+
   "T20.EquipmentEnchantmentTooltipAbascanth": "Você recebe resistência a magia +5.",
   "T20.EquipmentEnchantmentTooltipBlessed": "Você recebe redução de trevas 10 e +5 em testes de resistência contra efeitos de necromancia. Um item abençoado é decorado com gravuras de símbolos sagrados de deuses do Bem.",
   "T20.EquipmentEnchantmentTooltipAcrobatic": "Você recebe +5 em Acrobacia e ignora a penalidade de armadura do item para testes dessa perícia.",
@@ -864,7 +872,7 @@
   "T20.EquipmentEnchantmentTooltipZealous": "Uma vez por rodada, se um aliado adjacente for alvo de um ataque, você pode gastar 1 PM para se tornar o alvo do ataque, que então é resolvido normalmente.",
 
   "T20.S11": "/* --------------- DataModelFields --------------- */",
-  
+
   "T20.AbilityValue": "Valor de Atributo {parent}",
   "T20.AbilityBonusValue": "Valor Bônus de Atributo {parent}",
   "T20.AbilityBaseValue": "Valor Base de Atributo {parent}",
@@ -1032,7 +1040,7 @@
   "T20.RacialAbilityRule": "Regra de Atributo Racial",
   "T20.RAR.Default": "Padrão (T20)",
   "T20.RAR.Flex": "Atributos Flexíveis (SF)",
-  
+
   "T20.FoeConcept": "Conceito",
   "T20.BulderFoeRole": "Função",
 
@@ -1061,7 +1069,7 @@
   "T20.NPCB_Climber": "Escalador",
   "T20.NPCB_Burrower": "Escavador",
   "T20.NPCB_Swimmer": "Nadador",
-  
+
   "T20.Current": "Atual",
   "T20.NPCB_MeanDamage": "Dano Médio",
   "T20.NPCB_MeanDamageHint": "Soma da média de dano todas as armas.",
@@ -1076,8 +1084,8 @@
 
   "T20.NCPB_SkillGood": "Per. Forte",
   "T20.NCPB_SkillBad": "Per. Fraca",
-  
-  
+
+
   "T20.NPCB_SaveGood": "Res. Forte",
   "T20.NPCB_SaveNormal": "Res. Média",
   "T20.NPCB_SaveBad": "Res. Fraca",
@@ -1103,7 +1111,7 @@
   "T20.NPCB_FoeRoleSpecialHint": "Especial. A criatura possui diversas habilidades especiais e/ou foi feita para ser usada em situações fora de combate direto (por exemplo, pode ser usada para enganar ou roubar os personagens). Este papel é ocupado principalmente por conjuradores ou líderes (criaturas cujas habilidades fortalecem outras, e consequentemente devem ser usadas em conjunto com lacaios). Procure analisar a ficha de uma criatura especial antes de usá-la!",
   "T20.NPCB_FoeRoleSoloHint": "Solo. A criatura foi construída para enfrentar os personagens sozinha. Ela possui estatísticas equilibradas; especialmente, possui muitos pontos de vida, para garantir que o combate dure um tempo bom (por volta de 3 a 5 rodadas). Este papel é ocupado principalmente por grandes monstros e vilões.",
   "T20.NPCB_FoeRoleLackeyHint": "Lacaio. A criatura foi construída para enfrentar os personagens em grandes quantidades. Por conta disso, você normalmente usará lacaios de ND menor do que o nível do grupo. Por exemplo, um grupo de 5º nível pode enfrentar um bando de lacaios de ND 1. Lacaios possuem valores de ataque e dano mais altos, para garantir que continuem sendo uma ameaça real para personagens, mesmo considerando que seu ND será menor que o nível deles, mas menos pontos de vida, para serem derrotadas mais rapidamente e não deixarem o combate excessivamente lento. Este papel é ocupado primariamente por humanoides e monstros pequenos.",
-  
+
   "T20.CreatureBeastHint": "ANIMAL. Criaturas com inteligência limitada, com armas e habilidades naturais como veneno, teia e podem ter visão no escuro ou visão na penumbra.",
   "T20.CreatureConstructHint": "CONSTRUTO. Objetos animados ou criaturas artificiais. Possuem as habilidades: imunidade a doenças, fadiga, sangramento, sono e veneno; não precisam respirar, alimentar-se e dormir; não recuperam pontos de vida por descanso e habilidades de cura, exceto aquelas que afetam especificamente construtos; visão no escuro.",
   "T20.CreatureSpiritHint": "ESPÍRITO. Seres de outros planos. Podem ter visão no escuro ou visão na penumbra.",
@@ -1113,9 +1121,11 @@
 
   "T20.S98": "/* --------------- Settings --------------- */",
 
-  "T20.CharacterSheet": "Ficha de Personagem",
-  "T20.CharacterSheetTabbed": "Ficha de Personagem - Abas",
+  "T20.CharacterSheet": "Ficha de Personagem T20",
+  "T20.CharacterSheetTabbed": "Ficha de Personagem T20 - Abas",
   "T20.NPCSheet": "Ficha de NPC",
+  "T20.ItemSheet": "Ficha de Item",
+  "T20.ActiveEffectSheet": "Ficha de Efeito Ativo",
   "T20.CharacterBuilderSheet": "Criação de NPC",
   "T20.SettingSheetSettings": "Configurações das Fichas",
   "T20.SettingSheetSettingsHint": "Configurações das Fichas",
@@ -1164,22 +1174,29 @@
 
   "T20.SettingEquipmentSlots": "Controle de Itens Empunhados/Vestidos",
   "T20.SettingEquipmentSlotsHint": "Altera a forma como controlar items equipados.",
-  
+  "T20.SettingUsageConfig": "Configuração de Uso",
+  "T20.SettingUsageConfigHint": "Define como a janela de configuração de uso aparece.",
+  "T20.SettingUsageConfigDefault": "Clique Esquerdo",
+  "T20.SettingUsageConfigShift": "Shift + Clique Esquerdo",
   "T20.SettingInvertUsageConfig": "Inverter Configuração de Uso",
   "T20.SettingInvertUsageConfigHint": "Se marcado o menu de Configuração de Uso aparecerá sempre que usar um item.",
 
   "T20.SettingLancinatingVersion": "Versão do Lancinante",
   "T20.SettingLancinatingVersionHint": "Usa o Lancinante do Livro Básico ou do Ameaças de Arton",
-  "T20.SeetingLancinatingDefault": "Livro Básico: Multiplica Numérico",
-  "T20.SeetingLancinatingRevised": "Ameaças de Arton: Multiplica Dilacerante",
+  "T20.SettingLancinatingDefault": "Livro Básico: Multiplica Numérico",
+  "T20.SettingLancinatingRevised": "Ameaças de Arton: Multiplica Dilacerante",
+
+  "T20.SettingOverrideMeasuredTemplatesConfig": "Área de Efeito Tormenta20",
+  "T20.SettingOverrideMeasuredTemplatesConfigHint": "Altera a forma de calcular Área de Efeito para corresponder as regras do sistema.",
   
+
   "T20.S90": "/* --------------- Status --------------- */",
-  
+
   "T20.StatusTypeFear":"Condição de Medo",
 	"T20.StatusTypeParalyze":"Condição de Paralisia",
 	"T20.StatusTypeSenses":"Condição de sentidos",
 	"T20.StatusTypeFatigue":"Condição de Fadiga",
-  
+
   "T20.S99": "/* --------------- Creature --------------- */",
   "T20.S0": "/* --------------- END --------------- */",
   "T20.VIZAEL": "VIZAEL"

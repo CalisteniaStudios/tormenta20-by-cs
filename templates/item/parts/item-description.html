@@ -10,7 +10,7 @@
 		<div class="form-group">
 			<label>{{ localize "T20.DR" }}</label>
 			<input type="text" name="system.rd" value="{{item.system.rd}}" data-dtype="Number"/>
-		</div>	
+		</div>
 		<div class="form-group">
 			<label>{{ localize "T20.Quantity" }}</label>
 			<input type="text" name="system.qtd" value="{{item.system.qtd}}" data-dtype="Number"/>
@@ -31,8 +31,8 @@
 		</div>
 		{{#if isOwned}}
 		<div class="form-group">
-			<label><label>{{ localize "T20.Carrying" }}?
-			<input type="checkbox" name="system.carregado" value="{{item.system.carregado}}" {{checked item.system.carregado}} data-dtype="Boolean"/></label>
+			<label>{{ localize "T20.Carrying" }}?</label>
+			<input type="checkbox" name="system.carregado" value="{{item.system.carregado}}" {{checked item.system.carregado}} data-dtype="Boolean"/>
 		</div>
 		{{/if}}
 		{{#if (and (eq item.type "tesouro") )}}
@@ -62,7 +62,7 @@
 			{{/if}}
 		</ul>
 	</div>
-	
+
 	<div class="item-description">
 		<div class="form-group">
 			<label>{{ localize "T20.SourceBook" }}</label>

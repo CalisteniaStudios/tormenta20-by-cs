@@ -11,7 +11,7 @@ const LESS_WATCH = ["less/*.less"];
  * Compile the LESS sources into a single CSS file.
  */
 function compileLESS() {
-  console.error('compileLESS');
+  // console.error('compileLESS');
   return gulp.src(LESS_SRC)
     .pipe(less())
     .pipe(gulp.dest(LESS_DEST))

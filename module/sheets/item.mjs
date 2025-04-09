@@ -1,6 +1,6 @@
-import ItemT20 from "../documents/item.mjs";
-import ActiveEffectT20 from "../documents/active-effects.mjs";
 import TraitSelector from "../apps/trait-selector.mjs";
+import ActiveEffectT20 from "../documents/active-effects.mjs";
+import ItemT20 from "../documents/item.mjs";
 
 /**
 * Extend the basic ItemSheet with some very simple modifications
@@ -42,7 +42,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	}
 
 	/* -------------------------------------------- */
-	
+
 	/** @inheritdoc */
 	setPosition(position = {}) {
 		if ( !(this._minimized  || position.height) ) {
@@ -88,7 +88,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		// Return the flattened submission data
 		return foundry.utils.flattenObject(formData);
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
@@ -109,6 +109,8 @@ export default class ItemSheetT20 extends ItemSheet {
 			isNPCOwned: item.isOwned && item.parent.type==="npc",
 			isSimpleOwned: item.isOwned && item.parent.type==="simle",
 
+			itemUpgradeStatus: this._itemUpgradeStatus,
+
 			config: CONFIG.T20,
 			// itemType: sheetData.item.type.capitalize(),
 			itemType: game.i18n.localize(`Types.Item.${item.type}`),
@@ -123,14 +125,14 @@ export default class ItemSheetT20 extends ItemSheet {
 					relativeTo: this.item
 				})
 			},
-			
+
 			// Prepare Active Effects
 			effects: ActiveEffectT20.prepareActiveEffectCategories(item.effects),
 			// Resource to Consume
 			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system),
 		});
-		
-		
+
+
 
 		sheetData.documentName = "Item";
 		return sheetData;
@@ -192,17 +194,17 @@ export default class ItemSheetT20 extends ItemSheet {
 
 			html.find(".tag-input").keydown(this._onTagChange.bind(this));
 			html.find(".tag-delete").click(this._onTagDelete.bind(this));
-			
+
 			// Progression Tab
 			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
 			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
 
 			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
-			
+
 			html.find(".effect-control-list").click(ev => {
 				let parent = ev.currentTarget.closest('.effect-controls');
 				let list = $(parent).find('.add-status-effects');
-				$(list).addClass('active');
+				$(list).toggleClass('active');
 			});
 			html.find(".effect-control-status").click(ev => {
 				ActiveEffectT20.onManageActiveEffect(ev, this.item)
@@ -213,7 +215,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 		html.mousemove(ev => this._moveTooltips(ev));
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  Interactions                                */
 	/* -------------------------------------------- */
@@ -229,6 +231,12 @@ export default class ItemSheetT20 extends ItemSheet {
 			delete formData.rolltags;
 			options.updateData = formData;
 		}
+
+		const expandedFormData = foundry.utils.expandObject(formData);
+		if (expandedFormData.system?.enableAutoUpgrades && expandedFormData.system?.upgrades) {
+			this._createEffects(expandedFormData.system.upgrades);
+		}
+
 		await super._onSubmit(event, options);
 	}
 
@@ -310,7 +318,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 		return buttons;
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -355,7 +363,7 @@ export default class ItemSheetT20 extends ItemSheet {
 				.map(e => CONFIG.T20.weaponProperties[e[0]]));
 		} else if ( this.item.type === "magia" ) {
 			let hTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", area: 'T20.Area', effect: 'T20.Effect', duration:"T20.Duration", save:"T20.Resistance" };
-			
+
 			for ( let [h, tag] of Object.entries(hTags) ){
 				hTags[h] = game.i18n.localize(tag);
 			}
@@ -456,12 +464,16 @@ export default class ItemSheetT20 extends ItemSheet {
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			let rolltype = a.dataset.rollType;
 			let roll = foundry.utils.deepClone(this.item.system.rolls);
-			let r = {};
-			r.parts = [["", ""]];
-			r.name = rolltype.capitalize();
-			r.type = rolltype;
-			r.key = "ataque";
-			if( rolltype == "ataque" ) r.versatil = "";
+			const r = {
+				parts: [],
+				name: rolltype.capitalize(),
+				type: rolltype,
+				key: rolltype,
+			};
+			if (rolltype === "dano") {
+				r.parts = [["1d6", "dano"], [""]];
+				r.versatil = "";
+			}
 			roll.push(r);
 			return this.item.update({[`system.rolls`]:roll});
 		}
@@ -508,7 +520,7 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		new TraitSelector(this.item, options).render(true);
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -520,7 +532,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		let itemData = this.object.toObject();
 		delete itemData._id;
 		delete itemData.stats;
-		
+
 		itemData.type = "consumivel";
 		itemData.name = game.i18n.format('T20.ConsumableSpellName',{
 			item: game.i18n.localize('T20.ConsumableSubtypeScroll'),
@@ -531,7 +543,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		itemData.system.qtd = 1;
 		itemData.system.espacos = 0.5;
 		itemData.system.preco = 30 * (itemData.system.ativacao.custo**2);
-		itemData.system.ativacao.custo = 0; 
+		itemData.system.ativacao.custo = 0;
 		itemData.system.tipo = "scroll";
 		if( this.actor ){
 			this.actor.createEmbeddedDocuments("Item", [itemData]);
@@ -544,4 +556,144 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 	}
 
+
+	/* -------------------------------------------- */
+	/** Create effects based on upgrades 
+	 * @param upgrades
+	 * @private
+	*/
+	_createEffects(upgrades){
+		const values = Object.values(upgrades);
+		
+		const existingEffects = [
+			this.item.getEmbeddedCollection("ActiveEffect").contents,
+			this.item.actor?.getEmbeddedCollection("ActiveEffect").contents
+		]
+			.flat()
+			.filter(e => !!e && !!e.flags.tormenta20.upgrade);
+
+		// Delete old effects
+		const effectsToDelete = existingEffects
+			.filter(e => !values.includes(e.flags.tormenta20.upgrade));
+		if (effectsToDelete.length) {
+			const actorEffectsToDelete = effectsToDelete
+				.filter(e => e.parent.id === this.item.actor?.id)
+				.map(e => e.id);
+			const itemEffectsToDelete = effectsToDelete
+				.filter(e => e.parent.id === this.item.id)
+				.map(e => e.id);
+
+			this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete);
+			this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete);
+		}
+
+		// Create new effects
+		const availableEffects = this._availableEffects
+		if (!availableEffects) return;
+
+		const effects = values
+			.filter(v => availableEffects[v]
+				&& !existingEffects.some(e => e.flags.tormenta20.upgrade === v))
+			.map(v => ({ 
+				...availableEffects[v],
+				name: game.i18n.localize(availableEffects[v].name),
+				description: game.i18n.localize(availableEffects[v].description ?? ''),
+				icon: this.item.img,
+				origin: this.item.uuid,
+				// We need to internationalize the items list
+				flags: {
+					...availableEffects[v].flags,
+					tormenta20: {
+						...availableEffects[v].flags.tormenta20,
+						items: (availableEffects[v].flags.tormenta20.items || '')
+							.split(';')
+							.map(i => i.trim())
+							.filter(i => !!i)
+							.map(i => game.i18n.localize(i))
+							.join(';'),
+						custo: availableEffects[v].flags.tormenta20.custo || ''
+					}
+				}
+			}));
+
+		if ( !effects.length ) return;
+		
+		const actorEffects = effects.filter(e => e.transfer);
+		
+		this.item.actor?.createEmbeddedDocuments("ActiveEffect", actorEffects);
+		this.item.createEmbeddedDocuments("ActiveEffect", effects);
+	}
+	get _itemUpgradeStatus() {
+		const status = this._upgradeStatus;
+		if (!status || !this.item.system?.upgrades) return '';
+
+		const statusByType = {};
+
+		Object.values(this.item.system.upgrades)
+			.forEach(v => {
+				if (!v || !v.length) return;
+				statusByType[v] = status[v] === "DONE" ? "implemented" : 'not-implemented'
+		});
+
+		return statusByType;
+	}
+
+	get _availableEffects() {
+		if (!this._isUpgradable) return null;
+
+		const upgrades = Object.assign({}, T20.upgrades.general);
+
+		if (this.item.type === "arma") {
+			return Object.assign(upgrades, T20.upgrades.weapon);
+		}
+
+		if (this.item.system.tipo === "ammo") {
+			return Object.assign(upgrades, T20.upgrades.ammo);
+		}
+
+		if (this.item.system.tipo === "esoterico") {
+			return Object.assign(upgrades, T20.upgrades.esoteric);
+		}
+
+		if (["traje", "ferramenta"].includes(this.item.system.tipo)) {
+			return Object.assign(upgrades, T20.upgrades.tools);
+		}
+
+		return Object.assign(upgrades,
+			T20.upgrades.armor.general,
+			T20.upgrades.armor[this.item.system.tipo]);
+	}
+
+	get _upgradeStatus() {
+		if (!this._isUpgradable) return null;
+
+		const status = Object.assign({}, T20.upgrades.general.status);
+
+		if (this.item.type === "arma") {
+			return Object.assign(status, T20.upgrades.weapon.status);
+		}
+
+		if (this.item.system.tipo === "ammo") {
+			return Object.assign(status, T20.upgrades.ammo.status);
+		}
+
+		if (this.item.system.tipo === "esoterico") {
+			return Object.assign(status, T20.upgrades.esoteric.status);
+		}
+
+		if (["traje", "ferramenta"].includes(this.item.system.tipo)) {
+			return Object.assign(status, T20.upgrades.tools.status);
+		}
+
+		return Object.assign(status, T20.upgrades.armor.status);
+	}
+
+	get _isUpgradable() {
+		if (!["arma", "equipamento", "consumivel"].includes(this.item.type)) return false;
+		if (this.item.system.tipo
+			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje", "ammo"]
+				.includes(this.item.system.tipo)) return false;
+		
+		return true;
+	}
 }

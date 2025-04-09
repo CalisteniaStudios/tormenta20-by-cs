@@ -157,7 +157,8 @@ export async function rollItemMacro(itemName, extra = {}) {
 
 
 	const rollConfigs = {}
-	if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+	const UsageConfig = game.settings.get('tormenta20','UsageConfig');
+	if ( UsageConfig == 'default' ) {
 		rollConfigs.configureDialog = !event.shiftKey;
 	} else {
 		rollConfigs.configureDialog = event.shiftKey;

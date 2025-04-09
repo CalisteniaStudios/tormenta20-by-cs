@@ -512,10 +512,12 @@ T20Conditions.sobrecarregado = {
 	statuses: ["sobrecarregado"],
 	icon: "systems/tormenta20/icons/conditions/sobrecarregado.svg",
 	flags: {tormenta20:{condition:true,durationScene:true,category:'movimento'}},
-	changes: [{key: "system.attributes.defesa.pda", mode:2, value:-2},
+	changes: [
+		{key: "system.attributes.defesa.pda", mode:2, value: 2},
 		{ key: "system.attributes.movement.walk", mode: 2, value: -3 },
 		{ key: "system.attributes.movement.burrow", mode: 2, value: -3 },
 		{ key: "system.attributes.movement.climb", mode: 2, value: -3 },
 		{ key: "system.attributes.movement.fly", mode: 2, value: -3 },
-		{ key: "system.attributes.movement.swim", mode: 2, value: -3 }]
+		{ key: "system.attributes.movement.swim", mode: 2, value: -3 }
+	]
 }

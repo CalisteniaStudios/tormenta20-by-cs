@@ -1,8 +1,10 @@
+import Tormenta20MeasuredTemplate from "./template.mjs";
 /**
  * A helper class for building MeasuredTemplates for spells and abilities
  * @extends {MeasuredTemplate}
  */
-export default class AbilityTemplate extends MeasuredTemplate {
+
+export default class AbilityTemplate extends Tormenta20MeasuredTemplate {
 
 	/**
 	 * A factory method to create an AbilityTemplate instance using provided data from an Item5e instance

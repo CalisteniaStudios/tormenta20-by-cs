@@ -1,16 +1,15 @@
-import ItemT20 from '../documents/item.mjs';
 import ActiveEffectT20 from "../documents/active-effects.mjs";
+import ItemT20 from '../documents/item.mjs';
 // import { T20 } from '../config.mjs';
 
-import TraitSelector from "../apps/trait-selector.mjs";
+import AbilityCalculator from "../apps/ability-calculator.mjs";
 import ActorSettings from "../apps/actor-settings.mjs";
+import CharacterProgression from '../apps/character-progression.mjs';
+import LevelSettings from "../apps/level-settings.mjs";
 import ActorMovementConfig from "../apps/movement-config.mjs";
 import ActorResistanceConfig from "../apps/resistance-config.mjs";
-import LevelSettings from "../apps/level-settings.mjs";
-import AbilityCalculator from "../apps/ability-calculator.mjs";
 import RestConfigDialog from "../apps/rest-config.mjs";
-import CharacterProgression from '../apps/character-progression.mjs';
-import ActorSync from '../apps/actor-sync.mjs';
+import TraitSelector from "../apps/trait-selector.mjs";
 
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -34,7 +33,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		// 		effects: new Set()
 		// };
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -64,7 +63,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
 	}
-	
+
 	/**
 	* Determine whether an Owned Item will be shown based on the current set of filters
 	* @return {boolean}
@@ -73,7 +72,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	// TODO Implement filters
 	// _filterItems(items, filters) {
 	// }
-	
+
 	/* -------------------------------------------- */
 	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
@@ -83,7 +82,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		// The Actor's data
 		const source = this.actor.toObject();
 		const actorData = this.actor.toObject(false);
-		
+
 		// Basic data
 		const sheetData = {
 			actor: actorData,
@@ -117,14 +116,14 @@ export default class ActorSheetT20 extends ActorSheet {
 			equipmentSlots: game.settings.get("tormenta20", "equipmentSlots"),
 			gameSystem: game.settings.get("tormenta20", "gameSystem"),
 		};
-		
+
 		// Sort Owned Items
 		for ( let i of sheetData.items ) {
 			const item = this.actor.items.get(i._id);
 			i.labels = item.labels;
 		}
 		sheetData.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		
+
 		// Ability Scores
 		for ( let [a, abl] of Object.entries(sheetData.system.atributos)) {
 			abl.label = CONFIG.T20.atributos[a];
@@ -149,7 +148,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			}
 		}
 		sheetData.skills = Object.values(sheetData.skills).sort((a,b)=>{return a.order-b.order});
-		
+
 		// Update traits
 		this._prepareTraits(sheetData.system.tracos);
 		// Update bonuses
@@ -160,7 +159,7 @@ export default class ActorSheetT20 extends ActorSheet {
 
 		// Enrich HTML text
 		sheetData.htmlFields.biography = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
-		
+
 		sheetData.documentName = "Actor";
 		// Return data to the sheet
 		return sheetData;
@@ -176,13 +175,13 @@ export default class ActorSheetT20 extends ActorSheet {
 	}
 
 	/* -------------------------------------------- */
-	
+
 	/**
 	* Activate event listeners using the prepared sheet HTML
 	* @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
 	*/
 	activateListeners(html) {
-		
+
 		// Tooltips
 		html.mousemove(ev => this._moveTooltips(ev));
 
@@ -191,9 +190,9 @@ export default class ActorSheetT20 extends ActorSheet {
 			// Input focus and update
 			const inputs = html.find("input");
 			inputs.focus(ev => ev.currentTarget.select());
-			
+
 			// TODO input Deltas
-			
+
 			// Skills management
 			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
 			html.find('.skill-create').click(this._onPericiaCustomCreate.bind(this));
@@ -219,8 +218,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			// 	new AbilityCalculator(this.actor).render(true);
 			// });
 
-			
-			
+
+
 			html.find('.update-cd').click(this._onUpdateCD.bind(this));
 
 			// Item management
@@ -229,8 +228,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			html.find('.item-create').click(this._onItemCreate.bind(this));
 			html.find('.item-delete').click(this._onItemDelete.bind(this));
 			html.find('.item-qty input').click(ev => ev.target.select()).change(this._onQtyChange.bind(this));
-			
-			
+
+
 			// Active Effect management
 			html.find(".effect-control").click(ev => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
 			html.find('.effect').on("contextmenu", ev => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
@@ -241,10 +240,10 @@ export default class ActorSheetT20 extends ActorSheet {
 				li.setAttribute("draggable", true);
 				li.addEventListener("dragstart", handler, false);
 			});
-			
+
 			// Open Compendium Entry
 			html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
-			
+
 		} else {
 			html.find("[contenteditable=true]").each((i, el) => el.setAttribute("contenteditable", false));
 		}
@@ -275,11 +274,11 @@ export default class ActorSheetT20 extends ActorSheet {
 		else {
 			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
 		}
-		
+
 		// Handle default listeners last so system listeners are triggered first
 		super.activateListeners(html);
 	}
-	
+
 	/* -------------------------------------------- */
 
 	_contextMenu(event) {
@@ -314,7 +313,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		let equipados = actor.items.filter( (it) =>  (it.system.equipado2?.slot > 0) );
 		const img = (image) => "<img src='"+image+"' width='20px' height='20px' style='vertical-align: middle;'>";
 		const dec = (number) => ((number % 1).toFixed(1) * 10);
-		
+
 		if ( ['hand','both'].includes(item.system.equipado2.type) ) {
 			options.push({name: ("T20.Handling"), icon: '<i class="fa-solid fa-sort-down"></i>'}); //SECTION
 			let twoHanded = equipados.find( it => it.system.equipado2.slot == 12.1);
@@ -332,13 +331,13 @@ export default class ActorSheetT20 extends ActorSheet {
 					callback: () => this._onToggleItem(item, 'hand', slot, slotItem?.id)
 				});
 			}
-			
+
 		}
 		if ( ['body','both'].includes(item.system.equipado2.type) ) {
 			options.push({name: ("T20.Wearing"), icon: '<i class="fa-solid fa-sort-down"></i>'}); //SECTION
 			for ( let slot=1; slot <= equips.limiteVestido; slot++ ){
 				let slotItem = equipados.find( it => dec(it.system.equipado2.slot) == 2 && Math.floor(it.system.equipado2.slot) == slot );
-				// && (it.system.preparada == slot || it.system.equipado == slot) 
+				// && (it.system.preparada == slot || it.system.equipado == slot)
 				options.push({
 					name: ( slotItem?.name ?? 'T20.Empty' ),
 					icon: '<i class="fa-solid fa-shirt"></i>' + (slotItem ? img(slotItem.img) : ''),
@@ -369,13 +368,13 @@ export default class ActorSheetT20 extends ActorSheet {
 			} else { // Remove two handed if equipping one handed
 				oldItems = this.actor.items.filter( it => item.id != it.id && ([12.1].includes(it.system.equipado2?.slot)) );
 			}
-			
+
 			for (const oldItem of oldItems) {
 				updateItems.push({
 					_id: oldItem.id, "system.equipado2.slot": 0
 				})
 			}
-			
+
 		} else if ( context == 'body' ){
 			updateItems.push({
 				_id: item.id, "system.equipado2.slot": index + 0.2
@@ -426,7 +425,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if ( !!senses.custom ) senses.value.push(senses.custom);
 		return senses;
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -495,7 +494,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 		return modificadores;
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  Interactions                                */
 	/* -------------------------------------------- */
@@ -508,7 +507,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	_moveTooltips(event) {
 		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -524,7 +523,7 @@ export default class ActorSheetT20 extends ActorSheet {
 	 	// Add button for sheet settings?
 		return buttons;
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -540,11 +539,11 @@ export default class ActorSheetT20 extends ActorSheet {
 				return it.update({"system.qtd": qtd})
 			}
 		}
-		
+
 		if( itemData.system ){
 			["equipado","preparado"].forEach(k => delete itemData.system[k]);
 		}
-		
+
 		return super._onDropItemCreate(itemData);
 	}
 
@@ -585,7 +584,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
 		}
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/*  */
@@ -615,7 +614,8 @@ export default class ActorSheetT20 extends ActorSheet {
 			itemId = event.currentTarget.dataset.itemId;
 		}
 		const rollConfigs = {}
-		if ( game.settings.get('tormenta20','invertUsageConfig') ) {
+		const UsageConfig = game.settings.get('tormenta20','UsageConfig');
+		if ( UsageConfig == 'default' ) {
 			rollConfigs.configureDialog = !event.shiftKey;
 		} else {
 			rollConfigs.configureDialog = event.shiftKey;
@@ -626,7 +626,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		if ( !item || ignoreList.includes(item.type) ) return;
 		return item.roll(rollConfigs);
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -667,7 +667,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		}
 		app?.render(true);
 	}
-	
+
 	_onLevelSettings(event) {
 		event.preventDefault();
 		const actorData = this.object;
@@ -718,7 +718,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const options = { name: a.dataset.target, title: label.innerText, choices };
 		return new TraitSelector(this.actor, options).render(true);
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -737,7 +737,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			system: {}
 		};
 		delete itemData.system.type;
-		return this.actor.createEmbeddedDocuments("Item", [itemData]);
+		return this.actor.createEmbeddedDocuments("Item", [itemData], { renderSheet: true });
 	}
 
 	/**
@@ -763,7 +763,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		const item = this.actor.items.get(li.dataset.itemId);
 		if ( item ) return item.delete();
 	}
-	
+
 	/**
 	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
 	* @private
@@ -851,7 +851,7 @@ export default class ActorSheetT20 extends ActorSheet {
 		let step = ev.type == 'click' ? 1 : -1;
 		let status = (id.equipado + step < 0 ? 2 : (id.equipado + step > 2 ? 0 : id.equipado + step));
 		updateItems.push({_id: item.id, "system.equipado": status});
-		
+
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
@@ -890,21 +890,21 @@ export default class ActorSheetT20 extends ActorSheet {
 			if( k.match(new RegExp(`${key}[1-9]`))?.length ) t.push( Number( k.replace(key,"") ) );
 			return t;
 		}, [] );
-		
+
 		let keyN = Math.max( ...customs );
-		if ( keyN == 9 ) keyN = [1,2,3,4,5,6,7,8,9].find(i => !customs.includes(i) ); 
+		if ( keyN == 9 ) keyN = [1,2,3,4,5,6,7,8,9].find(i => !customs.includes(i) );
 		else if ( keyN > 0 ) keyN = keyN + 1;
 		else keyN = 1;
-		
+
 		if ( customs.length == 9 ) {
 			// MESSAGE ERROR
 			ui.notifications.info("Número limite de pericias");
 		} else pericias[`${key}${keyN}`] = pericia;
 		pericias = Object.keys(pericias).sort().reduce(
-			(obj, key) => { 
-				obj[key] = pericias[key]; 
+			(obj, key) => {
+				obj[key] = pericias[key];
 				return obj;
-			}, 
+			},
 			{}
 		);
 		await this.render();
@@ -945,7 +945,7 @@ export default class ActorSheetT20 extends ActorSheet {
 			$(target).addClass('ativo');
 		}
 	}
-	
+
 	/**
 	 * Handle opening a skill's compendium entry
 	 * @param {Event} event	 The originating click event

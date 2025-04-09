@@ -15,3 +15,7 @@ exports.buildAll = gulp.parallel(
   css.compile,
   // packs.compile
 );
+
+exports.watch = () => {
+	gulp.watch(`./less/**/*.less`, { ignoreInitial: false }, css.compile);
+}

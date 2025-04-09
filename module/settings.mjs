@@ -1,4 +1,4 @@
-import { Tormenta20ActorSheetSettings, Tormenta20ResourceColorsSettings } from "./apps/form-apps.mjs";
+import { Tormenta20ActorSheetSettings } from "./apps/form-apps.mjs";
 /*Classe para configurar opções do sistema*/
 export const SystemSettings = function() {
 	/**
@@ -42,7 +42,7 @@ export const SystemSettings = function() {
 				Tormenta20: "Tormenta20",
 				Skyfall: "Skyfall RPG",
 		},
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -59,7 +59,7 @@ export const SystemSettings = function() {
 			default: "Default",
 			limited: "Limitada",
 		},
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -72,7 +72,7 @@ export const SystemSettings = function() {
 		config: false,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -109,7 +109,7 @@ export const SystemSettings = function() {
 		config: false,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	game.settings.register("tormenta20", "sheetTemplate", {
@@ -159,7 +159,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: true,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -172,7 +172,7 @@ export const SystemSettings = function() {
 	// 	config: true,
 	// 	default: false,
 	// 	type: Boolean,
-	// 	onChange: () => location.reload()
+	// 	requiresReload: true
 	// });
 
 	/**
@@ -185,7 +185,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	game.settings.register("tormenta20", "showDamageCards", {
@@ -200,7 +200,7 @@ export const SystemSettings = function() {
 				players: game.i18n.localize("T20.SettingDamageCardPlayers"),
 				npcs: game.i18n.localize("T20.SettingDamageCardNPCS"),
 		},
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -213,12 +213,25 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
 	 * Option to show Usage Effects Menu on Shift Use or Always
 	 */
+	game.settings.register("tormenta20", "UsageConfig", {
+		name: game.i18n.localize("T20.SettingUsageConfig"),
+		hint: game.i18n.localize("T20.SettingUsageConfigHint"),
+		scope: "client",
+		config: true,
+		default: "default",
+		type: String,
+		choices: {
+			default: game.i18n.localize("T20.SettingUsageConfigDefault"),
+			shift: game.i18n.localize("T20.SettingUsageConfigShift"),
+		}
+	});
+
 	game.settings.register("tormenta20", "invertUsageConfig", {
 		name: game.i18n.localize("T20.SettingInvertUsageConfig"),
 		hint: game.i18n.localize("T20.SettingInvertUsageConfigHint"),
@@ -239,9 +252,21 @@ export const SystemSettings = function() {
 		default: "default",
 		type: String,
 		choices: {
-			default: game.i18n.localize("T20.SeetingLancinatingDefault"),
-			revised: game.i18n.localize("T20.SeetingLancinatingRevised"),
+			default: game.i18n.localize("T20.SettingLancinatingDefault"),
+			revised: game.i18n.localize("T20.SettingLancinatingRevised"),
 		},
+	});
+
+	/**
+	 * Overwrite Foundry Core Mearesured Template to match Tormenta20 AbilityShapes.
+	 */
+	game.settings.register("tormenta20", "overrideMeasuredTemplatesConfig", {
+		name: game.i18n.localize("T20.SettingOverrideMeasuredTemplatesConfig"),
+		hint: game.i18n.localize("T20.SettingOverrideMeasuredTemplatesConfigHint"),
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean,
 	});
 
 	// V12 INCOMPATIBLE SETTINGS
