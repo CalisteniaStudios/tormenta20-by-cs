@@ -13,7 +13,7 @@
   "Types.Item.magia": "Magic",
   "Types.Item.poder": "Power",
   "Types.Item.tesouro": "Treasure",
- 
+
   "T20.S3": "/* ---------------- SYSTEM ---------------- */",
   "T20.Title": "Tormenta20 System",
   "T20.Name": "Name",
@@ -39,7 +39,7 @@
   "T20.Empty": "Empty",
   "T20.Handling": "Handling",
   "T20.Wearing": "Wearing",
- 
+
 
   "T20.Die": "Die",
   "T20.Dice": "Data",
@@ -47,6 +47,7 @@
   "T20.Half": "Half",
   "T20.Double": "Double",
   "T20.Proficiency": "Proficiency",
+  "T20.Proficiencies": "Proficiencies",
   "T20.Languages": "Languages",
   "T20.Total": "Total",
   "T20.Source": "Source",
@@ -85,7 +86,7 @@
   "T20.CurrencySilverAbbr": "T$",
   "T20.CurrencyCopper": "Copper",
   "T20.CurrencyCopperAbbr": "TC",
- 
+
   "T20.Type": "Type",
   "T20.Cost": "Cost",
   "T20.PMCost": "Cost in PM",
@@ -95,10 +96,10 @@
   "T20.Submit": "Submit",
   "T20.CommaSeparated": "Separate with a semicolon",
   "T20.CheckBonus": "Test Bonus",
- 
+
   "T20.Roll": "Rolling",
   "T20.Rolls": "Rolls",
- 
+
   "T20.Quantity": "Quantity",
   "T20.QuantityAbbr": "Qty",
   "T20.Race": "Race",
@@ -285,7 +286,7 @@
   "T20.ShowDC": "Show CD",
   "T20.ShowRD": "Show RD",
   "T20.ShowResources": "Show Resources",
- 
+
   "T20.Alignment": "Alignment",
   "T20.AlignmentCE": "Chaotic Evil",
   "T20.AlignmentCG": "Chaotic Good",
@@ -296,7 +297,7 @@
   "T20.AlignmentNE": "Neutral and Evil",
   "T20.AlignmentNG": "Neutral and Good",
   "T20.AlignmentTN": "Neutral",
- 
+
   "T20.S7": "/* ----------------- TYPES ---------------- */",
 
   "T20.DamImm": "Damage Immunity",
@@ -321,7 +322,7 @@
   "T20.DamageRadiant": "Light",
   "T20.DamageSlashing": "Cutting",
   "T20.DamageRoll": "Damage Roll",
- 
+
   "T20.Healing": "Healing",
   "T20.HealingTemp": "Temporary HP",
   "T20.ManaRecovery": "Mana Recovery",
@@ -341,9 +342,9 @@
   "T20.ActionPl": "Actions",
   "T20.ActionOther": "Other",
   "T20.ActionOthers": "Other",
- 
+
   "T20.SaveDC": "{skill} (DC {cd})",
- 
+
   "T20.Enhancement": "Enhancement",
   "T20.Enhancements": "Enhancements",
   "T20.Enchantment": "Enchantment",
@@ -356,7 +357,7 @@
   "T20.Weared": "Weared",
   "T20.Wielded": "Wielded",
   "T20.WieldedDual": "Wielded (Two Hands)",
- 
+
   "T20.ClassLevels": "Class Levels",
   "T20.ClassHPLevels": "Hit Points Per Level",
   "T20.ClassMPLevels": "Mana Points per Level",
@@ -398,7 +399,7 @@
   "T20.SchoolIlu": "Illusion",
   "T20.SchoolNec": "Necromancy",
   "T20.SchoolTra": "Transmutation",
-  
+
   "T20.Cantrip": "Cantrip",
   "T20.SpellCircle": "Circle",
   "T20.SpellLevel": "{lvl}th Circle",
@@ -416,7 +417,7 @@
   "T20.ConsumeAttribute": "Resource",
   "T20.ConsumeMaterial": "Material",
   "T20.ConsumeMPMultiplier": "Multiply consumption per mana use",
- 
+
   "T20.AbbreviationKgs": "kgs",
   "T20.AbbreviationConc": "Conc.",
 
@@ -440,7 +441,7 @@
   "T20.SizeMedium": "Medium",
   "T20.SizeSmall": "Small",
   "T20.SizeTiny": "Tiny",
- 
+
   "T20.CreatureType": "Creature Type",
   "T20.CreatureBeast": "Animal",
   "T20.CreatureBeastPl": "Animals",
@@ -509,13 +510,13 @@
   "T20.WeaponSizeNormal": "Normal",
   "T20.WeaponSizeEnlarged": "Enlarged",
   "T20.WeaponSizeGiant": "Giant",
- 
+
   "T20.ActivationCost": "Execution",
   "T20.Duration": "Duration",
   "T20.Range": "Range",
   "T20.Target": "Target",
   "T20.Area": "Area",
- 
+
   "T20.DistAny": "Unlimited",
   "T20.DistM": "Meters",
   "T20.DistKM": "Kilometers",
@@ -524,7 +525,7 @@
   "T20.DistShort": "Short",
   "T20.DistMedium": "Average",
   "T20.DistLong": "Long",
- 
+
   "T20.TimeInst": "Instant",
   "T20.TimeTurn": "Turn",
   "T20.TimeRound": "Round",
@@ -536,7 +537,7 @@
   "T20.TimePerm": "Permanent",
   "T20.TimeScene": "Scene",
   "T20.TimeSust": "Sustained",
- 
+
   "T20.Senses": "Senses",
   "T20.SenseDimVision": "Light-Day Vision",
   "T20.SenseDarkVision": "Darkvision",
@@ -559,7 +560,7 @@
   "T20.EquipmentClothing": "Clothing",
   "T20.EquipmentTool": "Tool",
   "T20.EquipmentEsoteric": "Esoteric",
- 
+
   "T20.ItemEquippedType": "Use Type",
   "T20.ItemSlotHand": "Handled",
   "T20.ItemSlotBody": "Dress",
@@ -621,14 +622,14 @@
   "T20.ActionUtil": "Utility",
 
   "T20.PlaceAbilityTemplate": "Place Area of Effect",
- 
+
   "T20.ActionWarningItemNotOwned": "An item must belong to a character to use it.",
   "T20.ActionWarningNoItem": "The item {item} is not present on Actor {name}",
   "T20.ActionWarningNoToken": "You must have one or more Tokens selected to use this option.",
 
   "T20.AddEmbeddedItemPromptHint": "Do you want to add these items to the character sheet?",
   "T20.SelectItemsPromptTitle": "Select Items",
- 
+
   "T20.ConsumeWarningNoResource": "{name} indicates the consumption of {type}, but it was not specified which one!",
   "T20.ConsumeWarningNoSource": "The resource {type} specified for using {name} does not exist!",
   "T20.ItemNoUses": "There are no more units available from {name}.",
@@ -683,12 +684,12 @@
   "T20.EsotericUpgradesVigilant": "Vigilant",
 
   "T20.ToolUpgradesEnhanced": "Enhanced",
- 
+
   "T20.ItemUpgradesGoldPlated": "Gold Plated",
   "T20.ItemUpgradesGemsStudded": "Studded with Gems",
   "T20.ItemUpgradesDiscreet": "Discrete",
   "T20.ItemUpgradesMacabre": "Macabre",
- 
+
   "T20.WeaponUpgradesTooltipAccurate": "Made to be more accurate and balanced, the weapon provides +1 on attack rolls.",
   "T20.WeaponUpgradesTooltipPungent": "Tempered several times to acquire perfect edge or balance, the weapon provides a +2 on attack rolls. Prerequisite: Accurate.",
   "T20.WeaponUpgradesTooltipCruel": "Burds, thorns, and even additional blades make for a cruel weapon. It provides +1 to damage rolls.",
@@ -717,14 +718,14 @@
   "T20.EsotericUpgradesTooltipPowerful": "The DC to resist your spells increases by +1.",
   "T20.EsotericUpgradesTooltipEnhancer": "A mystical gem inserted into the item allows you to accumulate more mana than you would normally be able to. The limit of MP you can spend on spells is increased by +1.",
   "T20.EsotericUpgradesTooltipVigilant": "Item uses part of your personal mana to generate a field that deflects attacks. You get +2 Defense.",
- 
+
   "T20.ToolUpgradesTooltipEnhanced": "The item is heavily crafted with the finest materials. This upgrade can only be applied to a tool or tool that modifies a skill (reduces an age or provides a bonus) and gives +1 to that skill (or increases the bonus provided by +1.) Therefore, an enhanced medicine case gives +1 to Healing, while a gold kid glove provides +2 to Thievery. This enhancement cannot be applied to Fighting and Marksmanship.",
 
   "T20.ItemUpgradesTooltipGoldPlated": "A favorite upgrade of pompous nobles or adventurers who have just gotten rich. Provides +2 Diplomacy. The GM can change the bonus to a –2 penalty against people who despise ostentation. Also, it can attract the lust of thieves.",
   "T20.ItemUpgradesTooltipGemsStudded": "It's easy to be persuaded by someone opulent enough to sport a gem-studded item. Provides +2 Deception. Like a gold-plated item, a gem-studded item can attract the lust of thieves. ",
   "T20.ItemUpgradesTooltipDiscreet": "The item is either disguised as another innocuous item (like a rapier hidden in a cane) or modified to be telescopic (so it can fold into itself to take up less space). The item takes up –1 space (minimum 1) and provides +5 on Thievery checks to be concealed.",
   "T20.ItemUpgradesTooltipGhoulish": "A macabre item is painted with dried blood, carved in the shape of a skull, or decorated with pieces of ears, fingers, and eyes. This frightening appearance provides a +2 to Intimidation checks, but imposes a – 2 on Diplomacy checks.",
- 
+
   "T20.S10": "/* ------------ Item Enchants ------------ */",
 
   "T20.WeaponEnchantKeen": "Menacing",
@@ -781,7 +782,7 @@
   "T20.EquipmentEnchantmentBlinding": "Shiny",
   "T20.EquipmentEnchantmentShadow": "Dark",
   "T20.EquipmentEnchantmentZealous": "Zealous",
- 
+
   "T20.WeaponEnchantTooltipKeen": "Weapon threat range doubles. For example, a menacing longsword has threat range 17. Effects that double the threat range are applied before any effects that increase it.",
   "T20.WeaponEnchantTooltipBane": "The weapon is lethal against one type of creature (or a race of humanoids). Once per round, when you attack a creature of that type, you can spend 2 MP. If you do and the attack hits, deals +4d8 damage. To determine creature type at random, roll 1d6: 1) animal; 2) construct; 3) spirit; 4) monster; 5) undead; 6) a race of humanoids.",
   "T20.WeaponEnchantTooltipThrowable": "The weapon can be thrown at short range. If it could already be thrown, its range increases by one category. After the attack, if free, the weapon flies back to you. Catching it is a reaction .",
@@ -810,7 +811,7 @@
   "T20.WeaponEnchantTooltipSepulchral": "The weapon deals +1d8 dark damage. Once per round, when you attack, you can spend 2 MP. If you do, the damage bonus increases to +2d8, but you take 1d8 points of damage. dark damage. A tomb weapon drains surrounding heat.",
   "T20.WeaponEnchantTooltipSpeed": "You gain the Extra Attack skill from the warrior, but you can only use it with this weapon. If you already have it, the cost to use it with this weapon decreases by –1 MP instead. ",
   "T20.WeaponEnchantTooltipPoisonous": "Once per round, when you attack, you can spend 2 MP. If you do and the attack hits, the victim becomes poisoned, losing 1d12 hit points per round for 3 rounds. A poisonous weapon sheds a green, viscous liquid.",
- 
+
   "T20.EquipmentEnchantmentTooltipAbascanth": "You have +5 spell resistance.",
   "T20.EquipmentEnchantmentTooltipBlessed": "You gain darkness reduction 10 and +5 on saving throws against necromancy effects. A blessed item is decorated with engravings of holy symbols of gods of good.",
   "T20.EquipmentEnchantmentTooltipAcrobatic": "You gain +5 Acrobatics and ignore the item's armor penalty to checks for that skill.",
@@ -838,7 +839,7 @@
   "T20.EquipmentEnchantmentTooltipZealous": "Once per round, if an adjacent ally is targeted by an attack, you may spend 1 MP to become the target of the attack, which then resolves normally.",
 
   "T20.S11": "/* --------------- DataModelFields --------------- */",
- 
+
   "T20.AbilityValue": "Attribute Value {parent}",
   "T20.AbilityBonusValue": "Attribute Bonus Value {parent}",
   "T20.AbilityBaseValue": "Attribute Base Value {parent}",
@@ -1006,7 +1007,7 @@
   "T20.RacialAbilityRule": "Racial Attribute Rule",
   "T20.RAR.Default": "Default (T20)",
   "T20.RAR.Flex": "Flexible Attributes (SF)",
-  
+
   "T20.FoeConcept": "Concept",
   "T20.BulderFoeRole": "Role",
 
@@ -1035,7 +1036,7 @@
   "T20.NPCB_Climber": "Climber",
   "T20.NPCB_Burrower": "Burrower",
   "T20.NPCB_Swimmer": "Swimmer",
-  
+
   "T20.Current": "Current",
   "T20.NPCB_MeanDamage": "Average Damage",
   "T20.NPCB_MeanDamageHint": "Average damage sum for all weapons.",
@@ -1050,8 +1051,8 @@
 
   "T20.NCPB_SkillGood": "Per. Strong",
   "T20.NCPB_SkillBad": "Per. Weak",
-  
-  
+
+
   "T20.NPCB_SaveGood": "Res. Strong",
   "T20.NPCB_SaveNormal": "Average Res.",
   "T20.NPCB_SaveBad": "Res. Weak",
@@ -1077,7 +1078,7 @@
   "T20.NPCB_FoeRoleSpecialHint": "Special. The creature has several special abilities and/or is designed to be used in situations outside of direct combat (for example, it can be used to trick or rob the characters). This role is mainly occupied by characters. spellcasters or leaders (creatures whose abilities empower others, and therefore must be used in conjunction with minions). Make sure to review a special creature's sheet before using it!",
   "T20.NPCB_FoeRoleSoloHint": "Solo. The creature was built to face the characters alone. It has balanced stats; especially, it has a lot of hit points, to ensure that the combat lasts a good time (around 3 to 5 rounds) . This role is mostly occupied by big monsters and villains.",
   "T20.NPCB_FoeRoleLackeyHint": "Minion. The creature was built to take on characters in large numbers. Because of this, you'll usually use minions with a CR lower than the party's level. For example, a 5th-level party might take on a bunch of CR 1 minions. Minions have higher attack and damage values, to ensure they remain a real threat to characters, even though their CR will be lower than their level, but less hitpoints, to be defeated more quickly and don't make combat excessively slow. This role is primarily occupied by humanoids and small monsters.",
-  
+
   "T20.CreatureBeastHint": "BEAST. Creatures with limited intelligence, with natural weapons and abilities like poison, web, and can have darkvision or low-light vision.",
   "T20.CreatureConstructHint": "CONSTRUCT. Animated objects or artificial creatures. Have the abilities: immunity to disease, fatigue, bleed, sleep, and poison; do not need to breathe, eat, and sleep; do not recover hit points from rest and skills healing spells, except those that specifically affect constructs; darkvision.",
   "T20.CreatureSpiritHint": "SPIRIT. Beings from other planes. May have darkvision or low-light vision.",
@@ -1114,7 +1115,7 @@
   "T20.SettingAutomaticManaSpendHint": "When using a power or spell, the character's mana is spent automatically",
   "T20.SettingFoeSheetCompactSpell": "Compact Spell List",
   "T20.SettingFoeSheetCompactSpellHint": "Foes: Show compact spell list",
-  
+
   "T20.SettingDiagonalMovement": "Diagonal Movement",
   "T20.SettingDiagonalMovementHint": "Sets which diagonal movement rule will be used in the system.",
   "T20.SettingDiagonalMovementMANHATTAN": "Default (3m)",
@@ -1139,15 +1140,15 @@
 
   "T20.SettingEquipmentSlots": "Wrapped/Worn Items Control",
   "T20.SettingEquipmentSlotsHint": "Changes how to control equipped items.",
-  
-  
+
+
   "T20.S90": "/* --------------- Status --------------- */",
-  
+
   "T20.StatusTypeFear":"Fear Condition",
   "T20.StatusTypeParalyze":"Paralysis Condition",
   "T20.StatusTypeSenses":"Senses condition",
   "T20.StatusTypeFatigue":"Fatigue Condition",
-  
+
   "T20.S99": "/* --------------- Creature --------------- */",
   "T20.S0": "/* --------------- END --------------- */",
   "T20.VIZAEL": "VIZAEL"

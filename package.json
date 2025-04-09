@@ -5,8 +5,7 @@
   "scripts": {
     "build": "gulp",
     "compile": "gulp css",
-    "watch": "gulp",
-    "gulp": "gulp"
+    "watch": "gulp watch"
   },
   "browserslist": [
     "last 3 versions"
@@ -15,10 +14,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
     "gulp-less": "^5.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0"
   }
 }

@@ -29,7 +29,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	get active() {
 		return !this.disabled && !this.isSuppressed && !this.isUsage;
 	}
-	
+
 	/** @override */
 	get isUsage() {
 		return this.getFlag('tormenta20','onuse');
@@ -78,8 +78,8 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	}
 
 	/* --------------------------------------------- */
-	
-	
+
+
 	/**
 	 * Transform the data type of the change to match the type expected for flags.
 	 * @param {ActorT20} actor           The Actor to whom this effect should be applied.
@@ -100,7 +100,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 			else if ( data.type === Number ) initialValue = 0;
 			foundry.utils.setProperty(actor, key, initialValue);
 		}
-		
+
 		// Coerce change data into the correct type
 		if ( data.type === Boolean ) {
 			if ( value === "false" ) change.value = false;
@@ -166,7 +166,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 				"duration.rounds": type === "temporary" || temp ? 1 : undefined,
 				"duration.seconds": undefined,
 				disabled: ["inactive","onuse"].includes(type)
-			}]);
+			}], { renderSheet: true });
 			case "create-status":
 				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];
 				if ( !statusEffect ) return false;
@@ -234,7 +234,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 			else if ( e.isTemporary ) categories.temporary.effects.push(e);
 			else categories.passive.effects.push(e);
 		}
-		
+
 		return categories;
 	}
 }

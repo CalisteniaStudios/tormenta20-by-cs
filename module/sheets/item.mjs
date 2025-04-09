@@ -1,6 +1,6 @@
-import ItemT20 from "../documents/item.mjs";
-import ActiveEffectT20 from "../documents/active-effects.mjs";
 import TraitSelector from "../apps/trait-selector.mjs";
+import ActiveEffectT20 from "../documents/active-effects.mjs";
+import ItemT20 from "../documents/item.mjs";
 
 /**
 * Extend the basic ItemSheet with some very simple modifications
@@ -42,7 +42,7 @@ export default class ItemSheetT20 extends ItemSheet {
 	}
 
 	/* -------------------------------------------- */
-	
+
 	/** @inheritdoc */
 	setPosition(position = {}) {
 		if ( !(this._minimized  || position.height) ) {
@@ -88,7 +88,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		// Return the flattened submission data
 		return foundry.utils.flattenObject(formData);
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
@@ -125,14 +125,14 @@ export default class ItemSheetT20 extends ItemSheet {
 					relativeTo: this.item
 				})
 			},
-			
+
 			// Prepare Active Effects
 			effects: ActiveEffectT20.prepareActiveEffectCategories(item.effects),
 			// Resource to Consume
 			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system),
 		});
-		
-		
+
+
 
 		sheetData.documentName = "Item";
 		return sheetData;
@@ -194,13 +194,13 @@ export default class ItemSheetT20 extends ItemSheet {
 
 			html.find(".tag-input").keydown(this._onTagChange.bind(this));
 			html.find(".tag-delete").click(this._onTagDelete.bind(this));
-			
+
 			// Progression Tab
 			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
 			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
 
 			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
-			
+
 			html.find(".effect-control-list").click(ev => {
 				let parent = ev.currentTarget.closest('.effect-controls');
 				let list = $(parent).find('.add-status-effects');
@@ -215,7 +215,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 		html.mousemove(ev => this._moveTooltips(ev));
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  Interactions                                */
 	/* -------------------------------------------- */
@@ -318,7 +318,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 		return buttons;
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -363,7 +363,7 @@ export default class ItemSheetT20 extends ItemSheet {
 				.map(e => CONFIG.T20.weaponProperties[e[0]]));
 		} else if ( this.item.type === "magia" ) {
 			let hTags = { ativacao: "T20.ActivationCost", range:"T20.Range", target:"T20.Target", area: 'T20.Area', effect: 'T20.Effect', duration:"T20.Duration", save:"T20.Resistance" };
-			
+
 			for ( let [h, tag] of Object.entries(hTags) ){
 				hTags[h] = game.i18n.localize(tag);
 			}
@@ -464,12 +464,16 @@ export default class ItemSheetT20 extends ItemSheet {
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			let rolltype = a.dataset.rollType;
 			let roll = foundry.utils.deepClone(this.item.system.rolls);
-			let r = {};
-			r.parts = [["", ""]];
-			r.name = rolltype.capitalize();
-			r.type = rolltype;
-			r.key = "ataque";
-			if( rolltype == "ataque" ) r.versatil = "";
+			const r = {
+				parts: [],
+				name: rolltype.capitalize(),
+				type: rolltype,
+				key: rolltype,
+			};
+			if (rolltype === "dano") {
+				r.parts = [["1d6", "dano"], [""]];
+				r.versatil = "";
+			}
 			roll.push(r);
 			return this.item.update({[`system.rolls`]:roll});
 		}
@@ -516,7 +520,7 @@ export default class ItemSheetT20 extends ItemSheet {
 
 		new TraitSelector(this.item, options).render(true);
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/**
@@ -528,7 +532,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		let itemData = this.object.toObject();
 		delete itemData._id;
 		delete itemData.stats;
-		
+
 		itemData.type = "consumivel";
 		itemData.name = game.i18n.format('T20.ConsumableSpellName',{
 			item: game.i18n.localize('T20.ConsumableSubtypeScroll'),
@@ -539,7 +543,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		itemData.system.qtd = 1;
 		itemData.system.espacos = 0.5;
 		itemData.system.preco = 30 * (itemData.system.ativacao.custo**2);
-		itemData.system.ativacao.custo = 0; 
+		itemData.system.ativacao.custo = 0;
 		itemData.system.tipo = "scroll";
 		if( this.actor ){
 			this.actor.createEmbeddedDocuments("Item", [itemData]);

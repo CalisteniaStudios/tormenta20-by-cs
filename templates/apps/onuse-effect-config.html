@@ -2,7 +2,7 @@
 
 	<!-- Effect Header -->
 	<header class="sheet-header">
-		<img class="effect-icon" src="{{ effect.icon }}" data-edit="icon">
+		<img class="effect-icon" src="{{ effect.img }}" data-edit="icon">
 		<h3 class="effect-title">{{ effect.name }}</h1>
 	</header>
 
@@ -24,7 +24,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>{{ localize "EFFECT.Icon" }}</label>
+			<label>{{ localize "EFFECT.Image" }}</label>
 			<div class="form-fields">
 				{{filePicker target="icon" type="image"}}
 				<input class="image" type="text" name="icon" placeholder="path/image.png" value="{{effect.icon}}" />
@@ -32,13 +32,13 @@
 		</div>
 
 		<div class="form-group">
-			<label>{{ localize "EFFECT.IconTint" }}</label>
+			<label>{{ localize "EFFECT.Tint" }}</label>
 			<div class="form-fields">
 				<input class="color" type="text" name="tint" value="{{effect.tint}}" />
 				<input type="color" value="{{effect.tint}}" data-edit="tint" />
 			</div>
 		</div>
-		
+
 		<div class="form-group">
 			<label>{{ localize 'T20.EffectStatusType' }}: </label>
 			<div class="form-fields form-checks">
@@ -92,7 +92,7 @@
 			</div>
 		</div>
 
-		
+
 		<div class="form-group stacked">
 			<label>{{ localize "EFFECT.Description" }}</label>
 			{{editor descriptionHTML target="description" compact=true button=false editable=editable engine="prosemirror" collaborate=false}}
@@ -172,7 +172,7 @@
 		<ol class="changes-list">
 			{{#each effect.changes as |change i|}}
 			<li class="effect-change flexrow" data-index="{{i}}">
-				<!-- 
+				<!--
 				<div class="formgroup">
 					<div class="keylist">
 						<select name="selectedKey" data-dtype="String">

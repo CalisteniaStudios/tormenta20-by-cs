@@ -1,4 +1,4 @@
-import { Tormenta20ActorSheetSettings, Tormenta20ResourceColorsSettings } from "./apps/form-apps.mjs";
+import { Tormenta20ActorSheetSettings } from "./apps/form-apps.mjs";
 /*Classe para configurar opções do sistema*/
 export const SystemSettings = function() {
 	/**
@@ -42,7 +42,7 @@ export const SystemSettings = function() {
 				Tormenta20: "Tormenta20",
 				Skyfall: "Skyfall RPG",
 		},
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -59,7 +59,7 @@ export const SystemSettings = function() {
 			default: "Default",
 			limited: "Limitada",
 		},
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -72,7 +72,7 @@ export const SystemSettings = function() {
 		config: false,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -109,7 +109,7 @@ export const SystemSettings = function() {
 		config: false,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	game.settings.register("tormenta20", "sheetTemplate", {
@@ -159,7 +159,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: true,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -172,7 +172,7 @@ export const SystemSettings = function() {
 	// 	config: true,
 	// 	default: false,
 	// 	type: Boolean,
-	// 	onChange: () => location.reload()
+	// 	requiresReload: true
 	// });
 
 	/**
@@ -185,7 +185,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	game.settings.register("tormenta20", "showDamageCards", {
@@ -200,7 +200,7 @@ export const SystemSettings = function() {
 				players: game.i18n.localize("T20.SettingDamageCardPlayers"),
 				npcs: game.i18n.localize("T20.SettingDamageCardNPCS"),
 		},
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**
@@ -213,7 +213,7 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
-		onChange: () => location.reload(),
+		requiresReload: true,
 	});
 
 	/**

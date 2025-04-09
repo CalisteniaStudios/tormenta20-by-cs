@@ -46,17 +46,14 @@
 }
 .modesto {
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 .signika {
   font-family: "Signika", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 .fontT20 {
   font-family: "Tormenta20", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 /* ----------------------------------------- */
@@ -250,7 +247,6 @@
   border-top: 2px groove #eeede0;
   border-bottom: 2px groove #eeede0;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 .tormenta20 .tag-list {
@@ -350,15 +346,16 @@
   overflow-x: hidden;
   align-content: flex-start;
 }
-.tormenta20.sheet .window-content form.base .sheet-body {
+.tormenta20.sheet .window-content form .sheet-body {
   overflow-y: auto;
-  height: calc(100% - 50px);
+  height: 100%;
   padding-bottom: 5px;
 }
+.tormenta20.sheet .window-content form.base .sheet-body {
+  height: calc(100% - 25px);
+}
 .tormenta20.sheet .window-content form.tabbed .sheet-body {
-  overflow-y: auto;
-  height: calc(100% - 230px);
-  padding-bottom: 5px;
+  height: calc(100% - 210px);
 }
 .tormenta20.sheet .window-content form.npc .sheet-body.primary {
   overflow-y: auto;
@@ -432,14 +429,12 @@
 }
 .tormenta20.sheet .sheet-header {
   flex: 0 0 100px;
-  border-bottom: 2px groove #eeede0;
   /* Character Name */
   /* Profile Image */
   /* Header Summary Details */
 }
 .tormenta20.sheet .sheet-header .header-details {
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 .tormenta20.sheet .sheet-header .header-details .summary select {
@@ -447,7 +442,6 @@
   height: 100%;
   border: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   text-transform: capitalize;
   font-weight: 100;
@@ -498,13 +492,15 @@
   flex: 0 0 30px;
   margin-bottom: 5px;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 .tormenta20.sheet .sheet-tabs .item {
   height: 30px;
   line-height: 32px;
   padding: 0;
+}
+.tormenta20.sheet.actor.character .sheet-tabs .item:not(:last-child) {
+  flex: 1;
 }
 .tormenta20.sheet .sheet-body {
   flex: 1;
@@ -650,7 +646,6 @@
 .tormenta20 .effects-list .items-header h3 {
   padding-left: 5px;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   text-align: left;
   font-size: 16px;
@@ -956,7 +951,6 @@
   line-height: 16px;
   margin: 4px 8px 2px;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   color: #4b4a44;
   border-bottom: 1px solid #c9c7b8;
@@ -987,7 +981,6 @@
   height: 28px;
   line-height: 28px;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 .tormenta20.sheet.actor ul.attributes li.attribute .attribute-value > * {
@@ -1027,7 +1020,6 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   border: 2px groove #eeede0;
   border-radius: 3px;
@@ -1041,7 +1033,6 @@
 }
 .tormenta20.sheet.actor .ability-scores .ability {
   text-align: center;
-  border-bottom: 2px groove #eeede0;
   position: relative;
 }
 .tormenta20.sheet.actor .ability-scores .ability input.ability-score {
@@ -1184,7 +1175,6 @@
   list-style: none;
   display: inline-flex;
   text-transform: lowercase;
-  background-color: rgba(0, 0, 0, 0.05);
 }
 .tormenta20.sheet.actor .traits .trait-list .speedtag:last-child::after {
   content: "";
@@ -1315,7 +1305,7 @@
   border-right: 1px solid #c9c7b8;
 }
 .tormenta20.sheet.actor .item-list .item-controls {
-  flex: 0 0 50px;
+  flex: 0 0 65px;
   font-size: 12px;
   text-align: right;
 }
@@ -1549,7 +1539,6 @@
   max-height: 95%;
   min-width: 480px;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   /* ----------------------------------------- */
   /*  Sheet Header                             */
@@ -1571,8 +1560,10 @@
   border: 2px solid #000;
 }
 .tormenta20.sheet.item .sheet-header .item-subtitle {
-  flex: 0 0 100px;
+  flex: 0 0 auto;
   height: 60px;
+  max-width: 195px;
+  min-width: 100px;
   margin: 0;
   padding: 5px;
   text-align: right;
@@ -1677,6 +1668,12 @@
 .tormenta20.sheet.item .sheet-body .item-properties .form-group input {
   text-align: right;
 }
+.tormenta20.sheet.item .sheet-body .item-properties .form-group input[type="checkbox"] {
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+}
 .tormenta20.sheet.item .sheet-body .item-properties .properties-list {
   list-style: none;
   margin: 0;
@@ -1755,6 +1752,12 @@
   flex: 0 0 48px;
   margin-right: 10px;
 }
+.tormenta20.sheet.item .rolls h3 {
+  border: 0;
+}
+.tormenta20.sheet.item .rolls .rolls-controls {
+  flex: initial;
+}
 .tormenta20.sheet.item h4.damage-header {
   margin: 0;
   padding: 0;
@@ -1824,7 +1827,6 @@
   line-height: 36px;
   border: unset;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   color: #4b4a44;
 }
@@ -1897,7 +1899,6 @@
   padding: 0;
   position: relative;
   font-family: "Signika", sans-serif;
-  font-size: 18px;
   font-weight: 400;
 }
 .chat-message .message-header {
@@ -1932,6 +1933,7 @@
 }
 .chat-message:hover .tormenta20.item-card .roll .dice-btn {
   display: inline-block;
+  font-size: initial;
 }
 .chat-message .message-content {
   padding: 0px 5px 5px 5px;
@@ -1969,7 +1971,6 @@
 }
 .tormenta20.item-card .card-header .item-name {
   font-family: "Signika", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   font-size: 1.5em;
   line-height: 1em;
@@ -2175,7 +2176,7 @@
 .tormenta20.sheet.actor.character form.base .ability-scores {
   flex: 0 0 auto;
 }
-.tormenta20.sheet.actor.character form.base .ability-scores .ability {
+.tormenta20.sheet.actor.character form.base .ability-scores .ability:not(:last-child) {
   border-right: 2px groove #eeede0;
 }
 .tormenta20.sheet.actor.character form.tabbed .attributes-left {
@@ -2334,7 +2335,6 @@
 .tormenta20.sheet.actor.character .characteristics label {
   flex: 0 0 20px;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
   font-weight: 400;
   font-weight: normal;
   line-height: 20px;
@@ -2622,4 +2622,20 @@
 .tormenta20.sheet.actor.vehicle {
   min-width: 720px;
   min-height: 680px;
+}
+.directory-item .entity-name,
+.directory-item .document-name,
+.directory-item .entry-name {
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+.actors-sidebar .directory-item.actor h4 {
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.actors-sidebar .directory-item.actor .actor-level {
+  font-size: x-small;
+  color: var(--color-text-light-primary);
 }

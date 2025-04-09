@@ -11,7 +11,7 @@
 #sidebar {
   border: 1px solid #782e22;
   color: #ffffff !important;
-  
+
   .tab:not(#chat) button {
     color: #fff;
     /*#f18c17;*/
@@ -30,7 +30,7 @@
 .sidebar-popout {
   .scene-segment {
     background: #0d0d0d;
-  } 
+  }
 }
 
 .app {
@@ -224,19 +224,21 @@
     }
 
     // scrollY
-    form.base {
+    form {
       .sheet-body {
         overflow-y: auto;
-        // height: 94%;
-        height: calc(100% - 50px);
+        height: 100%;
         padding-bottom: 5px;
       }
-    }
-    form.tabbed {
-      .sheet-body {
-        overflow-y: auto;
-        height: calc(100% - 230px);
-        padding-bottom: 5px;
+      &.base {
+        .sheet-body {
+          height: calc(100% - 25px);
+        }
+      }
+      &.tabbed {
+        .sheet-body {
+          height: calc(100% - 210px);
+        }
       }
     }
     form.npc {
@@ -340,7 +342,7 @@
 
   .sheet-header {
     flex: 0 0 @headerHeight;
-    border-bottom: @borderGroove;
+    // border-bottom: @borderGroove;
 
     .header-details {
       .modesto();
@@ -421,6 +423,16 @@
       height: 30px;
       line-height: 32px;
       padding: 0;
+    }
+  }
+
+  &.actor.character {
+    .sheet-tabs {
+      .item {
+        &:not(:last-child) {
+          flex: 1;
+        }
+      }
     }
   }
 
@@ -523,7 +535,7 @@
       flex: 2;
       margin: 0;
       overflow: hidden;
-      
+
       text-align: left;
       align-items: center;
       h3, h4 {
@@ -532,8 +544,8 @@
         border: unset;
       }
     }
-    
-    
+
+
     // &.ae-onuse {
     //   // Individual Item
     //   .item.effect {
@@ -567,13 +579,13 @@
       }
     }
 
-    
+
     .item {
       align-items: center;
       height: auto;
       line-height: 24px;
       padding: 0 2px;
-      
+
       border-bottom: 1px solid @colorFaint;
       &:last-child { border-bottom: none; }
       .item-name {

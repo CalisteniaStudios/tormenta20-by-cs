@@ -8,7 +8,7 @@ export default class TraitSelector extends FormApplication {
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "trait-selector",
-			classes: ["tormenta20"],
+			classes: ["tormenta20", "trait-selector"],
 			title: game.i18n.localize('T20.ActorTraitSelection'),
 			template: "systems/tormenta20/templates/apps/trait-selector.html",
 			width: 350,

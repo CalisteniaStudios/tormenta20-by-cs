@@ -21,12 +21,12 @@ export function registerHandlebarsHelpers() {
 		let listEffects = [];
 		let listItems = '';
 
-		
+
 		switch (type) {
 			case 'atributos':
 				// ['base', 'racial', 'bonus', ...efeitos]
 				const abl = actor.system.atributos[key];
-				listEffects = [ 
+				listEffects = [
 					{label: 'Base', value: abl.base},
 					(abl.racial ? {label: 'Racial', value: abl.racial} : false ),
 					(abl.bonus ? {label: 'Bônus Temporário', value: abl.bonus} : false ),
@@ -53,7 +53,7 @@ export function registerHandlebarsHelpers() {
 					...( !['luta','pont'].includes(key) ? modFields['system.modificadores.pericias.semataque']??[] : []),
 
 					...( modFields[`system.modificadores.pericias.atr.${skill.atributo}`] ?? [] ),
-					
+
 					...(modFields[path]??[])
 				];
 				break;
@@ -73,7 +73,7 @@ export function registerHandlebarsHelpers() {
 			case 'rd':
 				// ['base', ...efeitos]
 				break;
-		
+
 			default:
 				break;
 		}
@@ -127,11 +127,11 @@ export function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("stripTagsInline", function (str) {
 		return str.replace(/<(?!\/?[a|i](?=>|\s.*>))\/?.*?>/gm, '');
 	});
-	
+
 	Handlebars.registerHelper('add', (a, b) => {
 		return a + b;
 	});
-	
+
 	Handlebars.registerHelper('divide', (a, b) => {
 		return a / b;
 	});
@@ -151,5 +151,22 @@ export function registerHandlebarsHelpers() {
 
 	Handlebars.registerHelper("includes", function (v, choices=[]) {
 		return choices.includes(v);
+	});
+
+	/**
+	 * @param {object} items
+	 * @returns {string}
+	 */
+	Handlebars.registerHelper("t20classes", function (items) {
+		const classes = items.filter((i) => i.type === "classe")
+			.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0))
+			.map(function(i){
+				return {
+					name: i.name,
+					nivel: i.system.niveis,
+					toString: function(){return `${this.name} ${this.nivel}`;}
+				};
+			});
+		return classes.join(", ")
 	});
 }

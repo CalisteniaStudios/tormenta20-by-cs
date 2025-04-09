@@ -63,6 +63,7 @@
 				</div>
 			</div>
 			{{!-- Rolls --}}
+			<hr>
 			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
 			<hr>
 			<div class="form-group">
@@ -77,7 +78,7 @@
 			</div>
 			{{/if}}
 		</div>
-		
+
 		{{#if (or (eq item.system.tipo "leve") (eq item.system.tipo "pesada") (eq item.system.tipo "escudo") (eq item.system.tipo "esoterico") (eq item.system.tipo "traje") (eq item.system.tipo "ferramenta")) }}
 		{{!-- Enhancements Tab --}}
 		{{> "systems/tormenta20/templates/item/parts/item-enhancements.html"}}
