@@ -109,6 +109,8 @@ export default class ItemSheetT20 extends ItemSheet {
 			isNPCOwned: item.isOwned && item.parent.type==="npc",
 			isSimpleOwned: item.isOwned && item.parent.type==="simle",
 
+			itemUpgradeStatus: this._itemUpgradeStatus,
+
 			config: CONFIG.T20,
 			// itemType: sheetData.item.type.capitalize(),
 			itemType: game.i18n.localize(`Types.Item.${item.type}`),
@@ -229,6 +231,12 @@ export default class ItemSheetT20 extends ItemSheet {
 			delete formData.rolltags;
 			options.updateData = formData;
 		}
+
+		const expandedFormData = foundry.utils.expandObject(formData);
+		if (expandedFormData.system?.enableAutoUpgrades && expandedFormData.system?.upgrades) {
+			this._createEffects(expandedFormData.system.upgrades);
+		}
+
 		await super._onSubmit(event, options);
 	}
 
@@ -544,4 +552,143 @@ export default class ItemSheetT20 extends ItemSheet {
 		}
 	}
 
+
+	/* -------------------------------------------- */
+	/** Create effects based on upgrades 
+	 * @param upgrades
+	 * @private
+	*/
+	_createEffects(upgrades){
+		const values = Object.values(upgrades);
+
+		const existingEffects = [
+			this.item.getEmbeddedCollection("ActiveEffect").contents,
+			this.item.actor?.getEmbeddedCollection("ActiveEffect").contents
+		]
+			.flat()
+			.filter(e => !!e && !!e.flags.tormenta20.upgrade);
+
+		// Delete old effects
+		const effectsToDelete = existingEffects
+			.filter(e => !values.includes(e.flags.tormenta20.upgrade));
+		if (effectsToDelete.length) {
+			const actorEffectsToDelete = effectsToDelete
+				.filter(e => e.parent.id === this.item.actor?.id)
+				.map(e => e.id);
+			const itemEffectsToDelete = effectsToDelete
+				.filter(e => e.parent.id === this.item.id)
+				.map(e => e.id);
+
+			this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete);
+			this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete);
+		}
+
+		// Create new effects
+		const availableEffects = this._availableEffects
+		if (!availableEffects) return;
+
+		const effects = values
+			.filter(v => availableEffects[v]
+				&& !existingEffects.some(e => e.flags.tormenta20.upgrade === v))
+			.map(v => ({ 
+				...availableEffects[v],
+				name: game.i18n.localize(availableEffects[v].name),
+				icon: this.item.img,
+				origin: this.item.uuid,
+				// We need to internationalize the items list
+				flags: {
+					...availableEffects[v].flags,
+					tormenta20: {
+						...availableEffects[v].flags.tormenta20,
+						items: (availableEffects[v].flags.tormenta20.items || '')
+							.split(';')
+							.map(i => i.trim())
+							.filter(i => !!i)
+							.map(i => game.i18n.localize(i))
+							.join(';'),
+						custo: availableEffects[v].flags.tormenta20.custo || ''
+					}
+				}
+			}));
+
+		if ( !effects.length ) return;
+		
+		const actorEffects = effects.filter(e => e.transfer);
+		
+		this.item.actor?.createEmbeddedDocuments("ActiveEffect", actorEffects);
+		this.item.createEmbeddedDocuments("ActiveEffect", effects);
+	}
+	get _itemUpgradeStatus() {
+		const status = this._upgradeStatus;
+		if (!status || !this.item.system?.upgrades) return '';
+
+		const statusByType = {};
+
+		Object.values(this.item.system.upgrades)
+			.forEach(v => {
+				if (!v || !v.length) return;
+				statusByType[v] = status[v] === "DONE" ? "implemented" : 'not-implemented'
+		});
+
+		return statusByType;
+	}
+
+	get _availableEffects() {
+		if (!this._isUpgradable) return null;
+
+		const upgrades = Object.assign({}, T20.upgrades.general);
+
+		if (this.item.type === "arma") {
+			return Object.assign(upgrades, T20.upgrades.weapon);
+		}
+
+		if (this.item.system.tipo === "ammo") {
+			return Object.assign(upgrades, T20.upgrades.ammo);
+		}
+
+		if (this.item.system.tipo === "esoterico") {
+			return Object.assign(upgrades, T20.upgrades.esoteric);
+		}
+
+		if (["traje", "ferramenta"].includes(this.item.system.tipo)) {
+			return Object.assign(upgrades, T20.upgrades.tools);
+		}
+
+		return Object.assign(upgrades,
+			T20.upgrades.armor.general,
+			T20.upgrades.armor[this.item.system.tipo]);
+	}
+
+	get _upgradeStatus() {
+		if (!this._isUpgradable) return null;
+
+		const status = Object.assign({}, T20.upgrades.general.status);
+
+		if (this.item.type === "arma") {
+			return Object.assign(status, T20.upgrades.weapon.status);
+		}
+
+		if (this.item.system.tipo === "ammo") {
+			return Object.assign(status, T20.upgrades.ammo.status);
+		}
+
+		if (this.item.system.tipo === "esoterico") {
+			return Object.assign(status, T20.upgrades.esoteric.status);
+		}
+
+		if (["traje", "ferramenta"].includes(this.item.system.tipo)) {
+			return Object.assign(status, T20.upgrades.tools.status);
+		}
+
+		return Object.assign(status, T20.upgrades.armor.status);
+	}
+
+	get _isUpgradable() {
+		if (!["arma", "equipamento", "consumivel"].includes(this.item.type)) return false;
+		if (this.item.system.tipo
+			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje", "ammo"]
+				.includes(this.item.system.tipo)) return false;
+		
+		return true;
+	}
 }

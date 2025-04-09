@@ -636,8 +636,14 @@
 
   "T20.S09": "/* ------------ Item Upgrades ------------ */",
 
-  "T20.WIPEnhancements": "Effects of this session are not yet implemented (Except for the old effect of Narrowing)",
- 
+"T20.WIPEnhancements": "Note: Not all enhancements in this section have been automated. The icons below indicate whether they have been automated or not, as per the legend.",
+"T20.WIPEnhancementsImplemented": "Automated",
+"T20.WIPEnhancementsNotImplemented": "Not Automated",
+"T20.WIPEnhancementsNotSelected": "Not Selected",
+
+"T20.EnhancementsAutomationEnable": "Enable Enhancement Automation",
+"T20.EnhancementsAutomationEnableHint": "If enabled, the effects of enhancements will be automatically applied",
+
   "T20.SpecialMaterial": "Special Material",
   "T20.SpecialMaterialRubySteel": "Ruby-Steel",
   "T20.SpecialMaterialAdamant": "Adamant",

@@ -1,5 +1,6 @@
 import { preLocalize } from "../utils.mjs";
 import { T20Conditions } from "../conditions/conditions.mjs";
+import { T20Upgrades } from "../upgrades/upgrades.mjs";
 import { CHALLENGELEVEL, AMEACATYPES } from "./ameaca.js";
 export const T20 = {};
 export const SYSTEMRULES = {};
@@ -725,7 +726,7 @@ preLocalize("weaponSizes");
 /**
  * Define Item Upgrades and Tooltips
  */ 
-
+T20.upgrades = T20Upgrades;
 
 T20.specialMaterials = {
 	"ruby-steel": "T20.SpecialMaterialRubySteel",
