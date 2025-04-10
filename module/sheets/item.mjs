@@ -368,13 +368,13 @@ export default class ItemSheetT20 extends ItemSheet {
 				hTags[h] = game.i18n.localize(tag);
 			}
 			props.push(
-				labels.ativacao? `<b>${hTags['ativacao']}:</b> ${labels.ativacao}; ` : null,
-				labels.range? `<b>${hTags['range']}:</b> ${labels.range}; ` : null,
-				labels.alvo? `<b>${hTags['target']}:</b> ${labels.alvo}; ` : null,
-				labels.area? `<b>${hTags['area']}:</b> ${labels.area}; ` : null,
-				labels.effect? `<b>${hTags['effect']}:</b> ${labels.effect}; ` : null,
-				labels.duration? `<b>${hTags['duration']}:</b> ${labels.duration}; ` : null,
-				labels.save? `<b>${hTags['save']}:</b> ${labels.save}; ` : null
+				labels.ativacao? `<b>${hTags['ativacao']}:</b> ${labels.ativacao}` : null,
+				labels.range? `<b>${hTags['range']}:</b> ${labels.range}` : null,
+				labels.alvo? `<b>${hTags['target']}:</b> ${labels.alvo}` : null,
+				labels.area? `<b>${hTags['area']}:</b> ${labels.area}` : null,
+				labels.effect? `<b>${hTags['effect']}:</b> ${labels.effect}` : null,
+				labels.duration? `<b>${hTags['duration']}:</b> ${labels.duration}` : null,
+				labels.save? `<b>${hTags['save']}:</b> ${labels.save}` : null
 			)
 		}
 		return props.filter(p => !!p);
@@ -558,13 +558,13 @@ export default class ItemSheetT20 extends ItemSheet {
 
 
 	/* -------------------------------------------- */
-	/** Create effects based on upgrades 
+	/** Create effects based on upgrades
 	 * @param upgrades
 	 * @private
 	*/
 	_createEffects(upgrades){
 		const values = Object.values(upgrades);
-		
+
 		const existingEffects = [
 			this.item.getEmbeddedCollection("ActiveEffect").contents,
 			this.item.actor?.getEmbeddedCollection("ActiveEffect").contents
@@ -594,7 +594,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		const effects = values
 			.filter(v => availableEffects[v]
 				&& !existingEffects.some(e => e.flags.tormenta20.upgrade === v))
-			.map(v => ({ 
+			.map(v => ({
 				...availableEffects[v],
 				name: game.i18n.localize(availableEffects[v].name),
 				description: game.i18n.localize(availableEffects[v].description ?? ''),
@@ -617,9 +617,9 @@ export default class ItemSheetT20 extends ItemSheet {
 			}));
 
 		if ( !effects.length ) return;
-		
+
 		const actorEffects = effects.filter(e => e.transfer);
-		
+
 		this.item.actor?.createEmbeddedDocuments("ActiveEffect", actorEffects);
 		this.item.createEmbeddedDocuments("ActiveEffect", effects);
 	}
@@ -693,7 +693,7 @@ export default class ItemSheetT20 extends ItemSheet {
 		if (this.item.system.tipo
 			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje", "ammo"]
 				.includes(this.item.system.tipo)) return false;
-		
+
 		return true;
 	}
 }
