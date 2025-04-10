@@ -260,6 +260,9 @@
   /*  Trait Lists                              */
   /* ----------------------------------------- */
 }
+.tormenta20.sheet .window-header {
+  align-items: center;
+}
 .tormenta20.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
@@ -758,7 +761,6 @@
   /* ----------------------------------------- */
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: 18px;
   /* ----------------------------------------- */
   /*  Sheet Header                             */
   /* ----------------------------------------- */
