@@ -594,6 +594,7 @@ T20.powerType = {
 	"origem": "T20.PowerTypeBackground",
 	"racial": "T20.PowerTypeRacial",
 	"distincao": "T20.PowerTypeDistincao",
+	"complicacao": "T20.PowerTypeComplicacao"
 }
 preLocalize("powerType");
 

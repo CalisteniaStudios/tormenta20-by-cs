@@ -391,6 +391,7 @@
   "T20.PowerTypeGeneral": "Geral",
   "T20.PowerTypeBackground": "Origem",
   "T20.PowerTypeRacial": "Racial",
+  "T20.PowerTypeComplicacao": "Complicação",
   "T20.PowerTypeDistincao": "Distinção",
   "T20.PowerSubTypeCombat": "Combate",
   "T20.PowerSubTypeDivine": "Concedido",
@@ -1188,7 +1189,7 @@
 
   "T20.SettingOverrideMeasuredTemplatesConfig": "Área de Efeito Tormenta20",
   "T20.SettingOverrideMeasuredTemplatesConfigHint": "Altera a forma de calcular Área de Efeito para corresponder as regras do sistema.",
-  
+
 
   "T20.S90": "/* --------------- Status --------------- */",
 

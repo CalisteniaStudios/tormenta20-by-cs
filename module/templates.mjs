@@ -9,8 +9,8 @@ export const preloadHandlebarsTemplates = async function() {
 		// Shared Partials
 		"systems/tormenta20/templates/partials/nav-bar.html",
 		"systems/tormenta20/templates/partials/active-effects.html",
-		
-		
+
+
 		// Actor Sheet Partials
 		"systems/tormenta20/templates/actor/parts/sheet-header-base.html",
 		"systems/tormenta20/templates/actor/parts/sheet-header-tabbed.html",
@@ -31,13 +31,14 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/actor/parts/list-loot.html",
 		"systems/tormenta20/templates/actor/parts/list-favorites.html",
 		"systems/tormenta20/templates/actor/parts/list-powers.html",
+		"systems/tormenta20/templates/actor/parts/list-powers-tabbed.html",
 		"systems/tormenta20/templates/actor/parts/list-spells.html",
 		"systems/tormenta20/templates/actor/parts/list-skills.html",
 		"systems/tormenta20/templates/actor/parts/journal.html",
 		"systems/tormenta20/templates/actor/parts/modifiers.html",
-		
+
 		// Actor Builder Partials
-		
+
 
 		// Item Sheet Partials
 		"systems/tormenta20/templates/item/parts/item-header.html",

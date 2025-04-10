@@ -727,12 +727,12 @@ export default class ActorSheetT20 extends ActorSheet {
 	_onItemCreate(event) {
 		event.preventDefault();
 		const header = event.currentTarget;
-		const type = header.dataset.type;
+		const { tipo, type } = header.dataset;
 		let gen = ["arma", "magia"].includes(type) ? "Nova" : "Novo";
 		const itemData = {
 			name: `${gen} ${type.capitalize()}`,
 			type: type,
-			system: {}
+			system: tipo ? { tipo } : {}
 		};
 		delete itemData.system.type;
 		return this.actor.createEmbeddedDocuments("Item", [itemData], { renderSheet: true });
