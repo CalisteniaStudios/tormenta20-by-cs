@@ -1542,7 +1542,7 @@ export default class ActorT20 extends Actor {
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+			// type: CONST.CHAT_MESSAGE_STYLES.ROLL,
 			rolls: [options.itemData.rolled],
 			content: html,
 			flavor: options.chatFlavor || "",
