@@ -24,11 +24,11 @@ export const endSegment = async function (app, html) {
 					}
 				}
 			}
-			
+
 			let toChat = (message) => {
 				let chatData = {
 					user: game.user._id,
-					type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+					type: CONST.CHAT_MESSAGE_STYLES.OTHER,
 					content: message,
 					speaker: ChatMessage.getSpeaker()
 				};
@@ -38,7 +38,7 @@ export const endSegment = async function (app, html) {
 			if (historico) {
 				outputHistorico = " Os seguintes efeitos foram removidos:" + historico;
 			}
-			
+
 			let chatMessage = "<div class='tormenta20 chat-card item-card'><header class='card-header flexrow'><img class='invert' src='systems/tormenta20/icons/clapperboard.svg' width='36' height='36' style='flex:0'><h3 class='item-name'><div>Cena Finalizada</div></h3></header><div class='card-content'>A cena atual foi terminada pelo mestre." + outputHistorico + "</div></div>";
 			toChat(chatMessage);
 		});

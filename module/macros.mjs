@@ -7,7 +7,7 @@ ITEM: `game.tormenta20.rollItemMacro("{name}");`,
 EXTRAWEAPON: {
   'atq' : "0",
   'dadoDano' : "",
-  'dano' : "0", 
+  'dano' : "0",
   'margemCritico' : "0",
   'multCritico' : "0",
   'atributoAtq' : "",
@@ -21,7 +21,7 @@ WEAPON: `
 game.tormenta20.rollItemMacro("{name}",{
   'atq' : "0",
   'dadoDano' : "",
-  'dano' : "0", 
+  'dano' : "0",
   'margemCritico' : "0",
   'multCritico' : "0",
   'atributoAtq' : "",
@@ -76,14 +76,14 @@ export async function createT20Macro(data, slot) {
 		game.user.assignHotbarMacro(macro, slot);
 		return false;
 	}
-	
+
 	if (data.type === "Item") {
 		let item = await fromUuid( data.uuid );
 		if ( !item instanceof ItemT20 )
 			return ui.notifications.warn(
 				"Não há uma macro para este tipo de item."
 				);
-		
+
 		if (item.type === "arma") {
 			command = macroScripts.WEAPON.replace('{name}',item.name);
 		} else if (item.type === "equipamento") {
@@ -114,7 +114,7 @@ export async function createT20Macro(data, slot) {
 			return ui.notifications.warn(
 				"Não há uma macro para este tipo de item."
 				);
-		
+
 		command = macroScripts.EFFECT.replace('{label}',effect.name);
 		let macro = game.macros.find( (m) => m.name === effect.name && m.command === command );
 		if (!macro) {
@@ -142,7 +142,7 @@ export async function rollItemMacro(itemName, extra = {}) {
 	let actor;
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
 	if (!actor) actor = game.actors.get(speaker.actor);
-	
+
 	// Get matching items
 	const items = actor ? actor.items.filter(i => i.name === itemName) : [];
 	if ( items.length > 1 ) {
@@ -210,7 +210,7 @@ export async function msgFromJournal(name, source, sourceName) {
 
 /**
  * Create Standard rollChatMessage
- * 
+ *
  * */
  export async function rollChatMessage({rolls= [], templateData={item: {name:"Teste", img:"icons/svg/dice-target.svg"}, system: {description:{value:"Teste"}}}}){
 	templateData.rolls = [];
@@ -220,7 +220,7 @@ export async function msgFromJournal(name, source, sourceName) {
 		roll.options.title = roll.options.title || "-";
 		await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
 	}
-	
+
 	// Render the chat card template
 	let template = "systems/tormenta20/templates/chat/chat-card.html";
 	const html = await renderTemplate(template, templateData);
@@ -228,15 +228,15 @@ export async function msgFromJournal(name, source, sourceName) {
 	// Create the ChatMessage data object
 	const chatData = {
 		user: game.user._id,
-		type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+		type: CONST.CHAT_MESSAGE_STYLES.ROLL,
 		content: html,
 		rolls: rolls,
 		speaker: ChatMessage.getSpeaker()
 	};
-	
+
 	// Apply the roll mode to adjust message visibility
 	ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
-	
+
 	// Create the Chat Message or return its data
 	ChatMessage.create(chatData);
 }

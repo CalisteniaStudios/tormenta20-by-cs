@@ -6,7 +6,7 @@ async function chatCondition(actor, condicao) {
 				user: game.user.id,
 				content: message,
 				speaker: ChatMessage.getSpeaker(speaker),
-				type: CONST.CHAT_MESSAGE_TYPES.OTHER
+				type: CONST.CHAT_MESSAGE_STYLES.OTHER
 			};
 			ChatMessage.create(chatData, {});
 		};

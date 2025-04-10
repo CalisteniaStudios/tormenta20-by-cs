@@ -835,13 +835,13 @@ export default class ItemT20 extends Item {
 			console.log(configuration);
 			console.log(item.system.rolls);
 			console.log(options);
-			
+
 			if ( extra?.multCritico?.match(/^=/) ) item.system.criticoX = 1* extra.multCritico.replace("=","");
 			else if ( Number(extra.multCritico) ) item.system.criticoX += Number(extra.multCritico);
 			if ( extra?.margemCritico?.match(/^=/) ) item.system.criticoM = extra.margemCritico.replace("=","");
 			else if ( Number(extra.margemCritico) ) item.system.criticoM += Number(extra.margemCritico);
 		}
-		
+
 		console.log(configuration);
 		console.log(item.system.rolls);
 		console.log(options);
@@ -1281,7 +1281,7 @@ export default class ItemT20 extends Item {
 		for (let r of itemData.rolls.filter(i => i.type == "formula")) {
 			// rolls[r.name] =
 			let temp = new Roll(r.parts[0][0], rollData);
-			itemData.rolled[r.name] = await temp.roll({async:true});
+			itemData.rolled[r.name] = await temp.roll();
 		}
 	}
 }

@@ -5,8 +5,8 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 	if( options.rollKeep=="khd20" || event.altKey || parts[0].includes('kh')) adv = 1;
 	else if ( options.rollKeep=="kld20" || event.ctrlKey || parts[0].includes('kl')) adv = -1;
 
-	
-	
+
+
 	// Define the inner roll function
 	const _roll = async (parts, adv, form) => {
 
@@ -24,7 +24,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 			nd = 2;
 			mods += "kl";
 		}
-		
+
 		// Prepend the d20 roll
 		if( parts[0].match(/d20/) ) {
 			let formula = `${nd}d20${mods}`;
@@ -42,7 +42,7 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 		let roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);
 
 		try {
-			await roll.roll({async:true});
+			await roll.roll();
 		} catch (err) {
 			console.error(err);
 			ui.notifications.error(`Avaliação de rolagem falhou: ${err.message}`);
@@ -66,9 +66,9 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 }
 
 export async function damageRoll({parts, actor, data={}, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false, rd = 0} ) {
-	
+
 	parts = parts.concat(["@bonus"]);
-	
+
 	// Define inner roll function
 	const _roll = async function(parts, crit, form) {
 		// Optionally include a situational bonus
@@ -84,14 +84,14 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 			acc = acc.concat( p.map( e => [e, o[1]]) );
 			return  acc;
 		}, []);
-		parts = parts.map( function(e) { 
+		parts = parts.map( function(e) {
 			if(e[0] && e[1]) return e[0]+`[${e[1]}]`;
 			else return e[0];
 		});
 		roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);
 		roll.options.type = 'damage';
 		roll.options.rd = rd;
-		
+
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {
 			if ( roll.terms[0] instanceof foundry.dice.terms.Die ) {
@@ -132,7 +132,7 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 					if ( _fterms[i-1] instanceof foundry.dice.terms.OperatorTerm ) {
 						_fterms.pop();
 					}
-					
+
 				} else {
 					_fterms.push(term);
 				}
@@ -242,7 +242,7 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 	// Create a new roll and verify that the formula is valid before attempting simplification.
 	let roll;
 	try { roll = new Roll(formula, data); }
-	catch(err) { 
+	catch(err) {
 		console.log(formula, data);
 		console.warn(`Unable to simplify formula '${formula}': ${err}`);
 	}
@@ -256,10 +256,7 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 
 	if ( /[*/]/.test(roll.formula) ) {
 		return (( roll.isDeterministic ) && ( !/\[/.test(roll.formula) || !preserveFlavor )
-			? ( game.release.generation < 12
-				? roll.evaluate({async: false}).total.toString()
-				: roll.evaluateSync().total.toString()
-				)
+			? roll.roll().total.toString()
 			: roll.constructor.getFormula(roll.terms)
 		);
 	}

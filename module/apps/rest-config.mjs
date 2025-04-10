@@ -64,7 +64,7 @@ export default class RestConfigDialog extends Dialog {
 			const html = await renderTemplate(template, content);
 			const chatData = {
 				user: game.user.id,
-				type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+				type: CONST.CHAT_MESSAGE_STYLES.OTHER,
 				content: html
 			};
 			ChatMessage.create(chatData);
@@ -111,7 +111,7 @@ export default class RestConfigDialog extends Dialog {
 							const curaCP = html.find("[name=curaCP]")[0].checked;
 							const curaAC = html.find("[name=curaAC]")[0].checked;
 							descanso(actors, modQ, modPV, modPM, curaCP, curaAC);
-							
+
 						}
 					}
 				},

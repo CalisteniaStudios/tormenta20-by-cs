@@ -614,7 +614,7 @@ export default class ActorT20 extends Actor {
 		const html = await renderTemplate(template, content);
 		const chatData = {
 			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+			type: CONST.CHAT_MESSAGE_STYLES.OTHER,
 			content: html
 		};
 		ChatMessage.create(chatData);
@@ -940,7 +940,7 @@ export default class ActorT20 extends Actor {
 				}
 			}
 		}
-		
+
 	}
 
 	/* -------------------------------------------- */
@@ -1032,7 +1032,7 @@ export default class ActorT20 extends Actor {
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
 		const rdsEx = Object.entries(rds).filter(i => i[1].excecao ).reduce((acc, d) => (acc[d[0]]= d[1].excecao,acc),{});
-		
+
 		const PCVuln = this.type == "character" ? true : false;
 		const NPCVuln = this.type == "npc" ? true : false;
 		let damage;
@@ -1053,7 +1053,7 @@ export default class ActorT20 extends Actor {
 				return acc;
 			}, {});
 		}
-		
+
 		let rdIgnorada = Math.abs(roll.options.rd ?? 0);
 		function ignoraRD(damageType) {
 			if ( rdIgnorada == rds[damageType].value ) {
@@ -1069,7 +1069,7 @@ export default class ActorT20 extends Actor {
 		}
 
 		ignoraRD('dano');
-		
+
 		// Apply Damage Reduction for each type of damage
 		let final = {
 			damage: 0 - (rds.dano?.value ? rds.dano.value : 0),
@@ -1079,8 +1079,8 @@ export default class ActorT20 extends Actor {
 			tempMP: 0,
 		};
 
-		
-		
+
+
 		for ( let [type, dmg] of Object.entries(damage) ){
 			if ( type == 'curapv' || type == 'perda') {
 				final.damage = 0;
@@ -1104,7 +1104,7 @@ export default class ActorT20 extends Actor {
 					ignoraRD(type);
 					r = Number( rds[type]?.value ?? 0 );
 				}
-				
+
 				if( applyRD && !foundry.utils.isEmpty(rdsEx) && !rdsEx[type] ) {
 					r += Number(Object.values(rdsEx)[0]);
 				}
@@ -1193,7 +1193,7 @@ export default class ActorT20 extends Actor {
 			user: game.user.id,
 			content: html,
 			speaker: ChatMessage.getSpeaker({actor: this}),
-			type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+			type: CONST.CHAT_MESSAGE_STYLES.OTHER,
 			flags: {
 				tormenta20: {
 					minimal: true,
@@ -1316,7 +1316,7 @@ export default class ActorT20 extends Actor {
 		parts = parts.map(i => typeof i === "string" ? i.replace(/^\+/, "") : i );
 		itemData.parts = parts.filter(Boolean);
 		let needsConfiguration;
-		
+
 		const UsageConfig = game.settings.get('tormenta20','UsageConfig');
 		if ( UsageConfig == 'default' ) {
 			needsConfiguration = !(options.event?.shiftKey ?? false);
@@ -1542,7 +1542,7 @@ export default class ActorT20 extends Actor {
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+			type: CONST.CHAT_MESSAGE_STYLES.ROLL,
 			rolls: [options.itemData.rolled],
 			content: html,
 			flavor: options.chatFlavor || "",
