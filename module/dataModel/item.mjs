@@ -169,6 +169,7 @@ class systemItemBaseData extends foundry.abstract.DataModel {
 			}),
 			melhorias: new fields.ObjectField(),
 			encantos: new fields.ObjectField(),
+			enableAutoUpgrades: new fields.BooleanField({ required: false, nullable:false, initial: false, label:"T20.EnhancementsAutomationEnable", hint:"T20.EnhancementsAutomationEnableHint" }),
 		}
 
 		if( type == 'arma' ) {

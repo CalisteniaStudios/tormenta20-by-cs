@@ -588,9 +588,10 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	_onUpdate(changed, options, user){
+	_onUpdate(changed, options, userId){
 		//console.log(changed, options, user);
-		super._onUpdate(changed, options, user);
+		super._onUpdate(changed, options, userId);
+		if( game.userId !== userId ) return;
 		// Set Initial Class
 		if( this.parent && this.type === "classe" ) {
 			if (changed.system?.hasOwnProperty("inicial") ){
@@ -613,6 +614,7 @@ export default class ItemT20 extends Item {
 				this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
 			}
 		}
+		if( this.actor && game.userId === userId ) this.actor._checkEncumbered();
 	}
 
 	/* -------------------------------------------- */
@@ -620,6 +622,7 @@ export default class ItemT20 extends Item {
 	/** @inheritdoc */
 	_onDelete(options, userId) {
 		super._onDelete(options, userId);
+		if( game.userId !== userId ) return;
 		// Assign a new primary class
 		if ( this.parent && this.type === "classe" )  {
 			if( this.actor.items.find(i => i.type === "classe" && !i.system.inicial ) ) {
@@ -627,6 +630,7 @@ export default class ItemT20 extends Item {
 				const updateItems = [{_id: newInicial.id, "system.inicial": true}];
 				if( updateItems ) this.actor.updateEmbeddedDocuments("Item", updateItems);
 			}
+			this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
 		}
 	}
 
@@ -828,13 +832,19 @@ export default class ItemT20 extends Item {
 					else if ( !["","0",undefined].includes(extra.dano) ) r.parts.push([extra.dano, ""]);
 				}
 			});
-
+			console.log(configuration);
+			console.log(item.system.rolls);
+			console.log(options);
+			
 			if ( extra?.multCritico?.match(/^=/) ) item.system.criticoX = 1* extra.multCritico.replace("=","");
 			else if ( Number(extra.multCritico) ) item.system.criticoX += Number(extra.multCritico);
 			if ( extra?.margemCritico?.match(/^=/) ) item.system.criticoM = extra.margemCritico.replace("=","");
 			else if ( Number(extra.margemCritico) ) item.system.criticoM += Number(extra.margemCritico);
 		}
-
+		
+		console.log(configuration);
+		console.log(item.system.rolls);
+		console.log(options);
 		// Execute Rolls
 		options.rolls = [];
 		item.system.rolled = {};
@@ -1223,6 +1233,7 @@ export default class ItemT20 extends Item {
 			// Configure the damage roll
 			const title = this.name;
 			const rollConfig = {
+				rd: r.rd,
 				actor: this.actor,
 				critical: critical ?? false,
 				criticalMultiplier: itemData.criticoX,

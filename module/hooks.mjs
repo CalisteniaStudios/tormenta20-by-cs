@@ -118,4 +118,5 @@ export default function () {
 			SquareGrid.prototype.measureDistances = measureDistances;
 		}
 	});
+
 }

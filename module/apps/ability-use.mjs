@@ -70,7 +70,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		if ( ch.key.match(/dano\:\w+/) ) {
 			[ch.key, damageTypeTarget] = ch.key.split(':');
 		}
-		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos","danoCritico","critico"].includes(ch.key) || ch.key.match(/\@([^\#]+)\#/) ) ) );
+		rolls = id.rolls.filter(r=> (( (ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos","danoCritico","critico","ignoraRD","danoMultiplicavel"].includes(ch.key) || ch.key.match(/\@([^\#]+)\#/) ) ) );
 	}
 	ch.key = ch.key.toString();
 	if( ch.value.toString().match(/^:/) ){
@@ -168,14 +168,35 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			else if ( ch.key == "dano" && ch.value.match(/^1d$/)){
 				let n = parseInt(ch.value) ?? 0;
 				if( n ) rollMods[r.key][p].extraDie = n;
-			} // To add one extra dice from source 1d => 2d6 + 1d6
-			else if ( ch.key == "danoCritico" ){
+			} // To add term multipliable when critical
+			else if ( ["danoCritico","danoMultiplicavel"].includes(ch.key) ){
 				if( r.type != 'dano' ) continue;
 				const dmgTypeG = ch.value.match(re.dmgType);
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
-				r.parts.push([Number(ch.value * qty) || ch.value,"danoCritico",]);
-				rollMods[r.key].push( { die:null, dmgStep:0, override:null, addDie:0, addNum:0, perDie:0, extraDie:0, dmgType: (dmgTypeG?.groups?.dtype ?? ''), src: (sourceName ?? '') } );
+				let part = ch.value;
+				if ( Number(ch.value) ) {
+					part = Number(ch.value * qty);
+				} else {
+					part = ch.value.replace(/^\d+/, $0 => $0 * qty);
+				}
+				
+				r.parts.push([part, ch.key,]);
+				rollMods[r.key].push( {
+					die: null,
+					dmgStep: 0,
+					override: null,
+					addDie: 0,
+					addNum: 0,
+					perDie: 0,
+					extraDie: 0,
+					dmgType: (dmgTypeG?.groups?.dtype ?? ''),
+					src: (sourceName ?? '')
+				});
 				continue;
+			} // To ignore part of Damage Reduction
+			else if ( r.type == 'dano' && ch.key == "ignoraRD" ){
+				r.rd ??= 0;
+				r.rd += Math.abs(Number(ch.value * qty)) * -1;
 			} else {
 				const dmgTypeG = ch.value.match(re.dmgType);
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
@@ -447,6 +468,9 @@ function applyRollModifiers(item, rollMods) {
 				continue;
 			} else if ( rollMods[r.key][i]?.override ){
 				dano = rollMods[r.key][i].override;
+			}
+			if( rollMods[r.key][i]?.multiplicavel ){
+				r.parts[i][3] = true;
 			}
 			
 			if ( typeof dano === "string" && typeof rollMods[r.key][i]?.die === "string" ) {

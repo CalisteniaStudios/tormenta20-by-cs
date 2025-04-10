@@ -16,6 +16,7 @@ import ItemT20 from "./module/documents/item.mjs";
 import RollT20 from "./module/documents/roll.mjs";
 import TokenDocumentT20 from "./module/documents/token.mjs";
 import TokenT20 from "./module/pixi/token.mjs";
+import Tormenta20MeasuredTemplateDocument from "./module/documents/measured-template.mjs";
 
 // Import Sheets
 import ActiveEffectConfigT20 from "./module/sheets/active-effects.mjs";
@@ -114,6 +115,9 @@ Hooks.once("init", async function () {
 	CONFIG.Token.documentClass = TokenDocumentT20;
 	CONFIG.Token.objectClass = TokenT20;
 	CONFIG.time.roundTime = 6;
+
+	CONFIG.MeasuredTemplate.documentClass = Tormenta20MeasuredTemplateDocument;
+	CONFIG.MeasuredTemplate.objectClass = AbilityTemplate;
 
 	// Register T20 stuff
 	CONFIG.statusEffects = T20.statusEffectIcons;

@@ -219,6 +219,19 @@ export const SystemSettings = function() {
 	/**
 	 * Option to show Usage Effects Menu on Shift Use or Always
 	 */
+	game.settings.register("tormenta20", "UsageConfig", {
+		name: game.i18n.localize("T20.SettingUsageConfig"),
+		hint: game.i18n.localize("T20.SettingUsageConfigHint"),
+		scope: "client",
+		config: true,
+		default: "default",
+		type: String,
+		choices: {
+			default: game.i18n.localize("T20.SettingUsageConfigDefault"),
+			shift: game.i18n.localize("T20.SettingUsageConfigShift"),
+		}
+	});
+
 	game.settings.register("tormenta20", "invertUsageConfig", {
 		name: game.i18n.localize("T20.SettingInvertUsageConfig"),
 		hint: game.i18n.localize("T20.SettingInvertUsageConfigHint"),
@@ -239,9 +252,21 @@ export const SystemSettings = function() {
 		default: "default",
 		type: String,
 		choices: {
-			default: game.i18n.localize("T20.SeetingLancinatingDefault"),
-			revised: game.i18n.localize("T20.SeetingLancinatingRevised"),
+			default: game.i18n.localize("T20.SettingLancinatingDefault"),
+			revised: game.i18n.localize("T20.SettingLancinatingRevised"),
 		},
+	});
+
+	/**
+	 * Overwrite Foundry Core Mearesured Template to match Tormenta20 AbilityShapes.
+	 */
+	game.settings.register("tormenta20", "overrideMeasuredTemplatesConfig", {
+		name: game.i18n.localize("T20.SettingOverrideMeasuredTemplatesConfig"),
+		hint: game.i18n.localize("T20.SettingOverrideMeasuredTemplatesConfigHint"),
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean,
 	});
 
 	// V12 INCOMPATIBLE SETTINGS

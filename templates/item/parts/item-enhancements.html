@@ -1,12 +1,27 @@
 <div class="tab enhancements" data-group="primary" data-tab="enhancements">
-	{{localize "T20.WIPEnhancements"}}
+	<div class="form-group">
+		<input type="checkbox" name="system.enableAutoUpgrades" data-dtype="Boolean" {{checked system.enableAutoUpgrades}}>
+		<label>{{ localize 'T20.EnhancementsAutomationEnable'}} <i class="fa-solid fa-circle-info not-selected" data-tooltip="{{localize 'T20.EnhancementsAutomationEnableHint'}}"></i></label>
+	</div>
+
+	<span class="wip-title">{{localize "T20.WIPEnhancements"}}</span>
+
+	<div class="form-group">
+		<div class="form-fields wip-fields">
+			<label><i class="fa-solid fa-circle-info not-selected"></i> {{localize "T20.WIPEnhancementsNotSelected"}}</label>
+			<label><i class="fa-solid fa-circle-info implemented"></i> {{localize "T20.WIPEnhancementsImplemented"}}</label>
+			<label for=""><i class="fa-solid fa-circle-info not-implemented"></i> {{localize "T20.WIPEnhancementsNotImplemented"}}</label>
+		</div>
+	</div>
+
 	{{#if (or (eq item.type "arma") (and (eq item.type "consumivel") (eq item.system.tipo "ammo"))  ) }}
-		<div class="form-group">
+		<div class="form-group size">
 			<label for="">{{localize "T20.Size"}}</label>
 			<div class="form-fields">
 				<select name="system.size" value="{{system.size}}" title="{{ localize 'T20.Size'}}">
 					{{selectOptions config.weaponSizes selected=system.size}}
 				</select>
+				<i class="fa-solid fa-circle-info not-implemented"></i>
 			</div>
 		</div>
 	{{/if}}
@@ -32,15 +47,15 @@
 					{{/if}}
 				</select>
 				{{#if (or (eq @root.item.type "arma") (and (eq @root.item.type "consumivel") (eq @root.item.system.tipo "ammo")))}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.weaponUpgradesTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.weaponUpgradesTooltips value}}"></i>
 				{{else if (and (eq @root.item.type "equipamento") (or (eq @root.item.system.tipo "leve") (eq @root.item.system.tipo "pesada")) )}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.armorUpgradesTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.armorUpgradesTooltips value}}"></i>
 				{{else if (and (eq @root.item.type "equipamento") (eq @root.item.system.tipo "escudo") )}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.shieldUpgradesTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.shieldUpgradesTooltips value}}"></i>
 				{{else if (and (eq @root.item.type "equipamento") (eq @root.item.system.tipo "esoterico") )}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.esotericUpgradesTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.esotericUpgradesTooltips value}}"></i>
 				{{else if (and (eq @root.item.type "equipamento") (or (eq @root.item.system.tipo "traje") (eq @root.item.system.tipo "ferramenta")) )}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.toolUpgradesTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.toolUpgradesTooltips value}}"></i>
 				{{/if}}
 				
 			</div>
@@ -53,6 +68,7 @@
 				<select name="system.upgrades.{{key}}">
 					{{selectOptions @root.config.specialMaterials blank="-" selected=value localize=true}}
 				</select>
+				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.itemUpgradeStatus value}}"></i>
 			</div>
 		</div>
 		{{/if}}
@@ -76,11 +92,11 @@
 					{{/if}}
 				</select>
 				{{#if (or (eq @root.item.type "arma") (and (eq @root.item.type "consumivel") (eq @root.item.system.tipo "ammo")))}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.weaponEnchantmentsTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info  {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.weaponEnchantmentsTooltips value}}"></i>
 				{{else if (and (eq @root.item.type "equipamento") (or (eq @root.item.system.tipo "leve") (eq @root.item.system.tipo "pesada")) )}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.armorEnchantmentsTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info  {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.armorEnchantmentsTooltips value}}"></i>
 				{{else if (and (eq @root.item.type "equipamento") (eq @root.item.system.tipo "escudo") )}}
-				<i class="fa-solid fa-circle-info" data-tooltip="{{lookup @root.config.shieldEnchantmentsTooltips value}}"></i>
+				<i class="fa-solid fa-circle-info  {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.shieldEnchantmentsTooltips value}}"></i>
 				{{/if}}
 			</div>
 		</div>

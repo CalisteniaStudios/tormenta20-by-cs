@@ -65,8 +65,10 @@ export async function d20Roll({parts=[], data={}, event={}, advantage=null, disa
 	return roll;
 }
 
-export async function damageRoll({parts, actor, data={}, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false}={}) {
+export async function damageRoll({parts, actor, data={}, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false, rd = 0} ) {
+	
 	parts = parts.concat(["@bonus"]);
+	
 	// Define inner roll function
 	const _roll = async function(parts, crit, form) {
 		// Optionally include a situational bonus
@@ -88,12 +90,20 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 		});
 		roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);
 		roll.options.type = 'damage';
+		roll.options.rd = rd;
 		
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {
 			if ( roll.terms[0] instanceof foundry.dice.terms.Die ) {
 				roll.terms[0].alter(criticalMultiplier, 0);
 				roll._formula = roll.formula;
+			}
+			for (const term of roll.terms ) {
+				if ( term instanceof foundry.dice.terms.Die && term.options.flavor == "danoMultiplicavel") {
+					term.alter(criticalMultiplier, 0);
+					term.options.flavor = "";
+					roll._formula = roll.formula;
+				}
 			}
 			if(lancinante){
 				switch (game.settings.get("tormenta20","lancinatingVersion")) {
