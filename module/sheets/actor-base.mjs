@@ -4,7 +4,6 @@ import ItemT20 from '../documents/item.mjs';
 
 import AbilityCalculator from "../apps/ability-calculator.mjs";
 import ActorSettings from "../apps/actor-settings.mjs";
-import CharacterProgression from '../apps/character-progression.mjs';
 import LevelSettings from "../apps/level-settings.mjs";
 import ActorMovementConfig from "../apps/movement-config.mjs";
 import ActorResistanceConfig from "../apps/resistance-config.mjs";
@@ -654,10 +653,9 @@ export default class ActorSheetT20 extends ActorSheet {
 			case "rest":
 				RestConfigDialog.create([this.object]);
 				break;
-			case "progression":
-				return;
-				app = new CharacterProgression(this.object);
-				break;
+			// case "progression":
+			// 	app = new CharacterProgression(this.object);
+			// 	break;
 			// case "senses":
 			// 	app = new ActorSensesConfig(this.object);
 			// 	break;
