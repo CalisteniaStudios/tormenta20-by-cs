@@ -200,7 +200,8 @@
         font-family: "Signika", sans-serif;
         // font-size: 18px;
         font-weight: 400;
-        white-space: nowrap
+        white-space: nowrap;
+        font-size: var(--font-size-14);
       }
       // Defense panel
 
@@ -248,7 +249,7 @@
       font-size: var(--font-size-20);
     }
     .attribute-footer {
-      font-size: var(--font-size-14)
+      font-size: var(--font-size-14);
     }
     h1 {
       // font-size: 1.5rem;
@@ -328,13 +329,21 @@
   /*  Skills                                   */
   /* ----------------------------------------- */
 
-  .tabbed {
-    .header-exp {
-      flex: 0 0 140px;
-    }
-    .experience {
-      margin: 0;
-      font-size: var(--font-size-14);
+  &.character .tabbed {
+    .sheet-header {
+      .charlevel {
+        flex: 1;
+      }
+      .header-exp {
+        flex: 0 0 120px;
+      }
+      .experience {
+        margin: 0;
+        font-size: var(--font-size-14);
+      }
+      .xpbar {
+        margin: 0;
+      }
     }
     .attributes.flexrow {
       gap: 4px;

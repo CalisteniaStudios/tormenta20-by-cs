@@ -935,6 +935,7 @@
   font-family: "Signika", sans-serif;
   font-weight: 400;
   white-space: nowrap;
+  font-size: var(--font-size-14);
 }
 .tormenta20.sheet.actor .inventory-equipment ul.attributes {
   flex: 0 0 100px;
@@ -1026,17 +1027,23 @@
   text-shadow: none;
   cursor: default;
 }
-.tormenta20.sheet.actor .tabbed .header-exp {
-  flex: 0 0 140px;
+.tormenta20.sheet.actor.character .tabbed .sheet-header .charlevel {
+  flex: 1;
 }
-.tormenta20.sheet.actor .tabbed .experience {
+.tormenta20.sheet.actor.character .tabbed .sheet-header .header-exp {
+  flex: 0 0 120px;
+}
+.tormenta20.sheet.actor.character .tabbed .sheet-header .experience {
   margin: 0;
   font-size: var(--font-size-14);
 }
-.tormenta20.sheet.actor .tabbed .attributes.flexrow {
+.tormenta20.sheet.actor.character .tabbed .sheet-header .xpbar {
+  margin: 0;
+}
+.tormenta20.sheet.actor.character .tabbed .attributes.flexrow {
   gap: 4px;
 }
-.tormenta20.sheet.actor .tabbed .skills-list {
+.tormenta20.sheet.actor.character .tabbed .skills-list {
   margin: 0;
   font-size: 14px;
 }
@@ -2076,9 +2083,6 @@
   flex: 0 0 160px;
   max-width: 160px;
   height: 160px;
-}
-.tormenta20.sheet.actor.character form.tabbed .sheet-header .attributes .attribute {
-  height: 80px;
 }
 .tormenta20.sheet.actor.character form.tabbed .sheet-header .attributes .attribute.defense .attribute-value h1 {
   font-size: 22px;
