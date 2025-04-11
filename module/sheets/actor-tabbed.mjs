@@ -3,6 +3,13 @@ import ActorSheetT20Character from "./actor-character.mjs";
 
 export default class ActorSheetT20CharacterTabbed extends ActorSheetT20Character {
 	/** @override */
+	static get defaultOptions() {
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			width: 720,
+		});
+	}
+
+	/** @override */
 	get template() {
 		return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
 	}

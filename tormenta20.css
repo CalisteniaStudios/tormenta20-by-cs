@@ -105,9 +105,6 @@
   /* Form Groups */
   /* Tags */
 }
-.tormenta20 .window-content {
-  font-size: 13px;
-}
 .tormenta20 input[type="text"],
 .tormenta20 input[type="number"],
 .tormenta20 select {
@@ -479,6 +476,9 @@
   margin: 0;
   padding: 0;
 }
+.tormenta20.sheet .tabbed .traits {
+  margin: 0;
+}
 .tormenta20.sheet .trait-selector,
 .tormenta20.sheet .proficiency-selector {
   flex: 0 0 16px;
@@ -797,6 +797,12 @@
   /*  TinyMCE                                  */
   /* ----------------------------------------- */
 }
+.tormenta20.sheet.actor.simple .sheet-header .summary {
+  border: 0;
+}
+.tormenta20.sheet.actor.simple .item-list .item-controls {
+  flex: 1;
+}
 .tormenta20.sheet.actor .rollable:hover {
   color: red;
   text-shadow: 0 0 10px red;
@@ -960,6 +966,12 @@
 .tormenta20.sheet.actor .ability-scores h4.ability-name {
   text-transform: uppercase;
 }
+.tormenta20.sheet.actor .ability-scores .atributo-value {
+  font-size: var(--font-size-20);
+}
+.tormenta20.sheet.actor .ability-scores .attribute-footer {
+  font-size: var(--font-size-14);
+}
 .tormenta20.sheet.actor .ability-scores h1 {
   border: none;
   margin: unset;
@@ -1013,6 +1025,20 @@
   color: #b5b3a4;
   text-shadow: none;
   cursor: default;
+}
+.tormenta20.sheet.actor .tabbed .header-exp {
+  flex: 0 0 140px;
+}
+.tormenta20.sheet.actor .tabbed .experience {
+  margin: 0;
+  font-size: var(--font-size-14);
+}
+.tormenta20.sheet.actor .tabbed .attributes.flexrow {
+  gap: 4px;
+}
+.tormenta20.sheet.actor .tabbed .skills-list {
+  margin: 0;
+  font-size: 14px;
 }
 .tormenta20.sheet.actor .counters {
   flex: none;
@@ -2043,6 +2069,9 @@
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class .item-control {
   flex: 0 0 auto;
 }
+.tormenta20.sheet.actor.character form .ability-scores .ability:not(:last-child) {
+  border-right: 2px groove #eeede0;
+}
 .tormenta20.sheet.actor.character form.tabbed img.profile {
   flex: 0 0 160px;
   max-width: 160px;
@@ -2055,6 +2084,22 @@
   font-size: 22px;
   border: none;
   margin: none;
+}
+.tormenta20.sheet.actor.character form.tabbed .attributes-left {
+  flex: 0 0 85px;
+}
+.tormenta20.sheet.actor.character form.tabbed .attributes-left .ability {
+  border-bottom: 2px groove #eeede0;
+}
+.tormenta20.sheet.actor.character form.tabbed .attributes-left:last-child {
+  border-bottom: none;
+  margin-bottom: -3px;
+}
+.tormenta20.sheet.actor.character form.tabbed .attributes-mid {
+  flex: 0 0 350px;
+}
+.tormenta20.sheet.actor.character form.tabbed .item-list .item-def {
+  flex: 2;
 }
 .tormenta20.sheet.actor.character form.base {
   margin-top: -5px;
@@ -2090,28 +2135,6 @@
   min-width: 330px;
   flex: 0 0 40%;
 }
-.tormenta20.sheet.actor.character form.base .ability-scores {
-  flex: 0 0 auto;
-}
-.tormenta20.sheet.actor.character form.base .ability-scores .ability:not(:last-child) {
-  border-right: 2px groove #eeede0;
-}
-.tormenta20.sheet.actor.character form.tabbed .attributes-left {
-  flex: 0 0 85px;
-}
-.tormenta20.sheet.actor.character form.tabbed .attributes-left .ability {
-  border-bottom: 2px groove #eeede0;
-}
-.tormenta20.sheet.actor.character form.tabbed .attributes-left:last-child {
-  border-bottom: none;
-  margin-bottom: -3px;
-}
-.tormenta20.sheet.actor.character form.tabbed .attributes-mid {
-  flex: 0 0 350px;
-}
-.tormenta20.sheet.actor.character form.tabbed .item-list .item-def {
-  flex: 2;
-}
 .tormenta20.sheet.actor.character .resource .attribute-value > input {
   flex: 0 0 25%;
 }
@@ -2131,7 +2154,7 @@
   top: -6px;
 }
 .tormenta20.sheet.actor.character ul.skills-list li.skill {
-  padding: 3px;
+  padding: 1px 3px;
 }
 .tormenta20.sheet.actor.character ul.skills-list li.skill .item-name {
   flex-direction: row;
@@ -2148,13 +2171,13 @@
   flex: 1px;
   margin: 0;
 }
+.tormenta20.sheet.actor.character ul.skills-list li.skill-footer {
+  text-align: center;
+}
 .tormenta20.sheet.actor.character .item-detail.player-class {
   flex: 0 0 180px;
   text-align: right;
   padding-right: 10px;
-}
-.tormenta20.sheet.actor.character .inventory-list .item-header:last-child .item-controls {
-  flex: 0 0 100%;
 }
 .tormenta20.sheet.actor.character .tox {
   min-height: 8rem;

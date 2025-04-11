@@ -4,6 +4,19 @@
 
 .tormenta20.sheet.actor {
 
+  &.simple {
+    .sheet-header {
+      .summary {
+        border: 0;
+      }
+    }
+    .item-list {
+      .item-controls {
+        flex: 1;
+      }
+    }
+  }
+
   /* ----------------------------------------- */
   /*  Shared Styles                            */
   /* ----------------------------------------- */
@@ -231,6 +244,12 @@
     h4.ability-name {
       text-transform: uppercase;
     }
+    .atributo-value {
+      font-size: var(--font-size-20);
+    }
+    .attribute-footer {
+      font-size: var(--font-size-14)
+    }
     h1 {
       // font-size: 1.5rem;
       border: none;
@@ -308,6 +327,23 @@
   /* ----------------------------------------- */
   /*  Skills                                   */
   /* ----------------------------------------- */
+
+  .tabbed {
+    .header-exp {
+      flex: 0 0 140px;
+    }
+    .experience {
+      margin: 0;
+      font-size: var(--font-size-14);
+    }
+    .attributes.flexrow {
+      gap: 4px;
+    }
+    .skills-list {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
 
   // ul.skills-list {
   //   flex: 0 0 180px;

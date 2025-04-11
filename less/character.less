@@ -79,6 +79,17 @@
       }
     }
   }
+
+  /* ----------------------------------------- */
+  /*  Sheet Body                               */
+  /* ----------------------------------------- */
+  form {
+    .ability-scores {
+      .ability:not(:last-child) {
+        border-right: @borderGroove;
+      }
+    }
+  }
   form.tabbed {
     // Character Profile image (larger)
     img.profile {
@@ -104,6 +115,27 @@
             // background-color: @colorFaint;
           }
         }
+      }
+    }
+    .attributes-left {
+      flex: 0 0 85px;
+      .ability {
+        border-bottom: @borderGroove;
+      }
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: -3px;
+      }
+    }
+
+    .attributes-mid {
+      flex: 0 0 350px;
+    }
+
+    .item-list {
+      .item-def {
+        flex:2;
       }
     }
   }
@@ -146,49 +178,12 @@
         }
       }
     }
-  }
-  /* ----------------------------------------- */
-  /*  Sheet Body                               */
-  /* ----------------------------------------- */
-
-  form.base {
     .attributes-left {
       flex: 0 0 1;
     }
     .attributes-right {
       min-width: 330px;
       flex: 0 0 40%;
-    }
-
-    .ability-scores {
-      flex: 0 0 auto;
-      .ability:not(:last-child) {
-        border-right: @borderGroove;
-      }
-    }
-  }
-
-  form.tabbed {
-    .attributes-left {
-      flex: 0 0 85px;
-      .ability {
-        border-bottom: @borderGroove;
-      }
-
-      &:last-child {
-        border-bottom: none;
-        margin-bottom: -3px;
-      }
-    }
-
-    .attributes-mid {
-      flex: 0 0 350px;
-    }
-
-    .item-list {
-      .item-def {
-        flex:2;
-      }
     }
   }
 
@@ -216,23 +211,28 @@
   }
 
   ul.skills-list {
-    li.skill {
-      padding: 3px;
-      .item-name {
-        flex-direction: row;
-        display: flex;
-        align-items: center;
-        .rollable {
-          min-width: 20%;
+    li {
+      &.skill {
+        padding: 1px 3px;
+        .item-name {
+          flex-direction: row;
+          display: flex;
+          align-items: center;
+          .rollable {
+            min-width: 20%;
+          }
+          input {
+            text-align: left;
+          }
         }
-        input {
-          text-align: left;
+        h4 {
+          flex: 1px;
+          margin: 0;
+          // font-size: 13px;
         }
       }
-      h4 {
-        flex: 1px;
-        margin: 0;
-        // font-size: 13px;
+      &.skill-footer {
+        text-align: center;
       }
     }
   }
@@ -248,11 +248,6 @@
   /* ----------------------------------------- */
 
   .inventory-list {
-    .item-header {
-      &:last-child .item-controls {
-        flex: 0 0 100%;
-      }
-    }
     // .item-controls {
 
     //   .item-toggle {
