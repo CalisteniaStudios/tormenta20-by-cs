@@ -1045,7 +1045,7 @@
 }
 .tormenta20.sheet.actor.character .tabbed .skills-list {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--font-size-14);
 }
 .tormenta20.sheet.actor .counters {
   flex: none;
@@ -2177,6 +2177,9 @@
 }
 .tormenta20.sheet.actor.character ul.skills-list li.skill-footer {
   text-align: center;
+}
+.tormenta20.sheet.actor.character ul.skills-list li.skill-footer label {
+  font-size: 11px;
 }
 .tormenta20.sheet.actor.character .item-detail.player-class {
   flex: 0 0 180px;
