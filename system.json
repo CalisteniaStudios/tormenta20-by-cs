@@ -161,6 +161,5 @@
   "download": "https://gitlab.com/vizael/Tormenta20/-/archive/1.4.214/Tormenta20-1.4.214.zip",
   "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/1.4.214",
   "license": "LICENSE.txt",
-  "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues",
-  "allowBugReporter": true
+  "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues"
 }
