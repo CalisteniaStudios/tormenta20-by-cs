@@ -11,10 +11,11 @@ import { actorMigration } from "./migrations.mjs";
  */
 export default class ActorT20 extends Actor {
 	static getDefaultArtwork(itemData) {
+		let img = this.DEFAULT_ICON;
 		if (itemData.type === "npc") {
-			return { img: "systems/tormenta20/icons/svg/orc-head.svg" };
+			img = "systems/tormenta20/icons/svg/orc-head.svg";
 		}
-		return { img: this.DEFAULT_ICON };
+		return { img, texture: { src: img } };
 	}
 
 	/** @inheritdoc */
