@@ -45,6 +45,8 @@ import * as hooks from "./module/hooks.mjs";
 import * as macros from "./module/macros.mjs";
 import "./module/modules.mjs";
 import * as utils from "./module/utils.mjs";
+import * as models from "./module/dataModel/_module.mjs";
+import * as fields from "./module/dataModel/fields/_module.mjs";
 
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.mjs";
 import { systemActorCharacterData, systemActorNPCData, systemActorSimpleData } from "./module/dataModel/actor.mjs";
@@ -54,38 +56,43 @@ import ActorDirectoryTormenta20 from "./module/sidebar/actor-directory.js";
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
+globalThis.tormenta20 = {
+	applications: {
+		AbilityUseDialog,
+		ActorSheetT20Character,
+		ActorSheetT20NPC,
+		ActorSheetT20Builder,
+		ItemSheetT20,
+		TraitSelector,
+		ActorSettings,
+		StatblockParser,
+		RestConfigDialog,
+		CompendiumT20,
+		CharacterProgression,
+	},
+	data: {
+		fields,
+		models,
+	},
+	canvas: {
+		AbilityTemplate
+	},
+	config: T20,
+	dice: dice,
+	conditions: T20.conditions,
+	entities: {
+		ActorT20,
+		ItemT20
+	},
+	macros: macros,
+	rollItemMacro: macros.rollItemMacro,
+	rollSkillMacro: macros.rollSkillMacro,
+}
 
 Hooks.once("init", async function () {
 	console.log(`T20 | Initializing the Tormenta20 Game System`);
+	game.tormenta20 = tormenta20;
 	// Create a namespace within the game global
-	game.tormenta20 = {
-		applications: {
-			AbilityUseDialog,
-			ActorSheetT20Character,
-			ActorSheetT20NPC,
-			ActorSheetT20Builder,
-			ItemSheetT20,
-			TraitSelector,
-			ActorSettings,
-			StatblockParser,
-			RestConfigDialog,
-			CompendiumT20,
-			CharacterProgression,
-		},
-		canvas: {
-			AbilityTemplate
-		},
-		config: T20,
-		dice: dice,
-		conditions: T20.conditions,
-		entities: {
-			ActorT20,
-			ItemT20
-		},
-		macros: macros,
-		rollItemMacro: macros.rollItemMacro,
-		rollSkillMacro: macros.rollSkillMacro,
-	}
 	if ( game.release.generation < 12 ) {
 		foundry.dice = {
 			terms: {
@@ -150,17 +157,18 @@ Hooks.once("init", async function () {
 	CONFIG.Dice.rolls.RollT20 = RollT20;
 
 	// DATA MODEL
-	CONFIG.Actor.dataModels["character"] = systemActorCharacterData;
-	CONFIG.Actor.dataModels["npc"] = systemActorNPCData;
-	CONFIG.Actor.dataModels["simple"] = systemActorSimpleData;
+	
+	CONFIG.Actor.dataModels["character"] = tormenta20.data.models.CharacterData;
+	CONFIG.Actor.dataModels["npc"] = tormenta20.data.models.MenaceData;
+	CONFIG.Actor.dataModels["simple"] = tormenta20.data.models.SimpleData;
 
-	CONFIG.Item.dataModels["arma"] = systemItemWeaponData;
-	CONFIG.Item.dataModels["classe"] = systemItemClassData;
-	CONFIG.Item.dataModels["consumivel"] = systemItemConsumableData;
-	CONFIG.Item.dataModels["equipamento"] = systemItemEquipmentData;
-	CONFIG.Item.dataModels["magia"] = systemItemSpellData;
-	CONFIG.Item.dataModels["poder"] = systemItemPowerData;
-	CONFIG.Item.dataModels["tesouro"] = systemItemLootData;
+	CONFIG.Item.dataModels["arma"] = tormenta20.data.models.WeaponData;
+	CONFIG.Item.dataModels["classe"] = tormenta20.data.models.ClassData;
+	CONFIG.Item.dataModels["consumivel"] = tormenta20.data.models.ConsumableData;
+	CONFIG.Item.dataModels["equipamento"] = tormenta20.data.models.EquipmentData;
+	CONFIG.Item.dataModels["magia"] = tormenta20.data.models.SpellData;
+	CONFIG.Item.dataModels["poder"] = tormenta20.data.models.PowerData;
+	CONFIG.Item.dataModels["tesouro"] = tormenta20.data.models.LootData;
 
 
 	// Register sheet application classes
