@@ -15,7 +15,7 @@ import TraitSelector from "../apps/trait-selector.mjs";
  * This sheet is an Abstract layer which is not used.
  * @extends {ActorSheet}
  */
-export default class ActorSheetT20 extends ActorSheet {
+export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	constructor(...args) {
 		super(...args);

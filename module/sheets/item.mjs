@@ -6,7 +6,7 @@ import ItemT20 from "../documents/item.mjs";
 * Extend the basic ItemSheet with some very simple modifications
 * @extends {ItemSheet}
 */
-export default class ItemSheetT20 extends ItemSheet {
+export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 	/* -------------------------------------------- */
 	/*  Properties                                  */

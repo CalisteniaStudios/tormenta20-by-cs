@@ -4,7 +4,7 @@
 * @return {Promise}
 */
 export const preloadHandlebarsTemplates = async function() {
-	return loadTemplates([
+	return foundry.applications.handlebars.loadTemplates([
 
 		// Shared Partials
 		"systems/tormenta20/templates/partials/nav-bar.html",

@@ -13,10 +13,10 @@ import { preloadHandlebarsTemplates } from "./module/templates.mjs";
 import ActiveEffectT20 from "./module/documents/active-effects.mjs";
 import ActorT20 from "./module/documents/actor.mjs";
 import ItemT20 from "./module/documents/item.mjs";
+import Tormenta20MeasuredTemplateDocument from "./module/documents/measured-template.mjs";
 import RollT20 from "./module/documents/roll.mjs";
 import TokenDocumentT20 from "./module/documents/token.mjs";
 import TokenT20 from "./module/pixi/token.mjs";
-import Tormenta20MeasuredTemplateDocument from "./module/documents/measured-template.mjs";
 
 // Import Sheets
 import ActiveEffectConfigT20 from "./module/sheets/active-effects.mjs";
@@ -40,13 +40,13 @@ import AbilityTemplate from "./module/pixi/ability-template.mjs";
 // import CombatTrackerT20 from "./module/apps/combat.mjs";
 
 // Import Helpers
+import * as models from "./module/dataModel/_module.mjs";
+import * as fields from "./module/dataModel/fields/_module.mjs";
 import * as dice from "./module/dice/dice.mjs";
 import * as hooks from "./module/hooks.mjs";
 import * as macros from "./module/macros.mjs";
 import "./module/modules.mjs";
 import * as utils from "./module/utils.mjs";
-import * as models from "./module/dataModel/_module.mjs";
-import * as fields from "./module/dataModel/fields/_module.mjs";
 
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.mjs";
 import { systemActorCharacterData, systemActorNPCData, systemActorSimpleData } from "./module/dataModel/actor.mjs";
@@ -172,18 +172,18 @@ Hooks.once("init", async function () {
 
 
 	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("tormenta20", ActorSheetT20Character, {
+	foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20Character, {
 		types: ["character"],
 		makeDefault: true,
 		label: 'T20.CharacterSheet', //"Ficha de Personagem"
 	});
-	Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
+	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
 		types: ["character"],
 		makeDefault: false,
 		label: 'T20.CharacterSheetTabbed', //"Ficha de Personagem - Abas"
 	});
-	Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
+	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
 		types: ["npc"],
 		makeDefault: true,
 		label: "T20.NPCSheet"
@@ -195,15 +195,15 @@ Hooks.once("init", async function () {
 	// 	label: 'T20.CharacterBuilderSheet', //"Progressão de Personagem"
 	// });
 
-	Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
+	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
 		types: ["simple"],
 		makeDefault: true,
 		label: 'T20.SimpleActorSheet', //"Ficha de Simple"
 	});
 
 
-	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("tormenta20", ItemSheetT20, {
+	foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+	foundry.documents.collections.Items.registerSheet("tormenta20", ItemSheetT20, {
 		makeDefault: true,
 		label: "T20.ItemSheet"
 	});
