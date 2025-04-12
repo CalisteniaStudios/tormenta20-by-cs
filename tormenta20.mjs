@@ -49,8 +49,6 @@ import "./module/modules.mjs";
 import * as utils from "./module/utils.mjs";
 
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.mjs";
-import { systemActorCharacterData, systemActorNPCData, systemActorSimpleData } from "./module/dataModel/actor.mjs";
-import { systemItemClassData, systemItemConsumableData, systemItemEquipmentData, systemItemLootData, systemItemPowerData, systemItemSpellData, systemItemWeaponData } from "./module/dataModel/item.mjs";
 import ActorDirectoryTormenta20 from "./module/sidebar/actor-directory.js";
 
 /* -------------------------------------------- */
