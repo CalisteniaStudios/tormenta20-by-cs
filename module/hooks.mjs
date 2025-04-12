@@ -46,21 +46,25 @@ export default function () {
 
 	// Render Sidebar
 	Hooks.on("renderSettings", (app, html) => {
-		const wiki = document.createElement("button");
-		wiki.textContent = "Ajuda T20";
-		const jambo = document.createElement("button");
+		const documentation = html.querySelector(".documentation.flexcol");
+		const section = document.createElement("section");
+		section.classList.add("flexcol");
+
+		const divider = document.createElement("h4");
+		divider.classList.add("divider");
+		divider.textContent = "Visite";
+
+		const jambo = document.createElement("a");
+		jambo.classList.add("button");
 		jambo.textContent = "Jambô Editora";
-		const info = html.querySelector(".info .modules");
-
-		info.insertAdjacentElement("afterend", wiki);
-		wiki.insertAdjacentElement("afterend", jambo);
-
-		wiki.addEventListener("click", () => {
-			window.open("https://vizael.gitlab.io/tormenta20-fvtt/");
-		});
 		jambo.addEventListener("click", () => {
 			window.open("https://jamboeditora.com.br/");
 		});
+
+		documentation.insertAdjacentElement("afterend", section);
+		section.appendChild(divider);
+		section.appendChild(jambo);
+
 	});
 
 	/* Chat Hooks */
