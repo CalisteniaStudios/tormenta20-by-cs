@@ -830,7 +830,7 @@
   margin: 10px 0;
 }
 .tormenta20.sheet.actor .sheet-header .header-exp {
-  flex: 0 0 150px;
+  flex: 0 0 auto;
   margin-right: 3px;
   height: 60px;
   justify-content: flex-end;
@@ -1031,7 +1031,7 @@
   flex: 1;
 }
 .tormenta20.sheet.actor.character .tabbed .sheet-header .header-exp {
-  flex: 0 0 120px;
+  max-width: 120px;
 }
 .tormenta20.sheet.actor.character .tabbed .sheet-header .experience {
   margin: 0;
