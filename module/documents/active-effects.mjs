@@ -156,28 +156,29 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		const temp = li.dataset.effectType == "onuseTemp" ? true : false;
 		switch ( a.dataset.action ) {
 			case "create":
-			return owner.createEmbeddedDocuments("ActiveEffect", [{
-				name:  type=="onuse" ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
-				icon: ( type=="onuse" ? "icons/svg/upgrade.svg" :
-												owner.documentName == "Item" ? owner.img : "icons/svg/aura.svg"),
-				origin: owner.uuid,
-				tint: "#FFFFFF",
-				flags: { tormenta20: { onuse: type=="onuse", durationScene: temp } },
-				"duration.rounds": type === "temporary" || temp ? 1 : undefined,
-				"duration.seconds": undefined,
-				disabled: ["inactive","onuse"].includes(type)
-			}], { renderSheet: true });
+				const isOnUse = type=="onuse";
+				const itemEffect = owner.documentName == "Item";
+				return owner.createEmbeddedDocuments("ActiveEffect", [{
+					name: (isOnUse || !itemEffect) ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
+					img: ( isOnUse ? "icons/svg/upgrade.svg" : itemEffect ? owner.img : "icons/svg/aura.svg"),
+					origin: owner.uuid,
+					tint: "#FFFFFF",
+					flags: { tormenta20: { onuse: isOnUse, durationScene: temp } },
+					"duration.rounds": (type === "temporary" || temp) ? 1 : undefined,
+					"duration.seconds": undefined,
+					disabled: ["inactive","onuse"].includes(type)
+				}], { renderSheet: true });
 			case "create-status":
 				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];
 				if ( !statusEffect ) return false;
 				statusEffect.transfer = false;
 				return owner.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
 			case "edit":
-			return effect.sheet.render(true);
+				return effect.sheet.render(true);
 			case "delete":
-			return effect.delete();
+				return effect.delete();
 			case "toggle":
-			return effect.update({disabled: !effect.disabled});
+				return effect.update({disabled: !effect.disabled});
 		}
 	}
 

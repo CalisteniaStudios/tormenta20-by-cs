@@ -1,23 +1,15 @@
 export default class ActiveEffectConfigT20 extends foundry.applications.sheets.ActiveEffectConfig {
-	/** @override */
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			width: 800,
-			resizable: true,
-		});
-	}
-
 	/*override*/
 	get title() {
-		if (this.object.flags?.tormenta20?.onuse) {
+		if (this.document.flags?.tormenta20?.onuse) {
 			return `Efeito de Uso: ${this.object.sourceName}`;
 		} else {
-			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.object.name}`;
+			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.document.name}`;
 		}
 	}
 	/** @override */
 	get template() {
-		if (this.object.flags?.tormenta20?.onuse) {
+		if (this.document.flags?.tormenta20?.onuse) {
 			return "systems/tormenta20/templates/apps/onuse-effect-config.html";
 		} else {
 			return "systems/tormenta20/templates/apps/active-effect-config.html"
