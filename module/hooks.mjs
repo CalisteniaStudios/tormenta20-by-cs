@@ -45,22 +45,22 @@ export default function () {
 	/* -------------------------------------------- */
 
 	// Render Sidebar
-	Hooks.on("renderSidebarTab", (app, html) => {
-		if (app instanceof Settings) {
-			// Add Butons
-			// Wiki
-			let wiki = $(`<button>Ajuda T20</button>`);
-			html.find("#game-details").append(wiki);
-			wiki.click(() => {
-				window.open("https://vizael.gitlab.io/tormenta20-fvtt/");
-			});
-			// JamboEditora
-			let jambo = $(`<button>Jambô Editora</button>`);
-			html.find("#game-details").append(jambo);
-			jambo.click(() => {
-				window.open("https://jamboeditora.com.br/");
-			});
-		}
+	Hooks.on("renderSettings", (app, html) => {
+		const wiki = document.createElement("button");
+		wiki.textContent = "Ajuda T20";
+		const jambo = document.createElement("button");
+		jambo.textContent = "Jambô Editora";
+		const info = html.querySelector(".info .modules");
+
+		info.insertAdjacentElement("afterend", wiki);
+		wiki.insertAdjacentElement("afterend", jambo);
+
+		wiki.addEventListener("click", () => {
+			window.open("https://vizael.gitlab.io/tormenta20-fvtt/");
+		});
+		jambo.addEventListener("click", () => {
+			window.open("https://jamboeditora.com.br/");
+		});
 	});
 
 	/* Chat Hooks */

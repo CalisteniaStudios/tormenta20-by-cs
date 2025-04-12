@@ -157,7 +157,7 @@ Hooks.once("init", async function () {
 	CONFIG.Dice.rolls.RollT20 = RollT20;
 
 	// DATA MODEL
-	
+
 	CONFIG.Actor.dataModels["character"] = tormenta20.data.models.CharacterData;
 	CONFIG.Actor.dataModels["npc"] = tormenta20.data.models.MenaceData;
 	CONFIG.Actor.dataModels["simple"] = tormenta20.data.models.SimpleData;
@@ -224,8 +224,8 @@ Hooks.once("init", async function () {
 /*  Foundry VTT Setup                           */
 /* -------------------------------------------- */
 
-	// localization && sort
-	Hooks.once("i18nInit", () => utils.performPreLocalization(CONFIG.T20));
+// localization && sort
+Hooks.once("i18nInit", () => utils.performPreLocalization(CONFIG.T20));
 
 /* -------------------------------------------- */
 
