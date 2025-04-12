@@ -453,7 +453,7 @@ export default class ActorT20 extends Actor {
 		if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
 		if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
 		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length) parts.push("@resistencia");
-		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length) parts.push(bonuses.atr[pericia.atributo]);
+		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length) parts.push(...bonuses.atr[pericia.atributo]);
 
 		if ( !roll ) {
 			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
