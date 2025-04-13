@@ -104,18 +104,8 @@ export class Tormenta20ActorSheetSettings extends Tormenta20BaseSettings {
 			template : './systems/tormenta20/templates/apps/settings.hbs',
 			submitOnChange: false,
 			submitOnClose: false,
-			defaultSettings: ['forceSheetTemplate', 'disableExperience', 'enableLanguages', 'disableJournal']
+			defaultSettings: [ 'disableExperience', 'enableLanguages', 'disableJournal']
 		})
-	}
-}
-
-
-export class Tormenta20ResourceColorsSettings extends Tormenta20BaseSettings {
-	constructor (object, options = {}) {
-		super(object, options)
-		this.defaultTitle = 'Configurações de Ficha';
-		this.defaultTemplate = './systems/tormenta20/templates/apps/settings.html';
-		this.defaultSettings =  ['forceSheetTemplate', 'disableExperience', 'enableLanguages', 'disableJournal', 'showDamageCards'];
 	}
 }
 

@@ -20,16 +20,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		});
 	}
 
+	layout = "base";
+
 	/** @override */
 	get template() {
-		let layout = game.settings.get("tormenta20", "sheetTemplate");
 		if ( !game.user.isGM && this.actor.limited ) {
 			return "systems/tormenta20/templates/actor/actor-sheet-limited.html";
-		} else if(layout == 'base'){
-			return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
-		} else if(layout == 'tabbed') {
-			return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
 		}
+		return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
 	}
 
 	/* -------------------------------------------- */
@@ -52,7 +50,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const levelConfig = this.actor.getFlag("tormenta20", "lvlconfig");
 		sheetData["autoCalcResources"] = levelConfig ? !levelConfig.manual : true;
 
-		sheetData["layout"] = game.settings.get("tormenta20", "sheetTemplate");
+		sheetData["layout"] = this.layout;
 
 		this.actor.system.attributes.defesa.pda = this.actor.system.attributes.defesa.pda ?? 0;
 
@@ -256,13 +254,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		actorData.poderes = poderes;
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
-		let layout = game.settings.get("tormenta20", "sheetTemplate");
-		if( layout == "tabbed"){
-			actorData.inventario = inventario;
-		} else if( layout == "base"){
+		if( this.layout == "base"){
 			inventario.itens = {label: "Itens", items: items};
-			actorData.inventario = inventario;
 		}
+		actorData.inventario = inventario;
 	}
 
 	/* -------------------------------------------- */

@@ -107,32 +107,6 @@ export const SystemSettings = function() {
 		type: Boolean,
 	});
 
-	/*
-	* Register sheet templates
-	*/
-	game.settings.register("tormenta20", "forceSheetTemplate", {
-		name: game.i18n.localize("T20.SettingForceSheetTemplate"),
-		hint: game.i18n.localize("T20.SettingForceSheetTemplateHint"),
-		scope: "world",
-		config: false,
-		default: false,
-		type: Boolean,
-		requiresReload: true,
-	});
-
-	game.settings.register("tormenta20", "sheetTemplate", {
-		name: game.i18n.localize("T20.SettingSheetTemplate"),
-		hint: game.i18n.localize("T20.SettingSheetTemplateHint"),
-		scope: game.settings.get("tormenta20", "forceSheetTemplate") ? "world" : "user",
-		config: true,
-		default: "base",
-		type: String,
-		choices: {
-			base: game.i18n.localize("T20.SettingSheetTemplateBase"),
-			tabbed: game.i18n.localize("T20.SettingSheetTemplateTabbed"),
-		},
-	});
-
 	/**
 	 * Option to automatic spend mana on ability use
 	 */

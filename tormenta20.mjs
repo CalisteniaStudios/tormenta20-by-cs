@@ -59,6 +59,7 @@ globalThis.tormenta20 = {
 	applications: {
 		AbilityUseDialog,
 		ActorSheetT20Character,
+		ActorSheetT20CharacterTabbed,
 		ActorSheetT20NPC,
 		ActorSheetT20Builder,
 		ItemSheetT20,
