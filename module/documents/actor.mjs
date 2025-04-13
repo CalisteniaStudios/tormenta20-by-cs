@@ -450,20 +450,18 @@ export default class ActorT20 extends Actor {
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = foundry.utils.getProperty(system, "modificadores.pericias") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
-		if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
-		if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
 		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length) parts.push("@resistencia");
+		else if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
+		else if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
 		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length) parts.push(...bonuses.atr[pericia.atributo]);
 
+		const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		if ( !roll ) {
-			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			pericia.value = parseInt(result.replace(" ","")) || 0;
 		} else {
-			const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 			let dice = pericia.parts ? pericia.parts[0] : "1d20";
-			if ( this.type == 'npc' ) return Roll.replaceFormulaData([dice, result].join('+'), rollData).split('+');
-			return Roll.replaceFormulaData([dice, ...parts].join('+'), rollData).split('+');
-			// return [dice, ...parts]; //.concat(parts);
+			const formula = this.type === 'npc' ? [dice, result].join('+') : [dice, ...parts].join('+');
+			return Roll.replaceFormulaData(formula, rollData).split('+');
 		}
 	}
 
