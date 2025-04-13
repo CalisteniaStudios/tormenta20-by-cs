@@ -1254,9 +1254,9 @@ export default class ItemT20 extends Item {
 			const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
 			if ( bonuses.geral.filter(Boolean).length ) parts.push(['@dano','','']);
 			if ( pericia=="luta" && bonuses.cac.filter(Boolean).length ) parts.push(['@danoCAC','','']);
-			if ( pericia=="pont" && bonuses.ad.filter(Boolean).length ) parts.push(['@danoAD','','']);
+			else if ( pericia=="pont" && bonuses.ad.filter(Boolean).length ) parts.push(['@danoAD','','']);
 			if ( this.type=="magia" && bonuses.mag.filter(Boolean).length ) parts.push(['@danoMagico','','']);
-			if ( this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq.filter(Boolean).length ) parts.push(['@danoALQ','','']);
+			else if ( this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq.filter(Boolean).length ) parts.push(['@danoALQ','','']);
 
 			// Call the roll helper utility
 			foundry.utils.mergeObject(rollConfig, options);
