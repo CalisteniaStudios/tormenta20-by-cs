@@ -506,7 +506,7 @@ T20.actorSizes = {
 preLocalize("actorSizes");
 
 T20.tokenSizes = {
-	"min": 1,
+	"min": 0.5,
 	"peq": 1,
 	"med": 1,
 	"gra": 2,

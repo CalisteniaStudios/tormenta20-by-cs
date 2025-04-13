@@ -5,6 +5,7 @@ import { applyOnUseEffects } from "../apps/ability-use.mjs";
 import ChoicesDialog from "../apps/choices-dialog.mjs";
 import { d20Roll, simplifyRollFormula } from '../dice/dice.mjs';
 import { actorMigration } from "./migrations.mjs";
+import TokenDocumentT20 from "./token.mjs";
 
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -156,6 +157,8 @@ export default class ActorT20 extends Actor {
 
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach(item => item.prepareFinalAttributes());
+
+		this.preparePrototypeToken();
 	}
 
 	/* -------------------------------------------- */
@@ -255,6 +258,10 @@ export default class ActorT20 extends Actor {
 		} else if ( this.type == 'npc' ){
 			system.attributes.pv.min = (Math.floor(system.attributes.pv.max/2)*-1);
 		}
+	}
+
+	preparePrototypeToken() {
+		TokenDocumentT20.prepareSize(this.prototypeToken);
 	}
 
 	/**
@@ -829,16 +836,6 @@ export default class ActorT20 extends Actor {
 	async _preUpdate(changed, options, user) {
 		// console.log(foundry.utils.flattenObject(changed));
 		await super._preUpdate(changed, options, user);
-		// Apply changes in Actor size to Token width/height
-		const newSize = foundry.utils.getProperty(changed, "system.tracos.tamanho");
-		if (newSize && (newSize !== foundry.utils.getProperty(this.system, "tracos.tamanho"))) {
-			let size = CONFIG.T20.tokenSizes[newSize];
-			if (!foundry.utils.hasProperty(changed, "prototypeToken.width")) {
-				changed.prototypeToken = changed.prototypeToken || {};
-				changed.prototypeToken.height = size;
-				changed.prototypeToken.width = size;
-			}
-		}
 		if ("pv" in (this.system.attributes || {})) {
 			foundry.utils.setProperty(options, "tormenta20.pv", { ...this.system.attributes.pv });
 		}
