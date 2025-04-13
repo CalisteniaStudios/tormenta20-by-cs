@@ -268,24 +268,4 @@ export const SystemSettings = function() {
 		default: false,
 		type: Boolean,
 	});
-
-	// V12 INCOMPATIBLE SETTINGS
-	if ( game.version.startsWith('12.') ) return;
-	/**
-	 * Register diagonal movement rule setting
-	 */
-	game.settings.register("tormenta20", "diagonalMovement", {
-		name: game.i18n.localize("T20.SettingDiagonalMovement"),
-		hint: game.i18n.localize("T20.SettingDiagonalMovementHint"),
-		scope: "world",
-		config: true,
-		default: "MANHATTAN",
-		type: String,
-		choices: {
-		"MANHATTAN": game.i18n.localize("T20.SettingDiagonalMovementMANHATTAN"),
-		"EQUIDISTANT": game.i18n.localize("T20.SettingDiagonalMovementEQUIDISTANT"),
-		"PATHFINDER": game.i18n.localize("T20.SettingDiagonalMovementPATHFINDER"),
-		},
-		onChange: rule => canvas.grid.diagonalRule = rule
-	});
 };

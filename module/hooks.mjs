@@ -1,7 +1,6 @@
 import { endSegment } from "./apps/time-segment.mjs";
 import * as chat from "./chat.mjs";
 import * as macros from "./macros.mjs";
-import { measureDistances } from "./pixi/canvas.mjs";
 
 export default function () {
 
@@ -105,18 +104,4 @@ export default function () {
 	Hooks.on("closeCompendiumT20", (compendium, html) => {
 		compendium.collection.apps = [ new Compendium(compendium.collection) ];
 	});
-
-
-	/* -------------------------------------------- */
-	/*  Canvas Initialization                       */
-	/* -------------------------------------------- */
-
-	Hooks.on("canvasInit", function () {
-		// Extend Diagonal Measurement
-		if ( game.version.startsWith('11.') ) {
-			canvas.grid.diagonalRule = game.settings.get("tormenta20", "diagonalMovement");
-			SquareGrid.prototype.measureDistances = measureDistances;
-		}
-	});
-
 }
