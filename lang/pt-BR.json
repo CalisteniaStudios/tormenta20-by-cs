@@ -1124,10 +1124,11 @@
 
   "T20.CharacterSheet": "Ficha de Personagem T20",
   "T20.CharacterSheetTabbed": "Ficha de Personagem T20 - Abas",
-  "T20.NPCSheet": "Ficha de NPC",
+  "T20.SimpleActorSheet": "Ficha de Personagem do Mestre",
+  "T20.NPCSheet": "Ficha de Ameaça",
   "T20.ItemSheet": "Ficha de Item",
   "T20.ActiveEffectSheet": "Ficha de Efeito Ativo",
-  "T20.CharacterBuilderSheet": "Criação de NPC",
+  "T20.CharacterBuilderSheet": "Criação de Ameaça",
   "T20.SettingSheetSettings": "Configurações das Fichas",
 
   "T20.ActorTraitSelection": "Seleção de Características",
@@ -1188,6 +1189,10 @@
 
   "T20.SettingOverrideMeasuredTemplatesConfig": "Área de Efeito Tormenta20",
   "T20.SettingOverrideMeasuredTemplatesConfigHint": "Altera a forma de calcular Área de Efeito para corresponder às regras do sistema.",
+
+  "T20.SettingOptionalRulesSettings": "Regras Opcionais",
+  "T20.SettingprogressiveDefense": "Defesa Progressiva",
+  "T20.SettingprogressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",
 
 
   "T20.S90": "/* --------------- Status --------------- */",

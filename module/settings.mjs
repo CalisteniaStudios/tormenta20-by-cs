@@ -1,4 +1,4 @@
-import { Tormenta20ActorSheetSettings } from "./apps/form-apps.mjs";
+import { Tormenta20ActorSheetSettings, Tormenta20OptionalRulesSettings } from "./apps/form-apps.mjs";
 /*Classe para configurar opções do sistema*/
 export const SystemSettings = function() {
 	/**
@@ -14,9 +14,17 @@ export const SystemSettings = function() {
 
 	game.settings.registerMenu("tormenta20", "sheetSettings", {
 		name: game.i18n.localize("T20.SettingSheetSettings"),
-		label: game.i18n.localize("T20.SettingSheetSettingsHint"),
+		label: game.i18n.localize("T20.SettingSheetSettings"),
 		icon: "fas fa-scroll",
 		type: Tormenta20ActorSheetSettings,
+		restricted: true,
+	});
+
+	game.settings.registerMenu("tormenta20", "optionalRulesSettings", {
+		name: game.i18n.localize("T20.SettingOptionalRulesSettings"),
+		label: game.i18n.localize("T20.SettingOptionalRulesSettings"),
+		icon: "fas fa-cog",
+		type: Tormenta20OptionalRulesSettings,
 		restricted: true,
 	});
 
@@ -267,5 +275,15 @@ export const SystemSettings = function() {
 		config: true,
 		default: false,
 		type: Boolean,
+	});
+
+	game.settings.register("tormenta20", "progressiveDefense", {
+		name: game.i18n.localize("T20.SettingprogressiveDefense"),
+		hint: game.i18n.localize("T20.SettingprogressiveDefenseHint"),
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean,
+		requiresReload: true,
 	});
 };

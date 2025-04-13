@@ -118,3 +118,15 @@ export class Tormenta20ResourceColorsSettings extends Tormenta20BaseSettings {
 		this.defaultSettings =  ['forceSheetTemplate', 'disableExperience', 'enableLanguages', 'disableJournal', 'showDamageCards'];
 	}
 }
+
+export class Tormenta20OptionalRulesSettings extends Tormenta20BaseSettings {
+	static get defaultOptions () {
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			title : game.i18n.localize("T20.SettingSheetSettings"),
+			template : './systems/tormenta20/templates/apps/settings.hbs',
+			submitOnChange: false,
+			submitOnClose: false,
+			defaultSettings: ['progressiveDefense']
+		})
+	}
+}
