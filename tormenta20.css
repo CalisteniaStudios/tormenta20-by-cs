@@ -1200,6 +1200,9 @@
 .tormenta20.sheet.actor .item-list .item:first-child {
   font-weight: bold;
 }
+.tormenta20.sheet.actor .item-list .item:not(.item-header):last-child {
+  padding-bottom: 2px;
+}
 .tormenta20.sheet.actor .item-list .item .item-name {
   cursor: pointer;
 }
