@@ -50,6 +50,7 @@ import * as utils from "./module/utils.mjs";
 
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.mjs";
 import ActorDirectoryTormenta20 from "./module/sidebar/actor-directory.mjs";
+import ChatLogTormenta20 from "./module/sidebar/chat-log.mjs";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -141,6 +142,7 @@ Hooks.once("init", async function () {
 
 	// Patch Core Functions
 	CONFIG.ui.actors = ActorDirectoryTormenta20;
+	CONFIG.ui.chat = ChatLogTormenta20;
 	// CONFIG.ui.combat = CombatTrackerT20;
 
 	CONFIG.Combat.initiative = {

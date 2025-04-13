@@ -4,55 +4,6 @@
 	/* -------------------------------------------- */
 
 /**
- * This function is used to hook into the Chat Log context menu to add additional options to each message
- * These options make it easy to conveniently apply damage to controlled tokens based on the value of a Roll
- *
- * @param {HTMLElement} html The Chat Message being rendered
- * @param {Array} options The Array of Context Menu options
- *
- * @return {Array} The extended options Array including new context choices
- */
-export const  addChatMessageContextOptions = function (html, options) {
-	let canApply = li => {
-		const message = game.messages.get(li.data("messageId"));
-		return ( li.find(".roll--dano").length || message?.isRoll ) && message?.isContentVisible && canvas.tokens?.controlled.length;
-	};
-	let canApplyMana = li => {
-		const message = game.messages.get(li.data("messageId"));
-		return ( li.find(".mana-cost, .chat-spend-mana").length || message?.isRoll ) && message?.isContentVisible && canvas.tokens?.controlled.length;
-	}
-
-	options.push({
-		name: 'Aplicar Dano',
-		icon: '<i class="fas fa-user-minus" style="color: #CC0000;"></i>',
-		value: 1,
-		condition: canApply,
-		callback: li => applyChatCardDamage(li, 1)
-	}, {
-		name: 'Aplicar Dano em Dobro',
-		icon: '<i style="color: #CC0000;">2x </i>',
-		condition: canApply,
-		callback: li => applyChatCardDamage(li, 2)
-	}, {
-		name: 'Aplicar Dano pela Metade',
-		icon: '<i style="color: #CC0000;">½ </i>',
-		condition: canApply,
-		callback: li => applyChatCardDamage(li, 0.5)
-	}, {
-		name: 'Aplicar Cura',
-		icon: '<i class="fas fa-user-plus" style="color: #00AA00;"></i>',
-		condition: canApply,
-		callback: li => applyChatCardDamage(li, -1, true)
-	}, {
-		name: 'Gastar Mana',
-		icon: '<i class="fas fa-star" style="color: #33A0FF;"></i>',
-		condition: canApplyMana,
-		callback: li => applyChatManaSpend(li, 0)
-	});
-	return options;
-};
-
-/**
  * Render Action Buttons Over chat-card
  */
 export const ApplyButtons = function (app, html, data){

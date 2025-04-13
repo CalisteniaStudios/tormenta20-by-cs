@@ -90,9 +90,6 @@ export default function () {
 		html.querySelectorAll('.chat-spend-mana').forEach((el) => el.addEventListener('click', chat._onChatSpendMana.bind(this)));
 	});
 
-	/* Add hook for the context menu over the rolled damage */
-	Hooks.on("getChatLogEntryContext", chat.addChatMessageContextOptions);
-
 	/* Add hook for End of Scene */
 	Hooks.on("renderSidebarTab", async (app, html) => endSegment(app,html)) ;
 
