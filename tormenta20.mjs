@@ -49,7 +49,7 @@ import "./module/modules.mjs";
 import * as utils from "./module/utils.mjs";
 
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.mjs";
-import ActorDirectoryTormenta20 from "./module/sidebar/actor-directory.js";
+import ActorDirectoryTormenta20 from "./module/sidebar/actor-directory.mjs";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
