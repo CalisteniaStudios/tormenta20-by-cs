@@ -76,7 +76,9 @@ export default function () {
 		// Optionally collapse the content
 		const cardContent = html.querySelector(".card-content");
 		const cardDamageDetails = html.querySelector(".card-damage-details");
-		if (cardContent && game.settings.get("tormenta20", "autoCollapseItemCards")) cardContent.style.display = "none";
+		if (cardContent && (!cardContent.textContent.trim() || game.settings.get("tormenta20", "autoCollapseItemCards"))) {
+			cardContent.style.display = "none";
+		}
 
 		if (cardDamageDetails) cardDamageDetails.style.display = "none";
 

@@ -257,7 +257,7 @@ export const hideDieFlavor = function (ChatMessage, html, data){
 		event.preventDefault();
 		const chatCard = event.currentTarget.closest(".chat-message");
 		const content = chatCard.querySelector(".card-content");
-		content.style.display = content.style.display === "none" ? "block" : "none";
+		if (content.textContent.trim()) content.style.display = content.style.display === "none" ? "block" : "none";
 	}
 
 	export function _onChatCardToggleDamage(event) {
