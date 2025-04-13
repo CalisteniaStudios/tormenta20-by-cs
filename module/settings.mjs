@@ -56,7 +56,7 @@ export const SystemSettings = function() {
 		default: "limited",
 		type: String,
 		choices: {
-			default: "Default",
+			default: "Padrão",
 			limited: "Limitada",
 		},
 		requiresReload: true,
