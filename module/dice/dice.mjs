@@ -79,15 +79,14 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 		if (!data["bonus"]) parts.pop();
 		// Create the damage roll
 		let roll;
-		parts = parts.reduce(function(acc, o){
-			let p = String(o[0]).split('+');
-			acc = acc.concat( p.map( e => [e, o[1]]) );
-			return  acc;
-		}, []);
-		parts = parts.map( function(e) {
-			if(e[0] && e[1]) return e[0]+`[${e[1]}]`;
-			else return e[0];
-		});
+		parts = parts
+			.flatMap(([formula, label]) => {
+				const resolvedLabel = T20.damageTypes[label] || label;
+				return String(formula)
+					.split('+')
+					.map(part => [part.trim(), resolvedLabel]);
+			})
+			.map(([part, label]) => part && label ? `${part}[${label}]` : part);
 		roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);
 		roll.options.type = 'damage';
 		roll.options.rd = rd;
