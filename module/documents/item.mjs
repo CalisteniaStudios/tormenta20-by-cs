@@ -1100,7 +1100,7 @@ export default class ItemT20 extends Item {
 
 
 		for( let [key, roll] of Object.entries(this.system.rolled) ) {
-			roll.tipo = (roll.options.type == 'damage' || roll.dice[0]?.faces !== 20) ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
+			roll.tipo = (roll.options.type == 'damage' || roll.dice[0]?.faces !== 20) ? "roll--dano" : "";
 			roll.options.title = key || "";
 			await roll.render().then((r)=> {templateData.rolls.push({template: r, roll: roll})});
 		}

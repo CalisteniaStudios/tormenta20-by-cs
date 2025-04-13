@@ -12,6 +12,7 @@ import { preloadHandlebarsTemplates } from "./module/templates.mjs";
 // Import Documents
 import ActiveEffectT20 from "./module/documents/active-effects.mjs";
 import ActorT20 from "./module/documents/actor.mjs";
+import ChatMessageTormenta20 from "./module/documents/chat-message.mjs";
 import ItemT20 from "./module/documents/item.mjs";
 import Tormenta20MeasuredTemplateDocument from "./module/documents/measured-template.mjs";
 import RollT20 from "./module/documents/roll.mjs";
@@ -146,6 +147,7 @@ Hooks.once("init", async function () {
 	CONFIG.ui.chat = ChatLogTormenta20;
 	// CONFIG.ui.combat = CombatTrackerT20;
 
+	CONFIG.ChatMessage.documentClass = ChatMessageTormenta20;
 	CONFIG.Combat.initiative = {
 		formula: "1d20 + @pericias.inic.value",
 		decimals: 2,

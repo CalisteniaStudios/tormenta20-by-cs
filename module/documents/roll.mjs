@@ -1,8 +1,8 @@
 // import { T20 } from "../config.mjs";
 
 export default class RollT20 extends Roll {
-	
-	ROLLTYPES = {
+
+	static ROLLTYPES = {
 		FORMULA: 1,
 		ATTACK: 2,
 		DAMAGE: 3,
@@ -12,7 +12,7 @@ export default class RollT20 extends Roll {
 	// 	0: {type: "", value:"0", conditions: {flavor:"", origin:""}},
 	// }
 
-	SORTMODIFIERS = {
+	static SORTMODIFIERS = {
 		addTerm: 0,
 		upgradeDie: 1,
 		modifyDieNumber: 2,
@@ -23,12 +23,18 @@ export default class RollT20 extends Roll {
 
 	constructor(formula, data, options) {
 		super(formula, data, options);
-		if ( !options.type ) options.type = this.ROLLTYPES.FORMULA;
+		if ( !options.type ) options.type = RollT20.ROLLTYPES.FORMULA;
 		if ( !options.modifiers ) options.modifiers = [];
-		if ( options.type == this.ROLLTYPES.FORMULA ) this.configureFormulaModifiers();
-		if ( options.type == this.ROLLTYPES.ATTACK ) this.configureAttackModifiers();
-		if ( options.type == this.ROLLTYPES.DAMAGE ) this.configureDamageModifiers();
+		if ( options.type == RollT20.ROLLTYPES.FORMULA ) this.configureFormulaModifiers();
+		if ( options.type == RollT20.ROLLTYPES.ATTACK ) this.configureAttackModifiers();
+		if ( options.type == RollT20.ROLLTYPES.DAMAGE ) this.configureDamageModifiers();
 		// console.log(this);
+	}
+
+	static fromRoll(roll) {
+		const newRoll = new this(roll.formula, roll.data, roll.options);
+		Object.assign(newRoll, roll);
+		return newRoll;
 	}
 
 	/* -------------------------------------------- */
@@ -54,7 +60,7 @@ export default class RollT20 extends Roll {
 	 * @private
 	 */
 	configureDamageModifiers() {
-		const modifiers = this.options.modifiers.sort((a,b) => this.SORTMODIFIERS[a.type] - this.SORTMODIFIERS[b.type]);
+		const modifiers = this.options.modifiers.sort((a,b) => RollT20.SORTMODIFIERS[a.type] - RollT20.SORTMODIFIERS[b.type]);
 		for (const mod of modifiers) {
 			mod.value = mod.value.toString();
 			switch (mod.type) {
@@ -100,7 +106,7 @@ export default class RollT20 extends Roll {
 			newTerm
 		);
 	}
-	
+
 	modAddPerDie(mod){
 		mod.value = Roll.replaceFormulaData(mod.value, this.data);
 		mod.value = Roll.safeEval(mod.value);
@@ -120,7 +126,7 @@ export default class RollT20 extends Roll {
 			new foundry.dice.terms.NumericTerm({number: total, options:{flavor: mod.flavor,origin:mod.origin}})
 		);
 	}
-	
+
 	modModifyDieNumber(mod){
 		mod.value = Roll.replaceFormulaData(mod.value, this.data);
 		mod.value = Roll.safeEval(mod.value);
@@ -134,7 +140,7 @@ export default class RollT20 extends Roll {
 			term.number = term.number + mod.value;
 		}
 	}
-	
+
 	modModifyDieFace(mod){
 		mod.value = Roll.replaceFormulaData(mod.value, this.data);
 		mod.value = Roll.safeEval(mod.value);
@@ -148,7 +154,7 @@ export default class RollT20 extends Roll {
 			term.faces = mod.value;
 		}
 	}
-	
+
 	modUpgradeDie(mod){
 		mod.value = Roll.replaceFormulaData(mod.value, this.data);
 		mod.value = Roll.safeEval(mod.value);
@@ -164,7 +170,7 @@ export default class RollT20 extends Roll {
 			[term.number, term.faces] = T20.passosDano[ termIndex + mod.value ].split('d');
 		}
 	}
-	
+
 	modDieModifier(mod){
 		if( !Die.MODIFIERS[mod.value] ) return;
 		const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(',') : false;

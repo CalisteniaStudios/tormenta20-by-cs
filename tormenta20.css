@@ -257,9 +257,6 @@
   /*  Trait Lists                              */
   /* ----------------------------------------- */
 }
-.tormenta20.sheet .window-header {
-  align-items: center;
-}
 .tormenta20.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
@@ -831,6 +828,7 @@
 }
 .tormenta20.sheet.actor .sheet-header .header-exp {
   flex: 0 0 auto;
+  max-width: 150px;
   margin-right: 3px;
   height: 60px;
   justify-content: flex-end;
@@ -1849,7 +1847,7 @@
   border: 1px solid #6e0000;
 }
 .dice-roll .dice-total.critical {
-  color: green;
+  color: #006c00;
 }
 .dice-roll .dice-total.fumble {
   color: red;
@@ -1954,23 +1952,20 @@
   display: inline-block;
   white-space: nowrap;
   padding: 0;
-  width: 28px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }
 .tormenta20.item-card .roll .dice-btn.right {
-  right: 0px;
+  right: 1px;
 }
 .tormenta20.item-card .roll .dice-btn.left {
-  left: 0px;
+  left: 1px;
 }
 .tormenta20.item-card .roll .dice-btn.formula {
   top: 0px;
 }
 .tormenta20.item-card .roll .dice-btn.result {
-  bottom: 0px;
-}
-.tormenta20.item-card .roll.critico .dice-total {
-  color: #006c00;
+  bottom: 1px;
 }
 .tormenta20.item-card .card-item-effects a {
   border: 1px solid #202124;
