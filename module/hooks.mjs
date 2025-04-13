@@ -56,15 +56,14 @@ export default function () {
 
 		const jambo = document.createElement("a");
 		jambo.classList.add("button");
+		jambo.href = "https://jamboeditora.com.br/";
+		jambo.rel = "nofollow noopener";
+		jambo.target = "_blank";
 		jambo.textContent = "Jambô Editora";
-		jambo.addEventListener("click", () => {
-			window.open("https://jamboeditora.com.br/");
-		});
 
 		documentation.insertAdjacentElement("afterend", section);
 		section.appendChild(divider);
 		section.appendChild(jambo);
-
 	});
 
 	/* Chat Hooks */
