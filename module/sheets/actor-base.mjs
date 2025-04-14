@@ -402,12 +402,14 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		// Prepare an array of available movement speeds
 		let u = movement.unit;
 		let speeds = {};
-		if(movement.walk) speeds.walk = `${movement.walk}${u} (${Math.floor(movement.walk/1.5)}q)`;
-		if(movement.burrow) speeds.burrow = `Escavar ${movement.burrow}${u} (${Math.floor(movement.burrow/1.5)}q)`;
-		if(movement.climb) speeds.climb = `Escalar ${movement.climb}${u} (${Math.floor(movement.climb/1.5)}q)`;
-		if(movement.fly) speeds.fly = `Voo ${movement.fly}${u} (${Math.floor(movement.fly/1.5)}q)`;
-		if(movement.hover) speeds.fly += " (Flutuando)";
-		if(movement.swim) speeds.swim = `Natação ${movement.swim}${u} (${Math.floor(movement.swim/1.5)}q)`;
+		if(movement.walk > 0) speeds.walk = `${movement.walk}${u} (${Math.floor(movement.walk/1.5)}q)`;
+		if(movement.burrow > 0) speeds.burrow = `Escavar ${movement.burrow}${u} (${Math.floor(movement.burrow/1.5)}q)`;
+		if(movement.climb > 0) speeds.climb = `Escalar ${movement.climb}${u} (${Math.floor(movement.climb/1.5)}q)`;
+		if(movement.fly > 0) {
+			speeds.fly = `Voo ${movement.fly}${u} (${Math.floor(movement.fly/1.5)}q)`;
+			if(movement.hover) speeds.fly += " (Flutuando)";
+		}
+		if(movement.swim > 0) speeds.swim = `Natação ${movement.swim}${u} (${Math.floor(movement.swim/1.5)}q)`;
 		return speeds;
 	}
 
