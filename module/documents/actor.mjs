@@ -16,6 +16,9 @@ export default class ActorT20 extends Actor {
 		if (itemData.type === "npc") {
 			img = "systems/tormenta20/icons/svg/orc-head.svg";
 		}
+		if (itemData.type === "simple") {
+			img = "systems/tormenta20/icons/svg/portrait.svg";
+		}
 		return { img, texture: { src: img } };
 	}
 
