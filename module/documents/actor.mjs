@@ -206,8 +206,6 @@ export default class ActorT20 extends Actor {
 			return;
 		}
 
-		const nivel = system.attributes.nivel?.value || 0;
-
 		// Loop through ability and add modifiers
 		for (let [key, ability] of Object.entries(system.atributos)) {
 			ability.name = CONFIG.T20.atributos[key];
@@ -240,6 +238,8 @@ export default class ActorT20 extends Actor {
 				this._prepareSkills(key, pericia);
 			}
 		}
+
+		this._prepareMovement();
 
 		// BASE CD
 		if ( this.type == 'npc' ){
@@ -390,10 +390,10 @@ export default class ActorT20 extends Actor {
 		let parts = this.defenseFormula;
 		let pda = 0;
 
-		const items = this.items.filter( i => i.type == 'equipamento' && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
-		const armor = items.find( i => i.type == 'equipamento' && ['leve','pesada'].includes(i.system.tipo) && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
-		const shield = items.find( i => i.type == 'equipamento' && i.system.tipo == 'escudo' && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
-		const accessories = items.filter( i => i.type == 'equipamento' && !['escudo','leve','pesada'].includes(i.system.tipo) && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const items = this.items.filter( i => i.type == 'equipamento' && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado) );
+		const armor = items.find( i => ['leve','pesada'].includes(i.system.tipo) );
+		const shield = items.find( i => i.type == 'equipamento' && i.system.tipo == 'escudo' );
+		const accessories = items.filter( i => !['escudo','leve','pesada'].includes(i.system.tipo) );
 
 		//
 		let accDef = accessories.map( m => m.system.armadura.value ).reduce((sum, v) => sum + v, 0);
@@ -423,6 +423,22 @@ export default class ActorT20 extends Actor {
 
 		system.attributes.defesa.value = parseInt(result);
 		system.attributes.defesa.pda += -pda;
+	}
+
+	/* -------------------------------------------- */
+
+	_prepareMovement() {
+		const system = this.system;
+		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
+		const items = this.items.filter( i => i.type == 'equipamento' && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado) );
+		const armor = items.find( i => i.system.tipo === 'pesada' );
+		if (armor) {
+			for (let [key, value] of Object.entries(system.attributes.movement)) {
+				if (Number.isNumeric(system.attributes.movement[key])) {
+					system.attributes.movement[key] = value - 3;
+				}
+			}
+		}
 	}
 
 	/* -------------------------------------------- */
