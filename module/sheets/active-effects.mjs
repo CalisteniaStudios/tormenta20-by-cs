@@ -2,7 +2,7 @@ export default class ActiveEffectConfigT20 extends foundry.applications.sheets.A
 	/*override*/
 	get title() {
 		if (this.document.flags?.tormenta20?.onuse) {
-			return `Efeito de Uso: ${this.object.sourceName}`;
+			return `Efeito de Uso: ${this.document.name}`;
 		} else {
 			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.document.name}`;
 		}
