@@ -169,4 +169,12 @@ export function registerHandlebarsHelpers() {
 			});
 		return classes.join(", ")
 	});
+
+	/**
+	 * @param {string} string
+	 * @returns {string}
+	 */
+	Handlebars.registerHelper("t20-rollFlavor", function (label) {
+		return CONFIG.T20.damageTypes[label] ?? label;
+	});
 }

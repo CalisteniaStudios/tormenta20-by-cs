@@ -77,19 +77,15 @@ export async function damageRoll({parts, actor, data={}, event={}, critical=fals
 			messageOptions.rollMode = form.rollMode.value;
 		}
 		if (!data["bonus"]) parts.pop();
-		// Create the damage roll
-		let roll;
 		parts = parts
-			.flatMap(([formula, label]) => {
-				const resolvedLabel = T20.damageTypes[label] || label;
-				return String(formula)
-					.split('+')
-					.map(part => [part.trim(), resolvedLabel]);
+			.flatMap(([formula, key]) => String(formula).split('+').map(part => [part.trim(), key]))
+			.map(([formula, key]) => {
+				const label = formula && key ? `${formula}[${key}]` : formula;
+				return label.toString().replace(/^\+|\s/g,"");
 			})
-			.map(([part, label]) => part && label ? `${part}[${label}]` : part);
-		roll = new Roll(parts.map(p=> p.toString().replace(/^\+|\s/g,"")).filterJoin("+"), data);
-		roll.options.type = 'damage';
-		roll.options.rd = rd;
+			.filterJoin("+");
+		// Create the damage roll
+		const roll = new Roll(parts, data, { type: "damage", rd });
 
 		// Modify the damage formula for critical hits
 		if ( crit === true ) {

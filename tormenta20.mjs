@@ -155,6 +155,7 @@ Hooks.once("init", async function () {
 	Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
 	// Register Roll Extensions
+	Roll.TOOLTIP_TEMPLATE = "systems/tormenta20/templates/chat/roll-breakdown.hbs";
 	CONFIG.Dice.rolls.D20Roll = dice.d20Roll;
 	CONFIG.Dice.rolls.DamageRoll = dice.damageRoll;
 	CONFIG.Dice.rolls.RollT20 = RollT20;
