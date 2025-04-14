@@ -611,7 +611,7 @@ export default class ActorT20 extends Actor {
 
 		let content = {
 			item: {
-				name: "Descanso",
+				name: game.i18n.localize("T20.Rest"),
 				img: "icons/svg/regen.svg"
 			},
 			system: {

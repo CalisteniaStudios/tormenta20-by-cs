@@ -51,7 +51,7 @@ export default class RestConfigDialog extends Dialog {
 			descricao += "<p>" + msg.join('<br>') + "</p>";
 			let content = {
 				item: {
-					name: "Descanso",
+					name: game.i18n.localize("T20.Rest"),
 					img: "icons/svg/regen.svg"
 				},
 				system: {
