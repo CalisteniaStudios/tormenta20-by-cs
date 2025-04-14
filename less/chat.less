@@ -141,11 +141,6 @@
     .message-metadata * + * {
       margin: 0px 1px;
     }
-
-    .tormenta20.item-card .roll .dice-btn {
-      display: inline-block;
-      font-size: initial;
-    }
   }
 
   .message-content.damage-card {
@@ -213,11 +208,18 @@
   .roll {
     position: relative;
 
+    &:not(:hover) {
+      .dice-btn {
+        visibility: hidden;
+      }
+    }
+
     .dice-btn {
-      display: none;
+      display: inline-block;
       z-index: 2;
       position: absolute;
       max-height: 26px;
+      font-size: initial;
 
       button {
         border: 1px solid #782e22;
