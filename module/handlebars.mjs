@@ -157,7 +157,7 @@ export function registerHandlebarsHelpers() {
 	 * @param {object} items
 	 * @returns {string}
 	 */
-	Handlebars.registerHelper("t20classes", function (items) {
+	Handlebars.registerHelper("t20-classes", function (items) {
 		const classes = items.filter((i) => i.type === "classe")
 			.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0))
 			.map(function(i){
