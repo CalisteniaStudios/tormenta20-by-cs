@@ -11,7 +11,42 @@
   "authors": [{"name": "Vizael"}],
   "esmodules": ["tormenta20.mjs"],
   "styles": ["tormenta20.css"],
-  "scripts": [],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["detalhes.biography.value", "detalhes.biography.public", "detalhes.diario.value", "detalhes.diario1.value", "detalhes.diario2.value", "detalhes.diario3.value", "detalhes.diario4.value", "detalhes.diario5.value"]
+      },
+      "npc": {
+        "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
+      },
+      "simple": {
+        "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
+      }
+    },
+    "Item": {
+      "arma": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "equipamento": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "classe": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "consumivel": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "magia": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "poder": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "tesouro": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      }
+    }
+  },
   "packs": [
     {
       "name": "classes",
