@@ -32,7 +32,7 @@ class MappingField extends fields.ObjectField {
 		return foundry.utils.mergeObject(super._defaults, {
 			initialKeys: null,
 			initialValue: null,
-      initialKeysOnly: false
+      		initialKeysOnly: false
 		});
 	}
 
@@ -40,7 +40,10 @@ class MappingField extends fields.ObjectField {
 
 	/** @inheritdoc */
 	_cleanType(value, options) {
-		Object.entries(value).forEach(([k, v]) => value[k] = this.model.clean(v, options));
+		Object.entries(value).forEach(([k, v]) => {
+			if ( k.startsWith("-=") ) return;
+			value[k] = this.model.clean(v, options);
+		});
 		return value;
 	}
 
@@ -89,6 +92,7 @@ class MappingField extends fields.ObjectField {
 	_validateValues(value, options) {
 		const errors = {};
 		for ( const [k, v] of Object.entries(value) ) {
+			if ( k.startsWith("-=") ) continue;
 			const error = this.model.validate(v, options);
 			if ( error ) errors[k] = error;
 		}
@@ -168,7 +172,7 @@ class SkillData extends foundry.abstract.DataModel {
 			// order: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 		}
 	};
-	
+
 	static migrateData(data) {
 		if ( data.bonus?.length > 0 ) data.bonus = [];
 		if ( data.condi != 0 ) data.condi = 0;
@@ -262,7 +266,7 @@ const AbilitiesSchema = () => {
 			bonus: new fields.NumberField({ required: true, nullable:false, initial:0}),
 		});
 	}
-	
+
 	let schema = {};
 	Object.keys(T20.atributos).forEach( abl => schema[abl] = getSchema());
 	return schema;
@@ -279,7 +283,7 @@ const ResistanceSchema = () => {
 			vulnerabilidade: new fields.BooleanField({ required: true, nullable:false, initial: false }),
 		});
 	}
-	
+
 	let schema = {};
 	Object.keys(T20.damageTypes).forEach( dmg => schema[dmg] = getSchema());
 	return schema;
@@ -364,7 +368,7 @@ function getActivationItemData() {
 			value: new fields.NumberField({ initial:0 }),
 			width: new fields.NumberField({ initial:0 }),
 		}),
-		
+
 		alcance: new fields.StringField({ required: true, nullable:false, initial: '' }),
 		alvo: new fields.StringField({ required: true, nullable:false, initial: '' }),
 		area: new fields.StringField({ required: true, nullable:false, initial: '' }),
@@ -385,15 +389,7 @@ function getSaveItemData() {
 }
 
 export {
-	MappingField,
-	ActorSkillsField,
-	SkillData,
-	AbilitiesSchema,
-	ResistanceSchema,
-	_resourceSchema,
-	getObjectBaseData,
-	getObjectItemData,
-	getActivationItemData,
-	getSaveItemData,
-	RollData,
-}
+	_resourceSchema, AbilitiesSchema, ActorSkillsField, getActivationItemData, getObjectBaseData,
+	getObjectItemData, getSaveItemData, MappingField, ResistanceSchema, RollData, SkillData
+};
+
