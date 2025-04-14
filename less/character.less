@@ -71,12 +71,19 @@
       }
     }
     .summary .char-class {
-      flex: 0.2 1 auto;
+      flex: 0 1 auto;
       white-space: nowrap;
       align-items: center;
       .item-control {
         flex: 0 0 auto;
       }
+
+      &:not(:hover) {
+        .item-delete,  span + a.add-classe{
+          visibility: hidden;
+        }
+      }
+
     }
   }
 

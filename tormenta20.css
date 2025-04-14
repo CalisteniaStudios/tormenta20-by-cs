@@ -283,7 +283,7 @@
   height: calc(100% - 25px);
 }
 .tormenta20.sheet .window-content form.tabbed .sheet-body {
-  height: calc(100% - 210px);
+  height: calc(100% - 195px);
 }
 .tormenta20.sheet .window-content form.npc .sheet-body.primary {
   overflow-y: auto;
@@ -862,6 +862,10 @@
   border: none;
   border-right: 2px groove #eeede0;
   border-radius: 0;
+}
+.tormenta20.sheet.actor .sheet-header .attributes .attribute.health .attribute-footer input,
+.tormenta20.sheet.actor .sheet-header .attributes .attribute.mana .attribute-footer input {
+  width: 50%;
 }
 .tormenta20.sheet.actor .sheet-header .attributes .attribute:last-child {
   border-right: none;
@@ -2067,12 +2071,16 @@
   margin: 0 3px;
 }
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class {
-  flex: 0.2 1 auto;
+  flex: 0 1 auto;
   white-space: nowrap;
   align-items: center;
 }
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class .item-control {
   flex: 0 0 auto;
+}
+.tormenta20.sheet.actor.character .sheet-header .summary .char-class:not(:hover) .item-delete,
+.tormenta20.sheet.actor.character .sheet-header .summary .char-class:not(:hover) span + a.add-classe {
+  visibility: hidden;
 }
 .tormenta20.sheet.actor.character form .ability-scores .ability:not(:last-child) {
   border-right: 2px groove #eeede0;
