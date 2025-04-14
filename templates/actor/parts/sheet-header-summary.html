@@ -5,7 +5,7 @@
 	<li>
 		<input type="text" name="system.detalhes.origem" value="{{system.detalhes.origem}}" placeholder="{{ localize 'T20.Background'}}" />
 	</li>
-	<li class="char-class flexrow">
+	<li class="char-class {{#unless actor.classes.length}}sem-classe{{/unless}} flexrow">
 		{{#if actor.classes.length }}
 		{{#each actor.classes as | class key | }}
 		<span class="item" data-item-id="{{class._id}}">

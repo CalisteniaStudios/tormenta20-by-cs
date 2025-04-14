@@ -1045,10 +1045,6 @@
 .tormenta20.sheet.actor.character .tabbed .attributes.flexrow {
   gap: 4px;
 }
-.tormenta20.sheet.actor.character .tabbed .skills-list {
-  margin: 0;
-  font-size: var(--font-size-14);
-}
 .tormenta20.sheet.actor .counters {
   flex: none;
   padding: 5px 0;
@@ -1193,7 +1189,13 @@
   margin: 5px 0;
   background-color: #c9c7b8;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: var(--font-size-16);
+}
+.tormenta20.sheet.actor .item-list.fav-item {
+  font-size: var(--font-size-14);
+}
+.tormenta20.sheet.actor .item-list.fav-item .item-detail {
+  flex: 0 0 50px;
 }
 .tormenta20.sheet.actor .item-list .item * {
   align-items: center;
@@ -1321,7 +1323,7 @@
 .tormenta20.sheet.actor .skills-list {
   list-style: none;
   margin: 0 5px 0;
-  padding: 3px 0 2px;
+  padding: 0;
   border: 2px groove #eeede0;
   border-radius: 3px;
   font-size: 16px;
@@ -1333,7 +1335,6 @@
 .tormenta20.sheet.actor .skills-list .skill {
   align-items: center;
   height: auto;
-  padding: 0 3px;
 }
 .tormenta20.sheet.actor .skills-list .skill:nth-child(even) {
   background: #c9c7b8;
@@ -1342,23 +1343,28 @@
   text-align: center;
 }
 .tormenta20.sheet.actor .skills-list .skill .item-image {
-  flex: 0 0 32px;
+  flex: 0 0 10px;
+  margin: 0px 3px;
+  font-size: 10px;
 }
 .tormenta20.sheet.actor .skills-list .skill .item-name {
   flex: 1;
 }
+.tormenta20.sheet.actor .skills-list .skill .item-name sup {
+  font-size: 10px;
+}
 .tormenta20.sheet.actor .skills-list .skill .item-total {
-  flex: 0 0 48px;
+  flex: 0 0 34px;
 }
 .tormenta20.sheet.actor .skills-list .skill .item-abl {
   flex: 0 0 60px;
 }
 .tormenta20.sheet.actor .skills-list .skill .item-outros {
-  flex: 0 0 48px;
+  flex: 0 0 34px;
 }
 .tormenta20.sheet.actor .skills-list .skill input {
   border: 2px groove #eeede0;
-  max-height: 23px;
+  max-height: 21px;
 }
 .tormenta20.sheet.actor .inventory-weapons .item-list .item-qty,
 .tormenta20.sheet.actor .inventory-weapons .item-list .item-weight {
@@ -1889,10 +1895,6 @@
 .chat-message:hover .message-metadata * + * {
   margin: 0px 1px;
 }
-.chat-message:hover .tormenta20.item-card .roll .dice-btn {
-  display: inline-block;
-  font-size: initial;
-}
 .chat-message .message-content.damage-card * {
   font-size: 14px;
 }
@@ -1947,11 +1949,15 @@
 .tormenta20.item-card .roll {
   position: relative;
 }
+.tormenta20.item-card .roll:not(:hover) .dice-btn {
+  visibility: hidden;
+}
 .tormenta20.item-card .roll .dice-btn {
-  display: none;
+  display: inline-block;
   z-index: 2;
   position: absolute;
   max-height: 26px;
+  font-size: initial;
 }
 .tormenta20.item-card .roll .dice-btn button {
   border: 1px solid #782e22;
@@ -2022,6 +2028,10 @@
   /*  Journal                                  */
   /* ----------------------------------------- */
 }
+.tormenta20.sheet.actor.character.tabbed {
+  min-width: 730px;
+  min-height: 700px;
+}
 .tormenta20.sheet.actor.character .sheet-header .charlevel {
   flex: 0 0 20px;
   color: #191813;
@@ -2071,9 +2081,11 @@
   margin: 0 3px;
 }
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class {
-  flex: 0 1 auto;
   white-space: nowrap;
   align-items: center;
+}
+.tormenta20.sheet.actor.character .sheet-header .summary .char-class:not(.sem-classe) {
+  flex: 0 1 auto;
 }
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class .item-control {
   flex: 0 0 auto;
@@ -2163,16 +2175,24 @@
   margin: 0;
   top: -6px;
 }
-.tormenta20.sheet.actor.character ul.skills-list li.skill {
-  padding: 1px 3px;
+.tormenta20.sheet.actor.character ul.skills-list {
+  margin: 0;
+  font-size: var(--font-size-14);
+  column-count: 2;
+  column-gap: 0px;
 }
-.tormenta20.sheet.actor.character ul.skills-list li.skill .item-name {
-  flex-direction: row;
-  display: flex;
-  align-items: center;
+.tormenta20.sheet.actor.character ul.skills-list li.skill.item-header {
+  text-align: center;
 }
-.tormenta20.sheet.actor.character ul.skills-list li.skill .item-name .rollable {
-  min-width: 20%;
+.tormenta20.sheet.actor.character ul.skills-list li.skill.item-header .item-name {
+  font-size: 1.25em;
+}
+.tormenta20.sheet.actor.character ul.skills-list li.skill.item-header:not(:hover) a#configure-skills {
+  visibility: hidden;
+}
+.tormenta20.sheet.actor.character ul.skills-list li.skill.create-skill,
+.tormenta20.sheet.actor.character ul.skills-list li.skill.item-header {
+  column-span: all;
 }
 .tormenta20.sheet.actor.character ul.skills-list li.skill .item-name input {
   text-align: left;
@@ -2183,6 +2203,7 @@
 }
 .tormenta20.sheet.actor.character ul.skills-list li.skill-footer {
   text-align: center;
+  column-span: all;
 }
 .tormenta20.sheet.actor.character ul.skills-list li.skill-footer label {
   font-size: 11px;

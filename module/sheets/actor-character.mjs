@@ -78,7 +78,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			html.find('.item-fav').click(ev => {
 				const li = $(ev.currentTarget).parents(".item");
 				const item = this.actor.items.get(li.data("itemId"));
-				item.update({ "flags.favorito": !item.flags.favorito });
+				item.setFlag("tormenta20", "favorito", !item.flags.tormenta20?.favorito);
 			});
 
 			// Prepare spells
@@ -191,7 +191,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				item.abbr = item.name.substr(0,4);
 			}
 
-			let isFav = item.flags.favorito || false;
+			let isFav = item.flags.tormenta20?.favorito || false;
 			if( isFav ) {
 				if( item.type === "arma" ){
 					favoritos.armas.push(item);

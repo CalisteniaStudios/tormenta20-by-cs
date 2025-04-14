@@ -252,8 +252,8 @@ export const SystemSettings = function() {
 	});
 
 	game.settings.register("tormenta20", "progressiveDefense", {
-		name: game.i18n.localize("T20.SettingprogressiveDefense"),
-		hint: game.i18n.localize("T20.SettingprogressiveDefenseHint"),
+		name: game.i18n.localize("T20.SettingProgressiveDefense"),
+		hint: game.i18n.localize("T20.SettingProgressiveDefenseHint"),
 		scope: "world",
 		config: false,
 		default: false,

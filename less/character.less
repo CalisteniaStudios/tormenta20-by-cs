@@ -7,6 +7,11 @@
   min-width: 720px;
   min-height: 680px;
 
+  &.tabbed {
+    min-width: 730px;
+    min-height: 700px;
+  }
+
   /* ----------------------------------------- */
   /*  Sheet Header                             */
   /* ----------------------------------------- */
@@ -71,7 +76,9 @@
       }
     }
     .summary .char-class {
-      flex: 0 1 auto;
+      &:not(.sem-classe) {
+        flex: 0 1 auto;
+      }
       white-space: nowrap;
       align-items: center;
       .item-control {
@@ -218,16 +225,28 @@
   }
 
   ul.skills-list {
+    margin: 0;
+    font-size: var(--font-size-14);
+    column-count: 2;
+    column-gap: 0px;
+
     li {
       &.skill {
-        padding: 1px 3px;
-        .item-name {
-          flex-direction: row;
-          display: flex;
-          align-items: center;
-          .rollable {
-            min-width: 20%;
+        &.item-header {
+          text-align: center;
+
+          .item-name {
+            font-size: 1.25em;
           }
+
+          &:not(:hover) a#configure-skills {
+            visibility: hidden;
+          }
+        }
+        &.create-skill, &.item-header {
+          column-span: all;
+        }
+        .item-name {
           input {
             text-align: left;
           }
@@ -240,6 +259,7 @@
       }
       &.skill-footer {
         text-align: center;
+        column-span: all;
         label {
           font-size:11px;
         }

@@ -37,6 +37,7 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/actor/parts/list-skills.html",
 		"systems/tormenta20/templates/actor/parts/journal.html",
 		"systems/tormenta20/templates/actor/parts/modifiers.html",
+		"systems/tormenta20/templates/actor/parts/actor-item-controls.hbs",
 
 		// Actor Builder Partials
 

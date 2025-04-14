@@ -219,6 +219,7 @@
   "T20.SkillVont": "Vontade",
   "T20.SkillVontAbbr": "Vont",
   "T20.Trained": "Treinado",
+  "T20.Untrained": "Não Treinado",
   "T20.SkillTrainedOnly": "Somente Treinado",
   "T20.SkillTrainBonus": "Bônus de Treinamento",
 
@@ -1187,8 +1188,8 @@
   "T20.SettingOverrideMeasuredTemplatesConfigHint": "Altera a forma de calcular Área de Efeito para corresponder às regras do sistema.",
 
   "T20.SettingOptionalRulesSettings": "Regras Opcionais",
-  "T20.SettingprogressiveDefense": "Defesa Progressiva",
-  "T20.SettingprogressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",
+  "T20.SettingProgressiveDefense": "Defesa Progressiva",
+  "T20.SettingProgressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",
 
 
   "T20.S90": "/* --------------- Status --------------- */",

@@ -33,6 +33,13 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		// };
 	}
 
+	static MODES = {
+		PLAY: 1,
+		EDIT: 2
+	};
+
+	_mode = null;
+
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -114,6 +121,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages"),
 			equipmentSlots: game.settings.get("tormenta20", "equipmentSlots"),
 			gameSystem: game.settings.get("tormenta20", "gameSystem"),
+			editMode: this.isEditable && (this._mode === this.constructor.MODES.EDIT)
 		};
 
 		// Sort Owned Items
@@ -144,6 +152,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				else if( s < "ofi0" ) skl.order = 1;
 				skl.key = s;
 				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
+				const desc = [];
+				if (skl.st) desc.push("ST");
+				if (skl.pda) desc.push("PDA");
+				skl.desc = desc.join(" ");
 			}
 		}
 		sheetData.skills = Object.values(sheetData.skills).sort((a,b)=>{return a.order-b.order});
@@ -211,6 +223,13 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			// html.find('.level-settings').click(this._onLevelSettings.bind(this));
 			html.find("#configure-actor").click(ev => {
 				new ActorSettings(this.actor).render(true);
+			});
+			html.find("#configure-skills").click(async (ev) => {
+				const { MODES } = this.constructor;
+				const toggle = ev.currentTarget;
+				this._mode = (this._mode === MODES.EDIT) ? MODES.PLAY : MODES.EDIT;
+				await this.submit();
+				this.render();
 			});
 
 			// html.find("#ability-calculator").click(ev => {
@@ -865,27 +884,33 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	async _onPericiaCustomCreate(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
+		let label = a.closest("li").querySelector("input").value;
+		if (!label) return;
 		// PRONTO
-		const tipo = a.dataset.tipo;
+		const oficio = a.dataset.tipo === "oficio";
+		const oficioLabel = game.i18n.localize("T20.SkillOfic");
+		if (oficio && !label.includes(oficioLabel)) {
+			label = `${oficioLabel}: ${label}`;
+		}
 		const pericia = {
-			label: tipo == 'oficio'? "Oficio +" : "Nova Pericia",
-			nome: tipo == 'oficio'? "Oficio" : "Nova Pericia",
+			label,
+			name: label,
 			custom: true,
 			value: 0,
-			atributo: tipo == 'oficio'? "int" : "for",
-			st: tipo == 'oficio'? true : false,
+			atributo: oficio ? "int" : "for",
+			st: oficio ? true : false,
 			pda: false,
-			treinado: tipo == 'oficio'? 1 : 0,
+			treinado: oficio ? 1 : 0,
 			treino: 0,
 			outros: 0,
 			mod: 0,
 			bonus: 0
 		};
 
-		let actorData = foundry.utils.deepClone(this.actor);
+		const actorData = foundry.utils.deepClone(this.actor);
 		let pericias = actorData.system.pericias;
 
-		let key = tipo == 'oficio'? "ofi" : "_pc";
+		const key = oficio ? "ofi" : "_pc";
 		const customs = Object.keys(pericias).reduce((t, k) => {
 			if( k.match(new RegExp(`${key}[1-9]`))?.length ) t.push( Number( k.replace(key,"") ) );
 			return t;
@@ -907,15 +932,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			},
 			{}
 		);
-		await this.render();
+		await this.actor.update({ "system.pericias": pericias });
 	}
 
 	async _onPericiaCustomDelete(event) {
 		const id = event.currentTarget.dataset.itemId;
-		let updateData = {};
-		updateData[`system.pericias.-=${id}`] = null;
-		this.actor.update(updateData);
-		await this.render();
+		await this.actor.update({ [`system.pericias.-=${id}`]: null });
 	}
 
 	_onToggleSkillTraining(event){
@@ -959,4 +981,19 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		await Journal._showEntry(entryKey, true);
 	}
 
+    /* -------------------------------------------- */
+    /*  Rendering                                   */
+    /* -------------------------------------------- */
+
+	async _render(force, { MODES, ...options }={}) {
+		if ( (MODES === undefined) && (options.renderContext === "createItem") ) MODES = this.constructor.MODES.EDIT;
+		this._mode = MODES ?? this._mode ?? this.constructor.MODES.PLAY;
+		return super._render(force, options);
+	}
+
+	async close(options) {
+		this.options.token = null;
+		this._mode = null;
+		return super.close(options);
+	}
 }
