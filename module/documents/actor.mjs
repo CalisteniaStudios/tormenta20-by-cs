@@ -679,11 +679,10 @@ export default class ActorT20 extends Actor {
 			data.ndsemtreino = crData.botskill || 0;
 		}
 		// Set class level
-		const classes = this.items.reduce(function (cn, it) {
+		data.nvl = this.items.reduce(function (cn, it) {
 			if (it.type === "classe") cn[it.name.slugify()] = it.system.niveis;
 			return cn;
 		}, {});
-		data.nvl = classes;
 		// Set power type modifiers (ie.: tormenta, distinction)
 		const powers = {};
 		this.items.map((m) => m.system.rolltags).flat()
@@ -691,9 +690,9 @@ export default class ActorT20 extends Actor {
 			.forEach((f) => powers[f] = (powers[f] ?? 0) +1);
 
 		for (let [k, v] of Object.entries(powers)) {
-			powers[`${k}2`] = Math.floor((powers[k] - 1) / 2);
-			powers[`${k}3`] = Math.floor((powers[k] - 1) / 3);
-			powers[`${k}4`] = Math.floor((powers[k] - 1) / 4);
+			powers[`${k}2`] = Math.floor((v - 1) / 2);
+			powers[`${k}3`] = Math.floor((v - 1) / 3);
+			powers[`${k}4`] = Math.floor((v - 1) / 4);
 		}
 		foundry.utils.mergeObject(data, powers);
 

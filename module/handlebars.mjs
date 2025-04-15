@@ -49,7 +49,7 @@ export function registerHandlebarsHelpers() {
 				listEffects = [
 					(meioNivel ? { label: "Metade do Nível", value: meioNivel } : false),
 					(skill.treinado ? { label: "Treino", value: treino } : false),
-					{ label: `${CONFIG.T20.atributos[skill.atributo]}`, value: rollData[skill.atributo] },
+					{ label: CONFIG.T20.atributos[skill.atributo], value: rollData[skill.atributo] },
 					(skill.outros ? { label: "Outros", value: skill.outros } : false),
 					(skill.size ? { label: "Tamanho", value: rollData.tamanho } : false),
 					(skill.condi ? { label: "Condição", value: skill.condi } : false),
@@ -69,13 +69,29 @@ export function registerHandlebarsHelpers() {
 			case "defesa": {
 				// ['base', 'atributo', 'outros', 'condi', 'armadura', 'escudo', 'acessorio' ...efeitos]
 				const defesa = actor.system.attributes.defesa;
+				const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
+				const armaduras = actor.itemTypes.equipamento
+					.filter((i) => ["escudo", "leve", "pesada"].includes(i.system.tipo) && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado))
+					.map((i) => {
+						return {
+							label: i.name,
+							value: i.system.armadura.value,
+							tipo: i.system.tipo
+						}
+					});
+				const armaduraPesada = armaduras.some((i) => i.tipo === "pesada");
+				console.log(armaduras);
+				const meioNivel = game.settings.get("tormenta20", "progressiveDefense") ? rollData.meionivel : 0;
 				listEffects = [
 					{ label: "Base", value: defesa.base },
-					(defesa.atributo ? { label: `Atributo (${defesa.atributo.capitalize()})`, value: rollData[defesa.atributo] } : false),
+					(meioNivel ? { label: "Metade do Nível", value: meioNivel } : false),
+					(defesa.atributo && (defesa.atributo !== "des" || !armaduraPesada)
+						? { label: CONFIG.T20.atributos[defesa.atributo], value: rollData[defesa.atributo] }
+						: false),
+					...armaduras,
 					(defesa.outros ? { label: "Outros", value: defesa.Outros } : false),
-					(rollData.armadura ? { label: "Armadura", value: rollData.armadura } : false),
-					(rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
-					(rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
+					// (rollData.armadura ? { label: "Armadura", value: rollData.armadura } : false),
+					// (rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
 					...(modFields[path]??[])
 				];
 				break;
@@ -96,10 +112,11 @@ export function registerHandlebarsHelpers() {
 				total = item.value;
 				break;
 			} else {
-				listItems += `${item.value >= 0 ? `+${item.value}` : item.value}</span></li>`;
+				listItems += `${item.value >= 0 ? `+${Number(item.value)}` : item.value}</span></li>`;
 				total += Number(item.value);
 			}
 		}
+		if (total >= 0) total = `+${total}`;
 		let tooltip = `
 		<ul class="fieldBonuses">
 			${listItems}
