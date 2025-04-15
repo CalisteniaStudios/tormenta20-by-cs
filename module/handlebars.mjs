@@ -177,4 +177,18 @@ export function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("t20-rollFlavor", function (label) {
 		return CONFIG.T20.damageTypes[label] ?? label;
 	});
+
+	Handlebars.registerHelper("t20-itemDesc", function (item) {
+		const desc = [];
+		const sustentada = item.system.duracao.units === "sust";
+		if (item.labels.ativacao) {
+			if (sustentada) {
+				desc.push(`${item.labels.ativacao} (${game.i18n.localize("T20.TimeSust")})`);
+			}
+			else desc.push(item.labels.ativacao);
+		}
+		else if (sustentada) desc.push(game.i18n.localize("T20.TimeSust"));
+		desc.push(item.labels.custoPM);
+		return desc.filter((d) => d).join(", ");
+	});
 }

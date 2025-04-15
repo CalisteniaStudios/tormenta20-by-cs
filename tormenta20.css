@@ -585,9 +585,6 @@
 .tormenta20 .effects .item .effect-source,
 .tormenta20 .effects .item .effect-duration,
 .tormenta20 .effects .item .effect-controls {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
 .tormenta20 .effects .item .effect-controls {
@@ -1205,14 +1202,32 @@
 .tormenta20.sheet.actor .item-list.fav-feat .item-detail {
   flex: 0 0 50px;
 }
-.tormenta20.sheet.actor .item-list .item * {
-  align-items: center;
-}
 .tormenta20.sheet.actor .item-list .item {
   align-items: center;
 }
+.tormenta20.sheet.actor .item-list .item * {
+  align-items: center;
+}
+.tormenta20.sheet.actor .item-list .item * .item-description {
+  align-items: unset;
+}
+.tormenta20.sheet.actor .item-list .item * .item-description label {
+  font-size: var(--font-size-16);
+}
+.tormenta20.sheet.actor .item-list .item * .item-description .item-tipo {
+  font-size: var(--font-size-12);
+}
+.tormenta20.sheet.actor .item-list .item * .item-description .item-tipo:hover {
+  cursor: default;
+}
 .tormenta20.sheet.actor .item-list .item:first-child {
   font-weight: bold;
+}
+.tormenta20.sheet.actor .item-list .item:not(.item-header):not(:hover) .item-controls {
+  visibility: hidden;
+}
+.tormenta20.sheet.actor .item-list .item:not(.item-header):not(:hover) .item-controls .item-control.item-toggle.active {
+  visibility: visible;
 }
 .tormenta20.sheet.actor .item-list .item:not(.item-header):last-child {
   padding-bottom: 2px;
@@ -1221,8 +1236,8 @@
   cursor: pointer;
 }
 .tormenta20.sheet.actor .item-list .item .item-name .item-image {
-  flex: 0 0 30px;
-  height: 30px;
+  flex: 0 0 34px;
+  height: 34px;
   background-size: cover;
   margin-right: 3px;
 }
@@ -1258,6 +1273,9 @@
 .tormenta20.sheet.actor .item-list .item-header {
   line-height: 24px;
 }
+.tormenta20.sheet.actor .item-list .item-header .item-controls {
+  height: unset;
+}
 .tormenta20.sheet.actor .item-list .item-header .item-controls a.item-create {
   flex: 0 0 100%;
 }
@@ -1289,6 +1307,7 @@
   flex: 0 0 65px;
   font-size: 12px;
   text-align: right;
+  height: 34px;
 }
 .tormenta20.sheet.actor .item-list .item-controls .item-control.item-toggle i {
   opacity: 0.5;

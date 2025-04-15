@@ -1,6 +1,7 @@
 @import "./variables.less";
 
 @actorNameHeight: 60px;
+@itemImageSize: 34px;
 
 .tormenta20.sheet.actor {
 
@@ -625,24 +626,52 @@
         flex: 0 0 50px;
       }
     }
-    .item * {
-      align-items: center;
-    }
     .item {
+      * {
+        align-items: center;
+
+        .item-description {
+          align-items: unset;
+
+          label {
+            font-size: var(--font-size-16);
+          }
+
+          .item-tipo {
+            font-size: var(--font-size-12);
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
 
       &:first-child {
         font-weight: bold;
       }
-      &:not(.item-header):last-child {
-        padding-bottom: 2px;
+      &:not(.item-header){
+
+        &:not(:hover) {
+          .item-controls {
+            visibility: hidden;
+
+            .item-control.item-toggle.active {
+              visibility: visible;
+            }
+          }
+        }
+
+        &:last-child {
+          padding-bottom: 2px;
+        }
       }
 
       align-items: center;
       .item-name {
         cursor: pointer;
         .item-image {
-          flex: 0 0 30px;
-          height: 30px;
+          flex: 0 0 @itemImageSize;
+          height: @itemImageSize;
           background-size: cover;
           margin-right: 3px;
         }
@@ -690,6 +719,9 @@
     // Inventory Header
     .item-header {
       line-height: 24px;
+      .item-controls {
+        height: unset;
+      }
       .item-controls a.item-create {
         flex: 0 0 100%;
       }
@@ -723,6 +755,7 @@
       flex: 0 0 65px;
       font-size: 12px;
       text-align: right;
+      height: @itemImageSize;
 
       .item-control.item-toggle i {
         opacity: 0.5;
