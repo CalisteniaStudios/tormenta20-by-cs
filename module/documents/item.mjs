@@ -640,10 +640,9 @@ export default class ItemT20 extends Item {
 	 * @private
 	 */
 	_onCreateOwnedEquipment(data, actorData, isNPC) {
-		const updates = {};
-		if (foundry.utils.getProperty(data, "system.equipado") === undefined) {
-			updates["system.equipado"] = false;
-		}
+		const updates = {
+			"system.equipado": 0
+		};
 		return updates;
 	}
 
@@ -654,7 +653,9 @@ export default class ItemT20 extends Item {
 	 * @private
 	 */
 	_onCreateOwnedSpell(data, actorData, isNPC) {
-		const updates = {};
+		const updates = {
+			"system.preparada": false
+		};
 		if (isNPC) {
 			try {
 				if (data.system.resistencia) {
@@ -696,7 +697,9 @@ export default class ItemT20 extends Item {
 	 * @private
 	 */
 	_onCreateOwnedWeapon(data, actorData, isNPC) {
-		const updates = {};
+		const updates = {
+			"system.equipado": false
+		};
 
 		if (isNPC) {
 			if (data.system.rolls) {

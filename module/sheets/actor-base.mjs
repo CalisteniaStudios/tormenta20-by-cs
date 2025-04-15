@@ -551,23 +551,22 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/** @override */
 	async _onDropItemCreate(itemData) {
-		if (itemData.type === "magia" && this.actor.system.attributes.conjuracao) {
-			itemData.system.resistencia.atributo = this.actor.system.attributes.conjuracao || "int";
-		}
-		// Stack consumables
-		else if (itemData.type === "consumivel") {
-			const it = this.actor.itemTypes.consumivel.find((c) => c.name === itemData.name);
-			if (it) {
-				const qtd = it.system.qtd + 1;
-				return it.update({ "system.qtd": qtd });
-			}
+		itemData = Array.isArray(itemData) ? itemData : [itemData];
+		const remainingItems = [];
+		for (const item of itemData) {
+			if (item.type === "magia") {
+				item.system.resistencia.atributo = this.actor.system.attributes.conjuracao;
+				remainingItems.push(item);
+			} else if (item.type === "consumivel") { // Stack consumables
+				const it = this.actor.itemTypes.consumivel.find((c) => c.name === itemData.name);
+				if (it) {
+					const qtd = it.system.qtd + 1;
+					await it.update({ "system.qtd": qtd });
+				} else remainingItems.push(item);
+			} else remainingItems.push(item);
 		}
 
-		if (itemData.system) {
-			["equipado", "preparado"].forEach((k) => delete itemData.system[k]);
-		}
-
-		return super._onDropItemCreate(itemData);
+		return super._onDropItemCreate(remainingItems);
 	}
 
 	/* -------------------------------------------- */

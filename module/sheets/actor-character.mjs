@@ -100,40 +100,39 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 	/** @override */
 	async _onDropItemCreate(itemData) {
-		// Increment the number of class levels a character instead of creating a new item
-		if (itemData.type === "classe") {
-			const cls = this.actor.itemTypes.classe.find((c) => c.name === itemData.name);
-			const actorData = this.actor.system;
-			let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
-			if (!lvlconfig) {
-				lvlconfig = {
-					pv: { for: false, des: false, int: false, sab: false, car: false },
-					pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
-					pvBonus: ["0", "0"],
-					pmBonus: ["0", "0"],
-					manual: false
-				};
-				this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
-			}
-			// Novo nivel de classe preexistente
-			if (cls) {
-				let priorLevel = cls.system.niveis ?? 0;
-				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
-				await cls.update({ "system.niveis": next });
-				await this.actor.update({ "system.attributes.nivel.value": this.actor.nivel });
-				return;
-			}
-			// Primeiro Nivel do Personagem
-			else if (!this.actor.itemTypes.classe.length) {
-				itemData.system.inicial = true;
-			}
-			await super._onDropItemCreate(itemData);
-			await this.actor.update({ "system.attributes.nivel.value": this.actor.nivel });
-			return;
+		itemData = Array.isArray(itemData) ? itemData : [itemData];
+		const remainingItems = [];
+		let classChange = false;
+		for (const item of itemData) {
+			if (item.type === "classe") {
+				const cls = this.actor.itemTypes.classe.find((c) => c.name === item.name);
+				const actorData = this.actor.system;
+				let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
+				if (!lvlconfig) {
+					lvlconfig = {
+						pv: { for: false, des: false, int: false, sab: false, car: false },
+						pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
+						pvBonus: ["0", "0"],
+						pmBonus: ["0", "0"],
+						manual: false
+					};
+					this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
+				}
+				// Novo nivel de classe preexistente
+				if (cls) {
+					let priorLevel = cls.system.niveis ?? 0;
+					const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
+					await cls.update({ "system.niveis": next });
+				} else {
+					// Primeiro Nivel do Personagem
+					if (!this.actor.itemTypes.classe.length) item.system.inicial = true;
+					remainingItems.push(item);
+				}
+			} else remainingItems.push(item);
 		}
 
 		// Default drop handling if levels were not added
-		super._onDropItemCreate(itemData);
+		return super._onDropItemCreate(remainingItems);
 	}
 
 	/* -------------------------------------------- */
