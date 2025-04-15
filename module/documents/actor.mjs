@@ -95,7 +95,6 @@ export default class ActorT20 extends Actor {
 			return ["@base", "@outros", "@condi"];
 		}
 		return ["@base", "@outros", "@condi"];
-
 	}
 
 	/* -------------------------------------------- */
@@ -136,13 +135,26 @@ export default class ActorT20 extends Actor {
 
 	}
 
+	/* -------------------------------------------- */
+
 	get nivel() {
-		return this.items.reduce((arr, item) => {
+		return this.items.reduce((acc, item) => {
 			if (item.type === "classe") {
 				const classLevels = parseInt(item.system.niveis) || 1;
-				arr += classLevels;
+				acc += classLevels;
 			}
-			return arr;
+			return acc;
+		}, 0);
+	}
+
+	/* -------------------------------------------- */
+
+	get pda() {
+		return this.items.reduce((acc, item) => {
+			if (item.type === "equipamento" && item.system.equipado) {
+				acc += parseInt(item.system.armadura.penalidade);
+			}
+			return acc;
 		}, 0);
 	}
 

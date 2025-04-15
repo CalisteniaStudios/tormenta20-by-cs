@@ -749,6 +749,17 @@
   max-height: 90vh;
   overflow-y: auto;
 }
+aside[role="tooltip"] ul.fieldBonuses {
+  padding: 0;
+  font-size: var(--font-size-12);
+  width: auto;
+}
+aside[role="tooltip"] ul.fieldBonuses li.flexrow {
+  column-gap: 10px;
+}
+aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
+  flex: 0;
+}
 .tormenta20.sheet.actor {
   /* ----------------------------------------- */
   /*  Shared Styles                            */

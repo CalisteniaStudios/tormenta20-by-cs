@@ -13,15 +13,23 @@ export function registerHandlebarsHelpers() {
 		const actor = game.actors.get(sheet.actor._id);
 		const rollData = actor.getRollData();
 		const modFields = actor.modifiedFields;
+		if (hbl.hash.path in modFields) {
+			for (const fieldGroup of Object.values(modFields)) {
+				for (const field of fieldGroup) {
+					if (typeof field.value === "string" && field.value.startsWith("@")) {
+						field.value = Roll.replaceFormulaData(field.value, rollData);
+					}
+				}
+			}
+		}
 		const path = hbl.hash.path;
 		const pathTerms = path.split(".").filter((t) => !["system", "attributes", "tracos"].includes(t));
-		const type = pathTerms[0];
-		const key = pathTerms[1];
+		const [type, key] = pathTerms;
 		let listEffects = [];
 		let listItems = "";
 
 		switch (type) {
-			case "atributos":
+			case "atributos": {
 				// ['base', 'racial', 'bonus', ...efeitos]
 				const abl = actor.system.atributos[key];
 				listEffects = [
@@ -31,7 +39,8 @@ export function registerHandlebarsHelpers() {
 					...(modFields[path]??[])
 				];
 				break;
-			case "pericias":
+			}
+			case "pericias": {
 				// ['meionivel', 'treino', 'atributo', 'outros', 'condi', 'tamanho', ...efeitos]
 				const skill = actor.system.pericias[key];
 				// Math.floor(actor.system.attributes.nivel.value/2);
@@ -40,10 +49,11 @@ export function registerHandlebarsHelpers() {
 				listEffects = [
 					(meioNivel ? { label: "Metade do Nível", value: meioNivel } : false),
 					(skill.treinado ? { label: "Treino", value: treino } : false),
-					{ label: `Atributo (${skill.atributo})`, value: rollData[skill.atributo] },
+					{ label: `${CONFIG.T20.atributos[skill.atributo]}`, value: rollData[skill.atributo] },
 					(skill.outros ? { label: "Outros", value: skill.outros } : false),
 					(skill.size ? { label: "Tamanho", value: rollData.tamanho } : false),
 					(skill.condi ? { label: "Condição", value: skill.condi } : false),
+					(skill.pda && actor.pda ? { label: "Penalidade de Armadura", value: actor.pda } : false),
 
 					...(modFields["system.modificadores.pericias.geral"] ?? []),
 					...(["luta", "pont"].includes(key) ? modFields["system.modificadores.pericias.ataque"]??[] : []),
@@ -55,12 +65,13 @@ export function registerHandlebarsHelpers() {
 					...(modFields[path]??[])
 				];
 				break;
-			case "defesa":
+			}
+			case "defesa": {
 				// ['base', 'atributo', 'outros', 'condi', 'armadura', 'escudo', 'acessorio' ...efeitos]
 				const defesa = actor.system.attributes.defesa;
 				listEffects = [
 					{ label: "Base", value: defesa.base },
-					(defesa.atributo ? { label: `Atributo (${defesa.atributo})`, value: rollData[defesa.atributo] } : false),
+					(defesa.atributo ? { label: `Atributo (${defesa.atributo.capitalize()})`, value: rollData[defesa.atributo] } : false),
 					(defesa.outros ? { label: "Outros", value: defesa.Outros } : false),
 					(rollData.armadura ? { label: "Armadura", value: rollData.armadura } : false),
 					(rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
@@ -68,6 +79,7 @@ export function registerHandlebarsHelpers() {
 					...(modFields[path]??[])
 				];
 				break;
+			}
 			case "rd":
 				// ['base', ...efeitos]
 				break;
@@ -78,23 +90,22 @@ export function registerHandlebarsHelpers() {
 		// data-tooltip="{{fieldBonuses @root path=(concat 'system.pericias.' skill.key)}}" data-tooltip-direction="LEFT"
 		let total = 0;
 		for (const item of listEffects.filter(Boolean)) {
+			listItems += `<li class="flexrow"><label>${item.label}:</label><span>`;
 			if (item.mode === 5) {
-				listItems = `<li class="flexrow">${item.name}: <span style="text-align:right;">${item.value}</span></li>`;
+				listItems += `${item.value}</span></li>`;
 				total = item.value;
 				break;
 			} else {
-				listItems += `<li class="flexrow">${item.name}: <span style="text-align:right;">${item.value}</span></li>`;
+				listItems += `${item.value >= 0 ? `+${item.value}` : item.value}</span></li>`;
 				total += Number(item.value);
 			}
 		}
 		let tooltip = `
-		<div>
-		<ul style="padding:0;white-space: nowrap;font-size:12px;width:auto;">
+		<ul class="fieldBonuses">
 			${listItems}
 			<hr>
-			<li class="flexrow">Total: <span style="text-align:right;">${total}</span></li>
+			<li class="flexrow"><label>Total:</label><span>${total}</span></li>
 		</ul>
-		</div>
 		`;
 		return tooltip;
 	});
