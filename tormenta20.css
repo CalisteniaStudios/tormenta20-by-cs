@@ -1190,11 +1190,19 @@
   background-color: #c9c7b8;
   border-radius: 10px;
   font-size: var(--font-size-16);
+  list-style: none;
 }
-.tormenta20.sheet.actor .item-list.fav-item {
+.tormenta20.sheet.actor .item-list.fav-item,
+.tormenta20.sheet.actor .item-list.fav-feat {
   font-size: var(--font-size-14);
+  margin: 0;
 }
-.tormenta20.sheet.actor .item-list.fav-item .item-detail {
+.tormenta20.sheet.actor .item-list.fav-item + *,
+.tormenta20.sheet.actor .item-list.fav-feat + * {
+  margin-top: 5px;
+}
+.tormenta20.sheet.actor .item-list.fav-item .item-detail,
+.tormenta20.sheet.actor .item-list.fav-feat .item-detail {
   flex: 0 0 50px;
 }
 .tormenta20.sheet.actor .item-list .item * {

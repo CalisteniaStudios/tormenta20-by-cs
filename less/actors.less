@@ -611,8 +611,15 @@
     background-color: @colorFaint;
     border-radius: 10px;
     font-size: var(--font-size-16);
-    &.fav-item {
+    list-style: none;
+
+    &.fav-item, &.fav-feat {
       font-size: var(--font-size-14);
+      margin: 0;
+
+      & + * {
+        margin-top: 5px;
+      }
 
       .item-detail {
         flex: 0 0 50px;
