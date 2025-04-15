@@ -5,7 +5,7 @@ globalThis.SYSTEMRULES = SYSTEMRULES;
 
 // Import Modules
 import { _getInitiativeFormula } from "./module/combat.mjs";
-import { registerHandlebarsHelpers } from './module/handlebars.mjs';
+import { registerHandlebarsHelpers } from "./module/handlebars.mjs";
 import { SystemSettings } from "./module/settings.mjs";
 import { preloadHandlebarsTemplates } from "./module/templates.mjs";
 
@@ -27,7 +27,6 @@ import ActorSheetT20NPC from "./module/sheets/actor-npc.mjs";
 import ActorSheetT20Simple from "./module/sheets/actor-simple.mjs";
 import ActorSheetT20CharacterTabbed from "./module/sheets/actor-tabbed.mjs";
 import ItemSheetT20 from "./module/sheets/item.mjs";
-
 
 // Import Applications
 import AbilityUseDialog from "./module/apps/ability-use-dialog.mjs";
@@ -69,11 +68,11 @@ globalThis.tormenta20 = {
 		StatblockParser,
 		RestConfigDialog,
 		CompendiumT20,
-		CharacterProgression,
+		CharacterProgression
 	},
 	data: {
 		fields,
-		models,
+		models
 	},
 	canvas: {
 		AbilityTemplate
@@ -87,33 +86,13 @@ globalThis.tormenta20 = {
 	},
 	macros: macros,
 	rollItemMacro: macros.rollItemMacro,
-	rollSkillMacro: macros.rollSkillMacro,
-}
+	rollSkillMacro: macros.rollSkillMacro
+};
 
 Hooks.once("init", async function () {
-	console.log(`T20 | Initializing the Tormenta20 Game System`);
+	console.log("T20 | Initializing the Tormenta20 Game System");
 	game.tormenta20 = tormenta20;
-	// Create a namespace within the game global
-	if ( game.release.generation < 12 ) {
-		foundry.dice = {
-			terms: {
-				Coin: Coin,
-				DiceTerm: DiceTerm,
-				Die: Die,
-				FateDie: FateDie,
-				FunctionTerm: MathTerm, // MathTerm was renamed to FunctionTerm in v12
-				NumericTerm: NumericTerm,
-				OperatorTerm: OperatorTerm,
-				ParentheticalTerm: ParentheticalTerm,
-				PoolTerm: PoolTerm,
-				RollTerm: RollTerm,
-				StringTerm: StringTerm
-			}
-		}
-		Math.clamp = Math.clamped;
-	} else if ( game.release.generation >= 12 ) {
-		CONFIG.ActiveEffect.legacyTransferral = true;
-	}
+	CONFIG.ActiveEffect.legacyTransferral = true;
 	// Record Cnfiguration Values
 	CONFIG.T20 = T20;
 	CONFIG.Actor.documentClass = ActorT20;
@@ -131,10 +110,10 @@ Hooks.once("init", async function () {
 	CONFIG.statusEffects = T20.statusEffectIcons;
 	CONFIG.conditions = T20.conditions;
 
-	CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter(x => x.id === 'inconsciente')[0].icon;
-	CONFIG.specialStatusEffects.BLIND = 'cego';
-	CONFIG.specialStatusEffects.DEFEATED = 'morto';
-	CONFIG.specialStatusEffects.INVISIBLE = 'invisivel';
+	CONFIG.controlIcons.defeated = CONFIG.statusEffects.filter((x) => x.id === "inconsciente")[0].icon;
+	CONFIG.specialStatusEffects.BLIND = "cego";
+	CONFIG.specialStatusEffects.DEFEATED = "morto";
+	CONFIG.specialStatusEffects.INVISIBLE = "invisivel";
 
 	// T20 cone RAW should be 53.13 degrees
 	// CONFIG.MeasuredTemplate.defaults.angle = 53.13;
@@ -150,7 +129,7 @@ Hooks.once("init", async function () {
 	CONFIG.ChatMessage.documentClass = ChatMessageTormenta20;
 	CONFIG.Combat.initiative = {
 		formula: "1d20 + @pericias.inic.value",
-		decimals: 2,
+		decimals: 2
 	};
 	Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
@@ -162,30 +141,29 @@ Hooks.once("init", async function () {
 
 	// DATA MODEL
 
-	CONFIG.Actor.dataModels["character"] = tormenta20.data.models.CharacterData;
-	CONFIG.Actor.dataModels["npc"] = tormenta20.data.models.MenaceData;
-	CONFIG.Actor.dataModels["simple"] = tormenta20.data.models.SimpleData;
+	CONFIG.Actor.dataModels.character = tormenta20.data.models.CharacterData;
+	CONFIG.Actor.dataModels.npc = tormenta20.data.models.MenaceData;
+	CONFIG.Actor.dataModels.simple = tormenta20.data.models.SimpleData;
 
-	CONFIG.Item.dataModels["arma"] = tormenta20.data.models.WeaponData;
-	CONFIG.Item.dataModels["classe"] = tormenta20.data.models.ClassData;
-	CONFIG.Item.dataModels["consumivel"] = tormenta20.data.models.ConsumableData;
-	CONFIG.Item.dataModels["equipamento"] = tormenta20.data.models.EquipmentData;
-	CONFIG.Item.dataModels["magia"] = tormenta20.data.models.SpellData;
-	CONFIG.Item.dataModels["poder"] = tormenta20.data.models.PowerData;
-	CONFIG.Item.dataModels["tesouro"] = tormenta20.data.models.LootData;
-
+	CONFIG.Item.dataModels.arma = tormenta20.data.models.WeaponData;
+	CONFIG.Item.dataModels.classe = tormenta20.data.models.ClassData;
+	CONFIG.Item.dataModels.consumivel = tormenta20.data.models.ConsumableData;
+	CONFIG.Item.dataModels.equipamento = tormenta20.data.models.EquipmentData;
+	CONFIG.Item.dataModels.magia = tormenta20.data.models.SpellData;
+	CONFIG.Item.dataModels.poder = tormenta20.data.models.PowerData;
+	CONFIG.Item.dataModels.tesouro = tormenta20.data.models.LootData;
 
 	// Register sheet application classes
 	foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
 	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20Character, {
 		types: ["character"],
 		makeDefault: true,
-		label: 'T20.CharacterSheet', //"Ficha de Personagem"
+		label: "T20.CharacterSheet" // "Ficha de Personagem"
 	});
 	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20CharacterTabbed, {
 		types: ["character"],
 		makeDefault: false,
-		label: 'T20.CharacterSheetTabbed', //"Ficha de Personagem - Abas"
+		label: "T20.CharacterSheetTabbed" // "Ficha de Personagem - Abas"
 	});
 	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20NPC, {
 		types: ["npc"],
@@ -202,9 +180,8 @@ Hooks.once("init", async function () {
 	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
 		types: ["simple"],
 		makeDefault: true,
-		label: 'T20.SimpleActorSheet', //"Ficha de Simple"
+		label: "T20.SimpleActorSheet" // "Ficha de Simple"
 	});
-
 
 	foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
 	foundry.documents.collections.Items.registerSheet("tormenta20", ItemSheetT20, {
@@ -213,12 +190,12 @@ Hooks.once("init", async function () {
 	});
 
 	foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, "tormenta20", ActiveEffectConfigT20, {
-		makeDefault :true,
-		label: 'T20.ActiveEffectSheet',
+		makeDefault: true,
+		label: "T20.ActiveEffectSheet"
 	});
 
 	// Core Application Overrides
-  // CONFIG.ui.compendium = CompendiumDirectoryT20;
+	// CONFIG.ui.compendium = CompendiumDirectoryT20;
 	// Preload Handlebars Templates
 	preloadHandlebarsTemplates();
 	registerHandlebarsHelpers();

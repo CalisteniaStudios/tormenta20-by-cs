@@ -1,52 +1,49 @@
 /* TODO REFACTOR THIS */
 export class Tormenta20BaseSettings extends FormApplication {
-	constructor (object, options = {}) {
-		super(object, options)
+	constructor(object, options = {}) {
+		super(object, options);
 	}
-
 
 	/**
 	 * Default Options for this FormApplication
 	 */
-	 static get defaultOptions () {
-		 return foundry.utils.mergeObject(super.defaultOptions, {
-			id : 'tormenta20-settings-form',
-			title : 'Configurações',
-			template : './systems/tormenta20/templates/apps/settings.html',
-			classes : ['sheet'],
-			width : 640,
-			height : "auto",
+	static get defaultOptions() {
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			id: "tormenta20-settings-form",
+			title: "Configurações",
+			template: "./systems/tormenta20/templates/apps/settings.html",
+			classes: ["sheet"],
+			width: 640,
+			height: "auto",
 			submitOnChange: false,
-      submitOnClose: false,
+			submitOnClose: false,
 			defaultSettings: []
-		})
+		});
 	}
 
-
-	getData (options) {
-		function prepSetting (key) {
+	getData(options) {
+		function prepSetting(key) {
 			let data = game.settings.settings.get(`tormenta20.${key}`);
-			return foundry.utils.mergeObject( data ,{
-				value: game.settings.get('tormenta20', key),
-				type : data.type
+			return foundry.utils.mergeObject(data, {
+				value: game.settings.get("tormenta20", key),
+				type: data.type
 			});
 		}
 
-		const settings = this.options.defaultSettings.reduce(function(acc, setting){
+		const settings = this.options.defaultSettings.reduce(function (acc, setting) {
 			acc[setting] = prepSetting(setting);
 			return acc;
-		},{});
+		}, {});
 		settings.settings = this.options.defaultSettings;
 		return settings;
 	}
-
 
 	/**
 	 * Executes on form submission
 	 * @param {Event} e - the form submission event
 	 * @param {Object} d - the form data
 	 */
-	async _updateObject(e,d) {
+	async _updateObject(e, d) {
 		let requiresClientReload = false;
 		let requiresWorldReload = false;
 		for (let [key, value] of Object.entries(foundry.utils.flattenObject(d))) {
@@ -55,7 +52,7 @@ export class Tormenta20BaseSettings extends FormApplication {
 			if (value === current) continue;
 			requiresClientReload ||= (setting.scope !== CONST.SETTING_SCOPES.WORLD) && setting.requiresReload;
 			requiresWorldReload ||= (setting.scope === CONST.SETTING_SCOPES.WORLD) && setting.requiresReload;
-			game.settings.set('tormenta20', key, value);
+			game.settings.set("tormenta20", key, value);
 		}
 		if (requiresClientReload || requiresWorldReload) {
 			SettingsConfig.reloadConfirm({ world: requiresWorldReload });
@@ -79,15 +76,15 @@ export class Tormenta20BaseSettings extends FormApplication {
 	async _onListControl(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
-		const ds =  a.dataset.type;
+		const ds = a.dataset.type;
 		// Add a list item component
-		if ( a.classList.contains("add-li") ) {
+		if (a.classList.contains("add-li")) {
 			// await this._onSubmit(event);  // Submit any unsaved changes
 			let dm = this?.object?.lidatamodel[ds];
-			game.settings.get
+			game.settings.get;
 		}
 		// Remove a list item component
-		if ( a.classList.contains("delete-li") ) {
+		if (a.classList.contains("delete-li")) {
 			// await this._onSubmit(event);  // Submit any unsaved changes
 
 		}
@@ -98,25 +95,25 @@ export class Tormenta20ActorSheetSettings extends Tormenta20BaseSettings {
 	/**
 	 * Default Options for this FormApplication
 	 */
-	static get defaultOptions () {
+	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
-			title : 'Configurações de Ficha',
-			template : './systems/tormenta20/templates/apps/settings.hbs',
+			title: "Configurações de Ficha",
+			template: "./systems/tormenta20/templates/apps/settings.hbs",
 			submitOnChange: false,
 			submitOnClose: false,
-			defaultSettings: [ 'disableExperience', 'enableLanguages', 'disableJournal']
-		})
+			defaultSettings: ["disableExperience", "enableLanguages", "disableJournal"]
+		});
 	}
 }
 
 export class Tormenta20OptionalRulesSettings extends Tormenta20BaseSettings {
-	static get defaultOptions () {
+	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
-			title : game.i18n.localize("T20.SettingSheetSettings"),
-			template : './systems/tormenta20/templates/apps/settings.hbs',
+			title: game.i18n.localize("T20.SettingSheetSettings"),
+			template: "./systems/tormenta20/templates/apps/settings.hbs",
 			submitOnChange: false,
 			submitOnClose: false,
-			defaultSettings: ['progressiveDefense']
-		})
+			defaultSettings: ["progressiveDefense"]
+		});
 	}
 }

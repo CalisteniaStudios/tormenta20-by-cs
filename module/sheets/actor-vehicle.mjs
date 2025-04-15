@@ -5,7 +5,7 @@ export default class ActorSheetT20Vehicle extends ActorSheetT20Character {
 	get template() {
 		return "systems/tormenta20/templates/actor/vehicle-sheet.html";
 	}
-	
+
 	async getData() {
 		const sheetData = {
 			owner: this.actor.isOwner,
@@ -17,7 +17,7 @@ export default class ActorSheetT20Vehicle extends ActorSheetT20Character {
 			isNPC: this.actor.type === "npc",
 			isSimple: this.actor.type === "simple",
 			isVehicle: this.actor.type === "vehicle",
-			config: CONFIG.T20,
+			config: CONFIG.T20
 		};
 		return sheetData;
 	}

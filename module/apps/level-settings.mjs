@@ -19,9 +19,9 @@ export default class LevelSettings extends FormApplication {
 		let classes = [];
 		let flags = this.object.flags.tormenta20 || {};
 		const con = this.object.system.atributos.con;
-		const cls = this.object.items.filter(i => i.type === "classe");
-		if ( cls ) {
-			for ( let [key, data] of Object.entries(cls) ) {
+		const cls = this.object.items.filter((i) => i.type === "classe");
+		if (cls) {
+			for (let [key, data] of Object.entries(cls)) {
 				let c = data.system;
 				let iniPV = c.inicial? c.pvPorNivel * 3 : 0;
 				classes[key] = {
@@ -29,9 +29,9 @@ export default class LevelSettings extends FormApplication {
 					pvPorNivel: c.pvPorNivel,
 					pmPorNivel: c.pmPorNivel,
 					niveis: c.niveis,
-					pvTotal: Number(iniPV) + (Number(c.niveis) * ( Number(c.pvPorNivel) + con.base + con.racial )),
+					pvTotal: Number(iniPV) + (Number(c.niveis) * (Number(c.pvPorNivel) + con.base + con.racial)),
 					pmTotal: c.niveis * c.pmPorNivel
-				}
+				};
 			}
 		}
 		return {
@@ -47,6 +47,6 @@ export default class LevelSettings extends FormApplication {
 		const data = foundry.utils.expandObject(formData);
 		delete data.classes;
 		await this.object.setFlag("tormenta20", "lvlconfig", data);
-		return;
+
 	}
 }

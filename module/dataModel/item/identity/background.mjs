@@ -1,8 +1,7 @@
 import IdentityData from "./identity.mjs";
 
-
 export default class BackgroundData extends IdentityData {
-	
+
 	/** @inheritDoc */
 	static defineSchema() {
 		const fields = foundry.data.fields;
@@ -17,17 +16,14 @@ export default class BackgroundData extends IdentityData {
 	/*  Getters/Setters                             */
 	/* -------------------------------------------- */
 
-
-	
 	/* -------------------------------------------- */
 	/*  System Operations                           */
 	/* -------------------------------------------- */
 
-
 	/* -------------------------------------------- */
 	/* Data Preparation                             */
 	/* -------------------------------------------- */
-	
+
 	/** @inheritDoc */
 	prepareBaseData() {}
 
@@ -66,7 +62,6 @@ export default class BackgroundData extends IdentityData {
 	_onUpdate(changed, options, userId) {}
 
 	/* -------------------------------------------- */
-
 
 	/** @inheritDoc */
 	async _preDelete(options, user) {}

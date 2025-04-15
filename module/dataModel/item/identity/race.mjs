@@ -1,8 +1,7 @@
 import IdentityData from "./identity.mjs";
 
-
 export default class RaceData extends IdentityData {
-	
+
 	/** @inheritDoc */
 	static defineSchema() {
 		const fields = foundry.data.fields;
@@ -11,24 +10,21 @@ export default class RaceData extends IdentityData {
 			// progressao: new _fields.MappingField(),
 		});
 	}
-	
+
 	/* -------------------------------------------- */
 
 	/* -------------------------------------------- */
 	/*  Getters/Setters                             */
 	/* -------------------------------------------- */
 
-
-	
 	/* -------------------------------------------- */
 	/*  System Operations                           */
 	/* -------------------------------------------- */
 
-
 	/* -------------------------------------------- */
 	/* Data Preparation                             */
 	/* -------------------------------------------- */
-	
+
 	/** @inheritDoc */
 	prepareBaseData() {}
 
@@ -67,7 +63,6 @@ export default class RaceData extends IdentityData {
 	_onUpdate(changed, options, userId) {}
 
 	/* -------------------------------------------- */
-
 
 	/** @inheritDoc */
 	async _preDelete(options, user) {}

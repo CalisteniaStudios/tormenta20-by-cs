@@ -3,13 +3,12 @@
 * Pre-loaded templates are compiled and cached for fast access when rendering
 * @return {Promise}
 */
-export const preloadHandlebarsTemplates = async function() {
+export const preloadHandlebarsTemplates = async function () {
 	return foundry.applications.handlebars.loadTemplates([
 
 		// Shared Partials
 		"systems/tormenta20/templates/partials/nav-bar.html",
 		"systems/tormenta20/templates/partials/active-effects.html",
-
 
 		// Actor Sheet Partials
 		"systems/tormenta20/templates/actor/parts/sheet-header-base.html",
@@ -41,7 +40,6 @@ export const preloadHandlebarsTemplates = async function() {
 
 		// Actor Builder Partials
 
-
 		// Item Sheet Partials
 		"systems/tormenta20/templates/item/parts/item-header.html",
 		"systems/tormenta20/templates/item/parts/item-rolls.html",
@@ -55,6 +53,6 @@ export const preloadHandlebarsTemplates = async function() {
 		"systems/tormenta20/templates/chat/roll-breakdown.hbs",
 
 		// Development Partials
-		"systems/tormenta20/templates/actor/parts/teste.html",
+		"systems/tormenta20/templates/actor/parts/teste.html"
 	]);
 };

@@ -4,13 +4,13 @@ import {
 	ActorSkillsField,
 	SkillData,
 	_resourceSchema
-} from '../helpers.mjs';
+} from "../helpers.mjs";
 
 export default class MenaceData extends CreatureData {
 	/** @override */
 	static defineSchema() {
 		const fields = foundry.data.fields;
-		const type = 'npc';
+		const type = "npc";
 		return {
 			atributos: this.schemaAbilities(type),
 			attributes: this.schemaAttributes(type),
@@ -22,22 +22,22 @@ export default class MenaceData extends CreatureData {
 			}),
 			// pericias: new MappingField(new SkillData(), {required: true, initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue, initialKeysOnly: false}),
 			resources: new fields.ObjectField(),
-			tracos: this.schemaTraits(type),
-		}
+			tracos: this.schemaTraits(type)
+		};
 	}
-	
+
 	/** @inheritdoc */
 	static migrateData(data) {
-		if( data.detalhes?.tipo && !Object.keys(T20.creatureTypes).includes(data.detalhes.tipo) ){
-			let cType = Object.keys(T20.creatureTypes).find( c => data.detalhes.tipo.match(c));
-			data.detalhes.tipo = cType ?? 'hum';
+		if (data.detalhes?.tipo && !Object.keys(T20.creatureTypes).includes(data.detalhes.tipo)) {
+			let cType = Object.keys(T20.creatureTypes).find((c) => data.detalhes.tipo.match(c));
+			data.detalhes.tipo = cType ?? "hum";
 		}
 
-		if( data.detalhes?.nd && data.detalhes.nd > data.attributes.nd ){
+		if (data.detalhes?.nd && data.detalhes.nd > data.attributes.nd) {
 			data.attributes.nd = data.detalhes.nd;
 		}
-		
-		if( data.attributes?.nivel && (isNaN(data.attributes?.nivel.value) || !isFinite( data.attributes?.nivel.value) ) ){
+
+		if (data.attributes?.nivel && (isNaN(data.attributes?.nivel.value) || !isFinite(data.attributes?.nivel.value))) {
 			data.attributes.nivel.value = 1;
 		}
 		return super.migrateData(data);

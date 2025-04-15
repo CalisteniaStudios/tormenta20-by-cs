@@ -1,8 +1,7 @@
-/* global Handlebars */
 export function registerHandlebarsHelpers() {
-		Handlebars.registerHelper("concat", function () {
-		var outStr = "";
-		for (var arg in arguments) {
+	Handlebars.registerHelper("concat", function () {
+		let outStr = "";
+		for (let arg in arguments) {
 			if (typeof arguments[arg] != "object") {
 				outStr += arguments[arg];
 			}
@@ -15,62 +14,61 @@ export function registerHandlebarsHelpers() {
 		const rollData = actor.getRollData();
 		const modFields = actor.modifiedFields;
 		const path = hbl.hash.path;
-		const pathTerms = path.split('.').filter( t => !['system','attributes','tracos'].includes(t) );
+		const pathTerms = path.split(".").filter((t) => !["system", "attributes", "tracos"].includes(t));
 		const type = pathTerms[0];
 		const key = pathTerms[1];
 		let listEffects = [];
-		let listItems = '';
-
+		let listItems = "";
 
 		switch (type) {
-			case 'atributos':
+			case "atributos":
 				// ['base', 'racial', 'bonus', ...efeitos]
 				const abl = actor.system.atributos[key];
 				listEffects = [
-					{label: 'Base', value: abl.base},
-					(abl.racial ? {label: 'Racial', value: abl.racial} : false ),
-					(abl.bonus ? {label: 'Bônus Temporário', value: abl.bonus} : false ),
+					{ label: "Base", value: abl.base },
+					(abl.racial ? { label: "Racial", value: abl.racial } : false),
+					(abl.bonus ? { label: "Bônus Temporário", value: abl.bonus } : false),
 					...(modFields[path]??[])
 				];
 				break;
-			case 'pericias':
+			case "pericias":
 				// ['meionivel', 'treino', 'atributo', 'outros', 'condi', 'tamanho', ...efeitos]
 				const skill = actor.system.pericias[key];
-				//Math.floor(actor.system.attributes.nivel.value/2);
+				// Math.floor(actor.system.attributes.nivel.value/2);
 				const meioNivel = rollData.meionivel;
 				const treino = rollData.treino;
 				listEffects = [
-					( meioNivel ? {label: 'Metade do Nível', value: meioNivel} : false ),
-					( skill.treinado ? {label: 'Treino', value: treino} : false ),
-					{label: `Atributo (${skill.atributo})`, value: rollData[skill.atributo]},
-					( skill.outros ? {label: 'Outros', value: skill.outros} : false ),
-					( skill.size ? {label: 'Tamanho', value: rollData.tamanho} : false ),
-					( skill.condi ? {label: 'Condição', value: skill.condi} : false ),
+					(meioNivel ? { label: "Metade do Nível", value: meioNivel } : false),
+					(skill.treinado ? { label: "Treino", value: treino } : false),
+					{ label: `Atributo (${skill.atributo})`, value: rollData[skill.atributo] },
+					(skill.outros ? { label: "Outros", value: skill.outros } : false),
+					(skill.size ? { label: "Tamanho", value: rollData.tamanho } : false),
+					(skill.condi ? { label: "Condição", value: skill.condi } : false),
 
-					...( modFields['system.modificadores.pericias.geral'] ?? [] ),
-					...( ['luta','pont'].includes(key) ? modFields['system.modificadores.pericias.ataque']??[] : []),
-					...( ['fort','refl','vont'].includes(key) ? modFields['system.modificadores.pericias.resistencia']??[] : []),
-					...( !['luta','pont'].includes(key) ? modFields['system.modificadores.pericias.semataque']??[] : []),
+					...(modFields["system.modificadores.pericias.geral"] ?? []),
+					...(["luta", "pont"].includes(key) ? modFields["system.modificadores.pericias.ataque"]??[] : []),
+					...(["fort", "refl", "vont"].includes(key) ? modFields["system.modificadores.pericias.resistencia"]??[] : []),
+					...(!["luta", "pont"].includes(key) ? modFields["system.modificadores.pericias.semataque"]??[] : []),
 
-					...( modFields[`system.modificadores.pericias.atr.${skill.atributo}`] ?? [] ),
+					...(modFields[`system.modificadores.pericias.atr.${skill.atributo}`] ?? []),
 
 					...(modFields[path]??[])
 				];
 				break;
-			case 'defesa':
+			case "defesa":
 				// ['base', 'atributo', 'outros', 'condi', 'armadura', 'escudo', 'acessorio' ...efeitos]
 				const defesa = actor.system.attributes.defesa;
 				listEffects = [
-					{label: 'Base', value: defesa.base},
-					(defesa.atributo ? {label: `Atributo (${defesa.atributo})`, value: rollData[defesa.atributo]} : false),
-					(defesa.outros ? {label: 'Outros', value: defesa.Outros} : false ),
-					(rollData.armadura ? {label: 'Armadura', value: rollData.armadura} : false ),
-					(rollData.escudo ? {label: 'Escudo', value: rollData.escudo} : false ),
-					(rollData.escudo ? {label: 'Escudo', value: rollData.escudo} : false ),
+					{ label: "Base", value: defesa.base },
+					(defesa.atributo ? { label: `Atributo (${defesa.atributo})`, value: rollData[defesa.atributo] } : false),
+					(defesa.outros ? { label: "Outros", value: defesa.Outros } : false),
+					(rollData.armadura ? { label: "Armadura", value: rollData.armadura } : false),
+					(rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
+					(rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
 					...(modFields[path]??[])
 				];
 				break;
-			case 'rd':
+			case "rd":
 				// ['base', ...efeitos]
 				break;
 
@@ -111,38 +109,38 @@ export function registerHandlebarsHelpers() {
 
 	Handlebars.registerHelper("conditionTip",
 		function (context, condition, options) {
-			var ret = "";
-			for (var prop in context) {
+			let ret = "";
+			for (let prop in context) {
 				if (condition == prop) {
-					ret = ret + " " + context[prop].tooltip;
+					ret = `${ret} ${context[prop].tooltip}`;
 				}
 			}
 			return ret;
 		}
 	);
 	Handlebars.registerHelper("stripTags", function (str) {
-		return str.replace(/<[^>]*>?/gm, '');
+		return str.replace(/<[^>]*>?/gm, "");
 	});
 
 	Handlebars.registerHelper("stripTagsInline", function (str) {
-		return str.replace(/<(?!\/?[a|i](?=>|\s.*>))\/?.*?>/gm, '');
+		return str.replace(/<(?!\/?[a|i](?=>|\s.*>))\/?.*?>/gm, "");
 	});
 
-	Handlebars.registerHelper('add', (a, b) => {
+	Handlebars.registerHelper("add", (a, b) => {
 		return a + b;
 	});
 
-	Handlebars.registerHelper('divide', (a, b) => {
+	Handlebars.registerHelper("divide", (a, b) => {
 		return a / b;
 	});
 
-	Handlebars.registerHelper('multiply', (a, b) => {
+	Handlebars.registerHelper("multiply", (a, b) => {
 		return a * b;
 	});
 
 	Handlebars.registerHelper("find", function (arr, key, value, flat=false) {
-		if(flat) return arr.find(i => foundry.utils.flattenObject(i)[key] == value) ? true : false;
-		return arr.find(i => i[key] == value) ? true : false;
+		if (flat) return !!arr.find((i) => foundry.utils.flattenObject(i)[key] == value);
+		return !!arr.find((i) => i[key] == value);
 	});
 
 	Handlebars.registerHelper("ift", function (v, rtrue, rfalse) {
@@ -155,27 +153,29 @@ export function registerHandlebarsHelpers() {
 
 	/**
 	 * @param {object} items
-	 * @returns {string}
+	 * @returns {Handlebars.SafeString}
 	 */
 	Handlebars.registerHelper("t20-classes", function (items) {
 		const classes = items.filter((i) => i.type === "classe")
 			.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0))
-			.map(function(i){
+			.map(function (i) {
 				return {
 					name: i.name,
 					nivel: i.system.niveis,
-					toString: function(){return `${this.name} ${this.nivel}`;}
+					toString: function () {
+						return `${this.name} ${this.nivel}`;
+					}
 				};
 			});
-		return classes.join(", ")
+		return classes.join(", ");
 	});
 
 	/**
 	 * @param {string} string
-	 * @returns {string}
+	 * @returns {Handlebars.SafeString}
 	 */
 	Handlebars.registerHelper("t20-rollFlavor", function (label) {
-		return CONFIG.T20.damageTypes[label] ?? label;
+		return new Handlebars.SafeString(CONFIG.T20.damageTypes[label] ?? label);
 	});
 
 	/**

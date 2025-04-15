@@ -2,15 +2,15 @@
  * Extend the base TokenDocument class to implement system-specific HP bar logic.
  * @extends {TokenDocument}
  */
- export default class TokenDocumentT20 extends TokenDocument {
+export default class TokenDocumentT20 extends TokenDocument {
 
 	/** @inheritdoc */
 	getBarAttribute(...args) {
 		const data = super.getBarAttribute(...args);
-		if ( data && (data.attribute === "attributes.pv") ) {
+		if (data && (data.attribute === "attributes.pv")) {
 			data.value += parseInt(foundry.utils.getProperty(this.actor, "system.attributes.pv.temp") || 0);
 		}
-		if ( data && (data.attribute === "attributes.pm") ) {
+		if (data && (data.attribute === "attributes.pm")) {
 			data.value += parseInt(foundry.utils.getProperty(this.actor, "system.attributes.pm.temp") || 0);
 		}
 		return data;
@@ -32,7 +32,7 @@
 			med: 1,
 			gra: 2,
 			eno: 3,
-			col: Math.max(token.width, 6),
+			col: Math.max(token.width, 6)
 		}[actorSize] ?? 1; // In case an AE-like corrupted actor size data
 		token.width = size;
 		token.height = size;
@@ -42,5 +42,5 @@
 		token.texture.scaleX = mirrorX * absoluteScale;
 		const mirrorY = token.texture.scaleY < 0 ? -1 : 1;
 		token.texture.scaleY = mirrorY * absoluteScale;
-    }
+	}
 }

@@ -24,10 +24,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 	/** @override */
 	get template() {
-		if ( !game.user.isGM && this.actor.limited ) {
+		if (!game.user.isGM && this.actor.limited) {
 			return "systems/tormenta20/templates/actor/actor-sheet-limited.html";
 		}
-		return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
+		return "systems/tormenta20/templates/actor/actor-sheet-base.html";
 	}
 
 	/* -------------------------------------------- */
@@ -38,19 +38,19 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	async getData() {
 		const sheetData = await super.getData();
 		// Experience Tracking
-		sheetData["disableExperience"] = game.settings.get("tormenta20", "disableExperience");
-		sheetData["disableJournal"] = game.settings.get("tormenta20", "disableJournal");
+		sheetData.disableExperience = game.settings.get("tormenta20", "disableExperience");
+		sheetData.disableJournal = game.settings.get("tormenta20", "disableJournal");
 
 		// FLAGS
-		sheetData["isPreparationCaster"] = this.actor.getFlag("tormenta20", "mago");
-		sheetData["mostrarBonusTreino"] = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
-		sheetData["botaoEditarItens"] = this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
+		sheetData.isPreparationCaster = this.actor.getFlag("tormenta20", "mago");
+		sheetData.mostrarBonusTreino = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
+		sheetData.botaoEditarItens = this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
 
-		sheetData["showResources"] = this.actor.getFlag("tormenta20", "sheet.showResources");
+		sheetData.showResources = this.actor.getFlag("tormenta20", "sheet.showResources");
 		const levelConfig = this.actor.getFlag("tormenta20", "lvlconfig");
-		sheetData["autoCalcResources"] = levelConfig ? !levelConfig.manual : true;
+		sheetData.autoCalcResources = levelConfig ? !levelConfig.manual : true;
 
-		sheetData["layout"] = this.layout;
+		sheetData.layout = this.layout;
 
 		this.actor.system.attributes.defesa.pda = this.actor.system.attributes.defesa.pda ?? 0;
 
@@ -69,24 +69,24 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		super.activateListeners(html);
 
 		// Item summaries
-		html.find('.item .item-name label').click(event => this._onItemSummary(event));
+		html.find(".item .item-name > label, .item .item-description").click((event) => this._onItemSummary(event));
 
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
 
 		if (this.actor.isOwner) {
-			html.find('.item-fav').click(ev => {
+			html.find(".item-fav").click((ev) => {
 				const li = $(ev.currentTarget).parents(".item");
 				const item = this.actor.items.get(li.data("itemId"));
 				item.setFlag("tormenta20", "favorito", !item.flags.tormenta20?.favorito);
 			});
 
 			// Prepare spells
-			html.find('.preparation-toggle').click(this._onPrepareSpell.bind(this));
+			html.find(".preparation-toggle").click(this._onPrepareSpell.bind(this));
 
 			// Drag events for macros.
-			let handler = ev => this._onDragStart(ev);
-			html.find('li.skill').each((i, li) => {
+			let handler = (ev) => this._onDragStart(ev);
+			html.find("li.skill").each((i, li) => {
 				if (!li.hasAttribute("data-item-id")) return;
 				li.setAttribute("draggable", true);
 				li.addEventListener("dragstart", handler, false);
@@ -101,34 +101,34 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	/** @override */
 	async _onDropItemCreate(itemData) {
 		// Increment the number of class levels a character instead of creating a new item
-		if ( itemData.type === "classe" ) {
-			const cls = this.actor.itemTypes.classe.find(c => c.name === itemData.name);
+		if (itemData.type === "classe") {
+			const cls = this.actor.itemTypes.classe.find((c) => c.name === itemData.name);
 			const actorData = this.actor.system;
 			let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
-			if ( !lvlconfig ){
+			if (!lvlconfig) {
 				lvlconfig = {
 					pv: { for: false, des: false, int: false, sab: false, car: false },
 					pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
-					pvBonus: ["0","0"],
-					pmBonus: ["0","0"],
+					pvBonus: ["0", "0"],
+					pmBonus: ["0", "0"],
 					manual: false
-				}
+				};
 				this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
 			}
 			// Novo nivel de classe preexistente
-			if ( !!cls ) {
+			if (cls) {
 				let priorLevel = cls.system.niveis ?? 0;
 				const next = Math.min(priorLevel + 1, 20 + priorLevel - actorData.attributes.nivel.value);
-				await cls.update({"system.niveis": next});
-				await this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
+				await cls.update({ "system.niveis": next });
+				await this.actor.update({ "system.attributes.nivel.value": this.actor.nivel });
 				return;
 			}
 			// Primeiro Nivel do Personagem
-			else if ( !this.actor.itemTypes.classe.length ) {
+			else if (!this.actor.itemTypes.classe.length) {
 				itemData.system.inicial = true;
 			}
 			await super._onDropItemCreate(itemData);
-			await this.actor.update({"system.attributes.nivel.value": this.actor.nivel});
+			await this.actor.update({ "system.attributes.nivel.value": this.actor.nivel });
 			return;
 		}
 
@@ -146,26 +146,26 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const actorData = data.actor;
 		// Initialize containers.
 		const favoritos = {
-			"armas": [],
-			"itens": [],
-			"poderes": [],
-			"magias": {
-				1: {spells: [], custo: 1},
-				2: {spells: [], custo: 3},
-				3: {spells: [], custo: 6},
-				4: {spells: [], custo: 10},
-				5: {spells: [], custo: 15}
+			armas: [],
+			itens: [],
+			poderes: [],
+			magias: {
+				1: { spells: [], custo: 1 },
+				2: { spells: [], custo: 3 },
+				3: { spells: [], custo: 6 },
+				4: { spells: [], custo: 10 },
+				5: { spells: [], custo: 15 }
 			},
-			"qtdMagias": 0
+			qtdMagias: 0
 		};
 
 		// Categorize items as inventory
 		const inventario = {
-			arma: {label: "Armas", items: [], dataset: {type: "arma"} },
-			equipamento: {label: "Equipamentos", items: [], dataset: {type: "equipamento"} },
-			consumivel: {label: "Consumível", items: [], dataset: {type: "consumivel"} },
-			tesouro: {label: "Tesouro", items: [], dataset: {type: "tesouro"} }
-		}
+			arma: { label: "Armas", items: [], dataset: { type: "arma" } },
+			equipamento: { label: "Equipamentos", items: [], dataset: { type: "equipamento" } },
+			consumivel: { label: "Consumível", items: [], dataset: { type: "consumivel" } },
+			tesouro: { label: "Tesouro", items: [], dataset: { type: "tesouro" } }
+		};
 
 		// Partition items by category
 		let [items, magias, poderes, classes] = await data.items.reduce(async (arr, item) => {
@@ -173,8 +173,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			item.img = item.img || CONST.DEFAULT_TOKEN;
 			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
 			try {
-				if ( typeof item.system.description === 'string' || item.system.description instanceof String ) {
-					item.system.description = {value: item.system.description};
+				if (typeof item.system.description === "string" || item.system.description instanceof String) {
+					item.system.description = { value: item.system.description };
 				}
 
 				item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
@@ -182,35 +182,34 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					async: true,
 					relativeTo: item
 				});
-			} catch (err) {
-				ui.notifications.error('Falha ao carregar descrição', {permanent: false});
+			} catch(err) {
+				ui.notifications.error("Falha ao carregar descrição", { permanent: false });
 			}
 
-
-			if ( item.type === "classe" ) {
-				item.abbr = item.name.substr(0,4);
+			if (item.type === "classe") {
+				item.abbr = item.name.substr(0, 4);
 			}
 
 			let isFav = item.flags.tormenta20?.favorito || false;
-			if( isFav ) {
-				if( item.type === "arma" ){
+			if (isFav) {
+				if (item.type === "arma") {
 					favoritos.armas.push(item);
-				} else if ( item.type === "poder" ){
+				} else if (item.type === "poder") {
 					favoritos.poderes.push(item);
-				} else if ( item.type === "magia" ){
+				} else if (item.type === "magia") {
 					favoritos.magias[item.system.circulo].spells.push(item);
 					favoritos.qtdMagias++;
-				} else if( ["consumivel","equipamento"].includes(item.type) ){
+				} else if (["consumivel", "equipamento"].includes(item.type)) {
 					favoritos.itens.push(item);
 				}
 			}
 
-			if ( !Array.isArray(arr) ) arr = await arr;
+			if (!Array.isArray(arr)) arr = await arr;
 			// Classify items into types
-			if ( item.type === "magia" ) arr[1].push(item);
-			else if ( item.type === "poder" ) arr[2].push(item);
-			else if ( item.type === "classe" ) arr[3].push(item);
-			else if ( Object.keys(inventario).includes(item.type ) ) arr[0].push(item);
+			if (item.type === "magia") arr[1].push(item);
+			else if (item.type === "poder") arr[2].push(item);
+			else if (item.type === "classe") arr[3].push(item);
+			else if (Object.keys(inventario).includes(item.type)) arr[0].push(item);
 			return arr;
 		}, [[], [], [], []]);
 
@@ -218,12 +217,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// TODO
 
 		// Organize items
-		for ( let i of items ) {
+		for (let i of items) {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
 			i.espacosTotal = Number((i.system.qtd * i.system.espacos).toFixed(2));
 			// Equipament Slots.
-			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
+			if (game.settings.get("tormenta20", "equipmentSlots")) {
 				this._itemSlotIcon(i);
 			}
 			inventario[i.type].items.push(i);
@@ -241,7 +240,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		let maiorCirculo = 0;
 		for (let m of magias) {
 			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);
-			if ( m.system.tipo == 'eng' ) this._itemSlotIcon(m);
+			if (m.system.tipo == "eng") this._itemSlotIcon(m);
 			grimorio[m.system.circulo].spells.push(m);
 		}
 
@@ -254,8 +253,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		actorData.poderes = poderes;
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
-		if( this.layout == "base"){
-			inventario.itens = {label: "Itens", items: items};
+		if (this.layout == "base") {
+			inventario.itens = { label: "Itens", items: items };
 		}
 		actorData.inventario = inventario;
 	}
@@ -263,31 +262,32 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	/* -------------------------------------------- */
 
 	async _onPrepareSpell(ev) {
+		ev.stopImmediatePropagation();
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.items.get(li.data("itemId"));
 		const id = item.system;
 		let updateItems = [];
-		updateItems.push({_id: item.id, "system.preparada": !id.preparada});
+		updateItems.push({ _id: item.id, "system.preparada": !id.preparada });
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
-	_itemSlotIcon(i){
+	_itemSlotIcon(i) {
 		// Font Awesome Stacked. icon1 = back | icon2 = front
 		i.equipado = i.system.equipado2;
-		if ( !i.equipado ) return;
+		if (!i.equipado) return;
 		// i.equipado.icon2 = parseInt(i.equipado.slot) == 12 ? 2 : '';
-		i.equipado.icon2 = '<b class="fa-stack-1x" style="color:white;font-size:10px;">'+(parseInt(i.equipado.slot) == 12 ? 2 : '')+'</b>'
-		if ( i.equipado.type == 'hand' ) {
-			i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>'
-		} else if ( i.equipado.type == 'body' ) {
-			i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>'
-		} else if ( i.equipado.type == 'both' ) {
-			if ( i.equipado.slot == 0 ) {
-				i.equipado.icon1 = '<i class="fa-solid fa-shield fa-stack-1x"></i>'
-			} else if ( i.equipado.slot.toString().split('.')[1] == 1 ) {
-				i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>'
-			} else if ( i.equipado.slot.toString().split('.')[1] == 2 ) {
-				i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>'
+		i.equipado.icon2 = `<b class="fa-stack-1x" style="color:white;font-size:10px;">${parseInt(i.equipado.slot) == 12 ? 2 : ""}</b>`;
+		if (i.equipado.type == "hand") {
+			i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
+		} else if (i.equipado.type == "body") {
+			i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
+		} else if (i.equipado.type == "both") {
+			if (i.equipado.slot == 0) {
+				i.equipado.icon1 = '<i class="fa-solid fa-shield fa-stack-1x"></i>';
+			} else if (i.equipado.slot.toString().split(".")[1] == 1) {
+				i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
+			} else if (i.equipado.slot.toString().split(".")[1] == 2) {
+				i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
 			}
 		}
 	}

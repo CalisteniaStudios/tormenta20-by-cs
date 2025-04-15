@@ -5,7 +5,7 @@ export default class IdentityData extends Tormenta20ItemData {
 	static defineSchema() {
 		const fields = foundry.data.fields;
 		const _fields = tormenta20.data.fields;
-		return Object.assign(super.defineSchema({unidentified: false}), {
+		return Object.assign(super.defineSchema({ unidentified: false }), {
 
 		});
 	}
@@ -15,17 +15,14 @@ export default class IdentityData extends Tormenta20ItemData {
 	/*  Getters/Setters                             */
 	/* -------------------------------------------- */
 
-
-	
 	/* -------------------------------------------- */
 	/*  System Operations                           */
 	/* -------------------------------------------- */
 
-
 	/* -------------------------------------------- */
 	/* Data Preparation                             */
 	/* -------------------------------------------- */
-	
+
 	/** @inheritDoc */
 	prepareBaseData() {}
 
@@ -64,7 +61,6 @@ export default class IdentityData extends Tormenta20ItemData {
 	_onUpdate(changed, options, userId) {}
 
 	/* -------------------------------------------- */
-
 
 	/** @inheritDoc */
 	async _preDelete(options, user) {}

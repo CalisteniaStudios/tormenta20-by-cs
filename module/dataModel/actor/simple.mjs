@@ -1,16 +1,16 @@
-import CreatureData from './creature.mjs';
+import CreatureData from "./creature.mjs";
 
 import {
 	ActorSkillsField,
 	SkillData,
 	_resourceSchema
-} from '../helpers.mjs';
+} from "../helpers.mjs";
 
 export default class SimpleData extends CreatureData {
 	/** @override */
 	static defineSchema() {
 		const fields = foundry.data.fields;
-		const type = 'simple';
+		const type = "simple";
 		return {
 			atributos: this.schemaAbilities(type),
 			attributes: this.schemaAttributes(type),
@@ -22,8 +22,8 @@ export default class SimpleData extends CreatureData {
 			}),
 			// pericias: new MappingField(new SkillData(),{required: true, initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue, initialKeysOnly: false}),
 			resources: new fields.ObjectField(),
-			tracos: this.schemaTraits(type),
-		}
+			tracos: this.schemaTraits(type)
+		};
 	}
 
 	/** @inheritdoc */

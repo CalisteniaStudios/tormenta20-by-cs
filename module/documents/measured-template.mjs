@@ -6,13 +6,12 @@
  * @see {@link Scene}                     The Scene document type which contains MeasuredTemplate documents
  * @see {@link MeasuredTemplateConfig}    The MeasuredTemplate configuration application
  */
-export default class Tormenta20MeasuredTemplateDocument extends MeasuredTemplateDocument
-{
+export default class Tormenta20MeasuredTemplateDocument extends MeasuredTemplateDocument {
 
-  /* -------------------------------------------- */
-  /*  Model Properties                            */
-  /* -------------------------------------------- */
-	
+	/* -------------------------------------------- */
+	/*  Model Properties                            */
+	/* -------------------------------------------- */
+
 	/** @inheritDoc */
 	_onUpdate(data, options, userId) {
 		super._onUpdate(data, options, userId);

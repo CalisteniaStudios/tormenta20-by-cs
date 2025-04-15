@@ -21,34 +21,34 @@ export default class RestConfigDialog extends Dialog {
 			return;
 		}
 
-		async function descanso(actors, modificador, modPV, modPM, curaCP=0, curaAC=0){
+		async function descanso(actors, modificador, modPV, modPM, curaCP=0, curaAC=0) {
 			let msg = [];
 			for (let actor of actors) {
-				if( actor.actor ) {
+				if (actor.actor) {
 					let m = await actor.actor.descanso(modificador, modPV, modPM, curaCP, curaAC, false);
 					msg.push(m);
-				} else if ( actor.documentName == "Actor" ) {
-					let m = await actor.descanso(modificador, modPV, modPM, curaCP, curaAC, false);;
+				} else if (actor.documentName == "Actor") {
+					let m = await actor.descanso(modificador, modPV, modPM, curaCP, curaAC, false);
 					msg.push(m);
 				}
 			}
-			let descricao = '';
+			let descricao = "";
 			const condicao = ["Ruim", "Normal", "Confortável", "Luxuoso"];
 			let c = condicao[Math.floor(modificador)];
 			descricao += `<span>Condição ${c}: ${modificador}/nivel</span><br>`;
-			if(modPV){
-					descricao += `<span>Extra PV: ${modPV}/nivel</span><br>`;
+			if (modPV) {
+				descricao += `<span>Extra PV: ${modPV}/nivel</span><br>`;
 			}
-			if(modPM){
-					descricao += `<span>Extra PM: ${modPM}/nivel</span><br>`;
+			if (modPM) {
+				descricao += `<span>Extra PM: ${modPM}/nivel</span><br>`;
 			}
-			if(curaCP){
-					descricao += `<span>Cuidados Rolongados (+1 PV/Nível)</span><br>`;
+			if (curaCP) {
+				descricao += "<span>Cuidados Rolongados (+1 PV/Nível)</span><br>";
 			}
-			if(curaAC){
-					descricao += `<span>Acompanhamento Médico (+1 PV/Nível)</span><br>`;
+			if (curaAC) {
+				descricao += "<span>Acompanhamento Médico (+1 PV/Nível)</span><br>";
 			}
-			descricao += "<p>" + msg.join('<br>') + "</p>";
+			descricao += `<p>${msg.join("<br>")}</p>`;
 			let content = {
 				item: {
 					name: game.i18n.localize("T20.Rest"),
@@ -59,7 +59,7 @@ export default class RestConfigDialog extends Dialog {
 						value: descricao
 					}
 				}
-			}
+			};
 			let template = "systems/tormenta20/templates/chat/chat-card.html";
 			const html = await renderTemplate(template, content);
 			const chatData = {
@@ -99,11 +99,11 @@ export default class RestConfigDialog extends Dialog {
 
 		return await new Promise((resolve) => {
 			const dlg = new this(actors, {
-				title: `Descanso`,
+				title: "Descanso",
 				content,
 				buttons: {
 					ok: {
-						label: `OK`,
+						label: "OK",
 						callback: (html) => {
 							const modQ = parseFloat(html.find("[name=qualidade]")[0].value);
 							const modPV = parseInt(html.find("[name=modPV]")[0].value);
@@ -116,7 +116,7 @@ export default class RestConfigDialog extends Dialog {
 					}
 				},
 				default: "",
-				close: () => {},
+				close: () => {}
 			});
 			dlg.options.width = 600;
 			dlg.position.width = 600;

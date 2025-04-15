@@ -6,16 +6,16 @@ export default class ActorSettings extends FormApplication {
 		options.height = "auto";
 		options.width = 400;
 		options.minimizable = true;
-		options.title = "Configurações de Personagem"
+		options.title = "Configurações de Personagem";
 		return options;
 	}
 
 	getData() {
-		let data = super.getData()
-		return data
+		let data = super.getData();
+		return data;
 	}
 
 	async _updateObject(event, formData) {
-		this.object.update(formData)
+		this.object.update(formData);
 	}
 }

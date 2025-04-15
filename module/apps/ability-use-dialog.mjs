@@ -1,5 +1,4 @@
-import ActorT20 from "../documents/actor.mjs";
-import {applyOnUseEffects} from "./ability-use.mjs";
+import { applyOnUseEffects } from "./ability-use.mjs";
 /**
  * A specialized Dialog subclass for ability usage
  * @type {Dialog}
@@ -21,22 +20,22 @@ export default class AbilityUseDialog extends Dialog {
 		super.activateListeners(html);
 
 		// Add controles para números
-		html.find('.numCtrl').click(this.numberControl.bind(this));
+		html.find(".numCtrl").click(this.numberControl.bind(this));
 	}
 
-	numberControl(ev){
+	numberControl(ev) {
 		ev.preventDefault();
 		let target;
-		if ( ev.target.tagName == "I" ) {
-			target = $(ev.target).parent('.numCtrl');
+		if (ev.target.tagName == "I") {
+			target = $(ev.target).parent(".numCtrl");
 		} else {
 			target = ev.target;
 		}
-		let campo = $(target).siblings('.numInp')[0];
-		if($(target).val() === "+"){
-			campo.value =  parseInt(campo.value) + parseInt($(campo).prop('step'));
-		} else if($(target).val() === "-"){
-			campo.value = parseInt(campo.value) - parseInt($(campo).prop('step'));
+		let campo = $(target).siblings(".numInp")[0];
+		if ($(target).val() === "+") {
+			campo.value = parseInt(campo.value) + parseInt($(campo).prop("step"));
+		} else if ($(target).val() === "-") {
+			campo.value = parseInt(campo.value) - parseInt($(campo).prop("step"));
 		}
 	}
 
@@ -50,39 +49,39 @@ export default class AbilityUseDialog extends Dialog {
 	 * @param {ItemT20} item
 	 * @return {Promise}
 	 */
-	 static async create(item) {
-		if ( !item.isOwned ) ui.notifications.error(game.i18n.localize("T20.ActionWarningItemNotOwned"));
+	static async create(item) {
+		if (!item.isOwned) ui.notifications.error(game.i18n.localize("T20.ActionWarningItemNotOwned"));
 		// Prepare data
 		const actorData = item.actor.system;
 		const itemData = item.system;
-		const pmCost = itemData?.custo > 0 ? true : false;
+		const pmCost = itemData?.custo > 0;
 		let aprimoramentos = [];
 		let apdeap = {};
-		
-		function filterAE( ae , keys=[] , tags=[] ){
+
+		function filterAE(ae, keys=[], tags=[]) {
 			const name = item.name;
-			let items = ae.getFlag('tormenta20','items');
-			items = items ? items.split(';').map( i => i.trim()) : [];
-			if ( !foundry.utils.isEmpty(items) && !items.includes(name) ) return false;
-			for ( let k of keys ){
-				if ( !ae.flags?.tormenta20 || !ae.flags?.tormenta20[k] ) return false;
+			let items = ae.getFlag("tormenta20", "items");
+			items = items ? items.split(";").map((i) => i.trim()) : [];
+			if (!foundry.utils.isEmpty(items) && !items.includes(name)) return false;
+			for (let k of keys) {
+				if (!ae.flags?.tormenta20 || !ae.flags?.tormenta20[k]) return false;
 			}
 			return true;
 		}
-		
+
 		const relate = {
-			atributo:'ability', pericia:'skill',
-			arma:'attack', magia:'spell',
-			poder:'power', consumivel:'consumable',
-			equipamento:'equipment'
-		}
-		let utype = '';
-		switch (item.type){
+			atributo: "ability", pericia: "skill",
+			arma: "attack", magia: "spell",
+			poder: "power", consumivel: "consumable",
+			equipamento: "equipment"
+		};
+		let utype = "";
+		switch (item.type) {
 			case "atributo":
 			case "pericia":
 				utype = relate[item.type];
 				aprimoramentos = [
-					...item.actor.effects.filter(ae => filterAE( ae , ['onuse', utype]) ),
+					...item.actor.effects.filter((ae) => filterAE(ae, ["onuse", utype]))
 				];
 				item.validOnUseEffects = aprimoramentos;
 				break;
@@ -93,8 +92,8 @@ export default class AbilityUseDialog extends Dialog {
 			case "consumivel":
 				utype = relate[item.type];
 				aprimoramentos = [
-					...item.effects.filter(ae => filterAE( ae , ['onuse', 'self']) ),
-					...item.actor.effects.filter(ae => filterAE( ae , ['onuse', utype]) ),
+					...item.effects.filter((ae) => filterAE(ae, ["onuse", "self"])),
+					...item.actor.effects.filter((ae) => filterAE(ae, ["onuse", utype]))
 				];
 				break;
 		}
@@ -109,14 +108,14 @@ export default class AbilityUseDialog extends Dialog {
 			note: "",
 			custo: itemData?.custo ?? null,
 			formula: (["arma", "poder", "pericia", "magia", "atributo", "consumivel"].includes(item.type)),
-			formuladano: (["arma", "poder", "magia", "consumivel","equipamento"].includes(item.type)),
+			formuladano: (["arma", "poder", "magia", "consumivel", "equipamento"].includes(item.type)),
 			itype: item.type,
 			consumeMP: pmCost,
 			aprimoramentos: aprimoramentos,
 			rollMode: game.settings.get("core", "rollMode"),
 			rollModes: CONFIG.Dice.rollModes,
 			rollKeeping: (event.altKey ? "khd20" : (event.ctrlKey ? "kld20" : "")),
-			rollKeep: {"khd20":"Melhor de 2d20","kld20":"Pior de 2d20"},
+			rollKeep: { khd20: "Melhor de 2d20", kld20: "Pior de 2d20" },
 			errors: []
 		};
 
@@ -125,40 +124,37 @@ export default class AbilityUseDialog extends Dialog {
 
 		// Create the Dialog and return data as a Promise
 		const icon = item.type === "magia" ? "fas fa-magic" : "fa-fist-raised";
-		const label = item.type === "magia" ? game.i18n.localize('T20.AbilityUseCast') : game.i18n.localize('T20.AbilityUseUse');
-		
-		
-		
-		
+		const label = item.type === "magia" ? game.i18n.localize("T20.AbilityUseCast") : game.i18n.localize("T20.AbilityUseUse");
+
 		return await new Promise((resolve) => {
 			const dlg = new this(item, {
-				title: game.i18n.format('T20.AbilityUseHint', {name:item.name, type:item.type}),
+				title: game.i18n.format("T20.AbilityUseHint", { name: item.name, type: item.type }),
 				content: html,
 				buttons: {
 					use: {
 						icon: `<i class="fas ${icon}"></i>`,
 						label: label,
-						callback: html => {
+						callback: (html) => {
 							const fd = new FormDataExtended(html[0].querySelector("form"));
-							let op = applyOnUseEffects( item, fd.object );
-							resolve( foundry.utils.mergeObject( fd.object, op ) );
+							let op = applyOnUseEffects(item, fd.object);
+							resolve(foundry.utils.mergeObject(fd.object, op));
 						}
 					}
 				},
 				default: "use",
 				close: () => resolve(null)
 			});
-			if( item.type === "magia" && ( item.actor.getFlag("tormenta20", "createPotion" || game.user.isGM ) ) ) {
+			if (item.type === "magia" && (item.actor.getFlag("tormenta20", "createPotion" || game.user.isGM))) {
 				dlg.data.buttons.brew = {
-					icon: `<i class="fas fa-flask"></i>`,
-					label: game.i18n.localize('T20.BrewPotion'),
-					callback: html => {
+					icon: "<i class=\"fas fa-flask\"></i>",
+					label: game.i18n.localize("T20.BrewPotion"),
+					callback: (html) => {
 						const fd = new FormDataExtended(html[0].querySelector("form"));
 						fd.object.brew = true;
-						let op = applyOnUseEffects( item, fd.object );
-						resolve( foundry.utils.mergeObject( fd.object, op ) );
+						let op = applyOnUseEffects(item, fd.object);
+						resolve(foundry.utils.mergeObject(fd.object, op));
 					}
-				}
+				};
 			}
 			dlg.options.width = 600;
 			dlg.position.width = 600;

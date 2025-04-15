@@ -4,7 +4,7 @@
  * @mixes SheetsT20
  */
 export default class JournalSheetT20 extends JournalSheet {
-	
+
 	/** @override */
 	static get defaultOptions() {
 		const options = JournalSheet.defaultOptions;
@@ -31,21 +31,21 @@ export default class JournalSheetT20 extends JournalSheet {
 		// const overlaySrc = "systems/crucible/ui/journal/overlay.png"; // TODO convert
 		// const overlay = `<img class="background-overlay" src="${overlaySrc}">`
 		// html.prepend(overlay);
-		const t20Classes = this.document.getFlag('t20basico','journalOptions.cssClass');
-		if ( t20Classes )  {
+		const t20Classes = this.document.getFlag("t20basico", "journalOptions.cssClass");
+		if (t20Classes) {
 			html.addClass(t20Classes);
 		}
 		return html;
 	}
-	
+
 	/** @override */
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 		return buttons;
-		
-		if ( game.modules.get("t20basico") ) {
+
+		if (game.modules.get("t20basico")) {
 			buttons.unshift({
-				label: "OpçõesT20",//game.i18n.localize('T20.WriteScroll'),
+				label: "OpçõesT20", // game.i18n.localize('T20.WriteScroll'),
 				class: "t20-options",
 				icon: "fa-solid fa-gears",
 				onclick: () => this._optionConfig()

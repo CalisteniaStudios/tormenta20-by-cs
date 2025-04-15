@@ -1,5 +1,5 @@
 import ActiveEffectT20 from "../documents/active-effects.mjs";
-import ItemT20 from '../documents/item.mjs';
+import ItemT20 from "../documents/item.mjs";
 // import { T20 } from '../config.mjs';
 
 import AbilityCalculator from "../apps/ability-calculator.mjs";
@@ -53,7 +53,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 					".tormenta20.builder .tab.attributes",
 					".tab.skills", ".tab.attributes", ".tab.spells", ".tab.inventory", ".tab.journal", ".tab.effects", ".tab.powers"
 				],
-				tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
 				height: 700
 			}
 		);
@@ -63,8 +63,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/** @override */
 	get template() {
-		const limitedSetting = game.settings.get('tormenta20','limitedSheet');
-		if ( !game.user.isGM && limitedSetting == 'limited' && this.actor.limited ) {
+		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
+		if (!game.user.isGM && limitedSetting == "limited" && this.actor.limited) {
 			return "systems/tormenta20/templates/actors/limited-sheet.html";
 		}
 		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
@@ -111,13 +111,13 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			rollData: this.actor.getRollData.bind(this.actor),
 			// TextEditors
 			htmlFields: {},
-			//Flags
-			mostrarDivindade: true,//this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
+			// Flags
+			mostrarDivindade: true, // this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
 			mostrarAtributoRacial: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoRacial"),
 			mostrarAtributoTemp: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoTemp"),
-			botaoEditarItens: true, //this.actor.getFlag("tormenta20", "sheet.botaoEditarItens"),
+			botaoEditarItens: true, // this.actor.getFlag("tormenta20", "sheet.botaoEditarItens"),
 			mostrarPlatina: this.actor.getFlag("tormenta20", "sheet.mostrarPlatina"),
-			editarPericias: true, //this.actor.getFlag("tormenta20", "sheet.editarPericias"),
+			editarPericias: true, // this.actor.getFlag("tormenta20", "sheet.editarPericias"),
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages"),
 			equipmentSlots: game.settings.get("tormenta20", "equipmentSlots"),
 			gameSystem: game.settings.get("tormenta20", "gameSystem"),
@@ -125,31 +125,31 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		};
 
 		// Sort Owned Items
-		for ( let i of sheetData.items ) {
+		for (let i of sheetData.items) {
 			const item = this.actor.items.get(i._id);
 			i.labels = item.labels;
 		}
 		sheetData.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
 		// Ability Scores
-		for ( let [a, abl] of Object.entries(sheetData.system.atributos)) {
+		for (let [a, abl] of Object.entries(sheetData.system.atributos)) {
 			abl.label = CONFIG.T20.atributos[a];
 		}
 
 		// Skills
 		if (sheetData.skills) {
 			for (let [s, skl] of Object.entries(sheetData.skills)) {
-				if( sheetData.isNPC && s == 'inic' ) skl.order = -5;
-				else if( sheetData.isNPC && s == 'perc' ) skl.order = -4;
-				else if( sheetData.isNPC && s == 'fort' ) skl.order = -3;
-				else if( sheetData.isNPC && s == 'refl' ) skl.order = -2;
-				else if( sheetData.isNPC && s == 'vont' ) skl.order = -1;
-				else if( s.match(/_pc[1-9]/) ) skl.order = 6;
-				else if( s == "_pc0" ) skl.order = 5;
-				else if( s > "ofi9" ) skl.order = 4;
-				else if( s.match(/ofi[1-9]/) ) skl.order = 3;
-				else if( s == "ofi0" ) skl.order = 2;
-				else if( s < "ofi0" ) skl.order = 1;
+				if (sheetData.isNPC && s == "inic") skl.order = -5;
+				else if (sheetData.isNPC && s == "perc") skl.order = -4;
+				else if (sheetData.isNPC && s == "fort") skl.order = -3;
+				else if (sheetData.isNPC && s == "refl") skl.order = -2;
+				else if (sheetData.isNPC && s == "vont") skl.order = -1;
+				else if (s.match(/_pc[1-9]/)) skl.order = 6;
+				else if (s == "_pc0") skl.order = 5;
+				else if (s > "ofi9") skl.order = 4;
+				else if (s.match(/ofi[1-9]/)) skl.order = 3;
+				else if (s == "ofi0") skl.order = 2;
+				else if (s < "ofi0") skl.order = 1;
 				skl.key = s;
 				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
 				const desc = [];
@@ -158,12 +158,14 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				skl.desc = desc.join(" ");
 			}
 		}
-		sheetData.skills = Object.values(sheetData.skills).sort((a,b)=>{return a.order-b.order});
+		sheetData.skills = Object.values(sheetData.skills).sort((a, b) => {
+			return a.order-b.order;
+		});
 
 		// Update traits
 		this._prepareTraits(sheetData.system.tracos);
 		// Update bonuses
-		sheetData.modificadores = []; //this._prepareModificadores();
+		sheetData.modificadores = []; // this._prepareModificadores();
 
 		// Prepare owned items
 		await this._prepareItems(sheetData);
@@ -176,7 +178,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		return sheetData;
 	}
 
-	async enrichHTML( text, data ){
+	async enrichHTML(text, data) {
 		return await TextEditor.enrichHTML(text, {
 			secrets: this.actor.isOwner,
 			rollData: data.rollData,
@@ -194,34 +196,34 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	activateListeners(html) {
 
 		// Tooltips
-		html.mousemove(ev => this._moveTooltips(ev));
+		html.mousemove((ev) => this._moveTooltips(ev));
 
 		// Editable Only Listeners
-		if ( this.isEditable ) {
+		if (this.isEditable) {
 			// Input focus and update
 			const inputs = html.find("input");
-			inputs.focus(ev => ev.currentTarget.select());
+			inputs.focus((ev) => ev.currentTarget.select());
 
 			// TODO input Deltas
 
 			// Skills management
-			html.find('.training-toggle').click(this._onToggleSkillTraining.bind(this));
-			html.find('.skill-create').click(this._onPericiaCustomCreate.bind(this));
-			html.find('.skill-delete').click(this._onPericiaCustomDelete.bind(this));
-			html.find('.show-controls').click(this._toggleControls.bind(this));
-			html.find('.pericia-rollable').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+			html.find(".training-toggle").click(this._onToggleSkillTraining.bind(this));
+			html.find(".skill-create").click(this._onPericiaCustomCreate.bind(this));
+			html.find(".skill-delete").click(this._onPericiaCustomDelete.bind(this));
+			html.find(".show-controls").click(this._toggleControls.bind(this));
+			html.find(".pericia-rollable").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
 			// Classes
-			html.find(".add-classe").click(ev => {
-				game.packs.get("tormenta20.classes").render(true)
+			html.find(".add-classe").click((ev) => {
+				game.packs.get("tormenta20.classes").render(true);
 			});
 			// Trait Selector
-			html.find('.trait-selector').click(this._onTraitSelector.bind(this));
+			html.find(".trait-selector").click(this._onTraitSelector.bind(this));
 
 			// Configure Special Flags
-			html.find('.config-button').click(this._onConfigMenu.bind(this));
+			html.find(".config-button").click(this._onConfigMenu.bind(this));
 			// html.find('.level-settings').click(this._onLevelSettings.bind(this));
-			html.find("#configure-actor").click(ev => {
+			html.find("#configure-actor").click((ev) => {
 				new ActorSettings(this.actor).render(true);
 			});
 			html.find("#configure-skills").click(async (ev) => {
@@ -236,55 +238,53 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			// 	new AbilityCalculator(this.actor).render(true);
 			// });
 
-
-
-			html.find('.update-cd').click(this._onUpdateCD.bind(this));
+			html.find(".update-cd").click(this._onUpdateCD.bind(this));
 
 			// Item management
-			html.find('.item-edit').click(this._onItemEdit.bind(this));
-			html.find('.item .item-name').on("contextmenu", this._onItemEdit.bind(this));
-			html.find('.item-create').click(this._onItemCreate.bind(this));
-			html.find('.item-delete').click(this._onItemDelete.bind(this));
-			html.find('.item-qty input').click(ev => ev.target.select()).change(this._onQtyChange.bind(this));
-
+			html.find(".item-edit").click(this._onItemEdit.bind(this));
+			html.find(".item .item-name").on("contextmenu", this._onItemEdit.bind(this));
+			html.find(".item-create").click(this._onItemCreate.bind(this));
+			html.find(".item-delete").click(this._onItemDelete.bind(this));
+			html.find(".item-qty input").click((ev) => ev.target.select())
+				.change(this._onQtyChange.bind(this));
 
 			// Active Effect management
-			html.find(".effect-control").click(ev => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
-			html.find('.effect').on("contextmenu", ev => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
+			html.find(".effect-control").click((ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
+			html.find(".effect").on("contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
 			// html.find('li.effect').on("dragstart", ev => this._onDragStart.bind(ev, this));
-			let handler = ev => this._onDragStart(ev);
-			html.find('li.effect').each((i, li) => {
+			let handler = (ev) => this._onDragStart(ev);
+			html.find("li.effect").each((i, li) => {
 				if (!li.hasAttribute("data-effect-id")) return;
 				li.setAttribute("draggable", true);
 				li.addEventListener("dragstart", handler, false);
 			});
 
 			// Open Compendium Entry
-			html.find('.compendium-entry').on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+			html.find(".compendium-entry").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
 		} else {
 			html.find("[contenteditable=true]").each((i, el) => el.setAttribute("contenteditable", false));
 		}
 
-		if ( this.actor.isOwner ) {
+		if (this.actor.isOwner) {
 			// Rollable abilities.
-			html.find('.rollable.atributo-rollable').click(this._onRollAtributo.bind(this));
+			html.find(".rollable.atributo-rollable").click(this._onRollAtributo.bind(this));
 			// Rollable skills.
-			html.find('.rollable.pericia-rollable').click(this._onRollPericia.bind(this));
+			html.find(".rollable.pericia-rollable").click(this._onRollPericia.bind(this));
 			// Roll item
-			html.find('.item .item-image').click(event => this._onItemRoll(event));
+			html.find(".item .item-image").click((event) => this._onItemRoll(event));
 
-			if ( game.settings.get("tormenta20", "equipmentSlots") ) {
+			if (game.settings.get("tormenta20", "equipmentSlots")) {
 				// Item Equip Context Menu
-				new ContextMenu(html, '.window-content .toggle-armor, .window-content .toggle-weapon', [], {
+				new ContextMenu(html, ".window-content .toggle-armor, .window-content .toggle-weapon", [], {
 					eventName: "click",
-					onOpen: this._onItemToggleContext.bind(this),
+					onOpen: this._onItemToggleContext.bind(this)
 				});
 			} else {
 				// Update Inventory Item
-				html.find('.toggle-armor').click(this._onToggleArmor.bind(this));
-				html.find('.toggle-weapon').on('click',this._onCicleWeapon.bind(this));
-				html.find('.toggle-weapon').on('contextmenu',this._onCicleWeapon.bind(this));
+				html.find(".toggle-armor").click(this._onToggleArmor.bind(this));
+				html.find(".toggle-weapon").on("click", this._onCicleWeapon.bind(this));
+				html.find(".toggle-weapon").on("contextmenu", this._onCicleWeapon.bind(this));
 			}
 		}
 
@@ -302,8 +302,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	_contextMenu(event) {
 		event.preventDefault();
 		event.stopPropagation();
-		$(event.currentTarget).trigger('contextmenu');
-  }
+		$(event.currentTarget).trigger("contextmenu");
+	}
+
 	/**
    * Handle activation of a context menu for an embedded Item document.
    * Dynamically populate the array of context menu options.
@@ -311,12 +312,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
    * @param {HTMLElement} element       The HTML element for which the context menu is activated
    * @protected
    */
-  _onItemToggleContext(element) {
-		const item = this.actor.items.get(element.closest('li').dataset.itemId);
-    if ( !item ) return;
-    ui.context.menuItems = ActorSheetT20.prototype._getItemToggleContextOptions.call(this, item);
-    Hooks.call("tormenta20.getItemToggleContextOptions", item, ui.context.menuItems);
-  }
+	_onItemToggleContext(element) {
+		const item = this.actor.items.get(element.closest("li").dataset.itemId);
+		if (!item) return;
+		ui.context.menuItems = ActorSheetT20.prototype._getItemToggleContextOptions.call(this, item);
+		Hooks.call("tormenta20.getItemToggleContextOptions", item, ui.context.menuItems);
+	}
 
 	/**
 	 * Prepare an array of context menu options which are available for owned Item documents.
@@ -328,38 +329,38 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const actor = this.actor;
 		const equips = this.actor.system.equipamentos;
 		const options = [];
-		let equipados = actor.items.filter( (it) =>  (it.system.equipado2?.slot > 0) );
-		const img = (image) => "<img src='"+image+"' width='20px' height='20px' style='vertical-align: middle;'>";
+		let equipados = actor.items.filter((it) => (it.system.equipado2?.slot > 0));
+		const img = (image) => `<img src='${image}' width='20px' height='20px' style='vertical-align: middle;'>`;
 		const dec = (number) => ((number % 1).toFixed(1) * 10);
 
-		if ( ['hand','both'].includes(item.system.equipado2.type) ) {
-			options.push({name: ("T20.Handling"), icon: '<i class="fa-solid fa-sort-down"></i>'}); //SECTION
-			let twoHanded = equipados.find( it => it.system.equipado2.slot == 12.1);
+		if (["hand", "both"].includes(item.system.equipado2.type)) {
+			options.push({ name: ("T20.Handling"), icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
+			let twoHanded = equipados.find((it) => it.system.equipado2.slot == 12.1);
 			options.push({
-				name: ( twoHanded?.name ?? 'T20.Empty' ),
-				icon: "<i class='fa-solid fa-hand-back-fist'></i><i class='fa-solid fa-hand-back-fist'></i>" + (twoHanded ? img(twoHanded.img) : ''),
-				callback: () => this._onToggleItem(item, 'hand', 12, twoHanded?.id)
+				name: (twoHanded?.name ?? "T20.Empty"),
+				icon: `<i class='fa-solid fa-hand-back-fist'></i><i class='fa-solid fa-hand-back-fist'></i>${twoHanded ? img(twoHanded.img) : ""}`,
+				callback: () => this._onToggleItem(item, "hand", 12, twoHanded?.id)
 			});
-			for ( let slot=1; slot <= equips.limiteEmpunhado; slot++ ){
-				let slotItem = twoHanded && [1,2].includes(slot) ? null :
-				equipados.find( it => dec(it.system.equipado2.slot) == 1 && Math.floor(it.system.equipado2.slot) == slot );
+			for (let slot=1; slot <= equips.limiteEmpunhado; slot++) {
+				let slotItem = twoHanded && [1, 2].includes(slot) ? null
+					: equipados.find((it) => dec(it.system.equipado2.slot) == 1 && Math.floor(it.system.equipado2.slot) == slot);
 				options.push({
-					name: ( (twoHanded && [1,2].includes(slot) ? `${slot}` : null) ?? slotItem?.name ?? 'T20.Empty' ),
-					icon: '<i class="fa-solid fa-hand-back-fist"></i>' + ( (twoHanded && [1,2].includes(slot) ? img(twoHanded.img) : null) ?? (slotItem ? img(slotItem.img) : '')),
-					callback: () => this._onToggleItem(item, 'hand', slot, slotItem?.id)
+					name: ((twoHanded && [1, 2].includes(slot) ? `${slot}` : null) ?? slotItem?.name ?? "T20.Empty"),
+					icon: `<i class="fa-solid fa-hand-back-fist"></i>${(twoHanded && [1, 2].includes(slot) ? img(twoHanded.img) : null) ?? (slotItem ? img(slotItem.img) : "")}`,
+					callback: () => this._onToggleItem(item, "hand", slot, slotItem?.id)
 				});
 			}
 
 		}
-		if ( ['body','both'].includes(item.system.equipado2.type) ) {
-			options.push({name: ("T20.Wearing"), icon: '<i class="fa-solid fa-sort-down"></i>'}); //SECTION
-			for ( let slot=1; slot <= equips.limiteVestido; slot++ ){
-				let slotItem = equipados.find( it => dec(it.system.equipado2.slot) == 2 && Math.floor(it.system.equipado2.slot) == slot );
+		if (["body", "both"].includes(item.system.equipado2.type)) {
+			options.push({ name: ("T20.Wearing"), icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
+			for (let slot=1; slot <= equips.limiteVestido; slot++) {
+				let slotItem = equipados.find((it) => dec(it.system.equipado2.slot) == 2 && Math.floor(it.system.equipado2.slot) == slot);
 				// && (it.system.preparada == slot || it.system.equipado == slot)
 				options.push({
-					name: ( slotItem?.name ?? 'T20.Empty' ),
-					icon: '<i class="fa-solid fa-shirt"></i>' + (slotItem ? img(slotItem.img) : ''),
-					callback: () => this._onToggleItem(item, 'body', slot, slotItem?.id)
+					name: (slotItem?.name ?? "T20.Empty"),
+					icon: `<i class="fa-solid fa-shirt"></i>${slotItem ? img(slotItem.img) : ""}`,
+					callback: () => this._onToggleItem(item, "body", slot, slotItem?.id)
 				});
 			}
 		}
@@ -368,41 +369,41 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	_onToggleItem(item, context, index, currentId) {
 		const updateItems = [];
-		if ( currentId ) {
+		if (currentId) {
 			updateItems.push({
 				_id: currentId, "system.equipado2.slot": 0
 			});
 		}
-		if ( item.id == currentId ) {
+		if (item.id == currentId) {
 			// When same just remove;
-		} else if ( context == 'hand' ){
+		} else if (context == "hand") {
 			updateItems.push({
 				_id: item.id, "system.equipado2.slot": index + 0.1
 			});
 			let oldItems = [];
-			if ( index > 2 ) { // Remove only current // Cant TwoHand
-			} else if ( index == 12 ){ // Remove one handed if equipping two handed
-				oldItems = this.actor.items.filter( it => item.id != it.id && ([1.1,2.1].includes(it.system.equipado2?.slot)) );
+			if (index > 2) { // Remove only current // Cant TwoHand
+			} else if (index == 12) { // Remove one handed if equipping two handed
+				oldItems = this.actor.items.filter((it) => item.id != it.id && ([1.1, 2.1].includes(it.system.equipado2?.slot)));
 			} else { // Remove two handed if equipping one handed
-				oldItems = this.actor.items.filter( it => item.id != it.id && ([12.1].includes(it.system.equipado2?.slot)) );
+				oldItems = this.actor.items.filter((it) => item.id != it.id && ([12.1].includes(it.system.equipado2?.slot)));
 			}
 
 			for (const oldItem of oldItems) {
 				updateItems.push({
 					_id: oldItem.id, "system.equipado2.slot": 0
-				})
+				});
 			}
 
-		} else if ( context == 'body' ){
+		} else if (context == "body") {
 			updateItems.push({
 				_id: item.id, "system.equipado2.slot": index + 0.2
 			});
-			let oldItems = this.actor.items.filter( it => item.id != it.id && (['leve','pesada'].includes(item.system.tipo) && ['leve','pesada'].includes(it.system.tipo)) );
+			let oldItems = this.actor.items.filter((it) => item.id != it.id && (["leve", "pesada"].includes(item.system.tipo) && ["leve", "pesada"].includes(it.system.tipo)));
 			// it.system.tipo == item.system.tipo
 			for (const oldItem of oldItems) {
 				updateItems.push({
 					_id: oldItem.id, "system.equipado2.slot": 0
-				})
+				});
 			}
 		}
 		this.actor.updateEmbeddedDocuments("Item", updateItems);
@@ -421,28 +422,28 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		// Prepare an array of available movement speeds
 		let u = movement.unit;
 		let speeds = {};
-		if(movement.walk > 0) speeds.walk = `${movement.walk}${u} (${Math.floor(movement.walk/1.5)}q)`;
-		if(movement.burrow > 0) speeds.burrow = `Escavar ${movement.burrow}${u} (${Math.floor(movement.burrow/1.5)}q)`;
-		if(movement.climb > 0) speeds.climb = `Escalar ${movement.climb}${u} (${Math.floor(movement.climb/1.5)}q)`;
-		if(movement.fly > 0) {
+		if (movement.walk > 0) speeds.walk = `${movement.walk}${u} (${Math.floor(movement.walk/1.5)}q)`;
+		if (movement.burrow > 0) speeds.burrow = `Escavar ${movement.burrow}${u} (${Math.floor(movement.burrow/1.5)}q)`;
+		if (movement.climb > 0) speeds.climb = `Escalar ${movement.climb}${u} (${Math.floor(movement.climb/1.5)}q)`;
+		if (movement.fly > 0) {
 			speeds.fly = `Voo ${movement.fly}${u} (${Math.floor(movement.fly/1.5)}q)`;
-			if(movement.hover) speeds.fly += " (Flutuando)";
+			if (movement.hover) speeds.fly += " (Flutuando)";
 		}
-		if(movement.swim > 0) speeds.swim = `Natação ${movement.swim}${u} (${Math.floor(movement.swim/1.5)}q)`;
+		if (movement.swim > 0) speeds.swim = `Natação ${movement.swim}${u} (${Math.floor(movement.swim/1.5)}q)`;
 		return speeds;
 	}
 
 	/* -------------------------------------------- */
 
 	_prepareSenses(actorData) {
-		const senses = actorData.system.attributes.sentidos || {value:[],custom:""};
-		if( !senses.value ) senses.value = [];
-		for ( let [k, label] of Object.entries(CONFIG.T20.senses) ) {
+		const senses = actorData.system.attributes.sentidos || { value: [], custom: "" };
+		if (!senses.value) senses.value = [];
+		for (let [k, label] of Object.entries(CONFIG.T20.senses)) {
 			const v = senses.value?.indexOf(k);
-			if ( v === -1 ) continue;
+			if (v === -1) continue;
 			senses.value[v] = label;
 		}
-		if ( !!senses.custom ) senses.value.push(senses.custom);
+		if (senses.custom) senses.value.push(senses.custom);
 		return senses;
 	}
 
@@ -455,16 +456,16 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	*/
 	_prepareTraits(traits) {
 		const map = {
-			"ic": CONFIG.T20.conditionTypes,
-			"idiomas": CONFIG.T20.idiomas,
-			"profArmas": CONFIG.T20.profArmas,
-			"profArmaduras": CONFIG.T20.profArmaduras
+			ic: CONFIG.T20.conditionTypes,
+			idiomas: CONFIG.T20.idiomas,
+			profArmas: CONFIG.T20.profArmas,
+			profArmaduras: CONFIG.T20.profArmaduras
 		};
-		for ( let [t, choices] of Object.entries(map) ) {
+		for (let [t, choices] of Object.entries(map)) {
 			const trait = traits[t];
-			if ( !trait ) continue;
+			if (!trait) continue;
 			let values = [];
-			if ( trait.value ) {
+			if (trait.value) {
 				values = trait.value instanceof Array ? trait.value : [trait.value];
 			}
 			trait.selected = values.reduce((obj, t) => {
@@ -473,7 +474,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			}, {});
 
 			// Add custom entry
-			if ( trait.custom ) {
+			if (trait.custom) {
 				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
 			}
 			trait.cssClass = !foundry.utils.isEmpty(trait.selected) ? "" : "inactive";
@@ -482,34 +483,34 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/* -------------------------------------------- */
 
-	_prepareModificadores(){
+	_prepareModificadores() {
 		const modificadores = [
-			{name: "system.modificadores.atributos.for", label: "Testes de Força"},
-			{name: "system.modificadores.atributos.des", label: "Testes de Destreza"},
-			{name: "system.modificadores.atributos.con", label: "Testes de Constintuição"},
-			{name: "system.modificadores.atributos.int", label: "Testes de Inteligência"},
-			{name: "system.modificadores.atributos.sab", label: "Testes de Sabedoria"},
-			{name: "system.modificadores.atributos.car", label: "Testes de Carisma"},
-			{name: "system.modificadores.atributos.geral", label: "Testes de Atributos"},
-			{name: "system.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos"},
-			{name: "system.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais"},
-			{name: "system.modificadores.custoPM", label: "Aumento de custo de PM"},
-			{name: "system.modificadores.dano.geral", label: "Dano Geral"},
-			{name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo"},
-			{name: "system.modificadores.dano.ad", label: "Dano A Distância"},
-			{name: "system.modificadores.dano.mag", label: "Dano de Magias"},
-			{name: "system.modificadores.pericias.geral", label: "Testes de Perícias"},
-			{name: "system.modificadores.pericias.ataque", label:"Testes de Perícias de Ataque"},
-			{name: "system.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque"},
-			{name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências"},
-			{name: "system.modificadores.pericias.atr.for", label: "Testes de Perícias de Força"},
-			{name: "system.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza"},
-			{name: "system.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição"},
-			{name: "system.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência"},
-			{name: "system.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria"},
-			{name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma"}
+			{ name: "system.modificadores.atributos.for", label: "Testes de Força" },
+			{ name: "system.modificadores.atributos.des", label: "Testes de Destreza" },
+			{ name: "system.modificadores.atributos.con", label: "Testes de Constintuição" },
+			{ name: "system.modificadores.atributos.int", label: "Testes de Inteligência" },
+			{ name: "system.modificadores.atributos.sab", label: "Testes de Sabedoria" },
+			{ name: "system.modificadores.atributos.car", label: "Testes de Carisma" },
+			{ name: "system.modificadores.atributos.geral", label: "Testes de Atributos" },
+			{ name: "system.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos" },
+			{ name: "system.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais" },
+			{ name: "system.modificadores.custoPM", label: "Aumento de custo de PM" },
+			{ name: "system.modificadores.dano.geral", label: "Dano Geral" },
+			{ name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo" },
+			{ name: "system.modificadores.dano.ad", label: "Dano A Distância" },
+			{ name: "system.modificadores.dano.mag", label: "Dano de Magias" },
+			{ name: "system.modificadores.pericias.geral", label: "Testes de Perícias" },
+			{ name: "system.modificadores.pericias.ataque", label: "Testes de Perícias de Ataque" },
+			{ name: "system.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque" },
+			{ name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências" },
+			{ name: "system.modificadores.pericias.atr.for", label: "Testes de Perícias de Força" },
+			{ name: "system.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza" },
+			{ name: "system.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição" },
+			{ name: "system.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência" },
+			{ name: "system.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria" },
+			{ name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma" }
 		];
-		for ( let b of modificadores ) {
+		for (let b of modificadores) {
 			b.value = foundry.utils.getProperty(this.object._source, b.name) || [];
 		}
 		return modificadores;
@@ -525,7 +526,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	_moveTooltips(event) {
-		$(event.currentTarget).find(".tooltip:hover .tooltipcontent").css("left", `${event.clientX}px`).css("top", `${event.clientY + 24}px`);
+		$(event.currentTarget).find(".tooltip:hover .tooltipcontent")
+			.css("left", `${event.clientX}px`)
+			.css("top", `${event.clientY + 24}px`);
 	}
 
 	/* -------------------------------------------- */
@@ -540,7 +543,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		// 	icon: "fa-solid fa-rotate",
 		// 	onclick: () => (new ActorSync(this.actor)).render(true)
 		// });
-	 	// Add button for sheet settings?
+		// Add button for sheet settings?
 		return buttons;
 	}
 
@@ -548,20 +551,20 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/** @override */
 	async _onDropItemCreate(itemData) {
-		if (itemData.type === "magia" && this.actor.system.attributes.conjuracao ) {
+		if (itemData.type === "magia" && this.actor.system.attributes.conjuracao) {
 			itemData.system.resistencia.atributo = this.actor.system.attributes.conjuracao || "int";
 		}
 		// Stack consumables
-		else if ( itemData.type === "consumivel" ){
-			const it = this.actor.itemTypes.consumivel.find(c => c.name === itemData.name);
+		else if (itemData.type === "consumivel") {
+			const it = this.actor.itemTypes.consumivel.find((c) => c.name === itemData.name);
 			if (it) {
 				const qtd = it.system.qtd + 1;
-				return it.update({"system.qtd": qtd})
+				return it.update({ "system.qtd": qtd });
 			}
 		}
 
-		if( itemData.system ){
-			["equipado","preparado"].forEach(k => delete itemData.system[k]);
+		if (itemData.system) {
+			["equipado", "preparado"].forEach((k) => delete itemData.system[k]);
 		}
 
 		return super._onDropItemCreate(itemData);
@@ -572,7 +575,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/** @override */
 	_onDragStart(event) {
 		const li = event.currentTarget;
-		if(!$(li).hasClass("skill")){
+		if (!$(li).hasClass("skill")) {
 			super._onDragStart(event);
 		} else {
 			if (event.target.classList.contains("entity-link")) return;
@@ -588,7 +591,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			if (li.dataset.itemId) {
 				let skill;
 				if (li.dataset.type=="oficios") {
-					skill = this.actor.system.pericias["ofi"].mais[li.dataset.itemId];
+					skill = this.actor.system.pericias.ofi.mais[li.dataset.itemId];
 					dragData.subtype = li.dataset.type;
 				} else if (li.dataset.type=="custom") {
 					skill = this.actor.system.periciasCustom[li.dataset.itemId];
@@ -611,14 +614,14 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	async _onRollAtributo(event) {
 		event.preventDefault();
 		let atributo = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		return await this.actor.rollAtributo(atributo, {event: event, message: true});
+		return await this.actor.rollAtributo(atributo, { event: event, message: true });
 	}
 
 	/*  */
 	async _onRollPericia(event) {
 		event.preventDefault();
 		let pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		return await this.actor.rollPericia(pericia, {event: event, message: true})
+		return await this.actor.rollPericia(pericia, { event: event, message: true });
 	}
 
 	/**
@@ -628,14 +631,14 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	_onItemRoll(event) {
 		event.preventDefault();
 		let itemId;
-		if ( event.currentTarget.closest(".item").dataset.itemId ) {
+		if (event.currentTarget.closest(".item").dataset.itemId) {
 			itemId = event.currentTarget.closest(".item").dataset.itemId;
-		} else if ( itemId = event.currentTarget.dataset.itemId ) {
+		} else if (itemId = event.currentTarget.dataset.itemId) {
 			itemId = event.currentTarget.dataset.itemId;
 		}
-		const rollConfigs = {}
-		const UsageConfig = game.settings.get('tormenta20','UsageConfig');
-		if ( UsageConfig == 'default' ) {
+		const rollConfigs = {};
+		const UsageConfig = game.settings.get("tormenta20", "UsageConfig");
+		if (UsageConfig == "default") {
 			rollConfigs.configureDialog = !event.shiftKey;
 		} else {
 			rollConfigs.configureDialog = event.shiftKey;
@@ -643,7 +646,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		rollConfigs.event = event;
 		const ignoreList = [];
 		const item = this.actor.items.get(itemId);
-		if ( !item || ignoreList.includes(item.type) ) return;
+		if (!item || ignoreList.includes(item.type)) return;
 		return item.roll(rollConfigs);
 	}
 
@@ -658,7 +661,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		event.preventDefault();
 		const button = event.currentTarget;
 		let app;
-		switch ( button.dataset.action ) {
+		switch (button.dataset.action) {
 			case "level":
 				this._onLevelSettings(event);
 				break;
@@ -693,12 +696,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const a = event.currentTarget;
 		const config = CONFIG.T20;
 		const classes = [];
-		actorData.items.forEach(item => {
-			if ( item.type === "classe" ) {
+		actorData.items.forEach((item) => {
+			if (item.type === "classe") {
 				classes.push(item);
 			}
 		});
-		const options = {classes, config};
+		const options = { classes, config };
 		new LevelSettings(this.actor, options).render(true);
 	}
 
@@ -712,23 +715,23 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const a = event.currentTarget;
 		const label = a.parentElement.querySelector("label");
 		let choices = {};
-		if ( a.dataset.options == 'conditionTypes' ){
+		if (a.dataset.options == "conditionTypes") {
 			let cdtypes = CONFIG.T20.conditions;
 			let eftypes = CONFIG.T20.effectTypes;
 			let ftypes = CONFIG.T20.conditionTypes;
 			let done = [];
-			for ( let [fk, fv] of Object.entries(ftypes)) {
-				if( done.includes(fk) ) continue;
-				if( Object.keys(eftypes).includes(fk) ){
-					choices[fk] = {label:fv, choices: {}};
-					let ch = Object.values(cdtypes).filter( (i) => i.flags?.tormenta20?.category==fk);
-					if ( ch ){
-						ch.map( i=> choices[fk]['choices'][i.id] = {label:i.name} );
+			for (let [fk, fv] of Object.entries(ftypes)) {
+				if (done.includes(fk)) continue;
+				if (Object.keys(eftypes).includes(fk)) {
+					choices[fk] = { label: fv, choices: {} };
+					let ch = Object.values(cdtypes).filter((i) => i.flags?.tormenta20?.category==fk);
+					if (ch) {
+						ch.map((i) => choices[fk].choices[i.id] = { label: i.name });
 						//  ch.map(i => {return {label:i.label}}) };
-						done = [...done, ...(ch.map(i => i.id))];
+						done = [...done, ...(ch.map((i) => i.id))];
 					}
-				} else if( Object.keys(cdtypes).includes(fk) && !fv.flags?.tormenta20?.category ){
-					choices[fk] = {label:fv, choices: []};
+				} else if (Object.keys(cdtypes).includes(fk) && !fv.flags?.tormenta20?.category) {
+					choices[fk] = { label: fv, choices: [] };
 				}
 			}
 		} else {
@@ -768,7 +771,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		event.preventDefault();
 		const li = event.currentTarget.closest(".item");
 		const item = this.actor.items.get(li.dataset.itemId);
-		if( item ) return item.sheet.render(true);
+		if (item) return item.sheet.render(true);
 	}
 
 	/**
@@ -780,7 +783,16 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		event.preventDefault();
 		const li = event.currentTarget.closest(".item");
 		const item = this.actor.items.get(li.dataset.itemId);
-		if ( item ) return item.delete();
+		if (item) {
+			if (!event.shiftKey) return item.deleteDialog({
+				position: {
+					top: window.innerHeight/2,
+					left: window.innerWidth - 770,
+					width: 450
+				}
+			});
+			return item.delete();
+		}
 	}
 
 	/**
@@ -791,16 +803,15 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		event.preventDefault();
 		let li = $(event.currentTarget).parents(".item");
 		let item = this.actor.items.get(li.data("item-id"));
-		if( !item ) return;
+		if (!item) return;
 		let chatData = await item.getChatData();
 		// Toggle summary
-		if ( li.hasClass("expanded") ) {
+		if (li.hasClass("expanded")) {
 			let summary = li.children(".item-summary");
 			summary.slideUp(200, () => summary.remove());
-		}
-		else {
+		} else {
 			let div = $(`<div class="item-summary">${chatData.description.value}</div>`);
-			let props = $(`<div class="item-properties"></div>`);
+			let props = $("<div class=\"item-properties\"></div>");
 			div.append(props);
 			li.append(div.hide());
 			div.slideDown(200);
@@ -809,11 +820,11 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/*  */
-	async _onUpdateCD(ev){
+	async _onUpdateCD(ev) {
 		const atrRes = $(ev.currentTarget).data("atrres");
-		const magias = this.actor.items.filter(i => i.type === "magia");
-		const updateItems = magias.map(i => {
-			return {_id: i.id, "system.resistencia.atributo": atrRes};
+		const magias = this.actor.items.filter((i) => i.type === "magia");
+		const updateItems = magias.map((i) => {
+			return { _id: i.id, "system.resistencia.atributo": atrRes };
 		});
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
@@ -831,7 +842,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const item = this.actor.items.get(itemId);
 		const qtd = parseInt(event.target.value) || 0;
 		event.target.value = qtd;
-		return item.update({ 'system.qtd': qtd });
+		return item.update({ "system.qtd": qtd });
 	}
 
 	/* -------------------------------------------- */
@@ -845,14 +856,14 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		id.equipado = !id.equipado;
 		const items = this.actor.items;
 		let updateItems = [];
-		updateItems.push({_id: item.id, "system.equipado": id.equipado});
+		updateItems.push({ _id: item.id, "system.equipado": id.equipado });
 		const armor = ["leve", "pesada"];
 		const exclusiveSlot = ["leve", "pesada", "escudo"];
 		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
-			let unequipped = items.some(element => { //some() === forEach() with a return
-				if(element.type === "equipamento" && element.system.equipado && element.id != item.id) {
+			let unequipped = items.some((element) => { // some() === forEach() with a return
+				if (element.type === "equipamento" && element.system.equipado && element.id != item.id) {
 					if (element.system.tipo === id.tipo || (armor.includes(element.system.tipo) && armor.includes(id.tipo))) {
-						updateItems.push({_id: element.id, "system.equipado": false});
+						updateItems.push({ _id: element.id, "system.equipado": false });
 						return true;
 					}
 				}
@@ -867,9 +878,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const id = item.system;
 		const items = this.actor.items;
 		let updateItems = [];
-		let step = ev.type == 'click' ? 1 : -1;
+		let step = ev.type == "click" ? 1 : -1;
 		let status = (id.equipado + step < 0 ? 2 : (id.equipado + step > 2 ? 0 : id.equipado + step));
-		updateItems.push({_id: item.id, "system.equipado": status});
+		updateItems.push({ _id: item.id, "system.equipado": status });
 
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
@@ -898,7 +909,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			custom: true,
 			value: 0,
 			atributo: oficio ? "int" : "for",
-			st: oficio ? true : false,
+			st: !!oficio,
 			pda: false,
 			treinado: oficio ? 1 : 0,
 			treino: 0,
@@ -912,26 +923,27 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 		const key = oficio ? "ofi" : "_pc";
 		const customs = Object.keys(pericias).reduce((t, k) => {
-			if( k.match(new RegExp(`${key}[1-9]`))?.length ) t.push( Number( k.replace(key,"") ) );
+			if (k.match(new RegExp(`${key}[1-9]`))?.length) t.push(Number(k.replace(key, "")));
 			return t;
-		}, [] );
+		}, []);
 
-		let keyN = Math.max( ...customs );
-		if ( keyN == 9 ) keyN = [1,2,3,4,5,6,7,8,9].find(i => !customs.includes(i) );
-		else if ( keyN > 0 ) keyN = keyN + 1;
+		let keyN = Math.max(...customs);
+		if (keyN == 9) keyN = [1, 2, 3, 4, 5, 6, 7, 8, 9].find((i) => !customs.includes(i));
+		else if (keyN > 0) keyN = keyN + 1;
 		else keyN = 1;
 
-		if ( customs.length == 9 ) {
+		if (customs.length == 9) {
 			// MESSAGE ERROR
 			ui.notifications.info("Número limite de pericias");
 		} else pericias[`${key}${keyN}`] = pericia;
-		pericias = Object.keys(pericias).sort().reduce(
-			(obj, key) => {
-				obj[key] = pericias[key];
-				return obj;
-			},
-			{}
-		);
+		pericias = Object.keys(pericias).sort()
+			.reduce(
+				(obj, key) => {
+					obj[key] = pericias[key];
+					return obj;
+				},
+				{}
+			);
 		await this.actor.update({ "system.pericias": pericias });
 	}
 
@@ -940,31 +952,31 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		await this.actor.update({ [`system.pericias.-=${id}`]: null });
 	}
 
-	_onToggleSkillTraining(event){
+	_onToggleSkillTraining(event) {
 		event.preventDefault();
 		// const field = event.currentTarget.previousElementSibling;
-		const li = event.currentTarget.closest('li');
+		const li = event.currentTarget.closest("li");
 		const id = li.dataset.itemId;
-		if ( !this.actor.system.pericias[id] ) return;
+		if (!this.actor.system.pericias[id]) return;
 		const trained = this.actor.system.pericias[id].treinado;
 		const ability = this.actor.system.pericias[id].atributo;
 		const treinado = `system.pericias.${id}.treinado`;
 		const atributo = `system.pericias.${id}.atributo`;
-		this.actor.update({[treinado]: !trained, [atributo]: ability});
+		this.actor.update({ [treinado]: !trained, [atributo]: ability });
 	}
 
 	_toggleControls(event) {
 		const target = event.currentTarget;
-		const controls = target.closest('ul').querySelectorAll('li.custom .skill-delete');
-		const input = target.closest('ul').querySelectorAll('li.custom .skill-outros');
-		if ($(target).hasClass('ativo')) {
-			$(controls).css('display', 'none');
-			$(input).css('display', 'inline');
-			$(target).removeClass('ativo');
+		const controls = target.closest("ul").querySelectorAll("li.custom .skill-delete");
+		const input = target.closest("ul").querySelectorAll("li.custom .skill-outros");
+		if ($(target).hasClass("ativo")) {
+			$(controls).css("display", "none");
+			$(input).css("display", "inline");
+			$(target).removeClass("ativo");
 		} else {
-			$(controls).css('display', 'inline');
-			$(input).css('display', 'none');
-			$(target).addClass('ativo');
+			$(controls).css("display", "inline");
+			$(input).css("display", "none");
+			$(target).addClass("ativo");
 		}
 	}
 
@@ -974,19 +986,19 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	 * @private
 	 */
 	async _onOpenCompendiumEntry(event) {
-		const parent = event.currentTarget.closest('li') ?? event.currentTarget;
+		const parent = event.currentTarget.closest("li") ?? event.currentTarget;
 		const skill = parent.dataset.itemId ?? null;
-		if ( !skill || !T20.skillCompendiumEntries[skill] ) return;
+		if (!skill || !T20.skillCompendiumEntries[skill]) return;
 		const entryKey = T20.skillCompendiumEntries[skill];
 		await Journal._showEntry(entryKey, true);
 	}
 
-    /* -------------------------------------------- */
-    /*  Rendering                                   */
-    /* -------------------------------------------- */
+	/* -------------------------------------------- */
+	/*  Rendering                                   */
+	/* -------------------------------------------- */
 
 	async _render(force, { MODES, ...options }={}) {
-		if ( (MODES === undefined) && (options.renderContext === "createItem") ) MODES = this.constructor.MODES.EDIT;
+		if ((MODES === undefined) && (options.renderContext === "createItem")) MODES = this.constructor.MODES.EDIT;
 		this._mode = MODES ?? this._mode ?? this.constructor.MODES.PLAY;
 		return super._render(force, options);
 	}

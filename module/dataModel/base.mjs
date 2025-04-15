@@ -1,44 +1,42 @@
 
-
 export default class Tormenta20TypeData extends foundry.abstract.TypeDataModel {
-	
+
 	/** @inheritDoc */
 	static defineSchema() {
 		return {
-		}
+		};
 	}
-	
-	/* -------------------------------------------- */
 
+	/* -------------------------------------------- */
 
 	/* -------------------------------------------- */
 	/*  Getters/Setters                             */
 	/* -------------------------------------------- */
-	
-	get getDataFields(){
+
+	get getDataFields() {
 		const doc = this.parent;
 		const schema = doc.system.schema;
 		const dataFields = foundry.utils.flattenObject(doc.system.toObject());
-		
-		dataFields['name'] = doc.schema.getField('name');
-		dataFields['img'] = doc.schema.getField('img');
-		
+
+		dataFields.name = doc.schema.getField("name");
+		dataFields.img = doc.schema.getField("img");
+
 		for (const [fieldPath, value] of Object.entries(dataFields)) {
 			dataFields[fieldPath] = schema.getField(fieldPath);
-			if ( dataFields[fieldPath]?.choices ) {
+			if (dataFields[fieldPath]?.choices) {
 				let choices = dataFields[fieldPath].choices;
 				dataFields[fieldPath].valueLabel = choices[value]?.label ?? choices[value];
 				// sheetCategory
 			}
 		}
-		
+
 		return foundry.utils.expandObject(dataFields);
 	}
 
-	get document () {
+	get document() {
 		let parent = this.parent;
-		while ( parent ) {
-			if ( parent.documentName ) break;
+		while (parent) {
+			if (parent.documentName) break;
 			parent = parent.parent;
 		}
 		return parent;
@@ -48,16 +46,15 @@ export default class Tormenta20TypeData extends foundry.abstract.TypeDataModel {
 	get contextMenu() {
 		return [];
 	}
-	
+
 	/* -------------------------------------------- */
 	/*  System Operations                           */
 	/* -------------------------------------------- */
 
-
 	/* -------------------------------------------- */
 	/* Data Preparation                             */
 	/* -------------------------------------------- */
-	
+
 	/** @inheritDoc */
 	prepareBaseData() {}
 
@@ -96,7 +93,6 @@ export default class Tormenta20TypeData extends foundry.abstract.TypeDataModel {
 	_onUpdate(changed, options, userId) {}
 
 	/* -------------------------------------------- */
-
 
 	/** @inheritDoc */
 	async _preDelete(options, user) {}

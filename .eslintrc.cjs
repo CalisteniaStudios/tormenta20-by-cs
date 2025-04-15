@@ -85,6 +85,7 @@ module.exports = {
 		"no-octal-escape": "warn",
 		"no-promise-executor-return": "warn",
 		"no-proto": "warn",
+		"no-prototype-builtins": "warn",
 		"no-regex-spaces": "warn",
 		"no-script-url": "warn",
 		"no-self-assign": "warn",
@@ -224,13 +225,6 @@ module.exports = {
 	},
 
 	globals: {
-		// AdaptiveLightingShader: false,
-		// CodeMirror: false,
-		// Color: false,
-		// DetectionMode: false,
-		// DocumentSheetConfig: false,
-		// HandlebarsApplicationMixin: false,
-		// fromUuidSync: false,
 		PIXI: false,
 		SYSTEMRULES: false,
 		T20: false,

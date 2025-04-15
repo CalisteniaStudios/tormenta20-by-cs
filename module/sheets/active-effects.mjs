@@ -1,19 +1,20 @@
 export default class ActiveEffectConfigT20 extends foundry.applications.sheets.ActiveEffectConfig {
-	/*override*/
+	/* override*/
 	get title() {
 		if (this.document.flags?.tormenta20?.onuse) {
 			return `Efeito de Uso: ${this.document.name}`;
-		} else {
-			return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.document.name}`;
 		}
+		return `${game.i18n.localize("EFFECT.ConfigTitle")}: ${this.document.name}`;
+
 	}
+
 	/** @override */
 	get template() {
 		if (this.document.flags?.tormenta20?.onuse) {
 			return "systems/tormenta20/templates/apps/onuse-effect-config.html";
-		} else {
-			return "systems/tormenta20/templates/apps/active-effect-config.html"
 		}
+		return "systems/tormenta20/templates/apps/active-effect-config.html";
+
 	}
 
 	/** @override */
@@ -36,7 +37,7 @@ export default class ActiveEffectConfigT20 extends foundry.applications.sheets.A
 		$(".useType").each(function () {
 			if ($(this)[0].checked) transfer = true;
 		});
-		let upds = {}
+		let upds = {};
 		upds.transfer = transfer;
 		upds[event.target.name] = event.target.checked;
 		await this.object.update(upds);
