@@ -208,7 +208,7 @@ export function registerHandlebarsHelpers() {
 					desc.push(`${ativacao} (${game.i18n.localize("T20.TimeSust")})`);
 				} else desc.push(ativacao);
 			} else if (sustentada) desc.push(game.i18n.localize("T20.TimeSust"));
-			desc.push(custoPM);
+			if (custoPM) desc.push(custoPM);
 		}
 		return new Handlebars.SafeString(desc.filterJoin(separator));
 	});
