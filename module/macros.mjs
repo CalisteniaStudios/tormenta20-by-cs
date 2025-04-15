@@ -154,7 +154,7 @@ export async function rollItemMacro(itemName, extra = {}) {
 
 	const rollConfigs = {};
 	const UsageConfig = game.settings.get("tormenta20", "UsageConfig");
-	if (UsageConfig == "default") {
+	if (UsageConfig === "default") {
 		rollConfigs.configureDialog = !event.shiftKey;
 	} else {
 		rollConfigs.configureDialog = event.shiftKey;
@@ -172,7 +172,7 @@ export async function rollSkillMacro(skillName) {
 	if (!actor) return ui.notifications.warn("Selecione um personagem.");
 
 	let pericias = Object.entries(actor.system.pericias);
-	let skl = pericias.find((p) => p[1].label == skillName)[0];
+	let skl = pericias.find((p) => p[1].label === skillName)[0];
 	await actor.rollPericia(skl, { message: true, event: event });
 }
 
@@ -183,7 +183,7 @@ export async function msgFromJournal(name, source, sourceName) {
 	if (source && sourceName) {
 		const pack = await game.packs.get(source).getDocuments();
 		journal = pack.find((i) => i.name === sourceName);
-		page = journal.pages.find((p) => p.name == name);
+		page = journal.pages.find((p) => p.name === name);
 	} else if (source) {
 		const pack = await game.packs.get(source).getDocuments();
 		journal = pack.find((i) => i.name === name);
@@ -210,7 +210,7 @@ export async function msgFromJournal(name, source, sourceName) {
 export async function rollChatMessage({ rolls= [], templateData={ item: { name: "Teste", img: "icons/svg/dice-target.svg" }, system: { description: { value: "Teste" } } } }) {
 	templateData.rolls = [];
 	// Render dice rolls
-	for (let [key, roll] of Object.entries(rolls)) {
+	for (let roll of Object.values(rolls)) {
 		roll.tipo = roll.dice[0]?.faces !== 20 ? "roll--dano" : roll._critical ? "critico" : roll._fumble ? "falha" : "";
 		roll.options.title = roll.options.title || "-";
 		await roll.render().then((r) => {

@@ -113,7 +113,7 @@ export default function Tormenta20BaseSheetMixin(Base) {
 		 * @param {*} target                           The element clicked.
 		 */
 		static async #onToggleMode(event, target) {
-			this._sheetMode = this._sheetMode == 1 ? 0 : 1;
+			this._sheetMode = this._sheetMode === 1 ? 0 : 1;
 			this.render();
 		}
 
@@ -139,7 +139,7 @@ export default function Tormenta20BaseSheetMixin(Base) {
 			const documentData = this.document.toObject();
 			const currentField = foundry.utils.getProperty(documentData, fieldPath);
 
-			if (create == "Item") {
+			if (create === "Item") {
 				const itemData = {
 					type: type ?? "base",
 					img: CONFIG[create]?.dataModels[type]?.DEFAULT_IMAGE ?? "icons/svg/item-bag.svg",
@@ -149,7 +149,7 @@ export default function Tormenta20BaseSheetMixin(Base) {
 				};
 				const created = await this.document.createEmbeddedDocuments(create, [itemData]);
 				created[0].sheet.render(true);
-			} else if (create == "ActiveEffect") {
+			} else if (create === "ActiveEffect") {
 				let category = target.dataset.category;
 				const effectData = {
 					type: type ?? "base",
@@ -157,8 +157,8 @@ export default function Tormenta20BaseSheetMixin(Base) {
 						type: game.i18n.localize(`TYPES.ActiveEffect.${type}`)
 					}),
 					img: CONFIG[create]?.dataModels[type]?.DEFAULT_IMAGE ?? "icons/svg/aura.svg",
-					disabled: category == "inactive",
-					duration: category == "temporary" ? { rounds: 1 } : {}
+					disabled: category === "inactive",
+					duration: category === "temporary" ? { rounds: 1 } : {}
 				};
 				this.document.createEmbeddedDocuments(create, [effectData]);
 			} else {
@@ -305,7 +305,7 @@ export default function Tormenta20BaseSheetMixin(Base) {
 			let value = Number(foundry.utils.getProperty(document, fieldPath));
 			const updateData = {};
 			updateData[fieldPath] = value;
-			event.type == "click" ? updateData[fieldPath]++ : updateData[fieldPath]--;
+			event.type === "click" ? updateData[fieldPath]++ : updateData[fieldPath]--;
 			if (max && Number(max)) {
 				updateData[fieldPath] = Math.min(updateData[fieldPath], Number(max));
 			}
@@ -356,14 +356,14 @@ export default function Tormenta20BaseSheetMixin(Base) {
 		async _getHandlerDocument(id) {
 			const document = this.document;
 			return	await fromUuid(id)
-							?? document.items?.get(id)
-							?? document.effects?.get(id)
-							?? document;
+				?? document.items?.get(id)
+				?? document.effects?.get(id)
+				?? document;
 		}
 
 		_getCreateData(type, target) {
 			switch (type) {
-				case "pericia":
+				case "pericia": {
 					const key = foundry.applications.api.DialogV2.prompt({
 						window: { title: "I18N.DIALOG.CreateSkill" }
 
@@ -372,11 +372,9 @@ export default function Tormenta20BaseSheetMixin(Base) {
 						key: key,
 						type: "oficio" ?? "custom"
 					};
+				}
 				default:
-					return {
-
-					};
-					break;
+					return {};
 			}
 		}
 
@@ -395,8 +393,8 @@ export default function Tormenta20BaseSheetMixin(Base) {
 		 * @returns {Object} sheetItems
 		 */
 		async _prepareDocumentItems() {
-			const doc = this.document;
-			const items = doc.items;
+			// const doc = this.document;
+			// const items = doc.items;
 			const sheetItems = {};
 			return sheetItems;
 		}
@@ -407,8 +405,8 @@ export default function Tormenta20BaseSheetMixin(Base) {
 		 * @returns {Object} sheetItems
 		 */
 		async _prepareDocumentEffects() {
-			const doc = this.document;
-			const effects = this.document.effects;
+			// const doc = this.document;
+			// const effects = this.document.effects;
 			const sheetEffects = {};
 			return sheetEffects;
 		}

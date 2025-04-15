@@ -25,9 +25,9 @@ export default class RollT20 extends Roll {
 		super(formula, data, options);
 		if (!options.type) options.type = RollT20.ROLLTYPES.FORMULA;
 		if (!options.modifiers) options.modifiers = [];
-		if (options.type == RollT20.ROLLTYPES.FORMULA) this.configureFormulaModifiers();
-		if (options.type == RollT20.ROLLTYPES.ATTACK) this.configureAttackModifiers();
-		if (options.type == RollT20.ROLLTYPES.DAMAGE) this.configureDamageModifiers();
+		if (options.type === RollT20.ROLLTYPES.FORMULA) this.configureFormulaModifiers();
+		else if (options.type === RollT20.ROLLTYPES.ATTACK) this.configureAttackModifiers();
+		else if (options.type === RollT20.ROLLTYPES.DAMAGE) this.configureDamageModifiers();
 		// console.log(this);
 	}
 

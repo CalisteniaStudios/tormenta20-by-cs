@@ -37,19 +37,4 @@ export default class JournalSheetT20 extends JournalSheet {
 		}
 		return html;
 	}
-
-	/** @override */
-	_getHeaderButtons() {
-		let buttons = super._getHeaderButtons();
-		return buttons;
-
-		if (game.modules.get("t20basico")) {
-			buttons.unshift({
-				label: "OpçõesT20", // game.i18n.localize('T20.WriteScroll'),
-				class: "t20-options",
-				icon: "fa-solid fa-gears",
-				onclick: () => this._optionConfig()
-			});
-		}
-	}
 }

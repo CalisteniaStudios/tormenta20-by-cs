@@ -2,8 +2,7 @@ import Tormenta20TypeData from "../base.mjs";
 
 import {
 	ActorSkillsField,
-	SkillData,
-	_resourceSchema
+	SkillData
 } from "../helpers.mjs";
 
 const fields = foundry.data.fields;
@@ -104,9 +103,9 @@ export default class CreatureData extends Tormenta20TypeData {
 			condi: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.DefenseStatusEffectsValue", hint: "T20.DefenseStatusEffectsValueHint" }),
 			bonus: new fields.ArrayField(new fields.StringField(), { label: "T20.DefenseEffectValues", hint: "T20.DefenseEffectValuesHint" })
 		};
-		if (type == "npc") {
+		if (type === "npc") {
 
-		} else if (type == "simple") {
+		} else if (type === "simple") {
 			delete schema.atributo;
 			delete schema.pda.atributo;
 			delete schema.base.atributo;
@@ -137,10 +136,10 @@ export default class CreatureData extends Tormenta20TypeData {
 				proximo: new fields.NumberField({ initial: 0, integer: true, label: "T20.ExperienceToNextLevel", hint: "T20.ExperienceToNextLevelHint" })
 			})
 		};
-		if (type == "npc") {
+		if (type === "npc") {
 			delete schema.pct;
 			delete schema.proximo;
-		} else if (type == "simple") {
+		} else if (type === "simple") {
 
 		}
 		return new fields.SchemaField(schema);
@@ -191,9 +190,9 @@ export default class CreatureData extends Tormenta20TypeData {
 			sentidos: this.schemaSenses(),
 			treino: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.AttributeTrainingValue", hint: "T20.AttributeTrainingValueHint" })
 		};
-		if (type == "npc") {
+		if (type === "npc") {
 			schema.nd = new fields.StringField({ required: true, initial: "1", label: "T20.FoeCRValue", hint: "T20.FoeCRValueHint" });
-		} else if (type == "simple") {
+		} else if (type === "simple") {
 			delete schema.cd;
 			delete schema.conjuracao;
 			delete schema.nivel;
@@ -249,7 +248,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			})
 		};
 
-		if (type == "npc") {
+		if (type === "npc") {
 			schema.equipamento = new fields.StringField({ initial: "", label: "T20.FoeEquipment", hint: "T20.FoeEquipmentHint" });
 			schema.resistencias = new fields.StringField({ initial: "", label: "T20.FoeResistances", hint: "T20.FoeResistancesHint" });
 			schema.movimento = new fields.StringField({ initial: "", label: "T20.FoeMovement", hint: "T20.FoeMovementHint" });
@@ -264,7 +263,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			delete schema.diario3;
 			delete schema.diario4;
 			delete schema.diario5;
-		} else if (type == "simple") {
+		} else if (type === "simple") {
 			delete schema.origem;
 			delete schema.info;
 			delete schema.divindade;
@@ -367,8 +366,8 @@ export default class CreatureData extends Tormenta20TypeData {
 			delete schema.idiomas;
 			delete schema.profArmaduras;
 			delete schema.profArmas;
-		} else if (type == "npc") {
-		} else if (type == "simple") {
+		} else if (type === "npc") {
+		} else if (type === "simple") {
 		}
 
 		return new fields.SchemaField(schema);

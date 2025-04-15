@@ -78,7 +78,7 @@ export function registerHandlebarsHelpers() {
 		// data-tooltip="{{fieldBonuses @root path=(concat 'system.pericias.' skill.key)}}" data-tooltip-direction="LEFT"
 		let total = 0;
 		for (const item of listEffects.filter(Boolean)) {
-			if (item.mode == 5) {
+			if (item.mode === 5) {
 				listItems = `<li class="flexrow">${item.name}: <span style="text-align:right;">${item.value}</span></li>`;
 				total = item.value;
 				break;
@@ -111,7 +111,7 @@ export function registerHandlebarsHelpers() {
 		function (context, condition, options) {
 			let ret = "";
 			for (let prop in context) {
-				if (condition == prop) {
+				if (condition === prop) {
 					ret = `${ret} ${context[prop].tooltip}`;
 				}
 			}
@@ -139,8 +139,8 @@ export function registerHandlebarsHelpers() {
 	});
 
 	Handlebars.registerHelper("find", function (arr, key, value, flat=false) {
-		if (flat) return !!arr.find((i) => foundry.utils.flattenObject(i)[key] == value);
-		return !!arr.find((i) => i[key] == value);
+		if (flat) return !!arr.find((i) => foundry.utils.flattenObject(i)[key] === value);
+		return !!arr.find((i) => i[key] === value);
 	});
 
 	Handlebars.registerHelper("ift", function (v, rtrue, rfalse) {

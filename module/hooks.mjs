@@ -27,7 +27,7 @@ export default function () {
 					updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
 				}
 
-				if (actor.type == "npc") {
+				if (actor.type === "npc") {
 					updateData["system.attributes.defesa.base"] = 10 + actor._source.system.attributes.defesa.outros;
 					updateData["system.attributes.defesa.outros"] = 0;
 				}

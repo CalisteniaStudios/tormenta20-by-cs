@@ -27,7 +27,7 @@ export default class RestConfigDialog extends Dialog {
 				if (actor.actor) {
 					let m = await actor.actor.descanso(modificador, modPV, modPM, curaCP, curaAC, false);
 					msg.push(m);
-				} else if (actor.documentName == "Actor") {
+				} else if (actor.documentName === "Actor") {
 					let m = await actor.descanso(modificador, modPV, modPM, curaCP, curaAC, false);
 					msg.push(m);
 				}

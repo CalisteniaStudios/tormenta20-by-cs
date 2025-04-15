@@ -766,7 +766,7 @@ T20.toolUpgradesTooltips = {
 	enhanced: "T20.ToolUpgradesTooltipEnhanced"
 };
 for (let [k, v] of Object.entries(T20.itemUpgrades)) {
-	T20.toolUpgrades[k] = T20.itemUpgrades[k];
+	T20.toolUpgrades[k] = v;
 	T20.toolUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
 }
 preLocalize("toolUpgrades");
@@ -801,7 +801,7 @@ T20.weaponUpgradesTooltips = {
 	penetrating: "T20.ItemUpgradesTooltipPenetrating"
 };
 for (let [k, v] of Object.entries(T20.itemUpgrades)) {
-	T20.weaponUpgrades[k] = T20.itemUpgrades[k];
+	T20.weaponUpgrades[k] = v;
 	T20.weaponUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
 }
 preLocalize("weaponUpgrades");
@@ -835,14 +835,14 @@ T20.shieldUpgradesTooltips = {
 	thorny: "T20.ShieldUpgradesTooltipThorny"
 };
 for (let [k, v] of Object.entries(T20.armorUpgrades)) {
-	if (k == "thorny") continue;
-	T20.shieldUpgrades[k] = T20.armorUpgrades[k];
+	if (k === "thorny") continue;
+	T20.shieldUpgrades[k] = v;
 	T20.shieldUpgradesTooltips[k] = T20.armorUpgradesTooltips[k];
 }
 for (let [k, v] of Object.entries(T20.itemUpgrades)) {
-	T20.armorUpgrades[k] = T20.itemUpgrades[k];
+	T20.armorUpgrades[k] = v;
 	T20.armorUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
-	T20.shieldUpgrades[k] = T20.itemUpgrades[k];
+	T20.shieldUpgrades[k] = v;
 	T20.shieldUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
 }
 preLocalize("armorUpgrades");
@@ -870,7 +870,7 @@ T20.esotericUpgradesTooltips = {
 	vigilant: "T20.EsotericUpgradesTooltipVigilant"
 };
 for (let [k, v] of Object.entries(T20.itemUpgrades)) {
-	T20.esotericUpgrades[k] = T20.itemUpgrades[k];
+	T20.esotericUpgrades[k] = v;
 	T20.esotericUpgradesTooltips[k] = T20.itemUpgradesTooltips[k];
 }
 preLocalize("esotericUpgrades");
@@ -1007,7 +1007,7 @@ T20.shieldEnchantmentsTooltips = {
 	bashing: "T20.EquipmentEnchantmentTooltipBashing"
 };
 for (let [k, v] of Object.entries(T20.armorEnchantments)) {
-	T20.shieldEnchantments[k] = T20.armorEnchantments[k];
+	T20.shieldEnchantments[k] = v;
 	T20.shieldEnchantmentsTooltips[k] = T20.armorEnchantmentsTooltips[k];
 }
 preLocalize("shieldEnchantments");

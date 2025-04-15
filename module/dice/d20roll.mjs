@@ -75,7 +75,7 @@ export default class D20Roll extends Roll {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	async toMessage(messageData={}, options) {
+	async toMessage(messageData = {}, { rollMode, create=true } = {}) {
 		messageData.flavor = messageData.flavor || this.options.flavor;
 
 		// Evaluate the roll now so we have the results available to determine whether reliable talent came into play
@@ -84,7 +84,7 @@ export default class D20Roll extends Roll {
 		// Add appropriate advantage mode message flavor and T20 roll flags
 		if (this.hasAdvantage) messageData.flavor += ` (${game.i18n.localize("T20.Advantage")})`;
 		else if (this.hasDisadvantage) messageData.flavor += ` (${game.i18n.localize("T20.Disadvantage")})`;
-		return super.toMessage(messageData, options);
+		return super.toMessage(messageData, { rollMode, create });
 	}
 
 }

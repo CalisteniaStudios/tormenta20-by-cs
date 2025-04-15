@@ -102,7 +102,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	async _onDropItemCreate(itemData) {
 		itemData = Array.isArray(itemData) ? itemData : [itemData];
 		const remainingItems = [];
-		let classChange = false;
 		for (const item of itemData) {
 			if (item.type === "classe") {
 				const cls = this.actor.itemTypes.classe.find((c) => c.name === item.name);
@@ -235,11 +234,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			4: { spells: [], custo: 10 },
 			5: { spells: [], custo: 15 }
 		};
-		const nPreparadas = 0;
 		let maiorCirculo = 0;
 		for (let m of magias) {
 			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);
-			if (m.system.tipo == "eng") this._itemSlotIcon(m);
+			if (m.system.tipo === "eng") this._itemSlotIcon(m);
 			grimorio[m.system.circulo].spells.push(m);
 		}
 
@@ -252,7 +250,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		actorData.poderes = poderes;
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
-		if (this.layout == "base") {
+		if (this.layout === "base") {
 			inventario.itens = { label: "Itens", items: items };
 		}
 		actorData.inventario = inventario;
@@ -274,18 +272,18 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Font Awesome Stacked. icon1 = back | icon2 = front
 		i.equipado = i.system.equipado2;
 		if (!i.equipado) return;
-		// i.equipado.icon2 = parseInt(i.equipado.slot) == 12 ? 2 : '';
-		i.equipado.icon2 = `<b class="fa-stack-1x" style="color:white;font-size:10px;">${parseInt(i.equipado.slot) == 12 ? 2 : ""}</b>`;
-		if (i.equipado.type == "hand") {
+		// i.equipado.icon2 = parseInt(i.equipado.slot) === 12 ? 2 : '';
+		i.equipado.icon2 = `<b class="fa-stack-1x" style="color:white;font-size:10px;">${parseInt(i.equipado.slot) === 12 ? 2 : ""}</b>`;
+		if (i.equipado.type === "hand") {
 			i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
-		} else if (i.equipado.type == "body") {
+		} else if (i.equipado.type === "body") {
 			i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
-		} else if (i.equipado.type == "both") {
-			if (i.equipado.slot == 0) {
+		} else if (i.equipado.type === "both") {
+			if (i.equipado.slot === 0) {
 				i.equipado.icon1 = '<i class="fa-solid fa-shield fa-stack-1x"></i>';
-			} else if (i.equipado.slot.toString().split(".")[1] == 1) {
+			} else if (i.equipado.slot.toString().split(".")[1] === 1) {
 				i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
-			} else if (i.equipado.slot.toString().split(".")[1] == 2) {
+			} else if (i.equipado.slot.toString().split(".")[1] === 2) {
 				i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
 			}
 		}

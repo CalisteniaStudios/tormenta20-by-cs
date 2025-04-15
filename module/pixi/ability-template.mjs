@@ -50,11 +50,13 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 				templateData.width = distance;
 				templateData.direction = 45;
 				break;
-			case "ray": // T20 rays are most commonly 1 square (1,5m) in width (will resize for small maps)
-				templateData.distance = Math.min(distance, canvas.dimensions.width/canvas.dimensions.size, canvas.dimensions.height/canvas.dimensions.size);
+			case "ray": { // T20 rays are most commonly 1 square (1,5m) in width (will resize for small maps)
+				const { height, size, width } = canvas.dimensions;
+				templateData.distance = Math.min(distance, width/size, height/size);
 				if (templateData.distance < distance) ui.notifications.info("O template de linha foi reduzido devido ao tamanho do mapa.");
 				templateData.width = canvas.dimensions.distance;
 				break;
+			}
 			default:
 				break;
 		}

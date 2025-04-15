@@ -42,7 +42,7 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 	for (let c of combat.combatants) {
 		let actor = c?.actor;
 		// Effects Applied to CurrentCombatant Activated on Own Turn
-		if (curActor.id == actor.id) {
+		if (curActor.id === actor.id) {
 			let eff = actor.effects.filter(function (ae) {
 				return (!ae.flags.tormenta20.onuse
 								&& ae.changes.find((c) => ["sustentado", "dano"].includes(c.key))
@@ -50,10 +50,10 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 			});
 			let e;
 			for (let ef of eff) {
-				if (ef.changes.find((c) => c.key == "sustentado")) {
+				if (ef.changes.find((c) => c.key === "sustentado")) {
 					ChatMessage.create({ content: "Sustentar Magia" });
 				}
-				if (e = ef.changes.find((c) => c.key == "dano")) {
+				if (e = ef.changes.find((c) => c.key === "dano")) {
 					new Roll(e.value, {}, { flavor: `${ef.name}` }).toMessage();
 				}
 			}
@@ -68,12 +68,12 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 			let eff = actor.effects.filter(function (ae) {
 				return (!ae.flags.tormenta20.onuse
 							&& ae.origin?.match(curActor.id)
-							&& ae.changes.find((c) => c.key == "@dano")
+							&& ae.changes.find((c) => c.key === "@dano")
 				);
 			});
 			let e;
 			for (let ef of eff) {
-				if (e = ef.changes.find((c) => c.key == "@dano")) {
+				if (e = ef.changes.find((c) => c.key === "@dano")) {
 					new Roll(e.value).toMessage();
 				}
 			}

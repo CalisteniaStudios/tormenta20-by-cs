@@ -32,9 +32,9 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/** @inheritdoc */
 	get template() {
 		const path = "systems/tormenta20/templates/item";
-		if (this.item.type == "consumivel" || this.item.type == "tesouro") {
+		if (this.item.type === "consumivel" || this.item.type === "tesouro") {
 			return `${path}/item-sheet.html`;
-		} else if (this.item.type == "armadura") {
+		} else if (this.item.type === "armadura") {
 			return `${path}/equip-sheet.html`;
 		}
 		return `${path}/${this.item.type}-sheet.html`;
@@ -97,7 +97,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		const sheetData = await super.getData(options);
 		const item = sheetData.item;
 		const source = item.toObject();
-		const itemData = this.item.system;
 
 		foundry.utils.mergeObject(sheetData, {
 			source: source.system,
@@ -304,7 +303,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/** @override */
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
-		if (this.object.type == "magia" && (this.actor?.getFlag("tormenta20", "createScroll") || game.user.isGM)) {
+		if (this.object.type === "magia" && (this.actor?.getFlag("tormenta20", "createScroll") || game.user.isGM)) {
 			buttons.unshift({
 				label: game.i18n.localize("T20.WriteScroll"),
 				class: "create-scroll",
@@ -322,15 +321,15 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	* @retun {string}
 	*/
 	_getItemStatus() {
-		if (this.item.type == "classe") {
+		if (this.item.type === "classe") {
 			return game.i18n.localize(this.item.system.inicial ? "T20.ClassOriginal" : "");
 		} else if (this.item.type === "magia") {
 			return game.i18n.localize(this.item.system.preparada ? "T20.SpellPrepPrepared" : "");
 		} else if (["arma"].includes(this.item.type)) {
 			if (game.settings.get("tormenta20", "equipmentSlots")) {
-				return game.i18n.localize(this.item.system.equipado2.slot ? (parseInt(this.item.system.equipado2.slot) == 12 ? "T20.WieldedDual" : "T20.Wielded") : "");
+				return game.i18n.localize(this.item.system.equipado2.slot ? (parseInt(this.item.system.equipado2.slot) === 12 ? "T20.WieldedDual" : "T20.Wielded") : "");
 			}
-			return game.i18n.localize(this.item.system.equipado ? (this.item.system.equipado == 2 ? "T20.WieldedDual" : "T20.Wielded") : "");
+			return game.i18n.localize(this.item.system.equipado ? (this.item.system.equipado === 2 ? "T20.WieldedDual" : "T20.Wielded") : "");
 
 		} else if (["equipamento"].includes(this.item.type)) {
 			if (game.settings.get("tormenta20", "equipmentSlots")) {
@@ -454,7 +453,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	async _onRollsControl(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
-		let itemData = foundry.utils.deepClone(this.item.system);
 		// Add new roll component
 		if (a.classList.contains("add-roll")) {
 			// await this._onSubmit(event);  // Submit any unsaved changes
@@ -476,8 +474,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 		// Remove a roll component
 		if (a.classList.contains("delete-roll") && a.dataset.rollId) {
-			// await this._onSubmit(event);  // Submit any unsaved changes
-			const rolltype = a.dataset.rollType;
 			let rolls = foundry.utils.deepClone(this.item.system.rolls);
 			rolls.splice(Number(a.dataset.rollId), 1);
 			return this.item.update({ "system.rolls": rolls });
@@ -533,8 +529,8 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		itemData.name = game.i18n.format("T20.ConsumableSpellName", {
 			item: game.i18n.localize("T20.ConsumableSubtypeScroll"),
 			name: this.object.name
-		}),
-		itemData.img = "systems/tormenta20/icons/itens/itens-magicos/pergaminho.webp",
+		});
+		itemData.img = "systems/tormenta20/icons/itens/itens-magicos/pergaminho.webp";
 		itemData.flags.core.sourceId = this.object.uuid;
 		itemData.system.qtd = 1;
 		itemData.system.espacos = 0.5;
@@ -543,7 +539,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		itemData.system.tipo = "scroll";
 		if (this.actor) {
 			this.actor.createEmbeddedDocuments("Item", [itemData]);
-			if (this.actor.type == "character") {
+			if (this.actor.type === "character") {
 				let msg = game.i18n.format("T20.ConsumableCreated", { actor: this.actor.name, name: itemData.name });
 				ChatMessage.create({ content: msg });
 			}

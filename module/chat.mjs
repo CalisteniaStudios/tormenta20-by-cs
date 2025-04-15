@@ -144,7 +144,7 @@ export function _onChatApplyDamage(event) {
 	const chatCardId = btn.closest(".chat-message").dataset.messageId;
 	const message = game.messages.get(chatCardId);
 	const rollTitle = btn.closest(".roll").dataset.rollTitle;
-	const roll = message.rolls.find((r) => r.options.title == rollTitle && r.options.type == "damage");
+	const roll = message.rolls.find((r) => r.options.title === rollTitle && r.options.type === "damage");
 
 	if (amount && multiplier) {
 		if (canvas.tokens.controlled.length) {
@@ -168,7 +168,7 @@ export function _onChatApplyDamage(event) {
 	*/
 export async function applyChatCardDamage(li, multiplier) {
 	const message = game.messages.get(li.data("messageId"));
-	const rolls = message.rolls.filter((r) => r.options.type == "damage");
+	const rolls = message.rolls.filter((r) => r.options.type === "damage");
 	let roll;
 	if (rolls.length > 1) {
 		let options = rolls.map((r) => `<option value="${r.options.title}">${r.options.title} (${r.total})</option>`);
@@ -181,7 +181,7 @@ export async function applyChatCardDamage(li, multiplier) {
 					label: "Confirma",
 					callback: (html) => {
 						chosen = html.find("[name=roll]")[0].value;
-						roll = rolls.find((r) => r.options.title == chosen);
+						roll = rolls.find((r) => r.options.title === chosen);
 						if (roll) _callApplyDamage(roll, multiplier);
 					}
 				},
@@ -326,7 +326,7 @@ export async function _onChatCardApplyEffect(event) {
 			});
 			toChat = false;
 		}
-	} else if (actors.length == 0) {
+	} else if (actors.length === 0) {
 		ui.notifications.warn("Você precisa selecionar pelo menos um token.");
 	}
 }

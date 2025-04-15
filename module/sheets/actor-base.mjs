@@ -1,6 +1,4 @@
 import ActiveEffectT20 from "../documents/active-effects.mjs";
-import ItemT20 from "../documents/item.mjs";
-// import { T20 } from '../config.mjs';
 
 import AbilityCalculator from "../apps/ability-calculator.mjs";
 import ActorSettings from "../apps/actor-settings.mjs";
@@ -16,23 +14,6 @@ import TraitSelector from "../apps/trait-selector.mjs";
  * @extends {ActorSheet}
  */
 export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
-
-	constructor(...args) {
-		super(...args);
-
-		/**
-		* Track the set of item filters which are applied
-		* @type {Set}
-		*/
-		/* TODO IMPLEMENT FILTERS */
-		// this._filters = {
-		// 		inventory: new Set(),
-		// 		spellbook: new Set(),
-		// 		features: new Set(),
-		// 		effects: new Set()
-		// };
-	}
-
 	static MODES = {
 		PLAY: 1,
 		EDIT: 2
@@ -64,7 +45,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/** @override */
 	get template() {
 		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
-		if (!game.user.isGM && limitedSetting == "limited" && this.actor.limited) {
+		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
 			return "systems/tormenta20/templates/actors/limited-sheet.html";
 		}
 		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
@@ -139,16 +120,16 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		// Skills
 		if (sheetData.skills) {
 			for (let [s, skl] of Object.entries(sheetData.skills)) {
-				if (sheetData.isNPC && s == "inic") skl.order = -5;
-				else if (sheetData.isNPC && s == "perc") skl.order = -4;
-				else if (sheetData.isNPC && s == "fort") skl.order = -3;
-				else if (sheetData.isNPC && s == "refl") skl.order = -2;
-				else if (sheetData.isNPC && s == "vont") skl.order = -1;
+				if (sheetData.isNPC && s === "inic") skl.order = -5;
+				else if (sheetData.isNPC && s === "perc") skl.order = -4;
+				else if (sheetData.isNPC && s === "fort") skl.order = -3;
+				else if (sheetData.isNPC && s === "refl") skl.order = -2;
+				else if (sheetData.isNPC && s === "vont") skl.order = -1;
 				else if (s.match(/_pc[1-9]/)) skl.order = 6;
-				else if (s == "_pc0") skl.order = 5;
+				else if (s === "_pc0") skl.order = 5;
 				else if (s > "ofi9") skl.order = 4;
 				else if (s.match(/ofi[1-9]/)) skl.order = 3;
-				else if (s == "ofi0") skl.order = 2;
+				else if (s === "ofi0") skl.order = 2;
 				else if (s < "ofi0") skl.order = 1;
 				skl.key = s;
 				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
@@ -335,7 +316,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 		if (["hand", "both"].includes(item.system.equipado2.type)) {
 			options.push({ name: ("T20.Handling"), icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
-			let twoHanded = equipados.find((it) => it.system.equipado2.slot == 12.1);
+			let twoHanded = equipados.find((it) => it.system.equipado2.slot === 12.1);
 			options.push({
 				name: (twoHanded?.name ?? "T20.Empty"),
 				icon: `<i class='fa-solid fa-hand-back-fist'></i><i class='fa-solid fa-hand-back-fist'></i>${twoHanded ? img(twoHanded.img) : ""}`,
@@ -343,7 +324,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			});
 			for (let slot=1; slot <= equips.limiteEmpunhado; slot++) {
 				let slotItem = twoHanded && [1, 2].includes(slot) ? null
-					: equipados.find((it) => dec(it.system.equipado2.slot) == 1 && Math.floor(it.system.equipado2.slot) == slot);
+					: equipados.find((it) => dec(it.system.equipado2.slot) === 1 && Math.floor(it.system.equipado2.slot) === slot);
 				options.push({
 					name: ((twoHanded && [1, 2].includes(slot) ? `${slot}` : null) ?? slotItem?.name ?? "T20.Empty"),
 					icon: `<i class="fa-solid fa-hand-back-fist"></i>${(twoHanded && [1, 2].includes(slot) ? img(twoHanded.img) : null) ?? (slotItem ? img(slotItem.img) : "")}`,
@@ -355,8 +336,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		if (["body", "both"].includes(item.system.equipado2.type)) {
 			options.push({ name: ("T20.Wearing"), icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
 			for (let slot=1; slot <= equips.limiteVestido; slot++) {
-				let slotItem = equipados.find((it) => dec(it.system.equipado2.slot) == 2 && Math.floor(it.system.equipado2.slot) == slot);
-				// && (it.system.preparada == slot || it.system.equipado == slot)
+				let slotItem = equipados.find((it) => dec(it.system.equipado2.slot) === 2 && Math.floor(it.system.equipado2.slot) === slot);
+				// && (it.system.preparada === slot || it.system.equipado === slot)
 				options.push({
 					name: (slotItem?.name ?? "T20.Empty"),
 					icon: `<i class="fa-solid fa-shirt"></i>${slotItem ? img(slotItem.img) : ""}`,
@@ -374,15 +355,15 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				_id: currentId, "system.equipado2.slot": 0
 			});
 		}
-		if (item.id == currentId) {
+		if (item.id === currentId) {
 			// When same just remove;
-		} else if (context == "hand") {
+		} else if (context === "hand") {
 			updateItems.push({
 				_id: item.id, "system.equipado2.slot": index + 0.1
 			});
 			let oldItems = [];
 			if (index > 2) { // Remove only current // Cant TwoHand
-			} else if (index == 12) { // Remove one handed if equipping two handed
+			} else if (index === 12) { // Remove one handed if equipping two handed
 				oldItems = this.actor.items.filter((it) => item.id != it.id && ([1.1, 2.1].includes(it.system.equipado2?.slot)));
 			} else { // Remove two handed if equipping one handed
 				oldItems = this.actor.items.filter((it) => item.id != it.id && ([12.1].includes(it.system.equipado2?.slot)));
@@ -394,12 +375,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				});
 			}
 
-		} else if (context == "body") {
+		} else if (context === "body") {
 			updateItems.push({
 				_id: item.id, "system.equipado2.slot": index + 0.2
 			});
 			let oldItems = this.actor.items.filter((it) => item.id != it.id && (["leve", "pesada"].includes(item.system.tipo) && ["leve", "pesada"].includes(it.system.tipo)));
-			// it.system.tipo == item.system.tipo
+			// it.system.tipo === item.system.tipo
 			for (const oldItem of oldItems) {
 				updateItems.push({
 					_id: oldItem.id, "system.equipado2.slot": 0
@@ -637,7 +618,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		}
 		const rollConfigs = {};
 		const UsageConfig = game.settings.get("tormenta20", "UsageConfig");
-		if (UsageConfig == "default") {
+		if (UsageConfig === "default") {
 			rollConfigs.configureDialog = !event.shiftKey;
 		} else {
 			rollConfigs.configureDialog = event.shiftKey;
@@ -714,7 +695,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const a = event.currentTarget;
 		const label = a.parentElement.querySelector("label");
 		let choices = {};
-		if (a.dataset.options == "conditionTypes") {
+		if (a.dataset.options === "conditionTypes") {
 			let cdtypes = CONFIG.T20.conditions;
 			let eftypes = CONFIG.T20.effectTypes;
 			let ftypes = CONFIG.T20.conditionTypes;
@@ -723,7 +704,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				if (done.includes(fk)) continue;
 				if (Object.keys(eftypes).includes(fk)) {
 					choices[fk] = { label: fv, choices: {} };
-					let ch = Object.values(cdtypes).filter((i) => i.flags?.tormenta20?.category==fk);
+					let ch = Object.values(cdtypes).filter((i) => i.flags?.tormenta20?.category === fk);
 					if (ch) {
 						ch.map((i) => choices[fk].choices[i.id] = { label: i.name });
 						//  ch.map(i => {return {label:i.label}}) };
@@ -873,9 +854,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const li = $(ev.currentTarget).parents(".item");
 		const item = this.actor.items.get(li.data("itemId"));
 		const id = item.system;
-		const items = this.actor.items;
 		let updateItems = [];
-		let step = ev.type == "click" ? 1 : -1;
+		let step = ev.type === "click" ? 1 : -1;
 		let status = (id.equipado + step < 0 ? 2 : (id.equipado + step > 2 ? 0 : id.equipado + step));
 		updateItems.push({ _id: item.id, "system.equipado": status });
 
@@ -925,11 +905,11 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		}, []);
 
 		let keyN = Math.max(...customs);
-		if (keyN == 9) keyN = [1, 2, 3, 4, 5, 6, 7, 8, 9].find((i) => !customs.includes(i));
+		if (keyN === 9) keyN = [1, 2, 3, 4, 5, 6, 7, 8, 9].find((i) => !customs.includes(i));
 		else if (keyN > 0) keyN = keyN + 1;
 		else keyN = 1;
 
-		if (customs.length == 9) {
+		if (customs.length === 9) {
 			// MESSAGE ERROR
 			ui.notifications.info("Número limite de pericias");
 		} else pericias[`${key}${keyN}`] = pericia;

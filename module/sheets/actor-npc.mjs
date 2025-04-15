@@ -41,8 +41,8 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			let builder = this.actor.system.builder || {};
 			sheetData.unbuilded = false;
 			for (let [key, attr] of Object.entries(builder.attributes)) {
-				if (key == "mp" && getType(attr) != "Object") continue;
-				if (attr.cr == "") sheetData.unbuilded = true;
+				if (key === "mp" && getType(attr) != "Object") continue;
+				if (attr.cr === "") sheetData.unbuilded = true;
 			}
 		}
 		sheetData.compactSpells = game.settings.get("tormenta20", "foeSheetCompactSpell");
@@ -58,11 +58,11 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		const res = this.actor.system.tracos.resistencias;
 		const ics = this.actor.system.tracos.ic;
 
-		Object.entries(res).map(function (r) {
-			if (r[1].imunidade) resText.imu.push(r[0]);
-			else if (r[1].vulnerabilidade) resText.vul.push(r[0]);
-			else if (r[1].value > 0) resText.res.push(`${r[0]} ${r[1].value}`);
-		});
+		for (const [key, data] of Object.entries(res)) {
+			if (data.imunidade) resText.imu.push(key);
+			else if (data.vulnerabilidade) resText.vul.push(key);
+			else if (data.value > 0) resText.res.push(`${key} ${data.value}`);
+		}
 		if (ics.value && !foundry.utils.isEmpty(ics.value)) {
 			resText.imu.push(...ics.value);
 		}
@@ -153,8 +153,8 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		this.object._sheet = null;
 		delete this.object.apps?.[sheet.appId];
 
-		const sheetName = sheet.name == "ActorSheetT20NPC" ? "ActorSheetT20NPC" : "ActorSheetT20Builder";
-		const newSheet = Actors.registeredSheets?.map((s) => s)?.find((s) => s.name == sheetName);
+		const sheetName = sheet.name === "ActorSheetT20NPC" ? "ActorSheetT20NPC" : "ActorSheetT20Builder";
+		const newSheet = Actors.registeredSheets?.map((s) => s)?.find((s) => s.name === sheetName);
 		if (!newSheet) return;
 		this.object._sheet = new newSheet(this.object, { editable: this.object.isOwner });
 		this.object.sheet.render(true);
@@ -204,7 +204,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 				async: true,
 				relativeTo: item
 			});
-			if (item.type == "magia") {
+			if (item.type === "magia") {
 				let element = document.createElement("div");
 				element.innerHTML = item.system.description.value;
 				if (element.querySelector(".secret")) {
@@ -227,7 +227,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
 			i.espacosTotal = (i.system.qtd * i.system.espacos).toFixed(2);
-			if (i.type == "arma") {
+			if (i.type === "arma") {
 				i.melee = ["corpo-a-corpo", "corpo-a-corpo-arremesso"].includes(i.system.proposito);
 				i.ranged = ["arremesso", "disparo"].includes(i.system.proposito);
 			}
@@ -235,8 +235,8 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		}
 
 		// Weapon Types
-		inventario.arma.melee = inventario.arma.items.filter((f) => f.type=="arma" && f.melee).length;
-		inventario.arma.ranged = inventario.arma.items.filter((f) => f.type=="arma" && f.ranged).length;
+		inventario.arma.melee = inventario.arma.items.filter((f) => f.type === "arma" && f.melee).length;
+		inventario.arma.ranged = inventario.arma.items.filter((f) => f.type === "arma" && f.ranged).length;
 		// console.log(inventario.arma);
 		// Organize spells and count the number of prepared spells
 		const grimorio = {
@@ -246,7 +246,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			4: { spells: [], custo: 10 },
 			5: { spells: [], custo: 15 }
 		};
-		const nPreparadas = 0;
 		let maiorCirculo = 0;
 
 		magias.forEach(function (m) {

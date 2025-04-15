@@ -1,5 +1,5 @@
-import ActorSheetT20Character from "./actor-character.mjs";
 import ActiveEffectT20 from "../documents/active-effects.mjs";
+import ActorSheetT20Character from "./actor-character.mjs";
 export default class ActorSheetT20Simple extends ActorSheetT20Character {
 
 	/** @override */
@@ -117,7 +117,6 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 			4: { spells: [], custo: 10 },
 			5: { spells: [], custo: 15 }
 		};
-		const nPreparadas = 0;
 		let maiorCirculo = 0;
 		magias.forEach(function (m) {
 			maiorCirculo = Math.max(maiorCirculo, m.system.circulo);

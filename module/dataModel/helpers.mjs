@@ -230,8 +230,8 @@ class RollData extends foundry.abstract.DataModel {
 				data.parts[k] = [v[0] ?? "", v[1] ?? "", v[2] ?? ""];
 			}
 		}
-		if (data.type == "ataque") {
-			if (data.parts[1][0] == "") data.parts[1][0] = "luta";
+		if (data.type === "ataque") {
+			if (data.parts[1][0] === "") data.parts[1][0] = "luta";
 		}
 		return super.migrateData(data);
 	}

@@ -39,7 +39,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			rd: new fields.NumberField({ required: true, nullable: false, initial: 0, min: 0, label: "T20.ItemDamageReduction", hint: "T20.ItemDamageReductionHint" })
 		};
 
-		if (type == "arma") {
+		if (type === "arma") {
 		}
 		return schema;
 	}
@@ -85,7 +85,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			efeito: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemEffectDescription", hint: "T20.ItemEffectDescriptionHint" })
 		};
 
-		if (type == "arma") {
+		if (type === "arma") {
 			delete schema.duracao;
 			delete schema.range;
 			delete schema.target;
@@ -96,7 +96,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			delete schema.ativacao.execucao;
 			delete schema.ativacao.qtd;
 			delete schema.ativacao.special;
-		} else if (type == "equipamento") {
+		} else if (type === "equipamento") {
 			delete schema.duracao;
 			delete schema.range;
 			delete schema.target;
@@ -149,7 +149,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			})
 		};
 
-		if (type == "arma") {
+		if (type === "arma") {
 		}
 		return schema;
 	}
@@ -171,7 +171,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			enableAutoUpgrades: new fields.BooleanField({ required: false, nullable: false, initial: false, label: "T20.EnhancementsAutomationEnable", hint: "T20.EnhancementsAutomationEnableHint" })
 		};
 
-		if (type == "arma") {
+		if (type === "arma") {
 		}
 		return schema;
 	}

@@ -81,7 +81,7 @@ export async function damageRoll({ parts, actor, data={}, event={}, critical=fal
 				roll._formula = roll.formula;
 			}
 			for (const term of roll.terms) {
-				if (term instanceof foundry.dice.terms.Die && term.options.flavor == "danoMultiplicavel") {
+				if (term instanceof foundry.dice.terms.Die && term.options.flavor === "danoMultiplicavel") {
 					term.alter(criticalMultiplier, 0);
 					term.options.flavor = "";
 					roll._formula = roll.formula;
@@ -91,7 +91,7 @@ export async function damageRoll({ parts, actor, data={}, event={}, critical=fal
 				switch (game.settings.get("tormenta20", "lancinatingVersion")) {
 					case "revised":
 						roll.terms.forEach(function (term, index) {
-							if (term instanceof foundry.dice.terms.NumericTerm && term.options.flavor == "danoCritico") {
+							if (term instanceof foundry.dice.terms.NumericTerm && term.options.flavor === "danoCritico") {
 								roll.terms[index].number = term.number * criticalMultiplier;
 								roll.terms[index].options.flavor = "";
 							}
@@ -110,7 +110,7 @@ export async function damageRoll({ parts, actor, data={}, event={}, critical=fal
 		} else {
 			let _fterms = [];
 			roll.terms.forEach((term, i) => {
-				if (term.options.flavor == "danoCritico") {
+				if (term.options.flavor === "danoCritico") {
 					if (_fterms[i-1] instanceof foundry.dice.terms.OperatorTerm) {
 						_fterms.pop();
 					}
@@ -123,8 +123,8 @@ export async function damageRoll({ parts, actor, data={}, event={}, critical=fal
 			roll.resetFormula();
 		}
 		// minMax
-		const min = !!(minmax && minmax == "min");
-		const max = !!(minmax && minmax == "max");
+		const min = !!(minmax && minmax === "min");
+		const max = !!(minmax && minmax === "max");
 		// Execute the roll
 		try {
 			let l = await roll.evaluate({ maximize: max, minimize: min });

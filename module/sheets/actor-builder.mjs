@@ -50,7 +50,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		};
 		let sum = 0;
 		for (let w of weapons) {
-			let roll = w.system.rolls.find((r) => r.type == "dano");
+			let roll = w.system.rolls.find((r) => r.type === "dano");
 			if (roll) {
 				let parts = roll.parts.map((p) => p[0].toString()).filterJoin("+");
 				let min = new Roll(parts).evaluate({ minimize: true, async: false });
@@ -144,13 +144,13 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		let title = ["Abaixo do ND", "Acima do ND"];
 		if (["fort", "refl", "vont"].includes(key)) {
 			key = ["botsave", "midsave", "topsave"][attr.rank] ?? "botsave";
-		} else if (key == "skills") key = "topskill";
+		} else if (key === "skills") key = "topskill";
 
 		const params = CONFIG.T20.NDparams[key];
 		const closestValue = params.reduce((prev, curr) => Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
 
 		const cind = CONFIG.T20.NDparams.cr.indexOf(ccr);
-		const ind = params[cind] == value ? cind : params.indexOf(closestValue);
+		const ind = params[cind] === value ? cind : params.indexOf(closestValue);
 		const closestCR = {
 			curr: cind,
 			clos: ind,
@@ -197,8 +197,8 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		this.object._sheet = null;
 		delete this.object.apps?.[sheet.appId];
 
-		const sheetName = sheet.name == "ActorSheetT20Builder" ? "ActorSheetT20Builder" : "ActorSheetT20NPC";
-		const newSheet = Actors.registeredSheets?.map((s) => s)?.find((s) => s.name == sheetName);
+		const sheetName = sheet.name === "ActorSheetT20Builder" ? "ActorSheetT20Builder" : "ActorSheetT20NPC";
+		const newSheet = Actors.registeredSheets?.map((s) => s)?.find((s) => s.name === sheetName);
 		if (!newSheet) return;
 		this.object._sheet = new newSheet(this.object, { editable: this.object.isOwner });
 		this.object.sheet.render(true);
@@ -209,7 +209,7 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 
 		const target = event.currentTarget;
 		const skill = target.dataset.skill;
-		let step = event.type == "click" ? 1 : -1;
+		let step = event.type === "click" ? 1 : -1;
 		let rank = this.actor.system.builder.attributes[skill].rank;
 		rank = Number(rank) ?? 0;
 		rank = (rank + step < 0 ? 2 : (rank + step > 2 ? 0 : rank + step));
@@ -238,15 +238,15 @@ export default class ActorSheetT20Builder extends ActorSheetT20 {
 		const rolls = item.system.rolls;
 		if (!rolls || foundry.utils.isEmpty(rolls)) return ui.notifications.warn("T20.WarnItemHaveNoRolls");
 
-		for (let [i, roll] of Object.entries(rolls)) {
-			if (roll.type != rollType) continue;
-			if (rollType == "ataque") {
+		for (let roll of Object.values(rolls)) {
+			if (roll.type !== rollType) continue;
+			if (rollType === "ataque") {
 				roll.parts[1][0] = ""; // skill
 				roll.parts[1][1] = ""; // ability
 				roll.parts[2][0] = value.toString(); // bonus
 				break;
 			}
-			if (rollType == "dano") {
+			if (rollType === "dano") {
 				roll.parts[0][0] = value.toString(); // weapon dice
 				roll.parts[1][0] = ""; // ability
 				break;

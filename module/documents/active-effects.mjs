@@ -62,7 +62,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	 * @internal
 	 */
 	_prepareDuration() {
-		const d = this.duration;
+		// const d = this.duration;
 		const isScene = this.getFlag("tormenta20", "durationScene");
 
 		// Scene-based duration
@@ -152,12 +152,12 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		const a = event.currentTarget;
 		const li = a.closest("li");
 		const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null;
-		const type = li.dataset.effectType == "onuseTemp" ? "onuse" : li.dataset.effectType;
-		const temp = li.dataset.effectType == "onuseTemp";
+		const type = li.dataset.effectType === "onuseTemp" ? "onuse" : li.dataset.effectType;
+		const temp = li.dataset.effectType === "onuseTemp";
 		switch (a.dataset.action) {
 			case "create":
 				const isOnUse = type=="onuse";
-				const itemEffect = owner.documentName == "Item";
+				const itemEffect = owner.documentName === "Item";
 				return owner.createEmbeddedDocuments("ActiveEffect", [{
 					name: (isOnUse || !itemEffect) ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
 					img: (isOnUse ? "icons/svg/upgrade.svg" : itemEffect ? owner.img : "icons/svg/aura.svg"),

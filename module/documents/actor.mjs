@@ -61,9 +61,9 @@ export default class ActorT20 extends Actor {
 			if (ef.modifiesActor) {
 				for (let ch of ef.changes) {
 					if (!acc[ch.key]) acc[ch.key] = [];
-					if (ch.mode == 2 && !acc[ch.key].find((f) => f.mode == 5)) {
+					if (ch.mode === 2 && !acc[ch.key].find((f) => f.mode === 5)) {
 						acc[ch.key].push({ label: ef.name, value: ch.value, mode: ch.mode });
-					} else if (ch.mode == 5) {
+					} else if (ch.mode === 5) {
 						acc[ch.key] = [{ label: ef.name, value: ch.value, mode: ch.mode }];
 					}
 				}
@@ -76,9 +76,9 @@ export default class ActorT20 extends Actor {
 
 	get skillFormula() {
 		// later ...@bonus, @pda
-		if (this.type == "character") {
+		if (this.type === "character") {
 			return ["@meionivel", "@treino", "@atributo", "@outros", "@condi"];
-		} else if (this.type == "npc") {
+		} else if (this.type === "npc") {
 			return ["@meionivel", "@treino", "@atributo", "@outros", "@condi"];
 			// return ['@ndtreinado','@ndsemtreino','@outros','@condi'];
 		}
@@ -89,9 +89,9 @@ export default class ActorT20 extends Actor {
 
 	get defenseFormula() {
 		// later ...@bonus
-		if (this.type == "character") {
+		if (this.type === "character") {
 			return ["@base", "@atributo", "@armadura", "@escudo", "@outros", "@condi"];
-		} else if (this.type == "npc") {
+		} else if (this.type === "npc") {
 			return ["@base", "@outros", "@condi"];
 		}
 		return ["@base", "@outros", "@condi"];
@@ -102,9 +102,9 @@ export default class ActorT20 extends Actor {
 
 	get dcFormula() {
 		// later ...@bonus
-		if (this.type == "character") {
+		if (this.type === "character") {
 			return ["@base", "@meionivel", "@atributo", "@outros"];
-		} else if (this.type == "npc") {
+		} else if (this.type === "npc") {
 			return ["@base", "@outros"];
 		}
 		return ["@base", "@outros"];
@@ -115,9 +115,9 @@ export default class ActorT20 extends Actor {
 
 	get encumbranceFormula() {
 		// later ...@bonus
-		if (this.type == "character") {
+		if (this.type === "character") {
 			return ["@base", "@atributo"];
-		} else if (this.type == "npc") {
+		} else if (this.type === "npc") {
 			return ["@base"];
 		}
 		return ["@base"];
@@ -127,9 +127,9 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	get attackRollFormula() {
-		if (this.type == "character") {
+		if (this.type === "character") {
 			return ["1d20", ...this.skillFormula, "@arma"];
-		} else if (this.type == "npc") {
+		} else if (this.type === "npc") {
 			return ["1d20", ...this.skillFormula, "@arma"];
 		}
 		return ["1d20", ...this.skillFormula, "@arma"];
@@ -242,7 +242,7 @@ export default class ActorT20 extends Actor {
 		this._prepareMovement();
 
 		// BASE CD
-		if (this.type == "npc") {
+		if (this.type === "npc") {
 			// let nd = system.builder.attributes.dc.cr;
 			// const crData = T20.NPCParams(nd);
 			// system.attributes.cd = crData.dc;
@@ -256,9 +256,9 @@ export default class ActorT20 extends Actor {
 		// Damage Resistances
 		this._prepareResistances(system);
 
-		if (this.type == "character") {
+		if (this.type === "character") {
 			this._preparePVPMTotal();
-		} else if (this.type == "npc") {
+		} else if (this.type === "npc") {
 			system.attributes.pv.min = (Math.floor(system.attributes.pv.max/2)*-1);
 		}
 	}
@@ -390,9 +390,9 @@ export default class ActorT20 extends Actor {
 		let parts = this.defenseFormula;
 		let pda = 0;
 
-		const items = this.items.filter((i) => i.type == "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const items = this.items.filter((i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
 		const armor = items.find((i) => ["leve", "pesada"].includes(i.system.tipo));
-		const shield = items.find((i) => i.type == "equipamento" && i.system.tipo == "escudo");
+		const shield = items.find((i) => i.type === "equipamento" && i.system.tipo === "escudo");
 		const accessories = items.filter((i) => !["escudo", "leve", "pesada"].includes(i.system.tipo));
 
 		//
@@ -406,12 +406,12 @@ export default class ActorT20 extends Actor {
 		parts.push(...defense.bonus);
 		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
 		let atributo = rollData[defense.atributo];
-		if (armor && armor.system.tipo == "pesada") {
+		if (armor && armor.system.tipo === "pesada") {
 			atributo = Math.clamp(atributo, 0, maxAtr);
 		}
 		if (game.settings.get("tormenta20", "progressiveDefense")) parts.push("@meionivel");
 
-		rollData.base = this.type == "character" ? 10 : (defense.base || 10);
+		rollData.base = this.type === "character" ? 10 : (defense.base || 10);
 		rollData.atributo = defense.atributo ? atributo : 0;
 		rollData.armadura = armor ? armor.system.armadura.value : 0;
 		rollData.escudo = shield ? shield.system.armadura.value : 0;
@@ -429,7 +429,7 @@ export default class ActorT20 extends Actor {
 	_prepareMovement() {
 		const system = this.system;
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
-		const items = this.items.filter((i) => i.type == "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const items = this.items.filter((i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
 		const armor = items.find((i) => i.system.tipo === "pesada");
 		if (armor) {
 			for (let [key, value] of Object.entries(system.attributes.movement)) {
@@ -449,7 +449,7 @@ export default class ActorT20 extends Actor {
 	_prepareSkills(key, pericia, roll = false) {
 		const system = this.system;
 		// const pericia = system.pericias[key] || false;
-		if (key == "ofic") return;
+		if (key === "ofic") return;
 
 		const rollData = this.getRollData();
 		let parts = this.skillFormula;
@@ -460,14 +460,14 @@ export default class ActorT20 extends Actor {
 		pericia.custom = Boolean(key.match(/ofi[1-9]|_pc[1-9]/));
 		pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
 
-		if (this.type == "npc" && ["fort", "refl", "vont", "luta", "pont"].includes(key)) {
+		if (this.type === "npc" && ["fort", "refl", "vont", "luta", "pont"].includes(key)) {
 			parts = ["@outros", "@condi"];
 		}
 
 		if (!pericia.treinado) parts = parts.filter((f) => f != "@treino");
 		if (pericia.bonus.length) parts.push(...pericia.bonus);
 		if (pericia.pda && rollData.pda) parts.push("-@pda");
-		if (key == "furt" && rollData.tamanho) parts.push("@tamanho");
+		if (key === "furt" && rollData.tamanho) parts.push("@tamanho");
 
 		let atributo = rollData[pericia.atributo];
 		rollData.atributo = atributo || 0;
@@ -498,7 +498,7 @@ export default class ActorT20 extends Actor {
 		for (const [key, res] of Object.entries(system.tracos.resistencias)) {
 			let parts = [res.base, ...res.bonus];
 			const result = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
-			system.tracos.resistencias[key].value = Number(result) == Number.prototype ? Number(result) : result;
+			system.tracos.resistencias[key].value = Number(result) === Number.prototype ? Number(result) : result;
 		}
 	}
 
@@ -522,11 +522,11 @@ export default class ActorT20 extends Actor {
 		weight.value = this.items.reduce((weight, i) => {
 			if (!physicalItems.includes(i.type) || !i.system.carregado || i.system.container) return weight;
 			const q = i.system.qtd || 0;
-			const w = (flags.organised && i.system.espacos == 0.5 ? 0.25 : i.system.espacos) || 0;
+			const w = (flags.organised && i.system.espacos === 0.5 ? 0.25 : i.system.espacos) || 0;
 			// const w = i.system.espacos || 0;
 			return weight + (q * w);
 		}, 0);
-		// Get the total weight from coins (1 == 1000)
+		// Get the total weight from coins (1 === 1000)
 		let coins = Object.values(system.dinheiro).reduce((a, b) => a + b);
 		weight.value = weight.value + Math.floor(coins / 1000);
 		// weight.value = Math.floor( weight.value );
@@ -580,7 +580,7 @@ export default class ActorT20 extends Actor {
 		if (lvlc.pmBonus[1]) soma.pm += Number(lvlc.pmBonus[1]) * nivel;
 		soma.pm = Math.floor(soma.pm);
 		for (let [atr, value] of Object.entries(lvlc.pv)) {
-			if (atr == "con") continue;
+			if (atr === "con") continue;
 			let abl = this.system.atributos[atr];
 			if (value) soma.pv += Number(abl.base) + Number(abl.racial);
 		}
@@ -660,7 +660,7 @@ export default class ActorT20 extends Actor {
 		// Set level abbreviation
 		data.nivel = Number(this.system.attributes?.nivel?.value || 1);
 		data.meionivel = Math.floor(data.nivel / 2) || 0;
-		if (this.type == "npc") {
+		if (this.type === "npc") {
 			let nd = data.attributes.nd;
 			const crData = T20.NPCParams(nd);
 			data.ndtreinado = crData.topskill || 0;
@@ -782,12 +782,12 @@ export default class ActorT20 extends Actor {
 		const ranks = ["botsave", "midsave", "topsave"];
 		const attrs = ["attack", "damage", "defense", "hp", "dc", "topsave", "midsave", "botsave", "skills"];
 
-		if (attr == "all") {
+		if (attr === "all") {
 			for (let att of attrs) {
 				updateData[`system.builder.attributes.${att}.value`] = crData[att];
 				updateData[`system.builder.attributes.${att}.cr`] = cr;
 			}
-		} else if (attr == "skills") {
+		} else if (attr === "skills") {
 			updateData[`system.builder.attributes.${attr}.value`] = crData.topskill;
 			updateData[`system.builder.attributes.${attr}.cr`] = cr;
 		} else {
@@ -797,7 +797,7 @@ export default class ActorT20 extends Actor {
 		if (["all", "topsave", "midsave", "botsave"].includes(attr)) {
 			for (let [key, skill] of Object.entries(skills)) {
 				let r = skill.rank ?? 0;
-				if (attr == "all" || attr == ranks[r]) {
+				if (attr === "all" || attr === ranks[r]) {
 					updateData[`system.builder.attributes.${key}.value`] = crData[ranks[r]];
 					updateData[`system.builder.attributes.${key}.cr`] = cr;
 				}
@@ -835,12 +835,12 @@ export default class ActorT20 extends Actor {
 						updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
 					}
 					// UPDATE NPC DEFENSE TO GOTY
-					if (this.type == "npc") {
+					if (this.type === "npc") {
 						updateData["system.attributes.defesa.base"] = 10 + this._source.system.attributes.defesa.outros;
 						updateData["system.attributes.defesa.outros"] = 0;
 					}
 				}
-				if (this.type == "character") {
+				if (this.type === "character") {
 					updateData["prototypeToken.actorLink"] = true;
 				}
 				this.updateSource(updateData);
@@ -858,7 +858,7 @@ export default class ActorT20 extends Actor {
 			foundry.utils.setProperty(options, "tormenta20.pv", { ...this.system.attributes.pv });
 		}
 		const sheetClass = foundry.utils.getProperty(changed, "flags.core.sheetClass");
-		if (false && sheetClass && sheetClass == "tormenta20.ActorSheetT20Builder") {
+		if (false && sheetClass && sheetClass === "tormenta20.ActorSheetT20Builder") {
 			foundry.utils.setProperty(changed, "flags.tormenta20.npcReform", true);
 			const builder = foundry.utils.getProperty(this.system, "builder.attributes");
 			if (!["0", "1", "2"].includes(builder.fort?.rank)) {
@@ -872,7 +872,7 @@ export default class ActorT20 extends Actor {
 			}
 		}
 		// NPC REFORM
-		if (false && this.type == "npc" && this.getFlag("tormenta20", "npcReform")) {
+		if (false && this.type === "npc" && this.getFlag("tormenta20", "npcReform")) {
 			// TODO MAY NEED REFACTORING
 			let attributes = {};
 			let skills = {};
@@ -974,7 +974,7 @@ export default class ActorT20 extends Actor {
 		if (game.userId !== userId) return;
 		// Show chat message if condition;
 		options.toChat = options.toChat === undefined ? true : options.toChat;
-		if (collection == "effects" && options.toChat) {
+		if (collection === "effects" && options.toChat) {
 			const showCard = game.settings.get("tormenta20", "showStatusCards");
 			const effect = data.find((doc) => doc.statuses.length);
 			if (showCard && effect) {
@@ -989,7 +989,7 @@ export default class ActorT20 extends Actor {
 	async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
 		await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
 
-		if (collection == "effect") {
+		if (collection === "effect") {
 			let effs = documents.filter((ef) => ef.changes.find((ch) => ch.key.match(/^\?/)));
 			let choices = [];
 			for (let ef of effs) {
@@ -1003,11 +1003,11 @@ export default class ActorT20 extends Actor {
 					choices.push(choice);
 				}
 			}
-			if (!foundry.utils.isEmpty(choices) && (userId == game.userId)) {
+			if (!foundry.utils.isEmpty(choices) && (userId === game.userId)) {
 				let chosen = await ChoicesDialog.create(choices, this);
 				chosen = foundry.utils.expandObject(chosen);
 				for (let [id, c] of Object.entries(chosen)) {
-					let ef = this.effects.find((e) => e.id == id);
+					let ef = this.effects.find((e) => e.id === id);
 					for (let [key, value] of Object.entries(c)) {
 						ef.setFlag("tormenta20", key, value);
 					}
@@ -1048,13 +1048,13 @@ export default class ActorT20 extends Actor {
 		const rdsEx = Object.entries(rds).filter((i) => i[1].excecao)
 			.reduce((acc, d) => (acc[d[0]]= d[1].excecao, acc), {});
 
-		const PCVuln = this.type == "character";
-		const NPCVuln = this.type == "npc";
+		const PCVuln = this.type === "character";
+		const NPCVuln = this.type === "npc";
 		let damage;
 		if (roll) {
 			let defaultDamage = "dano";
 			damage = roll.terms.reduce((acc, t, idx) => {
-				if (idx == 0 && t.options.flavor) defaultDamage = t.options.flavor;
+				if (idx === 0 && t.options.flavor) defaultDamage = t.options.flavor;
 				let dType = t.options.flavor ?? defaultDamage;
 				if (!acc[dType]) acc[dType] = { value: 0, vuln: 0, rd: 0, final: 0 };
 				if (Number(t.total)) {
@@ -1071,7 +1071,7 @@ export default class ActorT20 extends Actor {
 
 		let rdIgnorada = Math.abs(roll.options.rd ?? 0);
 		function ignoraRD(damageType) {
-			if (rdIgnorada == rds[damageType].value) {
+			if (rdIgnorada === rds[damageType].value) {
 				rdIgnorada = 0;
 				rds[damageType].value = 0;
 			} else if (rdIgnorada > rds[damageType].value) {
@@ -1095,21 +1095,21 @@ export default class ActorT20 extends Actor {
 		};
 
 		for (let [type, dmg] of Object.entries(damage)) {
-			if (type == "curapv" || type == "perda") {
+			if (type === "curapv" || type === "perda") {
 				final.damage = 0;
 				final.damage += dmg.value;
-			} else if (type == "curatpv") {
+			} else if (type === "curatpv") {
 				final.damage = 0;
 				final.tempHP += dmg.value;
-			} else if (type == "curapm") {
+			} else if (type === "curapm") {
 				final.damage = 0;
 				final.mana += dmg.value;
-			} else if (type == "curatpm") {
+			} else if (type === "curatpm") {
 				final.damage = 0;
 				final.tempMP += dmg.value;
 			} else {
 				let r = 0;
-				if (applyRD && type == "dano") {
+				if (applyRD && type === "dano") {
 					// r = Number( rds[type]?.value ?? 0 );
 				} else if (applyRD) {
 					// OLD: Number(rds.dano?.value ?? 0) +
@@ -1174,12 +1174,12 @@ export default class ActorT20 extends Actor {
 		};
 		let chatDamage = {};
 		for (let [type, value] of Object.entries(final)) {
-			if (type == "total") chatDamage.total = value * -1;
+			if (type === "total") chatDamage.total = value * -1;
 			if (type != "total" && (type != "damage" && value != 0)) {
 				chatDamage.type = type;
 				chatDamage.label = label[type];
 				chatDamage.value = value *= -1;
-			} else if (type == "damage") {
+			} else if (type === "damage") {
 				chatDamage.label = label[type];
 				chatDamage.type = type;
 				chatDamage.value = value *= -1;
@@ -1187,11 +1187,11 @@ export default class ActorT20 extends Actor {
 		}
 
 		let color = "red";
-		if (chatDamage.type == "damage" && chatDamage.value <= 0) color = "health";
-		else if (chatDamage.type == "damage" && chatDamage.value > 0) color = "heal";
-		else if (chatDamage.type == "mana" && chatDamage.value != 0) color = "mana";
-		else if (chatDamage.type == "tempHP" && chatDamage.value != 0) color = "hptemp";
-		else if (chatDamage.type == "tempMP" && chatDamage.value != 0) color = "mptemp";
+		if (chatDamage.type === "damage" && chatDamage.value <= 0) color = "health";
+		else if (chatDamage.type === "damage" && chatDamage.value > 0) color = "heal";
+		else if (chatDamage.type === "mana" && chatDamage.value != 0) color = "mana";
+		else if (chatDamage.type === "tempHP" && chatDamage.value != 0) color = "hptemp";
+		else if (chatDamage.type === "tempMP" && chatDamage.value != 0) color = "mptemp";
 
 		const templateData = {
 			actor: this,
@@ -1216,7 +1216,7 @@ export default class ActorT20 extends Actor {
 		};
 
 		let rollMode = "publicroll";
-		if (this.type == "npc" && show != "npcs") rollMode = "selfroll";
+		if (this.type === "npc" && show != "npcs") rollMode = "selfroll";
 		ChatMessage.applyRollMode(chatData, rollMode);
 		ChatMessage.create(chatData, {});
 	}
@@ -1331,7 +1331,7 @@ export default class ActorT20 extends Actor {
 		let needsConfiguration;
 
 		const UsageConfig = game.settings.get("tormenta20", "UsageConfig");
-		if (UsageConfig == "default") {
+		if (UsageConfig === "default") {
 			needsConfiguration = !(options.event?.shiftKey ?? false);
 		} else {
 			needsConfiguration = (options.event?.shiftKey ?? false);
@@ -1368,7 +1368,7 @@ export default class ActorT20 extends Actor {
 			let combatente;
 			try {
 				let combate = game.combats.active;
-				if (pericia.label == "Iniciativa" && combate) {
+				if (pericia.label === "Iniciativa" && combate) {
 					let roll = rConfig.itemData.rolled;
 					let combatente = combate.combatants.find(
 						(combatant) => combatant.actor.id === actor.id
@@ -1452,7 +1452,7 @@ export default class ActorT20 extends Actor {
 		let rConfig = {};
 		let needsConfiguration;
 		const UsageConfig = game.settings.get("tormenta20", "UsageConfig");
-		if (UsageConfig == "default") {
+		if (UsageConfig === "default") {
 			needsConfiguration = !(options.event?.shiftKey ?? false);
 		} else {
 			needsConfiguration = (options.event?.shiftKey ?? false);

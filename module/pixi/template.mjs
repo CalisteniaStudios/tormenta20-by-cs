@@ -48,12 +48,12 @@ export default class Tormenta20MeasuredTemplate extends MeasuredTemplate {
 		x = points.findLast(Boolean)[0];
 		y = points.findLast(Boolean)[1];
 		for (let i = 0; i < 50; i++) {
-			y += distanceUnit / (yCentered && i == 0 ? 2 : 1);
+			y += distanceUnit / (yCentered && i === 0 ? 2 : 1);
 			points = points.concat([
 				[x, y]
 			]);
 
-			x += -distanceUnit / (xCentered && i == 0 ? 1 : 1);
+			x += -distanceUnit / (xCentered && i === 0 ? 1 : 1);
 			points = points.concat([
 				[x, y]
 			]);
@@ -80,7 +80,7 @@ export default class Tormenta20MeasuredTemplate extends MeasuredTemplate {
 		const perpendicular = [0, 90, 180, 270];
 		const diagonal = [45, 135, 225, 315];
 		direction = this.roundToClosest(direction);
-		if (direction == 360) direction = 0;
+		if (direction === 360) direction = 0;
 		// Diagonal Cone
 		if (diagonal.includes(direction)) {
 			angle = 90;
@@ -128,15 +128,15 @@ export default class Tormenta20MeasuredTemplate extends MeasuredTemplate {
 		}
 
 		points.toReversed().reduce((acc, p, i) => {
-			if (i == 0) return acc;
+			if (i === 0) return acc;
 			acc.push([
 				p[0], (p[1] * -1)
 			]);
 			return acc;
 		}, points);
-		if (direction == 90) points = points.map((i) => [i[1], i[0]]);
-		else if (direction == 180) points = points.map((i) => [(i[0] * -1), i[1]]);
-		else if (direction == 270) points = points.map((i) => [i[1], (i[0] * -1)]);
+		if (direction === 90) points = points.map((i) => [i[1], i[0]]);
+		else if (direction === 180) points = points.map((i) => [(i[0] * -1), i[1]]);
+		else if (direction === 270) points = points.map((i) => [i[1], (i[0] * -1)]);
 
 		points = points.flat().map((i) => i * distancePixels);
 		return new PIXI.Polygon(points);
@@ -171,10 +171,10 @@ export default class Tormenta20MeasuredTemplate extends MeasuredTemplate {
 				break;
 			}
 		}
-		if (direction == 45) points = points; // .map( i => [i[1], i[0]] );
-		else if (direction == 135) points = points.map((i) => [(i[0] * -1), i[1]]);
-		else if (direction == 225) points = points.map((i) => [(i[1] * -1), (i[0] * -1)]);
-		else if (direction == 315) points = points.map((i) => [i[0], (i[1] * -1)]);
+		if (direction === 45) points = points; // .map( i => [i[1], i[0]] );
+		else if (direction === 135) points = points.map((i) => [(i[0] * -1), i[1]]);
+		else if (direction === 225) points = points.map((i) => [(i[1] * -1), (i[0] * -1)]);
+		else if (direction === 315) points = points.map((i) => [i[0], (i[1] * -1)]);
 
 		points = points.flat().map((i) => i * distancePixels);
 		return new PIXI.Polygon(points);

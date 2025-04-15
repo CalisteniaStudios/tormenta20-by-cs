@@ -146,8 +146,8 @@ export default class ItemT20 extends Item {
 		const requireEquipped = ["arma", "equipamento"].includes(this.type);
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
 		if (!requireEquipped) return false;
-		if (equipmentSlots && this.system.equipado2.slot == 0) return true;
-		else if (!equipmentSlots && (this.system.equipado === false || this.system.equipado == 0)) return true;
+		if (equipmentSlots && this.system.equipado2.slot === 0) return true;
+		else if (!equipmentSlots && (this.system.equipado === false || this.system.equipado === 0)) return true;
 		return false;
 	}
 
@@ -163,21 +163,21 @@ export default class ItemT20 extends Item {
 		}
 		//
 		if (game.settings.get("tormenta20", "equipmentSlots")) {
-			if (this.type === "equipamento" && this.parent?.type == "character") {
+			if (this.type === "equipamento" && this.parent?.type === "character") {
 				this.system.equipado = false;
 			}
-			if (this.type === "arma" && this.parent?.type == "character") {
+			if (this.type === "arma" && this.parent?.type === "character") {
 				this.system.equipado = 0;
 			}
-			if (this.parent?.type == "character" && this.system.equipado && this.system.equipado2.slot == 0) {
+			if (this.parent?.type === "character" && this.system.equipado && this.system.equipado2.slot === 0) {
 				const equip2 = this.system.equipado2;
-				if (this.system.equipado2.type=="hand" && this.system.equipado == 2) {
+				if (this.system.equipado2.type=="hand" && this.system.equipado === 2) {
 					this.system.equipado2.slot = 12.1;
 				} else {
-					let equips = this.actor.items.filter((it) => it.system.equipado && it.system.equipado2.type == equip2.type);
-					let limite = equip2.type == "hand" ? "limiteEmpunhado" : "limiteVestido";
+					let equips = this.actor.items.filter((it) => it.system.equipado && it.system.equipado2.type === equip2.type);
+					let limite = equip2.type === "hand" ? "limiteEmpunhado" : "limiteVestido";
 					equips = equips.map((it) => it.id);
-					this.system.equipado2.slot = (equip2.type == "hand" ? 1.1 : 1.2) + Math.min(equips.indexOf(this.id), this.actor.system.equipamentos[limite]);
+					this.system.equipado2.slot = (equip2.type === "hand" ? 1.1 : 1.2) + Math.min(equips.indexOf(this.id), this.actor.system.equipamentos[limite]);
 				}
 			}
 		}
@@ -200,16 +200,16 @@ export default class ItemT20 extends Item {
 		// Classes
 		if (this.type === "classe") {
 			// TODO Skyfall Class/Archetype
-			let maxLvl = gameSystem == "Skyfall" ? 10 : 20;
+			let maxLvl = gameSystem === "Skyfall" ? 10 : 20;
 			system.niveis = Math.clamp(system.niveis, 1, maxLvl);
 		}
 		// Weapons
 		else if (this.type === "arma") {
 			labels.critico = `${system.criticoM}/${system.criticoX}x`;
-			let rollAttack = this.system.rolls.find((r) => r.type == "ataque");
-			let rollDamage = this.system.rolls.find((r) => r.type == "dano");
+			let rollAttack = this.system.rolls.find((r) => r.type === "ataque");
+			let rollDamage = this.system.rolls.find((r) => r.type === "dano");
 
-			if (this.isEmbedded && this.parent.type == "npc") { // TODO ERRO
+			if (this.isEmbedded && this.parent.type === "npc") { // TODO ERRO
 				if (rollAttack) labels.npcattack = rollAttack?.parts[2][0] ?? "";
 				if (rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? "";//
 			}
@@ -304,7 +304,7 @@ export default class ItemT20 extends Item {
 			let mod = this.isOwned && atr ? atr : 0;
 
 			let cd = 10 + base + mod + (Number(save.bonus) || 0);
-			if (this.actor?.type == "npc") {
+			if (this.actor?.type === "npc") {
 				cd = this.actor.system.attributes.cd;
 			}
 			if (this.isOwned && actorFlags) {
@@ -316,8 +316,8 @@ export default class ItemT20 extends Item {
 
 		// Damage Types
 		if (!(system.rolls instanceof Array)) system.rolls = [];
-		if (system.rolls?.find((r) => r.type == "dano")) {
-			let dano = system.rolls.find((r) => r.type == "dano") || {};
+		if (system.rolls?.find((r) => r.type === "dano")) {
+			let dano = system.rolls.find((r) => r.type === "dano") || {};
 			if (dano.parts) {
 				labels.dano = dano.parts.filter((p) => p[0] != "").map((d) => d[0])
 					.join(" + ")
@@ -408,7 +408,7 @@ export default class ItemT20 extends Item {
 			let atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
 			let nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value")/2);
 			resistencia.cd = 10 + nvl + atr + resistencia.bonus;
-			if (this.actor.type == "npc") {
+			if (this.actor.type === "npc") {
 				resistencia.cd = this.actor.system.attributes.cd;
 			}
 		}
@@ -434,7 +434,7 @@ export default class ItemT20 extends Item {
 	getAttackToHit() {
 		const itemData = this.system;
 		const rollData = this.getRollData();
-		const roll = itemData.rolls.find((r) => r.type == "ataque");
+		const roll = itemData.rolls.find((r) => r.type === "ataque");
 		if (!this.hasAttack || !itemData || roll.parts.length < 2) return;
 		// Define Roll bonuses
 		const parts = roll.parts.map((p) => p[0] ?? p);// ;
@@ -704,8 +704,8 @@ export default class ItemT20 extends Item {
 		if (isNPC) {
 			if (data.system.rolls) {
 				updates["system.ataques"] = 1;
-				let attackRoll = data.system.rolls.find((r) => r.type == "ataque");
-				let damageRoll = data.system.rolls.find((r) => r.type == "dano");
+				let attackRoll = data.system.rolls.find((r) => r.type === "ataque");
+				let damageRoll = data.system.rolls.find((r) => r.type === "dano");
 				if (attackRoll && damageRoll) {
 					attackRoll.parts[0][1] = "";
 					attackRoll.parts[1][0] = "";
@@ -718,8 +718,8 @@ export default class ItemT20 extends Item {
 				let attack = actorData.builder.attributes?.attack?.value ?? 0;
 				let damage = actorData.builder.attributes?.damage?.value ?? 0;
 				if (data.system.rolls) {
-					let attackRoll = data.system.rolls.find((r) => r.type == "ataque");
-					let damageRoll = data.system.rolls.find((r) => r.type == "dano");
+					let attackRoll = data.system.rolls.find((r) => r.type === "ataque");
+					let damageRoll = data.system.rolls.find((r) => r.type === "dano");
 					if (attackRoll && damageRoll) {
 						attackRoll.parts = [["1d20", "", ""], ["", "", ""], [attack, "", ""]];
 						let wroll = damageRoll.parts[0][0];
@@ -762,18 +762,18 @@ export default class ItemT20 extends Item {
 		let createMeasuredTemplate;
 		const resource = id.consume || {};     // Resource consumption
 
-		if (item.type == "arma" && (equipmentSlots ? parseInt(id.equipado2.slot)==12 : id.equipado == 2)) {
+		if (item.type === "arma" && (equipmentSlots ? parseInt(id.equipado2.slot) === 12 : id.equipado === 2)) {
 			item.system.rolls.forEach((r) => {
-				if (r.type == "dano" && r.versatil) {
+				if (r.type === "dano" && r.versatil) {
 					r.parts[0][0] = r.versatil;
 				}
 			});
 		}
 
 		// Consume a linked (non-ammo) resource
-		let consumeResource = !!resource.target && resource.type == "attribute";
+		let consumeResource = !!resource.target && resource.type === "attribute";
 		// Consume item quantity
-		let consumeSelf = this.type == "consumivel";
+		let consumeSelf = this.type === "consumivel";
 		let consumeQuantity = ["ammo", "material"].includes(resource.type) && resource.target;
 		// Consume mana
 		let consumeMana = id.ativacao?.custo > 0;
@@ -819,13 +819,13 @@ export default class ItemT20 extends Item {
 
 		if (!foundry.utils.isEmpty(extra) || configuration.bonus || configuration.bonusdano) {
 			item.system.rolls.forEach((r) => {
-				if (r.type == "ataque") {
+				if (r.type === "ataque") {
 					if (!["", "0", undefined].includes(configuration.bonus)) r.parts.push([configuration.bonus, ""]);
 					if (!["", "0", undefined].includes(extra.pericia)) r.parts[1][0] = extra.pericia;
 					if (!["", "0", undefined].includes(extra.atributoAtq)) r.parts[1][1] = extra.atributoAtq;
 					if (extra?.atq?.match(/^=/)) r.parts = [["1d20", ""], [extra.atq.replace("=", ""), ""]];
 					else if (!["", "0", undefined].includes(extra.atq)) r.parts.push([extra.atq, ""]);
-				} else if (r.type == "dano") {
+				} else if (r.type === "dano") {
 					if (!["", "0", undefined].includes(configuration.bonusdano)) r.parts.push([configuration.bonusdano, ""]);
 					if (!["", "0", undefined].includes(extra.dadoDano)) r.parts[0][0] = extra.dadoDano;
 					if (!["", "0", undefined].includes(extra.atributoDano)) r.parts[1][0] = `@${extra.atributoDano}`;
@@ -843,13 +843,13 @@ export default class ItemT20 extends Item {
 		// Execute Rolls
 		options.rolls = [];
 		item.system.rolled = {};
-		if (item.system.rolls.find((r) => r.type == "ataque" && r.parts.length && r.parts[0][0])) {
+		if (item.system.rolls.find((r) => r.type === "ataque" && r.parts.length && r.parts[0][0])) {
 			await item.rollAttack({ options: options });
 		}
-		if (item.system.rolls.find((r) => r.type == "formula" && r.parts.length && r.parts[0][0])) {
+		if (item.system.rolls.find((r) => r.type === "formula" && r.parts.length && r.parts[0][0])) {
 			await item.rollFormula({ options: options });
 		}
-		if (item.system.rolls.find((r) => r.type == "dano" && r.parts.length && r.parts[0][0])) {
+		if (item.system.rolls.find((r) => r.type === "dano" && r.parts.length && r.parts[0][0])) {
 			await item.rollDamage({ options: options });
 		}
 
@@ -1051,7 +1051,7 @@ export default class ItemT20 extends Item {
 		};
 
 		for (let [key, roll] of Object.entries(this.system.rolled)) {
-			roll.tipo = (roll.options.type == "damage" || roll.dice[0]?.faces !== 20) ? "roll--dano" : "";
+			roll.tipo = (roll.options.type === "damage" || roll.dice[0]?.faces !== 20) ? "roll--dano" : "";
 			roll.options.title = key || "";
 			await roll.render().then((r) => {
 				templateData.rolls.push({ template: r, roll: roll });
@@ -1127,7 +1127,7 @@ export default class ItemT20 extends Item {
 		const flags = this.actor.flags.tormenta20 || {};
 		options.type = "attack";
 		// get the parts and rollData for this item's attack
-		for (let r of itemData.rolls.filter((i) => i.type == "ataque")) {
+		for (let r of itemData.rolls.filter((i) => i.type === "ataque")) {
 			// Get roll data
 			const { parts, rollData } = this.getAttackToHit();
 			const title = this.name;
@@ -1154,7 +1154,7 @@ export default class ItemT20 extends Item {
 			const roll = await d20Roll(rollConfig);
 			if (roll === false) return null;
 			roll._critical = roll.terms[0].total >= itemData.criticoM;
-			roll._fumble = roll.terms[0].total == 1;
+			roll._fumble = roll.terms[0].total === 1;
 
 			itemData.rolled[r.name] = roll;
 		}
@@ -1174,12 +1174,12 @@ export default class ItemT20 extends Item {
 		let pericia;
 		let lancinante = false;
 		options.type = "damage";
-		if (this.type == "arma") {
+		if (this.type === "arma") {
 			critical = itemData.rolled?.Ataque?._critical || false;
-			pericia = itemData.rolls.find((i) => i.type == "ataque")?.parts[1][0];
+			pericia = itemData.rolls.find((i) => i.type === "ataque")?.parts[1][0];
 			lancinante = Object.values(itemData.upgrades)?.includes("lancinating");
 		}
-		for (let r of itemData.rolls.filter((i) => i.type == "dano")) {
+		for (let r of itemData.rolls.filter((i) => i.type === "dano")) {
 			// Get roll data
 			const parts = r.parts;// .map(d => d[0]);
 			const rollData = this.getRollData();
@@ -1206,10 +1206,10 @@ export default class ItemT20 extends Item {
 			// Add damage bonus formula
 			const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
 			if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "", ""]);
-			if (pericia=="luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
-			else if (pericia=="pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
-			if (this.type=="magia" && bonuses.mag.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
-			else if (this.type=="consumivel" && this.system.tipo == "alchemy" && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
+			if (pericia === "luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
+			else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
+			if (this.type === "magia" && bonuses.mag.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
+			else if (this.type === "consumivel" && this.system.tipo === "alchemy" && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
 
 			// Call the roll helper utility
 			foundry.utils.mergeObject(rollConfig, options);
@@ -1231,7 +1231,7 @@ export default class ItemT20 extends Item {
 		const actorData = this.actor.system;
 		const rollData = this.getRollData();
 		// Invoke the roll and submit it to chat
-		for (let r of itemData.rolls.filter((i) => i.type == "formula")) {
+		for (let r of itemData.rolls.filter((i) => i.type === "formula")) {
 			// rolls[r.name] =
 			let temp = new Roll(r.parts[0][0], rollData);
 			itemData.rolled[r.name] = await temp.roll();
