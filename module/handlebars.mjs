@@ -178,17 +178,38 @@ export function registerHandlebarsHelpers() {
 		return CONFIG.T20.damageTypes[label] ?? label;
 	});
 
+	/**
+	 * @param {Item} item
+	 * @returns {Handlebars.SafeString}
+	 */
 	Handlebars.registerHelper("t20-itemDesc", function (item) {
 		const desc = [];
-		const sustentada = item.system.duracao.units === "sust";
-		if (item.labels.ativacao) {
-			if (sustentada) {
-				desc.push(`${item.labels.ativacao} (${game.i18n.localize("T20.TimeSust")})`);
+		let separator = ", ";
+		if (item.type === "arma") {
+			const { toHit, dano, critico } = item.labels;
+			desc.push(toHit, dano, critico);
+		} else if (item.type === "equipamento") {
+			const { penalidade, value } = item.system.armadura;
+			separator = " / ";
+			if (penalidade || value) {
+				desc.push(`<i class="fa-solid fa-shield"></i> ${value >= 0 ? `+${value}` : value}`);
+				desc.push(`<i class="fa-solid fa-person-hiking"></i> ${penalidade}`);
 			}
-			else desc.push(item.labels.ativacao);
+		} else if (item.type === "consumivel") {
+			desc.push(`${game.i18n.localize("T20.ItemQuantity")}: ${item.system.qtd}`);
+		} else if (item.type === "magia" || item.type === "poder") {
+			if (item.type === "magia") {
+				desc.push(`${item.system.circulo}º ${game.i18n.localize("T20.SpellCircle")}`);
+			}
+			const { ativacao, custoPM } = item.labels;
+			const sustentada = item.system.duracao.units === "sust";
+			if (ativacao) {
+				if (sustentada) {
+					desc.push(`${ativacao} (${game.i18n.localize("T20.TimeSust")})`);
+				} else desc.push(ativacao);
+			} else if (sustentada) desc.push(game.i18n.localize("T20.TimeSust"));
+			desc.push(custoPM);
 		}
-		else if (sustentada) desc.push(game.i18n.localize("T20.TimeSust"));
-		desc.push(item.labels.custoPM);
-		return desc.filter((d) => d).join(", ");
+		return new Handlebars.SafeString(desc.filterJoin(separator));
 	});
 }

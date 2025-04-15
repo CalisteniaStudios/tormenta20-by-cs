@@ -24,10 +24,12 @@
 
   .modesto();
 
-  .rollable:hover {
-    color: red;
-    text-shadow: 0 0 10px red;
-    cursor: pointer;
+  .ability-scores, .skills-list {
+    .rollable:hover {
+      color: red;
+      text-shadow: 0 0 10px red;
+      cursor: pointer;
+    }
   }
   // Attribute Configuration
   .trait-selector,
@@ -634,6 +636,7 @@
           align-items: unset;
 
           label {
+            font-weight: bold;
             font-size: var(--font-size-16);
           }
 
@@ -678,16 +681,18 @@
         input.stored {
           opacity: 0.75;
         }
-        &.rollable:hover {
-          color: red;
-          text-shadow: 0 0 10px red;
-          cursor: pointer;
-        }
-        &.rollable:hover .item-image {
-          background-image: url("../../icons/svg/d20-grey.svg") !important;
-        }
-        &.rollable .item-image:hover {
-          background-image: url("../../icons/svg/d20-black.svg") !important;
+        &.rollable {
+          label:hover {
+            color: red;
+            text-shadow: 0 0 10px red;
+            cursor: pointer;
+          }
+          .item-image:hover {
+            background-image: url("../../icons/svg/d20-black.svg") !important;
+          }
+          &:hover .item-image {
+            background-image: url("../../icons/svg/d20-grey.svg") !important;
+          }
         }
       }
 
@@ -751,8 +756,7 @@
 
     // Item Control Buttons
     .item-controls {
-      // todo Tabbed 64px;
-      flex: 0 0 65px;
+      flex: 0 0 auto;
       font-size: 12px;
       text-align: right;
       height: @itemImageSize;

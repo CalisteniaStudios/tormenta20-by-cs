@@ -797,7 +797,8 @@
 .tormenta20.sheet.actor.simple .item-list .item-controls {
   flex: 1;
 }
-.tormenta20.sheet.actor .rollable:hover {
+.tormenta20.sheet.actor .ability-scores .rollable:hover,
+.tormenta20.sheet.actor .skills-list .rollable:hover {
   color: red;
   text-shadow: 0 0 10px red;
   cursor: pointer;
@@ -1212,6 +1213,7 @@
   align-items: unset;
 }
 .tormenta20.sheet.actor .item-list .item * .item-description label {
+  font-weight: bold;
   font-size: var(--font-size-16);
 }
 .tormenta20.sheet.actor .item-list .item * .item-description .item-tipo {
@@ -1244,16 +1246,16 @@
 .tormenta20.sheet.actor .item-list .item .item-name input.stored {
   opacity: 0.75;
 }
-.tormenta20.sheet.actor .item-list .item .item-name.rollable:hover {
+.tormenta20.sheet.actor .item-list .item .item-name.rollable label:hover {
   color: red;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
-.tormenta20.sheet.actor .item-list .item .item-name.rollable:hover .item-image {
-  background-image: url("../../icons/svg/d20-grey.svg") !important;
-}
 .tormenta20.sheet.actor .item-list .item .item-name.rollable .item-image:hover {
   background-image: url("../../icons/svg/d20-black.svg") !important;
+}
+.tormenta20.sheet.actor .item-list .item .item-name.rollable:hover .item-image {
+  background-image: url("../../icons/svg/d20-grey.svg") !important;
 }
 .tormenta20.sheet.actor .item-list .item .item-uses input {
   width: 24px;
@@ -1304,7 +1306,7 @@
   border-right: 1px solid #c9c7b8;
 }
 .tormenta20.sheet.actor .item-list .item-controls {
-  flex: 0 0 65px;
+  flex: 0 0 auto;
   font-size: 12px;
   text-align: right;
   height: 34px;
@@ -2108,6 +2110,7 @@
   margin: 0 3px;
 }
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class {
+  color: revert;
   white-space: nowrap;
   align-items: center;
 }
