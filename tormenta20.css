@@ -1203,7 +1203,6 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 }
 .tormenta20.sheet.actor .item-list.fav-item,
 .tormenta20.sheet.actor .item-list.fav-feat {
-  font-size: var(--font-size-14);
   margin: 0;
 }
 .tormenta20.sheet.actor .item-list.fav-item + *,
@@ -1225,7 +1224,6 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 }
 .tormenta20.sheet.actor .item-list .item * .item-description label {
   font-weight: bold;
-  font-size: var(--font-size-16);
 }
 .tormenta20.sheet.actor .item-list .item * .item-description .item-tipo {
   font-size: var(--font-size-12);
