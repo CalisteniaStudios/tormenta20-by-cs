@@ -1,7 +1,7 @@
 export default class ChoicesDialog extends Dialog {
 	constructor(item, dialogData={}, options={}) {
 		super(dialogData, options);
-		this.options.classes = ["tormenta20", "choices-form"];
+		this.options.classes.push(...["tormenta20", "choices-form"]);
 	}
 
 	static async create(list = [], source, somefing) {

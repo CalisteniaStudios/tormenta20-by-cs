@@ -1,7 +1,7 @@
 export default class RestConfigDialog extends Dialog {
 	constructor(actors, dialogData={}, options={}) {
 		super(dialogData, options);
-		this.options.classes = ["tormenta20", "rest-dialog"];
+		this.options.classes.push(...["tormenta20", "rest-dialog"]);
 
 		/**
 		 * Store a reference to the Actors document being used
