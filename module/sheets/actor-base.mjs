@@ -853,20 +853,18 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const item = this.actor.items.get(li.data("itemId"));
 		const id = item.system;
 		id.equipado = !id.equipado;
-		const items = this.actor.items;
+		const items = this.actor.itemTypes.equipamento;
 		let updateItems = [];
 		updateItems.push({ _id: item.id, "system.equipado": id.equipado });
 		const armor = ["leve", "pesada"];
 		const exclusiveSlot = ["leve", "pesada", "escudo"];
 		if (id.equipado && exclusiveSlot.includes(id.tipo)) {
-			let unequipped = items.some((element) => { // some() === forEach() with a return
-				if (element.type === "equipamento" && element.system.equipado && element.id != item.id) {
-					if (element.system.tipo === id.tipo || (armor.includes(element.system.tipo) && armor.includes(id.tipo))) {
-						updateItems.push({ _id: element.id, "system.equipado": false });
-						return true;
-					}
+			const equippedItems = items.filter((i) => i.system.equipado && i.id !== item.id);
+			for (const i of equippedItems) {
+				if (i.system.tipo === id.tipo || (armor.includes(i.system.tipo) && armor.includes(id.tipo))) {
+					updateItems.push({ _id: i.id, "system.equipado": false });
 				}
-			});
+			}
 		}
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
