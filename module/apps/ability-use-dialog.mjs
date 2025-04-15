@@ -7,7 +7,7 @@ import {applyOnUseEffects} from "./ability-use.mjs";
 export default class AbilityUseDialog extends Dialog {
 	constructor(item, dialogData={}, options={}) {
 		super(dialogData, options);
-		this.options.classes = ["tormenta20", "ability-use-form"];
+		this.options.classes.push(...["tormenta20", "ability-use-form"]);
 
 		/**
 		 * Store a reference to the Item document being used
