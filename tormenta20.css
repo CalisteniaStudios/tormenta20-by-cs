@@ -1376,7 +1376,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   align-items: center;
   height: auto;
 }
-.tormenta20.sheet.actor .skills-list .skill:nth-child(even) {
+.tormenta20.sheet.actor .skills-list .skill:not(.item-header, .create-skill):nth-child(odd) {
   background: #c9c7b8;
 }
 .tormenta20.sheet.actor .skills-list .skill *:not(.item-name) {
