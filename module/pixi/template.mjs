@@ -1,21 +1,16 @@
 export default class Tormenta20MeasuredTemplate extends MeasuredTemplate {
-
-	get overrideCoreShapes() {
-		return game.settings.get(game.system.id, "overrideMeasuredTemplatesConfig");
-	}
-
 	_computeShape() {
-		console.log(this.overrideCoreShapes);
-		if (!this.overrideCoreShapes || canvas.grid.type != 1) {
+		if (canvas.grid.type !== 1) {
 			return super._computeShape();
 		}
 
 		const { t, distance, direction, angle, width } = this.document;
-		const x = this.position.x;
-		const y = this.position.y;
+		// const x = this.position.x;
+		// const y = this.position.y;
 		switch (t) {
 			case "circle":
-				return this.constructor.getT20CircleShape(distance, x, y);
+				// return this.constructor.getT20CircleShape(distance, x, y);
+				return new PIXI.Polygon(canvas.grid.getCircle({ x: 0, y: 0 }, distance));
 			case "cone":
 				return this.constructor.getT20ConeShape(distance, direction, angle);
 			case "rect":

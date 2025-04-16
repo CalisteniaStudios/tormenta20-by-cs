@@ -1185,9 +1185,6 @@
   "T20.SettingLancinatingDefault": "Livro Básico: Multiplica Numérico",
   "T20.SettingLancinatingRevised": "Ameaças de Arton: Multiplica Dilacerante",
 
-  "T20.SettingOverrideMeasuredTemplatesConfig": "Área de Efeito Tormenta20",
-  "T20.SettingOverrideMeasuredTemplatesConfigHint": "Altera a forma de calcular Área de Efeito para corresponder às regras do sistema.",
-
   "T20.SettingOptionalRulesSettings": "Regras Opcionais",
   "T20.SettingProgressiveDefense": "Defesa Progressiva",
   "T20.SettingProgressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",

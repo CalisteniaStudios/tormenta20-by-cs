@@ -239,18 +239,6 @@ export const SystemSettings = function () {
 		}
 	});
 
-	/**
-	 * Overwrite Foundry Core Mearesured Template to match Tormenta20 AbilityShapes.
-	 */
-	game.settings.register("tormenta20", "overrideMeasuredTemplatesConfig", {
-		name: game.i18n.localize("T20.SettingOverrideMeasuredTemplatesConfig"),
-		hint: game.i18n.localize("T20.SettingOverrideMeasuredTemplatesConfigHint"),
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-
 	game.settings.register("tormenta20", "progressiveDefense", {
 		name: game.i18n.localize("T20.SettingProgressiveDefense"),
 		hint: game.i18n.localize("T20.SettingProgressiveDefenseHint"),
