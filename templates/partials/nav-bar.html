@@ -1,6 +1,6 @@
 {{!-- ACTOR SHEET --}}
 {{#if (eq documentName 'Actor' ) }}
-<nav class="sheet-tabs tabs primary" data-group="primary">
+<nav class="sheet-tabs tabs primary flexrow" data-group="primary">
 	{{#if limited }}
 		<a class="item" data-tab="journal" ><i class="fas fa-book"></i> {{localize "T20.Notes"}}</a>
 	{{else }}
@@ -22,7 +22,6 @@
 		{{#if (eq actor.type 'npc' ) }}
 		<a class="item" id="parse-statblock" title="{{localize "T20.ParseStatblock"}}"><i class="fa-solid fa-diagram-predecessor"></i></a>
 		{{/if}}
-		<a class="item" id="configure-actor" title="{{localize "T20.Configure"}}"><i class="fas fa-cogs"></i></a>
 	{{/if}}
 	{{#if (eq layout 'vehicle' ) }}
 		<a class="item active" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>

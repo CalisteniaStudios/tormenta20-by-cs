@@ -200,9 +200,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			// Configure Special Flags
 			html.find(".config-button").click(this._onConfigMenu.bind(this));
 			// html.find('.level-settings').click(this._onLevelSettings.bind(this));
-			html.find("#configure-actor").click((ev) => {
-				new ActorSettings(this.actor).render(true);
-			});
 			html.find("#configure-skills").click(async (ev) => {
 				const { MODES } = this.constructor;
 				const toggle = ev.currentTarget;
@@ -510,17 +507,38 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/* -------------------------------------------- */
 
+	async _renderOuter() {
+		const html = await super._renderOuter();
+		const header = html[0].querySelector(".window-header");
+
+		// Adjust header buttons.
+		header.querySelectorAll(".header-button").forEach((btn) => {
+			const label = btn.querySelector(":scope > i").nextSibling;
+			btn.dataset.tooltip = label.textContent;
+			btn.dataset.tooltipDirection = "UP";
+			btn.setAttribute("aria-label", label.textContent);
+			btn.addEventListener("dblclick", (event) => event.stopPropagation());
+			label.remove();
+		});
+
+		return html;
+	}
+
+	/* -------------------------------------------- */
+
 	/** @override */
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
-		// Add button for help
-		// buttons.unshift({
-		// 	label: game.i18n.localize('T20.ActorSync'),
-		// 	class: "actor-sync",
-		// 	icon: "fa-solid fa-rotate",
-		// 	onclick: () => (new ActorSync(this.actor)).render(true)
-		// });
-		// Add button for sheet settings?
+		const tokenButton = buttons.find((b) => b.class === "configure-token");
+		if (tokenButton && this.actor.isToken) tokenButton.icon = "far fa-user-circle";
+		if (this.actor.type !== "simple") {
+			buttons.unshift({
+				label: game.i18n.localize("T20.Configure"),
+				class: "t20-configure-sheet",
+				icon: "fas fa-wrench",
+				onclick: () => (new ActorSettings(this.actor).render(true))
+			});
+		}
 		return buttons;
 	}
 
