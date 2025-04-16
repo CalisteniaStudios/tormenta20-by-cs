@@ -89,7 +89,7 @@ export function registerHandlebarsHelpers() {
 						? { label: CONFIG.T20.atributos[defesa.atributo], value: rollData[defesa.atributo] }
 						: false),
 					...armaduras,
-					(defesa.outros ? { label: "Outros", value: defesa.Outros } : false),
+					(defesa.outros ? { label: "Outros", value: defesa.outros } : false),
 					// (rollData.armadura ? { label: "Armadura", value: rollData.armadura } : false),
 					// (rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
 					...(modFields[path]??[])
