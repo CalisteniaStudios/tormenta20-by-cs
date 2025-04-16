@@ -14,7 +14,6 @@ import ActiveEffectT20 from "./module/documents/active-effects.mjs";
 import ActorT20 from "./module/documents/actor.mjs";
 import ChatMessageTormenta20 from "./module/documents/chat-message.mjs";
 import ItemT20 from "./module/documents/item.mjs";
-import Tormenta20MeasuredTemplateDocument from "./module/documents/measured-template.mjs";
 import RollT20 from "./module/documents/roll.mjs";
 import TokenDocumentT20 from "./module/documents/token.mjs";
 import TokenT20 from "./module/pixi/token.mjs";
@@ -101,7 +100,6 @@ Hooks.once("init", async function () {
 	CONFIG.Token.objectClass = TokenT20;
 	CONFIG.time.roundTime = 6;
 
-	CONFIG.MeasuredTemplate.documentClass = Tormenta20MeasuredTemplateDocument;
 	CONFIG.MeasuredTemplate.objectClass = AbilityTemplate;
 
 	// Register T20 stuff

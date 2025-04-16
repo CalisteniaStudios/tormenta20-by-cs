@@ -2,7 +2,6 @@
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import { applyOnUseEffects } from "../apps/ability-use.mjs";
 import { d20Roll, damageRoll, simplifyRollFormula } from "../dice/dice.mjs";
-import AbilityTemplate from "../pixi/ability-template.mjs";
 import { itemMigration } from "./migrations.mjs";
 
 /**
@@ -925,7 +924,7 @@ export default class ItemT20 extends Item {
 		createMeasuredTemplate = hasArea;       // Trigger a template creation
 		// Initiate measured template creation
 		if (canvas.scene && createMeasuredTemplate) {
-			const template = AbilityTemplate.fromItem(item);
+			const template = game.tormenta20.canvas.AbilityTemplate.fromItem(item);
 			if (template) {
 				template.drawPreview();
 				options.template = {
