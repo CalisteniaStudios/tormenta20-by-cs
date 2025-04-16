@@ -4,19 +4,9 @@
 @itemImageSize: 34px;
 
 .tormenta20.sheet.actor {
-
-  &.simple {
-    .sheet-header {
-      .summary {
-        border: 0;
-      }
-    }
-    .item-list {
-      .item-controls {
-        flex: 1;
-      }
-    }
-  }
+  @import "./character.less";
+  @import "./npc.less";
+  @import "./simple.less";
 
   /* ----------------------------------------- */
   /*  Shared Styles                            */
@@ -332,88 +322,6 @@
   /*  Skills                                   */
   /* ----------------------------------------- */
 
-  &.character .tabbed {
-    .sheet-header {
-      .charlevel {
-        flex: 1;
-      }
-      .header-exp {
-        max-width: 120px;
-      }
-      .experience {
-        margin: 0;
-        font-size: var(--font-size-14);
-      }
-      .xpbar {
-        margin: 0;
-      }
-    }
-    .attributes.flexrow {
-      gap: 4px;
-    }
-  }
-
-  // ul.skills-list {
-  //   flex: 0 0 180px;
-  //   height: 440px;
-  //   list-style: none;
-  //   margin: 0 5px 0;
-  //   padding: 3px 0 2px;
-  //   border: @borderGroove;
-  //   border-radius: 3px;
-
-  //   li.skill {
-  //     height: 24px;
-  //     padding: 3px 2px;
-
-  //     &:nth-child(even) {
-  //       background: rgba(0, 0, 0, 0.05);
-  //     }
-
-  //     h4 {
-  //       flex: 1px;
-  //       margin: 0;
-  //       // font-size: 11px;
-  //       line-height: 18px;
-  //     }
-
-  //     .skill-proficiency {
-  //       flex: 0 0 16px;
-  //       line-height: 18px;
-  //     }
-
-  //     .skill-name-controls {
-  //       position: relative;
-
-  //       .config-button {
-  //         right: 3px;
-  //         top: 4px;
-  //         position: absolute;
-  //         display: none;
-  //       }
-
-  //       &:hover .config-button {
-  //         display: block;
-  //       }
-  //     }
-
-  //     .skill-ability {
-  //       flex: 0 0 26px;
-  //       text-transform: capitalize;
-  //     }
-
-  //     .skill-mod {
-  //       flex: 0 0 20px;
-  //     }
-
-  //     .skill-passive {
-  //       flex: 0 0 26px;
-  //       text-align: center;
-  //       color: @colorTan;
-  //     }
-  //   }
-  // }
-
   /* ----------------------------------------- */
   /*  Statuses                                 */
   /* ----------------------------------------- */
@@ -713,9 +621,6 @@
     // Inventory Header
     .item-header {
       line-height: 24px;
-      .item-controls {
-        height: unset;
-      }
       .item-controls a.item-create {
         flex: 0 0 100%;
       }
@@ -736,19 +641,23 @@
     }
 
     .item-qty,
+    .item-weight,
+    .item-controls {
+      flex: 0 0 44px;
+    }
+
+    .item-qty,
     .item-weight {
       text-align: center;
-      flex: 0 0 40px;
       border-left: 1px solid @colorFaint;
       border-right: 1px solid @colorFaint;
     }
 
     // Item Control Buttons
     .item-controls {
-      flex: 0 0 auto;
       font-size: 12px;
       text-align: right;
-      height: @itemImageSize;
+      // height: @itemImageSize;
 
       .item-control.item-toggle i {
         opacity: 0.5;

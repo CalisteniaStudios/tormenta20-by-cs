@@ -1,33 +1,35 @@
-<ul class="item-list">
+<ul class="item-list general">
 	{{#unless isSimple}}
 	<li class="item flexrow item-header flex-center">{{localize "T20.Inventory"}}</li>
 	{{/unless}}
-	<ol class="item-list">
-		<li class="item flexrow item-header">
-			<div class="item-name flex2">{{ localize 'T20.Name' }}</div>
-			<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
-			<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
-			<div class="item-controls"></div>
-		</li>
-		{{#each actor.inventario.itens.items as |item id|}}
-		<li class="item flexrow" data-item-id="{{item._id}}">
-			<div class="item-name flexrow rollable flex2 {{#unless item.system.carregado}}stored{{/unless}}">
-				<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-				<label class="">{{item.name}} {{#unless item.system.carregado}}<i class="fal fa-treasure-chest"></i>{{/unless}}</label>
-			</h4>
-			</div>
-			<div class="item-qty">
-				<input type="text" data-dtype="Number" placeholder="0" classe="item-qtd" value="{{item.system.qtd}}">
-			</div>
-			<div class="item-weight">{{item.espacosTotal}}</div>
-			{{> "systems/tormenta20/templates/actor/parts/actor-item-controls.hbs" item=item }}
-		</li>
-		{{/each}}
-		<li>
-			<div class="item-controls">
-				<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Consumable'}}" data-type="consumivel"><i class="fas fa-plus"></i> {{localize 'T20.Consumable'}}</a>
-				<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Treasure'}}" data-type="tesouro"><i class="fas fa-plus"></i> {{localize 'T20.Treasure'}}</a>
-			</div>
-		</li>
-	</ol>
+	<li class="item flexrow item-header">
+		<div class="item-name flex2">{{ localize 'T20.Name' }}</div>
+		<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
+		<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
+		{{#if owner}}
+		<div class="item-controls">
+			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Powers'}}" data-type="poder"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
+		</div>
+		{{/if}}
+	</li>
+	{{#each actor.inventario.itens.items as |item id|}}
+	<li class="item flexrow" data-item-id="{{item._id}}">
+		<div class="item-name flexrow rollable flex2 {{#unless item.system.carregado}}stored{{/unless}}">
+			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+			<label class="">{{item.name}} {{#unless item.system.carregado}}<i class="fal fa-treasure-chest"></i>{{/unless}}</label>
+		</h4>
+		</div>
+		<div class="item-qty">
+			<input type="text" data-dtype="Number" placeholder="0" classe="item-qtd" value="{{item.system.qtd}}">
+		</div>
+		<div class="item-weight">{{item.espacosTotal}}</div>
+		{{> "systems/tormenta20/templates/actor/parts/actor-item-controls.hbs" item=item }}
+	</li>
+	{{/each}}
+	<li>
+		<div class="item-controls">
+			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Consumable'}}" data-type="consumivel"><i class="fas fa-plus"></i> {{localize 'T20.Consumable'}}</a>
+			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Treasure'}}" data-type="tesouro"><i class="fas fa-plus"></i> {{localize 'T20.Treasure'}}</a>
+		</div>
+	</li>
 </ul>

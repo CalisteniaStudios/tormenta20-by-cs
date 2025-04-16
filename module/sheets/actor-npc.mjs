@@ -33,17 +33,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		const sheetData = await super.getData();
 
 		// FLAGS
-		sheetData.isReformed = this.actor.type === "npc" && this.actor.getFlag("tormenta20", "npcReform");
-		if (false && sheetData.isReformed) {
-			sheetData.skills = sheetData.skills.filter((s) => !["luta", "pont", "fort", "refl", "vont"].includes(s.key));
-
-			let builder = this.actor.system.builder || {};
-			sheetData.unbuilded = false;
-			for (let [key, attr] of Object.entries(builder.attributes)) {
-				if (key === "mp" && getType(attr) != "Object") continue;
-				if (attr.cr === "") sheetData.unbuilded = true;
-			}
-		}
 		sheetData.compactSpells = game.settings.get("tormenta20", "foeSheetCompactSpell");
 
 		let resText = {
@@ -113,7 +102,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			html.find(".poder-rollable").click((event) => this._onItemRoll(event));
 			// html.find('.pericia-rollable').click(event => this._onRollPericia(event)); super
 
-			html.find(".toggleNPCSheet").click((event) => this._toggleNPCSheet(event));
 			html.find(".magia-rollable").on("contextmenu", this._onItemEdit.bind(this));
 			html.find(".arma-rollable").on("contextmenu", this._onItemEdit.bind(this));
 			html.find(".poder-rollable").on("contextmenu", this._onItemEdit.bind(this));
@@ -135,23 +123,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	/* -------------------------------------------- */
 
 	/* -------------------------------------------- */
-
-	/**
-	 * Toggle NPC Sheet
-	 */
-	async _toggleNPCSheet() {
-		// De-register the current sheet class
-		const sheet = this.object.sheet;
-		await sheet.close();
-		this.object._sheet = null;
-		delete this.object.apps?.[sheet.appId];
-
-		const sheetName = sheet.name === "ActorSheetT20NPC" ? "ActorSheetT20NPC" : "ActorSheetT20Builder";
-		const newSheet = Actors.registeredSheets?.map((s) => s)?.find((s) => s.name === sheetName);
-		if (!newSheet) return;
-		this.object._sheet = new newSheet(this.object, { editable: this.object.isOwner });
-		this.object.sheet.render(true);
-	}
 
 	/**
 	 *

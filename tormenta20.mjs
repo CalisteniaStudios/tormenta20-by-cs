@@ -21,7 +21,6 @@ import TokenT20 from "./module/pixi/token.mjs";
 
 // Import Sheets
 import ActiveEffectConfigT20 from "./module/sheets/active-effects.mjs";
-import ActorSheetT20Builder from "./module/sheets/actor-builder.mjs";
 import ActorSheetT20Character from "./module/sheets/actor-character.mjs";
 import ActorSheetT20NPC from "./module/sheets/actor-npc.mjs";
 import ActorSheetT20Simple from "./module/sheets/actor-simple.mjs";
@@ -61,7 +60,6 @@ globalThis.tormenta20 = {
 		ActorSheetT20Character,
 		ActorSheetT20CharacterTabbed,
 		ActorSheetT20NPC,
-		ActorSheetT20Builder,
 		ItemSheetT20,
 		TraitSelector,
 		ActorSettings,
@@ -170,12 +168,6 @@ Hooks.once("init", async function () {
 		makeDefault: true,
 		label: "T20.NPCSheet"
 	});
-
-	// Actors.registerSheet("tormenta20", ActorSheetT20Builder, {
-	// 	types: ["npc"],
-	// 	makeDefault: false,
-	// 	label: 'T20.CharacterBuilderSheet', //"Progressão de Personagem"
-	// });
 
 	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20Simple, {
 		types: ["simple"],

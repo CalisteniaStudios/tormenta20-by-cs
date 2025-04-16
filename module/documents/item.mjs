@@ -713,24 +713,25 @@ export default class ItemT20 extends Item {
 					updates["system.rolls"] = [attackRoll, damageRoll];
 				}
 			}
-		} else {
-			try {
-				let attack = actorData.builder.attributes?.attack?.value ?? 0;
-				let damage = actorData.builder.attributes?.damage?.value ?? 0;
-				if (data.system.rolls) {
-					let attackRoll = data.system.rolls.find((r) => r.type === "ataque");
-					let damageRoll = data.system.rolls.find((r) => r.type === "dano");
-					if (attackRoll && damageRoll) {
-						attackRoll.parts = [["1d20", "", ""], ["", "", ""], [attack, "", ""]];
-						let wroll = damageRoll.parts[0][0];
-						damageRoll.parts = [[`${wroll}+${damage}`, "", ""], ["", "", ""]];
-						updates["system.rolls"] = [attackRoll, damageRoll];
-					}
-				}
-			} catch(error) {
-				console.error(error);
-			}
 		}
+		// else {
+		// 	try {
+		// 		let attack = actorData.builder.attributes?.attack?.value ?? 0;
+		// 		let damage = actorData.builder.attributes?.damage?.value ?? 0;
+		// 		if (data.system.rolls) {
+		// 			let attackRoll = data.system.rolls.find((r) => r.type === "ataque");
+		// 			let damageRoll = data.system.rolls.find((r) => r.type === "dano");
+		// 			if (attackRoll && damageRoll) {
+		// 				attackRoll.parts = [["1d20", "", ""], ["", "", ""], [attack, "", ""]];
+		// 				let wroll = damageRoll.parts[0][0];
+		// 				damageRoll.parts = [[`${wroll}+${damage}`, "", ""], ["", "", ""]];
+		// 				updates["system.rolls"] = [attackRoll, damageRoll];
+		// 			}
+		// 		}
+		// 	} catch(error) {
+		// 		console.error(error);
+		// 	}
+		// }
 		return updates;
 	}
 

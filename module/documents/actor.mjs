@@ -334,9 +334,6 @@ export default class ActorT20 extends Actor {
 		const system = this.system;
 		const flags = this.flags;
 		let npcFlags = {};
-		// let reformSheet = this.sheet instanceof game.tormenta20.applications.ActorSheetT20Builder;
-		// if ( this.getFlag("tormenta20", "npcReform") === undefined ) npcFlags.npcReform = false;
-		// if ( reformSheet ) npcFlags.npcReform = reformSheet;
 		if (this.getFlag("tormenta20", "showCD") === undefined) npcFlags.showCD = true;
 
 		let nd = system.attributes.nd;
@@ -782,40 +779,40 @@ export default class ActorT20 extends Actor {
 	 * @param {String} cr    - The Challenge Rating to get values from;
 	 * @param {String} attr  - The attribute being changed;
 	 */
-	_setCRAttrs(cr, attr) {
-		if (this.type != "npc") return;
-		let updateData = {};
-		const crData = CONFIG.T20.NPCParams(cr);
-		let skills = {};
-		skills.fort = this.system.builder.attributes.fort ?? {};
-		skills.refl = this.system.builder.attributes.refl ?? {};
-		skills.vont = this.system.builder.attributes.vont ?? {};
-		const ranks = ["botsave", "midsave", "topsave"];
-		const attrs = ["attack", "damage", "defense", "hp", "dc", "topsave", "midsave", "botsave", "skills"];
+	// _setCRAttrs(cr, attr) {
+	// 	if (this.type != "npc") return;
+	// 	let updateData = {};
+	// 	const crData = CONFIG.T20.NPCParams(cr);
+	// 	let skills = {};
+	// 	skills.fort = this.system.builder.attributes.fort ?? {};
+	// 	skills.refl = this.system.builder.attributes.refl ?? {};
+	// 	skills.vont = this.system.builder.attributes.vont ?? {};
+	// 	const ranks = ["botsave", "midsave", "topsave"];
+	// 	const attrs = ["attack", "damage", "defense", "hp", "dc", "topsave", "midsave", "botsave", "skills"];
 
-		if (attr === "all") {
-			for (let att of attrs) {
-				updateData[`system.builder.attributes.${att}.value`] = crData[att];
-				updateData[`system.builder.attributes.${att}.cr`] = cr;
-			}
-		} else if (attr === "skills") {
-			updateData[`system.builder.attributes.${attr}.value`] = crData.topskill;
-			updateData[`system.builder.attributes.${attr}.cr`] = cr;
-		} else {
-			updateData[`system.builder.attributes.${attr}.value`] = crData[attr];
-			updateData[`system.builder.attributes.${attr}.cr`] = cr;
-		}
-		if (["all", "topsave", "midsave", "botsave"].includes(attr)) {
-			for (let [key, skill] of Object.entries(skills)) {
-				let r = skill.rank ?? 0;
-				if (attr === "all" || attr === ranks[r]) {
-					updateData[`system.builder.attributes.${key}.value`] = crData[ranks[r]];
-					updateData[`system.builder.attributes.${key}.cr`] = cr;
-				}
-			}
-		}
-		this.update(updateData);
-	}
+	// 	if (attr === "all") {
+	// 		for (let att of attrs) {
+	// 			updateData[`system.builder.attributes.${att}.value`] = crData[att];
+	// 			updateData[`system.builder.attributes.${att}.cr`] = cr;
+	// 		}
+	// 	} else if (attr === "skills") {
+	// 		updateData[`system.builder.attributes.${attr}.value`] = crData.topskill;
+	// 		updateData[`system.builder.attributes.${attr}.cr`] = cr;
+	// 	} else {
+	// 		updateData[`system.builder.attributes.${attr}.value`] = crData[attr];
+	// 		updateData[`system.builder.attributes.${attr}.cr`] = cr;
+	// 	}
+	// 	if (["all", "topsave", "midsave", "botsave"].includes(attr)) {
+	// 		for (let [key, skill] of Object.entries(skills)) {
+	// 			let r = skill.rank ?? 0;
+	// 			if (attr === "all" || attr === ranks[r]) {
+	// 				updateData[`system.builder.attributes.${key}.value`] = crData[ranks[r]];
+	// 				updateData[`system.builder.attributes.${key}.cr`] = cr;
+	// 			}
+	// 		}
+	// 	}
+	// 	this.update(updateData);
+	// }
 
 	/* -------------------------------------------- */
 	/*  Event Handlers                              */
@@ -867,69 +864,6 @@ export default class ActorT20 extends Actor {
 		await super._preUpdate(changed, options, user);
 		if ("pv" in (this.system.attributes || {})) {
 			foundry.utils.setProperty(options, "tormenta20.pv", { ...this.system.attributes.pv });
-		}
-		const sheetClass = foundry.utils.getProperty(changed, "flags.core.sheetClass");
-		if (false && sheetClass && sheetClass === "tormenta20.ActorSheetT20Builder") {
-			foundry.utils.setProperty(changed, "flags.tormenta20.npcReform", true);
-			const builder = foundry.utils.getProperty(this.system, "builder.attributes");
-			if (!["0", "1", "2"].includes(builder.fort?.rank)) {
-				foundry.utils.setProperty(changed, "system.builder.attributes.fort.rank", "0");
-			}
-			if (!["0", "1", "2"].includes(builder.refl?.rank)) {
-				foundry.utils.setProperty(changed, "system.builder.attributes.refl.rank", "0");
-			}
-			if (!["0", "1", "2"].includes(builder.vont?.rank)) {
-				foundry.utils.setProperty(changed, "system.builder.attributes.vont.rank", "0");
-			}
-		}
-		// NPC REFORM
-		if (false && this.type === "npc" && this.getFlag("tormenta20", "npcReform")) {
-			// TODO MAY NEED REFACTORING
-			let attributes = {};
-			let skills = {};
-			let cr = foundry.utils.getProperty(changed, "system.attributes.nd");
-			let defense = foundry.utils.getProperty(changed, "system.builder.attributes.defense.value");
-			let hp = foundry.utils.getProperty(changed, "system.builder.attributes.hp.value");
-			let mp = foundry.utils.getProperty(changed, "system.builder.attributes.mp.value");
-			let dc = foundry.utils.getProperty(changed, "system.builder.attributes.dc.value");
-			let fort = foundry.utils.getProperty(changed, "system.builder.attributes.fort.value");
-			let refl = foundry.utils.getProperty(changed, "system.builder.attributes.refl.value");
-			let vont = foundry.utils.getProperty(changed, "system.builder.attributes.vont.value");
-
-			let _cr = foundry.utils.getProperty(changed, "system.attributes.nivel.value");
-			let _defense = foundry.utils.getProperty(changed, "system.attributes.defesa.base");
-			let _hp = foundry.utils.getProperty(changed, "system.attributes.pv.max");
-			let _mp = foundry.utils.getProperty(changed, "system.attributes.pm.max");
-			let _dc = foundry.utils.getProperty(changed, "system.attributes.dc");
-			let _fort = foundry.utils.getProperty(changed, "system.pericias.fort.outros");
-			let _refl = foundry.utils.getProperty(changed, "system.pericias.refl.outros");
-			let _vont = foundry.utils.getProperty(changed, "system.pericias.vont.outros");
-			if (cr && (cr != foundry.utils.getProperty(this.system, _cr))) {
-				attributes.nivel = { value: cr };
-			}
-			if (defense && (defense != foundry.utils.getProperty(this.system, _defense))) {
-				attributes.defesa = { base: defense };
-			}
-			if (hp && (hp != foundry.utils.getProperty(this.system, _hp))) {
-				attributes.pv = { max: hp };
-			}
-			if (mp && (mp != foundry.utils.getProperty(this.system, _mp))) {
-				attributes.pm = { max: mp };
-			}
-			if (dc && (dc != foundry.utils.getProperty(this.system, _dc))) {
-				attributes.cd = dc;
-			}
-			if (fort && (fort != foundry.utils.getProperty(this.system, _fort))) {
-				skills.fort = { outros: fort };
-			}
-			if (refl && (refl != foundry.utils.getProperty(this.system, _refl))) {
-				skills.refl = { outros: refl };
-			}
-			if (vont && (vont != foundry.utils.getProperty(this.system, _vont))) {
-				skills.vont = { outros: vont };
-			}
-			if (!foundry.utils.isEmpty(attributes)) changed.system.attributes = attributes;
-			if (!foundry.utils.isEmpty(skills)) changed.system.pericias = skills;
 		}
 	}
 

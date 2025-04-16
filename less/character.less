@@ -3,13 +3,32 @@
 /* ----------------------------------------- */
 /*  Basic Structure                          */
 /* ----------------------------------------- */
-.tormenta20.sheet.actor.character {
+&.character {
   min-width: 720px;
   min-height: 680px;
 
   &.tabbed {
     min-width: 730px;
     min-height: 700px;
+
+    .sheet-header {
+      .charlevel {
+        flex: 1;
+      }
+      .header-exp {
+        max-width: 120px;
+      }
+      .experience {
+        margin: 0;
+        font-size: var(--font-size-14);
+      }
+      .xpbar {
+        margin: 0;
+      }
+    }
+    .attributes.flexrow {
+      gap: 4px;
+    }
   }
 
   /* ----------------------------------------- */
