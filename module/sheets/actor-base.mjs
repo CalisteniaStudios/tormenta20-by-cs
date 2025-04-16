@@ -6,6 +6,7 @@ import LevelSettings from "../apps/level-settings.mjs";
 import ActorMovementConfig from "../apps/movement-config.mjs";
 import ActorResistanceConfig from "../apps/resistance-config.mjs";
 import RestConfigDialog from "../apps/rest-config.mjs";
+import StatblockParser from "../apps/statblock-parser.mjs";
 import TraitSelector from "../apps/trait-selector.mjs";
 
 /**
@@ -537,6 +538,19 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				class: "t20-configure-sheet",
 				icon: "fas fa-wrench",
 				onclick: () => (new ActorSettings(this.actor).render(true))
+			});
+		}
+		if (this.actor.type === "npc") {
+			buttons.unshift({
+				label: game.i18n.localize("T20.ParseStatblock"),
+				class: "t20-parse-statblock",
+				icon: "fas fa-diagram-predecessor",
+				onclick: () => {
+					new StatblockParser({
+						actor: this.actor,
+						statblock: "", schema: {}, items: [], log: []
+					}).render(true);
+				}
 			});
 		}
 		return buttons;

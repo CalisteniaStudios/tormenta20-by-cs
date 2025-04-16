@@ -1,4 +1,3 @@
-import StatblockParser from "../apps/statblock-parser.mjs";
 import ActorSheetT20 from "./actor-base.mjs";
 /**
  * An Actor sheet for NPC type characters.
@@ -115,12 +114,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			// html.find('.pericia-rollable').click(event => this._onRollPericia(event)); super
 
 			html.find(".toggleNPCSheet").click((event) => this._toggleNPCSheet(event));
-			html.find("#parse-statblock").click((ev) => {
-				new StatblockParser({
-					actor: this.actor,
-					statblock: "", schema: {}, items: [], log: []
-				}).render(true);
-			});
 			html.find(".magia-rollable").on("contextmenu", this._onItemEdit.bind(this));
 			html.find(".arma-rollable").on("contextmenu", this._onItemEdit.bind(this));
 			html.find(".poder-rollable").on("contextmenu", this._onItemEdit.bind(this));

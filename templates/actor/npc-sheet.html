@@ -3,7 +3,7 @@
 	{{else if (eq documentName 'Item' ) }}
 	{{else if (eq documentName 'ActiveEffect' ) }}
 	{{/if}}
-	
+
 	{{!-- Sheet Tab Navigation --}}
 	{{> "systems/tormenta20/templates/partials/nav-bar.html"}}
 
@@ -18,11 +18,11 @@
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes flexcol " data-group="primary" data-tab="attributes">
 			<!-- <a class="toggleNPCSheet" style="align-self: center;flex:0 0 30px">Seguir o Guia de Construção de Ameaças <i class="fa-solid fa-arrow-up-right-from-square"></i></a> -->
-			
+
 			{{!-- Sheet Header --}}
 			{{> "systems/tormenta20/templates/actor/parts/sheet-header-npc.html"}}
 			<nav class="sheet-tabs tabs secondary" data-group="secondary">
-				<a class="item" data-tab="sheet"><i class="fa-solid fa-diagram-project"></i> {{localize "T20.Attributes"}}</a>
+				<a class="item" data-tab="sheet"><i class="fa-solid fa-diagram-project"></i> {{localize "T20.Details"}}</a>
 				<a class="item" data-tab="skills"><i class="fa-solid fa-person-running"></i> {{localize "T20.Skills"}}</a>
 				<a class="item" data-tab="inventory"><i class="fa-solid fa-suitcase-rolling"></i> {{localize "T20.Inventory"}}</a>
 				<a class="item" data-tab="powers"><i class="fa-solid fa-bolt"></i> {{localize "T20.Powers"}}</a>
@@ -90,10 +90,10 @@
 				<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200"
 				width="200" />
 			</div>
-	
+
 			{{editor htmlFields.biography target="system.detalhes.biography.value" button=true owner=owner editable=editable}}
 		</div>
-	
+
 		{{!-- Modifiers Tab --}}
 		<div class="tab modifiers" data-group="primary" data-tab="modifiers">
 			{{> "systems/tormenta20/templates/actor/parts/modifiers.html"}}

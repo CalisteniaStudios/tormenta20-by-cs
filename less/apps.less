@@ -239,21 +239,21 @@
           height: calc(100% - 195px);
         }
       }
-    }
-    form.npc {
-      .sheet-body.primary {
-        overflow-y: auto;
-        height: calc(100% - 50px);
-        padding-bottom: 5px;
-      }
-      &.builder {
-        .sheet-body {
+      &.npc {
+        .sheet-body.primary {
           overflow-y: auto;
-          height: calc(100% - 150px);
+          height: calc(100% - 50px);
           padding-bottom: 5px;
-          .tab {
-            overflow: hidden;
-            height: auto;
+        }
+        &.builder {
+          .sheet-body {
+            overflow-y: auto;
+            height: calc(100% - 150px);
+            padding-bottom: 5px;
+            .tab {
+              overflow: hidden;
+              height: auto;
+            }
           }
         }
       }
@@ -494,13 +494,6 @@
       margin: 0;
     }
   }
-
-  .trait-selector, .proficiency-selector {
-    flex: 0 0 16px;
-    padding: 2px 0;
-    color: #999;
-    font-size: 10px;
-  }
 }
 
 /* ----------------------------------------- */
@@ -651,20 +644,22 @@
 /* ----------------------------------------- */
 
 .trait-selector {
-  .tag-list,
-  .trait-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .window-content {
+    .tag-list,
+    .trait-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
 
-    li ol.trait-list {
-      margin-left: 1.5em;
+      li ol.trait-list {
+        margin-left: 1.5em;
+      }
     }
-  }
 
-  input[type="text"] {
-    height: 24px;
-    margin: 2px;
+    input[type="text"] {
+      height: 24px;
+      margin: 2px;
+    }
   }
 }
 

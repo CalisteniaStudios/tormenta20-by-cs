@@ -9,7 +9,7 @@
 		{{/if}}
 
 		{{#if (eq layout 'tabbed' ) }}
-			<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Attributes"}}</a>
+			<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Details"}}</a>
 			<a class="item" data-tab="inventory"><i class="fa-solid fa-suitcase-rolling"></i> {{localize "T20.Inventory"}}</a>
 			<a class="item" data-tab="powers"><i class="fa-solid fa-bolt"></i> {{localize "T20.Powers"}}</a>
 			{{#if actor.maiorCirculo}}<a class="item" data-tab="spells"><i class="fa-solid fa-hurricane"></i> {{localize "T20.Spells"}}</a>{{/if}}
@@ -19,9 +19,6 @@
 
 		<a class="item" data-tab="journal"><i class="fas fa-book"></i> {{localize "T20.Journal"}}</a>
 		<a class="item" data-tab="effects" ><i class="fas fa-bahai"></i> {{localize "T20.Effects"}}</a>
-		{{#if (eq actor.type 'npc' ) }}
-		<a class="item" id="parse-statblock" title="{{localize "T20.ParseStatblock"}}"><i class="fa-solid fa-diagram-predecessor"></i></a>
-		{{/if}}
 	{{/if}}
 	{{#if (eq layout 'vehicle' ) }}
 		<a class="item active" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>

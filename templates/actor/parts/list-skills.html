@@ -14,6 +14,15 @@
 		<a class="item-control skill-delete" data-item-id="{{skill.key}}" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
 		{{/if}}
 	</div>
+	<div class="item-abl">
+		{{#if @root.editMode}}
+		<select class="selectatr" name="system.pericias.{{skill.key}}.atributo" value={{skill.atributo}}>
+			{{selectOptions @root.config.atributosAbr selected=skill.atributo}}
+		</select>
+		{{else}}
+		<span>{{skill.atributo}}</span>
+		{{/if}}
+	</div>
 	{{#if @root.editMode}}
 	<div class="item-outros">
 		<input type="text" class="skill-outros" data-dtype="Number" name="system.pericias.{{skill.key}}.outros" value="{{skill.outros}}"/>
@@ -50,13 +59,13 @@
 		<div class="item-name compendium-entry" data-compendium-entry="tormenta20.pericias.iviKBc19dNgZYBJ0">
 			<input type="text" placeholder="{{ localize 'T20.SkillOfic'}}">
 		</div>
-		<div class="item-abl">
+		<div class="item-skill-create">
 			<a class="item-control skill-create" data-tipo="oficio"><i class="fa-solid fa-plus"></i> {{ localize 'T20.Add'}}</a>
 		</div>
 	</li>
 	{{/if}}
 
-	<li class="skill-footer">
+	<!-- <li class="skill-footer">
 		<label><i>* {{localize 'T20.SkillTrainedOnly'}}</i></label>
-	</li>
+	</li> -->
 </ul>
