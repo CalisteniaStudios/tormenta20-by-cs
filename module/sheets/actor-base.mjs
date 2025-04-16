@@ -133,10 +133,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				else if (s < "ofi0") skl.order = 1;
 				skl.key = s;
 				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
-				const desc = [];
-				if (skl.st) desc.push("ST");
-				if (skl.pda) desc.push("PDA");
-				skl.desc = desc.join(" ");
 			}
 		}
 		sheetData.skills = Object.values(sheetData.skills).sort((a, b) => {

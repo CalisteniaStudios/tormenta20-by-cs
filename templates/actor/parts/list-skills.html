@@ -9,7 +9,7 @@
 		<input type="hidden" name="system.pericias.{{skill.key}}.treinado" value="{{skill.treinado}}" />
 	</div>
 	<div class="item-name" data-item-id="{{skill.key}}">
-		<span class="rollable pericia-rollable">{{{skill.label}}}<sup>{{skill.desc}}</sup></span>
+		<span class="rollable pericia-rollable">{{{skill.label}}}{{#if skill.st}}*{{/if}}</span>
 		{{#if (and skill.custom @root.editMode)}}
 		<a class="item-control skill-delete" data-item-id="{{skill.key}}" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
 		{{/if}}
@@ -38,15 +38,10 @@
 			</a>
 		</div>
 	</li>
-	{{#if mostrarBonusTreino}}
-	<li class="skill">
-		<div class="item-total">
-			<small>{{ localize 'T20.SkillTrainBonus'}}: +{{system.attributes.treino}}</small>
-		</div>
-	</li>
-	{{/if}}
 	{{#each skills as |skill|}}
+	{{#unless (and (and @root.esconderPericias (not @root.editMode)) (and skill.st (not skill.treinado)))}}
 	{{> pericia skill=skill}}
+	{{/unless}}
 	{{/each}}
 
 	{{#if editMode}}
@@ -62,6 +57,6 @@
 	{{/if}}
 
 	<li class="skill-footer">
-		<label><i>PDA: {{localize 'T20.ArmorPenalty'}}</i> <i>ST: {{localize 'T20.SkillTrainedOnly'}}</i></label>
+		<label><i>* {{localize 'T20.SkillTrainedOnly'}}</i></label>
 	</li>
 </ul>

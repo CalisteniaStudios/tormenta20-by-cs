@@ -77,7 +77,7 @@ export function registerHandlebarsHelpers() {
 							label: i.name,
 							value: i.system.armadura.value,
 							tipo: i.system.tipo
-						}
+						};
 					});
 				const armaduraPesada = armaduras.some((i) => i.tipo === "pesada");
 				console.log(armaduras);

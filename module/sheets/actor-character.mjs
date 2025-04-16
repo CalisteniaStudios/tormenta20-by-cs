@@ -43,6 +43,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// FLAGS
 		sheetData.isPreparationCaster = this.actor.getFlag("tormenta20", "mago");
+		// sheetData.mostrarBonusTreino = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
+		sheetData.esconderPericias = this.actor.getFlag("tormenta20", "sheet.esconderPericias");
 		sheetData.mostrarBonusTreino = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
 		sheetData.botaoEditarItens = this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
 
