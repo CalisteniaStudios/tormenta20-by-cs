@@ -531,7 +531,11 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			name: this.object.name
 		});
 		itemData.img = "systems/tormenta20/icons/itens/itens-magicos/pergaminho.webp";
-		itemData.flags.core.sourceId = this.object.uuid;
+		itemData.flags = {
+			core: {
+				sourceId: this.object.uuid
+			}
+		};
 		itemData.system.qtd = 1;
 		itemData.system.espacos = 0.5;
 		itemData.system.preco = 30 * (itemData.system.ativacao.custo**2);
