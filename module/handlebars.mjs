@@ -10,7 +10,8 @@ export function registerHandlebarsHelpers() {
 	});
 
 	Handlebars.registerHelper("fieldBonuses", function (sheet, hbl) {
-		const actor = game.actors.get(sheet.actor._id);
+		const actor = game.actors.get(sheet.actor._id) || fromUuidSync(sheet.uuid);
+		if (!actor) return "";
 		const rollData = actor.getRollData();
 		const modFields = actor.modifiedFields;
 		if (hbl.hash.path in modFields) {

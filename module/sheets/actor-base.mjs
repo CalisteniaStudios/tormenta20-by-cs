@@ -76,6 +76,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			actor: actorData,
 			source: source.system,
 			system: actorData.system,
+			uuid: this.actor.uuid,
 			// data: actorData.system.toObject(false),
 			skills: actorData.system.pericias,
 			items: actorData.items,
