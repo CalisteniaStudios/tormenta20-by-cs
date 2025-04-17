@@ -7,12 +7,12 @@
 		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
 		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
 	</nav>
-	
+
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
 		{{!-- Description Tab --}}
 		{{> "systems/tormenta20/templates/item/parts/item-description.html"}}
-		
+
 		{{!-- Details Tab --}}
 		<div class="tab details" data-group="primary" data-tab="details">
 			<div class="form-group">
@@ -43,16 +43,16 @@
 					{{selectOptions config.spellSchools selected=item.system.escola localize=true}}
 				</select>
 			</div>
-			
+
 			<hr>
 			{{!-- Rolls --}}
 			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
-			
+
 			<hr>
 			<h3>{{ localize "T20.Activation" }}</h3>
 			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
 			{{> "systems/tormenta20/templates/item/parts/item-resistencia.html"}}
-			
+
 			<hr>
 			<div class="form-group">
 				<label for="TAGS">TAGS</label>
@@ -68,10 +68,10 @@
 			{{!-- Chat Message Flavor --}}
 			<div class="form-group stacked">
 				<label>{{ localize "T20.ChatFlavor" }}</label>
-				<textarea name="system.chatFlavor" contenteditable="true">{{item.system.chatFlavor}}</textarea>
+				<textarea name="system.chatFlavor">{{item.system.chatFlavor}}</textarea>
 			</div>
 		</div>
-		
+
 		{{!-- Effects Tab --}}
 		<div class="tab effects" data-group="primary" data-tab="effects">
 			{{> "systems/tormenta20/templates/partials/active-effects.html"}}

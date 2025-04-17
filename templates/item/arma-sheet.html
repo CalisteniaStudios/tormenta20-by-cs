@@ -13,10 +13,10 @@
 	<section class="sheet-body">
 		{{!-- Description Tab --}}
 		{{> "systems/tormenta20/templates/item/parts/item-description.html"}}
-		
+
 		{{!-- Details Tab --}}
 		<div class="tab details" data-group="primary" data-tab="details">
-			
+
 			{{!-- Weapon Type --}}
 			<div class="form-group">
 				<label>{{ localize "T20.WeaponProficiency" }}</label>
@@ -74,7 +74,7 @@
 			<hr>
 			{{!-- Rolls --}}
 			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
-			
+
 			<div class="form-group">
 				<label>{{ localize "T20.Critical" }}</label>
 				<div class="form-fields">
@@ -96,7 +96,7 @@
 				</div>
 			</div>
 			<hr>
-			
+
 			<div class="form-group">
 				<label for="TAGS">TAGS</label>
 				<input type="text" name="rolltags" class="tag-input"><br>
@@ -110,13 +110,13 @@
 			{{/if}}
 			<div class="form-group">
 				<label for="chatFlavor">{{ localize "T20.ChatFlavor" }}</label>
-				<textarea name="system.chatFlavor" contenteditable="true">{{item.system.chatFlavor}}</textarea>
+				<textarea name="system.chatFlavor">{{item.system.chatFlavor}}</textarea>
 			</div>
 		</div>
-		
+
 		{{!-- Enhancements Tab --}}
 		{{> "systems/tormenta20/templates/item/parts/item-enhancements.html"}}
-		
+
 		<div class="tab effects" data-group="primary" data-tab="effects">
 			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
 		</div>

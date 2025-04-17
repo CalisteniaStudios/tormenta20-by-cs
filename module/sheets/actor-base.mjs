@@ -238,8 +238,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			// Open Compendium Entry
 			html.find(".compendium-entry").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
-		} else {
-			html.find("[contenteditable=true]").each((i, el) => el.setAttribute("contenteditable", false));
 		}
 
 		if (this.actor.isOwner) {
