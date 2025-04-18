@@ -69,7 +69,7 @@ export default class ActorSync extends DocumentSheet {
 
 		for (const item of this.actor.items) {
 			let status = {};
-			status.uuid = await TextEditor.enrichHTML(`@UUID[${item.uuid}]{${item.name}}`, {
+			status.uuid = await foundry.applications.ux.TextEditor.implementation.enrichHTML(`@UUID[${item.uuid}]{${item.name}}`, {
 				relativeTo: this.actor, secrets: this.actor.isOwner, async: true
 			});
 			const srcItem = await fromUuid(item.getFlag("core", "sourceId"));
@@ -77,7 +77,7 @@ export default class ActorSync extends DocumentSheet {
 			console.groupCollapsed(`Item: ${item.name}`);
 			if (!(item.type in itemTypes)) itemTypes[item.type] = [];
 			if (srcItem) {
-				status.sourceId = await TextEditor.enrichHTML(`@UUID[${srcItem.uuid}]{${srcItem.name}}`, {
+				status.sourceId = await foundry.applications.ux.TextEditor.implementation.enrichHTML(`@UUID[${srcItem.uuid}]{${srcItem.name}}`, {
 					relativeTo: this.actor, secrets: this.actor.isOwner, async: true
 				});
 

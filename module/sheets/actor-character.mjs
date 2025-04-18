@@ -177,7 +177,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					item.system.description = { value: item.system.description };
 				}
 
-				item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
+				item.system.description.value = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description.value, {
 					secrets: item.isOwner,
 					async: true,
 					relativeTo: item

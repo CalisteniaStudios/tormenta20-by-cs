@@ -163,7 +163,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			// Item details
 			item.img = item.img || CONST.DEFAULT_TOKEN;
 			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
-			item.system.description.value = await TextEditor.enrichHTML(item.system.description.value, {
+			item.system.description.value = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description.value, {
 				secrets: true,
 				async: true,
 				relativeTo: item

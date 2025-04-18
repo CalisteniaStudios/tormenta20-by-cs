@@ -158,7 +158,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	async enrichHTML(text, data) {
-		return await TextEditor.enrichHTML(text, {
+		return await foundry.applications.ux.TextEditor.implementation.enrichHTML(text, {
 			secrets: this.actor.isOwner,
 			rollData: data.rollData,
 			async: true,
