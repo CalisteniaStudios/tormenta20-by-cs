@@ -105,60 +105,14 @@
   /* Form Groups */
   /* Tags */
 }
-.tormenta20 input[type="text"],
-.tormenta20 input[type="number"],
-.tormenta20 select {
-  height: calc(100% - 2px);
-  border: 1px solid #7a7971;
-  background: rgba(0, 0, 0, 0.05);
-  color: #191813;
-}
-.tormenta20 input[type="text"]:hover,
-.tormenta20 input[type="number"]:hover,
-.tormenta20 input[type="checkbox"]:hover,
-.tormenta20 input[type="text"]:focus,
-.tormenta20 input[type="number"]:focus,
-.tormenta20 input[type="checkbox"]:focus {
-  border: 1px solid #111;
-  box-shadow: 0 0 8px red;
-}
-.tormenta20 input:disabled,
-.tormenta20 select:disabled,
-.tormenta20 textarea:disabled {
-  color: #4b4a44;
-  border: 1px solid transparent !important;
-  outline: none !important;
-}
-.tormenta20 input:disabled:hover,
-.tormenta20 select:disabled:hover,
-.tormenta20 textarea:disabled:hover,
-.tormenta20 input:disabled:focus,
-.tormenta20 select:disabled:focus,
-.tormenta20 textarea:disabled:focus {
-  box-shadow: none !important;
-  border: 1px solid transparent !important;
-  outline: none !important;
-}
-.tormenta20 button {
-  background: rgba(0, 0, 0, 0.1);
-  border: 2px groove #eeede0;
-}
 .tormenta20 .form-group label {
   flex: 2;
-  color: #4b4a44;
-  font-weight: bold;
 }
 .tormenta20 .form-group .form-fields .flexF {
   flex: 100%;
 }
 .tormenta20 .form-group .form-fields .flex-center {
   justify-content: center;
-}
-.tormenta20 .form-group .form-fields > * {
-  margin: 0 3px 0 0;
-}
-.tormenta20 .form-group .form-fields > *:last-child {
-  margin-right: 0;
 }
 .tormenta20 .form-group.stacked > label {
   flex: 0 0 100%;
@@ -306,9 +260,29 @@
 }
 .tormenta20.sheet input[type="text"]:hover,
 .tormenta20.sheet input[type="number"]:hover,
+.tormenta20.sheet input[type="checkbox"]:hover,
 .tormenta20.sheet input[type="text"]:focus,
-.tormenta20.sheet input[type="number"]:focus {
+.tormenta20.sheet input[type="number"]:focus,
+.tormenta20.sheet input[type="checkbox"]:focus {
   border: 1px solid #111;
+  box-shadow: 0 0 5px red;
+}
+.tormenta20.sheet input:disabled,
+.tormenta20.sheet select:disabled,
+.tormenta20.sheet textarea:disabled {
+  color: #4b4a44;
+  border: 1px solid transparent !important;
+  outline: none !important;
+}
+.tormenta20.sheet input:disabled:hover,
+.tormenta20.sheet select:disabled:hover,
+.tormenta20.sheet textarea:disabled:hover,
+.tormenta20.sheet input:disabled:focus,
+.tormenta20.sheet select:disabled:focus,
+.tormenta20.sheet textarea:disabled:focus {
+  box-shadow: none !important;
+  border: 1px solid transparent !important;
+  outline: none !important;
 }
 .tormenta20.sheet select {
   flex: 1;
@@ -404,16 +378,14 @@
   border-top: 2px groove #eeede0;
   border-bottom: none;
 }
-.tormenta20.sheet .sheet-header .summary li {
+.tormenta20.sheet .sheet-header .summary > li {
   height: calc(100% - 6px);
-  float: left;
   margin: 2px 0;
   padding: 0;
   border-right: 2px groove #eeede0;
-  line-height: 34px;
   color: #4b4a44;
 }
-.tormenta20.sheet .sheet-header .summary li:last-child {
+.tormenta20.sheet .sheet-header .summary > li:last-child {
   border-right: none;
 }
 .tormenta20.sheet .sheet-tabs {
@@ -890,9 +862,6 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class:not(.sem-classe) {
   flex: 0 1 auto;
 }
-.tormenta20.sheet.actor.character .sheet-header .summary .char-class .item-control {
-  flex: 0 0 auto;
-}
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class:not(:hover) .item-delete,
 .tormenta20.sheet.actor.character .sheet-header .summary .char-class:not(:hover) span + a.add-classe {
   visibility: hidden;
@@ -1349,12 +1318,6 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 .tormenta20.sheet.actor .sheet-header .summary {
   height: 30px;
   border-bottom: 2px groove #eeede0;
-}
-.tormenta20.sheet.actor .sheet-header .summary input,
-.tormenta20.sheet.actor .sheet-header .summary span {
-  display: block;
-  height: 24px;
-  line-height: 24px;
 }
 .tormenta20.sheet.actor .sheet-header .summary span {
   margin-inline-start: 4px;

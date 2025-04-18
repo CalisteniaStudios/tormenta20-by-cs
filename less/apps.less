@@ -46,60 +46,54 @@
   /* ----------------------------------------- */
 
   // Item Sheet form fields
-  input[type="text"],
-  input[type="number"],
-  select {
-    height: calc(100% - 2px);
-    border: 1px solid @colorTan;
-    background: rgba(0, 0, 0, 0.05);
-    color: @colorDark;
-  }
+  // input[type="text"],
+  // input[type="number"],
+  // select {
+  //   height: calc(100% - 2px);
+  //   border: 1px solid @colorTan;
+  //   background: rgba(0, 0, 0, 0.05);
+  //   color: @colorDark;
+  // }
 
   // Hovered Fields
-  input[type="text"],
-  input[type="number"],
-  input[type="checkbox"] {
-    &:hover,
-    &:focus {
-      border: 1px solid #111;
-      box-shadow: 0 0 8px red;
-    }
-  }
+  // input[type="text"],
+  // input[type="number"],
+  // input[type="checkbox"] {
+  //   &:hover,
+  //   &:focus {
+  //     border: 1px solid #111;
+  //     box-shadow: 0 0 5px red;
+  //   }
+  // }
 
   // Disabled Fields
-  input:disabled,
-  select:disabled,
-  textarea:disabled {
-    color: @colorOlive;
-    border: 1px solid transparent !important;
-    outline: none !important;
-    &:hover,
-    &:focus {
-      box-shadow: none !important;
-      border: 1px solid transparent !important;
-      outline: none !important;
-    }
-  }
+  // input:disabled,
+  // select:disabled,
+  // textarea:disabled {
+  //   color: @colorOlive;
+  //   border: 1px solid transparent !important;
+  //   outline: none !important;
+  //   &:hover,
+  //   &:focus {
+  //     box-shadow: none !important;
+  //     border: 1px solid transparent !important;
+  //     outline: none !important;
+  //   }
+  // }
 
   // Buttons
-  button {
-    background: rgba(0, 0, 0, 0.10);
-    border: @borderGroove;
-  }
+  // button {
+  //   background: rgba(0, 0, 0, 0.10);
+  //   border: @borderGroove;
+  // }
 
   /* Form Groups */
   .form-group {
     label {
       flex: 2;
-      color: @colorOlive;
-      font-weight: bold;
     }
     .form-fields {
       .flexrow();
-      > * {
-        margin: 0 3px 0 0;
-        &:last-child { margin-right: 0; }
-      }
     }
   }
 
@@ -269,9 +263,29 @@
   input[type="number"] {
     background: none;
     border: 1px solid transparent;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="checkbox"] {
     &:hover,
     &:focus {
       border: 1px solid #111;
+      box-shadow: 0 0 5px red;
+    }
+  }
+
+  input:disabled,
+  select:disabled,
+  textarea:disabled {
+    color: @colorOlive;
+    border: 1px solid transparent !important;
+    outline: none !important;
+    &:hover,
+    &:focus {
+      box-shadow: none !important;
+      border: 1px solid transparent !important;
+      outline: none !important;
     }
   }
 
