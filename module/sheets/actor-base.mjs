@@ -291,7 +291,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			const label = item.getFlag("tormenta20", "favorito") ? "T20.Unfavorite" : "T20.Favorite";
 			options.push({
 				name: game.i18n.localize(label),
-				group: "state",
 				icon: '<i class="fas fa-star"></i>',
 				callback: () => item.setFlag("tormenta20", "favorito", !item.flags.tormenta20?.favorito)
 			});
