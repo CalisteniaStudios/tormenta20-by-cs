@@ -209,7 +209,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 				ActiveEffectT20.onManageActiveEffect(ev, this.item);
 			});
 		}
-		html.mousemove((ev) => this._moveTooltips(ev));
 	}
 
 	/* -------------------------------------------- */
@@ -288,14 +287,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 				"system.progression": progression
 			});
 		}
-	}
-
-	/* -------------------------------------------- */
-
-	_moveTooltips(event) {
-		$(event.currentTarget).find(".tooltip:hover .tooltipcontent")
-			.css("left", `${event.clientX}px`)
-			.css("top", `${event.clientY + 24}px`);
 	}
 
 	/* -------------------------------------------- */

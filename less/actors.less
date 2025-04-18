@@ -388,7 +388,7 @@
     font-size: 12px;
 
     h3 {
-      margin: 0;
+      margin-bottom: 4px;
     }
 
     .form-group, .form-group-stacked {
@@ -536,6 +536,10 @@
             font-weight: bold;
           }
 
+          span.fa-stack {
+            font-size: 14px;
+          }
+
           .item-tipo {
             color: var(--color-text-dark-3);
             font-size: var(--font-size-12);
@@ -659,19 +663,14 @@
       text-align: right;
       // height: @itemImageSize;
 
-      .item-control.item-toggle i {
-        opacity: 0.5;
-      }
-      .item-control.item-toggle.active i {
-        opacity: 1;
-      }
-
-      nav#context-menu {
-        text-align: left;
-        width: auto;
-        white-space: nowrap;
-        right: 0;
-        left: unset;
+      .item-control.item-toggle {
+        &:not(.active) {
+          span {
+            i {
+              opacity: 0.5;
+            }
+          }
+        }
       }
     }
 
@@ -685,14 +684,6 @@
       }
       .item-toggle.active i {
         opacity: 1;
-      }
-
-      nav#context-menu {
-        text-align: left;
-        width: auto;
-        white-space: nowrap;
-        right: 0;
-        left: unset;
       }
     }
 
@@ -926,6 +917,54 @@
 
   .editor {
     padding: 0px;
+  }
+
+  .item-description, #context-menu {
+    span.fa-stack {
+      height: 1em;
+      line-height: 1em;
+      width: 1em;
+
+      b.fa-stack-1x {
+        color: white;
+        font-size: 10px;
+      }
+    }
+  }
+
+  #context-menu {
+    width: auto;
+
+    [data-group-id]:has(li) {
+      position: relative;
+      margin-block-start: 0.5rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset-inline: 1rem;
+        inset-block-start: -0.25rem;
+        border-block-start: 1px solid var(--color-border-light-2);
+      }
+    }
+    span.fa-stack {
+      margin-right: 8px;
+
+      .fa-hand-back-fist {
+        &::before {
+          font-size: 1.2em;
+        }
+      }
+    }
+    .context-group {
+      border-bottom: none;
+    }
+    .context-item.flexrow {
+      img {
+        flex: 0;
+        margin-right: 3px;
+      }
+    }
   }
 }
 

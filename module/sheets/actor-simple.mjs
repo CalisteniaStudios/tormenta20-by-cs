@@ -1,4 +1,3 @@
-import ActiveEffectT20 from "../documents/active-effects.mjs";
 import ActorSheetT20Character from "./actor-character.mjs";
 export default class ActorSheetT20Simple extends ActorSheetT20Character {
 
@@ -16,60 +15,6 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 	/** @override */
 	get template() {
 		return "systems/tormenta20/templates/actor/simple-sheet.html";
-	}
-
-	async getData() {
-		// The Actor's data
-		const source = this.actor.toObject();
-		const actorData = this.actor.toObject(false);
-
-		// Basic data
-		const sheetData = {
-			actor: actorData,
-			source: source.system,
-			system: actorData.system,
-			// data: actorData.system,
-			skills: actorData.system.pericias,
-			items: actorData.items,
-			movement: this._prepareMovementSpeed(actorData),
-			senses: this._prepareSenses(actorData),
-			effects: ActiveEffectT20.prepareActiveEffectCategories(this.actor.effects),
-			owner: this.actor.isOwner,
-			limited: this.actor.limited,
-			options: this.options,
-			editable: this.isEditable,
-			cssClass: this.actor.isOwner ? "editable" : "locked",
-			isCharacter: this.actor.type === "character",
-			isNPC: this.actor.type === "npc",
-			isSimple: this.actor.type === "simple",
-			config: CONFIG.T20,
-			// TextEditors
-			htmlFields: {}
-		};
-
-		// Sort Owned Items
-		for (let i of sheetData.items) {
-			const item = this.actor.items.get(i._id);
-			i.labels = item.labels;
-		}
-		sheetData.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-
-		// Ability Scores
-		for (let [a, abl] of Object.entries(sheetData.system.atributos)) {
-			abl.label = CONFIG.T20.atributos[a];
-		}
-
-		// Update traits
-		this._prepareTraits(sheetData.system.tracos);
-
-		// Prepare owned items
-		await this._prepareItems(sheetData);
-
-		// Enrich HTML text
-		sheetData.htmlFields.biography = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
-
-		sheetData.documentName = "Actor";
-		return sheetData;
 	}
 
 	/**

@@ -37,16 +37,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	/** @override */
 	async getData() {
 		const sheetData = await super.getData();
+		if (this.actor.type !== "character") return sheetData;
 		// Experience Tracking
 		sheetData.disableExperience = game.settings.get("tormenta20", "disableExperience");
 		sheetData.disableJournal = game.settings.get("tormenta20", "disableJournal");
 
 		// FLAGS
 		sheetData.isPreparationCaster = this.actor.getFlag("tormenta20", "mago");
-		// sheetData.mostrarBonusTreino = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
 		sheetData.esconderPericias = this.actor.getFlag("tormenta20", "sheet.esconderPericias");
-		sheetData.mostrarBonusTreino = this.actor.getFlag("tormenta20", "sheet.mostrarTreino");
-		sheetData.botaoEditarItens = this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
 
 		sheetData.showResources = this.actor.getFlag("tormenta20", "sheet.showResources");
 		const levelConfig = this.actor.getFlag("tormenta20", "lvlconfig");
@@ -75,25 +73,16 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
+		// Prepare spells
+		html.find(".preparation-toggle").click(this._onPrepareSpell.bind(this));
 
-		if (this.actor.isOwner) {
-			html.find(".item-fav").click((ev) => {
-				const li = $(ev.currentTarget).parents(".item");
-				const item = this.actor.items.get(li.data("itemId"));
-				item.setFlag("tormenta20", "favorito", !item.flags.tormenta20?.favorito);
-			});
-
-			// Prepare spells
-			html.find(".preparation-toggle").click(this._onPrepareSpell.bind(this));
-
-			// Drag events for macros.
-			let handler = (ev) => this._onDragStart(ev);
-			html.find("li.skill").each((i, li) => {
-				if (!li.hasAttribute("data-item-id")) return;
-				li.setAttribute("draggable", true);
-				li.addEventListener("dragstart", handler, false);
-			});
-		}
+		// Drag events for macros.
+		let handler = (ev) => this._onDragStart(ev);
+		html.find("li.skill").each((i, li) => {
+			if (!li.hasAttribute("data-item-id")) return;
+			li.setAttribute("draggable", true);
+			li.addEventListener("dragstart", handler, false);
+		});
 	}
 
 	/* -------------------------------------------- */
@@ -275,7 +264,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		i.equipado = i.system.equipado2;
 		if (!i.equipado) return;
 		// i.equipado.icon2 = parseInt(i.equipado.slot) === 12 ? 2 : '';
-		i.equipado.icon2 = `<b class="fa-stack-1x" style="color:white;font-size:10px;">${parseInt(i.equipado.slot) === 12 ? 2 : ""}</b>`;
+		i.equipado.icon2 = `<b class="fa-stack-1x">${parseInt(i.equipado.slot) === 12 ? 2 : ""}</b>`;
 		if (i.equipado.type === "hand") {
 			i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
 		} else if (i.equipado.type === "body") {

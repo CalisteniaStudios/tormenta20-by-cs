@@ -299,8 +299,6 @@ export default class ActorT20 extends Actor {
 
 		let baseFlags = { tormenta20: {} };
 		let sheetFlags = {};
-		if (this.getFlag("tormenta20", "sheet.editarPericias") === undefined) sheetFlags.editarPericias = true;
-		if (this.getFlag("tormenta20", "sheet.botaoEditarItens") === undefined) sheetFlags.botaoEditarItens = true;
 
 		if (this.getFlag("tormenta20", "lvlconfig") === undefined) {
 			let levelConfig = {

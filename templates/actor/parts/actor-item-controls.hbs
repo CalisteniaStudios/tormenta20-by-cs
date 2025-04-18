@@ -1,13 +1,8 @@
 <div class="item-controls flexrow">
-	{{#if (eq @root.layout "tabbed")}}
-	<a class="item-control item-fav" title="{{#if item.flags.tormenta20.favorito}}{{localize 'T20.Favorite'}}{{else}}{{localize 'T20.Unfavorite'}}{{/if}}" >
-		<i class="{{#if item.flags.tormenta20.favorito}}fas{{else}}far{{/if}} fa-star" ></i>
-	</a>
-	{{/if}}
 	{{#if (eq item.type "arma")}}
 		{{#if @root.equipmentSlots}}
 			<a class="item-control item-toggle toggle-weapon {{#if item.equipado.slot}}active{{/if}}" title="{{#if item.equipado.slot}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}">
-				<span class="fa-stack" style="width:1em;font-size: 14px;">
+				<span class="fa-stack">
 					{{{item.equipado.icon1}}}
 					{{{item.equipado.icon2}}}
 				</span>
@@ -25,7 +20,7 @@
 	{{else if (eq item.type "equipamento")}}
 		{{#if @root.equipmentSlots}}
 			<a class="item-control item-toggle toggle-armor {{#if item.equipado.slot}}active{{/if}}" title="{{#if item.equipado.slot}}{{localize 'T20.Unequip'}}{{else}}{{localize 'T20.Equip'}}{{/if}}">
-				<span class="fa-stack" style="width:1em;font-size: 14px;">
+				<span class="fa-stack">
 					{{{item.equipado.icon1}}}
 					{{{item.equipado.icon2}}}
 				</span>
@@ -36,5 +31,4 @@
 			</a>
 		{{/if}}
 	{{/if}}
-	<a class="item-control item-delete" title="{{localize 'T20.Delete'}}"><i class="fas fa-trash"></i></a>
 </div>

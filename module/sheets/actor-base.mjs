@@ -90,6 +90,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			cssClass: this.actor.isOwner ? "editable" : "locked",
 			isCharacter: this.actor.type === "character",
 			isNPC: this.actor.type === "npc",
+			isSimple: this.actor.type === "simple",
 			config: CONFIG.T20,
 			rollData: this.actor.getRollData.bind(this.actor),
 			// TextEditors
@@ -98,9 +99,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			mostrarDivindade: true, // this.actor.getFlag("tormenta20", "sheet.mostrarDivindade"),
 			mostrarAtributoRacial: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoRacial"),
 			mostrarAtributoTemp: this.actor.getFlag("tormenta20", "sheet.mostrarAtributoTemp"),
-			botaoEditarItens: true, // this.actor.getFlag("tormenta20", "sheet.botaoEditarItens"),
 			mostrarPlatina: this.actor.getFlag("tormenta20", "sheet.mostrarPlatina"),
-			editarPericias: true, // this.actor.getFlag("tormenta20", "sheet.editarPericias"),
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages"),
 			equipmentSlots: game.settings.get("tormenta20", "equipmentSlots"),
 			gameSystem: game.settings.get("tormenta20", "gameSystem"),
@@ -173,111 +172,83 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	* @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
 	*/
 	activateListeners(html) {
-
-		// Tooltips
-		html.mousemove((ev) => this._moveTooltips(ev));
-
-		// Editable Only Listeners
-		if (this.isEditable) {
-			// Input focus and update
-			const inputs = html.find("input");
-			inputs.focus((ev) => ev.currentTarget.select());
-
-			// TODO input Deltas
-
-			// Skills management
-			html.find(".training-toggle").click(this._onToggleSkillTraining.bind(this));
-			html.find(".skill-create").click(this._onPericiaCustomCreate.bind(this));
-			html.find(".skill-delete").click(this._onPericiaCustomDelete.bind(this));
-			html.find(".show-controls").click(this._toggleControls.bind(this));
-			html.find(".pericia-rollable").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
-
-			// Classes
-			html.find(".add-classe").click((ev) => {
-				game.packs.get("tormenta20.classes").render(true);
-			});
-			// Trait Selector
-			html.find(".trait-selector").click(this._onTraitSelector.bind(this));
-
-			// Configure Special Flags
-			html.find(".config-button").click(this._onConfigMenu.bind(this));
-			// html.find('.level-settings').click(this._onLevelSettings.bind(this));
-			html.find("#configure-skills").click(async (ev) => {
-				const { MODES } = this.constructor;
-				const toggle = ev.currentTarget;
-				this._mode = (this._mode === MODES.EDIT) ? MODES.PLAY : MODES.EDIT;
-				await this.submit();
-				this.render();
-			});
-
-			// html.find("#ability-calculator").click(ev => {
-			// 	new AbilityCalculator(this.actor).render(true);
-			// });
-
-			html.find(".update-cd").click(this._onUpdateCD.bind(this));
-
-			// Item management
-			html.find(".item-edit").click(this._onItemEdit.bind(this));
-			html.find(".item .item-name").on("contextmenu", this._onItemEdit.bind(this));
-			html.find(".item-create").click(this._onItemCreate.bind(this));
-			html.find(".item-delete").click(this._onItemDelete.bind(this));
-			html.find(".item-qty input").click((ev) => ev.target.select())
-				.change(this._onQtyChange.bind(this));
-
-			// Active Effect management
-			html.find(".effect-control").click((ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
-			html.find(".effect").on("contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
-			// html.find('li.effect').on("dragstart", ev => this._onDragStart.bind(ev, this));
-			let handler = (ev) => this._onDragStart(ev);
-			html.find("li.effect").each((i, li) => {
-				if (!li.hasAttribute("data-effect-id")) return;
-				li.setAttribute("draggable", true);
-				li.addEventListener("dragstart", handler, false);
-			});
-
-			// Open Compendium Entry
-			html.find(".compendium-entry").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
-
-		}
-
-		if (this.actor.isOwner) {
-			// Rollable abilities.
-			html.find(".rollable.atributo-rollable").click(this._onRollAtributo.bind(this));
-			// Rollable skills.
-			html.find(".rollable.pericia-rollable").click(this._onRollPericia.bind(this));
-			// Roll item
-			html.find(".item .item-image").click((event) => this._onItemRoll(event));
-
-			if (game.settings.get("tormenta20", "equipmentSlots")) {
-				// Item Equip Context Menu
-				new ContextMenu(html, ".window-content .toggle-armor, .window-content .toggle-weapon", [], {
-					eventName: "click",
-					onOpen: this._onItemToggleContext.bind(this)
-				});
-			} else {
-				// Update Inventory Item
-				html.find(".toggle-armor").click(this._onToggleArmor.bind(this));
-				html.find(".toggle-weapon").on("click", this._onCicleWeapon.bind(this));
-				html.find(".toggle-weapon").on("contextmenu", this._onCicleWeapon.bind(this));
-			}
-		}
-
-		// Otherwise remove rollable classes
-		else {
-			html.find(".rollable").each((i, el) => el.classList.remove("rollable"));
-		}
-
-		// Handle default listeners last so system listeners are triggered first
 		super.activateListeners(html);
+
+		if (!this.isEditable) return;
+
+		// Input focus and update
+		const inputs = html.find("input");
+		inputs.focus((ev) => ev.currentTarget.select());
+
+		// TODO input Deltas
+
+		// Skills management
+		html.find(".training-toggle").click(this._onToggleSkillTraining.bind(this));
+		html.find(".skill-create").click(this._onPericiaCustomCreate.bind(this));
+		html.find(".skill-delete").click(this._onPericiaCustomDelete.bind(this));
+		html.find(".show-controls").click(this._toggleControls.bind(this));
+		html.find(".pericia-rollable").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+
+		// Classes
+		html.find(".add-classe").click((ev) => {
+			game.packs.get("tormenta20.classes").render(true);
+		});
+		// Trait Selector
+		html.find(".trait-selector").click(this._onTraitSelector.bind(this));
+
+		// Configure Special Flags
+		html.find(".config-button").click(this._onConfigMenu.bind(this));
+		// html.find('.level-settings').click(this._onLevelSettings.bind(this));
+		html.find("#configure-skills").click(async (ev) => {
+			const { MODES } = this.constructor;
+			const toggle = ev.currentTarget;
+			this._mode = (this._mode === MODES.EDIT) ? MODES.PLAY : MODES.EDIT;
+			await this.submit();
+			this.render();
+		});
+
+		// html.find("#ability-calculator").click(ev => {
+		// 	new AbilityCalculator(this.actor).render(true);
+		// });
+
+		html.find(".update-cd").click(this._onUpdateCD.bind(this));
+
+		// Item management
+		html.find(".item-edit").click(this._onItemEdit.bind(this));
+		// html.find(".item .item-name").on("contextmenu", this._onItemEdit.bind(this));
+		html.find(".item-create").click(this._onItemCreate.bind(this));
+		html.find(".item-delete").click(this._onItemDelete.bind(this));
+		html.find(".item-qty input").click((ev) => ev.target.select())
+			.change(this._onQtyChange.bind(this));
+
+		// Active Effect management
+		html.find(".effect-control").click((ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
+		html.find(".effect").on("contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
+		// html.find('li.effect').on("dragstart", ev => this._onDragStart.bind(ev, this));
+		let handler = (ev) => this._onDragStart(ev);
+		html.find("li.effect").each((i, li) => {
+			if (!li.hasAttribute("data-effect-id")) return;
+			li.setAttribute("draggable", true);
+			li.addEventListener("dragstart", handler, false);
+		});
+
+		// Open Compendium Entry
+		html.find(".compendium-entry").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+
+		// Rollable abilities.
+		html.find(".rollable.atributo-rollable").click(this._onRollAtributo.bind(this));
+		// Rollable skills.
+		html.find(".rollable.pericia-rollable").click(this._onRollPericia.bind(this));
+		// Roll item
+		html.find(".item .item-image").click((event) => this._onItemRoll(event));
+
+		new foundry.applications.ux.ContextMenu.implementation(html, ".item", [], {
+			eventName: "contextmenu",
+			onOpen: this._onItemToggleContext.bind(this)
+		});
 	}
 
 	/* -------------------------------------------- */
-
-	_contextMenu(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		$(event.currentTarget).trigger("contextmenu");
-	}
 
 	/**
    * Handle activation of a context menu for an embedded Item document.
@@ -300,43 +271,113 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	 * @protected
 	 */
 	_getItemToggleContextOptions(item) {
-		const actor = this.actor;
+		const equipados = this.actor.items.filter((i) => (i.system.equipado2?.slot > 0));
 		const equips = this.actor.system.equipamentos;
-		const options = [];
-		let equipados = actor.items.filter((it) => (it.system.equipado2?.slot > 0));
-		const img = (image) => `<img src='${image}' width='20px' height='20px' style='vertical-align: middle;'>`;
-		const dec = (number) => ((number % 1).toFixed(1) * 10);
+		const compendiumLocked = item[game.release.generation < 13 ? "compendium" : "collection"]?.locked;
 
-		if (["hand", "both"].includes(item.system.equipado2.type)) {
-			options.push({ name: ("T20.Handling"), icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
-			let twoHanded = equipados.find((it) => it.system.equipado2.slot === 12.1);
+		const options = [
+			{
+				name: game.i18n.localize("T20.Edit"),
+				icon: '<i class="fas fa-edit"></i>',
+				callback: () => item.sheet.render(true),
+				condition: () => !compendiumLocked
+			},
+			{
+				name: game.i18n.localize("T20.Delete"),
+				icon: '<i class="fas fa-trash"></i>',
+				callback: () => item.delete(),
+				condition: () => !compendiumLocked
+			}
+		];
+		if (this.layout === "tabbed") {
+			const label = item.getFlag("tormenta20", "favorito") ? "T20.Unfavorite" : "T20.Favorite";
 			options.push({
-				name: (twoHanded?.name ?? "T20.Empty"),
-				icon: `<i class='fa-solid fa-hand-back-fist'></i><i class='fa-solid fa-hand-back-fist'></i>${twoHanded ? img(twoHanded.img) : ""}`,
-				callback: () => this._onToggleItem(item, "hand", 12, twoHanded?.id)
+				name: game.i18n.localize(label),
+				group: "state",
+				icon: '<i class="fas fa-star"></i>',
+				callback: () => item.setFlag("tormenta20", "favorito", !item.flags.tormenta20?.favorito)
 			});
-			for (let slot=1; slot <= equips.limiteEmpunhado; slot++) {
-				let slotItem = twoHanded && [1, 2].includes(slot) ? null
-					: equipados.find((it) => dec(it.system.equipado2.slot) === 1 && Math.floor(it.system.equipado2.slot) === slot);
-				options.push({
-					name: ((twoHanded && [1, 2].includes(slot) ? `${slot}` : null) ?? slotItem?.name ?? "T20.Empty"),
-					icon: `<i class="fa-solid fa-hand-back-fist"></i>${(twoHanded && [1, 2].includes(slot) ? img(twoHanded.img) : null) ?? (slotItem ? img(slotItem.img) : "")}`,
-					callback: () => this._onToggleItem(item, "hand", slot, slotItem?.id)
-				});
-			}
-
 		}
-		if (["body", "both"].includes(item.system.equipado2.type)) {
-			options.push({ name: ("T20.Wearing"), icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
-			for (let slot=1; slot <= equips.limiteVestido; slot++) {
-				let slotItem = equipados.find((it) => dec(it.system.equipado2.slot) === 2 && Math.floor(it.system.equipado2.slot) === slot);
-				// && (it.system.preparada === slot || it.system.equipado === slot)
+		if (game.settings.get("tormenta20", "equipmentSlots") && item.system.equipado2) {
+			const img = (image) => `<img src='${image}' width='20px' height='20px' style='vertical-align: middle;'>`;
+			const dec = (number) => ((number % 1).toFixed(1) * 10);
+			const isEquippedInSlot = (it, slot1, slot2) =>
+				dec(it.system.equipado2.slot) === slot1 && Math.floor(it.system.equipado2.slot) === slot2;
+			if (["hand", "both"].includes(item.system.equipado2.type)) {
+				// options.push({ name: ("T20.Handling"), group: "equips", icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
+				const twoHanded = equipados.find((it) => it.system.equipado2.slot === 12.1);
 				options.push({
-					name: (slotItem?.name ?? "T20.Empty"),
-					icon: `<i class="fa-solid fa-shirt"></i>${slotItem ? img(slotItem.img) : ""}`,
-					callback: () => this._onToggleItem(item, "body", slot, slotItem?.id)
+					name: twoHanded?.name ?? "T20.Empty",
+					group: "equips",
+					// icon: `<i class='fa-solid fa-hand-back-fist'></i><i class='fa-solid fa-hand-back-fist'></i>${twoHanded ? img(twoHanded.img) : ""}`,
+					icon: twoHanded ? img(twoHanded.img) : `<span class="fa-stack">
+						<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
+						<b class="fa-stack-1x">2</b>
+					</span>`,
+					classes: twoHanded ? "flexrow" : "",
+					callback: () => this._onToggleItem(item, "hand", 12, twoHanded?.id)
 				});
+				for (let slot=1; slot <= equips.limiteEmpunhado; slot++) {
+					const wieldingTwoHanded = twoHanded && [1, 2].includes(slot);
+					const slotItem = wieldingTwoHanded ? null : equipados.find((it) => isEquippedInSlot(it, 1, slot));
+					const icon = wieldingTwoHanded ? img(twoHanded.img) : (slotItem ? img(slotItem.img) : `<span class="fa-stack">
+						<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
+					</span>`);
+					options.push({
+						name: ((wieldingTwoHanded ? twoHanded.name : slotItem?.name ?? "T20.Empty")),
+						group: "equips",
+						icon,
+						classes: `${twoHanded || slotItem ? "flexrow" : ""}`,
+						callback: () => this._onToggleItem(item, "hand", slot, slotItem?.id)
+					});
+				}
+
 			}
+			if (["body", "both"].includes(item.system.equipado2.type)) {
+				// options.push({ name: ("T20.Wearing"), group: "equips", icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
+				for (let slot=1; slot <= equips.limiteVestido; slot++) {
+					const slotItem = equipados.find((it) => isEquippedInSlot(it, 2, slot));
+					// && (it.system.preparada === slot || it.system.equipado === slot)
+					options.push({
+						name: (slotItem?.name ?? "T20.Empty"),
+						group: "equips",
+						classes: `${slotItem ? "flexrow" : ""}`,
+						icon: slotItem ? img(slotItem.img) : '<i class="fa-solid fa-shirt" style="opacity: 0.5;"></i>',
+						callback: () => this._onToggleItem(item, "body", slot, slotItem?.id)
+					});
+				}
+			}
+		} else if (item.type === "equipamento") {
+			options.push({
+				name: item.system.equipado ? "T20.Unequip" : "T20.Equip",
+				group: "equips",
+				icon: `<span class="fa-stack">
+					<i class="fa-solid fa-shirt fa-stack-1x"></i>
+				</span>`,
+				callback: this._onToggleArmor.bind(this)
+			});
+		} else if (item.type === "arma") {
+			const isTwoHanded = item.system.empunhadura === "duas";
+			options.push({
+				name: item.system.equipado < 1 ? "T20.EquipOneHand" : "T20.Unequip",
+				group: "equips",
+				icon: `<span class="fa-stack">
+					<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
+					<b class="fa-stack-1x">1</b>
+				</span>`,
+				condition: !isTwoHanded,
+				callback: () => this._onToggleWeapon(item, 1)
+			});
+			options.push({
+				name: item.system.equipado === 2 ? "T20.Unequip" : "T20.EquipTwoHand",
+				group: "equips",
+				icon: `<span class="fa-stack">
+					<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
+					<b class="fa-stack-1x">2</b>
+				</span>`,
+				condition: isTwoHanded || item.system.equipado < 2,
+				callback: () => this._onToggleWeapon(item, 2)
+			});
 		}
 		return options;
 	}
@@ -499,12 +540,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		await super._onSubmit(...args);
 	}
 
-	_moveTooltips(event) {
-		$(event.currentTarget).find(".tooltip:hover .tooltipcontent")
-			.css("left", `${event.clientX}px`)
-			.css("top", `${event.clientY + 24}px`);
-	}
-
 	/* -------------------------------------------- */
 
 	async _renderOuter() {
@@ -531,7 +566,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		let buttons = super._getHeaderButtons();
 		const tokenButton = buttons.find((b) => b.class === "configure-token");
 		if (tokenButton && this.actor.isToken) tokenButton.icon = "far fa-user-circle";
-		if (this.actor.type !== "simple") {
+		if (this.actor.type === "character") {
 			buttons.unshift({
 				label: game.i18n.localize("T20.Configure"),
 				class: "t20-configure-sheet",
@@ -771,35 +806,27 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	* Handle editing an existing Owned Item for the Actor
-	* @param {Event} event   The originating click event
+	* @param {Event} li   The originating click event
 	* @private
 	*/
-	_onItemEdit(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.items.get(li.dataset.itemId);
+	_onItemEdit(li) {
+		const item = this.actor.items.get(li.parent().data("itemId"));
 		if (item) return item.sheet.render(true);
 	}
 
 	/**
 	* Handle deleting an existing Owned Item for the Actor
-	* @param {Event} event   The originating click event
+	* @param {Event} li   The originating click event
 	* @private
 	*/
-	_onItemDelete(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.items.get(li.dataset.itemId);
-		if (item) {
-			if (!event.shiftKey) return item.deleteDialog({
-				position: {
-					top: window.innerHeight/2,
-					left: window.innerWidth - 770,
-					width: 450
-				}
-			});
-			return item.delete();
-		}
+	_onItemDelete(li) {
+		const item = this.actor.items.get(li.parent().data("itemId"));
+		if (item) return item.delete();
+	}
+
+	_onItemFavorite(li) {
+		const item = this.actor.items.get(li.data("itemId"));
+		if (item) item.setFlag("tormenta20", "favorito", !item.flags.tormenta20?.favorito);
 	}
 
 	/**
@@ -856,8 +883,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	// Update equippament state, unequipping unique ones;
 	// TODO slotSytem [lhand, rhand, thand, body1, body2, body3, body4, body5, body5]
-	async _onToggleArmor(ev) {
-		const li = $(ev.currentTarget).parents(".item");
+	async _onToggleArmor(li) {
 		const item = this.actor.items.get(li.data("itemId"));
 		const id = item.system;
 		id.equipado = !id.equipado;
@@ -877,15 +903,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
-	async _onCicleWeapon(ev) {
-		const li = $(ev.currentTarget).parents(".item");
-		const item = this.actor.items.get(li.data("itemId"));
-		const id = item.system;
-		let updateItems = [];
-		let step = ev.type === "click" ? 1 : -1;
-		let status = (id.equipado + step < 0 ? 2 : (id.equipado + step > 2 ? 0 : id.equipado + step));
-		updateItems.push({ _id: item.id, "system.equipado": status });
-
+	async _onToggleWeapon(item, step) {
+		let status = item.system.equipado === step ? 0 : step;
+		const updateItems = [{ _id: item.id, "system.equipado": status }];
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 

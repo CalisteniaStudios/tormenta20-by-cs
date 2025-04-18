@@ -74,12 +74,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			else sheetData.resistencias += resText.vulTxt;
 		}
 		sheetData.manualSkills = ["luta", "pont", "fort", "refl", "vont"];
-		if (this.isEditable) {
-			sheetData.editarPericias = true;
-			// this.actor.getFlag("tormenta20", "sheet.editarPericias");
-			sheetData.botaoEditarItens = true;
-			// this.actor.getFlag("tormenta20", "sheet.botaoEditarItens");
-		}
 		return sheetData;
 	}
 
@@ -88,9 +82,6 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	/** @override */
 	activateListeners(html) {
 		// super.activateListeners(html);
-
-		// // Tooltips TODO DEBUG
-		// html.mousemove(ev => this._moveTooltips(ev));
 
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;

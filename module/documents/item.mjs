@@ -549,7 +549,7 @@ export default class ItemT20 extends Item {
 		if (!this.isEmbedded || (this.parent.type === "vehicle")) return;
 		const actorData = this.parent.system;
 		const isNPC = this.parent.type === "npc";
-		let updates;
+		let updates = {};
 		switch (data.type) {
 			case "classe":
 				/* TODO */
@@ -567,6 +567,7 @@ export default class ItemT20 extends Item {
 				updates = this._onCreateOwnedPower(data, actorData, isNPC);
 				break;
 		}
+		updates["flags.tormenta20.-=favorito"] = null;
 		if (updates) return this.updateSource(updates);
 	}
 
@@ -622,13 +623,15 @@ export default class ItemT20 extends Item {
 		super._onDelete(options, userId);
 		if (game.userId !== userId) return;
 		// Assign a new primary class
-		if (this.parent && this.type === "classe") {
-			if (this.actor.items.find((i) => i.type === "classe" && !i.system.inicial)) {
-				let newInicial = this.actor.items.find((i) => i.type === "classe");
-				const updateItems = [{ _id: newInicial.id, "system.inicial": true }];
-				if (updateItems) this.actor.updateEmbeddedDocuments("Item", updateItems);
+		if (this.parent) {
+			if (this.type === "classe") {
+				if (this.actor.items.find((i) => i.type === "classe" && !i.system.inicial)) {
+					let newInicial = this.actor.items.find((i) => i.type === "classe");
+					const updateItems = [{ _id: newInicial.id, "system.inicial": true }];
+					if (updateItems) this.actor.updateEmbeddedDocuments("Item", updateItems);
+				}
+				this.actor.update({ "system.attributes.nivel.value": this.actor.nivel });
 			}
-			this.actor.update({ "system.attributes.nivel.value": this.actor.nivel });
 		}
 	}
 

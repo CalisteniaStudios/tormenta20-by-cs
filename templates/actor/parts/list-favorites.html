@@ -8,11 +8,23 @@
 		<div class="item-name flexrow flex2 rollable">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			<div class="item-description flexcol">
-				<label>{{item.name}}</label>
+				<div>
+					<label>{{item.name}}</label>
+					{{#if (and @root.equipmentSlots item.equipado.slot)}}
+					<span class="fa-stack">
+						{{{item.equipado.icon1}}}
+						{{{item.equipado.icon2}}}
+					</span>
+					{{else if item.system.equipado}}
+					<span class="fa-stack fa-fw fa-2xs">
+						<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
+						<b class="fa-stack-1x">{{item.system.equipado}}</b>
+					</span>
+					{{/if}}
+				</div>
 				<div class="item-tipo">{{"t20-itemDesc" item}}</div>
 			</div>
 		</div>
-		{{> "systems/tormenta20/templates/actor/parts/actor-item-controls.hbs" item=item }}
 	</li>
 	{{/each}}
 </ol>

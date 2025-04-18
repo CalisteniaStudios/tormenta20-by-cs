@@ -1589,7 +1589,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   font-size: 12px;
 }
 .tormenta20.sheet.actor .traits h3 {
-  margin: 0;
+  margin-bottom: 4px;
 }
 .tormenta20.sheet.actor .traits .form-group,
 .tormenta20.sheet.actor .traits .form-group-stacked {
@@ -1709,6 +1709,9 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 .tormenta20.sheet.actor .item-list .item * .item-description label {
   font-weight: bold;
 }
+.tormenta20.sheet.actor .item-list .item * .item-description span.fa-stack {
+  font-size: 14px;
+}
 .tormenta20.sheet.actor .item-list .item * .item-description .item-tipo {
   color: var(--color-text-dark-3);
   font-size: var(--font-size-12);
@@ -1804,18 +1807,8 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   font-size: 12px;
   text-align: right;
 }
-.tormenta20.sheet.actor .item-list .item-controls .item-control.item-toggle i {
+.tormenta20.sheet.actor .item-list .item-controls .item-control.item-toggle:not(.active) span i {
   opacity: 0.5;
-}
-.tormenta20.sheet.actor .item-list .item-controls .item-control.item-toggle.active i {
-  opacity: 1;
-}
-.tormenta20.sheet.actor .item-list .item-controls nav#context-menu {
-  text-align: left;
-  width: auto;
-  white-space: nowrap;
-  right: 0;
-  left: unset;
 }
 .tormenta20.sheet.actor .item-list .item-toggles {
   flex: 0 0 40px;
@@ -1827,13 +1820,6 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 }
 .tormenta20.sheet.actor .item-list .item-toggles .item-toggle.active i {
   opacity: 1;
-}
-.tormenta20.sheet.actor .item-list .item-toggles nav#context-menu {
-  text-align: left;
-  width: auto;
-  white-space: nowrap;
-  right: 0;
-  left: unset;
 }
 .tormenta20.sheet.actor .item-list .item-summary {
   flex: 0 0 100%;
@@ -2028,6 +2014,44 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 }
 .tormenta20.sheet.actor .editor {
   padding: 0px;
+}
+.tormenta20.sheet.actor .item-description span.fa-stack,
+.tormenta20.sheet.actor #context-menu span.fa-stack {
+  height: 1em;
+  line-height: 1em;
+  width: 1em;
+}
+.tormenta20.sheet.actor .item-description span.fa-stack b.fa-stack-1x,
+.tormenta20.sheet.actor #context-menu span.fa-stack b.fa-stack-1x {
+  color: white;
+  font-size: 10px;
+}
+.tormenta20.sheet.actor #context-menu {
+  width: auto;
+}
+.tormenta20.sheet.actor #context-menu [data-group-id]:has(li) {
+  position: relative;
+  margin-block-start: 0.5rem;
+}
+.tormenta20.sheet.actor #context-menu [data-group-id]:has(li)::before {
+  content: "";
+  position: absolute;
+  inset-inline: 1rem;
+  inset-block-start: -0.25rem;
+  border-block-start: 1px solid var(--color-border-light-2);
+}
+.tormenta20.sheet.actor #context-menu span.fa-stack {
+  margin-right: 8px;
+}
+.tormenta20.sheet.actor #context-menu span.fa-stack .fa-hand-back-fist::before {
+  font-size: 1.2em;
+}
+.tormenta20.sheet.actor #context-menu .context-group {
+  border-bottom: none;
+}
+.tormenta20.sheet.actor #context-menu .context-item.flexrow img {
+  flex: 0;
+  margin-right: 3px;
 }
 #actor-flags .window-content {
   overflow-y: hidden;
@@ -2452,6 +2476,9 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 .tormenta20.item-card .card-item-header p {
   text-align: justify;
 }
+.tormenta20.item-card .card-item-header h4 {
+  font-size: var(--font-size-14);
+}
 .tormenta20.item-card > button {
   border: 2px groove #eeede0 !important;
   background: rgba(255, 255, 240, 0.8) !important;
@@ -2465,7 +2492,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   align-self: center;
 }
 .tormenta20.item-card .chat-spend-mana {
-  font-size: 12px;
+  font-size: var(--font-size-11);
   line-height: 12px;
   max-width: 36px;
   height: 36px;
