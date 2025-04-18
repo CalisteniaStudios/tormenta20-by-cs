@@ -1688,16 +1688,13 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   font-size: var(--font-size-16);
   list-style: none;
 }
-.tormenta20.sheet.actor .item-list.fav-item,
-.tormenta20.sheet.actor .item-list.fav-feat {
+.tormenta20.sheet.actor .item-list.favorites {
   margin: 0;
 }
-.tormenta20.sheet.actor .item-list.fav-item + *,
-.tormenta20.sheet.actor .item-list.fav-feat + * {
+.tormenta20.sheet.actor .item-list.favorites + * {
   margin-top: 5px;
 }
-.tormenta20.sheet.actor .item-list.fav-item .item-detail,
-.tormenta20.sheet.actor .item-list.fav-feat .item-detail {
+.tormenta20.sheet.actor .item-list.favorites .item-detail {
   flex: 0 0 50px;
 }
 .tormenta20.sheet.actor .item-list .item {

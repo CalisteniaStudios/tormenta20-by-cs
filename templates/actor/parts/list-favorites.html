@@ -1,11 +1,11 @@
 {{#if actor.favoritos.armas}}
-<ol class="item-list fav-item">
+<ol class="item-list favorites">
 	<li class="item item-header flexrow">
 		<div class="item-name" >{{ localize 'T20.Weapons'}}</div>
 	</li>
-	{{#each actor.favoritos.armas as |item id|}}
-	<li class="item flexrow fav-item" data-item-id="{{item._id}}">
-		<div class="item-name flexrow flex2 rollable arma-rollable">
+	{{#each actor.favoritos.armas as |item|}}
+	<li class="item flexrow" data-item-id="{{item._id}}">
+		<div class="item-name flexrow flex2 rollable">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			<div class="item-description flexcol">
 				<label>{{item.name}}</label>
@@ -18,13 +18,13 @@
 </ol>
 {{/if}}
 {{#if actor.favoritos.itens}}
-<ol class="item-list fav-item">
+<ol class="item-list favorites">
 	<li class="item item-header flexrow">
 		<div class="item-name">{{ localize 'T20.Items'}}</div>
 	</li>
-	{{#each actor.favoritos.itens as |item id|}}
-	<li class="item flexrow fav-item" data-item-id="{{item._id}}">
-		<div class="item-name flexrow flex2 {{#if (eq item.type "consumivel")}}rollable consumivel-rollable{{else}}edit-favoritos{{/if}}">
+	{{#each actor.favoritos.itens as |item|}}
+	<li class="item flexrow" data-item-id="{{item._id}}">
+		<div class="item-name flexrow flex2 {{#if (eq item.type "consumivel")}}rollable{{/if}}">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			<div class="item-description flexcol">
 				<label>{{item.name}}</label>
@@ -37,13 +37,13 @@
 </ol>
 {{/if}}
 {{#if actor.favoritos.poderes}}
-<ol class="item-list fav-feat">
+<ol class="item-list favorites">
 	<li class="item item-header flexrow">
 		<div class="item-name">{{ localize 'T20.Powers'}}</div>
 	</li>
-	{{#each actor.favoritos.poderes as |item id|}}
+	{{#each actor.favoritos.poderes as |item|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
-		<div class="item-name flexrow flex2 rollable poder-rollable" data-label="{{item.name}}">
+		<div class="item-name flexrow flex2 rollable" data-label="{{item.name}}">
 			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
 			<div class="item-description flexcol">
 				<label>{{item.name}}</label>
@@ -56,14 +56,14 @@
 </ol>
 {{/if}}
 {{#if actor.favoritos.qtdMagias}}
-<ol class="item-list fav-spell">
+<ol class="item-list favorites">
 	<li class="item item-header flexrow">
 		<div class="item-name">{{ localize 'T20.Spells'}}</div>
 	</li>
-	{{#each actor.favoritos.magias as |circulo i|}}
-		{{#each circulo.spells as |m index|}}
+	{{#each actor.favoritos.magias as |circulo|}}
+		{{#each circulo.spells as |m|}}
 		<li class="item flexrow" data-item-id="{{m._id}}">
-			<div class="item-name flexrow flex2 rollable magia-rollable" data-label="{{m.name}}">
+			<div class="item-name flexrow flex2 rollable" data-label="{{m.name}}">
 				<div class="item-image" style="background-image: url('{{m.img}}')"></div>
 				<div class="item-description flexcol">
 					<div>
