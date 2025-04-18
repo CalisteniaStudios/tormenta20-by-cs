@@ -67,8 +67,7 @@
 		<div class="roll {{r.roll.tipo}}" data-roll-title="{{r.roll.options.title}}">{{{r.template}}}</div>
 	{{/each}}
 	{{#if effects}}
-	<hr>
-	<div class="card-item-effects flexcol">
+	<footer class="card-item-effects flexcol">
 		{{#each effects as |ef i|}}
 			{{#if ef.length }}
 			<button class="chat-apply-ae" data-effect-index="{{i}}">
@@ -82,14 +81,14 @@
 			</button>
 			{{/if}}
 		{{/each}}
-	</div>
+	</footer>
 	{{/if}}
 	{{#if placeTemplate}}
-	<hr>
-	<div class="card-item-template" id="placeTemplate">
+	<footer class="card-item-template flexcol">
 		<button class="chat-place-template">
-			<span><i class="fas fa-ruler-combined"></i></span>
-			{{localize 'T20.PlaceAbilityTemplate'}}</button>
-	</div>
+			<i class="fas fa-ruler-combined"></i>
+			{{localize 'T20.PlaceAbilityTemplate'}}
+		</button>
+	</footer>
 	{{/if}}
 </div>
