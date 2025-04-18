@@ -346,24 +346,30 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				}
 			}
 		} else if (item.type === "equipamento") {
+			let icon = "fa-shirt";
+			let icon2 = "";
+			if (item.system.equipado2.type === "hand") {
+				icon = item.system.equipado2.type === "hand" ? "fa-hand-back-fist" : "fa-shirt";
+				icon2 = "<b class='fa-stack-1x'>1</b>";
+			}
 			options.push({
 				name: item.system.equipado ? "T20.Unequip" : "T20.Equip",
 				group: "equips",
 				icon: `<span class="fa-stack">
-					<i class="fa-solid fa-shirt fa-stack-1x"></i>
+					<i class="fa-solid ${icon} fa-stack-1x"></i>
+					${icon2}
 				</span>`,
 				callback: this._onToggleArmor.bind(this)
 			});
 		} else if (item.type === "arma") {
-			const isTwoHanded = item.system.empunhadura === "duas";
 			options.push({
-				name: item.system.equipado < 1 ? "T20.EquipOneHand" : "T20.Unequip",
+				name: item.system.equipado !== 1 ? "T20.EquipOneHand" : "T20.Unequip",
 				group: "equips",
 				icon: `<span class="fa-stack">
 					<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
 					<b class="fa-stack-1x">1</b>
 				</span>`,
-				condition: !isTwoHanded,
+				condition: item.system.empunhadura !== "duas",
 				callback: () => this._onToggleWeapon(item, 1)
 			});
 			options.push({
@@ -373,21 +379,20 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 					<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
 					<b class="fa-stack-1x">2</b>
 				</span>`,
-				condition: isTwoHanded || item.system.equipado < 2,
 				callback: () => this._onToggleWeapon(item, 2)
 			});
 		} else if (item.type === "classe") {
 			options.push({
 				name: "T20.LevelUp",
 				group: "class",
-				icon: `<i class="fas fa-plus"></i>`,
+				icon: "<i class='fas fa-plus'></i>",
 				condition: item.system.niveis < (game.settings.get("tormenta20", "gameSystem") === "Skyfall" ? 10 : 20),
 				callback: () => item.update({ "system.niveis": item.system.niveis + 1 })
 			});
 			options.push({
 				name: "T20.LevelDown",
 				group: "class",
-				icon: `<i class="fas fa-minus"></i>`,
+				icon: "<i class='fas fa-minus'></i>",
 				condition: item.system.niveis > 1,
 				callback: () => item.update({ "system.niveis": item.system.niveis - 1 })
 			});
@@ -858,7 +863,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			summary.slideUp(200, () => summary.remove());
 		} else {
 			let div = $(`<div class="item-summary">${chatData.description.value}</div>`);
-			let props = $("<div class=\"item-properties\"></div>");
+			let props = $("<div class='item-properties'></div>");
 			div.append(props);
 			li.append(div.hide());
 			div.slideDown(200);

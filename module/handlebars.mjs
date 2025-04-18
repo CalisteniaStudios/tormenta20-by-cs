@@ -81,7 +81,6 @@ export function registerHandlebarsHelpers() {
 						};
 					});
 				const armaduraPesada = armaduras.some((i) => i.tipo === "pesada");
-				console.log(armaduras);
 				const meioNivel = game.settings.get("tormenta20", "progressiveDefense") ? rollData.meionivel : 0;
 				listEffects = [
 					{ label: "Base", value: defesa.base },

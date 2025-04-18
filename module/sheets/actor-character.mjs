@@ -211,9 +211,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			i.system.espacos = i.system.espacos || 0;
 			i.espacosTotal = Number((i.system.qtd * i.system.espacos).toFixed(2));
 			// Equipament Slots.
-			if (game.settings.get("tormenta20", "equipmentSlots")) {
-				this._itemSlotIcon(i);
-			}
+			this._itemSlotIcon(i);
 			inventario[i.type].items.push(i);
 		}
 
@@ -259,23 +257,31 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
-	_itemSlotIcon(i) {
-		// Font Awesome Stacked. icon1 = back | icon2 = front
-		i.equipado = i.system.equipado2;
-		if (!i.equipado) return;
-		// i.equipado.icon2 = parseInt(i.equipado.slot) === 12 ? 2 : '';
-		i.equipado.icon2 = `<b class="fa-stack-1x">${parseInt(i.equipado.slot) === 12 ? 2 : ""}</b>`;
-		if (i.equipado.type === "hand") {
-			i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
-		} else if (i.equipado.type === "body") {
-			i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
-		} else if (i.equipado.type === "both") {
-			if (i.equipado.slot === 0) {
-				i.equipado.icon1 = '<i class="fa-solid fa-shield fa-stack-1x"></i>';
-			} else if (i.equipado.slot.toString().split(".")[1] === 1) {
-				i.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
-			} else if (i.equipado.slot.toString().split(".")[1] === 2) {
-				i.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
+	_itemSlotIcon(item) {
+		let slot = "";
+		item.equipado = item.system.equipado2;
+		if (!item.equipado) return;
+
+		const { slot: equippedSlot } = item.equipado;
+		const isHand = item.equipado.type === "hand" || item.system.hasOwnProperty("empunhadura");
+		// const body = item.equipado.type === "body" ||
+		if (game.settings.get("tormenta20", "equipmentSlots")) {
+			slot = parseInt(equippedSlot) === 12 ? 2 : 1;
+		} else if (item.system.equipado) {
+			if (isHand) slot = Number(item.system.equipado);
+		} else return;
+		item.equipado.icon2 = `<b class="fa-stack-1x">${typeof slot === "number" ? slot : ""}</b>`;
+		if (isHand) {
+			item.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
+		} else if (item.equipado.type === "body") {
+			item.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
+		} else if (item.equipado.type === "both") {
+			if (equippedSlot === 0) {
+				item.equipado.icon1 = '<i class="fa-solid fa-shield fa-stack-1x"></i>';
+			} else if (equippedSlot.toString().split(".")[1] === 1) {
+				item.equipado.icon1 = '<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>';
+			} else if (equippedSlot.toString().split(".")[1] === 2) {
+				item.equipado.icon1 = '<i class="fa-solid fa-shirt fa-stack-1x"></i>';
 			}
 		}
 	}

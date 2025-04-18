@@ -230,6 +230,7 @@ module.exports = {
 		T20: false,
 		dragRuler: false,
 		tormenta20: false,
+		fromUuidSync: false,
 		globalThis: false
 	},
 

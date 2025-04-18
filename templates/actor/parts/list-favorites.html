@@ -1,3 +1,17 @@
+{{#*inline "item-description"}}
+<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+<div class="item-description flexcol">
+	<div>
+		<label>{{item.name}}</label>
+		<span class="fa-stack">
+			{{{item.equipado.icon1}}}
+			{{{item.equipado.icon2}}}
+		</span>
+	</div>
+	<div class="item-tipo">{{"t20-itemDesc" item}}</div>
+</div>
+{{/inline}}
+
 {{#if actor.favoritos.armas}}
 <ol class="item-list favorites">
 	<li class="item item-header flexrow">
@@ -6,24 +20,7 @@
 	{{#each actor.favoritos.armas as |item|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
 		<div class="item-name flexrow flex2 rollable">
-			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-			<div class="item-description flexcol">
-				<div>
-					<label>{{item.name}}</label>
-					{{#if (and @root.equipmentSlots item.equipado.slot)}}
-					<span class="fa-stack">
-						{{{item.equipado.icon1}}}
-						{{{item.equipado.icon2}}}
-					</span>
-					{{else if item.system.equipado}}
-					<span class="fa-stack fa-fw fa-2xs">
-						<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
-						<b class="fa-stack-1x">{{item.system.equipado}}</b>
-					</span>
-					{{/if}}
-				</div>
-				<div class="item-tipo">{{"t20-itemDesc" item}}</div>
-			</div>
+			{{> item-description item=item}}
 		</div>
 	</li>
 	{{/each}}
@@ -37,13 +34,8 @@
 	{{#each actor.favoritos.itens as |item|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
 		<div class="item-name flexrow flex2 {{#if (eq item.type "consumivel")}}rollable{{/if}}">
-			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-			<div class="item-description flexcol">
-				<label>{{item.name}}</label>
-				<div class="item-tipo">{{"t20-itemDesc" item}}</div>
-			</div>
+			{{> item-description item=item}}
 		</div>
-		{{> "systems/tormenta20/templates/actor/parts/actor-item-controls.hbs" item=item }}
 	</li>
 	{{/each}}
 </ol>
@@ -56,11 +48,7 @@
 	{{#each actor.favoritos.poderes as |item|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
 		<div class="item-name flexrow flex2 rollable" data-label="{{item.name}}">
-			<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-			<div class="item-description flexcol">
-				<label>{{item.name}}</label>
-				<div class="item-tipo">{{"t20-itemDesc" item}}</div>
-			</div>
+			{{> item-description item=item}}
 		</div>
 		{{> "systems/tormenta20/templates/actor/parts/actor-item-controls.hbs" item=item }}
 	</li>
