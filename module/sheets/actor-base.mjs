@@ -715,11 +715,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			itemId = event.currentTarget.closest(".item").dataset.itemId;
 		} else itemId = event.currentTarget.dataset.itemId;
 		const item = this.actor.items.get(itemId);
+		if (!item) return;
+		const hasEffectsOrRolls = !!item.validOnUseEffects.length || !!item.system.rolls.length;
 		const rollConfigs = {
-			configureDialog: !!item.system.rolls.length && (usageConfig ? !event.shiftKey : event.shiftKey),
+			configureDialog: hasEffectsOrRolls && (usageConfig ? !event.shiftKey : event.shiftKey),
 			event
 		};
-		if (!item) return;
 		return item.roll(rollConfigs);
 	}
 
