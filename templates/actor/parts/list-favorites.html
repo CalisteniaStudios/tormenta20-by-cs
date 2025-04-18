@@ -6,6 +6,9 @@
 		<span class="fa-stack">
 			{{{item.equipado.icon1}}}
 			{{{item.equipado.icon2}}}
+			{{#if (and @root.isPreparationCaster item.system.preparada)}}
+			<i class="fas fa-sun" data-tooltip="{{localize 'T20.SpellPrepPrepared'}}"></i>
+			{{/if}}
 		</span>
 	</div>
 	<div class="item-tipo">{{"t20-itemDesc" item}}</div>
@@ -61,25 +64,12 @@
 		<div class="item-name">{{ localize 'T20.Spells'}}</div>
 	</li>
 	{{#each actor.favoritos.magias as |circulo|}}
-		{{#each circulo.spells as |m|}}
-		<li class="item flexrow" data-item-id="{{m._id}}">
-			<div class="item-name flexrow flex2 rollable" data-label="{{m.name}}">
-				<div class="item-image" style="background-image: url('{{m.img}}')"></div>
-				<div class="item-description flexcol">
-					<div>
-						<label>{{m.name}}</label>
-						{{#if @root.isPreparationCaster}}
-						<span class="item-toggles">
-							<a class="item-toggle preparation-toggle {{#if m.system.preparada }}active{{/if}}" title="{{localize 'T20.SpellPrepPrepared'}}">
-								<i class="fas fa-sun"></i>
-							</a>
-						</span>
-						{{/if}}
-					</div>
-					<div class="item-tipo">{{"t20-itemDesc" m}}</div>
-				</div>
+		{{#each circulo.spells as |magia|}}
+		<li class="item flexrow" data-item-id="{{magia._id}}">
+			<div class="item-name flexrow flex2 rollable" data-label="{{magia.name}}">
+				{{> item-description item=magia}}
 			</div>
-			{{> "systems/tormenta20/templates/actor/parts/actor-item-controls.hbs" item=m }}
+			{{> "systems/tormenta20/templates/actor/parts/actor-item-controls.hbs" item=magia }}
 		</li>
 		{{/each}}
 	{{/each}}

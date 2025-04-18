@@ -396,6 +396,24 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				condition: item.system.niveis > 1,
 				callback: () => item.update({ "system.niveis": item.system.niveis - 1 })
 			});
+		} else if (item.type === "magia") {
+			options.push({
+				name: "T20.DrawPreview",
+				group: "spell",
+				icon: "<i class='fas fa-ruler-combined'></i>",
+				condition: item.hasAreaTarget,
+				callback: () => {
+					const template = game.tormenta20.canvas.AbilityTemplate.fromItem(item);
+					if (template) template.drawPreview();
+				}
+			});
+			options.push({
+				name: item.system.preparada ? "T20.SpellPrepUnprepare" : "T20.SpellPrepPrepare",
+				group: "spell",
+				icon: "<i class='fas fa-sun'></i>",
+				condition: this.actor.getFlag("tormenta20", "mago"),
+				callback: () => item.update({ "system.preparada": !item.system.preparada })
+			});
 		}
 		return options;
 	}

@@ -385,6 +385,8 @@
   "T20.ClassSkillsEligible": "Perícias de Classe",
   "T20.ClassSkillsChosen": "Perícias de Classe Escolhidas",
 
+  "T20.DrawPreview": "Desenhar Área de Efeito",
+
   "T20.Item": "Item",
   "T20.Items": "Itens",
   "T20.LevelDown": "Diminuir Nível",
@@ -433,6 +435,8 @@
   "T20.SpellLevel4": "4º Círculo",
   "T20.SpellLevel5": "5º Círculo",
 
+  "T20.SpellPrepPrepare": "Preparar Magia",
+  "T20.SpellPrepUnprepare": "Despreparar Magia",
   "T20.SpellPrepPrepared": "Preparada",
   "T20.SpellPrepPreparedAbbr": "Prep",
 
