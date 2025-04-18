@@ -13,14 +13,6 @@ export default class ActorSheetT20CharacterTabbed extends ActorSheetT20Character
 
 	layout = "tabbed";
 
-	/** @override */
-	get template() {
-		if (!game.user.isGM && this.actor.limited) {
-			return "systems/tormenta20/templates/actor/actor-sheet-limited.html";
-		}
-		return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
-	}
-
 	async getData() {
 		const sheetData = await super.getData();
 		const { poderes } = sheetData.actor;

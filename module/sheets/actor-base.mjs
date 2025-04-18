@@ -43,13 +43,17 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/* -------------------------------------------- */
 
+	layout = "base";
+
+	/* -------------------------------------------- */
+
 	/** @override */
 	get template() {
 		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
 		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
 			return "systems/tormenta20/templates/actors/limited-sheet.html";
 		}
-		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
+		return `systems/tormenta20/templates/actor/actor-sheet-${this.layout}.html`;
 	}
 
 	/**
@@ -174,6 +178,11 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html);
 
+		new foundry.applications.ux.ContextMenu.implementation(html, ".item", [], {
+			eventName: "contextmenu",
+			onOpen: this._onItemToggleContext.bind(this)
+		});
+
 		if (!this.isEditable) return;
 
 		// Input focus and update
@@ -239,11 +248,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		html.find(".rollable.pericia-rollable").click(this._onRollPericia.bind(this));
 		// Roll item
 		html.find(".item .item-image").click((event) => this._onItemRoll(event));
-
-		new foundry.applications.ux.ContextMenu.implementation(html, ".item", [], {
-			eventName: "contextmenu",
-			onOpen: this._onItemToggleContext.bind(this)
-		});
 	}
 
 	/* -------------------------------------------- */
@@ -275,18 +279,18 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 		const options = [
 			{
-				name: game.i18n.localize("T20.Edit"),
-				icon: '<i class="fas fa-edit"></i>',
-				callback: () => item.sheet.render(true),
-				condition: () => !compendiumLocked
+				name: item.isOwner ? game.i18n.localize("T20.Edit") : game.i18n.localize("T20.ItemView"),
+				icon: item.isOwner ? '<i class="fas fa-edit"></i>' : '<i class="fas fa-expand"></i>',
+				callback: () => item.sheet.render(true)
 			},
 			{
 				name: game.i18n.localize("T20.Delete"),
 				icon: '<i class="fas fa-trash"></i>',
 				callback: () => item.delete(),
-				condition: () => !compendiumLocked
+				condition: () => item.isOwner && !compendiumLocked
 			}
 		];
+		if (!item.isOwner) return options;
 		if (this.layout === "tabbed" && item.type !== "classe") {
 			const label = item.getFlag("tormenta20", "favorito") ? "T20.Unfavorite" : "T20.Favorite";
 			options.push({
@@ -870,6 +874,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		let item = this.actor.items.get(li.data("item-id"));
 		if (!item) return;
 		let chatData = await item.getChatData();
+		if (!chatData.description.value) return;
 		// Toggle summary
 		if (li.hasClass("expanded")) {
 			let summary = li.children(".item-summary");

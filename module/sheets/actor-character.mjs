@@ -20,16 +20,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		});
 	}
 
-	layout = "base";
-
-	/** @override */
-	get template() {
-		if (!game.user.isGM && this.actor.limited) {
-			return "systems/tormenta20/templates/actor/actor-sheet-limited.html";
-		}
-		return "systems/tormenta20/templates/actor/actor-sheet-base.html";
-	}
-
 	/* -------------------------------------------- */
 	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
@@ -38,6 +28,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	async getData() {
 		const sheetData = await super.getData();
 		if (this.actor.type !== "character") return sheetData;
+		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
+		sheetData.limited = !game.user.isGM && limitedSetting === "limited" && this.actor.limited;
 		// Experience Tracking
 		sheetData.disableExperience = game.settings.get("tormenta20", "disableExperience");
 		sheetData.disableJournal = game.settings.get("tormenta20", "disableJournal");

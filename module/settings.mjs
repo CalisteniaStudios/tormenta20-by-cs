@@ -66,8 +66,7 @@ export const SystemSettings = function () {
 		choices: {
 			default: "Padrão",
 			limited: "Limitada"
-		},
-		requiresReload: true
+		}
 	});
 
 	/**
