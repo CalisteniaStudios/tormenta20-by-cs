@@ -708,23 +708,18 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	 */
 	_onItemRoll(event) {
 		event.preventDefault();
+		const usageConfig = game.settings.get("tormenta20", "UsageConfig") === "default";
 		let itemId;
+
 		if (event.currentTarget.closest(".item").dataset.itemId) {
 			itemId = event.currentTarget.closest(".item").dataset.itemId;
-		} else if (itemId = event.currentTarget.dataset.itemId) {
-			itemId = event.currentTarget.dataset.itemId;
-		}
-		const rollConfigs = {};
-		const UsageConfig = game.settings.get("tormenta20", "UsageConfig");
-		if (UsageConfig === "default") {
-			rollConfigs.configureDialog = !event.shiftKey;
-		} else {
-			rollConfigs.configureDialog = event.shiftKey;
-		}
-		rollConfigs.event = event;
-		const ignoreList = [];
+		} else itemId = event.currentTarget.dataset.itemId;
 		const item = this.actor.items.get(itemId);
-		if (!item || ignoreList.includes(item.type)) return;
+		const rollConfigs = {
+			configureDialog: !!item.system.rolls.length && (usageConfig ? !event.shiftKey : event.shiftKey),
+			event
+		};
+		if (!item) return;
 		return item.roll(rollConfigs);
 	}
 
