@@ -50,7 +50,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			ativacao: new fields.SchemaField({
 				custo: new fields.NumberField({ required: true, initial: 0, label: "T20.ItemActivationCost", hint: "T20.ItemActivationCostHint" }),
 				condicao: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemActivationCondition", hint: "T20.ItemActivationConditionHint" }),
-				execucao: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemActivationAction", hint: "T20.ItemActivationActionHint" }),
+				execucao: new fields.StringField({ required: true, nullable: false, initial: "passive", label: "T20.ItemActivationAction", hint: "T20.ItemActivationActionHint" }),
 				qtd: new fields.StringField({ initial: "", label: "T20.ItemActivationActionQuantity", hint: "T20.ItemActivationActionQuantityHint" }),
 				special: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemActivationSpecial", hint: "T20.ItemActivationSpecialHint" })
 			}),

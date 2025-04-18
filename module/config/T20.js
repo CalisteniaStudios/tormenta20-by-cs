@@ -213,7 +213,7 @@ preLocalize("timePeriods");
  * @type {Object}
  */
 T20.abilityActivationTypes = {
-	none: "T20.None",
+	// none: "T20.None",
 	passive: "T20.ActionPassive",
 	action: "T20.ActionNormal",
 	move: "T20.ActionMove",

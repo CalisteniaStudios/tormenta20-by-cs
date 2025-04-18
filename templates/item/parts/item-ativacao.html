@@ -4,7 +4,7 @@
 		<input type="number" name="system.ativacao.custo" value="{{item.system.ativacao.custo}}" data-dtype="Number" placeholder="0" /><label>{{ localize "T20.MP" }}</label>
 	</div>
 </div>
-	
+
 <div class="form-group input-select">
 	<label>{{ localize "T20.ConsumeTitle" }}</label>
 	<div class="form-fields">
@@ -24,7 +24,7 @@
 	<label>{{ localize "T20.ActivationCost" }}</label>
 	<div class="form-fields">
 		<select name="system.ativacao.execucao">
-			{{selectOptions config.abilityActivationTypes selected=item.system.ativacao.execucao localize=true blank=''}}
+			{{selectOptions config.abilityActivationTypes selected=item.system.ativacao.execucao localize=true }}
 		</select>
 		{{#if (eq system.ativacao.execucao "special") }}
 			<div class="form-fields">
