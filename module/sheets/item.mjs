@@ -117,7 +117,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			isPhysical: item.system.hasOwnProperty("qtd"),
 			// TextEditors
 			htmlFields: {
-				description: await TextEditor.enrichHTML(item.system.description.value, {
+				description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description.value, {
 					secrets: item.isOwner,
 					async: true,
 					relativeTo: this.item
@@ -257,7 +257,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 	/** @inheritdoc */
 	// async _onDrop(event) {
-	// 	const data = TextEditor.getDragEventData(event);
+	// 	const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
 	// 	// Handle different data types
 	// 	switch (data.type) {
 	// 		case "ActiveEffect":
