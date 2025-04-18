@@ -387,6 +387,9 @@
 
   "T20.Item": "Item",
   "T20.Items": "Itens",
+  "T20.LevelDown": "Diminuir Nível",
+  "T20.LevelUp": "Aumentar Nível",
+
   "T20.Power": "Poder",
   "T20.Powers": "Poderes",
   "T20.PowerTypeClassAbility": "Habilidade de Classe",

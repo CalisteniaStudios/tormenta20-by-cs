@@ -214,10 +214,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		html.find(".update-cd").click(this._onUpdateCD.bind(this));
 
 		// Item management
-		html.find(".item-edit").click(this._onItemEdit.bind(this));
-		// html.find(".item .item-name").on("contextmenu", this._onItemEdit.bind(this));
+		html.find(".item-edit").click((ev) => this._onItemEdit($(ev.currentTarget)));
 		html.find(".item-create").click(this._onItemCreate.bind(this));
-		html.find(".item-delete").click(this._onItemDelete.bind(this));
 		html.find(".item-qty input").click((ev) => ev.target.select())
 			.change(this._onQtyChange.bind(this));
 
@@ -258,7 +256,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
    * @protected
    */
 	_onItemToggleContext(element) {
-		const item = this.actor.items.get(element.closest("li").dataset.itemId);
+		const item = this.actor.items.get(element.closest("li").dataset.itemId || element.dataset?.itemId);
 		if (!item) return;
 		ui.context.menuItems = ActorSheetT20.prototype._getItemToggleContextOptions.call(this, item);
 		Hooks.call("tormenta20.getItemToggleContextOptions", item, ui.context.menuItems);
@@ -289,7 +287,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				condition: () => !compendiumLocked
 			}
 		];
-		if (this.layout === "tabbed") {
+		if (this.layout === "tabbed" && item.type !== "classe") {
 			const label = item.getFlag("tormenta20", "favorito") ? "T20.Unfavorite" : "T20.Favorite";
 			options.push({
 				name: game.i18n.localize(label),
@@ -377,6 +375,21 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				</span>`,
 				condition: isTwoHanded || item.system.equipado < 2,
 				callback: () => this._onToggleWeapon(item, 2)
+			});
+		} else if (item.type === "classe") {
+			options.push({
+				name: "T20.LevelUp",
+				group: "class",
+				icon: `<i class="fas fa-plus"></i>`,
+				condition: item.system.niveis < (game.settings.get("tormenta20", "gameSystem") === "Skyfall" ? 10 : 20),
+				callback: () => item.update({ "system.niveis": item.system.niveis + 1 })
+			});
+			options.push({
+				name: "T20.LevelDown",
+				group: "class",
+				icon: `<i class="fas fa-minus"></i>`,
+				condition: item.system.niveis > 1,
+				callback: () => item.update({ "system.niveis": item.system.niveis - 1 })
 			});
 		}
 		return options;

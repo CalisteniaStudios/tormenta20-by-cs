@@ -13,17 +13,14 @@
 				{{#if (eq ../actor.classes.length 1)}} {{class.name}} {{else}} {{class.abbr}} {{/if}}
 				{{class.system.niveis}}
 			</a>
-			<a class="item-control class-config item-delete" title="{{ localize 'T20.Delete'}}">
-				<i class="fas fa-trash" style="font-size: 14px;"></i>
-			</a>
 		</span>
 		{{/each}}
 		<a class="item-control class-config add-classe" title="{{ localize 'T20.Configure'}}">
 			<i class="fas fa-plus" style="float:right;margin-right: 5px;"></i>
 		</a>
 		{{else}}
-		<span class="item" data-item-id="{{class._id}}">
-			<a class="item-control item-edit add-classe" title="{{ localize 'T20.Edit'}}"> {{ localize 'T20.Class'}} </a>
+		<span data-item-id="{{class._id}}">
+			<a class="item-control item-edit add-classe"> {{ localize 'T20.Class'}} </a>
 		</span>
 		{{/if}}
 	</li>
