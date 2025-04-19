@@ -226,7 +226,6 @@
       font-size: initial;
 
       button {
-        background: rgba(255, 255, 240, 0.8);
         border: 1px solid #782e22;
         position: relative;
         display: inline-block;
@@ -235,6 +234,10 @@
         width: 24px;
         height: 24px;
         min-height: 24px;
+
+        &:not(:hover) {
+          background: rgba(255, 255, 240, 0.8);
+        }
       }
 
       &.right {

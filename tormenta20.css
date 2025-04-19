@@ -2466,7 +2466,6 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   font-size: initial;
 }
 .tormenta20.item-card .roll .dice-btn button {
-  background: rgba(255, 255, 240, 0.8);
   border: 1px solid #782e22;
   position: relative;
   display: inline-block;
@@ -2475,6 +2474,9 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   width: 24px;
   height: 24px;
   min-height: 24px;
+}
+.tormenta20.item-card .roll .dice-btn button:not(:hover) {
+  background: rgba(255, 255, 240, 0.8);
 }
 .tormenta20.item-card .roll .dice-btn.right {
   right: 1px;
