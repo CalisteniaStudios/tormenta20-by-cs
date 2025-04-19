@@ -1,17 +1,6 @@
 // import { T20 } from "../config.mjs";
 
 export default class RollT20 extends Roll {
-
-	static ROLLTYPES = {
-		FORMULA: 1,
-		ATTACK: 2,
-		DAMAGE: 3
-	};
-
-	// MODIFIERSDATA = {
-	// 	0: {type: "", value:"0", conditions: {flavor:"", origin:""}},
-	// }
-
 	static SORTMODIFIERS = {
 		addTerm: 0,
 		upgradeDie: 1,
@@ -21,13 +10,13 @@ export default class RollT20 extends Roll {
 		dieModifier: 5
 	};
 
-	constructor(formula, data, options) {
+	constructor(formula, data = {}, options = {}) {
 		super(formula, data, options);
-		if (!options.type) options.type = RollT20.ROLLTYPES.FORMULA;
+		if (!options.type) options.type = "formula";
 		if (!options.modifiers) options.modifiers = [];
-		if (options.type === RollT20.ROLLTYPES.FORMULA) this.configureFormulaModifiers();
-		else if (options.type === RollT20.ROLLTYPES.ATTACK) this.configureAttackModifiers();
-		else if (options.type === RollT20.ROLLTYPES.DAMAGE) this.configureDamageModifiers();
+		if (options.type === "formula") this.configureFormulaModifiers();
+		else if (options.type === "attack") this.configureAttackModifiers();
+		else if (options.type === "damage") this.configureDamageModifiers();
 		// console.log(this);
 	}
 
