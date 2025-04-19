@@ -74,7 +74,8 @@ globalThis.tormenta20 = {
 		models
 	},
 	canvas: {
-		AbilityTemplate
+		AbilityTemplate,
+		TokenT20
 	},
 	config: T20,
 	dice: dice,
