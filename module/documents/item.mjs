@@ -150,6 +150,15 @@ export default class ItemT20 extends Item {
 		return false;
 	}
 
+	/**
+	 * Should duplication of this item be allowed? Doesn't prevent programatic duplication, but affects UI controls.
+	 * @type {boolean}
+	 */
+	get canDuplicate() {
+		// Basicamente qualquer item de identidade cujo personagem não pode ter mais de um
+		return !["background", "classe", "devotion", "identity", "race"].includes(this.type);
+	}
+
 	/* -------------------------------------------- */
 	/*  DataPreparation                             */
 	/* -------------------------------------------- */
@@ -1033,6 +1042,7 @@ export default class ItemT20 extends Item {
 	async displayCard({ options, rollMode, createMessage=true }={}) {
 		// Basic template rendering data
 		const token = this.actor.token;
+		let rolls = [];
 
 		let manaCost = Number(this.system.ativacao.custo) || (options.hasManaCost ? 1 : null);
 		if (options.truque) manaCost = 0;
@@ -1053,12 +1063,15 @@ export default class ItemT20 extends Item {
 			rolls: []
 		};
 
-		for (let [key, roll] of Object.entries(this.system.rolled)) {
-			roll.tipo = (roll.options.type === "damage" || roll.dice[0]?.faces !== 20) ? "roll--dano" : "";
-			roll.options.title = key || "";
-			await roll.render().then((r) => {
-				templateData.rolls.push({ template: r, roll: roll });
-			});
+		if (this.system.rolled) {
+			for (let [key, roll] of Object.entries(this.system.rolled)) {
+				roll.tipo = (roll.options.type === "damage" || roll.dice[0]?.faces !== 20) ? "roll--dano" : "";
+				roll.options.title = key || "";
+				await roll.render().then((r) => {
+					templateData.rolls.push({ template: r, roll: roll });
+				});
+			}
+			rolls = Object.values(this.system.rolled);
 		}
 
 		// Render the chat card template
@@ -1068,7 +1081,7 @@ export default class ItemT20 extends Item {
 		// Create the ChatMessage data object
 		const chatData = {
 			user: game.user.id,
-			rolls: Object.values(this.system.rolled),
+			rolls,
 			content: html,
 			flavor: options.chatFlavor || this.system.chatFlavor || "",
 			speaker: ChatMessage.getSpeaker({ actor: this.actor }),

@@ -41,7 +41,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		);
 	}
 
-
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -276,24 +275,37 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 		const options = [
 			{
-				name: item.isOwner ? game.i18n.localize("T20.Edit") : game.i18n.localize("T20.ItemView"),
-				icon: item.isOwner ? '<i class="fas fa-edit"></i>' : '<i class="fas fa-expand"></i>',
+				name: item.isOwner ? "T20.Edit" : "T20.ItemView",
+				icon: item.isOwner ? '<i class="fas fa-edit"></i>' : '<i class="fas fa-eye"></i>',
 				callback: () => item.sheet.render(true)
 			},
 			{
-				name: game.i18n.localize("T20.Delete"),
+				name: "T20.Duplicate",
+				icon: '<i class="fas fa-copy "></i>',
+				callback: () => item.clone({ name: game.i18n.format("DOCUMENT.CopyOf", { name: item.name }) }, { save: true }),
+				condition: () => item.canDuplicate && item.isOwner && !compendiumLocked
+			},
+			{
+				name: "T20.Delete",
 				icon: '<i class="fas fa-trash"></i>',
 				callback: () => item.delete(),
 				condition: () => item.isOwner && !compendiumLocked
+			},
+			{
+				name: "T20.DisplayCard",
+				icon: '<i class="fas fa-message"></i>',
+				callback: () => item.displayCard({ options: { itemId: item.id } }),
+				condition: () => item.isOwner
 			}
 		];
 		if (!item.isOwner) return options;
 		if (this.layout === "tabbed" && item.type !== "classe") {
-			const label = item.getFlag("tormenta20", "favorito") ? "T20.Unfavorite" : "T20.Favorite";
+			const favorito = item.getFlag("tormenta20", "favorito");
 			options.push({
-				name: game.i18n.localize(label),
+				name: favorito ? "T20.Unfavorite" : "T20.Favorite",
+				group: "equips",
 				icon: '<i class="fas fa-star"></i>',
-				callback: () => item.setFlag("tormenta20", "favorito", !item.flags.tormenta20?.favorito)
+				callback: () => item.setFlag("tormenta20", "favorito", !favorito)
 			});
 		}
 		if (game.settings.get("tormenta20", "equipmentSlots") && item.system.equipado2) {
