@@ -113,29 +113,8 @@
     margin-right: 3px;
   }
 
-  .message-header {
-    .whisper-to,
-    .flavor-text {
-      flex-shrink: inherit;
-    }
-
-    .message-metadata {
-      display: none;
-
-      &:hover .message-timestamp {
-        display: inline-block;
-      }
-    }
-  }
-
-  &:hover {
-    .message-metadata {
-      display: inline-block;
-      float: right;
-    }
-    .message-metadata * + * {
-      margin: 0px 1px;
-    }
+  &:not(:hover) .message-metadata {
+    visibility: hidden;
   }
 
   .message-content.damage-card {

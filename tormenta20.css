@@ -2374,22 +2374,8 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   object-fit: fill;
   margin-right: 3px;
 }
-.chat-message .message-header .whisper-to,
-.chat-message .message-header .flavor-text {
-  flex-shrink: inherit;
-}
-.chat-message .message-header .message-metadata {
-  display: none;
-}
-.chat-message .message-header .message-metadata:hover .message-timestamp {
-  display: inline-block;
-}
-.chat-message:hover .message-metadata {
-  display: inline-block;
-  float: right;
-}
-.chat-message:hover .message-metadata * + * {
-  margin: 0px 1px;
+.chat-message:not(:hover) .message-metadata {
+  visibility: hidden;
 }
 .chat-message .message-content.damage-card * {
   font-size: 14px;
