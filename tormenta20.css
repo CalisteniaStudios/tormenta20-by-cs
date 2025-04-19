@@ -140,12 +140,11 @@
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.05);
 }
-.active-effect-sheet {
+.active-effect-config {
   /* Form Groups */
 }
-.active-effect-sheet .form-group .form-checks label {
-  line-height: 16px;
-  flex: 1!important;
+.active-effect-config .form-group .form-checks label {
+  flex-basis: 48%;
 }
 /* ----------------------------------------- */
 /*  Damage Resistances                       */
