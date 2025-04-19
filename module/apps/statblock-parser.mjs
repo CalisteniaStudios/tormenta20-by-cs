@@ -19,7 +19,7 @@ export default class StatblockParser extends FormApplication {
 			id: "statblock-parser",
 			classes: ["tormenta20"],
 			title: game.i18n.localize("T20.StatblockParser"),
-			template: "systems/tormenta20/templates/apps/statblock-parser.html",
+			template: "systems/tormenta20/templates/apps/statblock-parser.hbs",
 			width: 900,
 			height: "auto"
 		});

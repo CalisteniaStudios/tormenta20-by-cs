@@ -1,23 +1,23 @@
 <form class="tormenta20 simple" autocomplete="off">
 	{{!-- Sheet Tab Navigation --}}
-	{{> "systems/tormenta20/templates/partials/nav-bar.html"}}
-	
+	{{> "tormenta20.nav-bar"}}
+
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes active" data-group="primary" data-tab="attributes">
 			{{!-- Sheet Header --}}
-			{{> "systems/tormenta20/templates/actor/parts/sheet-header-simple.html"}}
-			
-			
+			{{> "tormenta20.sheet-header-simple"}}
+
+
 			<div class="inventory-list">
-				{{> "systems/tormenta20/templates/actor/parts/list-powers.html"}}
+				{{> "tormenta20.list-powers"}}
 				{{#if actor.maiorCirculo }}
-				{{> "systems/tormenta20/templates/actor/parts/list-spells.html"}}
+				{{> "tormenta20.list-spells"}}
 				{{/if}}
-				{{> "systems/tormenta20/templates/actor/parts/list-general.html"}}
-				{{> "systems/tormenta20/templates/actor/parts/currency.html"}}
-				{{> "systems/tormenta20/templates/actor/parts/encumbrance.html"}}
+				{{> "tormenta20.list-general"}}
+				{{> "tormenta20.currency"}}
+				{{> "tormenta20.encumbrance"}}
 			</div>
 		</div>
 		{{!-- Biography Tab --}}
@@ -27,7 +27,7 @@
 
 		{{!-- Effects Tab --}}
 		<div class="tab effects flexcol" data-group="primary" data-tab="effects">
-			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
+			{{> "tormenta20.active-effects"}}
 		</div>
 	</section>
 </form>

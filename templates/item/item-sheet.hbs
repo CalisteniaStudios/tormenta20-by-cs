@@ -1,6 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 	{{!-- Item Sheet Header --}}
-	{{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+	{{> "tormenta20.item-header"}}
 
 	{{!-- Item Sheet Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
@@ -20,7 +20,7 @@
 	{{!-- Item Sheet Body --}}
 	<section class="sheet-body">
 		{{!-- Description Tab --}}
-		{{> "systems/tormenta20/templates/item/parts/item-description.html"}}
+		{{> "tormenta20.item-description"}}
 
 		{{!-- Details Tab --}}
 		{{#if (eq item.type "consumivel")}}
@@ -42,12 +42,12 @@
 			</div>
 			<hr>
 			{{!-- Rolls --}}
-			{{> "systems/tormenta20/templates/item/parts/item-rolls.html"}}
+			{{> "tormenta20.item-rolls"}}
 
 			<hr>
 			<h3>Ativação</h3>
-			{{> "systems/tormenta20/templates/item/parts/item-ativacao.html"}}
-			{{> "systems/tormenta20/templates/item/parts/item-resistencia.html"}}
+			{{> "tormenta20.item-ativacao"}}
+			{{> "tormenta20.item-resistencia"}}
 
 			<hr>
 			<div class="form-group">
@@ -72,17 +72,17 @@
 
 		{{#if TODO }}
 		{{!-- Progression Tab --}}
-		{{> "systems/tormenta20/templates/item/parts/item-progression.html"}}
+		{{> "tormenta20.item-progression"}}
 		{{/if}}
 
 		{{#if (eq item.system.tipo "ammo")}}
 		{{!-- Enhancements Tab --}}
-		{{> "systems/tormenta20/templates/item/parts/item-enhancements.html"}}
+		{{> "tormenta20.item-enhancements"}}
 		{{/if}}
 
 		{{!-- Effects Tab --}}
 		<div class="tab effects" data-group="primary" data-tab="effects">
-			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
+			{{> "tormenta20.active-effects"}}
 		</div>
 	</section>
 </form>

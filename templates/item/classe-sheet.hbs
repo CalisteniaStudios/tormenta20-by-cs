@@ -1,6 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 	{{!-- Item Sheet Header --}}
-	{{> "systems/tormenta20/templates/item/parts/item-header.html"}}
+	{{> "tormenta20.item-header"}}
 	{{!-- Item Sheet Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item active" data-tab="details">{{ localize "T20.Details" }}</a>
@@ -9,13 +9,13 @@
 		{{/if}}
 		{{#if isGM}}<a class="item" data-tab="config">Configuração (GM)</a>{{/if}}
 	</nav>
-	
+
 	{{!-- Item Sheet Body --}}
 	<section class="sheet-body">
-	
+
 		{{!-- Details Tab --}}
 		<div class="tab details" data-group="primary" data-tab="details">
-			
+
 			{{!-- Class Levels --}}
 			<div class="form-group">
 				<label>{{ localize "T20.ClassLevels"}}</label>
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			{{/if}}
-			
+
 			{{!-- Class Hit Dice --}}
 			<div class="form-group">
 				<label>{{ localize "T20.ClassHPLevels" }}</label>
@@ -39,14 +39,14 @@
 					<input type="number" min="1" name="system.pvPorNivel" value="{{item.system.pvPorNivel}}" data-dtype="Number" />
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label>{{ localize "T20.ClassMPLevels" }}</label>
 				<div class="form-fields">
 					<input type="number" min="1" name="system.pmPorNivel" value="{{item.system.pmPorNivel}}" data-dtype="Number" />
 				</div>
 			</div>
-			
+
 			{{!-- Level 1 skills --}}
 			<div class="form-group">
 				<label>{{ localize "T20.ClassSkillsEligible"}}</label>
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 			{{/if}}
-			
+
 			<hr>
 			<div class="form-group">
 				<label for="TAGS">TAGS</label>
@@ -92,8 +92,8 @@
 			</div>
 			{{/if}}
 		</div>
-		
-		{{> "systems/tormenta20/templates/item/parts/item-progression.html"}}
+
+		{{> "tormenta20.item-progression"}}
 
 		<div class="tab config" data-group="primary" data-tab="config">
 			{{#if isGM}}

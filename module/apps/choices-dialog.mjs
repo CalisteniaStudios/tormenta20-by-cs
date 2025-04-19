@@ -60,7 +60,7 @@ export default class ChoicesDialog extends Dialog {
 		};
 
 		// Render the ability usage template
-		const html = await renderTemplate("systems/tormenta20/templates/apps/choices-dialog.html", data);
+		const html = await renderTemplate("systems/tormenta20/templates/apps/choices-dialog.hbs", data);
 
 		return await new Promise((resolve) => {
 			const dlg = new this(source, {

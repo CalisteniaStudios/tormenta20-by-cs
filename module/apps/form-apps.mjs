@@ -11,7 +11,7 @@ export class Tormenta20BaseSettings extends FormApplication {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "tormenta20-settings-form",
 			title: "Configurações",
-			template: "./systems/tormenta20/templates/apps/settings.html",
+			template: "./systems/tormenta20/templates/apps/settings.hbs",
 			classes: ["sheet"],
 			width: 640,
 			height: "auto",

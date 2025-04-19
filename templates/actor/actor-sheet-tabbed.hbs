@@ -1,8 +1,8 @@
 <form class="tormenta20 tabbed" autocomplete="off">
 	{{!-- Sheet Header --}}
-	{{> "systems/tormenta20/templates/actor/parts/sheet-header-tabbed.html"}}
+	{{> "tormenta20.sheet-header-tabbed"}}
 	{{!-- Sheet Tab Navigation --}}
-	{{> "systems/tormenta20/templates/partials/nav-bar.html"}}
+	{{> "tormenta20.nav-bar"}}
 
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
@@ -10,24 +10,24 @@
 		<div class="tab attributes flexrow" data-group="primary" data-tab="attributes">
 			<div class="attributes-mid">
 				{{!-- Abilities --}}
-				{{> "systems/tormenta20/templates/actor/parts/abilities.html"}}
+				{{> "tormenta20.abilities"}}
 				{{!-- Skills --}}
-				{{> "systems/tormenta20/templates/actor/parts/list-skills.html"}}
+				{{> "tormenta20.list-skills"}}
 			</div>
 			<div class="attributes-right flexcol">
 				{{!-- Extra Resources --}}
 				{{#if (or system.resources.shadow) }}
 				<div class="resource">
-					{{> "systems/tormenta20/templates/actor/parts/resources-extra.html"}}
+					{{> "tormenta20.resources-extra"}}
 				</div>
 				{{/if}}
 
 				{{!-- Favorites --}}
-				{{> "systems/tormenta20/templates/actor/parts/list-favorites.html"}}
+				{{> "tormenta20.list-favorites"}}
 
 				{{!-- Traits --}}
 				<div class="traits">
-					{{> "systems/tormenta20/templates/actor/parts/traits.html"}}
+					{{> "tormenta20.traits"}}
 					<textarea name="system.detalhes.info" rows="10">{{system.detalhes.info}}</textarea>
 				</div>
 			</div>
@@ -36,39 +36,39 @@
 		{{!-- Inventory Tab --}}
 		<div class="tab inventory" data-group="primary" data-tab="inventory">
 			<div class="inventory-list">
-				{{> "systems/tormenta20/templates/actor/parts/list-weapon.html"}}
-				{{> "systems/tormenta20/templates/actor/parts/list-equipment.html"}}
-				{{> "systems/tormenta20/templates/actor/parts/list-consumable.html"}}
-				{{> "systems/tormenta20/templates/actor/parts/list-loot.html"}}
-				{{> "systems/tormenta20/templates/actor/parts/currency.html"}}
-				{{> "systems/tormenta20/templates/actor/parts/encumbrance.html"}}
+				{{> "tormenta20.list-weapon"}}
+				{{> "tormenta20.list-equipment"}}
+				{{> "tormenta20.list-consumable"}}
+				{{> "tormenta20.list-loot"}}
+				{{> "tormenta20.currency"}}
+				{{> "tormenta20.encumbrance"}}
 			</div>
 		</div>
 
 		{{!-- Powers Tab --}}
 		<div class="tab powers" data-group="primary" data-tab="powers">
-			{{> "systems/tormenta20/templates/actor/parts/list-powers-tabbed.html"}}
+			{{> "tormenta20.list-powers-tabbed"}}
 		</div>
 
 		{{!-- Spells Tab --}}
 		<div class="tab spells" data-group="primary" data-tab="spells">
-			{{> "systems/tormenta20/templates/actor/parts/list-spells.html"}}
+			{{> "tormenta20.list-spells"}}
 		</div>
 
 
 		{{!-- Biography Tab --}}
 		<div class="tab journal flexrow flex-between" data-group="primary" data-tab="journal">
-			{{> "systems/tormenta20/templates/actor/parts/journal.html"}}
+			{{> "tormenta20.journal"}}
 		</div>
 
 		{{!-- Modifiers Tab --}}
 		<div class="tab modifiers" data-group="primary" data-tab="modifiers">
-			{{> "systems/tormenta20/templates/actor/parts/modifiers.html"}}
+			{{> "tormenta20.modifiers"}}
 		</div>
 
 		{{!-- Efeitos Tab --}}
 		<div class="tab effects" data-group="primary" data-tab="effects">
-			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
+			{{> "tormenta20.active-effects"}}
 		</div>
 	</section>
 </form>

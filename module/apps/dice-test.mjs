@@ -15,7 +15,7 @@ export default class DiceTest extends FormApplication {
 			id: "dice-test",
 			classes: ["tormenta20"],
 			title: "dice-test",
-			template: "systems/tormenta20/templates/apps/dice-test.html",
+			template: "systems/tormenta20/templates/apps/dice-test.hbs",
 			width: 500,
 			height: 500,
 			submitOnChange: true

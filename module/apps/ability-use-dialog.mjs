@@ -120,7 +120,7 @@ export default class AbilityUseDialog extends Dialog {
 		};
 
 		// Render the ability usage template
-		const html = await renderTemplate("systems/tormenta20/templates/apps/ability-use.html", data);
+		const html = await renderTemplate("systems/tormenta20/templates/apps/ability-use.hbs", data);
 
 		// Create the Dialog and return data as a Promise
 		const icon = item.type === "magia" ? "fas fa-magic" : "fa-fist-raised";

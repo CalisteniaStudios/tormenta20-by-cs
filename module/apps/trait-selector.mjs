@@ -10,7 +10,7 @@ export default class TraitSelector extends FormApplication {
 			id: "trait-selector",
 			classes: ["tormenta20", "trait-selector"],
 			title: game.i18n.localize("T20.ActorTraitSelection"),
-			template: "systems/tormenta20/templates/apps/trait-selector.html",
+			template: "systems/tormenta20/templates/apps/trait-selector.hbs",
 			width: 350,
 			height: "auto",
 			choices: {},

@@ -219,7 +219,7 @@ export async function rollChatMessage({ rolls= [], templateData={ item: { name: 
 	}
 
 	// Render the chat card template
-	let template = "systems/tormenta20/templates/chat/chat-card.html";
+	let template = "systems/tormenta20/templates/chat/chat-card.hbs";
 	const html = await renderTemplate(template, templateData);
 
 	// Create the ChatMessage data object

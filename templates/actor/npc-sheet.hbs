@@ -5,20 +5,20 @@
 	{{/if}}
 
 	{{!-- Sheet Tab Navigation --}}
-	{{> "systems/tormenta20/templates/partials/nav-bar.html"}}
+	{{> "tormenta20.nav-bar"}}
 
 	{{!-- Sheet Body --}}
 	<section class="sheet-body primary">
 
 		{{!-- Statblock Tab --}}
 		<div class="tab statblock flexcol " data-group="primary" data-tab="statblock">
-			{{> "systems/tormenta20/templates/actor/parts/statblock.html"}}
+			{{> "tormenta20.statblock"}}
 		</div>
 
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes flexcol " data-group="primary" data-tab="attributes">
 			{{!-- Sheet Header --}}
-			{{> "systems/tormenta20/templates/actor/parts/sheet-header-npc.html"}}
+			{{> "tormenta20.sheet-header-npc"}}
 			<nav class="sheet-tabs tabs secondary" data-group="secondary">
 				<a class="item" data-tab="sheet"><i class="fa-solid fa-diagram-project"></i> {{localize "T20.Details"}}</a>
 				<a class="item" data-tab="skills"><i class="fa-solid fa-person-running"></i> {{localize "T20.Skills"}}</a>
@@ -29,16 +29,16 @@
 
 			<section class="sheet-body secondary">
 				<div class="tab sheet" data-group="secondary" data-tab="sheet">
-					{{> "systems/tormenta20/templates/actor/parts/abilities.html"}}
+					{{> "tormenta20.abilities"}}
 					{{!-- Header Attributes --}}
 					<ul class="attributes flexrow">
 						{{!-- HP/MP Resources --}}
-						{{> "systems/tormenta20/templates/actor/parts/resources.html"}}
+						{{> "tormenta20.resources"}}
 						{{!-- Defense --}}
-						{{> "systems/tormenta20/templates/actor/parts/defense.html"}}
+						{{> "tormenta20.defense"}}
 					</ul>
 					<div class="traits">
-						{{> "systems/tormenta20/templates/actor/parts/traits.html"}}
+						{{> "tormenta20.traits"}}
 					</div>
 					<div class="traits">
 						<label>Linhas descritivas</label><br>
@@ -61,23 +61,23 @@
 					</div>
 				</div>
 				<div class="tab skills" data-group="secondary" data-tab="skills">
-					{{> "systems/tormenta20/templates/actor/parts/list-skills.html"}}
+					{{> "tormenta20.list-skills"}}
 				</div>
 				<div class="tab inventory" data-group="secondary" data-tab="inventory">
 					<div class="inventory-list">
-						{{> "systems/tormenta20/templates/actor/parts/list-weapon.html"}}
-						{{> "systems/tormenta20/templates/actor/parts/list-equipment.html"}}
-						{{> "systems/tormenta20/templates/actor/parts/list-consumable.html"}}
-						{{> "systems/tormenta20/templates/actor/parts/list-loot.html"}}
-						{{> "systems/tormenta20/templates/actor/parts/currency.html"}}
-						{{> "systems/tormenta20/templates/actor/parts/encumbrance.html"}}
+						{{> "tormenta20.list-weapon"}}
+						{{> "tormenta20.list-equipment"}}
+						{{> "tormenta20.list-consumable"}}
+						{{> "tormenta20.list-loot"}}
+						{{> "tormenta20.currency"}}
+						{{> "tormenta20.encumbrance"}}
 					</div>
 				</div>
 				<div class="tab powers" data-group="secondary" data-tab="powers">
-					{{> "systems/tormenta20/templates/actor/parts/list-powers.html"}}
+					{{> "tormenta20.list-powers"}}
 				</div>
 				<div class="tab spells" data-group="secondary" data-tab="spells">
-					{{> "systems/tormenta20/templates/actor/parts/list-spells.html"}}
+					{{> "tormenta20.list-spells"}}
 				</div>
 			</section>
 		</div>
@@ -94,11 +94,11 @@
 
 		{{!-- Modifiers Tab --}}
 		<div class="tab modifiers" data-group="primary" data-tab="modifiers">
-			{{> "systems/tormenta20/templates/actor/parts/modifiers.html"}}
+			{{> "tormenta20.modifiers"}}
 		</div>
 		{{!-- Effects Tab --}}
 		<div class="tab effects" data-group="primary" data-tab="effects">
-			{{> "systems/tormenta20/templates/partials/active-effects.html"}}
+			{{> "tormenta20.active-effects"}}
 		</div>
 	</section>
 </form>

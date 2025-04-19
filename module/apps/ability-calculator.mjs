@@ -5,7 +5,7 @@ export default class AbilityCalculator extends FormApplication {
 			id: "ability-calculator",
 			classes: ["tormenta20"],
 			title: game.i18n.localize("T20.AbilityCalculator"),
-			template: "systems/tormenta20/templates/apps/ability-calculator.html",
+			template: "systems/tormenta20/templates/apps/ability-calculator.hbs",
 			width: 500,
 			height: "auto"
 		});

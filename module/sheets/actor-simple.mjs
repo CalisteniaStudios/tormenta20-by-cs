@@ -14,7 +14,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 
 	/** @override */
 	get template() {
-		return "systems/tormenta20/templates/actor/simple-sheet.html";
+		return "systems/tormenta20/templates/actor/simple-sheet.hbs";
 	}
 
 	/**

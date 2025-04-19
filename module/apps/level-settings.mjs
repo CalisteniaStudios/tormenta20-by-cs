@@ -5,7 +5,7 @@ export default class LevelSettings extends FormApplication {
 			id: "trait-selector",
 			classes: ["tormenta20"],
 			title: "Configuração de Nível",
-			template: "systems/tormenta20/templates/apps/level-settings.html",
+			template: "systems/tormenta20/templates/apps/level-settings.hbs",
 			width: 500,
 			height: "auto",
 			choices: {},

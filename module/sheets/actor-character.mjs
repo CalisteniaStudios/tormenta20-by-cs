@@ -30,9 +30,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	get template() {
 		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
 		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
-			return "systems/tormenta20/templates/actors/limited-sheet.html";
+			return "systems/tormenta20/templates/actors/limited-sheet.hbs";
 		}
-		return `systems/tormenta20/templates/actor/actor-sheet-${this.layout}.html`;
+		return `systems/tormenta20/templates/actor/actor-sheet-${this.layout}.hbs`;
 	}
 
 	/* -------------------------------------------- */

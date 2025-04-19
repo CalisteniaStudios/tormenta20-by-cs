@@ -640,7 +640,7 @@ export default class ActorT20 extends Actor {
 				}
 			}
 		};
-		let template = "systems/tormenta20/templates/chat/chat-card.html";
+		let template = "systems/tormenta20/templates/chat/chat-card.hbs";
 		const html = await renderTemplate(template, content);
 		const chatData = {
 			user: game.user.id,
@@ -1142,7 +1142,7 @@ export default class ActorT20 extends Actor {
 			chatDMG: chatDamage,
 			setting: game.settings.get("tormenta20", "showDamageCards")
 		};
-		let template = "systems/tormenta20/templates/chat/chat-card-damage.html";
+		let template = "systems/tormenta20/templates/chat/chat-card-damage.hbs";
 		const html = await renderTemplate(template, templateData);
 
 		let chatData = {
@@ -1495,7 +1495,7 @@ export default class ActorT20 extends Actor {
 		}
 
 		// Render the chat card template
-		let template = "systems/tormenta20/templates/chat/chat-card.html";
+		let template = "systems/tormenta20/templates/chat/chat-card.hbs";
 		const html = await renderTemplate(template, templateData);
 
 		// Create the ChatMessage data object
