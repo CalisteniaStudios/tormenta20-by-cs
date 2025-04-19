@@ -21,6 +21,21 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	}
 
 	/* -------------------------------------------- */
+
+	layout = "base";
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	get template() {
+		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
+		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
+			return "systems/tormenta20/templates/actors/limited-sheet.html";
+		}
+		return `systems/tormenta20/templates/actor/actor-sheet-${this.layout}.html`;
+	}
+
+	/* -------------------------------------------- */
 	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
 

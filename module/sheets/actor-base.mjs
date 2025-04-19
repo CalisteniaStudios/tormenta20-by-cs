@@ -41,9 +41,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		);
 	}
 
-	/* -------------------------------------------- */
-
-	layout = "base";
 
 	/* -------------------------------------------- */
 
@@ -53,7 +50,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
 			return "systems/tormenta20/templates/actors/limited-sheet.html";
 		}
-		return `systems/tormenta20/templates/actor/actor-sheet-${this.layout}.html`;
+		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.html`;
 	}
 
 	/**
