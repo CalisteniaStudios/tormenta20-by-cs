@@ -24,7 +24,7 @@ import ActorSheetT20Character from "./module/sheets/actor-character.mjs";
 import ActorSheetT20NPC from "./module/sheets/actor-npc.mjs";
 import ActorSheetT20Simple from "./module/sheets/actor-simple.mjs";
 import ActorSheetT20CharacterTabbed from "./module/sheets/actor-tabbed.mjs";
-import ItemSheetT20 from "./module/sheets/item.mjs";
+import ItemSheetT20 from "./module/sheets/item-sheet.mjs";
 
 // Import Applications
 import AbilityUseDialog from "./module/apps/ability-use-dialog.mjs";
