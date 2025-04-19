@@ -203,7 +203,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 		// Configure Special Flags
 		html.find(".config-button").click(this._onConfigMenu.bind(this));
-		// html.find('.level-settings').click(this._onLevelSettings.bind(this));
 		html.find("#configure-skills").click(async (ev) => {
 			const { MODES } = this.constructor;
 			const toggle = ev.currentTarget;
@@ -749,7 +748,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		let app;
 		switch (button.dataset.action) {
 			case "level":
-				this._onLevelSettings(event);
+				app = new LevelSettings(this.object);
 				break;
 			case "movement":
 				app = new ActorMovementConfig(this.object);
@@ -758,7 +757,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				app = new ActorResistanceConfig(this.object);
 				break;
 			case "ability":
-				app = new AbilityCalculator(this.object).render(true);
+				app = new AbilityCalculator(this.object);
 				break;
 			case "rest":
 				RestConfigDialog.create([this.object]);
@@ -774,21 +773,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			// 	break;
 		}
 		app?.render(true);
-	}
-
-	_onLevelSettings(event) {
-		event.preventDefault();
-		const actorData = this.object;
-		const a = event.currentTarget;
-		const config = CONFIG.T20;
-		const classes = [];
-		actorData.items.forEach((item) => {
-			if (item.type === "classe") {
-				classes.push(item);
-			}
-		});
-		const options = { classes, config };
-		new LevelSettings(this.actor, options).render(true);
 	}
 
 	/**
