@@ -491,14 +491,17 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		};
 
 		switch (a.dataset.options) {
-			case "pericias":
+			case "pericias": {
 				const skills = this.item.system.pericias;
-				const choiceSet = skills.escolhas && skills.escolhas.length ? skills.escolhas : Object.keys(CONFIG.T20.pericias);
-				options.choices = Object.fromEntries(Object.entries(CONFIG.T20.pericias).filter((skill) => choiceSet.includes(skill[0])));
+				const choiceSet = skills.escolhas?.length ? skills.escolhas : Object.keys(CONFIG.T20.pericias);
+				options.choices = Object.fromEntries(
+					Object.entries(CONFIG.T20.pericias).filter(([skill]) => choiceSet.includes(skill))
+				);
 				options.allowCustom = true;
 				options.minimum = skills.numero;
 				options.maximum = skills.numero;
 				break;
+			}
 		}
 
 		new TraitSelector(this.item, options).render(true);
