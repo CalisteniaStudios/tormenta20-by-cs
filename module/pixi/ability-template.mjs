@@ -290,8 +290,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 			if (now - moveTime <= 20) return;
 			const center = event.data.getLocalPosition(this.layer);
 			const snapped = canvas.grid.getSnappedPosition(center.x, center.y, 2);
-			if (game.release.generation < 10) this.document.update({ x: snapped.x, y: snapped.y });
-			else this.document.updateSource({ x: snapped.x, y: snapped.y });
+			this.document.updateSource({ x: snapped.x, y: snapped.y });
 			this.refresh();
 			moveTime = now;
 		};
@@ -311,8 +310,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 		handlers.lc = (event) => {
 			handlers.rc(event);
 			const destination = canvas.grid.getSnappedPosition(this.document.x, this.document.y, 2);
-			if (game.release.generation < 10) this.document.update(destination);
-			else this.document.updateSource(destination);
+			this.document.updateSource(destination);
 			canvas.scene.createEmbeddedDocuments("MeasuredTemplate", [this.document.toObject()]);
 		};
 
@@ -323,8 +321,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 			let delta = canvas.grid.type > CONST.GRID_TYPES.SQUARE ? 30 : 15;
 			let snap = event.shiftKey ? delta : 5;
 			const update = { direction: this.document.direction + (snap * Math.sign(event.deltaY)) };
-			if (game.release.generation < 10) this.document.update(update);
-			else this.document.updateSource(update);
+			this.document.updateSource(update);
 			this.refresh();
 		};
 

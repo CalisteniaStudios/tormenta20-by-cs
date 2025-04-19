@@ -272,7 +272,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	_getItemToggleContextOptions(item) {
 		const equipados = this.actor.items.filter((i) => (i.system.equipado2?.slot > 0));
 		const equips = this.actor.system.equipamentos;
-		const compendiumLocked = item[game.release.generation < 13 ? "compendium" : "collection"]?.locked;
+		const compendiumLocked = item.collection?.locked;
 
 		const options = [
 			{
@@ -553,7 +553,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			{ name: "system.modificadores.pericias.geral", label: "Testes de Perícias" },
 			{ name: "system.modificadores.pericias.ataque", label: "Testes de Perícias de Ataque" },
 			{ name: "system.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque" },
-			{ name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resitências" },
+			{ name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resistências" },
 			{ name: "system.modificadores.pericias.atr.for", label: "Testes de Perícias de Força" },
 			{ name: "system.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza" },
 			{ name: "system.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição" },
