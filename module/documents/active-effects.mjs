@@ -52,6 +52,23 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		if (this.isSuppressed) return null;
 		if (change.key.match(/\.\?+\./)) return null;
 		if (change.key.startsWith("flags.tormenta20.")) change = this._prepareFlagChange(actor, change);
+		const wildcardPatterns = [
+			"system.atributos.*.bonus",
+			"system.pericias.*.bonus",
+			"system.pericias.*.condi",
+			"system.attributes.movement.*"
+		];
+		if (change.key.includes("*") && wildcardPatterns.includes(change.key)) {
+			// Replica `system.path.*.key` pra todas as chaves de `system.path`
+			let [fieldPath, field] = change.key.split(".*");
+			field ??= "";
+			const property = foundry.utils.getProperty(actor, fieldPath);
+			for (const key of Object.keys(property)) {
+				change.key = `${fieldPath}.${key}${field}`;
+				super.apply(actor, change);
+			}
+			return {};
+		}
 		return super.apply(actor, change);
 	}
 

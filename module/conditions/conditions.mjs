@@ -7,36 +7,7 @@ T20Conditions.abalado = {
 	statuses: ["abalado"],
 	icon: "systems/tormenta20/icons/conditions/abalado.svg",
 	flags: { tormenta20: { condition: true, durationScene: true, stack: "apavorado", category: "medo" } },
-	changes: [
-		{ key: "system.pericias.acro.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.ades.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.atle.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.atua.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.cava.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.conh.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.cura.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.dipl.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.enga.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.fort.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.furt.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.guer.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.inic.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.inti.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.intu.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.inve.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.joga.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.ladi.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.luta.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.mist.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.nobr.condi", mode: 3, value: -2 },
-		// {key: "system.pericias.ofic.condi", mode:3, value:-2},
-		{ key: "system.pericias.perc.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.pilo.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.pont.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.refl.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.reli.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.sobr.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.vont.condi", mode: 3, value: -2 }]
+	changes: [{ key: "system.pericias.*.condi", mode: 3, value: -2 }]
 };
 
 T20Conditions.agarrado = {
@@ -67,35 +38,7 @@ T20Conditions.apavorado = {
 	statuses: ["apavorado"],
 	icon: "systems/tormenta20/icons/conditions/apavorado.svg",
 	flags: { tormenta20: { condition: true, durationScene: true, category: "medo" } },
-	changes: [{ key: "system.pericias.acro.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.ades.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.atle.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.atua.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.cava.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.conh.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.cura.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.dipl.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.enga.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.fort.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.furt.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.guer.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.inic.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.inti.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.intu.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.inve.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.joga.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.ladi.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.mist.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.nobr.condi", mode: 3, value: -5 },
-		// {key: "system.pericias.ofic.condi", mode:3, value:-5},
-		{ key: "system.pericias.perc.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.pilo.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.pont.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.refl.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.reli.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.sobr.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.vont.condi", mode: 3, value: -5 }]
+	changes: [{ key: "system.pericias.*.condi", mode: 3, value: -5 }]
 };
 
 T20Conditions.atordoado = {
@@ -115,11 +58,7 @@ T20Conditions.caido = {
 	icon: "systems/tormenta20/icons/conditions/caido.svg",
 	flags: { tormenta20: { condition: true } },
 	changes: [{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
-		{ key: "system.attributes.movement.walk", mode: 3, value: 1.5 },
-		{ key: "system.attributes.movement.burrow", mode: 3, value: 1.5 },
-		{ key: "system.attributes.movement.climb", mode: 3, value: 1.5 },
-		{ key: "system.attributes.movement.fly", mode: 3, value: 1.5 },
-		{ key: "system.attributes.movement.swim", mode: 3, value: 1.5 }]
+		{ key: "system.attributes.movement.*", mode: 3, value: 1.5 }]
 };
 
 T20Conditions.cego = {
@@ -398,11 +337,7 @@ T20Conditions.lento = {
 	statuses: ["lento"],
 	icon: "systems/tormenta20/icons/conditions/lento.svg",
 	flags: { tormenta20: { condition: true, durationScene: true, category: "movimento" } },
-	changes: [{ key: "system.attributes.movement.walk", mode: 1, value: 0.5 },
-		{ key: "system.attributes.movement.burrow", mode: 1, value: 0.5 },
-		{ key: "system.attributes.movement.climb", mode: 1, value: 0.5 },
-		{ key: "system.attributes.movement.fly", mode: 1, value: 0.5 },
-		{ key: "system.attributes.movement.swim", mode: 1, value: 0.5 }]
+	changes: [{ key: "system.attributes.movement.*", mode: 1, value: 0.5 }]
 };
 
 T20Conditions.morto = {
@@ -514,10 +449,6 @@ T20Conditions.sobrecarregado = {
 	flags: { tormenta20: { condition: true, durationScene: true, category: "movimento" } },
 	changes: [
 		{ key: "system.attributes.defesa.pda", mode: 2, value: 2 },
-		{ key: "system.attributes.movement.walk", mode: 2, value: -3 },
-		{ key: "system.attributes.movement.burrow", mode: 2, value: -3 },
-		{ key: "system.attributes.movement.climb", mode: 2, value: -3 },
-		{ key: "system.attributes.movement.fly", mode: 2, value: -3 },
-		{ key: "system.attributes.movement.swim", mode: 2, value: -3 }
+		{ key: "system.attributes.movement.*", mode: 2, value: -3 }
 	]
 };
