@@ -16,7 +16,10 @@ import ChatMessageTormenta20 from "./module/documents/chat-message.mjs";
 import ItemT20 from "./module/documents/item.mjs";
 import RollT20 from "./module/documents/roll.mjs";
 import TokenDocumentT20 from "./module/documents/token.mjs";
-import TokenT20 from "./module/pixi/token.mjs";
+
+// Import Canvas
+import AbilityTemplate from "./module/canvas/ability-template.mjs";
+import TokenT20 from "./module/canvas/token.mjs";
 
 // Import Sheets
 import ActiveEffectConfigT20 from "./module/sheets/active-effects.mjs";
@@ -34,7 +37,6 @@ import CompendiumT20 from "./module/apps/compendium.mjs";
 import RestConfigDialog from "./module/apps/rest-config.mjs";
 import StatblockParser from "./module/apps/statblock-parser.mjs";
 import TraitSelector from "./module/apps/trait-selector.mjs";
-import AbilityTemplate from "./module/pixi/ability-template.mjs";
 // import CombatTrackerT20 from "./module/apps/combat.mjs";
 
 // Import Helpers
