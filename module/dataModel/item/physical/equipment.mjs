@@ -19,7 +19,7 @@ export default class EquipmentData extends Tormenta20ItemData {
 			}),
 			armadura: new fields.SchemaField({
 				maxAtr: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.ItemEquipmentDefenseMaxAbility", hint: "T20.ItemEquipmentDefenseMaxAbilityHint" }),
-				penalidade: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.ItemEquipmentArmorPenalty", hint: "T20.ItemEquipmentArmorPenaltyHint" }),
+				penalidade: new fields.NumberField({ required: true, nullable: false, initial: 0, max: 0, label: "T20.ItemEquipmentArmorPenalty", hint: "T20.ItemEquipmentArmorPenaltyHint" }),
 				value: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.ItemEquipmentDefenseValue", hint: "T20.ItemEquipmentDefenseValueHint" })
 			}),
 			tipo: new fields.StringField({ required: true, nullable: false, initial: "leve", label: "T20.ItemType", hint: "T20.ItemTypeHint" })
