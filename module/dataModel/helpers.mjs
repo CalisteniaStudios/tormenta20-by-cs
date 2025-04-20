@@ -125,6 +125,20 @@ class MappingField extends fields.ObjectField {
 	}
 }
 
+/**
+ * A subclass of NumberField that casts all numbers to negative values.
+ * @extends NumberField
+ * @param {NumberFieldOptions} options  Options which configure the behavior of the field
+ * @param {DataFieldContext} [context]  Additional context which describes the field
+ */
+class NegativeNumberField extends fields.NumberField {
+	_cast(value) {
+		value = super._cast(value);
+		if (value > 0) return -value;
+		return value;
+	}
+}
+
 class ActorSkillsField extends MappingField {
 	/** @inheritdoc */
 	getInitialValue(data) {
@@ -391,6 +405,6 @@ function getSaveItemData() {
 
 export {
 	_resourceSchema, AbilitiesSchema, ActorSkillsField, getActivationItemData, getObjectBaseData,
-	getObjectItemData, getSaveItemData, MappingField, ResistanceSchema, RollData, SkillData
+	getObjectItemData, getSaveItemData, MappingField, NegativeNumberField, ResistanceSchema, RollData, SkillData
 };
 
