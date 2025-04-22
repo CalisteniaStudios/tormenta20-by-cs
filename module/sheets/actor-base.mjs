@@ -22,6 +22,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	_mode = null;
 
+	static _warnedAppV1 = true;
+
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
