@@ -65,7 +65,8 @@ export const preloadHandlebarsTemplates = async function () {
 	const paths = {};
 	for (const path of templatePaths) {
 		const htmlPath = path.replace(".hbs", ".html");
-		const baseName = path.split("/").pop().replace(".hbs", "");
+		const baseName = path.split("/").pop()
+			.replace(".hbs", "");
 
 		paths[htmlPath] = path;
 		paths[`tormenta20.${baseName}`] = path;
