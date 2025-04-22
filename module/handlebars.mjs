@@ -72,7 +72,7 @@ export function registerHandlebarsHelpers() {
 				const defesa = actor.system.attributes.defesa;
 				const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
 				const armaduras = actor.itemTypes.equipamento
-					.filter((i) => ["escudo", "leve", "pesada"].includes(i.system.tipo) && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado))
+					.filter((i) => (equipmentSlots ? i.system.equipado2.slot : i.system.equipado))
 					.map((i) => {
 						return {
 							label: i.name,
@@ -85,7 +85,7 @@ export function registerHandlebarsHelpers() {
 				listEffects = [
 					{ label: "Base", value: defesa.base },
 					(meioNivel ? { label: "Metade do Nível", value: meioNivel } : false),
-					(defesa.atributo && (defesa.atributo !== "des" || !armaduraPesada)
+					(defesa.atributo && !armaduraPesada
 						? { label: CONFIG.T20.atributos[defesa.atributo], value: rollData[defesa.atributo] }
 						: false),
 					...armaduras,
