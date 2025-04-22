@@ -64,7 +64,6 @@ export default class CreatureData extends Tormenta20TypeData {
 		let schema = {};
 		Object.keys(T20.atributos).forEach((abl) => schema[abl] = getSchema());
 		return new fields.SchemaField(schema);
-		return schema;
 	}
 
 	static schemaSkills(type="character") {
@@ -88,9 +87,7 @@ export default class CreatureData extends Tormenta20TypeData {
 
 		let schema = {};
 		Object.keys(T20.pericias).forEach((skill) => schema[skill] = getSchema(skill));
-		fields.embedded;
 		return new fields.SchemaField(schema);
-		return schema;
 	}
 
 	static schemaDefense(type="character") {
@@ -338,7 +335,6 @@ export default class CreatureData extends Tormenta20TypeData {
 		let schema = {};
 		Object.keys(T20.damageTypes).forEach((dmg) => schema[dmg] = getSchema());
 		return new fields.SchemaField(schema);
-		return schema;
 	}
 
 	static schemaTraits(type="character") {
