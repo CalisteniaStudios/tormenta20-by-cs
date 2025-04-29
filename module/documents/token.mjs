@@ -18,7 +18,7 @@ export default class TokenDocumentT20 extends TokenDocument {
 
 	prepareBaseData() {
 		super.prepareBaseData();
-		TokenDocumentT20.prepareSize(this);
+		// TokenDocumentT20.prepareSize(this); // TODO isso bloqueia qualquer alteração de tamanho/escala
 	}
 
 	static prepareSize(token) {
