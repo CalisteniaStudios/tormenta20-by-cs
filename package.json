@@ -6,6 +6,7 @@
     "build": "gulp",
     "compile": "gulp css",
     "watch": "gulp watch",
+    "link": "node ./utils/create-symlinks.mjs",
     "lint": "eslint --ext .js,.cjs,.mjs .",
     "lint:fix": "eslint --ext .js,.cjs,.mjs --fix .",
     "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs .",
@@ -18,7 +19,7 @@
   "author": "John Doe",
   "license": "MIT",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "@babel/eslint-parser": "^7.27.0",
     "@stylistic/eslint-plugin-js": "^1.8.1",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
