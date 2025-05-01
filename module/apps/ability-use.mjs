@@ -70,7 +70,16 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		if (ch.key.match(/dano\:\w+/)) {
 			[ch.key, damageTypeTarget] = ch.key.split(":");
 		}
-		rolls = id.rolls.filter((r) => (((ch.key == "roll" && item.type!=="arma") || r.key == ch.key || r.key.match(new RegExp(ch.key)) || ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos", "danoCritico", "critico", "ignoraRD", "danoMultiplicavel"].includes(ch.key) || ch.key.match(/\@([^\#]+)\#/))));
+		const atributosEspeciais = ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos", "danoCritico", "critico", "ignoraRD", "danoMultiplicavel"];
+		rolls = id.rolls.filter((r) => {
+			return (
+				(ch.key === "roll" && item.type !== "arma")
+				|| r.key === ch.key
+				|| r.key.match(new RegExp(ch.key))
+				|| atributosEspeciais.includes(ch.key)
+				|| /@([^#]+)#/.test(ch.key)
+			);
+		});
 	}
 	ch.key = ch.key.toString();
 	if (ch.value.toString().match(/^:/)) {
@@ -194,7 +203,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				});
 				continue;
 			} // To ignore part of Damage Reduction
-			else if (r.type == "dano" && ch.key == "ignoraRD") {
+			else if (r.type === "dano" && ch.key === "ignoraRD") {
 				r.rd ??= 0;
 				r.rd += Math.abs(Number(ch.value * qty)) * -1;
 			} else {
