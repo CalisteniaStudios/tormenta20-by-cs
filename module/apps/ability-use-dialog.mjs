@@ -120,7 +120,7 @@ export default class AbilityUseDialog extends Dialog {
 		};
 
 		// Render the ability usage template
-		const html = await renderTemplate("systems/tormenta20/templates/apps/ability-use.hbs", data);
+		const html = await foundry.applications.handlebars.renderTemplate("systems/tormenta20/templates/apps/ability-use.hbs", data);
 
 		// Create the Dialog and return data as a Promise
 		const icon = item.type === "magia" ? "fas fa-magic" : "fa-fist-raised";
@@ -135,7 +135,7 @@ export default class AbilityUseDialog extends Dialog {
 						icon: `<i class="fas ${icon}"></i>`,
 						label: label,
 						callback: (html) => {
-							const fd = new FormDataExtended(html[0].querySelector("form"));
+							const fd = new foundry.applications.ux.FormDataExtended(html[0].querySelector("form"));
 							let op = applyOnUseEffects(item, fd.object);
 							resolve(foundry.utils.mergeObject(fd.object, op));
 						}
@@ -149,7 +149,7 @@ export default class AbilityUseDialog extends Dialog {
 					icon: "<i class=\"fas fa-flask\"></i>",
 					label: game.i18n.localize("T20.BrewPotion"),
 					callback: (html) => {
-						const fd = new FormDataExtended(html[0].querySelector("form"));
+						const fd = new foundry.applications.ux.FormDataExtended(html[0].querySelector("form"));
 						fd.object.brew = true;
 						let op = applyOnUseEffects(item, fd.object);
 						resolve(foundry.utils.mergeObject(fd.object, op));

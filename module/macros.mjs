@@ -220,7 +220,7 @@ export async function rollChatMessage({ rolls= [], templateData={ item: { name: 
 
 	// Render the chat card template
 	let template = "systems/tormenta20/templates/chat/chat-card.hbs";
-	const html = await renderTemplate(template, templateData);
+	const html = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
 	// Create the ChatMessage data object
 	const chatData = {

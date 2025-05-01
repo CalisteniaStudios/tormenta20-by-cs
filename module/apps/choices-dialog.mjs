@@ -60,7 +60,7 @@ export default class ChoicesDialog extends Dialog {
 		};
 
 		// Render the ability usage template
-		const html = await renderTemplate("systems/tormenta20/templates/apps/choices-dialog.hbs", data);
+		const html = await foundry.applications.handlebars.renderTemplate("systems/tormenta20/templates/apps/choices-dialog.hbs", data);
 
 		return await new Promise((resolve) => {
 			const dlg = new this(source, {
@@ -70,7 +70,7 @@ export default class ChoicesDialog extends Dialog {
 					ok: {
 						label: "OK",
 						callback: (html) => {
-							const fd = new FormDataExtended(html[0].querySelector("form"));
+							const fd = new foundry.applications.ux.FormDataExtended(html[0].querySelector("form"));
 							resolve(fd.object);
 						}
 					}

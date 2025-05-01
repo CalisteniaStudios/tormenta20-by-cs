@@ -56,7 +56,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	_getSubmitData(updateData={}) {
 		const formData = foundry.utils.expandObject(super._getSubmitData(updateData));
 		// Create the expanded update data object
-		// const fd = new FormDataExtended(this.form, {editors: this.editors});
+		// const fd = new foundry.applications.ux.FormDataExtended(this.form, {editors: this.editors});
 		// let tdata = fd.object;
 		// let data = fd.object;//{};
 		// for (let key of Object.keys( tdata ) ){

@@ -50,7 +50,7 @@ export default class RestConfigDialog extends foundry.applications.api.DialogV2 
 				}
 			};
 			let template = "systems/tormenta20/templates/chat/chat-card.hbs";
-			const html = await renderTemplate(template, content);
+			const html = await foundry.applications.handlebars.renderTemplate(template, content);
 			const chatData = {
 				user: game.user.id,
 				type: CONST.CHAT_MESSAGE_STYLES.OTHER,
