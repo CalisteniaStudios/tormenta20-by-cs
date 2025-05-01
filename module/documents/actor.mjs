@@ -983,13 +983,12 @@ export default class ActorT20 extends Actor {
 	* @param {number} multiplier	 A multiplier which allows for resistance, vulnerability, or healing
 	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	*/
-	async applyDamageV2(roll, multiplier = 1, applyRD = false) {
-		applyRD = true;
+	async applyDamageV2(roll, multiplier = 1) {
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
 		const rdsEx = Object.entries(rds).filter((i) => i[1].excecao)
-			.reduce((acc, d) => (acc[d[0]]= d[1].excecao, acc), {});
+			.reduce((acc, [key, value]) => (acc[key] = value.excecao), {});
 
 		const PCVuln = this.type === "character";
 		const NPCVuln = this.type === "npc";
@@ -1014,19 +1013,12 @@ export default class ActorT20 extends Actor {
 
 		let rdIgnorada = Math.abs(roll.options.rd ?? 0);
 		function ignoraRD(damageType) {
-			if (rdIgnorada === rds[damageType].value) {
-				rdIgnorada = 0;
-				rds[damageType].value = 0;
-			} else if (rdIgnorada > rds[damageType].value) {
-				rdIgnorada = rdIgnorada - rds[damageType].value;
-				rds[damageType].value = 0;
-			} else {
-				rds[damageType].value = rds[damageType].value - rdIgnorada;
-				rdIgnorada = 0;
-			}
+			const rd = Number(rds[damageType].value);
+			rds[damageType].value = Math.max(rd - rdIgnorada, 0);
+			rdIgnorada = Math.max(rdIgnorada - rd, 0);
 		}
 
-		ignoraRD("dano");
+		if (rdIgnorada) ignoraRD("dano");
 
 		// Apply Damage Reduction for each type of damage
 		let final = {
@@ -1052,16 +1044,14 @@ export default class ActorT20 extends Actor {
 				final.tempMP += dmg.value;
 			} else {
 				let r = 0;
-				if (applyRD && type === "dano") {
-					// r = Number( rds[type]?.value ?? 0 );
-				} else if (applyRD) {
+				if (type !== "dano") {
 					// OLD: Number(rds.dano?.value ?? 0) +
 					// Somava RD do tipo 'dano' a todos os tipos;
-					ignoraRD(type);
+					if (rdIgnorada) ignoraRD(type);
 					r = Number(rds[type]?.value ?? 0);
 				}
 
-				if (applyRD && !foundry.utils.isEmpty(rdsEx) && !rdsEx[type]) {
+				if (!foundry.utils.isEmpty(rdsEx) && !rdsEx[type]) {
 					r += Number(Object.values(rdsEx)[0]);
 				}
 				if (NPCVuln && rds[type]?.vulnerabilidade) {
@@ -1078,7 +1068,6 @@ export default class ActorT20 extends Actor {
 				final.damage += acc;
 			}
 		}
-		console.log(damage);
 		// Apply the multiplier
 		final.damage = Math.floor(final.damage * multiplier);
 		final.total = Math.floor(final.total * multiplier);

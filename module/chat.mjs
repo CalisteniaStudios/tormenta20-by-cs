@@ -125,7 +125,7 @@ function _onChatSpendCatarse(event) {
 function _callApplyDamage(roll, multiplier) {
 	if (canvas.tokens.controlled.length) {
 		return Promise.all(canvas.tokens.controlled.map((tk) => {
-			if (roll) return tk.actor.applyDamageV2(roll, multiplier, true);
+			if (roll) return tk.actor.applyDamageV2(roll, multiplier);
 			// return tk.actor.applyDamage(amount, multiplier, true);
 		}));
 	}
@@ -149,7 +149,7 @@ export function _onChatApplyDamage(event) {
 	if (amount && multiplier) {
 		if (canvas.tokens.controlled.length) {
 			return Promise.all(canvas.tokens.controlled.map((tk) => {
-				if (roll) return tk.actor.applyDamageV2(roll, multiplier, true);
+				if (roll) return tk.actor.applyDamageV2(roll, multiplier);
 				return tk.actor.applyDamage(amount, multiplier, true);
 			}));
 		}
@@ -167,7 +167,7 @@ export function _onChatApplyDamage(event) {
 	* @return {Promise}
 	*/
 export async function applyChatCardDamage(li, multiplier) {
-	const message = game.messages.get(li.data("messageId"));
+	const message = game.messages.get(li.dataset.messageId);
 	const rolls = message.rolls.filter((r) => r.options.type === "damage");
 	let roll;
 	if (rolls.length > 1) {
