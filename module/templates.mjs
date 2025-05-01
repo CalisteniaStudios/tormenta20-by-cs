@@ -9,6 +9,7 @@ export const preloadHandlebarsTemplates = async function () {
 		// Shared Partials
 		"systems/tormenta20/templates/partials/nav-bar.hbs",
 		"systems/tormenta20/templates/partials/active-effects.hbs",
+		"systems/tormenta20/templates/partials/fieldlist.hbs",
 
 		// Actor Sheet Partials
 		"systems/tormenta20/templates/actor/parts/headers/sheet-header-base.hbs",

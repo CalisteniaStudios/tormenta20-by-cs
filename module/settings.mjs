@@ -229,7 +229,7 @@ export const SystemSettings = function () {
 		name: game.i18n.localize("T20.SettingLancinatingVersion"),
 		hint: game.i18n.localize("T20.SettingLancinatingVersionHint"),
 		scope: "world",
-		config: true,
+		config: false,
 		default: "default",
 		type: String,
 		choices: {

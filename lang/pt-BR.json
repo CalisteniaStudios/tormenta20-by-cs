@@ -1193,10 +1193,10 @@
   "T20.SettingInvertUsageConfig": "Inverter Configuração de Uso",
   "T20.SettingInvertUsageConfigHint": "Se marcado o menu de Configuração de Uso aparecerá sempre que usar um item.",
 
-  "T20.SettingLancinatingVersion": "Versão do Lancinante",
-  "T20.SettingLancinatingVersionHint": "Usa o Lancinante do Livro Básico ou do Ameaças de Arton",
-  "T20.SettingLancinatingDefault": "Livro Básico: Multiplica Numérico",
-  "T20.SettingLancinatingRevised": "Ameaças de Arton: Multiplica Dilacerante",
+  "T20.SettingLancinatingVersion": "Encanto Lancinante",
+  "T20.SettingLancinatingVersionHint": "Define se o encanto Lancinante multiplica bônus numéricos ou apenas o bônus do encanto Dilacerante.",
+  "T20.SettingLancinatingDefault": "Original: Bônus Numéricos",
+  "T20.SettingLancinatingRevised": "Revisado: Encanto Dilacerante",
 
   "T20.SettingOptionalRulesSettings": "Regras Opcionais",
   "T20.SettingProgressiveDefense": "Defesa Progressiva",
