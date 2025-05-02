@@ -1,5 +1,24 @@
 # Lista de Mudanças
 
+## Versão 1.5.000
+- Atualizado para FoundryVTT V13.
+- Adicionado: Atributo "curinga" para efeitos:
+  - `system.atributos.*.bonus` adiciona um modificador a todos os atributos.
+  - `system.pericias.*.bonus` adiciona um modificador a todas as perícias.
+  - `system.pericias.*.condi` adiciona uma penalidade de condição a todas as perícias.
+  - `system.attributes.movement.*` adiciona um modificador a todas as velocidades.
+- Adicionado: Ícones para cada tipo de ator e item.
+- Adicionado: Regra opcional para adicionar metade do nível na Defesa.
+- Adicionado: O tamanho do personagem altera automaticamente o tamanho do token.
+  - Personagens minúsculos agora ocupam apenas 1/4 de quadrado.
+  - Personagens pequenos agora têm sua escala de token reduzida em 20%.
+- Alterado: Melhorias visuais nas fichas de personagens. A maioria das mudanças foram feitas na ficha com abas.
+  - Lista de perícias agora é menor e permite ocultar perícias somente treinadas que não forem treinadas.
+  - Clique do botão direito em itens na ficha de personagem abre um menu com opções para interagir com o item.
+  - Passar o mouse sobre Defesa ou bônus de perícias discrimina os seus modificadores.
+- Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do FoundryVTT.
+- Alterado: Clicar para usar itens sem efeitos de uso ou rolagens não abrem uma janela para usá-los.
+
 ## Versão 1.4.214
 - Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;
 - Adicionado: Efeito de Uso `danoMultiplicavel`, o valor adicionado é multiplicado no crítico.
