@@ -58,6 +58,7 @@ T20Conditions.caido = {
 	icon: "systems/tormenta20/icons/conditions/caido.svg",
 	flags: { tormenta20: { condition: true } },
 	changes: [{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
+		{ key: "system.attributes.defesa.outros", mode: 3, value: -5 },
 		{ key: "system.attributes.movement.*", mode: 3, value: 1.5 }]
 };
 
