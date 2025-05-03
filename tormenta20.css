@@ -766,7 +766,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   /* ----------------------------------------- */
 }
 .tormenta20.sheet.actor.character.tabbed {
-  min-width: 730px;
+  min-width: 620px;
   min-height: 700px;
 }
 .tormenta20.sheet.actor.character.tabbed .sheet-header .charlevel {
@@ -879,7 +879,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   flex: 0 0 1;
 }
 .tormenta20.sheet.actor.character form.base .attributes-right {
-  min-width: 320px;
+  min-width: 280px;
   flex: 0 0 40%;
 }
 .tormenta20.sheet.actor.character form.tabbed img.profile {
@@ -903,7 +903,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   margin-bottom: -3px;
 }
 .tormenta20.sheet.actor.character form.tabbed .attributes-mid {
-  flex: 0 0 320px;
+  flex: 0 0 280px;
 }
 .tormenta20.sheet.actor.character form.tabbed .item-list .item-def {
   flex: 2;
@@ -1805,6 +1805,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   flex: 0 0 30px;
   text-transform: uppercase;
   font-size: 12px;
+  text-align: center;
 }
 .tormenta20.sheet.actor .skills-list .skill .item-abl span {
   color: var(--color-text-dark-3);
