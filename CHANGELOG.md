@@ -1,7 +1,7 @@
 # Lista de Mudanças
 
 ## Versão 1.5.000
-- Atualizado para FoundryVTT V13.
+- Atualizado para Foundry V13.
 - Adicionado: Atributo "curinga" para efeitos:
   - `system.atributos.*.bonus` adiciona um modificador a todos os atributos.
   - `system.pericias.*.bonus` adiciona um modificador a todas as perícias.
@@ -16,8 +16,8 @@
   - Lista de perícias agora é menor e permite ocultar perícias somente treinadas que não forem treinadas.
   - Clique do botão direito em itens na ficha de personagem abre um menu com opções para interagir com o item.
   - Passar o mouse sobre Defesa ou bônus de perícias discrimina os seus modificadores.
-- Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do FoundryVTT.
-- Alterado: Clicar para usar itens sem efeitos de uso ou rolagens não abrem uma janela para usá-los.
+- Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do Foundry.
+- Alterado: Clicar para usar itens sem efeitos de uso ou rolagens não abre uma janela para usá-los.
 
 ## Versão 1.4.214
 - Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;
