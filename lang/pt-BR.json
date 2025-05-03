@@ -320,6 +320,7 @@
 
   "T20.S7": "/* ----------------- TYPES ---------------- */",
 
+  "T20.DamExce": "Reduz todo o dano pelo valor, exceto este tipo.",
   "T20.DamImm": "Imunidade a Dano",
   "T20.StatusImm": "Imunidade a Condições",
   "T20.StatusEffects": "Condições",
