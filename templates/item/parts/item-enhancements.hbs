@@ -35,15 +35,15 @@
 			<div class="form-fields">
 				<select name="system.upgrades.{{key}}">
 					{{#if (or (eq @root.item.type "arma") (and (eq @root.item.type "consumivel") (eq @root.item.system.tipo "ammo")))}}
-					{{selectOptions @root.config.weaponUpgrades blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.weaponUpgrades blank="-" selected=value}}
 					{{else if (and (eq @root.item.type "equipamento") (or (eq @root.item.system.tipo "leve") (eq @root.item.system.tipo "pesada")) )}}
-					{{selectOptions @root.config.armorUpgrades blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.armorUpgrades blank="-" selected=value}}
 					{{else if (and (eq @root.item.type "equipamento") (eq @root.item.system.tipo "escudo") )}}
-					{{selectOptions @root.config.shieldUpgrades blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.shieldUpgrades blank="-" selected=value}}
 					{{else if (and (eq @root.item.type "equipamento") (eq @root.item.system.tipo "esoterico") )}}
-					{{selectOptions @root.config.esotericUpgrades blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.esotericUpgrades blank="-" selected=value}}
 					{{else if (and (eq @root.item.type "equipamento") (or (eq @root.item.system.tipo "traje") (eq @root.item.system.tipo "ferramenta")) )}}
-					{{selectOptions @root.config.toolUpgrades blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.toolUpgrades blank="-" selected=value}}
 					{{/if}}
 				</select>
 				{{#if (or (eq @root.item.type "arma") (and (eq @root.item.type "consumivel") (eq @root.item.system.tipo "ammo")))}}
@@ -57,7 +57,7 @@
 				{{else if (and (eq @root.item.type "equipamento") (or (eq @root.item.system.tipo "traje") (eq @root.item.system.tipo "ferramenta")) )}}
 				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.config.toolUpgradesTooltips value}}"></i>
 				{{/if}}
-				
+
 			</div>
 		</div>
 		{{/if}}
@@ -66,7 +66,7 @@
 			<label for="">{{localize "T20.SpecialMaterial"}}</label>
 			<div class="form-fields">
 				<select name="system.upgrades.{{key}}">
-					{{selectOptions @root.config.specialMaterials blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.specialMaterials blank="-" selected=value }}
 				</select>
 				<i class="fa-solid fa-circle-info {{lookup @root.itemUpgradeStatus value}}" data-tooltip="{{lookup @root.itemUpgradeStatus value}}"></i>
 			</div>
@@ -84,11 +84,11 @@
 			<div class="form-fields">
 				<select name="system.upgrades.{{key}}">
 					{{#if (or (eq @root.item.type "arma") (and (eq @root.item.type "consumivel") (eq @root.item.system.tipo "ammo")))}}
-					{{selectOptions @root.config.weaponEnchantments blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.weaponEnchantments blank="-" selected=value}}
 					{{else if (and (eq @root.item.type "equipamento") (or (eq @root.item.system.tipo "leve") (eq @root.item.system.tipo "pesada")) )}}
-					{{selectOptions @root.config.armorEnchantments blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.armorEnchantments blank="-" selected=value}}
 					{{else if (and (eq @root.item.type "equipamento") (eq @root.item.system.tipo "escudo") )}}
-					{{selectOptions @root.config.shieldEnchantments blank="-" selected=value localize=true}}
+					{{selectOptions @root.config.shieldEnchantments blank="-" selected=value}}
 					{{/if}}
 				</select>
 				{{#if (or (eq @root.item.type "arma") (and (eq @root.item.type "consumivel") (eq @root.item.system.tipo "ammo")))}}
