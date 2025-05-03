@@ -166,8 +166,8 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 				encanto2: new fields.StringField({ required: true, blank: true, initial: "", label: "T20.ItemEnchantmentUpgrade", hint: "T20.ItemEnchantmentUpgradeHint" }),
 				encanto3: new fields.StringField({ required: true, blank: true, initial: "", label: "T20.ItemEnchantmentUpgrade", hint: "T20.ItemEnchantmentUpgradeHint" })
 			}),
-			melhorias: new fields.ObjectField(),
-			encantos: new fields.ObjectField(),
+			// melhorias: new fields.ObjectField(),
+			// encantos: new fields.ObjectField(),
 			enableAutoUpgrades: new fields.BooleanField({ required: false, nullable: false, initial: false, label: "T20.EnhancementsAutomationEnable", hint: "T20.EnhancementsAutomationEnableHint" })
 		};
 
