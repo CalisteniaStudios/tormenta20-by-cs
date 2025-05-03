@@ -740,6 +740,7 @@ T20.specialMaterials = {
 	"kraken-feather": "T20.SpecialMaterialKrakenFeather",
 	"razza-chitin": "T20.SpecialMaterialRazzaChitin"
 };
+preLocalize("specialMaterials");
 
 T20.itemUpgrades = {
 	golden: "T20.ItemUpgradesGoldPlated",
