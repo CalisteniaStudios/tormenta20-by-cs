@@ -18,6 +18,14 @@ export default function () {
 		});
 
 		if (game.user.isGM) {
+			const prototypeTokenOverrides = game.settings.get("core", "prototypeTokenOverrides");
+			if (prototypeTokenOverrides.character.disposition === undefined) {
+				prototypeTokenOverrides.character.disposition = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
+			}
+			if (prototypeTokenOverrides.character.sight.enabled === undefined) {
+				prototypeTokenOverrides.character.sight.enabled = true;
+			}
+			game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			let oldActors = game.actors.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.4.100");
 			// Migration
 			for (const actor of oldActors) {
