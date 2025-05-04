@@ -822,6 +822,7 @@ export default class ActorT20 extends Actor {
 		// console.error("_preCreate");
 		// SkillSet
 		const system = game.settings.get("tormenta20", "gameSystem");
+		const updateData = {};
 		switch (system) {
 			case "Skyfall":
 				// const skills = foundry.utils.mergeObject(this.system.pericias, {
@@ -833,12 +834,11 @@ export default class ActorT20 extends Actor {
 				// this.update({ "system.pericias": skills });
 				break;
 			default:
-				const updateData = {};
 				if (!this._stats || this._stats.systemVersion < "1.4.100") {
 					// UPDATE ABILITIES TO GOTY
 					for (let [key, ability] of Object.entries(this._source.system.atributos)) {
 						updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
-						updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
+						if (ability.bonus !== 0) updateData[`system.atributos.${key}.bonus`] = ability.bonus/2;
 					}
 					// UPDATE NPC DEFENSE TO GOTY
 					if (this.type === "npc") {
@@ -846,12 +846,13 @@ export default class ActorT20 extends Actor {
 						updateData["system.attributes.defesa.outros"] = 0;
 					}
 				}
-				if (this.type === "character") {
-					updateData["prototypeToken.actorLink"] = true;
-				}
 				this.updateSource(updateData);
 				break;
 		}
+		if (this.type === "character") {
+			updateData.prototypeToken = { actorLink: true };
+		}
+		this.updateSource(updateData);
 	}
 
 	/* -------------------------------------------- */
