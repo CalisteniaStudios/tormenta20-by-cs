@@ -782,6 +782,10 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 .tormenta20.sheet.actor.character.tabbed .sheet-header .xpbar {
   margin: 0;
 }
+.tormenta20.sheet.actor.character.tabbed .sheet-tabs .item[data-tab=journal],
+.tormenta20.sheet.actor.character.tabbed .sheet-tabs .item[data-tab=effects] {
+  flex: 0 0 30px;
+}
 .tormenta20.sheet.actor.character.tabbed .attributes.flexrow {
   gap: 4px;
 }
