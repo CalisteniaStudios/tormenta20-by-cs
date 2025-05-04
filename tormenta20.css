@@ -993,8 +993,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 .tormenta20.sheet.actor.character .tab.journal {
   align-items: flex-start;
   flex-direction: row;
-  font-size: 13px;
-  padding: 1rem 0.75rem 1rem 1rem;
+  font-size: var(--font-size-12);
 }
 .tormenta20.sheet.actor.character .tab.journal .right-notes,
 .tormenta20.sheet.actor.character .tab.journal .left-notes {
@@ -1054,9 +1053,6 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   min-height: 50px;
   padding: 0;
   position: static;
-}
-.tormenta20.sheet.actor.character .tab.journal article.journal-notes .editor {
-  min-height: 168px;
 }
 .tormenta20.sheet.actor.character .characteristics {
   flex: 0 0 180px;
