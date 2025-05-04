@@ -143,7 +143,9 @@
       nav {
         align-content: center;
         text-align: center;
-        margin: 0 0 -1px 0;
+        &:has(.item.active[data-tab=attributes]) {
+          margin: 0 0 -1px 0;
+        }
       }
 
       ul.attributes {
@@ -372,6 +374,9 @@
       margin-bottom: 1rem;
       position: relative;
       flex: 1;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
 
       .section-titles {
         font-weight: 700;

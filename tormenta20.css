@@ -866,6 +866,8 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
 .tormenta20.sheet.actor.character form.base nav {
   align-content: center;
   text-align: center;
+}
+.tormenta20.sheet.actor.character form.base nav:has(.item.active[data-tab=attributes]) {
   margin: 0 0 -1px 0;
 }
 .tormenta20.sheet.actor.character form.base ul.attributes .attribute.defense {
@@ -1008,9 +1010,11 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   background: rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   padding: 8px;
-  margin-bottom: 1rem;
   position: relative;
   flex: 1;
+}
+.tormenta20.sheet.actor.character .tab.journal article:not(:last-child) {
+  margin-bottom: 1rem;
 }
 .tormenta20.sheet.actor.character .tab.journal article .section-titles {
   font-weight: 700;
