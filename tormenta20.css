@@ -766,7 +766,7 @@ aside[role="tooltip"] ul.fieldBonuses li.flexrow span {
   /* ----------------------------------------- */
 }
 .tormenta20.sheet.actor.character.tabbed {
-  min-width: 620px;
+  min-width: 650px;
   min-height: 700px;
 }
 .tormenta20.sheet.actor.character.tabbed .sheet-header .charlevel {

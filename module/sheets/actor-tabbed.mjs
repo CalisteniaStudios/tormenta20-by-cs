@@ -7,7 +7,7 @@ export default class ActorSheetT20CharacterTabbed extends ActorSheetT20Character
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "character", "tabbed"],
 			height: 850,
-			width: 620
+			width: 650
 		});
 	}
 
