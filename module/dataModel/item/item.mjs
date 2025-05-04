@@ -32,9 +32,8 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			qtd: new fields.NumberField({ required: true, nullable: false, initial: 1, min: 0, label: "T20.ItemQuantity", hint: "T20.ItemQuantityHint" }),
 			preco: new fields.NumberField({ required: true, nullable: false, initial: 0, min: 0, label: "T20.ItemPrice", hint: "T20.ItemPriceHint" }),
 			pv: new fields.SchemaField({
-				value: new fields.NumberField({ required: true, nullable: false, initial: 3, step: 1, integer: true, label: "T20.ItemHitPoints", hint: "T20.ItemHitPointsHint" }),
-				min: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true, label: "T20.ItemHitPointsMin", hint: "T20.ItemHitPointsMinHint" }),
-				max: new fields.NumberField({ required: true, nullable: false, initial: 3, integer: true, label: "T20.ItemHitPointsMax", hint: "T20.ItemHitPointsMaxHint" })
+				value: new fields.NumberField({ required: true, nullable: false, initial: 0, step: 1, min: 0, integer: true, label: "T20.ItemHitPoints", hint: "T20.ItemHitPointsHint" }),
+				max: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true, label: "T20.ItemHitPointsMax", hint: "T20.ItemHitPointsMaxHint" })
 			}),
 			rd: new fields.NumberField({ required: true, nullable: false, initial: 0, min: 0, label: "T20.ItemDamageReduction", hint: "T20.ItemDamageReductionHint" })
 		};
