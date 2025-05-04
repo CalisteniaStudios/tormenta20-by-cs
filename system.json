@@ -52,98 +52,98 @@
       "name": "classes",
       "label": "Classes",
       "system": "tormenta20",
-      "path": "./packs/classes",
+      "path": "./packs/classes.db",
       "type": "Item"
     },
     {
       "name": "poderes",
       "label": "Poderes",
       "system": "tormenta20",
-      "path": "./packs/poderes",
+      "path": "./packs/poderes.db",
       "type": "Item"
     },
     {
       "name": "poderes-distincao",
       "label": "Poderes de Distinção",
       "system": "tormenta20",
-      "path": "./packs/poderes-distincao",
+      "path": "./packs/poderes-distincao.db",
       "type": "Item"
     },
     {
       "name": "equipamentos",
       "label": "Equipamentos",
       "system": "tormenta20",
-      "path": "./packs/equipamentos",
+      "path": "./packs/equipamentos.db",
       "type": "Item"
     },
     {
       "name": "equipamentos-magicos",
       "label": "Itens Mágicos",
       "system": "tormenta20",
-      "path": "./packs/equipamentos-magicos",
+      "path": "./packs/equipamentos-magicos.db",
       "type": "Item"
     },
     {
       "name": "magias",
       "label": "Magias",
       "system": "tormenta20",
-      "path": "./packs/magias",
+      "path": "./packs/magias.db",
       "type": "Item"
     },
     {
       "name": "habilidades-de-criaturas",
       "label": "Habilidades de Criaturas",
       "system": "tormenta20",
-      "path": "./packs/habilidades-de-criaturas",
+      "path": "./packs/habilidades-de-criaturas.db",
       "type": "Item"
     },
     {
       "name": "pocoes",
       "label": "Poções",
       "system": "tormenta20",
-      "path": "./packs/pocoes",
+      "path": "./packs/pocoes.db",
       "type": "Item"
     },
     {
       "name": "parceiros",
       "label": "Parceiros",
       "system": "tormenta20",
-      "path": "./packs/parceiros",
+      "path": "./packs/parceiros.db",
       "type": "Item"
     },
     {
       "name": "ameacas",
       "label": "Ameaças",
       "system": "tormenta20",
-      "path": "./packs/ameacas",
+      "path": "./packs/ameacas.db",
       "type": "Actor"
     },
     {
       "name": "convocacoes",
       "label": "Convocações",
       "system": "tormenta20",
-      "path": "./packs/convocacoes",
+      "path": "./packs/convocacoes.db",
       "type": "Actor"
     },
     {
       "name": "basico",
       "label": "Livro Básico",
       "system": "tormenta20",
-      "path": "./packs/basico",
+      "path": "./packs/basico.db",
       "type": "JournalEntry"
     },
     {
       "name": "tabelas-de-tesouro",
       "label": "Tabelas de Tesouro",
       "system": "tormenta20",
-      "path": "./packs/tabelas-de-tesouro",
+      "path": "./packs/tabelas-de-tesouro.db",
       "type": "RollTable"
     },
     {
       "name": "macros",
       "label": "Macros",
       "system": "tormenta20",
-      "path": "./packs/macros",
+      "path": "./packs/macros.db",
       "type": "Macro"
     }
   ],
