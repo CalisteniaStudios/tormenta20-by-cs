@@ -1,0 +1,33 @@
+_id: FiMbJLurhpstUxu1
+name: Bárbaro
+type: classe
+img: systems/tormenta20/icons/classes/barbaro.webp
+effects: []
+folder: null
+sort: 0
+flags: {}
+system:
+  description:
+    value: ''
+    unidentified: ''
+  source: ''
+  niveis: 1
+  pvPorNivel: 6
+  pmPorNivel: 3
+  inicial: false
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '10.288'
+  createdTime: 1664312712754
+  modifiedTime: 1668270628857
+  lastModifiedBy: t20builder000000
+_key: '!items!FiMbJLurhpstUxu1'
+

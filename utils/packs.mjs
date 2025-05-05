@@ -83,7 +83,7 @@ function cleanPackEntry(data, { clearSourceId=true, ownership=0 }={}) {
 	}
 	delete data.flags?.importSource;
 	delete data.flags?.exportSource;
-	if ( data._stats?.lastModifiedBy ) data._stats.lastModifiedBy = "tormenta20ebuilder0000";
+	if ( data._stats?.lastModifiedBy ) data._stats.lastModifiedBy = "t20builder000000"; // Precisa ter 16 caracters, senão tudo explode
 
 	// Remove empty entries in flags
 	if ( !data.flags ) data.flags = {};
@@ -210,7 +210,7 @@ async function extractPacks(packName, entryName) {
 
 		const folders = {};
 		const containers = {};
-		await extractPack(`dist/${packInfo.path}`, dest, {
+		await extractPack(packInfo.path, dest, {
 			log: false, transformEntry: e => {
 				if ( e._key.startsWith("!folders") ) folders[e._id] = { name: slugify(e.name), folder: e.folder };
 				else if ( e.type === "container" ) containers[e._id] = {

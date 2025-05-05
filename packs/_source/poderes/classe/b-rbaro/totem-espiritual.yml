@@ -1,0 +1,104 @@
+_id: SEeY3Ed8beYBsM5C
+name: Totem Espiritual
+type: poder
+img: systems/tormenta20/icons/classes/barbaro.webp
+effects: []
+folder: UhsYJ0BvPTkMyG53
+sort: 0
+flags: {}
+system:
+  description:
+    value: >-
+      <p style="text-align: justify;">Voc&ecirc; soma sua Sabedoria no seu total
+      de pontos de mana. Escolha um animal tot&ecirc;mico. Voc&ecirc; aprende e
+      pode lan&ccedil;ar uma magia definida pelo animal escolhido
+      (atributo-chave Sabedoria) e pode lan&ccedil;&aacute;-la mesmo em
+      f&uacute;ria. Pr&eacute;-requisitos: Sab 1, 4&ordm; n&iacute;vel de
+      b&aacute;rbaro.</p>
+
+      <p style="text-align: justify;">A seguir est&aacute; uma lista de animais
+      venerados por tribos b&aacute;rbaras do mundo.</p>
+
+      <ul style="text-align: justify;">
+
+      <li>Coruja. A s&aacute;bia coruja guia seus disc&iacute;pulos. Voc&ecirc;
+      pode lan&ccedil;ar <em>Orienta&ccedil;&atilde;o</em>.</li>
+
+      <li>Corvo. Um seguidor do corvo enxerga al&eacute;m do v&eacute;u.
+      Voc&ecirc; pode lan&ccedil;ar <em>Vis&atilde;o M&iacute;stica</em>.</li>
+
+      <li>Falc&atilde;o. Sempre atento, o falc&atilde;o permite que voc&ecirc;
+      lance <em>Detectar Amea&ccedil;as</em>.</li>
+
+      <li>Grifo. O mais veloz dos animais, o grifo permite que voc&ecirc; lance
+      <em>Primor Atl&eacute;tico</em>.</li>
+
+      <li>Lobo. O lobo &eacute; feroz e letal. Voc&ecirc; pode lan&ccedil;ar
+      <em>Concentra&ccedil;&atilde;o de Combate</em>.</li>
+
+      <li>Raposa. A sagaz raposa nunca est&aacute; onde se espera. Voc&ecirc;
+      pode lan&ccedil;ar <em>Imagem Espelhada</em>.</li>
+
+      <li>Tartaruga. A tartaruga protege os seus. Voc&ecirc; pode lan&ccedil;ar
+      <em>Armadura Arcana.</em></li>
+
+      <li>Urso. O vigoroso urso permite que voc&ecirc; lance Vitalidade Fantasma
+      e possa usar seus aprimoramentos como se tivesse acesso aos mesmos
+      c&iacute;rculos de magia que um druida de seu n&iacute;vel.</li>
+
+      </ul>
+
+      <p>&nbsp;</p>
+    chat: ''
+    unidentified: ''
+  source: T20, pg. 42 (JdA)
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: sab
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: classe
+  subtipo: Bárbaro
+  chatFlavor: ''
+  origin: ''
+  tags: []
+  chatGif: ''
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '11.298'
+  createdTime: 1658361717057
+  modifiedTime: 1684630371462
+  lastModifiedBy: t20builder000000
+_key: '!items!SEeY3Ed8beYBsM5C'
+

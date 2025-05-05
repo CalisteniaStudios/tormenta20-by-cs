@@ -1,0 +1,33 @@
+_id: kg8tLXlPNJSlwWcc
+name: Nobre
+type: classe
+img: systems/tormenta20/icons/classes/nobre.webp
+effects: []
+folder: null
+sort: 0
+flags: {}
+system:
+  description:
+    value: ''
+    unidentified: ''
+  source: ''
+  niveis: 1
+  pvPorNivel: 4
+  pmPorNivel: 4
+  inicial: false
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '10.288'
+  createdTime: 1664312712757
+  modifiedTime: 1668270628858
+  lastModifiedBy: t20builder000000
+_key: '!items!kg8tLXlPNJSlwWcc'
+

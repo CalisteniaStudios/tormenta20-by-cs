@@ -1,0 +1,202 @@
+name: Condições
+type: script
+author: zypc4ueMMbKFzteu
+img: icons/svg/aura.svg
+scope: global
+command: |-
+  /**
+   * Maneira rapida de enviar textos informativos sobre as Condições no chat
+   * Autor: Tiago Morato
+   */
+
+  new Dialog({
+    title: `Condições`,
+    content: `<style>
+
+    button{
+        border: none
+    }
+
+   button:hover{
+      cursor: pointer;
+    }
+    .autor {
+        flex-flow: row-reverse;
+        text-align: right;
+    }
+
+      h3{
+        font-size: 1rem
+    }
+
+    .container{
+      display: flex;
+      margin-bottom: 0.2rem
+  }
+
+
+  .medo{
+  background: linear-gradient(90deg, #000000 15%, #ddd9d5 10%);
+  border: solid 2px #000000;
+  font-size: 0.9rem;
+  }
+  .paralisia{
+  background: linear-gradient(90deg, #435178 15%, #ddd9d5 10%);
+  border: solid 2px #435178;
+  font-size: 0.9rem;
+  }
+  .mental{
+  background: linear-gradient(90deg, #7542f5 15%, #ddd9d5 10%);
+  border: solid 2px #7542f5;
+  font-size: 0.9rem;
+  }
+  .fisica{
+  background: linear-gradient(90deg, #b02b2e 15%, #ddd9d5 10%);
+  border: solid 2px #b02b2e;
+  font-size: 0.9rem;
+  }
+  .fadiga{
+  background: linear-gradient(90deg, #7c8a6f 15%, #ddd9d5 10%);
+  border: solid 2px #7c8a6f;
+  font-size: 0.9rem;
+  }
+  .sentidos{
+  background: linear-gradient(90deg, #40916c 15%, #ddd9d5 10%);
+  border: solid 2px #40916c;
+  font-size: 0.9rem;
+  }
+  .semtipo{
+  background: linear-gradient(90deg, #7d7d7d 15%, #ddd9d5 10%);
+  border: solid 2px #7d7d7d;
+  font-size: 0.9rem;
+  }
+
+
+
+   </style>
+        <h1>Condições</h1>
+        <div>
+          <div class="container">
+              <button class="medo" onclick="toChat('Abalado')">Abalado</button>
+              <button class="paralisia" onclick="toChat('Agarrado')">Agarrado</button>
+              <button class="mental" onclick="toChat('Alquebrado')">Alquebrado</button>
+          </div>
+          <div class="container">
+              <button class="medo" onclick="toChat('Apavorado')">Apavorado</button>
+              <button class="mental"  onclick="toChat('Atordoado')">Atordoado</button>
+              <button class="fisica" onclick="toChat('Caído')">Caído</button>
+           </div>
+          <div class="container">
+              <button class="fisica" onclick="toChat('Cego')">Cego</button>
+              <button class="mental" onclick="toChat('Confuso')">Confuso</button>
+               <button class="fisica" onclick="toChat('Debilitado')">Debilitado</button>
+           </div>
+          <div class="container">
+              <button class="fisica" onclick="toChat('Desprevenido')">Desprevenido</button>
+              <button class="fisica" onclick="toChat('Doente')">Doente</button>
+              <button class="fisica" onclick="toChat('Em Chamas')">Em Chamas</button>
+           </div>
+          <div class="container">
+               <button class="fisica" onclick="toChat('Enjoado')">Enjoado</button>
+              <button class="paralisia" onclick="toChat('Enredado')">Enredado</button>
+              <button class="fisica" onclick="toChat('Envenenado')">Envenenado</button>
+           </div>
+          <div class="container">
+             <button class="mental" onclick="toChat('Esmorecido')">Esmorecido</button>
+             <button class="fadiga" onclick="toChat('Exausto')">Exausto</button>
+              <button class="mental" onclick="toChat('Fascinado')">Fascinado</button>
+           </div>
+           <div class="container">
+              <button class="fadiga" onclick="toChat('Fatigado')">Fatigado</button>
+              <button class="fisica" onclick="toChat('Fraco')">Fraco</button>
+              <button class="mental" onclick="toChat('Frustrado')">Frustrado</button>
+           </div>
+          <div class="container">
+              <button class="paralisia" onclick="toChat('Imóvel')">Imóvel</button>
+              <button class="fisica" onclick="toChat('Inconsciente')">Inconsciente</button>
+              <button class="semtipo" onclick="toChat('Indefeso')">Indefeso</button>
+           </div>
+          <div class="container">
+              <button class="paralisia" onclick="toChat('Lento')">Lento</button>
+              <button class="sentidos" onclick="toChat('Ofuscado')">Ofuscado</button>
+              <button class="paralisia" onclick="toChat('Paralisado')">Paralisado</button>
+           </div>
+          <div class="container">
+              <button class="mental" onclick="toChat('Pasmo')">Pasmo</button>
+              <button class="semtipo" onclick="toChat('Petrificado')">Petrificado</button>
+              <button class="semtipo" onclick="toChat('Sangrando')">Sangrando</button>
+           </div>
+          <div class="container">
+              <button class="sentidos" onclick="toChat('Surdo')">Surdo</button>
+              <button class="fisica" onclick="toChat('Surpreendido')">Surpreendido</button>
+              <button class="fisica"  onclick="toChat('Vulnerável')">Vulnerável</button>
+        </div>
+        <div style="margin-top: 1rem">
+        <div class="container">
+        <svg width="25" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="00" rx="10" ry="10" width="20" height="20" fill="#000000"/>
+  </svg><h3>Condição de Medo</h3>
+        </div>
+        <div class="container">
+        <svg width="25" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="00" rx="10" ry="10" width="20" height="20" fill="#435178"/>
+  </svg><h3>Condição de Paralisia</h3>
+        </div>
+        <div class="container">
+        <svg width="25" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="00" rx="10" ry="10" width="20" height="20" fill="#7542f5"/>
+  </svg><h3>Condição Mental</h3>
+        </div>
+        <div class="container">
+        <svg width="25" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="00" rx="10" ry="10" width="20" height="20" fill="#b02b2e"/>
+  </svg><h3>Condição Física</h3>
+        </div>
+        <div class="container">
+        <svg width="25" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="00" rx="10" ry="10" width="20" height="20" fill="#7c8a6f"/>
+  </svg><h3>Condição de Fadiga</h3>
+        </div>
+        <div class="container">
+        <svg width="25" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="00" rx="10" ry="10" width="20" height="20" fill="#40916c"/>
+  </svg><h3>Condição de Sentidos</h3>
+        </div>
+         <div class="container">
+        <svg width="25" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="00" rx="10" ry="10" width="20" height="20" fill="#7d7d7d"/>
+  </svg><h3>Condição sem Tipo</h3>
+        </div>
+        <div class="container autor">
+        <small>Autor: Tiago Morato</small>
+        </div>
+  </div>
+  <script>
+      function toChat(condicao = 'Abalado'){
+          game.tormenta20.macros.msgFromJournal(condicao, "tormenta20.condicoes");
+      }
+  </script>
+      `,
+      buttons: {
+          no: {
+              icon: "<i class='fas fa-times'></i>",
+              label: `Fechar`,
+              callback: () => close
+          },
+      },
+  }).render(true);
+flags: {}
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.002
+  coreVersion: '10.285'
+  createdTime: 1662828140733
+  modifiedTime: 1662866673118
+  lastModifiedBy: t20builder000000
+folder: null
+sort: 0
+_id: hE9CQrXt4U0SRRVt
+_key: '!macros!hE9CQrXt4U0SRRVt'
+

@@ -1,0 +1,33 @@
+name: Múltipla Iniciativa
+type: script
+scope: global
+author: zypc4ueMMbKFzteu
+img: icons/svg/combat.svg
+command: |-
+  // Usável para adicionar múltiplas iniciativas a chefões!
+
+  const combat = game.combat;
+  if(token && combat) {
+    let create = {
+      tokenId: token.id,
+      sceneId: token.scene.id,
+      actorId: token.actor.id,
+      hidden: token.document.hidden
+    };
+    await combat.createEmbeddedDocuments("Combatant", [create]);
+  }
+ownership:
+  default: 0
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.002
+  coreVersion: '10.285'
+  createdTime: 1658360179912
+  modifiedTime: 1662866680923
+  lastModifiedBy: t20builder000000
+folder: null
+sort: 0
+_id: XestvQo5XODrRth4
+_key: '!macros!XestvQo5XODrRth4'
+
