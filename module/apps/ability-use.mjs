@@ -508,7 +508,7 @@ function applyRollModifiers(item, rollMods) {
 			if (rollMods[r.key][i]?.addNum) {
 				roll = new Roll(dano);
 				if (roll.terms[2]) roll.terms[2].number += rollMods[r.key][i].addNum;
-				else roll = new Roll(`${dano}+${rollMods[r.key][i].addNum}`) || roll;
+				else roll = new Roll(`${dano}+${rollMods[r.key][i].addNum}`);
 				dano = roll.formula;
 			}
 
@@ -541,7 +541,7 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 	if (!configuration) return {};
 	const item = rolledItem; const id = item.system;
 	const actor = item.actor; const ad = actor.system;
-	const hasMPCost = id.ativacao?.custo > 0 ?? false;
+	const hasMPCost = id.ativacao?.custo > 0;
 
 	const options = {};
 	options.onUseEffects = [];
@@ -666,7 +666,7 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 		let tempEffect = ef.toObject();
 		let duration = {};
 		let children = [];
-		let durValue = Number(id.duracao?.value) ?? 1;
+		let durValue = Number(id.duracao?.value) || 1;
 		let flags = { temp: true, tormenta20: { durationScene: false } };
 		if (id.duracao?.units == "scene" || ef.flags.tormenta20.durationScene) {
 			flags.tormenta20.durationScene = ef.flags.tormenta20.durationScene ?? true;

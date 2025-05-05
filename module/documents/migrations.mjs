@@ -79,7 +79,7 @@ actorMigration.migrateResistances = function (doc, updateEffectData = {}) {
 				updated[key] = res;
 				continue;
 			}
-			res.base = Number(res.value) ?? 0;
+			res.base = Number(res.value) || 0;
 			res.value = 0;
 			res.bonus = [];
 			updated[key] = res;

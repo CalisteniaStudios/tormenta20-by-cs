@@ -339,7 +339,7 @@ export default class ActorT20 extends Actor {
 
 		if (["1/2", "1/4"].includes(nd)) system.attributes.nivel.value = 1;
 		else if (["S", "S+"].includes(nd)) system.attributes.nivel.value = 20;
-		else system.attributes.nivel.value = Number(nd) ?? 1;
+		else system.attributes.nivel.value = Number(nd) || 1;
 		const nivel = system.attributes.nivel.value;
 
 		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));

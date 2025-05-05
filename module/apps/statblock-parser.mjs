@@ -417,7 +417,7 @@ export default class StatblockParser extends FormApplication {
 					let nivel = 1;
 					if (["1/2", "1/4"].includes(nd)) nivel = 1;
 					else if (["S", "S+"].includes(nd)) nivel = 20;
-					else nivel = Number(nd) ?? 1;
+					else nivel = Number(nd) || 1;
 
 					let sizeStealth = { min: 5, peq: 2, med: 0, gra: -2, eno: -5, col: -10 };
 					let meionivel = Math.floor(nivel/2);
