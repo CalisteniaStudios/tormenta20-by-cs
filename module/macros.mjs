@@ -78,7 +78,7 @@ export async function createT20Macro(data, slot) {
 
 	if (data.type === "Item") {
 		let item = await fromUuid(data.uuid);
-		if (!item instanceof ItemT20) return ui.notifications.warn(
+		if (!(item instanceof ItemT20)) return ui.notifications.warn(
 			"Não há uma macro para este tipo de item."
 		);
 
@@ -108,7 +108,7 @@ export async function createT20Macro(data, slot) {
 
 	if (data.type === "ActiveEffect") {
 		let effect = await fromUuid(data.uuid);
-		if (!effect instanceof ActiveEffect) return ui.notifications.warn(
+		if (!(effect instanceof ActiveEffect)) return ui.notifications.warn(
 			"Não há uma macro para este tipo de item."
 		);
 
