@@ -213,10 +213,6 @@ export default class ActorT20 extends Actor {
 	/** @override */
 	preparePreDerivedData() {
 		const system = this.system;
-		if (["vehicle", "simple"].includes(this.type)) {
-			system.attributes.carga = this._computeEncumbrance(system);
-			return;
-		}
 
 		// Loop through ability and add modifiers
 		for (let [key, ability] of Object.entries(system.atributos)) {
@@ -549,6 +545,7 @@ export default class ActorT20 extends Actor {
 		// const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
 		const base = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
 		const limit = (Number(base) || 10) + (atr > 0 ? atr * 2 : atr);
+		weight.limit = limit;
 		weight.max = limit * 2;
 		weight.encumbered = weight.value > limit;
 		weight.pct = Math.clamp((weight.value * 100) / weight.max, 0, 100);

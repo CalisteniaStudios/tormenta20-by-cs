@@ -118,6 +118,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			atributo: new fields.StringField({ required: true, nullable: false, blank: false, choices: Object.keys(T20.atributos), initial: "for" }),
 			base: new fields.NumberField({ required: true, nullable: false, initial: 10, min: 0, label: "T20.EncumbranceBase", hint: "T20.EncumbranceBaseHint" }),
 			bonus: new fields.ArrayField(new fields.StringField(), { label: "T20.EncumbranceEffectsValues", hint: "T20.EncumbranceEffectsValuesHint" }),
+			limit: new fields.NumberField({ required: true, nullable: false, initial: 0, min: 0, label: "T20.EncumbranceLimit", hint: "T20.EncumbranceLimitHint" }),
 			max: new fields.NumberField({ required: true, nullable: false, initial: 0, min: 0, label: "T20.EncumbranceMax", hint: "T20.EncumbranceMaxHint" }),
 			pct: new fields.NumberField({ required: true, nullable: false, initial: 0, min: 0, label: "T20.EncumbrancePercentage", hint: "T20.EncumbrancePercentageHint" }),
 			encumbered: new fields.BooleanField({ initial: false, label: "T20.EncumbranceStatus", hint: "T20.EncumbranceStatusHint" })

@@ -459,39 +459,51 @@
   }
 
   .inventory-list {
-    .currency {
+    overflow: hidden auto;
+  }
+
+  .tab {
+    &.inventory.active {
       display: flex;
+      flex-direction: column;
+    }
+
+    .item-list {
+      font-size: var(--font-size-14);
+    }
+
+    .inventory-list {
+      flex: 0 1 100%;
+    }
+
+    .currency {
+      gap: 5px;
       align-items: center;
       list-style: none;
       padding: 0;
-      // font-size: 12px;
+      margin: 0;
+      font-size: var(--font-size-12);
 
       .currency-header {
-        flex: 0 0 13px;
+        flex: 0 0 auto;
         text-align: center;
         align-items: center;
-        margin-right: 0.5rem;
+        font-size: 18px;
       }
       .currency-item {
         display: flex;
         align-items: center;
         background: @colorFaint;
         border-radius: 5px;
-        padding: 0 0.25rem 0 0;
-        margin-right: 0.5rem;
+        padding: 0 0.25rem;
         line-height: 30px;
-        font-size: 14px;
       }
       label {
         flex: unset;
       }
       input {
-        text-align: right;
-        flex: 1;
-        padding-left: 0.25rem;
+        margin-left: 0.25rem;
         border: 0;
-        background: none;
-        margin: 0;
       }
     }
   }
@@ -758,12 +770,11 @@
 
   /* Encumbrance Bar */
   .encumbrance {
-
-    // margin-right: 14px;
     background: @colorTan;
     border-radius: 5px;
     position: relative;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .9) inset;
+    padding: 0 0.5rem;
 
     .encumbrance-bar {
       position: absolute;
@@ -771,17 +782,17 @@
       left: 1px;
       background: #6c8aa5;
       height: calc(100% - 1px);
-      border: 1px solid #cde4ff;
       border-radius: 4px;
     }
 
     .encumbrance-label {
-      display: block;
+      display: flex;
       position: relative;
       width: 100%;
+      justify-content: space-between;
       text-align: center;
       font-weight: 700;
-      font-size: 13px;
+      font-size: var(--font-size-13);
       color: #EEE;
       text-shadow: 0 0 2px #000;
     }
@@ -815,6 +826,9 @@
     }
 
     &.encumbered {
+      .encumbrance-bar {
+        background-color: rgb(108, 87, 25);
+      }
       .arrow-up { border-bottom: 4px solid #000; }
       .arrow-down { border-top: 4px solid #000; }
     }
