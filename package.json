@@ -4,6 +4,7 @@
   "description": "CSS compiler for the tormenta20 system",
   "scripts": {
     "build": "npm run build:code && npm run build:copy && npm run build:css && npm run build:db",
+    "build:nodb": "npm run build:code && npm run build:copy && npm run build:css",
     "build:code": "rollup tormenta20.mjs -f es -o ./dist/tormenta20.mjs -p node-resolve -m --sourcemapFile tormenta20.mjs",
     "build:copy": "node ./utils/copy.mjs",
     "build:css": "lessc less/tormenta20.less ./dist/tormenta20.css",
