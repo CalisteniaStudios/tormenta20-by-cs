@@ -3,10 +3,8 @@ name: Armadura da Luz
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
 effects:
-  - label: Reforçada
-    icon: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
-    origin: Item.cwlpIzSBlx11nMmi
-    tint: '#FFFFFF'
+  - origin: Item.cwlpIzSBlx11nMmi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Reforçada
+    img: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cwlpIzSBlx11nMmi.JgDx0P1BcV4EtZMK'
-  - label: Banhada a ouro
-    icon: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
-    origin: Item.cwlpIzSBlx11nMmi
-    tint: '#FFFFFF'
+  - origin: Item.cwlpIzSBlx11nMmi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -52,11 +65,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Banhada a ouro
+    img: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cwlpIzSBlx11nMmi.K1hzUihHXzRDdijY'
-  - label: Guardiã
-    icon: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
-    origin: Item.cwlpIzSBlx11nMmi
-    tint: '#FFFFFF'
+  - origin: Item.cwlpIzSBlx11nMmi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -77,11 +105,26 @@ effects:
         value: '4'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guardiã
+    img: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cwlpIzSBlx11nMmi.O8RfBUPOTNquWqfy'
-  - label: Resistencia a dano
-    icon: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
-    origin: Item.cwlpIzSBlx11nMmi
-    tint: '#FFFFFF'
+  - origin: Item.cwlpIzSBlx11nMmi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -102,11 +145,26 @@ effects:
         value: ''
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Resistencia a dano
+    img: systems/tormenta20/icons/itens/itens-magicos/armadura-da-luz.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cwlpIzSBlx11nMmi.tTMaP692MM5Eh0S0'
-  - label: Zeloso
-    icon: icons/svg/upgrade.svg
-    origin: Item.cwlpIzSBlx11nMmi
-    tint: '#FFFFFF'
+  - origin: Item.cwlpIzSBlx11nMmi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -134,6 +192,23 @@ effects:
     _id: pAgoWjfqLW49sdn2
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Zeloso
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cwlpIzSBlx11nMmi.pAgoWjfqLW49sdn2'
 folder: SkZDe8cUamd0vHjD
 sort: 100000
@@ -256,9 +331,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000107
   modifiedTime: 1684622917731
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!cwlpIzSBlx11nMmi'
 

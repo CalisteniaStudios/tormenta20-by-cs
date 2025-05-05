@@ -17,15 +17,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/tormenta.webp
-    label: Visco Rubro
     origin: Item.OaODAVqPWU2Fs7yi
     transfer: true
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Visco Rubro
+    img: systems/tormenta20/icons/poderes/tormenta.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Mce6xvlRf48rWmMf.XfsrjWXV3xA2ybOJ'
 folder: m6ny7g3VciUkKZ3t
 sort: 0
@@ -88,9 +103,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184248
   modifiedTime: 1684803453538
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Mce6xvlRf48rWmMf'
 

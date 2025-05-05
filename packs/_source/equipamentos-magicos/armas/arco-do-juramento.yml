@@ -125,10 +125,8 @@ system:
   size: normal
   ataques: 0
 effects:
-  - label: Jurar (magnífica ameaçadora e lancinante)
-    icon: icons/svg/upgrade.svg
-    origin: Item.GI5p93ztzcG49pXu
-    tint: '#FFFFFF'
+  - origin: Item.GI5p93ztzcG49pXu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -168,11 +166,26 @@ effects:
         value: '-1'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Jurar (magnífica ameaçadora e lancinante)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!7IScjaBQPp3StNbd.LaDqNgPelC6toKbT'
-  - label: Jurar (Anticriatura)
-    icon: icons/svg/upgrade.svg
-    origin: Item.GI5p93ztzcG49pXu
-    tint: '#FFFFFF'
+  - origin: Item.GI5p93ztzcG49pXu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -204,11 +217,26 @@ effects:
         value: 4d8
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Jurar (Anticriatura)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!7IScjaBQPp3StNbd.EKeFiqjGqRChXmXt'
-  - label: formidavel
-    icon: icons/svg/upgrade.svg
-    origin: Item.GI5p93ztzcG49pXu
-    tint: '#FFFFFF'
+  - origin: Item.GI5p93ztzcG49pXu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -244,15 +272,34 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: formidavel
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!7IScjaBQPp3StNbd.xFZ98UPNeelZxwz7'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664312772394
   modifiedTime: 1684622913966
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 7IScjaBQPp3StNbd
 folder: 9ki1HFV3bfmVkHBh
 sort: 100000

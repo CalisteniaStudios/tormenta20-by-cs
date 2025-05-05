@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +1d8+1.
     origin: Compendium.tormenta20.magias.CgK2xhGbfCc6BkWy
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +1d8+1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CgK2xhGbfCc6BkWy.x0QdIwqPvXe9Bzfb'
   - _id: 1bhqEPuTjaCOg8O9
     flags:
@@ -54,11 +69,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de alvos em +1.
     origin: Compendium.tormenta20.magias.CgK2xhGbfCc6BkWy
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CgK2xhGbfCc6BkWy.1bhqEPuTjaCOg8O9'
 folder: hgVJ2SkCy4c6y6u1
 sort: 0
@@ -141,9 +171,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461799
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!CgK2xhGbfCc6BkWy'
 

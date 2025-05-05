@@ -22,11 +22,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/classes/cacador.webp
-    label: Arqueiro
     origin: Item.7dube10Fol3tDHnR
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arqueiro
+    img: systems/tormenta20/icons/classes/cacador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!WD3KDLiAqH4nlr6Z.rETJa0nxH9YC9ojg'
 folder: iT3rUBmGhu5hbNic
 sort: 1900000
@@ -85,9 +100,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361717172
   modifiedTime: 1684630426990
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!WD3KDLiAqH4nlr6Z'
 

@@ -83,10 +83,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: 'Batata Ambiciosa: Soma +1d6 em um único  teste a sua escolha.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.MT4QgnaAwWgr4pet
-    tint: '#FFFFFF'
+  - origin: Item.MT4QgnaAwWgr4pet
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -117,11 +115,26 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Batata Ambiciosa: Soma +1d6 em um único  teste a sua escolha.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GkIO0G6YH5VjXNIK.mhMNYFNWFT6UyhFS'
-  - label: Batata Ambiciosa
-    icon: systems/tormenta20/icons/itens/batata-ambiciosa.webp
-    origin: Item.GkIO0G6YH5VjXNIK
-    tint: '#FFFFFF'
+  - origin: Item.GkIO0G6YH5VjXNIK
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -138,15 +151,34 @@ effects:
     _id: 5yh5XJIsTAEKzTxi
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Batata Ambiciosa
+    img: systems/tormenta20/icons/itens/batata-ambiciosa.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GkIO0G6YH5VjXNIK.5yh5XJIsTAEKzTxi'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684617048818
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: GkIO0G6YH5VjXNIK
 folder: sO4Gcu7Fm1dJ1sxI
 sort: 100000

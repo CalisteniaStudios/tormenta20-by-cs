@@ -20,13 +20,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta a quantidade do elemento em um passo (uma categoria de tamanho
-      para água ou terra, +1 quadrado de 1,5m para ar e fogo).
     origin: Compendium.tormenta20.magias.vvVVqYlYER6WpqhM
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta a quantidade do elemento em um passo (uma categoria de tamanho
+      para água ou terra, +1 quadrado de 1,5m para ar e fogo).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vvVVqYlYER6WpqhM.Hp8Z2nPlbYVhB8eU'
   - _id: wK72592kCWxLLTLL
     flags:
@@ -53,16 +68,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.vvVVqYlYER6WpqhM
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o efeito para alvo 1 criatura ou objeto e a resistência para Reflexos
       reduz à metade. Se escolher água ou terra, você arremessa o cubo ou objeto
       criado no alvo, causando 2d4 pontos de dano de impacto. Para cada
       categoria de tamanho acima de Minúsculo, o dano aumenta em um passo. O
       cubo se desfaz em seguida.
-    origin: Compendium.tormenta20.magias.vvVVqYlYER6WpqhM
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vvVVqYlYER6WpqhM.wK72592kCWxLLTLL'
   - _id: Mz8829iyEZ0ENP6T
     flags:
@@ -93,11 +123,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: se escolheu fogo, aumenta o dano inicial de cada chama em +1d6.
     origin: Compendium.tormenta20.magias.vvVVqYlYER6WpqhM
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: se escolheu fogo, aumenta o dano inicial de cada chama em +1d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vvVVqYlYER6WpqhM.Mz8829iyEZ0ENP6T'
 folder: UeqtCFS3KD27OAUk
 sort: 0
@@ -185,9 +230,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462899
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!vvVVqYlYER6WpqhM'
 

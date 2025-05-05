@@ -18,8 +18,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Convencido
     origin: Item.CRyHyOjISwTV8RMd
     transfer: true
     flags:
@@ -36,7 +34,24 @@ effects:
         custo: ''
         durationScene: false
         items: fortitude;reflexos;vontade
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Convencido
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!YuWiVUsSuWLkJvhr.8RORVTcG9PTOb6Cv'
 folder: csRpG81AedPycko0
 sort: 0
@@ -94,9 +109,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184732
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!YuWiVUsSuWLkJvhr'
 

@@ -3,10 +3,8 @@ name: Escudo do Leão
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/escudo-do-leao.webp
 effects:
-  - label: Defensor
-    icon: systems/tormenta20/icons/itens/itens-magicos/escudo-do-leao.webp
-    origin: Item.kAGIu4l3y638MMUv
-    tint: '#FFFFFF'
+  - origin: Item.kAGIu4l3y638MMUv
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Defensor
+    img: systems/tormenta20/icons/itens/itens-magicos/escudo-do-leao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!kAGIu4l3y638MMUv.Kd6R6aGUkqwisEfD'
-  - label: Mordida
-    icon: icons/svg/upgrade.svg
-    origin: Item.kAGIu4l3y638MMUv
-    tint: '#FFFFFF'
+  - origin: Item.kAGIu4l3y638MMUv
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -63,6 +76,23 @@ effects:
         value: 2d6+2
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mordida
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!kAGIu4l3y638MMUv.RgW2yfgQGiGYCi9x'
 folder: SkZDe8cUamd0vHjD
 sort: 100391
@@ -163,9 +193,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000111
   modifiedTime: 1684622973238
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!kAGIu4l3y638MMUv'
 

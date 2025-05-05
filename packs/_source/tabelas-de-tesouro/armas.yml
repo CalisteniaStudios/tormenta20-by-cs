@@ -4,527 +4,926 @@ img: icons/svg/d20-grey.svg
 results:
   - _id: reczOx6Rditf7Lph
     flags: {}
-    type: 2
-    text: Adaga
+    type: document
     img: systems/tormenta20/icons/itens/adaga.webp
     weight: 1
     range:
       - 1
       - 3
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: XuObO7LzBBNoIsGv
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Adaga
+    documentUuid: Compendium.tormenta20.equipamentos.Item.XuObO7LzBBNoIsGv
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.reczOx6Rditf7Lph'
   - _id: 2bGKS9wvdqaeL3lo
     flags: {}
-    type: 2
-    text: Alabarda
+    type: document
     img: systems/tormenta20/icons/itens/alabarda.webp
     weight: 1
     range:
       - 4
       - 5
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: p7MZK1XnNPSXxbmy
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alabarda
+    documentUuid: Compendium.tormenta20.equipamentos.Item.p7MZK1XnNPSXxbmy
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.2bGKS9wvdqaeL3lo'
   - _id: avRUeoJbddyTLqjV
     flags: {}
-    type: 2
-    text: Alfange
+    type: document
     img: systems/tormenta20/icons/itens/alfange.webp
     weight: 1
     range:
       - 6
       - 7
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: zdzrCLMsiO2LJYiS
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alfange
+    documentUuid: Compendium.tormenta20.equipamentos.Item.zdzrCLMsiO2LJYiS
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.avRUeoJbddyTLqjV'
   - _id: dm7zD3osLawb8aSA
     flags: {}
-    type: 2
-    text: Arco curto
+    type: document
     img: systems/tormenta20/icons/itens/arco-curto.webp
     weight: 1
     range:
       - 8
       - 10
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: E8czrmn4rH7Fqyea
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arco curto
+    documentUuid: Compendium.tormenta20.equipamentos.Item.E8czrmn4rH7Fqyea
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.dm7zD3osLawb8aSA'
   - _id: z9W1NARF8K2SD7aY
     flags: {}
-    type: 2
-    text: Arco longo
+    type: document
     img: systems/tormenta20/icons/itens/arco-longo.webp
     weight: 1
     range:
       - 11
       - 13
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: B1hiWU8eEI1NHwcv
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arco longo
+    documentUuid: Compendium.tormenta20.equipamentos.Item.B1hiWU8eEI1NHwcv
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.z9W1NARF8K2SD7aY'
   - _id: lTtb7XIb1vAGExgq
     flags: {}
-    type: 2
-    text: Azagaia
+    type: document
     img: systems/tormenta20/icons/itens/azagaia.webp
     weight: 1
     range:
       - 14
       - 15
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: 7KL4b6CtfUP0rFqi
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Azagaia
+    documentUuid: Compendium.tormenta20.equipamentos.Item.7KL4b6CtfUP0rFqi
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.lTtb7XIb1vAGExgq'
   - _id: gEcND3ZJQJOONFCy
     flags: {}
-    type: 2
-    text: Besta leve
+    type: document
     img: systems/tormenta20/icons/itens/besta-leve.webp
     weight: 1
     range:
       - 17
       - 18
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: dUtNefh57IswhzOr
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Besta leve
+    documentUuid: Compendium.tormenta20.equipamentos.Item.dUtNefh57IswhzOr
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.gEcND3ZJQJOONFCy'
   - _id: REizXkR9AqazLCNP
     flags: {}
-    type: 2
-    text: Besta pesada
+    type: document
     img: systems/tormenta20/icons/itens/besta-pesada.webp
     weight: 1
     range:
       - 19
       - 20
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: iYY0Jr19T5ERm43G
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Besta pesada
+    documentUuid: Compendium.tormenta20.equipamentos.Item.iYY0Jr19T5ERm43G
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.REizXkR9AqazLCNP'
   - _id: eQSKkEXrhiqswOVO
     flags: {}
-    type: 2
-    text: Bordão
+    type: document
     img: systems/tormenta20/icons/itens/bordao.webp
     weight: 1
     range:
       - 21
       - 23
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: HyJBwTLK0vY5F1Vp
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bordão
+    documentUuid: Compendium.tormenta20.equipamentos.Item.HyJBwTLK0vY5F1Vp
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.eQSKkEXrhiqswOVO'
   - _id: F5V9Nh5zA4rodEKg
     flags: {}
-    type: 2
-    text: Chicote
+    type: document
     img: systems/tormenta20/icons/itens/chicote.webp
     weight: 1
     range:
       - 24
       - 24
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: j9gfVNTufgCPJ2AN
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Chicote
+    documentUuid: Compendium.tormenta20.equipamentos.Item.j9gfVNTufgCPJ2AN
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.F5V9Nh5zA4rodEKg'
   - _id: uRMMpUrLJvGXQZxS
     flags: {}
-    type: 2
-    text: Cimitarra
+    type: document
     img: systems/tormenta20/icons/itens/cimitarra.webp
     weight: 1
     range:
       - 25
       - 27
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: y6IKZPxsQebq1AkW
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cimitarra
+    documentUuid: Compendium.tormenta20.equipamentos.Item.y6IKZPxsQebq1AkW
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.uRMMpUrLJvGXQZxS'
   - _id: 61yRFm6A6J0LPyOb
     flags: {}
-    type: 2
-    text: Clava
+    type: document
     img: systems/tormenta20/icons/itens/clava.webp
     weight: 1
     range:
       - 28
       - 30
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: JUlyA7UGoTGdXkCP
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Clava
+    documentUuid: Compendium.tormenta20.equipamentos.Item.JUlyA7UGoTGdXkCP
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.61yRFm6A6J0LPyOb'
   - _id: tokCNHwJBsDQE3rM
     flags: {}
-    type: 2
-    text: Corrente de espinhos
+    type: document
     img: systems/tormenta20/icons/itens/corrente-de-espinhos.webp
     weight: 1
     range:
       - 31
       - 31
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: sbeOrX6B3VZIuQcL
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Corrente de espinhos
+    documentUuid: Compendium.tormenta20.equipamentos.Item.sbeOrX6B3VZIuQcL
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.tokCNHwJBsDQE3rM'
   - _id: qknlbYOhl9IagEdD
     flags: {}
-    type: 2
-    text: Espada bastarda
+    type: document
     img: systems/tormenta20/icons/itens/espada-bastarda.webp
     weight: 1
     range:
       - 32
       - 33
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: Vl8EoLKtzI7wyT1V
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espada bastarda
+    documentUuid: Compendium.tormenta20.equipamentos.Item.Vl8EoLKtzI7wyT1V
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.qknlbYOhl9IagEdD'
   - _id: hDOxsZgInlIqkeeB
     flags: {}
-    type: 2
-    text: Espada curta
+    type: document
     img: systems/tormenta20/icons/itens/espada-curta.webp
     weight: 1
     range:
       - 34
       - 38
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: boM5sIgADaFaQ3xG
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espada curta
+    documentUuid: Compendium.tormenta20.equipamentos.Item.boM5sIgADaFaQ3xG
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.hDOxsZgInlIqkeeB'
   - _id: dmqrZstGjkPMbxOn
     flags: {}
-    type: 2
-    text: Espada longa
+    type: document
     img: systems/tormenta20/icons/itens/espada-longa.webp
     weight: 1
     range:
       - 39
       - 43
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: LirOBCaOzAEWQpFk
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espada longa
+    documentUuid: Compendium.tormenta20.equipamentos.Item.LirOBCaOzAEWQpFk
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.dmqrZstGjkPMbxOn'
   - _id: gU4RP6Bvjr2QXNeL
     flags: {}
-    type: 2
-    text: Florete
+    type: document
     img: systems/tormenta20/icons/itens/florete.webp
     weight: 1
     range:
       - 47
       - 49
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: r3tlhprPUh8qHesx
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Florete
+    documentUuid: Compendium.tormenta20.equipamentos.Item.r3tlhprPUh8qHesx
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.gU4RP6Bvjr2QXNeL'
   - _id: 9ToCmgaIJS6qhfnw
     flags: {}
-    type: 2
-    text: Foice
+    type: document
     img: systems/tormenta20/icons/itens/foice.webp
     weight: 1
     range:
       - 50
       - 51
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: NN09gZa79LpQdBqK
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Foice
+    documentUuid: Compendium.tormenta20.equipamentos.Item.NN09gZa79LpQdBqK
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.9ToCmgaIJS6qhfnw'
   - _id: HVXbTvTw9hccP4c8
     flags: {}
-    type: 2
-    text: Funda
+    type: document
     img: systems/tormenta20/icons/itens/funda.webp
     weight: 1
     range:
       - 52
       - 53
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: DjqrTflaHyUetx0k
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Funda
+    documentUuid: Compendium.tormenta20.equipamentos.Item.DjqrTflaHyUetx0k
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.HVXbTvTw9hccP4c8'
   - _id: ptxorn8u5LvgY3sH
     flags: {}
-    type: 2
-    text: Gadanho
+    type: document
     img: systems/tormenta20/icons/itens/gadanho.webp
     weight: 1
     range:
       - 54
       - 55
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: qTYbTAG5ABiuZD0o
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Gadanho
+    documentUuid: Compendium.tormenta20.equipamentos.Item.qTYbTAG5ABiuZD0o
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.ptxorn8u5LvgY3sH'
   - _id: DNNgdZaQyTKbCnmR
     flags: {}
-    type: 2
-    text: Katana
+    type: document
     img: systems/tormenta20/icons/itens/katana.webp
     weight: 1
     range:
       - 56
       - 56
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: Flif0uZZpMv1qcQw
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Katana
+    documentUuid: Compendium.tormenta20.equipamentos.Item.Flif0uZZpMv1qcQw
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.DNNgdZaQyTKbCnmR'
   - _id: NF52GFtwRjptEwvH
     flags: {}
-    type: 2
-    text: Lança
+    type: document
     img: systems/tormenta20/icons/itens/lanca.webp
     weight: 1
     range:
       - 57
       - 59
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: vaCe85lpdH10teLi
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lança
+    documentUuid: Compendium.tormenta20.equipamentos.Item.vaCe85lpdH10teLi
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.NF52GFtwRjptEwvH'
   - _id: DW12Xfm2GNYnz2fy
     flags: {}
-    type: 2
-    text: Lança montada
+    type: document
     img: systems/tormenta20/icons/itens/lan%C3%A7a-montada.webp
     weight: 1
     range:
       - 60
       - 60
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: HZyncQBfcntF9cF1
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lança montada
+    documentUuid: Compendium.tormenta20.equipamentos.Item.HZyncQBfcntF9cF1
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.DW12Xfm2GNYnz2fy'
   - _id: vYoYnKCnlCLgcdq5
     flags: {}
-    type: 2
-    text: Maça
+    type: document
     img: systems/tormenta20/icons/itens/maca.webp
     weight: 1
     range:
       - 61
       - 63
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: FYDbB42HXoTetKnT
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Maça
+    documentUuid: Compendium.tormenta20.equipamentos.Item.FYDbB42HXoTetKnT
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.vYoYnKCnlCLgcdq5'
   - _id: SmGATv9qaCVZNAMw
     flags: {}
-    type: 2
-    text: Machadinha
+    type: document
     img: systems/tormenta20/icons/itens/machadinha.webp
     weight: 1
     range:
       - 64
       - 66
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: EiWBTKrxf7NqpZoK
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Machadinha
+    documentUuid: Compendium.tormenta20.equipamentos.Item.EiWBTKrxf7NqpZoK
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.SmGATv9qaCVZNAMw'
   - _id: 1lPMrRBEw9L22zur
     flags: {}
-    type: 2
-    text: Machado anão
+    type: document
     img: systems/tormenta20/icons/itens/machado-anao.webp
     weight: 1
     range:
       - 67
       - 67
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: xXK2IqgRyxPdhdmQ
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Machado anão
+    documentUuid: Compendium.tormenta20.equipamentos.Item.xXK2IqgRyxPdhdmQ
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.1lPMrRBEw9L22zur'
   - _id: inwDEvC07KqXWvOq
     flags: {}
-    type: 2
-    text: Machado de batalha
+    type: document
     img: systems/tormenta20/icons/itens/machado-de-batalha.webp
     weight: 1
     range:
       - 68
       - 70
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: v5HYdRxOsBcnXATP
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Machado de batalha
+    documentUuid: Compendium.tormenta20.equipamentos.Item.v5HYdRxOsBcnXATP
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.inwDEvC07KqXWvOq'
   - _id: ALPXa8iuAtMlRRMl
     flags: {}
-    type: 2
-    text: Machado de guerra
+    type: document
     img: systems/tormenta20/icons/itens/machado-de-guerra.webp
     weight: 1
     range:
       - 71
       - 73
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: P4MW0Ezhmya6Hm89
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Machado de guerra
+    documentUuid: Compendium.tormenta20.equipamentos.Item.P4MW0Ezhmya6Hm89
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.ALPXa8iuAtMlRRMl'
   - _id: OMAYaTvIW0yfCz1J
     flags: {}
-    type: 2
-    text: Machado táurico
+    type: document
     img: systems/tormenta20/icons/itens/machado-taurico.webp
     weight: 1
     range:
       - 74
       - 74
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: INnoDDDGvmHKvnlM
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Machado táurico
+    documentUuid: Compendium.tormenta20.equipamentos.Item.INnoDDDGvmHKvnlM
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.OMAYaTvIW0yfCz1J'
   - _id: UHEvlfO9mLyMLlzl
     flags: {}
-    type: 2
-    text: Mangual
+    type: document
     img: systems/tormenta20/icons/itens/mangual.webp
     weight: 1
     range:
       - 75
       - 76
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: k4aGem7SrVRtJ9tO
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mangual
+    documentUuid: Compendium.tormenta20.equipamentos.Item.k4aGem7SrVRtJ9tO
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.UHEvlfO9mLyMLlzl'
   - _id: KdZxLZSKMeQWm6i1
     flags: {}
-    type: 2
-    text: Manopla
+    type: document
     img: systems/tormenta20/icons/itens/manopla.webp
     weight: 1
     range:
       - 77
       - 77
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: bsKUfUMnqIXt4dGl
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manopla
+    documentUuid: Compendium.tormenta20.equipamentos.Item.bsKUfUMnqIXt4dGl
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.KdZxLZSKMeQWm6i1'
   - _id: wM6YPzDWf940vOTr
     flags: {}
-    type: 2
-    text: Martelo de guerra
+    type: document
     img: systems/tormenta20/icons/itens/martelo-de-guerra.webp
     weight: 1
     range:
       - 78
       - 80
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: VxjPnjvWAKkpjMLE
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Martelo de guerra
+    documentUuid: Compendium.tormenta20.equipamentos.Item.VxjPnjvWAKkpjMLE
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.wM6YPzDWf940vOTr'
   - _id: xDb91ktfXE84zCDs
     flags: {}
-    type: 2
-    text: Montante
+    type: document
     img: systems/tormenta20/icons/itens/montante.webp
     weight: 1
     range:
       - 81
       - 83
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: fohj08MaFfvVAo40
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Montante
+    documentUuid: Compendium.tormenta20.equipamentos.Item.fohj08MaFfvVAo40
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.xDb91ktfXE84zCDs'
   - _id: OndgR7KFNtQZMu0v
     flags: {}
-    type: 2
-    text: Mosquete
+    type: document
     img: systems/tormenta20/icons/itens/mosquete.webp
     weight: 1
     range:
       - 84
       - 84
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: UCovm0cenCi7hgvf
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mosquete
+    documentUuid: Compendium.tormenta20.equipamentos.Item.UCovm0cenCi7hgvf
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.OndgR7KFNtQZMu0v'
   - _id: GYqvkXGOfGQDUEFy
     flags: {}
-    type: 2
-    text: Picareta
+    type: document
     img: systems/tormenta20/icons/itens/picareta.webp
     weight: 1
     range:
       - 86
       - 88
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: nsTbFWXERXChuTS4
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Picareta
+    documentUuid: Compendium.tormenta20.equipamentos.Item.nsTbFWXERXChuTS4
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.GYqvkXGOfGQDUEFy'
   - _id: hvLnPzOoRREnz5mi
     flags: {}
-    type: 2
-    text: Pique
+    type: document
     img: systems/tormenta20/icons/itens/pique.webp
     weight: 1
     range:
       - 89
       - 90
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: O1sws1dJsnFQBxpR
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Pique
+    documentUuid: Compendium.tormenta20.equipamentos.Item.O1sws1dJsnFQBxpR
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.hvLnPzOoRREnz5mi'
   - _id: 2Fw2XfboW2rqjWOC
     flags: {}
-    type: 2
-    text: Pistola
+    type: document
     img: systems/tormenta20/icons/itens/pistola.webp
     weight: 1
     range:
       - 91
       - 92
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: TILlgOKqyS3Ps4le
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Pistola
+    documentUuid: Compendium.tormenta20.equipamentos.Item.TILlgOKqyS3Ps4le
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.2Fw2XfboW2rqjWOC'
   - _id: vSXX3t2q5vRfAC6F
     flags: {}
-    type: 2
-    text: Rede
+    type: document
     img: systems/tormenta20/icons/itens/rede.webp
     weight: 1
     range:
       - 93
       - 93
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: d7ghPf8u43lS2KL6
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Rede
+    documentUuid: Compendium.tormenta20.equipamentos.Item.d7ghPf8u43lS2KL6
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.vSXX3t2q5vRfAC6F'
   - _id: JJn8dV7iauuK5tUQ
     flags: {}
-    type: 2
-    text: Tacape
+    type: document
     img: systems/tormenta20/icons/itens/tacape.webp
     weight: 1
     range:
       - 94
       - 96
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: fRe995zLI8GOydRo
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tacape
+    documentUuid: Compendium.tormenta20.equipamentos.Item.fRe995zLI8GOydRo
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.JJn8dV7iauuK5tUQ'
   - _id: NoH3AQ4QaQ4NhOyC
     flags: {}
-    type: 2
-    text: Tridente
+    type: document
     img: systems/tormenta20/icons/itens/tridente.webp
     weight: 1
     range:
       - 97
       - 98
     drawn: false
-    documentCollection: tormenta20.equipamentos
-    documentId: SlLNgSGJaWZfiDtx
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tridente
+    documentUuid: Compendium.tormenta20.equipamentos.Item.SlLNgSGJaWZfiDtx
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.NoH3AQ4QaQ4NhOyC'
   - _id: J3Tqef5OCeDv9N1O
-    type: 2
-    text: Virotes
+    type: document
     img: systems/tormenta20/icons/itens/virote.webp
     weight: 1
     range:
@@ -532,12 +931,22 @@ results:
       - 100
     drawn: false
     flags: {}
-    documentCollection: tormenta20.equipamentos
-    documentId: pG2mhXPGveTdGuDG
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Virotes
+    documentUuid: Compendium.tormenta20.equipamentos.Item.pG2mhXPGveTdGuDG
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.J3Tqef5OCeDv9N1O'
   - _id: vuQLI3iZqky2HSi6
-    type: 2
-    text: Flechas
+    type: document
     img: systems/tormenta20/icons/itens/flecha.webp
     weight: 1
     range:
@@ -545,12 +954,22 @@ results:
       - 46
     drawn: false
     flags: {}
-    documentCollection: tormenta20.equipamentos
-    documentId: UI59UM7vpFaHRc18
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Flechas
+    documentUuid: Compendium.tormenta20.equipamentos.Item.UI59UM7vpFaHRc18
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.vuQLI3iZqky2HSi6'
   - _id: YRzY5jcBk1wlHnQj
-    type: 2
-    text: Munição
+    type: document
     img: systems/tormenta20/icons/itens/municao.webp
     weight: 1
     range:
@@ -558,12 +977,22 @@ results:
       - 85
     drawn: false
     flags: {}
-    documentCollection: tormenta20.equipamentos
-    documentId: 3kWjlkSaIAiYa4lm
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Munição
+    documentUuid: Compendium.tormenta20.equipamentos.Item.3kWjlkSaIAiYa4lm
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.YRzY5jcBk1wlHnQj'
   - _id: 6thLAoB2TrnqWVlK
-    type: 2
-    text: Balas
+    type: document
     img: systems/tormenta20/icons/itens/bala.webp
     weight: 1
     range:
@@ -571,25 +1000,37 @@ results:
       - 16
     drawn: false
     flags: {}
-    documentCollection: tormenta20.equipamentos
-    documentId: GTZWWQYHPxR6hZqb
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Balas
+    documentUuid: Compendium.tormenta20.equipamentos.Item.GTZWWQYHPxR6hZqb
+    description: ''
     _key: '!tables.results!nQznnXX8yrSfFmwR.6thLAoB2TrnqWVlK'
 formula: 1d100
 replacement: true
 displayRoll: true
 folder: null
 sort: 0
-flags:
-  importid: swWlZI27zbVxWsWd
+flags: {}
 ownership:
   default: 0
 description: ''
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664312665199
   modifiedTime: 1667354515229
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!tables!nQznnXX8yrSfFmwR'
 

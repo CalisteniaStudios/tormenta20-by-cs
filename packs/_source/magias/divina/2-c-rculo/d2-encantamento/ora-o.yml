@@ -36,20 +36,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta os bônus em +1 (bônus máximo limitado pelo círculo máximo de magia
-      que você pode lançar).
     origin: Compendium.tormenta20.magias.VtD27Z068vl78qH3
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta os bônus em +1 (bônus máximo limitado pelo círculo máximo de magia
+      que você pode lançar).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VtD27Z068vl78qH3.kn9WNxJzJkpiKMCl'
-  - label: >-
-      aumenta as penalidades em –1, limitado pelo círculo máximo de magia que
-      você pode lançar.
-    icon: icons/svg/upgrade.svg
-    origin: Item.OqIQzjfKPkMdZ97v
-    tint: '#FFFFFF'
+  - origin: Item.OqIQzjfKPkMdZ97v
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -84,11 +95,28 @@ effects:
         value: '-1'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta as penalidades em –1, limitado pelo círculo máximo de magia que
+      você pode lançar.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VtD27Z068vl78qH3.2pW9FvhmoDxs7r5b'
-  - label: Oração (Bônus)
-    icon: systems/tormenta20/icons/magias/oracao.webp
-    origin: Item.OqIQzjfKPkMdZ97v
-    tint: '#FFFFFF'
+  - origin: Item.OqIQzjfKPkMdZ97v
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -113,11 +141,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Oração (Bônus)
+    img: systems/tormenta20/icons/magias/oracao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VtD27Z068vl78qH3.Ee6cpZ5dhIofP9KA'
-  - label: Oração (Penalidade)
-    icon: systems/tormenta20/icons/magias/oracao.webp
-    origin: Item.OqIQzjfKPkMdZ97v
-    tint: '#FFFFFF'
+  - origin: Item.OqIQzjfKPkMdZ97v
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -142,11 +185,26 @@ effects:
         value: '-2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Oração (Penalidade)
+    img: systems/tormenta20/icons/magias/oracao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VtD27Z068vl78qH3.c9JIzWUPMvXTWKVZ'
-  - label: muda o alcance para médio. Requer 3º círculo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.OqIQzjfKPkMdZ97v
-    tint: '#FFFFFF'
+  - origin: Item.OqIQzjfKPkMdZ97v
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -177,11 +235,26 @@ effects:
         value: médio
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alcance para médio. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VtD27Z068vl78qH3.1pk6usBOjsubdCJm'
-  - label: muda a duração para cena. Requer 4º círculo
-    icon: icons/svg/upgrade.svg
-    origin: Item.OqIQzjfKPkMdZ97v
-    tint: '#FFFFFF'
+  - origin: Item.OqIQzjfKPkMdZ97v
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -212,6 +285,23 @@ effects:
         value: Cena
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para cena. Requer 4º círculo
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VtD27Z068vl78qH3.d09qNlDhUHfuHlrU'
 folder: eDRs6rp0uirDl74f
 sort: 0
@@ -275,9 +365,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461916
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!VtD27Z068vl78qH3'
 

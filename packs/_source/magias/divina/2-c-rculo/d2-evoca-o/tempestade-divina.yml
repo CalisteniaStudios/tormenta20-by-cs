@@ -36,14 +36,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.veCfW87hsFWhz59h
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para sustentada. Além do normal, uma vez por rodada você
       pode gastar uma ação padrão para fazer um raio cair sobre um alvo na área,
       causando 3d8 pontos de dano de eltricidade (Reflexos reduz à metade).
-    origin: Compendium.tormenta20.magias.veCfW87hsFWhz59h
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.WfuyoM5JdO5bcFjN'
   - _id: JUP95qhc6V5uLkb3
     flags:
@@ -74,11 +89,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano de raios (veja acima) em +1d8.
     origin: Compendium.tormenta20.magias.veCfW87hsFWhz59h
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano de raios (veja acima) em +1d8.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.JUP95qhc6V5uLkb3'
   - _id: IICNqbp9bQErGEtT
     flags:
@@ -109,16 +139,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.veCfW87hsFWhz59h
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       se escolheu causar chuva, ela se torna mais grossa, revelando a silhueta
       de criaturas invisíveis na área. Criaturas Médias ou menores ficam lentas
       e criaturas voadoras precisam passar num teste de Atletismo (CD da magia)
       por rodada ou caem ao solo (mas podem fazer testes de Acrobacia para
       reduzir o dano de queda, como o normal).
-    origin: Compendium.tormenta20.magias.veCfW87hsFWhz59h
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.IICNqbp9bQErGEtT'
   - _id: Jfvb7y8tMe0oRwfx
     flags:
@@ -149,11 +194,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: se escolheu causar granizo, muda o dano para 2d6 por rodada.
     origin: Compendium.tormenta20.magias.veCfW87hsFWhz59h
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: se escolheu causar granizo, muda o dano para 2d6 por rodada.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.Jfvb7y8tMe0oRwfx'
   - _id: oxXDU2xXfiOQX5Xm
     flags:
@@ -184,13 +244,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      se escolheu causar neve, criaturas na área sofrem 2d6 pontos de dano de
-      frio no início de seus turnos.
     origin: Compendium.tormenta20.magias.veCfW87hsFWhz59h
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      se escolheu causar neve, criaturas na área sofrem 2d6 pontos de dano de
+      frio no início de seus turnos.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.oxXDU2xXfiOQX5Xm'
   - _id: i7wCy0z0SYhs7wZ5
     changes:
@@ -207,15 +282,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/tempestade-divina.webp
-    label: Tempestade Divina (Vendaval)
     origin: Item.SK6l5OMgnKXTm1EA
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tempestade Divina (Vendaval)
+    img: systems/tormenta20/icons/magias/tempestade-divina.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.i7wCy0z0SYhs7wZ5'
   - _id: SAhyyMWO1buILcqt
     changes:
@@ -232,15 +322,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/tempestade-divina.webp
-    label: Tempestade Divina (Chuva)
     origin: Item.SK6l5OMgnKXTm1EA
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tempestade Divina (Chuva)
+    img: systems/tormenta20/icons/magias/tempestade-divina.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.SAhyyMWO1buILcqt'
   - _id: 5BPPxoO16pHevI33
     changes:
@@ -257,8 +362,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a área para cilindro com 90m de raio e 90m de altura.
     origin: Item.SK6l5OMgnKXTm1EA
     transfer: false
     flags:
@@ -275,7 +378,24 @@ effects:
         custo: '3'
         durationScene: false
         items: ''
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a área para cilindro com 90m de raio e 90m de altura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!veCfW87hsFWhz59h.5BPPxoO16pHevI33'
 folder: nUZzjRZCyl2p92SC
 sort: 0
@@ -348,9 +468,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462899
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!veCfW87hsFWhz59h'
 

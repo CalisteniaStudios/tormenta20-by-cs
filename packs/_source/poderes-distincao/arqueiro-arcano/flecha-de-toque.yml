@@ -64,13 +64,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: >-
-      como parte da execução da magia, você faz um ataque à distância com seu
-      arco arcano contra o alvo. Se acertar, causa o dano do ataque e o efeito
-      da magia.
-    icon: icons/svg/upgrade.svg
-    origin: Item.iBNn9AYlRdauE6iX
-    tint: '#FFFFFF'
+  - origin: Item.iBNn9AYlRdauE6iX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -98,15 +93,37 @@ effects:
     _id: ML1RVwfKjoBt9asc
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      como parte da execução da magia, você faz um ataque à distância com seu
+      arco arcano contra o alvo. Se acertar, causa o dano do ataque e o efeito
+      da magia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!iBNn9AYlRdauE6iX.ML1RVwfKjoBt9asc'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665856654745
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: iBNn9AYlRdauE6iX
 folder: Rj1a3BRGbCJZHIUT
 sort: 0

@@ -28,14 +28,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.wzEx37udhiSSTeFD
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para cena e a resistência para nenhuma. Em vez do normal,
       cria um facho de luz que ilumina a área da magia. Uma vez por rodada, você
       pode mudar a direção do facho como uma ação livre.
-    origin: Compendium.tormenta20.magias.wzEx37udhiSSTeFD
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wzEx37udhiSSTeFD.02fF0HaEnzjjxWCk'
   - _id: 0scxuZfMACRm0MaF
     flags:
@@ -58,11 +73,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano ou cura em +1d8 (ou +1d12 em mortos-vivos).
     origin: Compendium.tormenta20.magias.wzEx37udhiSSTeFD
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano ou cura em +1d8 (ou +1d12 em mortos-vivos).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wzEx37udhiSSTeFD.0scxuZfMACRm0MaF'
   - _id: OfviaR1sdHH8ZLYT
     flags:
@@ -85,13 +115,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      em vez do normal, criaturas vivas a sua escolha na área curam 4d8 pontos
-      de vida; o restante sofre o dano normalmente.
     origin: Compendium.tormenta20.magias.wzEx37udhiSSTeFD
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      em vez do normal, criaturas vivas a sua escolha na área curam 4d8 pontos
+      de vida; o restante sofre o dano normalmente.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wzEx37udhiSSTeFD.OfviaR1sdHH8ZLYT'
   - _id: VNfMJgm411DpDTdQ
     flags:
@@ -110,11 +155,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: criaturas que falhem na resistência ficam cegas por 1d4 rodadas.
     origin: Compendium.tormenta20.magias.wzEx37udhiSSTeFD
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: criaturas que falhem na resistência ficam cegas por 1d4 rodadas.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wzEx37udhiSSTeFD.VNfMJgm411DpDTdQ'
 folder: nUZzjRZCyl2p92SC
 sort: 0
@@ -190,9 +250,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462905
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!wzEx37udhiSSTeFD'
 

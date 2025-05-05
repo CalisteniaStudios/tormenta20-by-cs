@@ -39,13 +39,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.i6LtB6c3u8fLQOXp
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para ação padrão, o alcance para toque e a duração para
       cena.
-    origin: Compendium.tormenta20.magias.i6LtB6c3u8fLQOXp
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XJoWTcH8zVtHc2xa.elfboK1tOLQA5COJ'
   - _id: dWw5EaKzbTWoRNZw
     flags:
@@ -72,11 +87,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: também fornece ao alvo camuflagem leve contra ataques à distância.
     origin: Compendium.tormenta20.magias.i6LtB6c3u8fLQOXp
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: também fornece ao alvo camuflagem leve contra ataques à distância.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XJoWTcH8zVtHc2xa.dWw5EaKzbTWoRNZw'
   - _id: qOH6ej4ccboq16RJ
     flags:
@@ -107,11 +137,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus na Defesa em +1.
     origin: Compendium.tormenta20.magias.i6LtB6c3u8fLQOXp
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus na Defesa em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XJoWTcH8zVtHc2xa.qOH6ej4ccboq16RJ'
   - _id: Lg6PDnTETj0kcL6F
     flags:
@@ -150,16 +195,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.i6LtB6c3u8fLQOXp
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para ação padrão, o alcance para toque e a duração para
       cena. A magia cria uma conexão mística entre você e o alvo. Além do efeito
       normal, o alvo sofre metade do dano por ataques e efeitos; a outra metade
       do dano é transferida a você. Se o alvo sair de alcance curto de você, a
       magia é dissipada. Requer 2º círculo.
-    origin: Compendium.tormenta20.magias.i6LtB6c3u8fLQOXp
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XJoWTcH8zVtHc2xa.Lg6PDnTETj0kcL6F'
   - _id: iyuhAEsEq67Q8aWK
     flags:
@@ -182,11 +242,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para 1 dia. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.i6LtB6c3u8fLQOXp
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para 1 dia. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XJoWTcH8zVtHc2xa.iyuhAEsEq67Q8aWK'
   - _id: sjxS6CGlVJSg38co
     changes:
@@ -203,20 +278,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/escudo-da-fe.webp
-    label: Escudo da Fé (Cena)
     origin: Item.eTMQ5GAOTIEXKSv0
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo da Fé (Cena)
+    img: systems/tormenta20/icons/magias/escudo-da-fe.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XJoWTcH8zVtHc2xa.sjxS6CGlVJSg38co'
-  - label: Escudo da Fé (Dividir Dano)
-    icon: systems/tormenta20/icons/magias/escudo-da-fe.webp
-    origin: Item.XJoWTcH8zVtHc2xa
-    tint: '#FFFFFF'
+  - origin: Item.XJoWTcH8zVtHc2xa
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -233,11 +321,27 @@ effects:
     _id: 0m3vev0mjsYRDnfk
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo da Fé (Dividir Dano)
+    img: systems/tormenta20/icons/magias/escudo-da-fe.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XJoWTcH8zVtHc2xa.0m3vev0mjsYRDnfk'
 folder: XbfWNZNCUbSVLyRp
 sort: 0
-flags:
-  importid: 0nLtxzy8N6fUDERs
+flags: {}
 system:
   description:
     value: >-
@@ -292,9 +396,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462756
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!XJoWTcH8zVtHc2xa'
 

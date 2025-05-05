@@ -32,11 +32,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: Urro Divino
     origin: Item.Cx8OfGncS9PQPe5P
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Urro Divino
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bGVNLGaJ5FQzVgUG.e5BHmTQgmOD2d0g2'
 folder: lKFadrclju4033OJ
 sort: 0
@@ -95,9 +110,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184739
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!bGVNLGaJ5FQzVgUG'
 

@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: cria uma cópia adicional.
     origin: Compendium.tormenta20.magias.zlHOKjfs1K3L6xGI
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: cria uma cópia adicional.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zlHOKjfs1K3L6xGI.W6hp2Ht89NjwBphP'
   - _id: RItlzTJ28IdM0zoO
     changes: []
@@ -37,15 +52,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/duplicata-ilusoria.webp
-    label: Duplicata Ilusória
     origin: Item.jpSbAq1ko8aO6jr9
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Duplicata Ilusória
+    img: systems/tormenta20/icons/magias/duplicata-ilusoria.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zlHOKjfs1K3L6xGI.RItlzTJ28IdM0zoO'
 folder: eWqsKdfBBmt8h42b
 sort: 0
@@ -117,9 +147,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462909
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!zlHOKjfs1K3L6xGI'
 

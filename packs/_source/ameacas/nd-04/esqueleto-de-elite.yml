@@ -7,9 +7,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/espada-longa.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+    flags: {}
     system:
       description:
         value: >-
@@ -127,10 +125,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772402
       modifiedTime: 1700236803431
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2200000
     _id: kHeLZCy6GcR5s1pG
@@ -140,9 +141,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/escudo-pesado.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.1yGTB9tyXXSaN1wS
+    flags: {}
     system:
       description:
         value: >-
@@ -195,10 +194,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772390
       modifiedTime: 1667013718505
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.1yGTB9tyXXSaN1wS
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 101563
     _key: '!actors.items!0QJaEz9fdHb47RXi.6IHfO6x745wMbOH4'
@@ -207,9 +209,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/meia-armadura.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.nFV1X6lQbAhbocA6
+    flags: {}
     system:
       description:
         value: >-
@@ -261,10 +261,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772419
       modifiedTime: 1667013721290
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.nFV1X6lQbAhbocA6
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 100196
     _key: '!actors.items!0QJaEz9fdHb47RXi.QEmgNfWXmqaZPkPF'
@@ -1025,14 +1028,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/esqueleto-de-elite.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.1
     scaleY: 1.1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1046,12 +1055,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945872
   modifiedTime: 1700236803431
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!0QJaEz9fdHb47RXi'
 

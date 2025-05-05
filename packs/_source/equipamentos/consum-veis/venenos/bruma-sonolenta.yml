@@ -2,10 +2,8 @@ name: Bruma Sonolenta
 type: consumivel
 img: systems/tormenta20/icons/itens/gerais/veneno.webp
 effects:
-  - label: Bruma Sonolenta
-    icon: systems/tormenta20/icons/itens/gerais/veneno.webp
-    origin: Item.bOB6wziZ6QSoP5Gc
-    tint: '#FFFFFF'
+  - origin: Item.bOB6wziZ6QSoP5Gc
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,6 +20,23 @@ effects:
     _id: 1oavfzDRZov8ik8m
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bruma Sonolenta
+    img: systems/tormenta20/icons/itens/gerais/veneno.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bOB6wziZ6QSoP5Gc.1oavfzDRZov8ik8m'
 flags:
   scene-packer:
@@ -108,10 +123,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051718188
   modifiedTime: 1684617163687
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: bOB6wziZ6QSoP5Gc
 folder: bxpHxgHjOuykr5Rh
 sort: 200000

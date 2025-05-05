@@ -2,10 +2,8 @@ name: Mente Aberrante
 type: poder
 img: systems/tormenta20/icons/poderes/tormenta.webp
 effects:
-  - label: 'Mente Aberrante: Resistência a Efeitos mentais.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.tZ3HdOHk3UE7W50R
-    tint: '#FFFFFF'
+  - origin: Item.tZ3HdOHk3UE7W50R
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: 1+(@Tormenta2*1)
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Mente Aberrante: Resistência a Efeitos mentais.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tZ3HdOHk3UE7W50R.q0WucblRyEIPynJf'
 flags: {}
 system:
@@ -102,10 +117,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184717
   modifiedTime: 1684803469073
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: tZ3HdOHk3UE7W50R
 folder: m6ny7g3VciUkKZ3t
 sort: 0

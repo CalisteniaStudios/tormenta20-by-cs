@@ -14,20 +14,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/classes/paladino.webp
-    label: Marcar Inimigo
     origin: Item.IJwGqZpRUp4gIRtu
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Marcar Inimigo
+    img: systems/tormenta20/icons/classes/paladino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hzUeT5gDd8pM9oqW.Iat9tmm0FwvMiNsu'
-  - label: Vindicação Básica.
-    icon: icons/svg/upgrade.svg
-    origin: Item.hzUeT5gDd8pM9oqW
-    tint: '#FFFFFF'
+  - origin: Item.hzUeT5gDd8pM9oqW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -63,11 +76,26 @@ effects:
         value: '1'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vindicação Básica.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hzUeT5gDd8pM9oqW.iPQ92f8N8XL5e3Zw'
-  - label: Vindicação (aprimoramento a cada 5 níveis).
-    icon: icons/svg/upgrade.svg
-    origin: Item.hzUeT5gDd8pM9oqW
-    tint: '#FFFFFF'
+  - origin: Item.hzUeT5gDd8pM9oqW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -103,6 +131,23 @@ effects:
         value: 1d8
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vindicação (aprimoramento a cada 5 níveis).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hzUeT5gDd8pM9oqW.n2CKMuqO7Si1nPQ4'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -183,9 +228,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185122
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!hzUeT5gDd8pM9oqW'
 

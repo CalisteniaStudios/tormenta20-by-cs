@@ -57,10 +57,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: Luva de Pelica
-    icon: systems/tormenta20/icons/itens/gerais/luva-de-pelica.webp
-    origin: Item.7F1CRKWOqkzn4a1u
-    tint: '#FFFFFF'
+  - origin: Item.7F1CRKWOqkzn4a1u
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -81,15 +79,34 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Luva de Pelica
+    img: systems/tormenta20/icons/itens/gerais/luva-de-pelica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!7F1CRKWOqkzn4a1u.Xr3YpH2ftDQXTy5k'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663532558587
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 7F1CRKWOqkzn4a1u
 folder: 3kNyXnAknru6qWyM
 sort: 1000000

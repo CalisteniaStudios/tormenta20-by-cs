@@ -68,10 +68,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Guarda Mágica
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.QDYQsekLBIHra2lb
-    tint: '#FFFFFF'
+  - origin: Item.QDYQsekLBIHra2lb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -100,15 +98,34 @@ effects:
         value: 2+(@ArcanodeGuerra2*1)
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guarda Mágica
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!QDYQsekLBIHra2lb.kUXbz2Vj2mRNwVJ4'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083101946
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: QDYQsekLBIHra2lb
 folder: XTLQDvRqYbTCPiCK
 sort: 0

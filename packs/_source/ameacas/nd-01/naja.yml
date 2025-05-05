@@ -61,10 +61,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Veneno
-        icon: systems/tormenta20/icons/conditions/envenenado.svg
-        origin: Item.VWLwiM10pyEr7ZQq
-        tint: '#FFFFFF'
+      - origin: Item.VWLwiM10pyEr7ZQq
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -85,6 +83,23 @@ items:
             value: roll
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Veneno
+        img: systems/tormenta20/icons/conditions/envenenado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!RRa9FDDcVgGAJQXB.zKLkkG8TIr2Mgif0.KOklYtxVLCZmrIMF
     sort: 3500000
@@ -94,10 +109,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666320488703
       modifiedTime: 1667020352555
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: zKLkkG8TIr2Mgif0
     _key: '!actors.items!RRa9FDDcVgGAJQXB.zKLkkG8TIr2Mgif0'
   - folder: 38RRBscxCtcFC5s4
@@ -249,10 +267,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236300938
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: JUe85I5RSlJVGjiu
     _key: '!actors.items!RRa9FDDcVgGAJQXB.JUe85I5RSlJVGjiu'
 effects: []
@@ -1013,14 +1034,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/naja.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 0.8
     scaleY: 0.8
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1034,12 +1061,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945956
   modifiedTime: 1700236300938
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!RRa9FDDcVgGAJQXB'
 

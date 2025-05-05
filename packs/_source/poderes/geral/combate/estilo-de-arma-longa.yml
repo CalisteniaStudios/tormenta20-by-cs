@@ -51,10 +51,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Estilo de Arma Longa
-    icon: icons/svg/upgrade.svg
-    origin: Item.7TCow8poq1WBeYiT
-    tint: '#FFFFFF'
+  - origin: Item.7TCow8poq1WBeYiT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -86,15 +84,34 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estilo de Arma Longa
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!7TCow8poq1WBeYiT.GfZEyNkOULP0lqow'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1666839745811
   modifiedTime: 1684630468848
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 7TCow8poq1WBeYiT
 folder: Rgbah8U70jOKi5DF
 sort: 100000

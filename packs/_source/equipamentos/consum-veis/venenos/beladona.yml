@@ -2,10 +2,8 @@ name: Beladona
 type: consumivel
 img: systems/tormenta20/icons/itens/gerais/veneno.webp
 effects:
-  - label: Beladona
-    icon: systems/tormenta20/icons/itens/gerais/veneno.webp
-    origin: Item.5D42HnDgEirhlxS5
-    tint: '#FFFFFF'
+  - origin: Item.5D42HnDgEirhlxS5
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,6 +20,23 @@ effects:
     _id: geUCxtXFwXidnoZg
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Beladona
+    img: systems/tormenta20/icons/itens/gerais/veneno.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5D42HnDgEirhlxS5.geUCxtXFwXidnoZg'
 flags:
   scene-packer:
@@ -115,10 +130,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051718024
   modifiedTime: 1684617061236
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 5D42HnDgEirhlxS5
 folder: bxpHxgHjOuykr5Rh
 sort: 100000

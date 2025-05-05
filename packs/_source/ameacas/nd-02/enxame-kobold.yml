@@ -72,10 +72,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1667024325717
       modifiedTime: 1699999433332
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: IiW8RCS8dtgBgXjk
     _key: '!actors.items!ZPxFnXhUZ2dbcedC.IiW8RCS8dtgBgXjk'
   - type: poder
@@ -148,10 +151,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667024325718
       modifiedTime: 1667024686834
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: nz0XHpkunR0VxXVd
     _key: '!actors.items!ZPxFnXhUZ2dbcedC.nz0XHpkunR0VxXVd'
   - type: poder
@@ -220,17 +226,18 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667024325718
       modifiedTime: 1667024421339
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: uXwExRTvEmcnGgJm
     _key: '!actors.items!ZPxFnXhUZ2dbcedC.uXwExRTvEmcnGgJm'
 effects:
-  - label: Unidos Venceremos
-    icon: icons/svg/upgrade.svg
-    origin: Actor.ZPxFnXhUZ2dbcedC
-    tint: '#FFFFFF'
+  - origin: Actor.ZPxFnXhUZ2dbcedC
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -262,6 +269,23 @@ effects:
         value: floor(@pv / 10 )
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Unidos Venceremos
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!ZPxFnXhUZ2dbcedC.PljGcGV1cTaQrzFm'
 folder: HaKm5o3jKqN2gqzC
 sort: 100001
@@ -1018,14 +1042,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/kobolds.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.5
     scaleY: 1.5
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1039,12 +1069,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945977
   modifiedTime: 1699999463211
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!ZPxFnXhUZ2dbcedC'
 

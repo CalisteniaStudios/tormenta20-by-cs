@@ -22,11 +22,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/combate.webp
-    label: Estilo de Arma e Escudo
     origin: Item.awU6NJtGv2HCOlc4
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estilo de Arma e Escudo
+    img: systems/tormenta20/icons/poderes/combate.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!jnejEG7oaQrHKlCG.dUOu223E4E9DnIvd'
 folder: Rgbah8U70jOKi5DF
 sort: 0
@@ -86,9 +101,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185132
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!jnejEG7oaQrHKlCG'
 

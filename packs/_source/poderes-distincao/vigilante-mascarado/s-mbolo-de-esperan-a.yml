@@ -68,10 +68,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Símbolo de Esperança
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.a2dyG2kmk9wa5hUX
-    tint: '#FFFFFF'
+  - origin: Item.a2dyG2kmk9wa5hUX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -104,15 +102,34 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Símbolo de Esperança
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!a2dyG2kmk9wa5hUX.tSEsYpfwDob2PK1k'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083905345
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: a2dyG2kmk9wa5hUX
 folder: NxFKO0AHIR0pQgBN
 sort: 0

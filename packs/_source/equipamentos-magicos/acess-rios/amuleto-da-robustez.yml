@@ -3,10 +3,8 @@ name: Amuleto da Robustez
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/amuleto.webp
 effects:
-  - label: Amuleto da Robustez
-    icon: systems/tormenta20/icons/itens/itens-magicos/amuleto.webp
-    origin: Item.WAObGl5rjxba8J8s
-    tint: '#FFFFFF'
+  - origin: Item.WAObGl5rjxba8J8s
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Amuleto da Robustez
+    img: systems/tormenta20/icons/itens/itens-magicos/amuleto.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!WAObGl5rjxba8J8s.NLEOxpsOooRW0G0i'
 folder: BgJUCrqjG6EVBIfP
 sort: 5700000
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000105
   modifiedTime: 1684623039339
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!WAObGl5rjxba8J8s'
 

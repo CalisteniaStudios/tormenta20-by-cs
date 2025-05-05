@@ -53,10 +53,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Veneno
-    icon: systems/tormenta20/icons/conditions/envenenado.svg
-    origin: Item.VWLwiM10pyEr7ZQq
-    tint: '#FFFFFF'
+  - origin: Item.VWLwiM10pyEr7ZQq
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -77,11 +75,26 @@ effects:
         value: roll
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Veneno
+    img: systems/tormenta20/icons/conditions/envenenado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VWLwiM10pyEr7ZQq.KOklYtxVLCZmrIMF'
-  - label: Fraco
-    icon: systems/tormenta20/icons/conditions/fraco.svg
-    origin: Item.VWLwiM10pyEr7ZQq
-    tint: '#FFFFFF'
+  - origin: Item.VWLwiM10pyEr7ZQq
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -98,15 +111,34 @@ effects:
     _id: MhlvrqFjOpxLIi8c
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fraco
+    img: systems/tormenta20/icons/conditions/fraco.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VWLwiM10pyEr7ZQq.MhlvrqFjOpxLIi8c'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666320488703
   modifiedTime: 1668270615333
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: VWLwiM10pyEr7ZQq
 folder: null
 sort: 0

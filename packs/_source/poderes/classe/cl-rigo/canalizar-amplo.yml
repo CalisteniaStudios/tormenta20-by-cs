@@ -3,10 +3,8 @@ name: Canalizar Amplo
 type: poder
 img: systems/tormenta20/icons/classes/clerigo.webp
 effects:
-  - label: 'Canalizar Amplo: Alcance Médio.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.phoD0x4cY06pfHmV
-    tint: '#FFFFFF'
+  - origin: Item.phoD0x4cY06pfHmV
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: Sl2Nme8QOeM5pJyW
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Canalizar Amplo: Alcance Médio.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!phoD0x4cY06pfHmV.Sl2Nme8QOeM5pJyW'
 folder: RDLTxoI4mIyfR6dr
 sort: 0
@@ -93,9 +108,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185212
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!phoD0x4cY06pfHmV'
 

@@ -54,10 +54,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Urro Selvagem
-        icon: icons/creatures/abilities/lion-roar-yellow.webp
-        origin: Item.FPoWnjQZgYZgUP49
-        tint: '#FFFFFF'
+      - origin: Item.FPoWnjQZgYZgUP49
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -82,6 +80,23 @@ items:
             value: '2'
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Urro Selvagem
+        img: icons/creatures/abilities/lion-roar-yellow.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!MNRdYO0gwOgkyiCj.5u3u8FAVSYlNf0an.L1YTmKh2Jfnq6ub7
     sort: 0
@@ -91,10 +106,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321318639
       modifiedTime: 1667006150337
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 5u3u8FAVSYlNf0an
     _key: '!actors.items!MNRdYO0gwOgkyiCj.5u3u8FAVSYlNf0an'
   - folder: 0V7x5o397UvG3xKP
@@ -145,10 +163,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Ofuscado
-        icon: systems/tormenta20/icons/conditions/ofuscado.svg
-        origin: Item.SXWbxEA5WLMZoDAW
-        tint: '#FFFFFF'
+      - origin: Item.SXWbxEA5WLMZoDAW
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -165,6 +181,23 @@ items:
         _id: xh6WFU2ofZkMrjqo
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Ofuscado
+        img: systems/tormenta20/icons/conditions/ofuscado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!MNRdYO0gwOgkyiCj.p7PEuEAcpG8xYEhw.xh6WFU2ofZkMrjqo
     sort: 0
@@ -174,19 +207,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321165760
       modifiedTime: 1667006150338
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: p7PEuEAcpG8xYEhw
     _key: '!actors.items!MNRdYO0gwOgkyiCj.p7PEuEAcpG8xYEhw'
   - name: Machado de batalha
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/machado-de-batalha.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.v5HYdRxOsBcnXATP
+    flags: {}
     system:
       description:
         value: >-
@@ -344,10 +378,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312773032
       modifiedTime: 1700236550494
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.v5HYdRxOsBcnXATP
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 1000000
     _id: lScF1z8hrW0sGhC9
@@ -416,17 +453,19 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667006150339
       modifiedTime: 1667006150339
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: xICQest0Bp87J4Ei
     _key: '!actors.items!MNRdYO0gwOgkyiCj.xICQest0Bp87J4Ei'
 effects:
   - name: +2 Sobrevivência no Subterrâneo
-    icon: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.ameacas.Actor.MNRdYO0gwOgkyiCj
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -460,6 +499,20 @@ effects:
     description: ''
     transfer: true
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!MNRdYO0gwOgkyiCj.W3ww0OzGPBN0XmgP'
 folder: HaKm5o3jKqN2gqzC
 sort: 100001
@@ -1217,14 +1270,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/orc-chefe.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.4
     scaleY: 1.4
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1241,12 +1300,31 @@ prototypeToken:
       enabled: true
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945946
   modifiedTime: 1700236550494
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!MNRdYO0gwOgkyiCj'
 

@@ -3,10 +3,8 @@ name: Farsa do Fingidor
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-trapaca.webp
 effects:
-  - label: Farsa do Fingidor
-    icon: icons/svg/upgrade.svg
-    origin: Item.6HsKF5U5mfbWZlwV
-    tint: '#FFFFFF'
+  - origin: Item.6HsKF5U5mfbWZlwV
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: oWDShnU5wyJnpLFE
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Farsa do Fingidor
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6HsKF5U5mfbWZlwV.oWDShnU5wyJnpLFE'
 folder: p925DvI25xp3j71U
 sort: 0
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183319
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!6HsKF5U5mfbWZlwV'
 

@@ -31,8 +31,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.sOyknQBB504tY5KB
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para 1 minuto. Em vez do normal, você pode consultar uma
       divindade, fazendo uma pergunta sobre um evento que acontecerá até um dia
       no futuro. O mestre rola a chance de falha; com um resultado de 2 a 6,
@@ -40,9 +52,12 @@ effects:
       enigma. Em geral, este uso sempre oferece pistas, indicando um caminho a
       tomar para descobrir a resposta que se procura. Numa falha você não recebe
       resposta alguma. Requer 3º círculo.
-    origin: Item.sOyknQBB504tY5KB
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GuHLeMskEm21WzFv.zWeTcVcSy9aA7BfP'
   - _id: ZYBWgmolM7f6aDUy
     flags:
@@ -76,17 +91,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.sOyknQBB504tY5KB
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para 10 minutos e a duração para 1 minuto. Em vez do
       normal, você consulta uma divindade, podendo fazer uma pergunta por
       rodada, desde que ela possa ser respondida com "sim", "não" ou "não sei"
       (embora poderosos, os deuses não são oniscientes). O mestre rola a chance
       de falha para cada pergunta. Em caso de falha, a resposta também é "não
       sei". Requer 4º círculo.
-    origin: Item.sOyknQBB504tY5KB
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GuHLeMskEm21WzFv.ZYBWgmolM7f6aDUy'
   - _id: JIcynrqdH9dZXBuS
     flags:
@@ -112,11 +142,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: o mestre rola 1d12; a magia só falha em um resultado 1.
     origin: Item.sOyknQBB504tY5KB
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: o mestre rola 1d12; a magia só falha em um resultado 1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GuHLeMskEm21WzFv.JIcynrqdH9dZXBuS'
   - _id: dmQhkxNcK40fGl7U
     flags:
@@ -142,11 +187,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: o mestre rola 1d20; a magia só falha em um resultado 1.
     origin: Item.sOyknQBB504tY5KB
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: o mestre rola 1d20; a magia só falha em um resultado 1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GuHLeMskEm21WzFv.dmQhkxNcK40fGl7U'
 folder: 7qHtGvSoffZXEVGU
 sort: 0
@@ -226,9 +286,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461813
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!GuHLeMskEm21WzFv'
 

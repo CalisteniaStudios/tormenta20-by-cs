@@ -63,19 +63,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667016244054
       modifiedTime: 1667016244054
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: o0UGbbd8OmWL3qcx
     _key: '!actors.items!G7CDTFhKKlvssbYh.o0UGbbd8OmWL3qcx'
   - name: Adaga
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/adaga.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
+    flags: {}
     system:
       description:
         value: >-
@@ -236,10 +237,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772409
       modifiedTime: 1700236661060
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2000000
     _id: 2UPqF3nwrVmYV0sa
@@ -248,9 +252,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/besta-leve.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.dUtNefh57IswhzOr
+    flags: {}
     system:
       description:
         value: >-
@@ -367,10 +369,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772412
       modifiedTime: 1700236670022
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.dUtNefh57IswhzOr
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 3400000
     _id: FhYXHLdWVWBIiWnn
@@ -394,20 +399,33 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/magias/voo.webp
-        label: Asa de Bambu
         origin: Item.TNU7KWJ843G0GKJN
         transfer: false
         flags:
           tormenta20:
             onuse: false
             durationScene: true
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Asa de Bambu
+        img: systems/tormenta20/icons/magias/voo.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!G7CDTFhKKlvssbYh.2S4WblATzzZFZSBU.CRX7wBp8q9Zkv9z2
-    flags:
-      core:
-        sourceId: Item.Vlk6hS0fo0iWKkKi
+    flags: {}
     system:
       description:
         value: >-
@@ -460,10 +478,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310461901
       modifiedTime: 1667016777171
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.Vlk6hS0fo0iWKkKi
+      duplicateSource: null
+      exportSource: null
     folder: 0V7x5o397UvG3xKP
     sort: 425000
     _id: 2S4WblATzzZFZSBU
@@ -472,10 +493,8 @@ items:
     type: magia
     img: systems/tormenta20/icons/magias/explosao-de-chamas.webp
     effects:
-      - label: Em Chamas
-        icon: systems/tormenta20/icons/conditions/em-chamas.svg
-        origin: Item.cp13FGeg0C2uihk3
-        tint: '#FFFFFF'
+      - origin: Item.cp13FGeg0C2uihk3
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -492,11 +511,26 @@ items:
         _id: a0SlKjWxq2sT8Dam
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Em Chamas
+        img: systems/tormenta20/icons/conditions/em-chamas.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!G7CDTFhKKlvssbYh.hZHBWWoRVpBnxu7r.a0SlKjWxq2sT8Dam
-    flags:
-      core:
-        sourceId: Item.dmZrFf0OW2mDIVUM
+    flags: {}
     system:
       description:
         value: >-
@@ -558,10 +592,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310461907
       modifiedTime: 1667016796566
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.dmZrFf0OW2mDIVUM
+      duplicateSource: null
+      exportSource: null
     folder: 0V7x5o397UvG3xKP
     sort: 575000
     _id: hZHBWWoRVpBnxu7r
@@ -589,23 +626,35 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/magias/perdicao.webp
-        label: Gritador
         origin: Item.sMwaPJUeQEl5NK2f
         transfer: false
         flags:
           tormenta20:
             onuse: false
             durationScene: true
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Gritador
+        img: systems/tormenta20/icons/magias/perdicao.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!G7CDTFhKKlvssbYh.2racARRKADCUoo82.Nzx93ileTOT6jhFR
     flags:
-      core:
-        sourceId: Item.FVpNBFNhi0XAVGXE
       tormenta20:
         version: 1.3.0.0
-      importid: fStd1y5azxP3rRkt
     system:
       description:
         value: >-
@@ -660,10 +709,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310461780
       modifiedTime: 1667016787830
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.FVpNBFNhi0XAVGXE
+      duplicateSource: null
+      exportSource: null
     folder: 0V7x5o397UvG3xKP
     sort: 350000
     _id: 2racARRKADCUoo82
@@ -673,9 +725,7 @@ items:
     type: tesouro
     img: systems/tormenta20/icons/itens/gerais/instrumentos-de-oficio.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.mMPUi2VjdE3rNGkg
+    flags: {}
     system:
       description:
         value: >-
@@ -738,10 +788,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772419
       modifiedTime: 1667016691119
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.mMPUi2VjdE3rNGkg
+      duplicateSource: null
+      exportSource: null
     folder: w4rSzYhuNhz6tMkJ
     sort: 350000
     _key: '!actors.items!G7CDTFhKKlvssbYh.IQAC5CPvyaBWHX8c'
@@ -750,9 +803,7 @@ items:
     type: consumivel
     img: systems/tormenta20/icons/itens/equipamentos/virotes.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.pG2mhXPGveTdGuDG
+    flags: {}
     system:
       description:
         value: >-
@@ -869,10 +920,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772421
       modifiedTime: 1667016696209
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.pG2mhXPGveTdGuDG
+      duplicateSource: null
+      exportSource: null
     folder: I6NNvV3PwdDmfJ2K
     sort: 125000
     _key: '!actors.items!G7CDTFhKKlvssbYh.hleu9WdBDNVb8mic'
@@ -1640,14 +1694,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/goblin-engenhoqueiro.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 0.8
     scaleY: 0.8
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1661,12 +1721,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945934
   modifiedTime: 1700236670022
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!G7CDTFhKKlvssbYh'
 

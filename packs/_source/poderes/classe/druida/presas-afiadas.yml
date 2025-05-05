@@ -3,10 +3,8 @@ name: Presas Afiadas
 type: poder
 img: systems/tormenta20/icons/classes/druida.webp
 effects:
-  - label: Presas Afiadas
-    icon: icons/svg/upgrade.svg
-    origin: Item.fogM3iyIIrVopYlJ
-    tint: '#FFFFFF'
+  - origin: Item.fogM3iyIIrVopYlJ
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: '-2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Presas Afiadas
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fogM3iyIIrVopYlJ.xkyywJNgReTJQric'
 folder: 8LraP5E2KHsZTAz8
 sort: 0
@@ -93,9 +108,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185116
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!fogM3iyIIrVopYlJ'
 

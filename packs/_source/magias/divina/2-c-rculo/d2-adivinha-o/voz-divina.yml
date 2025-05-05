@@ -20,16 +20,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ahIU6trHt6MuMTS7
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       você concede um pouco de vida a um cadáver, suficiente para que ele
       responda a suas perguntas. O conhecimento do corpo é limitado ao que ele
       tinha enquanto vivo e suas respostas são curtas e enigmáticas. Um corpo só
       pode ser alvo desta magia uma vez. Ela também não funciona em um corpo
       cuja cabeça tenha sido destruída.
-    origin: Compendium.tormenta20.magias.ahIU6trHt6MuMTS7
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ahIU6trHt6MuMTS7.1XNyP8IzeH87FX4m'
   - _id: qBjpCbWkUIHrFgzQ
     flags:
@@ -48,14 +63,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ahIU6trHt6MuMTS7
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       você pode falar com plantas (normais ou monstruosas) e rochas. Plantas e
       rochas têm percepção limitada de seus arredores e normalmente fornecem
       respostas simplórias.
-    origin: Compendium.tormenta20.magias.ahIU6trHt6MuMTS7
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ahIU6trHt6MuMTS7.qBjpCbWkUIHrFgzQ'
   - _id: dzJ8kkudhuafWeWK
     changes: []
@@ -68,15 +98,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/voz-divina.webp
-    label: Voz Divina
     origin: Item.keNUZdSKmZcOUEuz
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Voz Divina
+    img: systems/tormenta20/icons/magias/voz-divina.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ahIU6trHt6MuMTS7.dzJ8kkudhuafWeWK'
 folder: 7qHtGvSoffZXEVGU
 sort: 0
@@ -140,9 +185,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462765
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ahIU6trHt6MuMTS7'
 

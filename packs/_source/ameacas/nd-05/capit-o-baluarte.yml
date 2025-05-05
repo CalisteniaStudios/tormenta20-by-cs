@@ -53,10 +53,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Ordens
-        icon: icons/magic/control/control-influence-rally-purple.webp
-        origin: Item.sE935B47ySWD4Lus
-        tint: '#FFFFFF'
+      - origin: Item.sE935B47ySWD4Lus
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -92,6 +90,23 @@ items:
             value: '4'
             priority: 0
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Ordens
+        img: icons/magic/control/control-influence-rally-purple.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!nS4HkD02ynlbbtUT.GPdSL3Xsv2hOGYRu.UcIlQrTeNdGpbtXO
     sort: 700000
@@ -101,10 +116,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667011392842
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: GPdSL3Xsv2hOGYRu
     _key: '!actors.items!nS4HkD02ynlbbtUT.GPdSL3Xsv2hOGYRu'
   - folder: 0V7x5o397UvG3xKP
@@ -155,10 +173,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Lutar em Formação
-        icon: icons/environment/people/infantry-army.webp
-        origin: Item.uNwAhgYfnGrlr705
-        tint: '#FFFFFF'
+      - origin: Item.uNwAhgYfnGrlr705
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -179,6 +195,23 @@ items:
             value: '2'
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Lutar em Formação
+        img: icons/environment/people/infantry-army.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!nS4HkD02ynlbbtUT.G5UzT9jYfVrGkEV1.rZ4AsGAxKpSs9lPO
     sort: 1200000
@@ -188,19 +221,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667011392844
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: G5UzT9jYfVrGkEV1
     _key: '!actors.items!nS4HkD02ynlbbtUT.G5UzT9jYfVrGkEV1'
   - name: Espada longa
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/espada-longa.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+    flags: {}
     system:
       description:
         value: >-
@@ -315,10 +349,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772402
       modifiedTime: 1700236896626
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2200000
     _id: rmasiz21Qhu2urbX
@@ -328,9 +365,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/armadura-completa.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.CTeeKAq8zZlaJTpA
+    flags: {}
     system:
       description:
         value: >-
@@ -387,10 +422,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772395
       modifiedTime: 1667011424154
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.CTeeKAq8zZlaJTpA
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 200000
     _key: '!actors.items!nS4HkD02ynlbbtUT.hVLtLNTOgRxP5wlA'
@@ -399,9 +437,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/escudo-pesado.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.1yGTB9tyXXSaN1wS
+    flags: {}
     system:
       description:
         value: >-
@@ -453,10 +489,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772390
       modifiedTime: 1667011417406
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.1yGTB9tyXXSaN1wS
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 101563
     _key: '!actors.items!nS4HkD02ynlbbtUT.hrwPPb8dHEain7K7'
@@ -1216,14 +1255,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/capitao-baluarte.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1237,12 +1282,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946013
   modifiedTime: 1700236896626
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!nS4HkD02ynlbbtUT'
 

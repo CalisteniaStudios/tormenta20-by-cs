@@ -2,10 +2,8 @@ name: Linhagem Dracônica Aprimorada
 type: poder
 img: systems/tormenta20/icons/poderes/classes/conjuradores/linhagem-draconica.webp
 effects:
-  - label: 'Linhagem Dracônica Aprimorada: magias do tipo escolhido custam -1 PM.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.Pqq7sz8D1n9QMBwl
-    tint: '#FFFFFF'
+  - origin: Item.Pqq7sz8D1n9QMBwl
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -32,13 +30,26 @@ effects:
     _id: Hn7Z8JPjPwLY9tCu
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Linhagem Dracônica Aprimorada: magias do tipo escolhido custam -1 PM.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Pqq7sz8D1n9QMBwl.Hn7Z8JPjPwLY9tCu'
-  - label: >-
-      Linhagem Dracônica Aprimorada: Suas magias do tipo escolhido causam +1
-      ponto de dano por dado.
-    icon: icons/svg/upgrade.svg
-    origin: Item.Pqq7sz8D1n9QMBwl
-    tint: '#FFFFFF'
+  - origin: Item.Pqq7sz8D1n9QMBwl
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -69,6 +80,25 @@ effects:
         value: '1'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Linhagem Dracônica Aprimorada: Suas magias do tipo escolhido causam +1
+      ponto de dano por dado.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Pqq7sz8D1n9QMBwl.mzPDjacAmYS5jhTI'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
@@ -137,9 +167,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184259
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Pqq7sz8D1n9QMBwl'
 

@@ -39,11 +39,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o bônus para +10. Requer 4º círculo.
     origin: Compendium.tormenta20.magias.ARdiXHO8x1k8X3ni
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o bônus para +10. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ARdiXHO8x1k8X3ni.9HRdmhCPTx0swFq8'
   - _id: HA2kii1tPWH2CqPo
     flags:
@@ -62,13 +77,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      em vez do normal, o alvo fica imune a uma escola de magia a sua escolha.
-      Requer 4º Círculo.
     origin: Compendium.tormenta20.magias.ARdiXHO8x1k8X3ni
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      em vez do normal, o alvo fica imune a uma escola de magia a sua escolha.
+      Requer 4º Círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ARdiXHO8x1k8X3ni.HA2kii1tPWH2CqPo'
   - _id: OPTVNmcO4EP8r61A
     flags:
@@ -87,13 +117,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      em vez do normal, o alvo fica imune a duas escolas de magia a sua escolha.
-      Requer 5º Círculo.
     origin: Compendium.tormenta20.magias.ARdiXHO8x1k8X3ni
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      em vez do normal, o alvo fica imune a duas escolas de magia a sua escolha.
+      Requer 5º Círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ARdiXHO8x1k8X3ni.OPTVNmcO4EP8r61A'
   - _id: gaWlhQ0dIurK4udU
     changes:
@@ -118,15 +163,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/protecao-contra-magia.webp
-    label: Proteção Contra Magia
     origin: Item.UOyFWquuli2p8YHI
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Proteção Contra Magia
+    img: systems/tormenta20/icons/magias/protecao-contra-magia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ARdiXHO8x1k8X3ni.gaWlhQ0dIurK4udU'
 folder: zEoV7vrc5RqulUYQ
 sort: 0
@@ -185,9 +245,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461775
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ARdiXHO8x1k8X3ni'
 

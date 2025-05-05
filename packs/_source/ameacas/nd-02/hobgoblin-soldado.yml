@@ -7,9 +7,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/espada-longa.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+    flags: {}
     system:
       description:
         value: >-
@@ -124,10 +122,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772402
       modifiedTime: 1700236480532
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2200000
     _id: Kvg3qTN6CIqZBEOG
@@ -136,9 +137,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/arco-longo.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.B1hiWU8eEI1NHwcv
+    flags: {}
     system:
       description:
         value: >-
@@ -257,10 +256,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772394
       modifiedTime: 1700236485878
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.B1hiWU8eEI1NHwcv
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 3500000
     _id: WZvwjihIPyBQ17T0
@@ -270,9 +272,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/cota-malha.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.wvwi8zPSP8mRx7LO
+    flags: {}
     system:
       description:
         value: >-
@@ -324,10 +324,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312773033
       modifiedTime: 1667015952966
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.wvwi8zPSP8mRx7LO
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 125000
     _key: '!actors.items!Tgy5IZKg9Mt1zgmp.1yyyoQzENEQwDFZK'
@@ -336,9 +339,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/escudo-pesado.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.1yGTB9tyXXSaN1wS
+    flags: {}
     system:
       description:
         value: >-
@@ -390,10 +391,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772390
       modifiedTime: 1667015956681
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.1yGTB9tyXXSaN1wS
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 101563
     _key: '!actors.items!Tgy5IZKg9Mt1zgmp.Hq9M0XRmaYaqYaul'
@@ -402,9 +406,7 @@ items:
     type: consumivel
     img: systems/tormenta20/icons/itens/equipamentos/flecha.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.UI59UM7vpFaHRc18
+    flags: {}
     system:
       description:
         value: >-
@@ -478,10 +480,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772407
       modifiedTime: 1667015959979
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.UI59UM7vpFaHRc18
+      duplicateSource: null
+      exportSource: null
     folder: I6NNvV3PwdDmfJ2K
     sort: 200000
     _key: '!actors.items!Tgy5IZKg9Mt1zgmp.peJTblIP6DMNa9kP'
@@ -1249,14 +1254,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/hobgoblin-soldado.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 0.9
     scaleY: 0.9
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1270,12 +1281,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945958
   modifiedTime: 1700236485878
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!Tgy5IZKg9Mt1zgmp'
 

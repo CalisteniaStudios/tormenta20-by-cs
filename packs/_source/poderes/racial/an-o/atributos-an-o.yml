@@ -2,10 +2,8 @@ name: Atributos - Anão
 type: poder
 img: systems/tormenta20/icons/racas/anao.webp
 effects:
-  - label: Anão - Atributos
-    icon: systems/tormenta20/icons/racas/anao.webp
-    origin: Item.ldMu5iFFQauW2MAs
-    tint: '#FFFFFF'
+  - origin: Item.ldMu5iFFQauW2MAs
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -34,6 +32,23 @@ effects:
         value: '-1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anão - Atributos
+    img: systems/tormenta20/icons/racas/anao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RXMivc0GvxCfnItR.9RwnankSD5BDEzEZ'
 flags: {}
 system:
@@ -88,10 +103,12 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183325
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: QXmpsdR2yksENTdS
 sort: 0
 _id: RXMivc0GvxCfnItR

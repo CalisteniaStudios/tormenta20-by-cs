@@ -2,10 +2,8 @@ name: Atributos - Sulfure
 type: poder
 img: systems/tormenta20/icons/racas/suraggel.webp
 effects:
-  - label: Atributos - Sulfure
-    icon: systems/tormenta20/icons/racas/suraggel.webp
-    origin: Item.cq86DXgZBC5MPbHY
-    tint: '#FFFFFF'
+  - origin: Item.cq86DXgZBC5MPbHY
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -30,6 +28,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Sulfure
+    img: systems/tormenta20/icons/racas/suraggel.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!TSVBeD5OBFdm46E9.8IqR9YGqcV0KUFgV'
 flags: {}
 system:
@@ -80,10 +95,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184719
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: TSVBeD5OBFdm46E9
 folder: 6YFutDj74vMohmap
 sort: 0

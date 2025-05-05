@@ -2,10 +2,8 @@ name: Atributos - Medusa
 type: poder
 img: systems/tormenta20/icons/racas/medusa.webp
 effects:
-  - label: Atributos - Medusa
-    icon: systems/tormenta20/icons/racas/medusa.webp
-    origin: Item.hUNCQAZ5Tnye5N3t
-    tint: '#FFFFFF'
+  - origin: Item.hUNCQAZ5Tnye5N3t
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -30,6 +28,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Medusa
+    img: systems/tormenta20/icons/racas/medusa.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hUNCQAZ5Tnye5N3t.9SOGw6V5CdFromE4'
 flags: {}
 system:
@@ -80,10 +95,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184744
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: hUNCQAZ5Tnye5N3t
 folder: WBW7mJa7n0MHwWe7
 sort: 0

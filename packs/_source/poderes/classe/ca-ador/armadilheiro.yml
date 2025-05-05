@@ -55,10 +55,12 @@ flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1666808942112
   modifiedTime: 1684630426990
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: BbyD7D88aPwW46E0
 folder: iT3rUBmGhu5hbNic
 sort: 1100000

@@ -24,14 +24,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.iHW9iWhl7DYu3ggt
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para 1 dia ou até ser descarregada. O espírito realiza uma
       tarefa a sua escolha que exija até um dia. O custo do pagamento aumenta
       para T$ 500. O resto segue normal.
-    origin: Compendium.tormenta20.magias.iHW9iWhl7DYu3ggt
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!iHW9iWhl7DYu3ggt.vqD2IOqb07ojo0el'
   - _id: FQ43qgzKHiNWmojm
     flags:
@@ -54,14 +69,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.iHW9iWhl7DYu3ggt
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para 1 semana ou até ser descarregada. O espírito realiza
       uma tarefa que exija até uma semana. O custo do pagamento aumenta para T$
       1.000. O resto segue normal.
-    origin: Compendium.tormenta20.magias.iHW9iWhl7DYu3ggt
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!iHW9iWhl7DYu3ggt.FQ43qgzKHiNWmojm'
 folder: xjCV01U6zrF3US54
 sort: 0
@@ -128,9 +158,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462783
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!iHW9iWhl7DYu3ggt'
 

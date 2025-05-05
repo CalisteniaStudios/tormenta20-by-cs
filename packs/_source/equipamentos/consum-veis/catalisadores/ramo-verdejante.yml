@@ -78,9 +78,8 @@ system:
   subtipo: ''
 effects:
   - name: Ramo Verdejante
-    icon: icons/svg/upgrade.svg
     origin: Item.T55ThywaLuAge1YV
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -114,6 +113,20 @@ effects:
     description: ''
     transfer: true
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!items.effects!w79bnyKbahOGaY1h.7CUCJ8NabSZLwPSv'
 folder: QiIu6dfsnRA5FIHj
 ownership:
@@ -122,10 +135,12 @@ flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.201
-  coreVersion: '11.306'
+  coreVersion: '13.342'
   createdTime: 1690151259819
   modifiedTime: 1690151592430
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: w79bnyKbahOGaY1h
 sort: 0
 _key: '!items!w79bnyKbahOGaY1h'

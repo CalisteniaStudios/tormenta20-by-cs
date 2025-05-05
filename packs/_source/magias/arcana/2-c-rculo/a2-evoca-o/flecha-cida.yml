@@ -28,15 +28,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.C2TqT4GXlsNiJPxb
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, se o alvo coberto pelo muco ácido estiver usando armadura
       ou escudo, o item é corroído. Isso reduz o bônus na Defesa do item em 1
       ponto permanentemente. O item pode ser consertado, restaurando seu bônus
       (veja Ofício, na página 121).
-    origin: Compendium.tormenta20.magias.C2TqT4GXlsNiJPxb
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2TqT4GXlsNiJPxb.d7IDFbjShdJHo90C'
   - _id: o83N6WPQ3oDMLduk
     flags:
@@ -66,11 +81,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a redução na Defesa em +1.
     origin: Compendium.tormenta20.magias.C2TqT4GXlsNiJPxb
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a redução na Defesa em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2TqT4GXlsNiJPxb.o83N6WPQ3oDMLduk'
   - _id: fzlrQ06DWbl87Kff
     flags:
@@ -93,11 +123,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano inicial e o dano por rodada em +1d6.
     origin: Compendium.tormenta20.magias.C2TqT4GXlsNiJPxb
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano inicial e o dano por rodada em +1d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2TqT4GXlsNiJPxb.fzlrQ06DWbl87Kff'
   - _id: vqa8aByQVq4iTE3W
     changes:
@@ -114,15 +159,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/flecha-acida.webp
-    label: Redução na Defesa
     origin: Item.FCo6WybUsBxKIDF4
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Redução na Defesa
+    img: systems/tormenta20/icons/magias/flecha-acida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2TqT4GXlsNiJPxb.vqa8aByQVq4iTE3W'
   - _id: IOpuJUda7G0inDRZ
     changes: []
@@ -135,15 +195,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/flecha-acida.webp
-    label: Flecha Ácida
     origin: Item.FCo6WybUsBxKIDF4
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Flecha Ácida
+    img: systems/tormenta20/icons/magias/flecha-acida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2TqT4GXlsNiJPxb.IOpuJUda7G0inDRZ'
 folder: C4AaVHB8ALOWtksj
 sort: 0
@@ -215,9 +290,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461796
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!C2TqT4GXlsNiJPxb'
 

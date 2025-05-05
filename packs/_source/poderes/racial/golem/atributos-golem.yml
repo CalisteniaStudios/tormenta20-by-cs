@@ -29,11 +29,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/racas/golem.webp
-    label: Atributos - Golem
     origin: Item.d0iJrjrphvuiQkER
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Golem
+    img: systems/tormenta20/icons/racas/golem.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!d6cBkXb9AHi4vN6V.HJ7YBMhISOpPnXIC'
 flags: {}
 system:
@@ -88,10 +103,12 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184254
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: JbWoTw5WRQStJu6M
 sort: 0
 _id: d6cBkXb9AHi4vN6V

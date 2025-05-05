@@ -53,10 +53,8 @@ items:
       chatGif: ''
     img: icons/weapons/polearms/trident-fork-white.webp
     effects:
-      - label: +1d6-1 (kobolds adjacentes)
-        icon: icons/svg/upgrade.svg
-        origin: Item.Ey13BCyYSiskMUsM
-        tint: '#FFFFFF'
+      - origin: Item.Ey13BCyYSiskMUsM
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -87,22 +85,40 @@ items:
             value: 1d6-1
             priority: 0
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: +1d6-1 (kobolds adjacentes)
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!Qk9okLSrfLXz55jd.LhHTjBpbBiynk7xK.21qX4wyfrA31uMBT
     folder: 43511xoe42co6Cd5
     sort: 100000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Actor.fRdEKyc1N2BhBZR9.Item.o2Q3wOOzq6mcYFdI
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664755136558
       modifiedTime: 1667013409760
       lastModifiedBy: t20builder000000
+      compendiumSource: Actor.fRdEKyc1N2BhBZR9.Item.o2Q3wOOzq6mcYFdI
+      duplicateSource: null
+      exportSource: null
     _id: LhHTjBpbBiynk7xK
     _key: '!actors.items!Qk9okLSrfLXz55jd.LhHTjBpbBiynk7xK'
   - folder: 0V7x5o397UvG3xKP
@@ -162,10 +178,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667013334790
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: fVvNktvOUOyRp0eD
     _key: '!actors.items!Qk9okLSrfLXz55jd.fVvNktvOUOyRp0eD'
   - type: poder
@@ -228,10 +247,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667013334791
       modifiedTime: 1667013378260
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Dyh14EDVeIbO8pCJ
     _key: '!actors.items!Qk9okLSrfLXz55jd.Dyh14EDVeIbO8pCJ'
   - folder: 38RRBscxCtcFC5s4
@@ -383,10 +405,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236565446
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: i08UpUgQFIl8lAEs
     _key: '!actors.items!Qk9okLSrfLXz55jd.i08UpUgQFIl8lAEs'
 effects: []
@@ -1145,14 +1170,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/turba-de-zumbis.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.4
     scaleY: 1.4
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1166,12 +1197,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945950
   modifiedTime: 1700236565446
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!Qk9okLSrfLXz55jd'
 

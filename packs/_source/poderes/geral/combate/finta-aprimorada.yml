@@ -3,10 +3,8 @@ name: Finta Aprimorada
 type: poder
 img: systems/tormenta20/icons/poderes/combate.webp
 effects:
-  - label: Finta Aprimorada
-    icon: icons/svg/upgrade.svg
-    origin: Item.kHd2xZgJlv2f0UMD
-    tint: '#FFFFFF'
+  - origin: Item.kHd2xZgJlv2f0UMD
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Finta Aprimorada
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!kHd2xZgJlv2f0UMD.erZ8dGQCs4M0qk2d'
 folder: Rgbah8U70jOKi5DF
 sort: 0
@@ -97,9 +112,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185134
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!kHd2xZgJlv2f0UMD'
 

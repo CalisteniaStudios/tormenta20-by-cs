@@ -47,10 +47,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Agarrado
-    icon: systems/tormenta20/icons/conditions/agarrado.svg
-    origin: Item.uor3YTotDJ33vJYN
-    tint: '#FFFFFF'
+  - origin: Item.uor3YTotDJ33vJYN
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -67,15 +65,34 @@ effects:
     _id: HCAeH9qNn5spTyZS
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Agarrado
+    img: systems/tormenta20/icons/conditions/agarrado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!uor3YTotDJ33vJYN.HCAeH9qNn5spTyZS'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615327
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: uor3YTotDJ33vJYN
 folder: null
 sort: 0

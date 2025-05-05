@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de alvos em +5.
     origin: Compendium.tormenta20.magias.ZUQneRqpDjJKRO5n
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +5.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZUQneRqpDjJKRO5n.NFLLVMBUfN5gexid'
   - _id: aQKgLT90Ts8sNMGg
     flags:
@@ -43,16 +58,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ZUQneRqpDjJKRO5n
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       em vez do normal, a magia teletransporta os alvos para seu santuário — um
       local familiar e previamente preparado. A magia pode ser usada sem limite
       de distância ou necessidade de testes, mas apenas dentro do mesmo plano.
       Preparar um local como seu santuário exige um ritual de um dia e o gasto
       de T$ 1.000. Você só pode ter um santuário por vez.
-    origin: Compendium.tormenta20.magias.ZUQneRqpDjJKRO5n
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZUQneRqpDjJKRO5n.aQKgLT90Ts8sNMGg'
   - _id: OZP9mnniQOQrxkIL
     flags:
@@ -79,8 +109,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ZUQneRqpDjJKRO5n
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para ação completa, a duração para cena e adiciona
       sacrifício de 1 PM. Em vez do normal, você cria um círculo de 1,5m de
       diâmetro no chão, que transporta qualquer criatura que pisar nele. O
@@ -91,9 +133,12 @@ effects:
       não fizer isso, alguém pode pisar nele por acidente. Junte isso a um
       destino hostil e você terá uma armadilha bastante eficaz! Requer 5º
       círculo.
-    origin: Compendium.tormenta20.magias.ZUQneRqpDjJKRO5n
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZUQneRqpDjJKRO5n.OZP9mnniQOQrxkIL'
 folder: q3HWop0SV641gJ2W
 sort: 0
@@ -178,9 +223,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462762
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ZUQneRqpDjJKRO5n'
 

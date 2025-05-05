@@ -3,10 +3,8 @@ name: Espírito dos Equinócios
 type: poder
 img: systems/tormenta20/icons/classes/druida.webp
 effects:
-  - label: Espírito dos Equinócios
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.e7wxI2LiyckI1zJo
-    tint: '#FFFFFF'
+  - origin: Item.e7wxI2LiyckI1zJo
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: pzz8u9dEcLa8p9sG
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espírito dos Equinócios
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!e7wxI2LiyckI1zJo.pzz8u9dEcLa8p9sG'
 folder: 8LraP5E2KHsZTAz8
 sort: 0
@@ -83,9 +98,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184747
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!e7wxI2LiyckI1zJo'
 

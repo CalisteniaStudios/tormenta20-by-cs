@@ -78,10 +78,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: Sopa de Peixe
-    icon: icons/consumables/food/soup-broth-bowl-wooden-yellow.webp
-    origin: Item.fv6c3O5CXphtXilA
-    tint: '#FFFFFF'
+  - origin: Item.fv6c3O5CXphtXilA
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -98,15 +96,34 @@ effects:
     _id: lN6d6cXwkPycdLJy
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sopa de Peixe
+    img: icons/consumables/food/soup-broth-bowl-wooden-yellow.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fv6c3O5CXphtXilA.lN6d6cXwkPycdLJy'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684618216450
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: fv6c3O5CXphtXilA
 folder: sO4Gcu7Fm1dJ1sxI
 sort: 800000

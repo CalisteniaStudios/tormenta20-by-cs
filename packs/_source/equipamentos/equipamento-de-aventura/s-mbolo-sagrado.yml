@@ -53,10 +53,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: Símbolo Sagrado
-    icon: systems/tormenta20/icons/itens/gerais/simbolo-sagrado.webp
-    origin: Item.GN5S9awu41thdvCn
-    tint: '#FFFFFF'
+  - origin: Item.GN5S9awu41thdvCn
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -77,15 +75,34 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Símbolo Sagrado
+    img: systems/tormenta20/icons/itens/gerais/simbolo-sagrado.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GN5S9awu41thdvCn.UYpiiWb9bIoCph6a'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665712733997
   modifiedTime: 1684809366201
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: GN5S9awu41thdvCn
 folder: 0G5uMjOsWAFaPYAZ
 sort: 196

@@ -32,16 +32,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.u8Drz7nb84o5LIKG
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       transforma o sonho do alvo em um pesadelo. A vítima deve fazer um teste de
       Vontade. Se falhar, não recupera PV ou PM pela noite, sofre 1d10 pontos de
       dano de trevas e acorda fatigada. A vítima recebe bônus ou penalidades em
       seu teste de resistência, dependendo do conhecimento que você tiver dela.
       Use os mesmos modificadores da magia Vidência.
-    origin: Compendium.tormenta20.magias.u8Drz7nb84o5LIKG
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u8Drz7nb84o5LIKG.Td04D1iUcjNXOkWF'
   - _id: JjXia570MMqdi6X9
     flags:
@@ -60,13 +75,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o número de alvos em +1. Todos os alvos compartilham um mesmo
-      sonho (ou pesadelo) entre si e com você.
     origin: Compendium.tormenta20.magias.u8Drz7nb84o5LIKG
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o número de alvos em +1. Todos os alvos compartilham um mesmo
+      sonho (ou pesadelo) entre si e com você.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u8Drz7nb84o5LIKG.JjXia570MMqdi6X9'
   - _id: cORkOS9TjEL0BhLr
     changes: []
@@ -79,15 +109,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/sonho.webp
-    label: Sonho
     origin: Item.WnFojSk50613opVj
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sonho
+    img: systems/tormenta20/icons/magias/sonho.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u8Drz7nb84o5LIKG.cORkOS9TjEL0BhLr'
 folder: KXIH9cJob20GWu3K
 sort: 0
@@ -160,9 +205,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462827
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!u8Drz7nb84o5LIKG'
 

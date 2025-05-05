@@ -3,10 +3,8 @@ name: Couraça do Comando
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
 effects:
-  - label: Banhada a ouro
-    icon: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
-    origin: Item.MGQyoR2Jm9Db6sP2
-    tint: '#FFFFFF'
+  - origin: Item.MGQyoR2Jm9Db6sP2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Banhada a ouro
+    img: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!MGQyoR2Jm9Db6sP2.Qxt0OZht8i68jDiO'
-  - label: Sob medida
-    icon: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
-    origin: Item.MGQyoR2Jm9Db6sP2
-    tint: '#FFFFFF'
+  - origin: Item.MGQyoR2Jm9Db6sP2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -52,11 +65,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sob medida
+    img: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!MGQyoR2Jm9Db6sP2.QVBsccfKQnMBKwpA'
-  - label: Defensora
-    icon: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
-    origin: Item.MGQyoR2Jm9Db6sP2
-    tint: '#FFFFFF'
+  - origin: Item.MGQyoR2Jm9Db6sP2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -77,11 +105,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Defensora
+    img: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!MGQyoR2Jm9Db6sP2.H321M4Evtmiu74hD'
-  - label: Comandar
-    icon: icons/svg/upgrade.svg
-    origin: Item.MGQyoR2Jm9Db6sP2
-    tint: '#FFFFFF'
+  - origin: Item.MGQyoR2Jm9Db6sP2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -113,11 +156,26 @@ effects:
         value: '1'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Comandar
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!MGQyoR2Jm9Db6sP2.FJNRfzwlnk60NZg4'
-  - label: Couraça do Comando
-    icon: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
-    origin: Item.MGQyoR2Jm9Db6sP2
-    tint: '#FFFFFF'
+  - origin: Item.MGQyoR2Jm9Db6sP2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -138,6 +196,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Couraça do Comando
+    img: systems/tormenta20/icons/itens/itens-magicos/couraca-do-comando.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!MGQyoR2Jm9Db6sP2.yothk5q9V5aB358t'
 folder: SkZDe8cUamd0vHjD
 sort: 112500
@@ -245,9 +320,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000098
   modifiedTime: 1684622962183
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!MGQyoR2Jm9Db6sP2'
 

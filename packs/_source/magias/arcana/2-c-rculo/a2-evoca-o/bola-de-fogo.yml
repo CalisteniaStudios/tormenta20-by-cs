@@ -24,11 +24,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +2d6.
     origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +2d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gcjCsjzpk2OtClSt.UWydlNbe3IFFWSmJ'
   - _id: 54Cbq85qzDbWg4SB
     flags:
@@ -68,17 +83,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a área para efeito de esfera flamejante com tamanho Médio e a duração
       para cena. Em vez do normal, cria uma esfera flamejante com 1,5m de
       diâmetro que causa 3d6 pontos de dano a qualquer criatura no mesmo espaço.
       Você pode gastar uma ação de movimento para fazer a esfera voar 9m em
       qualquer direção. Ela é imune a dano, mas pode ser apagada com água. Uma
       criatura só pode sofrer dano da esfera uma vez por rodada.
-    origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gcjCsjzpk2OtClSt.54Cbq85qzDbWg4SB'
   - _id: EOLJ5ChVkU6V1DAg
     flags:
@@ -109,16 +139,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para 1 dia ou até ser descarregada. Em vez do normal, você
       cria uma pequena pedra flamejante, que pode detonar como uma reação,
       descarregando a magia. A pedra pode ser usada como uma arma de arremesso
       com alcance curto. Uma vez detonada, causa o dano da magia numa área de
       esfera de 6m com raio.
-    origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gcjCsjzpk2OtClSt.EOLJ5ChVkU6V1DAg'
 folder: C4AaVHB8ALOWtksj
 sort: 0
@@ -186,9 +231,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462779
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!gcjCsjzpk2OtClSt'
 

@@ -26,15 +26,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/tormenta.webp
-    label: Articulações Flexíveis
     origin: Item.TB8mybxRYFUCyMGc
     transfer: true
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Articulações Flexíveis
+    img: systems/tormenta20/icons/poderes/tormenta.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!rzegU1eVmG1WJ1Jf.Is297njGUD8Tbkzh'
 folder: m6ny7g3VciUkKZ3t
 sort: 0
@@ -95,9 +110,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185645
   modifiedTime: 1684803234207
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!rzegU1eVmG1WJ1Jf'
 

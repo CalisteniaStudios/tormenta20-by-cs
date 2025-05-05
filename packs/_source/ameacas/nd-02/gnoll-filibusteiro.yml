@@ -60,19 +60,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667008289374
       modifiedTime: 1667008289374
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: dXNo7eC3RNcqfTzA
     _key: '!actors.items!IvDwBNB0M0tl8sJf.dXNo7eC3RNcqfTzA'
   - name: Espada curta
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/espada-curta.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.boM5sIgADaFaQ3xG
+    flags: {}
     system:
       description:
         value: >-
@@ -188,10 +189,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772410
       modifiedTime: 1700236463649
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.boM5sIgADaFaQ3xG
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2300000
     _id: HaaJL4jItwcGWmy6
@@ -345,19 +349,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236457836
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: QwjmgaftYc0uz96J
     _key: '!actors.items!IvDwBNB0M0tl8sJf.QwjmgaftYc0uz96J'
   - name: Mosquete
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/mosquete.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.UCovm0cenCi7hgvf
+    flags: {}
     system:
       description:
         value: >-
@@ -473,10 +478,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772407
       modifiedTime: 1700236472295
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.UCovm0cenCi7hgvf
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 300000
     _id: rWACyOLouts4p7br
@@ -486,9 +494,7 @@ items:
     type: consumivel
     img: systems/tormenta20/icons/itens/equipamentos/balas.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.3kWjlkSaIAiYa4lm
+    flags: {}
     system:
       description:
         value: >-
@@ -604,10 +610,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772391
       modifiedTime: 1667008315238
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.3kWjlkSaIAiYa4lm
+      duplicateSource: null
+      exportSource: null
     folder: I6NNvV3PwdDmfJ2K
     sort: 150000
     _key: '!actors.items!IvDwBNB0M0tl8sJf.LakR7EhEkrjlnRo6'
@@ -1369,14 +1378,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/gnoll-filibusteiro.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1390,12 +1405,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945942
   modifiedTime: 1700236472295
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!IvDwBNB0M0tl8sJf'
 

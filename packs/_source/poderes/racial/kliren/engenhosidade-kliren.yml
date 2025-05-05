@@ -3,10 +3,8 @@ name: Engenhosidade (Kliren)
 type: poder
 img: systems/tormenta20/icons/racas/kliren.webp
 effects:
-  - label: Engenhosidade
-    icon: icons/svg/upgrade.svg
-    origin: Compendium.tormenta20.poderes.5W1KPafxjV4C7EmB
-    tint: '#FFFFFF'
+  - origin: Compendium.tormenta20.poderes.5W1KPafxjV4C7EmB
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,6 +36,23 @@ effects:
         value: '@int'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Engenhosidade
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5W1KPafxjV4C7EmB.cOh1rvSpJ9xd5Jdd'
 folder: 6zI7CiCTyZW5lI4F
 sort: 0
@@ -97,9 +112,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183315
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!5W1KPafxjV4C7EmB'
 

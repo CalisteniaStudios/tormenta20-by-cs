@@ -20,13 +20,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o comprimento em +15m e altura em +3m, até 60m de comprimento e 9m
-      de altura.
     origin: Compendium.tormenta20.magias.VqsjzRkQ9nA11XRD
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o comprimento em +15m e altura em +3m, até 60m de comprimento e 9m
+      de altura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VqsjzRkQ9nA11XRD.BnJuNG5XwFbAYZDc'
   - _id: O8ODPwbDDbAk3bJj
     flags:
@@ -49,8 +64,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.VqsjzRkQ9nA11XRD
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para sustentada e adiciona uma nova escolha, Essência. A
       muralha é invisível e indestrutível — imune a qualquer forma de dano e não
       afetada por nenhuma magia. Ela não pode ser atravessada nem mesmo por
@@ -60,14 +87,15 @@ effects:
       lançadas diretamente sobre uma criatura ou área, como Sono, podem ser
       lançadas contra alvos que estejam no outro lado como se tivessem linha de
       efeito. Requer 4º círculo.
-    origin: Compendium.tormenta20.magias.VqsjzRkQ9nA11XRD
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VqsjzRkQ9nA11XRD.O8ODPwbDDbAk3bJj'
-  - label: aumenta o dano por atravessar a muralha em +2d6.
-    icon: icons/svg/upgrade.svg
-    origin: Item.VqsjzRkQ9nA11XRD
-    tint: '#FFFFFF'
+  - origin: Item.VqsjzRkQ9nA11XRD
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -95,6 +123,23 @@ effects:
     _id: a2HMafVsdNFNYqSY
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano por atravessar a muralha em +2d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VqsjzRkQ9nA11XRD.a2HMafVsdNFNYqSY'
 folder: S9YMO5Jyr0D1dsWK
 sort: 0
@@ -175,9 +220,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461915
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!VqsjzRkQ9nA11XRD'
 

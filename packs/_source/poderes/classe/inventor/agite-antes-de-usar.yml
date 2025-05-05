@@ -17,8 +17,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Agite Antes de Usar (1d4).
     origin: Item.t60Sf1sKaQm9EBta
     transfer: true
     flags:
@@ -35,12 +33,27 @@ effects:
         custo: '1'
         durationScene: false
         items: ''
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Agite Antes de Usar (1d4).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!3wD3n0qjYTFvkQon.Q07ieVMJB7URdq4f'
-  - label: Agite Antes de Usar (1d6).
-    icon: icons/svg/upgrade.svg
-    origin: Item.3wD3n0qjYTFvkQon
-    tint: '#FFFFFF'
+  - origin: Item.3wD3n0qjYTFvkQon
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -71,6 +84,23 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Agite Antes de Usar (1d6).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!3wD3n0qjYTFvkQon.MiTli7H3WvU4mRTV'
 flags:
   scene-packer:
@@ -132,10 +162,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051642007
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 3wD3n0qjYTFvkQon
 folder: iHjbUWZ9cRzIVZ3E
 sort: 0

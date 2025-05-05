@@ -14,15 +14,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/campo-antimagia.webp
-    label: Campo Antimagia
     origin: Item.oRcerP7Sh6Gn5sV0
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Campo Antimagia
+    img: systems/tormenta20/icons/magias/campo-antimagia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!U2WEs5vlnx0kwSIb.HwAvcP5eRVbHdcBG'
 folder: lCsLH0hHOGgaIPpW
 sort: 0
@@ -100,9 +115,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461914
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!U2WEs5vlnx0kwSIb'
 

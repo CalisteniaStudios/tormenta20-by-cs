@@ -3,10 +3,8 @@ name: Medicina
 type: poder
 img: systems/tormenta20/icons/poderes/destino.webp
 effects:
-  - label: Aumenta a cura em +1d6
-    icon: icons/svg/upgrade.svg
-    origin: Item.0sanox342d7LHPhb
-    tint: '#FFFFFF'
+  - origin: Item.0sanox342d7LHPhb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: 1d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aumenta a cura em +1d6
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0sanox342d7LHPhb.AskLnYnqu0PYWOXX'
 folder: NvFFFNI6JHPuMkck
 sort: 0
@@ -108,9 +123,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183283
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!0sanox342d7LHPhb'
 

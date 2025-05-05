@@ -22,11 +22,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/classes/cacador.webp
-    label: Rastreador
     origin: Item.wBvSJ10Lia6RJi1C
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Rastreador
+    img: systems/tormenta20/icons/classes/cacador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!DRmhP15LqKyO9c4u.eFuiddhFLu6fU8jm'
 folder: iT3rUBmGhu5hbNic
 sort: 1200000
@@ -85,9 +100,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716911
   modifiedTime: 1684630426990
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!DRmhP15LqKyO9c4u'
 

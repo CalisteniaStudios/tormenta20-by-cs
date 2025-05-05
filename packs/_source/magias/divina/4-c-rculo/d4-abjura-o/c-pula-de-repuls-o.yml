@@ -32,13 +32,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      a cúpula impede criaturas de se aproximarem a menos de 4,5m de você (ou
-      seja, deve haver dois quadrados entre você e as criaturas).
     origin: Compendium.tormenta20.magias.DM4WIu4ilHbqjAlu
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      a cúpula impede criaturas de se aproximarem a menos de 4,5m de você (ou
+      seja, deve haver dois quadrados entre você e as criaturas).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!DM4WIu4ilHbqjAlu.qpnCJSh4dNYMVpUQ'
   - _id: 93aDhUrpaQd7t5XS
     changes: []
@@ -51,23 +66,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/cupula-de-repulsao.webp
-    label: Cúpula de Repulsão
     origin: Item.3ifvXvhIPkaeY8oG
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cúpula de Repulsão
+    img: systems/tormenta20/icons/magias/cupula-de-repulsao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!DM4WIu4ilHbqjAlu.93aDhUrpaQd7t5XS'
-  - label: >-
-      além do normal, criaturas afetadas também precisam fazer o teste de
-      resistência se fizerem um ataque ou efeito à distância você. Se falharem,
-      o efeito é desviado pela cúpula. Requer 5º círculo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.DM4WIu4ilHbqjAlu
-    tint: '#FFFFFF'
+  - origin: Item.DM4WIu4ilHbqjAlu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -94,6 +119,26 @@ effects:
     _id: PMpCLiKHg5S8mN9n
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, criaturas afetadas também precisam fazer o teste de
+      resistência se fizerem um ataque ou efeito à distância você. Se falharem,
+      o efeito é desviado pela cúpula. Requer 5º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!DM4WIu4ilHbqjAlu.PMpCLiKHg5S8mN9n'
 folder: Ct5AKRhHcovrfouB
 sort: 0
@@ -162,9 +207,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461802
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!DM4WIu4ilHbqjAlu'
 

@@ -20,13 +20,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o número de efeitos que você pode escolher em +1. Requer 3º
-      círculo.
     origin: Compendium.tormenta20.magias.fmGirvluTr0RMZvE
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o número de efeitos que você pode escolher em +1. Requer 3º
+      círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fmGirvluTr0RMZvE.zovWBmCLN6OBfU6r'
   - _id: pytnNK29OELS0vL8
     flags:
@@ -53,14 +68,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.fmGirvluTr0RMZvE
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para permanente e resistência para Fortitude parcial. Se
       passar, a criatura ainda sofre os efeitos da maldição, mas por 1 rodada.
       Requer 4º círculo.
-    origin: Compendium.tormenta20.magias.fmGirvluTr0RMZvE
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fmGirvluTr0RMZvE.pytnNK29OELS0vL8'
   - _id: VXbH5U30whHzR915
     changes: []
@@ -73,15 +103,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/rogar-maldicao.webp
-    label: Rogar Maldição
     origin: Item.wBOSJGFrFzX79Lxz
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Rogar Maldição
+    img: systems/tormenta20/icons/magias/rogar-maldicao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fmGirvluTr0RMZvE.VXbH5U30whHzR915'
 folder: tsMBuCg4bWXLn3mQ
 sort: 0
@@ -177,9 +222,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462777
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!fmGirvluTr0RMZvE'
 

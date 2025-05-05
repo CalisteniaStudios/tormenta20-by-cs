@@ -4,293 +4,504 @@ img: icons/svg/d20-grey.svg
 results:
   - _id: HIhaJj7SLu7nkGOQ
     flags: {}
-    type: 2
-    text: Anel do Sustento
+    type: document
     img: systems/tormenta20/icons/itens/anel.webp
     weight: 1
     range:
       - 1
       - 2
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: XWrD4ro0POzaimEr
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel do Sustento
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.XWrD4ro0POzaimEr
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.HIhaJj7SLu7nkGOQ'
   - _id: b3Z5s1zPsZ0mq5Pa
     flags: {}
-    type: 2
-    text: Bainha Mágica
+    type: document
     img: systems/tormenta20/icons/itens/bainha.webp
     weight: 1
     range:
       - 3
       - 7
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: OAOvHNSqcpDL6UA5
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bainha Mágica
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.OAOvHNSqcpDL6UA5
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.b3Z5s1zPsZ0mq5Pa'
   - _id: TiM6cd9S7vXlAiIS
     flags: {}
-    type: 2
-    text: Corda da Escalada
+    type: document
     img: systems/tormenta20/icons/itens/corda-da-escalada.webp
     weight: 1
     range:
       - 8
       - 12
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: gwR3rksYtoGjOu6g
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Corda da Escalada
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.gwR3rksYtoGjOu6g
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.TiM6cd9S7vXlAiIS'
   - _id: vNGIqVQwQVZRp28z
     flags: {}
-    type: 2
-    text: Ferraduras da Velocidade
+    type: document
     img: systems/tormenta20/icons/itens/ferraduras_da_velocidade.webp
     weight: 1
     range:
       - 13
       - 14
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: THhPyfQnEvjY7b4w
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ferraduras da Velocidade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.THhPyfQnEvjY7b4w
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.vNGIqVQwQVZRp28z'
   - _id: nfgZ0xOVkJcInP4h
     flags: {}
-    type: 2
-    text: Garrafa da Fumaça Eterna
+    type: document
     img: systems/tormenta20/icons/itens/garrafa.webp
     weight: 1
     range:
       - 15
       - 19
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: suaTBu6MQmlEMxqB
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Garrafa da Fumaça Eterna
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.suaTBu6MQmlEMxqB
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.nfgZ0xOVkJcInP4h'
   - _id: bBgjuPzg7dXsWTXZ
     flags: {}
-    type: 2
-    text: Gema da Luminosidade
+    type: document
     img: systems/tormenta20/icons/itens/gema-da-luminosidade.webp
     weight: 1
     range:
       - 20
       - 24
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: 2ulfzRqI448ZZ04i
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Gema da Luminosidade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.2ulfzRqI448ZZ04i
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.bBgjuPzg7dXsWTXZ'
   - _id: Hz5EYnB1JDILzLqP
     flags: {}
-    type: 2
-    text: Manto Élfico
+    type: document
     img: systems/tormenta20/icons/itens/manto-elfico.webp
     weight: 1
     range:
       - 25
       - 29
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: NvLnwQwZQlImALJq
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto Élfico
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.NvLnwQwZQlImALJq
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.Hz5EYnB1JDILzLqP'
   - _id: DO6GclEG6mXFYiKm
     flags: {}
-    type: 2
-    text: Mochila de Carga
+    type: document
     img: systems/tormenta20/icons/itens/mochila-carga.webp
     weight: 1
     range:
       - 30
       - 34
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: rIxUZtwLHeEfggsD
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mochila de Carga
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.rIxUZtwLHeEfggsD
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.DO6GclEG6mXFYiKm'
   - _id: Kcnmx6XqXV4IXqiz
     flags: {}
-    type: 2
-    text: Brincos da Sagacidade
+    type: document
     img: systems/tormenta20/icons/itens/brinco.webp
     weight: 1
     range:
       - 35
       - 40
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: 5L8PBHcigod9Qav1
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Brincos da Sagacidade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.5L8PBHcigod9Qav1
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.Kcnmx6XqXV4IXqiz'
   - _id: sRxD8025KmS9k9Zo
     flags: {}
-    type: 2
-    text: Luvas da Delicadeza
+    type: document
     img: systems/tormenta20/icons/itens/luva.webp
     weight: 1
     range:
       - 41
       - 46
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: ES395oS9Gazb7wJA
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Luvas da Delicadeza
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.ES395oS9Gazb7wJA
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.sRxD8025KmS9k9Zo'
   - _id: VDLoefqQbbhxHrur
     flags: {}
-    type: 2
-    text: Manoplas da Força do Ogro
+    type: document
     img: systems/tormenta20/icons/itens/manoplas-da-forca-do-ogro.webp
     weight: 1
     range:
       - 47
       - 52
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: kd0YD9KZOz0tpBBA
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manoplas da Força do Ogro
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.kd0YD9KZOz0tpBBA
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.VDLoefqQbbhxHrur'
   - _id: LwEVU8zZNO08d40M
     flags: {}
-    type: 2
-    text: Manto da Resistência
+    type: document
     img: systems/tormenta20/icons/itens/manto-da-resistencia.webp
     weight: 1
     range:
       - 53
       - 59
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: zPxlM4MNoKihGsDn
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto da Resistência
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.zPxlM4MNoKihGsDn
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.LwEVU8zZNO08d40M'
   - _id: lBc0yeoyfLQqhI08
     flags: {}
-    type: 2
-    text: Manto do Fascínio
+    type: document
     img: systems/tormenta20/icons/itens/manto-do-fascinio.webp
     weight: 1
     range:
       - 60
       - 65
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: VBaB5hQmTMj1YcMD
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto do Fascínio
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.VBaB5hQmTMj1YcMD
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.lBc0yeoyfLQqhI08'
   - _id: uOP4c5K6yzPc3gTw
     flags: {}
-    type: 2
-    text: Pingente da Sensatez
+    type: document
     img: systems/tormenta20/icons/itens/pingente.webp
     weight: 1
     range:
       - 66
       - 71
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: gLUFfRX1CAtvtQPr
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Pingente da Sensatez
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.gLUFfRX1CAtvtQPr
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.uOP4c5K6yzPc3gTw'
   - _id: qQFPbCYBynH2qyyd
     flags: {}
-    type: 2
-    text: Torque do Vigor
+    type: document
     img: systems/tormenta20/icons/itens/torque-do-vigor.webp
     weight: 1
     range:
       - 72
       - 77
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: rCji6G4Jys9QYjXh
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Torque do Vigor
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.rCji6G4Jys9QYjXh
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.qQFPbCYBynH2qyyd'
   - _id: rU68RiCewKkaauVK
     flags: {}
-    type: 2
-    text: Chapéu do Disfarce
+    type: document
     img: systems/tormenta20/icons/itens/chapeu.webp
     weight: 1
     range:
       - 78
       - 82
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: Mba9KnxNivmpuJhy
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Chapéu do Disfarce
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.Mba9KnxNivmpuJhy
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.rU68RiCewKkaauVK'
   - _id: hxozxQv7uQihpIsc
     flags: {}
-    type: 2
-    text: Flauta Fantasma
+    type: document
     img: systems/tormenta20/icons/itens/flauta.webp
     weight: 1
     range:
       - 83
       - 84
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: qokba90bQZ9F5RBQ
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Flauta Fantasma
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.qokba90bQZ9F5RBQ
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.hxozxQv7uQihpIsc'
   - _id: sIGzMCE9btDOBS0u
     flags: {}
-    type: 2
-    text: Lanterna da Revelação
+    type: document
     img: systems/tormenta20/icons/itens/lanterna-da-revelacao.webp
     weight: 1
     range:
       - 85
       - 89
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: 01uzk8l2pN2tDIfq
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lanterna da Revelação
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.01uzk8l2pN2tDIfq
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.sIGzMCE9btDOBS0u'
   - _id: yFfByyaeExhBTUXK
     flags: {}
-    type: 2
-    text: Anel da Proteção
+    type: document
     img: systems/tormenta20/icons/itens/anel.webp
     weight: 1
     range:
       - 90
       - 96
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: n2GhiAzdK2Fv0atk
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel da Proteção
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.n2GhiAzdK2Fv0atk
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.yFfByyaeExhBTUXK'
   - _id: cKAc9k9fKOCeCjVi
     flags: {}
-    type: 2
-    text: Anel do Escudo Mental
+    type: document
     img: systems/tormenta20/icons/itens/anel.webp
     weight: 1
     range:
       - 97
       - 98
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: eOt8kUx5MUnGAiLB
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel do Escudo Mental
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.eOt8kUx5MUnGAiLB
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.cKAc9k9fKOCeCjVi'
   - _id: pvLtfmD7jWGl1wIM
     flags: {}
-    type: 2
-    text: Pingente da Saúde
+    type: document
     img: systems/tormenta20/icons/itens/pingente.webp
     weight: 1
     range:
       - 99
       - 100
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: RJYF7ocMNcZqOm4j
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Pingente da Saúde
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.RJYF7ocMNcZqOm4j
+    description: ''
     _key: '!tables.results!3Br9R6AiApiFZuJ2.pvLtfmD7jWGl1wIM'
 formula: 1d100
 replacement: true
 displayRoll: true
 folder: null
 sort: 0
-flags:
-  importid: Dm6g5jKXJBO0n5rj
+flags: {}
 ownership:
   default: 0
 description: ''
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664312664918
   modifiedTime: 1667354515223
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!tables!3Br9R6AiApiFZuJ2'
 

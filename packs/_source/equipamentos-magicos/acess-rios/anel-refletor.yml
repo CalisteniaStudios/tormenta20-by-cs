@@ -3,10 +3,8 @@ name: Anel Refletor
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/anel-refletor.webp
 effects:
-  - label: Anel Refletor
-    icon: icons/svg/upgrade.svg
-    origin: Item.M4E3uPL5jOZn9xjy
-    tint: '#FFFFFF'
+  - origin: Item.M4E3uPL5jOZn9xjy
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: tpKMe7dEC1J2axm0
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel Refletor
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!M4E3uPL5jOZn9xjy.tpKMe7dEC1J2axm0'
 folder: BgJUCrqjG6EVBIfP
 sort: 1100000
@@ -94,9 +109,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000098
   modifiedTime: 1684622966500
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!M4E3uPL5jOZn9xjy'
 

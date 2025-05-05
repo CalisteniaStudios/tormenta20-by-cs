@@ -2,10 +2,8 @@ name: Mistura Fervilhante
 type: poder
 img: icons/commodities/tech/cog-brass.webp
 effects:
-  - label: 'Mistura Fervilhante: dobra a área de efeito de itens alquímicos e poções.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.021OKvOIiyIsq5cr
-    tint: '#FFFFFF'
+  - origin: Item.021OKvOIiyIsq5cr
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -32,6 +30,23 @@ effects:
     _id: HzWwaOjf7NB4mGRd
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Mistura Fervilhante: dobra a área de efeito de itens alquímicos e poções.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!021OKvOIiyIsq5cr.HzWwaOjf7NB4mGRd'
 flags:
   scene-packer:
@@ -94,10 +109,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051646028
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 021OKvOIiyIsq5cr
 folder: iHjbUWZ9cRzIVZ3E
 sort: 0

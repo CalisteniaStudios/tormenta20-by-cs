@@ -58,10 +58,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: Mochila de Aventureiro
-    icon: systems/tormenta20/icons/itens/gerais/mochila-de-aventureiro.webp
-    origin: Item.pteAAJNAkuo7C2Uv
-    tint: '#FFFFFF'
+  - origin: Item.pteAAJNAkuo7C2Uv
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -81,15 +79,34 @@ effects:
         mode: 2
         value: '2'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mochila de Aventureiro
+    img: systems/tormenta20/icons/itens/gerais/mochila-de-aventureiro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!pteAAJNAkuo7C2Uv.HYGVzsqcMHVsamFR'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665712298180
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: pteAAJNAkuo7C2Uv
 folder: 0G5uMjOsWAFaPYAZ
 sort: 400000

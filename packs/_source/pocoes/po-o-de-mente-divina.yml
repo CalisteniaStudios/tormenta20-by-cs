@@ -3,10 +3,8 @@ name: Poção de Mente Divina
 type: consumivel
 img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
 effects:
-  - label: Poção de Mente Divina (sabedoria
-    icon: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
-    origin: Item.8MZOwDXGchwZ0Jkp
-    tint: '#FFFFFF'
+  - origin: Item.8MZOwDXGchwZ0Jkp
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Mente Divina (sabedoria
+    img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8MZOwDXGchwZ0Jkp.xsciQ6tPDuvTeePS'
-  - label: Poção de Mente Divina (carisma)
-    icon: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
-    origin: Item.8MZOwDXGchwZ0Jkp
-    tint: '#FFFFFF'
+  - origin: Item.8MZOwDXGchwZ0Jkp
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -52,11 +65,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Mente Divina (carisma)
+    img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8MZOwDXGchwZ0Jkp.a2yjal72SZMuOJwG'
-  - label: Poção de Mente Dvinia (Inteligência)
-    icon: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
-    origin: Item.8MZOwDXGchwZ0Jkp
-    tint: '#FFFFFF'
+  - origin: Item.8MZOwDXGchwZ0Jkp
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -88,11 +116,27 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Mente Dvinia (Inteligência)
+    img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8MZOwDXGchwZ0Jkp.JD0iLQ2Fb7Mx9xxa'
 folder: null
 sort: 0
-flags:
-  importid: ER5eNh1d0nfbz8l8
+flags: {}
 system:
   description:
     value: >-
@@ -166,9 +210,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007032
   modifiedTime: 1667351628039
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!8MZOwDXGchwZ0Jkp'
 

@@ -65,10 +65,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Deslocamento escalada 9m
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.z3jWvODx94urdqJ7
-    tint: '#FFFFFF'
+  - origin: Item.z3jWvODx94urdqJ7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -89,11 +87,26 @@ effects:
         value: '9'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Deslocamento escalada 9m
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z3jWvODx94urdqJ7.RXOzxRIBBtW15uyE'
-  - label: +3m de escalada, se já for 9m
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.z3jWvODx94urdqJ7
-    tint: '#FFFFFF'
+  - origin: Item.z3jWvODx94urdqJ7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -114,15 +127,34 @@ effects:
         value: '3'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: +3m de escalada, se já for 9m
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z3jWvODx94urdqJ7.adI49lWVBUWljR9M'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665850170299
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: z3jWvODx94urdqJ7
 folder: CivN4iqFKpA5ogfm
 sort: 0

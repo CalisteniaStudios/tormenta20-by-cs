@@ -30,15 +30,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/concedidos-guerra.webp
-    label: Sangue de Ferro
     origin: Item.9UUP0505YQQyZgGb
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sangue de Ferro
+    img: systems/tormenta20/icons/poderes/concedidos-guerra.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!HUdNN0VdkkDWVpmQ.yilTRrW10NuRekB7'
 folder: kdQy5G7zb5MvHB7N
 sort: 0
@@ -96,9 +111,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183903
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!HUdNN0VdkkDWVpmQ'
 

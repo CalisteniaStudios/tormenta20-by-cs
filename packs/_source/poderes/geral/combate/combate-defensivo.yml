@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Combate Defensivo
     origin: Item.6RBqzvL1NyXvqtMQ
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combate Defensivo
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KhhkTTvottzdiQ4b.jhfXynkWjlTTW1wS'
   - _id: 1UbIqqOQe0BG5HrG
     changes:
@@ -52,15 +67,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/combate.webp
-    label: Combate Defensivo
     origin: Item.oXhlm6lvwfsO5nsp
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combate Defensivo
+    img: systems/tormenta20/icons/poderes/combate.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KhhkTTvottzdiQ4b.1UbIqqOQe0BG5HrG'
 folder: Rgbah8U70jOKi5DF
 sort: 0
@@ -121,9 +151,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184242
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!KhhkTTvottzdiQ4b'
 

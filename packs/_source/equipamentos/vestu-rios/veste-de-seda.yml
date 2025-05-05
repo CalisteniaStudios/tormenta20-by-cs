@@ -56,10 +56,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: Veste de Seda
-    icon: systems/tormenta20/icons/itens/gerais/veste-de-seda.webp
-    origin: Item.xp0RnbT05IAeH8cg
-    tint: '#FFFFFF'
+  - origin: Item.xp0RnbT05IAeH8cg
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -80,15 +78,34 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Veste de Seda
+    img: systems/tormenta20/icons/itens/gerais/veste-de-seda.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!xp0RnbT05IAeH8cg.X8wTzkcz2w0i4rIK'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665688431971
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: xp0RnbT05IAeH8cg
 folder: 3kNyXnAknru6qWyM
 sort: 2100000

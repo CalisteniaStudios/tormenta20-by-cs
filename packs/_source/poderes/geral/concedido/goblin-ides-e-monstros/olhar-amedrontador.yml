@@ -3,10 +3,8 @@ name: Olhar Amedrontador
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos.webp
 effects:
-  - label: Olhar Amedrontador
-    icon: icons/svg/upgrade.svg
-    origin: Item.W7P3vSzui7QrYaV5
-    tint: '#FFFFFF'
+  - origin: Item.W7P3vSzui7QrYaV5
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: tOc0ujgF2qkhhboO
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Olhar Amedrontador
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PihxJtRqlqDzFaVk.tOc0ujgF2qkhhboO'
 folder: AIQ50r5qEV9wfpvP
 sort: 0
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185648
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!PihxJtRqlqDzFaVk'
 

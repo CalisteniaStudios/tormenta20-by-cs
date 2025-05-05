@@ -22,15 +22,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/classes/lutador.webp
-    label: Casca Grossa
     origin: Item.4txTsrrsOBJ3nLci
     transfer: true
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Casca Grossa
+    img: systems/tormenta20/icons/classes/lutador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ONGux7IwKSsKy383.ZtVtzd6WvSsYwFMK'
 folder: csRpG81AedPycko0
 sort: 0
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184255
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ONGux7IwKSsKy383'
 

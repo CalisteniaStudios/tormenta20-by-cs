@@ -2,12 +2,8 @@ name: Destruidor
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: >-
-      Veterano: como acima, mas você também pode gastar 2 PM para causar 4d6
-      pontos de dano.
-    icon: icons/svg/upgrade.svg
-    origin: Item.R5lCWsou4pg0UWZ3
-    tint: '#FFFFFF'
+  - origin: Item.R5lCWsou4pg0UWZ3
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,13 +34,28 @@ effects:
         value: 2d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Veterano: como acima, mas você também pode gastar 2 PM para causar 4d6
+      pontos de dano.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FIJfKOIU8dzbvSDG.KuvqysuEGa5TLU10'
-  - label: >-
-      Mestre: como acima, mas você também pode gastar 4 PM para causar 6d6
-      pontos de dano em uma área de 6m de raio em alcance médio.
-    icon: icons/svg/upgrade.svg
-    origin: Item.R5lCWsou4pg0UWZ3
-    tint: '#FFFFFF'
+  - origin: Item.R5lCWsou4pg0UWZ3
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -75,6 +86,25 @@ effects:
         value: 4d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Mestre: como acima, mas você também pode gastar 4 PM para causar 6d6
+      pontos de dano em uma área de 6m de raio em alcance médio.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FIJfKOIU8dzbvSDG.vYKggB1hxhT4LRZv'
 flags:
   scene-packer:
@@ -156,10 +186,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847524
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: FIJfKOIU8dzbvSDG
 folder: null
 sort: 0

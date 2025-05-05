@@ -28,15 +28,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.tQAIfnReI9DV014V
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para 1 dia, o alcance para ilimitado e adiciona componente
       material (cuba de ouro cheia d'água e ingredientes mágicos, no valor de T$
       1.000). Você ainda precisa ter alguma informação sobre o alvo, como um
       nome, descrição ou localização.
-    origin: Compendium.tormenta20.magias.tQAIfnReI9DV014V
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tQAIfnReI9DV014V.38qQpPaoMbUr1US2'
 folder: HyfzyzZmGAlHTRd3
 sort: 0
@@ -119,9 +134,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462826
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!tQAIfnReI9DV014V'
 

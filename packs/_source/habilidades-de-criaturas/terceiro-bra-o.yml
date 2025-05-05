@@ -57,10 +57,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Terceiro Braço
-    icon: icons/svg/upgrade.svg
-    origin: Item.TBf4HEw7jup1TcHR
-    tint: '#FFFFFF'
+  - origin: Item.TBf4HEw7jup1TcHR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -92,15 +90,34 @@ effects:
         value: roll
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Terceiro Braço
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!TBf4HEw7jup1TcHR.VhKe1dHH1EoudDYd'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615333
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: TBf4HEw7jup1TcHR
 folder: null
 sort: 0

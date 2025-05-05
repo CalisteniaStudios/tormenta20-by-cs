@@ -22,15 +22,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/racas/suraggel.webp
-    label: Luz Sagrada
     origin: Item.JNlzNdtc3KsZDpRf
     transfer: true
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Luz Sagrada
+    img: systems/tormenta20/icons/racas/suraggel.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vMgjBrfxU9XzEm8t.ZI4xGYYuUTFNml4t'
   - _id: AQeH26qZQWCMWwrd
     changes: []
@@ -43,8 +58,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Luz Sagrada
     origin: Item.DaClg76mrN6QyU8d
     transfer: true
     flags:
@@ -62,7 +75,24 @@ effects:
         durationScene: false
         items: Luz
         equipment: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Luz Sagrada
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vMgjBrfxU9XzEm8t.AQeH26qZQWCMWwrd'
 folder: M38uJID4A6HlLflO
 sort: 0
@@ -131,9 +161,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185655
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!vMgjBrfxU9XzEm8t'
 

@@ -18,15 +18,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/requiem.webp
-    label: Réquiem (Penalidade)
     origin: Item.hIyrBaEfpVKQiI5i
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Réquiem (Penalidade)
+    img: systems/tormenta20/icons/magias/requiem.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bjjhaGHKPoTOKtyT.iNvGcLd8arHs5jUJ'
 folder: isWhPI19rDVeq0NV
 sort: 0
@@ -96,9 +111,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462766
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!bjjhaGHKPoTOKtyT'
 

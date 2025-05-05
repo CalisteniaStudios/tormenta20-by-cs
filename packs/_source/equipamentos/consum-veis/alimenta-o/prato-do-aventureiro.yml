@@ -78,10 +78,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: Prato de Aventureiro
-    icon: icons/consumables/food/bowl-ribs-meat-rice-mash-brown-white.webp
-    origin: Item.VkHOL4wIzEeetYW7
-    tint: '#FFFFFF'
+  - origin: Item.VkHOL4wIzEeetYW7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -98,15 +96,34 @@ effects:
     _id: zzhcuLkIHQ3g7WCI
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Prato de Aventureiro
+    img: icons/consumables/food/bowl-ribs-meat-rice-mash-brown-white.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VkHOL4wIzEeetYW7.zzhcuLkIHQ3g7WCI'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684618205574
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: VkHOL4wIzEeetYW7
 folder: sO4Gcu7Fm1dJ1sxI
 sort: 500000

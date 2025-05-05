@@ -70,10 +70,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667024040271
       modifiedTime: 1667024090430
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: dSt4YfZECd4xi2jJ
     _key: '!actors.items!aJHKa88HMhvaCnE7.dSt4YfZECd4xi2jJ'
   - folder: 0V7x5o397UvG3xKP
@@ -134,19 +137,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667024040272
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 7VaR9AWxEBHIw9UB
     _key: '!actors.items!aJHKa88HMhvaCnE7.7VaR9AWxEBHIw9UB'
   - name: Tacape
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/tacape.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.fRe995zLI8GOydRo
+    flags: {}
     system:
       description:
         value: >-
@@ -261,10 +265,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772413
       modifiedTime: 1700237253639
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.fRe995zLI8GOydRo
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 106250
     _id: iHiMer4VZJCl6RY6
@@ -418,10 +425,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237248277
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 4dVKVJFlOgp3hJ4D
     _key: '!actors.items!aJHKa88HMhvaCnE7.4dVKVJFlOgp3hJ4D'
 effects: []
@@ -1182,14 +1192,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/troll-das-cavernas.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.3
     scaleY: 1.3
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1203,12 +1219,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945982
   modifiedTime: 1700237253639
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!aJHKa88HMhvaCnE7'
 

@@ -32,11 +32,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: 'Raio Elemental - Ácido: vulnerável por uma rodada.'
     origin: Item.DcgYpUe7zr13InG5
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Raio Elemental - Ácido: vulnerável por uma rodada.'
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!F3UgmqiSFFFEnrPr.pCKajJfKJSMdcVPR'
   - _id: Ht3yPo5ztIP8mesN
     flags:
@@ -67,11 +82,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: Raio Elemental - Eletricidade ofuscado por uma rodada.
     origin: Item.DcgYpUe7zr13InG5
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Raio Elemental - Eletricidade ofuscado por uma rodada.
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!F3UgmqiSFFFEnrPr.Ht3yPo5ztIP8mesN'
   - _id: ypWg1sdzLtOHDazj
     flags:
@@ -102,11 +132,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: 'Raio Elemental - Fogo: fica em chamas.'
     origin: Item.DcgYpUe7zr13InG5
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Raio Elemental - Fogo: fica em chamas.'
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!F3UgmqiSFFFEnrPr.ypWg1sdzLtOHDazj'
   - _id: KGUqlcsXfcvl0Ky4
     flags:
@@ -137,11 +182,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: 'Raio Elemental - Frio: lento por uma rodada.'
     origin: Item.DcgYpUe7zr13InG5
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Raio Elemental - Frio: lento por uma rodada.'
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!F3UgmqiSFFFEnrPr.KGUqlcsXfcvl0Ky4'
   - _id: aV0YF2l5HFBUMr5L
     flags:
@@ -168,11 +228,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: 'Raio Elemental - Trevas: não pode ser curado por uma rodada.'
     origin: Item.DcgYpUe7zr13InG5
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Raio Elemental - Trevas: não pode ser curado por uma rodada.'
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!F3UgmqiSFFFEnrPr.aV0YF2l5HFBUMr5L'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
@@ -241,9 +316,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183833
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!F3UgmqiSFFFEnrPr'
 

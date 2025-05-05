@@ -43,11 +43,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta os bônus na Defesa e em testes de resistência em +1.
     origin: Item.OROKwtjkajwKhNST
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta os bônus na Defesa e em testes de resistência em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!mp25mjirts0eMdlQ.6wLWvHT1aEd3fpoW'
   - _id: 230TjFlqsBvcCJxJ
     changes:
@@ -76,20 +91,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/aura-divina.webp
-    label: Aura Divina
     origin: Item.BRR2wEhjX8MoYqzF
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aura Divina
+    img: systems/tormenta20/icons/magias/aura-divina.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!mp25mjirts0eMdlQ.230TjFlqsBvcCJxJ'
-  - label: Aura Divina para Devotos
-    icon: systems/tormenta20/icons/magias/aura-divina.webp
-    origin: Item.mp25mjirts0eMdlQ
-    tint: '#FFFFFF'
+  - origin: Item.mp25mjirts0eMdlQ
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -122,6 +150,23 @@ effects:
         value: '10'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aura Divina para Devotos
+    img: systems/tormenta20/icons/magias/aura-divina.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!mp25mjirts0eMdlQ.i60ABYfynfitGqaq'
 folder: mCDYVjEU9bEesaBu
 sort: 0
@@ -199,9 +244,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462809
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!mp25mjirts0eMdlQ'
 

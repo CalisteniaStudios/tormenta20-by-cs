@@ -3,10 +3,8 @@ name: Fascinar em Massa
 type: poder
 img: systems/tormenta20/icons/classes/bardo.webp
 effects:
-  - label: Fascinar em Massa
-    icon: icons/svg/upgrade.svg
-    origin: Item.ztRkcasGfrg8HrI6
-    tint: '#FFFFFF'
+  - origin: Item.ztRkcasGfrg8HrI6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: fGm89fWwp7pn7CKy
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fascinar em Massa
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JP8YgI43eDcQrjyc.fGm89fWwp7pn7CKy'
 folder: vXRLLa3BIKBZdiua
 sort: 0
@@ -99,9 +114,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716927
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!JP8YgI43eDcQrjyc'
 

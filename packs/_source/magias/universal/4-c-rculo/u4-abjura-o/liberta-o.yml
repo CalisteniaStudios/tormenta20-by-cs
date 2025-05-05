@@ -20,15 +20,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ELDmNrdpN7g8M3iJ
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, o alvo pode caminhar sobre a água ou outros líquidos com
       seu deslocamento normal. Entretanto, isso não protege contra qualquer
       efeito que o líquido possa causar (o alvo pode andar sobre lava, mas ainda
       vai sofrer dano).
-    origin: Compendium.tormenta20.magias.ELDmNrdpN7g8M3iJ
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ELDmNrdpN7g8M3iJ.BU5LpJQ6K0yU6b69'
   - _id: u8bzRTaoDhpbpzhf
     flags:
@@ -47,11 +62,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: além do normal, o alvo pode escolher 20 em todos os testes de Atletismo.
     origin: Compendium.tormenta20.magias.ELDmNrdpN7g8M3iJ
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: além do normal, o alvo pode escolher 20 em todos os testes de Atletismo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ELDmNrdpN7g8M3iJ.u8bzRTaoDhpbpzhf'
   - _id: 7dRxwyy8vnjpqZQt
     flags:
@@ -70,13 +100,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, o alvo pode escolher 20 em todos os testes de Acrobacia e
-      pode fazer todas as manobras desta perícia mesmo sem treinamento.
     origin: Compendium.tormenta20.magias.ELDmNrdpN7g8M3iJ
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, o alvo pode escolher 20 em todos os testes de Acrobacia e
+      pode fazer todas as manobras desta perícia mesmo sem treinamento.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ELDmNrdpN7g8M3iJ.7dRxwyy8vnjpqZQt'
   - _id: LIKqu6OYnyws76oU
     flags:
@@ -103,11 +148,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alcance para curto e o alvo para até 5 criaturas.
     origin: Compendium.tormenta20.magias.ELDmNrdpN7g8M3iJ
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alcance para curto e o alvo para até 5 criaturas.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ELDmNrdpN7g8M3iJ.LIKqu6OYnyws76oU'
   - _id: dOfwy9dacju0gnNw
     flags:
@@ -126,11 +186,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: pode dissipar Aprisionamento.
     origin: Compendium.tormenta20.magias.ELDmNrdpN7g8M3iJ
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: pode dissipar Aprisionamento.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ELDmNrdpN7g8M3iJ.dOfwy9dacju0gnNw'
   - _id: Yl8ldw9I3O8fnXxN
     changes: []
@@ -143,15 +218,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/libertacao.webp
-    label: Libertação
     origin: Item.iO6NoE2znh1fK5bD
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Libertação
+    img: systems/tormenta20/icons/magias/libertacao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ELDmNrdpN7g8M3iJ.Yl8ldw9I3O8fnXxN'
 folder: HAJ0HL1oLRQLnM7i
 sort: 0
@@ -212,9 +302,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461807
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ELDmNrdpN7g8M3iJ'
 

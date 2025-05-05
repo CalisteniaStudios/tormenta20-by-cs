@@ -28,11 +28,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a execução para padrão e a duração para cena. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a execução para padrão e a duração para cena. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lAsj1NrA2J6GbvDi.LvHT31M1UBY6eqIL'
   - _id: 2XHxvPBjrqijXw9I
     flags:
@@ -51,13 +66,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, ao atacar você, um inimigo deve rolar dois dados e usar o
-      pior resultado. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, ao atacar você, um inimigo deve rolar dois dados e usar o
+      pior resultado. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lAsj1NrA2J6GbvDi.2XHxvPBjrqijXw9I'
   - _id: NrEAsxaqpXAWVZ5d
     flags:
@@ -92,13 +122,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a execução para padrão, o alcance para curto, o alvo para criaturas
-      escolhidas e a duração para cena. Requer 4º círculo.
     origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a execução para padrão, o alcance para curto, o alvo para criaturas
+      escolhidas e a duração para cena. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lAsj1NrA2J6GbvDi.NrEAsxaqpXAWVZ5d'
   - _id: Q9xwXkqN6t3iEhBD
     flags:
@@ -133,15 +178,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para padrão e a duração para 1 dia. Além do normal, você
       recebe um sexto sentido que o avisa de qualquer perigo ou ameaça. Você
       fica imune às condições surpreendido e desprevenido e recebe +10 em Defesa
       e Reflexos. Requer 5º círculo.
-    origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lAsj1NrA2J6GbvDi.Q9xwXkqN6t3iEhBD'
   - _id: WxhX0zABmEAJkQ13
     changes: []
@@ -154,15 +214,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/concentracao-de-combate.webp
-    label: Concentração de Combate (Cena)
     origin: Item.jZYdLUCwQx3e9Odi
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Concentração de Combate (Cena)
+    img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lAsj1NrA2J6GbvDi.WxhX0zABmEAJkQ13'
   - _id: 5QruiDpfvtxwupil
     changes:
@@ -183,15 +258,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/concentracao-de-combate.webp
-    label: Concentração de Combate (Aprimoramento +14 PM)
     origin: Item.JbY4RCfiRXJEG8JU
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Concentração de Combate (Aprimoramento +14 PM)
+    img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lAsj1NrA2J6GbvDi.5QruiDpfvtxwupil'
 folder: zl8Wtl7gm1bEGc2W
 sort: 0
@@ -252,9 +342,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462798
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!lAsj1NrA2J6GbvDi'
 

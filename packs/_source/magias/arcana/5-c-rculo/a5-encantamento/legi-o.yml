@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de alvos em +1.
     origin: Compendium.tormenta20.magias.PS9AQUuhxRBnUeS4
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PS9AQUuhxRBnUeS4.AuPZAFB8KdmEmVoC'
   - _id: c2dgWhqQu3iLb2tt
     changes: []
@@ -37,15 +52,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/legiao.webp
-    label: Alvos Controlados
     origin: Item.2jiIING3oBlNWZwf
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alvos Controlados
+    img: systems/tormenta20/icons/magias/legiao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PS9AQUuhxRBnUeS4.c2dgWhqQu3iLb2tt'
 folder: qdNPlLqrk4tOV6Tp
 sort: 0
@@ -108,9 +138,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461906
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!PS9AQUuhxRBnUeS4'
 

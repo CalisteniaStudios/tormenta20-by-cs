@@ -3,9 +3,8 @@ name: Natureza Venenosa
 type: poder
 img: systems/tormenta20/icons/racas/medusa.webp
 effects:
-  - icon: systems/tormenta20/icons/racas/medusa.webp
-    origin: Item.HSB1rlovnC4GjdgV
-    tint: '#FFFFFF'
+  - origin: Item.HSB1rlovnC4GjdgV
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -40,11 +39,23 @@ effects:
     name: Natureza Venenosa
     description: ''
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: systems/tormenta20/icons/racas/medusa.webp
+    type: base
+    system: {}
+    sort: 0
     _key: '!items.effects!HSB1rlovnC4GjdgV.6WrgfWDzw5m4hjpr'
-  - label: Natureza Venenosa
-    icon: icons/svg/upgrade.svg
-    origin: Item.HSB1rlovnC4GjdgV
-    tint: '#FFFFFF'
+  - origin: Item.HSB1rlovnC4GjdgV
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -75,6 +86,23 @@ effects:
         value: 1d12
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Natureza Venenosa
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!HSB1rlovnC4GjdgV.4QsRr4WpeeVxWznX'
 folder: WBW7mJa7n0MHwWe7
 sort: 0
@@ -141,9 +169,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1664306183903
   modifiedTime: 1704130139208
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!HSB1rlovnC4GjdgV'
 

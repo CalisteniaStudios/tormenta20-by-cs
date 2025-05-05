@@ -4,527 +4,918 @@ img: icons/svg/d20-grey.svg
 results:
   - _id: aL5fJIYgm0v4sgZj
     flags: {}
-    type: 2
-    text: Óleo de Abençoar Alimentos
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 1
       - 1
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 5sxPQieeeYZYbJAZ
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Abençoar Alimentos
+    documentUuid: Compendium.tormenta20.pocoes.Item.5sxPQieeeYZYbJAZ
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.aL5fJIYgm0v4sgZj'
   - _id: ep2Z6pWThb6HUmDF
     flags: {}
-    type: 2
-    text: Granada de Área Escorregadia
+    type: document
     img: systems/tormenta20/icons/itens/granada.webp
     weight: 1
     range:
       - 2
       - 3
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: XgRYUChRMmaCzVdw
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Granada de Área Escorregadia
+    documentUuid: Compendium.tormenta20.pocoes.Item.XgRYUChRMmaCzVdw
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.ep2Z6pWThb6HUmDF'
   - _id: qey0tK6HGAUeSm12
     flags: {}
-    type: 2
-    text: Óleo de Arma Mágica
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 4
       - 6
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: lUvXanXBUKxGOd2M
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Arma Mágica
+    documentUuid: Compendium.tormenta20.pocoes.Item.lUvXanXBUKxGOd2M
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.qey0tK6HGAUeSm12'
   - _id: UFBII4dqBT9VhHJr
     flags: {}
-    type: 2
-    text: Poção de Compreensão
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 7
       - 7
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: ApeazL6hVnTroAOz
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Compreensão
+    documentUuid: Compendium.tormenta20.pocoes.Item.ApeazL6hVnTroAOz
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.UFBII4dqBT9VhHJr'
   - _id: oSv28FG3hX14vtc4
     flags: {}
-    type: 2
-    text: Poção de Curar Ferimentos (2d8+2 PV)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 8
       - 15
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: TrQw6O1ebgl4AGvY
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Curar Ferimentos (2d8+2 PV)
+    documentUuid: Compendium.tormenta20.pocoes.Item.TrQw6O1ebgl4AGvY
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.oSv28FG3hX14vtc4'
   - _id: FYduUrmqqywS7Q7Z
     flags: {}
-    type: 2
-    text: Poção de Disfarce Ilusório
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 16
       - 18
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 9FkEtT2rpDxBZmEQ
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Disfarce Ilusório
+    documentUuid: Compendium.tormenta20.pocoes.Item.9FkEtT2rpDxBZmEQ
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.FYduUrmqqywS7Q7Z'
   - _id: EXyGX7SVCrYLWLlE
     flags: {}
-    type: 2
-    text: Poção de Enfeitiçar
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 19
       - 20
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: fFpSZAPGZDUVJNOG
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Enfeitiçar
+    documentUuid: Compendium.tormenta20.pocoes.Item.fFpSZAPGZDUVJNOG
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.EXyGX7SVCrYLWLlE'
   - _id: qmr1BSRbjAwPk1d2
     flags: {}
-    type: 2
-    text: Óleo de Escuridão
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 21
       - 22
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: cF4QKw8RShT0h7O7
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Escuridão
+    documentUuid: Compendium.tormenta20.pocoes.Item.cF4QKw8RShT0h7O7
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.qmr1BSRbjAwPk1d2'
   - _id: tYPY9TfAmmBb6Mbt
     flags: {}
-    type: 2
-    text: Óleo de Luz
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 23
       - 24
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: izCFE9JWjDxcDShN
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Luz
+    documentUuid: Compendium.tormenta20.pocoes.Item.izCFE9JWjDxcDShN
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.tYPY9TfAmmBb6Mbt'
   - _id: P55toNH7IkpY9R08
     flags: {}
-    type: 2
-    text: Granada de Névoa
+    type: document
     img: systems/tormenta20/icons/itens/granada.webp
     weight: 1
     range:
       - 25
       - 26
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: m8Iw8iH1H0OkWeYj
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Granada de Névoa
+    documentUuid: Compendium.tormenta20.pocoes.Item.m8Iw8iH1H0OkWeYj
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.P55toNH7IkpY9R08'
   - _id: XIcdSjjNXquF2F9G
     flags: {}
-    type: 2
-    text: Poção de Primor Atlético
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 27
       - 28
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: A4wH7EMrKzOtlt3Q
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Primor Atlético
+    documentUuid: Compendium.tormenta20.pocoes.Item.A4wH7EMrKzOtlt3Q
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.XIcdSjjNXquF2F9G'
   - _id: Y3a7kNOu99ErJ0lQ
     flags: {}
-    type: 2
-    text: Poção de Proteção Divina
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 29
       - 30
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: ldhWaTsXkntJuUtU
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Proteção Divina
+    documentUuid: Compendium.tormenta20.pocoes.Item.ldhWaTsXkntJuUtU
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.Y3a7kNOu99ErJ0lQ'
   - _id: TLgvVqSF7R8G0HrG
     flags: {}
-    type: 2
-    text: Poção de Resistência a Energia
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 31
       - 32
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: WrtZs4ql74DKHLKm
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Resistência a Energia
+    documentUuid: Compendium.tormenta20.pocoes.Item.WrtZs4ql74DKHLKm
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.TLgvVqSF7R8G0HrG'
   - _id: RryvA6XDrFNm9n5I
     flags: {}
-    type: 2
-    text: Poção de Sono
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 33
       - 34
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: vjRcygbwo7vx4gOG
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Sono
+    documentUuid: Compendium.tormenta20.pocoes.Item.vjRcygbwo7vx4gOG
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.RryvA6XDrFNm9n5I'
   - _id: tQwuDgoz7v63Aejn
     flags: {}
-    type: 2
-    text: Poção de Suporte Ambiental
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 35
       - 35
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: YrcnZsYGhSYovuVN
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Suporte Ambiental
+    documentUuid: Compendium.tormenta20.pocoes.Item.YrcnZsYGhSYovuVN
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.tQwuDgoz7v63Aejn'
   - _id: s3Oba54RP6Op8Ovj
     flags: {}
-    type: 2
-    text: Óleo de Tranca Arcana
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 36
       - 36
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: ffDA6IdF1QAMWu8L
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Tranca Arcana
+    documentUuid: Compendium.tormenta20.pocoes.Item.ffDA6IdF1QAMWu8L
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.s3Oba54RP6Op8Ovj'
   - _id: TE4RARF5MMc33cZt
     flags: {}
-    type: 2
-    text: Poção de Visão Mística
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 37
       - 37
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: wAbbICpd57DcDV9s
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Visão Mística
+    documentUuid: Compendium.tormenta20.pocoes.Item.wAbbICpd57DcDV9s
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.TE4RARF5MMc33cZt'
   - _id: FIFbTpsbN08qkE9m
     flags: {}
-    type: 2
-    text: Poção de Vitalidade Fantasma
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 38
       - 38
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: LnW6eVQyg7hhefHt
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Vitalidade Fantasma
+    documentUuid: Compendium.tormenta20.pocoes.Item.LnW6eVQyg7hhefHt
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.FIFbTpsbN08qkE9m'
   - _id: mGBfODUtlOHTQU9t
     flags: {}
-    type: 2
-    text: Poção de Escudo da Fé (cena)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 39
       - 41
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: cLTZXcoMq9C8oNpB
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Escudo da Fé (cena)
+    documentUuid: Compendium.tormenta20.pocoes.Item.cLTZXcoMq9C8oNpB
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.mGBfODUtlOHTQU9t'
   - _id: fAo7F3x4M7zbmyLW
     flags: {}
-    type: 2
-    text: Óleo de Alterar Tamanho
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 42
       - 43
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: RYMxcUZXKLWCCSff
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Alterar Tamanho
+    documentUuid: Compendium.tormenta20.pocoes.Item.RYMxcUZXKLWCCSff
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.fAo7F3x4M7zbmyLW'
   - _id: P6P7sr6Q0nAvEL9z
     flags: {}
-    type: 2
-    text: Poção de Aparência Perfeita
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 44
       - 45
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: ZYU4TTCb2Eod8CyD
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Aparência Perfeita
+    documentUuid: Compendium.tormenta20.pocoes.Item.ZYU4TTCb2Eod8CyD
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.P6P7sr6Q0nAvEL9z'
   - _id: Lu1o2R836KWaGQRK
     flags: {}
-    type: 2
-    text: Óleo de Armamento da Natureza
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 46
       - 46
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 28yPkXVQIVmlfF3W
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Armamento da Natureza
+    documentUuid: Compendium.tormenta20.pocoes.Item.28yPkXVQIVmlfF3W
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.Lu1o2R836KWaGQRK'
   - _id: R2REYwgEGafwCGEB
     flags: {}
-    type: 2
-    text: Granada de Bola de Fogo
+    type: document
     img: systems/tormenta20/icons/itens/granada.webp
     weight: 1
     range:
       - 47
       - 52
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: okK7ZXnCohxFizUe
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Granada de Bola de Fogo
+    documentUuid: Compendium.tormenta20.pocoes.Item.okK7ZXnCohxFizUe
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.R2REYwgEGafwCGEB'
   - _id: LNNyvkfr0laDKtJu
     flags: {}
-    type: 2
-    text: Poção de Camuflagem llusória
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 53
       - 53
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 5SnRRfXhW6BiJ5h0
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Camuflagem llusória
+    documentUuid: Compendium.tormenta20.pocoes.Item.5SnRRfXhW6BiJ5h0
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.LNNyvkfr0laDKtJu'
   - _id: Gj3EdHxX04uVshX4
     flags: {}
-    type: 2
-    text: Poção de Concentração de Combate (cena)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 54
       - 55
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 02q1pu5Oyj3LtvZx
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Concentração de Combate (cena)
+    documentUuid: Compendium.tormenta20.pocoes.Item.02q1pu5Oyj3LtvZx
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.Gj3EdHxX04uVshX4'
   - _id: cmS4LM6h02A6snxf
     flags: {}
-    type: 2
-    text: Poção de Curar Ferimentos (4d8+4 PV)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 56
       - 62
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: yuDsiJccSfFOTmsR
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Curar Ferimentos (4d8+4 PV)
+    documentUuid: Compendium.tormenta20.pocoes.Item.yuDsiJccSfFOTmsR
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.cmS4LM6h02A6snxf'
   - _id: LtnBL6R80cwhSlxz
     flags: {}
-    type: 2
-    text: Poção de Físico Divino
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 63
       - 66
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: hjvqA8b5pxriWBRh
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Físico Divino
+    documentUuid: Compendium.tormenta20.pocoes.Item.hjvqA8b5pxriWBRh
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.LtnBL6R80cwhSlxz'
   - _id: K1BUfVEiEqMy4jTd
     flags: {}
-    type: 2
-    text: Poção de Mente Divina
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 67
       - 68
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 8MZOwDXGchwZ0Jkp
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Mente Divina
+    documentUuid: Compendium.tormenta20.pocoes.Item.8MZOwDXGchwZ0Jkp
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.K1BUfVEiEqMy4jTd'
   - _id: tMoFo0Hw3NwbmiFM
     flags: {}
-    type: 2
-    text: Poção de Metamorfose
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 69
       - 70
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: Rfqa9MsOHuXLMg9D
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Metamorfose
+    documentUuid: Compendium.tormenta20.pocoes.Item.Rfqa9MsOHuXLMg9D
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.tMoFo0Hw3NwbmiFM'
   - _id: hcODTc2mQXgU5H4W
     flags: {}
-    type: 2
-    text: Poção de Purificação
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 71
       - 75
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 8zETItgIUrQgW0ck
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Purificação
+    documentUuid: Compendium.tormenta20.pocoes.Item.8zETItgIUrQgW0ck
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.hcODTc2mQXgU5H4W'
   - _id: erB91pnwjTxiQCcg
     flags: {}
-    type: 2
-    text: Poção de Velocidade
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 76
       - 77
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 7MWQRNmlsHSYPZT1
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Velocidade
+    documentUuid: Compendium.tormenta20.pocoes.Item.7MWQRNmlsHSYPZT1
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.erB91pnwjTxiQCcg'
   - _id: ciHFsikTp1XzqNu1
     flags: {}
-    type: 2
-    text: Óleo de Vestimenta da Fé
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 78
       - 79
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 4oSYUfK8BYgEP2Ep
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Vestimenta da Fé
+    documentUuid: Compendium.tormenta20.pocoes.Item.4oSYUfK8BYgEP2Ep
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.ciHFsikTp1XzqNu1'
   - _id: tTZOROFa3PvIoF8R
     flags: {}
-    type: 2
-    text: Poção de Voz Divina
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 80
       - 80
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: denQPHbRznsXm0uy
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Voz Divina
+    documentUuid: Compendium.tormenta20.pocoes.Item.denQPHbRznsXm0uy
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.tTZOROFa3PvIoF8R'
   - _id: xo3YykwtmVUbjdXn
     flags: {}
-    type: 2
-    text: Óleo de Arma Mágica (+3)
+    type: document
     img: systems/tormenta20/icons/itens/oleo.webp
     weight: 1
     range:
       - 81
       - 82
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: 6olGswsHYsq8aiGw
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Arma Mágica (+3)
+    documentUuid: Compendium.tormenta20.pocoes.Item.6olGswsHYsq8aiGw
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.xo3YykwtmVUbjdXn'
   - _id: OyWOYuadeAGnrSF4
     flags: {}
-    type: 2
-    text: Poção de Curar Ferimentos (7d8+7 PV)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 83
       - 88
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: q32Ve67NR8AOyNmq
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Curar Ferimentos (7d8+7 PV)
+    documentUuid: Compendium.tormenta20.pocoes.Item.q32Ve67NR8AOyNmq
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.OyWOYuadeAGnrSF4'
   - _id: v7mNCE3mesUudyDZ
     flags: {}
-    type: 2
-    text: Poção de Físico Divino (três atributos)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 89
       - 89
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: LkTy80bVtw0jegr3
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Físico Divino (três atributos)
+    documentUuid: Compendium.tormenta20.pocoes.Item.LkTy80bVtw0jegr3
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.v7mNCE3mesUudyDZ'
   - _id: 7PsKD5fxB4fkjxZc
     flags: {}
-    type: 2
-    text: Poção de Invisibilidade (cena)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 90
       - 92
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: gaMgO0yUZEGM13XG
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Invisibilidade (cena)
+    documentUuid: Compendium.tormenta20.pocoes.Item.gaMgO0yUZEGM13XG
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.7PsKD5fxB4fkjxZc'
   - _id: 0ycFl1y1HIhVLCwS
     flags: {}
-    type: 2
-    text: Granada de Bola de Fogo (10d6)
+    type: document
     img: systems/tormenta20/icons/itens/granada.webp
     weight: 1
     range:
       - 93
       - 96
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: uujNCTQJR9CjJg2N
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Granada de Bola de Fogo (10d6)
+    documentUuid: Compendium.tormenta20.pocoes.Item.uujNCTQJR9CjJg2N
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.0ycFl1y1HIhVLCwS'
   - _id: pmLeqbWS5QsEN7zQ
     flags: {}
-    type: 2
-    text: Poção de Curar Ferimentos (11d8+11 PV)
+    type: document
     img: systems/tormenta20/icons/itens/pocao.webp
     weight: 1
     range:
       - 97
       - 100
     drawn: false
-    documentCollection: tormenta20.pocoes
-    documentId: stCPViFywNCL5EsG
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Curar Ferimentos (11d8+11 PV)
+    documentUuid: Compendium.tormenta20.pocoes.Item.stCPViFywNCL5EsG
+    description: ''
     _key: '!tables.results!KCyfDnYyhNoiAEeT.pmLeqbWS5QsEN7zQ'
 formula: 1d100
 replacement: true
 displayRoll: true
 folder: null
 sort: 0
-flags:
-  importid: heK0MOGiKwOZFVPJ
+flags: {}
 ownership:
   default: 0
 description: ''
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664312665017
   modifiedTime: 1667354515235
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!tables!KCyfDnYyhNoiAEeT'
 

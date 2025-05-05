@@ -39,13 +39,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta os bônus na Defesa, testes de ataque e rolagens de dano corpo a
-      corpo em +1, e os PV temporários em +10.
     origin: Compendium.tormenta20.magias.RLBhyAnxLXWj8thK
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta os bônus na Defesa, testes de ataque e rolagens de dano corpo a
+      corpo em +1, e os PV temporários em +10.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RLBhyAnxLXWj8thK.Irrry8mB5RZg5v99'
   - _id: yzvoO2A6tQ24JfyC
     flags:
@@ -76,16 +91,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.RLBhyAnxLXWj8thK
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       adiciona componente material (uma barra de adamante no valor de T$ 100).
       Sua forma de combate ganha um aspecto metálico e sem expressões. Além do
       normal, você recebe resistência a dano 10 e imunidade a atordoamento e
       efeitos de cansaço, encantamento, metabolismo, trevas e veneno, e não
       precisa respirar.
-    origin: Compendium.tormenta20.magias.RLBhyAnxLXWj8thK
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RLBhyAnxLXWj8thK.yzvoO2A6tQ24JfyC'
   - _id: vbViJHkstWG6ZmKL
     changes:
@@ -114,15 +144,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/transformacao-de-guerra.webp
-    label: Transformação de Guerra
     origin: Item.eO0IJZqC0ag6yR5e
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Transformação de Guerra
+    img: systems/tormenta20/icons/magias/transformacao-de-guerra.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RLBhyAnxLXWj8thK.vbViJHkstWG6ZmKL'
 folder: O4DBcowkyxvx1PFy
 sort: 0
@@ -185,9 +230,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461909
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!RLBhyAnxLXWj8thK'
 

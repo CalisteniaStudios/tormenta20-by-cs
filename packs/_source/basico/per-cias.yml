@@ -56,6 +56,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.mtIHFUZSK6xBFHqd'
   - name: Adestramento
     type: text
@@ -87,6 +97,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.GGVyGDvqfIQKFLch'
   - name: Atletismo
     type: text
@@ -156,6 +176,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.eMu2uKBn5KV0eRI4'
   - name: Atuação
     type: text
@@ -196,6 +226,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.ZTsOxj5RZPayHIFX'
   - name: Cavalgar
     type: text
@@ -236,6 +276,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.MqOZve8EYE7jIUFw'
   - name: Conhecimento
     type: text
@@ -268,6 +318,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.TjjV15fV27nEoWyX'
   - name: Cura
     type: text
@@ -310,6 +370,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.wQcNQVpDUvzvmHMY'
   - name: Diplomacia
     type: text
@@ -357,6 +427,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.cPbZCkI3ApOFMTnL'
   - name: Enganação
     type: text
@@ -418,6 +498,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.SF7OrtCOR5wqLTaH'
   - name: Fortitude
     type: text
@@ -444,6 +534,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.PcT6ZdZqQgsF5xh2'
   - name: Furtividade
     type: text
@@ -485,6 +585,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.bNaCnZBCP78XDpTS'
   - name: Guerra
     type: text
@@ -517,6 +627,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.Enbe4Cb4SZmTJiE9'
   - name: Iniciativa
     type: text
@@ -544,6 +664,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.Wjq09fN74TRjtwaa'
   - name: Intimidação
     type: text
@@ -580,6 +710,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.yFlMv6opj01JYXmu'
   - name: Intuição
     type: text
@@ -610,6 +750,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.gOxPHHZ9lKpaVA2i'
   - name: Investigação
     type: text
@@ -651,6 +801,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.FA5Km75yEUsW8hR4'
   - name: Jogatina
     type: text
@@ -687,6 +847,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.WKC0D1EIJLEEqsX1'
   - name: Ladinagem
     type: text
@@ -736,6 +906,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.Ic17BdCyk6Eb4fE5'
   - name: Luta
     type: text
@@ -761,6 +941,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.LFvkUhrjgGP9Joqv'
   - name: Misticismo
     type: text
@@ -820,6 +1010,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.T5I0dWUuXFEyorJG'
   - name: Nobreza
     type: text
@@ -849,6 +1049,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.oacoimyp8UfMD1o7'
   - name: Ofício
     type: text
@@ -913,6 +1123,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.GcfpNnf0qsct6c36'
   - name: Percepção
     type: text
@@ -951,6 +1171,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.IZDwoKmx3sd0MGDv'
   - name: Pilotagem
     type: text
@@ -983,6 +1213,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.RZGkvgBj943km7Ux'
   - name: Pontaria
     type: text
@@ -1008,6 +1248,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.FpCIRhlSUBciPvL1'
   - name: Reflexos
     type: text
@@ -1033,6 +1283,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.rYJ5YACNaWGrv3f8'
   - name: Religião
     type: text
@@ -1073,6 +1333,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.0GUTcO35fxzma15V'
   - name: Sobrevivência
     type: text
@@ -1126,6 +1396,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.SdS8pxPmbSpjv5Ml'
   - name: Vontade
     type: text
@@ -1151,20 +1431,32 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!gPPLzgFvC0JKi5UE.YriqYltqs9f00eAb'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.108
-  coreVersion: '10.290'
+  coreVersion: '13.342'
   createdTime: 1658083261775
   modifiedTime: 1669594659863
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 folder: null
 sort: 0
 _id: gPPLzgFvC0JKi5UE
-_key: '!journal!gPPLzgFvC0JKi5UE'
 categories: []
+_key: '!journal!gPPLzgFvC0JKi5UE'
 

@@ -3,11 +3,8 @@ name: Cinto da Força do Gigante
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/cinto-da-forca-do-gigante.webp
 effects:
-  - label: Cinto da Força do Gigante
-    icon: >-
-      systems/tormenta20/icons/itens/itens-magicos/cinto-da-forca-do-gigante.webp
-    origin: Item.PBfThK5WWVbIY0iP
-    tint: '#FFFFFF'
+  - origin: Item.PBfThK5WWVbIY0iP
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -28,6 +25,24 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cinto da Força do Gigante
+    img: >-
+      systems/tormenta20/icons/itens/itens-magicos/cinto-da-forca-do-gigante.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PBfThK5WWVbIY0iP.nOdcNBP9QgrrN2Xk'
 folder: BgJUCrqjG6EVBIfP
 sort: 1800000
@@ -91,9 +106,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000100
   modifiedTime: 1684622966500
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!PBfThK5WWVbIY0iP'
 

@@ -35,13 +35,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, mortos-vivos na área recebem +2 na Defesa e +2 em todos os
-      testes.
     origin: Compendium.tormenta20.magias.tJI1ESr2Mcxtx95L
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, mortos-vivos na área recebem +2 na Defesa e +2 em todos os
+      testes.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tJI1ESr2Mcxtx95L.fk8a19vw8q3BTczW'
   - _id: NZbTgUfqLcqk3DUb
     flags:
@@ -75,11 +90,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta os bônus para mortos-vivos em +1.
     origin: Compendium.tormenta20.magias.tJI1ESr2Mcxtx95L
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta os bônus para mortos-vivos em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tJI1ESr2Mcxtx95L.NZbTgUfqLcqk3DUb'
   - _id: wD5kuxIAboyvZySZ
     flags:
@@ -106,14 +136,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.tJI1ESr2Mcxtx95L
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para 1 hora, a duração para permanente e adiciona
       componente material (incenso e óleos no valor de T$ 1.000). Requer 4º
       círculo.
-    origin: Compendium.tormenta20.magias.tJI1ESr2Mcxtx95L
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tJI1ESr2Mcxtx95L.wD5kuxIAboyvZySZ'
   - _id: jTaLFbtbvhjyJCNt
     changes:
@@ -134,15 +179,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/profanar.webp
-    label: Bônus para Mortos-Vivos
     origin: Item.KsjzxeFvX5IWGefM
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bônus para Mortos-Vivos
+    img: systems/tormenta20/icons/magias/profanar.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tJI1ESr2Mcxtx95L.jTaLFbtbvhjyJCNt'
 folder: exKmpBOKJtRjgbsN
 sort: 0
@@ -205,9 +265,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462825
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!tJI1ESr2Mcxtx95L'
 

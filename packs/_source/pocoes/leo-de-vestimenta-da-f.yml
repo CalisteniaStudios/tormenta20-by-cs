@@ -3,10 +3,8 @@ name: Óleo de Vestimenta da Fé
 type: consumivel
 img: systems/tormenta20/icons/itens/itens-magicos/pocao-oleo.webp
 effects:
-  - label: Óleo de Vestimenta da Fé
-    icon: systems/tormenta20/icons/itens/itens-magicos/pocao-oleo.webp
-    origin: Item.4oSYUfK8BYgEP2Ep
-    tint: '#FFFFFF'
+  - origin: Item.4oSYUfK8BYgEP2Ep
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,27 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Vestimenta da Fé
+    img: systems/tormenta20/icons/itens/itens-magicos/pocao-oleo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!4oSYUfK8BYgEP2Ep.E2eouYz6Bnz4ZDDG'
 folder: null
 sort: 0
-flags:
-  importid: grOFLzFB3JJLe1HH
+flags: {}
 system:
   description:
     value: >-
@@ -107,9 +121,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007031
   modifiedTime: 1667351628041
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!4oSYUfK8BYgEP2Ep'
 

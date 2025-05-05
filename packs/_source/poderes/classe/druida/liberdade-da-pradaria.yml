@@ -3,10 +3,8 @@ name: Liberdade da Pradaria
 type: poder
 img: systems/tormenta20/icons/classes/druida.webp
 effects:
-  - label: Liberdade da Pradaria
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.HQn4xgqf7YRiLwyo
-    tint: '#FFFFFF'
+  - origin: Item.HQn4xgqf7YRiLwyo
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Liberdade da Pradaria
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!HQn4xgqf7YRiLwyo.kt8Ze8tdZhBIZ1LJ'
-  - label: 'Liberdade da Pradaria: Aumenta o alcance da magia em um passo.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.HQn4xgqf7YRiLwyo
-    tint: '#FFFFFF'
+  - origin: Item.HQn4xgqf7YRiLwyo
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -58,6 +71,23 @@ effects:
     _id: Eap2JkNXFyg97D7G
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Liberdade da Pradaria: Aumenta o alcance da magia em um passo.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!HQn4xgqf7YRiLwyo.Eap2JkNXFyg97D7G'
 folder: 8LraP5E2KHsZTAz8
 sort: 0
@@ -116,9 +146,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183903
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!HQn4xgqf7YRiLwyo'
 

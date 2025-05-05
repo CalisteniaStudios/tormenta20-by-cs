@@ -3,10 +3,8 @@ name: Rejeição Divina
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-tormenta.webp
 effects:
-  - label: Rejeição Divina
-    icon: icons/svg/upgrade.svg
-    origin: Item.959wpT3zgDErAGpY
-    tint: '#FFFFFF'
+  - origin: Item.959wpT3zgDErAGpY
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: '5'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Rejeição Divina
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!959wpT3zgDErAGpY.QtheeTb9TiiZewal'
 folder: HjhUvn5HZU3mYJoL
 sort: 150000
@@ -93,9 +108,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183332
   modifiedTime: 1684800490620
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!959wpT3zgDErAGpY'
 

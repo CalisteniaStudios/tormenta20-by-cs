@@ -53,10 +53,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Lutar em Formação
-        icon: icons/environment/people/infantry-army.webp
-        origin: Item.uNwAhgYfnGrlr705
-        tint: '#FFFFFF'
+      - origin: Item.uNwAhgYfnGrlr705
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -81,6 +79,23 @@ items:
             value: '1'
             priority: null
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Lutar em Formação
+        img: icons/environment/people/infantry-army.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!npoNBPUXKVObgYTY.lakxBRUalL5aRYIH.rZ4AsGAxKpSs9lPO
     sort: 1900000
@@ -90,19 +105,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667010839913
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: lakxBRUalL5aRYIH
     _key: '!actors.items!npoNBPUXKVObgYTY.lakxBRUalL5aRYIH'
   - name: Alabarda
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/alabarda.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.p7MZK1XnNPSXxbmy
+    flags: {}
     system:
       description:
         value: >-
@@ -259,10 +275,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772421
       modifiedTime: 1700236113646
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.p7MZK1XnNPSXxbmy
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 4000000
     _id: rlQmvssUqFVYEFr2
@@ -272,9 +291,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/cota-malha.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.wvwi8zPSP8mRx7LO
+    flags: {}
     system:
       description:
         value: >-
@@ -326,18 +343,19 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312773033
       modifiedTime: 1667010880315
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.wvwi8zPSP8mRx7LO
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 125000
     _key: '!actors.items!npoNBPUXKVObgYTY.8rg1Mb4ISAFRFCp8'
 effects:
-  - label: Lutar em Formação
-    icon: icons/environment/people/infantry-army.webp
-    origin: Actor.npoNBPUXKVObgYTY.Item.lakxBRUalL5aRYIH
-    tint: '#FFFFFF'
+  - origin: Actor.npoNBPUXKVObgYTY.Item.lakxBRUalL5aRYIH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -362,6 +380,23 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lutar em Formação
+    img: icons/environment/people/infantry-army.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!npoNBPUXKVObgYTY.0k2kR5YLjlEe2NWD'
 folder: bbSOxnmQYGjvlnqm
 sort: 100001
@@ -1118,14 +1153,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/recruta-supremacista.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1139,12 +1180,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946018
   modifiedTime: 1700236113646
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!npoNBPUXKVObgYTY'
 

@@ -3,10 +3,8 @@ name: 'Missa: Escudo Divino'
 type: poder
 img: systems/tormenta20/icons/classes/clerigo.webp
 effects:
-  - label: 'Missa: Escudo Divino'
-    icon: systems/tormenta20/icons/classes/clerigo.webp
-    origin: Item.LoQZqFTWlSlfkCej
-    tint: '#FFFFFF'
+  - origin: Item.LoQZqFTWlSlfkCej
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -39,6 +37,23 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Missa: Escudo Divino'
+    img: systems/tormenta20/icons/classes/clerigo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LoQZqFTWlSlfkCej.WBYACcyqonY6xj36'
 folder: RDLTxoI4mIyfR6dr
 sort: 0
@@ -116,9 +131,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184245
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!LoQZqFTWlSlfkCej'
 

@@ -3,10 +3,8 @@ name: Escaramuça
 type: poder
 img: systems/tormenta20/icons/classes/cacador.webp
 effects:
-  - label: Escaramuça
-    icon: systems/tormenta20/icons/classes/cacador.webp
-    origin: Item.5aP1ObU7AbNYKNTG
-    tint: '#FFFFFF'
+  - origin: Item.5aP1ObU7AbNYKNTG
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -31,11 +29,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escaramuça
+    img: systems/tormenta20/icons/classes/cacador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!29020onqtdmtOG3B.RljUcWz5cgr5VS4v'
-  - label: Escaramuça
-    icon: icons/svg/upgrade.svg
-    origin: Item.5aP1ObU7AbNYKNTG
-    tint: '#FFFFFF'
+  - origin: Item.5aP1ObU7AbNYKNTG
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -66,11 +79,26 @@ effects:
         value: 1d8
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escaramuça
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!29020onqtdmtOG3B.17v216RYpe8ojpCM'
-  - label: Escaramça (Reflexos)
-    icon: icons/svg/upgrade.svg
-    origin: Item.29020onqtdmtOG3B
-    tint: '#FFFFFF'
+  - origin: Item.29020onqtdmtOG3B
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -101,6 +129,23 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escaramça (Reflexos)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!29020onqtdmtOG3B.EsGPMLrJ2luG7yaR'
 folder: iT3rUBmGhu5hbNic
 sort: 400000
@@ -163,9 +208,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716779
   modifiedTime: 1684630426990
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!29020onqtdmtOG3B'
 

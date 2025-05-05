@@ -64,13 +64,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: >-
-      Deixa sua flecha etérea. Você recebe +4 em seu teste de ataque com esta
-      flecha e ignora a resistência a dano e os bônus na Defesa por cobertura do
-      alvo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.8UqeHr4hv6EzcWIH
-    tint: '#FFFFFF'
+  - origin: Item.8UqeHr4hv6EzcWIH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -102,15 +97,37 @@ effects:
         value: '4'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Deixa sua flecha etérea. Você recebe +4 em seu teste de ataque com esta
+      flecha e ignora a resistência a dano e os bônus na Defesa por cobertura do
+      alvo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8UqeHr4hv6EzcWIH.ex6ZylW6MbPGWCym'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665856654745
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 8UqeHr4hv6EzcWIH
 folder: Rj1a3BRGbCJZHIUT
 sort: 0

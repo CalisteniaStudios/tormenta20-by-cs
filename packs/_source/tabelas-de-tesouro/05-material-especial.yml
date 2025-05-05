@@ -4,98 +4,153 @@ img: icons/svg/d20-grey.svg
 results:
   - _id: 8YMPWIPO3wk5tuKX
     flags: {}
-    type: 0
-    text: Aço-Rubi
+    type: text
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 1
       - 1
     drawn: false
-    documentCollection: ''
-    documentId: null
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Aço-Rubi
+    name: ''
     _key: '!tables.results!eY03q7WJFk4ZwNfQ.8YMPWIPO3wk5tuKX'
   - _id: Uh8ZvDu5SlbN1h3u
     flags: {}
-    type: 0
-    text: Adamante
+    type: text
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 2
       - 2
     drawn: false
-    documentCollection: ''
-    documentId: null
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Adamante
+    name: ''
     _key: '!tables.results!eY03q7WJFk4ZwNfQ.Uh8ZvDu5SlbN1h3u'
   - _id: HZE6FTrmtuCmu0Pl
     flags: {}
-    type: 0
-    text: Gelo Eterno
+    type: text
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 3
       - 3
     drawn: false
-    documentCollection: ''
-    documentId: null
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Gelo Eterno
+    name: ''
     _key: '!tables.results!eY03q7WJFk4ZwNfQ.HZE6FTrmtuCmu0Pl'
   - _id: elEDOD8btblKz0Ck
     flags: {}
-    type: 0
-    text: Madeira Tollon
+    type: text
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 4
       - 4
     drawn: false
-    documentCollection: ''
-    documentId: null
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Madeira Tollon
+    name: ''
     _key: '!tables.results!eY03q7WJFk4ZwNfQ.elEDOD8btblKz0Ck'
   - _id: mrVzufl4E9K6tC30
     flags: {}
-    type: 0
-    text: Matéria Vermelha
+    type: text
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 5
       - 5
     drawn: false
-    documentCollection: ''
-    documentId: null
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Matéria Vermelha
+    name: ''
     _key: '!tables.results!eY03q7WJFk4ZwNfQ.mrVzufl4E9K6tC30'
   - _id: 15BqdLgqoGfFrVeS
     flags: {}
-    type: 0
-    text: Mitral
+    type: text
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 6
       - 6
     drawn: false
-    documentCollection: ''
-    documentId: null
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Mitral
+    name: ''
     _key: '!tables.results!eY03q7WJFk4ZwNfQ.15BqdLgqoGfFrVeS'
 formula: 1d6
 replacement: true
 displayRoll: true
 folder: null
 sort: 0
-flags:
-  importid: DQyoWoCyOuzWwnju
+flags: {}
 ownership:
   default: 0
 description: ''
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664312665115
   modifiedTime: 1667354515216
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!tables!eY03q7WJFk4ZwNfQ'
 

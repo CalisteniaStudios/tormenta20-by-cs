@@ -7,10 +7,8 @@ items:
     type: poder
     img: systems/tormenta20/icons/classes/cacador.webp
     effects:
-      - label: Marca da Presa (Dano)
-        icon: icons/svg/upgrade.svg
-        origin: Item.xhRCRXeSjY0avzCK
-        tint: '#FFFFFF'
+      - origin: Item.xhRCRXeSjY0avzCK
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -41,12 +39,27 @@ items:
             value: 1d4
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Marca da Presa (Dano)
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!hIieRUWgmv87ExIL.PSgdd8rkNyCPhwhy.G06vcvbjO0EM04y5
-      - label: Aumenta o Dano
-        icon: icons/svg/upgrade.svg
-        origin: Item.xhRCRXeSjY0avzCK
-        tint: '#FFFFFF'
+      - origin: Item.xhRCRXeSjY0avzCK
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -77,11 +90,26 @@ items:
             value: ':1d8;1d12;2d8;2d10'
             priority: 0
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Aumenta o Dano
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!hIieRUWgmv87ExIL.PSgdd8rkNyCPhwhy.XPXweXqgvWZY5KCo
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.poderes.KCcnANguX0TehmNR
+    flags: {}
     system:
       description:
         value: >-
@@ -133,10 +161,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1658361716929
       modifiedTime: 1667022006448
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.poderes.KCcnANguX0TehmNR
+      duplicateSource: null
+      exportSource: null
     folder: 3E5Z9NYLmzNic8rz
     sort: 0
     _id: PSgdd8rkNyCPhwhy
@@ -196,10 +227,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667022006448
       modifiedTime: 1667022006448
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: sQNhRGE52kdJBT1F
     _key: '!actors.items!hIieRUWgmv87ExIL.sQNhRGE52kdJBT1F'
   - type: poder
@@ -260,10 +294,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667022006449
       modifiedTime: 1667022006449
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 9rDrh7OrZOGAhR3b
     _key: '!actors.items!hIieRUWgmv87ExIL.9rDrh7OrZOGAhR3b'
   - folder: 0V7x5o397UvG3xKP
@@ -314,10 +351,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Ofuscado
-        icon: systems/tormenta20/icons/conditions/ofuscado.svg
-        origin: Item.SXWbxEA5WLMZoDAW
-        tint: '#FFFFFF'
+      - origin: Item.SXWbxEA5WLMZoDAW
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -334,6 +369,23 @@ items:
         _id: xh6WFU2ofZkMrjqo
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Ofuscado
+        img: systems/tormenta20/icons/conditions/ofuscado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!hIieRUWgmv87ExIL.ETctchLoocA9RfFy.xh6WFU2ofZkMrjqo
     sort: 2800000
@@ -343,19 +395,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321165760
       modifiedTime: 1667022006450
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: ETctchLoocA9RfFy
     _key: '!actors.items!hIieRUWgmv87ExIL.ETctchLoocA9RfFy'
   - name: Cimitarra
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/cimitarra.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.y6IKZPxsQebq1AkW
+    flags: {}
     system:
       description:
         value: >-
@@ -470,10 +523,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312773034
       modifiedTime: 1700236401182
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.y6IKZPxsQebq1AkW
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2900000
     _id: ZrRxJFT0gVP8aDEE
@@ -482,9 +538,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/besta-pesada.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.iYY0Jr19T5ERm43G
+    flags: {}
     system:
       description:
         value: >-
@@ -599,10 +653,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772417
       modifiedTime: 1700236434718
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.iYY0Jr19T5ERm43G
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 3300000
     _id: aCxxAj94o5d20wlR
@@ -611,9 +668,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/rede.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.d7ghPf8u43lS2KL6
+    flags: {}
     system:
       description:
         value: >-
@@ -729,10 +784,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772411
       modifiedTime: 1700236419814
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.d7ghPf8u43lS2KL6
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 112500
     _id: 9sOHDvFw4fHU7xXJ
@@ -742,9 +800,7 @@ items:
     type: consumivel
     img: systems/tormenta20/icons/itens/equipamentos/virotes.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.pG2mhXPGveTdGuDG
+    flags: {}
     system:
       description:
         value: >-
@@ -861,18 +917,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772421
       modifiedTime: 1667022093175
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.pG2mhXPGveTdGuDG
+      duplicateSource: null
+      exportSource: null
     folder: I6NNvV3PwdDmfJ2K
     sort: 125000
     _key: '!actors.items!hIieRUWgmv87ExIL.MFIdzSJg5kLyh6FA'
 effects:
   - name: +2 Resistência a Magia
-    icon: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -888,9 +946,6 @@ effects:
         items: Fortitude;Reflexos;Vontade
         aumenta: false
         custo: ''
-      core:
-        sourceId: >-
-          Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
     duration:
       startTime: 0
       seconds: null
@@ -909,6 +964,21 @@ effects:
     description: ''
     transfer: true
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: >-
+        Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!hIieRUWgmv87ExIL.CthJ6V1SejYY0Z0B'
 folder: HaKm5o3jKqN2gqzC
 sort: 100001
@@ -1669,14 +1739,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/finntroll-cacador.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.2
     scaleY: 1.2
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1690,12 +1766,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946004
   modifiedTime: 1700236434718
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!hIieRUWgmv87ExIL'
 

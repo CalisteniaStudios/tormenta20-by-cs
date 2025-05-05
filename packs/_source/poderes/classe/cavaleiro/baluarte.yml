@@ -33,11 +33,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/classes/cavaleiro.webp
-    label: Baluarte
     origin: Item.uuy9DsTEMaw5bhrt
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Baluarte
+    img: systems/tormenta20/icons/classes/cavaleiro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!B7Bn9sW2pPs3xc77.1RTmOQ99ffIsGXcL'
   - _id: 0FT2N2hCjatjlKcH
     flags:
@@ -78,11 +93,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus em +2
     origin: Item.uuy9DsTEMaw5bhrt
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus em +2
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!B7Bn9sW2pPs3xc77.0FT2N2hCjatjlKcH'
   - _id: 40Pc5JDB4T1zCIv8
     flags:
@@ -115,11 +145,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: afeta aliados adjacentes
     origin: Item.uuy9DsTEMaw5bhrt
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: afeta aliados adjacentes
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!B7Bn9sW2pPs3xc77.40Pc5JDB4T1zCIv8'
   - _id: rvLpAaFruriXc4bn
     flags:
@@ -152,11 +197,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: afeta aliados em alcance curto
     origin: Item.uuy9DsTEMaw5bhrt
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: afeta aliados em alcance curto
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!B7Bn9sW2pPs3xc77.rvLpAaFruriXc4bn'
 folder: FOdOQA7oDXTWqj5Z
 sort: 0
@@ -222,9 +282,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183809
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!B7Bn9sW2pPs3xc77'
 

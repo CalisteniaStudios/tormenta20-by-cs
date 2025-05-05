@@ -152,10 +152,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237361480
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: eoiUQ6ZUsJ207gvx
     _key: '!actors.items!jiX0Itt2On27hc30.eoiUQ6ZUsJ207gvx'
   - folder: 0V7x5o397UvG3xKP
@@ -219,10 +222,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Enjoado
-        icon: systems/tormenta20/icons/conditions/enjoado.svg
-        origin: Item.srICYuGeHz5M3Kll
-        tint: '#FFFFFF'
+      - origin: Item.srICYuGeHz5M3Kll
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -239,21 +240,39 @@ items:
         _id: snC7Eg8rfq7aSEkw
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Enjoado
+        img: systems/tormenta20/icons/conditions/enjoado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!jiX0Itt2On27hc30.cSx3ha1NIJEA4hJ5.snC7Eg8rfq7aSEkw
     sort: 3300000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Actor.jiX0Itt2On27hc30.Item.nDHqfiKXg5UqVxV5
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666318061707
       modifiedTime: 1667006935170
       lastModifiedBy: t20builder000000
+      compendiumSource: Actor.jiX0Itt2On27hc30.Item.nDHqfiKXg5UqVxV5
+      duplicateSource: null
+      exportSource: null
     _id: cSx3ha1NIJEA4hJ5
     _key: '!actors.items!jiX0Itt2On27hc30.cSx3ha1NIJEA4hJ5'
   - type: poder
@@ -307,10 +326,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Lento
-        icon: systems/tormenta20/icons/conditions/lento.svg
-        origin: Item.fCqhLlEwnuVp5d1h
-        tint: '#FFFFFF'
+      - origin: Item.fCqhLlEwnuVp5d1h
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -327,22 +344,40 @@ items:
         _id: PowuR4jXzudQ5wVx
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Lento
+        img: systems/tormenta20/icons/conditions/lento.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!jiX0Itt2On27hc30.kQXvKQbD7wz53zi2.PowuR4jXzudQ5wVx
     folder: 0V7x5o397UvG3xKP
     sort: 1650000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Actor.jiX0Itt2On27hc30.Item.8WUQWqfXpr6VzpY7
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667006548755
       modifiedTime: 1667007192542
       lastModifiedBy: t20builder000000
+      compendiumSource: Actor.jiX0Itt2On27hc30.Item.8WUQWqfXpr6VzpY7
+      duplicateSource: null
+      exportSource: null
     _id: kQXvKQbD7wz53zi2
     _key: '!actors.items!jiX0Itt2On27hc30.kQXvKQbD7wz53zi2'
 effects: []
@@ -1102,14 +1137,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/golem-de-ferro.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.3
     scaleY: 1.3
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1123,12 +1164,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946008
   modifiedTime: 1700237361480
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!jiX0Itt2On27hc30'
 

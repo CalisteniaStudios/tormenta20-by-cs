@@ -33,11 +33,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: além do normal, a arma o protege. Você recebe +1 na Defesa.
     origin: Item.TRX7bQoCQlkBofMm
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: além do normal, a arma o protege. Você recebe +1 na Defesa.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oyIcPlsAaASUEJpT.NE7A9gt5vGem326j'
   - _id: YOyqYFFJIde7GpRt
     flags:
@@ -67,11 +82,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus na Defesa em +1.
     origin: Item.TRX7bQoCQlkBofMm
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus na Defesa em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oyIcPlsAaASUEJpT.YOyqYFFJIde7GpRt'
   - _id: 13m69ZFjBms7pxGq
     flags:
@@ -102,15 +132,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.TRX7bQoCQlkBofMm
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para sustentada. Além do normal, uma vez por rodada, você
       pode gastar uma ação livre para fazer a arma acertar automaticamente um
       alvo adjacente. Se a arma atacar, não poderá contra-atacar até seu próximo
       turno. Requer 2o círculo.
-    origin: Item.TRX7bQoCQlkBofMm
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oyIcPlsAaASUEJpT.13m69ZFjBms7pxGq'
   - _id: 5GTi8H6gTNQECJ2r
     flags:
@@ -128,11 +173,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o tipo do dano para essência. Requer 2o círculo.
     origin: Item.TRX7bQoCQlkBofMm
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o tipo do dano para essência. Requer 2o círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oyIcPlsAaASUEJpT.5GTi8H6gTNQECJ2r'
   - _id: y4ZDPyYeLnGbVG0d
     flags:
@@ -150,13 +210,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      invoca duas armas, permitindo que você contra-ataque (ou ataque, se usar o
-      aprimoramento acima) duas vezes por rodada. Requer 3o círculo.
     origin: Item.TRX7bQoCQlkBofMm
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      invoca duas armas, permitindo que você contra-ataque (ou ataque, se usar o
+      aprimoramento acima) duas vezes por rodada. Requer 3o círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oyIcPlsAaASUEJpT.y4ZDPyYeLnGbVG0d'
   - _id: nPQrQvRyaiL8xq7M
     changes:
@@ -173,22 +248,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/arma-espiritual.webp
-    label: Arma Espiritual
     origin: Item.2E85Xv836bjrcoLj
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arma Espiritual
+    img: systems/tormenta20/icons/magias/arma-espiritual.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oyIcPlsAaASUEJpT.nPQrQvRyaiL8xq7M'
-  - label: >-
-      aumenta o dano causado pela arma em +1d6, limitado pelo círculo máximo de
-      magia que você pode lançar.
-    icon: icons/svg/upgrade.svg
-    origin: Item.oyIcPlsAaASUEJpT
-    tint: '#FFFFFF'
+  - origin: Item.oyIcPlsAaASUEJpT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -215,6 +301,25 @@ effects:
     _id: y8eGxrNhKBgF4BW5
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o dano causado pela arma em +1d6, limitado pelo círculo máximo de
+      magia que você pode lançar.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oyIcPlsAaASUEJpT.y8eGxrNhKBgF4BW5'
 folder: UeqtCFS3KD27OAUk
 sort: 0
@@ -286,9 +391,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462812
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!oyIcPlsAaASUEJpT'
 

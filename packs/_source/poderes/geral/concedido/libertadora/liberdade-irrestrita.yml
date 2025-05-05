@@ -3,10 +3,8 @@ name: Liberdade Irrestrita
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos.webp
 effects:
-  - label: Liberdade Irrestrita
-    icon: icons/svg/upgrade.svg
-    origin: Item.PUiaAuvbt0NDLBR0
-    tint: '#FFFFFF'
+  - origin: Item.PUiaAuvbt0NDLBR0
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -41,6 +39,23 @@ effects:
         value: '1'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Liberdade Irrestrita
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PUiaAuvbt0NDLBR0.135ot2f15RpkFCbj'
 folder: u5oEaw0L24kwVigu
 sort: 0
@@ -102,9 +117,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184258
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!PUiaAuvbt0NDLBR0'
 

@@ -36,13 +36,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a execução para reação e a duração para instantânea. Em vez do
-      normal, você recebe redução 30 contra o próximo dano que sofrer.
     origin: Compendium.tormenta20.magias.BmiLj15LQW7f76j8
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a execução para reação e a duração para instantânea. Em vez do
+      normal, você recebe redução 30 contra o próximo dano que sofrer.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BmiLj15LQW7f76j8.iQUVv5EzWkUJPrnt'
   - _id: Ieo9ypzHiCAtS6rD
     flags:
@@ -70,11 +85,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda os PV temporários ou a RD para 50. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.BmiLj15LQW7f76j8
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda os PV temporários ou a RD para 50. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BmiLj15LQW7f76j8.Ieo9ypzHiCAtS6rD'
   - _id: hr1Lz1KyIO7lwPSo
     flags:
@@ -113,8 +143,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.BmiLj15LQW7f76j8
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para curto, o alvo para outra criatura ou objeto Enorme ou
       menor e a duração para sustentada. Em vez do normal, cria uma esfera
       imóvel e tremeluzente ao redor do alvo. Nenhuma criatura, objeto ou efeito
@@ -122,9 +164,12 @@ effects:
       normalmente. Criaturas na área podem fazer um teste de Reflexos para
       evitar serem aprisionadas e sempre que você se concentrar. Requer 4º
       círculo.
-    origin: Compendium.tormenta20.magias.BmiLj15LQW7f76j8
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BmiLj15LQW7f76j8.hr1Lz1KyIO7lwPSo'
   - _id: bog1XCm3Nvv1ObbY
     flags:
@@ -155,19 +200,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.BmiLj15LQW7f76j8
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       como o aprimoramento acima, mas tudo dentro da esfera fica praticamente
       sem peso. Uma vez por rodada, você pode gastar uma ação livre para flutuar
       a esfera e seu conteúdo 9m em uma direção. Requer 4º círculo.
-    origin: Compendium.tormenta20.magias.BmiLj15LQW7f76j8
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BmiLj15LQW7f76j8.bog1XCm3Nvv1ObbY'
-  - label: muda os PV temporários ou a RD para 70. Requer 4º círculo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.BmiLj15LQW7f76j8
-    tint: '#FFFFFF'
+  - origin: Item.BmiLj15LQW7f76j8
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -195,6 +253,23 @@ effects:
     _id: AlAqFpfO6DJ3EOio
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda os PV temporários ou a RD para 70. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BmiLj15LQW7f76j8.AlAqFpfO6DJ3EOio'
 folder: rc0d3aktZW2bKQQV
 sort: 0
@@ -254,9 +329,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461778
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!BmiLj15LQW7f76j8'
 

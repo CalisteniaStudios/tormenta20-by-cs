@@ -3,9 +3,8 @@ name: Raio Arcano
 type: poder
 img: systems/tormenta20/icons/classes/arcanista.webp
 effects:
-  - icon: icons/svg/upgrade.svg
-    origin: Item.mlzUTxfA4loIefuG
-    tint: '#FFFFFF'
+  - origin: Item.mlzUTxfA4loIefuG
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -42,6 +41,20 @@ effects:
       que puder lançar.
     description: ''
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!items.effects!mlzUTxfA4loIefuG.vB29YFPodB7vEd1r'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
@@ -115,9 +128,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.201
-  coreVersion: '11.306'
+  coreVersion: '13.342'
   createdTime: 1664306185150
   modifiedTime: 1690154786885
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!mlzUTxfA4loIefuG'
 

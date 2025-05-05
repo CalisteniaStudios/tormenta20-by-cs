@@ -3,10 +3,8 @@ name: Mestre dos Mares
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-mares.webp
 effects:
-  - label: Mestre dos Mares
-    icon: icons/svg/upgrade.svg
-    origin: Item.mekjIF9AY4N966pb
-    tint: '#FFFFFF'
+  - origin: Item.mekjIF9AY4N966pb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: DZPQb8VEdXKiZiVn
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mestre dos Mares
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!mekjIF9AY4N966pb.DZPQb8VEdXKiZiVn'
 folder: u52R9qkrhFpUFsJO
 sort: 0
@@ -92,9 +107,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185149
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!mekjIF9AY4N966pb'
 

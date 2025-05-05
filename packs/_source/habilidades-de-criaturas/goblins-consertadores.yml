@@ -52,10 +52,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Cura Acelerada
-    icon: icons/skills/trades/construction-carpentry-hammer-gray.webp
-    origin: Item.n59OF2MBGj6wtLFB
-    tint: '#FFFFFF'
+  - origin: Item.n59OF2MBGj6wtLFB
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -76,15 +74,34 @@ effects:
         value: '20'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cura Acelerada
+    img: icons/skills/trades/construction-carpentry-hammer-gray.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!n59OF2MBGj6wtLFB.MCUvln3aGbaEJM8o'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615329
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: n59OF2MBGj6wtLFB
 folder: null
 sort: 0

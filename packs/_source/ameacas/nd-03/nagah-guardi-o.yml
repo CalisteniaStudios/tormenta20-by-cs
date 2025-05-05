@@ -60,19 +60,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667020640822
       modifiedTime: 1667020640822
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Af8oSsnJpKbW0kQ6
     _key: '!actors.items!5RX08aG6PDxUcyTC.Af8oSsnJpKbW0kQ6'
   - name: Cimitarra
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/cimitarra.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.y6IKZPxsQebq1AkW
+    flags: {}
     system:
       description:
         value: >-
@@ -187,10 +188,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312773034
       modifiedTime: 1700236717870
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.y6IKZPxsQebq1AkW
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2900000
     _id: LUwWHQlgJ9lZPkTG
@@ -344,17 +348,19 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236710761
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: d7WC3fPVoo6vV0cd
     _key: '!actors.items!5RX08aG6PDxUcyTC.d7WC3fPVoo6vV0cd'
 effects:
   - name: Novo Efeito
-    icon: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.ameacas.Actor.5RX08aG6PDxUcyTC
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -373,11 +379,24 @@ effects:
     description: ''
     transfer: false
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!5RX08aG6PDxUcyTC.rqoU45u3kFFW6ECF'
   - name: +5 Resistência a Veneno
-    icon: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -393,9 +412,6 @@ effects:
         items: Fortitude;Reflexos;Vontade
         aumenta: false
         custo: ''
-      core:
-        sourceId: >-
-          Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
     duration:
       startTime: 0
       seconds: null
@@ -414,6 +430,21 @@ effects:
     description: ''
     transfer: false
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: >-
+        Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!5RX08aG6PDxUcyTC.2uCXd9jEoxYHOvb9'
 folder: Du7lCUo0cmGGsOJZ
 sort: 100001
@@ -1170,14 +1201,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/nagah-guardiao.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1191,12 +1228,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945898
   modifiedTime: 1700236717870
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!5RX08aG6PDxUcyTC'
 

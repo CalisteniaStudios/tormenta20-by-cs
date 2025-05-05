@@ -3,10 +3,8 @@ name: Arte Mágica
 type: poder
 img: systems/tormenta20/icons/classes/bardo.webp
 effects:
-  - label: Inspiração (Arte Mágica)
-    icon: icons/svg/upgrade.svg
-    origin: Item.b8LQf0XzW0yX8KH5
-    tint: '#FFFFFF'
+  - origin: Item.b8LQf0XzW0yX8KH5
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,11 +36,26 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Inspiração (Arte Mágica)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GUst5lolzfdVXbd8.YQj0gWrJPcY81fD8'
-  - label: Arte Mágica
-    icon: icons/svg/upgrade.svg
-    origin: Item.b8LQf0XzW0yX8KH5
-    tint: '#FFFFFF'
+  - origin: Item.b8LQf0XzW0yX8KH5
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -74,6 +87,23 @@ effects:
         value: Inspiração (Arte Mágica)
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arte Mágica
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GUst5lolzfdVXbd8.clwCpt9muSsa4c7y'
 folder: vXRLLa3BIKBZdiua
 sort: 0
@@ -131,9 +161,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716921
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!GUst5lolzfdVXbd8'
 

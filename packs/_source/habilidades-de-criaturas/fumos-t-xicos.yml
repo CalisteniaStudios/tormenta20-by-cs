@@ -47,10 +47,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: enjoado
-    icon: systems/tormenta20/icons/conditions/enjoado.svg
-    origin: Item.kz0MElg9fKyxgx4a
-    tint: '#FFFFFF'
+  - origin: Item.kz0MElg9fKyxgx4a
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -67,15 +65,34 @@ effects:
     _id: 15RGaTmwEo8s4cC7
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: enjoado
+    img: systems/tormenta20/icons/conditions/enjoado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!kz0MElg9fKyxgx4a.15RGaTmwEo8s4cC7'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615329
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: kz0MElg9fKyxgx4a
 folder: null
 sort: 0

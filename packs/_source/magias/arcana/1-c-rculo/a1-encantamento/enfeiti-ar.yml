@@ -20,8 +20,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.lJYJQFhk5oai46Ty
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       em vez do normal, você sugere uma ação para o alvo e ele obedece. A
       sugestão deve ser feita de modo que pareça aceitável, a critério do
       mestre. Pedir ao alvo que pule de um precipício, por exemplo, dissipa a
@@ -30,9 +42,12 @@ effects:
       magia termina. Você pode determinar uma condição específica para a
       sugestão: por exemplo, que um rico mercador doe suas moedas para o
       primeiro mendigo que encontrar.
-    origin: Compendium.tormenta20.magias.lJYJQFhk5oai46Ty
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lJYJQFhk5oai46Ty.wuyNqXeAYnTZxLx7'
   - _id: f2WlVQN7BVQNLFG4
     flags:
@@ -55,11 +70,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alvo para 1 espírito ou monstro. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.lJYJQFhk5oai46Ty
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para 1 espírito ou monstro. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lJYJQFhk5oai46Ty.f2WlVQN7BVQNLFG4'
   - _id: wFiXySUySfFHMQJQ
     flags:
@@ -78,11 +108,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: afeta todos os alvos dentro do alcance.
     origin: Compendium.tormenta20.magias.lJYJQFhk5oai46Ty
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: afeta todos os alvos dentro do alcance.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lJYJQFhk5oai46Ty.wFiXySUySfFHMQJQ'
   - _id: RpeV8bkz5C0z80ze
     changes:
@@ -99,15 +144,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/enfeiticar.webp
-    label: Bônus em Diplomacia
     origin: Item.ahAito9xDqRm0W8H
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bônus em Diplomacia
+    img: systems/tormenta20/icons/magias/enfeiticar.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lJYJQFhk5oai46Ty.RpeV8bkz5C0z80ze'
   - _id: l8esy2GPcIETfxbi
     changes:
@@ -124,15 +184,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/enfeiticar.webp
-    label: Alvo Hostil
     origin: Item.ahAito9xDqRm0W8H
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alvo Hostil
+    img: systems/tormenta20/icons/magias/enfeiticar.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lJYJQFhk5oai46Ty.l8esy2GPcIETfxbi'
 folder: wqRfH0bDNPgI8ZTq
 sort: 0
@@ -196,9 +271,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462800
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!lJYJQFhk5oai46Ty'
 

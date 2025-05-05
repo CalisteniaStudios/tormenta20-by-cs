@@ -2,10 +2,8 @@ name: 'Montaria: Trobo'
 type: poder
 img: systems/tormenta20/icons/itens/gerais/trobo.webp
 effects:
-  - label: 'Montaria: Trobo Iniciante'
-    icon: icons/creatures/reptiles/lizard-iguana-green.webp
-    origin: Item.T2xBXAvjBw7exGjt
-    tint: '#FFFFFF'
+  - origin: Item.T2xBXAvjBw7exGjt
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -38,11 +36,26 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Trobo Iniciante'
+    img: icons/creatures/reptiles/lizard-iguana-green.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!T2xBXAvjBw7exGjt.vP58ntp1ePC7vUQL'
-  - label: 'Montaria: Trobo Veterano'
-    icon: icons/creatures/reptiles/lizard-iguana-green.webp
-    origin: Item.T2xBXAvjBw7exGjt
-    tint: '#FFFFFF'
+  - origin: Item.T2xBXAvjBw7exGjt
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -75,11 +88,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Trobo Veterano'
+    img: icons/creatures/reptiles/lizard-iguana-green.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!T2xBXAvjBw7exGjt.BKgNZqNZ22YbeL3x'
-  - label: 'Montaria: Trobo Mestre'
-    icon: icons/creatures/reptiles/lizard-iguana-green.webp
-    origin: Item.T2xBXAvjBw7exGjt
-    tint: '#FFFFFF'
+  - origin: Item.T2xBXAvjBw7exGjt
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -112,6 +140,23 @@ effects:
         value: '12'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Trobo Mestre'
+    img: icons/creatures/reptiles/lizard-iguana-green.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!T2xBXAvjBw7exGjt.97BIu3gM7UNSuGIP'
 flags:
   scene-packer:
@@ -220,10 +265,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847527
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: T2xBXAvjBw7exGjt
 folder: null
 sort: 0

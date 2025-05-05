@@ -152,10 +152,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236638406
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: M1psc9Vls1ZLbi9r
     _key: '!actors.items!a4o3vOZbpJJdoN1N.M1psc9Vls1ZLbi9r'
   - folder: 38RRBscxCtcFC5s4
@@ -307,10 +310,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236644909
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: nkRtnWqVKT8vBnIS
     _key: '!actors.items!a4o3vOZbpJJdoN1N.nkRtnWqVKT8vBnIS'
   - folder: 0V7x5o397UvG3xKP
@@ -376,8 +382,7 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Confuso
-        duration:
+      - duration:
           rounds: 999
           startTime: null
           seconds: null
@@ -385,7 +390,6 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/conditions/confuso.svg
         flags:
           core:
             statusId: confuso
@@ -397,23 +401,41 @@ items:
         changes: []
         disabled: false
         origin: null
-        tint: null
+        tint: '#ffffff'
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Confuso
+        img: systems/tormenta20/icons/conditions/confuso.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!a4o3vOZbpJJdoN1N.ZJxgSY1krDDi3U6v.yU7T8jfy826XrLMo
     sort: 0
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.8nFwKzbB32HSlNC5
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667028374851
       modifiedTime: 1667029199616
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.8nFwKzbB32HSlNC5
+      duplicateSource: null
+      exportSource: null
     _id: ZJxgSY1krDDi3U6v
     _key: '!actors.items!a4o3vOZbpJJdoN1N.ZJxgSY1krDDi3U6v'
   - folder: 0V7x5o397UvG3xKP
@@ -471,16 +493,17 @@ items:
     sort: 2500000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.KmlXhUC00mqcCPNx
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666320099383
       modifiedTime: 1667028830399
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.KmlXhUC00mqcCPNx
+      duplicateSource: null
+      exportSource: null
     _id: pIOK5zPnt0uAECWi
     _key: '!actors.items!a4o3vOZbpJJdoN1N.pIOK5zPnt0uAECWi'
   - folder: 0V7x5o397UvG3xKP
@@ -536,16 +559,17 @@ items:
     sort: 3600000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.5hX4IRxSL81T6Oo8
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666319947131
       modifiedTime: 1667028840818
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.5hX4IRxSL81T6Oo8
+      duplicateSource: null
+      exportSource: null
     _id: 1PEL8v3sD0UWSi8J
     _key: '!actors.items!a4o3vOZbpJJdoN1N.1PEL8v3sD0UWSi8J'
   - name: Visão Ampla
@@ -601,9 +625,8 @@ items:
       rolltags: []
     effects:
       - name: Visão Ampla
-        icon: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
         origin: Compendium.tormenta20.habilidades-de-criaturas.Item.EIYfP5jU2e73gtyR
-        tint: '#FFFFFF'
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -626,18 +649,33 @@ items:
         description: ''
         transfer: true
         statuses: []
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        img: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
+        type: base
+        system: {}
+        sort: 0
         _key: >-
           !actors.items.effects!a4o3vOZbpJJdoN1N.1suFkpOIVMWvnGQY.hzHR5CmkAoSjbmwI
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.habilidades-de-criaturas.Item.EIYfP5jU2e73gtyR
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666320018824
       modifiedTime: 1700000244006
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.habilidades-de-criaturas.Item.EIYfP5jU2e73gtyR
+      duplicateSource: null
+      exportSource: null
     _id: 1suFkpOIVMWvnGQY
     folder: null
     sort: 4700000
@@ -646,9 +684,8 @@ items:
     _key: '!actors.items!a4o3vOZbpJJdoN1N.1suFkpOIVMWvnGQY'
 effects:
   - name: Visão Ampla
-    icon: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
     origin: Compendium.tormenta20.ameacas.Actor.a4o3vOZbpJJdoN1N.Item.1suFkpOIVMWvnGQY
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -671,6 +708,20 @@ effects:
     description: ''
     transfer: false
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!a4o3vOZbpJJdoN1N.mWgHmVWBjFXbGJNu'
 folder: Du7lCUo0cmGGsOJZ
 sort: 100001
@@ -1442,14 +1493,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/formiga-aberrante.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.5
     scaleY: 1.5
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1463,12 +1520,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945980
   modifiedTime: 1700236644909
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!a4o3vOZbpJJdoN1N'
 

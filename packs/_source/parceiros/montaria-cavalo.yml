@@ -2,10 +2,8 @@ name: 'Montaria: Cavalo'
 type: poder
 img: systems/tormenta20/icons/itens/gerais/cavalo.webp
 effects:
-  - label: 'Montaria: Cavalo Iniciante'
-    icon: icons/environment/creatures/horse-brown.webp
-    origin: Item.RkXbDOBKMHEJxUM6
-    tint: '#FFFFFF'
+  - origin: Item.RkXbDOBKMHEJxUM6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -36,11 +34,26 @@ effects:
         value: '12'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Cavalo Iniciante'
+    img: icons/environment/creatures/horse-brown.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RkXbDOBKMHEJxUM6.vq0IS3ZaYlJlg6lX'
-  - label: 'Montaria: Cavalo Veterano'
-    icon: icons/environment/creatures/horse-brown.webp
-    origin: Item.RkXbDOBKMHEJxUM6
-    tint: '#FFFFFF'
+  - origin: Item.RkXbDOBKMHEJxUM6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -65,11 +78,26 @@ effects:
         value: '15'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Cavalo Veterano'
+    img: icons/environment/creatures/horse-brown.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RkXbDOBKMHEJxUM6.Yta7hOaFO11DEuMW'
-  - label: 'Montaria: Cavalo Mestre'
-    icon: icons/environment/creatures/horse-brown.webp
-    origin: Item.RkXbDOBKMHEJxUM6
-    tint: '#FFFFFF'
+  - origin: Item.RkXbDOBKMHEJxUM6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -94,6 +122,23 @@ effects:
         value: '15'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Cavalo Mestre'
+    img: icons/environment/creatures/horse-brown.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RkXbDOBKMHEJxUM6.Vw1WlRkM7B2uQpSW'
 flags:
   scene-packer:
@@ -203,10 +248,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847526
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: RkXbDOBKMHEJxUM6
 folder: null
 sort: 0

@@ -3,10 +3,8 @@ name: Amiga das Plantas
 type: poder
 img: systems/tormenta20/icons/racas/dahllan.webp
 effects:
-  - label: Amiga das Plantas
-    icon: icons/svg/upgrade.svg
-    origin: Item.p7v7djagMfcV24FI
-    tint: '#FFFFFF'
+  - origin: Item.p7v7djagMfcV24FI
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: wpTggy9a2m35m2Zs
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Amiga das Plantas
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!p7v7djagMfcV24FI.wpTggy9a2m35m2Zs'
 folder: Q99EWrBDNMKWfbCR
 sort: 0
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185206
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!p7v7djagMfcV24FI'
 

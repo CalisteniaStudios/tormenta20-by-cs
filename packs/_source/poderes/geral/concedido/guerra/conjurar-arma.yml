@@ -3,10 +3,8 @@ name: Conjurar Arma
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-guerra.webp
 effects:
-  - label: Arma Corpo a Corpo
-    icon: systems/tormenta20/icons/poderes/concedidos-guerra.webp
-    origin: Item.Dwbr8XnZGv9XlIYX
-    tint: '#FFFFFF'
+  - origin: Item.Dwbr8XnZGv9XlIYX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -31,11 +29,26 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arma Corpo a Corpo
+    img: systems/tormenta20/icons/poderes/concedidos-guerra.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Dwbr8XnZGv9XlIYX.24ZYYXZa7dS1EMT9'
-  - label: Arma de Arremesso ou Munições
-    icon: systems/tormenta20/icons/poderes/concedidos-guerra.webp
-    origin: Item.Dwbr8XnZGv9XlIYX
-    tint: '#FFFFFF'
+  - origin: Item.Dwbr8XnZGv9XlIYX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -60,6 +73,23 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arma de Arremesso ou Munições
+    img: systems/tormenta20/icons/poderes/concedidos-guerra.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Dwbr8XnZGv9XlIYX.vT0N8Sq7sBibN9Ya'
 folder: kdQy5G7zb5MvHB7N
 sort: 0
@@ -120,9 +150,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183826
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Dwbr8XnZGv9XlIYX'
 

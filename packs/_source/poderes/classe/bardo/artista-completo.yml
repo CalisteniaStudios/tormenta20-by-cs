@@ -3,10 +3,8 @@ name: Artista Completo
 type: poder
 img: systems/tormenta20/icons/poderes/classes/especialistas/artista-completo.webp
 effects:
-  - label: Artista Completo
-    icon: icons/svg/upgrade.svg
-    origin: Item.rE9Gpv4QLlwyChwC
-    tint: '#FFFFFF'
+  - origin: Item.rE9Gpv4QLlwyChwC
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: /2
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Artista Completo
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6BsXApytiJlmZBxV.tZ1I9b63OtaddMEZ'
 folder: vXRLLa3BIKBZdiua
 sort: 0
@@ -99,9 +114,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716796
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!6BsXApytiJlmZBxV'
 

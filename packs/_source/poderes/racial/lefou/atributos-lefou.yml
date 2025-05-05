@@ -17,8 +17,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Cria da Tormenta
     origin: Item.11k8G1dbmvyRYcFr
     transfer: true
     flags:
@@ -34,12 +32,27 @@ effects:
         aumenta: false
         custo: ''
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cria da Tormenta
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Qm9q8wlabF5yEyuk.E36WkUZzBOStSU3u'
-  - label: Atributos - Lefou
-    icon: systems/tormenta20/icons/racas/lefou.webp
-    origin: Item.dFy9izFnNFnEkFFB
-    tint: '#FFFFFF'
+  - origin: Item.dFy9izFnNFnEkFFB
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -72,6 +85,23 @@ effects:
         value: '-1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Lefou
+    img: systems/tormenta20/icons/racas/lefou.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Qm9q8wlabF5yEyuk.BHmyU8E26KrxAluK'
 flags: {}
 system:
@@ -126,10 +156,12 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184312
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: nUJwKGomhoD2p4J3
 sort: 0
 _id: Qm9q8wlabF5yEyuk

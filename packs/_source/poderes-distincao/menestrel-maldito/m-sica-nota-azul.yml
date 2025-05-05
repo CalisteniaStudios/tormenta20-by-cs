@@ -108,10 +108,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Novo Efeito
-    icon: icons/svg/upgrade.svg
-    origin: Item.aCvI9c7sshCAMYng
-    tint: '#FFFFFF'
+  - origin: Item.aCvI9c7sshCAMYng
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -143,15 +141,34 @@ effects:
         value: 1d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Novo Efeito
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!aCvI9c7sshCAMYng.YxYtMmrHTTQn9pmq'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083101946
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: aCvI9c7sshCAMYng
 folder: y8ETZkiSeolvnkXp
 sort: 0

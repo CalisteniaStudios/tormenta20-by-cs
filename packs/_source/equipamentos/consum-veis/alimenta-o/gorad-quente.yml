@@ -77,10 +77,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: Gorad Quente
-    icon: icons/consumables/drinks/coconut-fruit-milk.webp
-    origin: Item.MdkgD1o9m4WHNZJs
-    tint: '#FFFFFF'
+  - origin: Item.MdkgD1o9m4WHNZJs
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -97,15 +95,34 @@ effects:
     _id: cHPmE2xOjaWzNzeN
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Gorad Quente
+    img: icons/consumables/drinks/coconut-fruit-milk.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!MdkgD1o9m4WHNZJs.cHPmE2xOjaWzNzeN'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684617649437
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: MdkgD1o9m4WHNZJs
 folder: sO4Gcu7Fm1dJ1sxI
 sort: 300000

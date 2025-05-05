@@ -63,10 +63,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667015204454
       modifiedTime: 1667015331052
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: mZck2eUTP7KO1ZmU
     _key: '!actors.items!d5Im71VWcxIz9xKM.mZck2eUTP7KO1ZmU'
   - type: poder
@@ -138,10 +141,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667015204454
       modifiedTime: 1667015490117
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: SHCaQHbCCkeSmJen
     _key: '!actors.items!d5Im71VWcxIz9xKM.SHCaQHbCCkeSmJen'
   - type: poder
@@ -205,20 +211,21 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667015204455
       modifiedTime: 1667015379009
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: GEPyEaJqIBNHrQCO
     _key: '!actors.items!d5Im71VWcxIz9xKM.GEPyEaJqIBNHrQCO'
   - name: Presença Majestosa
     type: poder
     img: icons/magic/unholy/silhouette-light-fire-blue.webp
     effects:
-      - label: Presença Majestosa
-        icon: icons/svg/upgrade.svg
-        origin: Item.awFA3yTlIpj82lLb
-        tint: '#FFFFFF'
+      - origin: Item.awFA3yTlIpj82lLb
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -245,11 +252,26 @@ items:
         _id: wMFuDl0hA0mnlbv3
         changes: []
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Presença Majestosa
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!d5Im71VWcxIz9xKM.fwBnTCYmym5Put9h.wMFuDl0hA0mnlbv3
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.poderes.awFA3yTlIpj82lLb
+    flags: {}
     system:
       description:
         value: >-
@@ -302,10 +324,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664306184738
       modifiedTime: 1667015559438
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.poderes.awFA3yTlIpj82lLb
+      duplicateSource: null
+      exportSource: null
     folder: iwgBwgTbLli3VZjK
     sort: 0
     _id: fwBnTCYmym5Put9h
@@ -367,19 +392,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667015204456
       modifiedTime: 1667015407252
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 0ADQhYISqIwurOzM
     _key: '!actors.items!d5Im71VWcxIz9xKM.0ADQhYISqIwurOzM'
   - name: Espada longa x2
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/espada-longa.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+    flags: {}
     system:
       description:
         value: >-
@@ -493,10 +519,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772402
       modifiedTime: 1667015255453
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2200000
     _id: P42NmIP3WqZtXdNV
@@ -649,10 +678,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1667015226473
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: WujAqyrLbw0W7frD
     _key: '!actors.items!d5Im71VWcxIz9xKM.WujAqyrLbw0W7frD'
   - _id: lEOKHIDL6OXyq05S
@@ -660,9 +692,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/armadura-completa.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.CTeeKAq8zZlaJTpA
+    flags: {}
     system:
       description:
         value: >-
@@ -719,18 +749,19 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772395
       modifiedTime: 1667015272332
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.CTeeKAq8zZlaJTpA
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 200000
     _key: '!actors.items!d5Im71VWcxIz9xKM.lEOKHIDL6OXyq05S'
 effects:
-  - label: Presença Majestosa
-    icon: icons/svg/upgrade.svg
-    origin: Actor.d5Im71VWcxIz9xKM.Item.fwBnTCYmym5Put9h
-    tint: '#FFFFFF'
+  - origin: Actor.d5Im71VWcxIz9xKM.Item.fwBnTCYmym5Put9h
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -757,6 +788,23 @@ effects:
     _id: wzpzZ5oGBNqJVqtM
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Presença Majestosa
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!d5Im71VWcxIz9xKM.wzpzZ5oGBNqJVqtM'
 folder: rv2JUh8V0XnW2OBc
 sort: 100001
@@ -1516,14 +1564,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/vampiro.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.1
     scaleY: 1.1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1537,12 +1591,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945988
   modifiedTime: 1700004021272
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!d5Im71VWcxIz9xKM'
 

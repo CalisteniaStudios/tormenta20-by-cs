@@ -4,306 +4,527 @@ img: icons/svg/d20-grey.svg
 results:
   - _id: SSqXGKQkMt2WEzbe
     flags: {}
-    type: 2
-    text: Elmo do Teletransporte
+    type: document
     img: systems/tormenta20/icons/itens/elmo.webp
     weight: 1
     range:
       - 1
       - 2
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: SNw2I6JAd0ukMx8B
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Elmo do Teletransporte
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.SNw2I6JAd0ukMx8B
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.SSqXGKQkMt2WEzbe'
   - _id: BSqJGmQshPhAnUKz
     flags: {}
-    type: 2
-    text: Gema da Telepatia
+    type: document
     img: systems/tormenta20/icons/itens/gema-da-telepatia.webp
     weight: 1
     range:
       - 3
       - 4
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: OtW7whLVNzm2utSb
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Gema da Telepatia
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.OtW7whLVNzm2utSb
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.BSqJGmQshPhAnUKz'
   - _id: fauz1dNzUAYB4YnA
     flags: {}
-    type: 2
-    text: Gema Elemental
+    type: document
     img: systems/tormenta20/icons/itens/gema-elemental.webp
     weight: 1
     range:
       - 5
       - 9
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: ClsAwXF91HUeKnPb
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Gema Elemental
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.ClsAwXF91HUeKnPb
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.fauz1dNzUAYB4YnA'
   - _id: Hg7q6d9dGHdrhq21
     flags: {}
-    type: 2
-    text: Manual da Saúde Corporal
+    type: document
     img: systems/tormenta20/icons/itens/manual-da-saude-corporal.webp
     weight: 1
     range:
       - 10
       - 15
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: goKcWiXKZdwMlXqn
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manual da Saúde Corporal
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.goKcWiXKZdwMlXqn
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.Hg7q6d9dGHdrhq21'
   - _id: 7gGkBAIVsSvcmxwo
     flags: {}
-    type: 2
-    text: Manual do Bom Exercício
+    type: document
     img: systems/tormenta20/icons/itens/manual-do-bom-exercicio.webp
     weight: 1
     range:
       - 16
       - 21
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: dxsoRAc3W1CaQMQE
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manual do Bom Exercício
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.dxsoRAc3W1CaQMQE
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.7gGkBAIVsSvcmxwo'
   - _id: umfHGk1xrAkMjOkX
     flags: {}
-    type: 2
-    text: Manual dos Movimentos Precisos
+    type: document
     img: systems/tormenta20/icons/itens/manual-dos-movimentos-precisos.webp
     weight: 1
     range:
       - 22
       - 27
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: MSPF3mDfZ4Od4eDh
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manual dos Movimentos Precisos
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.MSPF3mDfZ4Od4eDh
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.umfHGk1xrAkMjOkX'
   - _id: 4RDF9q5g6oLcZYVi
     flags: {}
-    type: 2
-    text: Medalhão da deusa da vida
+    type: document
     img: systems/tormenta20/icons/itens/medalhao-deusa-da-vida.webp
     weight: 1
     range:
       - 28
       - 34
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: sP4Nlz0cFAjxbzg5
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Medalhão da deusa da vida
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.sP4Nlz0cFAjxbzg5
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.4RDF9q5g6oLcZYVi'
   - _id: f6Ym2SVBVO31vrXh
     flags: {}
-    type: 2
-    text: Tomo da Compreensão
+    type: document
     img: systems/tormenta20/icons/itens/tomo-da-compreensao.webp
     weight: 1
     range:
       - 35
       - 40
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: z8YmxSob2luUuWeM
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tomo da Compreensão
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.z8YmxSob2luUuWeM
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.f6Ym2SVBVO31vrXh'
   - _id: SWj0EAVvH5qzjc42
     flags: {}
-    type: 2
-    text: Tomo da Liderança e Influência
+    type: document
     img: systems/tormenta20/icons/itens/tomo-da-lideranca-influencia.webp
     weight: 1
     range:
       - 41
       - 46
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: ylIVTOBIvhJggWhE
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tomo da Liderança e Influência
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.ylIVTOBIvhJggWhE
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.SWj0EAVvH5qzjc42'
   - _id: 9FSVVVkpfv69iLzD
     flags: {}
-    type: 2
-    text: Tomo dos Grandes Pensamentos
+    type: document
     img: systems/tormenta20/icons/itens/tomo-dos-grandes-pensamentos.webp
     weight: 1
     range:
       - 47
       - 52
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: PWx9hBiySNNchHbA
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tomo dos Grandes Pensamentos
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.PWx9hBiySNNchHbA
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.9FSVVVkpfv69iLzD'
   - _id: Q6YEalhOG4V6TAO6
     flags: {}
-    type: 2
-    text: Anel Refletor
+    type: document
     img: systems/tormenta20/icons/itens/anel-refletor.webp
     weight: 1
     range:
       - 53
       - 57
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: M4E3uPL5jOZn9xjy
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel Refletor
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.M4E3uPL5jOZn9xjy
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.Q6YEalhOG4V6TAO6'
   - _id: JfTI4lQkUoLp7vmw
     flags: {}
-    type: 2
-    text: Cinto do Campeão
+    type: document
     img: systems/tormenta20/icons/itens/cinto-do-campeao.webp
     weight: 1
     range:
       - 58
       - 60
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: 402QJlcWzp7gaZYo
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cinto do Campeão
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.402QJlcWzp7gaZYo
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.JfTI4lQkUoLp7vmw'
   - _id: CiYK13ggWPuWdCHG
     flags: {}
-    type: 2
-    text: Colar Guardião
+    type: document
     img: systems/tormenta20/icons/itens/colar.webp
     weight: 1
     range:
       - 61
       - 67
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: AJEwZYS6iJvqdQlr
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Colar Guardião
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.AJEwZYS6iJvqdQlr
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.CiYK13ggWPuWdCHG'
   - _id: CSko4GCgdWqEqG74
     flags: {}
-    type: 2
-    text: Estatueta Animista
+    type: document
     img: systems/tormenta20/icons/itens/estatua.webp
     weight: 1
     range:
       - 68
       - 72
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: LN0jEKvCz1Rb3bOo
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estatueta Animista
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.LN0jEKvCz1Rb3bOo
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.CSko4GCgdWqEqG74'
   - _id: wXl8mhrUKtKerwVC
     flags: {}
-    type: 2
-    text: Anel da Liberdade
+    type: document
     img: systems/tormenta20/icons/itens/anel.webp
     weight: 1
     range:
       - 73
       - 77
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: sAFkdfHvHDqyZlZl
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel da Liberdade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.sAFkdfHvHDqyZlZl
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.wXl8mhrUKtKerwVC'
   - _id: huDglHBZ0vHIPmSE
     flags: {}
-    type: 2
-    text: Tapete Voador
+    type: document
     img: systems/tormenta20/icons/itens/tapete.webp
     weight: 1
     range:
       - 78
       - 82
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: xvnLFzKVvqZPFOSM
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tapete Voador
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.xvnLFzKVvqZPFOSM
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.huDglHBZ0vHIPmSE'
   - _id: bnI5rfL0upix3stJ
     flags: {}
-    type: 2
-    text: Braceletes de Ouro
+    type: document
     img: systems/tormenta20/icons/itens/bracelete-ouro.webp
     weight: 1
     range:
       - 83
       - 87
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: eWqbWJ4vZUyEIVLF
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Braceletes de Ouro
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.eWqbWJ4vZUyEIVLF
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.bnI5rfL0upix3stJ'
   - _id: ROJLtkoxWALU6oj9
     flags: {}
-    type: 2
-    text: Espelho da Oposição
+    type: document
     img: systems/tormenta20/icons/itens/espelho_da_oposicao.webp
     weight: 1
     range:
       - 88
       - 89
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: xasIzkosQaQ0Ln3Y
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espelho da Oposição
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.xasIzkosQaQ0Ln3Y
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.ROJLtkoxWALU6oj9'
   - _id: MSBCp7IoMpMHmxN8
     flags: {}
-    type: 2
-    text: Robe do Arquimago
+    type: document
     img: systems/tormenta20/icons/itens/robe-do-arquimago.webp
     weight: 1
     range:
       - 90
       - 94
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: IvIBlYuZS6Sn5cE6
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Robe do Arquimago
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.IvIBlYuZS6Sn5cE6
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.MSBCp7IoMpMHmxN8'
   - _id: uM5f11qJzo0j5dtr
     flags: {}
-    type: 2
-    text: Orbe das Tempestades
+    type: document
     img: systems/tormenta20/icons/itens/orbe-da-tempestade.webp
     weight: 1
     range:
       - 95
       - 96
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: oMZO36ZBHsOykHb0
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Orbe das Tempestades
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.oMZO36ZBHsOykHb0
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.uM5f11qJzo0j5dtr'
   - _id: EDdzD1hxcGr0I1bv
     flags: {}
-    type: 2
-    text: Anel da Regeneração
+    type: document
     img: systems/tormenta20/icons/itens/anel.webp
     weight: 1
     range:
       - 97
       - 98
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: lMOzFa02WRFQrfnA
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel da Regeneração
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.lMOzFa02WRFQrfnA
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.EDdzD1hxcGr0I1bv'
   - _id: 3Twu9DKcHHHkLlha
     flags: {}
-    type: 2
-    text: Espelho do Aprisionamento
+    type: document
     img: systems/tormenta20/icons/itens/espelho-do-aprisonamento.webp
     weight: 1
     range:
       - 99
       - 100
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: KcDQ91RPuDgistWJ
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espelho do Aprisionamento
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.KcDQ91RPuDgistWJ
+    description: ''
     _key: '!tables.results!Nk3kYs07qoP4PwGU.3Twu9DKcHHHkLlha'
 formula: 1d100
 replacement: true
 displayRoll: true
 folder: null
 sort: 0
-flags:
-  importid: 3YMFOfUdQHiLzUBn
+flags: {}
 ownership:
   default: 0
 description: ''
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664312665022
   modifiedTime: 1667354515219
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!tables!Nk3kYs07qoP4PwGU'
 

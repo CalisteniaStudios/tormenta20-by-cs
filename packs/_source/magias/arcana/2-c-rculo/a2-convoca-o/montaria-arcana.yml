@@ -20,14 +20,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.z9cFTeixJ1wt1HyE
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, criaturas do tipo animal em alcance curto da montaria
       devem fazer um teste de Vontade. Se passarem, ficam abaladas pela cena; se
       falharem, ficam apavoradas por 1d4 rodadas, depois abaladas pela cena.
-    origin: Compendium.tormenta20.magias.z9cFTeixJ1wt1HyE
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z9cFTeixJ1wt1HyE.yxJYcH0QAWQDJCTy'
   - _id: p8mUjnwHq97nbSZH
     flags:
@@ -58,11 +73,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para permanente e adiciona penalidade de -3 PM.
     origin: Compendium.tormenta20.magias.z9cFTeixJ1wt1HyE
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para permanente e adiciona penalidade de -3 PM.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z9cFTeixJ1wt1HyE.p8mUjnwHq97nbSZH'
   - _id: yxZf87cOWDgpxGCz
     flags:
@@ -81,15 +111,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.z9cFTeixJ1wt1HyE
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       aumenta o tamanho da montaria em uma categoria. Isso também aumenta o
       número de criaturas que ela pode carregar — duas para uma criatura Enorme,
       seis para Colossal. Uma única criatura controla a montaria; as outras
       apenas são deslocadas.
-    origin: Compendium.tormenta20.magias.z9cFTeixJ1wt1HyE
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z9cFTeixJ1wt1HyE.yxZf87cOWDgpxGCz'
   - _id: nb5IXMwsn8UPR1k4
     flags:
@@ -115,11 +160,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o nível do aliado para mestre. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.z9cFTeixJ1wt1HyE
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o nível do aliado para mestre. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z9cFTeixJ1wt1HyE.nb5IXMwsn8UPR1k4'
   - _id: ucTdFCjgr0EtdyfQ
     changes:
@@ -144,15 +204,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/montaria-arcana.webp
-    label: Montaria (Cavalo) Veterana
     origin: Item.IJ0YANfQNNhEKHC3
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Montaria (Cavalo) Veterana
+    img: systems/tormenta20/icons/magias/montaria-arcana.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z9cFTeixJ1wt1HyE.ucTdFCjgr0EtdyfQ'
 folder: zq0Qy1eE5QlMSaax
 sort: 0
@@ -217,9 +292,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462908
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!z9cFTeixJ1wt1HyE'
 

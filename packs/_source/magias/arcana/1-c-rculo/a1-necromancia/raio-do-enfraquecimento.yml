@@ -44,14 +44,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.hikpz9g3jwJoTcRZ
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para toque e a resistência para Fortitude anula. Em vez do
       normal, sua mão emana um brilho púrpura e, ao tocar o alvo ele fica
       fatigado.
-    origin: Compendium.tormenta20.magias.hikpz9g3jwJoTcRZ
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hikpz9g3jwJoTcRZ.h9YSgDixO3JIQakZ'
   - _id: Mxv1Ddofr1ILIZ7n
     flags:
@@ -78,13 +93,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      em vez do normal, se falhar na resistência o alvo fica exausto. Se passar,
-      fica fatigado. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.hikpz9g3jwJoTcRZ
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      em vez do normal, se falhar na resistência o alvo fica exausto. Se passar,
+      fica fatigado. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hikpz9g3jwJoTcRZ.Mxv1Ddofr1ILIZ7n'
   - _id: k2YDfSRA8tF21vZB
     flags:
@@ -120,13 +150,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      em vez do normal, se falhar na resistência o alvo fica exausto. Se passar,
-      fica fatigado. Muda o alvo para criaturas escolhidas. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.hikpz9g3jwJoTcRZ
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      em vez do normal, se falhar na resistência o alvo fica exausto. Se passar,
+      fica fatigado. Muda o alvo para criaturas escolhidas. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hikpz9g3jwJoTcRZ.k2YDfSRA8tF21vZB'
 folder: Bqm3t71TUGy5F5OI
 sort: 0
@@ -193,9 +238,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462781
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!hikpz9g3jwJoTcRZ'
 

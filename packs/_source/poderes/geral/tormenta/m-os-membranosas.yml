@@ -20,20 +20,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/tormenta.webp
-    label: Mãos Membranosas
     origin: Item.WHqkJvqp98zleJtM
     transfer: true
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mãos Membranosas
+    img: systems/tormenta20/icons/poderes/tormenta.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bWD6dc5zO5itYMQa.DYUEPPxBtS8XLtbD'
-  - label: Mãos Membranosas
-    icon: icons/svg/upgrade.svg
-    origin: Item.bWD6dc5zO5itYMQa
-    tint: '#FFFFFF'
+  - origin: Item.bWD6dc5zO5itYMQa
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -65,6 +78,23 @@ effects:
         value: 1+(@Tormenta2*1)
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mãos Membranosas
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bWD6dc5zO5itYMQa.0RIzWOlPRiJB9qW8'
 folder: m6ny7g3VciUkKZ3t
 sort: 0
@@ -125,9 +155,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184740
   modifiedTime: 1684803410533
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!bWD6dc5zO5itYMQa'
 

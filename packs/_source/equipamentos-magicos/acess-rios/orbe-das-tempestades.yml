@@ -3,10 +3,8 @@ name: Orbe das Tempestades
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/orbe-da-tempestade.webp
 effects:
-  - label: Orbe das Tempestades
-    icon: icons/svg/upgrade.svg
-    origin: Item.Poq07mg0v5qVVy7L
-    tint: '#FFFFFF'
+  - origin: Item.Poq07mg0v5qVVy7L
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -34,6 +32,23 @@ effects:
     _id: oijoq1mK3j2UQqte
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Orbe das Tempestades
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oMZO36ZBHsOykHb0.oijoq1mK3j2UQqte'
 folder: BgJUCrqjG6EVBIfP
 sort: 4200000
@@ -135,9 +150,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1666826247393
   modifiedTime: 1684623039339
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!oMZO36ZBHsOykHb0'
 

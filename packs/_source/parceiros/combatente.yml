@@ -2,10 +2,8 @@ name: Combatente
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: Combatente Iniciante
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.nNpGA5SWMj7rtUQR
-    tint: '#FFFFFF'
+  - origin: Item.nNpGA5SWMj7rtUQR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,11 +35,26 @@ effects:
         value: '1'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combatente Iniciante
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nNpGA5SWMj7rtUQR.0XdtJE9twft7P06y'
-  - label: Combatente Veterano
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.nNpGA5SWMj7rtUQR
-    tint: '#FFFFFF'
+  - origin: Item.nNpGA5SWMj7rtUQR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -73,11 +86,26 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combatente Veterano
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nNpGA5SWMj7rtUQR.8HB07xD3YNsKwoVi'
-  - label: Combatente Mestre
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.nNpGA5SWMj7rtUQR
-    tint: '#FFFFFF'
+  - origin: Item.nNpGA5SWMj7rtUQR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -109,11 +137,26 @@ effects:
         value: '3'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combatente Mestre
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nNpGA5SWMj7rtUQR.kkGIh1gcIfCkUSnZ'
-  - label: 'Combatente Mestre: Ataque extra'
-    icon: icons/svg/upgrade.svg
-    origin: Item.nNpGA5SWMj7rtUQR
-    tint: '#FFFFFF'
+  - origin: Item.nNpGA5SWMj7rtUQR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -141,6 +184,23 @@ effects:
     _id: Q5PEZSKgxKFlG2RJ
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Combatente Mestre: Ataque extra'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nNpGA5SWMj7rtUQR.Q5PEZSKgxKFlG2RJ'
 flags:
   scene-packer:
@@ -207,10 +267,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847524
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: nNpGA5SWMj7rtUQR
 folder: null
 sort: 0

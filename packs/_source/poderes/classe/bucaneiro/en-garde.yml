@@ -3,10 +3,8 @@ name: En Garde
 type: poder
 img: systems/tormenta20/icons/classes/bucaneiro.webp
 effects:
-  - label: En Garde
-    icon: icons/svg/upgrade.svg
-    origin: Item.DXIHxwU97pgwp4RZ
-    tint: '#FFFFFF'
+  - origin: Item.DXIHxwU97pgwp4RZ
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,11 +35,26 @@ effects:
         value: '-2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: En Garde
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!IqJ3GFdasl7Q9h59.ouxTd4Gqy6ItBcIp'
-  - label: En Garde
-    icon: systems/tormenta20/icons/classes/bucaneiro.webp
-    origin: Item.DXIHxwU97pgwp4RZ
-    tint: '#FFFFFF'
+  - origin: Item.DXIHxwU97pgwp4RZ
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -62,6 +75,23 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: En Garde
+    img: systems/tormenta20/icons/classes/bucaneiro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!IqJ3GFdasl7Q9h59.6djn8PYwO60K56ZM'
 folder: 86kIqRb842xHRnBV
 sort: 0
@@ -124,9 +154,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716926
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!IqJ3GFdasl7Q9h59'
 

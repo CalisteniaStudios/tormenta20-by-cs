@@ -24,13 +24,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o alvo para área de cubo de 9m. Qualquer criatura ou objeto na área
-      recebe o efeito da magia enquanto estiver dentro dela.
     origin: Compendium.tormenta20.magias.9XKOzJxNtF5dPH6B
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o alvo para área de cubo de 9m. Qualquer criatura ou objeto na área
+      recebe o efeito da magia enquanto estiver dentro dela.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9XKOzJxNtF5dPH6B.N1XUZlveBOurRS2y'
   - _id: 8z8al4xg3v8uNQPO
     flags:
@@ -53,11 +68,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para 1 semana.
     origin: Compendium.tormenta20.magias.9XKOzJxNtF5dPH6B
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para 1 semana.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9XKOzJxNtF5dPH6B.8z8al4xg3v8uNQPO'
   - _id: nxyVXCTsRxDz0wof
     changes: []
@@ -70,15 +100,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/dificultar-deteccao.webp
-    label: Dificultar Detecção
     origin: Item.KZN947KWBE8dgWaA
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dificultar Detecção
+    img: systems/tormenta20/icons/magias/dificultar-deteccao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9XKOzJxNtF5dPH6B.nxyVXCTsRxDz0wof'
 folder: uwdflCMp3DmBY55C
 sort: 0
@@ -144,9 +189,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461772
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!9XKOzJxNtF5dPH6B'
 

@@ -3,10 +3,8 @@ name: Loriga do Centurião
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/loriga-do-centuriao.webp
 effects:
-  - label: Defensora
-    icon: systems/tormenta20/icons/itens/itens-magicos/loriga-do-centuriao.webp
-    origin: Item.Ki19ctJh88ucznGW
-    tint: '#FFFFFF'
+  - origin: Item.Ki19ctJh88ucznGW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Defensora
+    img: systems/tormenta20/icons/itens/itens-magicos/loriga-do-centuriao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ki19ctJh88ucznGW.Uos4009ljq7YG94w'
-  - label: Loriga do Centurião
-    icon: icons/svg/upgrade.svg
-    origin: Item.Ki19ctJh88ucznGW
-    tint: '#FFFFFF'
+  - origin: Item.Ki19ctJh88ucznGW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -63,6 +76,23 @@ effects:
         value: 2d6[fogo]
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Loriga do Centurião
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ki19ctJh88ucznGW.e7zs6OOzWVNwUwgZ'
 folder: SkZDe8cUamd0vHjD
 sort: 100098
@@ -164,9 +194,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000096
   modifiedTime: 1684623008811
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Ki19ctJh88ucznGW'
 

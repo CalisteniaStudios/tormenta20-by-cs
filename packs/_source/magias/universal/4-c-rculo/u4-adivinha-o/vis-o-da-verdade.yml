@@ -28,11 +28,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alcance para toque e o alvo para 1 criatura.
     origin: Compendium.tormenta20.magias.h98JyQAldmgexmzR
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alcance para toque e o alvo para 1 criatura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!h98JyQAldmgexmzR.BWFXuE9D8h1DWj67'
   - _id: l3aogOkppbIgUFgD
     flags:
@@ -62,13 +77,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, o alvo fica com sentidos apurados; ele recebe +10 em todos
-      os testes de Percepção.
     origin: Compendium.tormenta20.magias.h98JyQAldmgexmzR
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, o alvo fica com sentidos apurados; ele recebe +10 em todos
+      os testes de Percepção.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!h98JyQAldmgexmzR.l3aogOkppbIgUFgD'
   - _id: W0nnBmflVSGSVySF
     flags:
@@ -98,13 +128,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, o alvo escuta falsidades; ele recebe +10 em todos os
-      testes de Intuição.
     origin: Compendium.tormenta20.magias.h98JyQAldmgexmzR
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, o alvo escuta falsidades; ele recebe +10 em todos os
+      testes de Intuição.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!h98JyQAldmgexmzR.W0nnBmflVSGSVySF'
   - _id: FQkmvLSsOHYIA1Lu
     flags:
@@ -123,13 +168,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, o alvo enxerga através de paredes e barreiras com 30cm de
-      espessura ou menos (as paredes e barreiras parecem translúcidas).
     origin: Compendium.tormenta20.magias.h98JyQAldmgexmzR
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, o alvo enxerga através de paredes e barreiras com 30cm de
+      espessura ou menos (as paredes e barreiras parecem translúcidas).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!h98JyQAldmgexmzR.FQkmvLSsOHYIA1Lu'
   - _id: kcliNEvn1MIfvLBt
     changes:
@@ -150,15 +210,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/visao-da-verdade.webp
-    label: Visão da Verdade
     origin: Item.5GWVq233XBgX05To
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Visão da Verdade
+    img: systems/tormenta20/icons/magias/visao-da-verdade.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!h98JyQAldmgexmzR.kcliNEvn1MIfvLBt'
 folder: hwpmUl6kXgb0bOXp
 sort: 0
@@ -220,9 +295,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462780
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!h98JyQAldmgexmzR'
 

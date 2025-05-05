@@ -2,12 +2,8 @@ name: Bolsa de Pó
 type: equipamento
 img: systems/tormenta20/icons/itens/gerais/bolsa-de-po.webp
 effects:
-  - label: >-
-      Bolsa de Pó: Quando lança uma magia de encantamento ou ilusão, você recebe
-      +2 PM para gastar em aprimoramentos.
-    icon: icons/svg/upgrade.svg
-    origin: Item.Ye9upc42yVz6pHwH
-    tint: '#FFFFFF'
+  - origin: Item.Ye9upc42yVz6pHwH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -34,6 +30,25 @@ effects:
     _id: eHWCJclZDfxaVxFQ
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Bolsa de Pó: Quando lança uma magia de encantamento ou ilusão, você recebe
+      +2 PM para gastar em aprimoramentos.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KncQ047S2f8rBvK2.eHWCJclZDfxaVxFQ'
 flags: {}
 system:
@@ -91,10 +106,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663377681721
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: KncQ047S2f8rBvK2
 folder: q5xr48fQpaZDdVTn
 sort: 100000

@@ -3,10 +3,8 @@ name: Forma Selvagem
 type: poder
 img: systems/tormenta20/icons/classes/druida.webp
 effects:
-  - label: Forma Selvagem Agil
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.vfR7gweTOfgnna8G
-    tint: '#FFFFFF'
+  - origin: Item.vfR7gweTOfgnna8G
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Selvagem Agil
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vfR7gweTOfgnna8G.qtVRI3GPI4fcSWRJ'
-  - label: Forma Selvagem Feroz
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.vfR7gweTOfgnna8G
-    tint: '#FFFFFF'
+  - origin: Item.vfR7gweTOfgnna8G
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -56,11 +69,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Selvagem Feroz
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vfR7gweTOfgnna8G.WuOJYPQZLbjGylY8'
-  - label: Forma Selvagem Resistente
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.vfR7gweTOfgnna8G
-    tint: '#FFFFFF'
+  - origin: Item.vfR7gweTOfgnna8G
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -85,11 +113,26 @@ effects:
         value: '5'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Selvagem Resistente
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vfR7gweTOfgnna8G.r3lHKmR7uR8JNezj'
-  - label: Forma Selvagem Sorrateira
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.vfR7gweTOfgnna8G
-    tint: '#FFFFFF'
+  - origin: Item.vfR7gweTOfgnna8G
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -110,11 +153,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Selvagem Sorrateira
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vfR7gweTOfgnna8G.yzkj1cCAxfXp37cN'
-  - label: Forma Selvagem Veloz
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.vfR7gweTOfgnna8G
-    tint: '#FFFFFF'
+  - origin: Item.vfR7gweTOfgnna8G
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -135,11 +193,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Selvagem Veloz
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vfR7gweTOfgnna8G.uTxCYN3VjSnQxgdu'
-  - label: 'Forma Ágil: -2 em ataques quando ataca com as duas armas naturais.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.vfR7gweTOfgnna8G
-    tint: '#FFFFFF'
+  - origin: Item.vfR7gweTOfgnna8G
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -170,6 +243,23 @@ effects:
         value: '-2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Forma Ágil: -2 em ataques quando ataca com as duas armas naturais.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vfR7gweTOfgnna8G.53q0R7EfJIXH5TEs'
 folder: 8LraP5E2KHsZTAz8
 sort: 0
@@ -270,9 +360,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185697
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!vfR7gweTOfgnna8G'
 

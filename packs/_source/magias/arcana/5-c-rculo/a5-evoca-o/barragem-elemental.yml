@@ -45,11 +45,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano de cada esfera em +2d6.
     origin: Compendium.tormenta20.magias.s6QK5uGb7SBlVXMp
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano de cada esfera em +2d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!s6QK5uGb7SBlVXMp.fymYz7rNSFuVXYmd'
   - _id: MzegepIlmQDbaq82
     flags:
@@ -68,13 +83,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o tipo de dano de todas as esferas para essência (mas elas ainda
-      causam os outros efeitos como se seu tipo de dano não mudasse).
     origin: Compendium.tormenta20.magias.s6QK5uGb7SBlVXMp
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o tipo de dano de todas as esferas para essência (mas elas ainda
+      causam os outros efeitos como se seu tipo de dano não mudasse).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!s6QK5uGb7SBlVXMp.MzegepIlmQDbaq82'
 folder: S9r2zpzj6Mm6KnQl
 sort: 0
@@ -180,9 +210,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462817
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!s6QK5uGb7SBlVXMp'
 

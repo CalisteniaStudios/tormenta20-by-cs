@@ -48,10 +48,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Ordens
-    icon: icons/magic/control/control-influence-rally-purple.webp
-    origin: Item.sE935B47ySWD4Lus
-    tint: '#FFFFFF'
+  - origin: Item.sE935B47ySWD4Lus
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -72,15 +70,34 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ordens
+    img: icons/magic/control/control-influence-rally-purple.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!sE935B47ySWD4Lus.UcIlQrTeNdGpbtXO'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615331
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: sE935B47ySWD4Lus
 folder: null
 sort: 0

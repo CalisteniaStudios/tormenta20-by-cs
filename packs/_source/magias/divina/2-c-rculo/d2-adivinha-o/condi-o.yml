@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de alvos em +1.
     origin: Compendium.tormenta20.magias.1vuNzDBJlqRDs5CC
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1vuNzDBJlqRDs5CC.FcZ4BCcllfbQcBBD'
   - _id: pVG32GDV7m40z4aG
     flags:
@@ -47,11 +62,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a duração para 1 dia.
     origin: Compendium.tormenta20.magias.1vuNzDBJlqRDs5CC
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a duração para 1 dia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1vuNzDBJlqRDs5CC.pVG32GDV7m40z4aG'
   - _id: 3TKIdwwuoL37XHMP
     changes: []
@@ -64,15 +94,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/condicao.webp
-    label: Condição
     origin: Item.EbJcJvkVmxjP6bfC
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Condição
+    img: systems/tormenta20/icons/magias/condicao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1vuNzDBJlqRDs5CC.3TKIdwwuoL37XHMP'
 folder: 7qHtGvSoffZXEVGU
 sort: 0
@@ -135,9 +180,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461757
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!1vuNzDBJlqRDs5CC'
 

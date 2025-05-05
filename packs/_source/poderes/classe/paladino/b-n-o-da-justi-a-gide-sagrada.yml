@@ -18,8 +18,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Vindicação Refletir Magia (11º nível)
     origin: Compendium.tormenta20.poderes.ADxFgOnsvGnXmPVS
     transfer: true
     flags:
@@ -36,7 +34,24 @@ effects:
         custo: '5'
         durationScene: false
         items: fortitude;reflexos;vontade
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vindicação Refletir Magia (11º nível)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ADxFgOnsvGnXmPVS.xk1rV2xWb6LgNGV0'
   - _id: fjL4ll6NmPj96riX
     changes:
@@ -53,15 +68,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/classes/paladino.webp
-    label: 'Bênção da Justiça: Égide Sagrada'
     origin: Compendium.tormenta20.poderes.ADxFgOnsvGnXmPVS
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Bênção da Justiça: Égide Sagrada'
+    img: systems/tormenta20/icons/classes/paladino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ADxFgOnsvGnXmPVS.fjL4ll6NmPj96riX'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -132,9 +162,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183398
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ADxFgOnsvGnXmPVS'
 

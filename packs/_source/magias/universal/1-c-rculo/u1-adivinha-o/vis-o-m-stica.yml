@@ -33,11 +33,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: recebe visão no escuro.
     origin: Compendium.tormenta20.magias.GDlkTth7oEnb5d0Y
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: recebe visão no escuro.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GDlkTth7oEnb5d0Y.eCU8aGE8aijCkLQz'
   - _id: H8kJ7pjbXZ5GHul1
     flags:
@@ -60,11 +75,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para 1 dia.
     origin: Compendium.tormenta20.magias.GDlkTth7oEnb5d0Y
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para 1 dia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GDlkTth7oEnb5d0Y.H8kJ7pjbXZ5GHul1'
   - _id: h2HgQs3BgaLA36Iq
     flags:
@@ -83,13 +113,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      também pode enxergar objetos e criaturas invisíveis. Eles aparecem como
-      formas translúcidas.
     origin: Compendium.tormenta20.magias.GDlkTth7oEnb5d0Y
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      também pode enxergar objetos e criaturas invisíveis. Eles aparecem como
+      formas translúcidas.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GDlkTth7oEnb5d0Y.h2HgQs3BgaLA36Iq'
   - _id: CbJYK47QeZh8jjXN
     changes: []
@@ -102,15 +147,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/visao-mistica.webp
-    label: Visão Mística
     origin: Item.PCaHH8sXU1qHJvSm
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Visão Mística
+    img: systems/tormenta20/icons/magias/visao-mistica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GDlkTth7oEnb5d0Y.CbJYK47QeZh8jjXN'
 folder: OhlDY7Kb0SwIJ11P
 sort: 0
@@ -175,9 +235,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461811
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!GDlkTth7oEnb5d0Y'
 

@@ -20,15 +20,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, os limites do domo são envoltos por uma fumaça escura e
       espessa, que impede criaturas do lado de fora de enxergar ou ouvir o que
       está dentro. Criaturas do lado de dentro enxergam e ouvem normalmente o
       que está do lado de fora. A fumaça também bloqueia magias de adivinhação.
-    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FWtt8quRlKs3OTYF.w2MBiQsH7AZNMLlB'
   - _id: W2NkcsKFPBbdARZ4
     flags:
@@ -47,8 +62,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       em vez do normal, cria uma cabana que comporta até 10 criaturas Médias.
       Descansar nesse espaço concede recuperação confortável (recupera PV e PM
       igual ao dobro do nível). Para todos os efeitos é uma cabana normal, com
@@ -56,9 +83,12 @@ effects:
       (camas, uma mesa com bancos e uma lareira). A porta e as janelas têm 15
       PV, RD 5 e são protegidas por um efeito idêntico à magia Tranca Arcana. As
       paredes têm 200 PV e RD 5.
-    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FWtt8quRlKs3OTYF.W2NkcsKFPBbdARZ4'
   - _id: ZDp7AIK0a7E2mUXD
     flags:
@@ -77,8 +107,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       em vez do normal, cria um espaço extradimensional, similar a uma caverna
       vazia e escura, que comporta até 10 criaturas Médias. A entrada para o
       espaço precisa estar desenhada em um objeto fixo como uma grande pedra ou
@@ -88,9 +130,12 @@ effects:
       janela de 1m estivesse centrada na entrada. Qualquer coisa que esteja no
       espaço extradimensional surge no mundo real na área vazia mais próxima da
       entrada quando a duração da magia acaba. Requer 3º círculo.
-    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FWtt8quRlKs3OTYF.ZDp7AIK0a7E2mUXD'
   - _id: Ic4EawK68vSntwCe
     flags:
@@ -109,8 +154,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       em vez do normal, cria uma mansão extradimensional que comporta até 100
       criaturas Médias, com quartos luxuosos, comida e bebida e dez servos
       fantasmagóricos (como na magia Servos Invisíveis). Descansar na mansão
@@ -118,9 +175,12 @@ effects:
       mansão tem uma única entrada, uma porta feita de luz. Você pode deixá-la
       visível ou invisível como uma ação livre e apenas criaturas escolhidas por
       você podem passar. Requer 4º círculo.
-    origin: Compendium.tormenta20.magias.FWtt8quRlKs3OTYF
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FWtt8quRlKs3OTYF.Ic4EawK68vSntwCe'
 folder: rc0d3aktZW2bKQQV
 sort: 0
@@ -186,9 +246,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461809
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!FWtt8quRlKs3OTYF'
 

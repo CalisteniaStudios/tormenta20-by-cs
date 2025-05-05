@@ -3,10 +3,8 @@ name: Poção de Voz Divina
 type: consumivel
 img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
 effects:
-  - label: Poção de Voz Divina
-    icon: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
-    origin: Item.denQPHbRznsXm0uy
-    tint: '#FFFFFF'
+  - origin: Item.denQPHbRznsXm0uy
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,11 +21,27 @@ effects:
     _id: U3A3kdARfVl1kNBc
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Voz Divina
+    img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!denQPHbRznsXm0uy.U3A3kdARfVl1kNBc'
 folder: null
 sort: 0
-flags:
-  importid: A1DUSOQ1hqvUqKoN
+flags: {}
 system:
   description:
     value: >-
@@ -104,9 +118,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007039
   modifiedTime: 1667351628041
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!denQPHbRznsXm0uy'
 

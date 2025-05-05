@@ -28,11 +28,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alcance para curto e o alvo para 1 criatura.
     origin: Compendium.tormenta20.magias.9WTrSfbFIsZDFYKV
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alcance para curto e o alvo para 1 criatura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9WTrSfbFIsZDFYKV.oIIFp2VRNzs0o3aI'
   - _id: vpcEfoe1TbH5WNt9
     changes: []
@@ -45,20 +60,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/invulnerabilidade.webp
-    label: Invulnerabilidade Mental
     origin: Item.z6wQ3r4XHMW9NnKe
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Invulnerabilidade Mental
+    img: systems/tormenta20/icons/magias/invulnerabilidade.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9WTrSfbFIsZDFYKV.vpcEfoe1TbH5WNt9'
-  - label: Invulnerabilidade Física
-    icon: systems/tormenta20/icons/magias/invulnerabilidade.webp
-    origin: Item.9WTrSfbFIsZDFYKV
-    tint: '#FFFFFF'
+  - origin: Item.9WTrSfbFIsZDFYKV
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -75,6 +103,23 @@ effects:
     _id: YwR0pGmmrMirNi1e
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Invulnerabilidade Física
+    img: systems/tormenta20/icons/magias/invulnerabilidade.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9WTrSfbFIsZDFYKV.YwR0pGmmrMirNi1e'
 folder: seRZE2QmkdqIYGlT
 sort: 0
@@ -140,9 +185,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461772
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!9WTrSfbFIsZDFYKV'
 

@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: além do normal, mortos-vivos na área sofrem –2 em testes e Defesa.
     origin: Compendium.tormenta20.magias.uAomjSrbq2JpCcz0
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: além do normal, mortos-vivos na área sofrem –2 em testes e Defesa.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!uAomjSrbq2JpCcz0.zjkaNWLGzSmvwWLX'
   - _id: TQzuS6ucn9K3jaZO
     flags:
@@ -58,11 +73,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta as penalidades para mortos-vivos em –1.
     origin: Compendium.tormenta20.magias.uAomjSrbq2JpCcz0
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta as penalidades para mortos-vivos em –1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!uAomjSrbq2JpCcz0.TQzuS6ucn9K3jaZO'
   - _id: 6wnjMrwszCAfHMwN
     flags:
@@ -89,14 +119,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.uAomjSrbq2JpCcz0
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para 1 hora, a duração para permanente e adiciona
       componente material (incenso e óleos no valor de T$ 1.000). Requer 4º
       círculo.
-    origin: Compendium.tormenta20.magias.uAomjSrbq2JpCcz0
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!uAomjSrbq2JpCcz0.6wnjMrwszCAfHMwN'
   - _id: m53luwH5h5g7ihnZ
     changes:
@@ -117,15 +162,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/consagrar.webp
-    label: Penalidade em Mortos-Vivos
     origin: Item.2AmeIlEpP4vtCqyF
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Penalidade em Mortos-Vivos
+    img: systems/tormenta20/icons/magias/consagrar.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!uAomjSrbq2JpCcz0.m53luwH5h5g7ihnZ'
 folder: uZDKASy3zyVwtvJP
 sort: 0
@@ -191,9 +251,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462830
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!uAomjSrbq2JpCcz0'
 

@@ -45,13 +45,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a duração para 1 rodada. Em vez de fascinado, o alvo fica pasmo.
-      (apenas uma vez por cena)
     origin: Compendium.tormenta20.magias.N1xVfw9A8TiYeLae
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a duração para 1 rodada. Em vez de fascinado, o alvo fica pasmo.
+      (apenas uma vez por cena)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.0qnDVKlJ4Y6vIqzN'
   - _id: jN9vw5EXuCc5hmMq
     flags:
@@ -78,13 +93,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      como o normal, mas alvos que passarem na resistência não sabem que foram
-      vítimas de uma magia.
     origin: Compendium.tormenta20.magias.N1xVfw9A8TiYeLae
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      como o normal, mas alvos que passarem na resistência não sabem que foram
+      vítimas de uma magia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.jN9vw5EXuCc5hmMq'
   - _id: n2XIwlHRUXWsyWoe
     flags:
@@ -115,11 +145,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alvo para animais ou humanoides escolhidos.
     origin: Compendium.tormenta20.magias.N1xVfw9A8TiYeLae
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para animais ou humanoides escolhidos.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.n2XIwlHRUXWsyWoe'
   - _id: yU9cKxRGtCBztsFj
     flags:
@@ -150,11 +195,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para sustentada.
     origin: Compendium.tormenta20.magias.N1xVfw9A8TiYeLae
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para sustentada.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.yU9cKxRGtCBztsFj'
   - _id: 9h8Bd2cCqHTlY8pk
     flags:
@@ -181,11 +241,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: também afeta espíritos e monstros na área. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.N1xVfw9A8TiYeLae
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: também afeta espíritos e monstros na área. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.9h8Bd2cCqHTlY8pk'
   - _id: SeBpexrQ8zNDV7tm
     changes:
@@ -202,20 +277,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/hipnotismo.webp
-    label: Alvo Hostil
     origin: Item.7QpJwWrO3AakONv7
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alvo Hostil
+    img: systems/tormenta20/icons/magias/hipnotismo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.SeBpexrQ8zNDV7tm'
-  - label: Alvo (s) Hipnotizado(s)
-    icon: systems/tormenta20/icons/magias/hipnotismo.webp
-    origin: Item.N1xVfw9A8TiYeLae
-    tint: '#FFFFFF'
+  - origin: Item.N1xVfw9A8TiYeLae
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -232,13 +320,26 @@ effects:
     _id: 9mAowMAjosn37SjU
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alvo (s) Hipnotizado(s)
+    img: systems/tormenta20/icons/magias/hipnotismo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.9mAowMAjosn37SjU'
-  - label: >-
-      também afeta construtos, espíritos, monstros e mortos-vivos na área.
-      Requer 3º círculo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.N1xVfw9A8TiYeLae
-    tint: '#FFFFFF'
+  - origin: Item.N1xVfw9A8TiYeLae
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -265,6 +366,25 @@ effects:
     _id: vH6NxRKODI5fhBH7
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      também afeta construtos, espíritos, monstros e mortos-vivos na área.
+      Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!N1xVfw9A8TiYeLae.vH6NxRKODI5fhBH7'
 folder: wqRfH0bDNPgI8ZTq
 sort: 0
@@ -326,9 +446,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461905
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!N1xVfw9A8TiYeLae'
 

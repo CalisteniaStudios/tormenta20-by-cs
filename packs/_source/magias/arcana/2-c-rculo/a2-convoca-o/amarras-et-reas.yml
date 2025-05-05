@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: aumenta o número de alvos em +1.
     origin: Item.9H5WUoQd6wIrSKDQ
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +1.
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Cs46oTuzFnIuqFN3.Of4OHjVeJJYFGMVR'
   - _id: nh1Tjykbn8LIPdO3
     flags:
@@ -63,13 +78,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.9H5WUoQd6wIrSKDQ
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       aumenta o número de laços em um alvo a sua escolha em +1. (bônus máximo
       limitado pelo círculo máximo de magia que você pode lançar)
-    origin: Item.9H5WUoQd6wIrSKDQ
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Cs46oTuzFnIuqFN3.nh1Tjykbn8LIPdO3'
   - _id: 7jKy7zfPfM0bHxB9
     flags:
@@ -97,15 +127,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.9H5WUoQd6wIrSKDQ
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       em vez do normal, cada laço é destruído automaticamente com um único
       ataque bem-sucedido; porém, cada laço destruído libera um choque de
       energia que causa 1d8+1 pontos de dano de essência na criatura amarrada.
       Requer 3º círculo.
-    origin: Item.9H5WUoQd6wIrSKDQ
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Cs46oTuzFnIuqFN3.7jKy7zfPfM0bHxB9'
   - _id: cWFLapgWypf0TiZM
     changes: []
@@ -118,15 +163,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/amarras-etereas.webp
-    label: Amarras Etéreas
     origin: Item.Ene0TK73dvXiF3tl
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Amarras Etéreas
+    img: systems/tormenta20/icons/magias/amarras-etereas.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Cs46oTuzFnIuqFN3.cWFLapgWypf0TiZM'
 folder: zq0Qy1eE5QlMSaax
 sort: 0
@@ -193,9 +253,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461801
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Cs46oTuzFnIuqFN3'
 

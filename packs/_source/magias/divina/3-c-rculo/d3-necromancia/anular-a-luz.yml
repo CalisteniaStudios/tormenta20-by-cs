@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus na Defesa em +1.
     origin: Item.Fviqk5ohbYlvRgvz
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus na Defesa em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ih5qBTlgQyY2WhiS.qo4G5dtFQfZJ3hpw'
   - _id: N2qZYyJIjFQ390ah
     flags:
@@ -61,11 +76,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o círculo máximo de magias dissipadas para 4º. Requer 4º Círculo.
     origin: Item.Fviqk5ohbYlvRgvz
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o círculo máximo de magias dissipadas para 4º. Requer 4º Círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ih5qBTlgQyY2WhiS.N2qZYyJIjFQ390ah'
   - _id: Xnw2EPozN5CIB508
     flags:
@@ -91,11 +121,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o círculo máximo de magias dissipadas para 5º. Requer 5º Círculo.
     origin: Item.Fviqk5ohbYlvRgvz
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o círculo máximo de magias dissipadas para 5º. Requer 5º Círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ih5qBTlgQyY2WhiS.Xnw2EPozN5CIB508'
   - _id: oq21KrClIzX37uDs
     flags:
@@ -116,11 +161,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/anular-luz.webp
-    label: Anular a Luz (Bônus)
     origin: Item.Fviqk5ohbYlvRgvz
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anular a Luz (Bônus)
+    img: systems/tormenta20/icons/magias/anular-luz.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ih5qBTlgQyY2WhiS.oq21KrClIzX37uDs'
   - _id: lsVny2cN4ORKBpbf
     changes: []
@@ -133,15 +193,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/anular-luz.webp
-    label: Inimigos Afetados
     origin: Item.IfaGMjeO8p0YO1pz
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Inimigos Afetados
+    img: systems/tormenta20/icons/magias/anular-luz.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ih5qBTlgQyY2WhiS.lsVny2cN4ORKBpbf'
 folder: ZsMFHeZUqcUIgAtU
 sort: 0
@@ -218,9 +293,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461818
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Ih5qBTlgQyY2WhiS'
 

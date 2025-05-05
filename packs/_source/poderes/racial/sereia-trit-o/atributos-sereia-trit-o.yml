@@ -2,10 +2,8 @@ name: Atributos - Sereia/Tritão
 type: poder
 img: systems/tormenta20/icons/racas/sereia.webp
 effects:
-  - label: Atributos - Sereia/Tritão
-    icon: systems/tormenta20/icons/racas/sereia.webp
-    origin: Item.3097cuG9ecLW93d1
-    tint: '#FFFFFF'
+  - origin: Item.3097cuG9ecLW93d1
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -34,6 +32,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Sereia/Tritão
+    img: systems/tormenta20/icons/racas/sereia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!3097cuG9ecLW93d1.1FhJkDtHdqqQNuff'
 flags: {}
 system:
@@ -84,10 +99,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185143
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 3097cuG9ecLW93d1
 folder: deNUAIMEeSNoJ1Tx
 sort: 0

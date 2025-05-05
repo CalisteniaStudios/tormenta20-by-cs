@@ -69,10 +69,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Novo Efeito
-    icon: icons/svg/upgrade.svg
-    origin: Item.qYvKvpkpBfzMBF24
-    tint: '#FFFFFF'
+  - origin: Item.qYvKvpkpBfzMBF24
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -112,11 +110,26 @@ effects:
         value: '-1'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Novo Efeito
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!qYvKvpkpBfzMBF24.VTbyT2f3Wg8fAylo'
-  - label: Ferramenta de Morte
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.qYvKvpkpBfzMBF24
-    tint: '#FFFFFF'
+  - origin: Item.qYvKvpkpBfzMBF24
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -145,15 +158,34 @@ effects:
         value: '0'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ferramenta de Morte
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!qYvKvpkpBfzMBF24.wz53fACopaDt9y6K'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1666312768880
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: qYvKvpkpBfzMBF24
 folder: HmYZ3wnVn66EAlGT
 sort: 0

@@ -69,10 +69,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183282
   modifiedTime: 1684803391877
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: d4FusbG68oIQjAmg
 folder: m6ny7g3VciUkKZ3t
 sort: 0

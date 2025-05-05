@@ -2,10 +2,8 @@ name: Fé Guerreira
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-guerra.webp
 effects:
-  - label: Fé Guerreira
-    icon: icons/svg/upgrade.svg
-    origin: Item.kyPHPi4M03FnThps
-    tint: '#FFFFFF'
+  - origin: Item.kyPHPi4M03FnThps
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -32,6 +30,23 @@ effects:
     _id: ErHcGEPQVc5TlgK8
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fé Guerreira
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!kyPHPi4M03FnThps.ErHcGEPQVc5TlgK8'
 flags: {}
 system:
@@ -86,10 +101,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183826
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: kyPHPi4M03FnThps
 folder: kdQy5G7zb5MvHB7N
 sort: 0

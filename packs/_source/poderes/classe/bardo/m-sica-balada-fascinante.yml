@@ -3,10 +3,8 @@ name: 'Música: Balada Fascinante'
 type: poder
 img: systems/tormenta20/icons/classes/bardo.webp
 effects:
-  - label: Fascinado
-    icon: systems/tormenta20/icons/conditions/fascinado.svg
-    origin: Item.Q6lhY09BNy4qzckX
-    tint: '#FFFFFF'
+  - origin: Item.Q6lhY09BNy4qzckX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: dNKoGXl8z9CqWijz
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fascinado
+    img: systems/tormenta20/icons/conditions/fascinado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0Z5tVTqKW0krtE24.dNKoGXl8z9CqWijz'
 folder: vXRLLa3BIKBZdiua
 sort: 0
@@ -104,9 +119,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716773
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!0Z5tVTqKW0krtE24'
 

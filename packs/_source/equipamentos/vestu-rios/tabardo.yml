@@ -58,10 +58,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: Tabardo
-    icon: systems/tormenta20/icons/itens/gerais/tabardo.webp
-    origin: Item.w04ErUI4RPrDP9ax
-    tint: '#FFFFFF'
+  - origin: Item.w04ErUI4RPrDP9ax
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -82,15 +80,34 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tabardo
+    img: systems/tormenta20/icons/itens/gerais/tabardo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!w04ErUI4RPrDP9ax.IBmJ7fRYD38XhsqL'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663532558587
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: w04ErUI4RPrDP9ax
 folder: 3kNyXnAknru6qWyM
 sort: 125000

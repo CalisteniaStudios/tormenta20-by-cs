@@ -3,10 +3,8 @@ name: Folião
 type: poder
 img: systems/tormenta20/icons/classes/bucaneiro.webp
 effects:
-  - label: Folião
-    icon: icons/magic/light/beams-explosion-blue.webp
-    origin: Item.VQejbgKNGVTmwxUK
-    tint: '#FFFFFF'
+  - origin: Item.VQejbgKNGVTmwxUK
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,6 +36,23 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Folião
+    img: icons/magic/light/beams-explosion-blue.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VQejbgKNGVTmwxUK.rc9uUiHFZjfL68ep'
 folder: 86kIqRb842xHRnBV
 sort: 0
@@ -99,9 +114,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361717170
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!VQejbgKNGVTmwxUK'
 

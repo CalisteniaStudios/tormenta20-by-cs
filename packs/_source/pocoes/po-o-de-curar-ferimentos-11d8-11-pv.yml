@@ -5,8 +5,7 @@ img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
 effects: []
 folder: null
 sort: 0
-flags:
-  importid: vLjabZkJvi8qyRBq
+flags: {}
 system:
   description:
     value: >-
@@ -129,9 +128,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007037
   modifiedTime: 1667351628037
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!stCPViFywNCL5EsG'
 

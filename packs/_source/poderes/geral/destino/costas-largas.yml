@@ -2,10 +2,8 @@ name: Costas Largas
 type: poder
 img: systems/tormenta20/icons/poderes/destino.webp
 effects:
-  - label: Costas Largas
-    icon: systems/tormenta20/icons/poderes/destino.webp
-    origin: Item.P2Vm2S4PlF4jajv2
-    tint: '#FFFFFF'
+  - origin: Item.P2Vm2S4PlF4jajv2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -28,6 +26,23 @@ effects:
         mode: 2
         value: '1'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Costas Largas
+    img: systems/tormenta20/icons/poderes/destino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!P2Vm2S4PlF4jajv2.t2Md9YzKag7Zw4zr'
 flags: {}
 system:
@@ -83,10 +98,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185652
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: P2Vm2S4PlF4jajv2
 folder: NvFFFNI6JHPuMkck
 sort: 0

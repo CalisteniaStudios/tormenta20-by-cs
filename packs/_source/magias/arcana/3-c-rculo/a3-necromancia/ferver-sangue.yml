@@ -32,11 +32,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +1d8.
     origin: Compendium.tormenta20.magias.tVxVarpB0GaAoCp5
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +1d8.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tVxVarpB0GaAoCp5.Bxba43zea5xHivv6'
   - _id: tLIrRjfeyDLLV8Q3
     flags:
@@ -59,11 +74,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda alvo para criaturas escolhidas. Requer 5º círculo.
     origin: Compendium.tormenta20.magias.tVxVarpB0GaAoCp5
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda alvo para criaturas escolhidas. Requer 5º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tVxVarpB0GaAoCp5.tLIrRjfeyDLLV8Q3'
   - _id: DEij8bV7eUeqE3fE
     changes: []
@@ -76,15 +106,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/ferver-sangue.webp
-    label: Criaturas Escolhidas
     origin: Item.tj3iMUCTzv8AKjnh
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Criaturas Escolhidas
+    img: systems/tormenta20/icons/magias/ferver-sangue.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tVxVarpB0GaAoCp5.DEij8bV7eUeqE3fE'
 folder: sIwCZpQmdkUJpruy
 sort: 0
@@ -161,9 +206,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462826
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!tVxVarpB0GaAoCp5'
 

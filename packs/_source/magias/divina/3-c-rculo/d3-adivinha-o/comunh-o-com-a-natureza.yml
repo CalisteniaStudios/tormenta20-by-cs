@@ -32,17 +32,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.8byp1gCfdXtmae6D
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para 1 minuto e a duração para instantânea. Em vez do
       normal, você descobre 1d4+1 informações sobre os seguintes temas: terreno,
       animais, vegetais, minerais, cursos d'água e presença de criaturas
       antinaturais numa região natural em que você esteja. Você pode, por
       exemplo, descobrir a quantidade de cavernas (terreno), se uma planta rara
       existe (vegetais) e se há mortos-vivos (criaturas antinaturais) na região.
-    origin: Compendium.tormenta20.magias.8byp1gCfdXtmae6D
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8byp1gCfdXtmae6D.4WCDUTaoZD23KHzj'
   - _id: QdGEs2v2ZUPp6ma1
     flags:
@@ -61,11 +76,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de dados de auxílio em +2.
     origin: Compendium.tormenta20.magias.8byp1gCfdXtmae6D
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de dados de auxílio em +2.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8byp1gCfdXtmae6D.QdGEs2v2ZUPp6ma1'
   - _id: SbfX8iA2no5Q3jnD
     flags:
@@ -84,11 +114,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o tipo dos dados de auxílio para d6.
     origin: Compendium.tormenta20.magias.8byp1gCfdXtmae6D
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o tipo dos dados de auxílio para d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8byp1gCfdXtmae6D.SbfX8iA2no5Q3jnD'
   - _id: WAYprkRwWxfMkj3B
     flags:
@@ -107,11 +152,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o tipo dos dados de auxílio para d8.
     origin: Compendium.tormenta20.magias.8byp1gCfdXtmae6D
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o tipo dos dados de auxílio para d8.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8byp1gCfdXtmae6D.WAYprkRwWxfMkj3B'
   - _id: PUS1nr1CNggywQKb
     changes: []
@@ -124,15 +184,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/comunhao-com-a-natureza.webp
-    label: Comunhão com a Natureza
     origin: Item.0SUkWOYMxLOQRADy
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Comunhão com a Natureza
+    img: systems/tormenta20/icons/magias/comunhao-com-a-natureza.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8byp1gCfdXtmae6D.PUS1nr1CNggywQKb'
 folder: Ahqj3OdWmUl3yzPm
 sort: 0
@@ -200,9 +275,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461769
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!8byp1gCfdXtmae6D'
 

@@ -41,11 +41,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano inicial em +2d6 e o dano do efeito em chamas em +1d6.
     origin: Compendium.tormenta20.magias.RzK5XmyDjKEYWel5
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano inicial em +2d6 e o dano do efeito em chamas em +1d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RzK5XmyDjKEYWel5.pYnMbgG93GxeTt5q'
   - _id: q0RizI5ZTqZFUh4R
     flags:
@@ -68,15 +83,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.RzK5XmyDjKEYWel5
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para cena ou até ser descarregada. Em vez do efeito normal,
       a magia cria quatro dardos de lava que flutuam ao lado do conjurador. Uma
       vez por rodada, como uma ação livre, você pode disparar um dos dardos em
       uma criatura, causando o efeito normal da magia. Requer 4º Círculo.
-    origin: Compendium.tormenta20.magias.RzK5XmyDjKEYWel5
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RzK5XmyDjKEYWel5.q0RizI5ZTqZFUh4R'
   - _id: tk2TFX5v8C8zGeeW
     changes: []
@@ -89,15 +119,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/lanca-ignea.webp
-    label: Em chamas
     origin: Item.jqivb1xiblRAiN8o
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Em chamas
+    img: systems/tormenta20/icons/magias/lanca-ignea.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RzK5XmyDjKEYWel5.tk2TFX5v8C8zGeeW'
 folder: S9YMO5Jyr0D1dsWK
 sort: 0
@@ -177,9 +222,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461911
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!RzK5XmyDjKEYWel5'
 

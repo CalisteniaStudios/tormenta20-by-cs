@@ -4,10 +4,8 @@ type: poder
 img: >-
   systems/tormenta20/icons/poderes/classes/combatentes/caminho-cavaleiro-montaria.webp
 effects:
-  - label: 'Caminho do Cavaleiro: Montaria'
-    icon: icons/svg/upgrade.svg
-    origin: Item.Zf5XwGOsuz4hNuC7
-    tint: '#FFFFFF'
+  - origin: Item.Zf5XwGOsuz4hNuC7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,6 +36,23 @@ effects:
         value: '5'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Caminho do Cavaleiro: Montaria'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Zf5XwGOsuz4hNuC7.BnoPmhPBbhKGgySW'
 folder: FOdOQA7oDXTWqj5Z
 sort: 0
@@ -101,9 +116,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184733
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Zf5XwGOsuz4hNuC7'
 

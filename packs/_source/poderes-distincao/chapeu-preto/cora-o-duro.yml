@@ -63,10 +63,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Coração Duro
-    icon: icons/magic/control/fear-fright-shadow-monster-red.webp
-    origin: Item.RpcuSPwa2GL3cAuS
-    tint: '#FFFFFF'
+  - origin: Item.RpcuSPwa2GL3cAuS
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -95,15 +93,34 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Coração Duro
+    img: icons/magic/control/fear-fright-shadow-monster-red.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RpcuSPwa2GL3cAuS.ZAveLLx0c5wBAXNF'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667074226526
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: RpcuSPwa2GL3cAuS
 folder: ELRx5oblpz3uQpB7
 sort: 0

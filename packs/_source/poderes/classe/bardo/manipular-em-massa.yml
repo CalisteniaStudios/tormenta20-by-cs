@@ -3,10 +3,8 @@ name: Manipular em Massa
 type: poder
 img: systems/tormenta20/icons/classes/bardo.webp
 effects:
-  - label: Manipular em Massa
-    icon: icons/svg/upgrade.svg
-    origin: Item.Yps3TlTYm2ryHiQY
-    tint: '#FFFFFF'
+  - origin: Item.Yps3TlTYm2ryHiQY
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: VoABosXw5Td7lCja
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manipular em Massa
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!aAgmPyab0OPw7jPy.VoABosXw5Td7lCja'
 folder: vXRLLa3BIKBZdiua
 sort: 0
@@ -97,9 +112,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361717180
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!aAgmPyab0OPw7jPy'
 

@@ -2,12 +2,8 @@ name: Luva de Ferro
 type: equipamento
 img: systems/tormenta20/icons/itens/gerais/luva-de-ferro.webp
 effects:
-  - label: >-
-      Luva de Ferro: Suas magias arcanas de alcance pessoal que concedem bônus
-      na Defesa têm esse bônus aumentado em +1.
-    icon: icons/svg/upgrade.svg
-    origin: Item.FLmuXN3wg9KxC3BH
-    tint: '#FFFFFF'
+  - origin: Item.FLmuXN3wg9KxC3BH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,13 +34,28 @@ effects:
         value: '1'
         priority: 0
     transfer: true
-    _key: '!items.effects!JcJuBJzPEoVuboMp.H6DQFuSF71NcRSIr'
-  - label: >-
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       Luva de Ferro: Suas magias arcanas de alcance pessoal que concedem bônus
-      nos testes de resistências têm esse bônus aumentado em +1.
-    icon: icons/svg/upgrade.svg
-    origin: Item.FLmuXN3wg9KxC3BH
-    tint: '#FFFFFF'
+      na Defesa têm esse bônus aumentado em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!JcJuBJzPEoVuboMp.H6DQFuSF71NcRSIr'
+  - origin: Item.FLmuXN3wg9KxC3BH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -83,6 +94,25 @@ effects:
         value: '1'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Luva de Ferro: Suas magias arcanas de alcance pessoal que concedem bônus
+      nos testes de resistências têm esse bônus aumentado em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JcJuBJzPEoVuboMp.MiyRanpGzHyIHOLO'
 flags: {}
 system:
@@ -139,10 +169,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663377681721
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: JcJuBJzPEoVuboMp
 folder: q5xr48fQpaZDdVTn
 sort: 106250

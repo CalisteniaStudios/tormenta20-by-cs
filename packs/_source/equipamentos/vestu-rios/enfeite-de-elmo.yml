@@ -57,10 +57,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: 'Enfeite de Elmo: +2 contra efeitos de medo.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.jxCpE9ebnpdwKLP0
-    tint: '#FFFFFF'
+  - origin: Item.jxCpE9ebnpdwKLP0
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -91,15 +89,34 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Enfeite de Elmo: +2 contra efeitos de medo.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!jxCpE9ebnpdwKLP0.vOXMbxOoQ2UkYw9f'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663532558587
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: jxCpE9ebnpdwKLP0
 folder: 3kNyXnAknru6qWyM
 sort: 1300000

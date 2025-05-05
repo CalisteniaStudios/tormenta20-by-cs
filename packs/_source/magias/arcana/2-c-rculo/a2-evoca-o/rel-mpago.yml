@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +2d6.
     origin: Compendium.tormenta20.magias.BfYpxjs0NeqhAs8q
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +2d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BfYpxjs0NeqhAs8q.XIxcAX2dWaFDGsfG'
   - _id: UbfkJ2MbLTgN5Aci
     flags:
@@ -62,14 +77,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.BfYpxjs0NeqhAs8q
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a área para alvo (criaturas escolhidas). Em vez do normal, você
       dispara vários relâmpagos, um para cada alvo escolhido, causando 6d6
       pontos de dano de eletricidade. Requer 3º círculo.
-    origin: Compendium.tormenta20.magias.BfYpxjs0NeqhAs8q
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BfYpxjs0NeqhAs8q.UbfkJ2MbLTgN5Aci'
 folder: C4AaVHB8ALOWtksj
 sort: 0
@@ -137,9 +167,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461777
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!BfYpxjs0NeqhAs8q'
 

@@ -3,10 +3,8 @@ name: Inimigo das Trevas
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-deus-sol.webp
 effects:
-  - label: Inimigo das Trevas
-    icon: icons/svg/upgrade.svg
-    origin: Item.q2bsVtoBG4izYF2l
-    tint: '#FFFFFF'
+  - origin: Item.q2bsVtoBG4izYF2l
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Inimigo das Trevas
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!q2bsVtoBG4izYF2l.qnoEBYUbmA0zw9Jw'
 folder: zose22Lb5Fcz5t8J
 sort: 0
@@ -94,9 +109,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185212
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!q2bsVtoBG4izYF2l'
 

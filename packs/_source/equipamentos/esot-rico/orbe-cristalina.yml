@@ -2,10 +2,8 @@ name: Orbe Cristalina
 type: equipamento
 img: systems/tormenta20/icons/itens/gerais/orbe-cristalina.webp
 effects:
-  - label: 'Orbe: O limite de PM que você pode gastar em magias aumenta em +1.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.FLmuXN3wg9KxC3BH
-    tint: '#FFFFFF'
+  - origin: Item.FLmuXN3wg9KxC3BH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -32,6 +30,23 @@ effects:
     _id: H6DQFuSF71NcRSIr
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Orbe: O limite de PM que você pode gastar em magias aumenta em +1.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!kc5hodyP1AIeDJnv.H6DQFuSF71NcRSIr'
 flags: {}
 system:
@@ -87,10 +102,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663377681721
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: kc5hodyP1AIeDJnv
 folder: q5xr48fQpaZDdVTn
 sort: 101563

@@ -3,10 +3,8 @@ name: Língua de Prata
 type: poder
 img: systems/tormenta20/icons/classes/nobre.webp
 effects:
-  - label: Língua de Prata
-    icon: icons/svg/upgrade.svg
-    origin: Item.yO1HlgA3ChYEtRMr
-    tint: '#FFFFFF'
+  - origin: Item.yO1HlgA3ChYEtRMr
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: (@nivel/2)
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Língua de Prata
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!yO1HlgA3ChYEtRMr.phkVAPewUNxGhzYm'
 folder: 1gk4CeDo7oR1b0oD
 sort: 0
@@ -94,9 +109,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185705
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!yO1HlgA3ChYEtRMr'
 

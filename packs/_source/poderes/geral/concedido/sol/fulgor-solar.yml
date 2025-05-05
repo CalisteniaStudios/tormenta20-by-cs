@@ -2,10 +2,8 @@ name: Fulgor Solar
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-deus-sol.webp
 effects:
-  - label: Fulgor Solar
-    icon: systems/tormenta20/icons/poderes/concedidos-deus-sol.webp
-    origin: Item.AVx9eTYu8gnVuHwy
-    tint: '#FFFFFF'
+  - origin: Item.AVx9eTYu8gnVuHwy
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -30,6 +28,23 @@ effects:
         value: '5'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fulgor Solar
+    img: systems/tormenta20/icons/poderes/concedidos-deus-sol.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!m6zYuRBPDXvCFDOK.zB6gchRQbFfRVZXC'
 flags: {}
 system:
@@ -84,10 +99,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183805
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: m6zYuRBPDXvCFDOK
 folder: zose22Lb5Fcz5t8J
 sort: 0

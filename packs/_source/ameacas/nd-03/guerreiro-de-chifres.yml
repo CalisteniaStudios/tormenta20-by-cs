@@ -7,9 +7,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/machado-de-guerra.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.P4MW0Ezhmya6Hm89
+    flags: {}
     system:
       description:
         value: >-
@@ -124,10 +122,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772404
       modifiedTime: 1700236701098
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.P4MW0Ezhmya6Hm89
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 900000
     _id: fJqsi50AHsWE6xap
@@ -281,10 +282,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236695789
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Eaan8LEuy6YdbO17
     _key: '!actors.items!oZgZENn3I6vseSWs.Eaan8LEuy6YdbO17'
   - folder: 0V7x5o397UvG3xKP
@@ -339,10 +343,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Marrada
-        icon: icons/svg/upgrade.svg
-        origin: Item.O33OJJxfLmdoYa33
-        tint: '#FFFFFF'
+      - origin: Item.O33OJJxfLmdoYa33
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -378,28 +380,44 @@ items:
             value: '2'
             priority: 0
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Marrada
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!oZgZENn3I6vseSWs.jfO9HweIYJu9qwNy.Q9Nx00b81V4boOgR
     sort: 0
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.O33OJJxfLmdoYa33
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667005755930
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.O33OJJxfLmdoYa33
+      duplicateSource: null
+      exportSource: null
     _id: jfO9HweIYJu9qwNy
     _key: '!actors.items!oZgZENn3I6vseSWs.jfO9HweIYJu9qwNy'
 effects:
-  - label: Marrada
-    icon: icons/svg/upgrade.svg
-    origin: Actor.oZgZENn3I6vseSWs.Item.jfO9HweIYJu9qwNy
-    tint: '#FFFFFF'
+  - origin: Actor.oZgZENn3I6vseSWs.Item.jfO9HweIYJu9qwNy
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -435,6 +453,23 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Marrada
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!oZgZENn3I6vseSWs.su0RQpaxpLL8Ai3q'
 folder: Du7lCUo0cmGGsOJZ
 sort: 100001
@@ -1193,14 +1228,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/guerreiro-de-chifres.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.1
     scaleY: 1.1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1217,12 +1258,31 @@ prototypeToken:
       enabled: true
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946019
   modifiedTime: 1700236701098
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!oZgZENn3I6vseSWs'
 

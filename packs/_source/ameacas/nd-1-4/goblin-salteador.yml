@@ -53,10 +53,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Táticas de Alcateia
-        icon: icons/svg/upgrade.svg
-        origin: Item.OfHvpjwVrlXts8gl
-        tint: '#FFFFFF'
+      - origin: Item.OfHvpjwVrlXts8gl
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -92,6 +90,23 @@ items:
             value: '2'
             priority: 0
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Táticas de Alcateia
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!xmxJmccLam3QVPAP.V68FrDl5LtfsJtod.Bb64N9sZSwvarWT0
     sort: 2900000
@@ -101,19 +116,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667015839584
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: V68FrDl5LtfsJtod
     _key: '!actors.items!xmxJmccLam3QVPAP.V68FrDl5LtfsJtod'
   - name: Adaga
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/adaga.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
+    flags: {}
     system:
       description:
         value: >-
@@ -274,19 +290,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772409
       modifiedTime: 1700236157621
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2000000
     _id: 18o2kTrHoNvzp7jY
     _key: '!actors.items!xmxJmccLam3QVPAP.18o2kTrHoNvzp7jY'
 effects:
-  - label: Frenesi
-    icon: icons/svg/upgrade.svg
-    origin: Actor.xmxJmccLam3QVPAP.Item.V68FrDl5LtfsJtod
-    tint: '#FFFFFF'
+  - origin: Actor.xmxJmccLam3QVPAP.Item.V68FrDl5LtfsJtod
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -322,6 +339,23 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Frenesi
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!xmxJmccLam3QVPAP.OUbY7hsPnKFxLtC2'
 folder: 8k3O6yL5y2Yf0tbj
 sort: 100001
@@ -1079,14 +1113,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/goblin-salteador.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 0.8
     scaleY: 0.8
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1100,12 +1140,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946040
   modifiedTime: 1700236157621
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!xmxJmccLam3QVPAP'
 

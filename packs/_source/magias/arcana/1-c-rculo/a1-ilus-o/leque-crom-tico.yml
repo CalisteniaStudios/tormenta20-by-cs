@@ -28,11 +28,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: além do normal, as criaturas afetadas ficam vulneráveis pela cena.
     origin: Compendium.tormenta20.magias.g48EeeYhek5Wh5Ll
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: além do normal, as criaturas afetadas ficam vulneráveis pela cena.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!g48EeeYhek5Wh5Ll.uePHR4uObPuqI2va'
   - _id: jQmTpSkGboy8hYWX
     flags:
@@ -59,11 +74,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: também afeta espíritos e monstros na área. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.g48EeeYhek5Wh5Ll
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: também afeta espíritos e monstros na área. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!g48EeeYhek5Wh5Ll.jQmTpSkGboy8hYWX'
   - _id: EzD4s83A7fyffuFS
     flags:
@@ -90,13 +120,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      também afeta construtos, espíritos, monstros e mortos-vivos na área.
-      Requer 3º círculo.
     origin: Compendium.tormenta20.magias.g48EeeYhek5Wh5Ll
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      também afeta construtos, espíritos, monstros e mortos-vivos na área.
+      Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!g48EeeYhek5Wh5Ll.EzD4s83A7fyffuFS'
   - _id: Htr7D9DLeTYoJMah
     changes: []
@@ -109,15 +154,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/leque-cromatico.webp
-    label: Leque Cromático
     origin: Item.aUvSqSllFALQh4kY
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Leque Cromático
+    img: systems/tormenta20/icons/magias/leque-cromatico.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!g48EeeYhek5Wh5Ll.Htr7D9DLeTYoJMah'
 folder: eOR9yLzI2EByQRJv
 sort: 0
@@ -178,9 +238,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462778
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!g48EeeYhek5Wh5Ll'
 

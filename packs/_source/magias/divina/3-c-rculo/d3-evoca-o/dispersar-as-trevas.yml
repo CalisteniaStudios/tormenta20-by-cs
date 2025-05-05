@@ -40,11 +40,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus nas resistências em +1.
     origin: Compendium.tormenta20.magias.UIQajfvegC0ptC7O
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus nas resistências em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UIQajfvegC0ptC7O.BAALs1pqe6qAvRCS'
   - _id: HVAXTTFcfJE6WkQu
     flags:
@@ -75,13 +90,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o alcance para curto, a área para alvo 1 criatura e a duração para
-      cena. O alvo fica imune a efeitos de necromancia e trevas.
     origin: Compendium.tormenta20.magias.UIQajfvegC0ptC7O
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o alcance para curto, a área para alvo 1 criatura e a duração para
+      cena. O alvo fica imune a efeitos de necromancia e trevas.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UIQajfvegC0ptC7O.HVAXTTFcfJE6WkQu'
   - _id: u2D4Npvi3ebOqo6I
     flags:
@@ -100,11 +130,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o círculo máximo de magias dissipadas para 4º. Requer 4º círculo.
     origin: Compendium.tormenta20.magias.UIQajfvegC0ptC7O
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o círculo máximo de magias dissipadas para 4º. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UIQajfvegC0ptC7O.u2D4Npvi3ebOqo6I'
   - _id: dU6FV0gkSnFKJz79
     flags:
@@ -123,11 +168,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o círculo máximo de magias dissipadas para 5º. Requer 5º círculo.
     origin: Compendium.tormenta20.magias.UIQajfvegC0ptC7O
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o círculo máximo de magias dissipadas para 5º. Requer 5º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UIQajfvegC0ptC7O.dU6FV0gkSnFKJz79'
   - _id: Kp6MQS1nSURuLfaC
     changes:
@@ -156,15 +216,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/dispersar-trevas.webp
-    label: Dispersar as Trevas
     origin: Item.dgWCjcKWomv1B5NH
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dispersar as Trevas
+    img: systems/tormenta20/icons/magias/dispersar-trevas.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UIQajfvegC0ptC7O.Kp6MQS1nSURuLfaC'
 folder: g3m5JWv836MEhs83
 sort: 0
@@ -233,9 +308,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461914
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!UIQajfvegC0ptC7O'
 

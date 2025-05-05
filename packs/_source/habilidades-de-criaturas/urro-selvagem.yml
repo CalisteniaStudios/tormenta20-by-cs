@@ -48,10 +48,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Urro Selvagem
-    icon: icons/creatures/abilities/lion-roar-yellow.webp
-    origin: Item.FPoWnjQZgYZgUP49
-    tint: '#FFFFFF'
+  - origin: Item.FPoWnjQZgYZgUP49
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -76,15 +74,34 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Urro Selvagem
+    img: icons/creatures/abilities/lion-roar-yellow.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FPoWnjQZgYZgUP49.L1YTmKh2Jfnq6ub7'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321318639
   modifiedTime: 1668270615333
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: FPoWnjQZgYZgUP49
 folder: null
 sort: 0

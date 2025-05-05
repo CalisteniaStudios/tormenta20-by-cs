@@ -17,8 +17,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Farmacêutico (1d4).
     origin: Item.L0sMSD8LyhiwSnFU
     transfer: true
     flags:
@@ -35,12 +33,27 @@ effects:
         custo: '1'
         durationScene: false
         items: ''
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Farmacêutico (1d4).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nmKozCiHGK9cTPga.UNVkmpne0Jbm4FZR'
-  - label: Farmacêutico (1d6).
-    icon: icons/svg/upgrade.svg
-    origin: Item.nmKozCiHGK9cTPga
-    tint: '#FFFFFF'
+  - origin: Item.nmKozCiHGK9cTPga
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -71,11 +84,26 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Farmacêutico (1d6).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nmKozCiHGK9cTPga.wRXI7EfHXdxGR0zz'
-  - label: Farmacêutico (1d8).
-    icon: icons/svg/upgrade.svg
-    origin: Item.nmKozCiHGK9cTPga
-    tint: '#FFFFFF'
+  - origin: Item.nmKozCiHGK9cTPga
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -106,6 +134,23 @@ effects:
         value: 1d8
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Farmacêutico (1d8).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nmKozCiHGK9cTPga.whOfN0MBG8zmgZ6b'
 flags:
   scene-packer:
@@ -169,10 +214,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051644690
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: nmKozCiHGK9cTPga
 folder: iHjbUWZ9cRzIVZ3E
 sort: 0

@@ -2,10 +2,8 @@ name: Aumento de Atributo (Força)
 type: poder
 img: systems/tormenta20/icons/poderes/destino.webp
 effects:
-  - label: Aumento de Atributo - Força
-    icon: systems/tormenta20/icons/poderes/destino.webp
-    origin: Item.QrsQzzdGDWjgXNF5
-    tint: '#FFFFFF'
+  - origin: Item.QrsQzzdGDWjgXNF5
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -26,6 +24,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aumento de Atributo - Força
+    img: systems/tormenta20/icons/poderes/destino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RKcCBGyvCDq5EPIZ.u19quzeRqcp0Bpjy'
 flags: {}
 system:
@@ -81,10 +96,12 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184299
   modifiedTime: 1684630486552
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: 8epgcaCOcfgSspZf
 sort: 500000
 _id: RKcCBGyvCDq5EPIZ

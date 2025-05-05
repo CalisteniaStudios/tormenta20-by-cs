@@ -2,10 +2,8 @@ name: Presas Primordiais
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos.webp
 effects:
-  - label: Presas Primordiais
-    icon: systems/tormenta20/icons/poderes/concedidos.webp
-    origin: Item.f3a4wgr41V6oIqRD
-    tint: '#FFFFFF'
+  - origin: Item.f3a4wgr41V6oIqRD
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,11 +20,26 @@ effects:
     _id: ma0efzzcjddzefrm
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Presas Primordiais
+    img: systems/tormenta20/icons/poderes/concedidos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!f3a4wgr41V6oIqRD.ma0efzzcjddzefrm'
-  - label: Presas Primordiais
-    icon: icons/svg/upgrade.svg
-    origin: Item.f3a4wgr41V6oIqRD
-    tint: '#FFFFFF'
+  - origin: Item.f3a4wgr41V6oIqRD
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -57,6 +70,23 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Presas Primordiais
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!f3a4wgr41V6oIqRD.mV6NgXwQNiZ0LlvC'
 flags: {}
 system:
@@ -137,10 +167,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185217
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: f3a4wgr41V6oIqRD
 folder: bQqg2Ldq1yxI1Tog
 sort: 0

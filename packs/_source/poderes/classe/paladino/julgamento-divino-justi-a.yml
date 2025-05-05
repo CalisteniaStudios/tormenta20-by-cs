@@ -3,10 +3,8 @@ name: 'Julgamento Divino: Justiça'
 type: poder
 img: systems/tormenta20/icons/classes/paladino.webp
 effects:
-  - label: Marcar Inimigo
-    icon: systems/tormenta20/icons/classes/paladino.webp
-    origin: Item.dyQ0t1RSQmmtxc4S
-    tint: '#FFFFFF'
+  - origin: Item.dyQ0t1RSQmmtxc4S
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: qZNLPmF5qH5Jp8AD
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Marcar Inimigo
+    img: systems/tormenta20/icons/classes/paladino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!dyQ0t1RSQmmtxc4S.qZNLPmF5qH5Jp8AD'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -100,9 +115,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184745
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!dyQ0t1RSQmmtxc4S'
 

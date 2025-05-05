@@ -41,15 +41,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.6tacmHJDvuMoxe8v
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para reação. Em vez do normal, você cria um escudo mágico
       que fornece +5 na Defesa contra o próximo ataque que sofrer até o fim do
       turno atual (cumulativo com o bônus fornecido pelo efeito básico desta
       magia e armaduras).
-    origin: Item.6tacmHJDvuMoxe8v
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vUsntyToyQl1TuFZ.W1WgvYbVsADr5MNL'
   - _id: cOarntwGdXunJRyH
     flags:
@@ -79,11 +94,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus na Defesa em +1.
     origin: Item.6tacmHJDvuMoxe8v
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus na Defesa em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vUsntyToyQl1TuFZ.cOarntwGdXunJRyH'
   - _id: CRwrKNwVnkcuyYGR
     flags:
@@ -99,6 +129,8 @@ effects:
         spell: false
         consumable: false
         durationScene: false
+        equipment: false
+        items: ''
     changes:
       - key: duracao
         value: 1 dia
@@ -113,11 +145,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para 1 dia. Requer 2º círculo.
     origin: Item.6tacmHJDvuMoxe8v
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: null
+      modifiedTime: 1746424157730
+      lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para 1 dia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vUsntyToyQl1TuFZ.CRwrKNwVnkcuyYGR'
   - _id: DXFHELXQkzrakHqN
     flags:
@@ -138,11 +185,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/armadura-arcana.webp
-    label: Armadura Arcana
     origin: Item.6tacmHJDvuMoxe8v
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Armadura Arcana
+    img: systems/tormenta20/icons/magias/armadura-arcana.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vUsntyToyQl1TuFZ.DXFHELXQkzrakHqN'
 folder: OkpR6UdPNpR8mrad
 sort: 0
@@ -203,9 +265,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462898
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!vUsntyToyQl1TuFZ'
 

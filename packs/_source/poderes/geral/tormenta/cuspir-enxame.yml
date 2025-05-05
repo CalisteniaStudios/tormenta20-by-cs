@@ -2,10 +2,8 @@ name: Cuspir Enxame
 type: poder
 img: systems/tormenta20/icons/poderes/tormenta.webp
 effects:
-  - label: Aumenta o dano em +1d6 a cada 2 outros poderes da tormenta que possui.
-    icon: icons/svg/upgrade.svg
-    origin: Item.awyqwoOl4sVaWbZ2
-    tint: '#FFFFFF'
+  - origin: Item.awyqwoOl4sVaWbZ2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -36,6 +34,23 @@ effects:
         value: 1d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aumenta o dano em +1d6 a cada 2 outros poderes da tormenta que possui.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!awyqwoOl4sVaWbZ2.jsh7D6IKkyUonn5g'
 flags: {}
 system:
@@ -105,10 +120,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184317
   modifiedTime: 1684803292401
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: awyqwoOl4sVaWbZ2
 folder: m6ny7g3VciUkKZ3t
 sort: 0

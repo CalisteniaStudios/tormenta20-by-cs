@@ -3,10 +3,8 @@ name: Robe do Arquimago
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/robe-do-arquimago.webp
 effects:
-  - label: Robe do Arquimago
-    icon: systems/tormenta20/icons/itens/itens-magicos/robe-do-arquimago.webp
-    origin: Item.IvIBlYuZS6Sn5cE6
-    tint: '#FFFFFF'
+  - origin: Item.IvIBlYuZS6Sn5cE6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -31,6 +29,23 @@ effects:
         value: ''
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Robe do Arquimago
+    img: systems/tormenta20/icons/itens/itens-magicos/robe-do-arquimago.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!IvIBlYuZS6Sn5cE6.J6HahyQCdUrhC6d3'
 folder: BgJUCrqjG6EVBIfP
 sort: 4275000
@@ -100,9 +115,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000093
   modifiedTime: 1684623044316
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!IvIBlYuZS6Sn5cE6'
 

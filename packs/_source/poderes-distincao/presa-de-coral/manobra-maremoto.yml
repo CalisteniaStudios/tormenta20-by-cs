@@ -72,10 +72,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Novo Efeito
-    icon: icons/svg/upgrade.svg
-    origin: Item.tZs2tuDa0JFfD3qI
-    tint: '#FFFFFF'
+  - origin: Item.tZs2tuDa0JFfD3qI
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -111,11 +109,26 @@ effects:
         value: (@PresadeCoral2*1)
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Novo Efeito
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tZs2tuDa0JFfD3qI.8iLxhbmllGsz3fbv'
-  - label: Manobra Maremoto
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.tZs2tuDa0JFfD3qI
-    tint: '#FFFFFF'
+  - origin: Item.tZs2tuDa0JFfD3qI
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -140,15 +153,34 @@ effects:
         value: '0'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manobra Maremoto
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tZs2tuDa0JFfD3qI.9mV68xAFSP5MmadE'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083101946
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: tZs2tuDa0JFfD3qI
 folder: vsGbYK3LgW5Oreol
 sort: 0

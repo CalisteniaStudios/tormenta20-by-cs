@@ -74,10 +74,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: +1d6 por categoria de tamanho
-    icon: icons/svg/upgrade.svg
-    origin: Item.0FhqdRLuR3TMkehf
-    tint: '#FFFFFF'
+  - origin: Item.0FhqdRLuR3TMkehf
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -109,15 +107,34 @@ effects:
         value: 1d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: +1d6 por categoria de tamanho
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0FhqdRLuR3TMkehf.q6iUJ3AlRvNTAq9m'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667075515824
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 0FhqdRLuR3TMkehf
 folder: Zr1HgroTTH1NqRJ3
 sort: 0

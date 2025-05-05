@@ -2,10 +2,8 @@ name: Medo de Altura
 type: poder
 img: systems/tormenta20/icons/poderes/ameacas/medo-de-altura.webp
 effects:
-  - label: Abalado
-    icon: systems/tormenta20/icons/conditions/abalado.svg
-    origin: Item.MxwKBFQrwYzRMB4p
-    tint: '#FFFFFF'
+  - origin: Item.MxwKBFQrwYzRMB4p
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,6 +20,23 @@ effects:
     _id: aq3yIo9hCl7R0asc
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Abalado
+    img: systems/tormenta20/icons/conditions/abalado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!MxwKBFQrwYzRMB4p.aq3yIo9hCl7R0asc'
 flags: {}
 system:
@@ -72,10 +87,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664306185703
   modifiedTime: 1668270615331
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: MxwKBFQrwYzRMB4p
 folder: null
 sort: 0

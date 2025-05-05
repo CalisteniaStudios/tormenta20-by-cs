@@ -2,11 +2,8 @@ name: Linhagem Dracônica Básica
 type: poder
 img: systems/tormenta20/icons/poderes/classes/conjuradores/linhagem-draconica.webp
 effects:
-  - label: Linhagem Dracônica Básica
-    icon: >-
-      systems/tormenta20/icons/poderes/classes/conjuradores/linhagem-draconica.webp
-    origin: Item.zN0rhkCdrNYDXb0d
-    tint: '#FFFFFF'
+  - origin: Item.zN0rhkCdrNYDXb0d
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +24,24 @@ effects:
         value: '5'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Linhagem Dracônica Básica
+    img: >-
+      systems/tormenta20/icons/poderes/classes/conjuradores/linhagem-draconica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zN0rhkCdrNYDXb0d.SkxNZ7zAwytIgSY8'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
@@ -96,9 +111,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185706
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!zN0rhkCdrNYDXb0d'
 

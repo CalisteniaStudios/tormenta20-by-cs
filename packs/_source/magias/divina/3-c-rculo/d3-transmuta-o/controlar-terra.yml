@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de cubos de 1,5m em +2.
     origin: Compendium.tormenta20.magias.Zi46sKpwydfQdIJt
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de cubos de 1,5m em +2.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Zi46sKpwydfQdIJt.KzvZou1jQoqIoay1'
   - _id: xvwIs3X94QHqNBVJ
     flags:
@@ -67,8 +82,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.Zi46sKpwydfQdIJt
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para pessoal, o alvo para você e a duração para 1 dia. Você
       e seu equipamento fundem-se a uma superfície ou objeto adjacente feito de
       pedra, terra, argila ou areia que possa acomodá-lo. Você pode voltar ao
@@ -78,9 +105,12 @@ effects:
       objeto (ou o trecho onde você está imerso) for destruído, a magia é
       dissipada, você volta a um espaço livre adjacente e sofre 10d6 pontos de
       dano de impacto.
-    origin: Compendium.tormenta20.magias.Zi46sKpwydfQdIJt
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Zi46sKpwydfQdIJt.xvwIs3X94QHqNBVJ'
 folder: d32UX2lzIXG6Ew2L
 sort: 0
@@ -153,9 +183,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462762
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Zi46sKpwydfQdIJt'
 

@@ -60,10 +60,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667027746000
       modifiedTime: 1667027746000
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: FB90C3BC6hIqvbFq
     _key: '!actors.items!vZGGIFyhurCYpnNR.FB90C3BC6hIqvbFq'
   - folder: 0V7x5o397UvG3xKP
@@ -121,10 +124,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666319236120
       modifiedTime: 1667027746000
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: ODFc7xB1emUfJFAb
     _key: '!actors.items!vZGGIFyhurCYpnNR.ODFc7xB1emUfJFAb'
   - name: Bola de Fogo
@@ -152,11 +158,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: aumenta o dano em +2d6.
         origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: aumenta o dano em +2d6.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.MpG3XIlHRsYp8pHg.UWydlNbe3IFFWSmJ
       - _id: 54Cbq85qzDbWg4SB
@@ -188,8 +209,20 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda a área para efeito de esfera flamejante com tamanho Médio e a
           duração para cena. Em vez do normal, cria uma esfera flamejante com
           1,5m de diâmetro que causa 3d6 pontos de dano a qualquer criatura no
@@ -197,9 +230,12 @@ items:
           esfera voar 9m em qualquer direção. Ela é imune a dano, mas pode ser
           apagada com água. Uma criatura só pode sofrer dano da esfera uma vez
           por rodada.
-        origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.MpG3XIlHRsYp8pHg.54Cbq85qzDbWg4SB
       - _id: EOLJ5ChVkU6V1DAg
@@ -231,21 +267,34 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda a duração para 1 dia ou até ser descarregada. Em vez do normal,
           você cria uma pequena pedra flamejante, que pode detonar como uma
           reação, descarregando a magia. A pedra pode ser usada como uma arma de
           arremesso com alcance curto. Uma vez detonada, causa o dano da magia
           numa área de esfera de 6m com raio.
-        origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.MpG3XIlHRsYp8pHg.EOLJ5ChVkU6V1DAg
-    flags:
-      core:
-        sourceId: Item.LSj3INZ0KooRr5bs
+    flags: {}
     system:
       description:
         value: >-
@@ -310,10 +359,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310462779
       modifiedTime: 1667027746002
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.LSj3INZ0KooRr5bs
+      duplicateSource: null
+      exportSource: null
     folder: IZ1QZMcdpiRqtF8O
     sort: 0
     _id: MpG3XIlHRsYp8pHg
@@ -347,11 +399,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: muda a execução para padrão e a duração para cena. Requer 2º círculo.
         origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: muda a execução para padrão e a duração para cena. Requer 2º círculo.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.LvHT31M1UBY6eqIL
       - _id: 2XHxvPBjrqijXw9I
@@ -371,13 +438,28 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
-          além do normal, ao atacar você, um inimigo deve rolar dois dados e
-          usar o pior resultado. Requer 3º círculo.
         origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
+          além do normal, ao atacar você, um inimigo deve rolar dois dados e
+          usar o pior resultado. Requer 3º círculo.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.2XHxvPBjrqijXw9I
       - _id: NrEAsxaqpXAWVZ5d
@@ -413,13 +495,28 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
-          muda a execução para padrão, o alcance para curto, o alvo para
-          criaturas escolhidas e a duração para cena. Requer 4º círculo.
         origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
+          muda a execução para padrão, o alcance para curto, o alvo para
+          criaturas escolhidas e a duração para cena. Requer 4º círculo.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.NrEAsxaqpXAWVZ5d
       - _id: Q9xwXkqN6t3iEhBD
@@ -455,15 +552,30 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda a execução para padrão e a duração para 1 dia. Além do normal,
           você recebe um sexto sentido que o avisa de qualquer perigo ou ameaça.
           Você fica imune às condições surpreendido e desprevenido e recebe +10
           em Defesa e Reflexos. Requer 5º círculo.
-        origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.Q9xwXkqN6t3iEhBD
       - _id: WxhX0zABmEAJkQ13
@@ -477,15 +589,30 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/magias/concentracao-de-combate.webp
-        label: Concentração de Combate (Cena)
         origin: Item.jZYdLUCwQx3e9Odi
         transfer: false
         flags:
           tormenta20:
             onuse: false
             durationScene: true
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Concentração de Combate (Cena)
+        img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.WxhX0zABmEAJkQ13
       - _id: 5QruiDpfvtxwupil
@@ -507,20 +634,33 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/magias/concentracao-de-combate.webp
-        label: Concentração de Combate (Aprimoramento +14 PM)
         origin: Item.JbY4RCfiRXJEG8JU
         transfer: false
         flags:
           tormenta20:
             onuse: false
             durationScene: true
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Concentração de Combate (Aprimoramento +14 PM)
+        img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.5QruiDpfvtxwupil
-    flags:
-      core:
-        sourceId: Item.1UBi6j1FJdnCdLH1
+    flags: {}
     system:
       description:
         value: >-
@@ -579,10 +719,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310462798
       modifiedTime: 1667027746003
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.1UBi6j1FJdnCdLH1
+      duplicateSource: null
+      exportSource: null
     folder: In6moJ7otV739bAV
     sort: 0
     _id: wOsiAJA0FAqocJQK
@@ -612,11 +755,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: muda o alvo para criaturas escolhidas no alcance. Requer 4º círculo.
         origin: Compendium.tormenta20.magias.XWEJNZMs6Wb9uUHF
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: muda o alvo para criaturas escolhidas no alcance. Requer 4º círculo.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.lYxiSwCe3djsAOE6
       - _id: wb7wmP9NbM1Q2Bxg
@@ -652,14 +810,29 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.XWEJNZMs6Wb9uUHF
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda o alcance para pessoal e o alvo para você. Você acelera sua
           mente, além de seu corpo. A ação adicional pode ser usada para lançar
           magias e ativar engenhocas. Requer 4º círculo.
-        origin: Compendium.tormenta20.magias.XWEJNZMs6Wb9uUHF
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.wb7wmP9NbM1Q2Bxg
       - _id: 1GMNISQtXMIgnH78
@@ -673,15 +846,30 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/magias/velocidade.webp
-        label: Velocidade
         origin: Item.bcI6qQ9HH1A8YCcu
         transfer: false
         flags:
           tormenta20:
             onuse: false
             durationScene: true
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Velocidade
+        img: systems/tormenta20/icons/magias/velocidade.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.1GMNISQtXMIgnH78
       - _id: H1gsE0MDcKksovuP
@@ -699,11 +887,6 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
-          muda a duração para cena. A ação adicional que você pode fazer é
-          apenas de movimento. Uma criatura só pode receber uma ação adicional
-          por turno como efeito de Velocidade.
         origin: Item.Lr2HLRTDMGrZB7eL
         transfer: false
         flags:
@@ -720,12 +903,30 @@ items:
             custo: '0'
             durationScene: false
             items: ''
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
+          muda a duração para cena. A ação adicional que você pode fazer é
+          apenas de movimento. Uma criatura só pode receber uma ação adicional
+          por turno como efeito de Velocidade.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.H1gsE0MDcKksovuP
-    flags:
-      core:
-        sourceId: Item.MtmFzJIsEiXnAzhU
+    flags: {}
     system:
       description:
         value: >-
@@ -782,10 +983,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310462757
       modifiedTime: 1667027746004
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.MtmFzJIsEiXnAzhU
+      duplicateSource: null
+      exportSource: null
     folder: Ij8j969PQz7g40yn
     sort: 0
     _id: u23XwKJvxOXwm9Z5
@@ -794,9 +998,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/machado-de-batalha.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.v5HYdRxOsBcnXATP
+    flags: {}
     system:
       description:
         value: >-
@@ -954,10 +1156,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312773032
       modifiedTime: 1700237302164
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.v5HYdRxOsBcnXATP
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 1000000
     _id: ZzySfsmqvUKc4FFC
@@ -1111,10 +1316,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237295301
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: gaUxxqxWXYIpSuj4
     _key: '!actors.items!vZGGIFyhurCYpnNR.gaUxxqxWXYIpSuj4'
   - _id: aC4NfBPzGYb7ON2y
@@ -1122,9 +1330,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/armadura-completa.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.CTeeKAq8zZlaJTpA
+    flags: {}
     system:
       description:
         value: >-
@@ -1181,18 +1387,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772395
       modifiedTime: 1667027990998
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.CTeeKAq8zZlaJTpA
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 200000
     _key: '!actors.items!vZGGIFyhurCYpnNR.aC4NfBPzGYb7ON2y'
 effects:
   - name: +2 Resistência a Magia
-    icon: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -1208,9 +1416,6 @@ effects:
         items: Fortitude;Reflexos;Vontade
         aumenta: false
         custo: ''
-      core:
-        sourceId: >-
-          Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
     duration:
       startTime: 0
       seconds: null
@@ -1229,6 +1434,21 @@ effects:
     description: ''
     transfer: true
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: >-
+        Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!vZGGIFyhurCYpnNR.E0I81F0H3CaRUXAT'
 folder: 8B99i0ktklyWgfd1
 sort: 100001
@@ -1988,14 +2208,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/tirano-do-terceiro.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -2009,12 +2235,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946036
   modifiedTime: 1700237302164
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!vZGGIFyhurCYpnNR'
 

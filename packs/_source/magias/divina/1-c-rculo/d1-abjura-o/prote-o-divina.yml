@@ -40,11 +40,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus concedido em +1.
     origin: Compendium.tormenta20.magias.zfFIZLWoyI32pMfl
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus concedido em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zfFIZLWoyI32pMfl.7FKquN1OyrnomRVC'
   - _id: s2Co8Gxq7NXHauUM
     flags:
@@ -83,14 +98,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.zfFIZLWoyI32pMfl
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para reação, o alcance para curto e a duração para 1
       rodada. Em vez do normal, o alvo recebe +5 no próximo teste de resistência
       que fizer.
-    origin: Compendium.tormenta20.magias.zfFIZLWoyI32pMfl
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zfFIZLWoyI32pMfl.s2Co8Gxq7NXHauUM'
   - _id: GWawsOeKpln3gxxn
     flags:
@@ -122,13 +152,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o alvo para área de esfera com 3m de raio. Todos os aliados dentro da
-      esfera recebem o bônus da magia. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.zfFIZLWoyI32pMfl
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o alvo para área de esfera com 3m de raio. Todos os aliados dentro da
+      esfera recebem o bônus da magia. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zfFIZLWoyI32pMfl.GWawsOeKpln3gxxn'
   - _id: ixLPCV65hpLSuxc1
     flags:
@@ -164,11 +209,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: também torna o alvo imune a efeitos mentais e de medo. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.zfFIZLWoyI32pMfl
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: também torna o alvo imune a efeitos mentais e de medo. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zfFIZLWoyI32pMfl.ixLPCV65hpLSuxc1'
   - _id: imwY3XLCzTPuADV7
     changes:
@@ -193,15 +253,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/protecao-divina.webp
-    label: Proteção Divina
     origin: Item.dEcKsALEP8soUECG
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Proteção Divina
+    img: systems/tormenta20/icons/magias/protecao-divina.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zfFIZLWoyI32pMfl.imwY3XLCzTPuADV7'
 folder: XbfWNZNCUbSVLyRp
 sort: 0
@@ -260,9 +335,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462909
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!zfFIZLWoyI32pMfl'
 

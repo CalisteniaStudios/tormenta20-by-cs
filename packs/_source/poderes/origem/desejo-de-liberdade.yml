@@ -3,10 +3,8 @@ name: Desejo de Liberdade
 type: poder
 img: systems/tormenta20/icons/poderes/origem.webp
 effects:
-  - label: Desejo de Liberdade
-    icon: icons/svg/upgrade.svg
-    origin: Item.1GKFOwZTHwrMVq3z
-    tint: '#FFFFFF'
+  - origin: Item.1GKFOwZTHwrMVq3z
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -41,6 +39,23 @@ effects:
         value: '5'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Desejo de Liberdade
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1GKFOwZTHwrMVq3z.e7UoGGONglikz4gC'
 folder: O7XebEr47qNV8g6X
 sort: 0
@@ -98,9 +113,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183293
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!1GKFOwZTHwrMVq3z'
 

@@ -18,8 +18,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Estilo de Arremesso
     origin: Item.B2TY90b4Y2BbhVpn
     transfer: true
     flags:
@@ -36,12 +34,27 @@ effects:
         custo: ''
         durationScene: false
         items: ''
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estilo de Arremesso
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JgDHsBOoa6ZaVHXO.7LY0L8p0fgK3f4VF'
-  - label: Estilo de Arremesso (S. Rápido).
-    icon: icons/svg/upgrade.svg
-    origin: Item.JgDHsBOoa6ZaVHXO
-    tint: '#FFFFFF'
+  - origin: Item.JgDHsBOoa6ZaVHXO
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -72,6 +85,23 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estilo de Arremesso (S. Rápido).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JgDHsBOoa6ZaVHXO.3P1AsLfEYDh4RA8b'
 folder: Rgbah8U70jOKi5DF
 sort: 0
@@ -133,9 +163,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183911
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!JgDHsBOoa6ZaVHXO'
 

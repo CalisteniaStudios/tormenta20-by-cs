@@ -33,11 +33,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/classes/conjuradores/inspiracao.webp
-    label: Inspiração
     origin: Item.wZLmEMGDL4Qxli5r
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Inspiração
+    img: systems/tormenta20/icons/poderes/classes/conjuradores/inspiracao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Uv6GW8R54wUtv3sm.zu05LDvZp2oOnZMJ'
   - _id: gpuEqXYdlZr1nrNK
     flags:
@@ -75,11 +90,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o bônus em +1.
     origin: Item.wZLmEMGDL4Qxli5r
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Uv6GW8R54wUtv3sm.gpuEqXYdlZr1nrNK'
 folder: vXRLLa3BIKBZdiua
 sort: 0
@@ -143,9 +173,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361717063
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Uv6GW8R54wUtv3sm'
 

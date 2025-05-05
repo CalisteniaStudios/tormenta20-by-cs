@@ -56,10 +56,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: Robe de Mago
-    icon: systems/tormenta20/icons/itens/gerais/robe-de-mago.webp
-    origin: Item.9N8VfunVqsaPKISr
-    tint: '#FFFFFF'
+  - origin: Item.9N8VfunVqsaPKISr
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -80,15 +78,34 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Robe de Mago
+    img: systems/tormenta20/icons/itens/gerais/robe-de-mago.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9N8VfunVqsaPKISr.5F5gDjtpcn11iW7A'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663532558587
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 9N8VfunVqsaPKISr
 folder: 3kNyXnAknru6qWyM
 sort: 100000

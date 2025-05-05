@@ -36,17 +36,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.CaQDFJoEehP9jYQs
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para reação, o alcance para curto, o alvo para 1 criatura
       e a duração para instantânea. Esta magia só pode ser usada em uma criatura
       que tenha acabado de fazer um teste. Obriga a criatura a fazer uma nova
       rolagem de dados e aceitar o novo resultado, seja ele um sucesso ou falha.
       Criaturas involuntárias têm direito a um teste de Vontade para negar o
       efeito.
-    origin: Compendium.tormenta20.magias.CaQDFJoEehP9jYQs
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CaQDFJoEehP9jYQs.q7Lf0UYuA4dILLfY'
   - _id: xn9cfq75zvavbCTc
     flags:
@@ -78,11 +93,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para 1 dia.
     origin: Compendium.tormenta20.magias.CaQDFJoEehP9jYQs
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para 1 dia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CaQDFJoEehP9jYQs.xn9cfq75zvavbCTc'
   - _id: si97ldpfbWniza3G
     changes: []
@@ -95,15 +125,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/premonicao.webp
-    label: Premonição
     origin: Item.y0T0ScudU5nN6isO
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Premonição
+    img: systems/tormenta20/icons/magias/premonicao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CaQDFJoEehP9jYQs.si97ldpfbWniza3G'
 folder: 78LeOG7QisbLvEbQ
 sort: 0
@@ -164,9 +209,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461799
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!CaQDFJoEehP9jYQs'
 

@@ -69,10 +69,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1003
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667005317985
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: DXm91sjmLhnTMgvi
     _key: '!actors.items!JvLt0xyUsK8xSmbB.DXm91sjmLhnTMgvi'
   - folder: 38RRBscxCtcFC5s4
@@ -224,10 +227,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237054042
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: v0GX6HHLZNF6sATc
     _key: '!actors.items!JvLt0xyUsK8xSmbB.v0GX6HHLZNF6sATc'
   - folder: 38RRBscxCtcFC5s4
@@ -379,10 +385,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237058817
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: DKPHxG2nr5RfZ9T9
     _key: '!actors.items!JvLt0xyUsK8xSmbB.DKPHxG2nr5RfZ9T9'
   - folder: JS9AvIp3HW4Rs7UD
@@ -460,16 +469,17 @@ items:
     sort: 300000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.3i3lkiwxfMxyWO31
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667006468535
       modifiedTime: 1667006468535
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.3i3lkiwxfMxyWO31
+      duplicateSource: null
+      exportSource: null
     _id: ZHm0XHbUdjqBFiO9
     _key: '!actors.items!JvLt0xyUsK8xSmbB.ZHm0XHbUdjqBFiO9'
 effects: []
@@ -1232,14 +1242,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/manticora.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.5
     scaleY: 1.5
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1259,12 +1275,31 @@ prototypeToken:
       enabled: true
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945943
   modifiedTime: 1700237058817
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!JvLt0xyUsK8xSmbB'
 

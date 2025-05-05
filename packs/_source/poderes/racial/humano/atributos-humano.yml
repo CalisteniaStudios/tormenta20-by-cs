@@ -2,10 +2,8 @@ name: Atributos - Humano
 type: poder
 img: systems/tormenta20/icons/racas/humano.webp
 effects:
-  - label: Atributos - Humano
-    icon: systems/tormenta20/icons/racas/humano.webp
-    origin: Item.k0UFQyGBOJPWD46m
-    tint: '#FFFFFF'
+  - origin: Item.k0UFQyGBOJPWD46m
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -34,6 +32,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Humano
+    img: systems/tormenta20/icons/racas/humano.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1210luKmSPC54pE3.N7GTRl4fxXcbhz7E'
 flags: {}
 system:
@@ -91,10 +106,12 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183397
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: OHxuzam0yAATcoQ8
 sort: 0
 _id: 1210luKmSPC54pE3

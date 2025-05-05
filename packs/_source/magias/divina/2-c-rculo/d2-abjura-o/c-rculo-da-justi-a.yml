@@ -40,16 +40,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.Rf5JM994mdEuYBMS
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para ação padrão, o alcance para pessoal, o alvo para
       você, a duração para cena e a resistência para nenhuma. Em vez do normal,
       qualquer criatura ou objeto invisível em alcance curto se torna visível.
       Isso não dissipa o efeito mágico; se sair do seu alcance, a criatura ou
       objeto voltam a ficar invisíveis.
-    origin: Compendium.tormenta20.magias.Rf5JM994mdEuYBMS
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rf5JM994mdEuYBMS.K7v6Zb57lbm1FYwo'
   - _id: upmsgufg5QeMPila
     changes:
@@ -78,15 +93,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/circulo-da-justica.webp
-    label: Círculo da Justiça (Penalidade)
     origin: Item.x7v8U3hByjtwgaVC
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Círculo da Justiça (Penalidade)
+    img: systems/tormenta20/icons/magias/circulo-da-justica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rf5JM994mdEuYBMS.upmsgufg5QeMPila'
   - _id: ebwqxg2dc1uXhHXc
     changes:
@@ -115,15 +145,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/circulo-da-justica.webp
-    label: Círculo da Justiça (Penalidade Parcial)
     origin: Item.x7v8U3hByjtwgaVC
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Círculo da Justiça (Penalidade Parcial)
+    img: systems/tormenta20/icons/magias/circulo-da-justica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rf5JM994mdEuYBMS.ebwqxg2dc1uXhHXc'
   - _id: nVcX9n0PDQn7Qk6z
     changes:
@@ -152,15 +197,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/circulo-da-justica.webp
-    label: Círculo da Justiça (Penalidade Parcial Aprimorada)
     origin: Item.x7v8U3hByjtwgaVC
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Círculo da Justiça (Penalidade Parcial Aprimorada)
+    img: systems/tormenta20/icons/magias/circulo-da-justica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rf5JM994mdEuYBMS.nVcX9n0PDQn7Qk6z'
   - _id: AQGlJJFaH2TvCjtv
     changes: []
@@ -173,10 +233,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a penalidade nas perícias para –10 (se passar na resistência) e –20
-      (se falhar). Requer 4º círculo.
     origin: Item.x7v8U3hByjtwgaVC
     transfer: false
     flags:
@@ -192,7 +248,26 @@ effects:
         aumenta: false
         custo: '3'
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a penalidade nas perícias para –10 (se passar na resistência) e –20
+      (se falhar). Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rf5JM994mdEuYBMS.AQGlJJFaH2TvCjtv'
   - _id: eAS6FbcvG6ZdwJNl
     changes: []
@@ -205,10 +280,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a duração para permanente e adiciona componente material (balança de
-      prata no valor de T$ 5.000).
     origin: Item.x7v8U3hByjtwgaVC
     transfer: false
     flags:
@@ -224,7 +295,26 @@ effects:
         aumenta: false
         custo: '7'
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a duração para permanente e adiciona componente material (balança de
+      prata no valor de T$ 5.000).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rf5JM994mdEuYBMS.eAS6FbcvG6ZdwJNl'
   - _id: d6FPubGl9QLSV5Uo
     changes:
@@ -253,15 +343,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/circulo-da-justica.webp
-    label: Círculo da Justiça (Penalidade Aprimorada)
     origin: Item.x7v8U3hByjtwgaVC
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Círculo da Justiça (Penalidade Aprimorada)
+    img: systems/tormenta20/icons/magias/circulo-da-justica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rf5JM994mdEuYBMS.d6FPubGl9QLSV5Uo'
 folder: C87MrWNlRCw1rLAT
 sort: 0
@@ -327,9 +432,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461910
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Rf5JM994mdEuYBMS'
 

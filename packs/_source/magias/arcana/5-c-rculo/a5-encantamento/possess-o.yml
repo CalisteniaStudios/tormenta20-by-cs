@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: você ganha acesso às habilidades de raça e classe da criatura.
     origin: Compendium.tormenta20.magias.C2fW1eekiQZF0kMj
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: você ganha acesso às habilidades de raça e classe da criatura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2fW1eekiQZF0kMj.DSoRkoeMPSESB23g'
   - _id: FmSSZ6bigBFmU7Wa
     flags:
@@ -43,15 +58,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.C2fW1eekiQZF0kMj
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       enquanto a magia durar e você estiver dentro do alcance do seu corpo
       original, pode "saltar" de uma criatura possuída para outra. O novo alvo
       tem direito a um teste de Vontade. Se falhar, você assume o controle do
       corpo dele e o alvo anterior recobra a consciência.
-    origin: Compendium.tormenta20.magias.C2fW1eekiQZF0kMj
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2fW1eekiQZF0kMj.FmSSZ6bigBFmU7Wa'
   - _id: HLKKVBbe4rEumMkN
     flags:
@@ -74,8 +104,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.C2fW1eekiQZF0kMj
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para permanente, mas destrói seu corpo original no
       processo. Uma criatura possuída pode fazer um teste de Vontade no começo
       do dia para retomar seu corpo. Se passar, recobra a consciência (e a sua
@@ -83,9 +125,12 @@ effects:
       Se o corpo de uma criatura possuída morrer e houver outra criatura em
       alcance curto, você pode tentar possuí-la como uma reação. Enquanto houver
       novos corpos para possuir, você é imortal!
-    origin: Compendium.tormenta20.magias.C2fW1eekiQZF0kMj
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2fW1eekiQZF0kMj.HLKKVBbe4rEumMkN'
   - _id: sLovpjWUJMZHv5vO
     changes: []
@@ -98,15 +143,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/possessao.webp
-    label: Possessão
     origin: Item.ah9fSAxdkU8AboPq
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Possessão
+    img: systems/tormenta20/icons/magias/possessao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!C2fW1eekiQZF0kMj.sLovpjWUJMZHv5vO'
 folder: qdNPlLqrk4tOV6Tp
 sort: 0
@@ -176,9 +236,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461798
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!C2fW1eekiQZF0kMj'
 

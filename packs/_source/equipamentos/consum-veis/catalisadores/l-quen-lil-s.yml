@@ -77,10 +77,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: 'Líquen Lilás: adiciona +1d6 de dano de frio à magias'
-    icon: icons/svg/upgrade.svg
-    origin: Item.MT4QgnaAwWgr4pet
-    tint: '#FFFFFF'
+  - origin: Item.MT4QgnaAwWgr4pet
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -111,15 +109,34 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Líquen Lilás: adiciona +1d6 de dano de frio à magias'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!y9YQu2wxYDpMEDtU.mhMNYFNWFT6UyhFS'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684617654646
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: y9YQu2wxYDpMEDtU
 folder: QiIu6dfsnRA5FIHj
 sort: 400000

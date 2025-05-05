@@ -19,6 +19,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.lm0ybs4xkYuERx1r'
   - name: Fascinado
     type: text
@@ -39,6 +49,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.R5FPPrfq68i9ddyv'
   - name: Enjoado
     type: text
@@ -59,6 +79,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.BUMyxT4YI9mdC8Aj'
   - name: Pasmo
     type: text
@@ -79,6 +109,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.CMPtwuGkHgeKu8CC'
   - name: Sangrando
     type: text
@@ -99,11 +139,21 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.kzVyzFyYroPrv8gb'
   - name: Caído
     type: text
     text:
-      content: "<p>Caído</p><div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #b02b2e 50%)\"><p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" src=\"systems/tormenta20/icons/conditions/caido.svg\" title /></p></div><p>Condição Física</p><div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #b02b2e 70%, #ddd9d500 70%)\"><p>\_</p></div><p>Deitado no chão. O personagem sofre -5 em ataques corpo a corpo e seu deslocamento é reduzido a 1,5m. Além disso, sofre -5 de Defesa contra ataques corpo a corpo, mas recebe +5 de Defesa contra ataques à distância.</p>"
+      content: "<p>Caído</p><div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #b02b2e 50%)\"><p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" src=\"systems/tormenta20/icons/conditions/caido.svg\" /></p></div><p>Condição Física</p><div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #b02b2e 70%, #ddd9d500 70%)\"><p>\_</p></div><p>Deitado no chão. O personagem sofre -5 em ataques corpo a corpo e seu deslocamento é reduzido a 1,5m. Além disso, sofre -5 de Defesa contra ataques corpo a corpo, mas recebe +5 de Defesa contra ataques à distância.</p>"
       format: 1
     _id: fJFNeZeKmfHMpblz
     video:
@@ -119,11 +169,21 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.fJFNeZeKmfHMpblz'
   - name: Atordoado
     type: text
     text:
-      content: "<p>Atordoado</p>\n<div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #7542f5 50%)\">\n<p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" title src=\"systems/tormenta20/icons/conditions/atordoado.svg\" /></p>\n</div>\n<p>Condição Mental</p>\n<div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #7542f5 70%, #ddd9d500 70%)\">\n<p>\_</p>\n</div>\n<p>O personagem fica @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.my1HxIcUGVr2Mbii]{Desprevenido} e não pode fazer ações.</p>\n<p>\_</p>\n<ul>\n<li>\n<p><em>Desprevenido:</em>\_ Defesa -5 e Reflexos -5.</p>\n</li>\n</ul>"
+      content: "<p>Atordoado</p>\n<div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #7542f5 50%)\">\n<p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" src=\"systems/tormenta20/icons/conditions/atordoado.svg\" /></p>\n</div>\n<p>Condição Mental</p>\n<div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #7542f5 70%, #ddd9d500 70%)\">\n<p>\_</p>\n</div>\n<p>O personagem fica @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.my1HxIcUGVr2Mbii]{Desprevenido} e não pode fazer ações.</p>\n<p>\_</p>\n<ul>\n<li>\n<p><em>Desprevenido:</em>\_ Defesa -5 e Reflexos -5.</p>\n</li>\n</ul>"
       format: 1
       markdown: ''
     _id: bD6XAyHQrWYr0BTQ
@@ -140,6 +200,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.bD6XAyHQrWYr0BTQ'
   - name: Doente
     type: text
@@ -160,6 +230,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.dbNu1LpnvpCFm268'
   - name: Debilitado
     type: text
@@ -181,6 +261,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.AlTDv5dptSLGiZel'
   - name: Inconsciente
     type: text
@@ -202,6 +292,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.2jgO4I5cMaSKa9fv'
   - name: Esmorecido
     type: text
@@ -222,6 +322,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.YpyVEwCbNVAfFLBm'
   - name: Surdo
     type: text
@@ -242,6 +352,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.eaJwtq58TBZw0Oyo'
   - name: Enredado
     type: text
@@ -263,6 +383,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.GwCDzhOvdqD8zEaw'
   - name: Desprevenido
     type: text
@@ -283,11 +413,21 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.my1HxIcUGVr2Mbii'
   - name: Apavorado
     type: text
     text:
-      content: "<p>Apavorado</p><div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #000000 50%)\"><p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" src=\"systems/tormenta20/icons/conditions/apavorado.svg\" title /></p></div><p>Condição de Medo</p><div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #000000 70%, #ddd9d500 70%)\"><p>\_</p></div><p>O personagem sofre -5 em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível. Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo.</p>"
+      content: "<p>Apavorado</p><div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #000000 50%)\"><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" src=\"systems/tormenta20/icons/conditions/apavorado.svg\" /></div><p>Condição de Medo</p><div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #000000 70%, #ddd9d500 70%)\"><p>\_</p></div><p>O personagem sofre –5 em testes de perícia e não pode se aproximar voluntariamente da fonte do medo.</p>"
       format: 1
       markdown: ''
     _id: 5n105JaAFlwIfkyX
@@ -304,6 +444,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: 1746424707471
+      lastModifiedBy: t20builder000000
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.5n105JaAFlwIfkyX'
   - name: Fraco
     type: text
@@ -325,6 +475,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.Q6GUW7cDfTW5AXRz'
   - name: Frustrado
     type: text
@@ -346,6 +506,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.XvqIlV5v4YBeFUBs'
   - name: Cego
     type: text
@@ -367,6 +537,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.qN5JjvnXDq4Xak1K'
   - name: Imóvel
     type: text
@@ -387,11 +567,21 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.dFm2XAr8F1WkuXC8'
   - name: Alquebrado
     type: text
     text:
-      content: "<p>Alquebrado</p><div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #7542f5 50%)\"><p><img style=\"position:absolute;top:0;right:0;width:30px;border:none\" src=\"systems/tormenta20/icons/conditions/alquebrado.svg\" title /></p></div><p>Condição Mental</p><div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #7542f5 70%, #ddd9d500 70%)\"><p>\_</p></div><p>O custo em pontos de mana das habilidades e magias do personagem aumenta em +1.</p>"
+      content: "<p>Alquebrado</p><div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #7542f5 50%)\"><p><img style=\"position:absolute;top:0;right:0;width:30px;border:none\" src=\"systems/tormenta20/icons/conditions/alquebrado.svg\" /></p></div><p>Condição Mental</p><div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #7542f5 70%, #ddd9d500 70%)\"><p>\_</p></div><p>O custo em pontos de mana das habilidades e magias do personagem aumenta em +1.</p>"
       format: 1
       markdown: ''
     _id: uub1TaaEaq0Vuncl
@@ -408,11 +598,21 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.uub1TaaEaq0Vuncl'
   - name: Agarrado
     type: text
     text:
-      content: "<p>Agarrado</p>\n<div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #435178 50%)\">\n<p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" title src=\"systems/tormenta20/icons/conditions/agarrado.svg\" /></p>\n</div>\n<p>Condição de Paralisia</p>\n<div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #435178 70%, #ddd9d500 70%)\">\n<p>\_</p>\n</div>\n<p>O personagem fica @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.my1HxIcUGVr2Mbii]{Desprevenido} <span style=\"font-family:var(--font-primary);font-size:var(--font-size-14)\">e @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.dFm2XAr8F1WkuXC8]{Imóvel}</span>, sofre -2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado.</p>\n<ul>\n<li>\n<p><em>Desprevenido:</em> -5 defesa e -5 Reflexos.</p>\n</li>\n<li>\n<p><em>Imóvel:</em> Todas as formas de deslocamento são reduzidas a 0m.</p>\n</li>\n</ul>"
+      content: "<p>Agarrado</p>\n<div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #435178 50%)\">\n<p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" src=\"systems/tormenta20/icons/conditions/agarrado.svg\" /></p>\n</div>\n<p>Condição de Paralisia</p>\n<div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #435178 70%, #ddd9d500 70%)\">\n<p>\_</p>\n</div>\n<p>O personagem fica @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.my1HxIcUGVr2Mbii]{Desprevenido} <span style=\"font-family:var(--font-primary);font-size:var(--font-size-14)\">e @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.dFm2XAr8F1WkuXC8]{Imóvel}</span>, sofre -2 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado.</p>\n<ul>\n<li>\n<p><em>Desprevenido:</em> -5 defesa e -5 Reflexos.</p>\n</li>\n<li>\n<p><em>Imóvel:</em> Todas as formas de deslocamento são reduzidas a 0m.</p>\n</li>\n</ul>"
       format: 1
       markdown: ''
     _id: TSRZ1cAIIIpsvOfK
@@ -429,6 +629,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.TSRZ1cAIIIpsvOfK'
   - name: Lento
     type: text
@@ -449,6 +659,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.e8JmqkgvL3H26vbi'
   - name: Indefeso
     type: text
@@ -470,6 +690,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.8aj5sPol5mkAqTZv'
   - name: Vulnerável
     type: text
@@ -490,6 +720,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.iGWU5WVm57STW7am'
   - name: Envenenado
     type: text
@@ -510,6 +750,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.z3nQhg8FEmhh0a7m'
   - name: Surpreendido
     type: text
@@ -531,6 +781,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.xOaeTMaijYgXoNJG'
   - name: Exausto
     type: text
@@ -552,6 +812,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.6yXEaW3dSXtfsJ4i'
   - name: Em Chamas
     type: text
@@ -572,6 +842,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.2M8CXrGavdU6g1ZI'
   - name: Fatigado
     type: text
@@ -593,6 +873,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.MCED18aEe4UFeEVf'
   - name: Paralisado
     type: text
@@ -614,6 +904,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.3dcJKe2SGu8mnafU'
   - name: Confuso
     type: text
@@ -634,6 +934,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.ynLMPpmMnZwV6rxf'
   - name: Petrificado
     type: text
@@ -655,11 +965,21 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.emtHtUZAn82YFWQ9'
   - name: Abalado
     type: text
     text:
-      content: "<p>Abalado</p>\n<div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #000000 50%)\">\n<p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" title src=\"systems/tormenta20/icons/conditions/abalado.svg\" /></p>\n</div>\n<p>Condição de Medo</p>\n<div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #000000 70%, #ddd9d500 70%)\">\n<p>\_</p>\n</div>\n<p>O personagem sofre -2 em testes de perícia. Se ficar abalado novamente, em vez disso fica @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.5n105JaAFlwIfkyX]{Apavorado}.</p>"
+      content: "<p>Abalado</p>\n<div style=\"position:absolute;top:0;right:0;width:50px;height:50px;background:linear-gradient(45deg, #00000000 50%, #000000 50%)\">\n<p><img style=\"position:absolute;top:0;right:0;width:25px;border:none\" src=\"systems/tormenta20/icons/conditions/abalado.svg\" /></p>\n</div>\n<p>Condição de Medo</p>\n<div style=\"margin-top:5px;height:5px;width:100%;background:linear-gradient(20deg,  #000000 70%, #ddd9d500 70%)\">\n<p>\_</p>\n</div>\n<p>O personagem sofre -2 em testes de perícia. Se ficar abalado novamente, em vez disso fica @UUID[Compendium.tormenta20.basico.s15J5SOYixL3Ajzr.JournalEntryPage.5n105JaAFlwIfkyX]{Apavorado}.</p>"
       format: 1
       markdown: ''
     _id: ccqJXj25EVIzUhzo
@@ -676,6 +996,16 @@ pages:
       show: true
       level: 1
     system: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      duplicateSource: null
+      exportSource: null
+    category: null
     _key: '!journal.pages!s15J5SOYixL3Ajzr.ccqJXj25EVIzUhzo'
 ownership:
   default: 0
@@ -683,13 +1013,15 @@ flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1002
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1658689321457
   modifiedTime: 1666924804909
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: null
 sort: 0
 _id: s15J5SOYixL3Ajzr
-_key: '!journal!s15J5SOYixL3Ajzr'
 categories: []
+_key: '!journal!s15J5SOYixL3Ajzr'
 

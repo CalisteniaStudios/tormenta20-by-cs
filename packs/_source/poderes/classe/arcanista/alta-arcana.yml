@@ -3,10 +3,8 @@ name: Alta Arcana
 type: poder
 img: systems/tormenta20/icons/poderes/classes/conjuradores/alta-arcana.webp
 effects:
-  - label: Alta Arcana
-    icon: icons/svg/upgrade.svg
-    origin: Item.rZ6PYYmxg4z2Q3I7
-    tint: '#FFFFFF'
+  - origin: Item.rZ6PYYmxg4z2Q3I7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: /2
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alta Arcana
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!rZ6PYYmxg4z2Q3I7.02ZQpWsQit8auyi8'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
@@ -100,9 +115,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185218
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!rZ6PYYmxg4z2Q3I7'
 

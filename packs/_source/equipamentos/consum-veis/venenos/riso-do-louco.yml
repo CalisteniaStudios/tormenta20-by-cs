@@ -2,10 +2,8 @@ name: Riso do Louco
 type: consumivel
 img: systems/tormenta20/icons/itens/gerais/veneno.webp
 effects:
-  - label: Veneno
-    icon: systems/tormenta20/icons/conditions/envenenado.svg
-    origin: Item.NsULSsz7FpJiBIZO
-    tint: '#FFFFFF'
+  - origin: Item.NsULSsz7FpJiBIZO
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,11 +20,26 @@ effects:
     _id: uvgrb13vjEZ5szVH
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Veneno
+    img: systems/tormenta20/icons/conditions/envenenado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!NsULSsz7FpJiBIZO.uvgrb13vjEZ5szVH'
-  - label: Confuso
-    icon: systems/tormenta20/icons/conditions/confuso.svg
-    origin: Item.NsULSsz7FpJiBIZO
-    tint: '#FFFFFF'
+  - origin: Item.NsULSsz7FpJiBIZO
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -43,6 +56,23 @@ effects:
     _id: X5wMMnLxH1S11gww
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Confuso
+    img: systems/tormenta20/icons/conditions/confuso.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!NsULSsz7FpJiBIZO.X5wMMnLxH1S11gww'
 flags:
   scene-packer:
@@ -131,10 +161,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051721706
   modifiedTime: 1684618210211
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: NsULSsz7FpJiBIZO
 folder: bxpHxgHjOuykr5Rh
 sort: 1000000

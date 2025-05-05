@@ -29,14 +29,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.5APvTaz3tKZPdNda
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, escolha um tipo de criatura entre animal, construto ou
       morto-vivo. Você não pode ser percebido por criaturas não inteligentes
       (Int –4 ou menor) do tipo escolhido.
-    origin: Compendium.tormenta20.magias.5APvTaz3tKZPdNda
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5APvTaz3tKZPdNda.IVYf0lPVYKYEddI6'
   - _id: gonNhXsSYB73MEJm
     flags:
@@ -55,15 +70,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.5APvTaz3tKZPdNda
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       também protege o alvo contra efeitos de área. Uma criatura que tente
       atacar uma área que inclua o alvo deve fazer o teste de Vontade; se
       falhar, não consegue e perde a ação. Ela só pode tentar novamente se o
       alvo sair da área.
-    origin: Compendium.tormenta20.magias.5APvTaz3tKZPdNda
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5APvTaz3tKZPdNda.gonNhXsSYB73MEJm'
   - _id: d3CsEmxNzPtHFTKs
     changes: []
@@ -76,15 +106,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/santuario.webp
-    label: Santuário
     origin: Item.YXHLGgu3kZHXiJ7c
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Santuário
+    img: systems/tormenta20/icons/magias/santuario.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5APvTaz3tKZPdNda.d3CsEmxNzPtHFTKs'
 folder: XbfWNZNCUbSVLyRp
 sort: 0
@@ -154,9 +199,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461759
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!5APvTaz3tKZPdNda'
 

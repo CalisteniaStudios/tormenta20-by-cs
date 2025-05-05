@@ -26,20 +26,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/controlar-gravidade.webp
-    label: Controlar a Gravidade (Reduzir)
     origin: Item.9n6KciVkvT7bf420
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Controlar a Gravidade (Reduzir)
+    img: systems/tormenta20/icons/magias/controlar-gravidade.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vAC1umkrWgM6aRPI.8YYT033FJ5HbfJ8H'
-  - label: Controlar a Gravidade
-    icon: systems/tormenta20/icons/magias/controlar-gravidade.webp
-    origin: Item.vAC1umkrWgM6aRPI
-    tint: '#FFFFFF'
+  - origin: Item.vAC1umkrWgM6aRPI
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -56,6 +69,23 @@ effects:
     _id: EW73wHyreTzSp5oX
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Controlar a Gravidade
+    img: systems/tormenta20/icons/magias/controlar-gravidade.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vAC1umkrWgM6aRPI.EW73wHyreTzSp5oX'
 folder: 911fHy1VvyYmffKK
 sort: 0
@@ -152,9 +182,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462831
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!vAC1umkrWgM6aRPI'
 

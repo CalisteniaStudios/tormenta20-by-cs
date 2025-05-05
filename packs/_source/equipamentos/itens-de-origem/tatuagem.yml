@@ -3,10 +3,8 @@ name: Tatuagem
 type: tesouro
 img: systems/tormenta20/icons/itens/gerais/tatuagem.webp
 effects:
-  - label: Tatuagem
-    icon: systems/tormenta20/icons/itens/gerais/tatuagem.webp
-    origin: Item.U46WyhdXk6LSjCps
-    tint: '#FFFFFF'
+  - origin: Item.U46WyhdXk6LSjCps
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,13 +25,29 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tatuagem
+    img: systems/tormenta20/icons/itens/gerais/tatuagem.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!U46WyhdXk6LSjCps.6Grg40I5SBRTW3Fp'
 folder: jMEkEeU9nUclA8No
 sort: 100007
 flags:
   tormenta20:
     version: 1.3.0.0
-  importid: Jd2xCJUmauunKhH4
 system:
   description:
     value: >-
@@ -98,9 +112,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664312772406
   modifiedTime: 1684618088516
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!U46WyhdXk6LSjCps'
 

@@ -3,10 +3,8 @@ name: Foco em Perícia
 type: poder
 img: systems/tormenta20/icons/poderes/destino.webp
 effects:
-  - label: Foco em Perícia
-    icon: icons/svg/upgrade.svg
-    origin: Item.2cbFrAuQY6dmk8eS
-    tint: '#FFFFFF'
+  - origin: Item.2cbFrAuQY6dmk8eS
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,6 +36,23 @@ effects:
         value: kh
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Foco em Perícia
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!2cbFrAuQY6dmk8eS.3fLe3yGCiGO4irCy'
 folder: NvFFFNI6JHPuMkck
 sort: 0
@@ -100,9 +115,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183302
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!2cbFrAuQY6dmk8eS'
 

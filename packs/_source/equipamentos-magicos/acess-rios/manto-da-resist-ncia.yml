@@ -3,10 +3,8 @@ name: Manto da Resistência
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/manto-da-resistencia.webp
 effects:
-  - label: Manto da Resistência
-    icon: systems/tormenta20/icons/itens/itens-magicos/manto-da-resistencia.webp
-    origin: Item.zPxlM4MNoKihGsDn
-    tint: '#FFFFFF'
+  - origin: Item.zPxlM4MNoKihGsDn
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto da Resistência
+    img: systems/tormenta20/icons/itens/itens-magicos/manto-da-resistencia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zPxlM4MNoKihGsDn.p3l6lvXx7HMjVtS0'
 folder: BgJUCrqjG6EVBIfP
 sort: 3400000
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000121
   modifiedTime: 1684623039339
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!zPxlM4MNoKihGsDn'
 

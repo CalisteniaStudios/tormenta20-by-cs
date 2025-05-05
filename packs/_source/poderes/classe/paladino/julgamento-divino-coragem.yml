@@ -3,10 +3,8 @@ name: 'Julgamento Divino: Coragem'
 type: poder
 img: systems/tormenta20/icons/classes/paladino.webp
 effects:
-  - label: 'Julgamento Divino: Coragem'
-    icon: systems/tormenta20/icons/classes/paladino.webp
-    origin: Item.Yc7FmnrnPx2bI5NT
-    tint: '#FFFFFF'
+  - origin: Item.Yc7FmnrnPx2bI5NT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Julgamento Divino: Coragem'
+    img: systems/tormenta20/icons/classes/paladino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Yc7FmnrnPx2bI5NT.K0neel18MUgoJQFE'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -103,9 +118,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184731
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Yc7FmnrnPx2bI5NT'
 

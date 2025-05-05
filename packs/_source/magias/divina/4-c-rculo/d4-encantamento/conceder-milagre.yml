@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o círculo da magia concedida para 3º e a penalidade de PM para –6.
     origin: Compendium.tormenta20.magias.ZwM3J3oEjFz8cCt0
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o círculo da magia concedida para 3º e a penalidade de PM para –6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZwM3J3oEjFz8cCt0.huOA1zSiiJL2Ffjv'
   - _id: JLj04JvTNJmckzGh
     changes: []
@@ -37,15 +52,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/conceder-milagre.webp
-    label: Conceder Milagre
     origin: Item.xoO82iq18dQtgham
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Conceder Milagre
+    img: systems/tormenta20/icons/magias/conceder-milagre.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZwM3J3oEjFz8cCt0.JLj04JvTNJmckzGh'
 folder: FtrjFKnA5K0Qkyqn
 sort: 0
@@ -109,9 +139,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462763
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ZwM3J3oEjFz8cCt0'
 

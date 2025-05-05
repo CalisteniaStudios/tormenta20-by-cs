@@ -52,8 +52,7 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Confuso
-    duration:
+  - duration:
       rounds: 999
       startTime: null
       seconds: null
@@ -61,7 +60,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/conditions/confuso.svg
     flags:
       core:
         statusId: confuso
@@ -74,17 +72,36 @@ effects:
     changes: []
     disabled: false
     origin: null
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Confuso
+    img: systems/tormenta20/icons/conditions/confuso.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8nFwKzbB32HSlNC5.yU7T8jfy826XrLMo'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.107
-  coreVersion: '10.290'
+  coreVersion: '13.342'
   createdTime: 1667028374851
   modifiedTime: 1668881767554
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 8nFwKzbB32HSlNC5
 folder: null
 sort: 0

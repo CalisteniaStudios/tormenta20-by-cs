@@ -3,10 +3,8 @@ name: Destruidor (Guerreiro)
 type: poder
 img: systems/tormenta20/icons/classes/guerreiro.webp
 effects:
-  - label: Destruidor
-    icon: icons/svg/upgrade.svg
-    origin: Item.t0v9j9yqXWssODlV
-    tint: '#FFFFFF'
+  - origin: Item.t0v9j9yqXWssODlV
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: r<3
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Destruidor
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tJ3oBwonUaC9sSXR.Cysm5KQGw2oQpNlY'
 folder: LJQ1SKk2Y0QmZI03
 sort: 0
@@ -96,9 +111,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185649
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!tJ3oBwonUaC9sSXR'
 

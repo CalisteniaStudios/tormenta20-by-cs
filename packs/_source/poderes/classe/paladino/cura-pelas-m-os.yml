@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a cura em +1d8+1.
     origin: Item.i5Yi4UGwwBnyjMUi
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a cura em +1d8+1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ROo7BuZfbxA21iz0.U6UMfdsWez2FOCIS'
   - _id: wRh3hr9WimqKEmXI
     flags:
@@ -62,13 +77,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.i5Yi4UGwwBnyjMUi
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       Anular condição (abalado, apavorado, atordoado, cego, doente, exausto,
       fatigado ou surdo).
-    origin: Item.i5Yi4UGwwBnyjMUi
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ROo7BuZfbxA21iz0.wRh3hr9WimqKEmXI'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -175,9 +205,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184300
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ROo7BuZfbxA21iz0'
 

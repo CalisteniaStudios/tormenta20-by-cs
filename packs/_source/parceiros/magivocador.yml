@@ -63,12 +63,8 @@ system:
   tags: []
   chatGif: ''
 effects:
-  - label: >-
-      Magivocador: o dano de suas magias aumenta em +1d4 se for iniciante, ou
-      +2d4 se for mestre.
-    icon: icons/svg/upgrade.svg
-    origin: Item.EBDU8TfXg0iVLvCT
-    tint: '#FFFFFF'
+  - origin: Item.EBDU8TfXg0iVLvCT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -99,13 +95,28 @@ effects:
         value: 1d4
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Magivocador: o dano de suas magias aumenta em +1d4 se for iniciante, ou
+      +2d4 se for mestre.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EBDU8TfXg0iVLvCT.wZ1Ro41vqj7GploK'
-  - label: >-
-      Magivocador: o dano de suas magias aumenta em +1d6 se for iniciante, ou
-      +2d6 se for mestre.
-    icon: icons/svg/upgrade.svg
-    origin: Item.EBDU8TfXg0iVLvCT
-    tint: '#FFFFFF'
+  - origin: Item.EBDU8TfXg0iVLvCT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -136,13 +147,28 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Magivocador: o dano de suas magias aumenta em +1d6 se for iniciante, ou
+      +2d6 se for mestre.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EBDU8TfXg0iVLvCT.8CQ3h2IajvHrSnYb'
-  - label: >-
-      Magivocador: o dano de suas magias aumenta em +1d8 se for iniciante, ou
-      +2d8 se for mestre.
-    icon: icons/svg/upgrade.svg
-    origin: Item.EBDU8TfXg0iVLvCT
-    tint: '#FFFFFF'
+  - origin: Item.EBDU8TfXg0iVLvCT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -173,13 +199,28 @@ effects:
         value: 1d8
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Magivocador: o dano de suas magias aumenta em +1d8 se for iniciante, ou
+      +2d8 se for mestre.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EBDU8TfXg0iVLvCT.Nspr5owZ6FpCoVeZ'
-  - label: >-
-      Magivocador: o dano de suas magias aumenta em +1d10 se for iniciante, ou
-      +2d10 se for mestre.
-    icon: icons/svg/upgrade.svg
-    origin: Item.EBDU8TfXg0iVLvCT
-    tint: '#FFFFFF'
+  - origin: Item.EBDU8TfXg0iVLvCT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -210,13 +251,28 @@ effects:
         value: 1d10
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Magivocador: o dano de suas magias aumenta em +1d10 se for iniciante, ou
+      +2d10 se for mestre.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EBDU8TfXg0iVLvCT.y0zrxJShyVVGWpWu'
-  - label: >-
-      Magivocador: o dano de suas magias aumenta em +1d12 se for iniciante, ou
-      +2d12 se for mestre.
-    icon: icons/svg/upgrade.svg
-    origin: Item.EBDU8TfXg0iVLvCT
-    tint: '#FFFFFF'
+  - origin: Item.EBDU8TfXg0iVLvCT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -247,13 +303,28 @@ effects:
         value: 1d12
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Magivocador: o dano de suas magias aumenta em +1d12 se for iniciante, ou
+      +2d12 se for mestre.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EBDU8TfXg0iVLvCT.u3gTkV1k8lj1GttV'
-  - label: >-
-      Magivocador Veterano: como acima, e a CD para resistir a suas magias
-      aumenta em +1.
-    icon: icons/svg/upgrade.svg
-    origin: Item.EBDU8TfXg0iVLvCT
-    tint: '#FFFFFF'
+  - origin: Item.EBDU8TfXg0iVLvCT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -284,11 +355,28 @@ effects:
         value: '1'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Magivocador Veterano: como acima, e a CD para resistir a suas magias
+      aumenta em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EBDU8TfXg0iVLvCT.zi4HsVUupDZQNV0d'
-  - label: Magivocador
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.EBDU8TfXg0iVLvCT
-    tint: '#FFFFFF'
+  - origin: Item.EBDU8TfXg0iVLvCT
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -305,15 +393,34 @@ effects:
     _id: aDt6ucvrUZPc0QBF
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Magivocador
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EBDU8TfXg0iVLvCT.aDt6ucvrUZPc0QBF'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663620833662
   modifiedTime: 1668270847525
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: EBDU8TfXg0iVLvCT
 folder: null
 sort: 0

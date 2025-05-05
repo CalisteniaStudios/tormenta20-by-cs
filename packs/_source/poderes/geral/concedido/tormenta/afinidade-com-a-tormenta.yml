@@ -18,8 +18,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Afinidade com a Tormenta
     origin: Item.E5nmNldWyeyk0421
     transfer: true
     flags:
@@ -35,7 +33,24 @@ effects:
         aumenta: false
         custo: ''
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Afinidade com a Tormenta
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!WHe196oPItMogDSE.fXmIUu9fBkcrHiUl'
 folder: HjhUvn5HZU3mYJoL
 sort: 100000
@@ -94,9 +109,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184720
   modifiedTime: 1684800472565
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!WHe196oPItMogDSE'
 

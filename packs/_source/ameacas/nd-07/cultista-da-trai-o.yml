@@ -62,10 +62,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Ataque Furtivo
-        icon: icons/svg/upgrade.svg
-        origin: Item.4o2kchrTeo495pRf
-        tint: '#FFFFFF'
+      - origin: Item.4o2kchrTeo495pRf
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -97,21 +95,39 @@ items:
             value: 2d6
             priority: 0
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Ataque Furtivo
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.zaS4yvszWuhJnPBD.Owew6Yq96mSBToyC
     sort: 300000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.4o2kchrTeo495pRf
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667020943966
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.4o2kchrTeo495pRf
+      duplicateSource: null
+      exportSource: null
     _id: zaS4yvszWuhJnPBD
     _key: '!actors.items!QmbDo3LPMBsBDcno.zaS4yvszWuhJnPBD'
   - folder: 0V7x5o397UvG3xKP
@@ -172,20 +188,21 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666319236120
       modifiedTime: 1667020943966
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: uJR0jBbCFbOnXYt2
     _key: '!actors.items!QmbDo3LPMBsBDcno.uJR0jBbCFbOnXYt2'
   - name: Olhar Atordoante
     type: poder
     img: systems/tormenta20/icons/racas/medusa.webp
     effects:
-      - label: Atordoado
-        icon: systems/tormenta20/icons/conditions/atordoado.svg
-        origin: Item.gzTi2g0xClcXNUA6
-        tint: '#FFFFFF'
+      - origin: Item.gzTi2g0xClcXNUA6
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -202,11 +219,26 @@ items:
         _id: TnXSqqNFVOJ9W9KA
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Atordoado
+        img: systems/tormenta20/icons/conditions/atordoado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.DKxOiJEylJzZ3bYU.TnXSqqNFVOJ9W9KA
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.poderes.gzTi2g0xClcXNUA6
+    flags: {}
     system:
       description:
         value: >-
@@ -257,10 +289,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664306185118
       modifiedTime: 1667020943968
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.poderes.gzTi2g0xClcXNUA6
+      duplicateSource: null
+      exportSource: null
     folder: hfNKKsaa2aVgydql
     sort: 0
     _id: DKxOiJEylJzZ3bYU
@@ -323,10 +358,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Veneno
-        icon: systems/tormenta20/icons/conditions/envenenado.svg
-        origin: Item.VWLwiM10pyEr7ZQq
-        tint: '#FFFFFF'
+      - origin: Item.VWLwiM10pyEr7ZQq
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -347,6 +380,23 @@ items:
             value: roll
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Veneno
+        img: systems/tormenta20/icons/conditions/envenenado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.W8OfYNgtIMplAmGM.KOklYtxVLCZmrIMF
     sort: 3500000
@@ -356,19 +406,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666320488703
       modifiedTime: 1667020943970
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: W8OfYNgtIMplAmGM
     _key: '!actors.items!QmbDo3LPMBsBDcno.W8OfYNgtIMplAmGM'
   - name: Adaga
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/adaga.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
+    flags: {}
     system:
       description:
         value: >-
@@ -529,10 +580,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772409
       modifiedTime: 1700237097110
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2000000
     _id: fei8hAVlerKZRsut
@@ -583,13 +637,28 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Item.N0VolSuZqafQ4qdh
+        tint: '#ffffff'
+        transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           aumenta o bônus em +1 (bônus máximo limitado pelo círculo máximo de
           magia que você pode lançar).
-        origin: Item.N0VolSuZqafQ4qdh
-        tint: null
-        transfer: false
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.zYMLsYG753jmRS9u.CsxccmtGU6cmoFwn
       - _id: 2B720KAGoTazOT5e
@@ -617,19 +686,32 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Item.N0VolSuZqafQ4qdh
+        tint: '#ffffff'
+        transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           a arma passa a causar +1d6 de dano de ácido, eletricidade, fogo ou
           frio, escolhido no momento em que a magia é lançada.
-        origin: Item.N0VolSuZqafQ4qdh
-        tint: null
-        transfer: false
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.zYMLsYG753jmRS9u.2B720KAGoTazOT5e
-      - label: Arma Mágica
-        icon: systems/tormenta20/icons/magias/arma-magica.webp
-        origin: Item.YDxLaaDhfXOkSfnF
-        tint: '#FFFFFF'
+      - origin: Item.YDxLaaDhfXOkSfnF
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -662,12 +744,27 @@ items:
             value: '1'
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Arma Mágica
+        img: systems/tormenta20/icons/magias/arma-magica.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.zYMLsYG753jmRS9u.QXpQiBZG50N99pgK
-      - label: Arma Mágica (dano elemental)
-        icon: systems/tormenta20/icons/magias/arma-magica.webp
-        origin: Item.YDxLaaDhfXOkSfnF
-        tint: '#FFFFFF'
+      - origin: Item.YDxLaaDhfXOkSfnF
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -692,11 +789,26 @@ items:
             value: 1d6
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Arma Mágica (dano elemental)
+        img: systems/tormenta20/icons/magias/arma-magica.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.zYMLsYG753jmRS9u.69s4V6bsQ6M8bgSR
-    flags:
-      core:
-        sourceId: Item.GHPogramaHOYtMYH
+    flags: {}
     system:
       description:
         value: >-
@@ -753,10 +865,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310462760
       modifiedTime: 1667020969248
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.GHPogramaHOYtMYH
+      duplicateSource: null
+      exportSource: null
     folder: rnbokzIN8YadzdmT
     sort: 0
     _key: '!actors.items!QmbDo3LPMBsBDcno.zYMLsYG753jmRS9u'
@@ -786,11 +901,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: muda o alvo para 1 criatura.
         origin: Compendium.tormenta20.magias.rjB5WyNkH0eInOGW
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: muda o alvo para 1 criatura.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.uAmsaSF5Jf3M775Y.goAzE0oaWGOVE9Gm
       - _id: UuprzsbsDv72xAxP
@@ -810,11 +940,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: aumenta a quantidade de alvos em +1
         origin: Compendium.tormenta20.magias.rjB5WyNkH0eInOGW
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: aumenta a quantidade de alvos em +1
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.uAmsaSF5Jf3M775Y.UuprzsbsDv72xAxP
       - _id: 18JDpeaGFnz9KNKz
@@ -828,20 +973,33 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/magias/comando.webp
-        label: Alvo Afetado
         origin: Item.XeTC7eLTsBnZ57CL
         transfer: false
         flags:
           tormenta20:
             onuse: false
             durationScene: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Alvo Afetado
+        img: systems/tormenta20/icons/magias/comando.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.uAmsaSF5Jf3M775Y.18JDpeaGFnz9KNKz
-    flags:
-      core:
-        sourceId: Item.DClEXhRqbdmK0hPw
+    flags: {}
     system:
       description:
         value: >-
@@ -920,10 +1078,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310462816
       modifiedTime: 1667020980997
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.DClEXhRqbdmK0hPw
+      duplicateSource: null
+      exportSource: null
     folder: 6gtpc5J2dUT6qGNG
     sort: 0
     _key: '!actors.items!QmbDo3LPMBsBDcno.uAmsaSF5Jf3M775Y'
@@ -953,13 +1114,28 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
-          muda o alvo para 1 morto-vivo. Em vez do normal, causa 1d8 pontos de
-          dano de luz (Vontade reduz à metade).
         origin: Compendium.tormenta20.magias.soVAGPRWQmKxOrPm
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
+          muda o alvo para 1 morto-vivo. Em vez do normal, causa 1d8 pontos de
+          dano de luz (Vontade reduz à metade).
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.KJi0Nb9mxWJSiCC6.E5Ynb8D45IFPkqGc
       - _id: T7W1dpep8KKLNdPQ
@@ -983,11 +1159,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: aumenta a cura em +1d8+1.
         origin: Compendium.tormenta20.magias.soVAGPRWQmKxOrPm
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: aumenta a cura em +1d8+1.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.KJi0Nb9mxWJSiCC6.T7W1dpep8KKLNdPQ
       - _id: xncd3c6sRimZD4nY
@@ -1007,11 +1198,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: também remove uma condição de fadiga do alvo.
         origin: Compendium.tormenta20.magias.soVAGPRWQmKxOrPm
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: também remove uma condição de fadiga do alvo.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.KJi0Nb9mxWJSiCC6.xncd3c6sRimZD4nY
       - _id: 8NiPKz2Ks17aIGcT
@@ -1035,11 +1241,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: muda o alcance para curto.
         origin: Compendium.tormenta20.magias.soVAGPRWQmKxOrPm
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: muda o alcance para curto.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.KJi0Nb9mxWJSiCC6.8NiPKz2Ks17aIGcT
       - _id: lcjBzJa7QT1xtM5I
@@ -1067,16 +1288,29 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: muda o alcance para curto e o alvo para criaturas escolhidas.
         origin: Compendium.tormenta20.magias.soVAGPRWQmKxOrPm
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: muda o alcance para curto e o alvo para criaturas escolhidas.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.KJi0Nb9mxWJSiCC6.lcjBzJa7QT1xtM5I
-    flags:
-      core:
-        sourceId: Item.galK4UUS6FxYz22S
+    flags: {}
     system:
       description:
         value: >-
@@ -1137,10 +1371,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310462822
       modifiedTime: 1667020985652
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.galK4UUS6FxYz22S
+      duplicateSource: null
+      exportSource: null
     folder: AOGmSz9kHvitzAbd
     sort: 0
     _key: '!actors.items!QmbDo3LPMBsBDcno.KJi0Nb9mxWJSiCC6'
@@ -1166,11 +1403,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: aumenta a área da escuridão em +1,5m de raio.
         origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: aumenta a área da escuridão em +1,5m de raio.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V.Uyu4cNLHEutbBxZP
       - _id: 0YqIyoJ2KmTHGJbz
@@ -1198,13 +1450,28 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
-          muda o efeito para fornecer camuflagem total por escuridão total. As
-          sombras bloqueiam a visão na área e através dela.
         origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
+          muda o efeito para fornecer camuflagem total por escuridão total. As
+          sombras bloqueiam a visão na área e através dela.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V.0YqIyoJ2KmTHGJbz
       - _id: e70zPpfkALuH0bfC
@@ -1228,11 +1495,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: muda a duração para 1 dia.
         origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: muda a duração para 1 dia.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V.e70zPpfkALuH0bfC
       - _id: 7bPquxwkzse2vRjB
@@ -1268,14 +1550,29 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda o alvo para 1 criatura e a resistência para Fortitude parcial.
           Você lança a magia nos olhos do alvo, que fica cego pela cena. Se
           passar na resistência, fica cego por 1 rodada. Requer 2º círculo.
-        origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V.7bPquxwkzse2vRjB
       - _id: FJgSE1Jwz7HbX1zB
@@ -1311,20 +1608,33 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda o alcance para pessoal e o alvo para você. Em vez do normal, você
           é coberto por sombras, recebendo +10 em testes de Furtividade e
           camuflagem leve. Requer 2º círculo.
-        origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V.FJgSE1Jwz7HbX1zB
-      - label: Cego (Aprimoramento de +2 PM)
-        icon: systems/tormenta20/icons/magias/escuridao.webp
-        origin: Item.Bt364TPpNUI1QVPP
-        tint: '#FFFFFF'
+      - origin: Item.Bt364TPpNUI1QVPP
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -1341,12 +1651,27 @@ items:
         _id: 41PPixuYXAVOp2FW
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Cego (Aprimoramento de +2 PM)
+        img: systems/tormenta20/icons/magias/escuridao.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V.41PPixuYXAVOp2FW
-      - label: Bônus em Furtividade (Aprimoramento de +5 PM)
-        icon: systems/tormenta20/icons/magias/escuridao.webp
-        origin: Item.Bt364TPpNUI1QVPP
-        tint: '#FFFFFF'
+      - origin: Item.Bt364TPpNUI1QVPP
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -1367,11 +1692,26 @@ items:
             value: '10'
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Bônus em Furtividade (Aprimoramento de +5 PM)
+        img: systems/tormenta20/icons/magias/escuridao.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V.l1QUv78abT0UKdX7
-    flags:
-      core:
-        sourceId: Item.mLpN1YhbKECOim6V
+    flags: {}
     system:
       description:
         value: >-
@@ -1431,10 +1771,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310461779
       modifiedTime: 1667020990712
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.mLpN1YhbKECOim6V
+      duplicateSource: null
+      exportSource: null
     folder: 4ssMHtvcpPinK0Zn
     sort: 0
     _key: '!actors.items!QmbDo3LPMBsBDcno.HrJfJffvmLfSSQ7V'
@@ -1471,11 +1814,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: aumenta o dano em +1d12.
         origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: aumenta o dano em +1d12.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.ccEfBDAfvUmJp4Qh.rUhHEtwTUVmlsDd2
       - _id: P4pirBwD7xETNzpw
@@ -1503,15 +1861,30 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda a resistência para Reflexos reduz à metade e o enxame para
           criaturas maiores, como gatos, guaxinins, compsognatos ou kobolds. Ele
           causa 3d12 pontos de dano (a sua escolha entre corte, impacto ou
           perfuração). O resto da magia segue normal.
-        origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.ccEfBDAfvUmJp4Qh.P4pirBwD7xETNzpw
       - _id: DHpBmH5U3daYrDVC
@@ -1531,13 +1904,28 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
-          aumenta o número de enxames em +1. Eles não podem ocupar o mesmo
-          espaço. Requer 3º círculo.
         origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
+          aumenta o número de enxames em +1. Eles não podem ocupar o mesmo
+          espaço. Requer 3º círculo.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.ccEfBDAfvUmJp4Qh.DHpBmH5U3daYrDVC
       - _id: ieUdi5tA1oF9QhoP
@@ -1565,20 +1953,33 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda a resistência para Reflexos reduz à metade e o enxame para
           criaturas elementais. Ele causa 5d12 pontos do dano (a sua escolha
           entre ácido, eletricidade, fogo ou frio). O resto da magia segue
           normal. Requer 4º círculo.
-        origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.ccEfBDAfvUmJp4Qh.ieUdi5tA1oF9QhoP
-    flags:
-      core:
-        sourceId: Item.4e59kyZdikq2FgSd
+    flags: {}
     system:
       description:
         value: >-
@@ -1645,10 +2046,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310461752
       modifiedTime: 1667020999220
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.4e59kyZdikq2FgSd
+      duplicateSource: null
+      exportSource: null
     folder: T3MhNgiDBZLDmmgC
     sort: 0
     _key: '!actors.items!QmbDo3LPMBsBDcno.ccEfBDAfvUmJp4Qh'
@@ -1698,17 +2102,32 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: >-
+        origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
+        transfer: false
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: >-
           muda o alcance para toque, a área para alvo (1 criatura com 0 PV ou
           menos), a duração para instantânea e a resistência para Fortitude
           anula. e adiciona componente material (pó de ônix no valor de T$ 10).
           Em vez do normal, você canaliza o Miasma contra uma vítima. Se falhar
           na resistência, ela morre e você recebe +2 na CD de suas magias por 1
           dia. Se passar, fica imune a este truque por um dia.
-        origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
-        transfer: false
-        tint: null
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.4VDUR5DwYQEw4vYq.fyrWEjDhKy6MU5of
       - _id: 1VEcwX3EAmPtckY8
@@ -1739,11 +2158,26 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: aumenta o dano em +1d6.
         origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: aumenta o dano em +1d6.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.4VDUR5DwYQEw4vYq.1VEcwX3EAmPtckY8
       - _id: 0jY8pxm5JZUViwRp
@@ -1763,16 +2197,29 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: icons/svg/upgrade.svg
-        label: muda o tipo do dano para trevas.
         origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
         transfer: false
-        tint: null
+        tint: '#ffffff'
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: muda o tipo do dano para trevas.
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!QmbDo3LPMBsBDcno.4VDUR5DwYQEw4vYq.0jY8pxm5JZUViwRp
-    flags:
-      core:
-        sourceId: Item.54dzN92Dt0iAl0tl
+    flags: {}
     system:
       description:
         value: >-
@@ -1836,10 +2283,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664310462767
       modifiedTime: 1667021028425
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.54dzN92Dt0iAl0tl
+      duplicateSource: null
+      exportSource: null
     folder: 4De0n0UokAPacrNK
     sort: 0
     _key: '!actors.items!QmbDo3LPMBsBDcno.4VDUR5DwYQEw4vYq'
@@ -1848,9 +2298,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/couraca.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.JVB4JAaxPjf0PFFN
+    flags: {}
     system:
       description:
         value: >-
@@ -1902,10 +2350,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772401
       modifiedTime: 1667021089375
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.JVB4JAaxPjf0PFFN
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 112500
     _key: '!actors.items!QmbDo3LPMBsBDcno.LKWo8YnW12nxjQSP'
@@ -1914,9 +2365,7 @@ items:
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/escudo-leve.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.0w1vZm2RGM40opxT
+    flags: {}
     system:
       description:
         value: >-
@@ -2005,10 +2454,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664312772389
       modifiedTime: 1667021088528
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.0w1vZm2RGM40opxT
+      duplicateSource: null
+      exportSource: null
     folder: rsvFZjPiYXV5s7IN
     sort: 103125
     _key: '!actors.items!QmbDo3LPMBsBDcno.s4GCPkFX0RNLfiNt'
@@ -2067,23 +2519,22 @@ items:
     sort: 0
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.GN5S9awu41thdvCn
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1665712733997
       modifiedTime: 1667021087839
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.GN5S9awu41thdvCn
+      duplicateSource: null
+      exportSource: null
     _id: 7aYbeLVBzYypdmlE
     _key: '!actors.items!QmbDo3LPMBsBDcno.7aYbeLVBzYypdmlE'
 effects:
-  - label: Ataque Furtivo
-    icon: icons/svg/upgrade.svg
-    origin: Actor.QmbDo3LPMBsBDcno.Item.zaS4yvszWuhJnPBD
-    tint: '#FFFFFF'
+  - origin: Actor.QmbDo3LPMBsBDcno.Item.zaS4yvszWuhJnPBD
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -2115,11 +2566,27 @@ effects:
         value: 2d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ataque Furtivo
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!QmbDo3LPMBsBDcno.Fw8Pi8birjOOE6Bc'
   - name: +5 Resistência a Veneno
-    icon: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -2135,9 +2602,6 @@ effects:
         items: Fortitude;Reflexos;Vontade
         aumenta: false
         custo: ''
-      core:
-        sourceId: >-
-          Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
     duration:
       startTime: 0
       seconds: null
@@ -2156,6 +2620,21 @@ effects:
     description: ''
     transfer: false
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: >-
+        Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!QmbDo3LPMBsBDcno.pfK7XpImWRWjLMEN'
 folder: V7cGpJ4M5tIhe0sM
 sort: 100001
@@ -2913,14 +3392,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/cultista-da-traicao.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -2934,12 +3419,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945953
   modifiedTime: 1700237097110
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!QmbDo3LPMBsBDcno'
 

@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de dados de auxílio em +1.
     origin: Compendium.tormenta20.magias.p6sWgQAgMD5Kp6EF
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de dados de auxílio em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!p6sWgQAgMD5Kp6EF.RDj6YcZ4urDG8acJ'
   - _id: 44JzTDSZZyNuJDQH
     flags:
@@ -43,13 +58,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      Muda os dados de auxílio para d12. Sempre que rolar um resultado 12 num
-      desses d12, a entidade "suga" 2 PM de você. Requer 4º círculo.
     origin: Compendium.tormenta20.magias.p6sWgQAgMD5Kp6EF
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Muda os dados de auxílio para d12. Sempre que rolar um resultado 12 num
+      desses d12, a entidade "suga" 2 PM de você. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!p6sWgQAgMD5Kp6EF.44JzTDSZZyNuJDQH'
   - _id: vQ3KCTv7rnUwKOtV
     changes: []
@@ -62,15 +92,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/contato-extraplanar.webp
-    label: Contato Extraplanar
     origin: Item.XD2xtNzDW8c7QK5n
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Contato Extraplanar
+    img: systems/tormenta20/icons/magias/contato-extraplanar.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!p6sWgQAgMD5Kp6EF.vQ3KCTv7rnUwKOtV'
 folder: bWjis0eO9VwrSHOj
 sort: 0
@@ -139,9 +184,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462813
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!p6sWgQAgMD5Kp6EF'
 

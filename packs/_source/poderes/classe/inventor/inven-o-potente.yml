@@ -17,8 +17,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Invenção potente
     origin: Item.BLNdDR80Xs02ocjo
     transfer: true
     flags:
@@ -35,7 +33,24 @@ effects:
         custo: '1'
         durationScene: false
         items: ''
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Invenção potente
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!siUgo1SjC1CbAAPr.OinaYpWMzsTEadNR'
 flags:
   scene-packer:
@@ -95,10 +110,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051645360
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: siUgo1SjC1CbAAPr
 folder: iHjbUWZ9cRzIVZ3E
 sort: 0

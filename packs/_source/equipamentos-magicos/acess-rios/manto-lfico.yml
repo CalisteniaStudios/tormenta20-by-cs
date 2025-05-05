@@ -3,10 +3,8 @@ name: Manto Élfico
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/manto-elfico.webp
 effects:
-  - label: Manto Élfico
-    icon: icons/svg/upgrade.svg
-    origin: Item.NvLnwQwZQlImALJq
-    tint: '#FFFFFF'
+  - origin: Item.NvLnwQwZQlImALJq
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,6 +36,23 @@ effects:
         value: '5'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto Élfico
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!NvLnwQwZQlImALJq.HJ3ddWTQLf8Spock'
 folder: BgJUCrqjG6EVBIfP
 sort: 4000000
@@ -101,9 +116,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000099
   modifiedTime: 1684623039339
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!NvLnwQwZQlImALJq'
 

@@ -18,8 +18,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Voadora
     origin: Compendium.tormenta20.poderes.0PPKBaYtiiMsKj0g
     transfer: true
     flags:
@@ -35,7 +33,24 @@ effects:
         aumenta: false
         custo: '2'
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Voadora
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0PPKBaYtiiMsKj0g.gPvalRP6e34Vc6IA'
   - _id: AtMq2fF2YMvWHHAy
     changes:
@@ -52,8 +67,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: 'Voadora: +1d6 pra cada 3m percorrido.'
     origin: Compendium.tormenta20.poderes.0PPKBaYtiiMsKj0g
     transfer: true
     flags:
@@ -70,7 +83,24 @@ effects:
         custo: ''
         durationScene: false
         items: ''
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Voadora: +1d6 pra cada 3m percorrido.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0PPKBaYtiiMsKj0g.AtMq2fF2YMvWHHAy'
 folder: csRpG81AedPycko0
 sort: 0
@@ -129,9 +159,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183281
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!0PPKBaYtiiMsKj0g'
 

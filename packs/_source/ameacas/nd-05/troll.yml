@@ -66,16 +66,17 @@ items:
     sort: 1000000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Actor.jS2c38gj0TLUuOgr.Item.2VY2rJ1zUIoCmake
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667022537094
       modifiedTime: 1667023934027
       lastModifiedBy: t20builder000000
+      compendiumSource: Actor.jS2c38gj0TLUuOgr.Item.2VY2rJ1zUIoCmake
+      duplicateSource: null
+      exportSource: null
     _id: zdQxCGcutbhhZGfH
     _key: '!actors.items!sZtq7Z3CrNz856BO.zdQxCGcutbhhZGfH'
   - folder: 38RRBscxCtcFC5s4
@@ -227,10 +228,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236968405
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 5wbhh4vyqNJXYIm5
     _key: '!actors.items!sZtq7Z3CrNz856BO.5wbhh4vyqNJXYIm5'
   - folder: 38RRBscxCtcFC5s4
@@ -382,10 +386,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236974758
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: cp3i4dKB7PGNNtXn
     _key: '!actors.items!sZtq7Z3CrNz856BO.cp3i4dKB7PGNNtXn'
 effects: []
@@ -1145,14 +1152,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/troll.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.3
     scaleY: 1.3
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1166,12 +1179,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946023
   modifiedTime: 1700236974758
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!sZtq7Z3CrNz856BO'
 

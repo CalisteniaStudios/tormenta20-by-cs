@@ -65,10 +65,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: 'Domínio de Terreno: Colina'
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.Rs60BNVuRq5v29on
-    tint: '#FFFFFF'
+  - origin: Item.Rs60BNVuRq5v29on
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -89,11 +87,26 @@ effects:
         value: '5'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Domínio de Terreno: Colina'
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rs60BNVuRq5v29on.TVFYksR4wfPEgFja'
-  - label: +2 em posições elevadas
-    icon: icons/svg/upgrade.svg
-    origin: Item.Rs60BNVuRq5v29on
-    tint: '#FFFFFF'
+  - origin: Item.Rs60BNVuRq5v29on
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -125,15 +138,34 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: +2 em posições elevadas
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Rs60BNVuRq5v29on.exMr9ksvqq6DXDPD'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665850170299
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: Rs60BNVuRq5v29on
 folder: CivN4iqFKpA5ogfm
 sort: 0

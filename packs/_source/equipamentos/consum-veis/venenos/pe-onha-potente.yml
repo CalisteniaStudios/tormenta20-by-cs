@@ -2,10 +2,8 @@ name: Peçonha Potente
 type: consumivel
 img: systems/tormenta20/icons/itens/gerais/veneno.webp
 effects:
-  - label: Peçonha Potente
-    icon: systems/tormenta20/icons/itens/gerais/veneno.webp
-    origin: Item.kmbfQJLBekZl3cNM
-    tint: '#FFFFFF'
+  - origin: Item.kmbfQJLBekZl3cNM
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,6 +20,23 @@ effects:
     _id: sO7OOuysiopAeD8d
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Peçonha Potente
+    img: systems/tormenta20/icons/itens/gerais/veneno.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!eei0UxgEGZ0rzqy4.sO7OOuysiopAeD8d'
 flags:
   scene-packer:
@@ -118,10 +133,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051720803
   modifiedTime: 1684618192491
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: eei0UxgEGZ0rzqy4
 folder: bxpHxgHjOuykr5Rh
 sort: 800000

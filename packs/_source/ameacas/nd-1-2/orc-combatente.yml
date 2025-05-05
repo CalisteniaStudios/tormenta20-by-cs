@@ -51,10 +51,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Ofuscado
-        icon: systems/tormenta20/icons/conditions/ofuscado.svg
-        origin: Item.SXWbxEA5WLMZoDAW
-        tint: '#FFFFFF'
+      - origin: Item.SXWbxEA5WLMZoDAW
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -71,6 +69,23 @@ items:
         _id: xh6WFU2ofZkMrjqo
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Ofuscado
+        img: systems/tormenta20/icons/conditions/ofuscado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!dqnErwWwqO3dmNyS.wlu9TOd3jEWAPjwL.xh6WFU2ofZkMrjqo
     sort: 0
@@ -80,19 +95,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321165760
       modifiedTime: 1667006186281
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: wlu9TOd3jEWAPjwL
     _key: '!actors.items!dqnErwWwqO3dmNyS.wlu9TOd3jEWAPjwL'
   - name: Maça
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/maca.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.FYDbB42HXoTetKnT
+    flags: {}
     system:
       description:
         value: >-
@@ -209,10 +225,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772397
       modifiedTime: 1700236103653
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.FYDbB42HXoTetKnT
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 1400000
     _id: bptEFXOt656Zx1yo
@@ -281,10 +300,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667006186285
       modifiedTime: 1667006186285
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: SDP6YMpfLrs3fgN9
     _key: '!actors.items!dqnErwWwqO3dmNyS.SDP6YMpfLrs3fgN9'
 effects: []
@@ -1044,14 +1066,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/orc.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.1
     scaleY: 1.1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1068,12 +1096,31 @@ prototypeToken:
       enabled: true
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945990
   modifiedTime: 1700236103653
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!dqnErwWwqO3dmNyS'
 

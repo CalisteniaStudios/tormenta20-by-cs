@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de mortos-vivos conjurados em +1.
     origin: Compendium.tormenta20.magias.5ZjS4bVvSxWNpBL9
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de mortos-vivos conjurados em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5ZjS4bVvSxWNpBL9.4qjvv6kmamN4fee7'
   - _id: NgMgwIWCx2QWJ9yq
     flags:
@@ -55,11 +70,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: em vez de esqueletos, conjura carniçais. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.5ZjS4bVvSxWNpBL9
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: em vez de esqueletos, conjura carniçais. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5ZjS4bVvSxWNpBL9.NgMgwIWCx2QWJ9yq'
   - _id: 4O6MhQ318Rz4ggO0
     flags:
@@ -90,11 +120,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: em vez de esqueletos, conjura sombras. Requer 4º círculo.
     origin: Compendium.tormenta20.magias.5ZjS4bVvSxWNpBL9
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: em vez de esqueletos, conjura sombras. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5ZjS4bVvSxWNpBL9.4O6MhQ318Rz4ggO0'
 folder: 7yssqJBhDFrqS4PK
 sort: 0
@@ -196,9 +241,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461760
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!5ZjS4bVvSxWNpBL9'
 

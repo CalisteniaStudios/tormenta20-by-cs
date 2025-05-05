@@ -95,10 +95,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477874
       modifiedTime: 1667017626922
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: fLrTOrcVfEABDcbN
     _key: '!actors.items!XxD1i2mq6QdiJmzP.fLrTOrcVfEABDcbN'
   - type: poder
@@ -167,10 +170,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477874
       modifiedTime: 1667018378235
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: qeQTpUD6Kixxwous
     _key: '!actors.items!XxD1i2mq6QdiJmzP.qeQTpUD6Kixxwous'
   - type: poder
@@ -240,10 +246,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477875
       modifiedTime: 1667018383834
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: VRjQZsBB6WlTcaah
     _key: '!actors.items!XxD1i2mq6QdiJmzP.VRjQZsBB6WlTcaah'
   - type: poder
@@ -311,10 +320,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477875
       modifiedTime: 1667018387170
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Ev84iq6B6bvRBwKv
     _key: '!actors.items!XxD1i2mq6QdiJmzP.Ev84iq6B6bvRBwKv'
   - type: poder
@@ -374,10 +386,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477876
       modifiedTime: 1667018369476
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 5XVsCVdDfL0OG8WG
     _key: '!actors.items!XxD1i2mq6QdiJmzP.5XVsCVdDfL0OG8WG'
   - type: poder
@@ -439,10 +454,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477876
       modifiedTime: 1667018437305
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: TLX9unucnb9Yxmf6
     _key: '!actors.items!XxD1i2mq6QdiJmzP.TLX9unucnb9Yxmf6'
   - type: poder
@@ -508,10 +526,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477878
       modifiedTime: 1667018601849
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 42QosFv9yTSEXLE8
     _key: '!actors.items!XxD1i2mq6QdiJmzP.42QosFv9yTSEXLE8'
   - type: poder
@@ -572,10 +593,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667017477879
       modifiedTime: 1667018652860
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Dyb99h9p99b1jnbd
     _key: '!actors.items!XxD1i2mq6QdiJmzP.Dyb99h9p99b1jnbd'
   - _id: WDCtZjkjFCUMIzJH
@@ -583,9 +607,7 @@ items:
     type: arma
     img: icons/environment/traps/saw-steel-grey.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.boM5sIgADaFaQ3xG
+    flags: {}
     system:
       description:
         value: >-
@@ -699,10 +721,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772410
       modifiedTime: 1700237016200
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.boM5sIgADaFaQ3xG
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 2300000
     _key: '!actors.items!XxD1i2mq6QdiJmzP.WDCtZjkjFCUMIzJH'
@@ -1462,14 +1487,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/engenho-de-guerra-goblin.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.5
     scaleY: 1.5
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1483,12 +1514,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945971
   modifiedTime: 1700237016200
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!XxD1i2mq6QdiJmzP'
 

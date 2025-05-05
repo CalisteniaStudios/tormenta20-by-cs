@@ -2,10 +2,8 @@ name: Ajudante
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: Ajudante
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.ROdJSxDCkvamfzX7
-    tint: '#FFFFFF'
+  - origin: Item.ROdJSxDCkvamfzX7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,11 +20,26 @@ effects:
     _id: C06goUbm1jgse6u7
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ajudante
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ROdJSxDCkvamfzX7.C06goUbm1jgse6u7'
-  - label: 'Ajudante Iniciante: Fornece +2 em duas perícias.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.ROdJSxDCkvamfzX7
-    tint: '#FFFFFF'
+  - origin: Item.ROdJSxDCkvamfzX7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -57,11 +70,26 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Ajudante Iniciante: Fornece +2 em duas perícias.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ROdJSxDCkvamfzX7.rtfkLSe3Z1nLfZQx'
-  - label: 'Ajudante Veterano: Fornece +2 em três perícias.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.ROdJSxDCkvamfzX7
-    tint: '#FFFFFF'
+  - origin: Item.ROdJSxDCkvamfzX7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -92,11 +120,26 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Ajudante Veterano: Fornece +2 em três perícias.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ROdJSxDCkvamfzX7.D8NFGf1P2stb8D4p'
-  - label: 'Ajudante Mestre: Fornece +4 em três perícias.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.ROdJSxDCkvamfzX7
-    tint: '#FFFFFF'
+  - origin: Item.ROdJSxDCkvamfzX7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -127,6 +170,23 @@ effects:
         value: '4'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Ajudante Mestre: Fornece +4 em três perícias.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ROdJSxDCkvamfzX7.iDaDrjYqP1X5B5Jb'
 flags:
   scene-packer:
@@ -200,10 +260,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847523
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: ROdJSxDCkvamfzX7
 folder: null
 sort: 0

@@ -2,10 +2,8 @@ name: Atirador
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: 'Atirador Iniciante: +1d6 em dano a distância.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.OvBibhyfED5HKbsz
-    tint: '#FFFFFF'
+  - origin: Item.OvBibhyfED5HKbsz
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -36,11 +34,26 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Atirador Iniciante: +1d6 em dano a distância.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!OvBibhyfED5HKbsz.aGKHyfe3ZIFotFPH'
-  - label: 'Atirador Veterano: +1d10 em dano a distância.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.OvBibhyfED5HKbsz
-    tint: '#FFFFFF'
+  - origin: Item.OvBibhyfED5HKbsz
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -71,11 +84,26 @@ effects:
         value: 1d10
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Atirador Veterano: +1d10 em dano a distância.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!OvBibhyfED5HKbsz.WqqplYGsgxfWlEgm'
-  - label: 'Atirador Mestre: +2d8 em dano a distância.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.OvBibhyfED5HKbsz
-    tint: '#FFFFFF'
+  - origin: Item.OvBibhyfED5HKbsz
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -106,6 +134,23 @@ effects:
         value: 2d8
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Atirador Mestre: +2d8 em dano a distância.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!OvBibhyfED5HKbsz.SBHFvdLgWNHSVRCs'
 flags:
   scene-packer:
@@ -175,10 +220,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847523
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: OvBibhyfED5HKbsz
 folder: null
 sort: 0

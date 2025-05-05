@@ -2,10 +2,8 @@ name: Cicuta
 type: consumivel
 img: systems/tormenta20/icons/itens/gerais/veneno.webp
 effects:
-  - label: Cicuta
-    icon: systems/tormenta20/icons/itens/gerais/veneno.webp
-    origin: Item.AR9UuAfq1S79LCKu
-    tint: '#FFFFFF'
+  - origin: Item.AR9UuAfq1S79LCKu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,6 +20,23 @@ effects:
     _id: 5XSvsZTSYDDlssKn
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cicuta
+    img: systems/tormenta20/icons/itens/gerais/veneno.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!AR9UuAfq1S79LCKu.5XSvsZTSYDDlssKn'
 flags:
   scene-packer:
@@ -119,10 +134,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051719095
   modifiedTime: 1684617298461
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: AR9UuAfq1S79LCKu
 folder: bxpHxgHjOuykr5Rh
 sort: 300000

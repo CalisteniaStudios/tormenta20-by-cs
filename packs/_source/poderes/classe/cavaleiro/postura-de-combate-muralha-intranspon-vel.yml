@@ -3,10 +3,8 @@ name: 'Postura de Combate: Muralha Intransponível'
 type: poder
 img: systems/tormenta20/icons/classes/cavaleiro.webp
 effects:
-  - label: Aumenta o bônus em defesa e reflexos em +1.
-    icon: icons/svg/upgrade.svg
-    origin: Item.PxKl5SUGcUONYet4
-    tint: '#FFFFFF'
+  - origin: Item.PxKl5SUGcUONYet4
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -41,11 +39,26 @@ effects:
         value: '1'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aumenta o bônus em defesa e reflexos em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PxKl5SUGcUONYet4.jB4gGBIl3szgqjy0'
-  - label: 'Postura de Combate: Muralha Intransponível'
-    icon: systems/tormenta20/icons/classes/cavaleiro.webp
-    origin: Item.PxKl5SUGcUONYet4
-    tint: '#FFFFFF'
+  - origin: Item.PxKl5SUGcUONYet4
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -70,6 +83,23 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Postura de Combate: Muralha Intransponível'
+    img: systems/tormenta20/icons/classes/cavaleiro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PxKl5SUGcUONYet4.cUmVp93D6cctDJOl'
 folder: FOdOQA7oDXTWqj5Z
 sort: 0
@@ -132,9 +162,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184260
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!PxKl5SUGcUONYet4'
 

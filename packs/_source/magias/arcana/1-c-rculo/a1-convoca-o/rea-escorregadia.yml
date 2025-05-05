@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a área em +1 quadrado de 1,5m.
     origin: Item.DDU9iwWVX0WUHyfO
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a área em +1 quadrado de 1,5m.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nJsZgECVcjg9jwCz.BZlhiAeHxvOEQedE'
   - _id: rxYgpqs7ve0xZ9J5
     flags:
@@ -53,11 +68,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a CD dos testes de Acrobacia para 15.
     origin: Item.DDU9iwWVX0WUHyfO
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a CD dos testes de Acrobacia para 15.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nJsZgECVcjg9jwCz.rxYgpqs7ve0xZ9J5'
   - _id: F8u49l0sz9ZpG7Lz
     flags:
@@ -75,11 +105,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a CD dos testes de Acrobacia para 20.
     origin: Item.DDU9iwWVX0WUHyfO
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a CD dos testes de Acrobacia para 20.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nJsZgECVcjg9jwCz.F8u49l0sz9ZpG7Lz'
 folder: XbLDNKDB9maFAhzw
 sort: 0
@@ -146,9 +191,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462809
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!nJsZgECVcjg9jwCz'
 

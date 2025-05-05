@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: aumenta o número de alvos em +1.
     origin: Item.UjPqDyQosaR9StGX
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +1.
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wXiJf2x05HqH5B6P.HVWDInqh2swfM9NB'
   - _id: Os1QpQXkllq68WBr
     flags:
@@ -82,15 +97,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.UjPqDyQosaR9StGX
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para toque e o alvo para 1 criatura. Em vez do normal, o
       alvo aumenta uma categoria de tamanho (seu equipamento se ajusta ao novo
       tamanho). O alvo também recebe Força +2. Um alvo involuntário pode fazer
       um teste de Fortitude para negar o efeito.
-    origin: Item.UjPqDyQosaR9StGX
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wXiJf2x05HqH5B6P.Os1QpQXkllq68WBr'
   - _id: oP2xU4GWsFT7QZAa
     flags:
@@ -137,15 +167,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.UjPqDyQosaR9StGX
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para toque e o alvo para 1 criatura. Em vez do normal, o
       alvo diminui uma categoria de tamanho (seu equipamento se ajusta ao novo
       tamanho). O alvo também recebe Destreza +2. Um alvo involuntário pode
       fazer um teste de Fortitude para negar o efeito. Requer 3º círculo.
-    origin: Item.UjPqDyQosaR9StGX
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wXiJf2x05HqH5B6P.oP2xU4GWsFT7QZAa'
   - _id: uurtgE1BFd5Jt342
     flags:
@@ -191,16 +236,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.UjPqDyQosaR9StGX
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para toque, o alvo para 1 criatura, a duração para
       permanente e a resistência para Fortitude anula. Em vez do normal, se
       falhar na resistência o alvo e seu equipamento têm seu tamanho mudado para
       Minúsculo. O alvo também tem seu valor de Força reduzido a 1 e suas formas
       de deslocamento reduzidas a 3m. Requer 4o círculo.
-    origin: Item.UjPqDyQosaR9StGX
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wXiJf2x05HqH5B6P.uurtgE1BFd5Jt342'
   - _id: JOgtB6qBRsJDTWGr
     flags:
@@ -221,11 +281,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/alterar-tamanho.webp
-    label: Tamanho Aumentado (Criatura)
     origin: Item.UjPqDyQosaR9StGX
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tamanho Aumentado (Criatura)
+    img: systems/tormenta20/icons/magias/alterar-tamanho.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wXiJf2x05HqH5B6P.JOgtB6qBRsJDTWGr'
   - _id: HLrhcQDKmFvW5e0k
     flags:
@@ -246,11 +321,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/alterar-tamanho.webp
-    label: Tamanho Reduzido (Criatura)
     origin: Item.UjPqDyQosaR9StGX
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tamanho Reduzido (Criatura)
+    img: systems/tormenta20/icons/magias/alterar-tamanho.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wXiJf2x05HqH5B6P.HLrhcQDKmFvW5e0k'
   - _id: nEUrBHlV305ewLqE
     changes:
@@ -287,15 +377,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/alterar-tamanho.webp
-    label: Alterar Tamanho (Minúsculo)
     origin: Item.Mx354sk6VPfY9hK8
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alterar Tamanho (Minúsculo)
+    img: systems/tormenta20/icons/magias/alterar-tamanho.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wXiJf2x05HqH5B6P.nEUrBHlV305ewLqE'
 folder: b44bXhHODNBi2LIx
 sort: 0
@@ -360,9 +465,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462901
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!wXiJf2x05HqH5B6P'
 

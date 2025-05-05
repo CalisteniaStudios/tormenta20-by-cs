@@ -2,12 +2,8 @@ name: Familiar Corvo
 type: poder
 img: systems/tormenta20/icons/classes/arcanista.webp
 effects:
-  - label: >-
-      Familiar Corvo: Você pode pagar +1PM para rolar dois dados e usar o melhor
-      resultado em um teste de misticismo ou vontade.
-    icon: icons/svg/upgrade.svg
-    origin: Item.wy59756oAHeyE3hu
-    tint: '#FFFFFF'
+  - origin: Item.wy59756oAHeyE3hu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,6 +34,25 @@ effects:
         value: kh
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Familiar Corvo: Você pode pagar +1PM para rolar dois dados e usar o melhor
+      resultado em um teste de misticismo ou vontade.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!j4pu8gttduL150Pp.pgiOeYq86CAfHGz2'
 flags: {}
 system:
@@ -107,10 +122,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183824
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: j4pu8gttduL150Pp
 folder: dB8yQeNYIsAMdhNN
 sort: 0

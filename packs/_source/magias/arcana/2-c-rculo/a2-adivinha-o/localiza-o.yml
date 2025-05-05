@@ -24,13 +24,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a área para alvo você. Em vez do normal, você sabe onde fica o norte
-      e recebe +5 em testes de Sobrevivência para se orientar.
     origin: Compendium.tormenta20.magias.KrorBYV7KV7jIC5c
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a área para alvo você. Em vez do normal, você sabe onde fica o norte
+      e recebe +5 em testes de Sobrevivência para se orientar.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KrorBYV7KV7jIC5c.bB48AzU3qOaJZex9'
   - _id: LxA6sgrwQlDFFLjc
     flags:
@@ -49,13 +64,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta a área em um fator de 10 (90m para 900m, 900m para 9km e assim por
-      diante).
     origin: Compendium.tormenta20.magias.KrorBYV7KV7jIC5c
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta a área em um fator de 10 (90m para 900m, 900m para 9km e assim por
+      diante).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KrorBYV7KV7jIC5c.LxA6sgrwQlDFFLjc'
   - _id: KrU6EdqdsNQ6nJ78
     changes:
@@ -72,15 +102,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/localizacao.webp
-    label: Localização (Truque)
     origin: Item.qsft67JawC3F2BK5
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Localização (Truque)
+    img: systems/tormenta20/icons/magias/localizacao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KrorBYV7KV7jIC5c.KrU6EdqdsNQ6nJ78'
 folder: 5rVbqxmmCk2RmOYE
 sort: 0
@@ -149,9 +194,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461823
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!KrorBYV7KV7jIC5c'
 

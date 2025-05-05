@@ -3,10 +3,8 @@ name: Magia Sagrada/Profana
 type: poder
 img: systems/tormenta20/icons/classes/clerigo.webp
 effects:
-  - label: Magia Sagrada/Profana
-    icon: icons/svg/upgrade.svg
-    origin: Item.LP0qBb4I92k2cpdK
-    tint: '#FFFFFF'
+  - origin: Item.LP0qBb4I92k2cpdK
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: VAaNWOwGbCOrnvYL
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Magia Sagrada/Profana
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LP0qBb4I92k2cpdK.VAaNWOwGbCOrnvYL'
 folder: RDLTxoI4mIyfR6dr
 sort: 0
@@ -91,9 +106,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184245
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!LP0qBb4I92k2cpdK'
 

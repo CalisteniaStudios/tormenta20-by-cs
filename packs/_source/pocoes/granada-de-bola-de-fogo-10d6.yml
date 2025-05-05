@@ -5,8 +5,7 @@ img: systems/tormenta20/icons/itens/itens-magicos/pocao-granada.webp
 effects: []
 folder: null
 sort: 0
-flags:
-  importid: X6EyqsY31em2AwHU
+flags: {}
 system:
   description:
     value: >-
@@ -87,9 +86,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007043
   modifiedTime: 1667351628036
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!uujNCTQJR9CjJg2N'
 

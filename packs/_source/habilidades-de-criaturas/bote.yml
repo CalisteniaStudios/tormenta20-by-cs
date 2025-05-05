@@ -48,10 +48,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Bote
-    icon: icons/svg/upgrade.svg
-    origin: Item.O33OJJxfLmdoYa33
-    tint: '#FFFFFF'
+  - origin: Item.O33OJJxfLmdoYa33
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -83,15 +81,34 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bote
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ULey4aDXMLnkrrrN.Q9Nx00b81V4boOgR'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615328
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: ULey4aDXMLnkrrrN
 folder: null
 sort: 0

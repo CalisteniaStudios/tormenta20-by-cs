@@ -66,10 +66,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Salto Oceânico
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.XPr7Dnh8MdN1yt7D
-    tint: '#FFFFFF'
+  - origin: Item.XPr7Dnh8MdN1yt7D
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -90,15 +88,34 @@ effects:
         value: '9'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Salto Oceânico
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!XPr7Dnh8MdN1yt7D.BqUMclJkyba1dY8e'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083101946
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: XPr7Dnh8MdN1yt7D
 folder: vsGbYK3LgW5Oreol
 sort: 0

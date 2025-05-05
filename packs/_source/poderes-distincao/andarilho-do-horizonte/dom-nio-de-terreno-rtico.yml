@@ -66,10 +66,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Resistência a Frio 5
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.bufHevMI7XFWfswW
-    tint: '#FFFFFF'
+  - origin: Item.bufHevMI7XFWfswW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -90,11 +88,26 @@ effects:
         value: '5'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Resistência a Frio 5
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bufHevMI7XFWfswW.HAOyVvVH9yT27Nuo'
-  - label: Causa 1d6 adicional
-    icon: icons/svg/upgrade.svg
-    origin: Item.bufHevMI7XFWfswW
-    tint: '#FFFFFF'
+  - origin: Item.bufHevMI7XFWfswW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -126,15 +139,34 @@ effects:
         value: 1d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Causa 1d6 adicional
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bufHevMI7XFWfswW.E5y1VYhEwtT5SN3E'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665850170299
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: bufHevMI7XFWfswW
 folder: CivN4iqFKpA5ogfm
 sort: 0

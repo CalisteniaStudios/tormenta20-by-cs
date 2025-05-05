@@ -29,11 +29,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: 'Romper Resistência: Ignora qualquer redução de dano de uma criatura.'
     origin: Item.8w40SHVBrgRtPF9h
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Romper Resistência: Ignora qualquer redução de dano de uma criatura.'
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EW5fZ2cxNfdIYE82.mADCYJY1erGUAdOK'
 folder: LJQ1SKk2Y0QmZI03
 sort: 0
@@ -91,9 +106,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183829
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!EW5fZ2cxNfdIYE82'
 

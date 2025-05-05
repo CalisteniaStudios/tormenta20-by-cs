@@ -3,10 +3,8 @@ name: Nome na Arena
 type: poder
 img: systems/tormenta20/icons/classes/lutador.webp
 effects:
-  - label: Nome na Arena
-    icon: systems/tormenta20/icons/classes/lutador.webp
-    origin: Item.blqTFW9pH3uDbeiL
-    tint: '#FFFFFF'
+  - origin: Item.blqTFW9pH3uDbeiL
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Nome na Arena
+    img: systems/tormenta20/icons/classes/lutador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!blqTFW9pH3uDbeiL.l4T93FArxqxdBPUv'
-  - label: Nome na Arena
-    icon: icons/svg/upgrade.svg
-    origin: Item.blqTFW9pH3uDbeiL
-    tint: '#FFFFFF'
+  - origin: Item.blqTFW9pH3uDbeiL
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -63,6 +76,23 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Nome na Arena
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!blqTFW9pH3uDbeiL.2miLP8DhWYLUBbvx'
 folder: csRpG81AedPycko0
 sort: 0
@@ -130,9 +160,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184741
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!blqTFW9pH3uDbeiL'
 

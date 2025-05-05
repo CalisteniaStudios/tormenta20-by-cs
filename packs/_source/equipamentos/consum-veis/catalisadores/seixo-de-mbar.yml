@@ -77,10 +77,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: 'Seixo de Âmbar: diminui o custo de magias de transmutação em -1PM'
-    icon: icons/svg/upgrade.svg
-    origin: Item.MT4QgnaAwWgr4pet
-    tint: '#FFFFFF'
+  - origin: Item.MT4QgnaAwWgr4pet
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -107,15 +105,34 @@ effects:
     _id: mhMNYFNWFT6UyhFS
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Seixo de Âmbar: diminui o custo de magias de transmutação em -1PM'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!I572hTLEprNdCPab.mhMNYFNWFT6UyhFS'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684618214792
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: I572hTLEprNdCPab
 folder: QiIu6dfsnRA5FIHj
 sort: 900000

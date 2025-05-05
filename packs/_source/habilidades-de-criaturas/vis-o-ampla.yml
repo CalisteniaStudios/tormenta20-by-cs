@@ -50,9 +50,8 @@ system:
   chatGif: ''
 effects:
   - name: Visão Ampla
-    icon: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
     origin: Compendium.tormenta20.habilidades-de-criaturas.Item.EIYfP5jU2e73gtyR
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -74,15 +73,31 @@ effects:
     description: ''
     transfer: true
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
+    type: base
+    system: {}
+    sort: 0
     _key: '!items.effects!EIYfP5jU2e73gtyR.hzHR5CmkAoSjbmwI'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1666320018824
   modifiedTime: 1700000199181
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: EIYfP5jU2e73gtyR
 folder: null
 sort: 0

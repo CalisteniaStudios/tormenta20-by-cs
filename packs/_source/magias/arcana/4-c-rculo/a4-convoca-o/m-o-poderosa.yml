@@ -33,11 +33,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano de impacto em +1d6+5.
     origin: Compendium.tormenta20.magias.FW1NLpibuEisXYw4
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano de impacto em +1d6+5.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FW1NLpibuEisXYw4.mIvHwDdM898hHwC8'
   - _id: nmvFzB6CBJipqrVb
     changes:
@@ -54,20 +69,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/mao-poderosa.webp
-    label: Mão Poderosa (Cobertura)
     origin: Item.h8ZfAbnNLMgdI8pq
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mão Poderosa (Cobertura)
+    img: systems/tormenta20/icons/magias/mao-poderosa.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FW1NLpibuEisXYw4.nmvFzB6CBJipqrVb'
-  - label: muda o bônus adicional em Misticismo para +20. Requer 5º círculo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.FW1NLpibuEisXYw4
-    tint: '#FFFFFF'
+  - origin: Item.FW1NLpibuEisXYw4
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -99,6 +127,23 @@ effects:
         value: ''
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o bônus adicional em Misticismo para +20. Requer 5º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FW1NLpibuEisXYw4.BQl1PHJe0AsvtKYZ'
 folder: SwSkQekDGTtZV4gB
 sort: 0
@@ -187,9 +232,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461808
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!FW1NLpibuEisXYw4'
 

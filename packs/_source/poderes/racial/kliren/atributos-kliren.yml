@@ -2,10 +2,8 @@ name: Atributos - Kliren
 type: poder
 img: systems/tormenta20/icons/racas/kliren.webp
 effects:
-  - label: Atributos - Kliren
-    icon: systems/tormenta20/icons/racas/kliren.webp
-    origin: Item.3AxwnpSAY02QAH7F
-    tint: '#FFFFFF'
+  - origin: Item.3AxwnpSAY02QAH7F
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -34,6 +32,23 @@ effects:
         value: '-1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Kliren
+    img: systems/tormenta20/icons/racas/kliren.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!19U3dH5XU1v2oPXO.2nJzMXR66rFZNrt0'
 flags: {}
 system:
@@ -88,10 +103,12 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185135
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: 6zI7CiCTyZW5lI4F
 sort: 0
 _id: 19U3dH5XU1v2oPXO

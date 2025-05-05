@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o efeito para afetar magias de até 3º círculo. Requer 4º círculo.
     origin: Compendium.tormenta20.magias.CuGpzSLGUTtD7TLq
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o efeito para afetar magias de até 3º círculo. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CuGpzSLGUTtD7TLq.ISjEFb9TeFb2uUPU'
   - _id: S0J0CYNGoCjJHcOH
     flags:
@@ -43,11 +58,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o efeito para afetar magias de até 4º círculo. Requer 5º círculo.
     origin: Compendium.tormenta20.magias.CuGpzSLGUTtD7TLq
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o efeito para afetar magias de até 4º círculo. Requer 5º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CuGpzSLGUTtD7TLq.S0J0CYNGoCjJHcOH'
   - _id: CO2kJY825WdCoBoQ
     changes: []
@@ -60,15 +90,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/globo-de-invulnerabilidade.webp
-    label: Globo de Invulnerabilidade
     origin: Item.W71RoPmLS4gyie1m
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Globo de Invulnerabilidade
+    img: systems/tormenta20/icons/magias/globo-de-invulnerabilidade.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CuGpzSLGUTtD7TLq.CO2kJY825WdCoBoQ'
 folder: uwdflCMp3DmBY55C
 sort: 0
@@ -141,9 +186,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461801
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!CuGpzSLGUTtD7TLq'
 

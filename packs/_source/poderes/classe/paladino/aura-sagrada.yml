@@ -18,15 +18,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/magic/light/explosion-beam-impact-silhouette.webp
-    label: Aura Sagrada
     origin: Compendium.tormenta20.poderes.VPLIpFxeBH3BYY2t
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aura Sagrada
+    img: icons/magic/light/explosion-beam-impact-silhouette.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VPLIpFxeBH3BYY2t.McoXxXzyeBzY2oXi'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -86,9 +101,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184712
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!VPLIpFxeBH3BYY2t'
 

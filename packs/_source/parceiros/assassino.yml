@@ -2,10 +2,8 @@ name: Assassino
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: 'Assassino Iniciante: Ataque Furtivo +1d6.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.BNhavlxkPCr8P4Vi
-    tint: '#FFFFFF'
+  - origin: Item.BNhavlxkPCr8P4Vi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -36,13 +34,26 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Assassino Iniciante: Ataque Furtivo +1d6.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BNhavlxkPCr8P4Vi.JrSMxQnTD6qJd9t2'
-  - label: >-
-      Assassino Veterano: Ataque Furtivo +1d6 e recebe o bônus de flanquear
-      contra um inimigo por rodada.
-    icon: icons/svg/upgrade.svg
-    origin: Item.BNhavlxkPCr8P4Vi
-    tint: '#FFFFFF'
+  - origin: Item.BNhavlxkPCr8P4Vi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -77,13 +88,28 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Assassino Veterano: Ataque Furtivo +1d6 e recebe o bônus de flanquear
+      contra um inimigo por rodada.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BNhavlxkPCr8P4Vi.rZhb3HeR5I9Z8TUE'
-  - label: >-
-      Assassino Mestre: Ataque Furtivo +2d6 e recebe o bônus de flanquear contra
-      um inimigo por rodada.
-    icon: icons/svg/upgrade.svg
-    origin: Item.BNhavlxkPCr8P4Vi
-    tint: '#FFFFFF'
+  - origin: Item.BNhavlxkPCr8P4Vi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -118,6 +144,25 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Assassino Mestre: Ataque Furtivo +2d6 e recebe o bônus de flanquear contra
+      um inimigo por rodada.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BNhavlxkPCr8P4Vi.6RK2uZN4xhG3eyow'
 flags:
   scene-packer:
@@ -196,10 +241,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847523
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: BNhavlxkPCr8P4Vi
 folder: null
 sort: 0

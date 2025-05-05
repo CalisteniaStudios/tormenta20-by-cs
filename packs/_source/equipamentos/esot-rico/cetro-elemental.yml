@@ -2,10 +2,8 @@ name: Cetro Elemental
 type: equipamento
 img: systems/tormenta20/icons/itens/gerais/cetro-elemental.webp
 effects:
-  - label: 'Cetro Elemental: 1d4.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.Ye9upc42yVz6pHwH
-    tint: '#FFFFFF'
+  - origin: Item.Ye9upc42yVz6pHwH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -36,11 +34,26 @@ effects:
         value: 1d4
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Cetro Elemental: 1d4.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ye9upc42yVz6pHwH.eHWCJclZDfxaVxFQ'
-  - label: 'Cetro Elemental: 1d6.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.Ye9upc42yVz6pHwH
-    tint: '#FFFFFF'
+  - origin: Item.Ye9upc42yVz6pHwH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -71,11 +84,26 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Cetro Elemental: 1d6.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ye9upc42yVz6pHwH.VNJPI930pkZmLABu'
-  - label: 'Cetro Elemental: 1d8.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.Ye9upc42yVz6pHwH
-    tint: '#FFFFFF'
+  - origin: Item.Ye9upc42yVz6pHwH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -106,11 +134,26 @@ effects:
         value: 1d8
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Cetro Elemental: 1d8.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ye9upc42yVz6pHwH.aNBrT2QMSchRkluT'
-  - label: 'Cetro Elemental: 1d10.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.Ye9upc42yVz6pHwH
-    tint: '#FFFFFF'
+  - origin: Item.Ye9upc42yVz6pHwH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -141,11 +184,26 @@ effects:
         value: 1d10
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Cetro Elemental: 1d10.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ye9upc42yVz6pHwH.ooh0MRqnyTqqzM9c'
-  - label: 'Cetro Elemental: 1d12.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.Ye9upc42yVz6pHwH
-    tint: '#FFFFFF'
+  - origin: Item.Ye9upc42yVz6pHwH
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -176,6 +234,23 @@ effects:
         value: 1d12
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Cetro Elemental: 1d12.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Ye9upc42yVz6pHwH.tJ8agVURwnDzSkqk'
 flags: {}
 system:
@@ -234,10 +309,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663377681721
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: Ye9upc42yVz6pHwH
 folder: q5xr48fQpaZDdVTn
 sort: 150000

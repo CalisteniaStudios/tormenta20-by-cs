@@ -66,16 +66,17 @@ items:
     sort: 1000000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Actor.jS2c38gj0TLUuOgr.Item.2VY2rJ1zUIoCmake
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667022537094
       modifiedTime: 1667023954140
       lastModifiedBy: t20builder000000
+      compendiumSource: Actor.jS2c38gj0TLUuOgr.Item.2VY2rJ1zUIoCmake
+      duplicateSource: null
+      exportSource: null
     _id: MBEoNMWEv0iXgS7W
     _key: '!actors.items!uHqdtkwqOOoYidcu.MBEoNMWEv0iXgS7W'
   - folder: 38RRBscxCtcFC5s4
@@ -227,10 +228,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236862653
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: M2VayyvM00xGzK6o
     _key: '!actors.items!uHqdtkwqOOoYidcu.M2VayyvM00xGzK6o'
   - folder: 38RRBscxCtcFC5s4
@@ -382,10 +386,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236851418
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: gy8z2yRYVDzPtKsH
     _key: '!actors.items!uHqdtkwqOOoYidcu.gy8z2yRYVDzPtKsH'
   - _id: G64E2wq2VkewwHbR
@@ -412,16 +419,29 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        icon: systems/tormenta20/icons/racas/minotauro.webp
-        label: Couro Rígido
         origin: Item.cAgtUX9ZbywfYglb
-        tint: null
+        tint: '#ffffff'
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Couro Rígido
+        img: systems/tormenta20/icons/racas/minotauro.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!uHqdtkwqOOoYidcu.G64E2wq2VkewwHbR.XPsrEWslVy1Mnx3I
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.poderes.R4mqRNcLHRzrqLly
+    flags: {}
     system:
       description:
         value: >-
@@ -474,10 +494,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664306184299
       modifiedTime: 1667023255592
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.poderes.R4mqRNcLHRzrqLly
+      duplicateSource: null
+      exportSource: null
     folder: jHyUNBBOmmYmzKuh
     sort: 0
     _key: '!actors.items!uHqdtkwqOOoYidcu.G64E2wq2VkewwHbR'
@@ -534,10 +557,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Ofuscado
-        icon: systems/tormenta20/icons/conditions/ofuscado.svg
-        origin: Item.SXWbxEA5WLMZoDAW
-        tint: '#FFFFFF'
+      - origin: Item.SXWbxEA5WLMZoDAW
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -554,21 +575,39 @@ items:
         _id: xh6WFU2ofZkMrjqo
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Ofuscado
+        img: systems/tormenta20/icons/conditions/ofuscado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!uHqdtkwqOOoYidcu.cXN2I9tKGhm4SxjT.xh6WFU2ofZkMrjqo
     sort: 3800000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.SXWbxEA5WLMZoDAW
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321165760
       modifiedTime: 1667023325152
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.SXWbxEA5WLMZoDAW
+      duplicateSource: null
+      exportSource: null
     _id: cXN2I9tKGhm4SxjT
     _key: '!actors.items!uHqdtkwqOOoYidcu.cXN2I9tKGhm4SxjT'
 effects: []
@@ -1328,14 +1367,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/troll-subterraneo.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.2
     scaleY: 1.2
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1349,12 +1394,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946027
   modifiedTime: 1700236862653
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!uHqdtkwqOOoYidcu'
 

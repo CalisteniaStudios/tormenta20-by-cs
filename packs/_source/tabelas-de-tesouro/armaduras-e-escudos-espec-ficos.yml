@@ -4,189 +4,320 @@ img: icons/svg/d20-grey.svg
 results:
   - _id: OCpYgOYCbmZktTPz
     flags: {}
-    type: 2
-    text: Cota Élfica
+    type: document
     img: systems/tormenta20/icons/itens/cota-elfica.webp
     weight: 1
     range:
       - 1
       - 10
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: s3q5ZBqb0BoRpeSq
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cota Élfica
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.s3q5ZBqb0BoRpeSq
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.OCpYgOYCbmZktTPz'
   - _id: LKubhwPWOMHVJo4c
     flags: {}
-    type: 2
-    text: Couro de Monstro
+    type: document
     img: systems/tormenta20/icons/itens/couro-de-monstro.webp
     weight: 1
     range:
       - 11
       - 20
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: GIW26oN36GYT1UNX
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Couro de Monstro
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.GIW26oN36GYT1UNX
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.LKubhwPWOMHVJo4c'
   - _id: Uc0S7GkV7R6m5VJJ
     flags: {}
-    type: 2
-    text: Escudo do Conjurador
+    type: document
     img: systems/tormenta20/icons/itens/escudo-do-conjurador.webp
     weight: 1
     range:
       - 21
       - 25
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: 34ZGhD61vaoBYaZD
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo do Conjurador
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.34ZGhD61vaoBYaZD
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.Uc0S7GkV7R6m5VJJ'
   - _id: w7RmUoprIFaQeq0n
     flags: {}
-    type: 2
-    text: Loriga do Centurião
+    type: document
     img: systems/tormenta20/icons/itens/loriga-do-centuriao.webp
     weight: 1
     range:
       - 26
       - 32
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: Ki19ctJh88ucznGW
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Loriga do Centurião
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.Ki19ctJh88ucznGW
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.w7RmUoprIFaQeq0n'
   - _id: bk08jQMKIDctQkZo
     flags: {}
-    type: 2
-    text: Manto da Noite
+    type: document
     img: systems/tormenta20/icons/itens/manto-da-noite.webp
     weight: 1
     range:
       - 33
       - 42
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: BfZoAqLXeM2mBUfi
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto da Noite
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.BfZoAqLXeM2mBUfi
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.bk08jQMKIDctQkZo'
   - _id: qxBLRugAnQlv7BAI
     flags: {}
-    type: 2
-    text: Couraça do Comando
+    type: document
     img: systems/tormenta20/icons/itens/couraca-do-comando.webp
     weight: 1
     range:
       - 43
       - 49
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: MGQyoR2Jm9Db6sP2
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Couraça do Comando
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.MGQyoR2Jm9Db6sP2
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.qxBLRugAnQlv7BAI'
   - _id: 7p67h1mEgQKAqhSd
     flags: {}
-    type: 2
-    text: Baluarte Anão
+    type: document
     img: systems/tormenta20/icons/itens/baluarte-anao.webp
     weight: 1
     range:
       - 50
       - 59
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: AUDPOjclJNiX4Xlm
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Baluarte Anão
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.AUDPOjclJNiX4Xlm
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.7p67h1mEgQKAqhSd'
   - _id: 1PhXecX4An77lZaT
     flags: {}
-    type: 2
-    text: Escudo Espinhoso
+    type: document
     img: systems/tormenta20/icons/itens/escudo-espinhoso.webp
     weight: 1
     range:
       - 60
       - 66
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: bdKVwpmbKOOjF7gO
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo Espinhoso
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.bdKVwpmbKOOjF7gO
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.1PhXecX4An77lZaT'
   - _id: ZxQqyiaOE0eLHvGH
     flags: {}
-    type: 2
-    text: Escudo do Leão
+    type: document
     img: systems/tormenta20/icons/itens/escudo-do-leao.webp
     weight: 1
     range:
       - 67
       - 76
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: kAGIu4l3y638MMUv
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo do Leão
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.kAGIu4l3y638MMUv
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.ZxQqyiaOE0eLHvGH'
   - _id: snODh6N6m4XbNovE
     flags: {}
-    type: 2
-    text: Carapaça Demoníaca
+    type: document
     img: systems/tormenta20/icons/itens/carapaca-demoniaca.webp
     weight: 1
     range:
       - 77
       - 83
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: R5crK6nqk3zwOjiz
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Carapaça Demoníaca
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.R5crK6nqk3zwOjiz
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.snODh6N6m4XbNovE'
   - _id: Fg7cg0je1IxgvXdC
     flags: {}
-    type: 2
-    text: Escudo do Eclipse
+    type: document
     img: systems/tormenta20/icons/itens/escudo-do-eclipse.webp
     weight: 1
     range:
       - 84
       - 88
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: Z6LZT0QE6N1XrJ5u
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo do Eclipse
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.Z6LZT0QE6N1XrJ5u
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.Fg7cg0je1IxgvXdC'
   - _id: tUyEukco5Z1EUp2k
     flags: {}
-    type: 2
-    text: Escudo do Deus-Sol
+    type: document
     img: systems/tormenta20/icons/itens/escudo-do-deus-sol.webp
     weight: 1
     range:
       - 89
       - 93
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: kWyrsaHHLRoujCLC
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo do Deus-Sol
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.kWyrsaHHLRoujCLC
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.tUyEukco5Z1EUp2k'
   - _id: gUC2FHzTflSj2LDf
     flags: {}
-    type: 2
-    text: Armadura da Luz
+    type: document
     img: systems/tormenta20/icons/itens/armadura-da-luz.webp
     weight: 1
     range:
       - 94
       - 100
     drawn: false
-    documentCollection: tormenta20.equipamentos-magicos
-    documentId: cwlpIzSBlx11nMmi
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Armadura da Luz
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.cwlpIzSBlx11nMmi
+    description: ''
     _key: '!tables.results!ouaQ7L3Dz20F5ykb.gUC2FHzTflSj2LDf'
 formula: 1d100
 replacement: true
 displayRoll: true
 folder: null
 sort: 0
-flags:
-  importid: DpsEOC6OLZ8IwyEh
+flags: {}
 ownership:
   default: 0
 description: ''
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664312665202
   modifiedTime: 1667354515225
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!tables!ouaQ7L3Dz20F5ykb'
 

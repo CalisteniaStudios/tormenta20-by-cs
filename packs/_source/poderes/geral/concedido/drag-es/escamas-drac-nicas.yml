@@ -3,10 +3,8 @@ name: Escamas Dracônicas
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-dragoes.webp
 effects:
-  - label: Escamas Dracônicas
-    icon: systems/tormenta20/icons/poderes/concedidos-dragoes.webp
-    origin: Item.r0a9VM16j4AsNZbk
-    tint: '#FFFFFF'
+  - origin: Item.r0a9VM16j4AsNZbk
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -31,6 +29,23 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escamas Dracônicas
+    img: systems/tormenta20/icons/poderes/concedidos-dragoes.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!r0a9VM16j4AsNZbk.WB9H0knOpUFPdK0e'
 folder: t8DbsNWc3FwYHBH9
 sort: 0
@@ -87,9 +102,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185217
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!r0a9VM16j4AsNZbk'
 

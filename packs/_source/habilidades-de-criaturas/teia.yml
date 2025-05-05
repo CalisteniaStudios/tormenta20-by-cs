@@ -59,10 +59,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Enredado
-    icon: systems/tormenta20/icons/conditions/enredado.svg
-    origin: Item.UCOzV7zIZNWvLdLs
-    tint: '#FFFFFF'
+  - origin: Item.UCOzV7zIZNWvLdLs
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -79,15 +77,34 @@ effects:
     _id: a2DxStRvYcgCCdko
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Enredado
+    img: systems/tormenta20/icons/conditions/enredado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UCOzV7zIZNWvLdLs.a2DxStRvYcgCCdko'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615333
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: UCOzV7zIZNWvLdLs
 folder: null
 sort: 0

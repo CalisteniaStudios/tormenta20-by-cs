@@ -3,12 +3,8 @@ name: Envolto em Mistério
 type: poder
 img: systems/tormenta20/icons/classes/arcanista.webp
 effects:
-  - label: >-
-      Envolto em Mistério: +5 em Enganação e Intimidação contra pessoas não
-      treinadas em Conhecimento ou Misticismo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.uXk6rhfWY8K5lrx1
-    tint: '#FFFFFF'
+  - origin: Item.uXk6rhfWY8K5lrx1
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -39,6 +35,25 @@ effects:
         value: '5'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Envolto em Mistério: +5 em Enganação e Intimidação contra pessoas não
+      treinadas em Conhecimento ou Misticismo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!uXk6rhfWY8K5lrx1.latw9e6TGShNQvTb'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
@@ -104,9 +119,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185653
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!uXk6rhfWY8K5lrx1'
 

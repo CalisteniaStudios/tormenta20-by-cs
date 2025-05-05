@@ -22,8 +22,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumentar ataque e dano em +2.
     origin: Item.XnTPGRkEg5JUsncv
     transfer: true
     flags:
@@ -39,7 +37,24 @@ effects:
         aumenta: true
         custo: ''
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumentar ataque e dano em +2.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!l1sxTDhlFIItdE6s.wRJFccXBx9DTCvXe'
 folder: csRpG81AedPycko0
 sort: 0
@@ -99,9 +114,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185139
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!l1sxTDhlFIItdE6s'
 

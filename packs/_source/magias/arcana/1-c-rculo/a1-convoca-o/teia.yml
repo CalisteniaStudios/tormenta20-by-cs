@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: além do normal, criaturas que falhem na resistência também ficam imóveis.
     origin: Compendium.tormenta20.magias.tMZhHyjssqzaEe1L
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: além do normal, criaturas que falhem na resistência também ficam imóveis.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tMZhHyjssqzaEe1L.a0waZ2BosDxhayOq'
   - _id: SotOlvQ7cLawscaR
     flags:
@@ -43,13 +58,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, no início de seus turnos a magia afeta novamente qualquer
-      criatura na área, exigindo um novo teste de Reflexos. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.tMZhHyjssqzaEe1L
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, no início de seus turnos a magia afeta novamente qualquer
+      criatura na área, exigindo um novo teste de Reflexos. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tMZhHyjssqzaEe1L.SotOlvQ7cLawscaR'
   - _id: g5ncZPJA0OvT4dx2
     flags:
@@ -68,11 +98,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a área em +1 cubo de 1,5m.
     origin: Compendium.tormenta20.magias.tMZhHyjssqzaEe1L
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a área em +1 cubo de 1,5m.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tMZhHyjssqzaEe1L.g5ncZPJA0OvT4dx2'
 folder: XbLDNKDB9maFAhzw
 sort: 0
@@ -142,9 +187,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462825
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!tMZhHyjssqzaEe1L'
 

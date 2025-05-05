@@ -3,10 +3,8 @@ name: Tomo da Compreensão
 type: tesouro
 img: systems/tormenta20/icons/itens/itens-magicos/tomo-da-compreensao.webp
 effects:
-  - label: Tomo da Compreensão
-    icon: systems/tormenta20/icons/itens/itens-magicos/tomo-da-compreensao.webp
-    origin: Item.z8YmxSob2luUuWeM
-    tint: '#FFFFFF'
+  - origin: Item.z8YmxSob2luUuWeM
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tomo da Compreensão
+    img: systems/tormenta20/icons/itens/itens-magicos/tomo-da-compreensao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!z8YmxSob2luUuWeM.JaePVlVXVqaZwpNq'
 folder: BgJUCrqjG6EVBIfP
 sort: 4296875
@@ -98,9 +113,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000121
   modifiedTime: 1684623049250
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!z8YmxSob2luUuWeM'
 

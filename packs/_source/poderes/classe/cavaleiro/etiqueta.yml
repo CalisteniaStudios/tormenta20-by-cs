@@ -3,10 +3,8 @@ name: Etiqueta
 type: poder
 img: systems/tormenta20/icons/classes/cavaleiro.webp
 effects:
-  - label: Etiqueta - Diplomacia
-    icon: systems/tormenta20/icons/classes/cavaleiro.webp
-    origin: Item.jk2rvo8wHDXhDuEm
-    tint: '#FFFFFF'
+  - origin: Item.jk2rvo8wHDXhDuEm
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Etiqueta - Diplomacia
+    img: systems/tormenta20/icons/classes/cavaleiro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!jk2rvo8wHDXhDuEm.zG4W0d7lLCniHMmh'
-  - label: Etiqueta - Nobreza
-    icon: systems/tormenta20/icons/classes/cavaleiro.webp
-    origin: Item.jk2rvo8wHDXhDuEm
-    tint: '#FFFFFF'
+  - origin: Item.jk2rvo8wHDXhDuEm
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -52,6 +65,23 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Etiqueta - Nobreza
+    img: systems/tormenta20/icons/classes/cavaleiro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!jk2rvo8wHDXhDuEm.ioZVEDsQ5B3TvBcG'
 folder: FOdOQA7oDXTWqj5Z
 sort: 0
@@ -112,9 +142,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185131
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!jk2rvo8wHDXhDuEm'
 

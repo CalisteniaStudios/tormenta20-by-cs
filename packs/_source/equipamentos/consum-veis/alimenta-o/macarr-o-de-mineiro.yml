@@ -3,10 +3,8 @@ name: Macarrão de Mineiro
 type: consumivel
 img: systems/tormenta20/icons/itens/gerais/macarrao-de-mineiro.webp
 effects:
-  - label: Macarrão de Mineiro
-    icon: icons/consumables/food/pot-soup-white.webp
-    origin: Item.TUM3FVy5jefA7T9h
-    tint: '#FFFFFF'
+  - origin: Item.TUM3FVy5jefA7T9h
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: jWGo8qEHzY59JNop
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Macarrão de Mineiro
+    img: icons/consumables/food/pot-soup-white.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!qOJQpsOhHltX2BUZ.jWGo8qEHzY59JNop'
 folder: sO4Gcu7Fm1dJ1sxI
 sort: 400000
@@ -110,9 +125,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684617796296
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!qOJQpsOhHltX2BUZ'
 

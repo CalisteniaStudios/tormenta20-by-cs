@@ -2,10 +2,8 @@ name: Vigilante
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: Vigilante Iniciante
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.DpTB2ElpvJ9mK0Bn
-    tint: '#FFFFFF'
+  - origin: Item.DpTB2ElpvJ9mK0Bn
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -30,11 +28,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vigilante Iniciante
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!DpTB2ElpvJ9mK0Bn.EDkAN01a8pBQuzzc'
-  - label: Vigilante Veterano
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.DpTB2ElpvJ9mK0Bn
-    tint: '#FFFFFF'
+  - origin: Item.DpTB2ElpvJ9mK0Bn
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -51,11 +64,26 @@ effects:
     _id: 26d74R5A8kJ23gRF
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vigilante Veterano
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!DpTB2ElpvJ9mK0Bn.26d74R5A8kJ23gRF'
-  - label: Vigilante Mestre
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.DpTB2ElpvJ9mK0Bn
-    tint: '#FFFFFF'
+  - origin: Item.DpTB2ElpvJ9mK0Bn
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -72,6 +100,23 @@ effects:
     _id: l3HTmKDlPQazjYWp
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vigilante Mestre
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!DpTB2ElpvJ9mK0Bn.l3HTmKDlPQazjYWp'
 flags:
   scene-packer:
@@ -141,10 +186,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847527
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: DpTB2ElpvJ9mK0Bn
 folder: null
 sort: 0

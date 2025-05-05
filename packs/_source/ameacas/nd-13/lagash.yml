@@ -53,10 +53,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Agarrado
-        icon: systems/tormenta20/icons/conditions/agarrado.svg
-        origin: Item.uor3YTotDJ33vJYN
-        tint: '#FFFFFF'
+      - origin: Item.uor3YTotDJ33vJYN
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -73,6 +71,23 @@ items:
         _id: HCAeH9qNn5spTyZS
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Agarrado
+        img: systems/tormenta20/icons/conditions/agarrado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!dtqJL9MBvKQun2LL.KOisBZd1JasAHA26.HCAeH9qNn5spTyZS
     sort: 200000
@@ -82,10 +97,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667021555205
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: KOisBZd1JasAHA26
     _key: '!actors.items!dtqJL9MBvKQun2LL.KOisBZd1JasAHA26'
   - type: poder
@@ -153,10 +171,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667021555206
       modifiedTime: 1667021624460
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: B1UOqENPEgGQGCxT
     _key: '!actors.items!dtqJL9MBvKQun2LL.B1UOqENPEgGQGCxT'
   - type: poder
@@ -229,10 +250,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667021555206
       modifiedTime: 1667021672239
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: nnUDYToTQ9ckjGGs
     _key: '!actors.items!dtqJL9MBvKQun2LL.nnUDYToTQ9ckjGGs'
   - type: poder
@@ -301,10 +325,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667021555206
       modifiedTime: 1667021705661
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: gdD770HikqzgAHFf
     _key: '!actors.items!dtqJL9MBvKQun2LL.gdD770HikqzgAHFf'
   - folder: 0V7x5o397UvG3xKP
@@ -365,10 +392,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Veneno
-        icon: systems/tormenta20/icons/conditions/envenenado.svg
-        origin: Item.VWLwiM10pyEr7ZQq
-        tint: '#FFFFFF'
+      - origin: Item.VWLwiM10pyEr7ZQq
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -389,6 +414,23 @@ items:
             value: roll
             priority: null
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Veneno
+        img: systems/tormenta20/icons/conditions/envenenado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!dtqJL9MBvKQun2LL.TKf77DpO6pjktHvw.KOklYtxVLCZmrIMF
     sort: 3500000
@@ -398,10 +440,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666320488703
       modifiedTime: 1667021749916
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: TKf77DpO6pjktHvw
     _key: '!actors.items!dtqJL9MBvKQun2LL.TKf77DpO6pjktHvw'
   - folder: 38RRBscxCtcFC5s4
@@ -552,10 +597,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1667021570427
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: WyOf0bPMKjgdfieX
     _key: '!actors.items!dtqJL9MBvKQun2LL.WyOf0bPMKjgdfieX'
 effects: []
@@ -1318,14 +1366,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/lagash.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.3
     scaleY: 1.3
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1339,12 +1393,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945992
   modifiedTime: 1700004419945
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!dtqJL9MBvKQun2LL'
 

@@ -3,10 +3,8 @@ name: Avalanche
 type: arma
 img: systems/tormenta20/icons/itens/itens-magicos/avalanche.webp
 effects:
-  - label: Resistencia a Fogo
-    icon: systems/tormenta20/icons/itens/itens-magicos/avalanche.webp
-    origin: Item.JWcrwkfQSIVnD9SR
-    tint: '#FFFFFF'
+  - origin: Item.JWcrwkfQSIVnD9SR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '10'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Resistencia a Fogo
+    img: systems/tormenta20/icons/itens/itens-magicos/avalanche.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JWcrwkfQSIVnD9SR.Xvi41VLcE5lSK6Ou'
-  - label: Congelante
-    icon: icons/svg/upgrade.svg
-    origin: Item.JWcrwkfQSIVnD9SR
-    tint: '#FFFFFF'
+  - origin: Item.JWcrwkfQSIVnD9SR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -59,9 +72,25 @@ effects:
     _id: 8OlsNgSEdnxqjCeb
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Congelante
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JWcrwkfQSIVnD9SR.8OlsNgSEdnxqjCeb'
-  - label: Enredado
-    duration:
+  - duration:
       rounds: 999
       startTime: null
       seconds: null
@@ -69,7 +98,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/conditions/enredado.svg
     flags:
       core:
         statusId: enredado
@@ -93,12 +121,27 @@ effects:
     _id: rO3AWRuYZwXaODj1
     disabled: false
     origin: null
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Enredado
+    img: systems/tormenta20/icons/conditions/enredado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JWcrwkfQSIVnD9SR.rO3AWRuYZwXaODj1'
-  - label: gelo eterno congelante formidável
-    icon: icons/svg/upgrade.svg
-    origin: Item.JWcrwkfQSIVnD9SR
-    tint: '#FFFFFF'
+  - origin: Item.JWcrwkfQSIVnD9SR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -138,11 +181,26 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: gelo eterno congelante formidável
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JWcrwkfQSIVnD9SR.puFSGOVQPuOwPr6U'
-  - label: tempestade de gelo
-    icon: icons/svg/upgrade.svg
-    origin: Item.JWcrwkfQSIVnD9SR
-    tint: '#FFFFFF'
+  - origin: Item.JWcrwkfQSIVnD9SR
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -178,6 +236,23 @@ effects:
         value: 3d6
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: tempestade de gelo
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JWcrwkfQSIVnD9SR.VuN9msMljTCvgOLA'
 folder: 9ki1HFV3bfmVkHBh
 sort: 150000
@@ -342,9 +417,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000094
   modifiedTime: 1684622919303
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!JWcrwkfQSIVnD9SR'
 

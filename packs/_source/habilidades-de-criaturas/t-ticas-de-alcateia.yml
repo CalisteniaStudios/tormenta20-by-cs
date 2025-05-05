@@ -48,10 +48,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Táticas de Alcateia
-    icon: icons/svg/upgrade.svg
-    origin: Item.OfHvpjwVrlXts8gl
-    tint: '#FFFFFF'
+  - origin: Item.OfHvpjwVrlXts8gl
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -87,15 +85,34 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Táticas de Alcateia
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!OfHvpjwVrlXts8gl.Bb64N9sZSwvarWT0'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615332
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: OfHvpjwVrlXts8gl
 folder: null
 sort: 0

@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +1d12.
     origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +1d12.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0s9EEKvVnPbFwS1t.rUhHEtwTUVmlsDd2'
   - _id: P4pirBwD7xETNzpw
     flags:
@@ -62,15 +77,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a resistência para Reflexos reduz à metade e o enxame para criaturas
       maiores, como gatos, guaxinins, compsognatos ou kobolds. Ele causa 3d12
       pontos de dano (a sua escolha entre corte, impacto ou perfuração). O resto
       da magia segue normal.
-    origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0s9EEKvVnPbFwS1t.P4pirBwD7xETNzpw'
   - _id: DHpBmH5U3daYrDVC
     flags:
@@ -89,13 +119,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o número de enxames em +1. Eles não podem ocupar o mesmo espaço.
-      Requer 3º círculo.
     origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o número de enxames em +1. Eles não podem ocupar o mesmo espaço.
+      Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0s9EEKvVnPbFwS1t.DHpBmH5U3daYrDVC'
   - _id: ieUdi5tA1oF9QhoP
     flags:
@@ -122,15 +167,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a resistência para Reflexos reduz à metade e o enxame para criaturas
       elementais. Ele causa 5d12 pontos do dano (a sua escolha entre ácido,
       eletricidade, fogo ou frio). O resto da magia segue normal. Requer 4º
       círculo.
-    origin: Compendium.tormenta20.magias.0s9EEKvVnPbFwS1t
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0s9EEKvVnPbFwS1t.ieUdi5tA1oF9QhoP'
 folder: Indi4GXQ8YvRMITr
 sort: 0
@@ -202,9 +262,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461752
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!0s9EEKvVnPbFwS1t'
 

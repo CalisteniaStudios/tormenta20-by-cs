@@ -20,13 +20,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      além do normal, pode alterar a aparência de criaturas escolhidas na área,
-      como se usando Disfarce Ilusório.
     origin: Compendium.tormenta20.magias.1SjsOe7nMbo8LfOk
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      além do normal, pode alterar a aparência de criaturas escolhidas na área,
+      como se usando Disfarce Ilusório.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1SjsOe7nMbo8LfOk.WyoikU3cch24hj68'
   - _id: 3Sb8et9hsoNxcZHZ
     flags:
@@ -49,13 +64,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a duração para permanente e adiciona componente material (pó de
-      diamante no valor de T$ 1.000). Requer 5º círculo.
     origin: Compendium.tormenta20.magias.1SjsOe7nMbo8LfOk
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a duração para permanente e adiciona componente material (pó de
+      diamante no valor de T$ 1.000). Requer 5º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1SjsOe7nMbo8LfOk.3Sb8et9hsoNxcZHZ'
 folder: KG0i7Ko46Nmq1cyT
 sort: 0
@@ -120,9 +150,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461754
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!1SjsOe7nMbo8LfOk'
 

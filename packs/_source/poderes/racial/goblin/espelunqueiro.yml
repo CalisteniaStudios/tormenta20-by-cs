@@ -3,10 +3,8 @@ name: Espelunqueiro
 type: poder
 img: systems/tormenta20/icons/racas/goblin.webp
 effects:
-  - label: Espelunqueiro
-    icon: systems/tormenta20/icons/racas/goblin.webp
-    origin: Item.dP6uWWJLY3Rd1wMI
-    tint: '#FFFFFF'
+  - origin: Item.dP6uWWJLY3Rd1wMI
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '9'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espelunqueiro
+    img: systems/tormenta20/icons/racas/goblin.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!dP6uWWJLY3Rd1wMI.vRhKOfk7jZ3Wj8m7'
 folder: dlQytstdFJCCmHM7
 sort: 0
@@ -83,9 +98,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184745
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!dP6uWWJLY3Rd1wMI'
 

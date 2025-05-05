@@ -62,10 +62,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Terceiro Braço
-        icon: icons/svg/upgrade.svg
-        origin: Item.TBf4HEw7jup1TcHR
-        tint: '#FFFFFF'
+      - origin: Item.TBf4HEw7jup1TcHR
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -97,6 +95,23 @@ items:
             value: roll
             priority: 0
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Terceiro Braço
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vOfrsBHkTWRc45aq.JzStiN97cNefXiWi.VhKe1dHH1EoudDYd
     sort: 0
@@ -106,10 +121,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1007
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667186089040
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: JzStiN97cNefXiWi
     _key: '!actors.items!vOfrsBHkTWRc45aq.JzStiN97cNefXiWi'
   - folder: 0V7x5o397UvG3xKP
@@ -160,10 +178,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Ofuscado
-        icon: systems/tormenta20/icons/conditions/ofuscado.svg
-        origin: Item.SXWbxEA5WLMZoDAW
-        tint: '#FFFFFF'
+      - origin: Item.SXWbxEA5WLMZoDAW
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -180,6 +196,23 @@ items:
         _id: xh6WFU2ofZkMrjqo
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Ofuscado
+        img: systems/tormenta20/icons/conditions/ofuscado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!vOfrsBHkTWRc45aq.oZLbRhbmaIsKgZAR.xh6WFU2ofZkMrjqo
     sort: 0
@@ -189,19 +222,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321165760
       modifiedTime: 1667006101575
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: oZLbRhbmaIsKgZAR
     _key: '!actors.items!vOfrsBHkTWRc45aq.oZLbRhbmaIsKgZAR'
   - name: Machado de guerra
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/machado-de-guerra.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.P4MW0Ezhmya6Hm89
+    flags: {}
     system:
       description:
         value: >-
@@ -316,10 +350,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772404
       modifiedTime: 1700236935038
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.P4MW0Ezhmya6Hm89
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 900000
     _id: aOlq3DxkP8lcYQaA
@@ -473,17 +510,18 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236930618
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 1Ze83jWkct7i8CL6
     _key: '!actors.items!vOfrsBHkTWRc45aq.1Ze83jWkct7i8CL6'
 effects:
-  - label: Terceiro Braço
-    icon: icons/svg/upgrade.svg
-    origin: Actor.6geOt3ccE7oQ26RQ.Item.JzStiN97cNefXiWi
-    tint: '#FFFFFF'
+  - origin: Actor.6geOt3ccE7oQ26RQ.Item.JzStiN97cNefXiWi
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -515,6 +553,23 @@ effects:
         value: roll
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Terceiro Braço
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!vOfrsBHkTWRc45aq.sVYumxl6CeBbck24'
 flags:
   tormenta20:
@@ -1270,14 +1325,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/orc.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.1
     scaleY: 1.1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1294,13 +1355,32 @@ prototypeToken:
       enabled: true
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945990
   modifiedTime: 1700236935038
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: 3f9xztQPcDuxpro9
 sort: 0
 _id: vOfrsBHkTWRc45aq

@@ -3,10 +3,8 @@ name: Couro de Monstro
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp
 effects:
-  - label: Ataque Poderoso ou investida
-    icon: icons/svg/upgrade.svg
-    origin: Item.GIW26oN36GYT1UNX
-    tint: '#FFFFFF'
+  - origin: Item.GIW26oN36GYT1UNX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,11 +36,26 @@ effects:
         value: 2d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ataque Poderoso ou investida
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GIW26oN36GYT1UNX.2I8j9qTANEJMBivp'
-  - label: Defensora
-    icon: systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp
-    origin: Item.GIW26oN36GYT1UNX
-    tint: '#FFFFFF'
+  - origin: Item.GIW26oN36GYT1UNX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -63,11 +76,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Defensora
+    img: systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GIW26oN36GYT1UNX.tvBH20DVoDjHochC'
-  - label: Couro de Monstro
-    icon: systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp
-    origin: Item.GIW26oN36GYT1UNX
-    tint: '#FFFFFF'
+  - origin: Item.GIW26oN36GYT1UNX
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -84,6 +112,23 @@ effects:
     _id: 5Bp9TyGWcfhb6DVr
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Couro de Monstro
+    img: systems/tormenta20/icons/itens/itens-magicos/couro-de-monstro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GIW26oN36GYT1UNX.5Bp9TyGWcfhb6DVr'
 folder: SkZDe8cUamd0vHjD
 sort: 106250
@@ -184,9 +229,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000093
   modifiedTime: 1684622964854
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!GIW26oN36GYT1UNX'
 

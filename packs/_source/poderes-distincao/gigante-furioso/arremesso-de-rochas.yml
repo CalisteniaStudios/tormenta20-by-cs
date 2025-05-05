@@ -78,10 +78,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Aumento de raio
-    icon: icons/svg/upgrade.svg
-    origin: Item.kNFyUqWxqOFE6Jpp
-    tint: '#FFFFFF'
+  - origin: Item.kNFyUqWxqOFE6Jpp
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -113,15 +111,34 @@ effects:
         value: 1,5m
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aumento de raio
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!kNFyUqWxqOFE6Jpp.EEWqEJ6khFEY8H87'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667075515824
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: kNFyUqWxqOFE6Jpp
 folder: Zr1HgroTTH1NqRJ3
 sort: 0

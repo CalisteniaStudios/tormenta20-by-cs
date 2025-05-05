@@ -32,16 +32,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: aumenta a cura +2d6 PV
     origin: Item.q96Rsgo3xopXncQ9
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a cura +2d6 PV
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1XQgufPl8uPaV4Li.JkH3J3ao04sP39Ak'
-  - label: Remove Veneno
-    icon: icons/svg/upgrade.svg
-    origin: Item.kq8zZmq5r6H9LXn6
-    tint: '#FFFFFF'
+  - origin: Item.kq8zZmq5r6H9LXn6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -72,6 +85,23 @@ effects:
         value: ''
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Remove Veneno
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1XQgufPl8uPaV4Li.1iqZjIykU8XrWXrZ'
 folder: iT3rUBmGhu5hbNic
 sort: 200000
@@ -139,9 +169,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716777
   modifiedTime: 1684630426990
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!1XQgufPl8uPaV4Li'
 

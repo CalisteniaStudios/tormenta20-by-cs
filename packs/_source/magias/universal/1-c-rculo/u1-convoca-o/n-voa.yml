@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: a magia também funciona sob a água, criando uma nuvem de tinta.
     origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: a magia também funciona sob a água, criando uma nuvem de tinta.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!atEVWEfDYu76wyCO.klkObcd5CG66Sshf'
   - _id: ftkwbiVy2pQf3klg
     flags:
@@ -43,13 +58,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      você pode escolher criaturas no alcance ao lançar a magia; elas enxergam
-      através do efeito. Requer 2º círculo.
     origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      você pode escolher criaturas no alcance ao lançar a magia; elas enxergam
+      através do efeito. Requer 2º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!atEVWEfDYu76wyCO.ftkwbiVy2pQf3klg'
   - _id: Bu3xxk5TAhtWYoYu
     flags:
@@ -76,15 +106,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       a nuvem tem um cheiro horrível. No início de seus turnos, qualquer
       criatura dentro dela, ou qualquer criatura com faro em alcance curto da
       nuvem, deve fazer um teste de Fortitude. Se falhar, fica enjoada por uma
       rodada.
-    origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!atEVWEfDYu76wyCO.Bu3xxk5TAhtWYoYu'
   - _id: AdteyDMTn54EcUP3
     flags:
@@ -115,13 +160,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       a nuvem tem um tom esverdeado e se torna cáustica. No início de seus
       turnos, criaturas dentro dela sofrem 2d4 pontos de dano de ácido.
-    origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!atEVWEfDYu76wyCO.AdteyDMTn54EcUP3'
   - _id: rFg3jSdwQCKJBXeB
     flags:
@@ -151,11 +211,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano de ácido em +2d4.
     origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano de ácido em +2d4.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!atEVWEfDYu76wyCO.rFg3jSdwQCKJBXeB'
   - _id: DZlkMCHT475MLItN
     flags:
@@ -193,15 +268,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, a nuvem fica espessa, quase sólida. Qualquer criatura
       dentro dela tem seu deslocamento reduzido para 3m (independentemente de
       seu deslocamento normal) e sofre –2 em testes de ataque e rolagens de
       dano.
-    origin: Compendium.tormenta20.magias.atEVWEfDYu76wyCO
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!atEVWEfDYu76wyCO.DZlkMCHT475MLItN'
   - _id: xw3nw36GxpEkyTXZ
     changes:
@@ -226,15 +316,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/nevoa.webp
-    label: Névoa Sólida
     origin: Item.gmAnhGn92yyGzAd2
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Névoa Sólida
+    img: systems/tormenta20/icons/magias/nevoa.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!atEVWEfDYu76wyCO.xw3nw36GxpEkyTXZ'
 folder: P5hsBGYhlcMn0xva
 sort: 0
@@ -296,9 +401,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462766
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!atEVWEfDYu76wyCO'
 

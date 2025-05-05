@@ -37,13 +37,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o número de meteoros que atingem a área, o que aumenta o dano em
-      +2d6 de impacto e +2d6 de fogo.
     origin: Compendium.tormenta20.magias.I7if4gOoxqXhdjcK
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o número de meteoros que atingem a área, o que aumenta o dano em
+      +2d6 de impacto e +2d6 de fogo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!I7if4gOoxqXhdjcK.EiA6E64UonEUYa8o'
 folder: qpQwhvyiq8EJgExj
 sort: 0
@@ -128,9 +143,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461817
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!I7if4gOoxqXhdjcK'
 

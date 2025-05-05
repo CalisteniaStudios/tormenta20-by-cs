@@ -20,14 +20,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ZzibqJnR2Cd0efWX
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, até 1 hora após ter lançado a magia, você pode gastar uma
       ação de movimento para enviar o objeto de volta para o local em que ele
       estava antes.
-    origin: Compendium.tormenta20.magias.ZzibqJnR2Cd0efWX
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzibqJnR2Cd0efWX.QQoGixlukm4d28Xs'
   - _id: NcDNYaGsMh9A71TX
     flags:
@@ -62,8 +77,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ZzibqJnR2Cd0efWX
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para um baú Médio, a duração para permanente e adiciona
       sacrifício de 1 PM. Em vez do normal, você esconde o baú alvo no Etér
       Entre Mundos, com até 20 espaços de equipamento. A magia faz com que
@@ -73,9 +100,12 @@ effects:
       construído com matéria-prima da melhor qualidade (T$ 1.000). Você deve ter
       em mãos uma miniatura do baú, no valor de T$ 100, para invocar o baú
       verdadeiro.
-    origin: Compendium.tormenta20.magias.ZzibqJnR2Cd0efWX
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzibqJnR2Cd0efWX.NcDNYaGsMh9A71TX'
   - _id: 9nWgAXltywJKiZ2I
     flags:
@@ -94,11 +124,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de alvos em +1.
     origin: Compendium.tormenta20.magias.ZzibqJnR2Cd0efWX
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzibqJnR2Cd0efWX.9nWgAXltywJKiZ2I'
   - _id: v9QZtJ7jjE7Vl6ik
     flags:
@@ -125,14 +170,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.ZzibqJnR2Cd0efWX
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para 1 objeto de até 10 espaços. Um objeto muito grande ou
       pesado para aparecer em suas mãos surge em um espaço adjacente a sua
       escolha.
-    origin: Compendium.tormenta20.magias.ZzibqJnR2Cd0efWX
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzibqJnR2Cd0efWX.v9QZtJ7jjE7Vl6ik'
 folder: q3HWop0SV641gJ2W
 sort: 0
@@ -194,9 +254,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462764
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ZzibqJnR2Cd0efWX'
 

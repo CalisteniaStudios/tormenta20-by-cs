@@ -62,10 +62,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Combate Aéreo
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.NiBtzR8F6NehyAuo
-    tint: '#FFFFFF'
+  - origin: Item.NiBtzR8F6NehyAuo
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -98,15 +96,34 @@ effects:
         value: (@AeronautaGoblin2*1)
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combate Aéreo
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!NiBtzR8F6NehyAuo.a1goSxL8r7EwOIKT'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665846714973
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: NiBtzR8F6NehyAuo
 folder: 62pUBDtKHHsJNktu
 sort: 0

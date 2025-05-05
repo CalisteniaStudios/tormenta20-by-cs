@@ -3,10 +3,8 @@ name: Bravata Imprudente
 type: poder
 img: systems/tormenta20/icons/classes/bucaneiro.webp
 effects:
-  - label: Bravata Imprudente
-    icon: icons/svg/upgrade.svg
-    origin: Item.6330UqcinRYpYMpC
-    tint: '#FFFFFF'
+  - origin: Item.6330UqcinRYpYMpC
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -41,6 +39,23 @@ effects:
         value: '-2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bravata Imprudente
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!oU0RdA4q0ZNytRvX.qVglt8YNNeG2nSjN'
 folder: 86kIqRb842xHRnBV
 sort: 0
@@ -128,9 +143,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361717650
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!oU0RdA4q0ZNytRvX'
 

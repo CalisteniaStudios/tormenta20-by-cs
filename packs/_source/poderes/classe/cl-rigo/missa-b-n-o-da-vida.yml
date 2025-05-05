@@ -3,10 +3,8 @@ name: 'Missa: Bênção da Vida'
 type: poder
 img: systems/tormenta20/icons/classes/clerigo.webp
 effects:
-  - label: 'Missa: Bênção da Vida'
-    icon: systems/tormenta20/icons/classes/clerigo.webp
-    origin: Item.43OxhX7uIOWhnj0c
-    tint: '#FFFFFF'
+  - origin: Item.43OxhX7uIOWhnj0c
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: DVhIxNn8MY6r8thK
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Missa: Bênção da Vida'
+    img: systems/tormenta20/icons/classes/clerigo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!43OxhX7uIOWhnj0c.DVhIxNn8MY6r8thK'
 folder: RDLTxoI4mIyfR6dr
 sort: 0
@@ -102,9 +117,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183308
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!43OxhX7uIOWhnj0c'
 

@@ -25,9 +25,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664312712757
   modifiedTime: 1668270628858
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!hBx9rVg3XGQ5wsd1'
 

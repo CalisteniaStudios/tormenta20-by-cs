@@ -28,17 +28,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.dvq8aLolbWGm7E2Z
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para cena. Em vez do normal, escolha um atributo. Sempre
       que o alvo fizer um teste de perícia baseado no atributo escolhido, pode
       rolar dois dados e ficar com o melhor resultado. Não se aplica a testes de
       ataque ou resistência.
 
       Requer 2º círculo.
-    origin: Compendium.tormenta20.magias.dvq8aLolbWGm7E2Z
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!dvq8aLolbWGm7E2Z.fFCKnCEF44r0NORX'
   - _id: DAcOJvxciLakcLhq
     flags:
@@ -70,16 +85,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.dvq8aLolbWGm7E2Z
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para cena. Escolha entre atributos físicos (Força, Destreza
       e Constituição) ou mentais (Inteligência, Sabedoria e Carisma). Sempre que
       o alvo fizer um teste de perícia, pode rolar dois dados e ficar com o
       melhor resultado. Não se aplica a testes de ataque ou resistência. Requer
       3º círculo.
-    origin: Compendium.tormenta20.magias.dvq8aLolbWGm7E2Z
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!dvq8aLolbWGm7E2Z.DAcOJvxciLakcLhq'
   - _id: oFqJPOaDazitsMs4
     changes: []
@@ -92,20 +122,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/orientacao.webp
-    label: Orientação (Cena)
     origin: Item.xajp2MVYpXTSDoek
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Orientação (Cena)
+    img: systems/tormenta20/icons/magias/orientacao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!dvq8aLolbWGm7E2Z.oFqJPOaDazitsMs4'
-  - label: muda o alvo para criaturas escolhidas. Requer 3º círculo.
-    icon: icons/svg/upgrade.svg
-    origin: Item.dvq8aLolbWGm7E2Z
-    tint: '#FFFFFF'
+  - origin: Item.dvq8aLolbWGm7E2Z
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -132,6 +175,23 @@ effects:
     _id: FeIByKREFLFRtbKq
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para criaturas escolhidas. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!dvq8aLolbWGm7E2Z.FeIByKREFLFRtbKq'
 folder: p1pmArDFchj2PZUn
 sort: 0
@@ -191,9 +251,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462770
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!dvq8aLolbWGm7E2Z'
 

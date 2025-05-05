@@ -17,15 +17,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/voo.webp
-    label: Asa de Bambu
     origin: Item.TNU7KWJ843G0GKJN
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Asa de Bambu
+    img: systems/tormenta20/icons/magias/voo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zNIAmGsgvH4xj6H7.CRX7wBp8q9Zkv9z2'
 flags: {}
 system:
@@ -78,10 +93,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664310461901
   modifiedTime: 1668270615327
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: zNIAmGsgvH4xj6H7
 folder: null
 sort: 0

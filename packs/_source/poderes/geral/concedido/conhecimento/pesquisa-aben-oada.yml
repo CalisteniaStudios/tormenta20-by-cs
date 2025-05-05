@@ -2,10 +2,8 @@ name: Pesquisa Abençoada
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos.webp
 effects:
-  - label: 'Pesquisa Abençoada: +2.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.5528bIwydLqg1PhQ
-    tint: '#FFFFFF'
+  - origin: Item.5528bIwydLqg1PhQ
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -36,11 +34,26 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Pesquisa Abençoada: +2.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5528bIwydLqg1PhQ.hKjFOOlPwlMpwD4o'
-  - label: 'Pesquisa Abençoada: +5.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.5528bIwydLqg1PhQ
-    tint: '#FFFFFF'
+  - origin: Item.5528bIwydLqg1PhQ
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -71,6 +84,23 @@ effects:
         value: '5'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Pesquisa Abençoada: +5.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!5528bIwydLqg1PhQ.yLutr4xJxBklK266'
 flags: {}
 system:
@@ -128,10 +158,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184252
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 5528bIwydLqg1PhQ
 folder: 1IwfK0tzrOPpjXTW
 sort: 0

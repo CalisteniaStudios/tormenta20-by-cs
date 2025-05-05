@@ -28,8 +28,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.xFlTNVAkliPUlDta
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       adiciona alvo (1 criatura). Você cria uma semiplano labiríntico e expulsa
       o alvo para ele. A cada rodada, a vítima tem direito a um teste de
       Investigação ou Sobrevivência (CD da magia), com bônus cumulativo de +1
@@ -41,9 +53,12 @@ effects:
       Teletransporte não ajudam a escapar do
 
       labirinto, mas Viagem Planar, sim.
-    origin: Compendium.tormenta20.magias.xFlTNVAkliPUlDta
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!xFlTNVAkliPUlDta.A6olwAs12FJ8PebT'
   - _id: 7eSeMG1wnGoC1S55
     flags:
@@ -74,15 +89,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.xFlTNVAkliPUlDta
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para permanente e adiciona componente material (maquete do
       semiplano feito de materiais preciosos no valor de T$ 5.000). Você pode
       lançar a magia diversas vezes para aumentar as dimensões do semiplano em
       +30m de lado a cada vez.
-    origin: Compendium.tormenta20.magias.xFlTNVAkliPUlDta
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!xFlTNVAkliPUlDta.7eSeMG1wnGoC1S55'
 folder: qpQwhvyiq8EJgExj
 sort: 0
@@ -157,9 +187,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462906
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!xFlTNVAkliPUlDta'
 

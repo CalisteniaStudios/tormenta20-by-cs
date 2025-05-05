@@ -3,10 +3,8 @@ name: Tornado de Dor
 type: poder
 img: systems/tormenta20/icons/classes/guerreiro.webp
 effects:
-  - label: Tornado de Dor
-    icon: icons/svg/upgrade.svg
-    origin: Item.AnoinpFQbn1XO4jz
-    tint: '#FFFFFF'
+  - origin: Item.AnoinpFQbn1XO4jz
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: jY6KyPsjm9FuYQaY
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tornado de Dor
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!AnoinpFQbn1XO4jz.jY6KyPsjm9FuYQaY'
 folder: LJQ1SKk2Y0QmZI03
 sort: 0
@@ -94,9 +109,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183807
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!AnoinpFQbn1XO4jz'
 

@@ -20,15 +20,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/tormenta.webp
-    label: Olhos Vermelhos
     origin: Item.eCQmxfdpQvaxfNA5
     transfer: true
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Olhos Vermelhos
+    img: systems/tormenta20/icons/poderes/tormenta.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!TkaYPJLuESGIEH1q.45VyrnQCT1RrzODP'
 folder: m6ny7g3VciUkKZ3t
 sort: 0
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184313
   modifiedTime: 1684803464641
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!TkaYPJLuESGIEH1q'
 

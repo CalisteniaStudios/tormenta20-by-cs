@@ -47,10 +47,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Lutar em Formação
-    icon: icons/environment/people/infantry-army.webp
-    origin: Item.uNwAhgYfnGrlr705
-    tint: '#FFFFFF'
+  - origin: Item.uNwAhgYfnGrlr705
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -71,15 +69,34 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lutar em Formação
+    img: icons/environment/people/infantry-army.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!c0s7zGg8wOHtRTso.rZ4AsGAxKpSs9lPO'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615329
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: c0s7zGg8wOHtRTso
 folder: null
 sort: 0

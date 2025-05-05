@@ -28,11 +28,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: em vez do normal, as condições adquiridas são debilitado e esmorecido.
     origin: Compendium.tormenta20.magias.u2Yo7BCg7xOrQJyF
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: em vez do normal, as condições adquiridas são debilitado e esmorecido.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u2Yo7BCg7xOrQJyF.6fhmY20GSejtqLgU'
   - _id: HsX3fBjwZwMTO2bb
     flags:
@@ -51,11 +66,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: em vez do normal, afeta qualquer tipo de criatura.
     origin: Compendium.tormenta20.magias.u2Yo7BCg7xOrQJyF
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: em vez do normal, afeta qualquer tipo de criatura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u2Yo7BCg7xOrQJyF.HsX3fBjwZwMTO2bb'
   - _id: SFqxKl2kgQ69jfzA
     flags:
@@ -86,14 +116,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.u2Yo7BCg7xOrQJyF
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, criaturas que falhem na resistência ficam aos prantos (em
       termos de jogo, adquirem a condição pasmo) por 1 rodada (apenas uma vez
       por cena). Requer 3º círculo.
-    origin: Compendium.tormenta20.magias.u2Yo7BCg7xOrQJyF
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u2Yo7BCg7xOrQJyF.SFqxKl2kgQ69jfzA'
   - _id: SKAFxmVCXlbjW5aR
     changes: []
@@ -106,15 +151,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/desespero-esmagador.webp
-    label: Desespero Esmagador
     origin: Item.z7QzFtHupsPxkLvT
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Desespero Esmagador
+    img: systems/tormenta20/icons/magias/desespero-esmagador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u2Yo7BCg7xOrQJyF.SKAFxmVCXlbjW5aR'
 folder: OhcRkxh8f9gK9sZ7
 sort: 0
@@ -178,9 +238,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462827
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!u2Yo7BCg7xOrQJyF'
 

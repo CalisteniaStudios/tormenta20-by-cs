@@ -20,13 +20,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      em vez de flutuar no ponto em que foi conjurado, o disco flutua atrás de
-      você, mantendo-se sempre adjacente.
     origin: Compendium.tormenta20.magias.BbPDW78AmxKBMhHS
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      em vez de flutuar no ponto em que foi conjurado, o disco flutua atrás de
+      você, mantendo-se sempre adjacente.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BbPDW78AmxKBMhHS.UflQ9JpRut6N6xGU'
   - _id: yfHbJc2R6bWlz2UO
     flags:
@@ -49,11 +64,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para 1 dia.
     origin: Compendium.tormenta20.magias.BbPDW78AmxKBMhHS
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para 1 dia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BbPDW78AmxKBMhHS.yfHbJc2R6bWlz2UO'
   - _id: TunAFqHtRCPOwBdO
     changes: []
@@ -66,15 +96,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/engenho-de-mana.webp
-    label: Engenho de Mana
     origin: Item.E0JxDomGFRc6pQB8
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Engenho de Mana
+    img: systems/tormenta20/icons/magias/engenho-de-mana.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BbPDW78AmxKBMhHS.TunAFqHtRCPOwBdO'
 folder: mCDYVjEU9bEesaBu
 sort: 0
@@ -140,9 +185,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461776
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!BbPDW78AmxKBMhHS'
 

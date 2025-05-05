@@ -3,10 +3,8 @@ name: Dom da Profecia
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-ressurreicao.webp
 effects:
-  - label: 'Dom da Profecia: +2 em um teste'
-    icon: icons/svg/upgrade.svg
-    origin: Item.ER3qYUu8vpKPM1zU
-    tint: '#FFFFFF'
+  - origin: Item.ER3qYUu8vpKPM1zU
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,11 +35,26 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Dom da Profecia: +2 em um teste'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ER3qYUu8vpKPM1zU.EIaY282GfP3ch8eE'
-  - label: Dom da Profecia
-    icon: icons/svg/upgrade.svg
-    origin: Item.ER3qYUu8vpKPM1zU
-    tint: '#FFFFFF'
+  - origin: Item.ER3qYUu8vpKPM1zU
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -68,6 +81,23 @@ effects:
     _id: eSlVMkaR5NnAMCK0
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dom da Profecia
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ER3qYUu8vpKPM1zU.eSlVMkaR5NnAMCK0'
 folder: He9KfwGwASRyosMP
 sort: 0
@@ -126,9 +156,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183829
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ER3qYUu8vpKPM1zU'
 

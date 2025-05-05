@@ -32,15 +32,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.niuOSuCZnUd6sR8p
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para toque, o alvo para até cinco criaturas e a duração
       para instantânea. Os alvos entram em uma planta (de tamanho Médio ou
       maior) e saem em outra planta do mesmo tamanho a até 100km de distância,
       especificada em direção e distância aproximadas (como "50km ao norte").
-    origin: Compendium.tormenta20.magias.niuOSuCZnUd6sR8p
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!niuOSuCZnUd6sR8p.AB5Wt8Lak1O5Regb'
   - _id: y0umPu4smMdovHEY
     changes: []
@@ -53,15 +68,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/viagem-arborea.webp
-    label: Viagem Arbórea
     origin: Item.UMXJrtRLa0HVey6y
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Viagem Arbórea
+    img: systems/tormenta20/icons/magias/viagem-arborea.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!niuOSuCZnUd6sR8p.y0umPu4smMdovHEY'
 folder: xjCV01U6zrF3US54
 sort: 0
@@ -128,9 +158,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462810
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!niuOSuCZnUd6sR8p'
 

@@ -65,16 +65,17 @@ items:
     sort: 4800000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.1FFdF6MtV64OoIVK
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666318061707
       modifiedTime: 1667027129299
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.1FFdF6MtV64OoIVK
+      duplicateSource: null
+      exportSource: null
     _id: HqJco7CmwPV5BBzK
     _key: '!actors.items!vOboZ4AoGFu1xTjh.HqJco7CmwPV5BBzK'
   - folder: 0V7x5o397UvG3xKP
@@ -135,10 +136,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667025693505
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: p8MHOwVlcxbmUp5i
     _key: '!actors.items!vOboZ4AoGFu1xTjh.p8MHOwVlcxbmUp5i'
   - folder: 38RRBscxCtcFC5s4
@@ -290,10 +294,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237107214
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 8NVnVpipA6S30aSw
     _key: '!actors.items!vOboZ4AoGFu1xTjh.8NVnVpipA6S30aSw'
   - folder: 38RRBscxCtcFC5s4
@@ -445,10 +452,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237112053
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: xp7u0P0953E701IP
     _key: '!actors.items!vOboZ4AoGFu1xTjh.xp7u0P0953E701IP'
   - folder: 0V7x5o397UvG3xKP
@@ -509,16 +519,17 @@ items:
     sort: 3300000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.62NdebV5IjHteP66
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666319601409
       modifiedTime: 1667025718126
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.62NdebV5IjHteP66
+      duplicateSource: null
+      exportSource: null
     _id: rKyJX6DRxhq2SYdY
     _key: '!actors.items!vOboZ4AoGFu1xTjh.rKyJX6DRxhq2SYdY'
   - folder: 0V7x5o397UvG3xKP
@@ -575,16 +586,17 @@ items:
     sort: 3700000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.jdqHPyKpb97cBDeW
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666320415369
       modifiedTime: 1667025719383
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.jdqHPyKpb97cBDeW
+      duplicateSource: null
+      exportSource: null
     _id: 2wj4P37kAec6jWs1
     _key: '!actors.items!vOboZ4AoGFu1xTjh.2wj4P37kAec6jWs1'
   - folder: 0V7x5o397UvG3xKP
@@ -641,16 +653,17 @@ items:
     sort: 2700000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.fSva49TDP0VUjlVG
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666320099383
       modifiedTime: 1667025721512
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.fSva49TDP0VUjlVG
+      duplicateSource: null
+      exportSource: null
     _id: oyM3FvyRAHw2Tnxk
     _key: '!actors.items!vOboZ4AoGFu1xTjh.oyM3FvyRAHw2Tnxk'
   - folder: UWfgoGvfJXlYjzNh
@@ -758,23 +771,23 @@ items:
     sort: 0
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.DW3ObnlHoKVffcrS
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1665585143695
       modifiedTime: 1667026530933
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.DW3ObnlHoKVffcrS
+      duplicateSource: null
+      exportSource: null
     _id: Xixz9ODpSkdAFeF6
     _key: '!actors.items!vOboZ4AoGFu1xTjh.Xixz9ODpSkdAFeF6'
 effects:
   - name: +2 Resistência a Magia
-    icon: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a
-    tint: '#FFFFFF'
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -790,9 +803,6 @@ effects:
         items: Fortitude;Reflexos;Vontade
         aumenta: false
         custo: ''
-      core:
-        sourceId: >-
-          Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
     duration:
       startTime: 0
       seconds: null
@@ -811,6 +821,21 @@ effects:
     description: ''
     transfer: true
     statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: >-
+        Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    sort: 0
     _key: '!actors.effects!vOboZ4AoGFu1xTjh.PIXc0N0dykXj1nBS'
 folder: V7cGpJ4M5tIhe0sM
 sort: 100001
@@ -1581,14 +1606,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/dragao-jovem.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.5
     scaleY: 1.5
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1602,12 +1633,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946033
   modifiedTime: 1700237112053
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!vOboZ4AoGFu1xTjh'
 

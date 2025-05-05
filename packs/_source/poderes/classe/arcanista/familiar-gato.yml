@@ -2,10 +2,8 @@ name: Familiar Gato
 type: poder
 img: systems/tormenta20/icons/classes/arcanista.webp
 effects:
-  - label: Familiar Gato
-    icon: systems/tormenta20/icons/classes/arcanista.webp
-    origin: Item.qYT3kMN051taWPY2
-    tint: '#FFFFFF'
+  - origin: Item.qYT3kMN051taWPY2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -26,6 +24,23 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Familiar Gato
+    img: systems/tormenta20/icons/classes/arcanista.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!qYT3kMN051taWPY2.wUg2HIeftCw24Jdn'
 flags: {}
 system:
@@ -95,10 +110,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183824
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: qYT3kMN051taWPY2
 folder: dB8yQeNYIsAMdhNN
 sort: 0

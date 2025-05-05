@@ -3,10 +3,8 @@ name: Transmissão da Loucura
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-sorte.webp
 effects:
-  - label: Transmissão da Loucura
-    icon: icons/svg/upgrade.svg
-    origin: Item.EwDapR826hz2edl3
-    tint: '#FFFFFF'
+  - origin: Item.EwDapR826hz2edl3
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: 2swdZ16AA9R0B1om
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Transmissão da Loucura
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!EwDapR826hz2edl3.2swdZ16AA9R0B1om'
 folder: 74WiiBNZUXs5SvJm
 sort: 0
@@ -90,9 +105,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183831
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!EwDapR826hz2edl3'
 

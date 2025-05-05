@@ -47,10 +47,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Caido
-    icon: systems/tormenta20/icons/conditions/caido.svg
-    origin: Item.LDR3zCdm6KlFPj3F
-    tint: '#FFFFFF'
+  - origin: Item.LDR3zCdm6KlFPj3F
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -67,15 +65,34 @@ effects:
     _id: Jynccku7ba0yL8ny
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Caido
+    img: systems/tormenta20/icons/conditions/caido.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LDR3zCdm6KlFPj3F.Jynccku7ba0yL8ny'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615329
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: LDR3zCdm6KlFPj3F
 folder: null
 sort: 0

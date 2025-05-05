@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de servos conjurados em 1.
     origin: Compendium.tormenta20.magias.wwMqDi0m8o2Jnhw5
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de servos conjurados em 1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wwMqDi0m8o2Jnhw5.K1me4oYjZtNejwvZ'
   - _id: ve8JZ5XOoHV96cNY
     flags:
@@ -43,16 +58,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.wwMqDi0m8o2Jnhw5
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       você pode comandar os servos para realizar uma única tarefa no seu lugar.
       Em termos de jogo, eles passam automaticamente em um teste de perícia com
       CD máxima igual ao seu nível, +2 para cada servo conjurado. O tempo
       necessário para realizar a tarefa é o tempo do uso da perícia em questão.
       Requer 3º círculo
-    origin: Compendium.tormenta20.magias.wwMqDi0m8o2Jnhw5
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wwMqDi0m8o2Jnhw5.ve8JZ5XOoHV96cNY'
 folder: zq0Qy1eE5QlMSaax
 sort: 0
@@ -127,9 +157,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462905
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!wwMqDi0m8o2Jnhw5'
 

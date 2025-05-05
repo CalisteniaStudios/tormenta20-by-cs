@@ -69,10 +69,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666318061707
       modifiedTime: 1667009328376
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: wW47jZrxp73K6hcn
     _key: '!actors.items!iwhH7ljtDB7JxYSY.wW47jZrxp73K6hcn'
   - folder: 38RRBscxCtcFC5s4
@@ -227,10 +230,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236583997
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 7CITFJ0tLdlLtQFs
     _key: '!actors.items!iwhH7ljtDB7JxYSY.7CITFJ0tLdlLtQFs'
   - folder: TyyHpvhTBJpio3at
@@ -308,16 +314,17 @@ items:
     sort: -50000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.2aa1UV9JGuYEw69f
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1663365561715
       modifiedTime: 1667009358513
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.2aa1UV9JGuYEw69f
+      duplicateSource: null
+      exportSource: null
     _id: btsHzBpsVldzu97k
     _key: '!actors.items!iwhH7ljtDB7JxYSY.btsHzBpsVldzu97k'
 effects: []
@@ -1078,14 +1085,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/cao-do-inferno.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.3
     scaleY: 1.3
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1099,12 +1112,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946005
   modifiedTime: 1700236583997
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!iwhH7ljtDB7JxYSY'
 

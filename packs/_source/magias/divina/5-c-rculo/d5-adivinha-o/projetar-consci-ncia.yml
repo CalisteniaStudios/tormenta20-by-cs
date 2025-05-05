@@ -20,16 +20,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.LCW7DDP9CfY22wna
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, sua projeção é capaz de lançar magias que não precisem de
       componentes materiais e tenham duração diferente de sustentada. Sua forma
       fantasmagórica funciona como na magia Forma Etérea, sendo afetada por
       magias de abjuração e essência, mas as magias que ela lança podem afetar
       criaturas corpóreas.
-    origin: Compendium.tormenta20.magias.LCW7DDP9CfY22wna
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LCW7DDP9CfY22wna.g6K9JgHk876dMWV6'
   - _id: uYkBdZYgfTImSzkG
     changes:
@@ -46,15 +61,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/projetar-consciencia.webp
-    label: Projetar Consciência
     origin: Item.K86xNb1SrfDhetee
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Projetar Consciência
+    img: systems/tormenta20/icons/magias/projetar-consciencia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LCW7DDP9CfY22wna.uYkBdZYgfTImSzkG'
 folder: TL40iday9BQSe955
 sort: 0
@@ -127,9 +157,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461826
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!LCW7DDP9CfY22wna'
 

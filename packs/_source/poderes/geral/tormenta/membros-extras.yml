@@ -3,10 +3,8 @@ name: Membros Extras
 type: poder
 img: systems/tormenta20/icons/poderes/tormenta.webp
 effects:
-  - label: Membros Extras
-    icon: systems/tormenta20/icons/poderes/tormenta.webp
-    origin: Compendium.tormenta20.poderes.VnuxGTlMtobB52pg
-    tint: '#FFFFFF'
+  - origin: Compendium.tormenta20.poderes.VnuxGTlMtobB52pg
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Membros Extras
+    img: systems/tormenta20/icons/poderes/tormenta.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!VnuxGTlMtobB52pg.il5ANhJxZPnSOTnq'
 folder: m6ny7g3VciUkKZ3t
 sort: 0
@@ -95,9 +110,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184717
   modifiedTime: 1684803471033
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!VnuxGTlMtobB52pg'
 

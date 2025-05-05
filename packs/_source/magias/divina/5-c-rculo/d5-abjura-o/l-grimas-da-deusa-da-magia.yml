@@ -35,11 +35,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a área para esfera de 6m de raio e o alvo para criaturas escolhidas.
     origin: Compendium.tormenta20.magias.yw8aypIy198lFNCE
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a área para esfera de 6m de raio e o alvo para criaturas escolhidas.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!yw8aypIy198lFNCE.nYdSOq8aCeFORZSI'
   - _id: 6PGbiz0Yp8Y1Dm86
     flags:
@@ -62,8 +77,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.yw8aypIy198lFNCE
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para 1 dia e adiciona custo adicional (sacrifício de 1
       PM). O alvo da magia precisa ser mantido em alcance curto do conjurador
       durante toda a execução. Ao término, faz um teste de Vontade. Se falhar,
@@ -71,9 +98,12 @@ effects:
       resiste, mas ainda pode ser alvo da magia no dia seguinte. Nenhum poder
       mortal é capaz de reverter essa perda. Os clérigos da deusa da Magia dizem
       que a deusa chora cada vez que este ritual é realizado.
-    origin: Compendium.tormenta20.magias.yw8aypIy198lFNCE
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!yw8aypIy198lFNCE.6PGbiz0Yp8Y1Dm86'
   - _id: 21kB3mrglIlYUWAC
     changes: []
@@ -86,15 +116,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/lagrimas-da-deusa-da-magia.webp
-    label: Lágrimas da Deusa da Magia
     origin: Item.NUpTGosxznyLdSPV
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lágrimas da Deusa da Magia
+    img: systems/tormenta20/icons/magias/lagrimas-da-deusa-da-magia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!yw8aypIy198lFNCE.21kB3mrglIlYUWAC'
 folder: mCDYVjEU9bEesaBu
 sort: 0
@@ -154,9 +199,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462907
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!yw8aypIy198lFNCE'
 

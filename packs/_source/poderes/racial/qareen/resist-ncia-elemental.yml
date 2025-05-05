@@ -3,10 +3,8 @@ name: Resistência Elemental
 type: poder
 img: systems/tormenta20/icons/racas/qareen.webp
 effects:
-  - label: Resistência Elemental
-    icon: systems/tormenta20/icons/racas/qareen.webp
-    origin: Item.hpb7TnXraUY1qevb
-    tint: '#FFFFFF'
+  - origin: Item.hpb7TnXraUY1qevb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '10'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Resistência Elemental
+    img: systems/tormenta20/icons/racas/qareen.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hpb7TnXraUY1qevb.Q3qMj1DjSIm6jetH'
 folder: bT1FLsOz6hPzs6kE
 sort: 0
@@ -85,9 +100,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185121
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!hpb7TnXraUY1qevb'
 

@@ -55,10 +55,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Investida Poderosa
-    icon: icons/svg/upgrade.svg
-    origin: Item.O33OJJxfLmdoYa33
-    tint: '#FFFFFF'
+  - origin: Item.O33OJJxfLmdoYa33
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -90,15 +88,34 @@ effects:
         value: 1d12
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Investida Poderosa
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!QuRZaECq8M4mIA8g.Q9Nx00b81V4boOgR'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321513948
   modifiedTime: 1668270615330
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: QuRZaECq8M4mIA8g
 folder: null
 sort: 0

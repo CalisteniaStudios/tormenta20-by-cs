@@ -68,10 +68,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Punir os Culpados
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.1NxwMv9y7Iui7pL5
-    tint: '#FFFFFF'
+  - origin: Item.1NxwMv9y7Iui7pL5
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -92,11 +90,26 @@ effects:
         value: 1d6
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Punir os Culpados
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1NxwMv9y7Iui7pL5.4PZK92b18ou70HEQ'
-  - label: Punir os Culpados
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.1NxwMv9y7Iui7pL5
-    tint: '#FFFFFF'
+  - origin: Item.1NxwMv9y7Iui7pL5
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -128,15 +141,34 @@ effects:
         value: (@VigilanteMascarado2*1)
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Punir os Culpados
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1NxwMv9y7Iui7pL5.6RaykWIja1T8vqj3'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083905345
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 1NxwMv9y7Iui7pL5
 folder: NxFKO0AHIR0pQgBN
 sort: 0

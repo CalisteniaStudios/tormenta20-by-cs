@@ -17,8 +17,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumentra o bônus em +1.
     origin: Item.6ACN5lemHXGOouMc
     transfer: false
     flags:
@@ -36,7 +34,24 @@ effects:
         durationScene: false
         items: ''
         equipment: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumentra o bônus em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!AXrNhUoxQF0LswWD.CNfeMqyqnMy1zsGd'
   - _id: FlMkwsqn6MatZUJB
     changes:
@@ -53,15 +68,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/classes/inventor.webp
-    label: Ajuste de Mira
     origin: Item.6ACN5lemHXGOouMc
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ajuste de Mira
+    img: systems/tormenta20/icons/classes/inventor.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!AXrNhUoxQF0LswWD.FlMkwsqn6MatZUJB'
 flags:
   scene-packer:
@@ -124,10 +154,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051642074
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: AXrNhUoxQF0LswWD
 folder: iHjbUWZ9cRzIVZ3E
 sort: 0

@@ -28,13 +28,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o tamanho máximo da criatura em uma categoria (para Grande, Enorme
-      e Colossal) ou dobra a quantidade de espaços do objeto.
     origin: Compendium.tormenta20.magias.UhiM7pMNk3HfWNKP
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o tamanho máximo da criatura em uma categoria (para Grande, Enorme
+      e Colossal) ou dobra a quantidade de espaços do objeto.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UhiM7pMNk3HfWNKP.Dp5Pj6tZpuRzJ5ov'
   - _id: k0Dc5bs8tYVYyK1x
     changes: []
@@ -47,15 +62,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/telecinesia.webp
-    label: Telecinésia
     origin: Item.vALWn0x2Qg3XL91R
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Telecinésia
+    img: systems/tormenta20/icons/magias/telecinesia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!UhiM7pMNk3HfWNKP.k0Dc5bs8tYVYyK1x'
 folder: O4DBcowkyxvx1PFy
 sort: 0
@@ -144,9 +174,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461915
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!UhiM7pMNk3HfWNKP'
 

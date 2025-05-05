@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o número de cópias em +1 (e o bônus na Defesa em +2).
     origin: Compendium.tormenta20.magias.secWy6zyYamo3Xnx
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de cópias em +1 (e o bônus na Defesa em +2).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!secWy6zyYamo3Xnx.Ie29TxOU55m47buZ'
   - _id: vGmIE4QLA0WTxIt9
     flags:
@@ -54,14 +69,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.secWy6zyYamo3Xnx
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, toda vez que uma cópia é destruída, emite um clarão de
       luz. A criatura que destruiu a cópia fica ofuscada por uma rodada. Requer
       2º círculo.
-    origin: Compendium.tormenta20.magias.secWy6zyYamo3Xnx
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!secWy6zyYamo3Xnx.vGmIE4QLA0WTxIt9'
   - _id: caDtz2AyMaR6qYkX
     changes:
@@ -78,15 +108,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/imagem-espelhada.webp
-    label: Imagem Espelhada
     origin: Item.zJjM1i69MWx3xcBT
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Imagem Espelhada
+    img: systems/tormenta20/icons/magias/imagem-espelhada.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!secWy6zyYamo3Xnx.caDtz2AyMaR6qYkX'
 folder: eOR9yLzI2EByQRJv
 sort: 0
@@ -150,9 +195,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462821
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!secWy6zyYamo3Xnx'
 

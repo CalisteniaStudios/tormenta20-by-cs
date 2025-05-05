@@ -36,15 +36,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.LqKnynFepm4ICynP
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para pessoal, o alvo para você, a duração para cena e a
       resistência para nenhuma. Em vez do normal, seus ataques corpo a corpo
       passam a acertar inimigos distantes. Seu alcance natural aumenta em 3m;
       uma criatura Média pode atacar adversários a até 4,5m, por exemplo.
-    origin: Compendium.tormenta20.magias.LqKnynFepm4ICynP
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LqKnynFepm4ICynP.3tmdiExOO5OE02li'
   - _id: v89Br8AqC4I9Opo6
     flags:
@@ -67,11 +82,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +1d6.
     origin: Compendium.tormenta20.magias.LqKnynFepm4ICynP
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +1d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LqKnynFepm4ICynP.v89Br8AqC4I9Opo6'
   - _id: g8SzVMTC1uT8yywO
     flags:
@@ -98,11 +128,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o empurrão em +3m.
     origin: Compendium.tormenta20.magias.LqKnynFepm4ICynP
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o empurrão em +3m.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LqKnynFepm4ICynP.g8SzVMTC1uT8yywO'
   - _id: 3slurquJ6XTcZEeJ
     flags:
@@ -121,11 +166,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o tipo do dano para essência.
     origin: Compendium.tormenta20.magias.LqKnynFepm4ICynP
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o tipo do dano para essência.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LqKnynFepm4ICynP.3slurquJ6XTcZEeJ'
   - _id: RxpgTIWPpBfhgJyB
     changes: []
@@ -138,15 +198,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/soco-do-mestre.webp
-    label: Aprimoramento de Alcance
     origin: Item.3prAVM8QeRRSABlj
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aprimoramento de Alcance
+    img: systems/tormenta20/icons/magias/soco-do-mestre.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LqKnynFepm4ICynP.RxpgTIWPpBfhgJyB'
 folder: Indi4GXQ8YvRMITr
 sort: 0
@@ -218,9 +293,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461899
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!LqKnynFepm4ICynP'
 

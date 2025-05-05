@@ -8,7 +8,6 @@ sort: 300000
 flags:
   tormenta20:
     version: 1.3.0.0
-  importid: bUbWAbkRkso3Wnbo
 system:
   description:
     value: >-
@@ -73,9 +72,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664312772412
   modifiedTime: 1684616851113
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!dSa6SuhQGcQ407Wj'
 

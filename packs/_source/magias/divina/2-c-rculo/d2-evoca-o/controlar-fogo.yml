@@ -32,16 +32,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.84SnbqMykNJVofQ6
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para sustentada e a resistência para Reflexos reduz à
       metade. Em vez do normal, você deve escolher o seguinte efeito. Labaredas:
       a cada rodada, você pode gastar uma ação de movimento para projetar uma
       labareda, acertando um alvo em alcance curto a partir da chama. O alvo
       sofre 4d6 pontos de dano de fogo (Reflexos reduz à metade).
-    origin: Compendium.tormenta20.magias.84SnbqMykNJVofQ6
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!84SnbqMykNJVofQ6.y1tVY8RMUDzu3PMH'
   - _id: J8dYv7TQT6Ze5Men
     flags:
@@ -64,11 +79,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +1d6 (exceto Chamejar).
     origin: Compendium.tormenta20.magias.84SnbqMykNJVofQ6
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +1d6 (exceto Chamejar).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!84SnbqMykNJVofQ6.J8dYv7TQT6Ze5Men'
   - _id: X5dLBQOoFJK0wRUO
     flags:
@@ -99,20 +129,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.84SnbqMykNJVofQ6
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para 1 criatura composta principalmente por fogo, lava ou
       magma (como um elemental do fogo) e a resistência para Fortitude parcial.
       Em vez do normal, se a criatura falhar no teste de resistência, é reduzida
       a 0 PV. Se passar, sofre 5d6 pontos de dano.
-    origin: Compendium.tormenta20.magias.84SnbqMykNJVofQ6
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!84SnbqMykNJVofQ6.X5dLBQOoFJK0wRUO'
-  - label: Controlar Fogo (Chamejar)
-    icon: systems/tormenta20/icons/magias/controlar-fogo.webp
-    origin: Item.84SnbqMykNJVofQ6
-    tint: '#FFFFFF'
+  - origin: Item.84SnbqMykNJVofQ6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -137,6 +180,23 @@ effects:
         value: 1d6
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Controlar Fogo (Chamejar)
+    img: systems/tormenta20/icons/magias/controlar-fogo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!84SnbqMykNJVofQ6.9hWnE0ZmVscwpeqe'
 folder: nUZzjRZCyl2p92SC
 sort: 0
@@ -230,9 +290,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461765
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!84SnbqMykNJVofQ6'
 

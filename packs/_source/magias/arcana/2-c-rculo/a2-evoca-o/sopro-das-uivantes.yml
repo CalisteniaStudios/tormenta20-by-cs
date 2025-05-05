@@ -24,11 +24,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano de frio em +2d6.
     origin: Compendium.tormenta20.magias.LFz30FCDJrLJwSrW
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano de frio em +2d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LFz30FCDJrLJwSrW.oCaGz5C6enchAOFG'
   - _id: XASBNBVVLiS6cykc
     flags:
@@ -47,13 +62,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o tamanho máximo das criaturas afetadas em uma categoria. Requer
-      3º círculo.
     origin: Compendium.tormenta20.magias.LFz30FCDJrLJwSrW
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o tamanho máximo das criaturas afetadas em uma categoria. Requer
+      3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!LFz30FCDJrLJwSrW.XASBNBVVLiS6cykc'
 folder: C4AaVHB8ALOWtksj
 sort: 0
@@ -125,9 +155,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461826
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!LFz30FCDJrLJwSrW'
 

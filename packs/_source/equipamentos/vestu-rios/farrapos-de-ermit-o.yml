@@ -59,10 +59,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: Farrapos de Ermitão
-    icon: systems/tormenta20/icons/itens/gerais/farrapos-de-ermitao.webp
-    origin: Item.NaAzX8LMFw2Sk8qE
-    tint: '#FFFFFF'
+  - origin: Item.NaAzX8LMFw2Sk8qE
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -91,15 +89,34 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Farrapos de Ermitão
+    img: systems/tormenta20/icons/itens/gerais/farrapos-de-ermitao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!NaAzX8LMFw2Sk8qE.rZP5TlmG1CgD0ojW'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665687009302
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: NaAzX8LMFw2Sk8qE
 folder: 3kNyXnAknru6qWyM
 sort: 1200000

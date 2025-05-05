@@ -3,10 +3,8 @@ name: Escudo Mágico
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-magia.webp
 effects:
-  - label: Escudo Mágico
-    icon: systems/tormenta20/icons/poderes/concedidos-magia.webp
-    origin: Item.On6DFwWTValJhmHm
-    tint: '#FFFFFF'
+  - origin: Item.On6DFwWTValJhmHm
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '1'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo Mágico
+    img: systems/tormenta20/icons/poderes/concedidos-magia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!On6DFwWTValJhmHm.ETAlKTKQ4Xrg93pK'
-  - label: aumenta o bônus de defesa em +1.
-    icon: icons/svg/upgrade.svg
-    origin: Item.On6DFwWTValJhmHm
-    tint: '#FFFFFF'
+  - origin: Item.On6DFwWTValJhmHm
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -62,6 +75,23 @@ effects:
         value: '1'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o bônus de defesa em +1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!On6DFwWTValJhmHm.QQA6dwcO9A52WXRC'
 folder: Kye2KzNfCgJW92Kb
 sort: 0
@@ -119,9 +149,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184257
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!On6DFwWTValJhmHm'
 

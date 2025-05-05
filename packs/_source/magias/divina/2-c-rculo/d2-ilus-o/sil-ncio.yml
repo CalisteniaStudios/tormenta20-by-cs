@@ -24,14 +24,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.BARP1eYpbiSBa83C
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a área para alvo de 1 objeto. Em vez do normal, o alvo emana uma área
       de silêncio com 3m de raio. Se lançar a magia num objeto de uma criatura
       involuntária, ela tem direito a um teste de Vontade para anulá-la.
-    origin: Compendium.tormenta20.magias.BARP1eYpbiSBa83C
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BARP1eYpbiSBa83C.OSfuiMxPTdgfOkAh'
   - _id: z6Dtk1j2F8NdlYsT
     flags:
@@ -54,14 +69,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.BARP1eYpbiSBa83C
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para cena. Em vez do normal, nenhum som pode deixar a área,
       mas criaturas dentro da área podem falar, ouvir e lançar magias com
       palavras mágicas normalmente.
-    origin: Compendium.tormenta20.magias.BARP1eYpbiSBa83C
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BARP1eYpbiSBa83C.z6Dtk1j2F8NdlYsT'
   - _id: RsfVY6IlzCyT7vNO
     changes: []
@@ -74,15 +104,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/silencio.webp
-    label: Silêncio
     origin: Item.geMFa6GYTjWYOOsn
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Silêncio
+    img: systems/tormenta20/icons/magias/silencio.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!BARP1eYpbiSBa83C.RsfVY6IlzCyT7vNO'
 folder: Q13QvyA925k9946v
 sort: 0
@@ -146,9 +191,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461776
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!BARP1eYpbiSBa83C'
 

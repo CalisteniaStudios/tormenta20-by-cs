@@ -20,13 +20,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o número de alvos em +1. Todas as criaturas e objetos devem ser
-      afetadas da mesma forma.
     origin: Compendium.tormenta20.magias.Lo49R4kuZV1bZHr4
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o número de alvos em +1. Todas as criaturas e objetos devem ser
+      afetadas da mesma forma.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Lo49R4kuZV1bZHr4.PFybBH0Hj4GYkpE8'
   - _id: DXFYimT4ePIOLuv0
     changes: []
@@ -39,15 +54,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/esculpir-sons.webp
-    label: Esculpir Sons
     origin: Item.uTTuZBUTRo5mE5AV
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Esculpir Sons
+    img: systems/tormenta20/icons/magias/esculpir-sons.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Lo49R4kuZV1bZHr4.DXFYimT4ePIOLuv0'
 folder: JF3PQ5Q84KVTjyxv
 sort: 0
@@ -111,9 +141,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461897
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Lo49R4kuZV1bZHr4'
 

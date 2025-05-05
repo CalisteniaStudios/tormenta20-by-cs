@@ -24,13 +24,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o alvo para 1 escultura mundana inanimada. Além do normal, o alvo tem
-      as mesmas características de um construto.
     origin: Compendium.tormenta20.magias.sw6TTkiY2ycfZefD
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o alvo para 1 escultura mundana inanimada. Além do normal, o alvo tem
+      as mesmas características de um construto.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!sw6TTkiY2ycfZefD.sF7igOGJWfq5j3Zb'
   - _id: f958aTtmx3LyPrPi
     flags:
@@ -61,16 +76,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para permanente e adiciona penalidade de -3 PM.
     origin: Compendium.tormenta20.magias.sw6TTkiY2ycfZefD
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para permanente e adiciona penalidade de -3 PM.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!sw6TTkiY2ycfZefD.f958aTtmx3LyPrPi'
-  - label: Despertar Consciência
-    icon: systems/tormenta20/icons/magias/despertar-consciencia.webp
-    origin: Item.sw6TTkiY2ycfZefD
-    tint: '#FFFFFF'
+  - origin: Item.sw6TTkiY2ycfZefD
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -87,6 +115,23 @@ effects:
     _id: zqcqvRzomQSfqOQ7
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Despertar Consciência
+    img: systems/tormenta20/icons/magias/despertar-consciencia.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!sw6TTkiY2ycfZefD.zqcqvRzomQSfqOQ7'
 folder: ToOk7JFkymVR4FA6
 sort: 0
@@ -152,9 +197,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462823
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!sw6TTkiY2ycfZefD'
 

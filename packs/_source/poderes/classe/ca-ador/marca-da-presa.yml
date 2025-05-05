@@ -3,10 +3,8 @@ name: Marca da Presa
 type: poder
 img: systems/tormenta20/icons/poderes/classes/especialistas/marca-presa.webp
 effects:
-  - label: Marca da Presa (Dano)
-    icon: icons/svg/upgrade.svg
-    origin: Item.xhRCRXeSjY0avzCK
-    tint: '#FFFFFF'
+  - origin: Item.xhRCRXeSjY0avzCK
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,11 +35,26 @@ effects:
         value: 1d4
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Marca da Presa (Dano)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KCcnANguX0TehmNR.G06vcvbjO0EM04y5'
-  - label: Aumenta o Dano
-    icon: icons/svg/upgrade.svg
-    origin: Item.xhRCRXeSjY0avzCK
-    tint: '#FFFFFF'
+  - origin: Item.xhRCRXeSjY0avzCK
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -72,6 +85,23 @@ effects:
         value: ':1d8;1d12;2d8;2d10'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Aumenta o Dano
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KCcnANguX0TehmNR.XPXweXqgvWZY5KCo'
 folder: iT3rUBmGhu5hbNic
 sort: 1500000
@@ -132,9 +162,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361716929
   modifiedTime: 1684630426990
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!KCcnANguX0TehmNR'
 

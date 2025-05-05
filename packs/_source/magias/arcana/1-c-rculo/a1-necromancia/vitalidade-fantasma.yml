@@ -33,13 +33,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta os PV temporários recebidos em +1d10. Caso a magia cause dano, em
-      vez disso aumenta o dano causado em +1d10.
     origin: Compendium.tormenta20.magias.505PykOz1CmG2CU3
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta os PV temporários recebidos em +1d10. Caso a magia cause dano, em
+      vez disso aumenta o dano causado em +1d10.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!505PykOz1CmG2CU3.8ky11WxusJyBeRiV'
   - _id: FQSR5xVzMWSV6cjs
     flags:
@@ -79,16 +94,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.505PykOz1CmG2CU3
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para área: esfera com 6m de raio centrada em você e a
       resistência para Fortitude reduz à metade. Em vez do normal, você suga
       energia das criaturas vivas na área, causando 1d10 pontos de dano de
       trevas e recebendo PV temporários iguais ao dano total causado. Os PV
       temporários desaparecem ao final da cena. Requer 2º círculo.
-    origin: Compendium.tormenta20.magias.505PykOz1CmG2CU3
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!505PykOz1CmG2CU3.FQSR5xVzMWSV6cjs'
 folder: Bqm3t71TUGy5F5OI
 sort: 0
@@ -156,9 +186,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461759
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!505PykOz1CmG2CU3'
 

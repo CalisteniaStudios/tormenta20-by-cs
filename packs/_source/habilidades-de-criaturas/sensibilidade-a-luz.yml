@@ -45,10 +45,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Ofuscado
-    icon: systems/tormenta20/icons/conditions/ofuscado.svg
-    origin: Item.SXWbxEA5WLMZoDAW
-    tint: '#FFFFFF'
+  - origin: Item.SXWbxEA5WLMZoDAW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -65,15 +63,34 @@ effects:
     _id: xh6WFU2ofZkMrjqo
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ofuscado
+    img: systems/tormenta20/icons/conditions/ofuscado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!SXWbxEA5WLMZoDAW.xh6WFU2ofZkMrjqo'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321165760
   modifiedTime: 1668270615332
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: SXWbxEA5WLMZoDAW
 folder: null
 sort: 0

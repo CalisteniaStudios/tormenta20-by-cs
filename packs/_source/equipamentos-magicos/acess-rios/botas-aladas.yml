@@ -3,10 +3,8 @@ name: Botas Aladas
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/botas-aladas.webp
 effects:
-  - label: Efeito Sustentável -1 PM
-    icon: icons/svg/upgrade.svg
-    origin: Item.56TGgR3gpMyWTVq2
-    tint: '#FFFFFF'
+  - origin: Item.56TGgR3gpMyWTVq2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,11 +36,26 @@ effects:
         value: '12'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Efeito Sustentável -1 PM
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!56TGgR3gpMyWTVq2.TS4S3tZfmgEXY8W9'
-  - label: Botas Aladas
-    icon: systems/tormenta20/icons/itens/itens-magicos/botas-aladas.webp
-    origin: Item.56TGgR3gpMyWTVq2
-    tint: '#FFFFFF'
+  - origin: Item.56TGgR3gpMyWTVq2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -63,6 +76,23 @@ effects:
         value: '0'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Botas Aladas
+    img: systems/tormenta20/icons/itens/itens-magicos/botas-aladas.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!56TGgR3gpMyWTVq2.sfs7NME0WtIxIJkZ'
 folder: BgJUCrqjG6EVBIfP
 sort: 1200000
@@ -122,9 +152,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000087
   modifiedTime: 1684622966500
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!56TGgR3gpMyWTVq2'
 

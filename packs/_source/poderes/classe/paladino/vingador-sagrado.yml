@@ -3,10 +3,8 @@ name: Vingador Sagrado
 type: poder
 img: systems/tormenta20/icons/poderes/classes/combatentes/vingador-sagrado.webp
 effects:
-  - label: Vingador Sagrado
-    icon: systems/tormenta20/icons/classes/paladino.webp
-    origin: Item.fdHDY8tcvrhNY5r7
-    tint: '#FFFFFF'
+  - origin: Item.fdHDY8tcvrhNY5r7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -31,13 +29,26 @@ effects:
         value: '18'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vingador Sagrado
+    img: systems/tormenta20/icons/classes/paladino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fdHDY8tcvrhNY5r7.IpxgIFssVUgivkmY'
-  - label: >-
-      Vingador Sagrado: Reduz o custo em PM de golpe divino pela metade e
-      aumenta em 2 dados seu dano.
-    icon: icons/svg/upgrade.svg
-    origin: Item.fdHDY8tcvrhNY5r7
-    tint: '#FFFFFF'
+  - origin: Item.fdHDY8tcvrhNY5r7
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -69,6 +80,25 @@ effects:
         value: 2d8
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Vingador Sagrado: Reduz o custo em PM de golpe divino pela metade e
+      aumenta em 2 dados seu dano.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fdHDY8tcvrhNY5r7.rZooFG4VatvF6BST'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -130,9 +160,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184751
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!fdHDY8tcvrhNY5r7'
 

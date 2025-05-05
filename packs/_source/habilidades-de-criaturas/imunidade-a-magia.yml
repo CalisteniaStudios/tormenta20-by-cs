@@ -49,10 +49,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Lento
-    icon: systems/tormenta20/icons/conditions/lento.svg
-    origin: Item.fCqhLlEwnuVp5d1h
-    tint: '#FFFFFF'
+  - origin: Item.fCqhLlEwnuVp5d1h
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -69,15 +67,34 @@ effects:
     _id: PowuR4jXzudQ5wVx
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lento
+    img: systems/tormenta20/icons/conditions/lento.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!fCqhLlEwnuVp5d1h.PowuR4jXzudQ5wVx'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1667006548755
   modifiedTime: 1668270615330
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: fCqhLlEwnuVp5d1h
 folder: null
 sort: 0

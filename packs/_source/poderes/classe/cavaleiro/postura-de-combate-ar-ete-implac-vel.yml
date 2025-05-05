@@ -3,10 +3,8 @@ name: 'Postura de Combate: Aríete Implacável'
 type: poder
 img: systems/tormenta20/icons/classes/cavaleiro.webp
 effects:
-  - label: 'Aríete Implacável: Aumenta o bônus de ataque em investida em +1'
-    icon: icons/svg/upgrade.svg
-    origin: Item.faabBo3I07EmxSIz
-    tint: '#FFFFFF'
+  - origin: Item.faabBo3I07EmxSIz
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,11 +35,26 @@ effects:
         value: '1'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Aríete Implacável: Aumenta o bônus de ataque em investida em +1'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!faabBo3I07EmxSIz.ARgVsiWxGxyDABcS'
-  - label: 'Postura de Combate: Aríete Implacável'
-    icon: systems/tormenta20/icons/classes/cavaleiro.webp
-    origin: Item.faabBo3I07EmxSIz
-    tint: '#FFFFFF'
+  - origin: Item.faabBo3I07EmxSIz
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -66,6 +79,23 @@ effects:
         value: 2d8
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Postura de Combate: Aríete Implacável'
+    img: systems/tormenta20/icons/classes/cavaleiro.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!faabBo3I07EmxSIz.9IHzTGBnCr2Bz4IK'
 folder: FOdOQA7oDXTWqj5Z
 sort: 0
@@ -143,9 +173,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184751
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!faabBo3I07EmxSIz'
 

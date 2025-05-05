@@ -60,10 +60,8 @@ system:
     encanto3: ''
   encantos: {}
 effects:
-  - label: 'Manto Camuflado: +2 em furtividade no terreno escolhido.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.FMnT2iyH7mRPChuN
-    tint: '#FFFFFF'
+  - origin: Item.FMnT2iyH7mRPChuN
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -94,15 +92,34 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Manto Camuflado: +2 em furtividade no terreno escolhido.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FMnT2iyH7mRPChuN.AgNWYLEKRS205xvS'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663532558587
   modifiedTime: 1684809353177
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: FMnT2iyH7mRPChuN
 folder: 3kNyXnAknru6qWyM
 sort: 800000

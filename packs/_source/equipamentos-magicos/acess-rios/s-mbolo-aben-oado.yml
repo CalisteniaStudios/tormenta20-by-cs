@@ -3,10 +3,8 @@ name: Símbolo Abençoado
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/simbolo-abencoado.webp
 effects:
-  - label: Símbolo Abençoado
-    icon: icons/svg/upgrade.svg
-    origin: Item.PymQTrvR91CIsUlW
-    tint: '#FFFFFF'
+  - origin: Item.PymQTrvR91CIsUlW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -34,6 +32,23 @@ effects:
     _id: CciQ564nGhsYXDId
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Símbolo Abençoado
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!PymQTrvR91CIsUlW.CciQ564nGhsYXDId'
 folder: BgJUCrqjG6EVBIfP
 sort: 4237500
@@ -99,9 +114,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000101
   modifiedTime: 1684623045969
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!PymQTrvR91CIsUlW'
 

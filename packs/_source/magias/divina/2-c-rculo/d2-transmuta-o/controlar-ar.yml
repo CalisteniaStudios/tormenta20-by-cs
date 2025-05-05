@@ -39,16 +39,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o limite de tamanho de criaturas e objetos afetados em um passo.
     origin: Compendium.tormenta20.magias.gUp6Pm0Bf4WTUcSA
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o limite de tamanho de criaturas e objetos afetados em um passo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u3H3ie8CbzrmlBM9.fwMTgwpZsj9p70EF'
-  - label: Ascender (Penalidade no Ataque)
-    icon: icons/magic/air/wind-tornado-cyclone-white.webp
-    origin: Item.u3H3ie8CbzrmlBM9
-    tint: '#FFFFFF'
+  - origin: Item.u3H3ie8CbzrmlBM9
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -73,6 +86,23 @@ effects:
         value: '-2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ascender (Penalidade no Ataque)
+    img: icons/magic/air/wind-tornado-cyclone-white.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!u3H3ie8CbzrmlBM9.toLQ9w7R72aeuer8'
 flags: {}
 system:
@@ -169,10 +199,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462779
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: u3H3ie8CbzrmlBM9
 folder: qywU2r4WYPZtCRR1
 sort: 0

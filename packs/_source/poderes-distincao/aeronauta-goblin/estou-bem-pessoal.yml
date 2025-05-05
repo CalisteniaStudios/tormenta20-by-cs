@@ -59,10 +59,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Estou Bem, Pessoal!
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.GAkbEClbwEcoP94B
-    tint: '#FFFFFF'
+  - origin: Item.GAkbEClbwEcoP94B
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -83,15 +81,34 @@ effects:
         value: '5'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estou Bem, Pessoal!
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!GAkbEClbwEcoP94B.rvRQyEoPOuD4kdrd'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665847889294
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: GAkbEClbwEcoP94B
 folder: 62pUBDtKHHsJNktu
 sort: 0

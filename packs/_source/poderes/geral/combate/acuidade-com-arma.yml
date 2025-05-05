@@ -3,10 +3,8 @@ name: Acuidade com Arma
 type: poder
 img: systems/tormenta20/icons/poderes/combate.webp
 effects:
-  - label: Acuidade com Arma
-    icon: icons/svg/upgrade.svg
-    origin: Item.ma3p9pqGlGsneo2Q
-    tint: '#FFFFFF'
+  - origin: Item.ma3p9pqGlGsneo2Q
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -42,6 +40,23 @@ effects:
         value: des
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Acuidade com Arma
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ma3p9pqGlGsneo2Q.OSbYNk1D6XaNB7S6'
 folder: Rgbah8U70jOKi5DF
 sort: 0
@@ -102,9 +117,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185147
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ma3p9pqGlGsneo2Q'
 

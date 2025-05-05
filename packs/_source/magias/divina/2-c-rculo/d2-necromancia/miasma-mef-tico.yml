@@ -44,17 +44,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para toque, a área para alvo (1 criatura com 0 PV ou
       menos), a duração para instantânea e a resistência para Fortitude anula. e
       adiciona componente material (pó de ônix no valor de T$ 10). Em vez do
       normal, você canaliza o Miasma contra uma vítima. Se falhar na
       resistência, ela morre e você recebe +2 na CD de suas magias por 1 dia. Se
       passar, fica imune a este truque por um dia.
-    origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bs3SycPD7ENusrfH.fyrWEjDhKy6MU5of'
   - _id: 1VEcwX3EAmPtckY8
     flags:
@@ -84,11 +99,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +1d6.
     origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +1d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bs3SycPD7ENusrfH.1VEcwX3EAmPtckY8'
   - _id: 0jY8pxm5JZUViwRp
     flags:
@@ -107,11 +137,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o tipo do dano para trevas.
     origin: Compendium.tormenta20.magias.bs3SycPD7ENusrfH
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o tipo do dano para trevas.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bs3SycPD7ENusrfH.0jY8pxm5JZUViwRp'
 folder: tsMBuCg4bWXLn3mQ
 sort: 0
@@ -182,9 +227,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462767
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!bs3SycPD7ENusrfH'
 

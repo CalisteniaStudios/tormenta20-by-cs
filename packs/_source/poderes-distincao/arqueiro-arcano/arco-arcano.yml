@@ -69,10 +69,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Arco Encantado
-    icon: icons/svg/upgrade.svg
-    origin: Item.ww8XOLMCIgepm9Uq
-    tint: '#FFFFFF'
+  - origin: Item.ww8XOLMCIgepm9Uq
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -104,11 +102,26 @@ effects:
         value: '@atributoChave'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arco Encantado
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ww8XOLMCIgepm9Uq.vTG3ITPTlvYkwaCg'
-  - label: Arco Arcano
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.ww8XOLMCIgepm9Uq
-    tint: '#FFFFFF'
+  - origin: Item.ww8XOLMCIgepm9Uq
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -129,15 +142,34 @@ effects:
         value: items.name
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arco Arcano
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ww8XOLMCIgepm9Uq.igV7Me9LS9hWe496'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1665856654745
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: ww8XOLMCIgepm9Uq
 folder: Rj1a3BRGbCJZHIUT
 sort: 0

@@ -24,11 +24,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +2d6.
     origin: Compendium.tormenta20.magias.Sbf50YYcbKCXA3CI
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +2d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Sbf50YYcbKCXA3CI.A3kKxRbC8XZB32Mg'
   - _id: nC9JOVHMZZxs5pWc
     flags:
@@ -55,8 +70,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.Sbf50YYcbKCXA3CI
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para "você" e o alcance para "pessoal". Ao invés do normal,
       escolha uma magia de 1º círculo que você conhece e pode lançar, com tempo
       de execução de uma ação padrão ou menor. Você escreve a runa em seu corpo
@@ -64,9 +91,12 @@ effects:
       alvo de um ataque" ou "quando for alvo de uma magia". Quando a condição
       for cumprida, você pode ativar a runa e lançar a magia escolhida como uma
       reação. Você só pode escrever uma runa em seu corpo ao mesmo tempo.
-    origin: Compendium.tormenta20.magias.Sbf50YYcbKCXA3CI
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Sbf50YYcbKCXA3CI.nC9JOVHMZZxs5pWc'
   - _id: xueONs898dqDBbTb
     flags:
@@ -92,15 +122,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.Sbf50YYcbKCXA3CI
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       como o aprimoramento anterior, mas você pode escolher magias de 2º
       círculo. Requer 3º
 
       círculo.
-    origin: Compendium.tormenta20.magias.Sbf50YYcbKCXA3CI
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Sbf50YYcbKCXA3CI.xueONs898dqDBbTb'
 folder: 2KjQdcIMKzawCqmg
 sort: 0
@@ -189,9 +234,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461911
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Sbf50YYcbKCXA3CI'
 

@@ -18,15 +18,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/manto-do-cruzado.webp
-    label: Manto de Luz
     origin: Item.rayAzLYgDBfc2cvv
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto de Luz
+    img: systems/tormenta20/icons/magias/manto-do-cruzado.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hyrMxy1zmRDWJbmB.tpVQeMpu7R1uub2U'
   - _id: GIvosxSBsp5Xd9Be
     changes: []
@@ -39,15 +54,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/manto-do-cruzado.webp
-    label: Manto de Trevas
     origin: Item.rayAzLYgDBfc2cvv
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto de Trevas
+    img: systems/tormenta20/icons/magias/manto-do-cruzado.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!hyrMxy1zmRDWJbmB.GIvosxSBsp5Xd9Be'
 folder: fjzcx2rvOZ83jHv7
 sort: 0
@@ -119,9 +149,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462782
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!hyrMxy1zmRDWJbmB'
 

@@ -32,13 +32,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      alvos que falhem na resistência ficam exaustos por 1d4+1 rodadas, em vez
-      de apenas 1.
     origin: Compendium.tormenta20.magias.vTVcrCjSdnOmcIyi
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      alvos que falhem na resistência ficam exaustos por 1d4+1 rodadas, em vez
+      de apenas 1.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vTVcrCjSdnOmcIyi.2RSritpp09rILvcN'
   - _id: NiU1L1ieGobYHI7J
     flags:
@@ -65,11 +80,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alvo para criatura.
     origin: Compendium.tormenta20.magias.vTVcrCjSdnOmcIyi
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para criatura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vTVcrCjSdnOmcIyi.NiU1L1ieGobYHI7J'
   - _id: EPHBBEqIiZxPG0lj
     flags:
@@ -100,11 +130,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: afeta todos os alvos válidos a sua escolha dentro do alcance.
     origin: Compendium.tormenta20.magias.vTVcrCjSdnOmcIyi
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: afeta todos os alvos válidos a sua escolha dentro do alcance.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vTVcrCjSdnOmcIyi.EPHBBEqIiZxPG0lj'
   - _id: FgYS2NNPgDpPqjpi
     changes: []
@@ -117,15 +162,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/sono.webp
-    label: Sono
     origin: Item.pBwmRLeF2gyonfGU
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sono
+    img: systems/tormenta20/icons/magias/sono.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!vTVcrCjSdnOmcIyi.FgYS2NNPgDpPqjpi'
 folder: wqRfH0bDNPgI8ZTq
 sort: 0
@@ -190,9 +250,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462897
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!vTVcrCjSdnOmcIyi'
 

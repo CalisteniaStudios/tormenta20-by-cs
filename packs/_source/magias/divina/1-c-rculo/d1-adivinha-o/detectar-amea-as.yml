@@ -32,17 +32,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.H7tJCAL2UNJ8QLPN
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       você descobre também a raça ou espécie e o poder da criatura detectada
       (determinado pela aura dela). Criaturas de 1º a 6º nível geram aura tênue,
       criaturas de 7º a 12º nível geram aura moderada e criaturas de 13º ao 20º
       nível geram aura poderosa.
 
       Criaturas acima do 20º nível geram aura avassaladora.
-    origin: Compendium.tormenta20.magias.H7tJCAL2UNJ8QLPN
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!H7tJCAL2UNJ8QLPN.t5yLRHYstZKEtMWI'
   - _id: YlWmo9KUIn4n9sUx
     flags:
@@ -69,19 +84,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.H7tJCAL2UNJ8QLPN
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       além do normal, você não fica surpreso e desprevenido contra perigos
       detectados com sucesso e recebe +5 em testes de resistência contra
       armadilhas. Requer 2º círculo.
-    origin: Compendium.tormenta20.magias.H7tJCAL2UNJ8QLPN
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!H7tJCAL2UNJ8QLPN.YlWmo9KUIn4n9sUx'
-  - label: Detectar Ameaças (Aprimoramento de +2 PM)
-    icon: systems/tormenta20/icons/magias/detectar-ameacas.webp
-    origin: Item.H7tJCAL2UNJ8QLPN
-    tint: '#FFFFFF'
+  - origin: Item.H7tJCAL2UNJ8QLPN
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -110,6 +138,23 @@ effects:
         value: '5'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Detectar Ameaças (Aprimoramento de +2 PM)
+    img: systems/tormenta20/icons/magias/detectar-ameacas.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!H7tJCAL2UNJ8QLPN.y3ZiAkfQtOHDdSTK'
 folder: p1pmArDFchj2PZUn
 sort: 0
@@ -173,9 +218,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461814
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!H7tJCAL2UNJ8QLPN'
 

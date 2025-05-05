@@ -2,10 +2,8 @@ name: Blindagem
 type: poder
 img: icons/commodities/tech/cog-brass.webp
 effects:
-  - label: Blindagem
-    icon: icons/commodities/tech/cog-brass.webp
-    origin: Item.IWpWSfSXeQbEPw4Z
-    tint: '#FFFFFF'
+  - origin: Item.IWpWSfSXeQbEPw4Z
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -26,6 +24,23 @@ effects:
         value: '@int'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Blindagem
+    img: icons/commodities/tech/cog-brass.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!IWpWSfSXeQbEPw4Z.okKdUuTe3Potb7fU'
 flags:
   scene-packer:
@@ -87,10 +102,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051643138
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: IWpWSfSXeQbEPw4Z
 folder: iHjbUWZ9cRzIVZ3E
 sort: 0

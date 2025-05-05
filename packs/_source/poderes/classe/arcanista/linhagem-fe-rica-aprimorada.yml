@@ -2,13 +2,8 @@ name: Linhagem Feérica Aprimorada
 type: poder
 img: systems/tormenta20/icons/poderes/classes/conjuradores/linhagem-feerica.webp
 effects:
-  - label: >-
-      Linhagem Feerica Aprimorada: A CD para resistir a suas magias de
-      encantamento e ilusão aumenta em +2 e suas magias dessas escolas custam –1
-      PM.
-    icon: icons/svg/upgrade.svg
-    origin: Item.uZCYSnv0rUzrSo8D
-    tint: '#FFFFFF'
+  - origin: Item.uZCYSnv0rUzrSo8D
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -39,6 +34,26 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Linhagem Feerica Aprimorada: A CD para resistir a suas magias de
+      encantamento e ilusão aumenta em +2 e suas magias dessas escolas custam –1
+      PM.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!uZCYSnv0rUzrSo8D.lzbY7j6Zm9cBhwyo'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
@@ -106,9 +121,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185653
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!uZCYSnv0rUzrSo8D'
 

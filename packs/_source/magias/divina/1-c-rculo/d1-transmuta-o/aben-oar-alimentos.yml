@@ -27,13 +27,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.ooljhEHVC95FFYy2
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       o alimento é purificado (não causa nenhum efeito nocivo se estava
       estragado ou envenenado), mas não oferece bônus ao ser consumido.
-    origin: Item.ooljhEHVC95FFYy2
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzDo9khqHDty1iDV.stE1aQS78iamg8A5'
   - _id: 8tPnJoXVcIhXbVkw
     flags:
@@ -63,11 +78,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: aumenta o número de alvos em +1.
     origin: Item.ooljhEHVC95FFYy2
-    tint: null
+    tint: '#ffffff'
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o número de alvos em +1.
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzDo9khqHDty1iDV.8tPnJoXVcIhXbVkw'
   - _id: S9PfJej9nKnyc6sE
     flags:
@@ -102,14 +132,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/aura.svg
-    label: >-
+    origin: Item.ooljhEHVC95FFYy2
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para permanente, o alvo para 1 frasco com água e adiciona
       componente material (pó de prata no valor de T$ 5). Em vez do normal, cria
       um frasco de água benta.
-    origin: Item.ooljhEHVC95FFYy2
-    tint: null
-    transfer: false
+    img: icons/svg/aura.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzDo9khqHDty1iDV.S9PfJej9nKnyc6sE'
   - _id: rkGfGUa8tjaJl82y
     changes: []
@@ -122,15 +167,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/abencoar-alimentos.webp
-    label: Sob Efeito do Fruto
     origin: Item.Fd7SJsp1MNFbSCCd
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sob Efeito do Fruto
+    img: systems/tormenta20/icons/magias/abencoar-alimentos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ZzDo9khqHDty1iDV.rkGfGUa8tjaJl82y'
 folder: 0Ag3zWprkyw1jmqw
 sort: 0
@@ -196,9 +256,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462763
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!ZzDo9khqHDty1iDV'
 

@@ -2,10 +2,8 @@ name: 'Montaria: Cão de Caça'
 type: poder
 img: systems/tormenta20/icons/itens/gerais/cao.webp
 effects:
-  - label: 'Montaria: Cão Iniciante'
-    icon: icons/creatures/mammals/dog-husky-white-blue.webp
-    origin: Item.8ohxM9bTuB8s1YIC
-    tint: '#FFFFFF'
+  - origin: Item.8ohxM9bTuB8s1YIC
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -26,11 +24,26 @@ effects:
         value: '9'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Cão Iniciante'
+    img: icons/creatures/mammals/dog-husky-white-blue.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8ohxM9bTuB8s1YIC.UogqmMIAGaSQkz20'
-  - label: 'Montaria: Cão Veterano'
-    icon: icons/creatures/mammals/dog-husky-white-blue.webp
-    origin: Item.8ohxM9bTuB8s1YIC
-    tint: '#FFFFFF'
+  - origin: Item.8ohxM9bTuB8s1YIC
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -55,11 +68,26 @@ effects:
         value: '12'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Cão Veterano'
+    img: icons/creatures/mammals/dog-husky-white-blue.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8ohxM9bTuB8s1YIC.Si4CaHONWXCKkbdT'
-  - label: 'Montaria: Cão Mestre'
-    icon: icons/creatures/mammals/dog-husky-white-blue.webp
-    origin: Item.8ohxM9bTuB8s1YIC
-    tint: '#FFFFFF'
+  - origin: Item.8ohxM9bTuB8s1YIC
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -84,6 +112,23 @@ effects:
         value: '12'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Montaria: Cão Mestre'
+    img: icons/creatures/mammals/dog-husky-white-blue.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!8ohxM9bTuB8s1YIC.iMmN2KMpSyBGdL1k'
 flags:
   scene-packer:
@@ -191,10 +236,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847525
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 8ohxM9bTuB8s1YIC
 folder: null
 sort: 0

@@ -3,10 +3,8 @@ name: Alterar Destino
 type: magia
 img: systems/tormenta20/icons/magias/alterar-destino.webp
 effects:
-  - label: Alterar Destino
-    icon: systems/tormenta20/icons/magias/alterar-destino.webp
-    origin: Item.G918QZzj9ln4mpMn
-    tint: '#FFFFFF'
+  - origin: Item.G918QZzj9ln4mpMn
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -46,11 +44,26 @@ effects:
         value: '10'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alterar Destino
+    img: systems/tormenta20/icons/magias/alterar-destino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!G918QZzj9ln4mpMn.l770NqNV1HNzuwXB'
-  - label: Alterar Destino
-    icon: systems/tormenta20/icons/magias/alterar-destino.webp
-    origin: Item.G918QZzj9ln4mpMn
-    tint: '#FFFFFF'
+  - origin: Item.G918QZzj9ln4mpMn
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -79,6 +92,23 @@ effects:
         value: '0'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alterar Destino
+    img: systems/tormenta20/icons/magias/alterar-destino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!G918QZzj9ln4mpMn.9HWZmaknsooS766L'
 folder: SfUO0nNPwnoFC3gT
 sort: 0
@@ -140,9 +170,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461811
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!G918QZzj9ln4mpMn'
 

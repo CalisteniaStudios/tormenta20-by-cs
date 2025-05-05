@@ -78,10 +78,8 @@ system:
   melhorias: {}
   encantos: {}
 effects:
-  - label: Dente-de-Dragão (1d4).
-    icon: icons/svg/upgrade.svg
-    origin: Item.MT4QgnaAwWgr4pet
-    tint: '#FFFFFF'
+  - origin: Item.MT4QgnaAwWgr4pet
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -112,11 +110,26 @@ effects:
         value: 1d4
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dente-de-Dragão (1d4).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JgHtHH40AcZqCRg1.mhMNYFNWFT6UyhFS'
-  - label: Dente-de-Dragão (1d6).
-    icon: icons/svg/upgrade.svg
-    origin: Item.JgHtHH40AcZqCRg1
-    tint: '#FFFFFF'
+  - origin: Item.JgHtHH40AcZqCRg1
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -147,11 +160,26 @@ effects:
         value: 1d6
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dente-de-Dragão (1d6).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JgHtHH40AcZqCRg1.5b0bqnhG3aIoRDGi'
-  - label: Dente-de-Dragão (1d8).
-    icon: icons/svg/upgrade.svg
-    origin: Item.JgHtHH40AcZqCRg1
-    tint: '#FFFFFF'
+  - origin: Item.JgHtHH40AcZqCRg1
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -182,11 +210,26 @@ effects:
         value: 1d8
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dente-de-Dragão (1d8).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JgHtHH40AcZqCRg1.9hrm4iG7xdhTgJ5N'
-  - label: Dente-de-Dragão (1d10).
-    icon: icons/svg/upgrade.svg
-    origin: Item.JgHtHH40AcZqCRg1
-    tint: '#FFFFFF'
+  - origin: Item.JgHtHH40AcZqCRg1
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -217,11 +260,26 @@ effects:
         value: 1d10
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dente-de-Dragão (1d10).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JgHtHH40AcZqCRg1.8SzYgaQgaiBnIJPe'
-  - label: Dente-de-Dragão (1d12).
-    icon: icons/svg/upgrade.svg
-    origin: Item.JgHtHH40AcZqCRg1
-    tint: '#FFFFFF'
+  - origin: Item.JgHtHH40AcZqCRg1
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -252,15 +310,34 @@ effects:
         value: 1d12
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dente-de-Dragão (1d12).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JgHtHH40AcZqCRg1.lSw0RPtIiEXJd2Gm'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663365561715
   modifiedTime: 1684617447745
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: JgHtHH40AcZqCRg1
 folder: QiIu6dfsnRA5FIHj
 sort: 200000

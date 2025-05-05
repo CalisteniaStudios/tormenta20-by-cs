@@ -3,10 +3,8 @@ name: Óleo de Arma Mágica
 type: consumivel
 img: systems/tormenta20/icons/itens/itens-magicos/pocao-oleo.webp
 effects:
-  - label: Arma Mágica
-    icon: icons/svg/upgrade.svg
-    origin: Item.lUvXanXBUKxGOd2M
-    tint: '#FFFFFF'
+  - origin: Item.lUvXanXBUKxGOd2M
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -46,11 +44,27 @@ effects:
         value: items.name
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arma Mágica
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!lUvXanXBUKxGOd2M.OagxBZ7Y1s9Q87Na'
 folder: null
 sort: 0
-flags:
-  importid: rg3IVDXFfQ21aY5e
+flags: {}
 system:
   description:
     value: >-
@@ -169,9 +183,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007041
   modifiedTime: 1667351628036
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!lUvXanXBUKxGOd2M'
 

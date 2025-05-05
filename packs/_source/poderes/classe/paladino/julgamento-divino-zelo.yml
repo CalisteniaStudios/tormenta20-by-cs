@@ -3,10 +3,8 @@ name: 'Julgamento Divino: Zelo'
 type: poder
 img: systems/tormenta20/icons/classes/paladino.webp
 effects:
-  - label: Marcar Inimigo
-    icon: systems/tormenta20/icons/classes/paladino.webp
-    origin: Item.tNuIJrmXypr1IVOh
-    tint: '#FFFFFF'
+  - origin: Item.tNuIJrmXypr1IVOh
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: KDgtR2Xt5TcnkuDC
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Marcar Inimigo
+    img: systems/tormenta20/icons/classes/paladino.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!tNuIJrmXypr1IVOh.KDgtR2Xt5TcnkuDC'
 folder: VwM7ZxttHPFuX6M4
 sort: 0
@@ -99,9 +114,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185649
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!tNuIJrmXypr1IVOh'
 

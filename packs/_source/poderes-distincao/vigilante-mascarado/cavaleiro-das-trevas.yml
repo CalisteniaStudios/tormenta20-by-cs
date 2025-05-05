@@ -74,10 +74,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Cavaleiro das Trevas
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.p7dkbrmgC74qMgpI
-    tint: '#FFFFFF'
+  - origin: Item.p7dkbrmgC74qMgpI
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -98,15 +96,34 @@ effects:
         value: escuro
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cavaleiro das Trevas
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!p7dkbrmgC74qMgpI.VLi0QayqBczBqdyt'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083905345
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: p7dkbrmgC74qMgpI
 folder: NxFKO0AHIR0pQgBN
 sort: 0

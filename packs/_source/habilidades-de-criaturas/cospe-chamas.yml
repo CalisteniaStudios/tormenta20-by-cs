@@ -2,10 +2,8 @@ name: Cospe-chamas
 type: magia
 img: systems/tormenta20/icons/poderes/ameacas/cospe-chamas.webp
 effects:
-  - label: Em Chamas
-    icon: systems/tormenta20/icons/conditions/em-chamas.svg
-    origin: Item.cp13FGeg0C2uihk3
-    tint: '#FFFFFF'
+  - origin: Item.cp13FGeg0C2uihk3
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,6 +20,23 @@ effects:
     _id: a0SlKjWxq2sT8Dam
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Em Chamas
+    img: systems/tormenta20/icons/conditions/em-chamas.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cp13FGeg0C2uihk3.a0SlKjWxq2sT8Dam'
 flags: {}
 system:
@@ -83,10 +98,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664310461907
   modifiedTime: 1668270615328
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: cp13FGeg0C2uihk3
 folder: null
 sort: 0

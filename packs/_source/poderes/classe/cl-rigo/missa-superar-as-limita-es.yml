@@ -3,10 +3,8 @@ name: 'Missa: Superar as Limitações'
 type: poder
 img: systems/tormenta20/icons/classes/clerigo.webp
 effects:
-  - label: 'Missa: Superar as Limitações'
-    icon: systems/tormenta20/icons/classes/clerigo.webp
-    origin: Item.TVNNn8Os4bGc8mOb
-    tint: '#FFFFFF'
+  - origin: Item.TVNNn8Os4bGc8mOb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: ebkJCphOFgDRqucJ
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Missa: Superar as Limitações'
+    img: systems/tormenta20/icons/classes/clerigo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!TVNNn8Os4bGc8mOb.ebkJCphOFgDRqucJ'
 folder: RDLTxoI4mIyfR6dr
 sort: 0
@@ -102,9 +117,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184313
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!TVNNn8Os4bGc8mOb'
 

@@ -39,13 +39,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda a execução para ação padrão, o alcance para toque e o alvo para 1
-      criatura ou um objeto Grande ou menor.
     origin: Compendium.tormenta20.magias.A3RFvVgOvODWHtvc
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda a execução para ação padrão, o alcance para toque e o alvo para 1
+      criatura ou um objeto Grande ou menor.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!A3RFvVgOvODWHtvc.A4ryQhkfouqeh1xE'
   - _id: XX8tEL2JjoPk8mRT
     flags:
@@ -68,11 +83,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para cena. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.A3RFvVgOvODWHtvc
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para cena. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!A3RFvVgOvODWHtvc.XX8tEL2JjoPk8mRT'
   - _id: kMjVUFdZcjnL1BmE
     flags:
@@ -103,17 +133,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.A3RFvVgOvODWHtvc
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para sustentada. Em vez do normal, o alvo gera uma esfera
       de invisibilidade. Não pode ser usado em conjunto com outros
       aprimoramentos. O alvo e todas as criaturas a até 3m dele se tornam
       invisíveis, como no efeito normal da magia (ainda ficam visíveis caso
       façam uma ação hostil). A esfera se move juntamente com o alvo; qualquer
       coisa que saia da esfera fica visível. Requer 3º círculo.
-    origin: Compendium.tormenta20.magias.A3RFvVgOvODWHtvc
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!A3RFvVgOvODWHtvc.kMjVUFdZcjnL1BmE'
   - _id: KLOI441mZ7UBHYC1
     flags:
@@ -152,14 +197,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.A3RFvVgOvODWHtvc
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a execução para ação padrão, o alcance para toque e o alvo para 1
       criatura. A magia não é dissipada caso o alvo faça um ação hostil. Requer
       4º círculo.
-    origin: Compendium.tormenta20.magias.A3RFvVgOvODWHtvc
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!A3RFvVgOvODWHtvc.KLOI441mZ7UBHYC1'
   - _id: aUQdrZuWeUHQZSG8
     changes:
@@ -176,15 +236,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/invisibilidade.webp
-    label: Invisibilidade
     origin: Item.Ie5Z6crPUcd3rmpk
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Invisibilidade
+    img: systems/tormenta20/icons/magias/invisibilidade.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!A3RFvVgOvODWHtvc.aUQdrZuWeUHQZSG8'
 folder: JF3PQ5Q84KVTjyxv
 sort: 0
@@ -259,9 +334,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461774
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!A3RFvVgOvODWHtvc'
 

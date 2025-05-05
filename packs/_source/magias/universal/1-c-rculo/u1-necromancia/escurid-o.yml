@@ -20,11 +20,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a área da escuridão em +1,5m de raio.
     origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a área da escuridão em +1,5m de raio.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Bt364TPpNUI1QVPP.Uyu4cNLHEutbBxZP'
   - _id: 0YqIyoJ2KmTHGJbz
     flags:
@@ -51,13 +66,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o efeito para fornecer camuflagem total por escuridão total. As
-      sombras bloqueiam a visão na área e através dela.
     origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o efeito para fornecer camuflagem total por escuridão total. As
+      sombras bloqueiam a visão na área e através dela.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Bt364TPpNUI1QVPP.0YqIyoJ2KmTHGJbz'
   - _id: e70zPpfkALuH0bfC
     flags:
@@ -89,11 +119,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda a duração para 1 dia.
     origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda a duração para 1 dia.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Bt364TPpNUI1QVPP.e70zPpfkALuH0bfC'
   - _id: 7bPquxwkzse2vRjB
     flags:
@@ -128,14 +173,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para 1 criatura e a resistência para Fortitude parcial. Você
       lança a magia nos olhos do alvo, que fica cego pela cena. Se passar na
       resistência, fica cego por 1 rodada. Requer 2º círculo.
-    origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Bt364TPpNUI1QVPP.7bPquxwkzse2vRjB'
   - _id: FJgSE1Jwz7HbX1zB
     flags:
@@ -170,19 +230,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para pessoal e o alvo para você. Em vez do normal, você é
       coberto por sombras, recebendo +10 em testes de Furtividade e camuflagem
       leve. Requer 2º círculo.
-    origin: Compendium.tormenta20.magias.Bt364TPpNUI1QVPP
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Bt364TPpNUI1QVPP.FJgSE1Jwz7HbX1zB'
-  - label: Cego (Aprimoramento de +2 PM)
-    icon: systems/tormenta20/icons/magias/escuridao.webp
-    origin: Item.Bt364TPpNUI1QVPP
-    tint: '#FFFFFF'
+  - origin: Item.Bt364TPpNUI1QVPP
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -199,11 +272,26 @@ effects:
     _id: 41PPixuYXAVOp2FW
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cego (Aprimoramento de +2 PM)
+    img: systems/tormenta20/icons/magias/escuridao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Bt364TPpNUI1QVPP.41PPixuYXAVOp2FW'
-  - label: Bônus em Furtividade (Aprimoramento de +5 PM)
-    icon: systems/tormenta20/icons/magias/escuridao.webp
-    origin: Item.Bt364TPpNUI1QVPP
-    tint: '#FFFFFF'
+  - origin: Item.Bt364TPpNUI1QVPP
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -224,6 +312,23 @@ effects:
         value: '10'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bônus em Furtividade (Aprimoramento de +5 PM)
+    img: systems/tormenta20/icons/magias/escuridao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Bt364TPpNUI1QVPP.l1QUv78abT0UKdX7'
 folder: JYkPCpeuzCN0Fc4I
 sort: 0
@@ -288,9 +393,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461779
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!Bt364TPpNUI1QVPP'
 

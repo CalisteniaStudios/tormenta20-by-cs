@@ -3,10 +3,8 @@ name: Forma Selvagem Superior
 type: poder
 img: systems/tormenta20/icons/classes/druida.webp
 effects:
-  - label: Forma Ágil Superior
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.YIGCiUvEGskBIfGd
-    tint: '#FFFFFF'
+  - origin: Item.YIGCiUvEGskBIfGd
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -31,11 +29,26 @@ effects:
         value: '6'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Ágil Superior
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!YIGCiUvEGskBIfGd.JVW8jYQMJQD5dgzc'
-  - label: Forma Feroz Superior
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.YIGCiUvEGskBIfGd
-    tint: '#FFFFFF'
+  - origin: Item.YIGCiUvEGskBIfGd
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -60,11 +73,26 @@ effects:
         value: '6'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Feroz Superior
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!YIGCiUvEGskBIfGd.laxHG7JHzTqwlb7R'
-  - label: Forma Resistente Superior
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.YIGCiUvEGskBIfGd
-    tint: '#FFFFFF'
+  - origin: Item.YIGCiUvEGskBIfGd
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -93,11 +121,26 @@ effects:
         value: '10'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Resistente Superior
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!YIGCiUvEGskBIfGd.NCSmyOhkcjmcgTvT'
-  - label: Forma Sorrateira Superior
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.YIGCiUvEGskBIfGd
-    tint: '#FFFFFF'
+  - origin: Item.YIGCiUvEGskBIfGd
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -122,11 +165,26 @@ effects:
         value: '18'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Sorrateira Superior
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!YIGCiUvEGskBIfGd.T97ebzOuIkAht5Om'
-  - label: Forma Veloz Superior
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.YIGCiUvEGskBIfGd
-    tint: '#FFFFFF'
+  - origin: Item.YIGCiUvEGskBIfGd
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -147,11 +205,26 @@ effects:
         value: '6'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Veloz Superior
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!YIGCiUvEGskBIfGd.GY33VsQNBUVbQ8uh'
-  - label: 'Forma Ágil: -2 em ataques quando ataca com as duas armas naturais.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.YIGCiUvEGskBIfGd
-    tint: '#FFFFFF'
+  - origin: Item.YIGCiUvEGskBIfGd
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -182,6 +255,23 @@ effects:
         value: '-2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Forma Ágil: -2 em ataques quando ataca com as duas armas naturais.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!YIGCiUvEGskBIfGd.Bwmm5Qky9waEnmYA'
 folder: 8LraP5E2KHsZTAz8
 sort: 0
@@ -287,9 +377,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184729
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!YIGCiUvEGskBIfGd'
 

@@ -24,13 +24,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o alvo para objeto com até 5kg. Em vez do normal, você pode gastar
-      uma ação de movimento para levitar o alvo até 4,5m em qualquer direção.
     origin: Compendium.tormenta20.magias.9A5LyhPsCrdowfcL
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o alvo para objeto com até 5kg. Em vez do normal, você pode gastar
+      uma ação de movimento para levitar o alvo até 4,5m em qualquer direção.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9A5LyhPsCrdowfcL.JK0Ct96UdwVaay78'
   - _id: jGo03V8MaoXuq7zT
     flags:
@@ -53,11 +68,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alvo para até 10 criaturas ou objetos.
     origin: Compendium.tormenta20.magias.9A5LyhPsCrdowfcL
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para até 10 criaturas ou objetos.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9A5LyhPsCrdowfcL.jGo03V8MaoXuq7zT'
   - _id: kjomIFtVRx1vA5v2
     changes: []
@@ -70,20 +100,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/queda-suave.webp
-    label: Queda Suave
     origin: Item.kl7l2eic0RARxdtp
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Queda Suave
+    img: systems/tormenta20/icons/magias/queda-suave.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9A5LyhPsCrdowfcL.kjomIFtVRx1vA5v2'
-  - label: aumenta a categoria de tamanho do alvo em uma
-    icon: icons/svg/upgrade.svg
-    origin: Item.9A5LyhPsCrdowfcL
-    tint: '#FFFFFF'
+  - origin: Item.9A5LyhPsCrdowfcL
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -111,6 +154,23 @@ effects:
     _id: 8eo5YfHSFivsjjan
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a categoria de tamanho do alvo em uma
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!9A5LyhPsCrdowfcL.8eo5YfHSFivsjjan'
 folder: 3URElpYIsNxkQOHs
 sort: 0
@@ -183,9 +243,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461770
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!9A5LyhPsCrdowfcL'
 

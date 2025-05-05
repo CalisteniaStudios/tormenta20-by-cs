@@ -2,10 +2,8 @@ name: Perseguidor
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: Perseguidor Iniciante
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.0MvC3jJCv0311Ysr
-    tint: '#FFFFFF'
+  - origin: Item.0MvC3jJCv0311Ysr
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -40,11 +38,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Perseguidor Iniciante
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0MvC3jJCv0311Ysr.1Tc5ACaCgkRTIYI4'
-  - label: Perseguidor Veterano
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.0MvC3jJCv0311Ysr
-    tint: '#FFFFFF'
+  - origin: Item.0MvC3jJCv0311Ysr
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -61,11 +74,26 @@ effects:
     _id: WujM2pTO7gLuuJCk
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Perseguidor Veterano
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0MvC3jJCv0311Ysr.WujM2pTO7gLuuJCk'
-  - label: Perseguidor Mestre
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.0MvC3jJCv0311Ysr
-    tint: '#FFFFFF'
+  - origin: Item.0MvC3jJCv0311Ysr
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -82,6 +110,23 @@ effects:
     _id: PuhMZiugbVf0SWMk
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Perseguidor Mestre
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!0MvC3jJCv0311Ysr.PuhMZiugbVf0SWMk'
 flags:
   scene-packer:
@@ -176,10 +221,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847527
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 0MvC3jJCv0311Ysr
 folder: null
 sort: 0

@@ -7,9 +7,7 @@ items:
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/lanca.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.vaCe85lpdH10teLi
+    flags: {}
     system:
       description:
         value: >-
@@ -126,10 +124,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312773032
       modifiedTime: 1700236351514
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.vaCe85lpdH10teLi
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 1600000
     _id: U1KZMSBGgxu4aKnp
@@ -283,10 +284,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236345429
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: C79y8VlMIsPWwyde
     _key: '!actors.items!rUt3QVqY96mvNkhR.C79y8VlMIsPWwyde'
   - type: tesouro
@@ -355,19 +359,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667008447400
       modifiedTime: 1667008447400
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Gz9phF2jvSJHGVes
     _key: '!actors.items!rUt3QVqY96mvNkhR.Gz9phF2jvSJHGVes'
   - name: Sangue Frio
     type: poder
     img: systems/tormenta20/icons/racas/trog.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.poderes.0uPMzPcd5TJqZ0GD
+    flags: {}
     system:
       description:
         value: O trog sofre 1 ponto de dano adicional por dado de dano de frio.
@@ -418,10 +423,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.111
-      coreVersion: '10.291'
+      coreVersion: '13.342'
       createdTime: 1664306183284
       modifiedTime: 1676082119675
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.poderes.0uPMzPcd5TJqZ0GD
+      duplicateSource: null
+      exportSource: null
     folder: null
     sort: 50000
     _id: Xl4dYi34toeHt8nS
@@ -430,9 +438,7 @@ items:
     type: poder
     img: systems/tormenta20/icons/racas/trog.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.poderes.KOxJPGUZSjZp9T9l
+    flags: {}
     system:
       description:
         value: >-
@@ -487,10 +493,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.111
-      coreVersion: '10.291'
+      coreVersion: '13.342'
       createdTime: 1664306184241
       modifiedTime: 1676082120517
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.poderes.KOxJPGUZSjZp9T9l
+      duplicateSource: null
+      exportSource: null
     folder: null
     sort: 100000
     _id: nU3X63uU1XCuR2Il
@@ -1253,14 +1262,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/trog.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1274,12 +1289,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946022
   modifiedTime: 1700236351514
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!rUt3QVqY96mvNkhR'
 

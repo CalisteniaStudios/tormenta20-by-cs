@@ -20,13 +20,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      o monstro ganha deslocamento de escalada ou natação igual ao seu
-      deslocamento terrestre.
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      o monstro ganha deslocamento de escalada ou natação igual ao seu
+      deslocamento terrestre.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.c9TlOJN3jYxPi4gz'
   - _id: ZxWdWMajzEJJbS3Z
     flags:
@@ -45,11 +60,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o deslocamento do monstro em +3m.
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o deslocamento do monstro em +3m.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.ZxWdWMajzEJJbS3Z'
   - _id: Dw7Hi67Kc6ElagOk
     flags:
@@ -77,13 +107,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      muda o tipo de dano do ataque do monstro para ácido, fogo, frio ou
-      eletricidade.
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      muda o tipo de dano do ataque do monstro para ácido, fogo, frio ou
+      eletricidade.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.Dw7Hi67Kc6ElagOk'
   - _id: zAVRe2HtZLt7i3Dv
     flags:
@@ -111,13 +156,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta os PV do monstro em +10 para cada categoria de tamanho a partir de
-      Pequeno (+10 PV para Pequeno, +20 PV para Médio etc.).
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta os PV do monstro em +10 para cada categoria de tamanho a partir de
+      Pequeno (+10 PV para Pequeno, +20 PV para Médio etc.).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.zAVRe2HtZLt7i3Dv'
   - _id: EsKCHpUXf96ip0I5
     flags:
@@ -145,13 +205,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      aumenta o tamanho do monstro para Médio. Ele tem For 4, Des 3, 45 PV,
-      deslocamento 12m e seu ataque causa 2d6+6 pontos de dano.
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      aumenta o tamanho do monstro para Médio. Ele tem For 4, Des 3, 45 PV,
+      deslocamento 12m e seu ataque causa 2d6+6 pontos de dano.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.EsKCHpUXf96ip0I5'
   - _id: 4aCmcFMty29RiUgp
     flags:
@@ -179,13 +254,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      o monstro ganha resistência 5 contra dois tipos de dano (por exemplo,
-      corte e frio).
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      o monstro ganha resistência 5 contra dois tipos de dano (por exemplo,
+      corte e frio).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.4aCmcFMty29RiUgp'
   - _id: xQSUi8smYjA0zcJc
     flags:
@@ -213,14 +303,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       o monstro ganha uma nova ordem: Arma de Sopro. Para dar essa ordem você
       gasta 1 PM, e faz o monstro causar o dobro de seu dano de ataque em um
       cone de 6m a partir de si (Reflexos reduz à metade).
-    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.xQSUi8smYjA0zcJc'
   - _id: n7Xw9WgOy3UaOGpH
     flags:
@@ -248,14 +353,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       aumenta o tamanho do monstro para Grande. Ele tem For 7, Des 2, 75 PV,
       deslocamento 12m e seu ataque causa 4d6+10 pontos de dano com 3m de
       alcance. Requer 2º círculo.
-    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.n7Xw9WgOy3UaOGpH'
   - _id: cDyoYnw2Zg17k2Cv
     flags:
@@ -283,11 +403,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: o monstro ganha deslocamento de voo igual ao dobro do deslocamento.
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: o monstro ganha deslocamento de voo igual ao dobro do deslocamento.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.cDyoYnw2Zg17k2Cv'
   - _id: cUV8VBanY0RP8mW9
     flags:
@@ -315,11 +450,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: o monstro ganha imunidade contra dois tipos de dano.
     origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: o monstro ganha imunidade contra dois tipos de dano.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.cUV8VBanY0RP8mW9'
   - _id: UV34LsxA03TFxALd
     flags:
@@ -351,14 +501,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       aumenta o tamanho do monstro para Enorme. Ele tem For 11, Des 1, 110 PV,
       deslocamento 15m e seu ataque causa 4d8+15 pontos de dano com 4,5m de
       alcance. Requer 4º círculo.
-    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.UV34LsxA03TFxALd'
   - _id: q7leN2w2QXj3nAd0
     flags:
@@ -390,14 +555,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       aumenta o tamanho do monstro para Colossal. Ele tem For 15, Des 0, 180 PV,
       deslocamento 15m e seu ataque causa 4d12+20 pontos de dano com 9m de
       alcance. Requer 5º círculo.
-    origin: Compendium.tormenta20.magias.X89YrsleSF5Ulsa1
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!X89YrsleSF5Ulsa1.q7leN2w2QXj3nAd0'
 folder: XbLDNKDB9maFAhzw
 sort: 0
@@ -508,9 +688,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462755
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!X89YrsleSF5Ulsa1'
 

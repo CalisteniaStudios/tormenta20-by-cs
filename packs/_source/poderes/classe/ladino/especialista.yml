@@ -3,10 +3,8 @@ name: Especialista
 type: poder
 img: systems/tormenta20/icons/poderes/classes/especialistas/especialista.webp
 effects:
-  - label: Especialista (+2).
-    icon: icons/svg/upgrade.svg
-    origin: Item.08Or2dxtMBSLKVHW
-    tint: '#FFFFFF'
+  - origin: Item.08Or2dxtMBSLKVHW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,11 +35,26 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Especialista (+2).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!08Or2dxtMBSLKVHW.AdjySlwX5C16FO2f'
-  - label: Especialista (+4).
-    icon: icons/svg/upgrade.svg
-    origin: Item.08Or2dxtMBSLKVHW
-    tint: '#FFFFFF'
+  - origin: Item.08Or2dxtMBSLKVHW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -72,11 +85,26 @@ effects:
         value: '4'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Especialista (+4).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!08Or2dxtMBSLKVHW.5tRZaGndVEaWhrS3'
-  - label: Especialista (+6)
-    icon: icons/svg/upgrade.svg
-    origin: Item.08Or2dxtMBSLKVHW
-    tint: '#FFFFFF'
+  - origin: Item.08Or2dxtMBSLKVHW
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -107,6 +135,23 @@ effects:
         value: '6'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Especialista (+6)
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!08Or2dxtMBSLKVHW.FU0BIutvnl1grTQr'
 folder: E9EyD0Wrr8C91ZpV
 sort: 0
@@ -167,9 +212,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183279
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!08Or2dxtMBSLKVHW'
 

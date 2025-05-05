@@ -3,10 +3,8 @@ name: Forma Selvagem Aprimorada
 type: poder
 img: systems/tormenta20/icons/classes/druida.webp
 effects:
-  - label: Forma Feroz aprimorada
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.zSJu72QRtptlg4jx
-    tint: '#FFFFFF'
+  - origin: Item.zSJu72QRtptlg4jx
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -41,11 +39,26 @@ effects:
         value: '4'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Feroz aprimorada
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zSJu72QRtptlg4jx.ZRO5UKzSqjS0wwoK'
-  - label: Forma Agil aprimorada
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.zSJu72QRtptlg4jx
-    tint: '#FFFFFF'
+  - origin: Item.zSJu72QRtptlg4jx
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -70,11 +83,26 @@ effects:
         value: '3'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Agil aprimorada
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zSJu72QRtptlg4jx.8gHCIqbA6YxxQRNB'
-  - label: Forma Resistente Aprimorada
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.zSJu72QRtptlg4jx
-    tint: '#FFFFFF'
+  - origin: Item.zSJu72QRtptlg4jx
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -103,11 +131,26 @@ effects:
         value: '8'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Resistente Aprimorada
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zSJu72QRtptlg4jx.AwQ59unmhDZEasB3'
-  - label: Forma Sorrateira Aprimorada
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.zSJu72QRtptlg4jx
-    tint: '#FFFFFF'
+  - origin: Item.zSJu72QRtptlg4jx
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -128,11 +171,26 @@ effects:
         value: '4'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Sorrateira Aprimorada
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zSJu72QRtptlg4jx.GgdcHArVfMmQL6Qs'
-  - label: Forma Veloz Aprimorada
-    icon: systems/tormenta20/icons/classes/druida.webp
-    origin: Item.zSJu72QRtptlg4jx
-    tint: '#FFFFFF'
+  - origin: Item.zSJu72QRtptlg4jx
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -153,11 +211,26 @@ effects:
         value: '4'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma Veloz Aprimorada
+    img: systems/tormenta20/icons/classes/druida.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zSJu72QRtptlg4jx.YSqTMkRdjpuVJm13'
-  - label: 'Forma Ágil: -2 em ataques quando ataca com as duas armas naturais.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.zSJu72QRtptlg4jx
-    tint: '#FFFFFF'
+  - origin: Item.zSJu72QRtptlg4jx
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -188,6 +261,23 @@ effects:
         value: '-2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Forma Ágil: -2 em ataques quando ataca com as duas armas naturais.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!zSJu72QRtptlg4jx.WzGba8dCI0DnXkKB'
 folder: 8LraP5E2KHsZTAz8
 sort: 0
@@ -292,9 +382,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185707
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!zSJu72QRtptlg4jx'
 

@@ -37,16 +37,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano das rajadas em +1d6.
     origin: Compendium.tormenta20.magias.nTGtbkxrFRRY7fXc
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano das rajadas em +1d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nTGtbkxrFRRY7fXc.lXssXpcmsW7fnX1J'
-  - label: aumenta o dano da rajada mista em +2d12.
-    icon: icons/svg/upgrade.svg
-    origin: Item.nTGtbkxrFRRY7fXc
-    tint: '#FFFFFF'
+  - origin: Item.nTGtbkxrFRRY7fXc
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -78,6 +91,23 @@ effects:
         value: 2d12
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano da rajada mista em +2d12.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!nTGtbkxrFRRY7fXc.DRT8PCMyGBicG9Gb'
 folder: dxIW3dYs0c4ADJzO
 sort: 0
@@ -164,9 +194,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.201
-  coreVersion: '11.306'
+  coreVersion: '13.342'
   createdTime: 1664310462810
   modifiedTime: 1690153695052
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!nTGtbkxrFRRY7fXc'
 

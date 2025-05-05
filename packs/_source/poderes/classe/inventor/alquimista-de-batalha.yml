@@ -17,8 +17,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: Alquimista de Batalha
     origin: Item.Sae0HU2rLnUfjp0a
     transfer: true
     flags:
@@ -35,7 +33,24 @@ effects:
         custo: ''
         durationScene: false
         items: ''
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alquimista de Batalha
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wLYyRXlwbQMBy2dI.RxIKyHHa5FVdk2Uf'
 flags:
   scene-packer:
@@ -100,10 +115,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1663051642186
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: wLYyRXlwbQMBy2dI
 folder: iHjbUWZ9cRzIVZ3E
 sort: 0

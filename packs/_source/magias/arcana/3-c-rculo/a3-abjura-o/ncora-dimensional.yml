@@ -41,13 +41,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.UddlrhMxhZgAQpNg
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para médio, a área para esfera com 3m de raio e o alvo para
       criaturas escolhidas.
-    origin: Item.UddlrhMxhZgAQpNg
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6KC8s8eUUKYCremp.ERjKGgKCirntEjat'
   - _id: 6z5H2TeCMMkrCv5I
     flags:
@@ -65,8 +80,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.UddlrhMxhZgAQpNg
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o efeito para criar um fio de energia cor de esmeralda que prende o
       alvo a um ponto no espaço dentro do alcance. O ponto precisa ser fixo, mas
       não precisa de nenhum apoio ou superfície (pode simplesmente flutuar no
@@ -74,9 +101,12 @@ effects:
       com movimento planar. O fio possui 20 PV e resistência a dano 20 (mas pode
       ser dissipado por efeitos que libertam criaturas, como o Julgamento
       Divino: Libertação do paladino).
-    origin: Item.UddlrhMxhZgAQpNg
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6KC8s8eUUKYCremp.6z5H2TeCMMkrCv5I'
   - _id: bLE60ZwKrjQ5twTt
     flags:
@@ -104,8 +134,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.UddlrhMxhZgAQpNg
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o efeito para criar um fio de energia cor de esmeralda que prende o
       alvo a um ponto no espaço dentro do alcance. O ponto precisa ser fixo, mas
       não precisa de nenhum apoio ou superfície (pode simplesmente flutuar no
@@ -113,9 +155,12 @@ effects:
       com movimento planar. O fio possui 20 PV e redução de dano 40 (mas pode
       ser dissipado por efeitos que libertam criaturas, como o Julgamento
       Divino: Libertação do paladino).
-    origin: Item.UddlrhMxhZgAQpNg
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6KC8s8eUUKYCremp.bLE60ZwKrjQ5twTt'
   - _id: 6FkFv2SbHkysYY5F
     flags:
@@ -149,15 +194,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.UddlrhMxhZgAQpNg
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para área de cubo de 9m, a duração para permanente e adiciona
       componente material (chave de esmeralda no valor de T$ 2.000). Em vez do
       normal, nenhum tipo de movimento planar pode ser feito para entrar ou sair
       da área.
-    origin: Item.UddlrhMxhZgAQpNg
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6KC8s8eUUKYCremp.6FkFv2SbHkysYY5F'
   - _id: IIW5Xg3KHd2tAwSB
     flags:
@@ -195,14 +255,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.UddlrhMxhZgAQpNg
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para médio, a área para esfera de 3m de raio e o alvo para
       criaturas escolhidas. Cria um fio de energia (veja acima) que prende todos
       os alvos ao centro da área.
-    origin: Item.UddlrhMxhZgAQpNg
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6KC8s8eUUKYCremp.IIW5Xg3KHd2tAwSB'
   - _id: 9so5kjaDrhlh2nf8
     changes: []
@@ -215,15 +290,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/ancora-dimensional.webp
-    label: Âncora Dimensional
     origin: Item.aQa0kHggazyxoIxZ
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Âncora Dimensional
+    img: systems/tormenta20/icons/magias/ancora-dimensional.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6KC8s8eUUKYCremp.9so5kjaDrhlh2nf8'
 folder: uwdflCMp3DmBY55C
 sort: 0
@@ -284,9 +374,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461762
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!6KC8s8eUUKYCremp'
 

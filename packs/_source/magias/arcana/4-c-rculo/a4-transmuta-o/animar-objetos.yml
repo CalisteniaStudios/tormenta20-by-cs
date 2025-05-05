@@ -31,14 +31,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Item.XKoBewFS6ExI3ACX
+    tint: '#ffffff'
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a duração para permanente e adiciona componente material (prataria no
       valor de T$ 1.000). Você pode ter um máximo de objetos animados igual à
       metade do seu nível.
-    origin: Item.XKoBewFS6ExI3ACX
-    tint: null
-    transfer: false
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.nvRCsxCslDKhoyVy'
   - _id: LVWr9OeGA8h0V5e0
     changes:
@@ -55,8 +70,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Assassino Iniciante
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
@@ -74,7 +87,24 @@ effects:
         items: ''
         aumenta: false
         custo: '0'
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Assassino Iniciante
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.LVWr9OeGA8h0V5e0'
   - _id: EDkq7Fox5zvNJAF7
     changes:
@@ -91,8 +121,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Combatente Iniciante
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
@@ -110,7 +138,24 @@ effects:
         items: ''
         aumenta: false
         custo: '0'
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combatente Iniciante
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.EDkq7Fox5zvNJAF7'
   - _id: SRhyjfOAY7qFcZUR
     changes:
@@ -127,15 +172,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Guardião Iniciante
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guardião Iniciante
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.SRhyjfOAY7qFcZUR'
   - _id: w19yGST3w1x59WvG
     changes:
@@ -152,8 +212,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Combatente Veterano
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
@@ -171,7 +229,24 @@ effects:
         items: ''
         aumenta: false
         custo: '0'
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Combatente Veterano
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.w19yGST3w1x59WvG'
   - _id: aMocXzYNa7G9gtgI
     changes:
@@ -188,8 +263,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Fortão Veterano
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
@@ -207,7 +280,24 @@ effects:
         items: ''
         aumenta: false
         custo: '0'
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fortão Veterano
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.aMocXzYNa7G9gtgI'
   - _id: 2iXzddxfOPshryt4
     changes:
@@ -224,15 +314,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Guardião Veterano
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guardião Veterano
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.2iXzddxfOPshryt4'
   - _id: uhkiNFv0IbTaQdxC
     changes:
@@ -257,15 +362,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Montaria (Cavalo) Veterana
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Montaria (Cavalo) Veterana
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.uhkiNFv0IbTaQdxC'
   - _id: tUeZTBdHGqgnRFVD
     changes:
@@ -282,8 +402,6 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Fortão Mestre
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
@@ -301,7 +419,24 @@ effects:
         items: ''
         aumenta: false
         custo: '0'
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fortão Mestre
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.tUeZTBdHGqgnRFVD'
   - _id: c1i3PINi3DqPYjaT
     changes:
@@ -330,15 +465,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Guardião Mestre
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guardião Mestre
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.c1i3PINi3DqPYjaT'
   - _id: pYJA0nFOkvHfjPub
     changes:
@@ -363,15 +513,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/animar-objetos.webp
-    label: Montaria (Cavalo) Mestre
     origin: Item.jGRtWpsdNPtWdjfl
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Montaria (Cavalo) Mestre
+    img: systems/tormenta20/icons/magias/animar-objetos.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1Yf9b8BviLCLISMc.pYJA0nFOkvHfjPub'
 folder: 911fHy1VvyYmffKK
 sort: 0
@@ -468,9 +633,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461756
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!1Yf9b8BviLCLISMc'
 

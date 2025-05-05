@@ -63,10 +63,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Acompanhamento Médico
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.7vNAFTvNjkDMdPYp
-    tint: '#FFFFFF'
+  - origin: Item.7vNAFTvNjkDMdPYp
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -87,15 +85,34 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Acompanhamento Médico
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!7vNAFTvNjkDMdPYp.oHaZiqUv9gs2F7Rc'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083101946
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 7vNAFTvNjkDMdPYp
 folder: EckmJGi0doueXy41
 sort: 0

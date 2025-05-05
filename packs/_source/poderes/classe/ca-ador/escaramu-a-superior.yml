@@ -3,10 +3,8 @@ name: Escaramuça Superior
 type: poder
 img: systems/tormenta20/icons/classes/cacador.webp
 effects:
-  - label: Escaramuça Superior (dano).
-    icon: icons/svg/upgrade.svg
-    origin: Item.KOH9FfI4JjFQ2Qjb
-    tint: '#FFFFFF'
+  - origin: Item.KOH9FfI4JjFQ2Qjb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,11 +35,26 @@ effects:
         value: 1d12
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escaramuça Superior (dano).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KOH9FfI4JjFQ2Qjb.IAAD3D3L3DTG0Uko'
-  - label: Escaramuça Superior (Reflexos).
-    icon: icons/svg/upgrade.svg
-    origin: Item.KOH9FfI4JjFQ2Qjb
-    tint: '#FFFFFF'
+  - origin: Item.KOH9FfI4JjFQ2Qjb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -72,11 +85,26 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escaramuça Superior (Reflexos).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KOH9FfI4JjFQ2Qjb.pqiZxFor3i09ZuVn'
-  - label: Escaramuça Superior
-    icon: systems/tormenta20/icons/classes/cacador.webp
-    origin: Item.KOH9FfI4JjFQ2Qjb
-    tint: '#FFFFFF'
+  - origin: Item.KOH9FfI4JjFQ2Qjb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -97,6 +125,23 @@ effects:
         value: '5'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escaramuça Superior
+    img: systems/tormenta20/icons/classes/cacador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KOH9FfI4JjFQ2Qjb.Hg0G7fye0EPuvrxX'
 folder: iT3rUBmGhu5hbNic
 sort: 1600000
@@ -157,9 +202,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361717044
   modifiedTime: 1684630426990
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!KOH9FfI4JjFQ2Qjb'
 

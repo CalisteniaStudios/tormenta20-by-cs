@@ -3,10 +3,8 @@ name: Manual do Bom Exercício
 type: tesouro
 img: systems/tormenta20/icons/itens/itens-magicos/manual-do-bom-exercicio.webp
 effects:
-  - label: Manual do Bom Exercício
-    icon: systems/tormenta20/icons/itens/itens-magicos/manual-do-bom-exercicio.webp
-    origin: Item.dxsoRAc3W1CaQMQE
-    tint: '#FFFFFF'
+  - origin: Item.dxsoRAc3W1CaQMQE
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,6 +25,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manual do Bom Exercício
+    img: systems/tormenta20/icons/itens/itens-magicos/manual-do-bom-exercicio.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!dxsoRAc3W1CaQMQE.pB8sGewh2cBYpgDm'
 folder: BgJUCrqjG6EVBIfP
 sort: 4500000
@@ -100,9 +115,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000107
   modifiedTime: 1684623039339
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!dxsoRAc3W1CaQMQE'
 

@@ -22,11 +22,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/combate.webp
-    label: Estilo de Uma Arma
     origin: Item.3KVTcJjzZtOtGUJG
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estilo de Uma Arma
+    img: systems/tormenta20/icons/poderes/combate.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1exB4BFKdPWFOZwV.B4V2txyvBXZ3Goeh'
   - _id: Wij2VWKxiQ6INLzR
     flags:
@@ -56,11 +71,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/combate.webp
-    label: Estilo de 1 Arma
     origin: Item.eqFYCd40VbwJbkHa
-    tint: null
+    tint: '#ffffff'
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estilo de 1 Arma
+    img: systems/tormenta20/icons/poderes/combate.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!1exB4BFKdPWFOZwV.Wij2VWKxiQ6INLzR'
 folder: Rgbah8U70jOKi5DF
 sort: 0
@@ -121,9 +151,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183296
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!1exB4BFKdPWFOZwV'
 

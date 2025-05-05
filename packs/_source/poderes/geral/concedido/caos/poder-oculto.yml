@@ -3,10 +3,8 @@ name: Poder Oculto
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-sorte.webp
 effects:
-  - label: Poder Oculto (Força)
-    icon: systems/tormenta20/icons/poderes/concedidos-sorte.webp
-    origin: Item.CaydxkHRMO6NuZyj
-    tint: '#FFFFFF'
+  - origin: Item.CaydxkHRMO6NuZyj
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poder Oculto (Força)
+    img: systems/tormenta20/icons/poderes/concedidos-sorte.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CaydxkHRMO6NuZyj.8WFqI9PIL78YYoQx'
-  - label: Poder Oculto (Destreza)
-    icon: systems/tormenta20/icons/poderes/concedidos-sorte.webp
-    origin: Item.CaydxkHRMO6NuZyj
-    tint: '#FFFFFF'
+  - origin: Item.CaydxkHRMO6NuZyj
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -52,11 +65,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poder Oculto (Destreza)
+    img: systems/tormenta20/icons/poderes/concedidos-sorte.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CaydxkHRMO6NuZyj.fJIaQKhFJOP28HxT'
-  - label: Poder Oculto (Constituição)
-    icon: systems/tormenta20/icons/poderes/concedidos-sorte.webp
-    origin: Item.CaydxkHRMO6NuZyj
-    tint: '#FFFFFF'
+  - origin: Item.CaydxkHRMO6NuZyj
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -77,6 +105,23 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poder Oculto (Constituição)
+    img: systems/tormenta20/icons/poderes/concedidos-sorte.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CaydxkHRMO6NuZyj.t3TEogQwjGUtqEE7'
 folder: 74WiiBNZUXs5SvJm
 sort: 0
@@ -145,9 +190,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183820
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!CaydxkHRMO6NuZyj'
 

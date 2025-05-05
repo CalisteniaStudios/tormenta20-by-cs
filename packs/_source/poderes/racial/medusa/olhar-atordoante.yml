@@ -3,10 +3,8 @@ name: Olhar Atordoante
 type: poder
 img: systems/tormenta20/icons/racas/medusa.webp
 effects:
-  - label: Atordoado
-    icon: systems/tormenta20/icons/conditions/atordoado.svg
-    origin: Item.gzTi2g0xClcXNUA6
-    tint: '#FFFFFF'
+  - origin: Item.gzTi2g0xClcXNUA6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: TnXSqqNFVOJ9W9KA
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atordoado
+    img: systems/tormenta20/icons/conditions/atordoado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gzTi2g0xClcXNUA6.TnXSqqNFVOJ9W9KA'
 folder: WBW7mJa7n0MHwWe7
 sort: 0
@@ -81,9 +96,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185118
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!gzTi2g0xClcXNUA6'
 

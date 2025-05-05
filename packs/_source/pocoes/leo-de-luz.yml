@@ -3,10 +3,8 @@ name: Óleo de Luz
 type: consumivel
 img: systems/tormenta20/icons/itens/itens-magicos/pocao-oleo.webp
 effects:
-  - label: Óleo de Luz
-    icon: systems/tormenta20/icons/itens/itens-magicos/pocao-oleo.webp
-    origin: Item.izCFE9JWjDxcDShN
-    tint: '#FFFFFF'
+  - origin: Item.izCFE9JWjDxcDShN
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,11 +21,27 @@ effects:
     _id: sAMFAPX3z8sKhomm
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Óleo de Luz
+    img: systems/tormenta20/icons/itens/itens-magicos/pocao-oleo.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!izCFE9JWjDxcDShN.sAMFAPX3z8sKhomm'
 folder: null
 sort: 0
-flags:
-  importid: n6WKE1JY2napkUEk
+flags: {}
 system:
   description:
     value: >-
@@ -146,9 +160,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007041
   modifiedTime: 1667351628039
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!izCFE9JWjDxcDShN'
 

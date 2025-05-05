@@ -24,11 +24,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +2d8.
     origin: Compendium.tormenta20.magias.KQTBh5aVCqDUSpvr
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +2d8.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KQTBh5aVCqDUSpvr.87GfXamQvQPUX8zY'
   - _id: hjeZdKXLcWFQwHIj
     flags:
@@ -60,14 +75,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.KQTBh5aVCqDUSpvr
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para área de esfera de 6m de raio. Em vez de um raio, você
       dispara uma esfera de gelo que explode, causando o efeito da magia em
       todas as criaturas na área.
-    origin: Compendium.tormenta20.magias.KQTBh5aVCqDUSpvr
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KQTBh5aVCqDUSpvr.hjeZdKXLcWFQwHIj'
   - _id: Y06YINkVohOy4Gkb
     changes: []
@@ -80,15 +110,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/raio-polar.webp
-    label: Raio Polar
     origin: Item.E5WJa9cUbROowNkr
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Raio Polar
+    img: systems/tormenta20/icons/magias/raio-polar.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!KQTBh5aVCqDUSpvr.Y06YINkVohOy4Gkb'
 folder: dxIW3dYs0c4ADJzO
 sort: 0
@@ -171,9 +216,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461822
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!KQTBh5aVCqDUSpvr'
 

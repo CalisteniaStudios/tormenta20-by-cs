@@ -26,15 +26,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/concedidos-traicao.webp
-    label: Astúcia da Serpente
     origin: Item.9gBMd4EpQOY3Flgd
     transfer: true
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Astúcia da Serpente
+    img: systems/tormenta20/icons/poderes/concedidos-traicao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RDZ4Iieg7ffqmjLE.iBtWV3reQxGpGtqo'
 folder: s8308RXiyAhaEjoG
 sort: 0
@@ -93,9 +108,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184300
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!RDZ4Iieg7ffqmjLE'
 

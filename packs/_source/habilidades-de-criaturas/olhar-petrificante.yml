@@ -2,10 +2,8 @@ name: Olhar Petrificante
 type: poder
 img: systems/tormenta20/icons/poderes/ameacas/olhar-petrificante.webp
 effects:
-  - label: Lento
-    icon: systems/tormenta20/icons/conditions/lento.svg
-    origin: Item.gzTi2g0xClcXNUA6
-    tint: '#FFFFFF'
+  - origin: Item.gzTi2g0xClcXNUA6
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -22,11 +20,26 @@ effects:
     _id: TnXSqqNFVOJ9W9KA
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lento
+    img: systems/tormenta20/icons/conditions/lento.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bhkJXAarWpRCeJaI.TnXSqqNFVOJ9W9KA'
-  - label: Petrificado
-    icon: systems/tormenta20/icons/conditions/petrificado.svg
-    origin: Item.bhkJXAarWpRCeJaI
-    tint: '#FFFFFF'
+  - origin: Item.bhkJXAarWpRCeJaI
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -43,6 +56,23 @@ effects:
     _id: GAVSDa8Qij9ymMpB
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Petrificado
+    img: systems/tormenta20/icons/conditions/petrificado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!bhkJXAarWpRCeJaI.GAVSDa8Qij9ymMpB'
 flags: {}
 system:
@@ -98,10 +128,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664306185118
   modifiedTime: 1668270615331
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: bhkJXAarWpRCeJaI
 folder: null
 sort: 0

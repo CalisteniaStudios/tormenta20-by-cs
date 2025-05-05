@@ -2,10 +2,8 @@ name: Atributos - Dahllan
 type: poder
 img: systems/tormenta20/icons/racas/dahllan.webp
 effects:
-  - label: Atributos - Dahllan
-    icon: systems/tormenta20/icons/racas/dahllan.webp
-    origin: Item.xtJZYZOg0PVeFbNP
-    tint: '#FFFFFF'
+  - origin: Item.xtJZYZOg0PVeFbNP
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -34,6 +32,23 @@ effects:
         value: '-1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Atributos - Dahllan
+    img: systems/tormenta20/icons/racas/dahllan.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!wE9jUJXjq5TxkI2u.vSfyT5e6cGYKSKuD'
 flags: {}
 system:
@@ -86,10 +101,12 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184739
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 folder: Q99EWrBDNMKWfbCR
 sort: 0
 _id: wE9jUJXjq5TxkI2u

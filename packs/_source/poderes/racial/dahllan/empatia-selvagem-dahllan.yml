@@ -3,10 +3,8 @@ name: Empatia Selvagem (Dahllan)
 type: poder
 img: systems/tormenta20/icons/racas/dahllan.webp
 effects:
-  - label: Empatia Selvagem
-    icon: icons/svg/upgrade.svg
-    origin: Item.j1EhPtSrattJWzLq
-    tint: '#FFFFFF'
+  - origin: Item.j1EhPtSrattJWzLq
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Empatia Selvagem
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CqQidKBaMloCcYbp.cdmN7QLbZ1oOUqP4'
 folder: Q99EWrBDNMKWfbCR
 sort: 0
@@ -96,9 +111,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306184739
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!CqQidKBaMloCcYbp'
 

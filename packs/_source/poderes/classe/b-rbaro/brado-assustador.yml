@@ -3,10 +3,8 @@ name: Brado Assustador
 type: poder
 img: systems/tormenta20/icons/classes/barbaro.webp
 effects:
-  - label: Vulnerável
-    icon: systems/tormenta20/icons/conditions/vulneravel.svg
-    origin: Item.5gTRzfbcPegqwCbr
-    tint: '#FFFFFF'
+  - origin: Item.5gTRzfbcPegqwCbr
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -23,6 +21,23 @@ effects:
     _id: UQ0UH6xI3b32l2LW
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vulnerável
+    img: systems/tormenta20/icons/conditions/vulneravel.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!sQFi9Zy0fsP0ePmZ.UQ0UH6xI3b32l2LW'
 folder: UhsYJ0BvPTkMyG53
 sort: 0
@@ -99,9 +114,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1658361717754
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!sQFi9Zy0fsP0ePmZ'
 

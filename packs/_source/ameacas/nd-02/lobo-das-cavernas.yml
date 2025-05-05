@@ -53,10 +53,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Caido
-        icon: systems/tormenta20/icons/conditions/caido.svg
-        origin: Item.LDR3zCdm6KlFPj3F
-        tint: '#FFFFFF'
+      - origin: Item.LDR3zCdm6KlFPj3F
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -73,6 +71,23 @@ items:
         _id: Jynccku7ba0yL8ny
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Caido
+        img: systems/tormenta20/icons/conditions/caido.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!78G3E1Qa8T3GuwYn.5HSoUdsTHvTuXzdy.Jynccku7ba0yL8ny
     sort: 800000
@@ -82,10 +97,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667008502649
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 5HSoUdsTHvTuXzdy
     _key: '!actors.items!78G3E1Qa8T3GuwYn.5HSoUdsTHvTuXzdy'
   - folder: 0V7x5o397UvG3xKP
@@ -139,10 +157,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Táticas de Alcateia
-        icon: icons/svg/upgrade.svg
-        origin: Item.OfHvpjwVrlXts8gl
-        tint: '#FFFFFF'
+      - origin: Item.OfHvpjwVrlXts8gl
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: true
@@ -178,6 +194,23 @@ items:
             value: '2'
             priority: 0
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Táticas de Alcateia
+        img: icons/svg/upgrade.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!78G3E1Qa8T3GuwYn.v3PpTYRjBL6YLHxj.Bb64N9sZSwvarWT0
     sort: 2900000
@@ -187,10 +220,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667008514584
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: v3PpTYRjBL6YLHxj
     _key: '!actors.items!78G3E1Qa8T3GuwYn.v3PpTYRjBL6YLHxj'
   - folder: 38RRBscxCtcFC5s4
@@ -342,17 +378,18 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236499055
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Mk3PbZFxYUUkJ3hm
     _key: '!actors.items!78G3E1Qa8T3GuwYn.Mk3PbZFxYUUkJ3hm'
 effects:
-  - label: Táticas de Alcateia
-    icon: icons/svg/upgrade.svg
-    origin: Actor.78G3E1Qa8T3GuwYn.Item.v3PpTYRjBL6YLHxj
-    tint: '#FFFFFF'
+  - origin: Actor.78G3E1Qa8T3GuwYn.Item.v3PpTYRjBL6YLHxj
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -388,6 +425,23 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Táticas de Alcateia
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!78G3E1Qa8T3GuwYn.bQuaj4Ymiq5qGTUh'
 folder: HaKm5o3jKqN2gqzC
 sort: 100001
@@ -1146,14 +1200,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/lobo-das-cavernas.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1167,12 +1227,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945900
   modifiedTime: 1700236499055
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!78G3E1Qa8T3GuwYn'
 

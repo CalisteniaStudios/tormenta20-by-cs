@@ -20,15 +20,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.CmdKoggK1dreuNpP
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o componente material para pó de ônix negro (T$ 500). Em vez de um
       zumbi ou esqueleto, cria um carniçal. Ele pode funcionar como um aliado
       veterano, escolhido entre ajudante, atirador, combatente, fortão ou
       guardião. O resto segue normal.
-    origin: Compendium.tormenta20.magias.CmdKoggK1dreuNpP
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CmdKoggK1dreuNpP.0MUgwJG22KJfRtDB'
   - _id: ukcKr4JgoW2Esv5l
     flags:
@@ -47,15 +62,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.CmdKoggK1dreuNpP
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o componente material para pó de ônix negro (T$ 500). Em vez de um
       zumbi ou esqueleto, cria uma sombra. Ela pode funcionar como um aliado
       veterano, escolhido entre assassino, combatente ou perseguidor. O restante
       da magia segue normal.
-    origin: Compendium.tormenta20.magias.CmdKoggK1dreuNpP
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CmdKoggK1dreuNpP.ukcKr4JgoW2Esv5l'
   - _id: nhFAf9tFFCImUkhQ
     flags:
@@ -74,15 +104,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.CmdKoggK1dreuNpP
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o componente material para ferramentas de embalsamar (T$ 1.000). Em
       vez de um zumbi ou esqueleto, cria uma múmia. Ela pode funcionar como um
       aliado mestre, escolhido entre ajudante, destruidor, guardião ou médico. O
       restante da magia segue normal. Requer 4º círculo.
-    origin: Compendium.tormenta20.magias.CmdKoggK1dreuNpP
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!CmdKoggK1dreuNpP.nhFAf9tFFCImUkhQ'
 folder: FTOddxcyHuqPgVS3
 sort: 0
@@ -153,9 +198,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461800
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!CmdKoggK1dreuNpP'
 

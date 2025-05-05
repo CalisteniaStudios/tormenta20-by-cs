@@ -61,10 +61,8 @@ system:
     atributo: ''
     bonus: 0
 effects:
-  - label: Três bolas coloridas para malabarismo
-    icon: systems/tormenta20/icons/itens/gerais/bolas-malabarista.webp
-    origin: Item.ikiyOP1h4nm4m9M2
-    tint: '#FFFFFF'
+  - origin: Item.ikiyOP1h4nm4m9M2
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -85,6 +83,23 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Três bolas coloridas para malabarismo
+    img: systems/tormenta20/icons/itens/gerais/bolas-malabarista.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!ikiyOP1h4nm4m9M2.CRXukrmEoRqpUrlH'
 flags:
   tormenta20:
@@ -92,10 +107,12 @@ flags:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.200
-  coreVersion: '11.299'
+  coreVersion: '13.342'
   createdTime: null
   modifiedTime: 1685245350944
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: ikiyOP1h4nm4m9M2
 folder: jMEkEeU9nUclA8No
 sort: 450000

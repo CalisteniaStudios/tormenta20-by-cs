@@ -64,10 +64,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667019792697
       modifiedTime: 1667019923247
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 3y8CLyOl0BLCULkv
     _key: '!actors.items!80PcVRG01HCtaQv0.3y8CLyOl0BLCULkv'
   - type: poder
@@ -127,10 +130,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667019792697
       modifiedTime: 1667019830660
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: Si1cymglRu4XjumQ
     _key: '!actors.items!80PcVRG01HCtaQv0.Si1cymglRu4XjumQ'
   - type: poder
@@ -195,19 +201,20 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667019792699
       modifiedTime: 1667019883164
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: tVRrvB0usiQLtQIZ
     _key: '!actors.items!80PcVRG01HCtaQv0.tVRrvB0usiQLtQIZ'
   - name: Machado de guerra
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/machado-de-guerra.webp
     effects: []
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.equipamentos.P4MW0Ezhmya6Hm89
+    flags: {}
     system:
       description:
         value: >-
@@ -322,10 +329,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1664312772404
       modifiedTime: 1700237189258
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.equipamentos.P4MW0Ezhmya6Hm89
+      duplicateSource: null
+      exportSource: null
     folder: brhICwdHcOUqvMPi
     sort: 900000
     _id: AKhLBGZwX0Wn0x2J
@@ -1089,14 +1099,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/devorador-de-medos.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.5
     scaleY: 1.5
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1110,12 +1126,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945910
   modifiedTime: 1700237189258
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!80PcVRG01HCtaQv0'
 

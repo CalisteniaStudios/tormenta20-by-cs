@@ -3,10 +3,8 @@ name: Poção de Escudo da Fé (cena)
 type: consumivel
 img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
 effects:
-  - label: Escudo da Fé
-    icon: icons/svg/upgrade.svg
-    origin: Item.cLTZXcoMq9C8oNpB
-    tint: '#FFFFFF'
+  - origin: Item.cLTZXcoMq9C8oNpB
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -38,11 +36,26 @@ effects:
         value: '2'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo da Fé
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cLTZXcoMq9C8oNpB.mPPiFWoGZuYQ5O6N'
-  - label: Poção de Escudo da Fé (cena)
-    icon: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
-    origin: Item.cLTZXcoMq9C8oNpB
-    tint: '#FFFFFF'
+  - origin: Item.cLTZXcoMq9C8oNpB
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -63,11 +76,27 @@ effects:
         value: '0'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Poção de Escudo da Fé (cena)
+    img: systems/tormenta20/icons/itens/itens-magicos/pocao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!cLTZXcoMq9C8oNpB.P5zOLoymH3TkghzN'
 folder: null
 sort: 0
-flags:
-  importid: TzVFigI9tao5A35P
+flags: {}
 system:
   description:
     value: >-
@@ -139,9 +168,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.1008
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1664314007039
   modifiedTime: 1667351628038
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!cLTZXcoMq9C8oNpB'
 

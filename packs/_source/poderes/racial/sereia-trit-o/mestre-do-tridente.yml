@@ -3,10 +3,8 @@ name: Mestre do Tridente
 type: poder
 img: systems/tormenta20/icons/racas/sereia.webp
 effects:
-  - label: Mestre do Tridente
-    icon: icons/svg/upgrade.svg
-    origin: Item.FHVUcdvlv8Omr6qv
-    tint: '#FFFFFF'
+  - origin: Item.FHVUcdvlv8Omr6qv
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -37,6 +35,23 @@ effects:
         value: '2'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mestre do Tridente
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FHVUcdvlv8Omr6qv.THWTOqPWxsCNC8dd'
 folder: deNUAIMEeSNoJ1Tx
 sort: 0
@@ -94,9 +109,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183834
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!FHVUcdvlv8Omr6qv'
 

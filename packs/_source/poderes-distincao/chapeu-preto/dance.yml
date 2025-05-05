@@ -65,10 +65,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Intimidação + Força
-    icon: icons/svg/upgrade.svg
-    origin: Item.RYSvAwapxq8TCVlu
-    tint: '#FFFFFF'
+  - origin: Item.RYSvAwapxq8TCVlu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -100,11 +98,26 @@ effects:
         value: '@for'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Intimidação + Força
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RYSvAwapxq8TCVlu.1lmcIE0nyeJ8dI4g'
-  - label: Intimidação + Destreza
-    icon: icons/svg/upgrade.svg
-    origin: Item.RYSvAwapxq8TCVlu
-    tint: '#FFFFFF'
+  - origin: Item.RYSvAwapxq8TCVlu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -136,11 +149,26 @@ effects:
         value: '@des'
         priority: 0
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Intimidação + Destreza
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RYSvAwapxq8TCVlu.QOHyh4nufDGi2RuE'
-  - label: Dance!
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.RYSvAwapxq8TCVlu
-    tint: '#FFFFFF'
+  - origin: Item.RYSvAwapxq8TCVlu
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -161,15 +189,34 @@ effects:
         value: '0'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dance!
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!RYSvAwapxq8TCVlu.JkNGgdNi5TJnfBLh'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667074226526
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: RYSvAwapxq8TCVlu
 folder: ELRx5oblpz3uQpB7
 sort: 0

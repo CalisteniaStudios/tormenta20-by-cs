@@ -45,10 +45,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Doente
-    icon: systems/tormenta20/icons/conditions/doente.svg
-    origin: Item.2PGff2UEhYoQf4yb
-    tint: '#FFFFFF'
+  - origin: Item.2PGff2UEhYoQf4yb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -65,15 +63,34 @@ effects:
     _id: rHjhBOWDbYavMO85
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Doente
+    img: systems/tormenta20/icons/conditions/doente.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!2PGff2UEhYoQf4yb.rHjhBOWDbYavMO85'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666321001849
   modifiedTime: 1668270615329
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: 2PGff2UEhYoQf4yb
 folder: null
 sort: 0

@@ -52,10 +52,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Abalado
-    icon: systems/tormenta20/icons/conditions/abalado.svg
-    origin: Item.e31Rv6abHQNaulQA
-    tint: '#FFFFFF'
+  - origin: Item.e31Rv6abHQNaulQA
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -72,11 +70,26 @@ effects:
     _id: au3nOz2MtQ2H9g1b
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Abalado
+    img: systems/tormenta20/icons/conditions/abalado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!e31Rv6abHQNaulQA.au3nOz2MtQ2H9g1b'
-  - label: Apavorado
-    icon: systems/tormenta20/icons/conditions/abalado.svg
-    origin: Item.e31Rv6abHQNaulQA
-    tint: '#FFFFFF'
+  - origin: Item.e31Rv6abHQNaulQA
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -93,15 +106,34 @@ effects:
     _id: 99RlGk3AHuiCfoFE
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Apavorado
+    img: systems/tormenta20/icons/conditions/abalado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!e31Rv6abHQNaulQA.99RlGk3AHuiCfoFE'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1666318666177
   modifiedTime: 1668270615328
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: e31Rv6abHQNaulQA
 folder: null
 sort: 0

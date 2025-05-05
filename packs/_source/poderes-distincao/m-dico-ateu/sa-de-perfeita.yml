@@ -62,10 +62,8 @@ system:
   chatFlavor: ''
   chatGif: ''
 effects:
-  - label: Saúde Perfeita
-    icon: systems/tormenta20/icons/poderes/distincao.webp
-    origin: Item.J8Sq4bazoZ8UODMS
-    tint: '#FFFFFF'
+  - origin: Item.J8Sq4bazoZ8UODMS
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -94,15 +92,34 @@ effects:
         value: fatigado
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Saúde Perfeita
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!J8Sq4bazoZ8UODMS.6iIfp4Y00IWBiNvL'
 flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1667083101946
   modifiedTime: 1684614605298
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: J8Sq4bazoZ8UODMS
 folder: EckmJGi0doueXy41
 sort: 0

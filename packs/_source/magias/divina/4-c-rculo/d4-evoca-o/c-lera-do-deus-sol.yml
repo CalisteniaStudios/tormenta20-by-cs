@@ -31,11 +31,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +2d6 (+2d8 contra mortos-vivos).
     origin: Compendium.tormenta20.magias.esdCmrww2lzzzFlh
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +2d6 (+2d8 contra mortos-vivos).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!esdCmrww2lzzzFlh.UglztrTC1qB5IpkP'
   - _id: eGij8finUlD6XyBy
     flags:
@@ -67,11 +82,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a área em +6m de raio.
     origin: Compendium.tormenta20.magias.esdCmrww2lzzzFlh
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a área em +6m de raio.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!esdCmrww2lzzzFlh.eGij8finUlD6XyBy'
   - _id: e3iSuuFS42kjJ3Cb
     flags:
@@ -90,18 +120,31 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      a luz purificadora do Deus-Sol dissipa todas as magias de necromancia
-      ativas na área. Requer 5º círculo
     origin: Compendium.tormenta20.magias.esdCmrww2lzzzFlh
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      a luz purificadora do Deus-Sol dissipa todas as magias de necromancia
+      ativas na área. Requer 5º círculo
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!esdCmrww2lzzzFlh.e3iSuuFS42kjJ3Cb'
-  - label: Cego
-    icon: systems/tormenta20/icons/conditions/cego.svg
-    origin: Item.esdCmrww2lzzzFlh
-    tint: '#FFFFFF'
+  - origin: Item.esdCmrww2lzzzFlh
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -118,11 +161,26 @@ effects:
     _id: uNzRuTKli567nmmU
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cego
+    img: systems/tormenta20/icons/conditions/cego.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!esdCmrww2lzzzFlh.uNzRuTKli567nmmU'
-  - label: Em Chamas
-    icon: systems/tormenta20/icons/conditions/em-chamas.svg
-    origin: Item.esdCmrww2lzzzFlh
-    tint: '#FFFFFF'
+  - origin: Item.esdCmrww2lzzzFlh
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -139,6 +197,23 @@ effects:
     _id: UF4YT2hddSxwukiE
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Em Chamas
+    img: systems/tormenta20/icons/conditions/em-chamas.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!esdCmrww2lzzzFlh.UF4YT2hddSxwukiE'
 folder: fjzcx2rvOZ83jHv7
 sort: 0
@@ -227,9 +302,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462775
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!esdCmrww2lzzzFlh'
 

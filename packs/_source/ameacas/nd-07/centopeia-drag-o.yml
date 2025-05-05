@@ -53,10 +53,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Agarrado
-        icon: systems/tormenta20/icons/conditions/agarrado.svg
-        origin: Item.uor3YTotDJ33vJYN
-        tint: '#FFFFFF'
+      - origin: Item.uor3YTotDJ33vJYN
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -73,6 +71,23 @@ items:
         _id: HCAeH9qNn5spTyZS
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Agarrado
+        img: systems/tormenta20/icons/conditions/agarrado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!pjva1IeZE58nGNxn.A7RXu0dyGwA7rh6I.HCAeH9qNn5spTyZS
     sort: 0
@@ -82,10 +97,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667006370083
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: A7RXu0dyGwA7rh6I
     _key: '!actors.items!pjva1IeZE58nGNxn.A7RXu0dyGwA7rh6I'
   - folder: 0V7x5o397UvG3xKP
@@ -154,10 +172,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1007
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667188852751
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: RMdzQJcOZY5Fj6YA
     _key: '!actors.items!pjva1IeZE58nGNxn.RMdzQJcOZY5Fj6YA'
   - folder: 0V7x5o397UvG3xKP
@@ -235,10 +256,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666321513948
       modifiedTime: 1667006434484
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: GgiLSHmUom2m3dYc
     _key: '!actors.items!pjva1IeZE58nGNxn.GgiLSHmUom2m3dYc'
   - folder: 38RRBscxCtcFC5s4
@@ -393,10 +417,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700237086069
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 42Firm6oC41Oc5mI
     _key: '!actors.items!pjva1IeZE58nGNxn.42Firm6oC41Oc5mI'
   - folder: TyyHpvhTBJpio3at
@@ -474,16 +501,17 @@ items:
     sort: -50000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.2aa1UV9JGuYEw69f
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1663365561715
       modifiedTime: 1667006383589
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.2aa1UV9JGuYEw69f
+      duplicateSource: null
+      exportSource: null
     _id: wzCRREFCRUIF2lpI
     _key: '!actors.items!pjva1IeZE58nGNxn.wzCRREFCRUIF2lpI'
 effects: []
@@ -1244,14 +1272,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/centopeia-dragao.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.3
     scaleY: 1.3
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1265,12 +1299,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997946020
   modifiedTime: 1700237086069
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!pjva1IeZE58nGNxn'
 

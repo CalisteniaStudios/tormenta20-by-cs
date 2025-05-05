@@ -7,10 +7,8 @@ items:
     type: poder
     img: icons/magic/perception/eye-slit-orange.webp
     effects:
-      - label: Lento
-        icon: systems/tormenta20/icons/conditions/lento.svg
-        origin: Item.gzTi2g0xClcXNUA6
-        tint: '#FFFFFF'
+      - origin: Item.gzTi2g0xClcXNUA6
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -27,12 +25,27 @@ items:
         _id: TnXSqqNFVOJ9W9KA
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Lento
+        img: systems/tormenta20/icons/conditions/lento.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!A7BX3loo7rrGf1PT.ux1BjaRHL4495IGd.TnXSqqNFVOJ9W9KA
-      - label: Petrificado
-        icon: systems/tormenta20/icons/conditions/petrificado.svg
-        origin: Item.bhkJXAarWpRCeJaI
-        tint: '#FFFFFF'
+      - origin: Item.bhkJXAarWpRCeJaI
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -49,11 +62,26 @@ items:
         _id: GAVSDa8Qij9ymMpB
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Petrificado
+        img: systems/tormenta20/icons/conditions/petrificado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!A7BX3loo7rrGf1PT.ux1BjaRHL4495IGd.GAVSDa8Qij9ymMpB
-    flags:
-      core:
-        sourceId: Compendium.tormenta20.poderes.gzTi2g0xClcXNUA6
+    flags: {}
     system:
       description:
         value: >-
@@ -111,10 +139,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1664306185118
       modifiedTime: 1667009587473
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.tormenta20.poderes.gzTi2g0xClcXNUA6
+      duplicateSource: null
+      exportSource: null
     folder: 0V7x5o397UvG3xKP
     sort: 4000000
     _id: ux1BjaRHL4495IGd
@@ -179,10 +210,8 @@ items:
       chatFlavor: ''
       chatGif: ''
     effects:
-      - label: Veneno
-        icon: systems/tormenta20/icons/conditions/envenenado.svg
-        origin: Item.VWLwiM10pyEr7ZQq
-        tint: '#FFFFFF'
+      - origin: Item.VWLwiM10pyEr7ZQq
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -203,6 +232,23 @@ items:
             value: roll
             priority: null
         transfer: true
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Veneno
+        img: systems/tormenta20/icons/conditions/envenenado.svg
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!A7BX3loo7rrGf1PT.34oReGY7DxpW1Rw3.KOklYtxVLCZmrIMF
     sort: 3500000
@@ -212,10 +258,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1666320488703
       modifiedTime: 1667009587474
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: 34oReGY7DxpW1Rw3
     _key: '!actors.items!A7BX3loo7rrGf1PT.34oReGY7DxpW1Rw3'
   - folder: 38RRBscxCtcFC5s4
@@ -367,20 +416,21 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.203d2
-      coreVersion: '11.315'
+      coreVersion: '13.342'
       createdTime: 1666318097513
       modifiedTime: 1700236782253
       lastModifiedBy: t20builder000000
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
     _id: N6LYe6JVhcTbQk6m
     _key: '!actors.items!A7BX3loo7rrGf1PT.N6LYe6JVhcTbQk6m'
   - name: Peçonha Concentrada
     type: consumivel
     img: systems/tormenta20/icons/itens/gerais/veneno.webp
     effects:
-      - label: Peçonha Concentrada
-        icon: systems/tormenta20/icons/itens/gerais/veneno.webp
-        origin: Item.kmbfQJLBekZl3cNM
-        tint: '#FFFFFF'
+      - origin: Item.kmbfQJLBekZl3cNM
+        tint: '#ffffff'
         flags:
           tormenta20:
             onuse: false
@@ -397,6 +447,23 @@ items:
         _id: sO7OOuysiopAeD8d
         changes: []
         transfer: false
+        _stats:
+          coreVersion: '13.342'
+          systemId: null
+          systemVersion: null
+          createdTime: null
+          modifiedTime: null
+          lastModifiedBy: null
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        name: Peçonha Concentrada
+        img: systems/tormenta20/icons/itens/gerais/veneno.webp
+        type: base
+        system: {}
+        description: ''
+        statuses: []
+        sort: 0
         _key: >-
           !actors.items.effects!A7BX3loo7rrGf1PT.fuOM6FJuDQZ9SVvn.sO7OOuysiopAeD8d
     flags:
@@ -404,8 +471,6 @@ items:
         sourceId: Item.aB83ZIHSuh8oaTGC
         defaultPermission: 2
         hash: 80c676fec875b1cc9baa554ecd3674aa0cc63420
-      core:
-        sourceId: Compendium.world.world-arielton-1663050699947.jEehHNMkRxSxRhAg
     system:
       description:
         value: >-
@@ -494,10 +559,13 @@ items:
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1663051720803
       modifiedTime: 1667009712515
       lastModifiedBy: t20builder000000
+      compendiumSource: Compendium.world.world-arielton-1663050699947.jEehHNMkRxSxRhAg
+      duplicateSource: null
+      exportSource: null
     folder: CIBeZcUdEDsVPAiT
     sort: 112500
     _id: fuOM6FJuDQZ9SVvn
@@ -570,23 +638,22 @@ items:
     sort: 100000
     ownership:
       default: 0
-    flags:
-      core:
-        sourceId: Item.2OiY2cZ1mLmJ9mQe
+    flags: {}
     _stats:
       systemId: tormenta20
       systemVersion: 1.4.1004
-      coreVersion: '10.286'
+      coreVersion: '13.342'
       createdTime: 1667009726632
       modifiedTime: 1667009726632
       lastModifiedBy: t20builder000000
+      compendiumSource: Item.2OiY2cZ1mLmJ9mQe
+      duplicateSource: null
+      exportSource: null
     _id: RYcrkDP9wxRCWGeN
     _key: '!actors.items!A7BX3loo7rrGf1PT.RYcrkDP9wxRCWGeN'
 effects:
-  - label: Veneno
-    icon: systems/tormenta20/icons/conditions/envenenado.svg
-    origin: Actor.A7BX3loo7rrGf1PT.Item.34oReGY7DxpW1Rw3
-    tint: '#FFFFFF'
+  - origin: Actor.A7BX3loo7rrGf1PT.Item.34oReGY7DxpW1Rw3
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -607,6 +674,23 @@ effects:
         value: roll
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Veneno
+    img: systems/tormenta20/icons/conditions/envenenado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!actors.effects!A7BX3loo7rrGf1PT.W8BMGJFDkqDcWX72'
 folder: B4HqFOHcZ05v9EUY
 sort: 100001
@@ -1367,14 +1451,20 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   texture:
     src: systems/tormenta20/icons/ameacas/basilisco.png
-    tint: null
+    tint: '#ffffff'
     scaleX: 1.5
     scaleY: 1.5
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: true
@@ -1388,12 +1478,31 @@ prototypeToken:
   detectionModes: []
   appendNumber: false
   prependAdjective: false
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.203d2
-  coreVersion: '11.315'
+  coreVersion: '13.342'
   createdTime: 1661997945911
   modifiedTime: 1700236782253
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!actors!A7BX3loo7rrGf1PT'
 

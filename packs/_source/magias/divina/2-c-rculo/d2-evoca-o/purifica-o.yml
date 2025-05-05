@@ -28,11 +28,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: também cura todos os PV perdidos por veneno.
     origin: Compendium.tormenta20.magias.m9jubp5PK3j2nCFC
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: também cura todos os PV perdidos por veneno.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!m9jubp5PK3j2nCFC.ATklm5lmUhDHjZyL'
   - _id: a5IZ3BLkdKVTVjXH
     flags:
@@ -51,11 +66,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: em vez de uma, remove todas as condições listadas.
     origin: Compendium.tormenta20.magias.m9jubp5PK3j2nCFC
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: em vez de uma, remove todas as condições listadas.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!m9jubp5PK3j2nCFC.a5IZ3BLkdKVTVjXH'
   - _id: eQlPzFnZjH7uIOeY
     flags:
@@ -74,13 +104,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      também permite que o alvo solte qualquer item amaldiçoado que esteja
-      segurando (mas não remove a maldição do item em si).
     origin: Compendium.tormenta20.magias.m9jubp5PK3j2nCFC
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      também permite que o alvo solte qualquer item amaldiçoado que esteja
+      segurando (mas não remove a maldição do item em si).
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!m9jubp5PK3j2nCFC.eQlPzFnZjH7uIOeY'
   - _id: dnwZJ5JwixjC5mwT
     flags:
@@ -99,13 +144,28 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
-      também dissipa magias e efeitos prejudiciais de encantamento, necromancia
-      e transmutação afetando o alvo. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.m9jubp5PK3j2nCFC
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      também dissipa magias e efeitos prejudiciais de encantamento, necromancia
+      e transmutação afetando o alvo. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!m9jubp5PK3j2nCFC.dnwZJ5JwixjC5mwT'
 folder: nUZzjRZCyl2p92SC
 sort: 0
@@ -194,9 +254,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462806
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!m9jubp5PK3j2nCFC'
 

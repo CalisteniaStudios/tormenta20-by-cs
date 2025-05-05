@@ -37,11 +37,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano de frio em +2d6 e o dano de corte em +2d6.
     origin: Compendium.tormenta20.magias.FYoig9D5AWpvNOHu
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano de frio em +2d6 e o dano de corte em +2d6.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FYoig9D5AWpvNOHu.lhm7KAuzog8jrlAp'
   - _id: cv48VdIt4zSGiUiy
     flags:
@@ -80,8 +95,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.FYoig9D5AWpvNOHu
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda a área para cilindro com 6m de raio e 6m de altura e a duração para
       sustentada. Em vez do normal, a magia cria uma tempestade de granizo que
       causa 3d6 pontos de dano de impacto e 3d6 pontos de dano de frio em todas
@@ -90,9 +117,12 @@ effects:
       escorregadio conta como terreno difícil e obriga criaturas na área a fazer
       testes de Acrobacia para equilíbrio (veja o Capítulo 2). Requer 4º
       círculo.
-    origin: Compendium.tormenta20.magias.FYoig9D5AWpvNOHu
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!FYoig9D5AWpvNOHu.cv48VdIt4zSGiUiy'
 folder: S9YMO5Jyr0D1dsWK
 sort: 0
@@ -167,9 +197,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461809
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!FYoig9D5AWpvNOHu'
 

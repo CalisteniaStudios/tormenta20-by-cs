@@ -24,11 +24,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alvo para 1 criatura.
     origin: Compendium.tormenta20.magias.rjB5WyNkH0eInOGW
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para 1 criatura.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!rjB5WyNkH0eInOGW.goAzE0oaWGOVE9Gm'
   - _id: UuprzsbsDv72xAxP
     flags:
@@ -47,11 +62,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta a quantidade de alvos em +1
     origin: Compendium.tormenta20.magias.rjB5WyNkH0eInOGW
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta a quantidade de alvos em +1
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!rjB5WyNkH0eInOGW.UuprzsbsDv72xAxP'
   - _id: 18JDpeaGFnz9KNKz
     changes: []
@@ -64,15 +94,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/comando.webp
-    label: Alvo Afetado
     origin: Item.XeTC7eLTsBnZ57CL
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alvo Afetado
+    img: systems/tormenta20/icons/magias/comando.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!rjB5WyNkH0eInOGW.18JDpeaGFnz9KNKz'
 folder: rYuXjvRuDEXa7GNY
 sort: 0
@@ -155,9 +200,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462816
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!rjB5WyNkH0eInOGW'
 

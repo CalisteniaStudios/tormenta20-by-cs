@@ -3,10 +3,8 @@ name: Celebrar Ritual
 type: poder
 img: systems/tormenta20/icons/poderes/magia.webp
 effects:
-  - label: Celebrar Ritual
-    icon: icons/svg/upgrade.svg
-    origin: Item.7O3ruVYVDawkPdPz
-    tint: '#FFFFFF'
+  - origin: Item.7O3ruVYVDawkPdPz
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -33,6 +31,23 @@ effects:
     _id: 2vZ86l1OuaLmizXK
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Celebrar Ritual
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!7O3ruVYVDawkPdPz.2vZ86l1OuaLmizXK'
 folder: Kye2KzNfCgJW92Kb
 sort: 0
@@ -98,9 +113,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306183326
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!7O3ruVYVDawkPdPz'
 

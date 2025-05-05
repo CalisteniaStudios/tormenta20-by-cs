@@ -22,20 +22,33 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/poderes/concedidos-trapaca.webp
-    label: Forma de Macaco
     origin: Item.tOXt9y6FeudfnELc
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Forma de Macaco
+    img: systems/tormenta20/icons/poderes/concedidos-trapaca.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!x5UBiKNadzbvh5Df.fWT7jQAfHO5Sbndh'
-  - label: 'Forma de Macaco: -5 em manobras.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.x5UBiKNadzbvh5Df
-    tint: '#FFFFFF'
+  - origin: Item.x5UBiKNadzbvh5Df
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -66,6 +79,23 @@ effects:
         value: '-5'
         priority: 0
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Forma de Macaco: -5 em manobras.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!x5UBiKNadzbvh5Df.qefqEcKdheSGUPdO'
 folder: p925DvI25xp3j71U
 sort: 0
@@ -129,9 +159,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664306185700
   modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!x5UBiKNadzbvh5Df'
 

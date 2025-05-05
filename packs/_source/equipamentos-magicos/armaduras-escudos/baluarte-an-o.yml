@@ -3,10 +3,8 @@ name: Baluarte Anão
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp
 effects:
-  - label: Reforçada
-    icon: systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp
-    origin: Item.AUDPOjclJNiX4Xlm
-    tint: '#FFFFFF'
+  - origin: Item.AUDPOjclJNiX4Xlm
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -27,11 +25,26 @@ effects:
         value: '1'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Reforçada
+    img: systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!AUDPOjclJNiX4Xlm.qZBJ8jeRhobfW6ac'
-  - label: Defensora
-    icon: systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp
-    origin: Item.AUDPOjclJNiX4Xlm
-    tint: '#FFFFFF'
+  - origin: Item.AUDPOjclJNiX4Xlm
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -52,11 +65,26 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Defensora
+    img: systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!AUDPOjclJNiX4Xlm.s3NoIM8jTAC0BePe'
-  - label: Adamante
-    icon: systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp
-    origin: Item.AUDPOjclJNiX4Xlm
-    tint: '#FFFFFF'
+  - origin: Item.AUDPOjclJNiX4Xlm
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -77,6 +105,23 @@ effects:
         value: '5'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Adamante
+    img: systems/tormenta20/icons/itens/itens-magicos/baluarte-anao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!AUDPOjclJNiX4Xlm.gT3xbNrrfk2no5BG'
 folder: SkZDe8cUamd0vHjD
 sort: 200000
@@ -187,9 +232,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000090
   modifiedTime: 1684622924342
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!AUDPOjclJNiX4Xlm'
 

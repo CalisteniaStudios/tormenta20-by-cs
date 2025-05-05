@@ -32,17 +32,32 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.gUp6Pm0Bf4WTUcSA
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alcance para pessoal, o alvo para você e a duração para 1 dia. Você
       e seu equipamento se transformam em uma árvore de tamanho Grande. Nessa
       forma, você não pode falar ou fazer ações físicas, mas consegue perceber
       seus arredores normalmente. Se for atacado nessa forma, a magia é
       dissipada. Um teste de Sobrevivência (CD 30) revela que você não é uma
       árvore verdadeira.
-    origin: Compendium.tormenta20.magias.gUp6Pm0Bf4WTUcSA
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gUp6Pm0Bf4WTUcSA.u7sTLX49eZCIU8JA'
   - _id: fwMTgwpZsj9p70EF
     flags:
@@ -73,15 +88,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: >-
+    origin: Compendium.tormenta20.magias.gUp6Pm0Bf4WTUcSA
+    transfer: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
       muda o alvo para área de quadrado com 9m de lado e a duração para cena. Em
       vez do normal, qualquer vegetação na área fica rígida e afiada. A área é
       considerada terreno difícil e criaturas que andem nela sofrem 1d6 pontos
       de dano de corte para cada 1,5m que avancem.
-    origin: Compendium.tormenta20.magias.gUp6Pm0Bf4WTUcSA
-    transfer: false
-    tint: null
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gUp6Pm0Bf4WTUcSA.fwMTgwpZsj9p70EF'
   - _id: z0mX6DxMh5Tqk7QT
     flags:
@@ -112,11 +142,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alvo para Enorme ou menor. Requer 3º círculo.
     origin: Compendium.tormenta20.magias.gUp6Pm0Bf4WTUcSA
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para Enorme ou menor. Requer 3º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gUp6Pm0Bf4WTUcSA.z0mX6DxMh5Tqk7QT'
   - _id: N0YtJafRzUYattiZ
     flags:
@@ -147,11 +192,26 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: muda o alvo para Colossal ou menor. Requer 4º círculo.
     origin: Compendium.tormenta20.magias.gUp6Pm0Bf4WTUcSA
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: muda o alvo para Colossal ou menor. Requer 4º círculo.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gUp6Pm0Bf4WTUcSA.N0YtJafRzUYattiZ'
   - _id: pg3ytn3Qnn1d18L6
     changes:
@@ -168,15 +228,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/controlar-madeira.webp
-    label: Fortalecer (Escudo)
     origin: Item.GeWD5R8BQOslV31K
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fortalecer (Escudo)
+    img: systems/tormenta20/icons/magias/controlar-madeira.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gUp6Pm0Bf4WTUcSA.pg3ytn3Qnn1d18L6'
   - _id: dC4PhTM0FoTZIXqq
     changes:
@@ -193,15 +268,30 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: systems/tormenta20/icons/magias/controlar-madeira.webp
-    label: Retorcer (Penalidade)
     origin: Item.GeWD5R8BQOslV31K
     transfer: false
     flags:
       tormenta20:
         onuse: false
         durationScene: true
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Retorcer (Penalidade)
+    img: systems/tormenta20/icons/magias/controlar-madeira.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!gUp6Pm0Bf4WTUcSA.dC4PhTM0FoTZIXqq'
 folder: qywU2r4WYPZtCRR1
 sort: 0
@@ -291,9 +381,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310462779
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!gUp6Pm0Bf4WTUcSA'
 

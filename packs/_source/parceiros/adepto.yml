@@ -2,12 +2,8 @@ name: Adepto
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: >-
-      Adepto Iniciante: custo para lançar suas magias de 1º círculo diminui –1
-      PM.
-    icon: icons/svg/upgrade.svg
-    origin: Item.WP0roXCa40nveA4L
-    tint: '#FFFFFF'
+  - origin: Item.WP0roXCa40nveA4L
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -34,11 +30,28 @@ effects:
     _id: vxotvfOolhH4xkbu
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Adepto Iniciante: custo para lançar suas magias de 1º círculo diminui –1
+      PM.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!WP0roXCa40nveA4L.vxotvfOolhH4xkbu'
-  - label: 'Adepto Veterano: reduz o custo de suas magias de 1º e 2º círculo em -1PM.'
-    icon: icons/svg/upgrade.svg
-    origin: Item.WP0roXCa40nveA4L
-    tint: '#FFFFFF'
+  - origin: Item.WP0roXCa40nveA4L
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -65,13 +78,26 @@ effects:
     _id: QPad2QFZW9TGhihY
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Adepto Veterano: reduz o custo de suas magias de 1º e 2º círculo em -1PM.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!WP0roXCa40nveA4L.QPad2QFZW9TGhihY'
-  - label: >-
-      Adepto Mestre: reduz o custo de suas magias de 1º e 2º círculo em -1PM,
-      cumulativo com outras reduções.
-    icon: icons/svg/upgrade.svg
-    origin: Item.WP0roXCa40nveA4L
-    tint: '#FFFFFF'
+  - origin: Item.WP0roXCa40nveA4L
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: true
@@ -98,6 +124,25 @@ effects:
     _id: zAiMFoC0tnMOshiZ
     changes: []
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Adepto Mestre: reduz o custo de suas magias de 1º e 2º círculo em -1PM,
+      cumulativo com outras reduções.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!WP0roXCa40nveA4L.zAiMFoC0tnMOshiZ'
 flags:
   scene-packer:
@@ -170,10 +215,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847523
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: WP0roXCa40nveA4L
 folder: null
 sort: 0

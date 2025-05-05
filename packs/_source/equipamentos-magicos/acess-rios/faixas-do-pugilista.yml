@@ -3,10 +3,8 @@ name: Faixas do Pugilista
 type: equipamento
 img: systems/tormenta20/icons/itens/itens-magicos/faixas-do-pugilista.webp
 effects:
-  - label: Faixas do Pugilista
-    icon: systems/tormenta20/icons/itens/itens-magicos/faixas-do-pugilista.webp
-    origin: Item.JqiWjXlU9pdOZTeb
-    tint: '#FFFFFF'
+  - origin: Item.JqiWjXlU9pdOZTeb
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -31,6 +29,23 @@ effects:
         value: '2'
         priority: null
     transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Faixas do Pugilista
+    img: systems/tormenta20/icons/itens/itens-magicos/faixas-do-pugilista.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!JqiWjXlU9pdOZTeb.LNHXtqNgtxR2jAPs'
 folder: BgJUCrqjG6EVBIfP
 sort: 5300000
@@ -95,9 +110,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664314000095
   modifiedTime: 1684623039339
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!JqiWjXlU9pdOZTeb'
 

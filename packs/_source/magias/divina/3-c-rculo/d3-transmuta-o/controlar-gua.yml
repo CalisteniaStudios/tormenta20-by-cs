@@ -24,16 +24,29 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    icon: icons/svg/upgrade.svg
-    label: aumenta o dano em +2d8.
     origin: Compendium.tormenta20.magias.6CV9kikfAZs1R1uk
     transfer: false
-    tint: null
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: aumenta o dano em +2d8.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6CV9kikfAZs1R1uk.8mjNubWym0jUZZ5R'
-  - label: Alvo afetado
-    icon: systems/tormenta20/icons/magias/controlar-agua.webp
-    origin: Item.6CV9kikfAZs1R1uk
-    tint: '#FFFFFF'
+  - origin: Item.6CV9kikfAZs1R1uk
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -50,6 +63,23 @@ effects:
     _id: qNYd8bv2bEIqC77p
     changes: []
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Alvo afetado
+    img: systems/tormenta20/icons/magias/controlar-agua.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!6CV9kikfAZs1R1uk.qNYd8bv2bEIqC77p'
 folder: d32UX2lzIXG6Ew2L
 sort: 0
@@ -146,9 +176,11 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '11.298'
+  coreVersion: '13.342'
   createdTime: 1664310461761
   modifiedTime: 1684622830660
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _key: '!items!6CV9kikfAZs1R1uk'
 

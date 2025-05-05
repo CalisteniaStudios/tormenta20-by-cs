@@ -2,10 +2,8 @@ name: Guardião
 type: poder
 img: systems/tormenta20/icons/itens/gerais/parceiros.webp
 effects:
-  - label: Guardião Iniciante
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.Un1h4jcM8qtf4F8L
-    tint: '#FFFFFF'
+  - origin: Item.Un1h4jcM8qtf4F8L
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -26,11 +24,26 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guardião Iniciante
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Un1h4jcM8qtf4F8L.ccziWCm3eCwl5z0U'
-  - label: Guardião Veterano
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.Un1h4jcM8qtf4F8L
-    tint: '#FFFFFF'
+  - origin: Item.Un1h4jcM8qtf4F8L
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -51,11 +64,26 @@ effects:
         value: '3'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guardião Veterano
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Un1h4jcM8qtf4F8L.YuGzQep3t83ss2Dq'
-  - label: Guardião Mestre
-    icon: icons/environment/settlement/wagon-black.webp
-    origin: Item.Un1h4jcM8qtf4F8L
-    tint: '#FFFFFF'
+  - origin: Item.Un1h4jcM8qtf4F8L
+    tint: '#ffffff'
     flags:
       tormenta20:
         onuse: false
@@ -88,6 +116,23 @@ effects:
         value: '2'
         priority: null
     transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Guardião Mestre
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
     _key: '!items.effects!Un1h4jcM8qtf4F8L.ASA7fXUxpbL1k4G7'
 flags:
   scene-packer:
@@ -158,10 +203,12 @@ system:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.101
-  coreVersion: '10.288'
+  coreVersion: '13.342'
   createdTime: 1663051700555
   modifiedTime: 1668270847525
   lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
 _id: Un1h4jcM8qtf4F8L
 folder: null
 sort: 0
