@@ -133,12 +133,12 @@ export default class StatblockParser extends FormApplication {
 			let st = line.match(/\((\w+)\)/i)?.[0] ?? "";
 			let s = line.match(this.toRegExpOr(T20.actorSizes, true))?.[0] ?? "Médio";
 			let r = line.match(this.toRegExpOr(T20.creatureRoles, true))?.[0] ?? "Solo";
-			schema.detalhes.tipo = invertObject(T20.creatureTypes)[t[0]];
+			schema.detalhes.tipo = foundry.utils.invertObject(T20.creatureTypes)[t[0]];
 			schema.detalhes.raca = st;
 			log.type = { success: true, message: `Tipo: ${t} ${st ? `(${st})` : ""}` };
-			schema.tracos.tamanho = invertObject(T20.actorSizes)[s[0]] ?? "";
+			schema.tracos.tamanho = foundry.utils.invertObject(T20.actorSizes)[s[0]] ?? "";
 			log.size = { success: true, message: `Tamanho: ${s}` };
-			schema.detalhes.role = invertObject(T20.creatureRoles)[r[0]] ?? "";
+			schema.detalhes.role = foundry.utils.invertObject(T20.creatureRoles)[r[0]] ?? "";
 			log.role = { success: true, message: `Papel: ${r}` };
 		}
 
@@ -392,7 +392,7 @@ export default class StatblockParser extends FormApplication {
 		let msg ="";
 		try {
 			const ndparams = T20.FoeParams(schema.detalhes.role, schema.attributes.nd);
-			let sks = invertObject(T20.pericias);
+			let sks = foundry.utils.invertObject(T20.pericias);
 			sks.Fort = "fort";
 			sks.Ref = "refl";
 			sks.Von = "vont";
