@@ -501,7 +501,7 @@ export default class ItemT20 extends Item {
 
 		// Condense the resulting attack bonus formula into a simplified label
 		parts.shift();
-		let toHitLabel = simplifyRollFormula(parts.filterJoin("+"), rollData).trim();
+		let toHitLabel = simplifyRollFormula(parts.filterJoin("+"), rollData).trim() || "0";
 		if (toHitLabel.charAt(0) !== "-") {
 			toHitLabel = `+${toHitLabel}`;
 		}
