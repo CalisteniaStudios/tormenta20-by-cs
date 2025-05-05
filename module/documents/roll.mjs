@@ -1,5 +1,8 @@
 // import { T20 } from "../config.mjs";
 
+const { Roll } = foundry.dice;
+const { DiceTerm, Die, OperatorTerm, NumericTerm } = foundry.dice.terms;
+
 export default class RollT20 extends Roll {
 	static SORTMODIFIERS = {
 		addTerm: 0,
@@ -85,13 +88,14 @@ export default class RollT20 extends Roll {
 	modAddTerm(mod) {
 		mod.value = Roll.replaceFormulaData(mod.value, this.data);
 		let newTerm;
+		const options = { flavor: mod.flavor, origin: mod.origin };
 		if (isFinite(Roll.safeEval(mod.value))) {
-			newTerm = new foundry.dice.terms.NumericTerm({ number: Roll.safeEval(mod.value), options: { flavor: mod.flavor, origin: mod.origin } });
+			newTerm = new NumericTerm({ number: Roll.safeEval(mod.value), options });
 		} else {
-			newTerm = new foundry.dice.terms.DiceTerm({ number: mod.value, options: { flavor: mod.flavor, origin: mod.origin } });
+			newTerm = new DiceTerm({ number: mod.value, options });
 		}
 		this.terms.push(
-			new foundry.dice.terms.OperatorTerm({ operator: "+" }),
+			new OperatorTerm({ operator: "+" }),
 			newTerm
 		);
 	}
@@ -103,7 +107,7 @@ export default class RollT20 extends Roll {
 		const dies = this.terms.filter((term) => {
 			const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(",") : false;
 			const origin = mod.conditions.origin ? mod.conditions.origin.split(",") : false;
-			if (!(term instanceof foundry.dice.terms.DiceTerm)) return false;
+			if (!(term instanceof DiceTerm)) return false;
 			if (flavor && !flavor.includes(term.options.flavor)) return false;
 			if (origin && !origin.includes(term.options.origin)) return false;
 			return true;
@@ -111,8 +115,8 @@ export default class RollT20 extends Roll {
 		const total = Roll.safeEval(...dies) * mod.value;
 		if (!total) return;
 		this.terms.push(
-			new foundry.dice.terms.OperatorTerm({ operator: "+" }),
-			new foundry.dice.terms.NumericTerm({ number: total, options: { flavor: mod.flavor, origin: mod.origin } })
+			new OperatorTerm({ operator: "+" }),
+			new NumericTerm({ number: total, options: { flavor: mod.flavor, origin: mod.origin } })
 		);
 	}
 
@@ -123,7 +127,7 @@ export default class RollT20 extends Roll {
 		const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(",") : false;
 		const origin = mod.conditions.origin ? mod.conditions.origin.split(",") : false;
 		for (const term of this.terms) {
-			if (!(term instanceof foundry.dice.terms.DiceTerm)) continue;
+			if (!(term instanceof DiceTerm)) continue;
 			if (flavor && !flavor.includes(term.options.flavor)) continue;
 			if (origin && !origin.includes(term.options.origin)) continue;
 			term.number = term.number + mod.value;
@@ -137,7 +141,7 @@ export default class RollT20 extends Roll {
 		const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(",") : false;
 		const origin = mod.conditions.origin ? mod.conditions.origin.split(",") : false;
 		for (const term of this.terms) {
-			if (!(term instanceof foundry.dice.terms.DiceTerm)) continue;
+			if (!(term instanceof DiceTerm)) continue;
 			if (flavor && !flavor.includes(term.options.flavor)) continue;
 			if (origin && !origin.includes(term.options.origin)) continue;
 			term.faces = mod.value;
@@ -151,7 +155,7 @@ export default class RollT20 extends Roll {
 		const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(",") : false;
 		const origin = mod.conditions.origin ? mod.conditions.origin.split(",") : false;
 		for (const term of this.terms) {
-			if (!(term instanceof foundry.dice.terms.DiceTerm)) continue;
+			if (!(term instanceof DiceTerm)) continue;
 			if (flavor && !flavor.includes(term.options.flavor)) continue;
 			if (origin && !origin.includes(term.options.origin)) continue;
 			let termIndex = T20.passosDano.indexOf(term.expression);
@@ -165,7 +169,7 @@ export default class RollT20 extends Roll {
 		const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(",") : false;
 		const origin = mod.conditions.origin ? mod.conditions.origin.split(",") : false;
 		for (const term of this.terms) {
-			if (!(term instanceof foundry.dice.terms.DiceTerm)) continue;
+			if (!(term instanceof DiceTerm)) continue;
 			if (term.modifiers.includes(mod.value)) continue;
 			if (flavor && !flavor.includes(term.options.flavor)) continue;
 			if (origin && !origin.includes(term.options.origin)) continue;
