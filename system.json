@@ -95,7 +95,11 @@
       "label": "Habilidades de Criaturas",
       "system": "tormenta20",
       "path": "./packs/habilidades-de-criaturas",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+          "PLAYER": "LIMITED",
+          "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "pocoes",
@@ -116,14 +120,22 @@
       "label": "Ameaças",
       "system": "tormenta20",
       "path": "./packs/ameacas",
-      "type": "Actor"
+      "type": "Actor",
+      "ownership": {
+          "PLAYER": "LIMITED",
+          "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "convocacoes",
       "label": "Convocações",
       "system": "tormenta20",
       "path": "./packs/convocacoes",
-      "type": "Actor"
+      "type": "Actor",
+      "ownership": {
+          "PLAYER": "LIMITED",
+          "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "basico",
