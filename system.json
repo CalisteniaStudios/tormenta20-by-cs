@@ -182,7 +182,10 @@
     }
   ],
   "flags": {
-    "hotReload": false
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["tormenta20.css", "templates", "lang"]
+    }
   },
   "grid": {
     "distance": 1.5,
