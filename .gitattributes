@@ -1,3 +1,1 @@
 * text eol=lf
-packs/** binary
-packs/**/*.json !filter !diff !merge text
