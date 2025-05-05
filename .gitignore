@@ -4,7 +4,6 @@
 
 # Node Modules
 node_modules/
-foundry/
 npm-debug.log
 .DS_Store
 
@@ -14,6 +13,8 @@ npm-debug.log
 # Local Files
 *.lock
 
-foundry-config.json
-foundry
-packs/
+# Build Artifacts
+dist/
+packs/*
+!packs/_source/
+foundry/
