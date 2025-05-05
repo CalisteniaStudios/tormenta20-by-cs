@@ -52,11 +52,9 @@ export default class AbilityUseDialog extends Dialog {
 	static async create(item) {
 		if (!item.isOwned) ui.notifications.error(game.i18n.localize("T20.ActionWarningItemNotOwned"));
 		// Prepare data
-		const actorData = item.actor.system;
 		const itemData = item.system;
 		const pmCost = itemData?.custo > 0;
 		let aprimoramentos = [];
-		let apdeap = {};
 
 		function filterAE(ae, keys=[], tags=[]) {
 			const name = item.name;
@@ -144,7 +142,7 @@ export default class AbilityUseDialog extends Dialog {
 				default: "use",
 				close: () => resolve(null)
 			});
-			if (item.type === "magia" && (item.actor.getFlag("tormenta20", "createPotion" || game.user.isGM))) {
+			if (item.type === "magia" && (item.actor.getFlag("tormenta20", "createPotion") || game.user.isGM)) {
 				dlg.data.buttons.brew = {
 					icon: "<i class=\"fas fa-flask\"></i>",
 					label: game.i18n.localize("T20.BrewPotion"),
