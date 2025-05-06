@@ -1,31 +1,22 @@
 {
-  "T20.S1": "/* ---------------- ACTOR ----------------- */",
-  "TYPES.Actor.character": "Personagem de Jogador",
-  "TYPES.Actor.npc": "Ameaça",
-  "TYPES.Actor.vehicle": "Veículos",
-  "TYPES.Actor.simple": "Personagem do Mestre",
-
-  "Types.Actor.character": "Personagem de Jogador",
-  "Types.Actor.npc": "Ameaça",
-  "Types.Actor.vehicle": "Veículos",
-  "Types.Actor.simple": "Personagem do Mestre",
-
-  "T20.S2": "/* ----------------- ITEM ----------------- */",
-  "TYPES.Item.arma": "Arma",
-  "TYPES.Item.equipamento": "Equipamentos",
-  "TYPES.Item.classe": "Classe",
-  "TYPES.Item.consumivel": "Consumível",
-  "TYPES.Item.magia": "Magia",
-  "TYPES.Item.poder": "Poder",
-  "TYPES.Item.tesouro": "Tesouro",
-
-  "Types.Item.arma": "Arma",
-  "Types.Item.equipamento": "Equipamentos",
-  "Types.Item.classe": "Classe",
-  "Types.Item.consumivel": "Consumível",
-  "Types.Item.magia": "Magia",
-  "Types.Item.poder": "Poder",
-  "Types.Item.tesouro": "Tesouro",
+  "TYPES": {
+    "Actor": {
+      "character": "Personagem de Jogador",
+      "npc": "Ameaça",
+      "vehicle": "Veículos",
+      "simple": "Personagem do Mestre"
+    },
+    "Item": {
+      "arma": "Arma",
+      "equipamento": "Equipamentos",
+      "classe": "Classe",
+      "consumivel": "Consumível",
+      "magia": "Magia",
+      "poder": "Poder",
+      "race": "Raça",
+      "tesouro": "Tesouro"
+    }
+  },
 
 
   "T20.S3": "/* ---------------- SYSTEM ---------------- */",

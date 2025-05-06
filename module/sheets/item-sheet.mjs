@@ -111,7 +111,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 			config: CONFIG.T20,
 			// itemType: sheetData.item.type.capitalize(),
-			itemType: game.i18n.localize(`Types.Item.${item.type}`),
+			itemType: game.i18n.localize(`TYPES.Item.${item.type}`),
 			itemStatus: this._getItemStatus(),
 			itemProperties: this._getItemProperties(),
 			isPhysical: item.system.hasOwnProperty("qtd"),
