@@ -151,6 +151,7 @@ Hooks.once("init", async function () {
 	CONFIG.Item.dataModels.equipamento = tormenta20.data.models.EquipmentData;
 	CONFIG.Item.dataModels.magia = tormenta20.data.models.SpellData;
 	CONFIG.Item.dataModels.poder = tormenta20.data.models.PowerData;
+	CONFIG.Item.dataModels.race = tormenta20.data.models.RaceData;
 	CONFIG.Item.dataModels.tesouro = tormenta20.data.models.LootData;
 
 	// Register sheet application classes

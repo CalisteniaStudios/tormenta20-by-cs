@@ -42,6 +42,9 @@
       "poder": {
         "htmlFields": ["description.value", "description.unidentified"]
       },
+      "race": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
       "tesouro": {
         "htmlFields": ["description.value", "description.unidentified"]
       }

@@ -125,6 +125,10 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					if (!this.actor.itemTypes.classe.length) item.system.inicial = true;
 					remainingItems.push(item);
 				}
+			} else if (item.type === "race") {
+				const race = this.actor.itemTypes.race[0];
+				if (race) race.delete();
+				remainingItems.push(item);
 			} else remainingItems.push(item);
 		}
 
@@ -246,6 +250,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		actorData.poderes = poderes;
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
+		actorData.race = this.actor.itemTypes.race[0];
 		if (this.layout === "base") {
 			inventario.itens = { label: "Itens", items: items };
 		}

@@ -1,14 +1,27 @@
 import IdentityData from "./identity.mjs";
 
+const fields = foundry.data.fields;
 export default class RaceData extends IdentityData {
 
 	/** @inheritDoc */
 	static defineSchema() {
-		const fields = foundry.data.fields;
-		const _fields = tormenta20.data.fields;
-		return Object.assign(super.defineSchema(), {
+		return {
+			...super.defineSchema(),
+			atributos: this.schemaAbilities()
 			// progressao: new _fields.MappingField(),
-		});
+		};
+	}
+
+	static schemaAbilities() {
+		let getSchema = () => {
+			return new fields.SchemaField({
+				value: new fields.NumberField({ required: true, nullable: false, initial: 0, min: -5, label: "T20.AbilityValue", hint: "T20.AbilityValueHint" })
+			});
+		};
+
+		let schema = {};
+		Object.keys(T20.atributos).forEach((abl) => schema[abl] = getSchema());
+		return new fields.SchemaField(schema);
 	}
 
 	/* -------------------------------------------- */
