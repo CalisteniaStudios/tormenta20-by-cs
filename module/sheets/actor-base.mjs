@@ -301,7 +301,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			}
 		];
 		if (!item.isOwner) return options;
-		if (this.layout === "tabbed" && item.type !== "classe") {
+		if (this.layout === "tabbed" && !["classe", "race"].includes(item.type)) {
 			const favorito = item.getFlag("tormenta20", "favorito");
 			options.push({
 				name: favorito ? "T20.Unfavorite" : "T20.Favorite",
