@@ -846,9 +846,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	async _onItemDialog(event) {
 		event.preventDefault();
 		const types = {
-			inventory: ["arma", "equipamento", "consumivel", "tesouro"]
+			gerais: ["arma", "equipamento", "consumivel", "tesouro"]
 		};
-		const type = event.currentTarget.closest(".tab").dataset.tab;
+		const type = event.currentTarget.dataset.type;
 		return await Item.createDialog({}, { parent: this.actor }, { types: types[type] });
 	}
 

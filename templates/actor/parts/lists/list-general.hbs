@@ -6,11 +6,6 @@
 		<div class="item-name flex2">{{ localize 'T20.Name' }}</div>
 		<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
 		<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
-		{{#if owner}}
-		<div class="item-controls">
-			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Powers'}}" data-type="poder"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
-		</div>
-		{{/if}}
 	</li>
 	{{#each actor.inventario.itens.items as |item id|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
@@ -23,13 +18,13 @@
 			<input type="text" data-dtype="Number" placeholder="0" classe="item-qtd" value="{{item.system.qtd}}">
 		</div>
 		<div class="item-weight">{{item.espacosTotal}}</div>
-		{{> "tormenta20.actor-item-controls" item=item }}
 	</li>
 	{{/each}}
 	<li>
+		{{#if owner}}
 		<div class="item-controls">
-			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Consumable'}}" data-type="consumivel"><i class="fas fa-plus"></i> {{localize 'T20.Consumable'}}</a>
-			<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Treasure'}}" data-type="tesouro"><i class="fas fa-plus"></i> {{localize 'T20.Treasure'}}</a>
+			<a class="item-control item-dialog" data-type="gerais"><i class="fas fa-plus"></i> Criar Item</a>
 		</div>
+		{{/if}}
 	</li>
 </ul>
