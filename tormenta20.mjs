@@ -1,3 +1,4 @@
+import "./less/tormenta20.less";
 // Import Config
 import { SYSTEMRULES, T20 } from "./module/config/T20.js";
 globalThis.T20 = T20;
