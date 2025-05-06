@@ -640,6 +640,11 @@ export default class ItemT20 extends Item {
 					if (updateItems) this.actor.updateEmbeddedDocuments("Item", updateItems);
 				}
 				this.actor.update({ "system.attributes.nivel.value": this.actor.nivel });
+			} else if (this.type === "race") {
+				const atributos = Object.fromEntries(
+					Object.keys(this.system.atributos).map((key) => [[`system.atributos.${key}.racial`], 0])
+				);
+				this.actor.update(atributos);
 			}
 		}
 	}

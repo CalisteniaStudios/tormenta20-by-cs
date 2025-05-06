@@ -128,6 +128,12 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			} else if (item.type === "race") {
 				const race = this.actor.itemTypes.race[0];
 				if (race) race.delete();
+				const atributos = Object.fromEntries(
+					Object.entries(item.system.atributos).map(([key, data]) => [
+						[`system.atributos.${key}.racial`], data.value
+					])
+				);
+				this.actor.update(atributos);
 				remainingItems.push(item);
 			} else remainingItems.push(item);
 		}
