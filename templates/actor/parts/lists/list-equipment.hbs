@@ -1,27 +1,12 @@
 <ol class="item-list">
-	<li class="item flexrow item-header">
-		<div class="item-name flex2">{{ localize 'T20.Equipment'}}</div>
-		<div class="item-def" data-tooltip="{{ localize 'T20.Defense'}} / {{ localize 'T20.ArmorPenalty'}}"><i class="fa-solid fa-shield"></i> / <i class="fa-solid fa-person-hiking"></i></div>
-		<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
-		<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
+	<li class="item item-header flexrow">
+		<div class="item-name">{{ localize 'T20.Items'}}</div>
 	</li>
-	{{#each actor.inventario.equipamento.items as |item id|}}
-		<li class="item flexrow" data-item-id="{{item._id}}">
-			<div class="item-name flex2 flexrow rollable edit-favoritos">
-				<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-				<label>{{item.name}}</label>
-			</div>
-			<div class="item-def">
-				{{numberFormat item.system.armadura.value sign=true}} / {{item.system.armadura.penalidade}}
-			</div>
-			<div class="item-qty">
-				{{#if ../owner}}
-				<input type="text" data-dtype="Number" placeholder="0" classe="item-qty" value="{{item.system.qtd}}">
-				{{else}}
-					{{item.system.qtd}}
-				{{/if}}
-			</div>
-			<div class="item-weight">{{item.espacosTotal}}</div>
-		</li>
-		{{/each}}
+	{{#each actor.inventario.equipamento.items as |item|}}
+	<li class="item" data-item-id="{{item._id}}">
+		<div class="item-name flexrow {{#if (eq item.type "consumivel")}}rollable{{/if}}">
+			{{> "tormenta20.list-header-element" item=item}}
+		</div>
+	</li>
+	{{/each}}
 </ol>
