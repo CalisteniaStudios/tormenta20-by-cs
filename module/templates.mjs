@@ -29,6 +29,7 @@ export const preloadHandlebarsTemplates = async function () {
 		"systems/tormenta20/templates/actor/parts/modifiers.hbs",
 		// Lists
 		"systems/tormenta20/templates/actor/parts/lists/list-general.hbs",
+		"systems/tormenta20/templates/actor/parts/lists/list-inventory.hbs",
 		"systems/tormenta20/templates/actor/parts/lists/list-weapon.hbs",
 		"systems/tormenta20/templates/actor/parts/lists/list-equipment.hbs",
 		"systems/tormenta20/templates/actor/parts/lists/list-consumable.hbs",

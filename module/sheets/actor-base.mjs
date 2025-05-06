@@ -221,6 +221,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 		// Item management
 		html.find(".item-edit").click((ev) => this._onItemEdit($(ev.currentTarget)));
+		html.find(".item-dialog").click(this._onItemDialog.bind(this));
 		html.find(".item-create").click(this._onItemCreate.bind(this));
 		html.find(".item-qty input").click((ev) => ev.target.select())
 			.change(this._onQtyChange.bind(this));
@@ -840,6 +841,15 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		};
 		delete itemData.system.type;
 		return this.actor.createEmbeddedDocuments("Item", [itemData], { renderSheet: true });
+	}
+
+	async _onItemDialog(event) {
+		event.preventDefault();
+		const types = {
+			inventory: ["arma", "equipamento", "consumivel", "tesouro"]
+		};
+		const type = event.currentTarget.closest(".tab").dataset.tab;
+		return await Item.createDialog({}, { parent: this.actor }, { types: types[type] });
 	}
 
 	/**

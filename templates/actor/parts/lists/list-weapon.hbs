@@ -4,7 +4,6 @@
 		<div class="item-rolls flex2">{{ localize 'T20.Attack'}} ({{ localize 'T20.Damage'}}, {{ localize 'T20.Critical'}})</div>
 		<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
 		<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
-		<div class="item-controls"><a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Weapon'}}" data-type="arma"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a></div>
 	</li>
 	{{#each actor.inventario.arma.items as |item id|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
@@ -25,7 +24,6 @@
 			{{/if}}
 		</div>
 		<div class="item-weight">{{item.espacosTotal}}</div>
-		{{> "tormenta20.actor-item-controls" item=item }}
 	</li>
 	{{/each}}
 </ol>

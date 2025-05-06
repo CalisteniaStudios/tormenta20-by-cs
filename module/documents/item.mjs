@@ -713,7 +713,7 @@ export default class ItemT20 extends Item {
 		};
 
 		if (isNPC) {
-			if (data.system.rolls) {
+			if (data?.system?.rolls) {
 				updates["system.ataques"] = 1;
 				let attackRoll = data.system.rolls.find((r) => r.type === "ataque");
 				let damageRoll = data.system.rolls.find((r) => r.type === "dano");
