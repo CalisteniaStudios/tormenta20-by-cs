@@ -52,7 +52,7 @@ effects:
     sort: 0
     _key: '!items.effects!l1E04OA0ThZFOeL5.bXFpzQbW5UlL3LzW'
 folder: voEJdcAKDfYsKoTC
-sort: 0
+sort: 500000
 flags: {}
 system:
   description:
@@ -63,7 +63,7 @@ system:
     unidentified: ''
   source: ''
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -105,10 +105,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.341'
   createdTime: 1664306185138
-  modifiedTime: 1684630371462
+  modifiedTime: 1746636168835
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
