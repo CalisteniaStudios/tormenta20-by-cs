@@ -106,13 +106,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se passar uma hora pesquisando seus livros
-      e anota&ccedil;&otilde;es, voc&ecirc; pode rolar novamente um teste de
-      per&iacute;cia baseada em Intelig&ecirc;ncia ou Sabedoria que tenha feito
-      desde a &uacute;ltima cena. Se tiver acesso a mais livros, voc&ecirc;
-      recebe um b&ocirc;nus no teste: +2 para uma cole&ccedil;&atilde;o
-      particular ou biblioteca pequena e +5 para a biblioteca de um templo ou
-      universidade.</p>
+      <p>Se passar uma hora pesquisando seus livros e anota&ccedil;&otilde;es,
+      voc&ecirc; pode rolar novamente um teste de per&iacute;cia baseada em
+      Intelig&ecirc;ncia ou Sabedoria que tenha feito desde a &uacute;ltima
+      cena. Se tiver acesso a mais livros, voc&ecirc; recebe um b&ocirc;nus no
+      teste: +2 para uma cole&ccedil;&atilde;o particular ou biblioteca pequena
+      e +5 para a biblioteca de um templo ou universidade.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

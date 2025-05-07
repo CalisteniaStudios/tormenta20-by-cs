@@ -301,9 +301,9 @@ items:
           <section class="secret">Bola de Fogo (Padrão, 9 PM) O tirano cria uma
           poderosa explosão em alcance médio que causa 12d6+5 pontos de dano de
           fogo em todas as criaturas em um raio de 6m (Reflexos reduz à
-          metade)</section><p style="text-align:justify;">Esta famosa magia de
-          ataque cria uma poderosa explosão, causando 6d6 pontos de dano de fogo
-          em todas as criaturas e objetos livres na área.</p>
+          metade)</section><p>Esta famosa magia de ataque cria uma poderosa
+          explosão, causando 6d6 pontos de dano de fogo em todas as criaturas e
+          objetos livres na área.</p>
         unidentified: ''
       source: T20, pg. 182 (JdA)
       ativacao:
@@ -667,11 +667,10 @@ items:
           <section class="secret">Concentração de Combate (Padrão, 8 PM) Até o
           fim da cena, quando faz um ataque, o tirano rola dois dados e usa o
           melhor resultado, e quando um oponente ataca o tirano, rola dois dados
-          e usa o pior resultado</section><p style="text-align:
-          justify;">Voc&ecirc; amplia sua percep&ccedil;&atilde;o, antecipando
-          movimentos dos inimigos e achando brechas em sua defesa. Quando
-          faz&nbsp;um teste de ataque, voc&ecirc; rola dois dados e usa o melhor
-          resultado</p>
+          e usa o pior resultado</section><p>Voc&ecirc; amplia sua
+          percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando
+          brechas em sua defesa. Quando faz&nbsp;um teste de ataque, voc&ecirc;
+          rola dois dados e usa o melhor resultado</p>
         unidentified: ''
       source: T20, pg. 185 (JdA)
       ativacao:
@@ -932,10 +931,10 @@ items:
         value: >-
           <section class="secret">Velocidade (Padrão, 3 PM, sustentada) O tirano
           pode executar uma ação padrão adicional por turno, que não pode ser
-          usada para lançar magias.</section><p style="text-align: justify;">O
-          alvo pode realizar uma a&ccedil;&atilde;o padr&atilde;o ou de
-          movimento adicional por turno. Esta a&ccedil;&atilde;o n&atilde;o pode
-          ser usada para lan&ccedil;ar magias e ativar engenhocas.</p>
+          usada para lançar magias.</section><p>O alvo pode realizar uma
+          a&ccedil;&atilde;o padr&atilde;o ou de movimento adicional por turno.
+          Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
+          magias e ativar engenhocas.</p>
         unidentified: ''
       source: T20, pg. 210 (JdA)
       ativacao:
@@ -1002,10 +1001,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Machado de batalha x2</section><p
-          style="text-align:justify;">Adaptado do machado de lenhador, este não
-          é um instrumento para corte de árvores, mas sim uma arma capaz de
-          causar ferimentos terríveis.</p>
+          <section class="secret">Machado de batalha x2</section><p>Adaptado do
+          machado de lenhador, este não é um instrumento para corte de árvores,
+          mas sim uma arma capaz de causar ferimentos terríveis.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)
@@ -1334,14 +1332,14 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">A mais forte e pesada das armaduras,
-          formada por placas de metal forjadas e encaixadas de modo a cobrir o
-          corpo inteiro. Inclui manoplas e grevas (luvas e botas metálicas,
-          respectivamente), um elmo com viseira e uma túnica acolchoada para ser
-          usada sob as placas. Correias e fivelas distribuem o peso da armadura
-          pelo corpo inteiro. </p><p style="text-align:justify;">Esta armadura
-          precisa ser feita sob medida para cada usuário; um ferreiro cobra T$
-          200 para adaptar uma armadura completa a um novo usuário.</p>
+          <p>A mais forte e pesada das armaduras, formada por placas de metal
+          forjadas e encaixadas de modo a cobrir o corpo inteiro. Inclui
+          manoplas e grevas (luvas e botas metálicas, respectivamente), um elmo
+          com viseira e uma túnica acolchoada para ser usada sob as placas.
+          Correias e fivelas distribuem o peso da armadura pelo corpo inteiro.
+          </p><p>Esta armadura precisa ser feita sob medida para cada usuário;
+          um ferreiro cobra T$ 200 para adaptar uma armadura completa a um novo
+          usuário.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: false

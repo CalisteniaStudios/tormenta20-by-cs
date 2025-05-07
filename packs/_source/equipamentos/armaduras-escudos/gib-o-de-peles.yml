@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Usada principalmente por bárbaros e
-      selvagens, esta armadura é formada por várias camadas de peles e couro de
-      animais.</p>
+      <p>Usada principalmente por bárbaros e selvagens, esta armadura é formada
+      por várias camadas de peles e couro de animais.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

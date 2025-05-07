@@ -291,13 +291,13 @@ items:
         value: >-
           <section class="secret">Arma Mágica (Padrão, 5 PM) Uma arma do capelão
           se torna mágica, fornecendo +2 nos testes de ataque e rolagens de dano
-          e +1d6 pontos de dano de fogo</section><p style="text-align:
-          justify;">A arma fornece um b&ocirc;nus de +1 nos testes de ataque e
-          rolagens de dano e &eacute; considerada m&aacute;gica (n&atilde;o
-          cumulativo com b&ocirc;nus de encantos). Caso voc&ecirc; esteja
-          empunhando a arma, pode usar seu atributo-chave de magias em vez do
-          atributo original nos testes de ataque (n&atilde;o cumulativo com
-          efeitos que somam este atributo).</p>
+          e +1d6 pontos de dano de fogo</section><p>A arma fornece um
+          b&ocirc;nus de +1 nos testes de ataque e rolagens de dano e &eacute;
+          considerada m&aacute;gica (n&atilde;o cumulativo com b&ocirc;nus de
+          encantos). Caso voc&ecirc; esteja empunhando a arma, pode usar seu
+          atributo-chave de magias em vez do atributo original nos testes de
+          ataque (n&atilde;o cumulativo com efeitos que somam este
+          atributo).</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 181 (JdA)
@@ -529,9 +529,8 @@ items:
         value: >-
           <section class="secret">Bênção (Padrão, 3 PM) Aliados em alcance curto
           recebem +2 em testes de ataque e rolagens de dano até o fim da
-          cena</section><p style="text-align: justify;">Aben&ccedil;oa os alvos,
-          que recebem +1 em testes de ataque e rolagens de dano.
-          <em>B&ecirc;n&ccedil;&atilde;o</em> anula
+          cena</section><p>Aben&ccedil;oa os alvos, que recebem +1 em testes de
+          ataque e rolagens de dano. <em>B&ecirc;n&ccedil;&atilde;o</em> anula
           <em>Perdi&ccedil;&atilde;o</em>.</p>
         chat: ''
         unidentified: ''
@@ -819,9 +818,8 @@ items:
       description:
         value: >-
           <section class="secret">Curar Ferimentos (Padrão, 5 PM) Uma criatura
-          adjacente cura 6d8+6 PV</section><p style="text-align:
-          justify;">Voc&ecirc; canaliza energia positiva que recupera 2d8+2
-          pontos de vida na criatura tocada.</p>
+          adjacente cura 6d8+6 PV</section><p>Voc&ecirc; canaliza energia
+          positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 189 (JdA)
@@ -970,10 +968,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Martelo de guerra</section><p
-          style="text-align:justify;">Outra ferramenta adaptada para combate,
-          esta é a arma favorita de quase todos os anões que não usam
-          machados.</p>
+          <section class="secret">Martelo de guerra</section><p>Outra ferramenta
+          adaptada para combate, esta é a arma favorita de quase todos os anões
+          que não usam machados.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)
@@ -1102,14 +1099,14 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">A mais forte e pesada das armaduras,
-          formada por placas de metal forjadas e encaixadas de modo a cobrir o
-          corpo inteiro. Inclui manoplas e grevas (luvas e botas metálicas,
-          respectivamente), um elmo com viseira e uma túnica acolchoada para ser
-          usada sob as placas. Correias e fivelas distribuem o peso da armadura
-          pelo corpo inteiro. </p><p style="text-align:justify;">Esta armadura
-          precisa ser feita sob medida para cada usuário; um ferreiro cobra T$
-          200 para adaptar uma armadura completa a um novo usuário.</p>
+          <p>A mais forte e pesada das armaduras, formada por placas de metal
+          forjadas e encaixadas de modo a cobrir o corpo inteiro. Inclui
+          manoplas e grevas (luvas e botas metálicas, respectivamente), um elmo
+          com viseira e uma túnica acolchoada para ser usada sob as placas.
+          Correias e fivelas distribuem o peso da armadura pelo corpo inteiro.
+          </p><p>Esta armadura precisa ser feita sob medida para cada usuário;
+          um ferreiro cobra T$ 200 para adaptar uma armadura completa a um novo
+          usuário.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 154 (JdA)
@@ -1175,9 +1172,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Tipicamente feito de madeira, este
-          escudo é amarrado no antebraço, deixando a mão livre. O usuário pode
-          carregar um objeto na mão do escudo, mas não manusear uma arma.</p>
+          <p>Tipicamente feito de madeira, este escudo é amarrado no antebraço,
+          deixando a mão livre. O usuário pode carregar um objeto na mão do
+          escudo, mas não manusear uma arma.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 154 (JdA)

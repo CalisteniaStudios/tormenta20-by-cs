@@ -125,32 +125,29 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; d&aacute; uma ordem
-      irresist&iacute;vel, que o alvo deve ser capaz de ouvir (mas n&atilde;o
-      precisa entender). Se falhar na resist&ecirc;ncia, ele deve obedecer ao
-      comando em seu pr&oacute;prio turno da melhor maneira poss&iacute;vel.
-      Escolha um dos efeitos.</p>
+      <p>Voc&ecirc; d&aacute; uma ordem irresist&iacute;vel, que o alvo deve ser
+      capaz de ouvir (mas n&atilde;o precisa entender). Se falhar na
+      resist&ecirc;ncia, ele deve obedecer ao comando em seu pr&oacute;prio
+      turno da melhor maneira poss&iacute;vel. Escolha um dos efeitos.</p>
 
-      <p style="text-align: justify;"><em>Fuja:</em> o alvo gasta seu turno se
-      afastando de voc&ecirc; (usando todas as suas a&ccedil;&otilde;es).</p>
+      <p><em>Fuja:</em> o alvo gasta seu turno se afastando de voc&ecirc;
+      (usando todas as suas a&ccedil;&otilde;es).</p>
 
-      <p style="text-align: justify;"><em>Largue:</em> o alvo solta quaisquer
-      itens que esteja segurando e n&atilde;o pode peg&aacute;-los novamente
-      at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno. Como esta &eacute;
-      uma a&ccedil;&atilde;o livre, ele ainda pode executar outras
-      a&ccedil;&otilde;es (exceto pegar aquilo que largou).</p>
+      <p><em>Largue:</em> o alvo solta quaisquer itens que esteja segurando e
+      n&atilde;o pode peg&aacute;-los novamente at&eacute; o in&iacute;cio de
+      seu pr&oacute;ximo turno. Como esta &eacute; uma a&ccedil;&atilde;o livre,
+      ele ainda pode executar outras a&ccedil;&otilde;es (exceto pegar aquilo
+      que largou).</p>
 
-      <p style="text-align: justify;"><em>Pare:</em> o alvo fica pasmo (uma vez
-      por cena).</p>
+      <p><em>Pare:</em> o alvo fica pasmo (uma vez por cena).</p>
 
-      <p style="text-align: justify;"><em>Senta:</em> com uma a&ccedil;&atilde;o
-      livre, o alvo senta no ch&atilde;o (se estava pendurado ou voando, desce
-      at&eacute; o ch&atilde;o). Ele pode fazer outras a&ccedil;&otilde;es, mas
-      n&atilde;o se levantar at&eacute; o in&iacute;cio de seu pr&oacute;ximo
-      turno.</p>
+      <p><em>Senta:</em> com uma a&ccedil;&atilde;o livre, o alvo senta no
+      ch&atilde;o (se estava pendurado ou voando, desce at&eacute; o
+      ch&atilde;o). Ele pode fazer outras a&ccedil;&otilde;es, mas n&atilde;o se
+      levantar at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno.</p>
 
-      <p style="text-align: justify;"><em>Venha:</em> o alvo gasta seu turno se
-      aproximando de voc&ecirc; (usando todas as suas a&ccedil;&otilde;es).</p>
+      <p><em>Venha:</em> o alvo gasta seu turno se aproximando de voc&ecirc;
+      (usando todas as suas a&ccedil;&otilde;es).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 184 (JdA)

@@ -4,11 +4,10 @@ img: systems/tormenta20/icons/poderes/ameacas/sopro-gas.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O golem de ferro expele uma nuvem de
-      g&aacute;s venenoso que preenche um cubo de 3m de lado. Criaturas dentro
-      da &aacute;rea perdem 6d12 pontos de vida e ficam enjoadas (Fortitude CD
-      30 reduz &agrave; metade e evita a condi&ccedil;&atilde;o enjoado).
-      Recarga (movimento), veneno.</p>
+      <p>O golem de ferro expele uma nuvem de g&aacute;s venenoso que preenche
+      um cubo de 3m de lado. Criaturas dentro da &aacute;rea perdem 6d12 pontos
+      de vida e ficam enjoadas (Fortitude CD 30 reduz &agrave; metade e evita a
+      condi&ccedil;&atilde;o enjoado). Recarga (movimento), veneno.</p>
     unidentified: ''
   source: ''
   ativacao:

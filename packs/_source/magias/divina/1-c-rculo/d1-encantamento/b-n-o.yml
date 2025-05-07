@@ -167,9 +167,9 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Aben&ccedil;oa os alvos, que recebem +1 em
-      testes de ataque e rolagens de dano. <em>B&ecirc;n&ccedil;&atilde;o</em>
-      anula <em>Perdi&ccedil;&atilde;o</em>.</p>
+      <p>Aben&ccedil;oa os alvos, que recebem +1 em testes de ataque e rolagens
+      de dano. <em>B&ecirc;n&ccedil;&atilde;o</em> anula
+      <em>Perdi&ccedil;&atilde;o</em>.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 182 (JdA)

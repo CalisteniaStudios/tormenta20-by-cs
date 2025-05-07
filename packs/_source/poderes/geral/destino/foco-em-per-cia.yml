@@ -60,14 +60,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma per&iacute;cia. Quando faz um
-      teste dessa per&iacute;cia, voc&ecirc; pode gastar 1 PM para rolar dois
-      dados e usar o melhor resultado. Voc&ecirc; pode escolher este poder
-      outras vezes para per&iacute;cias diferentes. Este poder n&atilde;o pode
-      ser aplicado em Luta e Pontaria (mas veja Foco em Arma).</p>
+      <p>Escolha uma per&iacute;cia. Quando faz um teste dessa per&iacute;cia,
+      voc&ecirc; pode gastar 1 PM para rolar dois dados e usar o melhor
+      resultado. Voc&ecirc; pode escolher este poder outras vezes para
+      per&iacute;cias diferentes. Este poder n&atilde;o pode ser aplicado em
+      Luta e Pontaria (mas veja Foco em Arma).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado na
-      per&iacute;cia escolhida.</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado na per&iacute;cia
+      escolhida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

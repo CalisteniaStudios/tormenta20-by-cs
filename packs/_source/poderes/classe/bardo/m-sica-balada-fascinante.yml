@@ -45,33 +45,29 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Fa&ccedil;a um teste de
-      Atua&ccedil;&atilde;o oposto pelo teste de Vontade de uma criatura no
-      alcance. Se voc&ecirc; passar, ela fica fascinada enquanto voc&ecirc; se
-      concentrar (uma a&ccedil;&atilde;o padr&atilde;o por rodada). Um alvo
-      hostil ou envolvido em combate recebe +5 no teste de resist&ecirc;ncia e
-      tem direito a um novo teste sempre que voc&ecirc; se concentrar. Se a
-      criatura passar, fica imune a este efeito por um dia.</p>
+      <p>Fa&ccedil;a um teste de Atua&ccedil;&atilde;o oposto pelo teste de
+      Vontade de uma criatura no alcance. Se voc&ecirc; passar, ela fica
+      fascinada enquanto voc&ecirc; se concentrar (uma a&ccedil;&atilde;o
+      padr&atilde;o por rodada). Um alvo hostil ou envolvido em combate recebe
+      +5 no teste de resist&ecirc;ncia e tem direito a um novo teste sempre que
+      voc&ecirc; se concentrar. Se a criatura passar, fica imune a este efeito
+      por um dia.</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
 
-      <p style="text-align: justify;"><strong>M&uacute;sicas de
-      Bardo</strong></p>
 
-      <p style="text-align: justify;">Alguns poderes do bardo s&atilde;o
-      M&uacute;sicas. Esses poderes compartilham as seguintes regras.</p>
+      <p><strong>M&uacute;sicas de Bardo</strong></p>
 
-      <p style="text-align: justify;">&bull; Para ativar uma m&uacute;sica,
-      voc&ecirc; precisa ser treinado em Atua&ccedil;&atilde;o e empunhar um
-      instrumento musical (veja a p&aacute;gina 159).</p>
+      <p>Alguns poderes do bardo s&atilde;o M&uacute;sicas. Esses poderes
+      compartilham as seguintes regras.</p>
 
-      <p style="text-align: justify;">&bull; Ativar uma m&uacute;sica gasta uma
-      a&ccedil;&atilde;o padr&atilde;o e 1 PM.</p>
+      <p>&bull; Para ativar uma m&uacute;sica, voc&ecirc; precisa ser treinado
+      em Atua&ccedil;&atilde;o e empunhar um instrumento musical (veja a
+      p&aacute;gina 159).</p>
 
-      <p style="text-align: justify;">&bull; Efeitos de m&uacute;sicas t&ecirc;m
-      alcance curto.</p>
+      <p>&bull; Ativar uma m&uacute;sica gasta uma a&ccedil;&atilde;o
+      padr&atilde;o e 1 PM.</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>&bull; Efeitos de m&uacute;sicas t&ecirc;m alcance curto.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

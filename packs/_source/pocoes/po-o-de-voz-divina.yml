@@ -45,13 +45,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Voc&ecirc; pode conversar com criaturas de
-      qualquer ra&ccedil;a e tipo: animal, construto, esp&iacute;rito,
-      humanoide, monstro ou morto-vivo. Pode fazer perguntas e entende suas
-      respostas, mesmo sem um idioma em comum ou se a criatura n&atilde;o for
-      capaz de falar, mas respeitando os limites da Intelig&ecirc;ncia dela. A
-      atitude dessas criaturas n&atilde;o &eacute; alterada, mas voc&ecirc; pode
-      usar a per&iacute;cia Diplomacia para tentar mudar sua atitude.</p>
+      <p>Voc&ecirc; pode conversar com criaturas de qualquer ra&ccedil;a e tipo:
+      animal, construto, esp&iacute;rito, humanoide, monstro ou morto-vivo. Pode
+      fazer perguntas e entende suas respostas, mesmo sem um idioma em comum ou
+      se a criatura n&atilde;o for capaz de falar, mas respeitando os limites da
+      Intelig&ecirc;ncia dela. A atitude dessas criaturas n&atilde;o &eacute;
+      alterada, mas voc&ecirc; pode usar a per&iacute;cia Diplomacia para tentar
+      mudar sua atitude.</p>
     unidentified: ''
   source: ''
   carregado: true

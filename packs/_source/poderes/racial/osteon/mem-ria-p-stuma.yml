@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você se torna treinado em uma perícia (não
-      precisa ser da sua classe) ou recebe um poder geral a sua escolha. Como
-      alternativa, você pode ser um osteon de outra raça humanoide que não
-      humano. Neste caso, você ganha uma habilidade dessa raça a sua escolha. Se
-      a raça era de tamanho diferente de Médio, você também possui sua categoria
-      de tamanho.</p>
+      <p>Você se torna treinado em uma perícia (não precisa ser da sua classe)
+      ou recebe um poder geral a sua escolha. Como alternativa, você pode ser um
+      osteon de outra raça humanoide que não humano. Neste caso, você ganha uma
+      habilidade dessa raça a sua escolha. Se a raça era de tamanho diferente de
+      Médio, você também possui sua categoria de tamanho.</p>
     chat: ''
     unidentified: ''
   source: T20 - JdA, PG.29

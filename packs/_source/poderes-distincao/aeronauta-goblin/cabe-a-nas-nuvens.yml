@@ -7,11 +7,11 @@ system:
       <blockquote>O aeronauta goblin se sente em casa nos c&eacute;us, sua mente
       inspirada pela liberdade de voar.</blockquote>
 
-      <p style="text-align: justify;">Quando est&aacute; pilotando uma aeronave,
-      voc&ecirc; recebe +2 em testes de per&iacute;cia (exceto Luta e Pontaria).
-      Este b&ocirc;nus aumenta em +1 para cada dois outros poderes de aeronauta
-      goblin que voc&ecirc; possui. <em>Pr&eacute;-requisitos:</em> Int 1,
-      treinado em Pilotagem.</p>
+      <p>Quando est&aacute; pilotando uma aeronave, voc&ecirc; recebe +2 em
+      testes de per&iacute;cia (exceto Luta e Pontaria). Este b&ocirc;nus
+      aumenta em +1 para cada dois outros poderes de aeronauta goblin que
+      voc&ecirc; possui. <em>Pr&eacute;-requisitos:</em> Int 1, treinado em
+      Pilotagem.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 7

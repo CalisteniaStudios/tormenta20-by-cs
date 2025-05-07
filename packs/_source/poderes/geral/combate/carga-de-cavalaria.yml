@@ -60,12 +60,12 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz uma investida montada,
-      voc&ecirc; causa +2d8 pontos de dano. Al&eacute;m disso, pode continuar se
-      movendo depois do ataque. Voc&ecirc; deve se mover em linha reta e seu
-      movimento m&aacute;ximo ainda &eacute; o dobro do seu deslocamento.</p>
+      <p>Quando faz uma investida montada, voc&ecirc; causa +2d8 pontos de dano.
+      Al&eacute;m disso, pode continuar se movendo depois do ataque. Voc&ecirc;
+      deve se mover em linha reta e seu movimento m&aacute;ximo ainda &eacute; o
+      dobro do seu deslocamento.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Ginete.</p>
+      <p><em>Pr&eacute;-requisito:</em> Ginete.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 124 (JdA)

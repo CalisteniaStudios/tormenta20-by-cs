@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este diamante lapidado preso em uma
-      corrente de platina deflete ataques contra seu usuário. Você recebe +5 em
-      Defesa.</p>
+      <p>Este diamante lapidado preso em uma corrente de platina deflete ataques
+      contra seu usuário. Você recebe +5 em Defesa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 343 (JdA)

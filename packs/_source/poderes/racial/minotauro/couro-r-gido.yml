@@ -48,9 +48,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Sua pele é dura como a de um touro. Você
-      recebe +1 na Defesa.</p>
+    value: <p>Sua pele é dura como a de um touro. Você recebe +1 na Defesa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 25 (JdA)

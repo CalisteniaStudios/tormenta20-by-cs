@@ -312,13 +312,12 @@ items:
         value: >-
           <section class="secret">Armamento da Natureza (Movimento, 3 PM) Uma
           das armas do xamã se torna mágica e seu dano aumenta em um passo (de
-          1d8 para 1d10)</section><p style="text-align: justify;">Voc&ecirc;
-          fortalece uma arma mundana primitiva (sem custo em T$, como
-          bord&atilde;o, clava, funda ou tacape), uma arma natural ou um ataque
-          desarmado. O dano da arma aumenta em um passo e ela &eacute;
-          considerada m&aacute;gica. Ao lan&ccedil;ar a magia, voc&ecirc; pode
-          mudar o tipo de dano da arma (escolhendo entre corte, impacto ou
-          perfura&ccedil;&atilde;o).</p>
+          1d8 para 1d10)</section><p>Voc&ecirc; fortalece uma arma mundana
+          primitiva (sem custo em T$, como bord&atilde;o, clava, funda ou
+          tacape), uma arma natural ou um ataque desarmado. O dano da arma
+          aumenta em um passo e ela &eacute; considerada m&aacute;gica. Ao
+          lan&ccedil;ar a magia, voc&ecirc; pode mudar o tipo de dano da arma
+          (escolhendo entre corte, impacto ou perfura&ccedil;&atilde;o).</p>
         unidentified: ''
       source: T20, pg. 181 (JdA)
       ativacao:
@@ -623,13 +622,13 @@ items:
           difícil. Criaturas na área quando a magia é lançada ou no início de
           seus próprios turnos ficam enredadas e imóveis (Fortitude evita). Uma
           vítima pode se libertar com uma ação padrão e um teste de Acrobacia ou
-          Atletismo</section><p style="text-align:justify;">Esta magia só pode
-          ser lançada em uma área com vegetação. As plantas se enroscam nas
-          criaturas da área. Aquelas que falharem na resistência ficam
-          enredadas. Uma vítima pode se libertar com uma ação padrão e um teste
-          de Acrobacia ou Atletismo. Além disso, a área é considerada terreno
-          difícil. No início de seus turnos, a vegetação tenta enredar novamente
-          qualquer criatura na área, exigindo um novo teste de Reflexos.</p>
+          Atletismo</section><p>Esta magia só pode ser lançada em uma área com
+          vegetação. As plantas se enroscam nas criaturas da área. Aquelas que
+          falharem na resistência ficam enredadas. Uma vítima pode se libertar
+          com uma ação padrão e um teste de Acrobacia ou Atletismo. Além disso,
+          a área é considerada terreno difícil. No início de seus turnos, a
+          vegetação tenta enredar novamente qualquer criatura na área, exigindo
+          um novo teste de Reflexos.</p>
         unidentified: ''
       source: T20, pg. 188 (JdA)
       ativacao:
@@ -914,9 +913,8 @@ items:
       description:
         value: >-
           <section class="secret">Curar Ferimentos (Padrão, 3 PM) Uma criatura
-          adjacente cura 4d8+4 PV</section><p style="text-align:
-          justify;">Voc&ecirc; canaliza energia positiva que recupera 2d8+2
-          pontos de vida na criatura tocada.</p>
+          adjacente cura 4d8+4 PV</section><p>Voc&ecirc; canaliza energia
+          positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         unidentified: ''
       source: T20, pg. 189 (JdA)
       ativacao:
@@ -1207,10 +1205,10 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Bordão</section><p style="text-align:
-          justify;">Um cajado apreciado por viajantes e camponeses por sua
-          praticidade e f&aacute;cil acesso (seu pre&ccedil;o &eacute; zero). O
-          bord&atilde;o &eacute; uma arma <em>dupla</em></p>
+          <section class="secret">Bordão</section><p>Um cajado apreciado por
+          viajantes e camponeses por sua praticidade e f&aacute;cil acesso (seu
+          pre&ccedil;o &eacute; zero). O bord&atilde;o &eacute; uma arma
+          <em>dupla</em></p>
         chat: ''
         unidentified: ''
       source: T20, pg. 147 (JdA)

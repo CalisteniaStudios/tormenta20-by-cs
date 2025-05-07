@@ -9,14 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">A mais forte e pesada das armaduras,
-      formada por placas de metal forjadas e encaixadas de modo a cobrir o corpo
-      inteiro. Inclui manoplas e grevas (luvas e botas metálicas,
-      respectivamente), um elmo com viseira e uma túnica acolchoada para ser
-      usada sob as placas. Correias e fivelas distribuem o peso da armadura pelo
-      corpo inteiro. </p><p style="text-align:justify;">Esta armadura precisa
-      ser feita sob medida para cada usuário; um ferreiro cobra T$ 200 para
-      adaptar uma armadura completa a um novo usuário.</p>
+      <p>A mais forte e pesada das armaduras, formada por placas de metal
+      forjadas e encaixadas de modo a cobrir o corpo inteiro. Inclui manoplas e
+      grevas (luvas e botas metálicas, respectivamente), um elmo com viseira e
+      uma túnica acolchoada para ser usada sob as placas. Correias e fivelas
+      distribuem o peso da armadura pelo corpo inteiro. </p><p>Esta armadura
+      precisa ser feita sob medida para cada usuário; um ferreiro cobra T$ 200
+      para adaptar uma armadura completa a um novo usuário.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

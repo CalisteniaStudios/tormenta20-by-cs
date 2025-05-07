@@ -153,14 +153,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando se move 6m ou mais, voc&ecirc;
-      recebe +2 na Defesa e Reflexos e +1d8 nas rolagens de dano de ataques
-      corpo a corpo e &agrave; dist&acirc;ncia em alcance curto at&eacute; o
-      in&iacute;cio de seu pr&oacute;ximo turno. Voc&ecirc; n&atilde;o pode usar
-      esta habilidade se estiver vestindo armadura pesada.</p>
+      <p>Quando se move 6m ou mais, voc&ecirc; recebe +2 na Defesa e Reflexos e
+      +1d8 nas rolagens de dano de ataques corpo a corpo e &agrave;
+      dist&acirc;ncia em alcance curto at&eacute; o in&iacute;cio de seu
+      pr&oacute;ximo turno. Voc&ecirc; n&atilde;o pode usar esta habilidade se
+      estiver vestindo armadura pesada.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Des 2, 6&ordm;
-      n&iacute;vel de ca&ccedil;ador.</p>
+      <p>Pr&eacute;-requisito: Des 2, 6&ordm; n&iacute;vel de
+      ca&ccedil;ador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

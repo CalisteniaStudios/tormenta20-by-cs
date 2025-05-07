@@ -97,12 +97,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para invocar
-      uma arma corpo a corpo ou de arremesso com a qual seja proficiente. A arma
-      surge em sua m&atilde;o, recebe um b&ocirc;nus de +1 em testes de ataque e
-      rolagens de dano, &eacute; considerada m&aacute;gica e dura pela cena.
-      Voc&ecirc; n&atilde;o pode criar armas de disparo, mas pode criar 20
-      muni&ccedil;&otilde;es.</p>
+      <p>Voc&ecirc; pode gastar 1 PM para invocar uma arma corpo a corpo ou de
+      arremesso com a qual seja proficiente. A arma surge em sua m&atilde;o,
+      recebe um b&ocirc;nus de +1 em testes de ataque e rolagens de dano,
+      &eacute; considerada m&aacute;gica e dura pela cena. Voc&ecirc; n&atilde;o
+      pode criar armas de disparo, mas pode criar 20 muni&ccedil;&otilde;es.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

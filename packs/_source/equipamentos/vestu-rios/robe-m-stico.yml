@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/robe-mistico.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um manto longo, adornado com temas
-      arcanos. Fornece +1 em Misticismo.</p>
+      <p>Um manto longo, adornado com temas arcanos. Fornece +1 em
+      Misticismo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

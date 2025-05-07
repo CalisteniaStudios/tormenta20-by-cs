@@ -59,9 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; n&atilde;o teme trabalho duro,
-      nem prazos apertados. Voc&ecirc; recebe um b&ocirc;nus de +2 em todos os
-      testes de per&iacute;cias estendidos (incluindo perigos complexos).</p>
+      <p>Voc&ecirc; n&atilde;o teme trabalho duro, nem prazos apertados.
+      Voc&ecirc; recebe um b&ocirc;nus de +2 em todos os testes de
+      per&iacute;cias estendidos (incluindo perigos complexos).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 95 (JdA)

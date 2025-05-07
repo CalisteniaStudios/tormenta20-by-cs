@@ -59,39 +59,39 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;" data-pm-slice="0 0 []">Todas as criaturas
-      na &aacute;rea ficam enredadas e n&atilde;o podem sair da &aacute;rea. Uma
-      v&iacute;tima pode se libertar com uma a&ccedil;&atilde;o padr&atilde;o e
-      um teste de For&ccedil;a ou Acrobacia (CD 25). Al&eacute;m disso, a
-      &aacute;rea ocupada pela rede &eacute; considerada terreno dif&iacute;cil.
-      Nesta armadilha voc&ecirc; escolhe quantas criaturas precisam estar na
+      <p data-pm-slice="0 0 []">Todas as criaturas na &aacute;rea ficam
+      enredadas e n&atilde;o podem sair da &aacute;rea. Uma v&iacute;tima pode
+      se libertar com uma a&ccedil;&atilde;o padr&atilde;o e um teste de
+      For&ccedil;a ou Acrobacia (CD 25). Al&eacute;m disso, a &aacute;rea
+      ocupada pela rede &eacute; considerada terreno dif&iacute;cil. Nesta
+      armadilha voc&ecirc; escolhe quantas criaturas precisam estar na
       &aacute;rea para ativ&aacute;-la.</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
 
-      <p style="text-align: justify;"><strong>Armadilhas</strong><br>Esses
-      poderes compartilham as seguintes regras.</p>
 
-      <p style="text-align: justify;">&bull; Preparar uma armadilha gasta uma
-      a&ccedil;&atilde;o completa e 3 PM.</p>
+      <p><strong>Armadilhas</strong><br>Esses poderes compartilham as seguintes
+      regras.</p>
 
-      <p style="text-align: justify;">&bull; Uma armadilha afeta uma &aacute;rea
-      de 3m de lado adjacente a voc&ecirc; e &eacute; acionada pela primeira
-      criatura que entrar na &aacute;rea.</p>
+      <p>&bull; Preparar uma armadilha gasta uma a&ccedil;&atilde;o completa e 3
+      PM.</p>
 
-      <p style="text-align: justify;">&bull; Uma criatura que o veja preparando
-      a armadilha saber&aacute; que ela est&aacute; l&aacute;. Uma criatura que
-      n&atilde;o o veja preparando a armadilha pode encontr&aacute;-la se gastar
-      uma a&ccedil;&atilde;o padr&atilde;o procurando e passar em um teste de
+      <p>&bull; Uma armadilha afeta uma &aacute;rea de 3m de lado adjacente a
+      voc&ecirc; e &eacute; acionada pela primeira criatura que entrar na
+      &aacute;rea.</p>
+
+      <p>&bull; Uma criatura que o veja preparando a armadilha saber&aacute; que
+      ela est&aacute; l&aacute;. Uma criatura que n&atilde;o o veja preparando a
+      armadilha pode encontr&aacute;-la se gastar uma a&ccedil;&atilde;o
+      padr&atilde;o procurando e passar em um teste de
       Investiga&ccedil;&atilde;o (CD Sab).</p>
 
-      <p style="text-align: justify;">&bull; &Eacute; poss&iacute;vel aplicar
-      veneno a uma armadilha, como se ela fosse uma arma.</p>
+      <p>&bull; &Eacute; poss&iacute;vel aplicar veneno a uma armadilha, como se
+      ela fosse uma arma.</p>
 
-      <p style="text-align: justify;">Voc&ecirc; n&atilde;o precisa de nenhum
-      item para criar a armadilha, pois usa materiais naturais, como galhos e
-      cip&oacute;s. Por&eacute;m, precisa estar em um ambiente prop&iacute;cio,
-      como uma floresta, um beco repleto de entulhos etc.</p>
+      <p>Voc&ecirc; n&atilde;o precisa de nenhum item para criar a armadilha,
+      pois usa materiais naturais, como galhos e cip&oacute;s. Por&eacute;m,
+      precisa estar em um ambiente prop&iacute;cio, como uma floresta, um beco
+      repleto de entulhos etc.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

@@ -235,14 +235,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia convoca um parceiro cavalo (ou
-      p&ocirc;nei) de guerra veterano. Sua apar&ecirc;ncia &eacute; de um animal
-      negro com crina e cauda cinzentas e cascos feitos de fuma&ccedil;a, mas
-      voc&ecirc; pode mud&aacute;-la se quiser. Al&eacute;m dos
-      benef&iacute;cios normais, a <em>Montaria Arcana</em> pode atravessar
-      terreno dif&iacute;cil sem redu&ccedil;&atilde;o em seu
-      deslocamento.&nbsp;Voc&ecirc; pode usar Misticismo no lugar de Cavalgar
-      para efeitos desta montaria (incluindo ser considerado treinado).</p>
+      <p>Esta magia convoca um parceiro cavalo (ou p&ocirc;nei) de guerra
+      veterano. Sua apar&ecirc;ncia &eacute; de um animal negro com crina e
+      cauda cinzentas e cascos feitos de fuma&ccedil;a, mas voc&ecirc; pode
+      mud&aacute;-la se quiser. Al&eacute;m dos benef&iacute;cios normais, a
+      <em>Montaria Arcana</em> pode atravessar terreno dif&iacute;cil sem
+      redu&ccedil;&atilde;o em seu deslocamento.&nbsp;Voc&ecirc; pode usar
+      Misticismo no lugar de Cavalgar para efeitos desta montaria (incluindo ser
+      considerado treinado).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 199 (JdA)

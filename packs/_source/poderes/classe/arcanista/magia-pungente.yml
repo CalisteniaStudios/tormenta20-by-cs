@@ -58,12 +58,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando lan&ccedil;a uma magia, voc&ecirc;
-      pode pagar 1 PM para aumentar em +2 a CD para resistir a ela.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Quando lan&ccedil;a uma magia, voc&ecirc; pode pagar 1 PM para aumentar
+      em +2 a CD para resistir a ela.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

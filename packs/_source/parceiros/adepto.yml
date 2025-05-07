@@ -152,26 +152,22 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Cada parceiro pode ajudar apenas um
-      personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro
-      personagem em alcance curto at&eacute; o fim da cena (para fazer isso com
-      um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
 
-      <p style="text-align: justify;">Um conjurador capaz de ajud&aacute;-lo a
-      lan&ccedil;ar suas magias.</p>
+      <p>Um conjurador capaz de ajud&aacute;-lo a lan&ccedil;ar suas magias.</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: o custo para
-      lan&ccedil;ar suas magias de 1&ordm; c&iacute;rculo diminui &ndash;1
-      PM.</p>
+      <p><strong>Iniciante</strong>: o custo para lan&ccedil;ar suas magias de
+      1&ordm; c&iacute;rculo diminui &ndash;1 PM.</p>
 
-      <p style="text-align: justify;"><strong>Veterano</strong>: como acima, mas
-      tamb&eacute;m reduz o custo de suas magias de
-      2&ordm;&nbsp;c&iacute;rculo.</p>
+      <p><strong>Veterano</strong>: como acima, mas tamb&eacute;m reduz o custo
+      de suas magias de 2&ordm;&nbsp;c&iacute;rculo.</p>
 
-      <p style="text-align: justify;"><strong>Mestre</strong>: como acima, e
-      esta redu&ccedil;&atilde;o se torna cumulativa com outras
-      redu&ccedil;&otilde;es.</p>
+      <p><strong>Mestre</strong>: como acima, e esta redu&ccedil;&atilde;o se
+      torna cumulativa com outras redu&ccedil;&otilde;es.</p>
     unidentified: ''
   source: T20, pg. 260 (JdA)
   ativacao:

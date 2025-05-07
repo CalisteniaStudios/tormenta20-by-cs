@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Estes braceletes protegem seu usuário com
-      um campo de força invisível, porém tangível. Você recebe +4 em Defesa,
-      cumulativo com outros itens mágicos, mas não com armaduras.</p>
+      <p>Estes braceletes protegem seu usuário com um campo de força invisível,
+      porém tangível. Você recebe +4 em Defesa, cumulativo com outros itens
+      mágicos, mas não com armaduras.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 342 (JdA)

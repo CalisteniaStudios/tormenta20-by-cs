@@ -129,10 +129,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria um elo mental entre duas
-      criaturas com Intelig&ecirc;ncia -3 ou maior (voc&ecirc; pode ser uma
-      delas). As criaturas podem se comunicar independente de idioma ou
-      dist&acirc;ncia, mas n&atilde;o em mundos diferentes.</p>
+      <p>Voc&ecirc; cria um elo mental entre duas criaturas com
+      Intelig&ecirc;ncia -3 ou maior (voc&ecirc; pode ser uma delas). As
+      criaturas podem se comunicar independente de idioma ou dist&acirc;ncia,
+      mas n&atilde;o em mundos diferentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 197 (JdA)

@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/poderes/concedidos.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um teste de per&iacute;cia, um
-      resultado de 19 ou mais no dado sempre &eacute; um sucesso, n&atilde;o
-      importando o valor a ser alcan&ccedil;ado.</p>
+      <p>Quando faz um teste de per&iacute;cia, um resultado de 19 ou mais no
+      dado sempre &eacute; um sucesso, n&atilde;o importando o valor a ser
+      alcan&ccedil;ado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

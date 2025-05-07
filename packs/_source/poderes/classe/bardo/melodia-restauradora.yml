@@ -55,20 +55,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; usa M&uacute;sica:
-      Melodia Curativa, pode gastar +2 PM. Se fizer isso, escolha uma das
-      condi&ccedil;&otilde;es a seguir: abalado, alquebrado, apavorado,
-      atordoado, cego, confuso, enfeiti&ccedil;ado, esmorecido, exausto,
-      fatigado, frustrado, pasmo ou surdo. Voc&ecirc; remove a
-      condi&ccedil;&atilde;o escolhida das criaturas afetadas pela
-      m&uacute;sica.</p>
+      <p>Quando voc&ecirc; usa M&uacute;sica: Melodia Curativa, pode gastar +2
+      PM. Se fizer isso, escolha uma das condi&ccedil;&otilde;es a seguir:
+      abalado, alquebrado, apavorado, atordoado, cego, confuso,
+      enfeiti&ccedil;ado, esmorecido, exausto, fatigado, frustrado, pasmo ou
+      surdo. Voc&ecirc; remove a condi&ccedil;&atilde;o escolhida das criaturas
+      afetadas pela m&uacute;sica.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: M&uacute;sica:
-      Melodia Curativa.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Pr&eacute;-requisito: M&uacute;sica: Melodia Curativa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

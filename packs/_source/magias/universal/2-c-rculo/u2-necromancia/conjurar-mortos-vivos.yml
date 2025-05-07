@@ -147,9 +147,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; conjura seis
-      esqueletos capangas de tamanho M&eacute;dio feitos de energia negativa em
-      espa&ccedil;os desocupados dentro do alcance. Voc&ecirc; pode gastar uma
+      <p class="MsoNormal">Voc&ecirc; conjura seis esqueletos capangas de
+      tamanho M&eacute;dio feitos de energia negativa em espa&ccedil;os
+      desocupados dentro do alcance. Voc&ecirc; pode gastar uma
       a&ccedil;&atilde;o de movimento para fazer os mortos-vivos andarem (eles
       t&ecirc;m deslocamento 9m) ou uma a&ccedil;&atilde;o padr&atilde;o para
       faz&ecirc;-los causar dano a criaturas adjacentes (1d6+2 pontos de dano de
@@ -162,28 +162,27 @@ system:
       n&atilde;o agem sem receber uma ordem. Usos criativos para capangas fora
       de combate ficam a crit&eacute;rio do mestre.</p>
 
-      <p style="text-align: justify;"><span style="font-family:
-      var(--font-primary); font-size: var(--font-size-14);">&nbsp;</span></p>
+      <p><span style="font-family: var(--font-primary); font-size:
+      var(--font-size-14);">&nbsp;</span></p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Carni&ccedil;al:</em> como esqueletos, mas t&ecirc;m For 3,
-      Des 3, Defesa 27 e causam 1d8+3 pontos de dano de trevas mais perda de 1d8
-      PV por veneno. Al&eacute;m disso, criaturas atingidas por um
-      carni&ccedil;al devem passar num teste de Fortitude ou ficam
+      <p class="MsoNormal"><em>Carni&ccedil;al:</em> como esqueletos, mas
+      t&ecirc;m For 3, Des 3, Defesa 27 e causam 1d8+3 pontos de dano de trevas
+      mais perda de 1d8 PV por veneno. Al&eacute;m disso, criaturas atingidas
+      por um carni&ccedil;al devem passar num teste de Fortitude ou ficam
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.3dcJKe2SGu8mnafU]{Paralisado}
       por 1 rodada. Uma criatura que passe no teste de resist&ecirc;ncia fica
       imune &agrave; paralisia dos carni&ccedil;ais por um dia.</p>
 
-      <p style="text-align: justify;"><span style="font-family:
-      var(--font-primary); font-size: var(--font-size-14);">&nbsp;</span></p>
+      <p><span style="font-family: var(--font-primary); font-size:
+      var(--font-size-14);">&nbsp;</span></p>
 
-      <p style="text-align: justify;"><span style="font-family:
-      var(--font-primary); font-size: var(--font-size-14);"><em>Sombra:</em>
-      </span>como esqueletos, mas t&ecirc;m Des 4, Defesa 35, a habilidade
-      incorp&oacute;reo e causam 2d10 pontos de dano de trevas. Al&eacute;m
-      disso, criaturas vivas atingidas por uma sombra devem passar num teste de
-      Fortitude ou perdem 1d4 PM. Sombras perdem a habilidade incorp&oacute;reo
-      quando expostas &agrave; luz do sol.</p>
+      <p><span style="font-family: var(--font-primary); font-size:
+      var(--font-size-14);"><em>Sombra:</em> </span>como esqueletos, mas
+      t&ecirc;m Des 4, Defesa 35, a habilidade incorp&oacute;reo e causam 2d10
+      pontos de dano de trevas. Al&eacute;m disso, criaturas vivas atingidas por
+      uma sombra devem passar num teste de Fortitude ou perdem 1d4 PM. Sombras
+      perdem a habilidade incorp&oacute;reo quando expostas &agrave; luz do
+      sol.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 186 (JdA)

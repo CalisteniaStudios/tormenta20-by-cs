@@ -63,9 +63,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Ningu&eacute;m voltar&aacute; a
-      torn&aacute;-lo um escravo! Voc&ecirc; recebe +5 em testes contra a
-      manobra agarrar e efeitos de movimento.</p>
+      <p>Ningu&eacute;m voltar&aacute; a torn&aacute;-lo um escravo! Voc&ecirc;
+      recebe +5 em testes contra a manobra agarrar e efeitos de movimento.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 90 (JdA)

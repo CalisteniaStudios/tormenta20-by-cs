@@ -101,11 +101,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua m&atilde;o exala energias letais. A
-      criatura sofre 10d8+10 pontos de dano de trevas. Se estiver com menos da
-      metade de seus PV, em vez disso deve fazer um teste de Fortitude. Se
-      passar, sofre o dano normal. Se falhar, seus PV s&atilde;o reduzidos a
-      &ndash;10.</p>
+      <p>Sua m&atilde;o exala energias letais. A criatura sofre 10d8+10 pontos
+      de dano de trevas. Se estiver com menos da metade de seus PV, em vez disso
+      deve fazer um teste de Fortitude. Se passar, sofre o dano normal. Se
+      falhar, seus PV s&atilde;o reduzidos a &ndash;10.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 209 (JdA)

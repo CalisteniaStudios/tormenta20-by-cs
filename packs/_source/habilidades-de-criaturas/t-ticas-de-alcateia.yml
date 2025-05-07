@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/poderes/ameacas/taticas-alcateia.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando flanqueia um inimigo, o lobo recebe
-      +2 no teste de ataque e na rolagem de dano (al&eacute;m do b&ocirc;nus
-      normal por flanquear, para um total de +4 no ataque e +2 no dano).</p>
+      <p>Quando flanqueia um inimigo, o lobo recebe +2 no teste de ataque e na
+      rolagem de dano (al&eacute;m do b&ocirc;nus normal por flanquear, para um
+      total de +4 no ataque e +2 no dano).</p>
     unidentified: ''
   source: ''
   ativacao:

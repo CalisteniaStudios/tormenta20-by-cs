@@ -77,10 +77,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Espada curta</section><p
-          style="text-align:justify;">O tipo mais comum de espada, usada por
-          guardas ou como arma secundária de guerreiros mais capazes. Mede entre
-          40 e 50cm.</p>
+          <section class="secret">Espada curta</section><p>O tipo mais comum de
+          espada, usada por guardas ou como arma secundária de guerreiros mais
+          capazes. Mede entre 40 e 50cm.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 148 (JdA)
@@ -366,10 +365,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Mosquete</section><p
-          style="text-align:justify;">Uma arma de fogo de uso difícil, mas com
-          poder devastador. Recarregar um mosquete é uma ação padrão. Exige as
-          duas mãos.</p>
+          <section class="secret">Mosquete</section><p>Uma arma de fogo de uso
+          difícil, mas com poder devastador. Recarregar um mosquete é uma ação
+          padrão. Exige as duas mãos.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 150 (JdA)
@@ -498,9 +496,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma bolsa com 20 balas (pequenas
-          esferas de chumbo) e p&oacute;lvora. Recarregar uma pistola ou um
-          mosquete &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
+          <p>Uma bolsa com 20 balas (pequenas esferas de chumbo) e
+          p&oacute;lvora. Recarregar uma pistola ou um mosquete &eacute; uma
+          a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
       source: T20, pg. 151 (JdA)
       carregado: true

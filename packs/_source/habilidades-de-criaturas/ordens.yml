@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/poderes/ameacas/comandar.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O sargento grita ordens para seus aliados
-      em alcance m&eacute;dio. Eles recebem +1 em testes de per&iacute;cia
-      at&eacute; o fim da cena.</p>
+      <p>O sargento grita ordens para seus aliados em alcance m&eacute;dio. Eles
+      recebem +1 em testes de per&iacute;cia at&eacute; o fim da cena.</p>
     unidentified: ''
   source: ''
   ativacao:

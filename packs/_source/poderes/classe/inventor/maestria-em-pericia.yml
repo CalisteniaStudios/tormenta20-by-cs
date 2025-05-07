@@ -10,13 +10,10 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha um n&uacute;mero de
-      per&iacute;cias treinadas igual a sua Intelig&ecirc;ncia, exceto
-      b&ocirc;nus tempor&aacute;rios. Com essas per&iacute;cias, voc&ecirc; pode
-      gastar 1 PM para escolher 10 em qualquer situa&ccedil;&atilde;o, exceto
-      testes de ataque.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Escolha um n&uacute;mero de per&iacute;cias treinadas igual a sua
+      Intelig&ecirc;ncia, exceto b&ocirc;nus tempor&aacute;rios. Com essas
+      per&iacute;cias, voc&ecirc; pode gastar 1 PM para escolher 10 em qualquer
+      situa&ccedil;&atilde;o, exceto testes de ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

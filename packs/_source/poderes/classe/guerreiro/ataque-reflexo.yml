@@ -9,12 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se um alvo em alcance de seus ataques
-      corpo a corpo ficar desprevenido ou se mover voluntariamente para fora do
-      seu alcance, voc&ecirc; pode gastar 1 PM para fazer um ataque corpo a
-      corpo contra esse alvo (apenas uma vez por alvo a cada rodada).</p>
+      <p>Se um alvo em alcance de seus ataques corpo a corpo ficar desprevenido
+      ou se mover voluntariamente para fora do seu alcance, voc&ecirc; pode
+      gastar 1 PM para fazer um ataque corpo a corpo contra esse alvo (apenas
+      uma vez por alvo a cada rodada).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Des 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Des 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 65 (JdA)

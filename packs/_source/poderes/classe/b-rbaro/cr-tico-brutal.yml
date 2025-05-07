@@ -58,14 +58,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu multiplicador de cr&iacute;tico com
-      armas corpo a corpo e de arremesso aumenta<br>em +1. Por exemplo, seu
-      multiplicador com um machado de batalha (normalmente x3) ser&aacute; x4.
-      Pr&eacute;-requisito: 6&ordm; n&iacute;vel de b&aacute;rbaro.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Seu multiplicador de cr&iacute;tico com armas corpo a corpo e de
+      arremesso aumenta<br>em +1. Por exemplo, seu multiplicador com um machado
+      de batalha (normalmente x3) ser&aacute; x4. Pr&eacute;-requisito: 6&ordm;
+      n&iacute;vel de b&aacute;rbaro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 41 (JdA)

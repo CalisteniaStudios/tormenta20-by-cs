@@ -109,11 +109,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e uma quantidade de PM a sua escolha (limitado
-      por sua Sabedoria) para aplicar ervas que curam ou desintoxicam em
-      voc&ecirc; ou num aliado adjacente. Para cada PM que gastar, cura 2d6 PV
-      ou remove uma condi&ccedil;&atilde;o envenenado afetando o alvo.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e uma quantidade
+      de PM a sua escolha (limitado por sua Sabedoria) para aplicar ervas que
+      curam ou desintoxicam em voc&ecirc; ou num aliado adjacente. Para cada PM
+      que gastar, cura 2d6 PV ou remove uma condi&ccedil;&atilde;o envenenado
+      afetando o alvo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

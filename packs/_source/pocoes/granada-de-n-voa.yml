@@ -9,12 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma n&eacute;voa espessa eleva-se de um
-      ponto a sua escolha, obscurecendo toda a vis&atilde;o &mdash; criaturas a
-      at&eacute; 1,5m t&ecirc;m camuflagem leve e criaturas a partir de 3m
-      t&ecirc;m camuflagem total. Um vento forte dispersa a n&eacute;voa em 4
-      rodadas e um vendaval a dispersa em 1 rodada. Esta magia n&atilde;o
-      funciona sob a &aacute;gua.</p>
+      <p>Uma n&eacute;voa espessa eleva-se de um ponto a sua escolha,
+      obscurecendo toda a vis&atilde;o &mdash; criaturas a at&eacute; 1,5m
+      t&ecirc;m camuflagem leve e criaturas a partir de 3m t&ecirc;m camuflagem
+      total. Um vento forte dispersa a n&eacute;voa em 4 rodadas e um vendaval a
+      dispersa em 1 rodada. Esta magia n&atilde;o funciona sob a
+      &aacute;gua.</p>
     unidentified: ''
   source: T20, pg. 200 (JdA)
   carregado: true

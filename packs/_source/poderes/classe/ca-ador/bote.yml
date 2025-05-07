@@ -55,12 +55,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver empunhando duas armas e fizer
-      uma investida, voc&ecirc; pode pagar 1 PM para fazer um ataque adicional
-      com sua arma secund&aacute;ria.</p>
+      <p>Se estiver empunhando duas armas e fizer uma investida, voc&ecirc; pode
+      pagar 1 PM para fazer um ataque adicional com sua arma
+      secund&aacute;ria.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Ambidestria, 6&ordm;
-      n&iacute;vel de ca&ccedil;ador.</p>
+      <p>Pr&eacute;-requisito: Ambidestria, 6&ordm; n&iacute;vel de
+      ca&ccedil;ador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

@@ -9,12 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, voc&ecirc; pode gastar
-      2 PM para realizar uma a&ccedil;&atilde;o de movimento adicional em seu
-      turno.</p>
+      <p>Uma vez por rodada, voc&ecirc; pode gastar 2 PM para realizar uma
+      a&ccedil;&atilde;o de movimento adicional em seu turno.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Des 2,
-      treinado em Iniciativa.</p>
+      <p><em>Pr&eacute;-requisito:</em> Des 2, treinado em Iniciativa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 74 (JdA)

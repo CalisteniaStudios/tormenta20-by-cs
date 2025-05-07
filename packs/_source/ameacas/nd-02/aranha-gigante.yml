@@ -10,15 +10,15 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">A aranha gigante dispara teia em um
-          quadrado de 3m de lado em alcance curto. Criaturas na &aacute;rea
-          ficam enredadas (Reflexos CD 18 evita). Uma criatura enredada pode se
-          soltar com uma a&ccedil;&atilde;o completa e um teste de For&ccedil;a
-          ou Acrobacia (CD 20) ou cortando a teia (cada espa&ccedil;o de 1,5m de
-          teia tem 5 PV e RD 5). Fogo queima a teia em duas rodadas (e liberta
-          as criaturas), mas causa 1d6 pontos de dano de fogo por rodada a todas
-          as criaturas nela. A aranha gigante tamb&eacute;m pode usar a teia
-          para cobrir uma &aacute;rea quadrada com 6m de lado. Por sua
+          <p>A aranha gigante dispara teia em um quadrado de 3m de lado em
+          alcance curto. Criaturas na &aacute;rea ficam enredadas (Reflexos CD
+          18 evita). Uma criatura enredada pode se soltar com uma
+          a&ccedil;&atilde;o completa e um teste de For&ccedil;a ou Acrobacia
+          (CD 20) ou cortando a teia (cada espa&ccedil;o de 1,5m de teia tem 5
+          PV e RD 5). Fogo queima a teia em duas rodadas (e liberta as
+          criaturas), mas causa 1d6 pontos de dano de fogo por rodada a todas as
+          criaturas nela. A aranha gigante tamb&eacute;m pode usar a teia para
+          cobrir uma &aacute;rea quadrada com 6m de lado. Por sua
           semitranspar&ecirc;ncia, a teia &eacute; dif&iacute;cil de ver
           (Percep&ccedil;&atilde;o CD 20) at&eacute; ser tarde demais. Uma
           criatura que entre na &aacute;rea fica enredada. A aranha pode andar
@@ -289,10 +289,7 @@ items:
 
           <p><strong>Efeito:</strong> V&iacute;tima fica fraca (anula)</p>
 
-          <p>&nbsp;</p>
-
-          <p><strong style="text-align: justify;">[Tesouro
-          Especial]</strong></p>
+          <p><strong>[Tesouro Especial]</strong></p>
 
           <p><strong>Extraindo de uma aranha gigante: </strong>1d4 doses de
           veneno de aranha gigante (CD 15 para extrair, T$ 75 cada dose)</p>

@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Espinhos e folhas vivas brotam desta lança
-      formidável. Se você usar a habilidade Forma Selvagem, aplica o bônus de +2
-      em ataque e dano da lança animalesca em suas armas naturais.</p>
+      <p>Espinhos e folhas vivas brotam desta lança formidável. Se você usar a
+      habilidade Forma Selvagem, aplica o bônus de +2 em ataque e dano da lança
+      animalesca em suas armas naturais.</p>
     chat: ''
     unidentified: ''
   source: ''

@@ -45,22 +45,22 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia manipula o sistema nervoso do
-      alvo. Ao sofrer a magia, e no in&iacute;cio de cada um de seus turnos, a
-      v&iacute;tima faz um teste de Fortitude. Se passar, a magia &eacute;
-      anulada. Se falhar, todas as suas a&ccedil;&otilde;es f&iacute;sicas
-      naquele turno estar&atilde;o sob controle do conjurador. A v&iacute;tima
-      ainda tem consci&ecirc;ncia de tudo que acontece &agrave; sua volta,
-      podendo ver, ouvir e at&eacute; falar com certo esfor&ccedil;o (mas
-      n&atilde;o para lan&ccedil;ar magias). Contudo, seu corpo realiza apenas
-      os movimentos que o conjurador deseja. A v&iacute;tima pode ser manipulada
-      para se movimentar, lutar, usar habilidades de combate... Enfim, qualquer
-      coisa de que seja fisicamente capaz.</p>
+      <p>Esta magia manipula o sistema nervoso do alvo. Ao sofrer a magia, e no
+      in&iacute;cio de cada um de seus turnos, a v&iacute;tima faz um teste de
+      Fortitude. Se passar, a magia &eacute; anulada. Se falhar, todas as suas
+      a&ccedil;&otilde;es f&iacute;sicas naquele turno estar&atilde;o sob
+      controle do conjurador. A v&iacute;tima ainda tem consci&ecirc;ncia de
+      tudo que acontece &agrave; sua volta, podendo ver, ouvir e at&eacute;
+      falar com certo esfor&ccedil;o (mas n&atilde;o para lan&ccedil;ar magias).
+      Contudo, seu corpo realiza apenas os movimentos que o conjurador deseja. A
+      v&iacute;tima pode ser manipulada para se movimentar, lutar, usar
+      habilidades de combate... Enfim, qualquer coisa de que seja fisicamente
+      capaz.</p>
 
-      <p style="text-align: justify;">Voc&ecirc; precisa de linha de efeito para
-      controlar a v&iacute;tima. Se perder o contato, n&atilde;o poder&aacute;
-      control&aacute;-la &mdash; mas ela estar&aacute; paralisada at&eacute; que
-      o conjurador recupere o controle ou a magia termine.</p>
+      <p>Voc&ecirc; precisa de linha de efeito para controlar a v&iacute;tima.
+      Se perder o contato, n&atilde;o poder&aacute; control&aacute;-la &mdash;
+      mas ela estar&aacute; paralisada at&eacute; que o conjurador recupere o
+      controle ou a magia termine.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 198 (JdA)

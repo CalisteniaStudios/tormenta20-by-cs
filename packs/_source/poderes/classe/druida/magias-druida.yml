@@ -9,27 +9,21 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="box-sizing: border-box; user-select: text; color: #191813;
-      font-family: Roboto, sans-serif; text-align: justify;">Escolha tr&ecirc;s
-      escolas de magia. Uma vez feita, essa escolha n&atilde;o pode ser mudada.
-      Voc&ecirc; pode lan&ccedil;ar magias divinas de 1&ordm; c&iacute;rculo que
-      perten&ccedil;am a essas escolas. &Agrave; medida que sobe de
-      n&iacute;vel, pode lan&ccedil;ar magias de c&iacute;rculos maiores
-      (2&ordm; c&iacute;rculo no 6&ordm; n&iacute;vel, 3&ordm; c&iacute;rculo no
-      10&ordm; n&iacute;vel e 4&ordm; c&iacute;rculo no 14&ordm;
-      n&iacute;vel).</p>
+      <p>Escolha tr&ecirc;s escolas de magia. Uma vez feita, essa escolha
+      n&atilde;o pode ser mudada. Voc&ecirc; pode lan&ccedil;ar magias divinas
+      de 1&ordm; c&iacute;rculo que perten&ccedil;am a essas escolas. &Agrave;
+      medida que sobe de n&iacute;vel, pode lan&ccedil;ar magias de
+      c&iacute;rculos maiores (2&ordm; c&iacute;rculo no 6&ordm; n&iacute;vel,
+      3&ordm; c&iacute;rculo no 10&ordm; n&iacute;vel e 4&ordm; c&iacute;rculo
+      no 14&ordm; n&iacute;vel).</p>
 
-      <p style="box-sizing: border-box; user-select: text; color: #191813;
-      font-family: Roboto, sans-serif; text-align: justify;">Voc&ecirc;
-      come&ccedil;a com duas magias de 1&ordm; c&iacute;rculo. A cada
-      n&iacute;vel par (2&ordm;, 4&ordm; etc.), aprende uma magia de qualquer
-      c&iacute;rculo e escola que possa lan&ccedil;ar.</p>
+      <p>Voc&ecirc; come&ccedil;a com duas magias de 1&ordm; c&iacute;rculo. A
+      cada n&iacute;vel par (2&ordm;, 4&ordm; etc.), aprende uma magia de
+      qualquer c&iacute;rculo e escola que possa lan&ccedil;ar.</p>
 
-      <p style="box-sizing: border-box; user-select: text; color: #191813;
-      font-family: Roboto, sans-serif; text-align: justify;">Seu atributo-chave
-      para lan&ccedil;ar magias &eacute; Sabedoria e voc&ecirc; soma seu
-      b&ocirc;nus de Sabedoria no seu total de PM. Veja o Cap&iacute;tulo 4 para
-      as regras de magia.</p>
+      <p>Seu atributo-chave para lan&ccedil;ar magias &eacute; Sabedoria e
+      voc&ecirc; soma seu b&ocirc;nus de Sabedoria no seu total de PM. Veja o
+      Cap&iacute;tulo 4 para as regras de magia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 61 (JdA)

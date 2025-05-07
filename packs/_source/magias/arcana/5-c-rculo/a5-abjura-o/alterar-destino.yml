@@ -116,11 +116,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua mente visualiza todas as
-      possibilidades de um evento, permitindo a voc&ecirc; escolher o melhor
-      curso de a&ccedil;&atilde;o. Voc&ecirc; pode rolar novamente um teste de
-      resist&ecirc;ncia com um b&ocirc;nus de +10 ou um inimigo deve rolar
-      novamente um ataque contra voc&ecirc; com uma penalidade de &ndash;10</p>
+      <p>Sua mente visualiza todas as possibilidades de um evento, permitindo a
+      voc&ecirc; escolher o melhor curso de a&ccedil;&atilde;o. Voc&ecirc; pode
+      rolar novamente um teste de resist&ecirc;ncia com um b&ocirc;nus de +10 ou
+      um inimigo deve rolar novamente um ataque contra voc&ecirc; com uma
+      penalidade de &ndash;10</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 179 (JdA)

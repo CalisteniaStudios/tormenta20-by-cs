@@ -177,13 +177,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; emana ondas de serenidade. Se
-      falhar na resist&ecirc;ncia, o alvo tem sua atitude mudada para
-      indiferente (veja a p&aacute;gina 259) e n&atilde;o pode atacar ou
-      realizar qualquer a&ccedil;&atilde;o agressiva. Se passar, sofre &ndash;2
-      em testes de ataque. Qualquer a&ccedil;&atilde;o hostil contra o alvo ou
-      seus aliados dissipa a magia e faz ele retornar &agrave; atitude que tinha
-      antes (ou pior, de acordo com o mestre).</p>
+      <p>Voc&ecirc; emana ondas de serenidade. Se falhar na resist&ecirc;ncia, o
+      alvo tem sua atitude mudada para indiferente (veja a p&aacute;gina 259) e
+      n&atilde;o pode atacar ou realizar qualquer a&ccedil;&atilde;o agressiva.
+      Se passar, sofre &ndash;2 em testes de ataque. Qualquer a&ccedil;&atilde;o
+      hostil contra o alvo ou seus aliados dissipa a magia e faz ele retornar
+      &agrave; atitude que tinha antes (ou pior, de acordo com o mestre).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 210 (JdA)

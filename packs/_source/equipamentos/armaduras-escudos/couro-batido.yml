@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Versão mais pesada da armadura de couro,
-      reforçada com rebites de metal.</p>
+      <p>Versão mais pesada da armadura de couro, reforçada com rebites de
+      metal.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

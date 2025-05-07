@@ -60,13 +60,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode usar Palavras Afiadas como
-      uma a&ccedil;&atilde;o completa, em vez de padr&atilde;o. Se fizer isso,
-      seus dados de dano aumentam para d8 e voc&ecirc; atinge todos os inimigos
-      em alcance curto.</p>
+      <p>Voc&ecirc; pode usar Palavras Afiadas como uma a&ccedil;&atilde;o
+      completa, em vez de padr&atilde;o. Se fizer isso, seus dados de dano
+      aumentam para d8 e voc&ecirc; atinge todos os inimigos em alcance
+      curto.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: 8&ordm; n&iacute;vel
-      de nobre.</p>
+      <p>Pr&eacute;-requisito: 8&ordm; n&iacute;vel de nobre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

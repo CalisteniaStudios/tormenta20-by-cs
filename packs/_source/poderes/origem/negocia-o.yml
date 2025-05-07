@@ -8,9 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você pode vender itens 10% mais caro (não
-      cumulativo com barganha).</p>
+    value: <p>Você pode vender itens 10% mais caro (não cumulativo com barganha).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 93 (JdA)

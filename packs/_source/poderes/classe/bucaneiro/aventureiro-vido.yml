@@ -9,14 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, voc&ecirc; pode gastar
-      5 PM para realizar uma a&ccedil;&atilde;o padr&atilde;o ou de movimento
-      adicional. Se possuir o poder Surto Heroico, em vez disso seu custo
-      diminui em &ndash;2 PM.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Uma vez por rodada, voc&ecirc; pode gastar 5 PM para realizar uma
+      a&ccedil;&atilde;o padr&atilde;o ou de movimento adicional. Se possuir o
+      poder Surto Heroico, em vez disso seu custo diminui em &ndash;2 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 47 (JdA)

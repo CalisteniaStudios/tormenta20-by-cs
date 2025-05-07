@@ -56,9 +56,7 @@ sort: 500000
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você recebe resistência a corte, frio e
-      perfuração 5.</p>
+    value: <p>Você recebe resistência a corte, frio e perfuração 5.</p>
     chat: ''
     unidentified: ''
   source: ''

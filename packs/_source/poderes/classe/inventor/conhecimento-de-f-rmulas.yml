@@ -10,12 +10,11 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; aprende tr&ecirc;s
-      f&oacute;rmulas de quaisquer c&iacute;rculos que possa aprender.
-      Voc&ecirc; pode escolher este poder quantas vezes quiser.</p>
+      <p>Voc&ecirc; aprende tr&ecirc;s f&oacute;rmulas de quaisquer
+      c&iacute;rculos que possa aprender. Voc&ecirc; pode escolher este poder
+      quantas vezes quiser.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Alquimista
-      Iniciado.</p>
+      <p><em>Pr&eacute;-requisito:</em> Alquimista Iniciado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

@@ -151,30 +151,28 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia cria uma m&atilde;o flutuante
-      de tamanho Grande que sempre se posiciona entre voc&ecirc; e um oponente a
-      sua escolha. A m&atilde;o fornece cobertura leve (+5 na Defesa) contra
-      esse oponente. Nada &eacute; capaz de enganar a m&atilde;o &mdash; coisas
-      como escurid&atilde;o, invisibilidade, metamorfose e disfarces mundanos
-      n&atilde;o a impedem de proteg&ecirc;-lo. A m&atilde;o tem Defesa 20 e PV
-      e resist&ecirc;ncias iguais aos seus. Com uma a&ccedil;&atilde;o de
-      movimento, voc&ecirc; pode comandar a m&atilde;o para que o proteja de
-      outro oponente ou para que realize uma das a&ccedil;&otilde;es a
-      seguir.</p>
+      <p>Esta magia cria uma m&atilde;o flutuante de tamanho Grande que sempre
+      se posiciona entre voc&ecirc; e um oponente a sua escolha. A m&atilde;o
+      fornece cobertura leve (+5 na Defesa) contra esse oponente. Nada &eacute;
+      capaz de enganar a m&atilde;o &mdash; coisas como escurid&atilde;o,
+      invisibilidade, metamorfose e disfarces mundanos n&atilde;o a impedem de
+      proteg&ecirc;-lo. A m&atilde;o tem Defesa 20 e PV e resist&ecirc;ncias
+      iguais aos seus. Com uma a&ccedil;&atilde;o de movimento, voc&ecirc; pode
+      comandar a m&atilde;o para que o proteja de outro oponente ou para que
+      realize uma das a&ccedil;&otilde;es a seguir.</p>
 
-      <p style="text-align: justify;"><em>Agarrar:</em> a m&atilde;o usa uma
-      manobra agarrar contra o oponente, usando o seu Misticismo com um
-      b&ocirc;nus adicional de +10. A m&atilde;o mant&eacute;m o oponente
-      agarrado, mas n&atilde;o causa dano.</p>
+      <p><em>Agarrar:</em> a m&atilde;o usa uma manobra agarrar contra o
+      oponente, usando o seu Misticismo com um b&ocirc;nus adicional de +10. A
+      m&atilde;o mant&eacute;m o oponente agarrado, mas n&atilde;o causa
+      dano.</p>
 
-      <p style="text-align: justify;"><em>Esmagar:</em> a m&atilde;o esmaga um
-      oponente agarrado, causando 2d6+10 pontos de dano de impacto.</p>
+      <p><em>Esmagar:</em> a m&atilde;o esmaga um oponente agarrado, causando
+      2d6+10 pontos de dano de impacto.</p>
 
-      <p style="text-align: justify;"><em>Empurrar:</em> a m&atilde;o afasta o
-      oponente (manobra empurrar usando o seu Misticismo com um b&ocirc;nus
-      adicional de +10). A m&atilde;o acompanha o oponente para
-      empurr&aacute;-lo o m&aacute;ximo que conseguir, dentro do alcance da
-      magia.</p>
+      <p><em>Empurrar:</em> a m&atilde;o afasta o oponente (manobra empurrar
+      usando o seu Misticismo com um b&ocirc;nus adicional de +10). A m&atilde;o
+      acompanha o oponente para empurr&aacute;-lo o m&aacute;ximo que conseguir,
+      dentro do alcance da magia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 197 (JdA)

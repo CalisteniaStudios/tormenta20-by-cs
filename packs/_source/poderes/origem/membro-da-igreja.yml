@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; consegue hospedagem
-      confort&aacute;vel e informa&ccedil;&atilde;o em qualquer templo de sua
-      divindade, para voc&ecirc; e seus aliados.</p>
+      <p>Voc&ecirc; consegue hospedagem confort&aacute;vel e
+      informa&ccedil;&atilde;o em qualquer templo de sua divindade, para
+      voc&ecirc; e seus aliados.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 85 (JdA)

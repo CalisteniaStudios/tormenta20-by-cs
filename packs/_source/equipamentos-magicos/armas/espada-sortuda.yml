@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>espada curta
-      formidável</strong> é cravejada de brilhantes. Você recebe +2 nos testes
-      de resistência e pode gastar 3 PM para rolar novamente um teste qualquer
-      recém realizado (apenas uma vez por teste). Se possuir o poder Sortudo, em
-      vez disso seu custo diminui em –1 PM.</p>
+      <p>Esta <strong>espada curta formidável</strong> é cravejada de
+      brilhantes. Você recebe +2 nos testes de resistência e pode gastar 3 PM
+      para rolar novamente um teste qualquer recém realizado (apenas uma vez por
+      teste). Se possuir o poder Sortudo, em vez disso seu custo diminui em –1
+      PM.</p>
     chat: ''
     unidentified: ''
   source: ''

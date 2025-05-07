@@ -53,15 +53,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 2 PM para invocar
-      uma f&uacute;ria selvagem, tornando-se tem&iacute;vel em combate.
-      At&eacute; o fim da cena, voc&ecirc; recebe +2 em testes de ataque e
-      rolagens de dano corpo a corpo, mas n&atilde;o pode executar nenhuma
-      a&ccedil;&atilde;o que exija paci&ecirc;ncia ou concentra&ccedil;&atilde;o
-      (como usar a per&iacute;cia Furtividade ou lan&ccedil;ar magias). Se usar
-      este poder em conjunto com a habilidade F&uacute;ria, ela tamb&eacute;m
-      dura uma cena (e n&atilde;o termina se voc&ecirc; n&atilde;o atacar ou for
-      alvo de uma a&ccedil;&atilde;o hostil).</p>
+      <p>Voc&ecirc; pode gastar 2 PM para invocar uma f&uacute;ria selvagem,
+      tornando-se tem&iacute;vel em combate. At&eacute; o fim da cena,
+      voc&ecirc; recebe +2 em testes de ataque e rolagens de dano corpo a corpo,
+      mas n&atilde;o pode executar nenhuma a&ccedil;&atilde;o que exija
+      paci&ecirc;ncia ou concentra&ccedil;&atilde;o (como usar a per&iacute;cia
+      Furtividade ou lan&ccedil;ar magias). Se usar este poder em conjunto com a
+      habilidade F&uacute;ria, ela tamb&eacute;m dura uma cena (e n&atilde;o
+      termina se voc&ecirc; n&atilde;o atacar ou for alvo de uma
+      a&ccedil;&atilde;o hostil).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

@@ -6,18 +6,15 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Voc&ecirc; aprende o verdadeiro
-      &ecirc;xtase da carnificina.</p>
+      <p>Voc&ecirc; aprende o verdadeiro &ecirc;xtase da carnificina.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;">Enquanto estiver em f&uacute;ria,
-      voc&ecirc; recebe +1 na margem de amea&ccedil;a de seus ataques. Para cada
-      categoria de tamanho acima de M&eacute;dia que voc&ecirc; tiver, este
-      b&ocirc;nus aumenta em +1.</p>
+      <p>Enquanto estiver em f&uacute;ria, voc&ecirc; recebe +1 na margem de
+      amea&ccedil;a de seus ataques. Para cada categoria de tamanho acima de
+      M&eacute;dia que voc&ecirc; tiver, este b&ocirc;nus aumenta em +1.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: F&uacute;ria dos
-      Gigantes</p>
+      <p>Pr&eacute;-requisito: F&uacute;ria dos Gigantes</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 23

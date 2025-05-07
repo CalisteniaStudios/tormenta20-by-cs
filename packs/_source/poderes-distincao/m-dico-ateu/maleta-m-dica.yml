@@ -6,24 +6,22 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">&Eacute; f&aacute;cil identificar um
-      doutor certificado do Col&eacute;gio Real por sua maleta. Toda
-      esp&eacute;cie de rem&eacute;dio e ferramenta m&eacute;dica pode ser
-      encontrada dentro dela.</p>
+      <p>&Eacute; f&aacute;cil identificar um doutor certificado do
+      Col&eacute;gio Real por sua maleta. Toda esp&eacute;cie de rem&eacute;dio
+      e ferramenta m&eacute;dica pode ser encontrada dentro dela.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; recebe uma
-      maleta m&eacute;dica que armazena seus instrumentos m&eacute;dicos e seu
-      estoque de medicamentos e que conta como um kit de cura aprimorado. Se
-      estiver usando sua maleta m&eacute;dica, voc&ecirc; pode gastar 2 PM para
-      usar o poder Medicina em uma criatura na qual j&aacute; tenha usado este
-      poder neste dia. Se perder sua maleta m&eacute;dica, voc&ecirc; pode
-      fabricar outra com um dia de trabalho e o gasto de T$ 100.</p>
+      <p class="MsoNormal">Voc&ecirc; recebe uma maleta m&eacute;dica que
+      armazena seus instrumentos m&eacute;dicos e seu estoque de medicamentos e
+      que conta como um kit de cura aprimorado. Se estiver usando sua maleta
+      m&eacute;dica, voc&ecirc; pode gastar 2 PM para usar o poder Medicina em
+      uma criatura na qual j&aacute; tenha usado este poder neste dia. Se perder
+      sua maleta m&eacute;dica, voc&ecirc; pode fabricar outra com um dia de
+      trabalho e o gasto de T$ 100.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos:</em> treinado em Of&iacute;cio
-      (alquimista), Medicina Avan&ccedil;ada.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos:</em> treinado em
+      Of&iacute;cio (alquimista), Medicina Avan&ccedil;ada.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 28-29

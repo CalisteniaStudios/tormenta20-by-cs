@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No in&iacute;cio de cada aventura,
-      voc&ecirc; recebe at&eacute; 5 itens gerais que possa fabricar num valor
-      total de at&eacute; T$ 50. Esse valor aumenta para T$ 100 no patamar
-      aventureiro (5&ordm;), T$ 300 no heroico (11&ordm;) e T$ 500 no lenda
-      (17&ordm;).</p>
+      <p>No in&iacute;cio de cada aventura, voc&ecirc; recebe at&eacute; 5 itens
+      gerais que possa fabricar num valor total de at&eacute; T$ 50. Esse valor
+      aumenta para T$ 100 no patamar aventureiro (5&ordm;), T$ 300 no heroico
+      (11&ordm;) e T$ 500 no lenda (17&ordm;).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 86 (JdA)

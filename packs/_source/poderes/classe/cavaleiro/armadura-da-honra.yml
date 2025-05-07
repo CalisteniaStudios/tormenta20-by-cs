@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No in&iacute;cio de cada cena, voc&ecirc;
-      recebe uma quantidade de pontos de vida tempor&aacute;rios igual a seu
-      n&iacute;vel + seu Carisma. Os PVs tempor&aacute;rios duram at&eacute; o
-      final da cena.</p>
+      <p>No in&iacute;cio de cada cena, voc&ecirc; recebe uma quantidade de
+      pontos de vida tempor&aacute;rios igual a seu n&iacute;vel + seu Carisma.
+      Os PVs tempor&aacute;rios duram at&eacute; o final da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 53 (JdA)

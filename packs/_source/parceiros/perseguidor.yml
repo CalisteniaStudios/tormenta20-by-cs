@@ -136,23 +136,23 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Cada parceiro pode ajudar apenas um
-      personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro
-      personagem em alcance curto at&eacute; o fim da cena (para fazer isso com
-      um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
 
-      <p style="text-align: justify;">Um ca&ccedil;ador, animal farejador ou
-      outro especialista em localizar alvos.</p>
+      <p>Um ca&ccedil;ador, animal farejador ou outro especialista em localizar
+      alvos.</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: +2 em
-      Percep&ccedil;&atilde;o e Sobreviv&ecirc;ncia.</p>
+      <p><strong>Iniciante</strong>: +2 em Percep&ccedil;&atilde;o e
+      Sobreviv&ecirc;ncia.</p>
 
-      <p style="text-align: justify;"><strong>Veterano</strong>: voc&ecirc; pode
-      usar o poder Sentidos Agu&ccedil;ados.</p>
+      <p><strong>Veterano</strong>: voc&ecirc; pode usar o poder Sentidos
+      Agu&ccedil;ados.</p>
 
-      <p style="text-align: justify;"><strong>Mestre</strong>: voc&ecirc; pode
-      usar Percep&ccedil;&atilde;o &agrave;s Cegas.</p>
+      <p><strong>Mestre</strong>: voc&ecirc; pode usar Percep&ccedil;&atilde;o
+      &agrave;s Cegas.</p>
 
       <table border="1">
 
@@ -162,12 +162,11 @@ system:
 
       <td>
 
-      <p style="text-align: justify;"><strong>Percep&ccedil;&atilde;o &agrave;s
-      Cegas.</strong>&nbsp;A criatura usa sentidos&nbsp;diferentes da
-      vis&atilde;o (como radar, sonar, sensibilidade&nbsp;a
-      vibra&ccedil;&otilde;es etc.). Escurid&atilde;o e invisibilidade
-      n&atilde;o a&nbsp;afetam. Esta habilidade tem alcance curto (a
-      menos&nbsp;que especificado o contr&aacute;rio).</p>
+      <p><strong>Percep&ccedil;&atilde;o &agrave;s Cegas.</strong>&nbsp;A
+      criatura usa sentidos&nbsp;diferentes da vis&atilde;o (como radar, sonar,
+      sensibilidade&nbsp;a vibra&ccedil;&otilde;es etc.). Escurid&atilde;o e
+      invisibilidade n&atilde;o a&nbsp;afetam. Esta habilidade tem alcance curto
+      (a menos&nbsp;que especificado o contr&aacute;rio).</p>
 
       </td>
 
@@ -176,8 +175,6 @@ system:
       </tbody>
 
       </table>
-
-      <p>&nbsp;</p>
     unidentified: ''
   source: T20, pg. 261 (JdA)
   ativacao:

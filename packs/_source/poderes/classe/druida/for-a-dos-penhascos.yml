@@ -95,13 +95,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Fortitude. Quando
-      sofre dano enquanto em contato com o solo ou uma superf&iacute;cie de
-      pedra, pode gastar uma quantidade de PM limitada por sua Sabedoria. Para
-      cada PM gasto, reduz esse dano em 10. Pr&eacute;-requisito: 4&ordm;
-      n&iacute;vel de Druida.&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; recebe +2 em Fortitude. Quando sofre dano enquanto em
+      contato com o solo ou uma superf&iacute;cie de pedra, pode gastar uma
+      quantidade de PM limitada por sua Sabedoria. Para cada PM gasto, reduz
+      esse dano em 10. Pr&eacute;-requisito: 4&ordm; n&iacute;vel de
+      Druida.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

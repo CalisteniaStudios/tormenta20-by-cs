@@ -49,11 +49,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se voc&ecirc; estiver usando um escudo, o
-      b&ocirc;nus na Defesa que ele fornece aumenta em +2.</p>
+      <p>Se voc&ecirc; estiver usando um escudo, o b&ocirc;nus na Defesa que ele
+      fornece aumenta em +2.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos: </em>treinado
-      em Luta, profici&ecirc;ncia com escudos.</p>
+      <p><em>Pr&eacute;-requisitos: </em>treinado em Luta, profici&ecirc;ncia
+      com escudos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

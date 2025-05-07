@@ -9,15 +9,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode aprender magias copiando
-      os textos de pergaminhos e grim&oacute;rios de outros magos. Aprender uma
-      magia dessa forma exige um dia de trabalho e T$ 250 em
-      mat&eacute;rias-primas por PM necess&aacute;rio para lan&ccedil;ar a
-      magia. Assim, aprender uma magia de 3&ordm; c&iacute;rculo (6 PM) exige 6
-      dias de trabalho e o gasto de T$ 1.500.</p>
+      <p>Voc&ecirc; pode aprender magias copiando os textos de pergaminhos e
+      grim&oacute;rios de outros magos. Aprender uma magia dessa forma exige um
+      dia de trabalho e T$ 250 em mat&eacute;rias-primas por PM
+      necess&aacute;rio para lan&ccedil;ar a magia. Assim, aprender uma magia de
+      3&ordm; c&iacute;rculo (6 PM) exige 6 dias de trabalho e o gasto de T$
+      1.500.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Mago,
-      treinado em Of&iacute;cio (escriba).</p>
+      <p><em>Pr&eacute;-requisitos:</em> Mago, treinado em Of&iacute;cio
+      (escriba).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

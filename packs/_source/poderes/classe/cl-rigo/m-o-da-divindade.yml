@@ -9,16 +9,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, voc&ecirc; pode
-      gastar uma a&ccedil;&atilde;o completa e 15 PM para canalizar energia
-      divina. Ao fazer isso, voc&ecirc; lan&ccedil;a tr&ecirc;s magias divinas
-      quaisquer (de qualquer c&iacute;rculo, incluindo magias que voc&ecirc;
-      n&atilde;o conhece), como uma a&ccedil;&atilde;o livre e sem gastar PM
-      (mas ainda precisa pagar outros custos). Voc&ecirc; pode aplicar
-      aprimoramentos, mas precisa pagar por eles. Ap&oacute;s usar esta
-      habilidade, voc&ecirc; fica atordoado por 1d4 rodadas (mesmo se for imune
-      a esta condi&ccedil;&atilde;o). Corpos mortais n&atilde;o foram feitos
-      para lidar com tanto poder.</p>
+      <p>No 20&ordm; n&iacute;vel, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      completa e 15 PM para canalizar energia divina. Ao fazer isso, voc&ecirc;
+      lan&ccedil;a tr&ecirc;s magias divinas quaisquer (de qualquer
+      c&iacute;rculo, incluindo magias que voc&ecirc; n&atilde;o conhece), como
+      uma a&ccedil;&atilde;o livre e sem gastar PM (mas ainda precisa pagar
+      outros custos). Voc&ecirc; pode aplicar aprimoramentos, mas precisa pagar
+      por eles. Ap&oacute;s usar esta habilidade, voc&ecirc; fica atordoado por
+      1d4 rodadas (mesmo se for imune a esta condi&ccedil;&atilde;o). Corpos
+      mortais n&atilde;o foram feitos para lidar com tanto poder.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

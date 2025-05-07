@@ -11,11 +11,11 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Lança</section><p
-          style="text-align:justify;">Qualquer arma feita com uma haste de
-          madeira e uma ponta afiada, natural ou metálica. Por sua facilidade de
-          fabricação, é muito comum entre orcs, kobolds, trogloditas e outras
-          raças menos civilizadas. Uma lança pode ser arremessada.</p>
+          <section class="secret">Lança</section><p>Qualquer arma feita com uma
+          haste de madeira e uma ponta afiada, natural ou metálica. Por sua
+          facilidade de fabricação, é muito comum entre orcs, kobolds,
+          trogloditas e outras raças menos civilizadas. Uma lança pode ser
+          arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 148 (JdA)
@@ -302,10 +302,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Uma arma antiga e comum, este arco é
-          usado primariamente como ferramenta de caça, embora seja usado como
-          arma de guerra por milícias, bandidos e exércitos menos equipados.
-          Exige as duas mãos, mas pode ser usado montado.</p>
+          <p>Uma arma antiga e comum, este arco é usado primariamente como
+          ferramenta de caça, embora seja usado como arma de guerra por
+          milícias, bandidos e exércitos menos equipados. Exige as duas mãos,
+          mas pode ser usado montado.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -433,10 +433,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma aljava com 20 flechas, hastes de
-          madeira com ponta met&aacute;lica e penas para estabilizar o voo.
-          Recarregar um arco com uma flecha &eacute; uma a&ccedil;&atilde;o
-          livre</p>
+          <p>Uma aljava com 20 flechas, hastes de madeira com ponta
+          met&aacute;lica e penas para estabilizar o voo. Recarregar um arco com
+          uma flecha &eacute; uma a&ccedil;&atilde;o livre</p>
         unidentified: ''
       source: T20, pg. 151 (JdA)
       carregado: true

@@ -55,9 +55,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando faz um ataque
-      corpo a corpo, voc&ecirc; pode pagar 3 PM. Se acertar o ataque, causa dano
-      m&aacute;ximo, sem necessidade de rolar dados.</p>
+      <p>Uma vez por rodada, quando faz um ataque corpo a corpo, voc&ecirc; pode
+      pagar 3 PM. Se acertar o ataque, causa dano m&aacute;ximo, sem necessidade
+      de rolar dados.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

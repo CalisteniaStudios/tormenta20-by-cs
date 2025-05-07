@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um arco montado sobre uma coronha de
-      madeira com um gatilho, a besta leve &eacute; uma arma que dispara virotes
-      com grande pot&ecirc;ncia. Recarregar uma besta leve &eacute; uma
-      a&ccedil;&atilde;o de movimento.</p>
+      <p>Um arco montado sobre uma coronha de madeira com um gatilho, a besta
+      leve &eacute; uma arma que dispara virotes com grande pot&ecirc;ncia.
+      Recarregar uma besta leve &eacute; uma a&ccedil;&atilde;o de
+      movimento.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 146 (JdA)

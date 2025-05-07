@@ -4,10 +4,9 @@ img: systems/tormenta20/icons/poderes/ameacas/marrada.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O guerreiro de chifres faz uma investida e
-      ataca com seu machado de guerra e seus chifres. Os dois ataques recebem o
-      b&ocirc;nus de +2 da investida, mas devem ser feitos contra o mesmo
-      alvo.</p>
+      <p>O guerreiro de chifres faz uma investida e ataca com seu machado de
+      guerra e seus chifres. Os dois ataques recebem o b&ocirc;nus de +2 da
+      investida, mas devem ser feitos contra o mesmo alvo.</p>
     unidentified: ''
   source: ''
   ativacao:

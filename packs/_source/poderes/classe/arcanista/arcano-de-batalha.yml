@@ -49,8 +49,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando lan&ccedil;a uma magia, voc&ecirc;
-      soma seu atributo-chave na rolagem de dano.</p>
+      <p>Quando lan&ccedil;a uma magia, voc&ecirc; soma seu atributo-chave na
+      rolagem de dano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

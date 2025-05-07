@@ -173,9 +173,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; purifica a criatura tocada,
-      removendo uma condi&ccedil;&atilde;o dela entre abalado, <a
-      class="content-link" draggable="true"
+      <p>Voc&ecirc; purifica a criatura tocada, removendo uma
+      condi&ccedil;&atilde;o dela entre abalado, <a class="content-link"
+      draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.5n105JaAFlwIfkyX"
       data-id="5n105JaAFlwIfkyX" data-type="JournalEntryPage" data-tooltip="Text
       Page">Apavorado</a>, <a class="content-link" draggable="true"

@@ -466,11 +466,11 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Quando sofre dano de frio, o Troll do
-          Gelo em vez disso recebe uma quantidade de PV tempor&aacute;rios igual
-          ao dano que sofreria. Para cada 10 PV tempor&aacute;rios recebidos
-          desta forma, o Troll do Gelo recebe +1 em testes de ataque e rolagens
-          de dano at&eacute; o fim da cena.</p>
+          <p>Quando sofre dano de frio, o Troll do Gelo em vez disso recebe uma
+          quantidade de PV tempor&aacute;rios igual ao dano que sofreria. Para
+          cada 10 PV tempor&aacute;rios recebidos desta forma, o Troll do Gelo
+          recebe +1 em testes de ataque e rolagens de dano at&eacute; o fim da
+          cena.</p>
         chat: ''
         unidentified: ''
       source: ''

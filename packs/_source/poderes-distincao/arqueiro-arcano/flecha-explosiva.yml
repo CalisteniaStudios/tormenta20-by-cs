@@ -6,20 +6,19 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Aprofundando seu treinamento, o arqueiro
-      arcano aprende a lan&ccedil;ar magias mais potentes com suas flechas.</p>
+      <p>Aprofundando seu treinamento, o arqueiro arcano aprende a lan&ccedil;ar
+      magias mais potentes com suas flechas.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;">Uma vez por rodada, quando voc&ecirc;
-      lan&ccedil;a uma magia de &aacute;rea, pode lan&ccedil;&aacute;-la por
-      meio de seu arco arcano. Fa&ccedil;a um ataque com seu arco; o alcance da
-      magia se torna o alcance do arco e o centro de sua &aacute;rea &eacute; o
-      ponto atingido pela flecha. Se atingir uma criatura ou objeto, a flecha
-      causa seu dano normal (al&eacute;m do efeito da magia).</p>
+      <p>Uma vez por rodada, quando voc&ecirc; lan&ccedil;a uma magia de
+      &aacute;rea, pode lan&ccedil;&aacute;-la por meio de seu arco arcano.
+      Fa&ccedil;a um ataque com seu arco; o alcance da magia se torna o alcance
+      do arco e o centro de sua &aacute;rea &eacute; o ponto atingido pela
+      flecha. Se atingir uma criatura ou objeto, a flecha causa seu dano normal
+      (al&eacute;m do efeito da magia).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Flecha de
-      Toque.</p>
+      <p><em>Pr&eacute;-requisito:</em> Flecha de Toque.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 16

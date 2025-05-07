@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/gorad-quente.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Gorad e leite, servidos quentes.
-      N&atilde;o tem erro. O gorad ativa o c&eacute;rebro, fornecendo +2 PM
-      tempor&aacute;rios.</p>
+      <p>Gorad e leite, servidos quentes. N&atilde;o tem erro. O gorad ativa o
+      c&eacute;rebro, fornecendo +2 PM tempor&aacute;rios.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 162 (JdA)

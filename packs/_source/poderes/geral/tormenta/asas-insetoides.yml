@@ -9,13 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para receber
-      deslocamento de voo 9m at&eacute; o fim do seu turno. O deslocamento
-      aumenta em 1,5m para cada outro poder da Tormenta que voc&ecirc;
-      possui.</p>
+      <p>Voc&ecirc; pode gastar 1 PM para receber deslocamento de voo 9m
+      at&eacute; o fim do seu turno. O deslocamento aumenta em 1,5m para cada
+      outro poder da Tormenta que voc&ecirc; possui.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> quatro
-      outros poderes da Tormenta.</p>
+      <p><em>Pr&eacute;-requisitos:</em> quatro outros poderes da Tormenta.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

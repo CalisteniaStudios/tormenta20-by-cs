@@ -241,11 +241,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; enxerga a forma real das
-      coisas. Voc&ecirc; pode ver atrav&eacute;s de camuflagem e
-      escurid&atilde;o (normais e m&aacute;gicas), assim como efeitos de
-      ilus&atilde;o e transmuta&ccedil;&atilde;o (enxergando a verdade como
-      formas transl&uacute;cidas ou sobrepostas).</p>
+      <p>Voc&ecirc; enxerga a forma real das coisas. Voc&ecirc; pode ver
+      atrav&eacute;s de camuflagem e escurid&atilde;o (normais e
+      m&aacute;gicas), assim como efeitos de ilus&atilde;o e
+      transmuta&ccedil;&atilde;o (enxergando a verdade como formas
+      transl&uacute;cidas ou sobrepostas).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 211 (JdA)

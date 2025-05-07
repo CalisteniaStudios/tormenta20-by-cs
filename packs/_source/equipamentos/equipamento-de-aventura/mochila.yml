@@ -8,9 +8,7 @@ sort: 300000
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">Uma bolsa de lona com tiras para ser
-      carregada nas costas.</p>
+    value: <p>Uma bolsa de lona com tiras para ser carregada nas costas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 155 (JdA)

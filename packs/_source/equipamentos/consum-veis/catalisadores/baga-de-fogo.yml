@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/baga-de-fogo.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Pequeno fruto vermelho, apreciado por seu
-      sabor picante. Usado como catalisador, adiciona +1d6 de dano de fogo a
-      magias.</p>
+      <p>Pequeno fruto vermelho, apreciado por seu sabor picante. Usado como
+      catalisador, adiciona +1d6 de dano de fogo a magias.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

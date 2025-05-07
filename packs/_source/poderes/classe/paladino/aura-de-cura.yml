@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto sua aura estiver ativa, no
-      in&iacute;cio de seus turnos, voc&ecirc; e os aliados a sua escolha dentro
-      dela curam um n&uacute;mero de PV igual a 5 + seu Carisma.</p>
+      <p>Enquanto sua aura estiver ativa, no in&iacute;cio de seus turnos,
+      voc&ecirc; e os aliados a sua escolha dentro dela curam um n&uacute;mero
+      de PV igual a 5 + seu Carisma.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 6&deg;
-      n&iacute;vel de paladino.</p>
+      <p><em>Pr&eacute;-requisito:</em> 6&deg; n&iacute;vel de paladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

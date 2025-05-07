@@ -6,22 +6,21 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Seu tamanho impressionante &eacute; capaz
-      de abalar o pr&oacute;prio terreno onde voc&ecirc; pisa.</p>
+      <p>Seu tamanho impressionante &eacute; capaz de abalar o pr&oacute;prio
+      terreno onde voc&ecirc; pisa.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Quando est&aacute; em
-      f&uacute;ria, voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e
-      2 PM para pisotear o ch&atilde;o, gerando uma onda de choque em alcance
-      curto ao seu redor. Criaturas na &aacute;rea sofrem dano de impacto igual
-      a 1d6 + seu b&ocirc;nus de For&ccedil;a e ficam ca&iacute;das (Fortitude
-      CD For reduz o dano &agrave; metade e evita a condi&ccedil;&atilde;o
-      ca&iacute;do). Para cada categoria de tamanho acima de M&eacute;dia que
-      voc&ecirc; tiver, o dano de seu pis&atilde;o aumenta em +1d6.</p>
+      <p class="MsoNormal">Quando est&aacute; em f&uacute;ria, voc&ecirc; pode
+      gastar uma a&ccedil;&atilde;o de movimento e 2 PM para pisotear o
+      ch&atilde;o, gerando uma onda de choque em alcance curto ao seu redor.
+      Criaturas na &aacute;rea sofrem dano de impacto igual a 1d6 + seu
+      b&ocirc;nus de For&ccedil;a e ficam ca&iacute;das (Fortitude CD For reduz
+      o dano &agrave; metade e evita a condi&ccedil;&atilde;o ca&iacute;do).
+      Para cada categoria de tamanho acima de M&eacute;dia que voc&ecirc; tiver,
+      o dano de seu pis&atilde;o aumenta em +1d6.</p>
 
-      <p class="MsoNormal" style="text-align: justify;">Pr&eacute;-requisito:
-      F&uacute;ria dos Gigantes.</p>
+      <p class="MsoNormal">Pr&eacute;-requisito: F&uacute;ria dos Gigantes.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 23

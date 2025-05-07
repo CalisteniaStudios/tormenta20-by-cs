@@ -52,9 +52,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta esfera perfeita concentra seu poder
-      m&aacute;gico. O limite de PM que voc&ecirc; pode gastar em magias arcanas
-      aumenta em +1.</p>
+      <p>Esta esfera perfeita concentra seu poder m&aacute;gico. O limite de PM
+      que voc&ecirc; pode gastar em magias arcanas aumenta em +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

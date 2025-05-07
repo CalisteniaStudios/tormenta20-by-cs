@@ -49,9 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode somar seu bônus de Carisma em vez
-      de Destreza na Defesa (mas continua não podendo somar um bônus de atributo
-      na Defesa quando usa armadura pesada).</p>
+      <p>Você pode somar seu bônus de Carisma em vez de Destreza na Defesa (mas
+      continua não podendo somar um bônus de atributo na Defesa quando usa
+      armadura pesada).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 79 (JdA)

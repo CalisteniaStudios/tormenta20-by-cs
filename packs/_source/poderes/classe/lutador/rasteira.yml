@@ -55,9 +55,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um ataque desarmado contra uma
-      criatura at&eacute; uma categoria de tamanho maior que a sua, voc&ecirc;
-      pode gastar 2 PM. Se fizer isso e acertar o ataque, a criatura fica
+      <p>Quando faz um ataque desarmado contra uma criatura at&eacute; uma
+      categoria de tamanho maior que a sua, voc&ecirc; pode gastar 2 PM. Se
+      fizer isso e acertar o ataque, a criatura fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.fJFNeZeKmfHMpblz]{Ca&iacute;do}.</p>
     chat: ''
     unidentified: ''

@@ -4,10 +4,10 @@ img: icons/weapons/bows/shortbow-recurve-yellow.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;" data-pm-slice="0 0 []">A CD para encontrar
-      e resistir &agrave;s suas armadilhas aumenta em +5 e voc&ecirc; soma sua
-      Sabedoria ao dano delas. Pr&eacute;-requisitos: um poder de armadilha,
-      5&ordm; n&iacute;vel de ca&ccedil;ador.</p>
+      <p data-pm-slice="0 0 []">A CD para encontrar e resistir &agrave;s suas
+      armadilhas aumenta em +5 e voc&ecirc; soma sua Sabedoria ao dano delas.
+      Pr&eacute;-requisitos: um poder de armadilha, 5&ordm; n&iacute;vel de
+      ca&ccedil;ador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

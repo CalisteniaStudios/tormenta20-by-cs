@@ -129,10 +129,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; enche seus pulm&otilde;es de
-      energia positiva e sopra um cone de poeira reluzente. O sopro afeta apenas
-      seus aliados na &aacute;rea, curando 2d8+4 pontos de vida e removendo uma
-      das seguintes condi&ccedil;&otilde;es de todos os alvos:
+      <p>Voc&ecirc; enche seus pulm&otilde;es de energia positiva e sopra um
+      cone de poeira reluzente. O sopro afeta apenas seus aliados na
+      &aacute;rea, curando 2d8+4 pontos de vida e removendo uma das seguintes
+      condi&ccedil;&otilde;es de todos os alvos:
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ccqJXj25EVIzUhzo]{Abalado},&nbsp;
       &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ]{Atordoado},&nbsp;
       &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.5n105JaAFlwIfkyX]{Apavorado},&nbsp;

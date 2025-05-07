@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/poderes/ameacas/forma.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se o recruta estiver adjacente a um aliado
-      que tamb&eacute;m possua este poder, recebe +1 em testes de ataque e
-      Defesa.</p>
+      <p>Se o recruta estiver adjacente a um aliado que tamb&eacute;m possua
+      este poder, recebe +1 em testes de ataque e Defesa.</p>
     unidentified: ''
   source: ''
   ativacao:

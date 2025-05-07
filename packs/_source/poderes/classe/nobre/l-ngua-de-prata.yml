@@ -59,9 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando faz um teste de perícia baseada em
-      Carisma, você pode gastar 2 PM para receber um bônus no teste igual a
-      metade do seu nível.</p>
+      <p>Quando faz um teste de perícia baseada em Carisma, você pode gastar 2
+      PM para receber um bônus no teste igual a metade do seu nível.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

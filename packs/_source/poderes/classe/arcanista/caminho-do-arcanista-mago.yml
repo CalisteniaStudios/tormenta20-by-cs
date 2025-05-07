@@ -10,26 +10,22 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; lan&ccedil;a magias
-      atrav&eacute;s de estudo e memoriza&ccedil;&atilde;o de f&oacute;rmulas
-      arcanas. Voc&ecirc; s&oacute; pode lan&ccedil;ar magias memorizadas; suas
-      outras magias n&atilde;o podem ser lan&ccedil;adas, mesmo que voc&ecirc;
-      tenha pontos de mana para tal. Para memorizar magias, voc&ecirc; precisa
-      estudar seu grim&oacute;rio por uma hora. Quando faz isso, escolhe metade
-      das magias que conhece (por exemplo, se conhece 7 magias, escolhe 3).
-      Essas ser&atilde;o suas magias memorizadas. Voc&ecirc; pode memorizar
-      magias uma vez por dia. Caso n&atilde;o possa estudar (por n&atilde;o ter
-      tempo, por ter perdido o grim&oacute;rio...), n&atilde;o poder&aacute;
-      trocar suas magias memorizadas. Um grim&oacute;rio tem as mesmas
-      estat&iacute;sticas de um foco (veja acima) e pode ser recuperado da mesma
-      forma. Voc&ecirc; come&ccedil;a com uma magia adicional (para um total de
-      4) e, sempre que ganha acesso a um novo c&iacute;rculo de magias, aprende
-      uma magia adicional daquele c&iacute;rculo. Seu atributo-chave para magias
-      &eacute; Intelig&ecirc;ncia.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p>&nbsp;</p>
+      <p>Voc&ecirc; lan&ccedil;a magias atrav&eacute;s de estudo e
+      memoriza&ccedil;&atilde;o de f&oacute;rmulas arcanas. Voc&ecirc; s&oacute;
+      pode lan&ccedil;ar magias memorizadas; suas outras magias n&atilde;o podem
+      ser lan&ccedil;adas, mesmo que voc&ecirc; tenha pontos de mana para tal.
+      Para memorizar magias, voc&ecirc; precisa estudar seu grim&oacute;rio por
+      uma hora. Quando faz isso, escolhe metade das magias que conhece (por
+      exemplo, se conhece 7 magias, escolhe 3). Essas ser&atilde;o suas magias
+      memorizadas. Voc&ecirc; pode memorizar magias uma vez por dia. Caso
+      n&atilde;o possa estudar (por n&atilde;o ter tempo, por ter perdido o
+      grim&oacute;rio...), n&atilde;o poder&aacute; trocar suas magias
+      memorizadas. Um grim&oacute;rio tem as mesmas estat&iacute;sticas de um
+      foco (veja acima) e pode ser recuperado da mesma forma. Voc&ecirc;
+      come&ccedil;a com uma magia adicional (para um total de 4) e, sempre que
+      ganha acesso a um novo c&iacute;rculo de magias, aprende uma magia
+      adicional daquele c&iacute;rculo. Seu atributo-chave para magias &eacute;
+      Intelig&ecirc;ncia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 37 (JdA)

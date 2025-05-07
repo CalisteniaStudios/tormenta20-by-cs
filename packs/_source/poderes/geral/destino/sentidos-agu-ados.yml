@@ -49,13 +49,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
-      Percep&ccedil;&atilde;o, n&atilde;o fica desprevenido contra inimigos que
-      n&atilde;o possa ver e, sempre que erra um ataque devido a camuflagem ou
-      camuflagem total, pode rolar mais uma vez o dado da chance de falha.</p>
+      <p>Voc&ecirc; recebe +2 em Percep&ccedil;&atilde;o, n&atilde;o fica
+      desprevenido contra inimigos que n&atilde;o possa ver e, sempre que erra
+      um ataque devido a camuflagem ou camuflagem total, pode rolar mais uma vez
+      o dado da chance de falha.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Sab 1,
-      treinado em Percep&ccedil;&atilde;o.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Sab 1, treinado em
+      Percep&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

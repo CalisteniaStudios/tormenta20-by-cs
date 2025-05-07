@@ -59,7 +59,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +5 em testes de
+      <p>Voc&ecirc; recebe +5 em testes de
       @UUID[Compendium.tormenta20.pericias.hWto9ixrLcAV5Pg9]{Acrobacia} para
       escapar, passar por espa&ccedil;o apertado e passar por inimigo e em
       testes para resistir a efeitos de movimento.</p>

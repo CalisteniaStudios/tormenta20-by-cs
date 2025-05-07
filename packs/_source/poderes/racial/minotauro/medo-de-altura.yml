@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver adjacente a uma queda de 3m ou
-      mais de altura (como um buraco ou penhasco), voc&ecirc; fica <a
-      class="content-link" draggable="true"
+      <p>Se estiver adjacente a uma queda de 3m ou mais de altura (como um
+      buraco ou penhasco), voc&ecirc; fica <a class="content-link"
+      draggable="true"
       data-uuid="Compendium.tormenta20.condicoes.yEjDYaD3JjGSY2Tu"
       data-id="yEjDYaD3JjGSY2Tu" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de

@@ -204,35 +204,33 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode criar, moldar, mover ou
-      extinguir chamas e emana&ccedil;&otilde;es de calor. Ao lan&ccedil;ar a
-      magia, escolha um dos efeitos.</p>
+      <p>Voc&ecirc; pode criar, moldar, mover ou extinguir chamas e
+      emana&ccedil;&otilde;es de calor. Ao lan&ccedil;ar a magia, escolha um dos
+      efeitos.</p>
 
-      <p style="text-align: justify;"><em>Chamejar:</em> o alvo &eacute; armas
-      escolhidas. Elas causam +1d6 de dano de fogo. Tamb&eacute;m afeta armas
-      naturais e ataques desarmados.</p>
+      <p><em>Chamejar:</em> o alvo &eacute; armas escolhidas. Elas causam +1d6
+      de dano de fogo. Tamb&eacute;m afeta armas naturais e ataques
+      desarmados.</p>
 
-      <p style="text-align: justify;"><em>Esquentar:</em> o alvo &eacute; 1
-      objeto, que come&ccedil;a a esquentar. Ele sofre 1d6 pontos de dano de
-      fogo por rodada e causa o mesmo dano a qualquer criatura que o esteja
-      segurando ou vestindo. A crit&eacute;rio do mestre, o objeto ou a criatura
-      vestindo-o tamb&eacute;m podem fica em chamas. Uma criatura pode gastar
-      uma a&ccedil;&atilde;o completa para resfriar o objeto (jogando areia ou
-      se jogando numa fonte de &aacute;gua pr&oacute;xima, por exemplo) e
-      cancelar o efeito da magia.</p>
+      <p><em>Esquentar:</em> o alvo &eacute; 1 objeto, que come&ccedil;a a
+      esquentar. Ele sofre 1d6 pontos de dano de fogo por rodada e causa o mesmo
+      dano a qualquer criatura que o esteja segurando ou vestindo. A
+      crit&eacute;rio do mestre, o objeto ou a criatura vestindo-o tamb&eacute;m
+      podem fica em chamas. Uma criatura pode gastar uma a&ccedil;&atilde;o
+      completa para resfriar o objeto (jogando areia ou se jogando numa fonte de
+      &aacute;gua pr&oacute;xima, por exemplo) e cancelar o efeito da magia.</p>
 
-      <p style="text-align: justify;"><em>Extinguir:</em> o alvo &eacute; 1
-      chama de tamanho Grande ou menor, que &eacute; apagada. Isso cria uma
-      nuvem de fuma&ccedil;a que ocupa uma esfera de 3m de raio centrada onde
-      estava a chama. Dentro da fuma&ccedil;a, criaturas t&ecirc;m camuflagem
-      leve.</p>
+      <p><em>Extinguir:</em> o alvo &eacute; 1 chama de tamanho Grande ou menor,
+      que &eacute; apagada. Isso cria uma nuvem de fuma&ccedil;a que ocupa uma
+      esfera de 3m de raio centrada onde estava a chama. Dentro da
+      fuma&ccedil;a, criaturas t&ecirc;m camuflagem leve.</p>
 
-      <p style="text-align: justify;"><em>Modelar:</em> o alvo &eacute; 1 chama
-      de tamanho Grande ou menor. A cada rodada, voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o livre para moviment&aacute;-la 9m em qualquer
-      dire&ccedil;&atilde;o. Se atravessar o espa&ccedil;o ocupado por uma
-      criatura, causa 2d6 pontos de dano de fogo. Uma criatura s&oacute; pode
-      receber dano dessa maneira uma vez por rodada.</p>
+      <p><em>Modelar:</em> o alvo &eacute; 1 chama de tamanho Grande ou menor. A
+      cada rodada, voc&ecirc; pode gastar uma a&ccedil;&atilde;o livre para
+      moviment&aacute;-la 9m em qualquer dire&ccedil;&atilde;o. Se atravessar o
+      espa&ccedil;o ocupado por uma criatura, causa 2d6 pontos de dano de fogo.
+      Uma criatura s&oacute; pode receber dano dessa maneira uma vez por
+      rodada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 187 (JdA)

@@ -99,8 +99,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe resistência a veneno 5 e a CD
-      para resistir aos seus venenos aumenta em +2.</p>
+      <p>Você recebe resistência a veneno 5 e a CD para resistir aos seus
+      venenos aumenta em +2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

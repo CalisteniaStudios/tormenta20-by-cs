@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe um companheiro animal.
-      Veja o quadro na p&aacute;gina 62.</p>
+      <p>Voc&ecirc; recebe um companheiro animal. Veja o quadro na p&aacute;gina
+      62.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Car 1, treinado em
-      Adestramento.</p>
+      <p>Pr&eacute;-requisito: Car 1, treinado em Adestramento.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

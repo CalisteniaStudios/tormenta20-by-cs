@@ -156,10 +156,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Vislumbres do futuro permitem que
-      voc&ecirc; reavalie suas a&ccedil;&otilde;es. Uma vez por rodada,
-      voc&ecirc; pode rolar novamente um teste rec&eacute;m realizado, mas deve
-      aceitar o resultado da nova rolagem.</p>
+      <p>Vislumbres do futuro permitem que voc&ecirc; reavalie suas
+      a&ccedil;&otilde;es. Uma vez por rodada, voc&ecirc; pode rolar novamente
+      um teste rec&eacute;m realizado, mas deve aceitar o resultado da nova
+      rolagem.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 201 (JdA)

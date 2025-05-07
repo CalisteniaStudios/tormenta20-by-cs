@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para comandar
-      uma criatura em alcance curto. Fa&ccedil;a um teste de <a
-      class="content-link" draggable="true"
+      <p>Voc&ecirc; pode gastar 1 PM para comandar uma criatura em alcance
+      curto. Fa&ccedil;a um teste de <a class="content-link" draggable="true"
       data-uuid="JournalEntry.gPPLzgFvC0JKi5UE.JournalEntryPage.cPbZCkI3ApOFMTnL"
       data-id="cPbZCkI3ApOFMTnL" data-type="JournalEntryPage" data-tooltip="Text
       Page">Diplomacia</a> oposto pelo teste de
@@ -20,21 +19,20 @@ system:
       &ldquo;pare&rdquo; ou &ldquo;largue a arma&rdquo; (apenas uma vez por
       cena). Mental.</p>
 
-      <p style="text-align: justify;"><strong>Julgamentos Divinos</strong></p>
+      <p><strong>Julgamentos Divinos</strong></p>
 
-      <p style="text-align: justify;">Alguns poderes do paladino s&atilde;o
-      Julgamentos Divinos. Esses poderes compartilham as seguintes regras.</p>
+      <p>Alguns poderes do paladino s&atilde;o Julgamentos Divinos. Esses
+      poderes compartilham as seguintes regras.</p>
 
-      <p style="text-align: justify;">&bull; Proferir um julgamento gasta uma
-      a&ccedil;&atilde;o de movimento, a menos que a descri&ccedil;&atilde;o
-      diga o contr&aacute;rio.</p>
+      <p>&bull; Proferir um julgamento gasta uma a&ccedil;&atilde;o de
+      movimento, a menos que a descri&ccedil;&atilde;o diga o
+      contr&aacute;rio.</p>
 
-      <p style="text-align: justify;">&bull; Julgamentos que n&atilde;o
-      t&ecirc;m um efeito instant&acirc;neo duram at&eacute; o fim da cena.</p>
+      <p>&bull; Julgamentos que n&atilde;o t&ecirc;m um efeito instant&acirc;neo
+      duram at&eacute; o fim da cena.</p>
 
-      <p style="text-align: justify;">&bull; Uma mesma criatura pode ser alvo de
-      v&aacute;rios julgamentos diferentes, mas efeitos do mesmo julgamento
-      n&atilde;o se acumulam.</p>
+      <p>&bull; Uma mesma criatura pode ser alvo de v&aacute;rios julgamentos
+      diferentes, mas efeitos do mesmo julgamento n&atilde;o se acumulam.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

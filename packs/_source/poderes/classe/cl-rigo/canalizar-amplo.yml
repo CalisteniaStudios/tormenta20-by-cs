@@ -55,12 +55,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; usa a habilidade
-      Canalizar Energia, pode gastar +2 PM para aumentar o alcance dela para
-      m&eacute;dio.</p>
+      <p>Quando voc&ecirc; usa a habilidade Canalizar Energia, pode gastar +2 PM
+      para aumentar o alcance dela para m&eacute;dio.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Canalizar
-      Energia Positiva ou Negativa.</p>
+      <p><em>Pr&eacute;-requisito:</em> Canalizar Energia Positiva ou
+      Negativa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

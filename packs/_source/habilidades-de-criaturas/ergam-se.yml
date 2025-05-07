@@ -4,15 +4,15 @@ img: systems/tormenta20/icons/poderes/ameacas/ergam-se.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">&nbsp;O necromante conjura seis
-      mortos-vivos feitos de sombra em espa&ccedil;os desocupados em alcance
-      curto. No turno do necromante, cada morto-vivo pode andar (deslocamento
-      9m) e causar dano a uma criatura adjacente (2d8 pontos de dano de trevas).
-      Os mortos-vivos t&ecirc;m For 3, Des 3, Defesa 25 e todos os outros
-      atributos nulos; eles t&ecirc;m 1 PV e falham automaticamente em qualquer
-      teste de resist&ecirc;ncia ou oposto, mas s&atilde;o imunes a
-      atordoamento, dano n&atilde;o letal, doen&ccedil;a, encantamento, fadiga,
-      frio, ilus&atilde;o, paralisia, sono e veneno.</p>
+      <p>&nbsp;O necromante conjura seis mortos-vivos feitos de sombra em
+      espa&ccedil;os desocupados em alcance curto. No turno do necromante, cada
+      morto-vivo pode andar (deslocamento 9m) e causar dano a uma criatura
+      adjacente (2d8 pontos de dano de trevas). Os mortos-vivos t&ecirc;m For 3,
+      Des 3, Defesa 25 e todos os outros atributos nulos; eles t&ecirc;m 1 PV e
+      falham automaticamente em qualquer teste de resist&ecirc;ncia ou oposto,
+      mas s&atilde;o imunes a atordoamento, dano n&atilde;o letal,
+      doen&ccedil;a, encantamento, fadiga, frio, ilus&atilde;o, paralisia, sono
+      e veneno.</p>
     unidentified: ''
   source: ''
   ativacao:

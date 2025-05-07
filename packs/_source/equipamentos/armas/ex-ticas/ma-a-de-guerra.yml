@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma versão mais perigosa da maça comum, com
-      uma cabeça formada por grandes placas de metal. O peso da maça de guerra
-      torna seu golpe poderoso, mas desajeitado, impondo &ndash;2 em testes de
-      ataque. Uma maça de guerra é muito pesada e desbalanceada para ser usada
-      sem treinamento especial, por isso é uma arma exótica.</p>
+      <p>Uma versão mais perigosa da maça comum, com uma cabeça formada por
+      grandes placas de metal. O peso da maça de guerra torna seu golpe
+      poderoso, mas desajeitado, impondo &ndash;2 em testes de ataque. Uma maça
+      de guerra é muito pesada e desbalanceada para ser usada sem treinamento
+      especial, por isso é uma arma exótica.</p>
     chat: ''
     unidentified: ''
   source: Guia NPC, pg. 23 (1.1)

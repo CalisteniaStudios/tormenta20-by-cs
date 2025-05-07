@@ -8,9 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você é uma criatura do tipo espírito e
-      recebe visão no escuro.</p>
+    value: <p>Você é uma criatura do tipo espírito e recebe visão no escuro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 31 (JdA)

@@ -49,16 +49,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A partir do 5&ordm; n&iacute;vel,
-      gra&ccedil;as a seu vigor e for&ccedil;a de vontade, voc&ecirc; ignora
-      parte de seus ferimentos. Voc&ecirc; recebe resist&ecirc;ncia a dano 2
-      (todo dano que sofre &eacute; reduzido em 2). A cada tr&ecirc;s
-      n&iacute;veis, sua RD aumenta em 2, at&eacute; um m&aacute;ximo de RD 10
-      no 17&ordm; n&iacute;vel.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>A partir do 5&ordm; n&iacute;vel, gra&ccedil;as a seu vigor e
+      for&ccedil;a de vontade, voc&ecirc; ignora parte de seus ferimentos.
+      Voc&ecirc; recebe resist&ecirc;ncia a dano 2 (todo dano que sofre &eacute;
+      reduzido em 2). A cada tr&ecirc;s n&iacute;veis, sua RD aumenta em 2,
+      at&eacute; um m&aacute;ximo de RD 10 no 17&ordm; n&iacute;vel.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

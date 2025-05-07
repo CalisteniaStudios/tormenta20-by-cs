@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Frasco de vidro contendo um &aacute;cido
-      alqu&iacute;mico altamente corrosivo. Para usar o &aacute;cido, voc&ecirc;
-      gasta uma a&ccedil;&atilde;o padr&atilde;o e escolhe uma criatura em
-      alcance curto. Essa criatura sofre 2d4 pontos de dano de &aacute;cido
-      (Reflexos CD Des reduz &agrave; metade).&nbsp;</p>
+      <p>Frasco de vidro contendo um &aacute;cido alqu&iacute;mico altamente
+      corrosivo. Para usar o &aacute;cido, voc&ecirc; gasta uma
+      a&ccedil;&atilde;o padr&atilde;o e escolhe uma criatura em alcance curto.
+      Essa criatura sofre 2d4 pontos de dano de &aacute;cido (Reflexos CD Des
+      reduz &agrave; metade).&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

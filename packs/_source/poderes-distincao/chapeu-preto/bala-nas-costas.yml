@@ -6,19 +6,18 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Se um chap&eacute;u preto realmente
-      h&aacute;bil quiser mat&aacute;-lo, voc&ecirc; n&atilde;o ficar&aacute;
-      sabendo &mdash; j&aacute; estar&aacute; morto.</p>
+      <p>Se um chap&eacute;u preto realmente h&aacute;bil quiser mat&aacute;-lo,
+      voc&ecirc; n&atilde;o ficar&aacute; sabendo &mdash; j&aacute;
+      estar&aacute; morto.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;">Sempre que atacar um oponente pela
-      primeira vez na cena, voc&ecirc; pode gastar 1 PM para receber +10 na
-      margem de amea&ccedil;a deste ataque.</p>
+      <p>Sempre que atacar um oponente pela primeira vez na cena, voc&ecirc;
+      pode gastar 1 PM para receber +10 na margem de amea&ccedil;a deste
+      ataque.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos:
-      Cora&ccedil;&atilde;o duro, dois outros poderes de chap&eacute;u
-      preto.</p>
+      <p>Pr&eacute;-requisitos: Cora&ccedil;&atilde;o duro, dois outros poderes
+      de chap&eacute;u preto.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 20

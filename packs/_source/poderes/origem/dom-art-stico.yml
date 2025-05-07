@@ -9,7 +9,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em testes de
+      <p>Voc&ecirc; recebe +2 em testes de
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.ZTsOxj5RZPayHIFX]{Atua&ccedil;&atilde;o},
       e recebe o dobro de tibares em apresenta&ccedil;&otilde;es.</p>
     chat: ''

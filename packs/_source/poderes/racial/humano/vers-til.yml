@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você se torna treinado em duas perícias a
-      sua escolha (não precisam ser da sua classe). Você pode trocar uma dessas
-      perícias por um poder geral a sua escolha.</p>
+      <p>Você se torna treinado em duas perícias a sua escolha (não precisam ser
+      da sua classe). Você pode trocar uma dessas perícias por um poder geral a
+      sua escolha.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 19 (JdA)

@@ -6,19 +6,18 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Um doutor de ateu vai cuidar bem de seu
-      corpo e sua mente.</p>
+      <p>Um doutor de ateu vai cuidar bem de seu corpo e sua mente.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Quando usa cuidados
-      prolongados, seus pacientes recuperam o dobro de PM por descanso.
-      Al&eacute;m disso, pelas pr&oacute;ximas 24 horas eles recebem +2 em
-      Fortitude e seu total de pontos de vida aumenta em +5 para cada poder de
-      M&eacute;dico Ateu que voc&ecirc; possuir.</p>
+      <p class="MsoNormal">Quando usa cuidados prolongados, seus pacientes
+      recuperam o dobro de PM por descanso. Al&eacute;m disso, pelas
+      pr&oacute;ximas 24 horas eles recebem +2 em Fortitude e seu total de
+      pontos de vida aumenta em +5 para cada poder de M&eacute;dico Ateu que
+      voc&ecirc; possuir.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisito:</em> Medicina Avan&ccedil;ada.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisito:</em> Medicina
+      Avan&ccedil;ada.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 28-29

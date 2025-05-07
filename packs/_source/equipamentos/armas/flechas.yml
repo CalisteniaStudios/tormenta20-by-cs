@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma aljava com 20 flechas, hastes de
-      madeira com ponta met&aacute;lica e penas para estabilizar o voo.
-      Recarregar um arco com uma flecha &eacute; uma a&ccedil;&atilde;o
-      livre</p>
+      <p>Uma aljava com 20 flechas, hastes de madeira com ponta met&aacute;lica
+      e penas para estabilizar o voo. Recarregar um arco com uma flecha &eacute;
+      uma a&ccedil;&atilde;o livre</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 151 (JdA)

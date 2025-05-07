@@ -53,9 +53,7 @@ effects:
 flags: {}
 system:
   description:
-    value: |-
-      <p style="text-align: justify;">Int +2, Carisma +1, For&ccedil;a -1.</p>
-      <p>&nbsp;</p>
+    value: <p>Int +2, Carisma +1, For&ccedil;a -1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 28 (JdA)

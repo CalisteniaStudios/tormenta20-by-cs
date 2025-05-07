@@ -58,13 +58,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 3&ordm; n&iacute;vel, voc&ecirc; recebe
-      +1 em rolagens de dano, Percep&ccedil;&atilde;o e Reflexos. A cada seis
-      n&iacute;veis, esse b&ocirc;nus aumenta em +1.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>No 3&ordm; n&iacute;vel, voc&ecirc; recebe +1 em rolagens de dano,
+      Percep&ccedil;&atilde;o e Reflexos. A cada seis n&iacute;veis, esse
+      b&ocirc;nus aumenta em +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

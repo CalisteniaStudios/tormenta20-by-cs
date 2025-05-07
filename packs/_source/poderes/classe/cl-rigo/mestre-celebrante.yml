@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O n&uacute;mero de pessoas que voc&ecirc;
-      afeta com uma missa aumenta em dez vezes e os benef&iacute;cios que elas
-      recebem dobram.</p>
+      <p>O n&uacute;mero de pessoas que voc&ecirc; afeta com uma missa aumenta
+      em dez vezes e os benef&iacute;cios que elas recebem dobram.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: qualquer poder de
-      Missa, 12&ordm; n&iacute;vel de cl&eacute;rigo.</p>
+      <p>Pr&eacute;-requisitos: qualquer poder de Missa, 12&ordm; n&iacute;vel
+      de cl&eacute;rigo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

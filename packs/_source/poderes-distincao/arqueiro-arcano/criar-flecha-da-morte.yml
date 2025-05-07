@@ -6,27 +6,25 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Tendo superado todos os tipos de inimigos,
-      o arqueiro arcano aprende a infundir a ess&ecirc;ncia da morte em suas
-      flechas.</p>
+      <p>Tendo superado todos os tipos de inimigos, o arqueiro arcano aprende a
+      infundir a ess&ecirc;ncia da morte em suas flechas.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;">Voc&ecirc; pode gastar um dia para criar
-      uma flecha da morte, uma flecha m&aacute;gica especial com custo de
-      cria&ccedil;&atilde;o de T$ 100. Voc&ecirc; pode possuir uma flecha da
-      morte por vez, mais uma flecha adicional para cada dois outros poderes de
-      arqueiro arcano que possui (se criar uma al&eacute;m do seu limite, a
-      flecha mais antiga perde seu poder). Quando dispara uma flecha da morte,
-      voc&ecirc; recebe +2 na margem de amea&ccedil;a desse ataque e, se
-      disparar esta flecha em conjunto com os poderes Flecha de Toque ou Flecha
-      Explosiva, a CD para resistir a essas magias aumenta em +2. Esses
-      b&ocirc;nus aumentam em +1 para cada dois outros poderes de arqueiro
-      arcano que possui.</p>
+      <p>Voc&ecirc; pode gastar um dia para criar uma flecha da morte, uma
+      flecha m&aacute;gica especial com custo de cria&ccedil;&atilde;o de T$
+      100. Voc&ecirc; pode possuir uma flecha da morte por vez, mais uma flecha
+      adicional para cada dois outros poderes de arqueiro arcano que possui (se
+      criar uma al&eacute;m do seu limite, a flecha mais antiga perde seu
+      poder). Quando dispara uma flecha da morte, voc&ecirc; recebe +2 na margem
+      de amea&ccedil;a desse ataque e, se disparar esta flecha em conjunto com
+      os poderes Flecha de Toque ou Flecha Explosiva, a CD para resistir a essas
+      magias aumenta em +2. Esses b&ocirc;nus aumentam em +1 para cada dois
+      outros poderes de arqueiro arcano que possui.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Encantar
-      Flechas, Flecha de Toque, deve ter feito um acerto cr&iacute;tico com um
-      arco em uma criatura de cada tipo (veja T20, p. 270).</p>
+      <p><em>Pr&eacute;-requisitos:</em> Encantar Flechas, Flecha de Toque, deve
+      ter feito um acerto cr&iacute;tico com um arco em uma criatura de cada
+      tipo (veja T20, p. 270).</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 16

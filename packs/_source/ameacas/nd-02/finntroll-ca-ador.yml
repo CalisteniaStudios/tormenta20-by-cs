@@ -412,9 +412,8 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Duas cimitarras</section><p
-          style="text-align:justify;">Espada com a lâmina curva e muito afiada.
-          A cimitarra é uma arma ágil</p>
+          <section class="secret">Duas cimitarras</section><p>Espada com a
+          lâmina curva e muito afiada. A cimitarra é uma arma ágil</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 147 (JdA)
@@ -542,9 +541,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Besta pesada</section><p style="text-align:
-          justify;">Vers&atilde;o maior e mais potente da besta leve. Recarregar
-          uma besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
+          <section class="secret">Besta pesada</section><p>Vers&atilde;o maior e
+          mais potente da besta leve. Recarregar uma besta pesada &eacute; uma
+          a&ccedil;&atilde;o padr&atilde;o.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -672,21 +671,21 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">rede</section><p style="text-align:
-          justify;">A rede tem pequenos dentes em sua trama e uma corda para
-          controlar os inimigos presos. Se voc&ecirc; acertar um ataque com a
-          rede, n&atilde;o causa dano. Em vez disso, a v&iacute;tima fica
-          enredada (deslocamento reduzido &agrave; metade, n&atilde;o pode
-          correr nem fazer investidas e sofre &ndash;2 em Defesa e testes de
-          ataque).Enquanto voc&ecirc; estiver segurando a corda, sempre que a
-          v&iacute;tima se mover voc&ecirc; pode fazer um teste de For&ccedil;a
-          oposto contra ela como uma rea&ccedil;&atilde;o. Se voc&ecirc; vencer,
-          a v&iacute;tima s&oacute; pode se mover at&eacute; o limite da corda
-          (alcance curto).A v&iacute;tima pode se soltar com uma
-          a&ccedil;&atilde;o completa e um teste de Acrobacia (CD 20). A rede
-          tem 5 pontos de vida e, se rasgar, qualquer criatura enredada se solta
-          automaticamente. A rede s&oacute; pode ser usada contra criaturas no
-          m&aacute;ximo uma categoria de tamanho maior que voc&ecirc;.</p>
+          <section class="secret">rede</section><p>A rede tem pequenos dentes em
+          sua trama e uma corda para controlar os inimigos presos. Se voc&ecirc;
+          acertar um ataque com a rede, n&atilde;o causa dano. Em vez disso, a
+          v&iacute;tima fica enredada (deslocamento reduzido &agrave; metade,
+          n&atilde;o pode correr nem fazer investidas e sofre &ndash;2 em Defesa
+          e testes de ataque).Enquanto voc&ecirc; estiver segurando a corda,
+          sempre que a v&iacute;tima se mover voc&ecirc; pode fazer um teste de
+          For&ccedil;a oposto contra ela como uma rea&ccedil;&atilde;o. Se
+          voc&ecirc; vencer, a v&iacute;tima s&oacute; pode se mover at&eacute;
+          o limite da corda (alcance curto).A v&iacute;tima pode se soltar com
+          uma a&ccedil;&atilde;o completa e um teste de Acrobacia (CD 20). A
+          rede tem 5 pontos de vida e, se rasgar, qualquer criatura enredada se
+          solta automaticamente. A rede s&oacute; pode ser usada contra
+          criaturas no m&aacute;ximo uma categoria de tamanho maior que
+          voc&ecirc;.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 150 (JdA)
@@ -804,10 +803,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma aljava com 20 setas de madeira.
-          Recarregar uma besta leve &eacute; uma a&ccedil;&atilde;o de
-          movimento; j&aacute; recarregar uma besta pesada &eacute; uma
-          a&ccedil;&atilde;o padr&atilde;o.</p>
+          <p>Uma aljava com 20 setas de madeira. Recarregar uma besta leve
+          &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma
+          besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
       source: T20, pg. 151 (JdA)
       carregado: true

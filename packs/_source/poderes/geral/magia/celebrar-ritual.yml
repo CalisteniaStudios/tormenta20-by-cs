@@ -55,17 +55,17 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode lan&ccedil;ar magias como
-      rituais. Isso dobra seu limite de PM, mas muda a execu&ccedil;&atilde;o
-      para 1 hora (ou o dobro, o que for maior) e exige um gasto de T$ 10 por PM
-      gasto (em incensos, oferendas...). Assim, um arcanista de 8&ordm;
-      n&iacute;vel pode lan&ccedil;ar uma magia de 16 PM gastando T$ 160.</p>
+      <p>Voc&ecirc; pode lan&ccedil;ar magias como rituais. Isso dobra seu
+      limite de PM, mas muda a execu&ccedil;&atilde;o para 1 hora (ou o dobro, o
+      que for maior) e exige um gasto de T$ 10 por PM gasto (em incensos,
+      oferendas...). Assim, um arcanista de 8&ordm; n&iacute;vel pode
+      lan&ccedil;ar uma magia de 16 PM gastando T$ 160.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> treinado
-      em Misticismo ou Religi&atilde;o, 8&ordm; n&iacute;vel de personagem.</p>
+      <p><em>Pr&eacute;-requisitos:</em> treinado em Misticismo ou
+      Religi&atilde;o, 8&ordm; n&iacute;vel de personagem.</p>
 
-      <p style="text-align: justify;"><em>Magias lan&ccedil;adas como rituais
-      n&atilde;o podem ser armazenadas em itens.</em></p>
+      <p><em>Magias lan&ccedil;adas como rituais n&atilde;o podem ser
+      armazenadas em itens.</em></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

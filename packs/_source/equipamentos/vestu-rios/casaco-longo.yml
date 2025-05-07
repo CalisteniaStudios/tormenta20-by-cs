@@ -4,10 +4,10 @@ img: systems/tormenta20/icons/itens/gerais/casaco-longo.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Feito de peles ou couro grosso forrado com
-      l&atilde;, e impermeabilizado com &oacute;leo, este casaco &eacute; quente
-      e pesado. Fornece +5 em testes de Fortitude para resistir a efeitos de
-      frio, mas imp&otilde;e penalidade de armadura de &ndash;2.</p>
+      <p>Feito de peles ou couro grosso forrado com l&atilde;, e
+      impermeabilizado com &oacute;leo, este casaco &eacute; quente e pesado.
+      Fornece +5 em testes de Fortitude para resistir a efeitos de frio, mas
+      imp&otilde;e penalidade de armadura de &ndash;2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

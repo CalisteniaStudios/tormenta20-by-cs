@@ -9,15 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa Forma Selvagem, voc&ecirc; pode
-      se transformar em uma fera primal. Voc&ecirc; recebe os benef&iacute;cios
-      de dois tipos de animais (b&ocirc;nus iguais n&atilde;o se acumulam; use o
-      que voc&ecirc; quiser de cada tipo).</p>
+      <p>Quando usa Forma Selvagem, voc&ecirc; pode se transformar em uma fera
+      primal. Voc&ecirc; recebe os benef&iacute;cios de dois tipos de animais
+      (b&ocirc;nus iguais n&atilde;o se acumulam; use o que voc&ecirc; quiser de
+      cada tipo).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Forma
-      Selvagem duas vezes, 18&ordm; n&iacute;vel de druida.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> Forma Selvagem duas vezes, 18&ordm;
+      n&iacute;vel de druida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

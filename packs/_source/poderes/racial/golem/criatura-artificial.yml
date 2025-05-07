@@ -9,16 +9,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; &eacute; uma criatura do tipo
-      construto. Recebe vis&atilde;o no escuro e imunidade a efeitos de
-      cansa&ccedil;o, metab&oacute;licos e de veneno. Al&eacute;m disso,
-      n&atilde;o precisa respirar, alimentar-se ou dormir, mas n&atilde;o se
-      beneficia de cura mundana e de itens da categoria
-      alimenta&ccedil;&atilde;o. Voc&ecirc; precisa ficar inerte por oito horas
-      por dia para recarregar sua fonte de energia. Se fizer isso, recupera PV e
-      PM por descanso em condi&ccedil;&otilde;es normais (golens n&atilde;o
-      s&atilde;o afetados por condi&ccedil;&otilde;es boas ou ruins de
-      descanso). Por fim, a per&iacute;cia cura n&atilde;o funciona em
+      <p>Voc&ecirc; &eacute; uma criatura do tipo construto. Recebe vis&atilde;o
+      no escuro e imunidade a efeitos de cansa&ccedil;o, metab&oacute;licos e de
+      veneno. Al&eacute;m disso, n&atilde;o precisa respirar, alimentar-se ou
+      dormir, mas n&atilde;o se beneficia de cura mundana e de itens da
+      categoria alimenta&ccedil;&atilde;o. Voc&ecirc; precisa ficar inerte por
+      oito horas por dia para recarregar sua fonte de energia. Se fizer isso,
+      recupera PV e PM por descanso em condi&ccedil;&otilde;es normais (golens
+      n&atilde;o s&atilde;o afetados por condi&ccedil;&otilde;es boas ou ruins
+      de descanso). Por fim, a per&iacute;cia cura n&atilde;o funciona em
       voc&ecirc;, mas Of&iacute;cios (artesanato) pode ser usada no lugar
       dela.&nbsp;</p>
     chat: ''

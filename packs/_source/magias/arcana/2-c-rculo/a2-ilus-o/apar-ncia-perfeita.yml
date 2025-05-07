@@ -158,15 +158,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia lhe concede um rosto
-      idealizado, porte f&iacute;sico garboso, voz melodiosa e olhar sedutor.
-      Enquanto a magia estiver ativa, seu Carisma torna-se 5 (ou recebe um
-      b&ocirc;nus de +2, caso seja 5 ou maior) e voc&ecirc; recebe +5 nos testes
-      de Diplomacia e Engana&ccedil;&atilde;o. Quando a magia acaba, quaisquer
-      observadores percebem a mudan&ccedil;a e tendem a suspeitar de voc&ecirc;.
-      Da mesma maneira, pessoas que o viram sob o efeito da magia
-      sentir&atilde;o que &ldquo;algo est&aacute; errado&rdquo; ao v&ecirc;-lo
-      em condi&ccedil;&otilde;es normais. Quando a cena acabar, voc&ecirc; pode
+      <p>Esta magia lhe concede um rosto idealizado, porte f&iacute;sico
+      garboso, voz melodiosa e olhar sedutor. Enquanto a magia estiver ativa,
+      seu Carisma torna-se 5 (ou recebe um b&ocirc;nus de +2, caso seja 5 ou
+      maior) e voc&ecirc; recebe +5 nos testes de Diplomacia e
+      Engana&ccedil;&atilde;o. Quando a magia acaba, quaisquer observadores
+      percebem a mudan&ccedil;a e tendem a suspeitar de voc&ecirc;. Da mesma
+      maneira, pessoas que o viram sob o efeito da magia sentir&atilde;o que
+      &ldquo;algo est&aacute; errado&rdquo; ao v&ecirc;-lo em
+      condi&ccedil;&otilde;es normais. Quando a cena acabar, voc&ecirc; pode
       gastar os PM da magia novamente como uma a&ccedil;&atilde;o livre para
       mant&ecirc;-la ativa. Este efeito n&atilde;o fornece PV ou PM
       adicionais.</p>

@@ -53,9 +53,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Seu tamanho é Pequeno (veja a página 106),
-      mas seu deslocamento se mantém 9m. Apesar de pequenos, goblins são
-      rápidos.</p>
+      <p>Seu tamanho é Pequeno (veja a página 106), mas seu deslocamento se
+      mantém 9m. Apesar de pequenos, goblins são rápidos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 23 (JdA)

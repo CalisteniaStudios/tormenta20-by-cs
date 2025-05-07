@@ -118,10 +118,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um conjunto de dedais interligados por
-      correntes. Suas magias arcanas pessoais que concedem b&ocirc;nus na Defesa
-      ou em testes de resist&ecirc;ncias t&ecirc;m esse b&ocirc;nus aumentado em
-      +1.</p>
+      <p>Um conjunto de dedais interligados por correntes. Suas magias arcanas
+      pessoais que concedem b&ocirc;nus na Defesa ou em testes de
+      resist&ecirc;ncias t&ecirc;m esse b&ocirc;nus aumentado em +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

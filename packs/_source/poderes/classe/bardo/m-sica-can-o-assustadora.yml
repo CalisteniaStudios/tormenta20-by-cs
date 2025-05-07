@@ -45,31 +45,26 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Fa&ccedil;a um teste de
-      Atua&ccedil;&atilde;o oposto pelo teste de Vontade de cada criatura a sua
-      escolha dentro do alcance (voc&ecirc; faz um &uacute;nico teste). Alvos
-      que falhem ficam abalados at&eacute; o fim da cena. Alvos que passem ficam
-      imunes a este efeito por um dia.</p>
+      <p>Fa&ccedil;a um teste de Atua&ccedil;&atilde;o oposto pelo teste de
+      Vontade de cada criatura a sua escolha dentro do alcance (voc&ecirc; faz
+      um &uacute;nico teste). Alvos que falhem ficam abalados at&eacute; o fim
+      da cena. Alvos que passem ficam imunes a este efeito por um dia.</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
 
-      <p style="text-align: justify;"><strong>M&uacute;sicas de
-      Bardo</strong></p>
 
-      <p style="text-align: justify;">Alguns poderes do bardo s&atilde;o
-      M&uacute;sicas. Esses poderes compartilham as seguintes regras.</p>
+      <p><strong>M&uacute;sicas de Bardo</strong></p>
 
-      <p style="text-align: justify;">&bull; Para ativar uma m&uacute;sica,
-      voc&ecirc; precisa ser treinado em Atua&ccedil;&atilde;o e empunhar um
-      instrumento musical (veja a p&aacute;gina 159).</p>
+      <p>Alguns poderes do bardo s&atilde;o M&uacute;sicas. Esses poderes
+      compartilham as seguintes regras.</p>
 
-      <p style="text-align: justify;">&bull; Ativar uma m&uacute;sica gasta uma
-      a&ccedil;&atilde;o padr&atilde;o e 1 PM.</p>
+      <p>&bull; Para ativar uma m&uacute;sica, voc&ecirc; precisa ser treinado
+      em Atua&ccedil;&atilde;o e empunhar um instrumento musical (veja a
+      p&aacute;gina 159).</p>
 
-      <p style="text-align: justify;">&bull; Efeitos de m&uacute;sicas t&ecirc;m
-      alcance curto.</p>
+      <p>&bull; Ativar uma m&uacute;sica gasta uma a&ccedil;&atilde;o
+      padr&atilde;o e 1 PM.</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>&bull; Efeitos de m&uacute;sicas t&ecirc;m alcance curto.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

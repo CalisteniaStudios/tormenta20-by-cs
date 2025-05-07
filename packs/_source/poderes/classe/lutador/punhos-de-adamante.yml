@@ -55,11 +55,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seus ataques desarmados ignoram 10 pontos
-      de redu&ccedil;&atilde;o de dano do alvo, se houver.</p>
+      <p>Seus ataques desarmados ignoram 10 pontos de redu&ccedil;&atilde;o de
+      dano do alvo, se houver.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 8&ordm;
-      n&iacute;vel de lutador.</p>
+      <p><em>Pr&eacute;-requisito:</em> 8&ordm; n&iacute;vel de lutador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

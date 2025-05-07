@@ -59,8 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Você soma seu Carisma aos PV restaurados
-      por seus efeitos mágicos de cura.</p>
+      <p>Você soma seu Carisma aos PV restaurados por seus efeitos mágicos de
+      cura.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 133 (JdA)

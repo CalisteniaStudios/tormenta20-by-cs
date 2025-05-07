@@ -259,8 +259,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você modifica os limites físicos do alvo,
-      que recebe deslocamento +9m e +10 em testes de Atletismo.</p>
+      <p>Você modifica os limites físicos do alvo, que recebe deslocamento +9m e
+      +10 em testes de Atletismo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 201 (JdA)

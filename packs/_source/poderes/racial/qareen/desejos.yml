@@ -57,10 +57,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se lan&ccedil;ar uma magia que
-      algu&eacute;m tenha pedido desde seu &uacute;ltimo turno, o custo da magia
-      diminui em &ndash;1 PM. Fazer um desejo ao qareen &eacute; uma
-      a&ccedil;&atilde;o livre.</p>
+      <p>Se lan&ccedil;ar uma magia que algu&eacute;m tenha pedido desde seu
+      &uacute;ltimo turno, o custo da magia diminui em &ndash;1 PM. Fazer um
+      desejo ao qareen &eacute; uma a&ccedil;&atilde;o livre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 26 (JdA)

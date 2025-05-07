@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">A arma de fogo mais comum. Uma pistola
-      conta como uma arma leve para propósitos do poder Estilo de Duas Armas e
-      similares. Recarregar uma pistola é uma ação padrão.</p>
+      <p>A arma de fogo mais comum. Uma pistola conta como uma arma leve para
+      propósitos do poder Estilo de Duas Armas e similares. Recarregar uma
+      pistola é uma ação padrão.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 150 (JdA)

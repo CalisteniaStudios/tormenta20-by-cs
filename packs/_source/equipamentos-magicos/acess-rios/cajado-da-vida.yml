@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este bordão formidável branco com runas
-      prateadas é valorizado por curandeiros. Quando você lança uma magia de
-      cura, ela cura +2 pontos de vida por dado.</p>
+      <p>Este bordão formidável branco com runas prateadas é valorizado por
+      curandeiros. Quando você lança uma magia de cura, ela cura +2 pontos de
+      vida por dado.</p>
     chat: ''
     unidentified: ''
   source: ''

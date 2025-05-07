@@ -46,11 +46,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa uma arma corpo a corpo leve ou
-      &aacute;gil, voc&ecirc; soma sua Intelig&ecirc;ncia em rolagens de dano
-      (limitada pelo seu n&iacute;vel).</p>
+      <p>Quando usa uma arma corpo a corpo leve ou &aacute;gil, voc&ecirc; soma
+      sua Intelig&ecirc;ncia em rolagens de dano (limitada pelo seu
+      n&iacute;vel).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Int 1</p>
+      <p><em>Pr&eacute;-requisito:</em> Int 1</p>
     chat: ''
     unidentified: ''
   source: T20 - JdA, PG.65

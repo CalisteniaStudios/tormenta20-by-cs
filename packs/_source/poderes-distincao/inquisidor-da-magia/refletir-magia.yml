@@ -6,24 +6,22 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Os inquisidores se esfor&ccedil;am para
-      aproveitar ao m&aacute;ximo o dom da Magia, redirecionando energia arcana
-      mal utilizada de volta para quem a emitiu</p>
+      <p>Os inquisidores se esfor&ccedil;am para aproveitar ao m&aacute;ximo o
+      dom da Magia, redirecionando energia arcana mal utilizada de volta para
+      quem a emitiu</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Quando passa em um teste
-      de resist&ecirc;ncia contra uma habilidade m&aacute;gica que tenha
-      voc&ecirc; como um dos alvos, voc&ecirc; pode gastar uma
-      rea&ccedil;&atilde;o e 6 PM para refletir esse efeito de volta para o
-      atacante. Voc&ecirc; n&atilde;o sofre nenhum efeito da habilidade (outros
-      alvos s&atilde;o afetados normalmente) e o atacante &eacute; afetado por
-      ela como se fosse o alvo original, fazendo quaisquer testes de
-      resist&ecirc;ncia necess&aacute;rios (CD Car).</p>
+      <p class="MsoNormal">Quando passa em um teste de resist&ecirc;ncia contra
+      uma habilidade m&aacute;gica que tenha voc&ecirc; como um dos alvos,
+      voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 6 PM para refletir esse
+      efeito de volta para o atacante. Voc&ecirc; n&atilde;o sofre nenhum efeito
+      da habilidade (outros alvos s&atilde;o afetados normalmente) e o atacante
+      &eacute; afetado por ela como se fosse o alvo original, fazendo quaisquer
+      testes de resist&ecirc;ncia necess&aacute;rios (CD Car).</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisito:</em> quatro outros poderes de
-      inquisidor de Wynna.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisito:</em> quatro outros poderes
+      de inquisidor de Wynna.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 26-27

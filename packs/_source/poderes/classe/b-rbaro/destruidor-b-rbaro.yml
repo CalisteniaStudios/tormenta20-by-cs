@@ -59,14 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando causa dano com uma arma corpo a
-      corpo de duas m&atilde;os, voc&ecirc; pode rolar novamente qualquer
-      resultado 1 ou 2 das rolagens de dano da arma.
-      <em>Pr&eacute;-requisito:</em> For 1.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Quando causa dano com uma arma corpo a corpo de duas m&atilde;os,
+      voc&ecirc; pode rolar novamente qualquer resultado 1 ou 2 das rolagens de
+      dano da arma. <em>Pr&eacute;-requisito:</em> For 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 41 (JdA)

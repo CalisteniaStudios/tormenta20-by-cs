@@ -122,9 +122,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Alabarda</section><p
-          style="text-align:justify;">Uma haste de madeira com 2m de comprimento
-          e uma lâmina de machado na ponta. A alabarda é uma arma alongada.</p>
+          <section class="secret">Alabarda</section><p>Uma haste de madeira com
+          2m de comprimento e uma lâmina de machado na ponta. A alabarda é uma
+          arma alongada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -295,9 +295,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Longa veste de anéis metálicos
-          interligados, formando uma malha flexível e resistente, que vai até os
-          joelhos.</p>
+          <p>Longa veste de anéis metálicos interligados, formando uma malha
+          flexível e resistente, que vai até os joelhos.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: true

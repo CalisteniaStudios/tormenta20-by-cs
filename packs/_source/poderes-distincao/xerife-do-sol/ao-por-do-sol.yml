@@ -6,23 +6,22 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">A justi&ccedil;a chega anunciada. Depois
-      de receber o aviso do xerife, os malfeitores podem apenas se render</p>
+      <p>A justi&ccedil;a chega anunciada. Depois de receber o aviso do xerife,
+      os malfeitores podem apenas se render</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento e 2 PM para recitar em voz alta os
-      crimes de uma criatura em alcance m&eacute;dio. At&eacute; o final da
-      cena, ou at&eacute; a criatura se render, voc&ecirc; recebe +2 na Defesa e
-      em testes de ataque e rolagens de dano com cimitarra e pistola contra esta
-      criatura. Para cada dois outros poderes de xerife do Sol que voc&ecirc;
-      possui, voc&ecirc; pode gastar +1 PM para aumentar estes b&ocirc;nus em
-      +1.</p>
+      <p class="MsoNormal">Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de
+      movimento e 2 PM para recitar em voz alta os crimes de uma criatura em
+      alcance m&eacute;dio. At&eacute; o final da cena, ou at&eacute; a criatura
+      se render, voc&ecirc; recebe +2 na Defesa e em testes de ataque e rolagens
+      de dano com cimitarra e pistola contra esta criatura. Para cada dois
+      outros poderes de xerife do Sol que voc&ecirc; possui, voc&ecirc; pode
+      gastar +1 PM para aumentar estes b&ocirc;nus em +1.</p>
 
-      <p class="MsoNormal" style="text-align: justify;"><em><span
-      style="mso-spacerun: yes;">&nbsp;</span>Pr&eacute;-requisitos:</em>
-      Ca&ccedil;ador de Bandidos.</p>
+      <p class="MsoNormal"><em><span style="mso-spacerun:
+      yes;">&nbsp;</span>Pr&eacute;-requisitos:</em> Ca&ccedil;ador de
+      Bandidos.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 33-35

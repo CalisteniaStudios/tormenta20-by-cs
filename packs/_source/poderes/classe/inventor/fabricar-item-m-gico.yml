@@ -11,17 +11,17 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 9&ordm; n&iacute;vel, voc&ecirc; recebe
-      um item m&aacute;gico menor e passa a poder fabricar itens m&aacute;gicos
-      menores. Veja o Cap&iacute;tulo 8: Recompensas para as regras de itens
-      m&aacute;gicos no Livro B&aacute;sico.</p>
+      <p>No 9&ordm; n&iacute;vel, voc&ecirc; recebe um item m&aacute;gico menor
+      e passa a poder fabricar itens m&aacute;gicos menores. Veja o
+      Cap&iacute;tulo 8: Recompensas para as regras de itens m&aacute;gicos no
+      Livro B&aacute;sico.</p>
 
-      <p style="text-align: justify;">Nos n&iacute;veis 13 e 17, voc&ecirc; pode
-      substituir esse item por um item m&aacute;gico m&eacute;dio e maior,
-      respectivamente, e passa a poder fabricar itens m&aacute;gicos dessas
-      categorias. Considera-se que voc&ecirc; estava trabalhando nos itens que
-      recebe e voc&ecirc; n&atilde;o gasta dinheiro, tempo ou pontos de mana
-      neles (mas gasta em itens que fabricar futuramente).&nbsp;</p>
+      <p>Nos n&iacute;veis 13 e 17, voc&ecirc; pode substituir esse item por um
+      item m&aacute;gico m&eacute;dio e maior, respectivamente, e passa a poder
+      fabricar itens m&aacute;gicos dessas categorias. Considera-se que
+      voc&ecirc; estava trabalhando nos itens que recebe e voc&ecirc; n&atilde;o
+      gasta dinheiro, tempo ou pontos de mana neles (mas gasta em itens que
+      fabricar futuramente).&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 70 (JdA)

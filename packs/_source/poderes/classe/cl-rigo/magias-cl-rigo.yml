@@ -9,19 +9,18 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode lan&ccedil;ar magias
-      divinas de 1&ordm; c&iacute;rculo. A cada quatro n&iacute;veis, pode
-      lan&ccedil;ar magias de um c&iacute;rculo maior (2&ordm; c&iacute;rculo no
-      5&ordm; n&iacute;vel, 3&ordm; c&iacute;rculo no 9&ordm; n&iacute;vel e
-      assim por diante).</p>
+      <p>Voc&ecirc; pode lan&ccedil;ar magias divinas de 1&ordm; c&iacute;rculo.
+      A cada quatro n&iacute;veis, pode lan&ccedil;ar magias de um
+      c&iacute;rculo maior (2&ordm; c&iacute;rculo no 5&ordm; n&iacute;vel,
+      3&ordm; c&iacute;rculo no 9&ordm; n&iacute;vel e assim por diante).</p>
 
-      <p style="text-align: justify;">Voc&ecirc; come&ccedil;a com tr&ecirc;s
-      magias de 1&ordm; c&iacute;rculo. A cada n&iacute;vel, aprende uma magia
-      de qualquer c&iacute;rculo que possa lan&ccedil;ar.</p>
+      <p>Voc&ecirc; come&ccedil;a com tr&ecirc;s magias de 1&ordm;
+      c&iacute;rculo. A cada n&iacute;vel, aprende uma magia de qualquer
+      c&iacute;rculo que possa lan&ccedil;ar.</p>
 
-      <p style="text-align: justify;">Seu atributo-chave para lan&ccedil;ar
-      magias &eacute; Sabedoria e voc&ecirc; soma sua Sabedoria no seu total de
-      PM. Veja o Cap&iacute;tulo 4 para as regras de magia.</p>
+      <p>Seu atributo-chave para lan&ccedil;ar magias &eacute; Sabedoria e
+      voc&ecirc; soma sua Sabedoria no seu total de PM. Veja o Cap&iacute;tulo 4
+      para as regras de magia.</p>
     chat: ''
     unidentified: ''
   source: ''

@@ -129,25 +129,24 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>armadura completa reforçada
-      defensora de adamante</strong> fornece proteção sem igual. Se você não se
-      deslocar em seu turno, a RD que ela fornece aumenta para 10 até seu
-      próximo turno.</p>
+      <p>Esta <strong>armadura completa reforçada defensora de adamante</strong>
+      fornece proteção sem igual. Se você não se deslocar em seu turno, a RD que
+      ela fornece aumenta para 10 até seu próximo turno.</p>
 
-      <p style="text-align:justify;"><strong>Reforçada.</strong>&nbsp;Placas
-      adicionais, uma camada extra de cota de malha ou acolchoamento, proteção
-      dobrada nas juntas e áreas vulneráveis... O bônus na Defesa e a penalidade
-      de armadura de uma armadura ou escudo com esta modificação aumentam em +1.
-      Uma armadura não pode ser reforçada e delicada.</p>
+      <p><strong>Reforçada.</strong>&nbsp;Placas adicionais, uma camada extra de
+      cota de malha ou acolchoamento, proteção dobrada nas juntas e áreas
+      vulneráveis... O bônus na Defesa e a penalidade de armadura de uma
+      armadura ou escudo com esta modificação aumentam em +1. Uma armadura não
+      pode ser reforçada e delicada.</p>
 
-      <p style="text-align:justify;"><strong>Defensora.</strong> O item é
-      encantado para desviar golpes. O bônus na Defesa do item aumenta em +2</p>
+      <p><strong>Defensora.</strong> O item é encantado para desviar golpes. O
+      bônus na Defesa do item aumenta em +2</p>
 
-      <p style="text-align:justify;"><strong>Adamante.</strong> Encontrado
-      apenas em meteoritos (e por isso também chamado de "ferro-meteórico"), o
-      adamante é um metal escuro, fosco e mais denso que o aço. Armaduras e
-      escudos fornecem resistência a dano, de acordo com seu tipo: armaduras
-      leves e escudos, RD 2; armaduras pesadas, RD 5.</p>
+      <p><strong>Adamante.</strong> Encontrado apenas em meteoritos (e por isso
+      também chamado de "ferro-meteórico"), o adamante é um metal escuro, fosco
+      e mais denso que o aço. Armaduras e escudos fornecem resistência a dano,
+      de acordo com seu tipo: armaduras leves e escudos, RD 2; armaduras
+      pesadas, RD 5.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 340 (JdA)

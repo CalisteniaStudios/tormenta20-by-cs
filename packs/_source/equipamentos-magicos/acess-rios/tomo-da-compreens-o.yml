@@ -49,11 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este livro volumoso cont&eacute;m
-      ensinamentos para tornar o leitor mais centrado e agu&ccedil;ar sua
-      percep&ccedil;&atilde;o, mas tamb&eacute;m possui um poderoso efeito
-      m&aacute;gico. Funciona como um Manual do Bom Exerc&iacute;cio, mas
-      fornece +1 de Sabedoria.</p>
+      <p>Este livro volumoso cont&eacute;m ensinamentos para tornar o leitor
+      mais centrado e agu&ccedil;ar sua percep&ccedil;&atilde;o, mas
+      tamb&eacute;m possui um poderoso efeito m&aacute;gico. Funciona como um
+      Manual do Bom Exerc&iacute;cio, mas fornece +1 de Sabedoria.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

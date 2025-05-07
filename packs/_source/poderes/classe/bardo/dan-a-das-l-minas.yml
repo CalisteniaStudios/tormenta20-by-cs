@@ -9,17 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; lan&ccedil;a uma magia
-      com execu&ccedil;&atilde;o de uma a&ccedil;&atilde;o padr&atilde;o, pode
-      gastar 1 PM para fazer um ataque corpo a corpo como uma a&ccedil;&atilde;o
-      livre.</p>
+      <p>Quando voc&ecirc; lan&ccedil;a uma magia com execu&ccedil;&atilde;o de
+      uma a&ccedil;&atilde;o padr&atilde;o, pode gastar 1 PM para fazer um
+      ataque corpo a corpo como uma a&ccedil;&atilde;o livre.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Esgrima
-      M&aacute;gica, 10&ordm; n&iacute;vel de bardo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> Esgrima M&aacute;gica, 10&ordm;
+      n&iacute;vel de bardo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

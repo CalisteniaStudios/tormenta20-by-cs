@@ -251,10 +251,9 @@ items:
           <section class="secret">Amedrontar* (Padrão, 7 PM) Animais e
           humanoides a escolha do necromante em alcance curto ficam apavorados
           por 1d4+1 rodadas e depois abalados (Vontade reduz para
-          abalado)</section><p style="text-align: justify;">O alvo &eacute;
-          envolvido por energias sombrias e assustadoras. Se falhar na
-          resist&ecirc;ncia, fica apavorado por 1 rodada, depois abalado. Se
-          passar, fica abalado por 1d4 rodadas.</p>
+          abalado)</section><p>O alvo &eacute; envolvido por energias sombrias e
+          assustadoras. Se falhar na resist&ecirc;ncia, fica apavorado por 1
+          rodada, depois abalado. Se passar, fica abalado por 1d4 rodadas.</p>
         unidentified: ''
       source: T20, pg. 179 (JdA)
       ativacao:
@@ -525,11 +524,11 @@ items:
       description:
         value: >-
           <section class="secret">Armadura Arcana (Padrão, 7 PM) O necromante
-          recebe +7 na Defesa por um dia</section><p
-          style="text-align:justify;">Esta magia cria uma pel&iacute;cula
-          protetora invis&iacute;vel, mas tang&iacute;vel, fornecendo +4 na
-          Defesa. Esse b&ocirc;nus &eacute; cumulativo com outras magias, mas
-          n&atilde;o com b&ocirc;nus fornecido por armaduras.</p>
+          recebe +7 na Defesa por um dia</section><p>Esta magia cria uma
+          pel&iacute;cula protetora invis&iacute;vel, mas tang&iacute;vel,
+          fornecendo +4 na Defesa. Esse b&ocirc;nus &eacute; cumulativo com
+          outras magias, mas n&atilde;o com b&ocirc;nus fornecido por
+          armaduras.</p>
         unidentified: ''
       source: T20, pg. 181 (JdA)
       ativacao:
@@ -596,13 +595,12 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Adaga</section><p style="text-align:
-          justify;">Esta faca afiada &eacute; usada por muitos habitantes
-          adultos do Reinado, embora seja favorita de ladr&otilde;es e
-          assassinos, por ser facilmente escondida (fornece +5 em testes de
-          Ladinagem para ocult&aacute;-la). Quando ataca com uma adaga,
-          voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos testes de
-          ataque. Uma adaga pode ser arremessada.</p>
+          <section class="secret">Adaga</section><p>Esta faca afiada &eacute;
+          usada por muitos habitantes adultos do Reinado, embora seja favorita
+          de ladr&otilde;es e assassinos, por ser facilmente escondida (fornece
+          +5 em testes de Ladinagem para ocult&aacute;-la). Quando ataca com uma
+          adaga, voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos
+          testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -776,10 +774,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Esta po&ccedil;&atilde;o feita de
-          ervas raras e compostos alqu&iacute;micos recupera energia pessoal.
-          Beber a ess&ecirc;ncia de mana &eacute; uma a&ccedil;&atilde;o
-          padr&atilde;o e recupera 1d4 pontos de mana.&nbsp;</p>
+          <p>Esta po&ccedil;&atilde;o feita de ervas raras e compostos
+          alqu&iacute;micos recupera energia pessoal. Beber a ess&ecirc;ncia de
+          mana &eacute; uma a&ccedil;&atilde;o padr&atilde;o e recupera 1d4
+          pontos de mana.&nbsp;</p>
         unidentified: ''
       source: T20, pg. 160 (JdA)
       carregado: true
@@ -871,16 +869,15 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">&nbsp;O necromante conjura seis
-          mortos-vivos feitos de sombra em espa&ccedil;os desocupados em alcance
-          curto. No turno do necromante, cada morto-vivo pode andar
-          (deslocamento 9m) e causar dano a uma criatura adjacente (2d8 pontos
-          de dano de trevas). Os mortos-vivos t&ecirc;m For 3, Des 3, Defesa 25
-          e todos os outros atributos nulos; eles t&ecirc;m 1 PV e falham
-          automaticamente em qualquer teste de resist&ecirc;ncia ou oposto, mas
-          s&atilde;o imunes a atordoamento, dano n&atilde;o letal,
-          doen&ccedil;a, encantamento, fadiga, frio, ilus&atilde;o, paralisia,
-          sono e veneno.</p>
+          <p>&nbsp;O necromante conjura seis mortos-vivos feitos de sombra em
+          espa&ccedil;os desocupados em alcance curto. No turno do necromante,
+          cada morto-vivo pode andar (deslocamento 9m) e causar dano a uma
+          criatura adjacente (2d8 pontos de dano de trevas). Os mortos-vivos
+          t&ecirc;m For 3, Des 3, Defesa 25 e todos os outros atributos nulos;
+          eles t&ecirc;m 1 PV e falham automaticamente em qualquer teste de
+          resist&ecirc;ncia ou oposto, mas s&atilde;o imunes a atordoamento,
+          dano n&atilde;o letal, doen&ccedil;a, encantamento, fadiga, frio,
+          ilus&atilde;o, paralisia, sono e veneno.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -945,9 +942,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma vez por rodada, quando sofre dano,
-          o necromante sacrifica um de seus esqueletos conjurados para reduzir
-          esse dano a 0.</p>
+          <p>Uma vez por rodada, quando sofre dano, o necromante sacrifica um de
+          seus esqueletos conjurados para reduzir esse dano a 0.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -1105,23 +1101,21 @@ items:
         value: >-
           <section class="secret">
 
-          <p style="text-align: justify;">(Padr&atilde;o, 6 PM) Um cr&acirc;nio
-          de energia negativa causa 6d8+6 pontos de dano de trevas em uma
-          criatura em alcance m&eacute;dio e deixa todas as criaturas a 3m do
-          alvo abaladas (Fortitude reduz &agrave; metade e evita a
-          condi&ccedil;&atilde;o).</p>
+          <p>(Padr&atilde;o, 6 PM) Um cr&acirc;nio de energia negativa causa
+          6d8+6 pontos de dano de trevas em uma criatura em alcance m&eacute;dio
+          e deixa todas as criaturas a 3m do alvo abaladas (Fortitude reduz
+          &agrave; metade e evita a condi&ccedil;&atilde;o).</p>
 
           </section>
 
-          <p style="text-align: justify;">Esta magia cria um cr&acirc;nio
-          envolto em energia negativa. Quando atinge o alvo, causa 4d8+4 pontos
-          de dano de trevas e se desfaz emitindo um som horrendo, deixando
-          abalado o alvo e todos os inimigos num raio de 3m dele (criaturas
-          j&aacute; abaladas ficam apavoradas por 1d4 rodadas). Passar no teste
-          de resist&ecirc;ncia diminui o dano &agrave; metade e evita a
-          condi&ccedil;&atilde;o (as demais criaturas na &aacute;rea
-          tamb&eacute;m tem direito ao teste de resist&ecirc;ncia, para evitar a
-          condi&ccedil;&atilde;o).</p>
+          <p>Esta magia cria um cr&acirc;nio envolto em energia negativa. Quando
+          atinge o alvo, causa 4d8+4 pontos de dano de trevas e se desfaz
+          emitindo um som horrendo, deixando abalado o alvo e todos os inimigos
+          num raio de 3m dele (criaturas j&aacute; abaladas ficam apavoradas por
+          1d4 rodadas). Passar no teste de resist&ecirc;ncia diminui o dano
+          &agrave; metade e evita a condi&ccedil;&atilde;o (as demais criaturas
+          na &aacute;rea tamb&eacute;m tem direito ao teste de
+          resist&ecirc;ncia, para evitar a condi&ccedil;&atilde;o).</p>
         unidentified: ''
       source: T20, pg. 188 (JdA)
       ativacao:
@@ -1388,17 +1382,15 @@ items:
         value: >-
           <section class="secret">
 
-          <p style="text-align: justify;">(Padr&atilde;o, 6 PM) O necromante
-          toca em uma criatura e causa 10d6 pontos de dano de trevas (Fortitude
-          reduz &agrave; metade) e recupera pontos de vida iguais &agrave;
-          metade do dano causado.</p>
+          <p>(Padr&atilde;o, 6 PM) O necromante toca em uma criatura e causa
+          10d6 pontos de dano de trevas (Fortitude reduz &agrave; metade) e
+          recupera pontos de vida iguais &agrave; metade do dano causado.</p>
 
           </section>
 
-          <p style="text-align: justify;">Sua m&atilde;o brilha com energia
-          sombria, causando 6d6 pontos de dano de trevas. Voc&ecirc; recupera
-          pontos de vida iguais &agrave; metade do dano causado (se causou algum
-          dano).</p>
+          <p>Sua m&atilde;o brilha com energia sombria, causando 6d6 pontos de
+          dano de trevas. Voc&ecirc; recupera pontos de vida iguais &agrave;
+          metade do dano causado (se causou algum dano).</p>
         unidentified: ''
       source: T20, pg. 209 (JdA)
       ativacao:

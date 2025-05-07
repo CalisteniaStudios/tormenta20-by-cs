@@ -50,18 +50,16 @@ _id: BDwaFhE2OBfqMYZC
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi tocado pelas fadas.</p>
+      <p>Seu sangue foi tocado pelas fadas.</p>
 
       <ul>
 
-      <li style="text-align: justify;">Superior. Voc&ecirc; recebe +2 em
-      Carisma. Se uma criatura passar no teste de resist&ecirc;ncia contra uma
-      magia de encantamento ou ilus&atilde;o lan&ccedil;ada por voc&ecirc;,
-      voc&ecirc; fica alquebrado at&eacute; o final da cena.</li>
+      <li>Superior. Voc&ecirc; recebe +2 em Carisma. Se uma criatura passar no
+      teste de resist&ecirc;ncia contra uma magia de encantamento ou
+      ilus&atilde;o lan&ccedil;ada por voc&ecirc;, voc&ecirc; fica alquebrado
+      at&eacute; o final da cena.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

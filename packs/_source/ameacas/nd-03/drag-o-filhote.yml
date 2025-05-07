@@ -401,9 +401,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Drag&otilde;es s&atilde;o imunes a
-          efeitos de atordoamento, cansa&ccedil;o, dano do tipo de seu sopro,
-          metamorfose e paralisia.</p>
+          <p>Drag&otilde;es s&atilde;o imunes a efeitos de atordoamento,
+          cansa&ccedil;o, dano do tipo de seu sopro, metamorfose e
+          paralisia.</p>
         unidentified: ''
       source: ''
       ativacao:

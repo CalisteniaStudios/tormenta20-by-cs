@@ -49,10 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua montaria concede +1d6 em rolagens de
-      dano corpo a corpo (cumulativo com qualquer b&ocirc;nus que ela j&aacute;
-      forne&ccedil;a como parceiro). <em>Pr&eacute;-requisito:</em>
-      Montaria.</p>
+      <p>Sua montaria concede +1d6 em rolagens de dano corpo a corpo (cumulativo
+      com qualquer b&ocirc;nus que ela j&aacute; forne&ccedil;a como parceiro).
+      <em>Pr&eacute;-requisito:</em> Montaria.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

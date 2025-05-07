@@ -48,11 +48,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu limite de carga aumenta em 5
-      espa&ccedil;os e voc&ecirc; pode se beneficiar de um item vestido
-      adicional.</p>
+      <p>Seu limite de carga aumenta em 5 espa&ccedil;os e voc&ecirc; pode se
+      beneficiar de um item vestido adicional.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: Con 1, For 1</p>
+      <p>Pr&eacute;-requisitos: Con 1, For 1</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

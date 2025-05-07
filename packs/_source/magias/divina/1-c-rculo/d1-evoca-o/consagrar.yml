@@ -193,15 +193,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; enche a &aacute;rea com energia
-      positiva. Pontos de vida curados por efeitos de luz s&atilde;o maximizados
-      dentro da &aacute;rea. Isso tamb&eacute;m afeta dano causado em
-      mortos-vivos por esses efeitos.</p>
+      <p>Voc&ecirc; enche a &aacute;rea com energia positiva. Pontos de vida
+      curados por efeitos de luz s&atilde;o maximizados dentro da &aacute;rea.
+      Isso tamb&eacute;m afeta dano causado em mortos-vivos por esses
+      efeitos.</p>
 
-      <p style="text-align: justify;">Por exemplo, Curar Ferimentos cura
-      automaticamente 18 PV. Esta magia n&atilde;o pode ser lan&ccedil;ada em
-      uma &aacute;rea contendo um s&iacute;mbolo vis&iacute;vel dedicado a uma
-      divindade que n&atilde;o a sua. Consagrar anula Profanar.</p>
+      <p>Por exemplo, Curar Ferimentos cura automaticamente 18 PV. Esta magia
+      n&atilde;o pode ser lan&ccedil;ada em uma &aacute;rea contendo um
+      s&iacute;mbolo vis&iacute;vel dedicado a uma divindade que n&atilde;o a
+      sua. Consagrar anula Profanar.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 186 (JdA)

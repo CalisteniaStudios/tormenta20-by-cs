@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 2 PM para realizar
-      uma a&ccedil;&atilde;o padr&atilde;o adicional em seu turno. Voc&ecirc;
-      s&oacute; pode usar este poder na primeira rodada de um combate.</p>
+      <p>Voc&ecirc; pode gastar 2 PM para realizar uma a&ccedil;&atilde;o
+      padr&atilde;o adicional em seu turno. Voc&ecirc; s&oacute; pode usar este
+      poder na primeira rodada de um combate.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: treinado em
-      Furtividade.</p>
+      <p>Pr&eacute;-requisito: treinado em Furtividade.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

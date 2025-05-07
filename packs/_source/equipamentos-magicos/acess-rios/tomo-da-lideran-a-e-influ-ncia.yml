@@ -50,11 +50,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este livro de encaderna&ccedil;&atilde;o
-      luxuosa cont&eacute;m instru&ccedil;&otilde;es detalhadas para convencer e
-      inspirar os demais, mas as p&aacute;ginas escondem um poderoso efeito
-      m&aacute;gico. Funciona como um Manual do Bom Exerc&iacute;cio, mas
-      fornece +1 de Carisma.</p>
+      <p>Este livro de encaderna&ccedil;&atilde;o luxuosa cont&eacute;m
+      instru&ccedil;&otilde;es detalhadas para convencer e inspirar os demais,
+      mas as p&aacute;ginas escondem um poderoso efeito m&aacute;gico. Funciona
+      como um Manual do Bom Exerc&iacute;cio, mas fornece +1 de Carisma.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

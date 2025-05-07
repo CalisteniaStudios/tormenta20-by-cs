@@ -10,8 +10,8 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Voc&ecirc; est&aacute; sempre sob efeito
-      b&aacute;sico da magia <a class="content-link" draggable="true"
+      <p>Voc&ecirc; est&aacute; sempre sob efeito b&aacute;sico da magia <a
+      class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.magias.H7tJCAL2UNJ8QLPN"
       data-id="H7tJCAL2UNJ8QLPN" data-type="Item" data-pack="tormenta20.magias"
       data-tooltip="Magia Item">Detectar Amea&ccedil;as</a>, mas apenas para
@@ -21,8 +21,8 @@ system:
       data-id="xOaeTMaijYgXoNJG" data-type="JournalEntryPage" data-tooltip="Text
       Page">Surpreendido</a>por uma destas criaturas.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> treinado
-      em Percep&ccedil;&atilde;o, Basti&atilde;o da Realidade.</p>
+      <p><em>Pr&eacute;-requisitos:</em> treinado em Percep&ccedil;&atilde;o,
+      Basti&atilde;o da Realidade.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 24

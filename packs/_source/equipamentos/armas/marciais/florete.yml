@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A l&acirc;mina leve e fina desta espada
-      torna a arma muito precisa. O florete &eacute; uma arma
-      <em>&aacute;gil</em>.</p>
+      <p>A l&acirc;mina leve e fina desta espada torna a arma muito precisa. O
+      florete &eacute; uma arma <em>&aacute;gil</em>.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

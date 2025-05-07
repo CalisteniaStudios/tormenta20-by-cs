@@ -57,16 +57,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu corpo se transforma em uma massa de
-      insetos rubros. Voc&ecirc; pode atravessar qualquer espa&ccedil;o por onde
-      seja poss&iacute;vel passar uma moeda (mas considera esses espa&ccedil;os
-      como terreno dif&iacute;cil) e recebe +1 em testes contra manobras de
-      combate e de resist&ecirc;ncia contra efeitos que tenham voc&ecirc; como
-      alvo (mas n&atilde;o efeitos de &aacute;rea). Esse b&ocirc;nus aumenta em
-      +1 para cada dois outros poderes da Tormenta que voc&ecirc; possui.</p>
+      <p>Seu corpo se transforma em uma massa de insetos rubros. Voc&ecirc; pode
+      atravessar qualquer espa&ccedil;o por onde seja poss&iacute;vel passar uma
+      moeda (mas considera esses espa&ccedil;os como terreno dif&iacute;cil) e
+      recebe +1 em testes contra manobras de combate e de resist&ecirc;ncia
+      contra efeitos que tenham voc&ecirc; como alvo (mas n&atilde;o efeitos de
+      &aacute;rea). Esse b&ocirc;nus aumenta em +1 para cada dois outros poderes
+      da Tormenta que voc&ecirc; possui.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Anatomia
-      insana, tr&ecirc;s outros poderes da Tormenta.&nbsp;</p>
+      <p><em>Pr&eacute;-requisito:</em> Anatomia insana, tr&ecirc;s outros
+      poderes da Tormenta.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

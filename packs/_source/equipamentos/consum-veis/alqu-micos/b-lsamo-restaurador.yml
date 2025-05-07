@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma pasta verde e fedorenta, feita de
-      ervas medicinais. Esfregar essa pasta em um ferimento &eacute; uma
-      a&ccedil;&atilde;o completa e recupera 2d4 pontos de vida.&nbsp;</p>
+      <p>Uma pasta verde e fedorenta, feita de ervas medicinais. Esfregar essa
+      pasta em um ferimento &eacute; uma a&ccedil;&atilde;o completa e recupera
+      2d4 pontos de vida.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

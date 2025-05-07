@@ -4,8 +4,7 @@ img: systems/tormenta20/icons/itens/gerais/aco-rubi.webp
 system:
   description:
     value: >-
-      <p><span class="fontstyle0"><strong style="text-align: justify;">[Material
-      Especial]</strong></span></p>
+      <p><span><strong>[Material Especial]</strong></span></p>
 
       <p>Este metal tem a apar&ecirc;ncia de vidro avermelhado, mas &eacute;
       duro como a&ccedil;o. A&ccedil;o-rubi &eacute; car&iacute;ssimo e
@@ -24,16 +23,14 @@ system:
       PM ao lan&ccedil;ar uma magia para que ela ignore qualquer tipo de
       resist&ecirc;ncia ou imunidade a dano.</p>
 
-      <p>&nbsp;</p>
 
-      <p><span class="fontstyle0"><strong style="text-align:
-      justify;">Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armas,
-      Armaduras pesadas e Esot&eacute;ricos:&nbsp; +T$ 6000</span></span></p>
+      <p><span><strong>Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armaduras
-      leves e Escudo:&nbsp; +T$ 3000</span></span></p>
+      <p><span><span>Armas, Armaduras pesadas e Esot&eacute;ricos:&nbsp; +T$
+      6000</span></span></p>
+
+      <p><span><span>Armaduras leves e Escudo:&nbsp; +T$ 3000</span></span></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 166 (JdA)

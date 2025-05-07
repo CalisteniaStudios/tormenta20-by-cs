@@ -60,13 +60,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; sabe fazer amizades durante
-      festas, de noitadas em tavernas a bailes na corte. Nesses locais,
-      voc&ecirc; recebe +2 em testes de per&iacute;cias de Carisma e a atitude
-      de todas as pessoas em rela&ccedil;&atilde;o a voc&ecirc; melhora em uma
-      categoria.</p>
+      <p>Voc&ecirc; sabe fazer amizades durante festas, de noitadas em tavernas
+      a bailes na corte. Nesses locais, voc&ecirc; recebe +2 em testes de
+      per&iacute;cias de Carisma e a atitude de todas as pessoas em
+      rela&ccedil;&atilde;o a voc&ecirc; melhora em uma categoria.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Car 1.</p>
+      <p>Pr&eacute;-requisito: Car 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

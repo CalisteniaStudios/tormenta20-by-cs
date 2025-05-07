@@ -49,9 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa uma arma corpo a corpo leve ou
-      &aacute;gil, voc&ecirc; soma sua Intelig&ecirc;ncia nas rolagens de dano
-      (limitado pelo seu n&iacute;vel). Pr&eacute;-requisito: Int 1.</p>
+      <p>Quando usa uma arma corpo a corpo leve ou &aacute;gil, voc&ecirc; soma
+      sua Intelig&ecirc;ncia nas rolagens de dano (limitado pelo seu
+      n&iacute;vel). Pr&eacute;-requisito: Int 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

@@ -134,25 +134,23 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; entoa c&acirc;nticos
-      mal&eacute;ficos que amaldi&ccedil;oam uma v&iacute;tima, criando efeitos
-      variados. Ao lan&ccedil;ar a magia, escolha entre os seguintes.</p>
+      <p>Voc&ecirc; entoa c&acirc;nticos mal&eacute;ficos que amaldi&ccedil;oam
+      uma v&iacute;tima, criando efeitos variados. Ao lan&ccedil;ar a magia,
+      escolha entre os seguintes.</p>
 
-      <p style="text-align: justify;"><em>Debilidade:</em> o alvo fica <a
-      class="content-link" draggable="true"
+      <p><em>Debilidade:</em> o alvo fica <a class="content-link"
+      draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.YpyVEwCbNVAfFLBm"
       data-id="YpyVEwCbNVAfFLBm" data-type="JournalEntryPage" data-tooltip="Text
       Page">Esmorecido</a> e n&atilde;o pode se comunicar ou lan&ccedil;ar
       magias. Ainda reconhece seus aliados e pode segui-los e ajud&aacute;-los,
       mas sempre de maneira simpl&oacute;ria.</p>
 
-      <p style="text-align: justify;"><em>Doen&ccedil;a:</em> muda a
-      dura&ccedil;&atilde;o para instant&acirc;nea. O alvo contrai uma
-      doen&ccedil;a a sua escolha, que o afeta imediatamente (sem per&iacute;odo
-      de incuba&ccedil;&atilde;o).</p>
+      <p><em>Doen&ccedil;a:</em> muda a dura&ccedil;&atilde;o para
+      instant&acirc;nea. O alvo contrai uma doen&ccedil;a a sua escolha, que o
+      afeta imediatamente (sem per&iacute;odo de incuba&ccedil;&atilde;o).</p>
 
-      <p style="text-align: justify;"><em>Fraqueza:</em> o alvo fica <a
-      class="content-link" draggable="true"
+      <p><em>Fraqueza:</em> o alvo fica <a class="content-link" draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.AlTDv5dptSLGiZel"
       data-id="AlTDv5dptSLGiZel" data-type="JournalEntryPage" data-tooltip="Text
       Page">Debilitado</a>e <a class="content-link" draggable="true"
@@ -160,8 +158,8 @@ system:
       data-id="e8JmqkgvL3H26vbi" data-type="JournalEntryPage" data-tooltip="Text
       Page">Lento</a>.</p>
 
-      <p style="text-align: justify;"><em>Isolamento</em>: o alvo perde o uso de
-      um de seus cinco sentidos a sua escolha. Se perder a vis&atilde;o, fica
+      <p><em>Isolamento</em>: o alvo perde o uso de um de seus cinco sentidos a
+      sua escolha. Se perder a vis&atilde;o, fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.qN5JjvnXDq4Xak1K]{Cego}.
       Se perder a audi&ccedil;&atilde;o, fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.eaJwtq58TBZw0Oyo]{Surdo}.
@@ -170,9 +168,9 @@ system:
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.fJFNeZeKmfHMpblz]{Ca&iacute;do}
       e n&atilde;o pode se levantar.</p>
 
-      <p style="text-align: justify;">Voc&ecirc; tamb&eacute;m pode inventar sua
-      pr&oacute;pria maldi&ccedil;&atilde;o, usando esses exemplos como
-      sugest&otilde;es, mas o mestre tem a palavra final sobre o efeito.</p>
+      <p>Voc&ecirc; tamb&eacute;m pode inventar sua pr&oacute;pria
+      maldi&ccedil;&atilde;o, usando esses exemplos como sugest&otilde;es, mas o
+      mestre tem a palavra final sobre o efeito.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 204 (JdA)

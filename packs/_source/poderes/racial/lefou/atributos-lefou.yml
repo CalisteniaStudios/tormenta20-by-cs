@@ -57,9 +57,7 @@ effects:
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">+1 em Tr&ecirc;s Atributos Diferentes
-      (exceto Carisma), Carisma-1.</p>
+    value: <p>+1 em Tr&ecirc;s Atributos Diferentes (exceto Carisma), Carisma-1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 24 (JdA)

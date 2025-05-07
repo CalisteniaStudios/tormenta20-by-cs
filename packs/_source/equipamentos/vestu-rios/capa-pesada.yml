@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/capa-pesada.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma capa de couro grossa e resistente.
-      Protege e aquece o corpo, fornecendo +1 em Fortitude.</p>
+      <p>Uma capa de couro grossa e resistente. Protege e aquece o corpo,
+      fornecendo +1 em Fortitude.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

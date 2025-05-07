@@ -63,9 +63,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 nas rolagens de dano
-      com azagaias, lan&ccedil;as e tridentes e seu multiplicador de
-      cr&iacute;tico com essas armas aumenta em +1.</p>
+      <p>Voc&ecirc; recebe +2 nas rolagens de dano com azagaias, lan&ccedil;as e
+      tridentes e seu multiplicador de cr&iacute;tico com essas armas aumenta em
+      +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

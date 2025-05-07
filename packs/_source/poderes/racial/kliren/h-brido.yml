@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Sua natureza multifacetada fez com que você
-      aprendesse conhecimentos variados. Você se torna treinado em uma perícia a
-      sua escolha (não precisa ser da sua classe).</p>
+      <p>Sua natureza multifacetada fez com que você aprendesse conhecimentos
+      variados. Você se torna treinado em uma perícia a sua escolha (não precisa
+      ser da sua classe).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 28 (JdA)

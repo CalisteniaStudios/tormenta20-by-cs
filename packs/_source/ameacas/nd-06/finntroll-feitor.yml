@@ -386,11 +386,10 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Chicote</section><p
-          style="text-align:justify;">Esta arma pode ser usada para atacar
-          inimigos a até 4,5m e pode se enroscar nas mãos, pernas ou armas de
-          seus adversários. O chicote é uma arma ágil e versátil, fornecendo +2
-          em testes para derrubar ou desarmar.</p>
+          <section class="secret">Chicote</section><p>Esta arma pode ser usada
+          para atacar inimigos a até 4,5m e pode se enroscar nas mãos, pernas ou
+          armas de seus adversários. O chicote é uma arma ágil e versátil,
+          fornecendo +2 em testes para derrubar ou desarmar.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 147 (JdA)
@@ -569,8 +568,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">A CD para resistir &agrave;s magias de
-          encantamento do feitor aumenta em +2.</p>
+          <p>A CD para resistir &agrave;s magias de encantamento do feitor
+          aumenta em +2.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -828,12 +827,11 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Voc&ecirc; manifesta e dispara uma
-          adaga imaterial contra a mente do alvo, que sofre 2d6 pontos de dano
-          ps&iacute;quico e fica atordoado por uma rodada. Se passar no teste de
-          resist&ecirc;ncia, sofre apenas metade do dano e evita a
-          condi&ccedil;&atilde;o. Uma criatura s&oacute; pode ficar atordoada
-          por esta magia uma vez por cena.</p>
+          <p>Voc&ecirc; manifesta e dispara uma adaga imaterial contra a mente
+          do alvo, que sofre 2d6 pontos de dano ps&iacute;quico e fica atordoado
+          por uma rodada. Se passar no teste de resist&ecirc;ncia, sofre apenas
+          metade do dano e evita a condi&ccedil;&atilde;o. Uma criatura
+          s&oacute; pode ficar atordoada por esta magia uma vez por cena.</p>
         unidentified: ''
       source: T20, pg. 184 (JdA)
       ativacao:
@@ -1111,10 +1109,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Esta magia cria uma pel&iacute;cula
-          protetora invis&iacute;vel, mas tang&iacute;vel, fornecendo +4 na
-          Defesa. Esse b&ocirc;nus &eacute; cumulativo com outras magias, mas
-          n&atilde;o com b&ocirc;nus fornecido por armaduras.</p>
+          <p>Esta magia cria uma pel&iacute;cula protetora invis&iacute;vel, mas
+          tang&iacute;vel, fornecendo +4 na Defesa. Esse b&ocirc;nus &eacute;
+          cumulativo com outras magias, mas n&atilde;o com b&ocirc;nus fornecido
+          por armaduras.</p>
         unidentified: ''
       source: T20, pg. 181 (JdA)
       ativacao:
@@ -1392,12 +1390,12 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O alvo fica enfeiti&ccedil;ado (veja a
-          p&aacute;gina 394). Um alvo hostil ou que esteja envolvido em um
-          combate recebe +5 em seu teste de resist&ecirc;ncia. Se voc&ecirc; ou
-          seus aliados tomarem qualquer a&ccedil;&atilde;o hostil contra o alvo,
-          a magia &eacute; dissipada e o alvo retorna &agrave; atitude que tinha
-          antes (ou piorada, de acordo com o mestre).</p>
+          <p>O alvo fica enfeiti&ccedil;ado (veja a p&aacute;gina 394). Um alvo
+          hostil ou que esteja envolvido em um combate recebe +5 em seu teste de
+          resist&ecirc;ncia. Se voc&ecirc; ou seus aliados tomarem qualquer
+          a&ccedil;&atilde;o hostil contra o alvo, a magia &eacute; dissipada e
+          o alvo retorna &agrave; atitude que tinha antes (ou piorada, de acordo
+          com o mestre).</p>
         unidentified: ''
       source: T20, pg. 191 (JdA)
       ativacao:
@@ -1641,9 +1639,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Humanoides na área são acometidos de
-          grande tristeza, adquirindo as condições fraco e frustrado. Se
-          passarem na resistência, adquirem essas condições por uma rodada.</p>
+          <p>Humanoides na área são acometidos de grande tristeza, adquirindo as
+          condições fraco e frustrado. Se passarem na resistência, adquirem
+          essas condições por uma rodada.</p>
         unidentified: ''
       source: T20, pg. 190 (JdA)
       ativacao:
@@ -1841,13 +1839,13 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Você toca uma criatura, gravando uma
-          marca mística no corpo dela enquanto profere uma ordem, como "não
-          ataque a mim ou meus aliados", "siga-me" ou "não saia desta sala". A
-          criatura deve seguir essa ordem, gastando todas as ações de seu turno
-          para isso. A ordem não pode ser genérica demais (como "ajude-me", por
-          exemplo), nem forçar o alvo a atos suicidas. A cada rodada, o alvo
-          pode fazer um teste de Vontade. Se passar, a magia é dissipada.</p>
+          <p>Você toca uma criatura, gravando uma marca mística no corpo dela
+          enquanto profere uma ordem, como "não ataque a mim ou meus aliados",
+          "siga-me" ou "não saia desta sala". A criatura deve seguir essa ordem,
+          gastando todas as ações de seu turno para isso. A ordem não pode ser
+          genérica demais (como "ajude-me", por exemplo), nem forçar o alvo a
+          atos suicidas. A cada rodada, o alvo pode fazer um teste de Vontade.
+          Se passar, a magia é dissipada.</p>
         unidentified: ''
       source: T20, pg. 198 (JdA)
       ativacao:
@@ -2014,9 +2012,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Você dispara um poderoso raio que causa
-          6d6 pontos de dano de eletricidade em todas as criaturas e objetos
-          livres na área.</p>
+          <p>Você dispara um poderoso raio que causa 6d6 pontos de dano de
+          eletricidade em todas as criaturas e objetos livres na área.</p>
         unidentified: ''
       source: T20, pg. 203 (JdA)
       ativacao:

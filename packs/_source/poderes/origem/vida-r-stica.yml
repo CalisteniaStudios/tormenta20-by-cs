@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; come coisas que fariam um
-      avestruz vomitar (sendo imune a efeitos prejudiciais de itens
-      inger&iacute;veis) e tamb&eacute;m consegue descansar nos lugares mais
-      desconfort&aacute;veis (mesmo dormindo ao relento, sua
-      recupera&ccedil;&atilde;o de PV e PM nunca &eacute; inferior a seu
-      pr&oacute;prio n&iacute;vel).</p>
+      <p>Voc&ecirc; come coisas que fariam um avestruz vomitar (sendo imune a
+      efeitos prejudiciais de itens inger&iacute;veis) e tamb&eacute;m consegue
+      descansar nos lugares mais desconfort&aacute;veis (mesmo dormindo ao
+      relento, sua recupera&ccedil;&atilde;o de PV e PM nunca &eacute; inferior
+      a seu pr&oacute;prio n&iacute;vel).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 94 (JdA)

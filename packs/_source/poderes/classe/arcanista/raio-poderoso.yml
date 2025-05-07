@@ -62,13 +62,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Os dados de dano do seu Raio Arcano
-      aumentam para d12 e o alcance dele aumenta para m&eacute;dio.
-      <em>Pr&eacute;-requisito:</em> Raio Arcano.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Os dados de dano do seu Raio Arcano aumentam para d12 e o alcance dele
+      aumenta para m&eacute;dio. <em>Pr&eacute;-requisito:</em> Raio Arcano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

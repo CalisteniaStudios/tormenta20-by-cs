@@ -437,11 +437,10 @@ items:
         value: >-
           <section class="secret">Concentração de Combate (Padrão, 3 PM) Até o
           final da cena, sempre que faz um ataque, o cavaleiro rola dois dados e
-          usa o melhor resultado</section><p style="text-align:
-          justify;">Voc&ecirc; amplia sua percep&ccedil;&atilde;o, antecipando
-          movimentos dos inimigos e achando brechas em sua defesa. Quando
-          faz&nbsp;um teste de ataque, voc&ecirc; rola dois dados e usa o melhor
-          resultado</p>
+          usa o melhor resultado</section><p>Voc&ecirc; amplia sua
+          percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando
+          brechas em sua defesa. Quando faz&nbsp;um teste de ataque, voc&ecirc;
+          rola dois dados e usa o melhor resultado</p>
         unidentified: ''
       source: T20, pg. 185 (JdA)
       ativacao:
@@ -567,16 +566,16 @@ items:
           <section class="secret">Dissipar Magia (Padrão, 3 PM) O cavaleiro
           escolhe uma criatura, objeto ou esfera de 3m em alcance médio e faz um
           teste de Misticismo. Todas as magias no alvo escolhido com CD menor
-          que o teste são dissipadas</section><p style="text-align:
-          justify;">Voc&ecirc; dissipa outras magias que estejam ativas, como se
-          sua dura&ccedil;&atilde;o tivesse acabado. Note que efeitos de magias
-          instant&acirc;neas n&atilde;o podem ser dissipados (n&atilde;o se pode
-          dissipar uma <em>Bola de Fogo</em> &nbsp;ou <em>Rel&acirc;mpago</em>
-          depois que j&aacute; causaram dano...). Se lan&ccedil;ar essa magia em
-          uma criatura ou &aacute;rea, fa&ccedil;a um teste de Misticismo;
-          voc&ecirc; dissipa as magias com CD igual ou menor que o resultado do
-          teste. Se lan&ccedil;ada contra um item m&aacute;gico, o transforma em
-          um item mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
+          que o teste são dissipadas</section><p>Voc&ecirc; dissipa outras
+          magias que estejam ativas, como se sua dura&ccedil;&atilde;o tivesse
+          acabado. Note que efeitos de magias instant&acirc;neas n&atilde;o
+          podem ser dissipados (n&atilde;o se pode dissipar uma <em>Bola de
+          Fogo</em> &nbsp;ou <em>Rel&acirc;mpago</em> depois que j&aacute;
+          causaram dano...). Se lan&ccedil;ar essa magia em uma criatura ou
+          &aacute;rea, fa&ccedil;a um teste de Misticismo; voc&ecirc; dissipa as
+          magias com CD igual ou menor que o resultado do teste. Se
+          lan&ccedil;ada contra um item m&aacute;gico, o transforma em um item
+          mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
       source: T20, pg. 191 (JdA)
       ativacao:
@@ -968,9 +967,8 @@ items:
       description:
         value: >-
           <section class="secret">Pele de Pedra (Padrão, 6 PM) Recebe RD 5 até o
-          final da cena</section><p style="text-align: justify;">Sua pele ganha
-          aspecto e dureza de rocha. Voc&ecirc; recebe redu&ccedil;&atilde;o de
-          dano 5.</p>
+          final da cena</section><p>Sua pele ganha aspecto e dureza de rocha.
+          Voc&ecirc; recebe redu&ccedil;&atilde;o de dano 5.</p>
         unidentified: ''
       source: T20, pg. 201 (JdA)
       ativacao:
@@ -1196,11 +1194,10 @@ items:
         value: >-
           <section class="secret">Toque Chocante (Padrão, 9 PM) O cavaleiro faz
           um ataque corpo a corpo. Se acertar, além do dano normal, causa 8d8+8
-          pontos de dano de eletricidade</section><p
-          style="text-align:justify;">Arcos elétricos envolvem sua mão, causando
-          2d8+2 pontos de dano de eletricidade. Se o alvo usa armadura de metal
-          (ou carrega muito metal, a critério do mestre), sofre uma penalidade
-          de –5 no teste de resistência.</p>
+          pontos de dano de eletricidade</section><p>Arcos elétricos envolvem
+          sua mão, causando 2d8+2 pontos de dano de eletricidade. Se o alvo usa
+          armadura de metal (ou carrega muito metal, a critério do mestre),
+          sofre uma penalidade de –5 no teste de resistência.</p>
         unidentified: ''
       source: T20, pg. 209 (JdA)
       ativacao:
@@ -1469,10 +1466,10 @@ items:
         value: >-
           <section class="secret">Velocidade (Padrão, 3 PM, sustentada) O
           cavaleiro pode executar uma ação padrão adicional por turno, que não
-          pode ser usada para lançar magias.</section><p style="text-align:
-          justify;">O alvo pode realizar uma a&ccedil;&atilde;o padr&atilde;o ou
-          de movimento adicional por turno. Esta a&ccedil;&atilde;o n&atilde;o
-          pode ser usada para lan&ccedil;ar magias e ativar engenhocas.</p>
+          pode ser usada para lançar magias.</section><p>O alvo pode realizar
+          uma a&ccedil;&atilde;o padr&atilde;o ou de movimento adicional por
+          turno. Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para
+          lan&ccedil;ar magias e ativar engenhocas.</p>
         unidentified: ''
       source: T20, pg. 210 (JdA)
       ativacao:
@@ -1539,13 +1536,13 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Espada bastarda</section><p style="text-align:
-          justify;">Maior e mais pesada que a espada longa, esta arma &eacute;
-          tradicionalmente usada pelos cavaleiros de Bielefeld. A espada
-          bastarda &eacute; uma arma <em>adapt&aacute;vel</em>. &Eacute; muito
-          grande para ser usada com uma s&oacute; m&atilde;o sem treinamento
-          especial; por isso &eacute; uma arma ex&oacute;tica. Ela pode ser
-          usada como uma arma marcial de duas m&atilde;os.</p>
+          <section class="secret">Espada bastarda</section><p>Maior e mais
+          pesada que a espada longa, esta arma &eacute; tradicionalmente usada
+          pelos cavaleiros de Bielefeld. A espada bastarda &eacute; uma arma
+          <em>adapt&aacute;vel</em>. &Eacute; muito grande para ser usada com
+          uma s&oacute; m&atilde;o sem treinamento especial; por isso &eacute;
+          uma arma ex&oacute;tica. Ela pode ser usada como uma arma marcial de
+          duas m&atilde;os.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 147 (JdA)
@@ -1674,14 +1671,14 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">A mais forte e pesada das armaduras,
-          formada por placas de metal forjadas e encaixadas de modo a cobrir o
-          corpo inteiro. Inclui manoplas e grevas (luvas e botas metálicas,
-          respectivamente), um elmo com viseira e uma túnica acolchoada para ser
-          usada sob as placas. Correias e fivelas distribuem o peso da armadura
-          pelo corpo inteiro. </p><p style="text-align:justify;">Esta armadura
-          precisa ser feita sob medida para cada usuário; um ferreiro cobra T$
-          200 para adaptar uma armadura completa a um novo usuário.</p>
+          <p>A mais forte e pesada das armaduras, formada por placas de metal
+          forjadas e encaixadas de modo a cobrir o corpo inteiro. Inclui
+          manoplas e grevas (luvas e botas metálicas, respectivamente), um elmo
+          com viseira e uma túnica acolchoada para ser usada sob as placas.
+          Correias e fivelas distribuem o peso da armadura pelo corpo inteiro.
+          </p><p>Esta armadura precisa ser feita sob medida para cada usuário;
+          um ferreiro cobra T$ 200 para adaptar uma armadura completa a um novo
+          usuário.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: true

@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; possui um esp&iacute;rito
-      elemental preso em seu corpo. Escolha entre agua (frio), ar(eletricidade),
-      fogo (fogo) e terra (&aacute;cido). Voc&ecirc; &eacute; imune a dano desse
-      tipo. Se fosse sofrer dano m&aacute;gico desse tipo, em vez disso cura PV
-      em quantidade igual &agrave; metade do dano. Por exemplo, se um golem com
+      <p>Voc&ecirc; possui um esp&iacute;rito elemental preso em seu corpo.
+      Escolha entre agua (frio), ar(eletricidade), fogo (fogo) e terra
+      (&aacute;cido). Voc&ecirc; &eacute; imune a dano desse tipo. Se fosse
+      sofrer dano m&aacute;gico desse tipo, em vez disso cura PV em quantidade
+      igual &agrave; metade do dano. Por exemplo, se um golem com
       esp&iacute;rito elemental de fogo &eacute; atingido por uma&nbsp;<em>Bola
       de Fogo</em>&nbsp;que causa 30 pontos de dano, em vez de sofrer esse dano,
       ele recupera 15 PV.&nbsp;</p>

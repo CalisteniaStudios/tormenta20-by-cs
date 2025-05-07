@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/bolas-malabarista.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;"><strong>[Item de
-      Origem]</strong>&nbsp;<br>+1 em Atua&ccedil;&atilde;o</p>
+      <p><strong>[Item de Origem]</strong>&nbsp;<br>+1 em
+      Atua&ccedil;&atilde;o</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 90 (JdA)

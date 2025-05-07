@@ -423,13 +423,12 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Adaga</section><p style="text-align:
-          justify;">Esta faca afiada &eacute; usada por muitos habitantes
-          adultos do Reinado, embora seja favorita de ladr&otilde;es e
-          assassinos, por ser facilmente escondida (fornece +5 em testes de
-          Ladinagem para ocult&aacute;-la). Quando ataca com uma adaga,
-          voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos testes de
-          ataque. Uma adaga pode ser arremessada.</p>
+          <section class="secret">Adaga</section><p>Esta faca afiada &eacute;
+          usada por muitos habitantes adultos do Reinado, embora seja favorita
+          de ladr&otilde;es e assassinos, por ser facilmente escondida (fornece
+          +5 em testes de Ladinagem para ocult&aacute;-la). Quando ataca com uma
+          adaga, voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos
+          testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -812,12 +811,12 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">A arma fornece um b&ocirc;nus de +1
-          nos testes de ataque e rolagens de dano e &eacute; considerada
-          m&aacute;gica (n&atilde;o cumulativo com b&ocirc;nus de encantos).
-          Caso voc&ecirc; esteja empunhando a arma, pode usar seu atributo-chave
-          de magias em vez do atributo original nos testes de ataque (n&atilde;o
-          cumulativo com efeitos que somam este atributo).</p>
+          <p>A arma fornece um b&ocirc;nus de +1 nos testes de ataque e rolagens
+          de dano e &eacute; considerada m&aacute;gica (n&atilde;o cumulativo
+          com b&ocirc;nus de encantos). Caso voc&ecirc; esteja empunhando a
+          arma, pode usar seu atributo-chave de magias em vez do atributo
+          original nos testes de ataque (n&atilde;o cumulativo com efeitos que
+          somam este atributo).</p>
         unidentified: ''
       source: T20, pg. 181 (JdA)
       ativacao:
@@ -1003,34 +1002,30 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Voc&ecirc; d&aacute; uma ordem
-          irresist&iacute;vel, que o alvo deve ser capaz de ouvir (mas
-          n&atilde;o precisa entender). Se falhar na resist&ecirc;ncia, ele deve
-          obedecer ao comando em seu pr&oacute;prio turno da melhor maneira
-          poss&iacute;vel. Escolha um dos efeitos.</p>
+          <p>Voc&ecirc; d&aacute; uma ordem irresist&iacute;vel, que o alvo deve
+          ser capaz de ouvir (mas n&atilde;o precisa entender). Se falhar na
+          resist&ecirc;ncia, ele deve obedecer ao comando em seu pr&oacute;prio
+          turno da melhor maneira poss&iacute;vel. Escolha um dos efeitos.</p>
 
-          <p style="text-align: justify;"><em>Fuja:</em> o alvo gasta seu turno
-          se afastando de voc&ecirc; (usando todas as suas
-          a&ccedil;&otilde;es).</p>
+          <p><em>Fuja:</em> o alvo gasta seu turno se afastando de voc&ecirc;
+          (usando todas as suas a&ccedil;&otilde;es).</p>
 
-          <p style="text-align: justify;"><em>Largue:</em> o alvo solta
-          quaisquer itens que esteja segurando e n&atilde;o pode peg&aacute;-los
-          novamente at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno. Como
-          esta &eacute; uma a&ccedil;&atilde;o livre, ele ainda pode executar
-          outras a&ccedil;&otilde;es (exceto pegar aquilo que largou).</p>
+          <p><em>Largue:</em> o alvo solta quaisquer itens que esteja segurando
+          e n&atilde;o pode peg&aacute;-los novamente at&eacute; o in&iacute;cio
+          de seu pr&oacute;ximo turno. Como esta &eacute; uma a&ccedil;&atilde;o
+          livre, ele ainda pode executar outras a&ccedil;&otilde;es (exceto
+          pegar aquilo que largou).</p>
 
-          <p style="text-align: justify;"><em>Pare:</em> o alvo fica pasmo (uma
-          vez por cena).</p>
+          <p><em>Pare:</em> o alvo fica pasmo (uma vez por cena).</p>
 
-          <p style="text-align: justify;"><em>Senta:</em> com uma
-          a&ccedil;&atilde;o livre, o alvo senta no ch&atilde;o (se estava
-          pendurado ou voando, desce at&eacute; o ch&atilde;o). Ele pode fazer
-          outras a&ccedil;&otilde;es, mas n&atilde;o se levantar at&eacute; o
-          in&iacute;cio de seu pr&oacute;ximo turno.</p>
+          <p><em>Senta:</em> com uma a&ccedil;&atilde;o livre, o alvo senta no
+          ch&atilde;o (se estava pendurado ou voando, desce at&eacute; o
+          ch&atilde;o). Ele pode fazer outras a&ccedil;&otilde;es, mas
+          n&atilde;o se levantar at&eacute; o in&iacute;cio de seu
+          pr&oacute;ximo turno.</p>
 
-          <p style="text-align: justify;"><em>Venha:</em> o alvo gasta seu turno
-          se aproximando de voc&ecirc; (usando todas as suas
-          a&ccedil;&otilde;es).</p>
+          <p><em>Venha:</em> o alvo gasta seu turno se aproximando de voc&ecirc;
+          (usando todas as suas a&ccedil;&otilde;es).</p>
         unidentified: ''
       source: T20, pg. 184 (JdA)
       ativacao:
@@ -1314,8 +1309,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Voc&ecirc; canaliza energia positiva
-          que recupera 2d8+2 pontos de vida na criatura tocada.</p>
+          <p>Voc&ecirc; canaliza energia positiva que recupera 2d8+2 pontos de
+          vida na criatura tocada.</p>
         unidentified: ''
       source: T20, pg. 189 (JdA)
       ativacao:
@@ -1715,15 +1710,15 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O alvo emana sombras em uma
-          &aacute;rea com 6m de raio. Criaturas dentro da &aacute;rea recebem
-          camuflagem leve por escurid&atilde;o leve. As sombras n&atilde;o podem
-          ser iluminadas por nenhuma fonte de luz natural. O objeto pode ser
-          guardado (em um bolso, por exemplo) para interromper a
-          escurid&atilde;o, que voltar&aacute; a funcionar caso o objeto seja
-          revelado. Se lan&ccedil;ar a magia num objeto de uma criatura
-          involunt&aacute;ria, ela tem direito a um teste de Vontade para
-          anul&aacute;-la. <em>Escurid&atilde;o</em> anula <em>Luz</em>.</p>
+          <p>O alvo emana sombras em uma &aacute;rea com 6m de raio. Criaturas
+          dentro da &aacute;rea recebem camuflagem leve por escurid&atilde;o
+          leve. As sombras n&atilde;o podem ser iluminadas por nenhuma fonte de
+          luz natural. O objeto pode ser guardado (em um bolso, por exemplo)
+          para interromper a escurid&atilde;o, que voltar&aacute; a funcionar
+          caso o objeto seja revelado. Se lan&ccedil;ar a magia num objeto de
+          uma criatura involunt&aacute;ria, ela tem direito a um teste de
+          Vontade para anul&aacute;-la. <em>Escurid&atilde;o</em> anula
+          <em>Luz</em>.</p>
         unidentified: ''
       source: T20, pg. 193 (JdA)
       ativacao:
@@ -1983,14 +1978,14 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Voc&ecirc; conjura um enxame de
-          criaturas a sua escolha, como besouros, gafanhotos, ratos, morcegos ou
-          serpentes. O enxame pode passar pelo espa&ccedil;o de outras criaturas
-          e n&atilde;o impede que outras criaturas entrem no espa&ccedil;o dele.
-          No final de seus turnos, o enxame causa 2d12 pontos de dano de corte a
-          qualquer criatura em seu espa&ccedil;o (Fortitude reduz &agrave;
-          metade). Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento
-          para mover o enxame 12m.</p>
+          <p>Voc&ecirc; conjura um enxame de criaturas a sua escolha, como
+          besouros, gafanhotos, ratos, morcegos ou serpentes. O enxame pode
+          passar pelo espa&ccedil;o de outras criaturas e n&atilde;o impede que
+          outras criaturas entrem no espa&ccedil;o dele. No final de seus
+          turnos, o enxame causa 2d12 pontos de dano de corte a qualquer
+          criatura em seu espa&ccedil;o (Fortitude reduz &agrave; metade).
+          Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para mover
+          o enxame 12m.</p>
         unidentified: ''
       source: T20, pg. 192 (JdA)
       ativacao:
@@ -2223,11 +2218,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">A &aacute;rea &eacute; coberta por
-          emana&ccedil;&otilde;es letais. Criaturas na &aacute;rea sofrem 5d6
-          pontos de dano de &aacute;cido e ficam enjoadas por 1 rodada. Se
-          passarem na resist&ecirc;ncia, sofrem metade do dano e n&atilde;o
-          ficam enjoadas.</p>
+          <p>A &aacute;rea &eacute; coberta por emana&ccedil;&otilde;es letais.
+          Criaturas na &aacute;rea sofrem 5d6 pontos de dano de &aacute;cido e
+          ficam enjoadas por 1 rodada. Se passarem na resist&ecirc;ncia, sofrem
+          metade do dano e n&atilde;o ficam enjoadas.</p>
         unidentified: ''
       source: T20, pg. 199 (JdA)
       ativacao:
@@ -2302,9 +2296,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">A mais robusta das armaduras leves,
-          formada por uma placa metálica que protege o peito e as costas, presa
-          sobre um casaco de couro.</p>
+          <p>A mais robusta das armaduras leves, formada por uma placa metálica
+          que protege o peito e as costas, presa sobre um casaco de couro.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: false
@@ -2369,9 +2362,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Tipicamente feito de madeira, este
-          escudo é amarrado no antebraço, deixando a mão livre. O usuário pode
-          carregar um objeto na mão do escudo, mas não manusear uma arma.</p>
+          <p>Tipicamente feito de madeira, este escudo é amarrado no antebraço,
+          deixando a mão livre. O usuário pode carregar um objeto na mão do
+          escudo, mas não manusear uma arma.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: false

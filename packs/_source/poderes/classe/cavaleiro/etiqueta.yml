@@ -89,12 +89,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 Diplomacia ou Nobreza
-      e pode gastar 1 PM para rolar novamente um teste rec&eacute;m realizado de
-      uma dessas per&iacute;cias.</p>
+      <p>Voc&ecirc; recebe +2 Diplomacia ou Nobreza e pode gastar 1 PM para
+      rolar novamente um teste rec&eacute;m realizado de uma dessas
+      per&iacute;cias.</p>
 
-      <p style="text-align: justify;">(Escolha um dos dois b&ocirc;nus e
-      desative o b&ocirc;nus descartado na aba de efeitos da ficha)</p>
+      <p>(Escolha um dos dois b&ocirc;nus e desative o b&ocirc;nus descartado na
+      aba de efeitos da ficha)</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

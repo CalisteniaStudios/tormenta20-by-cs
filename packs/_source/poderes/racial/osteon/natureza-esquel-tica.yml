@@ -9,13 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; &eacute; uma criatura do tipo
-      morto-vivo. Recebe vis&atilde;o no escuro e imunidade a efeitos de
-      cansa&ccedil;o, metab&oacute;licos, de trevas e de veneno. Al&eacute;m
-      disso, n&atilde;o precisa respirar, alimentar-se ou dormir. Por fim,
-      efeitos m&aacute;gicos de cura de luz causam dano a voc&ecirc; e
-      voc&ecirc; n&atilde;o se beneficia de itens da categoria
-      alimenta&ccedil;&atilde;o, mas dano de trevas recupera seus PV.</p>
+      <p>Voc&ecirc; &eacute; uma criatura do tipo morto-vivo. Recebe
+      vis&atilde;o no escuro e imunidade a efeitos de cansa&ccedil;o,
+      metab&oacute;licos, de trevas e de veneno. Al&eacute;m disso, n&atilde;o
+      precisa respirar, alimentar-se ou dormir. Por fim, efeitos m&aacute;gicos
+      de cura de luz causam dano a voc&ecirc; e voc&ecirc; n&atilde;o se
+      beneficia de itens da categoria alimenta&ccedil;&atilde;o, mas dano de
+      trevas recupera seus PV.</p>
     chat: ''
     unidentified: ''
   source: T20 - JdA, PG.29

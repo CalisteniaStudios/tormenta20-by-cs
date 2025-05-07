@@ -11,17 +11,15 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Escolha dois tipos de terreno entre os
-      tipos a seguir. Voc&ecirc; recebe os benef&iacute;cios dos tipos
-      escolhidos mesmo que n&atilde;o esteja neste terreno. Voc&ecirc; pode
-      escolher este poder outras vezes para terrenos diferentes.
-      <em>Pr&eacute;-requisitos:</em> treinado em Conhecimento, Fortitude e
-      Sobreviv&ecirc;ncia.</p>
+      <p>Escolha dois tipos de terreno entre os tipos a seguir. Voc&ecirc;
+      recebe os benef&iacute;cios dos tipos escolhidos mesmo que n&atilde;o
+      esteja neste terreno. Voc&ecirc; pode escolher este poder outras vezes
+      para terrenos diferentes. <em>Pr&eacute;-requisitos:</em> treinado em
+      Conhecimento, Fortitude e Sobreviv&ecirc;ncia.</p>
 
-      <p style="text-align: justify;"><strong>&Aacute;rtico.</strong> Voc&ecirc;
-      recebe resist&ecirc;ncia a frio 5 e pode gastar 1 PM para fazer uma arma
-      corpo a corpo que esteja empunhando causar +1d6 de dano por frio
-      at&eacute; o fim da cena.</p>
+      <p><strong>&Aacute;rtico.</strong> Voc&ecirc; recebe resist&ecirc;ncia a
+      frio 5 e pode gastar 1 PM para fazer uma arma corpo a corpo que esteja
+      empunhando causar +1d6 de dano por frio at&eacute; o fim da cena.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 12

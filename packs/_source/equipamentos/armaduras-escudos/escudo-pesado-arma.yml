@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode usar um escudo como uma arma
-      marcial, mas perde seu bônus na Defesa até o próximo turno.</p>
+      <p>Você pode usar um escudo como uma arma marcial, mas perde seu bônus na
+      Defesa até o próximo turno.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 152 (JdA)

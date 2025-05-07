@@ -59,12 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, voc&ecirc;
-      diminui o custo de todas as suas magias em &ndash;2 PM e aumenta a CD
-      delas em +2. Os b&ocirc;nus dobram (&ndash;4 PM e +4 na CD) se voc&ecirc;
-      estiver em terrenos naturais.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>No 20&ordm; n&iacute;vel, voc&ecirc; diminui o custo de todas as suas
+      magias em &ndash;2 PM e aumenta a CD delas em +2. Os b&ocirc;nus dobram
+      (&ndash;4 PM e +4 na CD) se voc&ecirc; estiver em terrenos naturais.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 63 (JdA)

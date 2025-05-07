@@ -57,9 +57,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um livro de tratados que aumentam a sua
-      compreens&atilde;o sobre uma escola de magia espec&iacute;fica. A CD para
-      resistir a suas magias arcanas dessa escola aumenta em +2.</p>
+      <p>Um livro de tratados que aumentam a sua compreens&atilde;o sobre uma
+      escola de magia espec&iacute;fica. A CD para resistir a suas magias
+      arcanas dessa escola aumenta em +2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

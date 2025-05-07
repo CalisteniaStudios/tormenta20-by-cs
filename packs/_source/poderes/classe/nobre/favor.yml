@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode usar sua influ&ecirc;ncia
-      para pedir favores a pessoas poderosas. Isso gasta 5 PM e uma hora de
-      conversa e bajula&ccedil;&atilde;o, ou mais, de acordo com o mestre, e
-      funciona como o uso persuas&atilde;o de
+      <p>Voc&ecirc; pode usar sua influ&ecirc;ncia para pedir favores a pessoas
+      poderosas. Isso gasta 5 PM e uma hora de conversa e
+      bajula&ccedil;&atilde;o, ou mais, de acordo com o mestre, e funciona como
+      o uso persuas&atilde;o de
       @UUID[JournalEntry.gPPLzgFvC0JKi5UE.JournalEntryPage.cPbZCkI3ApOFMTnL]{Diplomacia}
       (veja a p&aacute;gina 118). Por&eacute;m, voc&ecirc; pode pedir favores
       ainda mais caros, dif&iacute;ceis ou perigosos &mdash; um convite para uma

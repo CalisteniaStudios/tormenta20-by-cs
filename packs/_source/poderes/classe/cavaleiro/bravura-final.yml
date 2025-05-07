@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, sua virtude
-      vence a morte. Se for reduzido a 0 ou menos PV, pode gastar 3 PM para
-      continuar consciente e de p&eacute;. Esta habilidade tem
-      dura&ccedil;&atilde;o sustentada. Quando se encerra, voc&ecirc; sofre os
-      efeitos de seus PV atuais, podendo cair inconsciente ou mesmo morrer.</p>
+      <p>No 20&ordm; n&iacute;vel, sua virtude vence a morte. Se for reduzido a
+      0 ou menos PV, pode gastar 3 PM para continuar consciente e de p&eacute;.
+      Esta habilidade tem dura&ccedil;&atilde;o sustentada. Quando se encerra,
+      voc&ecirc; sofre os efeitos de seus PV atuais, podendo cair inconsciente
+      ou mesmo morrer.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 55 (JdA)

@@ -62,11 +62,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sempre que faz um ataque corpo a corpo,
-      voc&ecirc; pode sofrer &ndash;2 no teste de ataque para receber +5 na
-      rolagem de dano.</p>
+      <p>Sempre que faz um ataque corpo a corpo, voc&ecirc; pode sofrer &ndash;2
+      no teste de ataque para receber +5 na rolagem de dano.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> For 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> For 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 124 (JdA)

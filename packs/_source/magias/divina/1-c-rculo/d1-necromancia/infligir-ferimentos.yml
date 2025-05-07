@@ -195,10 +195,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; canaliza energia negativa
-      contra um alvo, causando 2d8+2 pontos de dano de trevas (ou curando 2d8+2
-      PV, se for um morto-vivo). <em>Infligir Ferimentos</em> anula <em>Curar
-      Ferimentos</em>.</p>
+      <p>Voc&ecirc; canaliza energia negativa contra um alvo, causando 2d8+2
+      pontos de dano de trevas (ou curando 2d8+2 PV, se for um morto-vivo).
+      <em>Infligir Ferimentos</em> anula <em>Curar Ferimentos</em>.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 195 (JdA)

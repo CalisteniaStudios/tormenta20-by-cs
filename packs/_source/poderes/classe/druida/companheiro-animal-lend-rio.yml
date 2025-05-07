@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha um de seus companheiros animais.
-      Esse animal passa a dobrar seus b&ocirc;nus concedidos.</p>
+      <p>Escolha um de seus companheiros animais. Esse animal passa a dobrar
+      seus b&ocirc;nus concedidos.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em>
-      Companheiro Animal, 18&ordm; n&iacute;vel de druida.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Companheiro Animal, 18&ordm;
+      n&iacute;vel de druida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

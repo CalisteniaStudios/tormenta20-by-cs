@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este conjunto de ferraduras pode ser fixado
-      nos cascos de um cavalo (ou outro aliado montaria, a critério do mestre)
-      para aumentar seu deslocamento em +3m.</p>
+      <p>Este conjunto de ferraduras pode ser fixado nos cascos de um cavalo (ou
+      outro aliado montaria, a critério do mestre) para aumentar seu
+      deslocamento em +3m.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 344 (JdA)

@@ -6,24 +6,23 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Para os cidad&atilde;os comuns que vivem
-      nas grandes cidades, a vis&atilde;o de um vigilante mascarado &eacute; um
-      al&iacute;vio e uma ben&ccedil;&atilde;o.</p>
+      <p>Para os cidad&atilde;os comuns que vivem nas grandes cidades, a
+      vis&atilde;o de um vigilante mascarado &eacute; um al&iacute;vio e uma
+      ben&ccedil;&atilde;o.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">No in&iacute;cio de uma
-      cena, ou sempre que reduzir um inimigo a 0 PV com um ataque corpo a corpo,
-      se estiver usando seu traje das sombras voc&ecirc; pode gastar uma
-      rea&ccedil;&atilde;o e 3 PM para discursar e inspirar seus aliados em
-      alcance curto com suas palavras. Voc&ecirc; e seus aliados recebem +2 na
-      Defesa e em testes de resist&ecirc;ncia at&eacute; o fim da cena.
-      Al&eacute;m disso, a pr&oacute;xima habilidade que cada aliado usar nesta
-      cena tem seu custo reduzido em &ndash;1 PM.</p>
+      <p class="MsoNormal">No in&iacute;cio de uma cena, ou sempre que reduzir
+      um inimigo a 0 PV com um ataque corpo a corpo, se estiver usando seu traje
+      das sombras voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 3 PM para
+      discursar e inspirar seus aliados em alcance curto com suas palavras.
+      Voc&ecirc; e seus aliados recebem +2 na Defesa e em testes de
+      resist&ecirc;ncia at&eacute; o fim da cena. Al&eacute;m disso, a
+      pr&oacute;xima habilidade que cada aliado usar nesta cena tem seu custo
+      reduzido em &ndash;1 PM.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos:</em> treinado em Diplomacia,
-      C&oacute;digo do Her&oacute;i, Traje das Sombras.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos:</em> treinado em
+      Diplomacia, C&oacute;digo do Her&oacute;i, Traje das Sombras.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 31-32

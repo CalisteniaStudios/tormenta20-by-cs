@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um saco de couro com 20 pedras polidas.
-      Recarregar uma funda com uma pedra de qualquer tipo &eacute; uma
-      a&ccedil;&atilde;o de movimento.</p>
+      <p>Um saco de couro com 20 pedras polidas. Recarregar uma funda com uma
+      pedra de qualquer tipo &eacute; uma a&ccedil;&atilde;o de movimento.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 151 (JdA)

@@ -53,11 +53,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
-      Investiga&ccedil;&atilde;o e soma seu b&ocirc;nus de Intelig&ecirc;ncia em
-      Intui&ccedil;&atilde;o.</p>
+      <p>Voc&ecirc; recebe +2 em Investiga&ccedil;&atilde;o e soma seu
+      b&ocirc;nus de Intelig&ecirc;ncia em Intui&ccedil;&atilde;o.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Int 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Int 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

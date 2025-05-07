@@ -109,12 +109,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para analisar uma criatura em
-      alcance curto. At&eacute; o fim da cena, voc&ecirc; recebe +1d4 nas
-      rolagens de dano contra essa criatura. A cada quatro n&iacute;veis,
-      voc&ecirc; pode gastar +1 PM para aumentar o b&ocirc;nus de dano (veja a
-      tabela da classe).</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      analisar uma criatura em alcance curto. At&eacute; o fim da cena,
+      voc&ecirc; recebe +1d4 nas rolagens de dano contra essa criatura. A cada
+      quatro n&iacute;veis, voc&ecirc; pode gastar +1 PM para aumentar o
+      b&ocirc;nus de dano (veja a tabela da classe).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

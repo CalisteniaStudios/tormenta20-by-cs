@@ -91,13 +91,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; sopra ar g&eacute;lido que
-      causa 4d6 pontos de dano de frio (Fortitude reduz &agrave; metade).
-      Criaturas de tamanho M&eacute;dio ou menor que falhem na resist&ecirc;ncia
-      ficam ca&iacute;das e s&atilde;o empurradas 6m na dire&ccedil;&atilde;o
-      oposta. Se houver uma parede ou outro objeto s&oacute;lido (mas n&atilde;o
-      uma criatura) no caminho, a criatura para de se mover, mas sofre +2d6
-      pontos de dano de impacto.</p>
+      <p>Voc&ecirc; sopra ar g&eacute;lido que causa 4d6 pontos de dano de frio
+      (Fortitude reduz &agrave; metade). Criaturas de tamanho M&eacute;dio ou
+      menor que falhem na resist&ecirc;ncia ficam ca&iacute;das e s&atilde;o
+      empurradas 6m na dire&ccedil;&atilde;o oposta. Se houver uma parede ou
+      outro objeto s&oacute;lido (mas n&atilde;o uma criatura) no caminho, a
+      criatura para de se mover, mas sofre +2d6 pontos de dano de impacto.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 207 (JdA)

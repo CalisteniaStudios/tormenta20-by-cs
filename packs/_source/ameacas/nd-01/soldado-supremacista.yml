@@ -122,13 +122,13 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Espada bastarda</section><p style="text-align:
-          justify;">Maior e mais pesada que a espada longa, esta arma &eacute;
-          tradicionalmente usada pelos cavaleiros de Bielefeld. A espada
-          bastarda &eacute; uma arma <em>adapt&aacute;vel</em>. &Eacute; muito
-          grande para ser usada com uma s&oacute; m&atilde;o sem treinamento
-          especial; por isso &eacute; uma arma ex&oacute;tica. Ela pode ser
-          usada como uma arma marcial de duas m&atilde;os.</p>
+          <section class="secret">Espada bastarda</section><p>Maior e mais
+          pesada que a espada longa, esta arma &eacute; tradicionalmente usada
+          pelos cavaleiros de Bielefeld. A espada bastarda &eacute; uma arma
+          <em>adapt&aacute;vel</em>. &Eacute; muito grande para ser usada com
+          uma s&oacute; m&atilde;o sem treinamento especial; por isso &eacute;
+          uma arma ex&oacute;tica. Ela pode ser usada como uma arma marcial de
+          duas m&atilde;os.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 147 (JdA)
@@ -256,9 +256,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Besta pesada</section><p style="text-align:
-          justify;">Vers&atilde;o maior e mais potente da besta leve. Recarregar
-          uma besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
+          <section class="secret">Besta pesada</section><p>Vers&atilde;o maior e
+          mais potente da besta leve. Recarregar uma besta pesada &eacute; uma
+          a&ccedil;&atilde;o padr&atilde;o.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -387,9 +387,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Normalmente feito de aço, este escudo é
-          preso ao antebraço  e  também  deve  ser  empunhado com firmeza,
-          impedindo o usuário de usar aquela mão.</p>
+          <p>Normalmente feito de aço, este escudo é preso ao antebraço  e 
+          também  deve  ser  empunhado com firmeza, impedindo o usuário de usar
+          aquela mão.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: true
@@ -453,9 +453,7 @@ items:
     flags: {}
     system:
       description:
-        value: >-
-          <p style="text-align:justify;">Uma cota de malha reforçada com placas
-          de metal.</p>
+        value: <p>Uma cota de malha reforçada com placas de metal.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: true
@@ -520,10 +518,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma aljava com 20 setas de madeira.
-          Recarregar uma besta leve &eacute; uma a&ccedil;&atilde;o de
-          movimento; j&aacute; recarregar uma besta pesada &eacute; uma
-          a&ccedil;&atilde;o padr&atilde;o.</p>
+          <p>Uma aljava com 20 setas de madeira. Recarregar uma besta leve
+          &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma
+          besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
       source: T20, pg. 151 (JdA)
       carregado: true

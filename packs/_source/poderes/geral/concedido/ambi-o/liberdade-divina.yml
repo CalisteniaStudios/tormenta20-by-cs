@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 2 PM para receber
-      imunidade a efeitos de movimento por uma rodada.</p>
+      <p>Voc&ecirc; pode gastar 2 PM para receber imunidade a efeitos de
+      movimento por uma rodada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

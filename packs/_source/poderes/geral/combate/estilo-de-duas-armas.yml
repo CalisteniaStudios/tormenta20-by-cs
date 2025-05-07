@@ -59,15 +59,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver usando duas armas (e pelo menos
-      uma delas for leve) e fizer a a&ccedil;&atilde;o agredir, voc&ecirc; pode
-      fazer dois ataques, um com cada arma. Se fizer isso, sofre &ndash;2 em
-      todos os testes de ataque at&eacute; o seu pr&oacute;ximo turno. Se
-      possuir Ambidestria,em vez disso n&atilde;o sofre essa penalidade para
-      us&aacute;-lo.</p>
+      <p>Se estiver usando duas armas (e pelo menos uma delas for leve) e fizer
+      a a&ccedil;&atilde;o agredir, voc&ecirc; pode fazer dois ataques, um com
+      cada arma. Se fizer isso, sofre &ndash;2 em todos os testes de ataque
+      at&eacute; o seu pr&oacute;ximo turno. Se possuir Ambidestria,em vez disso
+      n&atilde;o sofre essa penalidade para us&aacute;-lo.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Des 2,
-      treinado em Luta.</p>
+      <p><em>Pr&eacute;-requisito:</em> Des 2, treinado em Luta.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

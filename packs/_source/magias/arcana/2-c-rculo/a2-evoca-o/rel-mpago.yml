@@ -107,9 +107,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você dispara um poderoso raio que causa 6d6
-      pontos de dano de eletricidade em todas as criaturas e objetos livres na
-      área.</p>
+      <p>Você dispara um poderoso raio que causa 6d6 pontos de dano de
+      eletricidade em todas as criaturas e objetos livres na área.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 203 (JdA)

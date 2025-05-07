@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/veleiro.webp
 system:
   description:
     value: >-
-      <p><span class="fontstyle0">Com tr&ecirc;s mastros, &eacute; o
-      t&iacute;pico navio de viagem, muito popular entre mercadores.</span> </p>
+      <p><span>Com tr&ecirc;s mastros, &eacute; o t&iacute;pico navio de viagem,
+      muito popular entre mercadores.</span> </p>
     chat: ''
     unidentified: ''
   source: T20, pg. 163 (JdA)

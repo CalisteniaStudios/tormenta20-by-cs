@@ -49,8 +49,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe +2 em Fortitude e sua
-      recuperação de PV e PM nunca é inferior ao seu nível.</p>
+      <p>Você recebe +2 em Fortitude e sua recuperação de PV e PM nunca é
+      inferior ao seu nível.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 23 (JdA)

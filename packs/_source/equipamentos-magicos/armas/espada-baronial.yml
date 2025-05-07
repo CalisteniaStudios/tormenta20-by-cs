@@ -9,13 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Estas espadas longas de guarda reta eram
-      dadas por reis-imperadores a vassalos dignos. Uma espada baronial fornece
-      +1 em testes de ataque e rolagens de dano. Este bônus aumenta em +1 se
-      você possuir um código de conduta (de honra, do herói...), for devoto da
-      Justiça ou for treinado em Nobreza. Os bônus são cumulativos — um
-      personagem com um código de conduta, devoto da Justiça e treinado em
-      Nobreza recebe +4 em ataque e dano.</p>
+      <p>Estas espadas longas de guarda reta eram dadas por reis-imperadores a
+      vassalos dignos. Uma espada baronial fornece +1 em testes de ataque e
+      rolagens de dano. Este bônus aumenta em +1 se você possuir um código de
+      conduta (de honra, do herói...), for devoto da Justiça ou for treinado em
+      Nobreza. Os bônus são cumulativos — um personagem com um código de
+      conduta, devoto da Justiça e treinado em Nobreza recebe +4 em ataque e
+      dano.</p>
     chat: ''
     unidentified: ''
   source: ''

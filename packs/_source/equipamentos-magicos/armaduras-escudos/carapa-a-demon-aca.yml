@@ -133,24 +133,22 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>armadura completa macabra
-      reforçada guardiã</strong> é forjada para fazer com que seu usuário pareça
-      um demônio — o elmo tem o formato de uma cabeça demoníaca com chifres e o
-      usuário enxerga através da boca aberta e repleta de dentes. Se você for
-      devoto de uma divindade do Mal, a armadura exala energia negativa, fazendo
-      os seus ataques corpo a corpo causarem +1d8 de dano de trevas.</p><p
-      style="text-align:justify;"><b>Reforçada</b> Placas adicionais, uma camada
-      extra de cota de malha ou acolchoamento, proteção dobrada nas juntas e
-      áreas vulneráveis... O bônus na Defesa e a penalidade de armadura de uma
-      armadura ou escudo com esta modificação aumentam em +1. Uma armadura não
-      pode ser reforçada e delicada.</p><p
-      style="text-align:justify;"><b>Guardião</b> O item emite um campo de força
-      que desvia ataques. O bônus na Defesa do item aumenta em +4.
-      Pré-requisito:defensor.</p><p style="text-align:justify;">Macabro. Um item
-      macabro é pintado com sangue seco, esculpido na forma de uma caveira ou
-      decorado com pedaços de orelhas, dedos e olhos. Essa aparência assustadora
-      fornece um bônus de +2 em testes de Intimidação, mas impõe uma penalidade
-      de –2 em testes de Diplomacia.</p>
+      <p>Esta <strong>armadura completa macabra reforçada guardiã</strong> é
+      forjada para fazer com que seu usuário pareça um demônio — o elmo tem o
+      formato de uma cabeça demoníaca com chifres e o usuário enxerga através da
+      boca aberta e repleta de dentes. Se você for devoto de uma divindade do
+      Mal, a armadura exala energia negativa, fazendo os seus ataques corpo a
+      corpo causarem +1d8 de dano de trevas.</p><p><b>Reforçada</b> Placas
+      adicionais, uma camada extra de cota de malha ou acolchoamento, proteção
+      dobrada nas juntas e áreas vulneráveis... O bônus na Defesa e a penalidade
+      de armadura de uma armadura ou escudo com esta modificação aumentam em +1.
+      Uma armadura não pode ser reforçada e delicada.</p><p><b>Guardião</b> O
+      item emite um campo de força que desvia ataques. O bônus na Defesa do item
+      aumenta em +4. Pré-requisito:defensor.</p><p>Macabro. Um item macabro é
+      pintado com sangue seco, esculpido na forma de uma caveira ou decorado com
+      pedaços de orelhas, dedos e olhos. Essa aparência assustadora fornece um
+      bônus de +2 em testes de Intimidação, mas impõe uma penalidade de –2 em
+      testes de Diplomacia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 340 (JdA)

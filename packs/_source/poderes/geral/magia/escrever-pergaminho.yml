@@ -9,15 +9,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode usar a per&iacute;cia
-      Of&iacute;cio (escriba) para&nbsp; fabricar pergaminhos com magias que
-      conhe&ccedil;a. Veja a p&aacute;gina 121 para a regra de fabricar itens e
-      as p&aacute;ginas 333 e 341 para as regras de pergaminhos. De acordo com o
-      mestre, voc&ecirc; pode usar objetos similares, como runas, tabuletas de
-      argila etc.</p>
+      <p>Voc&ecirc; pode usar a per&iacute;cia Of&iacute;cio (escriba)
+      para&nbsp; fabricar pergaminhos com magias que conhe&ccedil;a. Veja a
+      p&aacute;gina 121 para a regra de fabricar itens e as p&aacute;ginas 333 e
+      341 para as regras de pergaminhos. De acordo com o mestre, voc&ecirc; pode
+      usar objetos similares, como runas, tabuletas de argila etc.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> habilidade
-      de classe Magias, treinado em <a class="content-link" draggable="true"
+      <p><em>Pr&eacute;-requisitos:</em> habilidade de classe Magias, treinado
+      em <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.pericias.iviKBc19dNgZYBJ0"
       data-id="iviKBc19dNgZYBJ0" data-type="JournalEntry"
       data-pack="tormenta20.pericias" data-tooltip="Registro de

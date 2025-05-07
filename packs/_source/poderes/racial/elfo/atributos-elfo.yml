@@ -53,9 +53,7 @@ effects:
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">Intelig&ecirc;ncia +2, Destreza +1,
-      Constitui&ccedil;&atilde;o -1.</p>
+    value: <p>Intelig&ecirc;ncia +2, Destreza +1, Constitui&ccedil;&atilde;o -1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 22 (JdA)

@@ -6,15 +6,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se uma criatura que tenha sofrido dano de
-      sua mordida esta cena for reduzida a 0 ou menos PV, ela explode em chuva
-      c&aacute;ustica, morrendo e causando 4d4 pontos de dano de &aacute;cido em
-      criaturas adjacentes. Para cada dois outros poderes de Tormenta que
-      voc&ecirc; possui, o dano aumenta em 2d4. Voc&ecirc; &eacute; imune a este
-      dano.</p>
+      <p>Se uma criatura que tenha sofrido dano de sua mordida esta cena for
+      reduzida a 0 ou menos PV, ela explode em chuva c&aacute;ustica, morrendo e
+      causando 4d4 pontos de dano de &aacute;cido em criaturas adjacentes. Para
+      cada dois outros poderes de Tormenta que voc&ecirc; possui, o dano aumenta
+      em 2d4. Voc&ecirc; &eacute; imune a este dano.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Dentes
-      Afiados.&nbsp;</p>
+      <p><em>Pr&eacute;-requisito:</em> Dentes Afiados.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

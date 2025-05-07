@@ -54,8 +54,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Constitui&ccedil;&atilde;o +2,
-      For&ccedil;a +1, Intelig&ecirc;ncia -1.</p>
+      <p>Constitui&ccedil;&atilde;o +2, For&ccedil;a +1, Intelig&ecirc;ncia
+      -1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 31 (JdA)

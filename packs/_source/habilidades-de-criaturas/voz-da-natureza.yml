@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/poderes/ameacas/voz-da-natureza.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O centauro est&aacute; sempre sob efeito
-      da magia Voz Divina, apenas para falar com animais.</p>
+      <p>O centauro est&aacute; sempre sob efeito da magia Voz Divina, apenas
+      para falar com animais.</p>
     unidentified: ''
   source: ''
   ativacao:

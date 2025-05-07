@@ -92,14 +92,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para
-      transformar seus dentes em presas afiadas at&eacute; o fim da cena.
-      Voc&ecirc; recebe uma arma natural de mordida (dano 1d6, cr&iacute;tico
-      x2, perfura&ccedil;&atilde;o). Uma vez por rodada, quando usa a
-      a&ccedil;&atilde;o agredir com outra arma, voc&ecirc; pode gastar 1 PM
-      para fazer um ataque corpo a corpo extra com a mordida. Se j&aacute;
-      possuir outro ataque natural de mordida, em vez disso, o dano desse ataque
-      aumenta em dois passos.</p>
+      <p>Voc&ecirc; pode gastar 1 PM para transformar seus dentes em presas
+      afiadas at&eacute; o fim da cena. Voc&ecirc; recebe uma arma natural de
+      mordida (dano 1d6, cr&iacute;tico x2, perfura&ccedil;&atilde;o). Uma vez
+      por rodada, quando usa a a&ccedil;&atilde;o agredir com outra arma,
+      voc&ecirc; pode gastar 1 PM para fazer um ataque corpo a corpo extra com a
+      mordida. Se j&aacute; possuir outro ataque natural de mordida, em vez
+      disso, o dano desse ataque aumenta em dois passos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>maça formidável</strong> é
-      feita com um osso e um crânio e permite que você lance a magia Amedrontar.
-      Caso já conheça a magia, o custo para lançá-la diminui em –1 PM.</p>
+      <p>Esta <strong>maça formidável</strong> é feita com um osso e um crânio e
+      permite que você lance a magia Amedrontar. Caso já conheça a magia, o
+      custo para lançá-la diminui em –1 PM.</p>
     chat: ''
     unidentified: ''
   source: ''

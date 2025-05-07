@@ -109,15 +109,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua arte mescla esgrima e magia,
-      transformando dan&ccedil;a em golpes. Enquanto estiver sob efeito de
-      Inspira&ccedil;&atilde;o, voc&ecirc; pode substituir testes de Luta por
-      testes de Atua&ccedil;&atilde;o, mas apenas se estiver empunhando armas
-      leves ou de uma m&atilde;o.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Sua arte mescla esgrima e magia, transformando dan&ccedil;a em golpes.
+      Enquanto estiver sob efeito de Inspira&ccedil;&atilde;o, voc&ecirc; pode
+      substituir testes de Luta por testes de Atua&ccedil;&atilde;o, mas apenas
+      se estiver empunhando armas leves ou de uma m&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

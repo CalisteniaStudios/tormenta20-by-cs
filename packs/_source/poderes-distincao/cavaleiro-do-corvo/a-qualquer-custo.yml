@@ -14,39 +14,36 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Voc&ecirc; pode declarar que cumprir um
-      determinado objetivo &eacute; sua miss&atilde;o. Esse objetivo deve ser
-      algo espec&iacute;fico, como &ldquo;eliminar o drag&atilde;o da Floresta
-      dos Olhos&rdquo; ou &ldquo;resgatar o sacerdote capturado pelos bandidos
-      de estrada&rdquo;. A prepara&ccedil;&atilde;o para a miss&atilde;o leva um
-      dia e exige o gasto de T$ 50 em materiais e servi&ccedil;os (mapas,
-      informantes etc). Ao fim deste tempo, voc&ecirc; recebe um dos
-      benef&iacute;cios abaixo. Para cada outros dois poderes de Cavaleiro do
-      Corvo, voc&ecirc; pode gastar mais T$ 50 ao se preparar para receber um
-      benef&iacute;cio adicional diferente.</p>
+      <p>Voc&ecirc; pode declarar que cumprir um determinado objetivo &eacute;
+      sua miss&atilde;o. Esse objetivo deve ser algo espec&iacute;fico, como
+      &ldquo;eliminar o drag&atilde;o da Floresta dos Olhos&rdquo; ou
+      &ldquo;resgatar o sacerdote capturado pelos bandidos de estrada&rdquo;. A
+      prepara&ccedil;&atilde;o para a miss&atilde;o leva um dia e exige o gasto
+      de T$ 50 em materiais e servi&ccedil;os (mapas, informantes etc). Ao fim
+      deste tempo, voc&ecirc; recebe um dos benef&iacute;cios abaixo. Para cada
+      outros dois poderes de Cavaleiro do Corvo, voc&ecirc; pode gastar mais T$
+      50 ao se preparar para receber um benef&iacute;cio adicional
+      diferente.</p>
 
       <ul>
 
-      <li style="text-align: justify;"><strong>Busca e
-      Destrui&ccedil;&atilde;o.</strong> Uma de suas armas empunhadas se torna
-      uma arma anticriatura contra um tipo de criatura a sua escolha relacionada
-      &agrave; miss&atilde;o.</li>
+      <li><strong>Busca e Destrui&ccedil;&atilde;o.</strong> Uma de suas armas
+      empunhadas se torna uma arma anticriatura contra um tipo de criatura a sua
+      escolha relacionada &agrave; miss&atilde;o.</li>
 
-      <li style="text-align: justify;"><strong>Guerra n&atilde;o
-      Convencional.</strong> Voc&ecirc; se torna treinado em uma per&iacute;cia
-      a sua escolha.</li>
+      <li><strong>Guerra n&atilde;o Convencional.</strong> Voc&ecirc; se torna
+      treinado em uma per&iacute;cia a sua escolha.</li>
 
-      <li style="text-align: justify;"><strong>Intelig&ecirc;ncia.</strong>
-      Voc&ecirc; pode usar Guerra no lugar de Conhecimento e
-      Investiga&ccedil;&atilde;o para assuntos relacionados &agrave;
-      miss&atilde;o.</li>
+      <li><strong>Intelig&ecirc;ncia.</strong> Voc&ecirc; pode usar Guerra no
+      lugar de Conhecimento e Investiga&ccedil;&atilde;o para assuntos
+      relacionados &agrave; miss&atilde;o.</li>
 
       </ul>
 
-      <p style="text-align: justify;">Voc&ecirc; s&oacute; pode ter uma
-      miss&atilde;o de cada vez. Os efeitos deste poder terminam quando a
-      miss&atilde;o for conclu&iacute;da ou voc&ecirc; desistir dela.
-      <em>Pr&eacute;-requisito:</em> N&atilde;o Tenho Nome.</p>
+      <p>Voc&ecirc; s&oacute; pode ter uma miss&atilde;o de cada vez. Os efeitos
+      deste poder terminam quando a miss&atilde;o for conclu&iacute;da ou
+      voc&ecirc; desistir dela. <em>Pr&eacute;-requisito:</em> N&atilde;o Tenho
+      Nome.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 17

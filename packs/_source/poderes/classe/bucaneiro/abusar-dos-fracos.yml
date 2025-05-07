@@ -58,13 +58,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando ataca uma criatura sob efeito de
-      uma condi&ccedil;&atilde;o de medo, seu dano aumenta em um passo.</p>
+      <p>Quando ataca uma criatura sob efeito de uma condi&ccedil;&atilde;o de
+      medo, seu dano aumenta em um passo.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Flagelo dos
-      Mares.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Pr&eacute;-requisito: Flagelo dos Mares.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 47 (JdA)

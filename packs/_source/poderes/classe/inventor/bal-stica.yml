@@ -10,14 +10,14 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe profici&ecirc;ncia com
-      armas marciais de ataque &agrave; dist&acirc;ncia ou com armas de fogo.
-      Quando usa uma arma de ataque &agrave; dist&acirc;ncia, pode usar sua
-      Intelig&ecirc;ncia em vez de Destreza nos testes de ataque (e, caso possua
-      o poder Estilo de Disparo, nas rolagens de dano).</p>
+      <p>Voc&ecirc; recebe profici&ecirc;ncia com armas marciais de ataque
+      &agrave; dist&acirc;ncia ou com armas de fogo. Quando usa uma arma de
+      ataque &agrave; dist&acirc;ncia, pode usar sua Intelig&ecirc;ncia em vez
+      de Destreza nos testes de ataque (e, caso possua o poder Estilo de
+      Disparo, nas rolagens de dano).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> treinado
-      em Pontaria e Of&iacute;cio (armeiro).</p>
+      <p><em>Pr&eacute;-requisitos:</em> treinado em Pontaria e Of&iacute;cio
+      (armeiro).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

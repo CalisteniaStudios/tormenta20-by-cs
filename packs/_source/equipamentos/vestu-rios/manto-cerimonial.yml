@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/manto-cerimonial.webp
 system:
   description:
     value: >-
-      <p style="text-align:justify;"><strong>[Item de Origem]</strong>&nbsp;<br
-      /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+      <p><strong>[Item de Origem]</strong>&nbsp;<br /><br /><br /><br /><br
+      /><br /><br /><br /><br /><br /></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 91 (JdA)

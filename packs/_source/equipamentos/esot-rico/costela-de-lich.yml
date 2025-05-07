@@ -56,10 +56,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta varinha &eacute; feita a partir do
-      osso de um morto-vivo. Suas magias causam +1d6 pontos de dano de trevas.
-      Se estiver empunhando esta varinha voc&ecirc; n&atilde;o recupera PV por
-      efeitos m&aacute;gicos de cura.</p>
+      <p>Esta varinha &eacute; feita a partir do osso de um morto-vivo. Suas
+      magias causam +1d6 pontos de dano de trevas. Se estiver empunhando esta
+      varinha voc&ecirc; n&atilde;o recupera PV por efeitos m&aacute;gicos de
+      cura.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

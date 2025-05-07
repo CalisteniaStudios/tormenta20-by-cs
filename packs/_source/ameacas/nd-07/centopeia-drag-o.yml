@@ -433,9 +433,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Um l&iacute;quido espesso, produzido
-          atrav&eacute;s do sangue de criaturas demon&iacute;acas. Aumenta o
-          dano de fogo de magias em um passo.</p>
+          <p>Um l&iacute;quido espesso, produzido atrav&eacute;s do sangue de
+          criaturas demon&iacute;acas. Aumenta o dano de fogo de magias em um
+          passo.</p>
         unidentified: ''
       source: T20, pg. 161 (JdA)
       carregado: true

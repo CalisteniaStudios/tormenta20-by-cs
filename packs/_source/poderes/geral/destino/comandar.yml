@@ -49,12 +49,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para gritar ordens para seus
-      aliados em alcance m&eacute;dio. Eles recebem +1 em testes de
-      per&iacute;cia at&eacute; o fim da cena.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      gritar ordens para seus aliados em alcance m&eacute;dio. Eles recebem +1
+      em testes de per&iacute;cia at&eacute; o fim da cena.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Car 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Car 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

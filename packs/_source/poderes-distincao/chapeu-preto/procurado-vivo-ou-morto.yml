@@ -6,21 +6,19 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Quando um chap&eacute;u-preto chega
-      &agrave; cidade, &eacute; melhor fugir. E quando ele olha em seus olhos,
-      voc&ecirc; logo precisa de uma cal&ccedil;a limpa.</p>
+      <p>Quando um chap&eacute;u-preto chega &agrave; cidade, &eacute; melhor
+      fugir. E quando ele olha em seus olhos, voc&ecirc; logo precisa de uma
+      cal&ccedil;a limpa.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;"><br>Todas as criaturas em alcance curto
-      sofrem &ndash;2 nas rolagens de dano contra voc&ecirc; e na Defesa. Essa
-      penalidade aumenta em &ndash;1 para cada dois outros poderes de
-      chap&eacute;u preto que voc&ecirc; possuir. Este &eacute; um efeito de
-      medo.</p>
+      <p><br>Todas as criaturas em alcance curto sofrem &ndash;2 nas rolagens de
+      dano contra voc&ecirc; e na Defesa. Essa penalidade aumenta em &ndash;1
+      para cada dois outros poderes de chap&eacute;u preto que voc&ecirc;
+      possuir. Este &eacute; um efeito de medo.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos:
-      Cora&ccedil;&atilde;o Duro, ser procurado pelas autoridades por um
-      crime.</p>
+      <p>Pr&eacute;-requisitos: Cora&ccedil;&atilde;o Duro, ser procurado pelas
+      autoridades por um crime.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 21

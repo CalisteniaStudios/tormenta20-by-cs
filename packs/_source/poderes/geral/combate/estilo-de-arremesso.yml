@@ -109,13 +109,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode sacar armas de arremesso
-      como uma a&ccedil;&atilde;o livre e recebe +2 nas rolagens de dano com
-      elas. Se tamb&eacute;m possuir o poder Saque R&aacute;pido, tamb&eacute;m
-      recebe +2 nos testes de ataque com essas armas.</p>
+      <p>Voc&ecirc; pode sacar armas de arremesso como uma a&ccedil;&atilde;o
+      livre e recebe +2 nas rolagens de dano com elas. Se tamb&eacute;m possuir
+      o poder Saque R&aacute;pido, tamb&eacute;m recebe +2 nos testes de ataque
+      com essas armas.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Pontaria.</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Pontaria.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

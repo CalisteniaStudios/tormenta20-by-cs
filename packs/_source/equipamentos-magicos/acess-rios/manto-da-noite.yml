@@ -129,16 +129,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este <strong>couro batido ajustado defensor
-      sombrio</strong> é negro com partes metálicas foscas. Quando usa esta
-      armadura, você não sofre penalidade em testes de Furtividade por se mover
-      em seu deslocamento normal e a penalidade que você sofre em testes de
-      Furtividade por atacar diminui para –10.</p><p
-      style="text-align:justify;"><b>Ajustada</b> Feito com extremo cuidado e
-      peças medidas com precisão, o item tem a sua penalidade de armadura
-      diminuída em 1.</p><p style="text-align:justify;"><b>Defensor</b> O item é
-      encantado para desviar golpes. O bônus na Defesa do item aumenta em
-      +2.</p><p style="text-align:justify;"><b>Sombrio</b> Você recebe +5 em
+      <p>Este <strong>couro batido ajustado defensor sombrio</strong> é negro
+      com partes metálicas foscas. Quando usa esta armadura, você não sofre
+      penalidade em testes de Furtividade por se mover em seu deslocamento
+      normal e a penalidade que você sofre em testes de Furtividade por atacar
+      diminui para –10.</p><p><b>Ajustada</b> Feito com extremo cuidado e peças
+      medidas com precisão, o item tem a sua penalidade de armadura diminuída em
+      1.</p><p><b>Defensor</b> O item é encantado para desviar golpes. O bônus
+      na Defesa do item aumenta em +2.</p><p><b>Sombrio</b> Você recebe +5 em
       Furtividade e ignora a penalidade de armadura do item para testes dessa
       perícia. Um item sombrio é escuro, fosco e bem lubrificado, para não fazer
       barulho.</p>

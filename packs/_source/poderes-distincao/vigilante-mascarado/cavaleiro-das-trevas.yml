@@ -6,22 +6,21 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Vigilantes mascarados se sentem mais
-      &agrave; vontade na escurid&atilde;o</p>
+      <p>Vigilantes mascarados se sentem mais &agrave; vontade na
+      escurid&atilde;o</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; recebe
-      vis&atilde;o no escuro. Quando desfere um acerto cr&iacute;tico ou ataque
-      furtivo contra uma criatura, voc&ecirc; pode gastar 2 PM para ignorar a
-      imunidade a acertos cr&iacute;ticos e/ou ataques furtivos do alvo. Por
-      fim, suas rolagens de dano contra criaturas desprevenidas ou sob alguma
-      condi&ccedil;&atilde;o de medo recebem +1d6. Esse dado adicional aumenta
-      em um passo para cada dois outros poderes de vigilante mascarado que
-      voc&ecirc; tenha.</p>
+      <p class="MsoNormal">Voc&ecirc; recebe vis&atilde;o no escuro. Quando
+      desfere um acerto cr&iacute;tico ou ataque furtivo contra uma criatura,
+      voc&ecirc; pode gastar 2 PM para ignorar a imunidade a acertos
+      cr&iacute;ticos e/ou ataques furtivos do alvo. Por fim, suas rolagens de
+      dano contra criaturas desprevenidas ou sob alguma condi&ccedil;&atilde;o
+      de medo recebem +1d6. Esse dado adicional aumenta em um passo para cada
+      dois outros poderes de vigilante mascarado que voc&ecirc; tenha.</p>
 
-      <p class="MsoNormal" style="text-align: justify;">Pr&eacute;-requisitos:
-      Ataque Furtivo, Traje das Sombras</p>
+      <p class="MsoNormal">Pr&eacute;-requisitos: Ataque Furtivo, Traje das
+      Sombras</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 31-32

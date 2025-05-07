@@ -57,8 +57,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
-      Intui&ccedil;&atilde;o, Investiga&ccedil;&atilde;o e Vontade.</p>
+      <p>Voc&ecirc; recebe +2 em Intui&ccedil;&atilde;o,
+      Investiga&ccedil;&atilde;o e Vontade.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

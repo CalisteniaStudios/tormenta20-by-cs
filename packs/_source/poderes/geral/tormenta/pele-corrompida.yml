@@ -63,11 +63,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua carne foi mesclada &agrave;
-      mat&eacute;ria vermelha. Voc&ecirc; recebe redu&ccedil;&atilde;o a
-      &aacute;cido, eletricidade, fogo, frio, luz e trevas 2. Esta RD aumenta em
-      +2 para cada dois outros poderes da Tormenta que voc&ecirc; possui. [[/r
-      2+(@Tormenta2*2)]]{RD}</p>
+      <p>Sua carne foi mesclada &agrave; mat&eacute;ria vermelha. Voc&ecirc;
+      recebe redu&ccedil;&atilde;o a &aacute;cido, eletricidade, fogo, frio, luz
+      e trevas 2. Esta RD aumenta em +2 para cada dois outros poderes da
+      Tormenta que voc&ecirc; possui. [[/r 2+(@Tormenta2*2)]]{RD}</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

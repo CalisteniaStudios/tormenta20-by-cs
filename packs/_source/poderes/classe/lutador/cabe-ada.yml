@@ -55,9 +55,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um ataque desarmado, voc&ecirc;
-      pode gastar 2 PM. Se fizer isso, o oponente fica <a class="content-link"
-      draggable="true"
+      <p>Quando faz um ataque desarmado, voc&ecirc; pode gastar 2 PM. Se fizer
+      isso, o oponente fica <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.condicoes.QBpAB16MIn9BVLNw"
       data-id="QBpAB16MIn9BVLNw" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de
@@ -65,10 +64,6 @@ system:
       background-color: rgb(221, 221, 221);"> </span>contra este ataque.
       Voc&ecirc; s&oacute; pode usar este poder uma vez por cena contra um mesmo
       alvo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 76 (JdA)

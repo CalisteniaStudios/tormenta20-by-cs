@@ -60,14 +60,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando &eacute;
-      atingido por um ataque, voc&ecirc; pode gastar 1 PM para fazer um teste de
-      ataque com b&ocirc;nus igual ao seu n&iacute;vel (al&eacute;m do normal).
-      Se o resultado do seu teste for maior que o do oponente, voc&ecirc; evita
-      o ataque. Voc&ecirc; s&oacute; pode usar este poder se estiver usando uma
-      arma corpo a corpo leve ou &aacute;gil.</p>
+      <p>Uma vez por rodada, quando &eacute; atingido por um ataque, voc&ecirc;
+      pode gastar 1 PM para fazer um teste de ataque com b&ocirc;nus igual ao
+      seu n&iacute;vel (al&eacute;m do normal). Se o resultado do seu teste for
+      maior que o do oponente, voc&ecirc; evita o ataque. Voc&ecirc; s&oacute;
+      pode usar este poder se estiver usando uma arma corpo a corpo leve ou
+      &aacute;gil.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Esgrimista.</p>
+      <p>Pr&eacute;-requisito: Esgrimista.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 47 (JdA)

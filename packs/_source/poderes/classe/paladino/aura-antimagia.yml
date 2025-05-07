@@ -55,12 +55,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto sua aura estiver ativa,
-      voc&ecirc; e os aliados dentro da aura podem rolar novamente qualquer
-      teste de resist&ecirc;ncia contra magia rec&eacute;m realizado.</p>
+      <p>Enquanto sua aura estiver ativa, voc&ecirc; e os aliados dentro da aura
+      podem rolar novamente qualquer teste de resist&ecirc;ncia contra magia
+      rec&eacute;m realizado.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 14&deg;
-      n&iacute;vel de paladino.</p>
+      <p><em>Pr&eacute;-requisito:</em> 14&deg; n&iacute;vel de paladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 82 (JdA)

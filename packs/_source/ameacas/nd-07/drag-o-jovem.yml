@@ -468,13 +468,12 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Drag&otilde;es jovens ou mais velhos
-          podem se transformar em outras criaturas, como a magia Metamorfose
-          (mas sem limita&ccedil;&atilde;o para tamanhos menores que o seu).
-          Eles costumam usar esta habilidade para se infiltrar em sociedades
-          humanoides, aprender sobre seus costumes ou apenas quando n&atilde;o
-          querem ser reconhecidos. Um drag&atilde;o morto reverte &agrave; sua
-          forma original.</p>
+          <p>Drag&otilde;es jovens ou mais velhos podem se transformar em outras
+          criaturas, como a magia Metamorfose (mas sem limita&ccedil;&atilde;o
+          para tamanhos menores que o seu). Eles costumam usar esta habilidade
+          para se infiltrar em sociedades humanoides, aprender sobre seus
+          costumes ou apenas quando n&atilde;o querem ser reconhecidos. Um
+          drag&atilde;o morto reverte &agrave; sua forma original.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -606,9 +605,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Drag&otilde;es s&atilde;o imunes a
-          efeitos de atordoamento, cansa&ccedil;o, dano do tipo de seu sopro,
-          metamorfose e paralisia.</p>
+          <p>Drag&otilde;es s&atilde;o imunes a efeitos de atordoamento,
+          cansa&ccedil;o, dano do tipo de seu sopro, metamorfose e
+          paralisia.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -673,8 +672,7 @@ items:
     system:
       description:
         value: >-
-          <p><span class="fontstyle0"><strong style="text-align:
-          justify;">[Tesouro Especial] <strong>[Material
+          <p><span><strong>[Tesouro Especial] <strong>[Material
           Especial]</strong></strong></span></p>
 
           <p>Cobi&ccedil;ado por artes&atilde;os em toda Arton, o couro escamado
@@ -682,30 +680,23 @@ items:
           ser empregado para fabricar certos itens superiores. Tanto o couro
           bruto quanto itens de couro de drag&atilde;o n&atilde;o existem
           &agrave; venda; a &uacute;nica maneira de obter esse material &eacute;
-          derrotar um drag&atilde;o. <span class="fontstyle0">(</span><span
-          class="fontstyle0">CD para extrair depende do
+          derrotar um drag&atilde;o. <span>(CD para extrair depende do
           drag&atilde;o).</span></p>
 
-          <p>&nbsp;</p>
+          <p><span><strong>Armaduras leves e escudos</strong> (exigem uma
+          pe&ccedil;a para ser fabricado): Defesa +1, redu&ccedil;&atilde;o de
+          dano 10 contra o tipo de dano do sopro do drag&atilde;o e
+          resist&ecirc;ncia a magia +2. </span></p>
 
-          <p><span class="fontstyle0"><strong>Armaduras leves e escudos</strong>
-          (exigem uma pe&ccedil;a para ser fabricado): Defesa +1,
-          redu&ccedil;&atilde;o de dano 10 contra o tipo de dano do sopro do
-          drag&atilde;o e resist&ecirc;ncia a magia +2. </span></p>
+          <p><span><strong>Armaduras pesadas</strong> (exigem tr&ecirc;s
+          pe&ccedil;as): Defesa +2, redu&ccedil;&atilde;o de dano 20 contra o
+          tipo de dano do sopro do drag&atilde;o e resist&ecirc;ncia a magia +5.
+          </span></p>
 
-          <p><span class="fontstyle0"><strong>Armaduras pesadas</strong> (exigem
-          tr&ecirc;s pe&ccedil;as): Defesa +2, redu&ccedil;&atilde;o de dano 20
-          contra o tipo de dano do sopro do drag&atilde;o e resist&ecirc;ncia a
-          magia +5. </span></p>
-
-          <p><span class="fontstyle0"><strong>Esot&eacute;rico </strong>(Exige 1
-          Pe&ccedil;a). Quando lan&ccedil;a uma magia que cause dano do mesmo
-          tipo do sopro do drag&atilde;o, voc&ecirc; pode gastar 1 PM para
-          aumentar o dano da magia em +1 por dado.</span></p>
-
-          <p>&nbsp;</p>
-
-          <p>&nbsp;</p>
+          <p><span><strong>Esot&eacute;rico </strong>(Exige 1 Pe&ccedil;a).
+          Quando lan&ccedil;a uma magia que cause dano do mesmo tipo do sopro do
+          drag&atilde;o, voc&ecirc; pode gastar 1 PM para aumentar o dano da
+          magia em +1 por dado.</span></p>
         unidentified: ''
       source: T20, pg. 311 (JdA)
       carregado: true

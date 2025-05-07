@@ -175,12 +175,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; se torna uma m&aacute;quina de
-      combate, ficando mais forte, r&aacute;pido e resistente. Voc&ecirc; recebe
-      +6 na Defesa, testes de ataque e rolagens de dano corpo a corpo, e 30 PV
-      tempor&aacute;rios. Durante a <em>Transforma&ccedil;&atilde;o de
-      Guerra</em> voc&ecirc; n&atilde;o pode lan&ccedil;ar magias, mas se torna
-      proficiente em todas as armas.</p>
+      <p>Voc&ecirc; se torna uma m&aacute;quina de combate, ficando mais forte,
+      r&aacute;pido e resistente. Voc&ecirc; recebe +6 na Defesa, testes de
+      ataque e rolagens de dano corpo a corpo, e 30 PV tempor&aacute;rios.
+      Durante a <em>Transforma&ccedil;&atilde;o de Guerra</em> voc&ecirc;
+      n&atilde;o pode lan&ccedil;ar magias, mas se torna proficiente em todas as
+      armas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 210 (JdA)

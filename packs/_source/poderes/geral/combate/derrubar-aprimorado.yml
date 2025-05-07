@@ -105,12 +105,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em testes de ataque
-      para derrubar. Quando derruba uma criatura com essa manobra, pode gastar 1
-      PM para fazer um ataque extra contra ela.</p>
+      <p>Voc&ecirc; recebe +2 em testes de ataque para derrubar. Quando derruba
+      uma criatura com essa manobra, pode gastar 1 PM para fazer um ataque extra
+      contra ela.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Combate
-      Defensivo.</p>
+      <p><em>Pr&eacute;-requisito:</em> Combate Defensivo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

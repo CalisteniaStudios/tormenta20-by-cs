@@ -9,13 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>cimitarra formidável</strong>
-      é originária do deserto. Você pode gastar uma ação de movimento e 2 PM
-      para transformar a l&acirc;mina dela em chamas até o fim da cena. Nessa
-      condição, o dano da arma aumenta em um passo e passa a ser do tipo fogo.
-      Você pode gastar uma ação de movimento e 2 PM para fazer as chamas
-      brilharem com muita força. Isso deixa os inimigos em alcance curto
-      desprevenidos por uma rodada.</p>
+      <p>Esta <strong>cimitarra formidável</strong> é originária do deserto.
+      Você pode gastar uma ação de movimento e 2 PM para transformar a
+      l&acirc;mina dela em chamas até o fim da cena. Nessa condição, o dano da
+      arma aumenta em um passo e passa a ser do tipo fogo. Você pode gastar uma
+      ação de movimento e 2 PM para fazer as chamas brilharem com muita força.
+      Isso deixa os inimigos em alcance curto desprevenidos por uma rodada.</p>
     chat: ''
     unidentified: ''
   source: ''

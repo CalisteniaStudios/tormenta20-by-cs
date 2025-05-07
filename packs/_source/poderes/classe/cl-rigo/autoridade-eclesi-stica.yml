@@ -59,18 +59,17 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; possui uma
-      posi&ccedil;&atilde;o formal em uma igreja reconhecida pelos outros
-      membros da f&eacute;. Os efeitos deste poder variam de acordo com a igreja
-      e o deus - Cl&eacute;rigos de Khalmyr, por exemplo, possuem autoridade
-      como ju&iacute;zes no Reinado &mdash; e ficam a cargo do mestre. Como
-      regra geral, voc&ecirc; recebe +5 em testes de Diplomacia ou
-      Intimida&ccedil;&atilde;o ao lidar com devotos de sua divindade e paga
-      metade do pre&ccedil;o de itens alqu&iacute;micos, po&ccedil;&otilde;es e
-      servi&ccedil;os em templos de sua divindade.</p>
+      <p>Voc&ecirc; possui uma posi&ccedil;&atilde;o formal em uma igreja
+      reconhecida pelos outros membros da f&eacute;. Os efeitos deste poder
+      variam de acordo com a igreja e o deus - Cl&eacute;rigos de Khalmyr, por
+      exemplo, possuem autoridade como ju&iacute;zes no Reinado &mdash; e ficam
+      a cargo do mestre. Como regra geral, voc&ecirc; recebe +5 em testes de
+      Diplomacia ou Intimida&ccedil;&atilde;o ao lidar com devotos de sua
+      divindade e paga metade do pre&ccedil;o de itens alqu&iacute;micos,
+      po&ccedil;&otilde;es e servi&ccedil;os em templos de sua divindade.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos: </em>5&ordm;
-      n&iacute;vel de cl&eacute;rigo, devoto de um deus maior.</p>
+      <p><em>Pr&eacute;-requisitos: </em>5&ordm; n&iacute;vel de cl&eacute;rigo,
+      devoto de um deus maior.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 57 (JdA)

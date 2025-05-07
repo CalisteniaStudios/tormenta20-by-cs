@@ -9,15 +9,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; adquire um t&iacute;tulo de
-      nobreza. Converse com o mestre para definir os benef&iacute;cios exatos de
-      seu t&iacute;tulo. Como regra geral, no in&iacute;cio de cada aventura
-      voc&ecirc; recebe 20 TO por n&iacute;vel de cavaleiro (rendimentos dos
-      impostos) ou a ajuda de um parceiro veterano (um membro de sua corte).</p>
+      <p>Voc&ecirc; adquire um t&iacute;tulo de nobreza. Converse com o mestre
+      para definir os benef&iacute;cios exatos de seu t&iacute;tulo. Como regra
+      geral, no in&iacute;cio de cada aventura voc&ecirc; recebe 20 TO por
+      n&iacute;vel de cavaleiro (rendimentos dos impostos) ou a ajuda de um
+      parceiro veterano (um membro de sua corte).</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: Autoridade Feudal,
-      10&ordm; n&iacute;vel de cavaleiro, ter conquistado terras ou realizado um
-      servi&ccedil;o para um nobre que possa se tornar seu suserano.</p>
+      <p>Pr&eacute;-requisitos: Autoridade Feudal, 10&ordm; n&iacute;vel de
+      cavaleiro, ter conquistado terras ou realizado um servi&ccedil;o para um
+      nobre que possa se tornar seu suserano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 55 (JdA)

@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/enfeite-de-elmo.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um adorno chamativo, como crina de cavalo,
-      plumas, asas ou um totem de animal. Fornece resist&ecirc;ncia a medo
-      +2.</p>
+      <p>Um adorno chamativo, como crina de cavalo, plumas, asas ou um totem de
+      animal. Fornece resist&ecirc;ncia a medo +2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

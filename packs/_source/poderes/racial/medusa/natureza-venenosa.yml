@@ -110,11 +110,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe resist&ecirc;ncia a
-      veneno +5 e pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
-      envenenar uma arma que esteja usando. A arma causa perda de 1d12 pontos de
-      vida. O veneno dura at&eacute; voc&ecirc; acertar um ataque ou at&eacute;
-      o fim da cena (o que acontecer primeiro). <em>Veneno</em></p>
+      <p>Voc&ecirc; recebe resist&ecirc;ncia a veneno +5 e pode gastar uma
+      a&ccedil;&atilde;o de movimento e 1 PM para envenenar uma arma que esteja
+      usando. A arma causa perda de 1d12 pontos de vida. O veneno dura
+      at&eacute; voc&ecirc; acertar um ataque ou at&eacute; o fim da cena (o que
+      acontecer primeiro). <em>Veneno</em></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 29 (JdA)

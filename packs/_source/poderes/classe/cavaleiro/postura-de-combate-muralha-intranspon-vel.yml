@@ -107,14 +107,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;" data-pm-slice="0 0 []">Para assumir esta
-      postura voc&ecirc; precisa estar empunhando um escudo. Voc&ecirc; recebe
-      +1 na Defesa e em Reflexos. Al&eacute;m disso, quando sofre um efeito que
-      permite um teste de Reflexos para reduzir o dano &agrave; metade,
-      n&atilde;o sofre nenhum dano se passar. Para cada 2 PM adicionais que
-      gastar quando assumir a postura, aumente esse b&ocirc;nus em +1. Por fim,
-      enquanto mantiver esta postura, seu deslocamento &eacute; reduzido para
-      3m.</p>
+      <p data-pm-slice="0 0 []">Para assumir esta postura voc&ecirc; precisa
+      estar empunhando um escudo. Voc&ecirc; recebe +1 na Defesa e em Reflexos.
+      Al&eacute;m disso, quando sofre um efeito que permite um teste de Reflexos
+      para reduzir o dano &agrave; metade, n&atilde;o sofre nenhum dano se
+      passar. Para cada 2 PM adicionais que gastar quando assumir a postura,
+      aumente esse b&ocirc;nus em +1. Por fim, enquanto mantiver esta postura,
+      seu deslocamento &eacute; reduzido para 3m.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

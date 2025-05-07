@@ -59,12 +59,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, voc&ecirc; pode
-      usar a habilidade Marca da Presa como uma a&ccedil;&atilde;o livre.
-      Al&eacute;m disso, quando usa a habilidade, pode pagar 5 PM para aumentar
-      sua margem de amea&ccedil;a contra a criatura em +2. Se voc&ecirc; reduz
-      uma criatura contra a qual usou Marca da Presa a 0 pontos de vida,
-      recupera 5 PM.</p>
+      <p>No 20&ordm; n&iacute;vel, voc&ecirc; pode usar a habilidade Marca da
+      Presa como uma a&ccedil;&atilde;o livre. Al&eacute;m disso, quando usa a
+      habilidade, pode pagar 5 PM para aumentar sua margem de amea&ccedil;a
+      contra a criatura em +2. Se voc&ecirc; reduz uma criatura contra a qual
+      usou Marca da Presa a 0 pontos de vida, recupera 5 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

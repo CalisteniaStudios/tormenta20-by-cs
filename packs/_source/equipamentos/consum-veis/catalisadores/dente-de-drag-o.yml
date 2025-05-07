@@ -4,10 +4,10 @@ img: systems/tormenta20/icons/itens/gerais/dente-de-dragao.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma flor comum em regi&otilde;es
-      montanhosas, especialmente nas Sanguin&aacute;rias, possui formato
-      parecido com uma presa de monstro. Suas propriedades m&iacute;sticas
-      aumentam o dano de magias em um dado do mesmo tipo.</p>
+      <p>Uma flor comum em regi&otilde;es montanhosas, especialmente nas
+      Sanguin&aacute;rias, possui formato parecido com uma presa de monstro.
+      Suas propriedades m&iacute;sticas aumentam o dano de magias em um dado do
+      mesmo tipo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

@@ -58,13 +58,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma escola de magia. A CD para
-      resistir a suas magias dessa escola aumenta em
-      +2.&nbsp;<em>Pr&eacute;-requissito:&nbsp;</em>Bruxo ou Mago.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Escolha uma escola de magia. A CD para resistir a suas magias dessa
+      escola aumenta em +2.&nbsp;<em>Pr&eacute;-requissito:&nbsp;</em>Bruxo ou
+      Mago.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

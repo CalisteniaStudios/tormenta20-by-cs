@@ -62,10 +62,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando se aproxima de um inimigo com um
-      salto ou pirueta (em termos de jogo, usando Atletismo ou Acrobacia para se
-      mover) e o ataca no mesmo turno, voc&ecirc; recebe +2 nesse teste de
-      ataque e na rolagem de dano.</p>
+      <p>Quando se aproxima de um inimigo com um salto ou pirueta (em termos de
+      jogo, usando Atletismo ou Acrobacia para se mover) e o ataca no mesmo
+      turno, voc&ecirc; recebe +2 nesse teste de ataque e na rolagem de
+      dano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 47 (JdA)

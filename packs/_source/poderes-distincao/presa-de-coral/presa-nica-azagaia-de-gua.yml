@@ -6,27 +6,25 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Os Presas de Coral aprendem a usar
-      lan&ccedil;as e azagaias para defender seus companheiros e invocar a
-      f&uacute;ria do mar</p>
+      <p>Os Presas de Coral aprendem a usar lan&ccedil;as e azagaias para
+      defender seus companheiros e invocar a f&uacute;ria do mar</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; recebe +1 nas
-      rolagens de dano com azagaias e lan&ccedil;as; para cada dois outros
-      poderes de Presa de Coral que voc&ecirc; possuir, este b&ocirc;nus aumenta
-      em +1. Al&eacute;m disso, se estiver empunhando uma azagaia ou
-      lan&ccedil;a, voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o
-      e 2 PM para invocar uma azagaia de &aacute;gua salgada que percorre o
-      ch&atilde;o em uma linha com alcance curto. Fa&ccedil;a um teste de ataque
-      com sua azagaia ou lan&ccedil;a e compare o resultado com a Defesa de cada
-      criatura nesta &aacute;rea. Ent&atilde;o, fa&ccedil;a uma rolagem de dano
-      com a arma; criaturas atingidas sofrem esse dano e ficam ca&iacute;das,
-      enquanto as demais sofrem metade do dano apenas.</p>
+      <p class="MsoNormal">Voc&ecirc; recebe +1 nas rolagens de dano com
+      azagaias e lan&ccedil;as; para cada dois outros poderes de Presa de Coral
+      que voc&ecirc; possuir, este b&ocirc;nus aumenta em +1. Al&eacute;m disso,
+      se estiver empunhando uma azagaia ou lan&ccedil;a, voc&ecirc; pode gastar
+      uma a&ccedil;&atilde;o padr&atilde;o e 2 PM para invocar uma azagaia de
+      &aacute;gua salgada que percorre o ch&atilde;o em uma linha com alcance
+      curto. Fa&ccedil;a um teste de ataque com sua azagaia ou lan&ccedil;a e
+      compare o resultado com a Defesa de cada criatura nesta &aacute;rea.
+      Ent&atilde;o, fa&ccedil;a uma rolagem de dano com a arma; criaturas
+      atingidas sofrem esse dano e ficam ca&iacute;das, enquanto as demais
+      sofrem metade do dano apenas.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos</em>: treinado em Iniciativa,
-      Fortitude e Luta, Estilo de Arremesso.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos</em>: treinado em
+      Iniciativa, Fortitude e Luta, Estilo de Arremesso.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 40-41

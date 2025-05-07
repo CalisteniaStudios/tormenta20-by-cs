@@ -4,12 +4,11 @@ img: systems/tormenta20/icons/poderes/ameacas/espinhos.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A mant&iacute;cora dispara [[/r 1d4]]
-      espinhos de sua cauda. Cada espinho atinge uma criatura em alcance
-      m&eacute;dio, causando <a class="inline-roll roll" data-mode="roll"
-      data-flavor="" data-formula="1d8+7">1d8+7</a> pontos de dano de
-      perfura&ccedil;&atilde;o (Ref CD 22 reduz &agrave; metade). Recarga
-      (movimento)</p>
+      <p>A mant&iacute;cora dispara [[/r 1d4]] espinhos de sua cauda. Cada
+      espinho atinge uma criatura em alcance m&eacute;dio, causando <a
+      class="inline-roll roll" data-mode="roll" data-flavor=""
+      data-formula="1d8+7">1d8+7</a> pontos de dano de perfura&ccedil;&atilde;o
+      (Ref CD 22 reduz &agrave; metade). Recarga (movimento)</p>
     unidentified: ''
   source: ''
   ativacao:

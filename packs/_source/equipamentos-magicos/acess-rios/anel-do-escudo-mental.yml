@@ -8,9 +8,7 @@ sort: 800000
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você recebe imunidade a magias de
-      adivinhação.</p>
+    value: <p>Você recebe imunidade a magias de adivinhação.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 342 (JdA)

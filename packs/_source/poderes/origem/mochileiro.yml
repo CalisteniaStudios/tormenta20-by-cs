@@ -48,9 +48,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">Seu limite de carga aumenta em 5
-      espa&ccedil;os.</p>
+    value: <p>Seu limite de carga aumenta em 5 espa&ccedil;os.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 93 (JdA)

@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 5&ordm; n&iacute;vel, voc&ecirc; pode
-      atravessar terrenos dif&iacute;ceis sem sofrer redu&ccedil;&atilde;o em
-      seu deslocamento e a CD para rastrear voc&ecirc; aumenta em +10. Esta
-      habilidade s&oacute; funciona em terrenos nos quais voc&ecirc; tenha a
-      habilidade Explorador.</p>
+      <p>No 5&ordm; n&iacute;vel, voc&ecirc; pode atravessar terrenos
+      dif&iacute;ceis sem sofrer redu&ccedil;&atilde;o em seu deslocamento e a
+      CD para rastrear voc&ecirc; aumenta em +10. Esta habilidade s&oacute;
+      funciona em terrenos nos quais voc&ecirc; tenha a habilidade
+      Explorador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

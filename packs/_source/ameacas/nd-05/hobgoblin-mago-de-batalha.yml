@@ -361,11 +361,10 @@ items:
         value: >-
           <section class="secret">Amedrontar (Padrão, 3 PM) Um animal ou
           humanoide em alcance curto fica apavorado por 1d4+1 rodadas e depois
-          abalado (Vontade reduz para abalado apenas)</section><p
-          style="text-align: justify;">O alvo &eacute; envolvido por energias
-          sombrias e assustadoras. Se falhar na resist&ecirc;ncia, fica
-          apavorado por 1 rodada, depois abalado. Se passar, fica abalado por
-          1d4 rodadas.</p>
+          abalado (Vontade reduz para abalado apenas)</section><p>O alvo
+          &eacute; envolvido por energias sombrias e assustadoras. Se falhar na
+          resist&ecirc;ncia, fica apavorado por 1 rodada, depois abalado. Se
+          passar, fica abalado por 1d4 rodadas.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 179 (JdA)
@@ -638,11 +637,11 @@ items:
       description:
         value: >-
           <section class="secret">Armadura Arcana (Padrão, 5 PM) O hobgoblin
-          recebe +6 na Defesa por um dia</section><p
-          style="text-align:justify;">Esta magia cria uma pel&iacute;cula
-          protetora invis&iacute;vel, mas tang&iacute;vel, fornecendo +4 na
-          Defesa. Esse b&ocirc;nus &eacute; cumulativo com outras magias, mas
-          n&atilde;o com b&ocirc;nus fornecido por armaduras.</p>
+          recebe +6 na Defesa por um dia</section><p>Esta magia cria uma
+          pel&iacute;cula protetora invis&iacute;vel, mas tang&iacute;vel,
+          fornecendo +4 na Defesa. Esse b&ocirc;nus &eacute; cumulativo com
+          outras magias, mas n&atilde;o com b&ocirc;nus fornecido por
+          armaduras.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 181 (JdA)
@@ -871,9 +870,9 @@ items:
           <section class="secret">Bola de Fogo (Padrão, 5 PM) O hobgoblin cria
           uma poderosa explosão em alcance médio que causa 8d6+5 pontos de dano
           de fogo em todas as criaturas em um raio de 6m (Reflexos reduz à
-          metade)</section><p style="text-align:justify;">Esta famosa magia de
-          ataque cria uma poderosa explosão, causando 6d6 pontos de dano de fogo
-          em todas as criaturas e objetos livres na área.</p>
+          metade)</section><p>Esta famosa magia de ataque cria uma poderosa
+          explosão, causando 6d6 pontos de dano de fogo em todas as criaturas e
+          objetos livres na área.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 182 (JdA)
@@ -1238,10 +1237,10 @@ items:
         value: >-
           <section class="secret">Concentração de Combate (Livre, 1 PM) Quando
           faz um ataque, o hobgoblin rola dois dados e usa o melhor
-          resultado</section><p style="text-align: justify;">Voc&ecirc; amplia
-          sua percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e
-          achando brechas em sua defesa. Quando faz&nbsp;um teste de ataque,
-          voc&ecirc; rola dois dados e usa o melhor resultado</p>
+          resultado</section><p>Voc&ecirc; amplia sua percep&ccedil;&atilde;o,
+          antecipando movimentos dos inimigos e achando brechas em sua defesa.
+          Quando faz&nbsp;um teste de ataque, voc&ecirc; rola dois dados e usa o
+          melhor resultado</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 185 (JdA)
@@ -1503,10 +1502,9 @@ items:
           <section class="secret">Toque Vampírico (Padrão, 5 PM) O hobgoblin faz
           um ataque com sua espada longa. Se acertar, além do dano da arma ele
           causa 6d6+5 pontos de dano de trevas e recupera pontos de vida iguais
-          à metade desse dano de trevas.</section><p
-          style="text-align:justify;">Sua mão brilha com energia sombria,
-          causando 6d6 pontos de dano de trevas. Você recupera pontos de vida
-          iguais à metade do dano causado (se causou algum dano).</p>
+          à metade desse dano de trevas.</section><p>Sua mão brilha com energia
+          sombria, causando 6d6 pontos de dano de trevas. Você recupera pontos
+          de vida iguais à metade do dano causado (se causou algum dano).</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 209 (JdA)
@@ -1583,9 +1581,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Espada longa</section><p
-          style="text-align:justify;">Arma típica de soldados e guerreiros, esta
-          espada de dois gumes tem lâmina reta medindo entre 80cm e 1m.</p>
+          <section class="secret">Espada longa</section><p>Arma típica de
+          soldados e guerreiros, esta espada de dois gumes tem lâmina reta
+          medindo entre 80cm e 1m.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 148 (JdA)
@@ -1714,10 +1712,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Esta po&ccedil;&atilde;o feita de
-          ervas raras e compostos alqu&iacute;micos recupera energia pessoal.
-          Beber a ess&ecirc;ncia de mana &eacute; uma a&ccedil;&atilde;o
-          padr&atilde;o e recupera 1d4 pontos de mana.&nbsp;</p>
+          <p>Esta po&ccedil;&atilde;o feita de ervas raras e compostos
+          alqu&iacute;micos recupera energia pessoal. Beber a ess&ecirc;ncia de
+          mana &eacute; uma a&ccedil;&atilde;o padr&atilde;o e recupera 1d4
+          pontos de mana.&nbsp;</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 160 (JdA)

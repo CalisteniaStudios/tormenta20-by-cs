@@ -59,12 +59,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa um veneno, voc&ecirc;
-      n&atilde;o corre risco de se envenenar acidentalmente. Al&eacute;m disso,
-      a CD para resistir aos seus venenos aumenta em +2.</p>
+      <p>Quando usa um veneno, voc&ecirc; n&atilde;o corre risco de se envenenar
+      acidentalmente. Al&eacute;m disso, a CD para resistir aos seus venenos
+      aumenta em +2.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Of&iacute;cio (alquimista).</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Of&iacute;cio
+      (alquimista).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

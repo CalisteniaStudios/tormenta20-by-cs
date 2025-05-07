@@ -100,16 +100,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta <strong>loriga segmentada
-      defensora</strong> &eacute; dourada com detalhes em vermelho e possui o
-      s&iacute;mbolo do antigo Deus da For&ccedil;a, gravado no peitoral. Se
-      estiver liderando uma ou mais criaturas (em termos de jogo, se estiver
-      usando o poder Comandar ou similar), seus ataques corpo a corpo causam
-      +2d6 de fogo.</p>
+      <p>Esta <strong>loriga segmentada defensora</strong> &eacute; dourada com
+      detalhes em vermelho e possui o s&iacute;mbolo do antigo Deus da
+      For&ccedil;a, gravado no peitoral. Se estiver liderando uma ou mais
+      criaturas (em termos de jogo, se estiver usando o poder Comandar ou
+      similar), seus ataques corpo a corpo causam +2d6 de fogo.</p>
 
-      <p style="text-align: justify;"><strong>Defensor</strong> O item &eacute;
-      encantado para desviar golpes. O b&ocirc;nus na Defesa do item aumenta em
-      +2</p>
+      <p><strong>Defensor</strong> O item &eacute; encantado para desviar
+      golpes. O b&ocirc;nus na Defesa do item aumenta em +2</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 340 (JdA)

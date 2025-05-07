@@ -52,10 +52,9 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Produz um ru&iacute;do ensurdecedor. Todas
-      as criaturas em alcance curto escolhidas pelo goblin engenhoqueiro sofrem
-      &minus;2 em testes de ataque e rolagens de dano at&eacute; o fim da
-      cena.</p>
+      <p>Produz um ru&iacute;do ensurdecedor. Todas as criaturas em alcance
+      curto escolhidas pelo goblin engenhoqueiro sofrem &minus;2 em testes de
+      ataque e rolagens de dano at&eacute; o fim da cena.</p>
     unidentified: ''
   source: ''
   ativacao:

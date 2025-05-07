@@ -10,15 +10,15 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, voc&ecirc;
-      fabrica sua obra-prima, aquela pela qual seu nome ser&aacute; lembrado em
-      eras futuras. Voc&ecirc; &eacute; livre para criar as regras do item, mas
-      ele deve ser aprovado pelo mestre.</p>
+      <p>No 20&ordm; n&iacute;vel, voc&ecirc; fabrica sua obra-prima, aquela
+      pela qual seu nome ser&aacute; lembrado em eras futuras. Voc&ecirc;
+      &eacute; livre para criar as regras do item, mas ele deve ser aprovado
+      pelo mestre.</p>
 
-      <p style="text-align: justify;">Como linha geral, ele pode ter
-      benef&iacute;cios equivalentes a de um item com cinco melhorias e quatro
-      encantos. Considera-se que voc&ecirc; estava trabalhando no item e
-      voc&ecirc; n&atilde;o gasta dinheiro, tempo ou PM nele.</p>
+      <p>Como linha geral, ele pode ter benef&iacute;cios equivalentes a de um
+      item com cinco melhorias e quatro encantos. Considera-se que voc&ecirc;
+      estava trabalhando no item e voc&ecirc; n&atilde;o gasta dinheiro, tempo
+      ou PM nele.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 70 (JdA)

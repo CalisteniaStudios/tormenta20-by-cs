@@ -120,24 +120,23 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria uma dimens&atilde;o
-      particular. Voc&ecirc; pode entrar no semiplano gastando uma
-      a&ccedil;&atilde;o padr&atilde;o e 10 PM, desaparecendo do plano material
-      como se tivesse se teletransportado. Voc&ecirc; pode levar criaturas
-      volunt&aacute;rias que esteja tocando, ao custo de 1 PM por criatura
-      extra. Voc&ecirc; tamb&eacute;m pode levar objetos que esteja tocando, ao
-      custo de 1 PM por objeto M&eacute;dio ou menor, 2 PM por objeto Grande, 5
-      PM por Enorme e 10 PM por Colossal. Uma vez no semiplano, pode gastar uma
-      a&ccedil;&atilde;o completa para voltar ao plano material, no mesmo local
-      onde estava. Caso conhe&ccedil;a a magia
+      <p>Voc&ecirc; cria uma dimens&atilde;o particular. Voc&ecirc; pode entrar
+      no semiplano gastando uma a&ccedil;&atilde;o padr&atilde;o e 10 PM,
+      desaparecendo do plano material como se tivesse se teletransportado.
+      Voc&ecirc; pode levar criaturas volunt&aacute;rias que esteja tocando, ao
+      custo de 1 PM por criatura extra. Voc&ecirc; tamb&eacute;m pode levar
+      objetos que esteja tocando, ao custo de 1 PM por objeto M&eacute;dio ou
+      menor, 2 PM por objeto Grande, 5 PM por Enorme e 10 PM por Colossal. Uma
+      vez no semiplano, pode gastar uma a&ccedil;&atilde;o completa para voltar
+      ao plano material, no mesmo local onde estava. Caso conhe&ccedil;a a magia
       @UUID[Item.3rR4d2fWU6uIqVNv]{Viagem Planar}, pode lan&ccedil;&aacute;-la
       para voltar ao plano material em outro local.</p>
 
-      <p style="text-align: justify;">Voc&ecirc; escolhe a forma e a
-      apar&ecirc;ncia do semiplano &mdash; uma caverna, um asteroide que singra
-      o &eacute;ter, um palacete de cristal etc. Ele cont&eacute;m ar, luz e
-      calor, mas al&eacute;m disso &eacute; vazio. Entretanto, voc&ecirc; pode
-      levar itens (mob&iacute;lia,&nbsp; ferramentas etc.) a cada viagem.</p>
+      <p>Voc&ecirc; escolhe a forma e a apar&ecirc;ncia do semiplano &mdash; uma
+      caverna, um asteroide que singra o &eacute;ter, um palacete de cristal
+      etc. Ele cont&eacute;m ar, luz e calor, mas al&eacute;m disso &eacute;
+      vazio. Entretanto, voc&ecirc; pode levar itens (mob&iacute;lia,&nbsp;
+      ferramentas etc.) a cada viagem.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 205 (JdA)

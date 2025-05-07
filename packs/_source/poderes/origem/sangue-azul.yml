@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; tem alguma influ&ecirc;ncia
-      pol&iacute;tica, suficiente para ser tratado com mais leni&ecirc;ncia pela
-      guarda, conseguir uma audi&ecirc;ncia com o nobre local etc.</p>
+      <p>Voc&ecirc; tem alguma influ&ecirc;ncia pol&iacute;tica, suficiente para
+      ser tratado com mais leni&ecirc;ncia pela guarda, conseguir uma
+      audi&ecirc;ncia com o nobre local etc.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 86 (JdA)

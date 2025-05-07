@@ -141,10 +141,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; dispara um raio azul
-      esbranqui&ccedil;ado de gelo e ar congelante. O alvo sofre 10d8 pontos de
-      dano de frio e fica preso em um bloco de gelo (<a class="content-link"
-      draggable="true"
+      <p>Voc&ecirc; dispara um raio azul esbranqui&ccedil;ado de gelo e ar
+      congelante. O alvo sofre 10d8 pontos de dano de frio e fica preso em um
+      bloco de gelo (<a class="content-link" draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.3dcJKe2SGu8mnafU"
       data-id="3dcJKe2SGu8mnafU" data-type="JournalEntryPage" data-tooltip="Text
       Page">Paralisado</a>). Se passar no teste de resist&ecirc;ncia, sofre
@@ -152,13 +151,12 @@ system:
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.e8JmqkgvL3H26vbi]{Lento}
       por uma rodada.</p>
 
-      <p style="text-align: justify;">&Eacute; poss&iacute;vel quebrar o gelo
-      para libertar uma criatura presa: o bloco tem 20 PV, resist&ecirc;ncia a
-      dano 10 e &eacute; vulner&aacute;vel a fogo. Uma criatura presa pode usar
-      uma a&ccedil;&atilde;o completa para fazer um teste de Atletismo (com a
-      mesma CD para resistir &agrave; magia) e tentar se libertar do gelo; cada
-      vez que passar no teste causa 10 pontos de dano ao bloco, ignorando a
-      RD.</p>
+      <p>&Eacute; poss&iacute;vel quebrar o gelo para libertar uma criatura
+      presa: o bloco tem 20 PV, resist&ecirc;ncia a dano 10 e &eacute;
+      vulner&aacute;vel a fogo. Uma criatura presa pode usar uma
+      a&ccedil;&atilde;o completa para fazer um teste de Atletismo (com a mesma
+      CD para resistir &agrave; magia) e tentar se libertar do gelo; cada vez
+      que passar no teste causa 10 pontos de dano ao bloco, ignorando a RD.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 203 (JdA)

@@ -9,13 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">At&eacute; uma magia de cada
-      c&iacute;rculo que voc&ecirc; aprender poder&aacute; ser escolhida entre
-      magias divinas (se voc&ecirc; for um conjurador arcano) ou entre magias
-      arcanas (se for um conjurador divino).</p>
+      <p>At&eacute; uma magia de cada c&iacute;rculo que voc&ecirc; aprender
+      poder&aacute; ser escolhida entre magias divinas (se voc&ecirc; for um
+      conjurador arcano) ou entre magias arcanas (se for um conjurador
+      divino).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> habilidade
-      de classe Magias.</p>
+      <p><em>Pr&eacute;-requisito:</em> habilidade de classe Magias.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

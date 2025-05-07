@@ -49,14 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma seu Carisma em Iniciativa
-      e, se for o primeiro na iniciativa, ganha uma a&ccedil;&atilde;o
-      padr&atilde;o extra na primeira rodada. Pr&eacute;-requisitos: Car 1,
-      4&ordm; n&iacute;vel de bucaneiro.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; soma seu Carisma em Iniciativa e, se for o primeiro na
+      iniciativa, ganha uma a&ccedil;&atilde;o padr&atilde;o extra na primeira
+      rodada. Pr&eacute;-requisitos: Car 1, 4&ordm; n&iacute;vel de
+      bucaneiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

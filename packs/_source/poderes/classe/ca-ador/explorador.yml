@@ -69,16 +69,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 3&ordm; n&iacute;vel, escolha um tipo
-      de terreno entre aqu&aacute;tico, &aacute;rtico, colina, deserto,
-      floresta, montanha, p&acirc;ntano, plan&iacute;cie, subterr&acirc;neo ou
-      urbano. A partir do 11&ordm; n&iacute;vel, voc&ecirc; tamb&eacute;m pode
-      escolher &aacute;rea de Tormenta. Quando estiver no tipo de terreno
-      escolhido, voc&ecirc; soma sua Sabedoria (m&iacute;nimo +1) na Defesa e
-      nos testes de Acrobacia, Atletismo, Furtividade, Percep&ccedil;&atilde;o e
-      Sobreviv&ecirc;ncia. A cada quatro n&iacute;veis, escolha outro tipo de
-      terreno para receber o b&ocirc;nus ou aumente o b&ocirc;nus em um tipo de
-      terreno j&aacute; escolhido em +2.</p>
+      <p>No 3&ordm; n&iacute;vel, escolha um tipo de terreno entre
+      aqu&aacute;tico, &aacute;rtico, colina, deserto, floresta, montanha,
+      p&acirc;ntano, plan&iacute;cie, subterr&acirc;neo ou urbano. A partir do
+      11&ordm; n&iacute;vel, voc&ecirc; tamb&eacute;m pode escolher &aacute;rea
+      de Tormenta. Quando estiver no tipo de terreno escolhido, voc&ecirc; soma
+      sua Sabedoria (m&iacute;nimo +1) na Defesa e nos testes de Acrobacia,
+      Atletismo, Furtividade, Percep&ccedil;&atilde;o e Sobreviv&ecirc;ncia. A
+      cada quatro n&iacute;veis, escolha outro tipo de terreno para receber o
+      b&ocirc;nus ou aumente o b&ocirc;nus em um tipo de terreno j&aacute;
+      escolhido em +2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

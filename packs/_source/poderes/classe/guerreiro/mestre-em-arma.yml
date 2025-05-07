@@ -9,13 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma arma. Com esta arma, seu dano
-      aumenta em um passo e voc&ecirc; pode gastar 2 PM para rolar novamente um
-      teste de ataque rec&eacute;m realizado.</p>
+      <p>Escolha uma arma. Com esta arma, seu dano aumenta em um passo e
+      voc&ecirc; pode gastar 2 PM para rolar novamente um teste de ataque
+      rec&eacute;m realizado.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      Especializa&ccedil;&atilde;o em Arma com a arma escolhida, 12&ordm;
-      n&iacute;vel de guerreiro.</p>
+      <p><em>Pr&eacute;-requisito:</em> Especializa&ccedil;&atilde;o em Arma com
+      a arma escolhida, 12&ordm; n&iacute;vel de guerreiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 66 (JdA)

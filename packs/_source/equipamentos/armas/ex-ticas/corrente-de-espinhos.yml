@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta arma pode ser usada para atacar
-      inimigos a até 4,5m e pode se enroscar nas mãos, pernas ou armas de seus
-      adversários. A corrente de espinhos é uma arma ágil, dupla e versátil,
-      fornecendo +2 em testes para derrubar ou desarmar.</p>
+      <p>Esta arma pode ser usada para atacar inimigos a até 4,5m e pode se
+      enroscar nas mãos, pernas ou armas de seus adversários. A corrente de
+      espinhos é uma arma ágil, dupla e versátil, fornecendo +2 em testes para
+      derrubar ou desarmar.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 147 (JdA)

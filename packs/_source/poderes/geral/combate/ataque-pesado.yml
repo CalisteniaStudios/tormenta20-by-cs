@@ -55,14 +55,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um ataque corpo a corpo com uma
-      arma de duas m&atilde;os, voc&ecirc; pode pagar 1 PM. Se fizer isso e
-      acertar o ataque, al&eacute;m do dano voc&ecirc; faz uma manobra derrubar
-      ou empurrar contra o alvo como uma a&ccedil;&atilde;o livre (use o
-      resultado do ataque como o teste de manobra).</p>
+      <p>Quando faz um ataque corpo a corpo com uma arma de duas m&atilde;os,
+      voc&ecirc; pode pagar 1 PM. Se fizer isso e acertar o ataque, al&eacute;m
+      do dano voc&ecirc; faz uma manobra derrubar ou empurrar contra o alvo como
+      uma a&ccedil;&atilde;o livre (use o resultado do ataque como o teste de
+      manobra).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Estilo de
-      Duas M&atilde;os.</p>
+      <p><em>Pr&eacute;-requisito:</em> Estilo de Duas M&atilde;os.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 124 (JdA)

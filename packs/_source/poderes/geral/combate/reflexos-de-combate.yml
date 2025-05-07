@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; ganha uma a&ccedil;&atilde;o de
-      movimento extra no seu primeiro turno de cada combate.</p>
+      <p>Voc&ecirc; ganha uma a&ccedil;&atilde;o de movimento extra no seu
+      primeiro turno de cada combate.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Des 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Des 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 129 (JdA)

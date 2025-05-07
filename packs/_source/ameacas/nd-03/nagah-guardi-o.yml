@@ -77,9 +77,8 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Duas cimitarras</section><p
-          style="text-align:justify;">Espada com a lâmina curva e muito afiada.
-          A cimitarra é uma arma ágil</p>
+          <section class="secret">Duas cimitarras</section><p>Espada com a
+          lâmina curva e muito afiada. A cimitarra é uma arma ágil</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 147 (JdA)

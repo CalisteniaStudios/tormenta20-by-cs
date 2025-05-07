@@ -58,13 +58,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Aumenta o alcance da magia em um passo (de
-      curto para m&eacute;dio, de m&eacute;dio para longo) ou dobra a
-      &aacute;rea de efeito da magia. Por exemplo, uma <em>Bola de Fogo</em>
-      ampliada tem seu alcance aumentado para longo ou sua &aacute;rea aumentada
-      para 12m de raio.</p>
+      <p>Aumenta o alcance da magia em um passo (de curto para m&eacute;dio, de
+      m&eacute;dio para longo) ou dobra a &aacute;rea de efeito da magia. Por
+      exemplo, uma <em>Bola de Fogo</em> ampliada tem seu alcance aumentado para
+      longo ou sua &aacute;rea aumentada para 12m de raio.</p>
 
-      <p style="text-align: justify;">Custo: +2 PM.</p>
+      <p>Custo: +2 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

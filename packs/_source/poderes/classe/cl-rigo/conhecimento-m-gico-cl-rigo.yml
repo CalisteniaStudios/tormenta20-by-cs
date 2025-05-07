@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você aprende duas magias de qualquer
-      círculo que possa lançar. Você pode escolher este poder quantas vezes
-      quiser.</p>
+      <p>Você aprende duas magias de qualquer círculo que possa lançar. Você
+      pode escolher este poder quantas vezes quiser.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

@@ -149,12 +149,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa Escaramu&ccedil;a, seus
-      b&ocirc;nus aumentam para +5 na Defesa e Reflexos e +1d12 em rolagens de
-      dano.</p>
+      <p>Quando usa Escaramu&ccedil;a, seus b&ocirc;nus aumentam para +5 na
+      Defesa e Reflexos e +1d12 em rolagens de dano.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Escaramu&ccedil;a,
-      12&ordm; n&iacute;vel de ca&ccedil;ador.</p>
+      <p>Pr&eacute;-requisito: Escaramu&ccedil;a, 12&ordm; n&iacute;vel de
+      ca&ccedil;ador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

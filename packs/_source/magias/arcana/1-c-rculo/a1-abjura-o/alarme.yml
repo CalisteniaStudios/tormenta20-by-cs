@@ -252,17 +252,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria uma barreira protetora
-      invis&iacute;vel que detecta qualquer criatura que tocar ou entrar na
-      &aacute;rea protegida. Ao lan&ccedil;ar a magia, voc&ecirc; pode escolher
-      quais criaturas podem entrar na &aacute;rea sem ativar seus efeitos.
-      <em>Alarme</em> pode emitir um aviso telep&aacute;tico ou sonoro, decidido
-      quando a magia &eacute; lan&ccedil;ada. Um aviso telep&aacute;tico alerta
-      apenas voc&ecirc;, inclusive acordando-o se estiver dormindo, mas apenas
-      se estiver a at&eacute; 1km da &aacute;rea protegida. Um aviso sonoro
-      alerta todas as criaturas em alcance longo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; cria uma barreira protetora invis&iacute;vel que detecta
+      qualquer criatura que tocar ou entrar na &aacute;rea protegida. Ao
+      lan&ccedil;ar a magia, voc&ecirc; pode escolher quais criaturas podem
+      entrar na &aacute;rea sem ativar seus efeitos. <em>Alarme</em> pode emitir
+      um aviso telep&aacute;tico ou sonoro, decidido quando a magia &eacute;
+      lan&ccedil;ada. Um aviso telep&aacute;tico alerta apenas voc&ecirc;,
+      inclusive acordando-o se estiver dormindo, mas apenas se estiver a
+      at&eacute; 1km da &aacute;rea protegida. Um aviso sonoro alerta todas as
+      criaturas em alcance longo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 178 (JdA)

@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode pagar 1 PM para rolar novamente
-      um teste recém realizado. Se ainda assim falhar no teste, você perde 1d6
-      PM.</p>
+      <p>Você pode pagar 1 PM para rolar novamente um teste recém realizado. Se
+      ainda assim falhar no teste, você perde 1d6 PM.</p>
     chat: ''
     unidentified: ''
   source: ''

@@ -59,15 +59,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa para fazer um teste de Cura (CD 15) em uma
-      criatura. Se voc&ecirc; passar, ela recupera 1d6 PV, mais 1d6 para cada 5
-      pontos pelos quais o resultado do teste exceder a CD (2d6 com um resultado
-      20, 3d6 com um resultado 25 e assim por diante). Voc&ecirc; s&oacute; pode
-      usar este poder uma vez por dia numa mesma criatura.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa para fazer um
+      teste de Cura (CD 15) em uma criatura. Se voc&ecirc; passar, ela recupera
+      1d6 PV, mais 1d6 para cada 5 pontos pelos quais o resultado do teste
+      exceder a CD (2d6 com um resultado 20, 3d6 com um resultado 25 e assim por
+      diante). Voc&ecirc; s&oacute; pode usar este poder uma vez por dia numa
+      mesma criatura.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos: </em>Sab 1,
-      treinado em Cura.</p>
+      <p><em>Pr&eacute;-requisitos: </em>Sab 1, treinado em Cura.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

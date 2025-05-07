@@ -60,10 +60,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e uma quantidade de PM limitada por sua
-      Constitui&ccedil;&atilde;o. Para cada PM que gastar, voc&ecirc; recupera
-      1d12 pontos de vida.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e uma
+      quantidade de PM limitada por sua Constitui&ccedil;&atilde;o. Para cada PM
+      que gastar, voc&ecirc; recupera 1d12 pontos de vida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

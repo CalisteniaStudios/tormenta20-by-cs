@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, se estiver em
-      f&uacute;ria e usar a a&ccedil;&atilde;o agredir para fazer um ataque
-      corpo a corpo ou com uma arma de arremesso, voc&ecirc; pode gastar 2 PM
-      para fazer um ataque adicional.</p>
+      <p>Uma vez por rodada, se estiver em f&uacute;ria e usar a
+      a&ccedil;&atilde;o agredir para fazer um ataque corpo a corpo ou com uma
+      arma de arremesso, voc&ecirc; pode gastar 2 PM para fazer um ataque
+      adicional.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

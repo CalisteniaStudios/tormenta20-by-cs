@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Essencialmente uma lan&ccedil;a muito
-      longa. O pique &eacute; uma arma <em>alongada</em>.</p>
+      <p>Essencialmente uma lan&ccedil;a muito longa. O pique &eacute; uma arma
+      <em>alongada</em>.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 150 (JdA)

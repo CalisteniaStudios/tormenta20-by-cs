@@ -51,12 +51,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; manifesta uma nuvem de poeira
-      carregada de energia negativa, que apodrece lentamente as criaturas na
-      &aacute;rea. Ao lan&ccedil;ar a magia, e no in&iacute;cio de seus turnos,
-      criaturas na &aacute;rea sofrem 2d8+8 pontos de dano de trevas (Fortitude
-      reduz &agrave; metade). Alvos que falharem no teste n&atilde;o podem
-      recuperar PV por uma rodada.</p>
+      <p>Voc&ecirc; manifesta uma nuvem de poeira carregada de energia negativa,
+      que apodrece lentamente as criaturas na &aacute;rea. Ao lan&ccedil;ar a
+      magia, e no in&iacute;cio de seus turnos, criaturas na &aacute;rea sofrem
+      2d8+8 pontos de dano de trevas (Fortitude reduz &agrave; metade). Alvos
+      que falharem no teste n&atilde;o podem recuperar PV por uma rodada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 201 (JdA)

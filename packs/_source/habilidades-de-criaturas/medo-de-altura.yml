@@ -42,8 +42,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Medo de Altura Se estiver adjacente a uma
-      queda de 3m ou mais de altura, o centauro fica abalado.</p>
+      <p>Medo de Altura Se estiver adjacente a uma queda de 3m ou mais de
+      altura, o centauro fica abalado.</p>
     unidentified: ''
   source: ''
   ativacao:

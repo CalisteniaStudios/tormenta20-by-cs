@@ -10,15 +10,14 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e 3 PM para fabricar um preparado
-      alqu&iacute;mico ou po&ccedil;&atilde;o cuja f&oacute;rmula conhe&ccedil;a
-      instantaneamente. O custo do item &eacute; reduzido &agrave; metade e
-      voc&ecirc; n&atilde;o precisa fazer o teste de Of&iacute;cio (alquimista),
-      mas ele s&oacute; dura at&eacute; o fim da cena.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 3 PM para
+      fabricar um preparado alqu&iacute;mico ou po&ccedil;&atilde;o cuja
+      f&oacute;rmula conhe&ccedil;a instantaneamente. O custo do item &eacute;
+      reduzido &agrave; metade e voc&ecirc; n&atilde;o precisa fazer o teste de
+      Of&iacute;cio (alquimista), mas ele s&oacute; dura at&eacute; o fim da
+      cena.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito: </em>Alquimista
-      Iniciado.</p>
+      <p><em>Pr&eacute;-requisito: </em>Alquimista Iniciado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

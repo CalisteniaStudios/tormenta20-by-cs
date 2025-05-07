@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Para voc&ecirc;, atacar com armas
-      improvisadas conta como fazer um ataque desarmado, mas seu dano aumenta em
-      um passo. Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para
-      procurar uma pedra, cadeira, garrafa ou qualquer coisa que possa usar como
-      arma. Fa&ccedil;a um teste de
+      <p>Para voc&ecirc;, atacar com armas improvisadas conta como fazer um
+      ataque desarmado, mas seu dano aumenta em um passo. Voc&ecirc; pode gastar
+      uma a&ccedil;&atilde;o de movimento para procurar uma pedra, cadeira,
+      garrafa ou qualquer coisa que possa usar como arma. Fa&ccedil;a um teste
+      de
       @UUID[Compendium.tormenta20.pericias.hkTML0lqoOopGTLQ]{Percep&ccedil;&atilde;o}
       (CD 20). Se voc&ecirc; passar, encontra uma arma improvisada. Armas
       improvisadas s&atilde;o fr&aacute;geis; se voc&ecirc; errar um ataque e o

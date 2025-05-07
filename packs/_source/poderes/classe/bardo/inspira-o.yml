@@ -117,15 +117,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e 2 PM para inspirar as pessoas com sua
-      arte. Voc&ecirc; e todos os seus aliados em alcance curto ganham +1 em
-      testes de per&iacute;cia at&eacute; o fim da cena. A cada quatro
-      n&iacute;veis, pode gastar +2 PM para aumentar o b&ocirc;nus em +1.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 2 PM para
+      inspirar as pessoas com sua arte. Voc&ecirc; e todos os seus aliados em
+      alcance curto ganham +1 em testes de per&iacute;cia at&eacute; o fim da
+      cena. A cada quatro n&iacute;veis, pode gastar +2 PM para aumentar o
+      b&ocirc;nus em +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

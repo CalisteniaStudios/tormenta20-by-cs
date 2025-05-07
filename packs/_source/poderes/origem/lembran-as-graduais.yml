@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Durante suas aventuras, em determinados
-      momentos a crit&eacute;rio do mestre, voc&ecirc; pode fazer um teste de
-      Sabedoria (CD 10) para reconhecer pessoas, criaturas ou lugares que tenha
-      encontrado antes de perder a mem&oacute;ria.</p>
+      <p>Durante suas aventuras, em determinados momentos a crit&eacute;rio do
+      mestre, voc&ecirc; pode fazer um teste de Sabedoria (CD 10) para
+      reconhecer pessoas, criaturas ou lugares que tenha encontrado antes de
+      perder a mem&oacute;ria.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 86 (JdA)

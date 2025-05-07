@@ -11,10 +11,10 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Voc&ecirc; recebe resist&ecirc;ncia a
-      impacto 5 e sofre apenas metade do dano de quedas. Estes benef&iacute;cios
-      se estendem a qualquer aeronave que voc&ecirc; estiver pilotando.
-      <em>Pr&eacute;-requisito:</em> Combate A&eacute;reo.</p>
+      <p>Voc&ecirc; recebe resist&ecirc;ncia a impacto 5 e sofre apenas metade
+      do dano de quedas. Estes benef&iacute;cios se estendem a qualquer aeronave
+      que voc&ecirc; estiver pilotando. <em>Pr&eacute;-requisito:</em> Combate
+      A&eacute;reo.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 9

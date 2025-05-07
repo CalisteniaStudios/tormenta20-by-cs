@@ -65,9 +65,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe +2 em testes de ataque e
-      rolagens de dano contra oponentes caídos, desprevenidos, flanqueados ou
-      indefesos.</p>
+      <p>Você recebe +2 em testes de ataque e rolagens de dano contra oponentes
+      caídos, desprevenidos, flanqueados ou indefesos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 66 (JdA)

@@ -6,18 +6,18 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">A melancolia por tr&aacute;s do sorriso de
-      um menestrel maldito &eacute; extremamente sedutora. Muitos
-      cora&ccedil;&otilde;es j&aacute; foram partidos dessa forma.</p>
+      <p>A melancolia por tr&aacute;s do sorriso de um menestrel maldito
+      &eacute; extremamente sedutora. Muitos cora&ccedil;&otilde;es j&aacute;
+      foram partidos dessa forma.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; recebe +2 em
-      Diplomacia e Engana&ccedil;&atilde;o. Esse b&ocirc;nus aumenta em +1 para
-      cada outros dois poderes de menestrel maldito.</p>
+      <p class="MsoNormal">Voc&ecirc; recebe +2 em Diplomacia e
+      Engana&ccedil;&atilde;o. Esse b&ocirc;nus aumenta em +1 para cada outros
+      dois poderes de menestrel maldito.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisito</em>: T&eacute;cnica Endiabrada.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisito</em>: T&eacute;cnica
+      Endiabrada.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 38-39

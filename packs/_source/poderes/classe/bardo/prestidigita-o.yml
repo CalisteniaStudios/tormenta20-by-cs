@@ -9,18 +9,17 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz uma a&ccedil;&atilde;o
-      padr&atilde;o, voc&ecirc; pode aproveitar seus gestos para lan&ccedil;ar
-      uma magia com execu&ccedil;&atilde;o de a&ccedil;&atilde;o completa ou
-      menor. Fa&ccedil;a um teste de Atua&ccedil;&atilde;o (CD 15 + custo em PM
-      da magia). Se passar, voc&ecirc; lan&ccedil;a a magia como uma
+      <p>Quando faz uma a&ccedil;&atilde;o padr&atilde;o, voc&ecirc; pode
+      aproveitar seus gestos para lan&ccedil;ar uma magia com
+      execu&ccedil;&atilde;o de a&ccedil;&atilde;o completa ou menor.
+      Fa&ccedil;a um teste de Atua&ccedil;&atilde;o (CD 15 + custo em PM da
+      magia). Se passar, voc&ecirc; lan&ccedil;a a magia como uma
       a&ccedil;&atilde;o livre. Se falhar, a magia n&atilde;o funciona, mas
       voc&ecirc; gasta os PM mesmo assim. Outros personagens s&oacute; percebem
       que voc&ecirc; lan&ccedil;ou uma magia com um teste de Misticismo (CD
       20).</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: 6&ordm; n&iacute;vel
-      de bardo.</p>
+      <p>Pr&eacute;-requisito: 6&ordm; n&iacute;vel de bardo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

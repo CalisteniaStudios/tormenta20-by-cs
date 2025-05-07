@@ -199,9 +199,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Em seu pr&oacute;ximo teste de
-      per&iacute;cia, o alvo pode rolar dois dados e ficar com o melhor
-      resultado</p>
+      <p>Em seu pr&oacute;ximo teste de per&iacute;cia, o alvo pode rolar dois
+      dados e ficar com o melhor resultado</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 200 (JdA)

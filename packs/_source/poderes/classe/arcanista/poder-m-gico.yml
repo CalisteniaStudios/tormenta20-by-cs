@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +1 ponto de mana por
-      n&iacute;vel de arcanista. Quando sobe de n&iacute;vel, os PM que recebe
-      por este poder aumentam de acordo. Por exemplo, se escolher este poder no
-      4&ordm; n&iacute;vel, recebe 4 PM. Quando subir para o 5&ordm;
-      n&iacute;vel, recebe +1 PM e assim por diante.</p>
+      <p>Voc&ecirc; recebe +1 ponto de mana por n&iacute;vel de arcanista.
+      Quando sobe de n&iacute;vel, os PM que recebe por este poder aumentam de
+      acordo. Por exemplo, se escolher este poder no 4&ordm; n&iacute;vel,
+      recebe 4 PM. Quando subir para o 5&ordm; n&iacute;vel, recebe +1 PM e
+      assim por diante.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

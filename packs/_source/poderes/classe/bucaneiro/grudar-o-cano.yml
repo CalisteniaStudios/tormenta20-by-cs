@@ -9,18 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um ataque &agrave;
-      dist&acirc;ncia com uma arma de fogo contra um oponente adjacente,
-      voc&ecirc; n&atilde;o sofre a penalidade de &ndash;5 no teste de ataque e
-      aumenta seu dano em um passo.<em><br></em></p>
+      <p>Quando faz um ataque &agrave; dist&acirc;ncia com uma arma de fogo
+      contra um oponente adjacente, voc&ecirc; n&atilde;o sofre a penalidade de
+      &ndash;5 no teste de ataque e aumenta seu dano em um
+      passo.<em><br></em></p>
 
-      <p style="text-align:
-      justify;"><em>Pr&eacute;-requisitos:</em>&nbsp;treinado em Luta,
-      Pistoleiro.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em>&nbsp;treinado em Luta, Pistoleiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

@@ -9,15 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode criar pergaminhos, como se
-      tivesse o poder Escrever Pergaminho. Se tiver ambos, seu custo para criar
-      pergaminhos &eacute; reduzido &agrave; metade.
-      <em>Pr&eacute;-requisitos:</em> Mago, treinado em Of&iacute;cio
-      (Escriba).</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; pode criar pergaminhos, como se tivesse o poder Escrever
+      Pergaminho. Se tiver ambos, seu custo para criar pergaminhos &eacute;
+      reduzido &agrave; metade. <em>Pr&eacute;-requisitos:</em> Mago, treinado
+      em Of&iacute;cio (Escriba).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

@@ -10,10 +10,10 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A partir do 10&ordm; n&iacute;vel,
-      voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa para analisar um
-      item. Voc&ecirc; automaticamente descobre se o item &eacute;
-      m&aacute;gico, suas propriedades e como utiliz&aacute;-las.</p>
+      <p>A partir do 10&ordm; n&iacute;vel, voc&ecirc; pode gastar uma
+      a&ccedil;&atilde;o completa para analisar um item. Voc&ecirc;
+      automaticamente descobre se o item &eacute; m&aacute;gico, suas
+      propriedades e como utiliz&aacute;-las.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 70 (JdA)

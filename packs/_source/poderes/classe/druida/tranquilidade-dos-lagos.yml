@@ -49,10 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Vontade. Se
-      estiver portando um recipiente com &aacute;gua (n&atilde;o precisa estar
-      empunhando), uma vez por rodada, quando faz um teste de resist&ecirc;ncia,
-      pode pagar 1 PM para refazer a rolagem.</p>
+      <p>Voc&ecirc; recebe +2 em Vontade. Se estiver portando um recipiente com
+      &aacute;gua (n&atilde;o precisa estar empunhando), uma vez por rodada,
+      quando faz um teste de resist&ecirc;ncia, pode pagar 1 PM para refazer a
+      rolagem.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 63 (JdA)

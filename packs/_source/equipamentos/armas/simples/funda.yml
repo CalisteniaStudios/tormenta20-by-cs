@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma simples tira de couro usada para
-      arremessar balas de metal. Na falta de munição adequada, pode disparar
-      pedras comuns, mas o dano é reduzido em um passo. Recarregar uma funda é
-      uma ação de movimento. Ao contrário de outras armas de disparo, você
-      aplica seu modificador de Força a rolagens de dano com uma funda.</p>
+      <p>Uma simples tira de couro usada para arremessar balas de metal. Na
+      falta de munição adequada, pode disparar pedras comuns, mas o dano é
+      reduzido em um passo. Recarregar uma funda é uma ação de movimento. Ao
+      contrário de outras armas de disparo, você aplica seu modificador de Força
+      a rolagens de dano com uma funda.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

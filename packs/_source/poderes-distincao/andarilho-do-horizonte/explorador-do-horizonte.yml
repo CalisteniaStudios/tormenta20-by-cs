@@ -12,11 +12,11 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Quando est&aacute; em um terreno para o
-      qual possua Dom&iacute;nio de Terreno e Explorador, o b&ocirc;nus
-      fornecido por sua habilidade Explorador aumenta em +1 e o custo de sua
-      habilidade Marca da Presa &eacute; reduzido em &ndash;1 PM.
-      <em>Pr&eacute;-requisitos:</em> Dom&iacute;nio de Terreno, Explorador.</p>
+      <p>Quando est&aacute; em um terreno para o qual possua Dom&iacute;nio de
+      Terreno e Explorador, o b&ocirc;nus fornecido por sua habilidade
+      Explorador aumenta em +1 e o custo de sua habilidade Marca da Presa
+      &eacute; reduzido em &ndash;1 PM. <em>Pr&eacute;-requisitos:</em>
+      Dom&iacute;nio de Terreno, Explorador.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 13

@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Normalmente feito de aço, este escudo é
-      preso ao antebraço  e  também  deve  ser  empunhado com firmeza, impedindo
-      o usuário de usar aquela mão.</p>
+      <p>Normalmente feito de aço, este escudo é preso ao antebraço  e  também 
+      deve  ser  empunhado com firmeza, impedindo o usuário de usar aquela
+      mão.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

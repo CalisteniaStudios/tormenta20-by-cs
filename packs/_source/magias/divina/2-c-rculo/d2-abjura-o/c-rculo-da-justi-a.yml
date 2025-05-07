@@ -374,15 +374,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Tamb&eacute;m conhecida como
-      <em>L&aacute;grimas do Deus da Trapa&ccedil;a</em>, esta magia &eacute;
-      usada em tribunais e para proteger &aacute;reas sens&iacute;veis.
-      Criaturas na &aacute;rea sofrem &ndash;10 em testes de Acrobacia,
-      Engana&ccedil;&atilde;o, Furtividade e Ladinagem e n&atilde;o podem mentir
-      deliberadamente &mdash; mas podem tentar evitar perguntas que normalmente
-      responderiam com uma mentira (sendo evasivas ou cometendo omiss&otilde;es,
-      por exemplo). Uma criatura que passe na resist&ecirc;ncia tem as
-      penalidades reduzidas para &ndash;5 e pode mentir.</p>
+      <p>Tamb&eacute;m conhecida como <em>L&aacute;grimas do Deus da
+      Trapa&ccedil;a</em>, esta magia &eacute; usada em tribunais e para
+      proteger &aacute;reas sens&iacute;veis. Criaturas na &aacute;rea sofrem
+      &ndash;10 em testes de Acrobacia, Engana&ccedil;&atilde;o, Furtividade e
+      Ladinagem e n&atilde;o podem mentir deliberadamente &mdash; mas podem
+      tentar evitar perguntas que normalmente responderiam com uma mentira
+      (sendo evasivas ou cometendo omiss&otilde;es, por exemplo). Uma criatura
+      que passe na resist&ecirc;ncia tem as penalidades reduzidas para &ndash;5
+      e pode mentir.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 183 (JdA)

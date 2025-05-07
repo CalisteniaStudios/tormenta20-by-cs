@@ -4,10 +4,9 @@ img: systems/tormenta20/icons/poderes/ameacas/ataque-furtivo.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, o chefe bandido causa
-      +2d6 pontos de dano com ataques corpo a corpo, ou &agrave; dist&acirc;ncia
-      em alcance curto, contra alvos&nbsp; esprevenidos ou que esteja
-      flanqueando.</p>
+      <p>Uma vez por rodada, o chefe bandido causa +2d6 pontos de dano com
+      ataques corpo a corpo, ou &agrave; dist&acirc;ncia em alcance curto,
+      contra alvos&nbsp; esprevenidos ou que esteja flanqueando.</p>
     unidentified: ''
   source: ''
   ativacao:

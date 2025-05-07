@@ -4,10 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/tabardo.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma pe&ccedil;a de tecido usada como um
-      colete, cobrindo o peito e as costas. Geralmente ostenta a
-      her&aacute;ldica de um reino, igreja, casa nobre ou ordem de cavaleiros.
-      Fornece +1 em Diplomacia.</p>
+      <p>Uma pe&ccedil;a de tecido usada como um colete, cobrindo o peito e as
+      costas. Geralmente ostenta a her&aacute;ldica de um reino, igreja, casa
+      nobre ou ordem de cavaleiros. Fornece +1 em Diplomacia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

@@ -45,20 +45,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para soltar um berro feroz. Todos
-      os inimigos em alcance curto ficam vulner&aacute;veis <a
-      class="content-link" draggable="true"
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      soltar um berro feroz. Todos os inimigos em alcance curto ficam
+      vulner&aacute;veis <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.condicoes.llEYr30KgWLnGA9w"
       data-id="llEYr30KgWLnGA9w" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de
       Di&aacute;rio">Vulner&aacute;vel</a>&nbsp;at&eacute; o fim da cena.
       <em>Pr&eacute;-requisito</em>: treinado em Intimida&ccedil;&atilde;o.
       Medo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 41 (JdA)

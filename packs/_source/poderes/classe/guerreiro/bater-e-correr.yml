@@ -57,10 +57,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando faz uma investida, você pode
-      continuar se movendo após o ataque, até o limite de seu deslocamento. Se
-      gastar 2 PM, pode fazer uma investida sobre terreno difícil e sem sofrer a
-      penalidade de Defesa.</p>
+      <p>Quando faz uma investida, você pode continuar se movendo após o ataque,
+      até o limite de seu deslocamento. Se gastar 2 PM, pode fazer uma investida
+      sobre terreno difícil e sem sofrer a penalidade de Defesa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 65 (JdA)

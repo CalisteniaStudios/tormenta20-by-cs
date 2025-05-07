@@ -49,12 +49,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esculpido &agrave; exaust&atilde;o, seu
-      corpo se tornou uma m&aacute;quina. Voc&ecirc; soma sua
-      Constitui&ccedil;&atilde;o nas rolagens de dano desarmado.</p>
+      <p>Esculpido &agrave; exaust&atilde;o, seu corpo se tornou uma
+      m&aacute;quina. Voc&ecirc; soma sua Constitui&ccedil;&atilde;o nas
+      rolagens de dano desarmado.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Con 3,
-      Sarado, 10&ordm; n&iacute;vel de lutador.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Con 3, Sarado, 10&ordm; n&iacute;vel de
+      lutador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg.77 (JdA)

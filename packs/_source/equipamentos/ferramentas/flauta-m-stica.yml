@@ -4,10 +4,10 @@ img: systems/tormenta20/icons/itens/gerais/flauta-mistica.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um instrumento delicado, repleto de runas
-      e pequenas gemas m&iacute;sticas. Um bardo que empunhe este item aumenta a
-      CD para resistir &agrave;s magias lan&ccedil;adas por ele em +1. Conta
-      como um instrumento musical.</p>
+      <p>Um instrumento delicado, repleto de runas e pequenas gemas
+      m&iacute;sticas. Um bardo que empunhe este item aumenta a CD para resistir
+      &agrave;s magias lan&ccedil;adas por ele em +1. Conta como um instrumento
+      musical.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 158 (JdA)

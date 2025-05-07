@@ -11,16 +11,15 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Escolha dois tipos de terreno entre os
-      tipos a seguir. Voc&ecirc; recebe os benef&iacute;cios dos tipos
-      escolhidos mesmo que n&atilde;o esteja neste terreno. Voc&ecirc; pode
-      escolher este poder outras vezes para terrenos diferentes.
-      <em>Pr&eacute;-requisitos:</em> treinado em Conhecimento, Fortitude e
-      Sobreviv&ecirc;ncia.</p>
+      <p>Escolha dois tipos de terreno entre os tipos a seguir. Voc&ecirc;
+      recebe os benef&iacute;cios dos tipos escolhidos mesmo que n&atilde;o
+      esteja neste terreno. Voc&ecirc; pode escolher este poder outras vezes
+      para terrenos diferentes. <em>Pr&eacute;-requisitos:</em> treinado em
+      Conhecimento, Fortitude e Sobreviv&ecirc;ncia.</p>
 
-      <p style="text-align: justify;"><strong>Subterr&acirc;neo.</strong>
-      Voc&ecirc; recebe vis&atilde;o no escuro. Se j&aacute; possuir esta
-      habilidade, seu alcance aumenta para longo.</p>
+      <p><strong>Subterr&acirc;neo.</strong> Voc&ecirc; recebe vis&atilde;o no
+      escuro. Se j&aacute; possuir esta habilidade, seu alcance aumenta para
+      longo.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 12

@@ -46,14 +46,13 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Planta cuja ingest&atilde;o pode causar
-      n&aacute;usea, dores e at&eacute; morte.</p>
+      <p>Planta cuja ingest&atilde;o pode causar n&aacute;usea, dores e
+      at&eacute; morte.</p>
 
-      <p style="text-align: justify;"><strong>Tipo:</strong>
-      <em>Ingest&atilde;o.</em></p>
+      <p><strong>Tipo:</strong> <em>Ingest&atilde;o.</em></p>
 
-      <p style="text-align: justify;"><strong>Efeito:</strong><em> Perde 1d12 PV
-      por rodada durante 3 rodadas (perde 1d12 PV).</em></p>
+      <p><strong>Efeito:</strong><em> Perde 1d12 PV por rodada durante 3 rodadas
+      (perde 1d12 PV).</em></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

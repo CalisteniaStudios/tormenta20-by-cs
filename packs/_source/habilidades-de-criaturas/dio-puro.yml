@@ -4,12 +4,11 @@ img: systems/tormenta20/icons/poderes/ameacas/odio-puro.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Supremacistas passam por um processo de
-      doutrina&ccedil;&atilde;o no qual aprendem a obedecer ordens sem
-      questionar e a odiar todas as ra&ccedil;as n&atilde;o humanas. Um purista
-      recebe +5 em testes de Vontade quando est&aacute; seguindo ordens de um
-      superior (qualquer purista com ND maior) e +2 em rolagens de dano contra
-      humanoides n&atilde;o humanos.</p>
+      <p>Supremacistas passam por um processo de doutrina&ccedil;&atilde;o no
+      qual aprendem a obedecer ordens sem questionar e a odiar todas as
+      ra&ccedil;as n&atilde;o humanas. Um purista recebe +5 em testes de Vontade
+      quando est&aacute; seguindo ordens de um superior (qualquer purista com ND
+      maior) e +2 em rolagens de dano contra humanoides n&atilde;o humanos.</p>
     unidentified: ''
   source: ''
   ativacao:

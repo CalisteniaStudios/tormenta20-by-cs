@@ -9,19 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto estiver sob efeito de
-      Inspira&ccedil;&atilde;o, sempre que voc&ecirc; acertar um ataque corpo a
-      corpo em um inimigo, recebe 2 PM tempor&aacute;rios cumulativos.
-      Voc&ecirc; pode ganhar um m&aacute;ximo de PM tempor&aacute;rios por cena
-      igual ao seu n&iacute;vel. PM tempor&aacute;rios desaparecem no final da
-      cena.</p>
+      <p>Enquanto estiver sob efeito de Inspira&ccedil;&atilde;o, sempre que
+      voc&ecirc; acertar um ataque corpo a corpo em um inimigo, recebe 2 PM
+      tempor&aacute;rios cumulativos. Voc&ecirc; pode ganhar um m&aacute;ximo de
+      PM tempor&aacute;rios por cena igual ao seu n&iacute;vel. PM
+      tempor&aacute;rios desaparecem no final da cena.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Esgrima
-      M&aacute;gica.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisito:</em> Esgrima M&aacute;gica.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

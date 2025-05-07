@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; consegue transporte
-      mar&iacute;timo para voc&ecirc; e seus aliados, sem custos, desde que
-      todos paguem com trabalho (passar em pelo menos um teste de per&iacute;cia
-      adequado durante a viagem).</p>
+      <p>Voc&ecirc; consegue transporte mar&iacute;timo para voc&ecirc; e seus
+      aliados, sem custos, desde que todos paguem com trabalho (passar em pelo
+      menos um teste de per&iacute;cia adequado durante a viagem).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 92 (JdA)

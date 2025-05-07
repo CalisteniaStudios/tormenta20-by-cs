@@ -51,9 +51,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe visão no escuro e +1 em
-      Intimidação. Este bônus aumenta em +1 para cada dois outros poderes da
-      Tormenta que você possui.</p>
+      <p>Você recebe visão no escuro e +1 em Intimidação. Este bônus aumenta em
+      +1 para cada dois outros poderes da Tormenta que você possui.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

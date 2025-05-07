@@ -142,24 +142,21 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Cada parceiro pode ajudar apenas um
-      personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro
-      personagem em alcance curto at&eacute; o fim da cena (para fazer isso com
-      um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
 
-      <p style="text-align: justify;">Um cavaleiro, miliciano, guarda-costas,
-      c&atilde;o de guarda ou outro NPC cuja fun&ccedil;&atilde;o
-      prim&aacute;ria &eacute; proteger.</p>
+      <p>Um cavaleiro, miliciano, guarda-costas, c&atilde;o de guarda ou outro
+      NPC cuja fun&ccedil;&atilde;o prim&aacute;ria &eacute; proteger.</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: voc&ecirc;
-      recebe +2 em Defesa.</p>
+      <p><strong>Iniciante</strong>: voc&ecirc; recebe +2 em Defesa.</p>
 
-      <p style="text-align: justify;"><strong>Veterano</strong>: muda para +3 em
-      Defesa.</p>
+      <p><strong>Veterano</strong>: muda para +3 em Defesa.</p>
 
-      <p style="text-align: justify;"><strong>Mestre</strong>: muda para +4 em
-      Defesa e +2 em testes de resist&ecirc;ncia.</p>
+      <p><strong>Mestre</strong>: muda para +4 em Defesa e +2 em testes de
+      resist&ecirc;ncia.</p>
     unidentified: ''
   source: T20, pg. 261 (JdA)
   ativacao:

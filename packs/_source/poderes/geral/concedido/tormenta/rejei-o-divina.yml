@@ -58,9 +58,7 @@ sort: 150000
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe resist&ecirc;ncia a
-      magia divina +5.</p>
+    value: <p>Voc&ecirc; recebe resist&ecirc;ncia a magia divina +5.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

@@ -233,9 +233,8 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Tacape</section><p
-          style="text-align:justify;">Versão maior e/ou com pregos de uma clava.
-          Não é uma arma elegante, mas faz o serviço.</p>
+          <section class="secret">Tacape</section><p>Versão maior e/ou com
+          pregos de uma clava. Não é uma arma elegante, mas faz o serviço.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 150 (JdA)
@@ -493,13 +492,12 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Este arco refor&ccedil;ado tem a
-          altura de uma pessoa. Ao contr&aacute;rio da vers&atilde;o curta,
-          &eacute; primariamente uma arma de guerra. Por ter uma puxada pesada,
-          permite que voc&ecirc; aplique sua For&ccedil;a &agrave;s rolagens de
-          dano (ao contr&aacute;rio de outras armas de disparo). Por&eacute;m,
-          um arco longo n&atilde;o pode ser usado se voc&ecirc; estiver
-          montado</p>
+          <p>Este arco refor&ccedil;ado tem a altura de uma pessoa. Ao
+          contr&aacute;rio da vers&atilde;o curta, &eacute; primariamente uma
+          arma de guerra. Por ter uma puxada pesada, permite que voc&ecirc;
+          aplique sua For&ccedil;a &agrave;s rolagens de dano (ao
+          contr&aacute;rio de outras armas de disparo). Por&eacute;m, um arco
+          longo n&atilde;o pode ser usado se voc&ecirc; estiver montado</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -627,10 +625,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma aljava com 20 flechas, hastes de
-          madeira com ponta met&aacute;lica e penas para estabilizar o voo.
-          Recarregar um arco com uma flecha &eacute; uma a&ccedil;&atilde;o
-          livre</p>
+          <p>Uma aljava com 20 flechas, hastes de madeira com ponta
+          met&aacute;lica e penas para estabilizar o voo. Recarregar um arco com
+          uma flecha &eacute; uma a&ccedil;&atilde;o livre</p>
         unidentified: ''
       source: T20, pg. 151 (JdA)
       carregado: true

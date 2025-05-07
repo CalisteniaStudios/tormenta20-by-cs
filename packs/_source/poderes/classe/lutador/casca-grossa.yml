@@ -53,11 +53,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 3&ordm; n&iacute;vel, voc&ecirc; soma
-      sua Constitui&ccedil;&atilde;o na Defesa, limitado pelo seu n&iacute;vel e
-      apenas se n&atilde;o estiver usando armadura pesada. Al&eacute;m disso, no
-      7&ordm; n&iacute;vel, e a cada quatro n&iacute;veis, voc&ecirc; recebe +1
-      na Defesa.</p>
+      <p>No 3&ordm; n&iacute;vel, voc&ecirc; soma sua Constitui&ccedil;&atilde;o
+      na Defesa, limitado pelo seu n&iacute;vel e apenas se n&atilde;o estiver
+      usando armadura pesada. Al&eacute;m disso, no 7&ordm; n&iacute;vel, e a
+      cada quatro n&iacute;veis, voc&ecirc; recebe +1 na Defesa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

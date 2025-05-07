@@ -52,11 +52,9 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Defesa e
-      Reflexos.</p>
-
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Des 1.</p>
+    value: |-
+      <p>Voc&ecirc; recebe +2 em Defesa e Reflexos.</p>
+      <p><em>Pr&eacute;-requisito:</em> Des 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

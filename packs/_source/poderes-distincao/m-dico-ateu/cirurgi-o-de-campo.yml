@@ -6,16 +6,15 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Acostumado a praticar seu of&iacute;cio
-      sob press&atilde;o, um doutor aprende a agir rapidamente e a tratar os
-      mais severos ferimentos.</p>
+      <p>Acostumado a praticar seu of&iacute;cio sob press&atilde;o, um doutor
+      aprende a agir rapidamente e a tratar os mais severos ferimentos.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">O tempo que voc&ecirc;
-      leva para usar itens alqu&iacute;micos e po&ccedil;&otilde;es que
-      recuperem PV, PM ou condi&ccedil;&otilde;es &eacute; reduzido em um passo
-      (de a&ccedil;&atilde;o completa para padr&atilde;o e de a&ccedil;&atilde;o
+      <p class="MsoNormal">O tempo que voc&ecirc; leva para usar itens
+      alqu&iacute;micos e po&ccedil;&otilde;es que recuperem PV, PM ou
+      condi&ccedil;&otilde;es &eacute; reduzido em um passo (de
+      a&ccedil;&atilde;o completa para padr&atilde;o e de a&ccedil;&atilde;o
       padr&atilde;o para movimento). Al&eacute;m disso, voc&ecirc; pode gastar 6
       PM e uma a&ccedil;&atilde;o completa para fazer um teste de Cura (CD 30)
       em uma criatura que tenha morrido h&aacute; at&eacute; 1 rodada. Se
@@ -23,10 +22,9 @@ system:
       estabilizada. Voc&ecirc; pode usar esse poder uma vez por dia por
       criatura.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos:</em> Medicina Avan&ccedil;ada, deve
-      ter usado primeiros socorros com um resultado 30 ou mais em pelo menos
-      tr&ecirc;s criaturas.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos:</em> Medicina
+      Avan&ccedil;ada, deve ter usado primeiros socorros com um resultado 30 ou
+      mais em pelo menos tr&ecirc;s criaturas.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 28-29

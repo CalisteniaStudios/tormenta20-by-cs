@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/poderes/ameacas/sacrificar-servo.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando sofre dano, o
-      necromante sacrifica um de seus esqueletos conjurados para reduzir esse
-      dano a 0.</p>
+      <p>Uma vez por rodada, quando sofre dano, o necromante sacrifica um de
+      seus esqueletos conjurados para reduzir esse dano a 0.</p>
     unidentified: ''
   source: ''
   ativacao:

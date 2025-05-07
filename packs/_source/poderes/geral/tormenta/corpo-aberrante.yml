@@ -60,13 +60,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Crostas vermelhas em v&aacute;rias partes
-      de seu corpo tornam seus ataques mais perigosos. Seu dano desarmado
-      aumenta em um passo, mais um passo para cada quatro outros poderes da
-      Tormenta que voc&ecirc; possui.</p>
+      <p>Crostas vermelhas em v&aacute;rias partes de seu corpo tornam seus
+      ataques mais perigosos. Seu dano desarmado aumenta em um passo, mais um
+      passo para cada quatro outros poderes da Tormenta que voc&ecirc;
+      possui.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> outro poder
-      da Tormenta.</p>
+      <p><em>Pr&eacute;-requisito:</em> outro poder da Tormenta.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma aljava com 20 setas de madeira.
-      Recarregar uma besta leve &eacute; uma a&ccedil;&atilde;o de movimento;
-      j&aacute; recarregar uma besta pesada &eacute; uma a&ccedil;&atilde;o
-      padr&atilde;o.</p>
+      <p>Uma aljava com 20 setas de madeira. Recarregar uma besta leve &eacute;
+      uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma besta pesada
+      &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 151 (JdA)

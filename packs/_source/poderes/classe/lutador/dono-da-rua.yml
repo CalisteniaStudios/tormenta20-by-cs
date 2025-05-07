@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, seu dano
-      desarmado aumenta para 2d10 (para criaturas M&eacute;dias). Al&eacute;m
-      disso, quando usa a a&ccedil;&atilde;o agredir para fazer um ataque
-      desarmado, voc&ecirc; pode fazer dois ataques, em vez de um (podendo usar
-      Golpe Rel&acirc;mpago para fazer um terceiro).</p>
+      <p>No 20&ordm; n&iacute;vel, seu dano desarmado aumenta para 2d10 (para
+      criaturas M&eacute;dias). Al&eacute;m disso, quando usa a
+      a&ccedil;&atilde;o agredir para fazer um ataque desarmado, voc&ecirc; pode
+      fazer dois ataques, em vez de um (podendo usar Golpe Rel&acirc;mpago para
+      fazer um terceiro).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

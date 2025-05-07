@@ -60,11 +60,11 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa uma arma corpo a corpo feita
-      por voc&ecirc; mesmo, o dano dela aumenta em um passo.</p>
+      <p>Quando usa uma arma corpo a corpo feita por voc&ecirc; mesmo, o dano
+      dela aumenta em um passo.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos: </em>Armeiro,
-      5&ordm; n&iacute;vel de inventor.</p>
+      <p><em>Pr&eacute;-requisitos: </em>Armeiro, 5&ordm; n&iacute;vel de
+      inventor.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +3 pontos de mana.
-      Quando atinge um novo patamar (no 5&ordm;, 11&ordm; e 17&ordm;
-      n&iacute;veis), recebe +3 PM.</p>
+      <p>Voc&ecirc; recebe +3 pontos de mana. Quando atinge um novo patamar (no
+      5&ordm;, 11&ordm; e 17&ordm; n&iacute;veis), recebe +3 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 92 (JdA)

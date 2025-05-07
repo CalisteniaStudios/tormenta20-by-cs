@@ -115,10 +115,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia imbui uma criatura com coragem
-      e valentia. O alvo fica imune a medo e recebe 40 PV tempor&aacute;rios e
-      +4 em testes de ataque e rolagens de dano contra o inimigo de maior ND na
-      cena.</p>
+      <p>Esta magia imbui uma criatura com coragem e valentia. O alvo fica imune
+      a medo e recebe 40 PV tempor&aacute;rios e +4 em testes de ataque e
+      rolagens de dano contra o inimigo de maior ND na cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 196 (JdA)

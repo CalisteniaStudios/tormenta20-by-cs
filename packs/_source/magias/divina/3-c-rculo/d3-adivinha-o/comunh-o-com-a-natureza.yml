@@ -215,17 +215,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Ap&oacute;s uma breve uni&atilde;o com a
-      natureza local, voc&ecirc; obt&eacute;m informa&ccedil;&otilde;es e
-      intui&ccedil;&otilde;es sobre a regi&atilde;o em que est&aacute;, numa
-      dist&acirc;ncia equivalente a um dia de viagem. Voc&ecirc; recebe 6d4
-      dados de aux&iacute;lio.&nbsp;</p>
+      <p>Ap&oacute;s uma breve uni&atilde;o com a natureza local, voc&ecirc;
+      obt&eacute;m informa&ccedil;&otilde;es e intui&ccedil;&otilde;es sobre a
+      regi&atilde;o em que est&aacute;, numa dist&acirc;ncia equivalente a um
+      dia de viagem. Voc&ecirc; recebe 6d4 dados de aux&iacute;lio.&nbsp;</p>
 
-      <p style="text-align: justify;">Enquanto a magia durar, sempre que for
-      realizar um teste de per&iacute;cia em &aacute;reas naturais, voc&ecirc;
-      pode gastar 2d4 (mais 2d4 para cada c&iacute;rculo de magias acima do
-      3&ordm; que puder lan&ccedil;ar) e adicionar o resultado rolado como
-      b&ocirc;nus no teste. A magia termina se voc&ecirc; ficar sem dados.</p>
+      <p>Enquanto a magia durar, sempre que for realizar um teste de
+      per&iacute;cia em &aacute;reas naturais, voc&ecirc; pode gastar 2d4 (mais
+      2d4 para cada c&iacute;rculo de magias acima do 3&ordm; que puder
+      lan&ccedil;ar) e adicionar o resultado rolado como b&ocirc;nus no teste. A
+      magia termina se voc&ecirc; ficar sem dados.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 184 (JdA)

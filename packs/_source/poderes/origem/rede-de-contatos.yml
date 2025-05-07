@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Gra&ccedil;as &agrave; influ&ecirc;ncia de
-      sua guilda, voc&ecirc; pode usar
+      <p>Gra&ccedil;as &agrave; influ&ecirc;ncia de sua guilda, voc&ecirc; pode
+      usar
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.cPbZCkI3ApOFMTnL]{Diplomacia}
       para interrogar sem custo e em uma hora (veja
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.FA5Km75yEUsW8hR4]{Investiga&ccedil;&atilde;o}).</p>

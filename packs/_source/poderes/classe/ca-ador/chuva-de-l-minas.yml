@@ -9,14 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando usa
-      Ambidestria, voc&ecirc; pode pagar 2 PM para fazer um ataque adicional com
-      sua arma prim&aacute;ria.</p>
+      <p>Uma vez por rodada, quando usa Ambidestria, voc&ecirc; pode pagar 2 PM
+      para fazer um ataque adicional com sua arma prim&aacute;ria.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Des 4, Ambidestria,
-      12&ordm; n&iacute;vel de ca&ccedil;ador.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Pr&eacute;-requisito: Des 4, Ambidestria, 12&ordm; n&iacute;vel de
+      ca&ccedil;ador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

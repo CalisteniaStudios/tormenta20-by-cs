@@ -9,20 +9,18 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e 3 PM para expulsar (se sua divindade
-      canaliza energia positiva) ou comandar (se canaliza energia negativa)
-      todos os mortos-vivos em alcance curto. Mortos-vivos expulsos ficam
-      apavorados por 1d6 rodadas. Mortos-vivos comandados n&atilde;o
-      inteligentes (Int &ndash;4 ou menor) ficam sob suas ordens por um dia
-      (at&eacute; um limite de ND somados igual a seu n&iacute;vel +3; dar uma
-      ordem a todos eles &eacute; uma a&ccedil;&atilde;o de movimento) e
-      mortos-vivos comandados inteligentes ficam fascinados por uma rodada.
-      Mortos-vivos t&ecirc;m direito a um teste de Vontade (CD Sab) para evitar
-      qualquer destes efeitos.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 3 PM para
+      expulsar (se sua divindade canaliza energia positiva) ou comandar (se
+      canaliza energia negativa) todos os mortos-vivos em alcance curto.
+      Mortos-vivos expulsos ficam apavorados por 1d6 rodadas. Mortos-vivos
+      comandados n&atilde;o inteligentes (Int &ndash;4 ou menor) ficam sob suas
+      ordens por um dia (at&eacute; um limite de ND somados igual a seu
+      n&iacute;vel +3; dar uma ordem a todos eles &eacute; uma
+      a&ccedil;&atilde;o de movimento) e mortos-vivos comandados inteligentes
+      ficam fascinados por uma rodada. Mortos-vivos t&ecirc;m direito a um teste
+      de Vontade (CD Sab) para evitar qualquer destes efeitos.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Canalizar Energia
-      Positiva ou Negativa.</p>
+      <p>Pr&eacute;-requisito: Canalizar Energia Positiva ou Negativa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

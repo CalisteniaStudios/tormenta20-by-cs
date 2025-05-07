@@ -57,14 +57,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma escola de magia. O custo para
-      lan&ccedil;ar magias dessa escola diminui em &ndash;1 PM.
-      <em>Pr&eacute;-requisitos:</em> Especialista em Escola com a escola
-      escolhida, 8&ordm; n&iacute;vel de arcanista.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Escolha uma escola de magia. O custo para lan&ccedil;ar magias dessa
+      escola diminui em &ndash;1 PM. <em>Pr&eacute;-requisitos:</em>
+      Especialista em Escola com a escola escolhida, 8&ordm; n&iacute;vel de
+      arcanista.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

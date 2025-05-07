@@ -55,8 +55,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode lan&ccedil;ar duas das
-      magias a seguir:
+      <p>Voc&ecirc; pode lan&ccedil;ar duas das magias a seguir:
       PM.@UUID[Compendium.tormenta20.magias.m14TgW19d1JTBz8U]{Amedrontar},
       @UUID[Compendium.tormenta20.magias.rjB5WyNkH0eInOGW]{Comando},
       @UUID[Compendium.tormenta20.magias.I177NeKSwiAn8vz5]{Despeda&ccedil;ar},
@@ -65,10 +64,6 @@ system:
       @UUID[Compendium.tormenta20.magias.vTVcrCjSdnOmcIyi]{Sono}&nbsp;(atributo-chave
       Carisma). Caso aprenda novamente uma dessas magias, seu custo diminui em
       &ndash;1&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 30 (JdA)

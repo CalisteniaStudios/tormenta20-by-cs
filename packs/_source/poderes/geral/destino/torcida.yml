@@ -53,13 +53,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em testes de
-      per&iacute;cia e Defesa quando tem a torcida a seu favor. Entenda-se por
-      &ldquo;torcida&rdquo; qualquer n&uacute;mero de criaturas inteligentes em
-      alcance m&eacute;dio que n&atilde;o esteja realizando nenhuma
-      a&ccedil;&atilde;o al&eacute;m de torcer por voc&ecirc;.</p>
+      <p>Voc&ecirc; recebe +2 em testes de per&iacute;cia e Defesa quando tem a
+      torcida a seu favor. Entenda-se por &ldquo;torcida&rdquo; qualquer
+      n&uacute;mero de criaturas inteligentes em alcance m&eacute;dio que
+      n&atilde;o esteja realizando nenhuma a&ccedil;&atilde;o al&eacute;m de
+      torcer por voc&ecirc;.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Car 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Car 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

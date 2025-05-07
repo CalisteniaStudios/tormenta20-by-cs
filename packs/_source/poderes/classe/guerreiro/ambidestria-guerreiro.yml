@@ -59,12 +59,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver usando duas armas (e pelo menos
-      uma delas for leve) e fizer a a&ccedil;&atilde;o atacar, voc&ecirc; pode
-      fazer dois ataques, um com cada arma. Se fizer isso, sofre &ndash;2 em
-      todos os testes de ataque at&eacute; o seu pr&oacute;ximo turno.</p>
+      <p>Se estiver usando duas armas (e pelo menos uma delas for leve) e fizer
+      a a&ccedil;&atilde;o atacar, voc&ecirc; pode fazer dois ataques, um com
+      cada arma. Se fizer isso, sofre &ndash;2 em todos os testes de ataque
+      at&eacute; o seu pr&oacute;ximo turno.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Des 2</p>
+      <p><em>Pr&eacute;-requisito:</em> Des 2</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 65 (JdA)

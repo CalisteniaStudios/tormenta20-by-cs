@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; e seus companheiros
-      est&atilde;o diante de um mist&eacute;rio, incapazes de prosseguir,
-      voc&ecirc; pode gastar 1 PM para meditar sozinho durante algum tempo e
-      receber uma dica do mestre.</p>
+      <p>Quando voc&ecirc; e seus companheiros est&atilde;o diante de um
+      mist&eacute;rio, incapazes de prosseguir, voc&ecirc; pode gastar 1 PM para
+      meditar sozinho durante algum tempo e receber uma dica do mestre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 89 (JdA)

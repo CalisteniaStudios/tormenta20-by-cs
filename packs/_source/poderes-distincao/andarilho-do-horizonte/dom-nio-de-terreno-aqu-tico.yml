@@ -11,18 +11,17 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Escolha dois tipos de terreno entre os
-      tipos a seguir. Voc&ecirc; recebe os benef&iacute;cios dos tipos
-      escolhidos mesmo que n&atilde;o esteja neste terreno. Voc&ecirc; pode
-      escolher este poder outras vezes para terrenos diferentes.
-      <em>Pr&eacute;-requisitos:</em> treinado em Conhecimento, Fortitude e
-      Sobreviv&ecirc;ncia.</p>
+      <p>Escolha dois tipos de terreno entre os tipos a seguir. Voc&ecirc;
+      recebe os benef&iacute;cios dos tipos escolhidos mesmo que n&atilde;o
+      esteja neste terreno. Voc&ecirc; pode escolher este poder outras vezes
+      para terrenos diferentes. <em>Pr&eacute;-requisitos:</em> treinado em
+      Conhecimento, Fortitude e Sobreviv&ecirc;ncia.</p>
 
-      <p style="text-align: justify;"><strong>Aqu&aacute;tico.</strong>
-      Voc&ecirc; recebe deslocamento de nata&ccedil;&atilde;o 9m e pode prender
-      a respira&ccedil;&atilde;o pelo dobro do tempo normal. Se j&aacute; possui
-      deslocamento de nata&ccedil;&atilde;o, ele se torna 9m ou aumenta em +6m
-      (o que for maior).</p>
+      <p><strong>Aqu&aacute;tico.</strong> Voc&ecirc; recebe deslocamento de
+      nata&ccedil;&atilde;o 9m e pode prender a respira&ccedil;&atilde;o pelo
+      dobro do tempo normal. Se j&aacute; possui deslocamento de
+      nata&ccedil;&atilde;o, ele se torna 9m ou aumenta em +6m (o que for
+      maior).</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 12

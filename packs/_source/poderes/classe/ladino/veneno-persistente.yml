@@ -55,11 +55,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando aplica uma dose de veneno a uma
-      arma, este veneno dura por tr&ecirc;s ataques (em vez de apenas um).</p>
+      <p>Quando aplica uma dose de veneno a uma arma, este veneno dura por
+      tr&ecirc;s ataques (em vez de apenas um).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Veneno
-      Potente, 8&ordm; n&iacute;vel de ladino.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Veneno Potente, 8&ordm; n&iacute;vel de
+      ladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 74 (JdA)

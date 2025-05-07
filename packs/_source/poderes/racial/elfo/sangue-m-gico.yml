@@ -8,7 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: <p style="text-align:justify;">Você recebe +1 ponto de mana por nível.</p>
+    value: <p>Você recebe +1 ponto de mana por nível.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 22 (JdA)

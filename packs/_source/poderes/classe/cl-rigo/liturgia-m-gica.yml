@@ -60,11 +60,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento para executar uma breve liturgia de sua
-      f&eacute;. Se fizer isso, a CD para resistir &agrave; sua pr&oacute;xima
-      habilidade de cl&eacute;rigo (desde que usada at&eacute; o final de seu
-      pr&oacute;ximo turno) aumenta em +2.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para
+      executar uma breve liturgia de sua f&eacute;. Se fizer isso, a CD para
+      resistir &agrave; sua pr&oacute;xima habilidade de cl&eacute;rigo (desde
+      que usada at&eacute; o final de seu pr&oacute;ximo turno) aumenta em
+      +2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

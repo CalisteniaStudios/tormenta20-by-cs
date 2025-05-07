@@ -58,10 +58,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Por sua diferente vis&atilde;o de mundo,
-      voc&ecirc; encontra solu&ccedil;&otilde;es inesperadas. Voc&ecirc; pode
-      gastar 1 PM para fazer um teste de per&iacute;cia somente treinada, mesmo
-      sem ser treinado na per&iacute;cia.</p>
+      <p>Por sua diferente vis&atilde;o de mundo, voc&ecirc; encontra
+      solu&ccedil;&otilde;es inesperadas. Voc&ecirc; pode gastar 1 PM para fazer
+      um teste de per&iacute;cia somente treinada, mesmo sem ser treinado na
+      per&iacute;cia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 90 (JdA)

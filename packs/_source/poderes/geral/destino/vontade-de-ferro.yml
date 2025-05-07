@@ -49,10 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +1 PM para cada dois
-      n&iacute;veis de personagem e +2 em Vontade.</p>
+      <p>Voc&ecirc; recebe +1 PM para cada dois n&iacute;veis de personagem e +2
+      em Vontade.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Sab 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Sab 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

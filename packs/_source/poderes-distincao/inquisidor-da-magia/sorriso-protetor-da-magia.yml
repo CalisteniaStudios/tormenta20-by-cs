@@ -6,19 +6,18 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">A Deusa da Magia &eacute; alegre e
-      carism&aacute;tica, e seus devotos compartilham este tra&ccedil;o.</p>
+      <p>A Deusa da Magia &eacute; alegre e carism&aacute;tica, e seus devotos
+      compartilham este tra&ccedil;o.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; recebe +2 em
-      testes de per&iacute;cias baseadas em Carisma e resist&ecirc;ncia &agrave;
-      magia +2. Esses b&ocirc;nus aumentam em +1 para cada outros dois poderes
-      de inquisidor da Magia que voc&ecirc; possuir.</p>
+      <p class="MsoNormal">Voc&ecirc; recebe +2 em testes de per&iacute;cias
+      baseadas em Carisma e resist&ecirc;ncia &agrave; magia +2. Esses
+      b&ocirc;nus aumentam em +1 para cada outros dois poderes de inquisidor da
+      Magia que voc&ecirc; possuir.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisito:</em> B&ecirc;n&ccedil;&atilde;o
-      Arcana.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisito:</em>
+      B&ecirc;n&ccedil;&atilde;o Arcana.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 26-27

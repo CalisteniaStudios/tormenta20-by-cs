@@ -55,14 +55,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua Presen&ccedil;a Aristocr&aacute;tica
-      passa a funcionar contra qualquer criatura com valor de Intelig&ecirc;ncia
-      (passa a afetar at&eacute; mesmo animais, embora continue n&atilde;o
-      funcionando contra criaturas sem Int). Al&eacute;m disso, voc&ecirc; pode
-      us&aacute;-la mais de uma vez contra uma mesma criatura na mesma cena.</p>
+      <p>Sua Presen&ccedil;a Aristocr&aacute;tica passa a funcionar contra
+      qualquer criatura com valor de Intelig&ecirc;ncia (passa a afetar
+      at&eacute; mesmo animais, embora continue n&atilde;o funcionando contra
+      criaturas sem Int). Al&eacute;m disso, voc&ecirc; pode us&aacute;-la mais
+      de uma vez contra uma mesma criatura na mesma cena.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> 16&ordm;
-      n&iacute;vel de nobre.&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> 16&ordm; n&iacute;vel de
+      nobre.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

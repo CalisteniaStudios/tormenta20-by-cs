@@ -58,11 +58,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; &eacute; perito nas armas
-      tradicionais an&atilde;s, seja por ter treinado com elas, seja por
-      us&aacute;-las como ferramentas de of&iacute;cio. Para voc&ecirc;, todos
-      os machados, martelos, marretas e picaretas s&atilde;o armas simples.
-      Voc&ecirc; recebe +2 em ataques com essas armas.</p>
+      <p>Voc&ecirc; &eacute; perito nas armas tradicionais an&atilde;s, seja por
+      ter treinado com elas, seja por us&aacute;-las como ferramentas de
+      of&iacute;cio. Para voc&ecirc;, todos os machados, martelos, marretas e
+      picaretas s&atilde;o armas simples. Voc&ecirc; recebe +2 em ataques com
+      essas armas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 20 (JdA)

@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Arma típica de soldados e guerreiros, esta
-      espada de dois gumes tem lâmina reta medindo entre 80cm e 1m.</p>
+      <p>Arma típica de soldados e guerreiros, esta espada de dois gumes tem
+      lâmina reta medindo entre 80cm e 1m.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma profici&ecirc;ncia: armas
-      marciais, armas de fogo, armaduras pesadas ou escudos (se for proficiente
-      em armas marciais, voc&ecirc; tamb&eacute;m pode escolher armas
-      ex&oacute;ticas). Voc&ecirc; recebe essa profici&ecirc;ncia. Voc&ecirc;
-      pode escolher este poder outras vezes para profici&ecirc;ncias
-      diferentes.</p>
+      <p>Escolha uma profici&ecirc;ncia: armas marciais, armas de fogo,
+      armaduras pesadas ou escudos (se for proficiente em armas marciais,
+      voc&ecirc; tamb&eacute;m pode escolher armas ex&oacute;ticas). Voc&ecirc;
+      recebe essa profici&ecirc;ncia. Voc&ecirc; pode escolher este poder outras
+      vezes para profici&ecirc;ncias diferentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 129 (JdA)

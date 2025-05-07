@@ -167,8 +167,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo fica <a class="content-link"
-      draggable="true"
+      <p>O alvo fica <a class="content-link" draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.3dcJKe2SGu8mnafU"
       data-id="3dcJKe2SGu8mnafU" data-type="JournalEntryPage" data-tooltip="Text
       Page">Paralisado</a>; se passar na resist&ecirc;ncia, em vez disso fica

@@ -53,10 +53,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Acrobacia e
-      Atletismo. Al&eacute;m disso, quando est&aacute; se equilibrando ou
-      escalando, voc&ecirc; n&atilde;o fica desprevenido e seu deslocamento
-      n&atilde;o &eacute; reduzido &agrave; metade.</p>
+      <p>Voc&ecirc; recebe +2 em Acrobacia e Atletismo. Al&eacute;m disso,
+      quando est&aacute; se equilibrando ou escalando, voc&ecirc; n&atilde;o
+      fica desprevenido e seu deslocamento n&atilde;o &eacute; reduzido &agrave;
+      metade.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

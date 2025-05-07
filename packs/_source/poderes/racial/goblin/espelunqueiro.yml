@@ -49,8 +49,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe visão no escuro e deslocamento
-      de escalada igual ao seu deslocamento terrestre.</p>
+      <p>Você recebe visão no escuro e deslocamento de escalada igual ao seu
+      deslocamento terrestre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 23 (JdA)

@@ -45,26 +45,25 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; &eacute; cercado por uma
-      barreira invis&iacute;vel com 3m de raio que acompanha seus movimentos.
-      Qualquer magia ou habilidade m&aacute;gica que entre na &aacute;rea da
-      barreira &eacute; suprimida enquanto estiver l&aacute;.</p>
+      <p>Voc&ecirc; &eacute; cercado por uma barreira invis&iacute;vel com 3m de
+      raio que acompanha seus movimentos. Qualquer magia ou habilidade
+      m&aacute;gica que entre na &aacute;rea da barreira &eacute; suprimida
+      enquanto estiver l&aacute;.</p>
 
-      <p style="text-align: justify;">Criaturas convocadas que entrem em um
-      Campo Antimagia desaparecem. Elas reaparecem na mesma
-      posi&ccedil;&atilde;o quando a dura&ccedil;&atilde;o do Campo termina
-      &mdash; supondo que a dura&ccedil;&atilde;o da magia que as convocou ainda
-      n&atilde;o tenha terminado.</p>
+      <p>Criaturas convocadas que entrem em um Campo Antimagia desaparecem. Elas
+      reaparecem na mesma posi&ccedil;&atilde;o quando a dura&ccedil;&atilde;o
+      do Campo termina &mdash; supondo que a dura&ccedil;&atilde;o da magia que
+      as convocou ainda n&atilde;o tenha terminado.</p>
 
-      <p style="text-align: justify;">Criaturas m&aacute;gicas, como elementais,
-      ou construtos imbu&iacute;dos com magia durante sua cria&ccedil;&atilde;o,
-      como golens, n&atilde;o s&atilde;o diretamente afetados pelo Campo
-      Antimagia. Entretanto, como qualquer criatura, n&atilde;o poder&atilde;o
-      usar magias ou habilidades m&aacute;gicas dentro dele.</p>
+      <p>Criaturas m&aacute;gicas, como elementais, ou construtos
+      imbu&iacute;dos com magia durante sua cria&ccedil;&atilde;o, como golens,
+      n&atilde;o s&atilde;o diretamente afetados pelo Campo Antimagia.
+      Entretanto, como qualquer criatura, n&atilde;o poder&atilde;o usar magias
+      ou habilidades m&aacute;gicas dentro dele.</p>
 
-      <p style="text-align: justify;">Magias que dissipam outras magias, como
-      Dissipar Magia, n&atilde;o&nbsp;dissipam um Campo Antimagia, e dois Campos
-      na mesma &aacute;rea n&atilde;o se neutralizam. Artefatos e deuses maiores
+      <p>Magias que dissipam outras magias, como Dissipar Magia,
+      n&atilde;o&nbsp;dissipam um Campo Antimagia, e dois Campos na mesma
+      &aacute;rea n&atilde;o se neutralizam. Artefatos e deuses maiores
       n&atilde;o s&atilde;o afetados por um Campo Antimagia</p>
     chat: ''
     unidentified: ''

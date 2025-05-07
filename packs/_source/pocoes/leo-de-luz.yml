@@ -45,12 +45,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo emite luz (mas n&atilde;o produz
-      calor) em uma &aacute;rea com 6m de raio. O objeto pode ser guardado (em
-      um bolso, por exemplo) para interromper a luz, que voltar&aacute; a
-      funcionar caso o objeto seja revelado. Se lan&ccedil;ar a magia num objeto
-      de uma criatura involunt&aacute;ria, ela tem direito a um teste de Vontade
-      para anul&aacute;-la. Luz anula Escurid&atilde;o.</p>
+      <p>O alvo emite luz (mas n&atilde;o produz calor) em uma &aacute;rea com
+      6m de raio. O objeto pode ser guardado (em um bolso, por exemplo) para
+      interromper a luz, que voltar&aacute; a funcionar caso o objeto seja
+      revelado. Se lan&ccedil;ar a magia num objeto de uma criatura
+      involunt&aacute;ria, ela tem direito a um teste de Vontade para
+      anul&aacute;-la. Luz anula Escurid&atilde;o.</p>
     unidentified: ''
   source: T20, pg. 197 (JdA)
   carregado: true

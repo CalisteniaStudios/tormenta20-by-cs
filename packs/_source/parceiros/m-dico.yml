@@ -114,25 +114,23 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Cada parceiro pode ajudar apenas um
-      personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro
-      personagem em alcance curto at&eacute; o fim da cena (para fazer isso com
-      um animal, voc&ecirc; precisa ser treinado em Adestramento). Um
-      cl&eacute;rigo, druida, herbalista ou outro NPC com capacidades
-      curativas.</p>
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento). Um cl&eacute;rigo, druida,
+      herbalista ou outro NPC com capacidades curativas.</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: uma vez por
-      turno, como uma a&ccedil;&atilde;o livre, voc&ecirc; pode gastar 1 PM para
-      recuperar 1d8+1 PV.</p>
+      <p><strong>Iniciante</strong>: uma vez por turno, como uma
+      a&ccedil;&atilde;o livre, voc&ecirc; pode gastar 1 PM para recuperar 1d8+1
+      PV.</p>
 
-      <p style="text-align: justify;"><strong>Veterano</strong>: como acima, mas
-      voc&ecirc; tamb&eacute;m pode gastar 3 PM para recuperar 3d8+3 PV ou
-      remover uma condi&ccedil;&atilde;o prejudicial (como abalado ou
-      fatigado).</p>
+      <p><strong>Veterano</strong>: como acima, mas voc&ecirc; tamb&eacute;m
+      pode gastar 3 PM para recuperar 3d8+3 PV ou remover uma
+      condi&ccedil;&atilde;o prejudicial (como abalado ou fatigado).</p>
 
-      <p style="text-align: justify;"><strong>Mestre:&nbsp;</strong>como acima,
-      mas voc&ecirc; tamb&eacute;m pode gastar 5 PM para recuperar 6d8+6 PV.</p>
+      <p><strong>Mestre:&nbsp;</strong>como acima, mas voc&ecirc; tamb&eacute;m
+      pode gastar 5 PM para recuperar 6d8+6 PV.</p>
     unidentified: ''
   source: T20, pg. 261 (JdA)
   ativacao:

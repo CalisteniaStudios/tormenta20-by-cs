@@ -224,13 +224,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia cria uma onda de
-      escurid&atilde;o que causa diversos efeitos. Todas as magias de 3&ordm;
-      c&iacute;rculo ou menor ativas na &aacute;rea s&atilde;o dissipadas se
-      voc&ecirc; passar num teste de Religi&atilde;o contra a CD de cada magia.
-      Seus aliados na &aacute;rea s&atilde;o protegidos por uma aura sombria e
-      recebem +4 na Defesa at&eacute; o fim da cena. Inimigos na &aacute;rea
-      ficam <a class="content-link" draggable="true"
+      <p>Esta magia cria uma onda de escurid&atilde;o que causa diversos
+      efeitos. Todas as magias de 3&ordm; c&iacute;rculo ou menor ativas na
+      &aacute;rea s&atilde;o dissipadas se voc&ecirc; passar num teste de
+      Religi&atilde;o contra a CD de cada magia. Seus aliados na &aacute;rea
+      s&atilde;o protegidos por uma aura sombria e recebem +4 na Defesa
+      at&eacute; o fim da cena. Inimigos na &aacute;rea ficam <a
+      class="content-link" draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.BUMyxT4YI9mdC8Aj"
       data-id="BUMyxT4YI9mdC8Aj" data-type="JournalEntryPage" data-tooltip="Text
       Page">Enjoado</a>por 1d4 rodadas (apenas uma vez por cena). <em>Anular a

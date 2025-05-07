@@ -127,15 +127,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria um disco de energia que
-      lembra uma roda de engenho e flutua no ponto em que foi conjurado. O disco
-      &eacute; imune a dano, n&atilde;o pode ser movido e faz uma
-      contram&aacute;gica autom&aacute;tica contra qualquer magia lan&ccedil;ada
-      em alcance m&eacute;dio dele (exceto as suas), usando seu teste de
-      Misticismo. Caso ven&ccedil;a o teste, o engenho n&atilde;o s&oacute;
-      anula a magia como absorve os PM usados para lan&ccedil;&aacute;-la,
-      acumulando PM tempor&aacute;rios. No seu turno, se estiver ao alcance do
-      disco, voc&ecirc; pode gastar PM nele para lan&ccedil;ar magias.</p>
+      <p>Voc&ecirc; cria um disco de energia que lembra uma roda de engenho e
+      flutua no ponto em que foi conjurado. O disco &eacute; imune a dano,
+      n&atilde;o pode ser movido e faz uma contram&aacute;gica autom&aacute;tica
+      contra qualquer magia lan&ccedil;ada em alcance m&eacute;dio dele (exceto
+      as suas), usando seu teste de Misticismo. Caso ven&ccedil;a o teste, o
+      engenho n&atilde;o s&oacute; anula a magia como absorve os PM usados para
+      lan&ccedil;&aacute;-la, acumulando PM tempor&aacute;rios. No seu turno, se
+      estiver ao alcance do disco, voc&ecirc; pode gastar PM nele para
+      lan&ccedil;ar magias.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 192 (JdA)

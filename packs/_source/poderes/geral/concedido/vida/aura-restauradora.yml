@@ -59,8 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Efeitos de cura usados por voc&ecirc; e
-      seus aliados em alcance curto recuperam +1 PV por dado.</p>
+      <p>Efeitos de cura usados por voc&ecirc; e seus aliados em alcance curto
+      recuperam +1 PV por dado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

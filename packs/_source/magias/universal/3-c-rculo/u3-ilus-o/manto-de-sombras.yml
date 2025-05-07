@@ -91,20 +91,19 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; fica coberto por um manto de
-      energia sombria. Nesta forma, torna-se incorp&oacute;reo (inclui seu
-      equipamento): s&oacute; pode ser afetado por armas m&aacute;gicas,&nbsp;
-      ou por outras criaturas incorp&oacute;reas e pode atravessar objetos
-      s&oacute;lidos, mas n&atilde;o manipul&aacute;-los. Tamb&eacute;m
-      n&atilde;o pode atacar criaturas normais (mas ainda pode lan&ccedil;ar
-      magias nelas). Al&eacute;m disso, se torna vulner&aacute;vel &agrave; luz
-      direta: se exposto a uma fonte de luz, sofre 1 ponto de dano por
-      rodada.</p>
+      <p>Voc&ecirc; fica coberto por um manto de energia sombria. Nesta forma,
+      torna-se incorp&oacute;reo (inclui seu equipamento): s&oacute; pode ser
+      afetado por armas m&aacute;gicas,&nbsp; ou por outras criaturas
+      incorp&oacute;reas e pode atravessar objetos s&oacute;lidos, mas
+      n&atilde;o manipul&aacute;-los. Tamb&eacute;m n&atilde;o pode atacar
+      criaturas normais (mas ainda pode lan&ccedil;ar magias nelas). Al&eacute;m
+      disso, se torna vulner&aacute;vel &agrave; luz direta: se exposto a uma
+      fonte de luz, sofre 1 ponto de dano por rodada.</p>
 
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para &ldquo;entrar&rdquo; em uma
-      sombra do seu tamanho ou maior e se teletransportar para outra sombra,
-      tamb&eacute;m do seu tamanho ou maior, em alcance m&eacute;dio.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      &ldquo;entrar&rdquo; em uma sombra do seu tamanho ou maior e se
+      teletransportar para outra sombra, tamb&eacute;m do seu tamanho ou maior,
+      em alcance m&eacute;dio.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 197 (JdA)

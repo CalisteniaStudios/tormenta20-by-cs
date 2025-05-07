@@ -4,8 +4,7 @@ img: systems/tormenta20/icons/itens/gerais/materia-vermelha.webp
 system:
   description:
     value: >-
-      <p><span class="fontstyle0"><strong style="text-align: justify;">[Material
-      Especial]</strong></span></p>
+      <p><span><strong>[Material Especial]</strong></span></p>
 
       <p>Qualquer material de origem aberrante &mdash; desde suas garras e
       carapa&ccedil;as, at&eacute; min&eacute;rios e partes de estruturas
@@ -25,23 +24,19 @@ system:
       inimigos em alcance curto sofrem &ndash;2 em testes de resist&ecirc;ncia
       contra efeitos m&aacute;gicos.</p>
 
-      <p>&nbsp;</p>
 
-      <p><span class="fontstyle0"><strong style="text-align:
-      justify;">Pre&ccedil;o:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align:
-      justify;">Armas:&nbsp; +T$ 1500</span></span></p>
+      <p><span><strong>Pre&ccedil;o:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armaduras
-      pesadas:&nbsp;<span style="font-family: var(--font-primary); font-size:
-      var(--font-size-14);">+T$ 18000</span></span></span></p>
+      <p><span><span>Armas:&nbsp; +T$ 1500</span></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armaduras
-      leves e Escudo:&nbsp; +T$ 6000</span></span></p>
+      <p><span><span>Armaduras pesadas:&nbsp;<span style="font-family:
+      var(--font-primary); font-size: var(--font-size-14);">+T$
+      18000</span></span></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align:
-      justify;">Esot&eacute;ricos: <span style="font-family:
+      <p><span><span>Armaduras leves e Escudo:&nbsp; +T$ 6000</span></span></p>
+
+      <p><span><span>Esot&eacute;ricos: <span style="font-family:
       var(--font-primary); font-size: var(--font-size-14);">+T$
       3000</span></span></span></p>
     chat: ''

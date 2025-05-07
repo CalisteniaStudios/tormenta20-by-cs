@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma sua Sabedoria em seu total
-      de pontos de mana e aprende e pode lan&ccedil;ar Caminhos da Natureza
-      (atributo-chave Sabedoria).</p>
+      <p>Voc&ecirc; soma sua Sabedoria em seu total de pontos de mana e aprende
+      e pode lan&ccedil;ar Caminhos da Natureza (atributo-chave Sabedoria).</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Sab 1, 3&ordm;
-      n&iacute;vel de ca&ccedil;ador.</p>
+      <p>Pr&eacute;-requisito: Sab 1, 3&ordm; n&iacute;vel de
+      ca&ccedil;ador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

@@ -49,10 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +1 PV por n&iacute;vel
-      de personagem e +2 em Fortitude.</p>
+      <p>Voc&ecirc; recebe +1 PV por n&iacute;vel de personagem e +2 em
+      Fortitude.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Con 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Con 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 129 (JdA)

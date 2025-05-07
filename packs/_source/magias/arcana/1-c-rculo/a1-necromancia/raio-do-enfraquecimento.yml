@@ -179,16 +179,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; dispara um raio p&uacute;rpura
-      que drena as for&ccedil;as do alvo. Se falhar na resist&ecirc;ncia, o alvo
-      fica
+      <p>Voc&ecirc; dispara um raio p&uacute;rpura que drena as for&ccedil;as do
+      alvo. Se falhar na resist&ecirc;ncia, o alvo fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.MCED18aEe4UFeEVf]{Fatigado}.
       Se passar, fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.iGWU5WVm57STW7am]{Vulner&aacute;vel}.</p>
 
-      <p style="text-align: justify;">Note que, como efeitos de magia n&atilde;o
-      acumulam, lan&ccedil;ar esta magia duas vezes contra o mesmo alvo
-      n&atilde;o ir&aacute; deix&aacute;-lo exausto.&nbsp;</p>
+      <p>Note que, como efeitos de magia n&atilde;o acumulam, lan&ccedil;ar esta
+      magia duas vezes contra o mesmo alvo n&atilde;o ir&aacute; deix&aacute;-lo
+      exausto.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 202 (JdA)

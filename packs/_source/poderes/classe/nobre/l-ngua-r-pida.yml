@@ -59,9 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando faz um teste de Diplomacia para
-      mudar atitude como uma ação completa, você sofre uma penalidade de –5, em
-      vez de –10.</p>
+      <p>Quando faz um teste de Diplomacia para mudar atitude como uma ação
+      completa, você sofre uma penalidade de –5, em vez de –10.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

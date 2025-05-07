@@ -55,16 +55,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa Manipular, voc&ecirc; pode
-      gastar +2 PM. Se fizer isso, afeta todas as criaturas a sua escolha em
-      alcance curto.</p>
+      <p>Quando usa Manipular, voc&ecirc; pode gastar +2 PM. Se fizer isso,
+      afeta todas as criaturas a sua escolha em alcance curto.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Fascinar
-      em Massa, Manipular, 10&ordm; n&iacute;vel de bardo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> Fascinar em Massa, Manipular, 10&ordm;
+      n&iacute;vel de bardo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

@@ -59,14 +59,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, seu
-      dom&iacute;nio das artes arcanas &eacute; total. O custo em PM de suas
-      magias arcanas &eacute; reduzido &agrave; metade (ap&oacute;s aplicar
-      aprimoramentos e quaisquer outros efeitos que reduzam custo).</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>No 20&ordm; n&iacute;vel, seu dom&iacute;nio das artes arcanas &eacute;
+      total. O custo em PM de suas magias arcanas &eacute; reduzido &agrave;
+      metade (ap&oacute;s aplicar aprimoramentos e quaisquer outros efeitos que
+      reduzam custo).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa a a&ccedil;&atilde;o agredir
-      para fazer um ataque desarmado, voc&ecirc; pode gastar 1 PM para realizar
-      um ataque desarmado adicional.</p>
+      <p>Quando usa a a&ccedil;&atilde;o agredir para fazer um ataque desarmado,
+      voc&ecirc; pode gastar 1 PM para realizar um ataque desarmado
+      adicional.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 76 (JdA)

@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Bolsa de couro para guardar bebida
-      (geralmente água ou vinho). Existe em vários tamanhos, mas o odre mais
-      comum comporta 1 litro.</p>
+      <p>Bolsa de couro para guardar bebida (geralmente água ou vinho). Existe
+      em vários tamanhos, mas o odre mais comum comporta 1 litro.</p>
     chat: ''
     unidentified: ''
   source: ''

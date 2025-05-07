@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">O cabo e a l&acirc;mina deste
-      <strong>machado de batalha formidável</strong> são cobertos de gravuras
-      representando plantas e animais selvagens. Quando você usa o machado
-      silvestre em um ambiente ermo e ao ar livre, causa +[[/r 1d8]] de dano e
-      recebe o poder Trespassar. Caso já possua este poder, pode utilizá-lo sem
-      pagar pontos de mana.</p>
+      <p>O cabo e a l&acirc;mina deste <strong>machado de batalha
+      formidável</strong> são cobertos de gravuras representando plantas e
+      animais selvagens. Quando você usa o machado silvestre em um ambiente ermo
+      e ao ar livre, causa +[[/r 1d8]] de dano e recebe o poder Trespassar. Caso
+      já possua este poder, pode utilizá-lo sem pagar pontos de mana.</p>
     chat: ''
     unidentified: ''
   source: ''

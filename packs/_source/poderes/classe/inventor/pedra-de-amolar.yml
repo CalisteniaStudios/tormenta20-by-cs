@@ -100,18 +100,14 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e uma quantidade de PM a sua escolha
-      (limitado por sua Intelig&ecirc;ncia) para aprimorar uma arma corpo a
-      corpo que esteja empunhando.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e uma
+      quantidade de PM a sua escolha (limitado por sua Intelig&ecirc;ncia) para
+      aprimorar uma arma corpo a corpo que esteja empunhando.</p>
 
-      <p style="text-align: justify;">Para cada PM que gastar, voc&ecirc; recebe
-      +1 em rolagens de dano com a arma at&eacute; o final da cena.</p>
+      <p>Para cada PM que gastar, voc&ecirc; recebe +1 em rolagens de dano com a
+      arma at&eacute; o final da cena.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      Armeiro.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisito:</em> Armeiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 70 (JdA)

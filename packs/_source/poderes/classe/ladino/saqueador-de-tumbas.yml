@@ -62,7 +62,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +5 em testes de
+      <p>Voc&ecirc; recebe +5 em testes de
       @UUID[Compendium.tormenta20.pericias.ZAS0zJaPRJWg15ib]{Investiga&ccedil;&atilde;o}<span
       style="white-space: nowrap; background-color: rgb(221, 221, 221);">
       </span>para encontrar armadilhas e em testes de resist&ecirc;ncia contra

@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua fl&acirc;mula torna-se um
-      s&iacute;mbolo de inspira&ccedil;&atilde;o. No in&iacute;cio de cada cena,
-      voc&ecirc; e todos os aliados que possam ver seu estandarte recebem um
-      n&uacute;mero de PM tempor&aacute;rios igual ao seu Carisma (m&iacute;nimo
-      1). PM tempor&aacute;rios desaparecem no final da cena.
+      <p>Sua fl&acirc;mula torna-se um s&iacute;mbolo de
+      inspira&ccedil;&atilde;o. No in&iacute;cio de cada cena, voc&ecirc; e
+      todos os aliados que possam ver seu estandarte recebem um n&uacute;mero de
+      PM tempor&aacute;rios igual ao seu Carisma (m&iacute;nimo 1). PM
+      tempor&aacute;rios desaparecem no final da cena.
       <em>Pr&eacute;-requisito:</em> T&iacute;tulo, 14&ordm; n&iacute;vel de
       cavaleiro.</p>
     chat: ''

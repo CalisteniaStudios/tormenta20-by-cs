@@ -55,11 +55,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; aprende e pode lan&ccedil;ar
-      uma magia de encantamento ou ilus&atilde;o, arcana ou divina, de qualquer
-      c&iacute;rculo que possa lan&ccedil;ar. Al&eacute;m disso, escolha uma
-      quantidade de magias igual ao seu Carisma (m&iacute;nimo 1). O custo
-      dessas magias &eacute; reduzido em &minus;1 PM.</p>
+      <p>Voc&ecirc; aprende e pode lan&ccedil;ar uma magia de encantamento ou
+      ilus&atilde;o, arcana ou divina, de qualquer c&iacute;rculo que possa
+      lan&ccedil;ar. Al&eacute;m disso, escolha uma quantidade de magias igual
+      ao seu Carisma (m&iacute;nimo 1). O custo dessas magias &eacute; reduzido
+      em &minus;1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 61 (JdA)

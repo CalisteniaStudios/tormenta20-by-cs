@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Composta por tiras horizontais de metal,
-      esta armadura pesada é muito utilizada por legionários do Império.</p>
+      <p>Composta por tiras horizontais de metal, esta armadura pesada é muito
+      utilizada por legionários do Império.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

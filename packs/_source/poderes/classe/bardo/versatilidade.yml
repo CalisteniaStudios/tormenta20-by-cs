@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">A partir do 2º nível, você pode gastar 1 PM
-      para receber todos os benefícios de ser treinado em uma perícia a sua
-      escolha por um teste.</p>
+      <p>A partir do 2º nível, você pode gastar 1 PM para receber todos os
+      benefícios de ser treinado em uma perícia a sua escolha por um teste.</p>
     chat: ''
     unidentified: ''
   source: ''

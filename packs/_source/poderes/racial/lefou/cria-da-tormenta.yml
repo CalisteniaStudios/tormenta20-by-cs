@@ -58,9 +58,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você é uma criatura do tipo monstro e
-      recebe +5 em testes de resistência contra efeitos causados por lefeu e
-      pela Tormenta.</p>
+      <p>Você é uma criatura do tipo monstro e recebe +5 em testes de
+      resistência contra efeitos causados por lefeu e pela Tormenta.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 24 (JdA)

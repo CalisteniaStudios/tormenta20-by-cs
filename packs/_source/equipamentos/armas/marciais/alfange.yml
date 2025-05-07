@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma versão maior da cimitarra, esta espada
-      de lâmina larga e curva é bastante usada por guerreiros do deserto.</p>
+      <p>Uma versão maior da cimitarra, esta espada de lâmina larga e curva é
+      bastante usada por guerreiros do deserto.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 146 (JdA)

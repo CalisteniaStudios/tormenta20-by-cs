@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">O tipo mais comum de espada, usada por
-      guardas ou como arma secundária de guerreiros mais capazes. Mede entre 40
-      e 50cm.</p>
+      <p>O tipo mais comum de espada, usada por guardas ou como arma secundária
+      de guerreiros mais capazes. Mede entre 40 e 50cm.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

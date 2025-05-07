@@ -9,13 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa uma arma de arremesso,
-      voc&ecirc; pode usar sua For&ccedil;a em vez de Destreza nos testes de
-      ataque. Se voc&ecirc; possuir o poder Ataque Poderoso, poder&aacute;
-      us&aacute;-lo com armas de arremesso.</p>
+      <p>Quando usa uma arma de arremesso, voc&ecirc; pode usar sua For&ccedil;a
+      em vez de Destreza nos testes de ataque. Se voc&ecirc; possuir o poder
+      Ataque Poderoso, poder&aacute; us&aacute;-lo com armas de arremesso.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> For 1,
-      Estilo de Arremesso.</p>
+      <p><em>Pr&eacute;-requisitos:</em> For 1, Estilo de Arremesso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 124 (JdA)

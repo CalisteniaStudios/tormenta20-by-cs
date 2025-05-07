@@ -309,13 +309,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você muda a aparência do alvo, incluindo
-      seu equipamento. Isso inclui altura, peso, tom de pele, cor de cabelo,
-      timbre de voz etc. O alvo recebe +10 em testes de Enganação para disfarce.
-      O alvo não recebe novas habilidades (você pode ficar parecido com outra
-      raça, mas não ganhará as habilidades dela), nem modifica o equipamento
-      (uma espada longa disfarçada de bordão continua funcionando e causando
-      dano como uma espada).</p>
+      <p>Você muda a aparência do alvo, incluindo seu equipamento. Isso inclui
+      altura, peso, tom de pele, cor de cabelo, timbre de voz etc. O alvo recebe
+      +10 em testes de Enganação para disfarce. O alvo não recebe novas
+      habilidades (você pode ficar parecido com outra raça, mas não ganhará as
+      habilidades dela), nem modifica o equipamento (uma espada longa disfarçada
+      de bordão continua funcionando e causando dano como uma espada).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 191 (JdA)

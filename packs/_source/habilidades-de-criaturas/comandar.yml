@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/poderes/ameacas/comandar.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Os aliados em alcance m&eacute;dio do
-      capit&atilde;o-baluarte recebem +4 em testes de ataque e rolagens de dano
-      at&eacute; o fim da rodada.</p>
+      <p>Os aliados em alcance m&eacute;dio do capit&atilde;o-baluarte recebem
+      +4 em testes de ataque e rolagens de dano at&eacute; o fim da rodada.</p>
     unidentified: ''
   source: ''
   ativacao:

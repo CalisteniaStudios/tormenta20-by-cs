@@ -56,9 +56,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um Ataque Especial, voc&ecirc;
-      pode gastar 1 PM adicional para ignorar 10 pontos de redu&ccedil;&atilde;o
-      de dano.</p>
+      <p>Quando faz um Ataque Especial, voc&ecirc; pode gastar 1 PM adicional
+      para ignorar 10 pontos de redu&ccedil;&atilde;o de dano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 66 (JdA)

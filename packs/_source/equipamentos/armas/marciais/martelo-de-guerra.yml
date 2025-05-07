@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Outra ferramenta adaptada para combate,
-      esta é a arma favorita de quase todos os anões que não usam machados.</p>
+      <p>Outra ferramenta adaptada para combate, esta é a arma favorita de quase
+      todos os anões que não usam machados.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 149 (JdA)

@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa Golpe Rel&acirc;mpago,
-      voc&ecirc; pode atacar de forma impulsiva. Se fizer isso, seus ataques
-      desarmados recebem um dado de dano extra do mesmo tipo (por exemplo, se o
-      seu dano &eacute; 2d6, voc&ecirc; causa 3d6), mas voc&ecirc; sofre
-      &ndash;5 na Defesa at&eacute; o in&iacute;cio de seu pr&oacute;ximo
-      turno.</p>
+      <p>Quando usa Golpe Rel&acirc;mpago, voc&ecirc; pode atacar de forma
+      impulsiva. Se fizer isso, seus ataques desarmados recebem um dado de dano
+      extra do mesmo tipo (por exemplo, se o seu dano &eacute; 2d6, voc&ecirc;
+      causa 3d6), mas voc&ecirc; sofre &ndash;5 na Defesa at&eacute; o
+      in&iacute;cio de seu pr&oacute;ximo turno.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

@@ -54,11 +54,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">+1 em Tr&ecirc;s Atributos Diferentes.</p>
+      <p>+1 em Tr&ecirc;s Atributos Diferentes.</p>
 
-      <p style="text-align: justify;">Filhos de Valkaria, Deusa da
-      Ambi&ccedil;&atilde;o, humanos podem se destacar em qualquer caminho que
-      escolherem.</p>
+      <p>Filhos de Valkaria, Deusa da Ambi&ccedil;&atilde;o, humanos podem se
+      destacar em qualquer caminho que escolherem.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 19 (JdA)

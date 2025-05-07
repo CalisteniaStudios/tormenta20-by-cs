@@ -126,9 +126,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; suga energia vital da terra,
-      recebendo 2d10 pontos de vida tempor&aacute;rios. Os PV tempor&aacute;rios
-      desaparecem ao final da cena.</p>
+      <p>Voc&ecirc; suga energia vital da terra, recebendo 2d10 pontos de vida
+      tempor&aacute;rios. Os PV tempor&aacute;rios desaparecem ao final da
+      cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 211 (JdA)

@@ -58,14 +58,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; dispara um raio fino e
-      esverdeado que causa 10d12 pontos de dano de ess&ecirc;ncia. Se o alvo
-      passar no teste de resist&ecirc;ncia, em vez disso sofre 2d12 pontos de
-      dano.</p>
+      <p>Voc&ecirc; dispara um raio fino e esverdeado que causa 10d12 pontos de
+      dano de ess&ecirc;ncia. Se o alvo passar no teste de resist&ecirc;ncia, em
+      vez disso sofre 2d12 pontos de dano.</p>
 
-      <p style="text-align: justify;">Independentemente do resultado do teste de
-      Fortitude, se os PV do alvo forem reduzidos a 0 ou menos, ele ser&aacute;
-      completamente desintegrado, restando apenas p&oacute;.</p>
+      <p>Independentemente do resultado do teste de Fortitude, se os PV do alvo
+      forem reduzidos a 0 ou menos, ele ser&aacute; completamente desintegrado,
+      restando apenas p&oacute;.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 190 (JdA)

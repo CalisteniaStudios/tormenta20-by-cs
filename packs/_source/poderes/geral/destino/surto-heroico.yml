@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma vez por rodada, você pode gastar 5 PM
-      para realizar uma ação padrão ou de movimento adicional.</p>
+      <p>Uma vez por rodada, você pode gastar 5 PM para realizar uma ação padrão
+      ou de movimento adicional.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

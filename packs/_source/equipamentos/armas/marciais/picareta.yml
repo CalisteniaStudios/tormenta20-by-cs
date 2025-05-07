@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Usada por mineradores, esta ferramenta
-      quebra pedras com facilidade. Imagine o que pode fazer com carne e
-      osso!</p>
+      <p>Usada por mineradores, esta ferramenta quebra pedras com facilidade.
+      Imagine o que pode fazer com carne e osso!</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 150 (JdA)

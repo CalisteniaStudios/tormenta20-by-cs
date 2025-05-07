@@ -567,15 +567,10 @@ items:
     system:
       description:
         value: >-
-          <p><span class="fontstyle0"><strong style="text-align:
-          justify;">[Tesouro Especial]</strong></span></p>
+          <p><span><strong>[Tesouro Especial]</strong></span></p>
 
           <p>As garras do Ganchador valem T$ 500 em mat&eacute;ria-prima para
           fabricar armas de corte superiores. (CD 20 para extrair).</p>
-
-          <p>&nbsp;</p>
-
-          <p>&nbsp;</p>
         unidentified: ''
       source: T20, pg. 287 (JdA)
       carregado: true

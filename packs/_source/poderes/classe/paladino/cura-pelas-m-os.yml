@@ -106,17 +106,17 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A partir do 2&ordm; n&iacute;vel,
-      voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
-      curar 1d8+1 pontos de vida de um alvo em alcance corpo a corpo (incluindo
-      voc&ecirc;). A cada quatro n&iacute;veis, voc&ecirc; pode gastar +1 PM
-      para aumentar os PV curados em +1d8+1.</p>
+      <p>A partir do 2&ordm; n&iacute;vel, voc&ecirc; pode gastar uma
+      a&ccedil;&atilde;o de movimento e 1 PM para curar 1d8+1 pontos de vida de
+      um alvo em alcance corpo a corpo (incluindo voc&ecirc;). A cada quatro
+      n&iacute;veis, voc&ecirc; pode gastar +1 PM para aumentar os PV curados em
+      +1d8+1.</p>
 
-      <p style="text-align: justify;">Esta habilidade pode causar dano de luz a
-      mortos-vivos, exigindo um ataque desarmado. A partir do 6&ordm;
-      n&iacute;vel, voc&ecirc; pode gastar +1 PM quando usa Cura pelas
-      M&atilde;os para anular uma condi&ccedil;&atilde;o afetando o alvo, entre
-      <a class="content-link" draggable="true"
+      <p>Esta habilidade pode causar dano de luz a mortos-vivos, exigindo um
+      ataque desarmado. A partir do 6&ordm; n&iacute;vel, voc&ecirc; pode gastar
+      +1 PM quando usa Cura pelas M&atilde;os para anular uma
+      condi&ccedil;&atilde;o afetando o alvo, entre <a class="content-link"
+      draggable="true"
       data-uuid="Compendium.tormenta20.condicoes.yEjDYaD3JjGSY2Tu"
       data-id="yEjDYaD3JjGSY2Tu" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de

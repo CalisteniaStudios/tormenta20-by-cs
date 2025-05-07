@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando erra um ataque,
-      voc&ecirc; pode gastar 2 PM. Se fizer isso, causa metade do dano que
-      causaria (ignorando efeitos que se aplicariam caso o ataque
-      acertasse).</p>
+      <p>Uma vez por rodada, quando erra um ataque, voc&ecirc; pode gastar 2 PM.
+      Se fizer isso, causa metade do dano que causaria (ignorando efeitos que se
+      aplicariam caso o ataque acertasse).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 65 (JdA)

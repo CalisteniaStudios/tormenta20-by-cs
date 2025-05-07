@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe uma arma natural de
-      mordida (dano 1d4, cr&iacute;tico x2, corte). Uma vez por rodada, quando
-      usa a a&ccedil;&atilde;o agredir para atacar com outra arma, pode gastar 1
-      PM para fazer um ataque corpo a corpo extra com a mordida.</p>
+      <p>Voc&ecirc; recebe uma arma natural de mordida (dano 1d4, cr&iacute;tico
+      x2, corte). Uma vez por rodada, quando usa a a&ccedil;&atilde;o agredir
+      para atacar com outra arma, pode gastar 1 PM para fazer um ataque corpo a
+      corpo extra com a mordida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

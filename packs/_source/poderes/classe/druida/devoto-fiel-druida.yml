@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; se torna devoto de um deus
-      dispon&iacute;vel para druidas (Allihanna, Megalokk ou Oceano). Veja as
-      regras de devotos na p&aacute;gina 96. Ao contr&aacute;rio de devotos
-      normais, voc&ecirc; recebe dois poderes concedidos por se tornar devoto,
-      em vez de apenas um.</p>
+      <p>Voc&ecirc; se torna devoto de um deus dispon&iacute;vel para druidas
+      (Allihanna, Megalokk ou Oceano). Veja as regras de devotos na
+      p&aacute;gina 96. Ao contr&aacute;rio de devotos normais, voc&ecirc;
+      recebe dois poderes concedidos por se tornar devoto, em vez de apenas
+      um.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

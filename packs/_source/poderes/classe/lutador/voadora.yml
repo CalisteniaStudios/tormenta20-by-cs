@@ -108,10 +108,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz uma investida desarmada,
-      voc&ecirc; pode gastar 2 PM. Se fizer isso, recebe +1d6 no dano para cada
-      3m que se deslocar at&eacute; chegar ao oponente, limitado pelo seu
-      n&iacute;vel.</p>
+      <p>Quando faz uma investida desarmada, voc&ecirc; pode gastar 2 PM. Se
+      fizer isso, recebe +1d6 no dano para cada 3m que se deslocar at&eacute;
+      chegar ao oponente, limitado pelo seu n&iacute;vel.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

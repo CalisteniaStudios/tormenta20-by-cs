@@ -9,15 +9,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha um de seus companheiros animais.
-      Ele recebe um segundo tipo, ganhando os b&ocirc;nus de seu n&iacute;vel.
-      Por exemplo, se voc&ecirc; tiver um companheiro guardi&atilde;o veterano,
-      pode adicionar o tipo fort&atilde;o a ele, tornando-o um guardi&atilde;o
-      fort&atilde;o veterano que concede +3 na Defesa e +1d12 nas rolagens de
-      dano corpo a corpo.</p>
+      <p>Escolha um de seus companheiros animais. Ele recebe um segundo tipo,
+      ganhando os b&ocirc;nus de seu n&iacute;vel. Por exemplo, se voc&ecirc;
+      tiver um companheiro guardi&atilde;o veterano, pode adicionar o tipo
+      fort&atilde;o a ele, tornando-o um guardi&atilde;o fort&atilde;o veterano
+      que concede +3 na Defesa e +1d12 nas rolagens de dano corpo a corpo.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:
-      </em>Companheiro Animal, 6&ordm; n&iacute;vel de druida.</p>
+      <p><em>Pr&eacute;-requisitos: </em>Companheiro Animal, 6&ordm;
+      n&iacute;vel de druida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

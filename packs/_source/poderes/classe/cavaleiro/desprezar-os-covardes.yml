@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe resistência a dano 5 se estiver
-      caído, desprevenido ou flanqueado.</p>
+      <p>Você recebe resistência a dano 5 se estiver caído, desprevenido ou
+      flanqueado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/luva-de-pelica.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Estas luvas delicadas preservam o tato e
-      impedem que o suor deixe os dedos escorregadios. Fornecem +1 em
-      Ladinagem.</p>
+      <p>Estas luvas delicadas preservam o tato e impedem que o suor deixe os
+      dedos escorregadios. Fornecem +1 em Ladinagem.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

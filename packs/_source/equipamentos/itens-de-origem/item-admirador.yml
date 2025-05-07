@@ -8,12 +8,9 @@ sort: 100782
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;"><strong>[Item de
-      Origem]</strong>&nbsp;</p>
-
-      <p style="text-align: justify;">um item&nbsp; sem valor recebido de um
-      admirador</p>
+    value: |-
+      <p><strong>[Item de Origem]</strong>&nbsp;</p>
+      <p>um item&nbsp; sem valor recebido de um admirador</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 90 (JdA)

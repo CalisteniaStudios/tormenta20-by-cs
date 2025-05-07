@@ -48,14 +48,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este item, que parece uma simples mochila
-      de pano, est&aacute; na verdade ligado a um espa&ccedil;o interdimensional
-      &mdash; fazendo com que seja maior por dentro do que por fora. A mochila
-      de carga aumenta sua capacidade de carga em 10 espa&ccedil;os (ela
-      pr&oacute;pria n&atilde;o gasta um espa&ccedil;o). Se a mochila for
-      rasgada, os objetos em seu interior s&atilde;o destru&iacute;dos.
-      Criaturas vivas colocadas no interior da mochila podem sobreviver
-      at&eacute; 10 minutos, mas depois disso ficar&atilde;o sem ar.</p>
+      <p>Este item, que parece uma simples mochila de pano, est&aacute; na
+      verdade ligado a um espa&ccedil;o interdimensional &mdash; fazendo com que
+      seja maior por dentro do que por fora. A mochila de carga aumenta sua
+      capacidade de carga em 10 espa&ccedil;os (ela pr&oacute;pria n&atilde;o
+      gasta um espa&ccedil;o). Se a mochila for rasgada, os objetos em seu
+      interior s&atilde;o destru&iacute;dos. Criaturas vivas colocadas no
+      interior da mochila podem sobreviver at&eacute; 10 minutos, mas depois
+      disso ficar&atilde;o sem ar.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

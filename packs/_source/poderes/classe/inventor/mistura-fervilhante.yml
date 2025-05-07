@@ -56,14 +56,11 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa um item alqu&iacute;mico ou
-      po&ccedil;&atilde;o, voc&ecirc; pode gastar 2 PM para dobrara &aacute;rea
-      de efeito dele.</p>
+      <p>Quando usa um item alqu&iacute;mico ou po&ccedil;&atilde;o, voc&ecirc;
+      pode gastar 2 PM para dobrara &aacute;rea de efeito dele.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Alquimista
-      Iniciado, 5&ordm; n&iacute;vel de inventor.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> Alquimista Iniciado, 5&ordm;
+      n&iacute;vel de inventor.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

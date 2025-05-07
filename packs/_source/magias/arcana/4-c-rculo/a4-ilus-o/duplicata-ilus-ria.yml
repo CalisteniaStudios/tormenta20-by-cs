@@ -83,21 +83,21 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria uma c&oacute;pia
-      ilus&oacute;ria semirreal de... voc&ecirc; mesmo! Ela &eacute;
-      id&ecirc;ntica em apar&ecirc;ncia, som e cheiro, mas &eacute;
-      intang&iacute;vel. A cada turno, voc&ecirc; escolhe se ver&aacute; e
-      ouvir&aacute; atrav&eacute;s da duplicata ou de seu corpo original. A
-      c&oacute;pia reproduz todas as suas a&ccedil;&otilde;es, incluindo fala.
-      Qualquer magia com alcance de toque ou maior que voc&ecirc; lan&ccedil;ar
-      pode se originar da duplicata, em vez do seu corpo original. As magias
-      afetam outros alvos normalmente, com a &uacute;nica diferen&ccedil;a de se
-      originarem da c&oacute;pia, em vez de voc&ecirc;. Se quiser que a
-      duplicata fa&ccedil;a algo diferente de voc&ecirc;, voc&ecirc; deve gastar
-      uma a&ccedil;&atilde;o de movimento. Qualquer criatura que interagir com a
-      c&oacute;pia tem direito a um teste de Vontade para perceber que &eacute;
-      uma ilus&atilde;o. As magias que se originam dela, no entanto, s&atilde;o
-      reais. A c&oacute;pia desaparece se sair do alcance.</p>
+      <p>Voc&ecirc; cria uma c&oacute;pia ilus&oacute;ria semirreal de...
+      voc&ecirc; mesmo! Ela &eacute; id&ecirc;ntica em apar&ecirc;ncia, som e
+      cheiro, mas &eacute; intang&iacute;vel. A cada turno, voc&ecirc; escolhe
+      se ver&aacute; e ouvir&aacute; atrav&eacute;s da duplicata ou de seu corpo
+      original. A c&oacute;pia reproduz todas as suas a&ccedil;&otilde;es,
+      incluindo fala. Qualquer magia com alcance de toque ou maior que
+      voc&ecirc; lan&ccedil;ar pode se originar da duplicata, em vez do seu
+      corpo original. As magias afetam outros alvos normalmente, com a
+      &uacute;nica diferen&ccedil;a de se originarem da c&oacute;pia, em vez de
+      voc&ecirc;. Se quiser que a duplicata fa&ccedil;a algo diferente de
+      voc&ecirc;, voc&ecirc; deve gastar uma a&ccedil;&atilde;o de movimento.
+      Qualquer criatura que interagir com a c&oacute;pia tem direito a um teste
+      de Vontade para perceber que &eacute; uma ilus&atilde;o. As magias que se
+      originam dela, no entanto, s&atilde;o reais. A c&oacute;pia desaparece se
+      sair do alcance.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 191 (JdA)

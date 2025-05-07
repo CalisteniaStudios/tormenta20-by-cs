@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Longa veste de anéis metálicos
-      interligados, formando uma malha flexível e resistente, que vai até os
-      joelhos.</p>
+      <p>Longa veste de anéis metálicos interligados, formando uma malha
+      flexível e resistente, que vai até os joelhos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

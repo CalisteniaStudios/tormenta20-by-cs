@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Em cidades ou metr&oacute;poles,
-      voc&ecirc; pode comprar qualquer item mundano n&atilde;o superior por
-      metade do pre&ccedil;o normal. Esses itens n&atilde;o podem ser
-      mat&eacute;rias- primas e n&atilde;o podem ser revendidos (s&atilde;o
-      velhos, sujos, furtados...).</p>
+      <p>Em cidades ou metr&oacute;poles, voc&ecirc; pode comprar qualquer item
+      mundano n&atilde;o superior por metade do pre&ccedil;o normal. Esses itens
+      n&atilde;o podem ser mat&eacute;rias- primas e n&atilde;o podem ser
+      revendidos (s&atilde;o velhos, sujos, furtados...).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 93 (JdA)

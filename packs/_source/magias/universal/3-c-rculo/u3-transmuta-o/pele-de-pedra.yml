@@ -325,8 +325,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua pele ganha aspecto e dureza de rocha.
-      Voc&ecirc; recebe redu&ccedil;&atilde;o de dano 5.</p>
+      <p>Sua pele ganha aspecto e dureza de rocha. Voc&ecirc; recebe
+      redu&ccedil;&atilde;o de dano 5.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 201 (JdA)

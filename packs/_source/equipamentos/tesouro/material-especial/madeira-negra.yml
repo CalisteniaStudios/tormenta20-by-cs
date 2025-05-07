@@ -4,8 +4,7 @@ img: systems/tormenta20/icons/itens/gerais/madeira-magica.webp
 system:
   description:
     value: >-
-      <p><span class="fontstyle0"><strong style="text-align: justify;">[Material
-      Especial]</strong></span></p>
+      <p><span><strong>[Material Especial]</strong></span></p>
 
       <p>A Floresta produz um tipo de madeira negra, dura como a&ccedil;o e
       dotada de propriedades m&aacute;gicas. Apenas armas de madeira &mdash;
@@ -17,16 +16,13 @@ system:
       custo em PM reduzido em &ndash;1.<br><strong>Escudo e
       Esot&eacute;rico.</strong> Fornece resist&ecirc;ncia a magia +2.</p>
 
-      <p>&nbsp;</p>
 
-      <p><span class="fontstyle0"><strong style="text-align:
-      justify;">Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armas +T$
-      600&nbsp;</span></span></p>
+      <p><span><strong>Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Escudos e
-      Esot&eacute;ricos +T$ 1500</span></span></p>
+      <p><span><span>Armas +T$ 600&nbsp;</span></span></p>
+
+      <p><span><span>Escudos e Esot&eacute;ricos +T$ 1500</span></span></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 167 (JdA)

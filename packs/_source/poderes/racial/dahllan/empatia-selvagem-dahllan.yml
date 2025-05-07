@@ -59,11 +59,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode se comunicar com animais
-      por meio de linguagem corporal e vocaliza&ccedil;&otilde;es. Voc&ecirc;
-      pode usar Adestramento para mudar atitude e pedir favores de animais (veja
-      Diplomacia, na p&aacute;gina 118). Caso receba esta habilidade novamente,
-      recebe +2 em Adestramento.</p>
+      <p>Voc&ecirc; pode se comunicar com animais por meio de linguagem corporal
+      e vocaliza&ccedil;&otilde;es. Voc&ecirc; pode usar Adestramento para mudar
+      atitude e pedir favores de animais (veja Diplomacia, na p&aacute;gina
+      118). Caso receba esta habilidade novamente, recebe +2 em
+      Adestramento.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 21 (JdA)

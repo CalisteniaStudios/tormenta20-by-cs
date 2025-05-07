@@ -49,9 +49,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se voc&ecirc; n&atilde;o estiver usando
-      armadura, soma sua For&ccedil;a na Defesa, limitado pelo seu
-      n&iacute;vel.</p>
+      <p>Se voc&ecirc; n&atilde;o estiver usando armadura, soma sua For&ccedil;a
+      na Defesa, limitado pelo seu n&iacute;vel.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 76 (JdA)

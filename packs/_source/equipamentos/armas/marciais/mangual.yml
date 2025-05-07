@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma haste metálica ligada a uma corrente
-      com uma esfera de aço na ponta, que pode se enroscar na arma do
-      adversário. O mangual é uma arma versátil, fornecendo +2 em testes para
-      desarmar.</p>
+      <p>Uma haste metálica ligada a uma corrente com uma esfera de aço na
+      ponta, que pode se enroscar na arma do adversário. O mangual é uma arma
+      versátil, fornecendo +2 em testes para desarmar.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 149 (JdA)

@@ -61,14 +61,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A CD para resistir a suas magias aumenta
-      em +1. Se voc&ecirc; puder lan&ccedil;ar magias de 4&ordm; c&iacute;rculo,
-      em vez disso ela aumenta em +2. <em>Pr&eacute;-requisito:</em> 5&ordm;
-      n&iacute;vel de arcanista.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>A CD para resistir a suas magias aumenta em +1. Se voc&ecirc; puder
+      lan&ccedil;ar magias de 4&ordm; c&iacute;rculo, em vez disso ela aumenta
+      em +2. <em>Pr&eacute;-requisito:</em> 5&ordm; n&iacute;vel de
+      arcanista.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

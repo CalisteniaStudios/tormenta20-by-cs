@@ -52,12 +52,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e 1 PM para soprar vento marinho em um
-      cone de 6m. Criaturas na &aacute;rea sofrem 2d6 pontos de dano de frio
-      (Reflexos CD Sab reduz &agrave; metade). Voc&ecirc; pode aprender
-      <em>Sopro das Uivantes</em> como uma magia divina. Se fizer isso, o custo
-      dela diminui em &ndash;1 PM.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 1 PM para
+      soprar vento marinho em um cone de 6m. Criaturas na &aacute;rea sofrem 2d6
+      pontos de dano de frio (Reflexos CD Sab reduz &agrave; metade). Voc&ecirc;
+      pode aprender <em>Sopro das Uivantes</em> como uma magia divina. Se fizer
+      isso, o custo dela diminui em &ndash;1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

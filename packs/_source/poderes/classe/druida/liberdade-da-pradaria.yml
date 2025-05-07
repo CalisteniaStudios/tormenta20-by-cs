@@ -95,10 +95,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Reflexos. Se
-      estiver ao ar livre, sempre que lan&ccedil;a uma magia, pode gastar 1 PM
-      para aumentar o alcance dela em um passo (de toque para curto, de curto
-      para m&eacute;dio ou de m&eacute;dio para longo).</p>
+      <p>Voc&ecirc; recebe +2 em Reflexos. Se estiver ao ar livre, sempre que
+      lan&ccedil;a uma magia, pode gastar 1 PM para aumentar o alcance dela em
+      um passo (de toque para curto, de curto para m&eacute;dio ou de
+      m&eacute;dio para longo).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

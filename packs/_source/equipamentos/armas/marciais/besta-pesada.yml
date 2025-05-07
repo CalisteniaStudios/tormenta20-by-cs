@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Vers&atilde;o maior e mais potente da
-      besta leve. Recarregar uma besta pesada &eacute; uma a&ccedil;&atilde;o
-      padr&atilde;o.</p>
+      <p>Vers&atilde;o maior e mais potente da besta leve. Recarregar uma besta
+      pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 146 (JdA)

@@ -8,9 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você recebe um item a sua escolha com preço
-      de até T$ 2.000.</p>
+    value: <p>Você recebe um item a sua escolha com preço de até T$ 2.000.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 79 (JdA)

@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode usar sua de Destreza em
-      vez de For&ccedil;a em testes de Atletismo. Al&eacute;m disso, terreno
-      dif&iacute;cil n&atilde;o reduz seu deslocamento nem o impede de realizar
-      investidas.</p>
+      <p>Voc&ecirc; pode usar sua de Destreza em vez de For&ccedil;a em testes
+      de Atletismo. Al&eacute;m disso, terreno dif&iacute;cil n&atilde;o reduz
+      seu deslocamento nem o impede de realizar investidas.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Des 2.</p>
+      <p><em>Pr&eacute;-requisito:</em> Des 2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 129 (JdA)

@@ -49,10 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
-      Sobreviv&ecirc;ncia. Al&eacute;m disso, pode se mover com seu deslocamento
-      normal enquanto rastreia sem sofrer penalidades no teste de
-      Sobreviv&ecirc;ncia.</p>
+      <p>Voc&ecirc; recebe +2 em Sobreviv&ecirc;ncia. Al&eacute;m disso, pode se
+      mover com seu deslocamento normal enquanto rastreia sem sofrer penalidades
+      no teste de Sobreviv&ecirc;ncia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

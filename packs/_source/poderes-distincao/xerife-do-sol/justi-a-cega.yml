@@ -6,19 +6,16 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Mesmo quando a vis&atilde;o falha, o
-      xerife do Sol pode fechar os olhos e confiar nos seus pr&oacute;prios
-      instintos.</p>
+      <p>Mesmo quando a vis&atilde;o falha, o xerife do Sol pode fechar os olhos
+      e confiar nos seus pr&oacute;prios instintos.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; aprende e
-      pode lan&ccedil;ar a magia &nbsp;@UUID[Item.h98JyQAldmgexmzR]{Vis&atilde;o
-      da Verdade}. Caso aprenda novamente essa magia, seu custo diminui em
-      &ndash;1 PM.</p>
+      <p class="MsoNormal">Voc&ecirc; aprende e pode lan&ccedil;ar a magia
+      &nbsp;@UUID[Item.h98JyQAldmgexmzR]{Vis&atilde;o da Verdade}. Caso aprenda
+      novamente essa magia, seu custo diminui em &ndash;1 PM.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisito</em>: Olho do Sol</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisito</em>: Olho do Sol</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 33-35

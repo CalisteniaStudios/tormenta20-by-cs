@@ -9,13 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa a habilidade aparar e evita o
-      ataque, voc&ecirc; pode gastar 1 PM. Se fizer isso, pode fazer um ataque
-      corpo a corpo imediato contra o inimigo que o atacou (se ele estiver em
-      alcance).</p>
+      <p>Quando usa a habilidade aparar e evita o ataque, voc&ecirc; pode gastar
+      1 PM. Se fizer isso, pode fazer um ataque corpo a corpo imediato contra o
+      inimigo que o atacou (se ele estiver em alcance).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos: </em>Aparar,
-      12&ordm; n&iacute;vel de bucaneiro.</p>
+      <p><em>Pr&eacute;-requisitos: </em>Aparar, 12&ordm; n&iacute;vel de
+      bucaneiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

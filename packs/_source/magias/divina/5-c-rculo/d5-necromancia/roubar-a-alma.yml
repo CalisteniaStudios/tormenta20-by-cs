@@ -91,10 +91,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; rouba a alma da v&iacute;tima,
-      armazenando-a em um objeto. Se o alvo passar no teste de
-      resist&ecirc;ncia, sente o impacto de sua alma ser puxada para fora do
-      corpo e fica <a class="content-link" draggable="true"
+      <p>Voc&ecirc; rouba a alma da v&iacute;tima, armazenando-a em um objeto.
+      Se o alvo passar no teste de resist&ecirc;ncia, sente o impacto de sua
+      alma ser puxada para fora do corpo e fica <a class="content-link"
+      draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ccqJXj25EVIzUhzo"
       data-id="ccqJXj25EVIzUhzo" data-type="JournalEntryPage" data-tooltip="Text
       Page">Abalado</a>por 1 rodada. Se falhar, seu corpo fica ca&iacute;do, <a
@@ -114,8 +114,7 @@ system:
       dispon&iacute;vel, a alma retorna para ele. Caso contr&aacute;rio, escapa
       para os Mundos dos Deuses.</p>
 
-      <p style="text-align: justify;"><em>Custo adicional:</em>
-      sacrif&iacute;cio de 1 PM.</p>
+      <p><em>Custo adicional:</em> sacrif&iacute;cio de 1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 204 (JdA)

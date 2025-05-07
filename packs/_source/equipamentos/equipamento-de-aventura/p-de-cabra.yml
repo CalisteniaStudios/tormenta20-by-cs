@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">&nbsp;Esta barra de ferro fornece +5 em
-      testes de For&ccedil;a para abrir portas, janelas e ba&uacute;s fechados.
-      Um p&eacute; de cabra pode ser usado como arma, com as estat&iacute;sticas
-      de uma clava.</p>
+      <p>&nbsp;Esta barra de ferro fornece +5 em testes de For&ccedil;a para
+      abrir portas, janelas e ba&uacute;s fechados. Um p&eacute; de cabra pode
+      ser usado como arma, com as estat&iacute;sticas de uma clava.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 155 (JdA)

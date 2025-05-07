@@ -49,17 +49,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode criar
-      po&ccedil;&otilde;es, como se tivesse o poder geral Preparar
-      Po&ccedil;&atilde;o. Se tiver ambos, voc&ecirc; pode criar
+      <p>Voc&ecirc; pode criar po&ccedil;&otilde;es, como se tivesse o poder
+      geral Preparar Po&ccedil;&atilde;o. Se tiver ambos, voc&ecirc; pode criar
       po&ccedil;&otilde;es de 5&ordm; c&iacute;rculo.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Bruxo,
-      treinado em Of&iacute;cio (alquimista).</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> Bruxo, treinado em Of&iacute;cio
+      (alquimista).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

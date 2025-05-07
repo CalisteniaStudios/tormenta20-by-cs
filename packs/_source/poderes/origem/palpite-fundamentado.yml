@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 2 PM para
-      substituir um teste de qualquer per&iacute;cia originalmente baseada em
-      Intelig&ecirc;ncia ou Sabedoria por um teste de
+      <p>Voc&ecirc; pode gastar 2 PM para substituir um teste de qualquer
+      per&iacute;cia originalmente baseada em Intelig&ecirc;ncia ou Sabedoria
+      por um teste de
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.TjjV15fV27nEoWyX]{Conhecimento}.</p>
     chat: ''
     unidentified: ''

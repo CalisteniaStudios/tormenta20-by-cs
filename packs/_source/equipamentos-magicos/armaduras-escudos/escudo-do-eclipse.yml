@@ -140,12 +140,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este <strong>escudo pesado
-      defensor</strong> é completamente negro e parece absorver a luz. Ele
-      fornece resistência a trevas 10 e causa +1d8 de dano de trevas num ataque.
-      Além disso, você pode gastar uma ação de movimento e 2 PM para lançar
-      <i>Escuridão</i>.</p><p style="text-align:justify;"><b>Defensor</b> O item
-      é encantado para desviar golpes. O bônus na Defesa do item aumenta em
+      <p>Este <strong>escudo pesado defensor</strong> é completamente negro e
+      parece absorver a luz. Ele fornece resistência a trevas 10 e causa +1d8 de
+      dano de trevas num ataque. Além disso, você pode gastar uma ação de
+      movimento e 2 PM para lançar <i>Escuridão</i>.</p><p><b>Defensor</b> O
+      item é encantado para desviar golpes. O bônus na Defesa do item aumenta em
       +2</p>
     chat: ''
     unidentified: ''

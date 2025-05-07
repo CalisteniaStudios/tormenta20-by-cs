@@ -59,11 +59,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">No 20º nível, o dano de todos os seus
-      ataques aumenta em um passo. Além disso, sempre que você faz um Ataque
-      Especial ou um Golpe Pessoal e acerta o ataque, recupera metade dos PM
-      gastos nele. Por exemplo, se fizer um Ataque Especial gastando 5 PM para
-      ganhar +20 nas rolagens de dano e acertar o ataque, recupera 2 PM.</p>
+      <p>No 20º nível, o dano de todos os seus ataques aumenta em um passo. Além
+      disso, sempre que você faz um Ataque Especial ou um Golpe Pessoal e acerta
+      o ataque, recupera metade dos PM gastos nele. Por exemplo, se fizer um
+      Ataque Especial gastando 5 PM para ganhar +20 nas rolagens de dano e
+      acertar o ataque, recupera 2 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 66 (JdA)

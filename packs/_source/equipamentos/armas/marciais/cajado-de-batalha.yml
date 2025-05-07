@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Um cajado de madeira forte, reforçado com
-      chapas de metal nas pontas. é uma arma discreta, usada por andarilhos que
-      não querem levantar suspeitas ou parecer ameaçadores. O cajado de batalha
-      é uma arma dupla.</p>
+      <p>Um cajado de madeira forte, reforçado com chapas de metal nas pontas. é
+      uma arma discreta, usada por andarilhos que não querem levantar suspeitas
+      ou parecer ameaçadores. O cajado de batalha é uma arma dupla.</p>
     chat: ''
     unidentified: ''
   source: Guia NPC, pg. 16 (1.1)

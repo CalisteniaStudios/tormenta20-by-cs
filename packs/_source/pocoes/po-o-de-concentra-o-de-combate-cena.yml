@@ -45,10 +45,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Voc&ecirc; amplia sua
-      percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando
-      brechas em sua defesa. Quando faz um ataque, voc&ecirc; rola dois dados e
-      usa o melhor resultado.</p>
+      <p>Voc&ecirc; amplia sua percep&ccedil;&atilde;o, antecipando movimentos
+      dos inimigos e achando brechas em sua defesa. Quando faz um ataque,
+      voc&ecirc; rola dois dados e usa o melhor resultado.</p>
     unidentified: ''
   source: ''
   carregado: true

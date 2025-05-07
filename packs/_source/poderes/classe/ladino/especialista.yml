@@ -159,12 +159,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha um n&uacute;mero de
-      per&iacute;cias treinadas igual a sua Intelig&ecirc;ncia, exceto
-      b&ocirc;nus tempor&aacute;rios (m&iacute;nimo 1). Ao fazer um teste de uma
-      dessas per&iacute;cias, voc&ecirc; pode gastar 1 PM para dobrar seu
-      b&ocirc;nus de treinamento. Voc&ecirc; n&atilde;o pode usar esta
-      habilidade em testes de ataque.</p>
+      <p>Escolha um n&uacute;mero de per&iacute;cias treinadas igual a sua
+      Intelig&ecirc;ncia, exceto b&ocirc;nus tempor&aacute;rios (m&iacute;nimo
+      1). Ao fazer um teste de uma dessas per&iacute;cias, voc&ecirc; pode
+      gastar 1 PM para dobrar seu b&ocirc;nus de treinamento. Voc&ecirc;
+      n&atilde;o pode usar esta habilidade em testes de ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 73 (JdA)

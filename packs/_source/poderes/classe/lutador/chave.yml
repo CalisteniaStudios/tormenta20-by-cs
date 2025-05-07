@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver agarrando uma criatura e fizer
-      um teste de manobra contra ela para causar dano, o dano desarmado aumenta
-      em um passo.</p>
+      <p>Se estiver agarrando uma criatura e fizer um teste de manobra contra
+      ela para causar dano, o dano desarmado aumenta em um passo.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: Int 1, Lutador de
-      Ch&atilde;o, 4&ordm; n&iacute;vel de lutador.</p>
+      <p>Pr&eacute;-requisitos: Int 1, Lutador de Ch&atilde;o, 4&ordm;
+      n&iacute;vel de lutador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 76 (JdA)

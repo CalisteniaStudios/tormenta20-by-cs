@@ -9,15 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto est&aacute; em f&uacute;ria,
-      voc&ecirc; n&atilde;o fica inconsciente por estar com 0 ou menos pontos de
-      vida (voc&ecirc; ainda morre se chegar em um valor negativo igual &agrave;
-      metade de seus PV m&aacute;ximos). <em>Pr&eacute;-requisito:</em> Alma de
-      Bronze.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Enquanto est&aacute; em f&uacute;ria, voc&ecirc; n&atilde;o fica
+      inconsciente por estar com 0 ou menos pontos de vida (voc&ecirc; ainda
+      morre se chegar em um valor negativo igual &agrave; metade de seus PV
+      m&aacute;ximos). <em>Pr&eacute;-requisito:</em> Alma de Bronze.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 41 (JdA)

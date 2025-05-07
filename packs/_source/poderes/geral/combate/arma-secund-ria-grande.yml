@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode empunhar duas armas de uma
-      m&atilde;o com o poder Estilo de Duas Armas.</p>
+      <p>Voc&ecirc; pode empunhar duas armas de uma m&atilde;o com o poder
+      Estilo de Duas Armas.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Estilo de
-      Duas Armas.</p>
+      <p><em>Pr&eacute;-requisito:</em> Estilo de Duas Armas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 124 (JdA)

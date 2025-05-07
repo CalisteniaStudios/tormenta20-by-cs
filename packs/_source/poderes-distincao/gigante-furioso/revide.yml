@@ -6,19 +6,17 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Quando est&aacute; tomado pela
-      f&uacute;ria, voc&ecirc; n&atilde;o tolera a aud&aacute;cia dos que ousam
-      desafi&aacute;-lo!</p>
+      <p>Quando est&aacute; tomado pela f&uacute;ria, voc&ecirc; n&atilde;o
+      tolera a aud&aacute;cia dos que ousam desafi&aacute;-lo!</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Uma vez por rodada,
-      quando sofre dano de um ataque corpo a corpo enquanto est&aacute; em
-      f&uacute;ria, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 2 PM para
-      fazer um ataque corpo a corpo contra a criatura que o atacou.</p>
+      <p class="MsoNormal">Uma vez por rodada, quando sofre dano de um ataque
+      corpo a corpo enquanto est&aacute; em f&uacute;ria, voc&ecirc; pode gastar
+      uma rea&ccedil;&atilde;o e 2 PM para fazer um ataque corpo a corpo contra
+      a criatura que o atacou.</p>
 
-      <p class="MsoNormal" style="text-align: justify;">Pr&eacute;-requisito:
-      F&uacute;ria dos Gigantes.</p>
+      <p class="MsoNormal">Pr&eacute;-requisito: F&uacute;ria dos Gigantes.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 23

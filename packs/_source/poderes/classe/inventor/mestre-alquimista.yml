@@ -10,14 +10,11 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode fabricar
-      po&ccedil;&otilde;es com f&oacute;rmulas que conhe&ccedil;a de qualquer
-      c&iacute;rculo.</p>
+      <p>Voc&ecirc; pode fabricar po&ccedil;&otilde;es com f&oacute;rmulas que
+      conhe&ccedil;a de qualquer c&iacute;rculo.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Int 3, Sab
-      3, Alquimista Iniciado, 10&ordm; n&iacute;vel de inventor.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> Int 3, Sab 3, Alquimista Iniciado,
+      10&ordm; n&iacute;vel de inventor.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

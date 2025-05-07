@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma arma de fogo de uso difícil, mas com
-      poder devastador. Recarregar um mosquete é uma ação padrão. Exige as duas
-      mãos.</p>
+      <p>Uma arma de fogo de uso difícil, mas com poder devastador. Recarregar
+      um mosquete é uma ação padrão. Exige as duas mãos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 150 (JdA)
