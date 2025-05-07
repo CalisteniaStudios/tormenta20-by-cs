@@ -18,7 +18,7 @@ O projeto usa rollup para empacotar os arquivos em uma build para distribuição
 
 - Execute `npm run build:watch` para que quaisquer mudanças no código-fonte automaticamente reconstruam o projeto.
 
-- Para atualizar os arquivos de compêndios, com o Foundry fechado, copie os arquivos da pasta `dist/packs` na pasta `packs/` e então execute `node ./utils/packs.mjs package unpack`.
+- Para atualizar os arquivos de compêndios, com o seu mundo fechado no Foundry, execute `npm run build:unpack`.
 
 ## Como ajudar
 
