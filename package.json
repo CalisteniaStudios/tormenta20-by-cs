@@ -11,7 +11,8 @@
     "lint:fix": "eslint --ext .js,.cjs,.mjs --fix .",
     "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs .",
     "lint:errors": "eslint --quiet --ext .js,.cjs,.mjs .",
-    "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs --fix ."
+    "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs --fix .",
+    "postinstall": "npm run build:ci"
   },
   "browserslist": [
     "last 3 versions"
