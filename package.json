@@ -6,6 +6,7 @@
     "build": "rollup -c",
     "build:watch": "rollup -cw",
     "build:packs": "node ./utils/packs.mjs package pack",
+    "build:unpack": "node ./utils/packs.mjs package unpack",
     "build:ci": "npm run build:packs && rollup -c",
     "lint": "eslint --ext .js,.cjs,.mjs .",
     "lint:fix": "eslint --ext .js,.cjs,.mjs --fix .",

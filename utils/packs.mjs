@@ -206,11 +206,12 @@ async function extractPacks(packName, entryName) {
 
 	for ( const packInfo of packs ) {
 		const dest = path.join(PACK_SRC, packInfo.name);
+		const distPath = `dist/${packInfo.path.startsWith("./") ? packInfo.path.slice(2) : packInfo.path}`;
 		logger.info(`Extracting pack ${packInfo.name}`);
 
 		const folders = {};
 		const containers = {};
-		await extractPack(packInfo.path, dest, {
+		await extractPack(distPath, dest, {
 			log: false, transformEntry: e => {
 				if ( e._key.startsWith("!folders") ) folders[e._id] = { name: slugify(e.name), folder: e.folder };
 				else if ( e.type === "container" ) containers[e._id] = {
@@ -234,7 +235,7 @@ async function extractPacks(packName, entryName) {
 			if ( folder ) c.path = path.join(folder.path, c.path);
 		});
 
-		await extractPack(packInfo.path, dest, {
+		await extractPack(distPath, dest, {
 			log: true, transformEntry: entry => {
 				if ( entryName && (entryName !== entry.name.toLowerCase()) ) return false;
 				cleanPackEntry(entry);
