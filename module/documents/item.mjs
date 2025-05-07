@@ -21,6 +21,8 @@ export default class ItemT20 extends Item {
 			return { img: "systems/tormenta20/icons/svg/scroll-unfurled.svg" };
 		} else if (itemData.type === "poder") {
 			return { img: "systems/tormenta20/icons/svg/skills.svg" };
+		} else if (itemData.type === "race") {
+			return { img: "icons/svg/ice-aura.svg" };
 		}
 		return { img: this.DEFAULT_ICON };
 	}
