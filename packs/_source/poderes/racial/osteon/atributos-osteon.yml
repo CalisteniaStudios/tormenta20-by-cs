@@ -1,6 +1,6 @@
-name: Atributos - Lefou
+name: Atributos - Osteon
 type: poder
-img: systems/tormenta20/icons/racas/lefou.webp
+img: systems/tormenta20/icons/racas/osteon.webp
 effects:
   - origin: Item.dFy9izFnNFnEkFFB
     tint: '#ffffff'
@@ -8,6 +8,18 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
+        needCommit: true
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
     duration:
       startTime: null
       seconds: null
@@ -31,36 +43,34 @@ effects:
         mode: 2
         value: '1'
         priority: null
-      - key: system.atributos.car.value
+      - key: system.atributos.con.racial
         mode: 2
         value: '-1'
         priority: null
     transfer: true
+    name: Atributos - Osteon
+    description: ''
+    statuses: []
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    name: Atributos - Lefou
-    img: systems/tormenta20/icons/racas/lefou.webp
+      coreVersion: '13.341'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      lastModifiedBy: t20builder000000
+      modifiedTime: 1746636187085
+    img: systems/tormenta20/icons/racas/osteon.webp
     type: base
     system: {}
-    description: ''
-    statuses: []
     sort: 0
-    _key: '!items.effects!Qm9q8wlabF5yEyuk.BHmyU8E26KrxAluK'
+    _key: '!items.effects!6mTJ5bdtKsxHHAhb.BHmyU8E26KrxAluK'
 flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">+1 em Tr&ecirc;s Atributos Diferentes
-      (exceto Carisma), Carisma-1.</p>
-    chat: ''
+      <p>+1 em Três Atributos Diferentes (exceto Constituição), Constituição
+      –1.</p>
     unidentified: ''
   source: T20, pg. 24 (JdA)
   ativacao:
@@ -76,7 +86,6 @@ system:
   target:
     value: null
     width: null
-    units: ''
     type: ''
   range:
     value: null
@@ -97,24 +106,25 @@ system:
     txt: ''
   rolls: []
   tipo: racial
-  subtipo: Lefou
+  subtipo: Osteon
   chatFlavor: ''
   origin: ''
   tags: []
   chatGif: ''
+  rolltags: []
 ownership:
   default: 0
 _stats:
-  systemId: tormenta20
-  systemVersion: 1.4.214
-  coreVersion: '13.341'
-  createdTime: 1664306184312
-  modifiedTime: 1746635940297
-  lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
-folder: nUJwKGomhoD2p4J3
-sort: 0
-_id: Qm9q8wlabF5yEyuk
-_key: '!items!Qm9q8wlabF5yEyuk'
+  coreVersion: '13.341'
+  systemId: tormenta20
+  systemVersion: 1.4.214
+  createdTime: 1746636168759
+  modifiedTime: 1746636168835
+  lastModifiedBy: t20builder000000
+folder: voEJdcAKDfYsKoTC
+_id: 6mTJ5bdtKsxHHAhb
+sort: 300000
+_key: '!items!6mTJ5bdtKsxHHAhb'
 

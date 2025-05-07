@@ -4,7 +4,7 @@ type: poder
 img: systems/tormenta20/icons/racas/osteon.webp
 effects: []
 folder: voEJdcAKDfYsKoTC
-sort: 0
+sort: 400000
 flags: {}
 system:
   description:
@@ -60,9 +60,9 @@ ownership:
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116
-  coreVersion: '13.342'
+  coreVersion: '13.341'
   createdTime: 1664306185132
-  modifiedTime: 1684630371462
+  modifiedTime: 1746636168835
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
