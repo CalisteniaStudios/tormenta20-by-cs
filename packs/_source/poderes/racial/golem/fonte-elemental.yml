@@ -4,7 +4,7 @@ type: poder
 img: systems/tormenta20/icons/racas/golem.webp
 effects: []
 folder: JbWoTw5WRQStJu6M
-sort: 0
+sort: 100000
 flags: {}
 system:
   description:
@@ -66,7 +66,7 @@ _stats:
   systemVersion: 1.4.116
   coreVersion: '13.342'
   createdTime: 1664306183297
-  modifiedTime: 1684630371462
+  modifiedTime: 1746812830528
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
