@@ -59,13 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz uma inves- tida, voc&ecirc;
-      pode aumentar sua penalidade na Defesa pela investida para &ndash;5 para
-      receber um b&ocirc;nus de +1d12 na rolagem de dano deste ataque.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Quando faz uma inves- tida, voc&ecirc; pode aumentar sua penalidade na
+      Defesa pela investida para &ndash;5 para receber um b&ocirc;nus de +1d12
+      na rolagem de dano deste ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

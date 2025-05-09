@@ -100,18 +100,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
-      Engana&ccedil;&atilde;o e Furtividade. Al&eacute;m disso, pode
-      lan&ccedil;ar <a class="content-link" draggable="true"
-      data-uuid="Compendium.tormenta20.magias.Bt364TPpNUI1QVPP"
+      <p>Voc&ecirc; recebe +2 em Engana&ccedil;&atilde;o e Furtividade.
+      Al&eacute;m disso, pode lan&ccedil;ar <a class="content-link"
+      draggable="true" data-uuid="Compendium.tormenta20.magias.Bt364TPpNUI1QVPP"
       data-id="Bt364TPpNUI1QVPP" data-type="Item" data-pack="tormenta20.magias"
       data-tooltip="Magia Item">Escurid&atilde;o</a> (como uma magia divina;
       atributo-chave Intelig&ecirc;ncia). Caso aprenda novamente essa magia, seu
       custo diminui em &ndash;1 PM.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 31 (JdA)

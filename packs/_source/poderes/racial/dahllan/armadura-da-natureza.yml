@@ -49,9 +49,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode gastar uma ação de movimento e 1
-      PM para transformar sua pele em casca de árvore, recebendo +2 na Defesa
-      até o fim da cena.</p>
+      <p>Você pode gastar uma ação de movimento e 1 PM para transformar sua pele
+      em casca de árvore, recebendo +2 na Defesa até o fim da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 21 (JdA)

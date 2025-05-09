@@ -10,8 +10,8 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 3&ordm; n&iacute;vel, voc&ecirc; pode
-      vender itens 10% mais caro (n&atilde;o cumulativo com barganha).</p>
+      <p>No 3&ordm; n&iacute;vel, voc&ecirc; pode vender itens 10% mais caro
+      (n&atilde;o cumulativo com barganha).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

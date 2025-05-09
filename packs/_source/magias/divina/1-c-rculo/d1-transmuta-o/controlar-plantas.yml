@@ -234,10 +234,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia s&oacute; pode ser
-      lan&ccedil;ada em uma &aacute;rea com vegeta&ccedil;&atilde;o. As plantas
-      se enroscam nas criaturas da &aacute;rea. Aquelas que falharem na
-      resist&ecirc;ncia ficam
+      <p>Esta magia s&oacute; pode ser lan&ccedil;ada em uma &aacute;rea com
+      vegeta&ccedil;&atilde;o. As plantas se enroscam nas criaturas da
+      &aacute;rea. Aquelas que falharem na resist&ecirc;ncia ficam
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.GwCDzhOvdqD8zEaw]{Enredado}.
       Uma v&iacute;tima pode se libertar com uma a&ccedil;&atilde;o
       padr&atilde;o e um teste de Acrobacia ou Atletismo. Al&eacute;m disso, a

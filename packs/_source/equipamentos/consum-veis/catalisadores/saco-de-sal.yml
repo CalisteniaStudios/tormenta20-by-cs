@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/saco-de-sal.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um pequeno saco de couro com sal marinho.
-      Fornece +2 na CD de magias de abjura&ccedil;&atilde;o.+2.</p>
+      <p>Um pequeno saco de couro com sal marinho. Fornece +2 na CD de magias de
+      abjura&ccedil;&atilde;o.+2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

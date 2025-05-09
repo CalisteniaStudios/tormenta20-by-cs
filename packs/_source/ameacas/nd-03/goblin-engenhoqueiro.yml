@@ -80,13 +80,12 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Adaga</section><p style="text-align:
-          justify;">Esta faca afiada &eacute; usada por muitos habitantes
-          adultos do Reinado, embora seja favorita de ladr&otilde;es e
-          assassinos, por ser facilmente escondida (fornece +5 em testes de
-          Ladinagem para ocult&aacute;-la). Quando ataca com uma adaga,
-          voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos testes de
-          ataque. Uma adaga pode ser arremessada.</p>
+          <section class="secret">Adaga</section><p>Esta faca afiada &eacute;
+          usada por muitos habitantes adultos do Reinado, embora seja favorita
+          de ladr&otilde;es e assassinos, por ser facilmente escondida (fornece
+          +5 em testes de Ladinagem para ocult&aacute;-la). Quando ataca com uma
+          adaga, voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos
+          testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -256,11 +255,10 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Besta leve</section><p style="text-align:
-          justify;">Um arco montado sobre uma coronha de madeira com um gatilho,
-          a besta leve &eacute; uma arma que dispara virotes com grande
-          pot&ecirc;ncia. Recarregar uma besta leve &eacute; uma
-          a&ccedil;&atilde;o de movimento.</p>
+          <section class="secret">Besta leve</section><p>Um arco montado sobre
+          uma coronha de madeira com um gatilho, a besta leve &eacute; uma arma
+          que dispara virotes com grande pot&ecirc;ncia. Recarregar uma besta
+          leve &eacute; uma a&ccedil;&atilde;o de movimento.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -429,8 +427,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O engenhoqueiro recebe deslocamento de
-          voo 12m at&eacute; o fim da cena.</p>
+          <p>O engenhoqueiro recebe deslocamento de voo 12m at&eacute; o fim da
+          cena.</p>
         unidentified: ''
       source: T20, pg. 211 (JdA)
       ativacao:
@@ -658,10 +656,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Produz um ru&iacute;do ensurdecedor.
-          Todas as criaturas em alcance curto escolhidas pelo goblin
-          engenhoqueiro sofrem &minus;2 em testes de ataque e rolagens de dano
-          at&eacute; o fim da cena.</p>
+          <p>Produz um ru&iacute;do ensurdecedor. Todas as criaturas em alcance
+          curto escolhidas pelo goblin engenhoqueiro sofrem &minus;2 em testes
+          de ataque e rolagens de dano at&eacute; o fim da cena.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -729,11 +726,11 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Existe uma versão deste item para cada
-          perícia de Ofício. Por exemplo, martelo, pregos e serrote para Ofício
-          (carpinteiro), pergaminhos em branco, tinta e pena para Ofício
-          (escriba) e assim por diante. Um personagem sem os instrumentos de seu
-          Ofício sofre –5 nessa perícia.</p>
+          <p>Existe uma versão deste item para cada perícia de Ofício. Por
+          exemplo, martelo, pregos e serrote para Ofício (carpinteiro),
+          pergaminhos em branco, tinta e pena para Ofício (escriba) e assim por
+          diante. Um personagem sem os instrumentos de seu Ofício sofre –5 nessa
+          perícia.</p>
         unidentified: ''
       source: T20, pg. 158 (JdA)
       carregado: true
@@ -807,10 +804,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma aljava com 20 setas de madeira.
-          Recarregar uma besta leve &eacute; uma a&ccedil;&atilde;o de
-          movimento; j&aacute; recarregar uma besta pesada &eacute; uma
-          a&ccedil;&atilde;o padr&atilde;o.</p>
+          <p>Uma aljava com 20 setas de madeira. Recarregar uma besta leve
+          &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma
+          besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
       source: T20, pg. 151 (JdA)
       carregado: true

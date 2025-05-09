@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/poderes/ameacas/investida.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz uma investida com seu tacape, o
-      centauro causa +1d12 pontos de dano.</p>
+      <p>Quando faz uma investida com seu tacape, o centauro causa +1d12 pontos
+      de dano.</p>
     unidentified: ''
   source: ''
   ativacao:

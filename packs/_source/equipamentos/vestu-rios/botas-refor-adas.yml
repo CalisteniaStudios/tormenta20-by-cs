@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/botas-reforcadas.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Grossas e resistentes, estas botas de cano
-      alto protegem contra perigos do&nbsp; terreno. Aumentam seu deslocamento
-      em +1,5m se ele for reduzido por terreno dif&iacute;cil (ap&oacute;s a
+      <p>Grossas e resistentes, estas botas de cano alto protegem contra perigos
+      do&nbsp; terreno. Aumentam seu deslocamento em +1,5m se ele for reduzido
+      por terreno dif&iacute;cil (ap&oacute;s a
       redu&ccedil;&atilde;o).<br><br></p>
     chat: ''
     unidentified: ''

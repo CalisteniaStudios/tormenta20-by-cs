@@ -145,8 +145,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Voc&ecirc; invade a mente do alvo e altera
-      ou apaga suas mem&oacute;rias da &uacute;ltima hora.</p>
+      <p>Voc&ecirc; invade a mente do alvo e altera ou apaga suas
+      mem&oacute;rias da &uacute;ltima hora.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 179 (JdA)

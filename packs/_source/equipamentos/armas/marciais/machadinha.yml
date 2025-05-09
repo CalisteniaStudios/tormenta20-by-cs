@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Ferramenta útil para cortar madeira e
-      também inimigos. Uma machadinha pode ser arremessada.</p>
+      <p>Ferramenta útil para cortar madeira e também inimigos. Uma machadinha
+      pode ser arremessada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 149 (JdA)

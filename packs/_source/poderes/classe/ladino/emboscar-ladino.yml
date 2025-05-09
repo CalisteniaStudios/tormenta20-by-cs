@@ -9,12 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Na primeira rodada de cada combate,
-      voc&ecirc; pode gastar 2 PM para executar uma a&ccedil;&atilde;o
-      padr&atilde;o adicional em seu turno.</p>
+      <p>Na primeira rodada de cada combate, voc&ecirc; pode gastar 2 PM para
+      executar uma a&ccedil;&atilde;o padr&atilde;o adicional em seu turno.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Furtividade.</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Furtividade.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 73 (JdA)

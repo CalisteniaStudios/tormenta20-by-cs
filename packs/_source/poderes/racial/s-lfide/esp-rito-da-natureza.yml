@@ -60,8 +60,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você é uma criatura do tipo espírito,
-      recebe visão na penumbra e pode falar com animais livremente.</p>
+      <p>Você é uma criatura do tipo espírito, recebe visão na penumbra e pode
+      falar com animais livremente.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 30 (JdA)

@@ -9,16 +9,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 3&ordm; n&iacute;vel, voc&ecirc; passa
-      a receber dinheiro de sua fam&iacute;lia, patrono ou neg&oacute;cios. Uma
-      vez por aventura, pode fazer um teste de Carisma com um b&ocirc;nus igual
-      ao seu n&iacute;vel de nobre. Voc&ecirc; recebe um n&uacute;mero de
-      Tibares de ouro igual ao resultado do teste. Assim, um nobre de 5&ordm;
-      n&iacute;vel com Carisma 4 que role 13 no dado recebe 22 TO. O uso desta
-      habilidade &eacute; condicionado a sua rela&ccedil;&atilde;o com sua
-      fam&iacute;lia, patrono ou neg&oacute;cios e a onde voc&ecirc;
-      est&aacute;. Por exemplo, um nobre viajando pelos ermos, isolado da
-      civiliza&ccedil;&atilde;o, dificilmente teria como receber dinheiro.</p>
+      <p>No 3&ordm; n&iacute;vel, voc&ecirc; passa a receber dinheiro de sua
+      fam&iacute;lia, patrono ou neg&oacute;cios. Uma vez por aventura, pode
+      fazer um teste de Carisma com um b&ocirc;nus igual ao seu n&iacute;vel de
+      nobre. Voc&ecirc; recebe um n&uacute;mero de Tibares de ouro igual ao
+      resultado do teste. Assim, um nobre de 5&ordm; n&iacute;vel com Carisma 4
+      que role 13 no dado recebe 22 TO. O uso desta habilidade &eacute;
+      condicionado a sua rela&ccedil;&atilde;o com sua fam&iacute;lia, patrono
+      ou neg&oacute;cios e a onde voc&ecirc; est&aacute;. Por exemplo, um nobre
+      viajando pelos ermos, isolado da civiliza&ccedil;&atilde;o, dificilmente
+      teria como receber dinheiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

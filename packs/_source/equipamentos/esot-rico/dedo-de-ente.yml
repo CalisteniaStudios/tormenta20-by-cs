@@ -6,9 +6,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma varinha feita a partir da madeira de
-      uma &aacute;rvore senciente. Sempre que lan&ccedil;ar uma magia, role 1d4.
-      Com um resultado 4, voc&ecirc; recupera 1 PM.</p>
+      <p>Uma varinha feita a partir da madeira de uma &aacute;rvore senciente.
+      Sempre que lan&ccedil;ar uma magia, role 1d4. Com um resultado 4,
+      voc&ecirc; recupera 1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

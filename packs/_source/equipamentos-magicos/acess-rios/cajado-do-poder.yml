@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este bordão magnífico tem cabo reto e liso,
-      com uma joia cintilante na ponta. O custo de suas magias arcanas diminui
-      em –1 PM e a CD para resistir a elas aumenta em +2.</p>
+      <p>Este bordão magnífico tem cabo reto e liso, com uma joia cintilante na
+      ponta. O custo de suas magias arcanas diminui em –1 PM e a CD para
+      resistir a elas aumenta em +2.</p>
     chat: ''
     unidentified: ''
   source: ''

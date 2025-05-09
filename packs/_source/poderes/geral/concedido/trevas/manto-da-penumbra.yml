@@ -55,9 +55,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; aprende e pode lan&ccedil;ar
-      <em>Escurid&atilde;o</em>. Caso aprenda novamente essa magia, seu custo
-      diminui em &ndash;1 PM.</p>
+      <p>Voc&ecirc; aprende e pode lan&ccedil;ar <em>Escurid&atilde;o</em>. Caso
+      aprenda novamente essa magia, seu custo diminui em &ndash;1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

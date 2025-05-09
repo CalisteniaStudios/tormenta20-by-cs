@@ -444,9 +444,7 @@ items:
     flags: {}
     system:
       description:
-        value: >-
-          <p style="text-align: justify;">O Troll do Subterr&acirc;neo possui
-          Defesa 25.</p>
+        value: <p>O Troll do Subterr&acirc;neo possui Defesa 25.</p>
         chat: ''
         unidentified: ''
       source: ''

@@ -196,9 +196,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Sua mão brilha com energia sombria,
-      causando 6d6 pontos de dano de trevas. Você recupera pontos de vida iguais
-      à metade do dano causado (se causou algum dano).</p>
+      <p>Sua mão brilha com energia sombria, causando 6d6 pontos de dano de
+      trevas. Você recupera pontos de vida iguais à metade do dano causado (se
+      causou algum dano).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 209 (JdA)

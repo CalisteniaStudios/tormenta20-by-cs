@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/liquen-lilas.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta planta estranha tem aspecto
-      cristalino, e cresce em abund&acirc;ncia na regi&atilde;o das Uivantes.
-      Adiciona +1d6 de dano de frio a magias.</p>
+      <p>Esta planta estranha tem aspecto cristalino, e cresce em
+      abund&acirc;ncia na regi&atilde;o das Uivantes. Adiciona +1d6 de dano de
+      frio a magias.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

@@ -60,8 +60,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando faz um ataque à distância com uma
-      funda ou uma arma de arremesso, seu dano aumenta em um passo.</p>
+      <p>Quando faz um ataque à distância com uma funda ou uma arma de
+      arremesso, seu dano aumenta em um passo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 28 (JdA)

@@ -59,10 +59,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; sempre pode escolher 10 em
-      testes de Cura. Al&eacute;m disso, n&atilde;o sofre penalidade por usar
-      essa per&iacute;cia sem uma maleta de medicamentos. Se possuir o item,
-      recebe +2 no teste de Cura (ou +5, se ele for aprimorado).</p>
+      <p>Voc&ecirc; sempre pode escolher 10 em testes de Cura. Al&eacute;m
+      disso, n&atilde;o sofre penalidade por usar essa per&iacute;cia sem uma
+      maleta de medicamentos. Se possuir o item, recebe +2 no teste de Cura (ou
+      +5, se ele for aprimorado).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 133 (JdA)

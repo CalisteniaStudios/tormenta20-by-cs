@@ -59,14 +59,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, a CD para
-      resistir a sua Presen&ccedil;a Aristocr&aacute;tica aumenta em +5 e uma
-      criatura que falhe no teste de Vontade por 10 ou mais se arrepende tanto
-      de ter tentado machuc&aacute;-lo que passa a lutar ao seu lado (e seguir
-      suas ordens, se puder entend&ecirc;-lo) pelo resto da cena. Al&eacute;m
-      disso, uma criatura que seja reduzida a 0 PV por Palavras Afiadas
-      n&atilde;o sofre este dano; em vez disso, passa a lutar ao seu lado pelo
-      resto da cena.</p>
+      <p>No 20&ordm; n&iacute;vel, a CD para resistir a sua Presen&ccedil;a
+      Aristocr&aacute;tica aumenta em +5 e uma criatura que falhe no teste de
+      Vontade por 10 ou mais se arrepende tanto de ter tentado machuc&aacute;-lo
+      que passa a lutar ao seu lado (e seguir suas ordens, se puder
+      entend&ecirc;-lo) pelo resto da cena. Al&eacute;m disso, uma criatura que
+      seja reduzida a 0 PV por Palavras Afiadas n&atilde;o sofre este dano; em
+      vez disso, passa a lutar ao seu lado pelo resto da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

@@ -59,12 +59,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em testes de
-      Engana&ccedil;&atilde;o para fintar e pode fintar como uma
-      a&ccedil;&atilde;o de movimento.</p>
+      <p>Voc&ecirc; recebe +2 em testes de Engana&ccedil;&atilde;o para fintar e
+      pode fintar como uma a&ccedil;&atilde;o de movimento.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> treinado
-      em Engana&ccedil;&atilde;o&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> treinado em
+      Engana&ccedil;&atilde;o&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 128 (JdA)

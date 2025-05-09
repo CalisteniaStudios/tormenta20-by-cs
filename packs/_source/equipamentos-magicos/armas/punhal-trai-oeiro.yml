@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>adaga assassina formidável
-      venenosa</strong> tem l&acirc;mina negra e ondulada. Você pode gastar uma
-      ação padrão e 2 PM para transformar o punhal traiçoeiro em um objeto
-      inofensivo de tamanho similar, como uma colher ou pena. Nenhuma magia é
-      capaz de detectar essa transformação. Transformar o punhal em arma é uma
-      ação livre.</p>
+      <p>Esta <strong>adaga assassina formidável venenosa</strong> tem
+      l&acirc;mina negra e ondulada. Você pode gastar uma ação padrão e 2 PM
+      para transformar o punhal traiçoeiro em um objeto inofensivo de tamanho
+      similar, como uma colher ou pena. Nenhuma magia é capaz de detectar essa
+      transformação. Transformar o punhal em arma é uma ação livre.</p>
     chat: ''
     unidentified: ''
   source: ''

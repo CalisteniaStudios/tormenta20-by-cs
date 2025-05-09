@@ -54,12 +54,9 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">O raio da sua aura aumenta para
-      m&eacute;dio (30m).</p>
-
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 6&deg;
-      n&iacute;vel de paladino.</p>
+    value: |-
+      <p>O raio da sua aura aumenta para m&eacute;dio (30m).</p>
+      <p><em>Pr&eacute;-requisito:</em> 6&deg; n&iacute;vel de paladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

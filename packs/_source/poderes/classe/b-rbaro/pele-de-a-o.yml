@@ -49,9 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O b&ocirc;nus de Pele de Ferro aumenta
-      para +8. <em>Pr&eacute;-requisitos:</em> Pele de Ferro, 8&ordm;
-      n&iacute;vel de b&aacute;rbaro.</p>
+      <p>O b&ocirc;nus de Pele de Ferro aumenta para +8.
+      <em>Pr&eacute;-requisitos:</em> Pele de Ferro, 8&ordm; n&iacute;vel de
+      b&aacute;rbaro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

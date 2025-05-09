@@ -59,8 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe visão no escuro e +2 em testes
-      de Percepção e Sobrevivência realizados no subterrâneo.</p>
+      <p>Você recebe visão no escuro e +2 em testes de Percepção e Sobrevivência
+      realizados no subterrâneo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 20 (JdA)

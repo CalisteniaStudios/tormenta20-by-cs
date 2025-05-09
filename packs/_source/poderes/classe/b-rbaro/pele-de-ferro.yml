@@ -49,8 +49,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +4 na Defesa, mas apenas
-      se n&atilde;o estiver usando armadura pesada.</p>
+      <p>Voc&ecirc; recebe +4 na Defesa, mas apenas se n&atilde;o estiver usando
+      armadura pesada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

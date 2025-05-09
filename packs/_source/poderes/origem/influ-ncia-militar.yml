@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; fez amigos nas for&ccedil;as
-      armadas. Onde houver acampamentos ou bases militares, voc&ecirc; pode
-      conseguir hospedagem e informa&ccedil;&otilde;es para voc&ecirc; e seus
-      aliados.</p>
+      <p>Voc&ecirc; fez amigos nas for&ccedil;as armadas. Onde houver
+      acampamentos ou bases militares, voc&ecirc; pode conseguir hospedagem e
+      informa&ccedil;&otilde;es para voc&ecirc; e seus aliados.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 94 (JdA)

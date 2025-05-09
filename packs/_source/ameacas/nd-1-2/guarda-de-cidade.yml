@@ -11,11 +11,10 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Maça</section><p
-          style="text-align:justify;">Bastão com um peso cheio de protuberâncias
-          na ponta, a maça é usada por clérigos que fazem votos de não derramar
-          sangue. De fato, um golpe de maça nem sempre derrama sangue, mas
-          esmaga ossos.</p>
+          <section class="secret">Maça</section><p>Bastão com um peso cheio de
+          protuberâncias na ponta, a maça é usada por clérigos que fazem votos
+          de não derramar sangue. De fato, um golpe de maça nem sempre derrama
+          sangue, mas esmaga ossos.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)
@@ -142,9 +141,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;"><strong>[Item de
-          Origem]</strong>&nbsp;<br /><br /><br /><br /><br /><br /><br /><br
-          /><br /><br /></p>
+          <p><strong>[Item de Origem]</strong>&nbsp;<br /><br /><br /><br /><br
+          /><br /><br /><br /><br /><br /></p>
         unidentified: ''
       source: ''
       carregado: true
@@ -222,8 +220,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Versão mais pesada da armadura de
-          couro, reforçada com rebites de metal.</p>
+          <p>Versão mais pesada da armadura de couro, reforçada com rebites de
+          metal.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: true

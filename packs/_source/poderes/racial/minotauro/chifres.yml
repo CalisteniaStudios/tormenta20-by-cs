@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; possui uma arma natural de
-      chifres (dano 1d6, cr&iacute;tico x2, perfura&ccedil;&atilde;o). Uma vez
-      por rodada, quando usa a a&ccedil;&atilde;o agredir para atacar com outra
-      arma, pode gastar 1 PM para fazer um ataque corpo a corpo extra com os
-      chifres.</p>
+      <p>Voc&ecirc; possui uma arma natural de chifres (dano 1d6, cr&iacute;tico
+      x2, perfura&ccedil;&atilde;o). Uma vez por rodada, quando usa a
+      a&ccedil;&atilde;o agredir para atacar com outra arma, pode gastar 1 PM
+      para fazer um ataque corpo a corpo extra com os chifres.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 25 (JdA)

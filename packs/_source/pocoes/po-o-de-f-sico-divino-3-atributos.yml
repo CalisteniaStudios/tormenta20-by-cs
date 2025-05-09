@@ -68,10 +68,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo se torna uma vers&atilde;o mais
-      poderosa de si mesmo. O alvo recebe +2 em For&ccedil;a, Destreza e
-      Constitui&ccedil;&atilde;o. Esse aumento n&atilde;o oferece PV ou PM
-      adicionais.</p>
+      <p>O alvo se torna uma vers&atilde;o mais poderosa de si mesmo. O alvo
+      recebe +2 em For&ccedil;a, Destreza e Constitui&ccedil;&atilde;o. Esse
+      aumento n&atilde;o oferece PV ou PM adicionais.</p>
     unidentified: ''
   source: ''
   carregado: true

@@ -51,8 +51,8 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe profici&ecirc;ncia com
-      armas de fogo e +2 nas rolagens de dano com essas armas.</p>
+      <p>Voc&ecirc; recebe profici&ecirc;ncia com armas de fogo e +2 nas
+      rolagens de dano com essas armas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

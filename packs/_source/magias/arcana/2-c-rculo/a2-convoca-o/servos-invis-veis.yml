@@ -90,24 +90,23 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria at&eacute; tr&ecirc;s
-      servos invis&iacute;veis e silenciosos, capazes de realizar tarefas
-      simples como apanhar lenha, colher frutos, varrer o ch&atilde;o ou
-      alimentar um cavalo. Os servos podem ser usados para manter arrumada e
-      organizada uma mans&atilde;o ou pequena torre ou para preparar um
-      acampamento nos ermos para voc&ecirc; e seus aliados (veja a
-      per&iacute;cia Sobreviv&ecirc;ncia, na p&aacute;gina 123).</p>
+      <p>Voc&ecirc; cria at&eacute; tr&ecirc;s servos invis&iacute;veis e
+      silenciosos, capazes de realizar tarefas simples como apanhar lenha,
+      colher frutos, varrer o ch&atilde;o ou alimentar um cavalo. Os servos
+      podem ser usados para manter arrumada e organizada uma mans&atilde;o ou
+      pequena torre ou para preparar um acampamento nos ermos para voc&ecirc; e
+      seus aliados (veja a per&iacute;cia Sobreviv&ecirc;ncia, na p&aacute;gina
+      123).</p>
 
-      <p style="text-align: justify;">Eles tamb&eacute;m podem ajud&aacute;-lo
-      em tarefas mais complexas, como fazer uma pesquisa ou preparar uma
-      po&ccedil;&atilde;o, mas isso consome sua energia m&aacute;gica.
-      Voc&ecirc; pode &ldquo;gastar&rdquo; um servo para receber um b&ocirc;nus
-      n&atilde;o cumulativo de +2 em um teste de per&iacute;cia (exceto testes
-      de ataque e resist&ecirc;ncia). Os servos n&atilde;o s&atilde;o criaturas
-      reais; n&atilde;o podem lutar, nem resistir a qualquer dano ou efeito que
-      exija um teste de resist&ecirc;ncia ou teste oposto &mdash;
-      falhar&atilde;o automaticamente no teste e ser&atilde;o
-      destru&iacute;dos.</p>
+      <p>Eles tamb&eacute;m podem ajud&aacute;-lo em tarefas mais complexas,
+      como fazer uma pesquisa ou preparar uma po&ccedil;&atilde;o, mas isso
+      consome sua energia m&aacute;gica. Voc&ecirc; pode &ldquo;gastar&rdquo; um
+      servo para receber um b&ocirc;nus n&atilde;o cumulativo de +2 em um teste
+      de per&iacute;cia (exceto testes de ataque e resist&ecirc;ncia). Os servos
+      n&atilde;o s&atilde;o criaturas reais; n&atilde;o podem lutar, nem
+      resistir a qualquer dano ou efeito que exija um teste de resist&ecirc;ncia
+      ou teste oposto &mdash; falhar&atilde;o automaticamente no teste e
+      ser&atilde;o destru&iacute;dos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 206 (JdA)

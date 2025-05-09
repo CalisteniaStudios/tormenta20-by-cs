@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/poderes/ameacas/bote.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O grifo faz uma investida e ataca com sua
-      mordida e suas duas garras. Os tr&ecirc;s ataques recebem o b&ocirc;nus de
-      +2 da investida, mas devem ser feitos contra o mesmo alvo.</p>
+      <p>O grifo faz uma investida e ataca com sua mordida e suas duas garras.
+      Os tr&ecirc;s ataques recebem o b&ocirc;nus de +2 da investida, mas devem
+      ser feitos contra o mesmo alvo.</p>
     unidentified: ''
   source: ''
   ativacao:

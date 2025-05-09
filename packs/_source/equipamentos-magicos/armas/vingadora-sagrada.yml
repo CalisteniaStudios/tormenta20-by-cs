@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>espada longa formidável
-      </strong>revela todo o seu poder apenas quando empunhada por um paladino.
-      Nessa situação, ela fornece +5 em testes de ataque e rolagens de dano, +5
-      nos testes de resistência contra magia ao paladino e aliados em alcance
-      curto, e reduz o custo de Golpe Divino em &ndash;1 PM.</p>
+      <p>Esta <strong>espada longa formidável </strong>revela todo o seu poder
+      apenas quando empunhada por um paladino. Nessa situação, ela fornece +5 em
+      testes de ataque e rolagens de dano, +5 nos testes de resistência contra
+      magia ao paladino e aliados em alcance curto, e reduz o custo de Golpe
+      Divino em &ndash;1 PM.</p>
     chat: ''
     unidentified: ''
   source: ''

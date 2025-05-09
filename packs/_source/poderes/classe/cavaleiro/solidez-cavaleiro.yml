@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Se estiver usando um escudo, você aplica o
-      bônus na Defesa recebido pelo escudo em testes de resistência.</p>
+      <p>Se estiver usando um escudo, você aplica o bônus na Defesa recebido
+      pelo escudo em testes de resistência.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 55 (JdA)

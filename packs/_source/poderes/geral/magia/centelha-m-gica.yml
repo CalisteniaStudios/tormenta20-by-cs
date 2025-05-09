@@ -55,9 +55,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma magia arcana ou divina de
-      1&ordm; c&iacute;rculo. Voc&ecirc; aprende e pode lan&ccedil;ar essa
-      magia.</p>
+      <p>Escolha uma magia arcana ou divina de 1&ordm; c&iacute;rculo.
+      Voc&ecirc; aprende e pode lan&ccedil;ar essa magia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

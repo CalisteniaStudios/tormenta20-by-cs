@@ -54,10 +54,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma magia que possa lan&ccedil;ar.
-      Seu custo diminui em &ndash;1 PM (cumulativo com outras
-      redu&ccedil;&otilde;es de custo). Voc&ecirc; pode escolher este poder
-      outras vezes para magias diferentes.</p>
+      <p>Escolha uma magia que possa lan&ccedil;ar. Seu custo diminui em
+      &ndash;1 PM (cumulativo com outras redu&ccedil;&otilde;es de custo).
+      Voc&ecirc; pode escolher este poder outras vezes para magias
+      diferentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

@@ -45,10 +45,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para for&ccedil;ar uma criatura em
-      alcance curto a fazer um teste de Fortitude (CD Car). Se a criatura
-      falhar, fica atordoada por uma rodada (apenas uma vez por cena).</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      for&ccedil;ar uma criatura em alcance curto a fazer um teste de Fortitude
+      (CD Car). Se a criatura falhar, fica atordoada por uma rodada (apenas uma
+      vez por cena).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 29 (JdA)

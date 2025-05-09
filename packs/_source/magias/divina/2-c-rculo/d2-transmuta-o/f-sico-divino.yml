@@ -413,9 +413,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; fortalece o corpo do alvo. Ele
-      recebe +2 em For&ccedil;a, Destreza ou Constitui&ccedil;&atilde;o, a sua
-      escolha. Esse aumento n&atilde;o oferece PV ou PM adicionais.</p>
+      <p>Voc&ecirc; fortalece o corpo do alvo. Ele recebe +2 em For&ccedil;a,
+      Destreza ou Constitui&ccedil;&atilde;o, a sua escolha. Esse aumento
+      n&atilde;o oferece PV ou PM adicionais.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 193 (JdA)

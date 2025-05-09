@@ -59,9 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 9&ordm; n&iacute;vel, voc&ecirc; bate
-      com muita for&ccedil;a. Seu multiplicador de cr&iacute;tico com ataques
-      desarmados aumenta em +1.</p>
+      <p>No 9&ordm; n&iacute;vel, voc&ecirc; bate com muita for&ccedil;a. Seu
+      multiplicador de cr&iacute;tico com ataques desarmados aumenta em +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

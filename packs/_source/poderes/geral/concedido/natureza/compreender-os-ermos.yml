@@ -46,9 +46,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
-      Sobreviv&ecirc;ncia e pode usar Sabedoria para Adestramento (em vez de
-      Carisma).</p>
+      <p>Voc&ecirc; recebe +2 em Sobreviv&ecirc;ncia e pode usar Sabedoria para
+      Adestramento (em vez de Carisma).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/po-de-giz.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Calc&aacute;rio esmagado em p&oacute;, uma
-      subst&acirc;ncia comum que, usada como catalisador, diminui o custo de
-      magias de convoca&ccedil;&atilde;o em &ndash;1 PM.</p>
+      <p>Calc&aacute;rio esmagado em p&oacute;, uma subst&acirc;ncia comum que,
+      usada como catalisador, diminui o custo de magias de
+      convoca&ccedil;&atilde;o em &ndash;1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

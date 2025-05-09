@@ -9,12 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode fazer ataques &agrave;
-      dist&acirc;ncia contra oponentes envolvidos em combate corpo a corpo sem
-      sofrer a penalidade padr&atilde;o de &ndash;5 no teste de ataque.</p>
+      <p>Voc&ecirc; pode fazer ataques &agrave; dist&acirc;ncia contra oponentes
+      envolvidos em combate corpo a corpo sem sofrer a penalidade padr&atilde;o
+      de &ndash;5 no teste de ataque.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Estilo de
-      Disparo ou Estilo de Arremesso.</p>
+      <p><em>Pr&eacute;-requisito:</em> Estilo de Disparo ou Estilo de
+      Arremesso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

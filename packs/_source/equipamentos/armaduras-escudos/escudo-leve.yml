@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Tipicamente feito de madeira, este escudo é
-      amarrado no antebraço, deixando a mão livre. O usuário pode carregar um
-      objeto na mão do escudo, mas não manusear uma arma.</p>
+      <p>Tipicamente feito de madeira, este escudo é amarrado no antebraço,
+      deixando a mão livre. O usuário pode carregar um objeto na mão do escudo,
+      mas não manusear uma arma.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

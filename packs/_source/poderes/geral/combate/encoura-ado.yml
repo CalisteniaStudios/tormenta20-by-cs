@@ -49,13 +49,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver usando uma armadura pesada,
-      voc&ecirc; recebe +2 na Defesa. Esse b&ocirc;nus aumenta em +2 para cada
-      outro poder que voc&ecirc; possua que tenha Encoura&ccedil;ado como
-      pr&eacute;-requisito.</p>
+      <p>Se estiver usando uma armadura pesada, voc&ecirc; recebe +2 na Defesa.
+      Esse b&ocirc;nus aumenta em +2 para cada outro poder que voc&ecirc; possua
+      que tenha Encoura&ccedil;ado como pr&eacute;-requisito.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      profici&ecirc;ncia com armaduras pesadas.</p>
+      <p><em>Pr&eacute;-requisito:</em> profici&ecirc;ncia com armaduras
+      pesadas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

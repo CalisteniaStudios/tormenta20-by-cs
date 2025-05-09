@@ -8,9 +8,7 @@ sort: 100025
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Uma cota de malha reforçada com placas de
-      metal.</p>
+    value: <p>Uma cota de malha reforçada com placas de metal.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

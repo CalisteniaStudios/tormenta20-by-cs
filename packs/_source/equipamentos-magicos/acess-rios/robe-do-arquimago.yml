@@ -53,14 +53,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este traje pesado alinha-se com as
-      energias arcanas emitidas por seu usu&aacute;rio para gerar um campo
-      protetor. Se voc&ecirc; for um conjurador arcano, recebe um b&ocirc;nus na
-      Defesa igual a 5 + o c&iacute;rculo de magia mais alto que puder
-      lan&ccedil;ar e um b&ocirc;nus em testes de resist&ecirc;ncia igual
-      &agrave; metade do b&ocirc;nus na Defesa. Assim, um arcanista de 9&ordm;
-      n&iacute;vel (capaz de lan&ccedil;ar magias de 3&ordm; c&iacute;rculo)
-      recebe +8 na Defesa e +4 em testes de resist&ecirc;ncia.</p>
+      <p>Este traje pesado alinha-se com as energias arcanas emitidas por seu
+      usu&aacute;rio para gerar um campo protetor. Se voc&ecirc; for um
+      conjurador arcano, recebe um b&ocirc;nus na Defesa igual a 5 + o
+      c&iacute;rculo de magia mais alto que puder lan&ccedil;ar e um b&ocirc;nus
+      em testes de resist&ecirc;ncia igual &agrave; metade do b&ocirc;nus na
+      Defesa. Assim, um arcanista de 9&ordm; n&iacute;vel (capaz de
+      lan&ccedil;ar magias de 3&ordm; c&iacute;rculo) recebe +8 na Defesa e +4
+      em testes de resist&ecirc;ncia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

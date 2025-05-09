@@ -171,9 +171,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta famosa magia de ataque cria uma
-      poderosa explosão, causando 6d6 pontos de dano de fogo em todas as
-      criaturas e objetos livres na área.</p>
+      <p>Esta famosa magia de ataque cria uma poderosa explosão, causando 6d6
+      pontos de dano de fogo em todas as criaturas e objetos livres na área.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 182 (JdA)

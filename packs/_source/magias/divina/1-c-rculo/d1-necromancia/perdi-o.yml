@@ -111,9 +111,8 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Amaldi&ccedil;oa os alvos, que recebem
-      &ndash;1 em testes de ataque e rolagens de dano.
-      <em>Perdi&ccedil;&atilde;o</em> anula
+      <p>Amaldi&ccedil;oa os alvos, que recebem &ndash;1 em testes de ataque e
+      rolagens de dano. <em>Perdi&ccedil;&atilde;o</em> anula
       <em>B&ecirc;n&ccedil;&atilde;o</em>.</p>
     chat: ''
     unidentified: ''

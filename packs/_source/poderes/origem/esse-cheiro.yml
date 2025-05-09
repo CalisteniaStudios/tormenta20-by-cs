@@ -49,7 +49,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
+      <p>Voc&ecirc; recebe +2 em
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.PcT6ZdZqQgsF5xh2]{Fortitude}
       e detecta automaticamente a presen&ccedil;a (mas n&atilde;o a
       localiza&ccedil;&atilde;o ou natureza) de itens alqu&iacute;micos em

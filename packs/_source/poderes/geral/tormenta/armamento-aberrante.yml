@@ -64,17 +64,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para produzir uma vers&atilde;o
-      org&acirc;nica de qualquer arma corpo a corpo ou de arremesso com a qual
-      seja proficiente &mdash; ela brota do seu bra&ccedil;o, ombro ou costas
-      como uma planta grotesca e ent&atilde;o se desprende. O dano da arma
-      aumenta em um passo para cada dois outros poderes da Tormenta que
-      voc&ecirc; possui. A arma dura pela cena, ent&atilde;o se desfaz numa
-      po&ccedil;a de gosma.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      produzir uma vers&atilde;o org&acirc;nica de qualquer arma corpo a corpo
+      ou de arremesso com a qual seja proficiente &mdash; ela brota do seu
+      bra&ccedil;o, ombro ou costas como uma planta grotesca e ent&atilde;o se
+      desprende. O dano da arma aumenta em um passo para cada dois outros
+      poderes da Tormenta que voc&ecirc; possui. A arma dura pela cena,
+      ent&atilde;o se desfaz numa po&ccedil;a de gosma.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> outro poder
-      da Tormenta.</p>
+      <p><em>Pr&eacute;-requisito:</em> outro poder da Tormenta.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

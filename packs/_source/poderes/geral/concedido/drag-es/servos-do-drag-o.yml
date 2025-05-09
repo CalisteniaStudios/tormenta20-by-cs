@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e 2 PM para invocar 2d4+1 kobolds capangas
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 2 PM para
+      invocar 2d4+1 kobolds capangas
       (@UUID[Compendium.tormenta20.convocacoes.fRdEKyc1N2BhBZR9]{Servo do
       Drag&atilde;o}) em espa&ccedil;os desocupados em alcance curto. Voc&ecirc;
       pode gastar uma a&ccedil;&atilde;o de movimento para fazer os kobolds

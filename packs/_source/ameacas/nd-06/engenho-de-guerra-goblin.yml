@@ -110,9 +110,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O engenho dispara um raio em uma linha
-          com alcance m&eacute;dio. Criaturas na &aacute;rea sofrem 8d8 pontos
-          de dano de eletricidade</p>
+          <p>O engenho dispara um raio em uma linha com alcance m&eacute;dio.
+          Criaturas na &aacute;rea sofrem 8d8 pontos de dano de eletricidade</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -611,8 +610,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O engenho faz um ataque corpo a corpo
-          em cada criatura adjacente (ataque +20, dano 4d6+10 corte, 19).</p>
+          <p>O engenho faz um ataque corpo a corpo em cada criatura adjacente
+          (ataque +20, dano 4d6+10 corte, 19).</p>
         chat: ''
         unidentified: ''
       source: ''

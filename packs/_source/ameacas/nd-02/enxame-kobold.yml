@@ -9,11 +9,11 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Os kobolds arremessam uma caixa com
-          pregos (ou outra coisa perigosa, como insetos peçonhentos) em uma
-          criatura em alcance curto. A vítima sofre 2d6 pontos de dano de
-          perfuração e fica atordoada por uma rodada (Ref CD 16 reduz o dano à
-          metade e evita a condição atordoado)</p>
+          <p>Os kobolds arremessam uma caixa com pregos (ou outra coisa
+          perigosa, como insetos peçonhentos) em uma criatura em alcance curto.
+          A vítima sofre 2d6 pontos de dano de perfuração e fica atordoada por
+          uma rodada (Ref CD 16 reduz o dano à metade e evita a condição
+          atordoado)</p>
         chat: ''
         unidentified: ''
       source: ''

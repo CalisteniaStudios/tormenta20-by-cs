@@ -9,16 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se voc&ecirc; estiver segurando seu foco e
-      sofrer dano que o levaria a 0 PV ou menos, voc&ecirc; fica com 1 PV e o
-      foco perde PV igual ao valor excedente ou at&eacute; ser destru&iacute;do
-      (se o foco for destru&iacute;do, voc&ecirc; sofre o dano excedente).</p>
+      <p>Se voc&ecirc; estiver segurando seu foco e sofrer dano que o levaria a
+      0 PV ou menos, voc&ecirc; fica com 1 PV e o foco perde PV igual ao valor
+      excedente ou at&eacute; ser destru&iacute;do (se o foco for
+      destru&iacute;do, voc&ecirc; sofre o dano excedente).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito: </em>Bruxo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisito: </em>Bruxo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

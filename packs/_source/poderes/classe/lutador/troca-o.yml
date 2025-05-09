@@ -9,16 +9,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; come&ccedil;a a bater,
-      n&atilde;o para mais. Ao acertar um ataque desarmado, pode fazer outro
-      ataque desarmado contra o mesmo alvo, pagando uma quantidade de PM igual
-      &agrave; quantidade de ataques j&aacute; realizados no turno. Ou seja,
-      pode fazer o primeiro ataque extra gastando 1 PM, um segundo ataque extra
-      gastando mais 2 PM e assim por diante, at&eacute; errar um ataque ou
-      n&atilde;o ter mais pontos de mana.</p>
+      <p>Quando voc&ecirc; come&ccedil;a a bater, n&atilde;o para mais. Ao
+      acertar um ataque desarmado, pode fazer outro ataque desarmado contra o
+      mesmo alvo, pagando uma quantidade de PM igual &agrave; quantidade de
+      ataques j&aacute; realizados no turno. Ou seja, pode fazer o primeiro
+      ataque extra gastando 1 PM, um segundo ataque extra gastando mais 2 PM e
+      assim por diante, at&eacute; errar um ataque ou n&atilde;o ter mais pontos
+      de mana.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 6&ordm;
-      n&iacute;vel de lutador.</p>
+      <p><em>Pr&eacute;-requisito:</em> 6&ordm; n&iacute;vel de lutador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

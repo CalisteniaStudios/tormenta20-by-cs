@@ -63,13 +63,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando se aproxima de um inimigo e o ataca
-      com uma arma corpo a corpo leve ou &aacute;gil no mesmo turno, voc&ecirc;
-      pode gastar 2 PM para aumentar seu dano em um passo e receber +5 na margem
-      de amea&ccedil;a neste ataque.</p>
+      <p>Quando se aproxima de um inimigo e o ataca com uma arma corpo a corpo
+      leve ou &aacute;gil no mesmo turno, voc&ecirc; pode gastar 2 PM para
+      aumentar seu dano em um passo e receber +5 na margem de amea&ccedil;a
+      neste ataque.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: Esgrimista,
-      10&ordm; n&iacute;vel de bucaneiro.</p>
+      <p>Pr&eacute;-requisitos: Esgrimista, 10&ordm; n&iacute;vel de
+      bucaneiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

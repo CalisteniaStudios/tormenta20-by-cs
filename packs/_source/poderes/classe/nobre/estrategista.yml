@@ -55,14 +55,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode direcionar aliados em
-      alcance curto. Gaste uma a&ccedil;&atilde;o padr&atilde;o e 1 PM por
-      aliado que quiser direcionar (limitado pelo seu modificador de Carisma).
-      No pr&oacute;ximo turno do aliado, ele ganha uma a&ccedil;&atilde;o de
-      movimento.</p>
+      <p>Voc&ecirc; pode direcionar aliados em alcance curto. Gaste uma
+      a&ccedil;&atilde;o padr&atilde;o e 1 PM por aliado que quiser direcionar
+      (limitado pelo seu modificador de Carisma). No pr&oacute;ximo turno do
+      aliado, ele ganha uma a&ccedil;&atilde;o de movimento.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Int 13,
-      treinado em Guerra, 6&ordm; n&iacute;vel de nobre.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Int 13, treinado em Guerra, 6&ordm;
+      n&iacute;vel de nobre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 79 (JdA)

@@ -55,9 +55,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa a manobra quebrar ou ataca um
-      objeto, voc&ecirc; pode gastar 2 PM para ignorar a redu&ccedil;&atilde;o
-      de dano dele.</p>
+      <p>Quando usa a manobra quebrar ou ataca um objeto, voc&ecirc; pode gastar
+      2 PM para ignorar a redu&ccedil;&atilde;o de dano dele.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 65 (JdA)

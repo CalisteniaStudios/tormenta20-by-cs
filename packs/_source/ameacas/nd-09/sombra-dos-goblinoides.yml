@@ -423,9 +423,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Machadinhas</section><p
-          style="text-align:justify;">Ferramenta útil para cortar madeira e
-          também inimigos. Uma machadinha pode ser arremessada.</p>
+          <section class="secret">Machadinhas</section><p>Ferramenta útil para
+          cortar madeira e também inimigos. Uma machadinha pode ser
+          arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)
@@ -556,9 +556,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Machadinhas</section><p
-          style="text-align:justify;">Ferramenta útil para cortar madeira e
-          também inimigos. Uma machadinha pode ser arremessada.</p>
+          <section class="secret">Machadinhas</section><p>Ferramenta útil para
+          cortar madeira e também inimigos. Uma machadinha pode ser
+          arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)
@@ -688,10 +688,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma vez por rodada, o chefe bandido
-          causa +2d6 pontos de dano com ataques corpo a corpo, ou &agrave;
-          dist&acirc;ncia em alcance curto, contra alvos&nbsp; esprevenidos ou
-          que esteja flanqueando.</p>
+          <p>Uma vez por rodada, o chefe bandido causa +2d6 pontos de dano com
+          ataques corpo a corpo, ou &agrave; dist&acirc;ncia em alcance curto,
+          contra alvos&nbsp; esprevenidos ou que esteja flanqueando.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -959,8 +958,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Versão mais pesada da armadura de
-          couro, reforçada com rebites de metal.</p>
+          <p>Versão mais pesada da armadura de couro, reforçada com rebites de
+          metal.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: false

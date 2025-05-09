@@ -256,12 +256,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este cetro de madeira ou metal possui uma
-      pedra preciosa em sua ponta. De acordo com a pedra, ele ser&aacute;
-      afinado a um tipo de dano: esmeralda (&aacute;cido), top&aacute;zio
-      (eletricidade), rubi (fogo), safira (frio). Quando lan&ccedil;a uma magia
-      que causa dano do tipo do cetro, o dano da magia aumenta em um dado do
-      mesmo tipo.</p>
+      <p>Este cetro de madeira ou metal possui uma pedra preciosa em sua ponta.
+      De acordo com a pedra, ele ser&aacute; afinado a um tipo de dano:
+      esmeralda (&aacute;cido), top&aacute;zio (eletricidade), rubi (fogo),
+      safira (frio). Quando lan&ccedil;a uma magia que causa dano do tipo do
+      cetro, o dano da magia aumenta em um dado do mesmo tipo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

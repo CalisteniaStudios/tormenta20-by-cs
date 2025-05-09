@@ -59,13 +59,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Todo lefou possui defeitos f&iacute;sicos
-      que, embora desagrad&aacute;veis, conferem certas vantagens. Voc&ecirc;
-      recebe +2 em duas per&iacute;cias a sua escolha. Cada um desses
-      b&ocirc;nus conta como um poder da Tormenta (mas n&atilde;o causam perda
-      de carisma). Voc&ecirc; pode trocar um desses b&ocirc;nus por um poder da
-      Tormenta a sua escolha (isso tamb&eacute;m n&atilde;o causa perda de
-      carisma).</p>
+      <p>Todo lefou possui defeitos f&iacute;sicos que, embora
+      desagrad&aacute;veis, conferem certas vantagens. Voc&ecirc; recebe +2 em
+      duas per&iacute;cias a sua escolha. Cada um desses b&ocirc;nus conta como
+      um poder da Tormenta (mas n&atilde;o causam perda de carisma). Voc&ecirc;
+      pode trocar um desses b&ocirc;nus por um poder da Tormenta a sua escolha
+      (isso tamb&eacute;m n&atilde;o causa perda de carisma).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 24 (JdA)

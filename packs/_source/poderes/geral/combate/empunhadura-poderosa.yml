@@ -59,13 +59,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Ao usar uma arma feita para uma categoria
-      de tamanho maior que a sua, a penalidade que voc&ecirc; sofre nos testes
-      de ataque diminui para &ndash;2 (normalmente, usar uma arma feita para uma
-      categoria de tamanho maior imp&otilde;e uma penalidade de &ndash;5 nos
-      testes de ataque).</p>
+      <p>Ao usar uma arma feita para uma categoria de tamanho maior que a sua, a
+      penalidade que voc&ecirc; sofre nos testes de ataque diminui para &ndash;2
+      (normalmente, usar uma arma feita para uma categoria de tamanho maior
+      imp&otilde;e uma penalidade de &ndash;5 nos testes de ataque).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> For 3.</p>
+      <p><em>Pr&eacute;-requisito:</em> For 3.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

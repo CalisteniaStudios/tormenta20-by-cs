@@ -3,7 +3,7 @@ type: tesouro
 img: systems/tormenta20/icons/itens/gerais/garra-ganchador.webp
 system:
   description:
-    value: "<p><span class=\"fontstyle0\"><strong style=\"text-align: justify;\">[Tesouro Especial]</strong></span></p>\n\t\t<p>As garras do Ganchador valem T$ 500 em matéria-prima para fabricar armas de corte superiores. (CD 20 para extrair).</p>\n\t\t<p>&nbsp;</p>\n\t\t<p>&nbsp;</p>"
+    value: "<p><span class=\"fontstyle0\"><strong>[Tesouro Especial]</strong></span></p>\n\t\t<p>As garras do Ganchador valem T$ 500 em matéria-prima para fabricar armas de corte superiores. (CD 20 para extrair).</p>\n\t\t\n\t\t"
     chat: ''
     unidentified: ''
   source: T20, pg. 308 (JdA)

@@ -57,12 +57,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe resist&ecirc;ncia a
-      efeitos mentais +1. Al&eacute;m disso, sempre que precisa fazer um teste
-      de Vontade para resistir a uma habilidade, a criatura que usou essa
-      habilidade sofre 1d6 pontos de dano ps&iacute;quico. Para cada dois outros
-      poderes da Tormenta que voc&ecirc; possui o b&ocirc;nus em testes de
-      resist&ecirc;ncia aumenta em +1 e o dano aumenta em +1d6.</p>
+      <p>Voc&ecirc; recebe resist&ecirc;ncia a efeitos mentais +1. Al&eacute;m
+      disso, sempre que precisa fazer um teste de Vontade para resistir a uma
+      habilidade, a criatura que usou essa habilidade sofre 1d6 pontos de dano
+      ps&iacute;quico. Para cada dois outros poderes da Tormenta que voc&ecirc;
+      possui o b&ocirc;nus em testes de resist&ecirc;ncia aumenta em +1 e o dano
+      aumenta em +1d6.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

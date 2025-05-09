@@ -57,7 +57,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
+      <p>Voc&ecirc; recebe +2 em
       @UUID[Compendium.tormenta20.pericias.IAzI6D4Xj2vZa4ZK]{Engana&ccedil;&atilde;o},
       @UUID[Compendium.tormenta20.pericias.u2FeyQUF5rSu9ec3]{Furtividade} e
       @UUID[Compendium.tormenta20.pericias.DLcZCk8c9KUyJ0Qk]{Intui&ccedil;&atilde;o}.</p>

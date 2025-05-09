@@ -50,11 +50,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este livro pesado cont&eacute;m
-      exerc&iacute;cios para aprimorar o racioc&iacute;nio e a mem&oacute;ria,
-      mas mesclado &agrave;s palavras h&aacute; um poderoso efeito
-      m&aacute;gico. Funciona como um Manual do Bom Exerc&iacute;cio, mas
-      fornece +1 de Intelig&ecirc;ncia</p>
+      <p>Este livro pesado cont&eacute;m exerc&iacute;cios para aprimorar o
+      racioc&iacute;nio e a mem&oacute;ria, mas mesclado &agrave;s palavras
+      h&aacute; um poderoso efeito m&aacute;gico. Funciona como um Manual do Bom
+      Exerc&iacute;cio, mas fornece +1 de Intelig&ecirc;ncia</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

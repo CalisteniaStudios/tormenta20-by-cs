@@ -57,10 +57,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 3 PM para adicionar
-      sua Sabedoria (limitado por seu n&iacute;vel e n&atilde;o cumulativo com
-      efeitos que somam este atributo) a seus ataques, Defesa e testes de
-      Reflexos at&eacute; o fim da cena.</p>
+      <p>Voc&ecirc; pode gastar 3 PM para adicionar sua Sabedoria (limitado por
+      seu n&iacute;vel e n&atilde;o cumulativo com efeitos que somam este
+      atributo) a seus ataques, Defesa e testes de Reflexos at&eacute; o fim da
+      cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

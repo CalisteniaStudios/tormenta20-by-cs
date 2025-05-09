@@ -60,12 +60,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa Golpe Divino para atacar com a
-      arma preferida de sua divindade, o dado de dano que voc&ecirc; rola por
-      Golpe Divino aumenta para d12.</p>
+      <p>Quando usa Golpe Divino para atacar com a arma preferida de sua
+      divindade, o dado de dano que voc&ecirc; rola por Golpe Divino aumenta
+      para d12.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> devoto de
-      uma divindade (exceto Vida e Paz).</p>
+      <p><em>Pr&eacute;-requisito:</em> devoto de uma divindade (exceto Vida e
+      Paz).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 82 (JdA)

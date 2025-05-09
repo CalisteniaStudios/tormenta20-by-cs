@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este <em>bord&atilde;o
-      formid&aacute;vel</em> escuro e refor&ccedil;ado com ponteiras de metal
-      &eacute; procurado por conjuradores de batalha. Quando voc&ecirc;
-      lan&ccedil;a uma magia de dano, ela causa +1 ponto de dano por dado.</p>
+      <p>Este <em>bord&atilde;o formid&aacute;vel</em> escuro e refor&ccedil;ado
+      com ponteiras de metal &eacute; procurado por conjuradores de batalha.
+      Quando voc&ecirc; lan&ccedil;a uma magia de dano, ela causa +1 ponto de
+      dano por dado.</p>
     chat: ''
     unidentified: ''
   source: ''

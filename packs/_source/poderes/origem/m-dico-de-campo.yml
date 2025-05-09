@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma sua Sabedoria aos PV
-      restaurados por suas habilidades e itens mundanos de cura.</p>
+      <p>Voc&ecirc; soma sua Sabedoria aos PV restaurados por suas habilidades e
+      itens mundanos de cura.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 89 (JdA)

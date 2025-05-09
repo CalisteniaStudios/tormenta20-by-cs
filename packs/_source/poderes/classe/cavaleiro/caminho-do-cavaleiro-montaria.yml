@@ -60,15 +60,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe um cavalo de guerra com
-      o qual possui +5 em testes de Adestramento e Cavalgar. Ele fornece os
-      benef&iacute;cios de um parceiro veterano de seu tipo. No 11&ordm;
-      n&iacute;vel, passa a fornecer os benef&iacute;cios de um parceiro mestre.
-      De acordo com o mestre, voc&ecirc; pode receber outro tipo de montaria.
-      Veja a lista de montarias na p&aacute;gina 261. Caso a montaria morra,
-      voc&ecirc; pode comprar outra pelo pre&ccedil;o normal e trein&aacute;-la
-      para receber os benef&iacute;cios deste poder com uma semana de
-      trabalho.</p>
+      <p>Voc&ecirc; recebe um cavalo de guerra com o qual possui +5 em testes de
+      Adestramento e Cavalgar. Ele fornece os benef&iacute;cios de um parceiro
+      veterano de seu tipo. No 11&ordm; n&iacute;vel, passa a fornecer os
+      benef&iacute;cios de um parceiro mestre. De acordo com o mestre,
+      voc&ecirc; pode receber outro tipo de montaria. Veja a lista de montarias
+      na p&aacute;gina 261. Caso a montaria morra, voc&ecirc; pode comprar outra
+      pelo pre&ccedil;o normal e trein&aacute;-la para receber os
+      benef&iacute;cios deste poder com uma semana de trabalho.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 55 (JdA)

@@ -214,27 +214,26 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia diz se uma a&ccedil;&atilde;o
-      que voc&ecirc; tomar&aacute; em breve &mdash; no m&aacute;ximo uma hora no
-      futuro &mdash; trar&aacute; resultados bons ou ruins. O mestre rola 1d6 em
-      segredo; com um resultado de 2 a 6, a magia funciona e voc&ecirc; recebe
-      uma das seguintes respostas: &ldquo;felicidade&rdquo; (a
-      a&ccedil;&atilde;o trar&aacute; bons resultados);
-      &ldquo;mis&eacute;ria&rdquo; (a a&ccedil;&atilde;o trar&aacute; maus
-      resultados); &ldquo;felicidade e mis&eacute;ria&rdquo; (para ambos) ou
-      &ldquo;nada&rdquo; (para a&ccedil;&otilde;es que n&atilde;o trar&atilde;o
-      resultados bons ou ruins).</p>
+      <p>Esta magia diz se uma a&ccedil;&atilde;o que voc&ecirc; tomar&aacute;
+      em breve &mdash; no m&aacute;ximo uma hora no futuro &mdash; trar&aacute;
+      resultados bons ou ruins. O mestre rola 1d6 em segredo; com um resultado
+      de 2 a 6, a magia funciona e voc&ecirc; recebe uma das seguintes
+      respostas: &ldquo;felicidade&rdquo; (a a&ccedil;&atilde;o trar&aacute;
+      bons resultados); &ldquo;mis&eacute;ria&rdquo; (a a&ccedil;&atilde;o
+      trar&aacute; maus resultados); &ldquo;felicidade e mis&eacute;ria&rdquo;
+      (para ambos) ou &ldquo;nada&rdquo; (para a&ccedil;&otilde;es que
+      n&atilde;o trar&atilde;o resultados bons ou ruins).</p>
 
-      <p style="text-align: justify;">Com um resultado 1, a magia falha e
-      oferece o resultado &ldquo;nada&rdquo;. N&atilde;o h&aacute; como saber se
-      esse resultado foi dado porque a magia falhou ou n&atilde;o. Lan&ccedil;ar
-      esta magia m&uacute;ltiplas vezes sobre o mesmo assunto gera sempre o
-      primeiro resultado.</p>
+      <p>Com um resultado 1, a magia falha e oferece o resultado
+      &ldquo;nada&rdquo;. N&atilde;o h&aacute; como saber se esse resultado foi
+      dado porque a magia falhou ou n&atilde;o. Lan&ccedil;ar esta magia
+      m&uacute;ltiplas vezes sobre o mesmo assunto gera sempre o primeiro
+      resultado.</p>
 
-      <p style="text-align: justify;">Por exemplo, se o grupo est&aacute;
-      prestes a entrar em uma c&acirc;mara, o aug&uacute;rio dir&aacute;
-      &ldquo;felicidade&rdquo; se a c&acirc;mara cont&eacute;m um tesouro
-      desprotegido, &ldquo;mis&eacute;ria&rdquo; se cont&eacute;m um monstro,
+      <p>Por exemplo, se o grupo est&aacute; prestes a entrar em uma
+      c&acirc;mara, o aug&uacute;rio dir&aacute; &ldquo;felicidade&rdquo; se a
+      c&acirc;mara cont&eacute;m um tesouro desprotegido,
+      &ldquo;mis&eacute;ria&rdquo; se cont&eacute;m um monstro,
       &ldquo;felicidade e mis&eacute;ria&rdquo; se houver um tesouro e um
       monstro ou &ldquo;nada&rdquo; se a c&acirc;mara estiver vazia.</p>
     chat: ''

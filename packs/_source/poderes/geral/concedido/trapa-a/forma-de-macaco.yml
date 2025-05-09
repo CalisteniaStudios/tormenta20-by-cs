@@ -103,13 +103,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e 2 PM para se transformar em um macaco.
-      Voc&ecirc; adquire tamanho Min&uacute;sculo (o que fornece +5 em
-      Furtividade e &ndash;5 em testes de manobra) e recebe deslocamento de
-      escalar 9m. Seu equipamento desaparece (e voc&ecirc; perde seus
-      benef&iacute;cios) at&eacute; voc&ecirc; voltar ao normal, mas suas outras
-      estat&iacute;sticas n&atilde;o s&atilde;o alteradas. A
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 2 PM para se
+      transformar em um macaco. Voc&ecirc; adquire tamanho Min&uacute;sculo (o
+      que fornece +5 em Furtividade e &ndash;5 em testes de manobra) e recebe
+      deslocamento de escalar 9m. Seu equipamento desaparece (e voc&ecirc; perde
+      seus benef&iacute;cios) at&eacute; voc&ecirc; voltar ao normal, mas suas
+      outras estat&iacute;sticas n&atilde;o s&atilde;o alteradas. A
       transforma&ccedil;&atilde;o dura indefinidamente, mas termina caso
       voc&ecirc; fa&ccedil;a um ataque, lance uma magia ou sofra dano.</p>
     chat: ''

@@ -6,12 +6,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um cajado t&iacute;pico, feito de madeira
-      de boa qualidade e entalhado com runas. O limite de PM que voc&ecirc; pode
-      gastar em magias arcanas e a CD para resistir a elas aumentam em +1. Para
-      fornecer seus benef&iacute;cios, um cajado precisa ser empunhado com as
-      duas m&atilde;os. Ele pode ser usado como arma, com as estat&iacute;sticas
-      de um bord&atilde;o.</p>
+      <p>Um cajado t&iacute;pico, feito de madeira de boa qualidade e entalhado
+      com runas. O limite de PM que voc&ecirc; pode gastar em magias arcanas e a
+      CD para resistir a elas aumentam em +1. Para fornecer seus
+      benef&iacute;cios, um cajado precisa ser empunhado com as duas
+      m&atilde;os. Ele pode ser usado como arma, com as estat&iacute;sticas de
+      um bord&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

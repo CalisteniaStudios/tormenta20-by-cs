@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você aprende e pode lançar uma magia divina
-      de 1º círculo a sua escolha. Seu atributo-chave para esta magia é
-      Sabedoria. Você pode escolher este poder quantas vezes quiser.</p>
+      <p>Você aprende e pode lançar uma magia divina de 1º círculo a sua
+      escolha. Seu atributo-chave para esta magia é Sabedoria. Você pode
+      escolher este poder quantas vezes quiser.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

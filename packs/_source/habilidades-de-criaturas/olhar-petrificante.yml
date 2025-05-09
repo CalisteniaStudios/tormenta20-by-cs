@@ -78,13 +78,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No in&iacute;cio de seu turno, cada
-      personagem em alcance curto do basilisco deve fazer um teste de Reflexos
-      (CD 18). Se passar, desvia o olhar. Se falhar, fica lento. Se j&aacute;
-      estiver lento, fica petrificado permanentemente. Um personagem pode fechar
-      os olhos para ficar imune a esta habilidade, mas sofrer&aacute; os efeitos
-      de estar cego. Efeitos que removem paralisia revertem a
-      petrifica&ccedil;&atilde;o. Metamorfose.</p>
+      <p>No in&iacute;cio de seu turno, cada personagem em alcance curto do
+      basilisco deve fazer um teste de Reflexos (CD 18). Se passar, desvia o
+      olhar. Se falhar, fica lento. Se j&aacute; estiver lento, fica petrificado
+      permanentemente. Um personagem pode fechar os olhos para ficar imune a
+      esta habilidade, mas sofrer&aacute; os efeitos de estar cego. Efeitos que
+      removem paralisia revertem a petrifica&ccedil;&atilde;o. Metamorfose.</p>
     unidentified: ''
   source: ''
   ativacao:

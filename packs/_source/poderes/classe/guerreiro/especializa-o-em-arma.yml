@@ -59,9 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma arma. Voc&ecirc; recebe +2 em
-      rolagens de dano com essa arma. Voc&ecirc; pode escolher este poder outras
-      vezes para armas diferentes.</p>
+      <p>Escolha uma arma. Voc&ecirc; recebe +2 em rolagens de dano com essa
+      arma. Voc&ecirc; pode escolher este poder outras vezes para armas
+      diferentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 65 (JdA)

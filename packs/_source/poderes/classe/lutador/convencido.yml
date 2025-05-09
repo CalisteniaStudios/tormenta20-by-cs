@@ -59,9 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Acostumado a contar apenas com seus
-      m&uacute;sculos, voc&ecirc; adquiriu certo desd&eacute;m por artes mais
-      sofisticadas. Voc&ecirc; recebe resist&ecirc;ncia a medo e mental +5.</p>
+      <p>Acostumado a contar apenas com seus m&uacute;sculos, voc&ecirc;
+      adquiriu certo desd&eacute;m por artes mais sofisticadas. Voc&ecirc;
+      recebe resist&ecirc;ncia a medo e mental +5.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 76 (JdA)

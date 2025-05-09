@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">A arma preferida por onze entre dez
-      guerreiros anões. Um machado anão é muito grande para ser usado com uma só
-      mão sem treinamento especial; por isso é uma arma exótica. Ele pode ser
-      usado como uma arma marcial de duas mãos</p>
+      <p>A arma preferida por onze entre dez guerreiros anões. Um machado anão é
+      muito grande para ser usado com uma só mão sem treinamento especial; por
+      isso é uma arma exótica. Ele pode ser usado como uma arma marcial de duas
+      mãos</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 149 (JdA)

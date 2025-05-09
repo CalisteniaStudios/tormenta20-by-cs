@@ -11,10 +11,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Espada curta</section><p
-          style="text-align:justify;">O tipo mais comum de espada, usada por
-          guardas ou como arma secundária de guerreiros mais capazes. Mede entre
-          40 e 50cm.</p>
+          <section class="secret">Espada curta</section><p>O tipo mais comum de
+          espada, usada por guardas ou como arma secundária de guerreiros mais
+          capazes. Mede entre 40 e 50cm.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 148 (JdA)
@@ -141,10 +140,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma vez por rodada, o chefe bandido
-          causa +2d6 pontos de dano com ataques corpo a corpo, ou &agrave;
-          dist&acirc;ncia em alcance curto, contra alvos&nbsp; esprevenidos ou
-          que esteja flanqueando.</p>
+          <p>Uma vez por rodada, o chefe bandido causa +2d6 pontos de dano com
+          ataques corpo a corpo, ou &agrave; dist&acirc;ncia em alcance curto,
+          contra alvos&nbsp; esprevenidos ou que esteja flanqueando.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -271,12 +269,12 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Esta faca afiada &eacute; usada por
-          muitos habitantes adultos do Reinado, embora seja favorita de
-          ladr&otilde;es e assassinos, por ser facilmente escondida (fornece +5
-          em testes de Ladinagem para ocult&aacute;-la). Quando ataca com uma
-          adaga, voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos
-          testes de ataque. Uma adaga pode ser arremessada.</p>
+          <p>Esta faca afiada &eacute; usada por muitos habitantes adultos do
+          Reinado, embora seja favorita de ladr&otilde;es e assassinos, por ser
+          facilmente escondida (fornece +5 em testes de Ladinagem para
+          ocult&aacute;-la). Quando ataca com uma adaga, voc&ecirc; pode usar
+          sua Destreza em vez de For&ccedil;a nos testes de ataque. Uma adaga
+          pode ser arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)

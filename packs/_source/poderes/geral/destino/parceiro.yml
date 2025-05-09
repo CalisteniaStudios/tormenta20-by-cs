@@ -9,18 +9,17 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; possui um parceiro animal ou
-      humanoide que o acompanha em aventuras. Escolha os detalhes dele, como
-      nome, apar&ecirc;ncia e personalidade. Em termos de jogo, &eacute; um
-      aliado iniciante de um tipo a sua escolha (veja a p&aacute;gina 260). O
-      parceiro obedece &agrave;s suas ordens e se arrisca para ajud&aacute;-lo,
-      mas, se for maltratado, pode parar de segui-lo (de acordo com o mestre).
-      Se perder seu parceiro, voc&ecirc; recebe outro no in&iacute;cio da
-      pr&oacute;xima aventura.</p>
+      <p>Voc&ecirc; possui um parceiro animal ou humanoide que o acompanha em
+      aventuras. Escolha os detalhes dele, como nome, apar&ecirc;ncia e
+      personalidade. Em termos de jogo, &eacute; um aliado iniciante de um tipo
+      a sua escolha (veja a p&aacute;gina 260). O parceiro obedece &agrave;s
+      suas ordens e se arrisca para ajud&aacute;-lo, mas, se for maltratado,
+      pode parar de segui-lo (de acordo com o mestre). Se perder seu parceiro,
+      voc&ecirc; recebe outro no in&iacute;cio da pr&oacute;xima aventura.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> treinado
-      em Adestramento (parceiro animal) ou Diplomacia (parceiro humanoide),
-      5&ordm; n&iacute;vel de personagem.</p>
+      <p><em>Pr&eacute;-requisitos:</em> treinado em Adestramento (parceiro
+      animal) ou Diplomacia (parceiro humanoide), 5&ordm; n&iacute;vel de
+      personagem.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

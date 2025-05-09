@@ -64,8 +64,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, voc&ecirc; se
-      torna um mestre da
+      <p>No 20&ordm; n&iacute;vel, voc&ecirc; se torna um mestre da
       @UUID[Compendium.tormenta20.pericias.lcgrJelGuEGZ96C0]{Ladinagem}. Ao
       fazer um ataque furtivo ou usar uma per&iacute;cia da lista de ladino,
       voc&ecirc; pode gastar 5 PM para receber +10 no teste.</p>

@@ -54,9 +54,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode lan&ccedil;ar duas das
-      magias a seguir (atributo-chave Carisma): <a class="content-link"
-      draggable="true" data-uuid="Compendium.tormenta20.magias.q6jHyHSI2hWrZGE9"
+      <p>Voc&ecirc; pode lan&ccedil;ar duas das magias a seguir (atributo-chave
+      Carisma): <a class="content-link" draggable="true"
+      data-uuid="Compendium.tormenta20.magias.q6jHyHSI2hWrZGE9"
       data-id="q6jHyHSI2hWrZGE9" data-type="Item" data-pack="tormenta20.magias"
       data-tooltip="Magia Item">Criar Ilus&atilde;o</a>, <a class="content-link"
       draggable="true" data-uuid="Compendium.tormenta20.magias.lJYJQFhk5oai46Ty"
@@ -71,12 +71,6 @@ system:
       data-id="vTVcrCjSdnOmcIyi" data-type="Item" data-pack="tormenta20.magias"
       data-tooltip="Magia Item">Sono</a>. Caso aprenda novamente uma dessas
       magias, seu custo diminui em &ndash;1 PM.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20 - JdA, PG.30

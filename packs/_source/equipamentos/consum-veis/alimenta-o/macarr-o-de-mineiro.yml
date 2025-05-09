@@ -45,12 +45,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Origin&aacute;rio de uma cidade mineradora
-      na fronteira com as montanhas. Seus habitantes criaram este prato
-      refor&ccedil;ado (macarr&atilde;o, bacon e creme de leite!) para encarar
-      suas &aacute;rduas jornadas de trabalho nas minas. Delicioso, o prato se
-      espalhou por outras cidades e reinos. Voc&ecirc; recebe +5 PV
-      tempor&aacute;rios.&nbsp;</p>
+      <p>Origin&aacute;rio de uma cidade mineradora na fronteira com as
+      montanhas. Seus habitantes criaram este prato refor&ccedil;ado
+      (macarr&atilde;o, bacon e creme de leite!) para encarar suas &aacute;rduas
+      jornadas de trabalho nas minas. Delicioso, o prato se espalhou por outras
+      cidades e reinos. Voc&ecirc; recebe +5 PV tempor&aacute;rios.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 162 (JdA)

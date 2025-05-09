@@ -9,18 +9,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar um dia para
-      encontrar e participar de uma mesa de wyrt ou outro jogo de azar. Escolha
-      um valor e fa&ccedil;a um teste de Jogatina contra a CD correspondente: T$
-      100 (CD 15), T$ 200 (CD 20), T$ 400 (CD 25), T$ 800 (CD 30), T$ 1.600 (CD
-      35) e assim por diante. Se passar, voc&ecirc; ganha o valor escolhido (ou
-      um item ou favor equivalente, a crit&eacute;rio do mestre). Se falhar,
-      perde esse mesmo o valor. A crit&eacute;rio do mestre, o lugar onde
-      voc&ecirc; est&aacute; pode limitar ou impossibilitar o uso deste
-      poder.</p>
+      <p>Voc&ecirc; pode gastar um dia para encontrar e participar de uma mesa
+      de wyrt ou outro jogo de azar. Escolha um valor e fa&ccedil;a um teste de
+      Jogatina contra a CD correspondente: T$ 100 (CD 15), T$ 200 (CD 20), T$
+      400 (CD 25), T$ 800 (CD 30), T$ 1.600 (CD 35) e assim por diante. Se
+      passar, voc&ecirc; ganha o valor escolhido (ou um item ou favor
+      equivalente, a crit&eacute;rio do mestre). Se falhar, perde esse mesmo o
+      valor. A crit&eacute;rio do mestre, o lugar onde voc&ecirc; est&aacute;
+      pode limitar ou impossibilitar o uso deste poder.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: treinado em
-      Jogatina.</p>
+      <p>Pr&eacute;-requisito: treinado em Jogatina.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 47 (JdA)

@@ -56,12 +56,12 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Ao ativar uma engenhoca com
-      a&ccedil;&atilde;o padr&atilde;o, voc&ecirc; pode pagar 2 PM para
-      ativ&aacute;-la com uma a&ccedil;&atilde;o de movimento, em vez disto.</p>
+      <p>Ao ativar uma engenhoca com a&ccedil;&atilde;o padr&atilde;o,
+      voc&ecirc; pode pagar 2 PM para ativ&aacute;-la com uma a&ccedil;&atilde;o
+      de movimento, em vez disto.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em>
-      Engenhoqueiro, 7&ordm; n&iacute;vel de inventor.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Engenhoqueiro, 7&ordm; n&iacute;vel de
+      inventor.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 68 (JdA)

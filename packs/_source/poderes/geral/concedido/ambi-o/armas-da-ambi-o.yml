@@ -64,8 +64,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +1 em testes de ataque e
-      na margem de amea&ccedil;a com armas nas quais &eacute; proficiente.</p>
+      <p>Voc&ecirc; recebe +1 em testes de ataque e na margem de amea&ccedil;a
+      com armas nas quais &eacute; proficiente.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

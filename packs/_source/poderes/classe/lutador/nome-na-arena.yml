@@ -100,19 +100,18 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; construiu uma
-      reputa&ccedil;&atilde;o no circuito de lutas de Arton. Uma vez por cena,
-      pode gastar uma a&ccedil;&atilde;o completa para fazer um teste de Luta
-      (CD 10) e impressionar os presentes. Se passar, voc&ecirc; recebe +2 em
-      todos os seus testes de per&iacute;cias originalmente baseadas em Carisma
-      at&eacute; o fim da cena e a atitude de qualquer pessoa que seja f&atilde;
-      de lutas aumenta em uma categoria em rela&ccedil;&atilde;o a voc&ecirc;
-      (veja a p&aacute;gina 259). Esse b&ocirc;nus aumenta em +2 para cada 10
-      pontos pelos quais o resultado do teste exceder a CD (+4 para um resultado
-      20, +6 para 30 e assim por diante).</p>
+      <p>Voc&ecirc; construiu uma reputa&ccedil;&atilde;o no circuito de lutas
+      de Arton. Uma vez por cena, pode gastar uma a&ccedil;&atilde;o completa
+      para fazer um teste de Luta (CD 10) e impressionar os presentes. Se
+      passar, voc&ecirc; recebe +2 em todos os seus testes de per&iacute;cias
+      originalmente baseadas em Carisma at&eacute; o fim da cena e a atitude de
+      qualquer pessoa que seja f&atilde; de lutas aumenta em uma categoria em
+      rela&ccedil;&atilde;o a voc&ecirc; (veja a p&aacute;gina 259). Esse
+      b&ocirc;nus aumenta em +2 para cada 10 pontos pelos quais o resultado do
+      teste exceder a CD (+4 para um resultado 20, +6 para 30 e assim por
+      diante).</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: 11&ordm;
-      n&iacute;vel de lutador.&nbsp;</p>
+      <p>Pr&eacute;-requisito: 11&ordm; n&iacute;vel de lutador.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

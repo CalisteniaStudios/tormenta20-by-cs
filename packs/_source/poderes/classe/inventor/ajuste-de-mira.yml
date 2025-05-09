@@ -101,14 +101,13 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e uma quantidade de PM a sua escolha
-      (limitado pela sua Intelig&ecirc;ncia) para aprimorar uma arma de ataque
-      &agrave; dist&acirc;ncia. Para cada PM que gastar, voc&ecirc; recebe +1 em
-      rolagens de dano com a arma at&eacute; o final da cena.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e uma
+      quantidade de PM a sua escolha (limitado pela sua Intelig&ecirc;ncia) para
+      aprimorar uma arma de ataque &agrave; dist&acirc;ncia. Para cada PM que
+      gastar, voc&ecirc; recebe +1 em rolagens de dano com a arma at&eacute; o
+      final da cena.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      Bal&iacute;stica.</p>
+      <p><em>Pr&eacute;-requisito:</em> Bal&iacute;stica.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 68 (JdA)

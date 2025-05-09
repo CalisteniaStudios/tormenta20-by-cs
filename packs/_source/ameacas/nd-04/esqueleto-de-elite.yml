@@ -11,9 +11,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Espada longa</section><p
-          style="text-align:justify;">Arma típica de soldados e guerreiros, esta
-          espada de dois gumes tem lâmina reta medindo entre 80cm e 1m.</p>
+          <section class="secret">Espada longa</section><p>Arma típica de
+          soldados e guerreiros, esta espada de dois gumes tem lâmina reta
+          medindo entre 80cm e 1m.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 148 (JdA)
@@ -145,9 +145,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Normalmente feito de aço, este escudo é
-          preso ao antebraço  e  também  deve  ser  empunhado com firmeza,
-          impedindo o usuário de usar aquela mão.</p>
+          <p>Normalmente feito de aço, este escudo é preso ao antebraço  e 
+          também  deve  ser  empunhado com firmeza, impedindo o usuário de usar
+          aquela mão.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 154 (JdA)
@@ -212,9 +212,7 @@ items:
     flags: {}
     system:
       description:
-        value: >-
-          <p style="text-align:justify;">Uma cota de malha reforçada com placas
-          de metal.</p>
+        value: <p>Uma cota de malha reforçada com placas de metal.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 154 (JdA)

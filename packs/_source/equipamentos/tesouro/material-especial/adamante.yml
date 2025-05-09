@@ -4,8 +4,7 @@ img: systems/tormenta20/icons/itens/gerais/adamante.webp
 system:
   description:
     value: >-
-      <p><span class="fontstyle0"><strong style="text-align: justify;">[Material
-      Especial]</strong></span></p>
+      <p><span><strong>[Material Especial]</strong></span></p>
 
       <p>Encontrado apenas em meteoritos (e por isso tamb&eacute;m chamado de
       &ldquo;ferro-mete&oacute;rico&rdquo;), o adamante &eacute; um metal
@@ -16,19 +15,15 @@ system:
       lan&ccedil;a uma magia, voc&ecirc; pode pagar +1 PM para rolar novamente
       qualquer resultado 1 na rolagem de dano dela.</p>
 
-      <p>&nbsp;</p>
 
-      <p><span class="fontstyle0"><strong style="text-align:
-      justify;">Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armas e
-      Esot&eacute;ricos&nbsp; +T$ 3000</span></span></p>
+      <p><span><strong>Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armaduras
-      leves e Escudos&nbsp; +T$ 6000</span></span></p>
+      <p><span><span>Armas e Esot&eacute;ricos&nbsp; +T$ 3000</span></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armaduras
-      pesada&nbsp; +T$ 18000</span></span></p>
+      <p><span><span>Armaduras leves e Escudos&nbsp; +T$ 6000</span></span></p>
+
+      <p><span><span>Armaduras pesada&nbsp; +T$ 18000</span></span></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 166 (JdA)

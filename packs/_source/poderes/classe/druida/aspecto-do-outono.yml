@@ -49,12 +49,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">&nbsp;Voc&ecirc; aprende e pode
-      lan&ccedil;ar uma magia de necromancia, arcana ou divina, de qualquer
-      c&iacute;rculo que possa lan&ccedil;ar. Al&eacute;m disso, pode gastar 1
-      PM para impor uma penalidade de &ndash;2 nos testes de resist&ecirc;ncia
-      de todos os inimigos em alcance curto at&eacute; o in&iacute;cio do seu
-      pr&oacute;ximo turno.</p>
+      <p>&nbsp;Voc&ecirc; aprende e pode lan&ccedil;ar uma magia de necromancia,
+      arcana ou divina, de qualquer c&iacute;rculo que possa lan&ccedil;ar.
+      Al&eacute;m disso, pode gastar 1 PM para impor uma penalidade de &ndash;2
+      nos testes de resist&ecirc;ncia de todos os inimigos em alcance curto
+      at&eacute; o in&iacute;cio do seu pr&oacute;ximo turno.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 61 (JdA)

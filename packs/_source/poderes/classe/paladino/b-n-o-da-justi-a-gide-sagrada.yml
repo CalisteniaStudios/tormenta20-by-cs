@@ -99,22 +99,21 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;" data-pm-slice="0 0 []">No 5&ordm;
-      n&iacute;vel, escolha entre &eacute;gide sagrada e montaria sagrada. Uma
-      vez feita, esta escolha n&atilde;o pode ser mudada.</p>
+      <p data-pm-slice="0 0 []">No 5&ordm; n&iacute;vel, escolha entre
+      &eacute;gide sagrada e montaria sagrada. Uma vez feita, esta escolha
+      n&atilde;o pode ser mudada.</p>
 
-      <p style="text-align: justify;" data-pm-slice="0 0 []">&Eacute;gide
-      Sagrada - Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 2
-      PM para recobrir de energia seu escudo ou s&iacute;mbolo sagrado.
-      At&eacute; o fim da cena, voc&ecirc; e todos os aliados adjacentes recebem
-      um b&ocirc;nus na Defesa igual ao seu Carisma. A partir do 11&ordm;
-      n&iacute;vel, voc&ecirc; pode gastar 5 PM para rolar novamente um teste de
-      resist&ecirc;ncia contra uma magia rec&eacute;m lan&ccedil;ada contra
-      voc&ecirc;. Se voc&ecirc; passar no teste de resist&ecirc;ncia e a magia
-      tiver voc&ecirc; como &uacute;nico alvo, ela &eacute; revertida de volta
-      ao conjurador (que se torna o novo alvo da magia; todas as demais
-      caracter&iacute;sticas da magia, incluindo CD do teste de
-      resist&ecirc;ncia, se mant&ecirc;m).</p>
+      <p data-pm-slice="0 0 []">&Eacute;gide Sagrada - Voc&ecirc; pode gastar
+      uma a&ccedil;&atilde;o de movimento e 2 PM para recobrir de energia seu
+      escudo ou s&iacute;mbolo sagrado. At&eacute; o fim da cena, voc&ecirc; e
+      todos os aliados adjacentes recebem um b&ocirc;nus na Defesa igual ao seu
+      Carisma. A partir do 11&ordm; n&iacute;vel, voc&ecirc; pode gastar 5 PM
+      para rolar novamente um teste de resist&ecirc;ncia contra uma magia
+      rec&eacute;m lan&ccedil;ada contra voc&ecirc;. Se voc&ecirc; passar no
+      teste de resist&ecirc;ncia e a magia tiver voc&ecirc; como &uacute;nico
+      alvo, ela &eacute; revertida de volta ao conjurador (que se torna o novo
+      alvo da magia; todas as demais caracter&iacute;sticas da magia, incluindo
+      CD do teste de resist&ecirc;ncia, se mant&ecirc;m).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 84 (JdA)

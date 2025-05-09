@@ -6,11 +6,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seus bra&ccedil;os e armas naturais
-      s&atilde;o grotescamente mais longos do que o normal, o que aumenta seu
-      alcance pessoal para ataque corpo a corpo em +1,5m. para cada quatro
-      outros poderes da Tormenta&nbsp; que voc&ecirc; possui, esse alcance
-      aumenta em +1,5m.&nbsp;</p>
+      <p>Seus bra&ccedil;os e armas naturais s&atilde;o grotescamente mais
+      longos do que o normal, o que aumenta seu alcance pessoal para ataque
+      corpo a corpo em +1,5m. para cada quatro outros poderes da Tormenta&nbsp;
+      que voc&ecirc; possui, esse alcance aumenta em +1,5m.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

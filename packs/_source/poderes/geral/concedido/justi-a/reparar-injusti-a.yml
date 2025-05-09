@@ -6,10 +6,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando um oponente em
-      alcance curto acerta um ataque em voc&ecirc; ou em um de seus aliados,
-      voc&ecirc; pode gastar 2 PM para fazer este oponente repetir o ataque,
-      escolhendo o pior entre os dois resultados.</p>
+      <p>Uma vez por rodada, quando um oponente em alcance curto acerta um
+      ataque em voc&ecirc; ou em um de seus aliados, voc&ecirc; pode gastar 2 PM
+      para fazer este oponente repetir o ataque, escolhendo o pior entre os dois
+      resultados.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

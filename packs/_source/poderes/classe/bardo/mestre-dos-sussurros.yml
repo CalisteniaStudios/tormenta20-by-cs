@@ -59,16 +59,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">&nbsp;Voc&ecirc; &eacute; dissimulado,
-      atento para rumores e &oacute;timo em espalhar fofocas. Quando faz um
-      teste de Investiga&ccedil;&atilde;o para interrogar ou um teste de
+      <p>&nbsp;Voc&ecirc; &eacute; dissimulado, atento para rumores e
+      &oacute;timo em espalhar fofocas. Quando faz um teste de
+      Investiga&ccedil;&atilde;o para interrogar ou um teste de
       Engana&ccedil;&atilde;o para intriga, voc&ecirc; rola dois dados e usa o
       melhor resultado. Al&eacute;m disso, pode fazer esses testes em ambientes
       sociais (taverna, festival, corte...) sem custo e em apenas uma hora (em
       vez de um dia).</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: Car 1, treinado em
-      Engana&ccedil;&atilde;o e Investiga&ccedil;&atilde;o.</p>
+      <p>Pr&eacute;-requisitos: Car 1, treinado em Engana&ccedil;&atilde;o e
+      Investiga&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

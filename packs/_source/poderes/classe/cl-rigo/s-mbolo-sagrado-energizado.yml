@@ -92,14 +92,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para fazer uma prece e energizar
-      seu s&iacute;mbolo sagrado at&eacute; o fim da cena. Um s&iacute;mbolo
-      sagrado energizado emite uma luz dourada ou prateada (se sua divindade
-      canaliza energia positiva) ou p&uacute;rpura ou avermelhada (se canaliza
-      energia negativa) que ilumina como uma tocha. Enquanto voc&ecirc; estiver
-      empunhando um s&iacute;mbolo sagrado energizado, o custo em PM para
-      lan&ccedil;ar suas magias divinas diminui em 1.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      fazer uma prece e energizar seu s&iacute;mbolo sagrado at&eacute; o fim da
+      cena. Um s&iacute;mbolo sagrado energizado emite uma luz dourada ou
+      prateada (se sua divindade canaliza energia positiva) ou p&uacute;rpura ou
+      avermelhada (se canaliza energia negativa) que ilumina como uma tocha.
+      Enquanto voc&ecirc; estiver empunhando um s&iacute;mbolo sagrado
+      energizado, o custo em PM para lan&ccedil;ar suas magias divinas diminui
+      em 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

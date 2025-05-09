@@ -174,17 +174,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; se torna um condu&iacute;te da
-      energia de sua divindade, emanando uma aura brilhante. Voc&ecirc; e
-      aliados devotos da mesma divindade ficam imunes a encantamento e recebem
-      +10 na Defesa e em testes de resist&ecirc;ncia. Aliados n&atilde;o devotos
-      da mesma divindade recebem+5 na Defesa e em testes de
-      resist&ecirc;ncia.</p>
+      <p>Voc&ecirc; se torna um condu&iacute;te da energia de sua divindade,
+      emanando uma aura brilhante. Voc&ecirc; e aliados devotos da mesma
+      divindade ficam imunes a encantamento e recebem +10 na Defesa e em testes
+      de resist&ecirc;ncia. Aliados n&atilde;o devotos da mesma divindade
+      recebem+5 na Defesa e em testes de resist&ecirc;ncia.</p>
 
-      <p style="text-align: justify;">Al&eacute;m disso, inimigos que entrem na
-      &aacute;rea afetada devem fazer um teste de Vontade; em caso de falha,
-      recebem uma condi&ccedil;&atilde;o a sua escolha entre <a
-      class="content-link" draggable="true"
+      <p>Al&eacute;m disso, inimigos que entrem na &aacute;rea afetada devem
+      fazer um teste de Vontade; em caso de falha, recebem uma
+      condi&ccedil;&atilde;o a sua escolha entre <a class="content-link"
+      draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.YpyVEwCbNVAfFLBm"
       data-id="YpyVEwCbNVAfFLBm" data-type="JournalEntryPage" data-tooltip="Text
       Page">Esmorecido</a>, <a class="content-link" draggable="true"

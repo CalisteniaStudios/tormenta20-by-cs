@@ -6,19 +6,19 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">As magias de um inquisidor de Wynna
-      s&atilde;o capazes de destruir malfeitores.</p>
+      <p>As magias de um inquisidor de Wynna s&atilde;o capazes de destruir
+      malfeitores.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Quando lan&ccedil;a uma
-      magia que causa dano, voc&ecirc; pode gastar 2 PM para aumentar a CD para
-      resistir a essa magia em +2 e aumentar o dano da magia em +2d8. Para cada
-      dois outros poderes de Inquisidor da Magia que possuir, voc&ecirc; pode
-      gastar +1 PM para aumentar o dano em +1d8.</p>
+      <p class="MsoNormal">Quando lan&ccedil;a uma magia que causa dano,
+      voc&ecirc; pode gastar 2 PM para aumentar a CD para resistir a essa magia
+      em +2 e aumentar o dano da magia em +2d8. Para cada dois outros poderes de
+      Inquisidor da Magia que possuir, voc&ecirc; pode gastar +1 PM para
+      aumentar o dano em +1d8.</p>
 
-      <p class="MsoNormal" style="text-align: justify;">Pr&eacute;-requisito:
-      B&ecirc;n&ccedil;&atilde;o Arcana</p>
+      <p class="MsoNormal">Pr&eacute;-requisito: B&ecirc;n&ccedil;&atilde;o
+      Arcana</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 26-27

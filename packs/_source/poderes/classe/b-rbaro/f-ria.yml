@@ -115,20 +115,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 2 PM para invocar
-      uma f&uacute;ria selvagem. Voc&ecirc; recebe +2 em testes de ataque e
-      rolagens de dano corpo a corpo, mas n&atilde;o pode fazer nenhuma
-      a&ccedil;&atilde;o que exija calma e concentra&ccedil;&atilde;o (como usar
-      a per&iacute;cia Furtividade ou lan&ccedil;ar magias). A cada cinco
-      n&iacute;veis, pode gastar +1 PM para aumentar os b&ocirc;nus em +1.</p>
+      <p>Voc&ecirc; pode gastar 2 PM para invocar uma f&uacute;ria selvagem.
+      Voc&ecirc; recebe +2 em testes de ataque e rolagens de dano corpo a corpo,
+      mas n&atilde;o pode fazer nenhuma a&ccedil;&atilde;o que exija calma e
+      concentra&ccedil;&atilde;o (como usar a per&iacute;cia Furtividade ou
+      lan&ccedil;ar magias). A cada cinco n&iacute;veis, pode gastar +1 PM para
+      aumentar os b&ocirc;nus em +1.</p>
 
-      <p style="text-align: justify;">A F&uacute;ria termina se, ao fim da
-      rodada, voc&ecirc; n&atilde;o tiver atacado nem sido alvo de um efeito
-      (ataque, habilidade, magia...) hostil.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>A F&uacute;ria termina se, ao fim da rodada, voc&ecirc; n&atilde;o
+      tiver atacado nem sido alvo de um efeito (ataque, habilidade, magia...)
+      hostil.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 41 (JdA

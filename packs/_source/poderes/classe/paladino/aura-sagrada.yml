@@ -49,11 +49,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 3&ordm; n&iacute;vel, voc&ecirc; pode
-      gastar 1 PM para gerar uma aura com alcance curto (9m) de raio a partir de
-      voc&ecirc; e dura&ccedil;&atilde;o sustentada. A aura emite uma luz
-      dourada e agrad&aacute;vel. Al&eacute;m disso, voc&ecirc; e os aliados
-      dentro da aura somam seu Carisma nos testes de resist&ecirc;ncia.</p>
+      <p>No 3&ordm; n&iacute;vel, voc&ecirc; pode gastar 1 PM para gerar uma
+      aura com alcance curto (9m) de raio a partir de voc&ecirc; e
+      dura&ccedil;&atilde;o sustentada. A aura emite uma luz dourada e
+      agrad&aacute;vel. Al&eacute;m disso, voc&ecirc; e os aliados dentro da
+      aura somam seu Carisma nos testes de resist&ecirc;ncia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 84 (JdA)

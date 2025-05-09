@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um cajado apreciado por viajantes e
-      camponeses por sua praticidade e f&aacute;cil acesso (seu pre&ccedil;o
-      &eacute; zero). O bord&atilde;o &eacute; uma arma <em>dupla</em></p>
+      <p>Um cajado apreciado por viajantes e camponeses por sua praticidade e
+      f&aacute;cil acesso (seu pre&ccedil;o &eacute; zero). O bord&atilde;o
+      &eacute; uma arma <em>dupla</em></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 147 (JdA)

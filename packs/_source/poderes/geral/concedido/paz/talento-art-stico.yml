@@ -57,8 +57,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 emAcrobacia,&nbsp;
-      Atua&ccedil;&atilde;o e Diplomacia.</p>
+      <p>Voc&ecirc; recebe +2 emAcrobacia,&nbsp; Atua&ccedil;&atilde;o e
+      Diplomacia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

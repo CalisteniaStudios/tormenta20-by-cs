@@ -49,10 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Conforme sua ascendência, você recebe
-      resistência 10 a um tipo de dano. Escolha uma: frio (qareen da água),
-      eletricidade (do ar), fogo (do fogo), ácido (da terra), luz (da luz) ou
-      trevas (qareen das trevas).</p>
+      <p>Conforme sua ascendência, você recebe resistência 10 a um tipo de dano.
+      Escolha uma: frio (qareen da água), eletricidade (do ar), fogo (do fogo),
+      ácido (da terra), luz (da luz) ou trevas (qareen das trevas).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 26 (JdA)

@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma seu atributo-chave no
-      limite de PM que pode gastar numa magia. Por exemplo, um arcanista de
-      5&ordm; n&iacute;vel com Int 4 e este poder pode gastar at&eacute; 9 PM em
-      cada magia.</p>
+      <p>Voc&ecirc; soma seu atributo-chave no limite de PM que pode gastar numa
+      magia. Por exemplo, um arcanista de 5&ordm; n&iacute;vel com Int 4 e este
+      poder pode gastar at&eacute; 9 PM em cada magia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

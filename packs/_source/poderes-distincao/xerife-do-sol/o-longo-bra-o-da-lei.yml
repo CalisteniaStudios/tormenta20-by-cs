@@ -6,20 +6,17 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Nenhum bandido est&aacute; fora do alcance
-      de um xerife do Sol.</p>
+      <p>Nenhum bandido est&aacute; fora do alcance de um xerife do Sol.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Uma vez por rodada, se
-      uma criatura em alcance curto se mover voluntariamente mais de 1,5m,
-      voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 2 PM para fazer um
-      ataque com pistola ou cimitarra (caso esteja em alcance corpo a corpo)
-      contra ela. Voc&ecirc; pode sacar a arma com que vai atacar como parte
-      dessa rea&ccedil;&atilde;o.</p>
+      <p class="MsoNormal">Uma vez por rodada, se uma criatura em alcance curto
+      se mover voluntariamente mais de 1,5m, voc&ecirc; pode gastar uma
+      rea&ccedil;&atilde;o e 2 PM para fazer um ataque com pistola ou cimitarra
+      (caso esteja em alcance corpo a corpo) contra ela. Voc&ecirc; pode sacar a
+      arma com que vai atacar como parte dessa rea&ccedil;&atilde;o.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos</em>: Olho do Sol, Saque
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos</em>: Olho do Sol, Saque
       R&aacute;pido.</p>
     chat: ''
     unidentified: ''

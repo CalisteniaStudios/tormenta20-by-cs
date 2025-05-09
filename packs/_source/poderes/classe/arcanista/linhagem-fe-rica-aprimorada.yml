@@ -62,17 +62,15 @@ _id: uZCYSnv0rUzrSo8D
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi tocado pelas fadas.</p>
+      <p>Seu sangue foi tocado pelas fadas.</p>
 
-      <ul style="text-align: justify;">
+      <ul>
 
       <li>Aprimorada. A CD para resistir a suas magias de encantamento e
       ilus&atilde;o aumenta em +2 e suas magias dessas escolas custam &ndash;1
       PM.</li>
 
       </ul>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

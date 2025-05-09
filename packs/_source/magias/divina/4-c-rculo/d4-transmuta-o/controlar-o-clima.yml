@@ -54,12 +54,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; muda o clima da &aacute;rea
-      onde se encontra, podendo criar qualquer condi&ccedil;&atilde;o
-      clim&aacute;tica: chuva, neve, ventos, n&eacute;voas... Veja o
-      Cap&iacute;tulo 6: O Mestre para os efeitos em jogo do clima.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; muda o clima da &aacute;rea onde se encontra, podendo criar
+      qualquer condi&ccedil;&atilde;o clim&aacute;tica: chuva, neve, ventos,
+      n&eacute;voas... Veja o Cap&iacute;tulo 6: O Mestre para os efeitos em
+      jogo do clima.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 187 (JdA)

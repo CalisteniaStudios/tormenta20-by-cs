@@ -8,9 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você se torna treinado em duas perícias de
-      nobre a sua escolha.</p>
+    value: <p>Você se torna treinado em duas perícias de nobre a sua escolha.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 79 (JdA)

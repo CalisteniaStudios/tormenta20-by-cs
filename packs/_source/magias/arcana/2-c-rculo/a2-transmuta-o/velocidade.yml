@@ -197,10 +197,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo pode realizar uma
-      a&ccedil;&atilde;o padr&atilde;o ou de movimento adicional por turno. Esta
-      a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar magias e
-      ativar engenhocas.</p>
+      <p>O alvo pode realizar uma a&ccedil;&atilde;o padr&atilde;o ou de
+      movimento adicional por turno. Esta a&ccedil;&atilde;o n&atilde;o pode ser
+      usada para lan&ccedil;ar magias e ativar engenhocas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 210 (JdA)

@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você se torna treinado em uma perícia a sua
-      escolha. Você pode escolher este poder outras vezes para perícias
-      diferentes.</p>
+      <p>Você se torna treinado em uma perícia a sua escolha. Você pode escolher
+      este poder outras vezes para perícias diferentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

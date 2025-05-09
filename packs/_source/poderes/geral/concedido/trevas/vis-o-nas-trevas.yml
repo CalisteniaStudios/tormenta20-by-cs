@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; enxerga perfeitamente no
-      escuro, incluindo em magias de escurid&atilde;o.</p>
+      <p>Voc&ecirc; enxerga perfeitamente no escuro, incluindo em magias de
+      escurid&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

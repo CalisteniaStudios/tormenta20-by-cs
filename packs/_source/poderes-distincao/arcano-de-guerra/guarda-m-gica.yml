@@ -6,24 +6,22 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Mestre em utilizar a magia em combate, o
-      arcano de guerra tamb&eacute;m aprende a se defender de poderosos
-      advers&aacute;rios m&aacute;gicos</p>
+      <p>Mestre em utilizar a magia em combate, o arcano de guerra tamb&eacute;m
+      aprende a se defender de poderosos advers&aacute;rios m&aacute;gicos</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; recebe
-      resist&ecirc;ncia a magia +2. Esta resist&ecirc;ncia aumenta em +1 para
-      cada dois outros poderes de arcano de guerra que voc&ecirc; possui.</p>
+      <p class="MsoNormal">Voc&ecirc; recebe resist&ecirc;ncia a magia +2. Esta
+      resist&ecirc;ncia aumenta em +1 para cada dois outros poderes de arcano de
+      guerra que voc&ecirc; possui.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos</em>: Conjura&ccedil;&atilde;o
-      Magib&eacute;lica, ter passado em ao menos dez testes de resist&ecirc;ncia
-      contra magias.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos</em>:
+      Conjura&ccedil;&atilde;o Magib&eacute;lica, ter passado em ao menos dez
+      testes de resist&ecirc;ncia contra magias.</p>
 
-      <p class="MsoNormal" style="text-align: justify;">&nbsp;</p>
+      <p class="MsoNormal">&nbsp;</p>
 
-      <p class="MsoNormal" style="text-align: justify;">&nbsp;</p>
+      <p class="MsoNormal">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 36-37

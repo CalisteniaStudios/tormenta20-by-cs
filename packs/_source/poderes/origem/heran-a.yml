@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; herdou um item de pre&ccedil;o
-      de at&eacute; T$ 1.000. Voc&ecirc; pode escolher este poder duas vezes,
-      para um item de at&eacute; T$ 2.000.</p>
+      <p>Voc&ecirc; herdou um item de pre&ccedil;o de at&eacute; T$ 1.000.
+      Voc&ecirc; pode escolher este poder duas vezes, para um item de at&eacute;
+      T$ 2.000.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 91 (JdA)

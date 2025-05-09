@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A partir do 8&ordm; n&iacute;vel,
-      voc&ecirc; consegue lutar contra diversos inimigos como se fossem apenas
-      um. Voc&ecirc; n&atilde;o pode ser flanqueado.</p>
+      <p>A partir do 8&ordm; n&iacute;vel, voc&ecirc; consegue lutar contra
+      diversos inimigos como se fossem apenas um. Voc&ecirc; n&atilde;o pode ser
+      flanqueado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 74 (JdA)

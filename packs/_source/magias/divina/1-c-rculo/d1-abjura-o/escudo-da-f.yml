@@ -345,8 +345,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Um escudo místico se manifesta
-      momentaneamente para bloquear um golpe. O alvo recebe +2 na Defesa.</p>
+      <p>Um escudo místico se manifesta momentaneamente para bloquear um golpe.
+      O alvo recebe +2 na Defesa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 192 (JdA)

@@ -9,13 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe a heran&ccedil;a
-      superior de sua linhagem sobrenatural. <em>Pr&eacute;-requisitos:</em>
-      Heran&ccedil;a Aprimorada, 11&ordm; n&iacute;vel de arcanista.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; recebe a heran&ccedil;a superior de sua linhagem
+      sobrenatural. <em>Pr&eacute;-requisitos:</em> Heran&ccedil;a Aprimorada,
+      11&ordm; n&iacute;vel de arcanista.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

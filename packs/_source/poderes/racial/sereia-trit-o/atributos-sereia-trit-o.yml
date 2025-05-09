@@ -53,7 +53,7 @@ effects:
 flags: {}
 system:
   description:
-    value: '<p style="text-align: justify;">+1 em Tr&ecirc;s Atributos Diferentes.</p>'
+    value: <p>+1 em Tr&ecirc;s Atributos Diferentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 30 (JdA)

@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma arma antiga e comum, este arco é usado
-      primariamente como ferramenta de caça, embora seja usado como arma de
-      guerra por milícias, bandidos e exércitos menos equipados. Exige as duas
-      mãos, mas pode ser usado montado.</p>
+      <p>Uma arma antiga e comum, este arco é usado primariamente como
+      ferramenta de caça, embora seja usado como arma de guerra por milícias,
+      bandidos e exércitos menos equipados. Exige as duas mãos, mas pode ser
+      usado montado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 146 (JdA)

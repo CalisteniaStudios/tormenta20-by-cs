@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e 4 PM para gerar o efeito da magia <a
-      class="content-link" draggable="true"
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 4 PM para
+      gerar o efeito da magia <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.magias.lJYJQFhk5oai46Ty"
       data-id="lJYJQFhk5oai46Ty" data-type="Item" data-pack="tormenta20.magias"
       data-tooltip="Magia Item">Enfeiti&ccedil;ar</a><em>&nbsp;</em>com os
@@ -20,8 +19,8 @@ system:
       m&aacute;gica e prov&eacute;m de sua capacidade de influenciar outras
       pessoas.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em>
-      L&iacute;ngua de Prata, 8&ordm; n&iacute;vel de nobre.</p>
+      <p><em>Pr&eacute;-requisitos:</em> L&iacute;ngua de Prata, 8&ordm;
+      n&iacute;vel de nobre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

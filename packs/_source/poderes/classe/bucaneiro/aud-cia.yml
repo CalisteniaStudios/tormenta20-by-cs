@@ -68,9 +68,9 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um teste de per&iacute;cia,
-      voc&ecirc; pode gastar 2 PM para somar seu Carisma no teste. Voc&ecirc;
-      n&atilde;o pode usar esta habilidade em testes de ataque.</p>
+      <p>Quando faz um teste de per&iacute;cia, voc&ecirc; pode gastar 2 PM para
+      somar seu Carisma no teste. Voc&ecirc; n&atilde;o pode usar esta
+      habilidade em testes de ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 47 (JdA)

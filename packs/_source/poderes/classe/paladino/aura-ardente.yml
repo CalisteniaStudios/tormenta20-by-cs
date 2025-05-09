@@ -9,13 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto sua aura estiver ativa, no
-      in&iacute;cio de cada um de seus turnos, esp&iacute;ritos e mortos-vivos a
-      sua escolha dentro dela sofrem dano de luz igual a 5 + seu&nbsp;
-      Carisma.</p>
+      <p>Enquanto sua aura estiver ativa, no in&iacute;cio de cada um de seus
+      turnos, esp&iacute;ritos e mortos-vivos a sua escolha dentro dela sofrem
+      dano de luz igual a 5 + seu&nbsp; Carisma.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 10&deg;
-      n&iacute;vel de paladino.</p>
+      <p><em>Pr&eacute;-requisito:</em> 10&deg; n&iacute;vel de paladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

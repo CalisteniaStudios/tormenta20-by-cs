@@ -212,10 +212,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta magia cria uma pel&iacute;cula
-      protetora invis&iacute;vel, mas tang&iacute;vel, fornecendo +4 na Defesa.
-      Esse b&ocirc;nus &eacute; cumulativo com outras magias, mas n&atilde;o com
-      b&ocirc;nus fornecido por armaduras.</p>
+      <p>Esta magia cria uma pel&iacute;cula protetora invis&iacute;vel, mas
+      tang&iacute;vel, fornecendo +4 na Defesa. Esse b&ocirc;nus &eacute;
+      cumulativo com outras magias, mas n&atilde;o com b&ocirc;nus fornecido por
+      armaduras.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 181 (JdA)

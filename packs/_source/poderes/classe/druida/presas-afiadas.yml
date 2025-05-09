@@ -59,8 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A margem de amea&ccedil;a de suas armas
-      naturais em forma selvagem aumenta em +2.</p>
+      <p>A margem de amea&ccedil;a de suas armas naturais em forma selvagem
+      aumenta em +2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 63 (JdA)

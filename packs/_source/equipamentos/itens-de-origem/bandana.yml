@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/bandana.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um len&ccedil;o tipicamente usado por
-      bandidos e piratas. Fornece +1 em Intimida&ccedil;&atilde;o.</p>
+      <p>Um len&ccedil;o tipicamente usado por bandidos e piratas. Fornece +1 em
+      Intimida&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

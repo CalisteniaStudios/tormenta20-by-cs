@@ -6,18 +6,16 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Um bom m&eacute;dico sabe cuidar de si
-      mesmo (ou assim esperamos).</p>
+      <p>Um bom m&eacute;dico sabe cuidar de si mesmo (ou assim esperamos).</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Voc&ecirc; se torna
-      imune a condi&ccedil;&otilde;es de fadiga, doen&ccedil;as e venenos e
-      recebe +5 PV e +1 PM para cada poder de M&eacute;dico Ateu que possui.</p>
+      <p class="MsoNormal">Voc&ecirc; se torna imune a condi&ccedil;&otilde;es
+      de fadiga, doen&ccedil;as e venenos e recebe +5 PV e +1 PM para cada poder
+      de M&eacute;dico Ateu que possui.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos:</em> treinado em Fortitude,
-      Acompanhamento M&eacute;dico, Medicina Avan&ccedil;ada.</p>
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos:</em> treinado em
+      Fortitude, Acompanhamento M&eacute;dico, Medicina Avan&ccedil;ada.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 28-29

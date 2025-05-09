@@ -59,10 +59,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa a habilidade Marca da Presa,
-      voc&ecirc; recebe um b&ocirc;nus de +1 em testes de per&iacute;cia contra
-      a criatura marcada. Esse b&ocirc;nus aumenta em +1 para cada PM adicional
-      gasto na habilidade e tamb&eacute;m dobra com a habilidade Inimigo.</p>
+      <p>Quando usa a habilidade Marca da Presa, voc&ecirc; recebe um
+      b&ocirc;nus de +1 em testes de per&iacute;cia contra a criatura marcada.
+      Esse b&ocirc;nus aumenta em +1 para cada PM adicional gasto na habilidade
+      e tamb&eacute;m dobra com a habilidade Inimigo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

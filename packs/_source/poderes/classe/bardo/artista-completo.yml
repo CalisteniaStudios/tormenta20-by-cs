@@ -59,14 +59,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, voc&ecirc; pode
-      usar Inspira&ccedil;&atilde;o como uma a&ccedil;&atilde;o livre. Enquanto
-      estiver sob efeito de sua Inspira&ccedil;&atilde;o, qualquer habilidade de
-      bardo (incluindo magias) que voc&ecirc; usar tem seu custo em PM reduzido
-      pela metade (ap&oacute;s aplicar quaisquer outras habilidades que reduzam
-      o custo).</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>No 20&ordm; n&iacute;vel, voc&ecirc; pode usar Inspira&ccedil;&atilde;o
+      como uma a&ccedil;&atilde;o livre. Enquanto estiver sob efeito de sua
+      Inspira&ccedil;&atilde;o, qualquer habilidade de bardo (incluindo magias)
+      que voc&ecirc; usar tem seu custo em PM reduzido pela metade (ap&oacute;s
+      aplicar quaisquer outras habilidades que reduzam o custo).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

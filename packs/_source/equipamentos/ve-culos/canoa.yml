@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/canoa.webp
 system:
   description:
     value: >-
-      <p><span class="fontstyle0">Constru&iacute;da a partir de um &uacute;nico
-      tronco de &aacute;rvore, &eacute; a mais simples das
+      <p><span>Constru&iacute;da a partir de um &uacute;nico tronco de
+      &aacute;rvore, &eacute; a mais simples das
       embarca&ccedil;&otilde;es.</span> </p>
     chat: ''
     unidentified: ''

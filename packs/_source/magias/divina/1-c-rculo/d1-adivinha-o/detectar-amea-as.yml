@@ -162,13 +162,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe uma
-      intui&ccedil;&atilde;o agu&ccedil;ada sobre perigos ao seu redor. Quando
-      uma criatura hostil ou armadilha entra na &aacute;rea do efeito,
-      voc&ecirc; faz um teste de Percep&ccedil;&atilde;o (CD determinada pelo
-      mestre de acordo com a situa&ccedil;&atilde;o). Se passar, sabe a origem
-      (criatura ou armadilha), dire&ccedil;&atilde;o e dist&acirc;ncia do
-      perigo. Se falhar, sabe apenas que o perigo existe.</p>
+      <p>Voc&ecirc; recebe uma intui&ccedil;&atilde;o agu&ccedil;ada sobre
+      perigos ao seu redor. Quando uma criatura hostil ou armadilha entra na
+      &aacute;rea do efeito, voc&ecirc; faz um teste de Percep&ccedil;&atilde;o
+      (CD determinada pelo mestre de acordo com a situa&ccedil;&atilde;o). Se
+      passar, sabe a origem (criatura ou armadilha), dire&ccedil;&atilde;o e
+      dist&acirc;ncia do perigo. Se falhar, sabe apenas que o perigo existe.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 196 (JdA)

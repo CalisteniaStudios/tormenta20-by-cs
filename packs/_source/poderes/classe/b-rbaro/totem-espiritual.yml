@@ -9,17 +9,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma sua Sabedoria no seu total
-      de pontos de mana. Escolha um animal tot&ecirc;mico. Voc&ecirc; aprende e
-      pode lan&ccedil;ar uma magia definida pelo animal escolhido
-      (atributo-chave Sabedoria) e pode lan&ccedil;&aacute;-la mesmo em
-      f&uacute;ria. Pr&eacute;-requisitos: Sab 1, 4&ordm; n&iacute;vel de
-      b&aacute;rbaro.</p>
+      <p>Voc&ecirc; soma sua Sabedoria no seu total de pontos de mana. Escolha
+      um animal tot&ecirc;mico. Voc&ecirc; aprende e pode lan&ccedil;ar uma
+      magia definida pelo animal escolhido (atributo-chave Sabedoria) e pode
+      lan&ccedil;&aacute;-la mesmo em f&uacute;ria. Pr&eacute;-requisitos: Sab
+      1, 4&ordm; n&iacute;vel de b&aacute;rbaro.</p>
 
-      <p style="text-align: justify;">A seguir est&aacute; uma lista de animais
-      venerados por tribos b&aacute;rbaras do mundo.</p>
+      <p>A seguir est&aacute; uma lista de animais venerados por tribos
+      b&aacute;rbaras do mundo.</p>
 
-      <ul style="text-align: justify;">
+      <ul>
 
       <li>Coruja. A s&aacute;bia coruja guia seus disc&iacute;pulos. Voc&ecirc;
       pode lan&ccedil;ar <em>Orienta&ccedil;&atilde;o</em>.</li>
@@ -47,8 +46,6 @@ system:
       c&iacute;rculos de magia que um druida de seu n&iacute;vel.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

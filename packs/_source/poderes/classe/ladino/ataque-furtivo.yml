@@ -67,9 +67,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; sabe atingir os pontos vitais
-      de inimigos distra&iacute;dos. Uma vez por rodada, quando atinge uma
-      criatura <a class="content-link" draggable="true"
+      <p>Voc&ecirc; sabe atingir os pontos vitais de inimigos distra&iacute;dos.
+      Uma vez por rodada, quando atinge uma criatura <a class="content-link"
+      draggable="true"
       data-uuid="Compendium.tormenta20.condicoes.QBpAB16MIn9BVLNw"
       data-id="QBpAB16MIn9BVLNw" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de

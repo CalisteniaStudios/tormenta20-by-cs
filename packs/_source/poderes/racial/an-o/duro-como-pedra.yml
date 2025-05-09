@@ -8,9 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você recebe +3 pontos de vida no 1º nível e
-      +1 por nível seguinte.</p>
+    value: <p>Você recebe +3 pontos de vida no 1º nível e +1 por nível seguinte.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 20 (JdA)

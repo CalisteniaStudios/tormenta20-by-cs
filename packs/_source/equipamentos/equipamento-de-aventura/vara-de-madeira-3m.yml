@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma haste com 3m de comprimento, geralmente
-      usada para alcançar pontos distantes. Tem muitas utilidades, mas é frágil
-      demais para servir como arma.</p>
+      <p>Uma haste com 3m de comprimento, geralmente usada para alcançar pontos
+      distantes. Tem muitas utilidades, mas é frágil demais para servir como
+      arma.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 157 (JdA)

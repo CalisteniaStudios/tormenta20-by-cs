@@ -55,14 +55,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa a a&ccedil;&atilde;o agredir
-      para fazer um ataque desarmado, voc&ecirc; pode gastar 2 PM para atingir
-      todas as criaturas adjacentes, incluindo aliados! Voc&ecirc; deve usar
-      este poder antes de rolar o ataque e comparar o resultado de seu teste
-      contra a Defesa de cada criatura.</p>
+      <p>Quando usa a a&ccedil;&atilde;o agredir para fazer um ataque desarmado,
+      voc&ecirc; pode gastar 2 PM para atingir todas as criaturas adjacentes,
+      incluindo aliados! Voc&ecirc; deve usar este poder antes de rolar o ataque
+      e comparar o resultado de seu teste contra a Defesa de cada criatura.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em>
-      Troca&ccedil;&atilde;o, 8&ordm; n&iacute;vel de lutador.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Troca&ccedil;&atilde;o, 8&ordm;
+      n&iacute;vel de lutador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

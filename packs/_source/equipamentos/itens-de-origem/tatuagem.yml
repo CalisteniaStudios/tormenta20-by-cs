@@ -50,9 +50,7 @@ flags:
     version: 1.3.0.0
 system:
   description:
-    value: >-
-      <p style="text-align: justify;"><strong>[Item de
-      Origem]</strong>&nbsp;</p>
+    value: <p><strong>[Item de Origem]</strong>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 88 (JdA)

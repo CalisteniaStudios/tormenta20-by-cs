@@ -57,11 +57,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e 1 PM para analisar o lugar no qual
-      est&aacute; (um castelo, um porto, a pra&ccedil;a de uma cidade...).
-      At&eacute; o fim da cena, recebe +3m em seu deslocamento, +5 em <a
-      class="content-link" draggable="true"
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 1 PM para
+      analisar o lugar no qual est&aacute; (um castelo, um porto, a pra&ccedil;a
+      de uma cidade...). At&eacute; o fim da cena, recebe +3m em seu
+      deslocamento, +5 em <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.pericias.hWto9ixrLcAV5Pg9"
       data-id="hWto9ixrLcAV5Pg9" data-type="JournalEntry"
       data-pack="tormenta20.pericias" data-tooltip="Registro de
@@ -77,7 +76,7 @@ system:
       a&ccedil;&otilde;es para ajudar seus aliados, mas apenas se eles estiverem
       tentando escapar.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Int 1.</p>
+      <p><em>Pr&eacute;-requisito:</em> Int 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 73 (JdA)

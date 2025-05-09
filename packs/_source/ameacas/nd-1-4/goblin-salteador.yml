@@ -133,13 +133,12 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Duas adagas</section><p style="text-align:
-          justify;">Esta faca afiada &eacute; usada por muitos habitantes
-          adultos do Reinado, embora seja favorita de ladr&otilde;es e
-          assassinos, por ser facilmente escondida (fornece +5 em testes de
-          Ladinagem para ocult&aacute;-la). Quando ataca com uma adaga,
-          voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos testes de
-          ataque. Uma adaga pode ser arremessada.</p>
+          <section class="secret">Duas adagas</section><p>Esta faca afiada
+          &eacute; usada por muitos habitantes adultos do Reinado, embora seja
+          favorita de ladr&otilde;es e assassinos, por ser facilmente escondida
+          (fornece +5 em testes de Ladinagem para ocult&aacute;-la). Quando
+          ataca com uma adaga, voc&ecirc; pode usar sua Destreza em vez de
+          For&ccedil;a nos testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)

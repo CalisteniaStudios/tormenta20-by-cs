@@ -6,19 +6,18 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Com um sussurro arcano, o arqueiro faz com
-      que sua flecha alterne entre os planos.</p>
+      <p>Com um sussurro arcano, o arqueiro faz com que sua flecha alterne entre
+      os planos.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;">Quando faz um ataque com um arco,
-      voc&ecirc; pode gastar 4 PM para deixar sua flecha et&eacute;rea.
-      Voc&ecirc; recebe +4 em seu teste de ataque com esta flecha e ignora a
-      resist&ecirc;ncia a dano e os b&ocirc;nus na Defesa por cobertura do
-      alvo.</p>
+      <p>Quando faz um ataque com um arco, voc&ecirc; pode gastar 4 PM para
+      deixar sua flecha et&eacute;rea. Voc&ecirc; recebe +4 em seu teste de
+      ataque com esta flecha e ignora a resist&ecirc;ncia a dano e os
+      b&ocirc;nus na Defesa por cobertura do alvo.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos: </em>Forma
-      Et&eacute;rea, Arco Arcano.&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos: </em>Forma Et&eacute;rea, Arco
+      Arcano.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 16

@@ -9,12 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A espada tradicional do samurai tem
-      l&acirc;mina levemente curva e apenas um gume. A katana &eacute; uma arma
-      <em>adapt&aacute;vel</em> e <em>&aacute;gil</em>. &Eacute; muito grande
-      para ser empunhada com uma s&oacute; m&atilde;o sem treinamento especial;
-      por isso, &eacute; uma arma ex&oacute;tica. Ela pode ser usada como uma
-      arma marcial de duas m&atilde;os.</p>
+      <p>A espada tradicional do samurai tem l&acirc;mina levemente curva e
+      apenas um gume. A katana &eacute; uma arma <em>adapt&aacute;vel</em> e
+      <em>&aacute;gil</em>. &Eacute; muito grande para ser empunhada com uma
+      s&oacute; m&atilde;o sem treinamento especial; por isso, &eacute; uma arma
+      ex&oacute;tica. Ela pode ser usada como uma arma marcial de duas
+      m&atilde;os.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

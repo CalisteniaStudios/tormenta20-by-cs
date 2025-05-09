@@ -55,8 +55,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando usa Golpe Divino, todos os inimigos
-      em alcance curto ficam ofuscados até o início do seu próximo turno.</p>
+      <p>Quando usa Golpe Divino, todos os inimigos em alcance curto ficam
+      ofuscados até o início do seu próximo turno.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

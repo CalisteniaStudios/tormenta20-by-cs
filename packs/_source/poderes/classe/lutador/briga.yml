@@ -9,17 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seus ataques desarmados causam 1d6 pontos
-      de dano e podem causar dano letal ou n&atilde;o letal (sem penalidades). A
-      cada quatro n&iacute;veis, seu dano desarmado aumenta, conforme a
-      tabela.</p>
+      <p>Seus ataques desarmados causam 1d6 pontos de dano e podem causar dano
+      letal ou n&atilde;o letal (sem penalidades). A cada quatro n&iacute;veis,
+      seu dano desarmado aumenta, conforme a tabela.</p>
 
-      <p style="text-align: justify;">O dano na tabela &eacute; para criaturas
-      Pequenas e M&eacute;dias. Criaturas Min&uacute;sculas diminuem esse dano
-      em um passo, Grandes e Enormes aumentam em um passo e Colossais aumentam
-      em dois passos.</p>
-
-      <p>&nbsp;</p>
+      <p>O dano na tabela &eacute; para criaturas Pequenas e M&eacute;dias.
+      Criaturas Min&uacute;sculas diminuem esse dano em um passo, Grandes e
+      Enormes aumentam em um passo e Colossais aumentam em dois passos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 76 (JdA)

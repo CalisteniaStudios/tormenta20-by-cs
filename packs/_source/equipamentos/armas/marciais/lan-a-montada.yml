@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;"> A lança montada é uma arma alongada. Se
-      você estiver montado, pode usá-la com apenas uma mão. Além disso, quando
-      usada numa investida montada, causa +2d8 pontos de dano (não multiplicados
-      em caso de acerto crítico).</p>
+      <p> A lança montada é uma arma alongada. Se você estiver montado, pode
+      usá-la com apenas uma mão. Além disso, quando usada numa investida
+      montada, causa +2d8 pontos de dano (não multiplicados em caso de acerto
+      crítico).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

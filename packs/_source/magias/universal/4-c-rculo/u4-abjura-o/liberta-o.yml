@@ -249,10 +249,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo fica imune a efeitos de movimento e
-      ignora qualquer efeito que impe&ccedil;a ou restrinja seu deslocamento.
-      Por fim, pode usar habilidades que exigem liberdade de movimentos mesmo se
-      estiver usando armadura ou escudo.</p>
+      <p>O alvo fica imune a efeitos de movimento e ignora qualquer efeito que
+      impe&ccedil;a ou restrinja seu deslocamento. Por fim, pode usar
+      habilidades que exigem liberdade de movimentos mesmo se estiver usando
+      armadura ou escudo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 196 (JdA)

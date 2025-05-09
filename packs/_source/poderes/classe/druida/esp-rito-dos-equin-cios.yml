@@ -45,12 +45,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 4 PM para ficar em
-      equil&iacute;brio com o mundo. At&eacute; o final da cena, quando rola um
-      dado, pode rolar novamente qualquer resultado 1.</p>
+      <p>Voc&ecirc; pode gastar 4 PM para ficar em equil&iacute;brio com o
+      mundo. At&eacute; o final da cena, quando rola um dado, pode rolar
+      novamente qualquer resultado 1.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Aspecto da
-      Primavera, Aspecto do Outono, 10&ordm; n&iacute;vel de druida.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Aspecto da Primavera, Aspecto do
+      Outono, 10&ordm; n&iacute;vel de druida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

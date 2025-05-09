@@ -215,12 +215,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo fica enfeiti&ccedil;ado (veja a
-      p&aacute;gina 394). Um alvo hostil ou que esteja envolvido em um combate
-      recebe +5 em seu teste de resist&ecirc;ncia. Se voc&ecirc; ou seus aliados
-      tomarem qualquer a&ccedil;&atilde;o hostil contra o alvo, a magia &eacute;
-      dissipada e o alvo retorna &agrave; atitude que tinha antes (ou piorada,
-      de acordo com o mestre).</p>
+      <p>O alvo fica enfeiti&ccedil;ado (veja a p&aacute;gina 394). Um alvo
+      hostil ou que esteja envolvido em um combate recebe +5 em seu teste de
+      resist&ecirc;ncia. Se voc&ecirc; ou seus aliados tomarem qualquer
+      a&ccedil;&atilde;o hostil contra o alvo, a magia &eacute; dissipada e o
+      alvo retorna &agrave; atitude que tinha antes (ou piorada, de acordo com o
+      mestre).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 191 (JdA)

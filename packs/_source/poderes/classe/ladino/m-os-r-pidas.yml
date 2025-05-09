@@ -55,8 +55,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, ao fazer um teste de
-      <a class="content-link" draggable="true"
+      <p>Uma vez por rodada, ao fazer um teste de <a class="content-link"
+      draggable="true"
       data-uuid="Compendium.tormenta20.pericias.lcgrJelGuEGZ96C0"
       data-id="lcgrJelGuEGZ96C0" data-type="JournalEntry"
       data-pack="tormenta20.pericias" data-tooltip="Registro de
@@ -65,8 +65,7 @@ system:
       ocultar item, punga ou sabotar, voc&ecirc; pode pagar 1 PM para
       faz&ecirc;-lo como uma a&ccedil;&atilde;o livre.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Des 2,
-      treinado em Ladinagem.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Des 2, treinado em Ladinagem.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 74 (JdA)

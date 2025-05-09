@@ -259,14 +259,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto estiver sob efeito de
-      Inspira&ccedil;&atilde;o, sempre que voc&ecirc; acertar um ataque corpo a
-      corpo, pode gastar 1 PM para causar 1d6 de dano adicional de &aacute;cido,
-      eletricidade, fogo ou frio, a sua escolha. Para cada quatro n&iacute;veis
-      que possuir, pode gastar +1 PM para aumentar o dano em +1d6.</p>
+      <p>Enquanto estiver sob efeito de Inspira&ccedil;&atilde;o, sempre que
+      voc&ecirc; acertar um ataque corpo a corpo, pode gastar 1 PM para causar
+      1d6 de dano adicional de &aacute;cido, eletricidade, fogo ou frio, a sua
+      escolha. Para cada quatro n&iacute;veis que possuir, pode gastar +1 PM
+      para aumentar o dano em +1d6.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Golpe
-      M&aacute;gico.</p>
+      <p><em>Pr&eacute;-requisito:</em> Golpe M&aacute;gico.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

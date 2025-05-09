@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando arremessada, esta azagaia se
-      transforma em um <i>Relâmpago</i> (6d6 de dano de eletricidade numa linha
-      com alcance médio). Quando atinge o fim do alcance ela volta a ser uma
-      azagaia e cai no chão.</p>
+      <p>Quando arremessada, esta azagaia se transforma em um <i>Relâmpago</i>
+      (6d6 de dano de eletricidade numa linha com alcance médio). Quando atinge
+      o fim do alcance ela volta a ser uma azagaia e cai no chão.</p>
     chat: ''
     unidentified: ''
   source: ''

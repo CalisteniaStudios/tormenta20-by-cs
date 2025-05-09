@@ -9,17 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; aprende e pode lan&ccedil;ar
-      Amedrontar (atributo-chave Carisma). Esta n&atilde;o &eacute; uma
-      habilidade m&aacute;gica e prov&eacute;m de sua capacidade de incutir medo
-      em seus inimigos.</p>
+      <p>Voc&ecirc; aprende e pode lan&ccedil;ar Amedrontar (atributo-chave
+      Carisma). Esta n&atilde;o &eacute; uma habilidade m&aacute;gica e
+      prov&eacute;m de sua capacidade de incutir medo em seus inimigos.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
+      <p><em>Pr&eacute;-requisito:</em> treinado em
       Intimida&ccedil;&atilde;o.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

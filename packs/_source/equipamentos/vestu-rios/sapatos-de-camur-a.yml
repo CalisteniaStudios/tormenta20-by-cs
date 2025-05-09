@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/sapatos-de-camurca.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Leves e resistentes, aprimoram o
-      equil&iacute;brio e a firmeza dos p&eacute;s, fornecendo +1 em
-      Acrobacia.</p>
+      <p>Leves e resistentes, aprimoram o equil&iacute;brio e a firmeza dos
+      p&eacute;s, fornecendo +1 em Acrobacia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

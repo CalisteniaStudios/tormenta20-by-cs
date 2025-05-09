@@ -9,13 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por dia, voc&ecirc; pode gastar
-      uma hora e 3 PM para escolher um poder de guerreiro ou de combate cujos
-      pr&eacute;-requisitos cumpra. Voc&ecirc; recebe os benef&iacute;cios desse
-      poder at&eacute; o pr&oacute;ximo dia.</p>
+      <p>Uma vez por dia, voc&ecirc; pode gastar uma hora e 3 PM para escolher
+      um poder de guerreiro ou de combate cujos pr&eacute;-requisitos cumpra.
+      Voc&ecirc; recebe os benef&iacute;cios desse poder at&eacute; o
+      pr&oacute;ximo dia.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> treinado
-      em Guerra, 10&ordm; n&iacute;vel de guerreiro.</p>
+      <p><em>Pr&eacute;-requisitos:</em> treinado em Guerra, 10&ordm;
+      n&iacute;vel de guerreiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 66 (JdA)

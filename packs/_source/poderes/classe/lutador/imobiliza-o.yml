@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver agarrando uma criatura,
-      voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa para
-      imobiliz&aacute;-la. Fa&ccedil;a um teste de manobra contra ela. Se
-      voc&ecirc; passar, imobiliza a criatura, ela fica <a class="content-link"
-      draggable="true"
+      <p>Se estiver agarrando uma criatura, voc&ecirc; pode gastar uma
+      a&ccedil;&atilde;o completa para imobiliz&aacute;-la. Fa&ccedil;a um teste
+      de manobra contra ela. Se voc&ecirc; passar, imobiliza a criatura, ela
+      fica <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.condicoes.lNc0QRNCvTGa7t2P"
       data-id="lNc0QRNCvTGa7t2P" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de
@@ -27,8 +26,8 @@ system:
       data-pack="tormenta20.condicoes" data-tooltip="Registro de
       Di&aacute;rio">Agarrado</a>.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Chave,
-      8&ordm; n&iacute;vel de lutador.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Chave, 8&ordm; n&iacute;vel de
+      lutador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

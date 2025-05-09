@@ -113,15 +113,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; se torna proficiente na arma
-      preferida de sua divindade. Se estiver empunhando essa arma, pode gastar
-      uma a&ccedil;&atilde;o de movimento e 3 PM para infundi-la com poder
-      divino. At&eacute; o final da cena, a arma &eacute; considerada
-      m&aacute;gica e emite luz dourada ou p&uacute;rpura (como uma tocha).
-      Al&eacute;m disso, o dano da arma aumenta em um passo e voc&ecirc; pode
-      usar sua Sabedoria em testes de ataque e rolagens de dano com ela, em vez
-      do atributo padr&atilde;o (n&atilde;o cumulativo com efeitos que somam
-      este atributo).</p>
+      <p>Voc&ecirc; se torna proficiente na arma preferida de sua divindade. Se
+      estiver empunhando essa arma, pode gastar uma a&ccedil;&atilde;o de
+      movimento e 3 PM para infundi-la com poder divino. At&eacute; o final da
+      cena, a arma &eacute; considerada m&aacute;gica e emite luz dourada ou
+      p&uacute;rpura (como uma tocha). Al&eacute;m disso, o dano da arma aumenta
+      em um passo e voc&ecirc; pode usar sua Sabedoria em testes de ataque e
+      rolagens de dano com ela, em vez do atributo padr&atilde;o (n&atilde;o
+      cumulativo com efeitos que somam este atributo).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 57 (JdA)

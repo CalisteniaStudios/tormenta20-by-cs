@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Colete de couro coberto com plaquetas de
-      metal sobrepostas, como escamas de um peixe. Por ser barata de produzir, é
-      a armadura mais utilizada por soldados de infantaria e guardas de
-      castelo.</p>
+      <p>Colete de couro coberto com plaquetas de metal sobrepostas, como
+      escamas de um peixe. Por ser barata de produzir, é a armadura mais
+      utilizada por soldados de infantaria e guardas de castelo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 154 (JdA)

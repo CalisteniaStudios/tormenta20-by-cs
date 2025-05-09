@@ -232,12 +232,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A arma fornece um b&ocirc;nus de +1 nos
-      testes de ataque e rolagens de dano e &eacute; considerada m&aacute;gica
-      (n&atilde;o cumulativo com b&ocirc;nus de encantos). Caso voc&ecirc;
-      esteja empunhando a arma, pode usar seu atributo-chave de magias em vez do
-      atributo original nos testes de ataque (n&atilde;o cumulativo com efeitos
-      que somam este atributo).</p>
+      <p>A arma fornece um b&ocirc;nus de +1 nos testes de ataque e rolagens de
+      dano e &eacute; considerada m&aacute;gica (n&atilde;o cumulativo com
+      b&ocirc;nus de encantos). Caso voc&ecirc; esteja empunhando a arma, pode
+      usar seu atributo-chave de magias em vez do atributo original nos testes
+      de ataque (n&atilde;o cumulativo com efeitos que somam este atributo).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 181 (JdA)

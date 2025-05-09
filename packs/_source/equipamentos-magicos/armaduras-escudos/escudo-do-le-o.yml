@@ -100,13 +100,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este <strong>escudo pesado
-      defensor</strong> é forjado como uma cabeça de leão rugindo. Uma vez por
-      rodada, você pode gastar 2 PM para fazer a cabeça criar vida e morder uma
-      criatura adjacente. A mordida acerta automaticamente e causa [[/r 2d6+2]]
-      de dano de perfuração.</p><p style="text-align:justify;"><b>Defensor</b> O
-      item é encantado para desviar golpes. O bônus na Defesa do item aumenta em
-      +2</p>
+      <p>Este <strong>escudo pesado defensor</strong> é forjado como uma cabeça
+      de leão rugindo. Uma vez por rodada, você pode gastar 2 PM para fazer a
+      cabeça criar vida e morder uma criatura adjacente. A mordida acerta
+      automaticamente e causa [[/r 2d6+2]] de dano de
+      perfuração.</p><p><b>Defensor</b> O item é encantado para desviar golpes.
+      O bônus na Defesa do item aumenta em +2</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 340 (JdA)

@@ -63,14 +63,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha um tipo de criatura entre animal,
-      construto, esp&iacute;rito, monstro ou morto-vivo, ou duas ra&ccedil;as
-      humanoides (por exemplo, orcs e gnolls, ou elfos e qareen). Quando
-      voc&ecirc; usa a habilidade Marca da Presa contra uma criatura do tipo ou
-      da ra&ccedil;a escolhida, dobra os dados de b&ocirc;nus no dano. O nome
-      desta habilidade varia de acordo com o tipo de criatura escolhida (Inimigo
-      de Monstros, Inimigo de Mortos-Vivos etc.). Voc&ecirc; pode escolher este
-      poder outras vezes para inimigos diferentes.</p>
+      <p>Escolha um tipo de criatura entre animal, construto, esp&iacute;rito,
+      monstro ou morto-vivo, ou duas ra&ccedil;as humanoides (por exemplo, orcs
+      e gnolls, ou elfos e qareen). Quando voc&ecirc; usa a habilidade Marca da
+      Presa contra uma criatura do tipo ou da ra&ccedil;a escolhida, dobra os
+      dados de b&ocirc;nus no dano. O nome desta habilidade varia de acordo com
+      o tipo de criatura escolhida (Inimigo de Monstros, Inimigo de Mortos-Vivos
+      etc.). Voc&ecirc; pode escolher este poder outras vezes para inimigos
+      diferentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

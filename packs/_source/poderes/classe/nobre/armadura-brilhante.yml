@@ -9,13 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode somar o modificador de
-      Carisma na Defesa quando usa armadura pesada. Se fizer isso, n&atilde;o
-      pode somar o modificador de Destreza, mesmo que outras habilidades ou
-      efeitos permitam isso.</p>
+      <p>Voc&ecirc; pode somar o modificador de Carisma na Defesa quando usa
+      armadura pesada. Se fizer isso, n&atilde;o pode somar o modificador de
+      Destreza, mesmo que outras habilidades ou efeitos permitam isso.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 8&ordm;
-      n&iacute;vel de nobre.</p>
+      <p><em>Pr&eacute;-requisito:</em> 8&ordm; n&iacute;vel de nobre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 79 (JdA)

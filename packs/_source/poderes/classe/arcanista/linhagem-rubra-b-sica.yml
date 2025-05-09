@@ -9,18 +9,15 @@ _id: j7UGNfhrx5OonTZb
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi corrompido pela
-      Tormenta.</p>
+      <p>Seu sangue foi corrompido pela Tormenta.</p>
 
       <ul>
 
-      <li style="text-align: justify;">B&aacute;sica. Voc&ecirc; recebe um poder
-      da Tormenta. Al&eacute;m disso, pode perder outro atributo em vez de
-      Carisma por poderes da Tormenta.</li>
+      <li>B&aacute;sica. Voc&ecirc; recebe um poder da Tormenta. Al&eacute;m
+      disso, pode perder outro atributo em vez de Carisma por poderes da
+      Tormenta.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

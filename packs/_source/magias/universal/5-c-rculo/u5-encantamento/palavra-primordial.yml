@@ -45,12 +45,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pronuncia uma palavra do idioma
-      primordial da Cria&ccedil;&atilde;o, que causa um dos efeitos abaixo, a
-      sua escolha.</p>
+      <p>Voc&ecirc; pronuncia uma palavra do idioma primordial da
+      Cria&ccedil;&atilde;o, que causa um dos efeitos abaixo, a sua escolha.</p>
 
-      <p style="text-align: justify;"><em>Atordoar:</em> a criatura fica <a
-      class="content-link" draggable="true"
+      <p><em>Atordoar:</em> a criatura fica <a class="content-link"
+      draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ"
       data-id="bD6XAyHQrWYr0BTQ" data-type="JournalEntryPage" data-tooltip="Text
       Page">Atordoado</a>por 2d4 rodadas. Se passar no teste de
@@ -60,16 +59,16 @@ system:
       Page">Desprevenido</a>por 1d4 rodadas e n&atilde;o pode mais ser atordoada
       por esta magia at&eacute; o final da cena.</p>
 
-      <p style="text-align: justify;"><em>Cegar:</em> a criatura fica
+      <p><em>Cegar:</em> a criatura fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.qN5JjvnXDq4Xak1K]{Cego}.
       Se passar no teste de resist&ecirc;ncia, fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.lm0ybs4xkYuERx1r]{Ofuscado}por
       1d4 rodadas.</p>
 
-      <p style="text-align: justify;"><em>Matar:</em> a criatura morre.
-      Al&eacute;m do teste de Vontade, a criatura tem direito a um teste de
-      Fortitude se tiver mais da metade de seus PV. Se passar em qualquer um
-      deles, em vez de morrer perde 10d8 pontos de vida e fica
+      <p><em>Matar:</em> a criatura morre. Al&eacute;m do teste de Vontade, a
+      criatura tem direito a um teste de Fortitude se tiver mais da metade de
+      seus PV. Se passar em qualquer um deles, em vez de morrer perde 10d8
+      pontos de vida e fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.kzVyzFyYroPrv8gb]{Sangrando}.</p>
     chat: ''
     unidentified: ''

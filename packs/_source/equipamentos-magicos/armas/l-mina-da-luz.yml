@@ -9,12 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">De l&acirc;mina prateada e reluzente, esta
-      <strong>espada bastarda formidável</strong> é concedida a cavaleiros da
-      Luz de honra e virtude comprovadas. Você pode gastar uma ação de movimento
-      e 2 PM para erguer a l&acirc;mina da luz acima de sua cabeça. Se fizer
-      isso, ela irradia luz brilhante em alcance médio até o fim da cena. Todos
-      os inimigos dentro da luz ficam ofuscados.</p>
+      <p>De l&acirc;mina prateada e reluzente, esta <strong>espada bastarda
+      formidável</strong> é concedida a cavaleiros da Luz de honra e virtude
+      comprovadas. Você pode gastar uma ação de movimento e 2 PM para erguer a
+      l&acirc;mina da luz acima de sua cabeça. Se fizer isso, ela irradia luz
+      brilhante em alcance médio até o fim da cena. Todos os inimigos dentro da
+      luz ficam ofuscados.</p>
     chat: ''
     unidentified: ''
   source: ''

@@ -11,9 +11,9 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma lança leve e flexível, própria para
-      arremesso. Pode ser usada como arma corpo a corpo, mas você sofre uma
-      penalidade de –5 no teste de ataque.</p>
+      <p>Uma lança leve e flexível, própria para arremesso. Pode ser usada como
+      arma corpo a corpo, mas você sofre uma penalidade de –5 no teste de
+      ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 146 (JdA)

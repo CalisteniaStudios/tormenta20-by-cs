@@ -220,21 +220,19 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta <strong>couraça banhada a ouro sob
-      medida defensora</strong> irradia uma aura de autoridade. Você recebe +2
-      em Carisma. Se usar o poder Comandar, o bônus fornecido aumenta para
-      +2.</p><p style="text-align:justify;"><b>Banhada a ouro</b> Uma
-      modificação favorita de nobres pomposos ou aventureiros que acabaram de
-      enriquecer. Um item banhado a ouro concede um bônus de +2 em testes de
+      <p>Esta <strong>couraça banhada a ouro sob medida defensora</strong>
+      irradia uma aura de autoridade. Você recebe +2 em Carisma. Se usar o poder
+      Comandar, o bônus fornecido aumenta para +2.</p><p><b>Banhada a ouro</b>
+      Uma modificação favorita de nobres pomposos ou aventureiros que acabaram
+      de enriquecer. Um item banhado a ouro concede um bônus de +2 em testes de
       Diplomacia. O mestre pode mudar o bônus para uma penalidade de –2, caso
       você esteja interagindo com pessoas que desprezam tal ostentação. Além
-      disso, pode atrair a cobiça de ladrões.</p><p
-      style="text-align:justify;"><b>Sob medida</b> Embora muitas armaduras
-      sejam feitas especificamente para um usuário, esta passou por um período
-      extenso de ajustes e refinamento, adequando-se com perfeição ao seu corpo.
-      Reduz a penalidade por armadura em 2, mas apenas para o usuário específico
-      (para outros, comporta-se como um item ajustado). Pré-requisito:
-      Ajustada.</p><p style="text-align:justify;"><b>Defensora</b> A arma se
+      disso, pode atrair a cobiça de ladrões.</p><p><b>Sob medida</b> Embora
+      muitas armaduras sejam feitas especificamente para um usuário, esta passou
+      por um período extenso de ajustes e refinamento, adequando-se com
+      perfeição ao seu corpo. Reduz a penalidade por armadura em 2, mas apenas
+      para o usuário específico (para outros, comporta-se como um item
+      ajustado). Pré-requisito: Ajustada.</p><p><b>Defensora</b> A arma se
       movimenta para aparar ataques contra você. Você recebe +2 na Defesa.</p>
     chat: ''
     unidentified: ''

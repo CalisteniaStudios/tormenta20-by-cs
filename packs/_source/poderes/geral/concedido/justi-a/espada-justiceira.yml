@@ -96,9 +96,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para encantar
-      sua espada (ou outra arma corpo a corpo de corte que esteja empunhando).
-      Ela tem seu dano aumentado em um passo at&eacute; o fim da cena.</p>
+      <p>Voc&ecirc; pode gastar 1 PM para encantar sua espada (ou outra arma
+      corpo a corpo de corte que esteja empunhando). Ela tem seu dano aumentado
+      em um passo at&eacute; o fim da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 133 (JdA)

@@ -11,15 +11,14 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Escolha dois tipos de terreno entre os
-      tipos a seguir. Voc&ecirc; recebe os benef&iacute;cios dos tipos
-      escolhidos mesmo que n&atilde;o esteja neste terreno. Voc&ecirc; pode
-      escolher este poder outras vezes para terrenos diferentes.
-      <em>Pr&eacute;-requisitos:</em> treinado em Conhecimento, Fortitude e
-      Sobreviv&ecirc;ncia.</p>
+      <p>Escolha dois tipos de terreno entre os tipos a seguir. Voc&ecirc;
+      recebe os benef&iacute;cios dos tipos escolhidos mesmo que n&atilde;o
+      esteja neste terreno. Voc&ecirc; pode escolher este poder outras vezes
+      para terrenos diferentes. <em>Pr&eacute;-requisitos:</em> treinado em
+      Conhecimento, Fortitude e Sobreviv&ecirc;ncia.</p>
 
-      <p style="text-align: justify;"><strong>Plan&iacute;cie.</strong>
-      Voc&ecirc; recebe +3m em seu deslocamento.</p>
+      <p><strong>Plan&iacute;cie.</strong> Voc&ecirc; recebe +3m em seu
+      deslocamento.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 12

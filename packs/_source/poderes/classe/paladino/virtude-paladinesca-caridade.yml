@@ -55,30 +55,29 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O custo de suas habilidades de paladino
-      que tenham um aliado como alvo &eacute; reduzido em -1 PM.</p>
+      <p>O custo de suas habilidades de paladino que tenham um aliado como alvo
+      &eacute; reduzido em -1 PM.</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
 
-      <p style="text-align: justify;"><strong>Virtudes Paladinescas</strong></p>
 
-      <p style="text-align: justify;">Este conjunto de poderes representa
-      obedi&ecirc;ncia veemente a um comportamento espec&iacute;fico. Voc&ecirc;
-      recebe um b&ocirc;nus progressivo em seu total de pontos de mana de acordo
-      com a quantidade de poderes desse tipo que possui: +1 PM para uma Virtude,
-      +3 PM para duas, +6 PM para tr&ecirc;s, +10 PM para quatro e +15 PM para
-      cinco Virtudes.</p>
+      <p><strong>Virtudes Paladinescas</strong></p>
 
-      <p style="text-align: justify;">Virtudes Paladinescas s&atilde;o
-      poderosas, mas possuem uma contrapartida &mdash; voc&ecirc; deve se
-      comportar de acordo com quaisquer Virtudes que possuir. Um paladino
-      caridoso, por exemplo, deve sempre ajudar os necessitados, enquanto um
-      casto nunca pode cair em tenta&ccedil;&atilde;o. N&atilde;o seguir uma
-      Virtude Paladinesca que voc&ecirc; possua conta como uma
-      viola&ccedil;&atilde;o do C&oacute;digo do Her&oacute;i.</p>
+      <p>Este conjunto de poderes representa obedi&ecirc;ncia veemente a um
+      comportamento espec&iacute;fico. Voc&ecirc; recebe um b&ocirc;nus
+      progressivo em seu total de pontos de mana de acordo com a quantidade de
+      poderes desse tipo que possui: +1 PM para uma Virtude, +3 PM para duas, +6
+      PM para tr&ecirc;s, +10 PM para quatro e +15 PM para cinco Virtudes.</p>
 
-      <p style="text-align: justify;">O mestre tem a palavra final sobre o que
-      exatamente constitui uma viola&ccedil;&atilde;o.</p>
+      <p>Virtudes Paladinescas s&atilde;o poderosas, mas possuem uma
+      contrapartida &mdash; voc&ecirc; deve se comportar de acordo com quaisquer
+      Virtudes que possuir. Um paladino caridoso, por exemplo, deve sempre
+      ajudar os necessitados, enquanto um casto nunca pode cair em
+      tenta&ccedil;&atilde;o. N&atilde;o seguir uma Virtude Paladinesca que
+      voc&ecirc; possua conta como uma viola&ccedil;&atilde;o do C&oacute;digo
+      do Her&oacute;i.</p>
+
+      <p>O mestre tem a palavra final sobre o que exatamente constitui uma
+      viola&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

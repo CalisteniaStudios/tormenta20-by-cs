@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Enorme e pesada, esta espada de 1,5m de
-      comprimento é uma arma poderosa.</p>
+      <p>Enorme e pesada, esta espada de 1,5m de comprimento é uma arma
+      poderosa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 150 (JdA)

@@ -9,13 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; passa automaticamente em testes
-      de Cavalgar para n&atilde;o cair da montaria quando sofre dano.
-      Al&eacute;m disso, n&atilde;o sofre penalidades para atacar &agrave;
-      dist&acirc;ncia ou lan&ccedil;ar magias quando montado.</p>
+      <p>Voc&ecirc; passa automaticamente em testes de Cavalgar para n&atilde;o
+      cair da montaria quando sofre dano. Al&eacute;m disso, n&atilde;o sofre
+      penalidades para atacar &agrave; dist&acirc;ncia ou lan&ccedil;ar magias
+      quando montado.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Cavalgar.</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Cavalgar.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 128 (JdA)

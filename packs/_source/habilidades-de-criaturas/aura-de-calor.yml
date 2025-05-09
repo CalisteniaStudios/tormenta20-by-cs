@@ -4,10 +4,9 @@ img: systems/tormenta20/icons/poderes/ameacas/aura-de-calor.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando enfurecida, esta criatura emana um
-      calor intenso. No in&iacute;cio de cada turno da centopeia-drag&atilde;o,
-      todas as criaturas em alcance curto sofrem 4d6+9 pontos de dano de
-      fogo.</p>
+      <p>Quando enfurecida, esta criatura emana um calor intenso. No
+      in&iacute;cio de cada turno da centopeia-drag&atilde;o, todas as criaturas
+      em alcance curto sofrem 4d6+9 pontos de dano de fogo.</p>
     unidentified: ''
   source: ''
   ativacao:

@@ -99,9 +99,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando lan&ccedil;a uma magia, voc&ecirc;
-      recebe um b&ocirc;nus na Defesa igual ao c&iacute;rculo da magia
-      lan&ccedil;ada at&eacute; o in&iacute;cio do seu pr&oacute;ximo turno.</p>
+      <p>Quando lan&ccedil;a uma magia, voc&ecirc; recebe um b&ocirc;nus na
+      Defesa igual ao c&iacute;rculo da magia lan&ccedil;ada at&eacute; o
+      in&iacute;cio do seu pr&oacute;ximo turno.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 133 (JdA)

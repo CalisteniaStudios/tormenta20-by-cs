@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; aprende duas magias de qualquer
-      c&iacute;rculo que possa lan&ccedil;ar. Elas devem pertencer &agrave;s
-      escolas que voc&ecirc; sabe usar, mas podem ser arcanas ou divinas.
-      Voc&ecirc; pode escolher este poder quantas vezes quiser.</p>
+      <p>Voc&ecirc; aprende duas magias de qualquer c&iacute;rculo que possa
+      lan&ccedil;ar. Elas devem pertencer &agrave;s escolas que voc&ecirc; sabe
+      usar, mas podem ser arcanas ou divinas. Voc&ecirc; pode escolher este
+      poder quantas vezes quiser.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

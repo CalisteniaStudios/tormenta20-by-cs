@@ -53,9 +53,7 @@ effects:
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">For&ccedil;a +2,
-      Constitui&ccedil;&atilde;o +1, Carisma -1.</p>
+    value: <p>For&ccedil;a +2, Constitui&ccedil;&atilde;o +1, Carisma -1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 27 (JdA)

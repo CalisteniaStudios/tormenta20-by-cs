@@ -58,10 +58,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +10 em testes de
-      resist&ecirc;ncia contra efeitos da Tormenta, de suas criaturas e de seus
-      devotos. Al&eacute;m disso, seu primeiro poder da Tormenta n&atilde;o
-      conta para perda de Carisma.</p>
+      <p>Voc&ecirc; recebe +10 em testes de resist&ecirc;ncia contra efeitos da
+      Tormenta, de suas criaturas e de seus devotos. Al&eacute;m disso, seu
+      primeiro poder da Tormenta n&atilde;o conta para perda de Carisma.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

@@ -45,9 +45,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sempre que um aliado adjacente sofrer um
-      ataque corpo a corpo, voc&ecirc; pode gastar 1 PM para fazer um ataque na
-      criatura que o atacou.</p>
+      <p>Sempre que um aliado adjacente sofrer um ataque corpo a corpo,
+      voc&ecirc; pode gastar 1 PM para fazer um ataque na criatura que o
+      atacou.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

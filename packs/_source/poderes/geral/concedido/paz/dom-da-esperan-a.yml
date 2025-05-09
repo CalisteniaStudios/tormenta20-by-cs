@@ -6,8 +6,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma sua Sabedoria em seus PV
-      em vez de Constitui&ccedil;&atilde;o, e se torna imune &agrave;s
+      <p>Voc&ecirc; soma sua Sabedoria em seus PV em vez de
+      Constitui&ccedil;&atilde;o, e se torna imune &agrave;s
       condi&ccedil;&otilde;es alquebrado, esmorecido e frustrado.</p>
     chat: ''
     unidentified: ''

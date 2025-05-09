@@ -59,11 +59,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para envenenar uma arma corpo a
-      corpo que esteja empunhando. Em caso de acerto, a arma causa perda de 1d12
-      pontos de vida. A arma permanece envenenada at&eacute; atingir uma
-      criatura ou at&eacute; o fim da cena, o que acontecer primeiro.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      envenenar uma arma corpo a corpo que esteja empunhando. Em caso de acerto,
+      a arma causa perda de 1d12 pontos de vida. A arma permanece envenenada
+      at&eacute; atingir uma criatura ou at&eacute; o fim da cena, o que
+      acontecer primeiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

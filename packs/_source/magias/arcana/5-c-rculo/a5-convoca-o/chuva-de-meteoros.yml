@@ -66,23 +66,22 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Meteoros caem dos c&eacute;us, devastando
-      a &aacute;rea afetada. Criaturas na &aacute;rea sofrem 15d6 pontos de dano
-      de impacto, 15d6 pontos de dano de fogo e ficam
+      <p>Meteoros caem dos c&eacute;us, devastando a &aacute;rea afetada.
+      Criaturas na &aacute;rea sofrem 15d6 pontos de dano de impacto, 15d6
+      pontos de dano de fogo e ficam
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.fJFNeZeKmfHMpblz]{Ca&iacute;do}
       e presas sob os escombros (<a class="content-link" draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.TSRZ1cAIIIpsvOfK"
       data-id="TSRZ1cAIIIpsvOfK" data-type="JournalEntryPage" data-tooltip="Text
       Page">Agarrado</a>).</p>
 
-      <p style="text-align: justify;">Uma criatura que passe no teste de
-      resist&ecirc;ncia sofre metade do dano total e n&atilde;o fica
-      ca&iacute;da e agarrada. Uma criatura agarrada pode escapar gastando uma
-      a&ccedil;&atilde;o padr&atilde;o e passando em um teste de Atletismo (CD
-      da magia). Toda a &aacute;rea afetada fica coberta de escombros, sendo
-      considerada terreno dif&iacute;cil, e imersa numa nuvem de poeira
-      (camuflagem leve). Esta magia s&oacute; pode ser utilizada a c&eacute;u
-      aberto.</p>
+      <p>Uma criatura que passe no teste de resist&ecirc;ncia sofre metade do
+      dano total e n&atilde;o fica ca&iacute;da e agarrada. Uma criatura
+      agarrada pode escapar gastando uma a&ccedil;&atilde;o padr&atilde;o e
+      passando em um teste de Atletismo (CD da magia). Toda a &aacute;rea
+      afetada fica coberta de escombros, sendo considerada terreno
+      dif&iacute;cil, e imersa numa nuvem de poeira (camuflagem leve). Esta
+      magia s&oacute; pode ser utilizada a c&eacute;u aberto.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 178 (JdA)

@@ -112,10 +112,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um ataque corpo a corpo,
-      voc&ecirc; pode gastar 2 PM para desferir um golpe destruidor. Voc&ecirc;
-      soma seu Carisma no teste de ataque e +1d8 na rolagem de dano. A cada
-      quatro n&iacute;veis, pode gastar +1 PM para aumentar o dano em +1d8.</p>
+      <p>Quando faz um ataque corpo a corpo, voc&ecirc; pode gastar 2 PM para
+      desferir um golpe destruidor. Voc&ecirc; soma seu Carisma no teste de
+      ataque e +1d8 na rolagem de dano. A cada quatro n&iacute;veis, pode gastar
+      +1 PM para aumentar o dano em +1d8.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 82 (JdA)

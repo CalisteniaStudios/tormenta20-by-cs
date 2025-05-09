@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode pagar 1 PM para usar sua
-      For&ccedil;a no lugar de Carisma em um teste de per&iacute;cia baseada em
-      Carisma.</p>
+      <p>Voc&ecirc; pode pagar 1 PM para usar sua For&ccedil;a no lugar de
+      Carisma em um teste de per&iacute;cia baseada em Carisma.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> For 1,
-      treinado em Intimida&ccedil;&atilde;o.</p>
+      <p><em>Pr&eacute;-requisitos:</em> For 1, treinado em
+      Intimida&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

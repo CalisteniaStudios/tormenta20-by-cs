@@ -49,8 +49,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este anel desvia ataques contra seu
-      usuário. Você recebe +2 de Defesa.</p>
+      <p>Este anel desvia ataques contra seu usuário. Você recebe +2 de
+      Defesa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 342 (JdA)

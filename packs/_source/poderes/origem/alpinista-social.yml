@@ -9,7 +9,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode substituir testes de
+      <p>Voc&ecirc; pode substituir testes de
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.cPbZCkI3ApOFMTnL]{Diplomacia}
       por testes de
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.SF7OrtCOR5wqLTaH]{Engana&ccedil;&atilde;o}.</p>

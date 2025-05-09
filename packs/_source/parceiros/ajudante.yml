@@ -196,27 +196,26 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Cada parceiro pode ajudar apenas um
-      personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro
-      personagem em alcance curto at&eacute; o fim da cena (para fazer isso com
-      um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
 
-      <p style="text-align: justify;">Um bardo, nobre ou s&aacute;bio que ajuda
-      com palavras firmes ou encorajadoras.</p>
+      <p>Um bardo, nobre ou s&aacute;bio que ajuda com palavras firmes ou
+      encorajadoras.</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: voc&ecirc;
-      recebe +2 em duas per&iacute;cias.</p>
+      <p><strong>Iniciante</strong>: voc&ecirc; recebe +2 em duas
+      per&iacute;cias.</p>
 
-      <p style="text-align: justify;"><strong>Veterano</strong>: muda para +2 em
-      tr&ecirc;s per&iacute;cias.</p>
+      <p><strong>Veterano</strong>: muda para +2 em tr&ecirc;s
+      per&iacute;cias.</p>
 
-      <p style="text-align: justify;"><strong>Mestre</strong>: muda para +4 em
-      tr&ecirc;s per&iacute;cias. As per&iacute;cias s&atilde;o definidas pelo
-      aliado.</p>
+      <p><strong>Mestre</strong>: muda para +4 em tr&ecirc;s per&iacute;cias. As
+      per&iacute;cias s&atilde;o definidas pelo aliado.</p>
 
-      <p style="text-align: justify;">Um ajudante n&atilde;o pode fornecer
-      b&ocirc;nus em Luta ou Pontaria.</p>
+      <p>Um ajudante n&atilde;o pode fornecer b&ocirc;nus em Luta ou
+      Pontaria.</p>
     unidentified: ''
   source: T20, pg. 260 (JdA)
   ativacao:

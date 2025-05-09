@@ -172,32 +172,28 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Cada parceiro pode ajudar apenas um
-      personagem por vez. No in&iacute;cio do seu turno, voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento para passar um parceiro para outro
-      personagem em alcance curto at&eacute; o fim da cena (para fazer isso com
-      um animal, voc&ecirc; precisa ser treinado em Adestramento).</p>
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
 
-      <p style="text-align: justify;">Um ladino ou outro tipo furtivo que mata
-      pessoas.</p>
+      <p>Um ladino ou outro tipo furtivo que mata pessoas.</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: voc&ecirc;
-      recebe a habilidade Ataque Furtivo +1d6. Se j&aacute; possui a habilidade,
-      o b&ocirc;nus &eacute; cumulativo.</p>
+      <p><strong>Iniciante</strong>: voc&ecirc; recebe a habilidade Ataque
+      Furtivo +1d6. Se j&aacute; possui a habilidade, o b&ocirc;nus &eacute;
+      cumulativo.</p>
 
-      <p style="text-align: justify;"><strong>Veterano</strong>: al&eacute;m do
-      Ataque Furtivo, fornece b&ocirc;nus por flanquear contra um inimigo por
-      rodada.</p>
+      <p><strong>Veterano</strong>: al&eacute;m do Ataque Furtivo, fornece
+      b&ocirc;nus por flanquear contra um inimigo por rodada.</p>
 
-      <p style="text-align: justify;"><strong>Mestre</strong>: muda o dano do
-      Ataque Furtivo para +2d6.</p>
+      <p><strong>Mestre</strong>: muda o dano do Ataque Furtivo para +2d6.</p>
 
-      <p style="text-align: justify;">Note que, al&eacute;m de fornecer +2 em
-      testes de ataque corpo a corpo, o b&ocirc;nus por flanquear facilita que o
-      personagem use seu Ataque Furtivo.</p>
+      <p>Note que, al&eacute;m de fornecer +2 em testes de ataque corpo a corpo,
+      o b&ocirc;nus por flanquear facilita que o personagem use seu Ataque
+      Furtivo.</p>
 
-      <p style="text-align: justify;">Esse b&ocirc;nus pode ser utilizado apenas
-      em um ataque por rodada.</p>
+      <p>Esse b&ocirc;nus pode ser utilizado apenas em um ataque por rodada.</p>
     unidentified: ''
   source: T20, pg. 260 (JdA)
   ativacao:

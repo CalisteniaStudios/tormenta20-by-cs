@@ -50,13 +50,12 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe profici&ecirc;ncia com
-      armaduras pesadas e escudos. Quando usa armadura, pode usar sua
-      Intelig&ecirc;ncia em vez de Destreza na Defesa (mas continua n&atilde;o
-      podendo somar um atributo na Defesa quando usa armadura pesada).</p>
+      <p>Voc&ecirc; recebe profici&ecirc;ncia com armaduras pesadas e escudos.
+      Quando usa armadura, pode usar sua Intelig&ecirc;ncia em vez de Destreza
+      na Defesa (mas continua n&atilde;o podendo somar um atributo na Defesa
+      quando usa armadura pesada).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Of&iacute;cio (armeiro).</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Of&iacute;cio (armeiro).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

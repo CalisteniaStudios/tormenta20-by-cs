@@ -6,13 +6,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando faz um ataque
-      com uma arma de arremesso, voc&ecirc; pode gastar 1 PM para fazer um
-      ataque adicional contra o mesmo alvo, arremessando outra arma de
-      arremesso.</p>
+      <p>Uma vez por rodada, quando faz um ataque com uma arma de arremesso,
+      voc&ecirc; pode gastar 1 PM para fazer um ataque adicional contra o mesmo
+      alvo, arremessando outra arma de arremesso.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Des 1,
-      Estilo de Arremesso.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Des 1, Estilo de Arremesso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 124 (JdA)

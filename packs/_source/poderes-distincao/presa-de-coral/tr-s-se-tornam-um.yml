@@ -6,23 +6,21 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">O estilo de luta dos Presas de Coral usa
-      lan&ccedil;as e espadas. Os mais habilidosos entre esses guerreiros de
-      elite aprendem a extrair o m&aacute;ximo de cada uma dessas armas.</p>
+      <p>O estilo de luta dos Presas de Coral usa lan&ccedil;as e espadas. Os
+      mais habilidosos entre esses guerreiros de elite aprendem a extrair o
+      m&aacute;ximo de cada uma dessas armas.</p>
 
       </blockquote>
 
-      <p class="MsoNormal" style="text-align: justify;">Quando est&aacute;
-      empunhando uma azagaia, cimitarra, espada curta, espada longa ou
-      lan&ccedil;a voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e
-      1 PM para conceder &agrave; arma a habilidade adapt&aacute;vel, alongada
-      ou &aacute;gil at&eacute; o final da cena. Al&eacute;m disso, o custo de
-      todos os seus poderes de Presa de Coral &eacute; reduzido em &ndash;1
-      PM.</p>
+      <p class="MsoNormal">Quando est&aacute; empunhando uma azagaia, cimitarra,
+      espada curta, espada longa ou lan&ccedil;a voc&ecirc; pode gastar uma
+      a&ccedil;&atilde;o de movimento e 1 PM para conceder &agrave; arma a
+      habilidade adapt&aacute;vel, alongada ou &aacute;gil at&eacute; o final da
+      cena. Al&eacute;m disso, o custo de todos os seus poderes de Presa de
+      Coral &eacute; reduzido em &ndash;1 PM.</p>
 
-      <p class="MsoNormal" style="text-align:
-      justify;"><em>Pr&eacute;-requisitos</em>: Foco em Arma (azagaia,
-      cimitarra, espada curta, espada longa ou lan&ccedil;a), Presa
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos</em>: Foco em Arma
+      (azagaia, cimitarra, espada curta, espada longa ou lan&ccedil;a), Presa
       &Uacute;nica: Azagaia de &Aacute;gua, Presa Dupla: Corte da
       Correnteza.</p>
     chat: ''

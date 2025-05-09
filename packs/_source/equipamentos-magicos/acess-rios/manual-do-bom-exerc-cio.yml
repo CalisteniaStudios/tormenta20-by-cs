@@ -49,13 +49,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este tomo volumoso cont&eacute;m
-      exerc&iacute;cios de muscula&ccedil;&atilde;o, mas escondido entre as
-      palavras h&aacute; um poderoso efeito m&aacute;gico. Ler o livro leva uma
-      semana e aumenta seu valor de For&ccedil;a em +1 permanentemente
-      (n&atilde;o cumulativo com outras leituras do livro). Assim que o livro
-      &eacute; lido, a magia desaparece de suas p&aacute;ginas e ele se torna um
-      item mundano.</p>
+      <p>Este tomo volumoso cont&eacute;m exerc&iacute;cios de
+      muscula&ccedil;&atilde;o, mas escondido entre as palavras h&aacute; um
+      poderoso efeito m&aacute;gico. Ler o livro leva uma semana e aumenta seu
+      valor de For&ccedil;a em +1 permanentemente (n&atilde;o cumulativo com
+      outras leituras do livro). Assim que o livro &eacute; lido, a magia
+      desaparece de suas p&aacute;ginas e ele se torna um item mundano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

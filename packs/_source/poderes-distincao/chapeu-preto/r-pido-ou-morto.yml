@@ -6,18 +6,17 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Quanto mais not&oacute;rio o bandido, mais
-      ele precisa estar preparado para lutar ou correr.</p>
+      <p>Quanto mais not&oacute;rio o bandido, mais ele precisa estar preparado
+      para lutar ou correr.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;"><br>Voc&ecirc; recebe +2 em Iniciativa e
-      +1,5m em seu deslocamento. Esses b&ocirc;nus aumentam respectivamente em
-      +1 e +1,5m para cada dois outros poderes de chap&eacute;u preto que
-      voc&ecirc; possuir.</p>
+      <p><br>Voc&ecirc; recebe +2 em Iniciativa e +1,5m em seu deslocamento.
+      Esses b&ocirc;nus aumentam respectivamente em +1 e +1,5m para cada dois
+      outros poderes de chap&eacute;u preto que voc&ecirc; possuir.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: treinado em
-      Iniciativa, Cora&ccedil;&atilde;o Duro.</p>
+      <p>Pr&eacute;-requisitos: treinado em Iniciativa, Cora&ccedil;&atilde;o
+      Duro.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 21

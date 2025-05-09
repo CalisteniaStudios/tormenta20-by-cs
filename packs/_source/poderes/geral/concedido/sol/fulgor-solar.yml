@@ -50,10 +50,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe redu&ccedil;&atilde;o de
-      frio e trevas 5. Al&eacute;m disso, quando &eacute; alvo de um ataque
-      voc&ecirc; pode gastar 1 PM para emitir um clar&atilde;o solar que deixa o
-      atacante ofuscado por uma rodada.</p>
+      <p>Voc&ecirc; recebe redu&ccedil;&atilde;o de frio e trevas 5. Al&eacute;m
+      disso, quando &eacute; alvo de um ataque voc&ecirc; pode gastar 1 PM para
+      emitir um clar&atilde;o solar que deixa o atacante ofuscado por uma
+      rodada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

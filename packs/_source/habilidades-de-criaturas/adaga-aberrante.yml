@@ -4,13 +4,12 @@ img: systems/tormenta20/icons/poderes/ameacas/adaga-aberrante.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta &eacute; uma arma m&aacute;gica
-      espec&iacute;fica que conta como uma adaga formid&aacute;vel tumular. Sua
-      l&acirc;mina &eacute; longa e ondulada e seu cabo lembra uma
-      carapa&ccedil;a. A adaga secreta muco adesivo pelo cabo, que mant&eacute;m
-      a arma firme na m&atilde;o, fornecendo +5 em testes contra desarmar.
-      Soltar uma adaga da Tormenta gasta uma a&ccedil;&atilde;o de
-      movimento.</p>
+      <p>Esta &eacute; uma arma m&aacute;gica espec&iacute;fica que conta como
+      uma adaga formid&aacute;vel tumular. Sua l&acirc;mina &eacute; longa e
+      ondulada e seu cabo lembra uma carapa&ccedil;a. A adaga secreta muco
+      adesivo pelo cabo, que mant&eacute;m a arma firme na m&atilde;o,
+      fornecendo +5 em testes contra desarmar. Soltar uma adaga da Tormenta
+      gasta uma a&ccedil;&atilde;o de movimento.</p>
     unidentified: ''
   source: ''
   equipado: 0

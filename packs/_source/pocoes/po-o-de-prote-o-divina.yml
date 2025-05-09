@@ -57,9 +57,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia cria uma barreira
-      m&iacute;stica invis&iacute;vel que fornece ao alvo +2 em testes de
-      resist&ecirc;ncia.</p>
+      <p>Esta magia cria uma barreira m&iacute;stica invis&iacute;vel que
+      fornece ao alvo +2 em testes de resist&ecirc;ncia.</p>
     unidentified: ''
   source: T20, pg. 202 (JdA)
   carregado: true

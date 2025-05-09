@@ -133,12 +133,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia pode encontrar uma criatura ou
-      objeto a sua escolha. Voc&ecirc; pode pensar em termos gerais (&ldquo;um
-      elfo&rdquo;, &ldquo;algo de metal&rdquo;) ou espec&iacute;ficos
-      (&ldquo;Gwen, a elfa&rdquo;, &ldquo;uma espada longa&rdquo;). A magia
-      indica a dire&ccedil;&atilde;o e dist&acirc;ncia da criatura ou objeto
-      mais pr&oacute;ximo desse tipo, caso esteja ao alcance. Voc&ecirc; pode
+      <p>Esta magia pode encontrar uma criatura ou objeto a sua escolha.
+      Voc&ecirc; pode pensar em termos gerais (&ldquo;um elfo&rdquo;,
+      &ldquo;algo de metal&rdquo;) ou espec&iacute;ficos (&ldquo;Gwen, a
+      elfa&rdquo;, &ldquo;uma espada longa&rdquo;). A magia indica a
+      dire&ccedil;&atilde;o e dist&acirc;ncia da criatura ou objeto mais
+      pr&oacute;ximo desse tipo, caso esteja ao alcance. Voc&ecirc; pode
       movimentar-se para continuar procurando. Procurar algo muito
       espec&iacute;fico (&ldquo;a espada longa encantada do Bar&atilde;o
       Rulyn&rdquo;) exige que voc&ecirc; tenha em mente uma imagem precisa do

@@ -49,12 +49,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver usando armadura pesada,
-      voc&ecirc; recebe redu&ccedil;&atilde;o de dano 5 (cumulativa com a RD
-      fornecida por Basti&atilde;o).</p>
+      <p>Se estiver usando armadura pesada, voc&ecirc; recebe
+      redu&ccedil;&atilde;o de dano 5 (cumulativa com a RD fornecida por
+      Basti&atilde;o).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 12&ordm;
-      n&iacute;vel de cavaleiro.</p>
+      <p><em>Pr&eacute;-requisito:</em> 12&ordm; n&iacute;vel de cavaleiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

@@ -54,11 +54,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode lan&ccedil;ar uma magia de
-      1&ordm; c&iacute;rculo a sua escolha (atributo-chave Carisma). Caso
-      aprenda novamente essa magia, seu custo diminui em &ndash;1 PM.</p>
-
-      <p>&nbsp;</p>
+      <p>Voc&ecirc; pode lan&ccedil;ar uma magia de 1&ordm; c&iacute;rculo a sua
+      escolha (atributo-chave Carisma). Caso aprenda novamente essa magia, seu
+      custo diminui em &ndash;1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 26 (JdA)

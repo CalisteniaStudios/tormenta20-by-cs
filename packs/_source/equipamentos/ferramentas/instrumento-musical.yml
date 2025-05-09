@@ -4,26 +4,22 @@ img: systems/tormenta20/icons/itens/gerais/instrumento-musical.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um instrumento t&iacute;pico, como um
-      bandolim, flauta ou lira.</p>
+      <p>Um instrumento t&iacute;pico, como um bandolim, flauta ou lira.</p>
 
-      <p style="text-align: justify;">Instrumentos musicais. Tais itens
-      s&atilde;o de grande import&acirc;ncia para bardos e possuem as regras a
-      seguir.</p>
+      <p>Instrumentos musicais. Tais itens s&atilde;o de grande
+      import&acirc;ncia para bardos e possuem as regras a seguir.</p>
 
-      <p style="text-align: justify;">&bull; Voc&ecirc; precisa empunhar um
-      instrumento musical com as duas m&atilde;os para receber seus
-      benef&iacute;cios e para usar M&uacute;sicas de Bardo (veja a
-      p&aacute;gina 45).</p>
+      <p>&bull; Voc&ecirc; precisa empunhar um instrumento musical com as duas
+      m&atilde;os para receber seus benef&iacute;cios e para usar M&uacute;sicas
+      de Bardo (veja a p&aacute;gina 45).</p>
 
-      <p style="text-align: justify;">&bull; Instrumentos musicais podem ser
-      usados como esot&eacute;ricos por bardos (permitindo que lance magias
-      usando a m&atilde;o que empunha o instrumento).</p>
+      <p>&bull; Instrumentos musicais podem ser usados como esot&eacute;ricos
+      por bardos (permitindo que lance magias usando a m&atilde;o que empunha o
+      instrumento).</p>
 
-      <p style="text-align: justify;">&bull; Instrumentos musicais podem receber
-      melhorias de ferramentas (contam como itens ligados a
-      Atua&ccedil;&atilde;o) e de esot&eacute;ricos (mas afetam apenas magias
-      lan&ccedil;adas por bardos).</p>
+      <p>&bull; Instrumentos musicais podem receber melhorias de ferramentas
+      (contam como itens ligados a Atua&ccedil;&atilde;o) e de esot&eacute;ricos
+      (mas afetam apenas magias lan&ccedil;adas por bardos).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 158 (JdA)

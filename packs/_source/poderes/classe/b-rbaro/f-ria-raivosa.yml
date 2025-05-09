@@ -9,15 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se sua F&uacute;ria for terminar por
-      voc&ecirc; n&atilde;o ter atacado nem sido alvo de um efeito hostil,
-      voc&ecirc; pode pagar 1 PM para continuar em f&uacute;ria nesta rodada. Se
-      voc&ecirc; atacar ou for atacado na rodada seguinte, sua f&uacute;ria
-      continua normalmente.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Se sua F&uacute;ria for terminar por voc&ecirc; n&atilde;o ter atacado
+      nem sido alvo de um efeito hostil, voc&ecirc; pode pagar 1 PM para
+      continuar em f&uacute;ria nesta rodada. Se voc&ecirc; atacar ou for
+      atacado na rodada seguinte, sua f&uacute;ria continua normalmente.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

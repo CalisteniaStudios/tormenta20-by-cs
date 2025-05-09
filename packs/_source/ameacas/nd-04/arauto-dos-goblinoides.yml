@@ -321,11 +321,10 @@ items:
         value: >-
           <section class="secret">Amedrontar (Padrão, 3 PM) Um animal ou
           humanoide em alcance curto fica apavorado por 1d4+1 rodadas e depois
-          abalado (Vontade reduz para abalado apenas)</section><p
-          style="text-align: justify;">O alvo &eacute; envolvido por energias
-          sombrias e assustadoras. Se falhar na resist&ecirc;ncia, fica
-          apavorado por 1 rodada, depois abalado. Se passar, fica abalado por
-          1d4 rodadas.</p>
+          abalado (Vontade reduz para abalado apenas)</section><p>O alvo
+          &eacute; envolvido por energias sombrias e assustadoras. Se falhar na
+          resist&ecirc;ncia, fica apavorado por 1 rodada, depois abalado. Se
+          passar, fica abalado por 1d4 rodadas.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 179 (JdA)
@@ -612,9 +611,9 @@ items:
       description:
         value: >-
           <section class="secret">Curar Ferimentos (Padrão, 4 PM) O arauto cura
-          5d8+5 PV de uma criatura adjacente</section><p style="text-align:
-          justify;">Voc&ecirc; canaliza energia positiva que recupera 2d8+2
-          pontos de vida na criatura tocada.</p>
+          5d8+5 PV de uma criatura adjacente</section><p>Voc&ecirc; canaliza
+          energia positiva que recupera 2d8+2 pontos de vida na criatura
+          tocada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 189 (JdA)
@@ -797,9 +796,9 @@ items:
         value: >-
           <section class="secret">Perdição (Padrão, 1 PM) Criaturas escolhidas
           em alcance curto sofrem -1 em testes de ataque e rolagens de dano até
-          o fim da cena.</section><p style="text-align:
-          justify;">Amaldi&ccedil;oa os alvos, que recebem &ndash;1 em testes de
-          ataque e rolagens de dano. <em>Perdi&ccedil;&atilde;o</em> anula
+          o fim da cena.</section><p>Amaldi&ccedil;oa os alvos, que recebem
+          &ndash;1 em testes de ataque e rolagens de dano.
+          <em>Perdi&ccedil;&atilde;o</em> anula
           <em>B&ecirc;n&ccedil;&atilde;o</em>.</p>
         chat: ''
         unidentified: ''
@@ -869,9 +868,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Machado de guerra</section><p
-          style="text-align:justify;">Este imenso machado com lâmina dupla é uma
-          das armas mais perigosas que existem.</p>
+          <section class="secret">Machado de guerra</section><p>Este imenso
+          machado com lâmina dupla é uma das armas mais perigosas que
+          existem.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)

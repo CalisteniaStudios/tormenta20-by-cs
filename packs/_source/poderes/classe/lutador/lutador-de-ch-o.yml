@@ -105,10 +105,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em testes de ataque
-      para agarrar e derrubar. Quando agarra uma criatura, pode gastar 1 PM para
-      fazer uma manobra derrubar contra ela como uma a&ccedil;&atilde;o
-      livre.</p>
+      <p>Voc&ecirc; recebe +2 em testes de ataque para agarrar e derrubar.
+      Quando agarra uma criatura, pode gastar 1 PM para fazer uma manobra
+      derrubar contra ela como uma a&ccedil;&atilde;o livre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

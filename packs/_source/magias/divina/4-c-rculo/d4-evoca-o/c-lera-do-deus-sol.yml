@@ -221,8 +221,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria uma explos&atilde;o de luz
-      dourada e intensa. Criaturas na &aacute;rea ficam
+      <p>Voc&ecirc; cria uma explos&atilde;o de luz dourada e intensa. Criaturas
+      na &aacute;rea ficam
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.qN5JjvnXDq4Xak1K]{Cego}
       por 1d4 rodadas e
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.2M8CXrGavdU6g1ZI]{Em

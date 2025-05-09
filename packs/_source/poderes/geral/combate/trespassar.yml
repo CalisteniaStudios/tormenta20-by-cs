@@ -9,13 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; faz um ataque corpo a
-      corpo e reduz os pontos de vida do alvo para 0 ou menos, pode gastar 1 PM
-      para fazer um ataque adicional contra outra criatura dentro do seu
-      alcance.</p>
+      <p>Quando voc&ecirc; faz um ataque corpo a corpo e reduz os pontos de vida
+      do alvo para 0 ou menos, pode gastar 1 PM para fazer um ataque adicional
+      contra outra criatura dentro do seu alcance.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Ataque
-      Poderoso.</p>
+      <p><em>Pr&eacute;-requisito:</em> Ataque Poderoso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 129 (JdA)

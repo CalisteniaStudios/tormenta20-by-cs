@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode usar armas de corpo a
-      corpo para causar dano n&atilde;o letal sem sofrer a penalidade de
-      &ndash;5 no teste de ataque.</p>
+      <p>Voc&ecirc; pode usar armas de corpo a corpo para causar dano n&atilde;o
+      letal sem sofrer a penalidade de &ndash;5 no teste de ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

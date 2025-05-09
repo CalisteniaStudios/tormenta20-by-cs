@@ -111,9 +111,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;" data-pm-slice="0 0 []">Enquanto voc&ecirc;
-      estiver sob efeito de sua Inspira&ccedil;&atilde;o, a CD para resistir a
-      suas habilidades de bardo aumenta em +2.</p>
+      <p data-pm-slice="0 0 []">Enquanto voc&ecirc; estiver sob efeito de sua
+      Inspira&ccedil;&atilde;o, a CD para resistir a suas habilidades de bardo
+      aumenta em +2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

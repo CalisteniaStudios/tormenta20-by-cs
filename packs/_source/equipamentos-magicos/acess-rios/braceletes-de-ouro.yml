@@ -9,7 +9,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Como
+      <p>Como
       @UUID[Compendium.tormenta20.equipamentos-magicos.VBjVXrxkC1a7P2t3]{Braceletes
       de Bronze}, mas fornece +8 na Defesa.</p>
     chat: ''

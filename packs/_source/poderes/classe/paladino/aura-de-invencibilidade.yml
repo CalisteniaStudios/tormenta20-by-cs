@@ -55,12 +55,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto sua aura estiver ativa,
-      voc&ecirc; ignora o primeiro dano que sofrer na cena. O mesmo se aplica a
-      seus aliados dentro da aura.</p>
+      <p>Enquanto sua aura estiver ativa, voc&ecirc; ignora o primeiro dano que
+      sofrer na cena. O mesmo se aplica a seus aliados dentro da aura.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 18&deg;
-      n&iacute;vel de paladino.</p>
+      <p><em>Pr&eacute;-requisito:</em> 18&deg; n&iacute;vel de paladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 83 (JdA)

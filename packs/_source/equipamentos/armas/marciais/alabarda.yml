@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma haste de madeira com 2m de comprimento
-      e uma lâmina de machado na ponta. A alabarda é uma arma alongada.</p>
+      <p>Uma haste de madeira com 2m de comprimento e uma lâmina de machado na
+      ponta. A alabarda é uma arma alongada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 146 (JdA)

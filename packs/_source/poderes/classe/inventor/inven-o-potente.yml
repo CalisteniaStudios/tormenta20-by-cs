@@ -60,11 +60,9 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa um item ou engenhoca fabricado
-      por voc&ecirc; mesmo, voc&ecirc; pode pagar 1 PM para aumentar em +2 a CD
-      para resistir a ele.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Quando usa um item ou engenhoca fabricado por voc&ecirc; mesmo,
+      voc&ecirc; pode pagar 1 PM para aumentar em +2 a CD para resistir a
+      ele.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

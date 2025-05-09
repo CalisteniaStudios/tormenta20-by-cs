@@ -9,8 +9,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para
-      substituir testes de
+      <p>Voc&ecirc; pode gastar 1 PM para substituir testes de
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.IZDwoKmx3sd0MGDv]{Percep&ccedil;&atilde;o}
       e
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.gOxPHHZ9lKpaVA2i]{Intui&ccedil;&atilde;o}

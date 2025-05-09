@@ -4,13 +4,12 @@ img: systems/tormenta20/icons/poderes/ameacas/goblins-consertadores.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Goblins especialmente pequenos rastejam
-      por dentro dos dutos do colosso fazendo reparos, sendo a fonte da cura
-      acelerada do construto. Por estarem dentro do colosso, os goblins
-      s&atilde;o imunes a dano, mas ainda podem ser afetados por efeitos
-      mentais. Eles possuem Vontade +3 (mas recebem a resist&ecirc;ncia a magia
-      do colosso) e, se forem afetados por qualquer condi&ccedil;&atilde;o, a
-      cura acelerada deixa de funcionar.</p>
+      <p>Goblins especialmente pequenos rastejam por dentro dos dutos do colosso
+      fazendo reparos, sendo a fonte da cura acelerada do construto. Por estarem
+      dentro do colosso, os goblins s&atilde;o imunes a dano, mas ainda podem
+      ser afetados por efeitos mentais. Eles possuem Vontade +3 (mas recebem a
+      resist&ecirc;ncia a magia do colosso) e, se forem afetados por qualquer
+      condi&ccedil;&atilde;o, a cura acelerada deixa de funcionar.</p>
     unidentified: ''
   source: ''
   ativacao:

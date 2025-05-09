@@ -50,9 +50,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Se estiver usando armadura pesada, você
-      recebe resistência a dano 5 (cumulativa com a RD fornecida por
-      Especialização em Armadura).</p>
+      <p>Se estiver usando armadura pesada, você recebe resistência a dano 5
+      (cumulativa com a RD fornecida por Especialização em Armadura).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 55 (JdA)

@@ -63,14 +63,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Enquanto est&aacute; em f&uacute;ria,
-      quando faz um acerto cr&iacute;tico ou reduz um inimigo a 0 PV, voc&ecirc;
-      recebe um b&ocirc;nus cumulativo de +1 em testes de ataque e rolagens de
-      dano, limitado pelo seu n&iacute;vel, at&eacute; o fim da cena.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Enquanto est&aacute; em f&uacute;ria, quando faz um acerto
+      cr&iacute;tico ou reduz um inimigo a 0 PV, voc&ecirc; recebe um
+      b&ocirc;nus cumulativo de +1 em testes de ataque e rolagens de dano,
+      limitado pelo seu n&iacute;vel, at&eacute; o fim da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

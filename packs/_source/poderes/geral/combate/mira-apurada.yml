@@ -63,12 +63,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa a a&ccedil;&atilde;o mirar,
-      voc&ecirc; recebe +2 em testes de ataque e na margem de amea&ccedil;a com
-      ataques &agrave; dist&acirc;ncia at&eacute; o fim do turno.</p>
+      <p>Quando usa a a&ccedil;&atilde;o mirar, voc&ecirc; recebe +2 em testes
+      de ataque e na margem de amea&ccedil;a com ataques &agrave;
+      dist&acirc;ncia at&eacute; o fim do turno.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Sab 1,
-      Disparo Preciso.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Sab 1, Disparo Preciso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 128 (JdA)

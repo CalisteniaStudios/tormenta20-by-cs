@@ -55,10 +55,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando lan&ccedil;a uma magia divina que
-      causa dano, voc&ecirc; pode gastar +1 PM. Se fizer isso, muda o tipo de
-      dano da magia para luz (se sua divindade canalliza energia positiva) ou
-      trevas (se canaliza energia negativa).&nbsp;</p>
+      <p>Quando lan&ccedil;a uma magia divina que causa dano, voc&ecirc; pode
+      gastar +1 PM. Se fizer isso, muda o tipo de dano da magia para luz (se sua
+      divindade canalliza energia positiva) ou trevas (se canaliza energia
+      negativa).&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

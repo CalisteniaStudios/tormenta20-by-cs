@@ -327,15 +327,14 @@ items:
           <section class="secret">Imagem Espelhada (Padrão, 5 PM) Cinco cópias
           ilusórias da nagah surgem ao seu redor, concedendo a ela +10 na
           Defesa. Cada vez que um ataque erra a nagah, uma das cópias desaparece
-          e o bônus na Defesa diminui em 2</section><p
-          style="text-align:justify;">Três cópias ilusórias suas aparecem. As
-          duplicatas ficam ao seu redor e imitam suas ações, tornando difícil
-          para um inimigo saber quem atacar. Você recebe +6 na Defesa. Cada vez
-          que um ataque contra você erra, uma das imagens desaparece e o bônus
-          na Defesa diminui em 2. Um oponente deve ver as cópias para ser
-          confundido. Se você estiver invisível, ou o atacante fechar os olhos,
-          você não recebe o bônus (mas o atacante ainda sofre penalidades
-          normais por não enxergar).</p>
+          e o bônus na Defesa diminui em 2</section><p>Três cópias ilusórias
+          suas aparecem. As duplicatas ficam ao seu redor e imitam suas ações,
+          tornando difícil para um inimigo saber quem atacar. Você recebe +6 na
+          Defesa. Cada vez que um ataque contra você erra, uma das imagens
+          desaparece e o bônus na Defesa diminui em 2. Um oponente deve ver as
+          cópias para ser confundido. Se você estiver invisível, ou o atacante
+          fechar os olhos, você não recebe o bônus (mas o atacante ainda sofre
+          penalidades normais por não enxergar).</p>
         unidentified: ''
       source: T20, pg. 195 (JdA)
       ativacao:
@@ -504,10 +503,9 @@ items:
         value: >-
           <section class="secret">Relâmpago (Padrão, 5 PM) A nagah causa 8d6
           pontos de dano de eletricidade em todas as criaturas em uma linha com
-          alcance médio (Reflexos reduz à metade)</section><p
-          style="text-align:justify;">Você dispara um poderoso raio que causa
-          6d6 pontos de dano de eletricidade em todas as criaturas e objetos
-          livres na área.</p>
+          alcance médio (Reflexos reduz à metade)</section><p>Você dispara um
+          poderoso raio que causa 6d6 pontos de dano de eletricidade em todas as
+          criaturas e objetos livres na área.</p>
         unidentified: ''
       source: T20, pg. 203 (JdA)
       ativacao:
@@ -776,10 +774,10 @@ items:
         value: >-
           <section class="secret">Velocidade (Padrão, 3 PM, sustentada) A nagah
           pode executar uma ação padrão adicional por turno, que não pode ser
-          usada para lançar magias</section><p style="text-align: justify;">O
-          alvo pode realizar uma a&ccedil;&atilde;o padr&atilde;o ou de
-          movimento adicional por turno. Esta a&ccedil;&atilde;o n&atilde;o pode
-          ser usada para lan&ccedil;ar magias e ativar engenhocas.</p>
+          usada para lançar magias</section><p>O alvo pode realizar uma
+          a&ccedil;&atilde;o padr&atilde;o ou de movimento adicional por turno.
+          Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
+          magias e ativar engenhocas.</p>
         unidentified: ''
       source: T20, pg. 210 (JdA)
       ativacao:
@@ -913,13 +911,12 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Adaga</section><p style="text-align:
-          justify;">Esta faca afiada &eacute; usada por muitos habitantes
-          adultos do Reinado, embora seja favorita de ladr&otilde;es e
-          assassinos, por ser facilmente escondida (fornece +5 em testes de
-          Ladinagem para ocult&aacute;-la). Quando ataca com uma adaga,
-          voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos testes de
-          ataque. Uma adaga pode ser arremessada.</p>
+          <section class="secret">Adaga</section><p>Esta faca afiada &eacute;
+          usada por muitos habitantes adultos do Reinado, embora seja favorita
+          de ladr&otilde;es e assassinos, por ser facilmente escondida (fornece
+          +5 em testes de Ladinagem para ocult&aacute;-la). Quando ataca com uma
+          adaga, voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos
+          testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)

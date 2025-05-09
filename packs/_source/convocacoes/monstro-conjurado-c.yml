@@ -696,9 +696,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O monstro causa o dobro de seu dano de
-          ataque em um cone de 6m a partir de si (Reflexos reduz &agrave;
-          metade).</p>
+          <p>O monstro causa o dobro de seu dano de ataque em um cone de 6m a
+          partir de si (Reflexos reduz &agrave; metade).</p>
         unidentified: ''
       source: ''
       ativacao:

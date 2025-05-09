@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/seixo-de-ambar.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Essa &ldquo;gema&rdquo; feita de seiva de
-      &aacute;rvore fossilizada diminui o custo de magias de
-      transmuta&ccedil;&atilde;o em &ndash;1 PM.</p>
+      <p>Essa &ldquo;gema&rdquo; feita de seiva de &aacute;rvore fossilizada
+      diminui o custo de magias de transmuta&ccedil;&atilde;o em &ndash;1
+      PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

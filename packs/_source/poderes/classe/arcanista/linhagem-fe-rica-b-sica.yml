@@ -9,7 +9,7 @@ _id: oMsR6mOGj5yQjQU3
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi tocado pelas fadas.</p>
+      <p>Seu sangue foi tocado pelas fadas.</p>
 
       <ul>
 
@@ -18,8 +18,6 @@ system:
       ilus&atilde;o, arcana ou divina, a sua escolha.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

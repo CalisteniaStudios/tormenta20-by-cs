@@ -260,13 +260,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este <em>machado de guerra de gelo eterno
-      congelante formid&aacute;vel</em> fornece resist&ecirc;ncia a fogo 10.
-      Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 6 PM para
-      brandi-lo acima de sua cabe&ccedil;a e invocar uma tempestade de gelo que
-      afeta alcance curto ao seu redor. Criaturas na &aacute;rea recebem
-      camuflagem e sofrem <a class="inline-roll roll" data-mode="roll"
-      data-flavor="" data-formula="3d6">3d6</a> pontos de dano de impacto e <a
+      <p>Este <em>machado de guerra de gelo eterno congelante
+      formid&aacute;vel</em> fornece resist&ecirc;ncia a fogo 10. Voc&ecirc;
+      pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 6 PM para brandi-lo
+      acima de sua cabe&ccedil;a e invocar uma tempestade de gelo que afeta
+      alcance curto ao seu redor. Criaturas na &aacute;rea recebem camuflagem e
+      sofrem <a class="inline-roll roll" data-mode="roll" data-flavor=""
+      data-formula="3d6">3d6</a> pontos de dano de impacto e <a
       class="inline-roll roll" data-mode="roll" data-flavor=""
       data-formula="3d6">3d6</a> pontos de frio por rodada. Voc&ecirc;
       n&atilde;o sofre os efeitos nocivos da tempestade (o dano e a chance de

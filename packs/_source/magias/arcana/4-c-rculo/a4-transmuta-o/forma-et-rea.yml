@@ -94,26 +94,25 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; e todo o equipamento que
-      est&aacute; com voc&ecirc; s&atilde;o transportados para o plano
-      et&eacute;reo, que existe paralelamente ao plano material (o mundo
-      f&iacute;sico). Na pr&aacute;tica, &eacute; como ser transformado em um
-      fantasma (mas voc&ecirc; ainda &eacute; considerado uma criatura viva).
-      Uma criatura et&eacute;rea &eacute; invis&iacute;vel (pode alterar entre
-      vis&iacute;vel e invis&iacute;vel como a&ccedil;&atilde;o livre),
-      incorp&oacute;rea e capaz de se mover em qualquer dire&ccedil;&atilde;o,
-      inclusive para cima e para baixo. Ela enxerga o plano material, mas tudo
-      parece cinza e insubstancial, reduzindo o alcance da vis&atilde;o e
-      audi&ccedil;&atilde;o para 18m. Magias de abjura&ccedil;&atilde;o e
-      ess&ecirc;ncia afetam criaturas et&eacute;reas, mas outras magias,
-      n&atilde;o. Da mesma forma, uma criatura et&eacute;rea n&atilde;o pode
-      atacar nem lan&ccedil;ar magias contra criaturas no plano material. Duas
-      criaturas et&eacute;reas podem se afetar normalmente. Uma criatura afetada
-      pode se materializar como uma a&ccedil;&atilde;o de movimento, encerrando
-      a magia. Uma criatura et&eacute;rea que se materialize em um espa&ccedil;o
-      ocupado &eacute; jogada para o espa&ccedil;o n&atilde;o ocupado mais
-      pr&oacute;ximo e sofre 1d6 pontos de dano de impacto para cada 1,5m de
-      deslocamento.</p>
+      <p>Voc&ecirc; e todo o equipamento que est&aacute; com voc&ecirc;
+      s&atilde;o transportados para o plano et&eacute;reo, que existe
+      paralelamente ao plano material (o mundo f&iacute;sico). Na
+      pr&aacute;tica, &eacute; como ser transformado em um fantasma (mas
+      voc&ecirc; ainda &eacute; considerado uma criatura viva). Uma criatura
+      et&eacute;rea &eacute; invis&iacute;vel (pode alterar entre vis&iacute;vel
+      e invis&iacute;vel como a&ccedil;&atilde;o livre), incorp&oacute;rea e
+      capaz de se mover em qualquer dire&ccedil;&atilde;o, inclusive para cima e
+      para baixo. Ela enxerga o plano material, mas tudo parece cinza e
+      insubstancial, reduzindo o alcance da vis&atilde;o e audi&ccedil;&atilde;o
+      para 18m. Magias de abjura&ccedil;&atilde;o e ess&ecirc;ncia afetam
+      criaturas et&eacute;reas, mas outras magias, n&atilde;o. Da mesma forma,
+      uma criatura et&eacute;rea n&atilde;o pode atacar nem lan&ccedil;ar magias
+      contra criaturas no plano material. Duas criaturas et&eacute;reas podem se
+      afetar normalmente. Uma criatura afetada pode se materializar como uma
+      a&ccedil;&atilde;o de movimento, encerrando a magia. Uma criatura
+      et&eacute;rea que se materialize em um espa&ccedil;o ocupado &eacute;
+      jogada para o espa&ccedil;o n&atilde;o ocupado mais pr&oacute;ximo e sofre
+      1d6 pontos de dano de impacto para cada 1,5m de deslocamento.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 193 (JdA)

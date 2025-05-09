@@ -59,9 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Para você, o tridente é uma arma simples.
-      Além disso, você recebe +2 em rolagens de dano com azagaias, lanças e
-      tridentes.</p>
+      <p>Para você, o tridente é uma arma simples. Além disso, você recebe +2 em
+      rolagens de dano com azagaias, lanças e tridentes.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 30 (JdA)

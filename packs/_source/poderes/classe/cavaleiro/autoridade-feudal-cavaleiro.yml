@@ -9,15 +9,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma hora e 2 PM
-      para conclamar o povo a ajud&aacute;-lo (qualquer pessoa sem um
-      t&iacute;tulo de nobreza ou uma posi&ccedil;&atilde;o numa igreja
-      reconhecida pelo seu reino). Em termos de jogo, essas pessoas contam como
-      um parceiro iniciante de um tipo a sua escolha (aprovado pelo mestre) que
-      lhe acompanha at&eacute; o fim da aventura. Esta habilidade s&oacute; pode
-      ser usada em locais onde sua posi&ccedil;&atilde;o carregue alguma
-      influ&ecirc;ncia (a crit&eacute;rio do mestre). Pr&eacute;-requisito:
-      6&ordm; n&iacute;vel de Cavaleiro.</p>
+      <p>Voc&ecirc; pode gastar uma hora e 2 PM para conclamar o povo a
+      ajud&aacute;-lo (qualquer pessoa sem um t&iacute;tulo de nobreza ou uma
+      posi&ccedil;&atilde;o numa igreja reconhecida pelo seu reino). Em termos
+      de jogo, essas pessoas contam como um parceiro iniciante de um tipo a sua
+      escolha (aprovado pelo mestre) que lhe acompanha at&eacute; o fim da
+      aventura. Esta habilidade s&oacute; pode ser usada em locais onde sua
+      posi&ccedil;&atilde;o carregue alguma influ&ecirc;ncia (a crit&eacute;rio
+      do mestre). Pr&eacute;-requisito: 6&ordm; n&iacute;vel de Cavaleiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

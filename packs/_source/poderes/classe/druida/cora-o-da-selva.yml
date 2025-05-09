@@ -61,8 +61,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">CD para resistir a seus efeitos de veneno
-      aumenta em +2 e estes efeitos causam +1 de perda de vida por dado.</p>
+      <p>CD para resistir a seus efeitos de veneno aumenta em +2 e estes efeitos
+      causam +1 de perda de vida por dado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

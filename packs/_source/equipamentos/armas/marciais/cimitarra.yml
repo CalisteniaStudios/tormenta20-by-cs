@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Espada com a lâmina curva e muito afiada. A
-      cimitarra é uma arma ágil</p>
+      <p>Espada com a lâmina curva e muito afiada. A cimitarra é uma arma
+      ágil</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 147 (JdA)

@@ -321,10 +321,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo &eacute; envolvido por um campo de
-      for&ccedil;a cor de esmeralda que impede qualquer movimento planar. Isso
-      inclui magias de convoca&ccedil;&atilde;o (como Salto Dimensional e
-      Teletransporte), viagens astrais e a habilidade incorp&oacute;reo.</p>
+      <p>O alvo &eacute; envolvido por um campo de for&ccedil;a cor de esmeralda
+      que impede qualquer movimento planar. Isso inclui magias de
+      convoca&ccedil;&atilde;o (como Salto Dimensional e Teletransporte),
+      viagens astrais e a habilidade incorp&oacute;reo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 179 (JdA)

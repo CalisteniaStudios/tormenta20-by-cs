@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Versão maior e/ou com pregos de uma clava.
-      Não é uma arma elegante, mas faz o serviço.</p>
+      <p>Versão maior e/ou com pregos de uma clava. Não é uma arma elegante, mas
+      faz o serviço.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 150 (JdA)

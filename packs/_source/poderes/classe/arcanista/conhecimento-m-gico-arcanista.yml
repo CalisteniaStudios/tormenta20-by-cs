@@ -9,13 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; aprende duas magias de qualquer
-      c&iacute;rculo que possa lan&ccedil;ar. Voc&ecirc; pode escolher este
-      poder quantas vezes quiser.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p>&nbsp;</p>
+      <p>Voc&ecirc; aprende duas magias de qualquer c&iacute;rculo que possa
+      lan&ccedil;ar. Voc&ecirc; pode escolher este poder quantas vezes
+      quiser.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

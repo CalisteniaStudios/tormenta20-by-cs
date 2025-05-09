@@ -47,20 +47,18 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;"><strong>Custo Adicional:</strong>
-      penalidade de 1 PM</p>
+      <p><strong>Custo Adicional:</strong> penalidade de 1 PM</p>
 
-      <p style="text-align: justify;">Essa magia &eacute; muito utilizada por
-      cl&eacute;rigos e bardos que n&atilde;o precisam (ou n&atilde;o podem)
-      estar sempre com suas armas ou armaduras. A magia &eacute; lan&ccedil;ada
-      sobre at&eacute; dois itens que voc&ecirc; possua. A partir da&iacute;, em
-      qualquer momento, voc&ecirc; pode usar uma a&ccedil;&atilde;o completa
-      para convocar os itens, que aparecem sobre seu corpo e em suas
-      m&atilde;os. O efeito &eacute; espalhafatoso, sendo praticamente
-      imposs&iacute;vel utiliz&aacute;-lo sem chamar aten&ccedil;&atilde;o. A
-      magia funciona independentemente da dist&acirc;ncia dos itens, contanto
-      que estejam no mesmo plano, mas termina se voc&ecirc; perder a posse
-      deles.</p>
+      <p>Essa magia &eacute; muito utilizada por cl&eacute;rigos e bardos que
+      n&atilde;o precisam (ou n&atilde;o podem) estar sempre com suas armas ou
+      armaduras. A magia &eacute; lan&ccedil;ada sobre at&eacute; dois itens que
+      voc&ecirc; possua. A partir da&iacute;, em qualquer momento, voc&ecirc;
+      pode usar uma a&ccedil;&atilde;o completa para convocar os itens, que
+      aparecem sobre seu corpo e em suas m&atilde;os. O efeito &eacute;
+      espalhafatoso, sendo praticamente imposs&iacute;vel utiliz&aacute;-lo sem
+      chamar aten&ccedil;&atilde;o. A magia funciona independentemente da
+      dist&acirc;ncia dos itens, contanto que estejam no mesmo plano, mas
+      termina se voc&ecirc; perder a posse deles.</p>
     chat: ''
     unidentified: ''
   source: Guia NPC, pg. 16 (1.2)

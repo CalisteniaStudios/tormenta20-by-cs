@@ -9,13 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seus instintos ficam t&atilde;o apurados
-      que voc&ecirc; consegue reagir ao perigo antes que seus sentidos percebam.
-      Voc&ecirc; nunca fica surpreendido.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Seus instintos ficam t&atilde;o apurados que voc&ecirc; consegue reagir
+      ao perigo antes que seus sentidos percebam. Voc&ecirc; nunca fica
+      surpreendido.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

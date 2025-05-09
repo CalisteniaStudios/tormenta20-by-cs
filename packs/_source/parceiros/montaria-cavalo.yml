@@ -148,63 +148,58 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O cavalo &eacute; a montaria mais comum do
-      Reinado.</p>
+      <p>O cavalo &eacute; a montaria mais comum do Reinado.</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: seu
-      deslocamento muda para 12m e voc&ecirc; recebe uma a&ccedil;&atilde;o de
-      movimento extra por turno (apenas para se deslocar).</p>
+      <p><strong>Iniciante</strong>: seu deslocamento muda para 12m e voc&ecirc;
+      recebe uma a&ccedil;&atilde;o de movimento extra por turno (apenas para se
+      deslocar).</p>
 
-      <p style="text-align: justify;"><strong>Veterano</strong>: como acima, mas
-      seu deslocamento muda para 15m e voc&ecirc; recebe posi&ccedil;&atilde;o
-      elevada (+2 em ataques).</p>
+      <p><strong>Veterano</strong>: como acima, mas seu deslocamento muda para
+      15m e voc&ecirc; recebe posi&ccedil;&atilde;o elevada (+2 em ataques).</p>
 
-      <p style="text-align: justify;"><strong>Mestre</strong>: como acima, mas
-      voc&ecirc; recebe uma segunda a&ccedil;&atilde;o de movimento extra por
-      turno (novamente, apenas para se deslocar).</p>
+      <p><strong>Mestre</strong>: como acima, mas voc&ecirc; recebe uma segunda
+      a&ccedil;&atilde;o de movimento extra por turno (novamente, apenas para se
+      deslocar).</p>
 
-      <p style="text-align: justify;">Estas estat&iacute;sticas tamb&eacute;m se
-      aplicam a p&ocirc;neis (utilizados por personagens Pequenos).</p>
+      <p>Estas estat&iacute;sticas tamb&eacute;m se aplicam a p&ocirc;neis
+      (utilizados por personagens Pequenos).</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
 
-      <h3 style="text-align: justify;"><strong>Regras de Montarias</strong></h3>
 
-      <p style="text-align: justify;">&bull; Para usar um parceiro montaria
-      voc&ecirc; precisa montar nele. Para pass&aacute;-lo para outro aliado,
-      precisa desmontar antes. Ambas s&atilde;o a&ccedil;&otilde;es de
-      movimento.</p>
+      <h3><strong>Regras de Montarias</strong></h3>
 
-      <p style="text-align: justify;">&bull; Uma vez montado, voc&ecirc; precisa
-      gastar uma a&ccedil;&atilde;o de movimento e fazer um teste de Cavalgar
-      (CD 10) por turno para guiar a montaria. Se passar, recebe os
-      benef&iacute;cios dela. Se falhar, perde a a&ccedil;&atilde;o de
-      movimento. Se falhar por 5 ou mais, cai da montaria e sofre 1d6 pontos de
-      dano. Se for treinado em&nbsp; avalgar,<br>voc&ecirc; recebe os
-      b&ocirc;nus da montaria automaticamente, sem precisar gastar a
-      a&ccedil;&atilde;o ou fazer o teste.</p>
+      <p>&bull; Para usar um parceiro montaria voc&ecirc; precisa montar nele.
+      Para pass&aacute;-lo para outro aliado, precisa desmontar antes. Ambas
+      s&atilde;o a&ccedil;&otilde;es de movimento.</p>
 
-      <p style="text-align: justify;">&bull; Se voc&ecirc; sofrer dano, deve
-      fazer um teste de Cavalgar (CD igual ao dano). Se falhar, cai da montaria
-      e sofre 1d6 pontos de dano. Se possuir o poder Ginete, voc&ecirc;
-      n&atilde;o precisa fazer esse teste.</p>
+      <p>&bull; Uma vez montado, voc&ecirc; precisa gastar uma
+      a&ccedil;&atilde;o de movimento e fazer um teste de Cavalgar (CD 10) por
+      turno para guiar a montaria. Se passar, recebe os benef&iacute;cios dela.
+      Se falhar, perde a a&ccedil;&atilde;o de movimento. Se falhar por 5 ou
+      mais, cai da montaria e sofre 1d6 pontos de dano. Se for treinado em&nbsp;
+      avalgar,<br>voc&ecirc; recebe os b&ocirc;nus da montaria automaticamente,
+      sem precisar gastar a a&ccedil;&atilde;o ou fazer o teste.</p>
 
-      <p style="text-align: justify;">&bull; Cada parceiro montaria possui uma
-      categoria de tamanho (indicada ao lado do nome do parceiro). Um personagem
-      s&oacute; pode montar uma montaria maior do que ele mesmo, e enquanto
-      estiver montado usa o tamanho da montaria para efeitos do espa&ccedil;o
-      que ocupa e para modificador de Furtividade.</p>
+      <p>&bull; Se voc&ecirc; sofrer dano, deve fazer um teste de Cavalgar (CD
+      igual ao dano). Se falhar, cai da montaria e sofre 1d6 pontos de dano. Se
+      possuir o poder Ginete, voc&ecirc; n&atilde;o precisa fazer esse
+      teste.</p>
 
-      <p style="text-align: justify;">&bull; O balan&ccedil;o da montaria em
-      movimento torna mais dif&iacute;cil atacar &agrave; dist&acirc;ncia
-      (&ndash;2 em testes de ataque) e conta como condi&ccedil;&atilde;o ruim
-      para lan&ccedil;ar magias. Se possuir o poder Ginete, voc&ecirc;
-      n&atilde;o sofre nenhuma dessas penalidades.</p>
+      <p>&bull; Cada parceiro montaria possui uma categoria de tamanho (indicada
+      ao lado do nome do parceiro). Um personagem s&oacute; pode montar uma
+      montaria maior do que ele mesmo, e enquanto estiver montado usa o tamanho
+      da montaria para efeitos do espa&ccedil;o que ocupa e para modificador de
+      Furtividade.</p>
 
-      <p style="text-align: justify;">Montarias podem ser compradas ou recebidas
-      por habilidades. No primeiro caso, s&atilde;o sempre parceiros iniciantes.
-      No segundo, seu poder &eacute; definido pela habilidade em
-      quest&atilde;o.&nbsp;</p>
+      <p>&bull; O balan&ccedil;o da montaria em movimento torna mais
+      dif&iacute;cil atacar &agrave; dist&acirc;ncia (&ndash;2 em testes de
+      ataque) e conta como condi&ccedil;&atilde;o ruim para lan&ccedil;ar
+      magias. Se possuir o poder Ginete, voc&ecirc; n&atilde;o sofre nenhuma
+      dessas penalidades.</p>
+
+      <p>Montarias podem ser compradas ou recebidas por habilidades. No primeiro
+      caso, s&atilde;o sempre parceiros iniciantes. No segundo, seu poder
+      &eacute; definido pela habilidade em quest&atilde;o.&nbsp;</p>
     unidentified: ''
   source: T20, pg. 262 (JdA)
   ativacao:

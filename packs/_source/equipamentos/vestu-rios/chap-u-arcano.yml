@@ -4,10 +4,10 @@ img: systems/tormenta20/icons/itens/gerais/chapeu-arcano.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Com pinturas e bordados de s&iacute;mbolos
-      m&iacute;sticos, este chap&eacute;u pontudo ajuda a canalizar energias
-      m&aacute;gicas. Ele fornece +1 ponto de mana, mas apenas se voc&ecirc;
-      possuir a habilidade de classe Caminho do Arcanista.</p>
+      <p>Com pinturas e bordados de s&iacute;mbolos m&iacute;sticos, este
+      chap&eacute;u pontudo ajuda a canalizar energias m&aacute;gicas. Ele
+      fornece +1 ponto de mana, mas apenas se voc&ecirc; possuir a habilidade de
+      classe Caminho do Arcanista.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

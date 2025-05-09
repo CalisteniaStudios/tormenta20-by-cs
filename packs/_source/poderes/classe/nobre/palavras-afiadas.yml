@@ -111,15 +111,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e 1 PM para fazer um teste de Diplomacia
-      ou Intimida&ccedil;&atilde;o oposto ao teste de Vontade de uma criatura
-      inteligente (Int &ndash;3 ou maior) em alcance curto. Se vencer,
-      voc&ecirc; causa 2d6 pontos de dano ps&iacute;quico n&atilde;o letal
-      &agrave; criatura. Se perder, causa metade deste dano. Se a criatura for
-      reduzida a 0 ou menos PV, em vez de cair inconsciente, ela se rende (se
-      voc&ecirc; usou Diplomacia) ou fica apavorada e foge de voc&ecirc; da
-      maneira mais eficiente poss&iacute;vel (se usou
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 1 PM para
+      fazer um teste de Diplomacia ou Intimida&ccedil;&atilde;o oposto ao teste
+      de Vontade de uma criatura inteligente (Int &ndash;3 ou maior) em alcance
+      curto. Se vencer, voc&ecirc; causa 2d6 pontos de dano ps&iacute;quico
+      n&atilde;o letal &agrave; criatura. Se perder, causa metade deste dano. Se
+      a criatura for reduzida a 0 ou menos PV, em vez de cair inconsciente, ela
+      se rende (se voc&ecirc; usou Diplomacia) ou fica apavorada e foge de
+      voc&ecirc; da maneira mais eficiente poss&iacute;vel (se usou
       Intimida&ccedil;&atilde;o). A cada quatro n&iacute;veis, voc&ecirc; pode
       gastar +1 PM para aumentar o dano (veja a tabela da classe). Mental.</p>
 

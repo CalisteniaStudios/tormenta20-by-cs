@@ -9,12 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para aumentar
-      seu deslocamento em +6m por uma rodada.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; pode gastar 1 PM para aumentar seu deslocamento em +6m por
+      uma rodada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

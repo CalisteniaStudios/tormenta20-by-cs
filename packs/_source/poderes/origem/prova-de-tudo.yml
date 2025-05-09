@@ -9,8 +9,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; n&atilde;o sofre penalidade em
-      deslocamento e
+      <p>Voc&ecirc; n&atilde;o sofre penalidade em deslocamento e
       @UUID[Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.SdS8pxPmbSpjv5Ml]{Sobreviv&ecirc;ncia}
       por clima ruim e por terreno dif&iacute;cil natural.</p>
     chat: ''

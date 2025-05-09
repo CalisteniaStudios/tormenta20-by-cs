@@ -59,14 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; usa
-      Inspira&ccedil;&atilde;o, voc&ecirc; e seus aliados aplicam o b&ocirc;nus
-      recebido em rolagens de dano (al&eacute;m de testes de
-      per&iacute;cia).</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Quando voc&ecirc; usa Inspira&ccedil;&atilde;o, voc&ecirc; e seus
+      aliados aplicam o b&ocirc;nus recebido em rolagens de dano (al&eacute;m de
+      testes de per&iacute;cia).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

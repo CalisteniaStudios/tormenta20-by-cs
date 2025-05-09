@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você é imune a efeitos de medo, mágicos ou
-      não. Este poder não elimina fobias raciais (como o medo de altura dos
-      minotauros).</p>
+      <p>Você é imune a efeitos de medo, mágicos ou não. Este poder não elimina
+      fobias raciais (como o medo de altura dos minotauros).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 133 (JdA)

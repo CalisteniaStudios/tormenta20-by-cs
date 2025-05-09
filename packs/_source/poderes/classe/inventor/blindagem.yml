@@ -50,13 +50,12 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode usar sua
-      Intelig&ecirc;ncia na Defesa quando usa armadura pesada. Se fizer isso,
-      n&atilde;o pode somar sua Destreza, mesmo que outras habilidades ou
-      efeitos permitam isso.</p>
+      <p>Voc&ecirc; pode usar sua Intelig&ecirc;ncia na Defesa quando usa
+      armadura pesada. Se fizer isso, n&atilde;o pode somar sua Destreza, mesmo
+      que outras habilidades ou efeitos permitam isso.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em>
-      Couraceiro, 8&ordm; n&iacute;vel de inventor.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Couraceiro, 8&ordm; n&iacute;vel de
+      inventor.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

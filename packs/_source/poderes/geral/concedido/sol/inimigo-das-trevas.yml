@@ -59,9 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seus ataques e habilidades causam +1d6
-      pontos de dano contra mortos-vivos. Quando voc&ecirc; usa um efeito que
-      gera luz, o alcance da ilumina&ccedil;&atilde;o dobra.</p>
+      <p>Seus ataques e habilidades causam +1d6 pontos de dano contra
+      mortos-vivos. Quando voc&ecirc; usa um efeito que gera luz, o alcance da
+      ilumina&ccedil;&atilde;o dobra.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

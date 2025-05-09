@@ -49,15 +49,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Iniciativa e pode
-      sacar ou guardar itens como uma a&ccedil;&atilde;o livre (em vez de
-      a&ccedil;&atilde;o de movimento). Al&eacute;m disso, a a&ccedil;&atilde;o
-      que voc&ecirc; gasta para recarregar uma arma de disparo diminui em uma
-      categoria (a&ccedil;&atilde;o completa para padr&atilde;o, padr&atilde;o
-      para movimento, movimento para livre).</p>
+      <p>Voc&ecirc; recebe +2 em Iniciativa e pode sacar ou guardar itens como
+      uma a&ccedil;&atilde;o livre (em vez de a&ccedil;&atilde;o de movimento).
+      Al&eacute;m disso, a a&ccedil;&atilde;o que voc&ecirc; gasta para
+      recarregar uma arma de disparo diminui em uma categoria
+      (a&ccedil;&atilde;o completa para padr&atilde;o, padr&atilde;o para
+      movimento, movimento para livre).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Iniciativa.</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Iniciativa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 129 (JdA)

@@ -10,14 +10,10 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; come&ccedil;a o jogo com um
-      item superior, ou com 10 itens alqu&iacute;micos, com pre&ccedil;o total
-      de at&eacute; T$ 500. Veja o Cap&iacute;tulo 3: Equipamento para a lista
-      de itens no Livro B&aacute;sico.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; come&ccedil;a o jogo com um item superior, ou com 10 itens
+      alqu&iacute;micos, com pre&ccedil;o total de at&eacute; T$ 500. Veja o
+      Cap&iacute;tulo 3: Equipamento para a lista de itens no Livro
+      B&aacute;sico.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 68 (JdA)

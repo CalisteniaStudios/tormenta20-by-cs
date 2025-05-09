@@ -49,12 +49,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Voc&ecirc; fortalece uma
-      indument&aacute;ria com o poder de sua f&eacute;. Isso aumenta o
-      b&ocirc;nus de Defesa de uma armadura ou escudo em +2 (isso &eacute; uma
-      melhoria no item, portanto &eacute; cumulativa com outras magias). No caso
-      de um traje, ele passa a oferecer +2 na Defesa e continua contando como se
-      voc&ecirc; n&atilde;o estivesse usando armadura.</p>
+      <p>Voc&ecirc; fortalece uma indument&aacute;ria com o poder de sua
+      f&eacute;. Isso aumenta o b&ocirc;nus de Defesa de uma armadura ou escudo
+      em +2 (isso &eacute; uma melhoria no item, portanto &eacute; cumulativa
+      com outras magias). No caso de um traje, ele passa a oferecer +2 na Defesa
+      e continua contando como se voc&ecirc; n&atilde;o estivesse usando
+      armadura.</p>
     unidentified: ''
   source: T20, pg. 210 (JdA)
   carregado: true

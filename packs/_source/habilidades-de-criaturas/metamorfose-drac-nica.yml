@@ -4,12 +4,12 @@ img: systems/tormenta20/icons/poderes/ameacas/metamorfose-draconica.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Drag&otilde;es jovens ou mais velhos podem
-      se transformar em outras criaturas, como a magia Metamorfose (mas sem
-      limita&ccedil;&atilde;o para tamanhos menores que o seu). Eles costumam
-      usar esta habilidade para se infiltrar em sociedades humanoides, aprender
-      sobre seus costumes ou apenas quando n&atilde;o querem ser reconhecidos.
-      Um drag&atilde;o morto reverte &agrave; sua forma original.</p>
+      <p>Drag&otilde;es jovens ou mais velhos podem se transformar em outras
+      criaturas, como a magia Metamorfose (mas sem limita&ccedil;&atilde;o para
+      tamanhos menores que o seu). Eles costumam usar esta habilidade para se
+      infiltrar em sociedades humanoides, aprender sobre seus costumes ou apenas
+      quando n&atilde;o querem ser reconhecidos. Um drag&atilde;o morto reverte
+      &agrave; sua forma original.</p>
     unidentified: ''
   source: ''
   ativacao:

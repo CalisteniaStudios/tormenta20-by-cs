@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Qualquer arma feita com uma haste de
-      madeira e uma ponta afiada, natural ou metálica. Por sua facilidade de
-      fabricação, é muito comum entre orcs, kobolds, trogloditas e outras raças
-      menos civilizadas. Uma lança pode ser arremessada.</p>
+      <p>Qualquer arma feita com uma haste de madeira e uma ponta afiada,
+      natural ou metálica. Por sua facilidade de fabricação, é muito comum entre
+      orcs, kobolds, trogloditas e outras raças menos civilizadas. Uma lança
+      pode ser arremessada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

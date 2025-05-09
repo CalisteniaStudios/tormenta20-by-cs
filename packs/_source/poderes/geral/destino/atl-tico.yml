@@ -52,11 +52,9 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Atletismo e +3m em
-      seu deslocamento.</p>
-
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> For 2.</p>
+    value: |-
+      <p>Voc&ecirc; recebe +2 em Atletismo e +3m em seu deslocamento.</p>
+      <p><em>Pr&eacute;-requisito:</em> For 2.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

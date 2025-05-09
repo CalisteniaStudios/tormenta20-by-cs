@@ -59,17 +59,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Suas apresenta&ccedil;&otilde;es o
-      tornaram famoso, fazendo com que voc&ecirc; seja reconhecido e bem tratado
-      por aqueles que apreciam a arte. Por outro lado, pode ser dif&iacute;cil
-      passar despercebido, especialmente em grandes cidades. Quando usa
-      Atua&ccedil;&atilde;o para impressionar uma plateia, o b&ocirc;nus
-      recebido em per&iacute;cias baseadas em Carisma aumenta para +5.
-      <em>Pr&eacute;-requisito:</em> 6&ordm; n&iacute;vel de bardo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Suas apresenta&ccedil;&otilde;es o tornaram famoso, fazendo com que
+      voc&ecirc; seja reconhecido e bem tratado por aqueles que apreciam a arte.
+      Por outro lado, pode ser dif&iacute;cil passar despercebido, especialmente
+      em grandes cidades. Quando usa Atua&ccedil;&atilde;o para impressionar uma
+      plateia, o b&ocirc;nus recebido em per&iacute;cias baseadas em Carisma
+      aumenta para +5. <em>Pr&eacute;-requisito:</em> 6&ordm; n&iacute;vel de
+      bardo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

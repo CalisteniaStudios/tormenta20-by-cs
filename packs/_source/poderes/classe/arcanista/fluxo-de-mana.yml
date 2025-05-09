@@ -55,14 +55,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode manter dois efeitos
-      sustentados ativos simultaneamente com apenas uma a&ccedil;&atilde;o
-      livre, pagando o custo de cada efeito separadamente.
-      <em>Pr&eacute;-requisito:</em> 10&ordm; n&iacute;vel de arcanista.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p>&nbsp;</p>
+      <p>Voc&ecirc; pode manter dois efeitos sustentados ativos simultaneamente
+      com apenas uma a&ccedil;&atilde;o livre, pagando o custo de cada efeito
+      separadamente. <em>Pr&eacute;-requisito:</em> 10&ordm; n&iacute;vel de
+      arcanista.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

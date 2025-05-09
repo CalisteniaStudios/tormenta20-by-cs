@@ -55,13 +55,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e 2 PM para desferir uma s&eacute;rie de
-      golpes girat&oacute;rios. Fa&ccedil;a um ataque corpo a corpo e compare-o
-      com a Defesa de cada inimigo em seu alcance natural. Ent&atilde;o
-      fa&ccedil;a uma rolagem de dano com um b&ocirc;nus cumulativo de +2 para
-      cada acerto e aplique-a em cada inimigo atingido. Pr&eacute;-requisito:
-      6&ordm; n&iacute;vel de guerreiro.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 2 PM para
+      desferir uma s&eacute;rie de golpes girat&oacute;rios. Fa&ccedil;a um
+      ataque corpo a corpo e compare-o com a Defesa de cada inimigo em seu
+      alcance natural. Ent&atilde;o fa&ccedil;a uma rolagem de dano com um
+      b&ocirc;nus cumulativo de +2 para cada acerto e aplique-a em cada inimigo
+      atingido. Pr&eacute;-requisito: 6&ordm; n&iacute;vel de guerreiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 66 (JdA)

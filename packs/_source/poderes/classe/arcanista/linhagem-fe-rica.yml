@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi tocado pelas fadas.</p>
+      <p>Seu sangue foi tocado pelas fadas.</p>
 
-      <ul style="text-align: justify;">
+      <ul>
 
       <li>B&aacute;sica. Voc&ecirc; se torna treinado em Engana&ccedil;&atilde;o
       e aprende uma magia de 1&ordm; c&iacute;rculo de encantamento ou
@@ -27,10 +27,6 @@ system:
       at&eacute; o final da cena.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

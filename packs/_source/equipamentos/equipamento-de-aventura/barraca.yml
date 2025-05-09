@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta barraca de lona conta como um saco de
-      dormir para duas pessoas e fornece +2 em testes de
+      <p>Esta barraca de lona conta como um saco de dormir para duas pessoas e
+      fornece +2 em testes de
       @UUID[Compendium.tormenta20.pericias.dyePg3NS95So0yEJ]{Sobreviv&ecirc;ncia}
       para acampar</p>
     chat: ''

@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/manto-eclesiastico.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um manto t&iacute;pico de igrejas e
-      templos. Fornece +1 em Religi&atilde;o.</p>
+      <p>Um manto t&iacute;pico de igrejas e templos. Fornece +1 em
+      Religi&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

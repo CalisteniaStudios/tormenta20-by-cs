@@ -99,11 +99,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; aprende e pode lan&ccedil;ar
-      uma magia de convoca&ccedil;&atilde;o ou evoca&ccedil;&atilde;o, arcana ou
-      divina, de qualquer c&iacute;rculo que possa lan&ccedil;ar. Al&eacute;m
-      disso, recebe redu&ccedil;&atilde;o de frio 5 e suas magias que causam
-      dano de frio causam +1 ponto de dano por dado.</p>
+      <p>Voc&ecirc; aprende e pode lan&ccedil;ar uma magia de
+      convoca&ccedil;&atilde;o ou evoca&ccedil;&atilde;o, arcana ou divina, de
+      qualquer c&iacute;rculo que possa lan&ccedil;ar. Al&eacute;m disso, recebe
+      redu&ccedil;&atilde;o de frio 5 e suas magias que causam dano de frio
+      causam +1 ponto de dano por dado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 61 (JdA)

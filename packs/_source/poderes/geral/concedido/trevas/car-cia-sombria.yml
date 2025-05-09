@@ -55,13 +55,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM e uma
-      a&ccedil;&atilde;o padr&atilde;o para cobrir sua m&atilde;o com energia
-      negativa e tocar uma criatura em alcance corpo a corpo. A criatura sofre
-      2d6 pontos de dano de trevas (Fortitude CD Sab reduz &agrave; metade) e
-      voc&ecirc; recupera PV iguais &agrave; metade do dano causado. Voc&ecirc;
-      pode aprender <em>Toque Vamp&iacute;rico</em> como uma magia divina. Se
-      fizer isso, o custo dela diminui em &ndash;1 PM.</p>
+      <p>Voc&ecirc; pode gastar 1 PM e uma a&ccedil;&atilde;o padr&atilde;o para
+      cobrir sua m&atilde;o com energia negativa e tocar uma criatura em alcance
+      corpo a corpo. A criatura sofre 2d6 pontos de dano de trevas (Fortitude CD
+      Sab reduz &agrave; metade) e voc&ecirc; recupera PV iguais &agrave; metade
+      do dano causado. Voc&ecirc; pode aprender <em>Toque Vamp&iacute;rico</em>
+      como uma magia divina. Se fizer isso, o custo dela diminui em &ndash;1
+      PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

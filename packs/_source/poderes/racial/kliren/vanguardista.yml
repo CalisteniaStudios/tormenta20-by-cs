@@ -58,11 +58,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe profici&ecirc;ncia em
-      armas de fogo e +2 em testes de Of&iacute;cio (um qualquer, a sua
-      escolha).</p>
-
-      <p>&nbsp;</p>
+      <p>Voc&ecirc; recebe profici&ecirc;ncia em armas de fogo e +2 em testes de
+      Of&iacute;cio (um qualquer, a sua escolha).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 28 (JdA)

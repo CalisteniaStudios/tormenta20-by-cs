@@ -12,11 +12,11 @@ system:
 
       </blockquote>
 
-      <p style="text-align: justify;">Uma vez por rodada, quando est&aacute;
-      pilotando uma aeronave, voc&ecirc; pode gastar 2 PM para realizar uma
-      a&ccedil;&atilde;o padr&atilde;o adicional.
-      <em>Pr&eacute;-requisitos:</em> Combate A&eacute;reo, derrotar cinco
-      aeronaves e/ou inimigos voadores enquanto pilota uma aeronave.</p>
+      <p>Uma vez por rodada, quando est&aacute; pilotando uma aeronave,
+      voc&ecirc; pode gastar 2 PM para realizar uma a&ccedil;&atilde;o
+      padr&atilde;o adicional. <em>Pr&eacute;-requisitos:</em> Combate
+      A&eacute;reo, derrotar cinco aeronaves e/ou inimigos voadores enquanto
+      pilota uma aeronave.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 9

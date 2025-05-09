@@ -58,14 +58,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em testes de ataque
-      para quebrar. Quando reduz os PV de uma arma para 0 ou menos, voc&ecirc;
-      pode gastar 1 PM para realizar um ataque extra contra o usu&aacute;rio
-      dela. O ataque adicional usa os mesmos valores de ataque e dano, mas os
-      dados devem ser rolados novamente.</p>
+      <p>Voc&ecirc; recebe +2 em testes de ataque para quebrar. Quando reduz os
+      PV de uma arma para 0 ou menos, voc&ecirc; pode gastar 1 PM para realizar
+      um ataque extra contra o usu&aacute;rio dela. O ataque adicional usa os
+      mesmos valores de ataque e dano, mas os dados devem ser rolados
+      novamente.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Ataque
-      Poderoso.</p>
+      <p><em>Pr&eacute;-requisito:</em> Ataque Poderoso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 129 (JdA)

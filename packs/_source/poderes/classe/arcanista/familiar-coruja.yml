@@ -54,13 +54,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um familiar &eacute; uma criatura
-      m&aacute;gica. Em termos de jogo, &eacute; um parceiro especial com o qual
-      voc&ecirc; pode se comunicar telepaticamente em alcance longo. Ele obedece
-      a suas ordens, mas ainda est&aacute; limitado ao que uma criatura de sua
-      esp&eacute;cie pode fazer. Se ele morrer, voc&ecirc; fica atordoado por
-      uma rodada. Voc&ecirc; pode invocar um novo familiar com um ritual que
-      exige um dia e T$ 100 em ingredientes.</p>
+      <p>Um familiar &eacute; uma criatura m&aacute;gica. Em termos de jogo,
+      &eacute; um parceiro especial com o qual voc&ecirc; pode se comunicar
+      telepaticamente em alcance longo. Ele obedece a suas ordens, mas ainda
+      est&aacute; limitado ao que uma criatura de sua esp&eacute;cie pode fazer.
+      Se ele morrer, voc&ecirc; fica atordoado por uma rodada. Voc&ecirc; pode
+      invocar um novo familiar com um ritual que exige um dia e T$ 100 em
+      ingredientes.</p>
 
       <ul>
 
@@ -68,12 +68,6 @@ system:
       pode pagar 1 PM para aumentar seu alcance para curto.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
-
-      <p>&nbsp;</p>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

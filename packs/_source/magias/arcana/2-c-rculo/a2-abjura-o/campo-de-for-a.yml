@@ -277,9 +277,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia cria uma pel&iacute;cula
-      protetora sobre voc&ecirc;. Voc&ecirc; recebe 30 pontos de vida
-      tempor&aacute;rios.</p>
+      <p>Esta magia cria uma pel&iacute;cula protetora sobre voc&ecirc;.
+      Voc&ecirc; recebe 30 pontos de vida tempor&aacute;rios.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 183 (JdA)

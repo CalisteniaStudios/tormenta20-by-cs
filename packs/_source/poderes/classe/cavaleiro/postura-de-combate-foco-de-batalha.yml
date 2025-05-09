@@ -45,10 +45,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sempre que um inimigo atac&aacute;-lo,
-      voc&ecirc; recebe 1 PM tempor&aacute;rio. Voc&ecirc; pode ganhar um
-      m&aacute;ximo de PM tempor&aacute;rio por cena igual seu n&iacute;vel.
-      Pontos de mana tempor&aacute;rios desaparecem no final da cena.</p>
+      <p>Sempre que um inimigo atac&aacute;-lo, voc&ecirc; recebe 1 PM
+      tempor&aacute;rio. Voc&ecirc; pode ganhar um m&aacute;ximo de PM
+      tempor&aacute;rio por cena igual seu n&iacute;vel. Pontos de mana
+      tempor&aacute;rios desaparecem no final da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

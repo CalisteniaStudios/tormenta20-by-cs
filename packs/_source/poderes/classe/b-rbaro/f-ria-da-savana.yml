@@ -63,13 +63,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu deslocamento aumenta em +3m. Quando
-      usa F&uacute;ria, voc&ecirc; aplica o b&ocirc;nus em ataque e dano
-      tamb&eacute;m a armas de arremesso.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Seu deslocamento aumenta em +3m. Quando usa F&uacute;ria, voc&ecirc;
+      aplica o b&ocirc;nus em ataque e dano tamb&eacute;m a armas de
+      arremesso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

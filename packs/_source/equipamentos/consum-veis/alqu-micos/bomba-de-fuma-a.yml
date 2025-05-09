@@ -9,14 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um saco de estopa com um pavio contendo
-      p&oacute;lvora especial que faz mais fuma&ccedil;a do que fogo. Para
-      us&aacute;-la, voc&ecirc; precisa empunh&aacute;-la, gastar uma
-      a&ccedil;&atilde;o de movimento para acender seu pavio e uma
-      a&ccedil;&atilde;o padr&atilde;o para arremess&aacute;-la em um ponto em
-      alcance curto. Ela gera uma nuvem de fuma&ccedil;a espessa de 6m de raio,
-      que obscurece a vis&atilde;o &mdash; criaturas a at&eacute; 1,5m t&ecirc;m
-      camuflagem e criaturas a partir de 3m t&ecirc;m camuflagem
+      <p>Um saco de estopa com um pavio contendo p&oacute;lvora especial que faz
+      mais fuma&ccedil;a do que fogo. Para us&aacute;-la, voc&ecirc; precisa
+      empunh&aacute;-la, gastar uma a&ccedil;&atilde;o de movimento para acender
+      seu pavio e uma a&ccedil;&atilde;o padr&atilde;o para arremess&aacute;-la
+      em um ponto em alcance curto. Ela gera uma nuvem de fuma&ccedil;a espessa
+      de 6m de raio, que obscurece a vis&atilde;o &mdash; criaturas a at&eacute;
+      1,5m t&ecirc;m camuflagem e criaturas a partir de 3m t&ecirc;m camuflagem
       total.&nbsp;</p>
     chat: ''
     unidentified: ''

@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; se torna proficiente em
-      picaretas, causa +1 de dano com elas e n&atilde;o &eacute; afetado por
-      terreno dif&iacute;cil em masmorras e subterr&acirc;neos.</p>
+      <p>Voc&ecirc; se torna proficiente em picaretas, causa +1 de dano com elas
+      e n&atilde;o &eacute; afetado por terreno dif&iacute;cil em masmorras e
+      subterr&acirc;neos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 93 (JdA)

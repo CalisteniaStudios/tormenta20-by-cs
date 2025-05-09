@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua presen&ccedil;a faz as pessoas darem o
-      melhor de si. Quando um aliado em alcance curto faz um teste, voc&ecirc;
-      pode gastar 2 PM para fazer com que ele possa rolar esse teste
-      novamente.</p>
+      <p>Sua presen&ccedil;a faz as pessoas darem o melhor de si. Quando um
+      aliado em alcance curto faz um teste, voc&ecirc; pode gastar 2 PM para
+      fazer com que ele possa rolar esse teste novamente.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

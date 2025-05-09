@@ -6,21 +6,19 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Todos os gestos do chap&eacute;u preto
-      inspiram amea&ccedil;a.</p>
+      <p>Todos os gestos do chap&eacute;u preto inspiram amea&ccedil;a.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;"><br>Quando faz um teste de
-      Intimida&ccedil;&atilde;o, voc&ecirc; pode gastar 1 PM para fazer uma
-      demonstra&ccedil;&atilde;o de habilidade com sua arma como parte deste
-      teste. Se fizer isso, voc&ecirc; recebe um b&ocirc;nus em seu teste de
-      Intimida&ccedil;&atilde;o igual ao seu modificador de For&ccedil;a, se
-      estiver usando uma arma corpo a corpo, ou de Destreza, se estiver usando
-      uma arma de ataque &agrave; dist&acirc;ncia.</p>
+      <p><br>Quando faz um teste de Intimida&ccedil;&atilde;o, voc&ecirc; pode
+      gastar 1 PM para fazer uma demonstra&ccedil;&atilde;o de habilidade com
+      sua arma como parte deste teste. Se fizer isso, voc&ecirc; recebe um
+      b&ocirc;nus em seu teste de Intimida&ccedil;&atilde;o igual ao seu
+      modificador de For&ccedil;a, se estiver usando uma arma corpo a corpo, ou
+      de Destreza, se estiver usando uma arma de ataque &agrave;
+      dist&acirc;ncia.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos:
-      Cora&ccedil;&atilde;o Duro.</p>
+      <p>Pr&eacute;-requisitos: Cora&ccedil;&atilde;o Duro.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 20

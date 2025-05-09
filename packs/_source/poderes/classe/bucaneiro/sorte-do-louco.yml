@@ -9,15 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, voc&ecirc;
-      encara os piores desafios e ri na cara deles &mdash; pois sabe que tem a
-      sorte ao seu lado. Voc&ecirc; pode gastar 5 PM para rolar novamente um
-      teste rec&eacute;m realizado. Qualquer resultado 11 ou mais na segunda
-      rolagem ser&aacute; considerado um 20 natural.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>No 20&ordm; n&iacute;vel, voc&ecirc; encara os piores desafios e ri na
+      cara deles &mdash; pois sabe que tem a sorte ao seu lado. Voc&ecirc; pode
+      gastar 5 PM para rolar novamente um teste rec&eacute;m realizado. Qualquer
+      resultado 11 ou mais na segunda rolagem ser&aacute; considerado um 20
+      natural.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

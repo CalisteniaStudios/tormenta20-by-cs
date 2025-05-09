@@ -125,12 +125,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Pela dura&ccedil;&atilde;o da magia,
-      voc&ecirc; sabe a posi&ccedil;&atilde;o e status (PV atuais, se
-      est&atilde;o sob efeito de magia...) dos alvos. Depois de lan&ccedil;ada,
-      a dist&acirc;ncia entre voc&ecirc; e os alvos n&atilde;o importa &mdash; a
-      magia s&oacute; deixa de detectar um alvo se ele morrer ou for para outro
-      plano.</p>
+      <p>Pela dura&ccedil;&atilde;o da magia, voc&ecirc; sabe a
+      posi&ccedil;&atilde;o e status (PV atuais, se est&atilde;o sob efeito de
+      magia...) dos alvos. Depois de lan&ccedil;ada, a dist&acirc;ncia entre
+      voc&ecirc; e os alvos n&atilde;o importa &mdash; a magia s&oacute; deixa
+      de detectar um alvo se ele morrer ou for para outro plano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 185 (JdA)

@@ -46,9 +46,9 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um g&aacute;s son&iacute;fero.</p>
+      <p>Um g&aacute;s son&iacute;fero.</p>
 
-      <p style="text-align: justify;"><strong>Tipo:</strong>
+      <p><strong>Tipo:</strong>
       <em>Inala&ccedil;&atilde;o.</em><br><strong>Efeito:</strong><em>
       V&iacute;tima fica inconsciente (enjoada por 1 rodada).</em></p>
     chat: ''

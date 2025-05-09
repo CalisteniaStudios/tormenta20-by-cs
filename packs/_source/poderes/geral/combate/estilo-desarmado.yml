@@ -9,12 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seus ataques desarmados causam 1d6 pontos
-      de dano e podem causar dano letal ou n&atilde;o letal (sem
-      penalidades).</p>
+      <p>Seus ataques desarmados causam 1d6 pontos de dano e podem causar dano
+      letal ou n&atilde;o letal (sem penalidades).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Luta.</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Luta.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 128 (JdA)

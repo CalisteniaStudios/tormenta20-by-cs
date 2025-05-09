@@ -49,10 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este tomo volumoso cont&eacute;m
-      exerc&iacute;cios de resist&ecirc;ncia e dietas saud&aacute;veis, mas suas
-      palavras trazem um poderoso efeito m&aacute;gico. Funciona como um Manual
-      do Bom Exerc&iacute;cio, mas fornece +1 de Constitui&ccedil;&atilde;o.</p>
+      <p>Este tomo volumoso cont&eacute;m exerc&iacute;cios de resist&ecirc;ncia
+      e dietas saud&aacute;veis, mas suas palavras trazem um poderoso efeito
+      m&aacute;gico. Funciona como um Manual do Bom Exerc&iacute;cio, mas
+      fornece +1 de Constitui&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Originalmente um instrumento agrícola,
-      consiste de uma lâmina curva presa a um cabo de madeira. Uma arma
-      tradicional de druidas.</p>
+      <p>Originalmente um instrumento agrícola, consiste de uma lâmina curva
+      presa a um cabo de madeira. Uma arma tradicional de druidas.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 148 (JdA)

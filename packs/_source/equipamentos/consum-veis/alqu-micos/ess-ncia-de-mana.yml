@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta po&ccedil;&atilde;o feita de ervas
-      raras e compostos alqu&iacute;micos recupera energia pessoal. Beber a
-      ess&ecirc;ncia de mana &eacute; uma a&ccedil;&atilde;o padr&atilde;o e
-      recupera 1d4 pontos de mana.&nbsp;</p>
+      <p>Esta po&ccedil;&atilde;o feita de ervas raras e compostos
+      alqu&iacute;micos recupera energia pessoal. Beber a ess&ecirc;ncia de mana
+      &eacute; uma a&ccedil;&atilde;o padr&atilde;o e recupera 1d4 pontos de
+      mana.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

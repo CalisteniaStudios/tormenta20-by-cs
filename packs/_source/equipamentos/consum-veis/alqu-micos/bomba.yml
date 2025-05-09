@@ -9,13 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma granada rudimentar, popular entre
-      goblins e usu&aacute;rios de p&oacute;lvora. Para usar a bomba, voc&ecirc;
-      precisa empunh&aacute;-la, gastar uma a&ccedil;&atilde;o de movimento para
-      acender seu pavio e ent&atilde;o uma a&ccedil;&atilde;o padr&atilde;o para
-      arremess&aacute;-la em um ponto em alcance curto. Criaturas a at&eacute;
-      3m desse ponto sofrem 6d6 pontos de dano de impacto. Um teste de Reflexos
-      (CD Des) reduz o dano &agrave; metade.&nbsp;</p>
+      <p>Uma granada rudimentar, popular entre goblins e usu&aacute;rios de
+      p&oacute;lvora. Para usar a bomba, voc&ecirc; precisa empunh&aacute;-la,
+      gastar uma a&ccedil;&atilde;o de movimento para acender seu pavio e
+      ent&atilde;o uma a&ccedil;&atilde;o padr&atilde;o para arremess&aacute;-la
+      em um ponto em alcance curto. Criaturas a at&eacute; 3m desse ponto sofrem
+      6d6 pontos de dano de impacto. Um teste de Reflexos (CD Des) reduz o dano
+      &agrave; metade.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

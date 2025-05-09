@@ -9,28 +9,23 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha tr&ecirc;s escolas de magia. Uma
-      vez feita, essa escolha n&atilde;o pode ser mudada. Voc&ecirc; pode
-      lan&ccedil;ar magias arcanas de 1&ordm; c&iacute;rculo que
-      perten&ccedil;am a essas escolas. &Agrave; medida que sobe de
-      n&iacute;vel, pode lan&ccedil;ar magias de c&iacute;rculos maiores
-      (2&ordm; c&iacute;rculo no 6&ordm; n&iacute;vel, 3&ordm; c&iacute;rculo no
-      10&ordm; n&iacute;vel e 4&ordm; c&iacute;rculo no 14&ordm;
-      n&iacute;vel).</p>
+      <p>Escolha tr&ecirc;s escolas de magia. Uma vez feita, essa escolha
+      n&atilde;o pode ser mudada. Voc&ecirc; pode lan&ccedil;ar magias arcanas
+      de 1&ordm; c&iacute;rculo que perten&ccedil;am a essas escolas. &Agrave;
+      medida que sobe de n&iacute;vel, pode lan&ccedil;ar magias de
+      c&iacute;rculos maiores (2&ordm; c&iacute;rculo no 6&ordm; n&iacute;vel,
+      3&ordm; c&iacute;rculo no 10&ordm; n&iacute;vel e 4&ordm; c&iacute;rculo
+      no 14&ordm; n&iacute;vel).</p>
 
-      <p style="text-align: justify;">Voc&ecirc; come&ccedil;a com duas magias
-      de 1&ordm; c&iacute;rculo. A cada n&iacute;vel par (2&ordm;, 4&ordm;
-      etc.), aprende uma magia de qualquer c&iacute;rculo e escola que possa
-      lan&ccedil;ar. Voc&ecirc; pode lan&ccedil;ar essas magias vestindo
-      armaduras leves sem precisar de testes de Misticismo.</p>
+      <p>Voc&ecirc; come&ccedil;a com duas magias de 1&ordm; c&iacute;rculo. A
+      cada n&iacute;vel par (2&ordm;, 4&ordm; etc.), aprende uma magia de
+      qualquer c&iacute;rculo e escola que possa lan&ccedil;ar. Voc&ecirc; pode
+      lan&ccedil;ar essas magias vestindo armaduras leves sem precisar de testes
+      de Misticismo.</p>
 
-      <p style="text-align: justify;">Seu atributo-chave para lan&ccedil;ar
-      magias &eacute; Carisma e voc&ecirc; soma seu Carisma no seu total de PM.
-      Veja o Cap&iacute;tulo 4 para as regras de magia.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Seu atributo-chave para lan&ccedil;ar magias &eacute; Carisma e
+      voc&ecirc; soma seu Carisma no seu total de PM. Veja o Cap&iacute;tulo 4
+      para as regras de magia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

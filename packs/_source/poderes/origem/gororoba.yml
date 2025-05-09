@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; n&atilde;o sofre a penalidade
-      de &ndash;5 para fabricar um prato especial adiconal.</p>
+      <p>Voc&ecirc; n&atilde;o sofre a penalidade de &ndash;5 para fabricar um
+      prato especial adiconal.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 95 (JdA)

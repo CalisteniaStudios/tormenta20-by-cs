@@ -58,12 +58,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Escolha uma arma. Voc&ecirc; recebe +2 em
-      testes de ataque com essa arma. Voc&ecirc; pode escolher este poder outras
-      vezes para armas diferentes.</p>
+      <p>Escolha uma arma. Voc&ecirc; recebe +2 em testes de ataque com essa
+      arma. Voc&ecirc; pode escolher este poder outras vezes para armas
+      diferentes.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      profici&ecirc;ncia com a arma.</p>
+      <p><em>Pr&eacute;-requisito:</em> profici&ecirc;ncia com a arma.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 128 (JdA)

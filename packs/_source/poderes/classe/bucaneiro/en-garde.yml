@@ -99,14 +99,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o de movimento e 1 PM para assumir postura de luta.
-      At&eacute; o fim da cena, se estiver usando uma arma corpo a corpo leve ou
-      &aacute;gil, voc&ecirc; recebe +2 na margem de amea&ccedil;a com essas
-      armas e +2 na Defesa.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 1 PM para
+      assumir postura de luta. At&eacute; o fim da cena, se estiver usando uma
+      arma corpo a corpo leve ou &aacute;gil, voc&ecirc; recebe +2 na margem de
+      amea&ccedil;a com essas armas e +2 na Defesa.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      Esgrimista.</p>
+      <p><em>Pr&eacute;-requisito:</em> Esgrimista.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 48 (JdA)

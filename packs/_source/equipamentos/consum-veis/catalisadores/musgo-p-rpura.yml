@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/musgo-purpura.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Encontrado em florestas fechadas, esse
-      fungo cintilante possui propriedades que fornecem +2 na CD de magias de
-      ilus&atilde;o.</p>
+      <p>Encontrado em florestas fechadas, esse fungo cintilante possui
+      propriedades que fornecem +2 na CD de magias de ilus&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

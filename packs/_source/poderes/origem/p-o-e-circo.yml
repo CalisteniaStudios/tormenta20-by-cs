@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Por seu treino em combates de
-      exibi&ccedil;&atilde;o, voc&ecirc; sabe &ldquo;bater sem machucar&rdquo;.
-      Pode escolher causar dano n&atilde;o letal sem sofrer a penalidade de
-      &ndash;5.</p>
+      <p>Por seu treino em combates de exibi&ccedil;&atilde;o, voc&ecirc; sabe
+      &ldquo;bater sem machucar&rdquo;. Pode escolher causar dano n&atilde;o
+      letal sem sofrer a penalidade de &ndash;5.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 91 (JdA)

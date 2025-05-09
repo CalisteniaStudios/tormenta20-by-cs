@@ -53,9 +53,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; modifica os limites
-      f&iacute;sicos do alvo, que recebe deslocamento +9m e +10 em testes de
-      Atletismo.</p>
+      <p>Voc&ecirc; modifica os limites f&iacute;sicos do alvo, que recebe
+      deslocamento +9m e +10 em testes de Atletismo.</p>
     unidentified: ''
   source: T20, pg. 201 (JdA)
   carregado: true

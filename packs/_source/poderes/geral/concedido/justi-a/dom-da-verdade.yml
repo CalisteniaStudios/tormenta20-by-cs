@@ -53,10 +53,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode pagar 2 PM para receber +5
-      em testes de Intui&ccedil;&atilde;o, e em testes de
-      Percep&ccedil;&atilde;o contra Engana&ccedil;&atilde;o e Furtividade,
-      at&eacute; o fim da cena.</p>
+      <p>Voc&ecirc; pode pagar 2 PM para receber +5 em testes de
+      Intui&ccedil;&atilde;o, e em testes de Percep&ccedil;&atilde;o contra
+      Engana&ccedil;&atilde;o e Furtividade, at&eacute; o fim da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 133 (JdA)

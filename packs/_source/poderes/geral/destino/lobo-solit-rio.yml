@@ -53,10 +53,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +1 em testes de
-      per&iacute;cia e Defesa se estiver sem nenhum aliado em alcance curto.
-      Voc&ecirc; n&atilde;o sofre penalidade por usar a per&iacute;cia Cura em
-      si mesmo.</p>
+      <p>Voc&ecirc; recebe +1 em testes de per&iacute;cia e Defesa se estiver
+      sem nenhum aliado em alcance curto. Voc&ecirc; n&atilde;o sofre penalidade
+      por usar a per&iacute;cia Cura em si mesmo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

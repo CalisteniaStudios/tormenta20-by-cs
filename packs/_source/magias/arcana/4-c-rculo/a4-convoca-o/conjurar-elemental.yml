@@ -621,27 +621,26 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia transforma uma
-      por&ccedil;&atilde;o de um elemento inerte em uma criatura elemental
-      Grande do tipo do elemento alvo. Por exemplo, lan&ccedil;ar esta magia
-      numa fogueira ou tocha cria um elemental do fogo. Voc&ecirc; pode criar
-      elementais do ar, &aacute;gua, fogo e terra com essa magia. O elemental
-      obedece a todos os seus comandos e pode funcionar como um parceiro mestre
-      do tipo destruidor (cuja habilidade custa apenas 2 PM para ser usada) e
-      mais um tipo entre os indicados na lista abaixo. O elemental auxilia
-      apenas voc&ecirc; e n&atilde;o conta em seu limite de parceiros.</p>
+      <p>Esta magia transforma uma por&ccedil;&atilde;o de um elemento inerte em
+      uma criatura elemental Grande do tipo do elemento alvo. Por exemplo,
+      lan&ccedil;ar esta magia numa fogueira ou tocha cria um elemental do fogo.
+      Voc&ecirc; pode criar elementais do ar, &aacute;gua, fogo e terra com essa
+      magia. O elemental obedece a todos os seus comandos e pode funcionar como
+      um parceiro mestre do tipo destruidor (cuja habilidade custa apenas 2 PM
+      para ser usada) e mais um tipo entre os indicados na lista abaixo. O
+      elemental auxilia apenas voc&ecirc; e n&atilde;o conta em seu limite de
+      parceiros.</p>
 
-      <p style="text-align: justify;"><em>Ar:</em> assassino, perseguidor ou
-      vigilante. Dano de eletricidade.</p>
+      <p><em>Ar:</em> assassino, perseguidor ou vigilante. Dano de
+      eletricidade.</p>
 
-      <p style="text-align: justify;"><em>&Aacute;gua:</em> ajudante,
-      guardi&atilde;o ou m&eacute;dico. Dano de frio.</p>
+      <p><em>&Aacute;gua:</em> ajudante, guardi&atilde;o ou m&eacute;dico. Dano
+      de frio.</p>
 
-      <p style="text-align: justify;"><em>Fogo:</em> atirador, combatente ou
-      fort&atilde;o. Dano de fogo.</p>
+      <p><em>Fogo:</em> atirador, combatente ou fort&atilde;o. Dano de fogo.</p>
 
-      <p style="text-align: justify;"><em>Terra:</em> combatente,
-      guardi&atilde;o ou montaria. Dano de impacto.</p>
+      <p><em>Terra:</em> combatente, guardi&atilde;o ou montaria. Dano de
+      impacto.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 195 (JdA)

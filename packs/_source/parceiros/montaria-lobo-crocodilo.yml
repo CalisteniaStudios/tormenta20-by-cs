@@ -240,59 +240,55 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta besta primitiva &eacute; usada como
-      montaria pelos mais selvagens</p>
+      <p>Esta besta primitiva &eacute; usada como montaria pelos mais
+      selvagens</p>
 
-      <p style="text-align: justify;"><strong>Iniciante</strong>: seu
-      deslocamento muda para 12m e, uma vez por rodada, voc&ecirc; recebe +1d6
-      em uma rolagem de dano corpo a corpo.</p>
-
-      <p style="text-align: justify;"><strong>Veterano</strong>: como acima, mas
-      o b&ocirc;nus em rolagens de dano corpo a corpo muda para +1d10.</p>
-
-      <p style="text-align: justify;"><strong>Mestre</strong>: seu deslocamento
-      muda para 15m e voc&ecirc; recebe +2d8 em rolagens de dano corpo a
+      <p><strong>Iniciante</strong>: seu deslocamento muda para 12m e, uma vez
+      por rodada, voc&ecirc; recebe +1d6 em uma rolagem de dano corpo a
       corpo.</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><strong>Veterano</strong>: como acima, mas o b&ocirc;nus em rolagens de
+      dano corpo a corpo muda para +1d10.</p>
 
-      <h3 style="text-align: justify;"><strong>Regras de Montarias</strong></h3>
+      <p><strong>Mestre</strong>: seu deslocamento muda para 15m e voc&ecirc;
+      recebe +2d8 em rolagens de dano corpo a corpo.</p>
 
-      <p style="text-align: justify;">&bull; Para usar um parceiro montaria
-      voc&ecirc; precisa montar nele. Para pass&aacute;-lo para outro aliado,
-      precisa desmontar antes. Ambas s&atilde;o a&ccedil;&otilde;es de
-      movimento.</p>
 
-      <p style="text-align: justify;">&bull; Uma vez montado, voc&ecirc; precisa
-      gastar uma a&ccedil;&atilde;o de movimento e fazer um teste de Cavalgar
-      (CD 10) por turno para guiar a montaria. Se passar, recebe os
-      benef&iacute;cios dela. Se falhar, perde a a&ccedil;&atilde;o de
-      movimento. Se falhar por 5 ou mais, cai da montaria e sofre 1d6 pontos de
-      dano. Se for treinado em&nbsp; avalgar,<br>voc&ecirc; recebe os
-      b&ocirc;nus da montaria automaticamente, sem precisar gastar a
-      a&ccedil;&atilde;o ou fazer o teste.</p>
 
-      <p style="text-align: justify;">&bull; Se voc&ecirc; sofrer dano, deve
-      fazer um teste de Cavalgar (CD igual ao dano). Se falhar, cai da montaria
-      e sofre 1d6 pontos de dano. Se possuir o poder Ginete, voc&ecirc;
-      n&atilde;o precisa fazer esse teste.</p>
+      <h3><strong>Regras de Montarias</strong></h3>
 
-      <p style="text-align: justify;">&bull; Cada parceiro montaria possui uma
-      categoria de tamanho (indicada ao lado do nome do parceiro). Um personagem
-      s&oacute; pode montar uma montaria maior do que ele mesmo, e enquanto
-      estiver montado usa o tamanho da montaria para efeitos do espa&ccedil;o
-      que ocupa e para modificador de Furtividade.</p>
+      <p>&bull; Para usar um parceiro montaria voc&ecirc; precisa montar nele.
+      Para pass&aacute;-lo para outro aliado, precisa desmontar antes. Ambas
+      s&atilde;o a&ccedil;&otilde;es de movimento.</p>
 
-      <p style="text-align: justify;">&bull; O balan&ccedil;o da montaria em
-      movimento torna mais dif&iacute;cil atacar &agrave; dist&acirc;ncia
-      (&ndash;2 em testes de ataque) e conta como condi&ccedil;&atilde;o ruim
-      para lan&ccedil;ar magias. Se possuir o poder Ginete, voc&ecirc;
-      n&atilde;o sofre nenhuma dessas penalidades.</p>
+      <p>&bull; Uma vez montado, voc&ecirc; precisa gastar uma
+      a&ccedil;&atilde;o de movimento e fazer um teste de Cavalgar (CD 10) por
+      turno para guiar a montaria. Se passar, recebe os benef&iacute;cios dela.
+      Se falhar, perde a a&ccedil;&atilde;o de movimento. Se falhar por 5 ou
+      mais, cai da montaria e sofre 1d6 pontos de dano. Se for treinado em&nbsp;
+      avalgar,<br>voc&ecirc; recebe os b&ocirc;nus da montaria automaticamente,
+      sem precisar gastar a a&ccedil;&atilde;o ou fazer o teste.</p>
 
-      <p style="text-align: justify;">Montarias podem ser compradas ou recebidas
-      por habilidades. No primeiro caso, s&atilde;o sempre parceiros iniciantes.
-      No segundo, seu poder &eacute; definido pela habilidade em
-      quest&atilde;o.&nbsp;</p>
+      <p>&bull; Se voc&ecirc; sofrer dano, deve fazer um teste de Cavalgar (CD
+      igual ao dano). Se falhar, cai da montaria e sofre 1d6 pontos de dano. Se
+      possuir o poder Ginete, voc&ecirc; n&atilde;o precisa fazer esse
+      teste.</p>
+
+      <p>&bull; Cada parceiro montaria possui uma categoria de tamanho (indicada
+      ao lado do nome do parceiro). Um personagem s&oacute; pode montar uma
+      montaria maior do que ele mesmo, e enquanto estiver montado usa o tamanho
+      da montaria para efeitos do espa&ccedil;o que ocupa e para modificador de
+      Furtividade.</p>
+
+      <p>&bull; O balan&ccedil;o da montaria em movimento torna mais
+      dif&iacute;cil atacar &agrave; dist&acirc;ncia (&ndash;2 em testes de
+      ataque) e conta como condi&ccedil;&atilde;o ruim para lan&ccedil;ar
+      magias. Se possuir o poder Ginete, voc&ecirc; n&atilde;o sofre nenhuma
+      dessas penalidades.</p>
+
+      <p>Montarias podem ser compradas ou recebidas por habilidades. No primeiro
+      caso, s&atilde;o sempre parceiros iniciantes. No segundo, seu poder
+      &eacute; definido pela habilidade em quest&atilde;o.&nbsp;</p>
     unidentified: ''
   source: T20, pg. 262 (JdA)
   ativacao:

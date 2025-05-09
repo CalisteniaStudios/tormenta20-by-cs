@@ -109,25 +109,25 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma parede de ossos se eleva da terra. A
-      parede tem 15m de comprimento, 9m de altura e 1,5m de espessura. Ela pode
-      ter qualquer forma &mdash; n&atilde;o precisa ser uma linha reta &mdash;,
-      mas sua base precisa estar sempre tocando o solo. Quando a parede surge,
-      criaturas na &aacute;rea ocupada ou adjacentes sofrem 4d8 pontos de dano
-      de corte e precisam fazer um teste de Reflexos para n&atilde;o ficarem
-      presas no emaranhado de ossos. Uma criatura presa dessa maneira fica
+      <p>Uma parede de ossos se eleva da terra. A parede tem 15m de comprimento,
+      9m de altura e 1,5m de espessura. Ela pode ter qualquer forma &mdash;
+      n&atilde;o precisa ser uma linha reta &mdash;, mas sua base precisa estar
+      sempre tocando o solo. Quando a parede surge, criaturas na &aacute;rea
+      ocupada ou adjacentes sofrem 4d8 pontos de dano de corte e precisam fazer
+      um teste de Reflexos para n&atilde;o ficarem presas no emaranhado de
+      ossos. Uma criatura presa dessa maneira fica
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.TSRZ1cAIIIpsvOfK]{Agarrado},
       e pode usar uma a&ccedil;&atilde;o padr&atilde;o para fazer um teste de
       Atletismo (CD da magia) para se soltar. Se passar no teste, sai da muralha
       para um dos lados adjacentes. Se falhar, sofre 4d8 pontos de dano de
       corte.</p>
 
-      <p style="text-align: justify;">&Eacute; poss&iacute;vel destruir o muro
-      para atravess&aacute;-lo ou libertar uma criatura agarrada. Cada trecho de
-      3m do muro tem Defesa 8, 40 PV e redu&ccedil;&atilde;o de corte, frio e
-      perfura&ccedil;&atilde;o 10. Tamb&eacute;m &eacute; poss&iacute;vel
-      escalar a parede. Isso exige um teste de Atletismo (CD da magia) e causa
-      4d8 pontos de dano de corte para cada 3m escalados.</p>
+      <p>&Eacute; poss&iacute;vel destruir o muro para atravess&aacute;-lo ou
+      libertar uma criatura agarrada. Cada trecho de 3m do muro tem Defesa 8, 40
+      PV e redu&ccedil;&atilde;o de corte, frio e perfura&ccedil;&atilde;o 10.
+      Tamb&eacute;m &eacute; poss&iacute;vel escalar a parede. Isso exige um
+      teste de Atletismo (CD da magia) e causa 4d8 pontos de dano de corte para
+      cada 3m escalados.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 199 (JdA)

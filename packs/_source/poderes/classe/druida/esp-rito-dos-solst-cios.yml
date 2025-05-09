@@ -55,18 +55,15 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; transita entre os extremos do
-      mundo natural. Quando lan&ccedil;a uma magia, pode gastar +4 PM para
-      maximizar os efeitos num&eacute;ricos vari&aacute;veis dela. Por exemplo,
-      uma magia <em>Curar Ferimentos</em> aprimorada para curar 5d8+5 PV
-      ir&aacute; curar automaticamente 45 PV, sem a necessidade de rolar dados.
-      Uma magia sem efeitos vari&aacute;veis n&atilde;o pode ser afetada por
-      este poder.</p>
+      <p>Voc&ecirc; transita entre os extremos do mundo natural. Quando
+      lan&ccedil;a uma magia, pode gastar +4 PM para maximizar os efeitos
+      num&eacute;ricos vari&aacute;veis dela. Por exemplo, uma magia <em>Curar
+      Ferimentos</em> aprimorada para curar 5d8+5 PV ir&aacute; curar
+      automaticamente 45 PV, sem a necessidade de rolar dados. Uma magia sem
+      efeitos vari&aacute;veis n&atilde;o pode ser afetada por este poder.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Aspecto do
-      Inverno, Aspecto do Ver&atilde;o, 10&ordm; n&iacute;vel de druida.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisitos:</em> Aspecto do Inverno, Aspecto do
+      Ver&atilde;o, 10&ordm; n&iacute;vel de druida.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

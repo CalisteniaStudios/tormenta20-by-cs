@@ -255,19 +255,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa Raio Arcano, voc&ecirc; pode
-      pagar 1 PM para que ele cause dano de &aacute;cido, eletricidade, fogo,
-      frio ou trevas, a sua escolha. Se o alvo falhar no teste de Reflexos,
-      sofre uma condi&ccedil;&atilde;o, de acordo com o tipo de dano (veja a
-      descri&ccedil;&atilde;o das condi&ccedil;&otilde;es na p&aacute;gina 394).
-      &Aacute;cido: vulner&aacute;vel por 1 rodada. Eletricidade: ofuscado por 1
-      rodada. Fogo: fica em chamas. Frio: lento por 1 rodada. Trevas: n&atilde;o
-      pode curar PV por 1 rodada.</p>
+      <p>Quando usa Raio Arcano, voc&ecirc; pode pagar 1 PM para que ele cause
+      dano de &aacute;cido, eletricidade, fogo, frio ou trevas, a sua escolha.
+      Se o alvo falhar no teste de Reflexos, sofre uma condi&ccedil;&atilde;o,
+      de acordo com o tipo de dano (veja a descri&ccedil;&atilde;o das
+      condi&ccedil;&otilde;es na p&aacute;gina 394). &Aacute;cido:
+      vulner&aacute;vel por 1 rodada. Eletricidade: ofuscado por 1 rodada. Fogo:
+      fica em chamas. Frio: lento por 1 rodada. Trevas: n&atilde;o pode curar PV
+      por 1 rodada.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito: </em>Raio
-      Arcano.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisito: </em>Raio Arcano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

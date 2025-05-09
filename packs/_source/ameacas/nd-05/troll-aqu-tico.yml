@@ -400,10 +400,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O troll aqu&aacute;tico possui
-          deslocamento de nata&ccedil;&atilde;o 9m e pode respirar debaixo
-          d&rsquo;&aacute;gua. Entretanto, sofre &minus;2 em testes de ataque em
-          terra firme.</p>
+          <p>O troll aqu&aacute;tico possui deslocamento de
+          nata&ccedil;&atilde;o 9m e pode respirar debaixo d&rsquo;&aacute;gua.
+          Entretanto, sofre &minus;2 em testes de ataque em terra firme.</p>
         chat: ''
         unidentified: ''
       source: ''

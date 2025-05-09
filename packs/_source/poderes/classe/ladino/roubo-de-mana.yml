@@ -9,14 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; causa dano com um ataque
-      furtivo, para cada 1d6 de dano de seu ataque furtivo, voc&ecirc; recebe 1
-      PM tempor&aacute;rio e a criatura perde 1 ponto de mana (se tiver).
-      Voc&ecirc; s&oacute; pode usar este poder uma vez por cena contra uma
-      mesma criatura.</p>
+      <p>Quando voc&ecirc; causa dano com um ataque furtivo, para cada 1d6 de
+      dano de seu ataque furtivo, voc&ecirc; recebe 1 PM tempor&aacute;rio e a
+      criatura perde 1 ponto de mana (se tiver). Voc&ecirc; s&oacute; pode usar
+      este poder uma vez por cena contra uma mesma criatura.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> Truque
-      M&aacute;gico, 7&ordm; n&iacute;vel de ladino.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Truque M&aacute;gico, 7&ordm;
+      n&iacute;vel de ladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 74 (JdA)

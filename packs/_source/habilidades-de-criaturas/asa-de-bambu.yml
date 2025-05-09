@@ -46,8 +46,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O engenhoqueiro recebe deslocamento de voo
-      12m at&eacute; o fim da cena.</p>
+      <p>O engenhoqueiro recebe deslocamento de voo 12m at&eacute; o fim da
+      cena.</p>
     unidentified: ''
   source: T20, pg. 211 (JdA)
   ativacao:

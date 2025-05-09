@@ -55,18 +55,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa M&uacute;sica: Balada
-      Fascinante, voc&ecirc; pode gastar +2 PM. Se fizer isso, afeta todas as
-      criaturas a sua escolha no alcance da m&uacute;sica (voc&ecirc; faz um
-      &uacute;nico teste de Atua&ccedil;&atilde;o, oposto pelo teste de Vontade
-      de cada criatura).</p>
+      <p>Quando usa M&uacute;sica: Balada Fascinante, voc&ecirc; pode gastar +2
+      PM. Se fizer isso, afeta todas as criaturas a sua escolha no alcance da
+      m&uacute;sica (voc&ecirc; faz um &uacute;nico teste de
+      Atua&ccedil;&atilde;o, oposto pelo teste de Vontade de cada criatura).</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: M&uacute;sica:
-      Balada Fascinante.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Pr&eacute;-requisito: M&uacute;sica: Balada Fascinante.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 44 (JdA)

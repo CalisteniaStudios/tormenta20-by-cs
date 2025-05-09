@@ -49,11 +49,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu deslocamento n&atilde;o &eacute;
-      reduzido por usar armaduras pesadas.</p>
+      <p>Seu deslocamento n&atilde;o &eacute; reduzido por usar armaduras
+      pesadas.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em> 12&ordm;
-      n&iacute;vel de personagem, Encoura&ccedil;ado.</p>
+      <p><em>Pr&eacute;-requisitos:</em> 12&ordm; n&iacute;vel de personagem,
+      Encoura&ccedil;ado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 128 (JdA)

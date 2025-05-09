@@ -412,9 +412,8 @@ items:
       description:
         value: >-
           <section class="secret">Curar Ferimentos (Padrão, 10 PM) Uma criatura
-          adjacente cura 11d8+11 PV</section><p style="text-align:
-          justify;">Voc&ecirc; canaliza energia positiva que recupera 2d8+2
-          pontos de vida na criatura tocada.</p>
+          adjacente cura 11d8+11 PV</section><p>Voc&ecirc; canaliza energia
+          positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         unidentified: ''
       source: T20, pg. 189 (JdA)
       ativacao:
@@ -595,9 +594,9 @@ items:
         value: >-
           <section class="secret">Perdição (Padrão, 5 PM) Criaturas escolhidas
           em alcance curto sofrem -3 em testes de ataque e rolagens de dano até
-          o fim da cena</section><p style="text-align:
-          justify;">Amaldi&ccedil;oa os alvos, que recebem &ndash;1 em testes de
-          ataque e rolagens de dano. <em>Perdi&ccedil;&atilde;o</em> anula
+          o fim da cena</section><p>Amaldi&ccedil;oa os alvos, que recebem
+          &ndash;1 em testes de ataque e rolagens de dano.
+          <em>Perdi&ccedil;&atilde;o</em> anula
           <em>B&ecirc;n&ccedil;&atilde;o</em>.</p>
         unidentified: ''
       source: T20, pg. 201 (JdA)
@@ -872,12 +871,11 @@ items:
           <section class="secret">Potência Divina (Padrão, 10 PM, sustentada) O
           sacerdote se transforma em uma criatura Grande. Ele recebe Força +5,
           redução de dano 10 e os dados de dano de seus ataques se tornam d8,
-          mas ele não pode lançar magias</section><p style="text-align:
-          justify;">Voc&ecirc; canaliza o poder de sua divindade. Voc&ecirc;
-          aumenta uma categoria de tamanho (seu equipamento muda de acordo) e
-          recebe For&ccedil;a +4 e RD 10. Voc&ecirc; n&atilde;o pode
-          lan&ccedil;ar magias enquanto estiver sob efeito de Pot&ecirc;ncia
-          Divina.</p>
+          mas ele não pode lançar magias</section><p>Voc&ecirc; canaliza o poder
+          de sua divindade. Voc&ecirc; aumenta uma categoria de tamanho (seu
+          equipamento muda de acordo) e recebe For&ccedil;a +4 e RD 10.
+          Voc&ecirc; n&atilde;o pode lan&ccedil;ar magias enquanto estiver sob
+          efeito de Pot&ecirc;ncia Divina.</p>
         unidentified: ''
       source: T20, pg. 201 (JdA)
       ativacao:
@@ -1076,12 +1074,11 @@ items:
         value: >-
           <section class="secret">Silêncio (Padrão, 4 PM, sustentada) O
           sacerdote cria uma esfera com 3m de raio ao seu redor. Criaturas nessa
-          área ficam surdas e não podem lançar magias</section><p
-          style="text-align:justify;">Um silêncio sepulcral recai sobre a área e
-          nenhum som é produzido nela. Enquanto estiverem na área, todas as
-          criaturas ficam surdas. Além disso, como lançar magias exige palavras
-          mágicas, normalmente nenhuma magia pode ser lançada dentro da
-          área.</p>
+          área ficam surdas e não podem lançar magias</section><p>Um silêncio
+          sepulcral recai sobre a área e nenhum som é produzido nela. Enquanto
+          estiverem na área, todas as criaturas ficam surdas. Além disso, como
+          lançar magias exige palavras mágicas, normalmente nenhuma magia pode
+          ser lançada dentro da área.</p>
         unidentified: ''
       source: T20, pg. 206 (JdA)
       ativacao:
@@ -1222,11 +1219,11 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Corrente de espinhos</section><p
-          style="text-align:justify;">Esta arma pode ser usada para atacar
-          inimigos a até 4,5m e pode se enroscar nas mãos, pernas ou armas de
-          seus adversários. A corrente de espinhos é uma arma ágil, dupla e
-          versátil, fornecendo +2 em testes para derrubar ou desarmar.</p>
+          <section class="secret">Corrente de espinhos</section><p>Esta arma
+          pode ser usada para atacar inimigos a até 4,5m e pode se enroscar nas
+          mãos, pernas ou armas de seus adversários. A corrente de espinhos é
+          uma arma ágil, dupla e versátil, fornecendo +2 em testes para derrubar
+          ou desarmar.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 147 (JdA)

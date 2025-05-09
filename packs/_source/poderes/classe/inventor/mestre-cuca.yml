@@ -10,13 +10,11 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Todas as comidas que voc&ecirc; cozinha
-      t&ecirc;m seu b&ocirc;nus num&eacute;rico aumentado em +1.</p>
+      <p>Todas as comidas que voc&ecirc; cozinha t&ecirc;m seu b&ocirc;nus
+      num&eacute;rico aumentado em +1.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Of&iacute;cio (cozinheiro).</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Of&iacute;cio
+      (cozinheiro).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

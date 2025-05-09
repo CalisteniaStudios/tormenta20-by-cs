@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você tem 25% de chance (resultado "1" em
-      1d4) de ignorar o dano adicional de um acerto crítico ou ataque furtivo. A
-      chance aumenta em +25% para cada dois outros poderes da Tormenta que você
-      possui.</p>
+      <p>Você tem 25% de chance (resultado "1" em 1d4) de ignorar o dano
+      adicional de um acerto crítico ou ataque furtivo. A chance aumenta em +25%
+      para cada dois outros poderes da Tormenta que você possui.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

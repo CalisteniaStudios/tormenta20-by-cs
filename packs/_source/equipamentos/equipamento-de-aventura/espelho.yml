@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Al&eacute;m de garantir que voc&ecirc;
-      esteja apresent&aacute;vel, este pequeno espelho de metal polido possui
-      diversas utilidades, como observar cantos e fazer sinais de luz.</p>
+      <p>Al&eacute;m de garantir que voc&ecirc; esteja apresent&aacute;vel, este
+      pequeno espelho de metal polido possui diversas utilidades, como observar
+      cantos e fazer sinais de luz.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 155 (JdA)

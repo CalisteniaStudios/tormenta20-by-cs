@@ -59,9 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando usa a habilidade Marca da Presa,
-      seus ataques contra a criatura marcada recebem +2 na margem de ameaça.
-      Esse bônus dobra com a habilidade Inimigo.</p>
+      <p>Quando usa a habilidade Marca da Presa, seus ataques contra a criatura
+      marcada recebem +2 na margem de ameaça. Esse bônus dobra com a habilidade
+      Inimigo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

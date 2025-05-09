@@ -10,16 +10,15 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; fabrica um aut&ocirc;mato, um
-      construto que obedece a seus comandos. Ele &eacute; um parceiro iniciante
-      de um tipo a sua escolha entre ajudante, assassino, atirador, combatente,
-      guardi&atilde;o, montaria ou vigilante. No 7&ordm; n&iacute;vel, ele muda
-      para veterano e, no 15&ordm; n&iacute;vel, para mestre. Se o
-      aut&ocirc;mato for destru&iacute;do, voc&ecirc; pode fabricar um novo com
-      uma semana de trabalho e T$ 100.</p>
+      <p>Voc&ecirc; fabrica um aut&ocirc;mato, um construto que obedece a seus
+      comandos. Ele &eacute; um parceiro iniciante de um tipo a sua escolha
+      entre ajudante, assassino, atirador, combatente, guardi&atilde;o, montaria
+      ou vigilante. No 7&ordm; n&iacute;vel, ele muda para veterano e, no
+      15&ordm; n&iacute;vel, para mestre. Se o aut&ocirc;mato for
+      destru&iacute;do, voc&ecirc; pode fabricar um novo com uma semana de
+      trabalho e T$ 100.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      Engenhoqueiro.</p>
+      <p><em>Pr&eacute;-requisito:</em> Engenhoqueiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

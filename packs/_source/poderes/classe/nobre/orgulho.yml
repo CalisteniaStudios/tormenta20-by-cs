@@ -70,9 +70,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando faz um teste de perícia, você pode
-      gastar uma quantidade de PM a sua escolha (limitado pelo seu modificador
-      de Carisma). Para cada PM que gastar, recebe +2 no teste.</p>
+      <p>Quando faz um teste de perícia, você pode gastar uma quantidade de PM a
+      sua escolha (limitado pelo seu modificador de Carisma). Para cada PM que
+      gastar, recebe +2 no teste.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 79 (JdA)

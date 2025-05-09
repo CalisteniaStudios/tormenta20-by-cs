@@ -56,9 +56,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; considera a katana uma arma
-      simples e, se for proficiente em armas marciais, recebe +1 na margem de
-      amea&ccedil;a com ela.</p>
+      <p>Voc&ecirc; considera a katana uma arma simples e, se for proficiente em
+      armas marciais, recebe +1 na margem de amea&ccedil;a com ela.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 135 (JdA)

@@ -62,11 +62,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se voc&ecirc; errar um ataque desarmado,
-      recebe um b&ocirc;nus cumulativo de +2 em testes de ataque e rolagens de
-      dano desarmado contra o mesmo oponente. Os b&ocirc;nus terminam quando
-      voc&ecirc; acertar um ataque ou no fim da cena, o que acontecer
-      primeiro.</p>
+      <p>Se voc&ecirc; errar um ataque desarmado, recebe um b&ocirc;nus
+      cumulativo de +2 em testes de ataque e rolagens de dano desarmado contra o
+      mesmo oponente. Os b&ocirc;nus terminam quando voc&ecirc; acertar um
+      ataque ou no fim da cena, o que acontecer primeiro.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 76 (JdA)

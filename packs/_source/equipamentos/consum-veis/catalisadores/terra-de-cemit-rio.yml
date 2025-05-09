@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/terra-de-cemiterio.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um punhado de terra cinzenta, colhida
-      &agrave; noite de um cemit&eacute;rio. Adiciona +1d6 de dano de trevas a
-      magias.</p>
+      <p>Um punhado de terra cinzenta, colhida &agrave; noite de um
+      cemit&eacute;rio. Adiciona +1d6 de dano de trevas a magias.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

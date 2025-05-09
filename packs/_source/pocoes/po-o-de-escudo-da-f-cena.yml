@@ -100,8 +100,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Um escudo m&iacute;stico se manifesta
-      momentaneamente para bloquear um golpe. O alvo recebe +2 na Defesa.</p>
+      <p>Um escudo m&iacute;stico se manifesta momentaneamente para bloquear um
+      golpe. O alvo recebe +2 na Defesa.</p>
     unidentified: ''
   source: ''
   carregado: true

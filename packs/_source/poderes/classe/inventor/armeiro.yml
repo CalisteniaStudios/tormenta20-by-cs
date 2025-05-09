@@ -10,14 +10,13 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;"><span class="fontstyle0">Voc&ecirc; recebe
-      profici&ecirc;ncia com armas marciais corpo a corpo. Quando empunha uma
-      arma corpo a corpo, pode usar sua Intelig&ecirc;ncia em vez de
-      For&ccedil;a nos testes de ataque e rolagens de dano. </span></p>
+      <p><span>Voc&ecirc; recebe profici&ecirc;ncia com armas marciais corpo a
+      corpo. Quando empunha uma arma corpo a corpo, pode usar sua
+      Intelig&ecirc;ncia em vez de For&ccedil;a nos testes de ataque e rolagens
+      de dano. </span></p>
 
-      <p style="text-align: justify;"><span
-      class="fontstyle0"><em>Pr&eacute;-requisitos:</em> treinado em Luta e
-      Of&iacute;cio (armeiro).</span></p>
+      <p><span><em>Pr&eacute;-requisitos:</em> treinado em Luta e Of&iacute;cio
+      (armeiro).</span></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 68 (JdA)

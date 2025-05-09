@@ -8,9 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +1 PM a cada
-      n&iacute;vel &iacute;mpar.</p>
+    value: <p>Voc&ecirc; recebe +1 PM a cada n&iacute;vel &iacute;mpar.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

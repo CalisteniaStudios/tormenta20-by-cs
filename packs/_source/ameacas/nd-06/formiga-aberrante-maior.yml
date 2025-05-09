@@ -326,13 +326,13 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">2d4 PM (Vontade CD 22 evita).</p>
+          <p>2d4 PM (Vontade CD 22 evita).</p>
 
-          <p style="text-align: justify;">Uma criatura que veja um ou mais lefeu
-          deve fazer um teste de Vontade contra o lefeu de maior ND. Se falhar,
-          perde os PM indicados (+1 PM para cada lefeu al&eacute;m do primeiro).
-          Se for reduzida a 0 PM, fica confusa. Uma criatura s&oacute; &eacute;
-          afetada por esta habilidade uma vez por dia.</p>
+          <p>Uma criatura que veja um ou mais lefeu deve fazer um teste de
+          Vontade contra o lefeu de maior ND. Se falhar, perde os PM indicados
+          (+1 PM para cada lefeu al&eacute;m do primeiro). Se for reduzida a 0
+          PM, fica confusa. Uma criatura s&oacute; &eacute; afetada por esta
+          habilidade uma vez por dia.</p>
         chat: ''
         unidentified: ''
       source: ''
@@ -446,10 +446,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Dem&ocirc;nios Aberrantes s&atilde;o
-          imunes a acertos cr&iacute;ticos, &aacute;cido, cansa&ccedil;o,
-          eletricidade, fogo, frio, luz, paralisia, metabolismo, metamorfose,
-          trevas e veneno.</p>
+          <p>Dem&ocirc;nios Aberrantes s&atilde;o imunes a acertos
+          cr&iacute;ticos, &aacute;cido, cansa&ccedil;o, eletricidade, fogo,
+          frio, luz, paralisia, metabolismo, metamorfose, trevas e veneno.</p>
         unidentified: ''
       source: ''
       ativacao:

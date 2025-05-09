@@ -267,50 +267,45 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e 3PM para adquirir a forma de uma criatura
-      selvagem. Em termos de jogo, quando usa esta habilidade voc&ecirc; adquire
-      os modificadores de uma das formas abaixo. Caracter&iacute;sticas
-      n&atilde;o mencionadas n&atilde;o mudam.&nbsp;</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 3PM para
+      adquirir a forma de uma criatura selvagem. Em termos de jogo, quando usa
+      esta habilidade voc&ecirc; adquire os modificadores de uma das formas
+      abaixo. Caracter&iacute;sticas n&atilde;o mencionadas n&atilde;o
+      mudam.&nbsp;</p>
 
-      <p style="text-align: justify;">Na forma selvagem voc&ecirc; n&atilde;o
-      pode falar, empunhar itens ou lan&ccedil;ar magias. Seu equipamento
-      desaparece (mas voc&ecirc; mant&eacute;m os benef&iacute;cios de qualquer
-      itens vestidos), ressurgindo quando voc&ecirc; voltao ao normal. Outras
-      criaturas podem fazer um teste de percep&ccedil;&atilde;o oposto pelo seu
-      teste de Engana&ccedil;&atilde;o para perceber que voc&ecirc; n&atilde;o
-      &eacute; um animal comum (Voc&ecirc; recebe +10 no teste). Cada
+      <p>Na forma selvagem voc&ecirc; n&atilde;o pode falar, empunhar itens ou
+      lan&ccedil;ar magias. Seu equipamento desaparece (mas voc&ecirc;
+      mant&eacute;m os benef&iacute;cios de qualquer itens vestidos),
+      ressurgindo quando voc&ecirc; voltao ao normal. Outras criaturas podem
+      fazer um teste de percep&ccedil;&atilde;o oposto pelo seu teste de
+      Engana&ccedil;&atilde;o para perceber que voc&ecirc; n&atilde;o &eacute;
+      um animal comum (Voc&ecirc; recebe +10 no teste). Cada
       transforma&ccedil;&atilde;o dura pelo tempo que voc&ecirc; quiser, mas
       voc&ecirc; reverte &agrave; forma normal se ficar inconsciente ou
       morrer.&nbsp;</p>
 
       <ul>
 
-      <li style="text-align: justify;"><strong>Forma &Aacute;gil</strong>:
-      Voc&ecirc; recebe Destreza +2 e duas armas naturais que causam 1d6 pontos
-      de dano e tem margem de amea&ccedil;a 19. Se atacar com ambas, sofre -2 em
-      todos os seus testes de ataque at&eacute; o seu pr&oacute;ximo
-      turno.&nbsp;</li>
+      <li><strong>Forma &Aacute;gil</strong>: Voc&ecirc; recebe Destreza +2 e
+      duas armas naturais que causam 1d6 pontos de dano e tem margem de
+      amea&ccedil;a 19. Se atacar com ambas, sofre -2 em todos os seus testes de
+      ataque at&eacute; o seu pr&oacute;ximo turno.&nbsp;</li>
 
-      <li style="text-align: justify;"><strong>Forma
-      Feroz:&nbsp;</strong>Voc&ecirc; recebe For&ccedil;a +3, +2 na Defesa e uma
-      arma natural que causa 1d8 pontos de dano.&nbsp;</li>
+      <li><strong>Forma Feroz:&nbsp;</strong>Voc&ecirc; recebe For&ccedil;a +3,
+      +2 na Defesa e uma arma natural que causa 1d8 pontos de dano.&nbsp;</li>
 
-      <li style="text-align: justify;"><strong>Forma
-      Resistente:&nbsp;</strong>Voc&ecirc; recebe +5 na Defesa,
-      Redu&ccedil;&atilde;o de dano 5 e uma arma natural que causa 1d6 pontos de
-      dano.&nbsp;</li>
+      <li><strong>Forma Resistente:&nbsp;</strong>Voc&ecirc; recebe +5 na
+      Defesa, Redu&ccedil;&atilde;o de dano 5 e uma arma natural que causa 1d6
+      pontos de dano.&nbsp;</li>
 
-      <li style="text-align: justify;"><strong>Forma
-      Sorrateira:&nbsp;</strong>Voc&ecirc; recebe Destreza +2 e uma arma natural
-      que causa 1d4 pontos de dano. Seu tamanho muda para Pequeno (+2 em
-      furtividade, -2 em testes de manobra).</li>
+      <li><strong>Forma Sorrateira:&nbsp;</strong>Voc&ecirc; recebe Destreza +2
+      e uma arma natural que causa 1d4 pontos de dano. Seu tamanho muda para
+      Pequeno (+2 em furtividade, -2 em testes de manobra).</li>
 
-      <li style="text-align: justify;"><strong>Forma
-      Veloz:&nbsp;</strong>Voc&ecirc; recebe Destreza +2, uma arma natural que
-      causa 1d6 pontos de dano e um dos benef&iacute;cios a seguir: deslocamento
-      15m, deslocamento de escalada 9m ou deslocamento de nata&ccedil;&atilde;o
-      9m.&nbsp;</li>
+      <li><strong>Forma Veloz:&nbsp;</strong>Voc&ecirc; recebe Destreza +2, uma
+      arma natural que causa 1d6 pontos de dano e um dos benef&iacute;cios a
+      seguir: deslocamento 15m, deslocamento de escalada 9m ou deslocamento de
+      nata&ccedil;&atilde;o 9m.&nbsp;</li>
 
       </ul>
     chat: ''

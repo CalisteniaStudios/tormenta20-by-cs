@@ -57,18 +57,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; &eacute; um arquivo vivo de
-      relatos, can&ccedil;&otilde;es e folclore. Al&eacute;m de outros
-      benef&iacute;cios a crit&eacute;rio do mestre, voc&ecirc; pode gastar 1 PM
-      para rolar novamente um teste rec&eacute;m realizado de Conhecimento,
-      Misticismo, Nobreza ou Religi&atilde;o para informa&ccedil;&atilde;o,
-      identificar criaturas ou identificar itens m&aacute;gicos.</p>
+      <p>Voc&ecirc; &eacute; um arquivo vivo de relatos, can&ccedil;&otilde;es e
+      folclore. Al&eacute;m de outros benef&iacute;cios a crit&eacute;rio do
+      mestre, voc&ecirc; pode gastar 1 PM para rolar novamente um teste
+      rec&eacute;m realizado de Conhecimento, Misticismo, Nobreza ou
+      Religi&atilde;o para informa&ccedil;&atilde;o, identificar criaturas ou
+      identificar itens m&aacute;gicos.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Int 1.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p><em>Pr&eacute;-requisito:</em> Int 1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

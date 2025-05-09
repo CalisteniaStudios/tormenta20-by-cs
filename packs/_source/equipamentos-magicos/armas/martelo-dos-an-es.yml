@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este martelo de guerra formidável é feito
-      de pedra e aço. Quando empunhado por um anão, adquire o encanto arremesso
-      e aumenta seu dano em +[[/r 1d8]] (ou +[[/r 2d8]] se usada contra
-      criaturas Grandes ou maiores).</p>
+      <p>Este martelo de guerra formidável é feito de pedra e aço. Quando
+      empunhado por um anão, adquire o encanto arremesso e aumenta seu dano em
+      +[[/r 1d8]] (ou +[[/r 2d8]] se usada contra criaturas Grandes ou
+      maiores).</p>
     chat: ''
     unidentified: ''
   source: ''

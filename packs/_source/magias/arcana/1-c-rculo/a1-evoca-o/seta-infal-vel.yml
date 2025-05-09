@@ -207,13 +207,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Favorita entre arcanistas iniciantes, esta
-      magia lan&ccedil;a duas setas de energia que causam 1d4+1 pontos de dano
-      de ess&ecirc;ncia cada. Voc&ecirc; pode lan&ccedil;ar as setas em alvos
-      diferentes ou concentr&aacute;-las num mesmo alvo. Caso voc&ecirc; possua
-      um b&ocirc;nus no dano de magias, como pelo poder Arcano de Batalha, ele
-      &eacute; aplicado em apenas uma seta (o b&ocirc;nus vale para a magia,
-      n&atilde;o cada alvo).</p>
+      <p>Favorita entre arcanistas iniciantes, esta magia lan&ccedil;a duas
+      setas de energia que causam 1d4+1 pontos de dano de ess&ecirc;ncia cada.
+      Voc&ecirc; pode lan&ccedil;ar as setas em alvos diferentes ou
+      concentr&aacute;-las num mesmo alvo. Caso voc&ecirc; possua um b&ocirc;nus
+      no dano de magias, como pelo poder Arcano de Batalha, ele &eacute;
+      aplicado em apenas uma seta (o b&ocirc;nus vale para a magia, n&atilde;o
+      cada alvo).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 206 (JdA)

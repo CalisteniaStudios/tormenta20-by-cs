@@ -9,12 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode se comunicar com animais
-      por meio de linguagem corporal e vocaliza&ccedil;&otilde;es. Voc&ecirc;
-      pode usar Adestramento com animais para mudar atitude e persuas&atilde;o
-      (veja Diplomacia, na p&aacute;gina 118).</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; pode se comunicar com animais por meio de linguagem corporal
+      e vocaliza&ccedil;&otilde;es. Voc&ecirc; pode usar Adestramento com
+      animais para mudar atitude e persuas&atilde;o (veja Diplomacia, na
+      p&aacute;gina 118).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

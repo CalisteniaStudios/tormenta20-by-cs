@@ -59,9 +59,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 5&ordm; n&iacute;vel, voc&ecirc; acerta
-      onde d&oacute;i. Sua margem de amea&ccedil;a com ataques desarmados
-      aumenta em +1.</p>
+      <p>No 5&ordm; n&iacute;vel, voc&ecirc; acerta onde d&oacute;i. Sua margem
+      de amea&ccedil;a com ataques desarmados aumenta em +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

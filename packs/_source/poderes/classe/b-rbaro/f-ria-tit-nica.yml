@@ -71,10 +71,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">No 20&ordm; n&iacute;vel, o b&ocirc;nus
-      que voc&ecirc; recebe nos testes de ataque e rolagens de dano quando usa
-      F&uacute;ria &eacute; dobrado. Por exemplo, se gastar 5 PM, em vez de um
-      b&ocirc;nus de +5, recebe um b&ocirc;nus de +10.</p>
+      <p>No 20&ordm; n&iacute;vel, o b&ocirc;nus que voc&ecirc; recebe nos
+      testes de ataque e rolagens de dano quando usa F&uacute;ria &eacute;
+      dobrado. Por exemplo, se gastar 5 PM, em vez de um b&ocirc;nus de +5,
+      recebe um b&ocirc;nus de +10.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

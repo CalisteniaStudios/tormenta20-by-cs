@@ -103,29 +103,24 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Ao assumir esta postura, voc&ecirc;
-      aumenta o b&ocirc;nus de ataque em investidas em +2. Para cada 2 PM
-      adicionais que gastar quando assumir a postura, aumenta o b&ocirc;nus de
-      ataque em +1. Al&eacute;m disso, se fizer uma investida contra um
-      construto ou objeto, causa +2d8 de dano. Voc&ecirc; precisa se deslocar
-      todos os turnos para manter esta postura ativa.</p>
+      <p>Ao assumir esta postura, voc&ecirc; aumenta o b&ocirc;nus de ataque em
+      investidas em +2. Para cada 2 PM adicionais que gastar quando assumir a
+      postura, aumenta o b&ocirc;nus de ataque em +1. Al&eacute;m disso, se
+      fizer uma investida contra um construto ou objeto, causa +2d8 de dano.
+      Voc&ecirc; precisa se deslocar todos os turnos para manter esta postura
+      ativa.</p>
 
-      <p style="text-align: justify;"><strong>Posturas de Combate</strong></p>
+      <p><strong>Posturas de Combate</strong></p>
 
-      <p style="text-align: justify;">Posturas de Combate compartilham as
-      seguintes regras.</p>
+      <p>Posturas de Combate compartilham as seguintes regras.</p>
 
-      <p style="text-align: justify;">&bull; Assumir uma postura gasta uma
-      a&ccedil;&atilde;o de movimento e 2 PM.</p>
+      <p>&bull; Assumir uma postura gasta uma a&ccedil;&atilde;o de movimento e
+      2 PM.</p>
 
-      <p style="text-align: justify;">&bull; Os efeitos de uma postura duram
-      at&eacute; o final da cena, a menos que sua descri&ccedil;&atilde;o diga o
-      contr&aacute;rio.</p>
+      <p>&bull; Os efeitos de uma postura duram at&eacute; o final da cena, a
+      menos que sua descri&ccedil;&atilde;o diga o contr&aacute;rio.</p>
 
-      <p style="text-align: justify;">&bull; Voc&ecirc; s&oacute; pode manter
-      uma postura por vez.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>&bull; Voc&ecirc; s&oacute; pode manter uma postura por vez.</p>
     chat: ''
     unidentified: ''
   source: Tormenta 20 Básico - Edição do Ano, pág. 54

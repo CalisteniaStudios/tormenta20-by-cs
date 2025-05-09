@@ -49,10 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode gastar 1 PM para cobrir suas mãos
-      com uma carapaça rubra. Até o final da cena, você recebe +1 em Luta. Este
-      bônus aumenta em +1 para cada dois outros poderes da Tormenta que você
-      possui.</p>
+      <p>Você pode gastar 1 PM para cobrir suas mãos com uma carapaça rubra. Até
+      o final da cena, você recebe +1 em Luta. Este bônus aumenta em +1 para
+      cada dois outros poderes da Tormenta que você possui.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 137 (JdA)

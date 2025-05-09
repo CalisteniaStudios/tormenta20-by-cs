@@ -58,9 +58,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando faz a ação investida, você pode
-      gastar 2 PM. Se fizer isso, causa +2d8 pontos de dano. Você deve usar esta
-      habilidade antes de rolar o ataque.</p>
+      <p>Quando faz a ação investida, você pode gastar 2 PM. Se fizer isso,
+      causa +2d8 pontos de dano. Você deve usar esta habilidade antes de rolar o
+      ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 54 (JdA)

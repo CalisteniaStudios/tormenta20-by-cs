@@ -6,11 +6,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando passa em um teste de
-      resist&ecirc;ncia para resistir a uma habilidade m&aacute;gica, voc&ecirc;
-      recebe 1 PM tempor&aacute;rio cumulativo. Voc&ecirc; pode ganhar um
-      m&aacute;ximo de PM tempor&aacute;rio por cena desta forma igual ao
-      n&uacute;mero de poderes de Tormenta que possui.&nbsp;</p>
+      <p>Quando passa em um teste de resist&ecirc;ncia para resistir a uma
+      habilidade m&aacute;gica, voc&ecirc; recebe 1 PM tempor&aacute;rio
+      cumulativo. Voc&ecirc; pode ganhar um m&aacute;ximo de PM
+      tempor&aacute;rio por cena desta forma igual ao n&uacute;mero de poderes
+      de Tormenta que possui.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20 - JdA, PG.137

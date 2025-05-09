@@ -60,9 +60,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; odeia magia, o que faz com que
-      seja mais resistente a ela. Voc&ecirc; recebe resist&ecirc;ncia a magia
-      +5.</p>
+      <p>Voc&ecirc; odeia magia, o que faz com que seja mais resistente a ela.
+      Voc&ecirc; recebe resist&ecirc;ncia a magia +5.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

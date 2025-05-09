@@ -210,11 +210,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; canaliza o poder de sua
-      divindade. Voc&ecirc; aumenta uma categoria de tamanho (seu equipamento
-      muda de acordo) e recebe For&ccedil;a +4 e RD 10. Voc&ecirc; n&atilde;o
-      pode lan&ccedil;ar magias enquanto estiver sob efeito de Pot&ecirc;ncia
-      Divina.</p>
+      <p>Voc&ecirc; canaliza o poder de sua divindade. Voc&ecirc; aumenta uma
+      categoria de tamanho (seu equipamento muda de acordo) e recebe
+      For&ccedil;a +4 e RD 10. Voc&ecirc; n&atilde;o pode lan&ccedil;ar magias
+      enquanto estiver sob efeito de Pot&ecirc;ncia Divina.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 201 (JdA)

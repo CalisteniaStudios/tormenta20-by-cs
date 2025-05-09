@@ -50,12 +50,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma sua Intelig&ecirc;ncia no
-      limite de espa&ccedil;os que pode carregar. Para voc&ecirc;, itens muito
-      leves ou pequenos, que normalmente ocupam meio espa&ccedil;o, em vez disso
-      ocupam 1/4 de espa&ccedil;o.</p>
+      <p>Voc&ecirc; soma sua Intelig&ecirc;ncia no limite de espa&ccedil;os que
+      pode carregar. Para voc&ecirc;, itens muito leves ou pequenos, que
+      normalmente ocupam meio espa&ccedil;o, em vez disso ocupam 1/4 de
+      espa&ccedil;o.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Int 1.&nbsp;</p>
+      <p>Pr&eacute;-requisito: Int 1.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 130 (JdA)

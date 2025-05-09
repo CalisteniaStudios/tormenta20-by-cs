@@ -4,10 +4,10 @@ img: systems/tormenta20/icons/itens/gerais/sopa-peixe.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um cozido de peixe com verduras. &Eacute;
-      um prato humilde, mas garante um descanso relaxante. Em sua pr&oacute;xima
-      noite de sono, voc&ecirc; aumenta a sua recupera&ccedil;&atilde;o de
-      pontos de mana em +1 por n&iacute;vel.</p>
+      <p>Um cozido de peixe com verduras. &Eacute; um prato humilde, mas garante
+      um descanso relaxante. Em sua pr&oacute;xima noite de sono, voc&ecirc;
+      aumenta a sua recupera&ccedil;&atilde;o de pontos de mana em +1 por
+      n&iacute;vel.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 162 (JdA)

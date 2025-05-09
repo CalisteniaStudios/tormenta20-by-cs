@@ -59,9 +59,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; n&atilde;o sofre penalidades em
-      testes de per&iacute;cia por n&atilde;o usar ferramentas. Se usar a
-      ferramenta necess&aacute;ria, recebe +2 no teste de per&iacute;cia.</p>
+      <p>Voc&ecirc; n&atilde;o sofre penalidades em testes de per&iacute;cia por
+      n&atilde;o usar ferramentas. Se usar a ferramenta necess&aacute;ria,
+      recebe +2 no teste de per&iacute;cia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 23 (JdA)

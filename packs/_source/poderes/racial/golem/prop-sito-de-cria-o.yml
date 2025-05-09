@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; foi contru&iacute;do "pronto"
-      para um prop&oacute;sito espec&iacute;fico e n&atilde;o teve uma
-      inf&acirc;ncia. Voc&ecirc; n&atilde;o tem direito a escolher uma origem,
-      mas recebe um poder geral a sua escolha.&nbsp;</p>
+      <p>Voc&ecirc; foi contru&iacute;do "pronto" para um prop&oacute;sito
+      espec&iacute;fico e n&atilde;o teve uma inf&acirc;ncia. Voc&ecirc;
+      n&atilde;o tem direito a escolher uma origem, mas recebe um poder geral a
+      sua escolha.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 27 (JdA)

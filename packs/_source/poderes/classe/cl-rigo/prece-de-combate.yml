@@ -54,9 +54,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Quando lança uma magia divina com tempo de
-      conjuração de uma ação padrão em si mesmo, você pode gastar +2 PM para
-      lançá-la como uma ação de movimento.</p>
+      <p>Quando lança uma magia divina com tempo de conjuração de uma ação
+      padrão em si mesmo, você pode gastar +2 PM para lançá-la como uma ação de
+      movimento.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 58 (JdA)

@@ -59,14 +59,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 1 PM para somar seu
-      n&iacute;vel em um teste de For&ccedil;a ou Atletismo. Voc&ecirc; pode
-      usar esta habilidade depois de rolar o dado, mas deve us&aacute;-la antes
-      de o mestre dizer se voc&ecirc; passou ou n&atilde;o.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; pode gastar 1 PM para somar seu n&iacute;vel em um teste de
+      For&ccedil;a ou Atletismo. Voc&ecirc; pode usar esta habilidade depois de
+      rolar o dado, mas deve us&aacute;-la antes de o mestre dizer se voc&ecirc;
+      passou ou n&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 42 (JdA)

@@ -185,11 +185,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe deslocamento de voo 12m.
-      Voar por meio desta magia &eacute; simples como andar &mdash; voc&ecirc;
-      pode atacar e lan&ccedil;ar magias normalmente enquanto voa. Quando a
-      magia termina, voc&ecirc; desce lentamente at&eacute; o ch&atilde;o, como
-      se estivesse sob efeito de <em>Queda Suave</em>.</p>
+      <p>Voc&ecirc; recebe deslocamento de voo 12m. Voar por meio desta magia
+      &eacute; simples como andar &mdash; voc&ecirc; pode atacar e lan&ccedil;ar
+      magias normalmente enquanto voa. Quando a magia termina, voc&ecirc; desce
+      lentamente at&eacute; o ch&atilde;o, como se estivesse sob efeito de
+      <em>Queda Suave</em>.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 211 (JdA)

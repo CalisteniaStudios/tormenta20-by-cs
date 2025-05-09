@@ -9,13 +9,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando voc&ecirc; usa o poder
-      Estrategista, os aliados direcionados recebem 1d4 PM tempor&aacute;rios.
-      Esses PM duram at&eacute; o fim do turno do aliado e n&atilde;o podem ser
-      usados em efeitos que concedam PM.</p>
+      <p>Quando voc&ecirc; usa o poder Estrategista, os aliados direcionados
+      recebem 1d4 PM tempor&aacute;rios. Esses PM duram at&eacute; o fim do
+      turno do aliado e n&atilde;o podem ser usados em efeitos que concedam
+      PM.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em>
-      Estrategista, 12&ordm; n&iacute;vel de nobre.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Estrategista, 12&ordm; n&iacute;vel de
+      nobre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 79 (JdA)

@@ -90,15 +90,13 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma hora e 2 PM
-      para fazer a manuten&ccedil;&atilde;o do equipamento de seu grupo. Cada
-      membro do grupo escolhe uma arma, armadura ou escudo para
-      manuten&ccedil;&atilde;o. Armas recebem +1 em testes de ataque, armaduras
-      e escudos aumentam seu b&ocirc;nus na Defesa em +1. Os benef&iacute;cios
-      duram um dia.</p>
+      <p>Voc&ecirc; pode gastar uma hora e 2 PM para fazer a
+      manuten&ccedil;&atilde;o do equipamento de seu grupo. Cada membro do grupo
+      escolhe uma arma, armadura ou escudo para manuten&ccedil;&atilde;o. Armas
+      recebem +1 em testes de ataque, armaduras e escudos aumentam seu
+      b&ocirc;nus na Defesa em +1. Os benef&iacute;cios duram um dia.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> treinado em
-      Of&iacute;cio (armeiro).</p>
+      <p><em>Pr&eacute;-requisito:</em> treinado em Of&iacute;cio (armeiro).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 70 (JdA)

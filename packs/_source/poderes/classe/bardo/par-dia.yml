@@ -9,15 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando v&ecirc; outra
-      criatura lan&ccedil;ando uma magia em alcance m&eacute;dio, voc&ecirc;
-      pode pagar 1 PM e fazer um teste de Atua&ccedil;&atilde;o (CD 15 + custo
-      em PM da magia). Se passar, at&eacute; o final de seu pr&oacute;ximo turno
-      voc&ecirc; pode lan&ccedil;ar essa magia.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Uma vez por rodada, quando v&ecirc; outra criatura lan&ccedil;ando uma
+      magia em alcance m&eacute;dio, voc&ecirc; pode pagar 1 PM e fazer um teste
+      de Atua&ccedil;&atilde;o (CD 15 + custo em PM da magia). Se passar,
+      at&eacute; o final de seu pr&oacute;ximo turno voc&ecirc; pode
+      lan&ccedil;ar essa magia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 45 (JdA)

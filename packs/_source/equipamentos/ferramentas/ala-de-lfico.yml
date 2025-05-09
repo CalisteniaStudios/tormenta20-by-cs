@@ -4,11 +4,11 @@ img: systems/tormenta20/icons/itens/gerais/alaude-elfico.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Feito com madeira de alta qualidade e
-      manufatura delicada, este ala&uacute;de gera notas v&iacute;vidas e
-      emocionantes. Enquanto empunha este item, voc&ecirc; pode usar a
-      habilidade Inspira&ccedil;&atilde;o como uma a&ccedil;&atilde;o de
-      movimento. Conta como um instrumento musical.</p>
+      <p>Feito com madeira de alta qualidade e manufatura delicada, este
+      ala&uacute;de gera notas v&iacute;vidas e emocionantes. Enquanto empunha
+      este item, voc&ecirc; pode usar a habilidade Inspira&ccedil;&atilde;o como
+      uma a&ccedil;&atilde;o de movimento. Conta como um instrumento
+      musical.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 158 (JdA)

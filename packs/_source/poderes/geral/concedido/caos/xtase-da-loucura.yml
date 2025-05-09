@@ -6,11 +6,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Toda vez que uma ou mais criaturas falham
-      em um teste de Vontade contra uma de suas habilidades m&aacute;gicas,
-      voc&ecirc; recebe 1 PM tempor&aacute;rio cumulativo. Voc&ecirc; pode
-      ganhar um m&aacute;ximo de PM tempor&aacute;rios por cena desta forma
-      igual a sua Sabedoria.</p>
+      <p>Toda vez que uma ou mais criaturas falham em um teste de Vontade contra
+      uma de suas habilidades m&aacute;gicas, voc&ecirc; recebe 1 PM
+      tempor&aacute;rio cumulativo. Voc&ecirc; pode ganhar um m&aacute;ximo de
+      PM tempor&aacute;rios por cena desta forma igual a sua Sabedoria.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 133 (JdA)

@@ -60,11 +60,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um teste de per&iacute;cia,
-      voc&ecirc; pode gastar 2 PM para somar sua Intelig&ecirc;ncia no teste.
-      Voc&ecirc; n&atilde;o pode usar esta habilidade em testes de ataque. Caso
-      receba esta habilidade novamente, seu custo &eacute; reduzido em -1
-      PM.&nbsp;</p>
+      <p>Quando faz um teste de per&iacute;cia, voc&ecirc; pode gastar 2 PM para
+      somar sua Intelig&ecirc;ncia no teste. Voc&ecirc; n&atilde;o pode usar
+      esta habilidade em testes de ataque. Caso receba esta habilidade
+      novamente, seu custo &eacute; reduzido em -1 PM.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 28 (JdA)

@@ -51,11 +51,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este tomo volumoso descreve
-      exerc&iacute;cios de coordena&ccedil;&atilde;o e equil&iacute;brio, mas
-      mesclado &agrave;s palavras h&aacute; um poderoso efeito m&aacute;gico.
-      Funciona como um Manual do Bom Exerc&iacute;cio, mas fornece +1 de
-      Destreza.</p>
+      <p>Este tomo volumoso descreve exerc&iacute;cios de
+      coordena&ccedil;&atilde;o e equil&iacute;brio, mas mesclado &agrave;s
+      palavras h&aacute; um poderoso efeito m&aacute;gico. Funciona como um
+      Manual do Bom Exerc&iacute;cio, mas fornece +1 de Destreza.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

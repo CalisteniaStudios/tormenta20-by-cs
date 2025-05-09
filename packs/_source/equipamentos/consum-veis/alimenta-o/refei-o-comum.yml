@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma refei&ccedil;&atilde;o t&iacute;pica
-      inclui p&atilde;o, queijo, cozido de carne ou galinha com legumes e uma
-      caneca de bebida</p>
+      <p>Uma refei&ccedil;&atilde;o t&iacute;pica inclui p&atilde;o, queijo,
+      cozido de carne ou galinha com legumes e uma caneca de bebida</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 162 (JdA)

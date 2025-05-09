@@ -118,11 +118,10 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Maça</section><p
-          style="text-align:justify;">Bastão com um peso cheio de protuberâncias
-          na ponta, a maça é usada por clérigos que fazem votos de não derramar
-          sangue. De fato, um golpe de maça nem sempre derrama sangue, mas
-          esmaga ossos.</p>
+          <section class="secret">Maça</section><p>Bastão com um peso cheio de
+          protuberâncias na ponta, a maça é usada por clérigos que fazem votos
+          de não derramar sangue. De fato, um golpe de maça nem sempre derrama
+          sangue, mas esmaga ossos.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)
@@ -251,9 +250,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;">Longa veste de anéis metálicos
-          interligados, formando uma malha flexível e resistente, que vai até os
-          joelhos.</p>
+          <p>Longa veste de anéis metálicos interligados, formando uma malha
+          flexível e resistente, que vai até os joelhos.</p>
         unidentified: ''
       source: T20, pg. 154 (JdA)
       equipado: true
@@ -318,10 +316,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma aljava com 20 setas de madeira.
-          Recarregar uma besta leve &eacute; uma a&ccedil;&atilde;o de
-          movimento; j&aacute; recarregar uma besta pesada &eacute; uma
-          a&ccedil;&atilde;o padr&atilde;o.</p>
+          <p>Uma aljava com 20 setas de madeira. Recarregar uma besta leve
+          &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma
+          besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
       source: T20, pg. 151 (JdA)
       carregado: true
@@ -450,10 +447,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Um arco montado sobre uma coronha de
-          madeira com um gatilho, a besta leve &eacute; uma arma que dispara
-          virotes com grande pot&ecirc;ncia. Recarregar uma besta leve &eacute;
-          uma a&ccedil;&atilde;o de movimento.</p>
+          <p>Um arco montado sobre uma coronha de madeira com um gatilho, a
+          besta leve &eacute; uma arma que dispara virotes com grande
+          pot&ecirc;ncia. Recarregar uma besta leve &eacute; uma
+          a&ccedil;&atilde;o de movimento.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 146 (JdA)
@@ -579,9 +576,8 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align:justify;"><strong>[Item de
-          Origem]</strong>&nbsp;<br /><br /><br /><br /><br /><br /><br /><br
-          /><br /><br /></p>
+          <p><strong>[Item de Origem]</strong>&nbsp;<br /><br /><br /><br /><br
+          /><br /><br /><br /><br /><br /></p>
         unidentified: ''
       source: ''
       carregado: true

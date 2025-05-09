@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar 2 PM para gerar uma
-      aura de medo de 9m de raio e dura&ccedil;&atilde;o at&eacute; o fim da
-      cena. Todos os inimigos que entrem na aura devem fazer um teste de Vontade
-      (CD Car) ou ficam abalados at&eacute; o fim da cena. Uma criatura que
-      passe no teste de Vontade fica imune a esta habilidade por um dia.</p>
+      <p>Voc&ecirc; pode gastar 2 PM para gerar uma aura de medo de 9m de raio e
+      dura&ccedil;&atilde;o at&eacute; o fim da cena. Todos os inimigos que
+      entrem na aura devem fazer um teste de Vontade (CD Car) ou ficam abalados
+      at&eacute; o fim da cena. Uma criatura que passe no teste de Vontade fica
+      imune a esta habilidade por um dia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

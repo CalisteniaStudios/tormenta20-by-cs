@@ -218,9 +218,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Machado de guerra x2</section><p
-          style="text-align:justify;">Este imenso machado com lâmina dupla é uma
-          das armas mais perigosas que existem.</p>
+          <section class="secret">Machado de guerra x2</section><p>Este imenso
+          machado com lâmina dupla é uma das armas mais perigosas que
+          existem.</p>
         chat: ''
         unidentified: ''
       source: T20, pg. 149 (JdA)

@@ -734,12 +734,12 @@ items:
       description:
         value: >-
           <section class="secret">Campo de Força (Reação, 7 PM) Quando sofre
-          dano, o dragão recebe redução de dano 50 contra este dano</section><p
-          style="text-align: justify;">Esta magia cria uma pel&iacute;cula
-          protetora sobre voc&ecirc;. Voc&ecirc; recebe 30 PV
-          tempor&aacute;rios, mas apenas contra dano de corte, impacto ou
-          perfura&ccedil;&atilde;o (esses PV n&atilde;o impedem que voc&ecirc;
-          fique inconsciente, comece a sangrar, morra...).</p>
+          dano, o dragão recebe redução de dano 50 contra este
+          dano</section><p>Esta magia cria uma pel&iacute;cula protetora sobre
+          voc&ecirc;. Voc&ecirc; recebe 30 PV tempor&aacute;rios, mas apenas
+          contra dano de corte, impacto ou perfura&ccedil;&atilde;o (esses PV
+          n&atilde;o impedem que voc&ecirc; fique inconsciente, comece a
+          sangrar, morra...).</p>
         unidentified: ''
       source: T20, pg. 183 (JdA)
       ativacao:
@@ -894,39 +894,37 @@ items:
         value: >-
           <section class="secret">Controlar a Gravidade (Padrão, 10 PM,
           sustentada) O dragão controla os efeitos da gravidade em um cubo de
-          12m de lado em alcance médio (veja página 186)</section><p
-          style="text-align: justify;">Voc&ecirc; controla os efeitos da
-          gravidade dentro da &aacute;rea. Ao lan&ccedil;ar a magia, escolha um
-          dos efeitos abaixo. Enquanto a magia durar, voc&ecirc; pode usar uma
-          a&ccedil;&atilde;o padr&atilde;o para mudar o efeito.</p>
+          12m de lado em alcance médio (veja página 186)</section><p>Voc&ecirc;
+          controla os efeitos da gravidade dentro da &aacute;rea. Ao
+          lan&ccedil;ar a magia, escolha um dos efeitos abaixo. Enquanto a magia
+          durar, voc&ecirc; pode usar uma a&ccedil;&atilde;o padr&atilde;o para
+          mudar o efeito.</p>
 
-          <p style="text-align: justify;"><em>Aumentar:</em> a gravidade fica
-          mais forte. No in&iacute;cio de seus turnos, cada criatura na
-          &aacute;rea deve fazer um teste de Atletismo. Se passar, fica
-          fatigada. Se falhar, fica fatigada e ca&iacute;da.</p>
+          <p><em>Aumentar:</em> a gravidade fica mais forte. No in&iacute;cio de
+          seus turnos, cada criatura na &aacute;rea deve fazer um teste de
+          Atletismo. Se passar, fica fatigada. Se falhar, fica fatigada e
+          ca&iacute;da.</p>
 
-          <p style="text-align: justify;"><em>Inverter:</em> inverte a gravidade
-          da &aacute;rea, fazendo com que criaturas e objetos
-          &ldquo;caiam&rdquo; para cima, atingindo o topo (12m) em uma rodada.
-          Se um obst&aacute;culo (como um teto) impedir o movimento das
-          criaturas, elas sofrem 1d6 pontos de dano de impacto para cada 1,5m de
-          &ldquo;queda&rdquo;. Elas podem ent&atilde;o se levantar e caminhar no
-          obst&aacute;culo, de cabe&ccedil;a para baixo. Se n&atilde;o houver
-          obst&aacute;culo, as criaturas e objetos ficam flutuando no topo da
-          &aacute;rea afetada, sem poder sair do lugar. Criaturas voadoras podem
-          se movimentar normalmente. Algu&eacute;m adjacente a algo que possa
-          agarrar tem direito a um teste de Reflexos para evitar a
-          &ldquo;queda&rdquo;. A criatura deve permanecer presa pela
-          dura&ccedil;&atilde;o da magia; caso contr&aacute;rio
-          &ldquo;cair&aacute;&rdquo;.</p>
+          <p><em>Inverter:</em> inverte a gravidade da &aacute;rea, fazendo com
+          que criaturas e objetos &ldquo;caiam&rdquo; para cima, atingindo o
+          topo (12m) em uma rodada. Se um obst&aacute;culo (como um teto)
+          impedir o movimento das criaturas, elas sofrem 1d6 pontos de dano de
+          impacto para cada 1,5m de &ldquo;queda&rdquo;. Elas podem ent&atilde;o
+          se levantar e caminhar no obst&aacute;culo, de cabe&ccedil;a para
+          baixo. Se n&atilde;o houver obst&aacute;culo, as criaturas e objetos
+          ficam flutuando no topo da &aacute;rea afetada, sem poder sair do
+          lugar. Criaturas voadoras podem se movimentar normalmente.
+          Algu&eacute;m adjacente a algo que possa agarrar tem direito a um
+          teste de Reflexos para evitar a &ldquo;queda&rdquo;. A criatura deve
+          permanecer presa pela dura&ccedil;&atilde;o da magia; caso
+          contr&aacute;rio &ldquo;cair&aacute;&rdquo;.</p>
 
-          <p style="text-align: justify;"><em>Reduzir:</em> a gravidade fica
-          mais leve. Criaturas ou objetos livres com at&eacute; 100kg flutuam
-          para cima e para baixo conforme sua vontade, com deslocamento de voo
-          6m. Criaturas na &aacute;rea recebem +20 de b&ocirc;nus em testes de
-          Atletismo para escalar e saltar. Uma criatura levitando fica
-          inst&aacute;vel, sofrendo &ndash;2 de penalidade em testes de
-          ataque.</p>
+          <p><em>Reduzir:</em> a gravidade fica mais leve. Criaturas ou objetos
+          livres com at&eacute; 100kg flutuam para cima e para baixo conforme
+          sua vontade, com deslocamento de voo 6m. Criaturas na &aacute;rea
+          recebem +20 de b&ocirc;nus em testes de Atletismo para escalar e
+          saltar. Uma criatura levitando fica inst&aacute;vel, sofrendo &ndash;2
+          de penalidade em testes de ataque.</p>
         unidentified: ''
       source: T20, pg. 186 (JdA)
       ativacao:
@@ -1031,38 +1029,38 @@ items:
       description:
         value: >-
           <section class="secret">Controlar o Tempo (Padrão, 15 PM) O dragão
-          controla o tempo ao seu redor (veja página 187)</section><p
-          style="text-align: justify;">Aquele que controla o tempo controla o
-          mundo. Escolha um dos efeitos a seguir.</p>
+          controla o tempo ao seu redor (veja página 187)</section><p>Aquele que
+          controla o tempo controla o mundo. Escolha um dos efeitos a
+          seguir.</p>
 
-          <p style="text-align: justify;"><em>Congelar o tempo:</em> voc&ecirc;
-          gera uma bolha na qual o tempo passa mais lentamente. Para outras
-          criaturas, a bolha surge e desaparece instantaneamente, mas, para
-          voc&ecirc;, ela dura 3 rodadas, durante as quais voc&ecirc; pode agir
-          e n&atilde;o &eacute; afetado por efeitos cont&iacute;nuos (como
-          chamas). Por&eacute;m, durante essas 3 rodadas, voc&ecirc; e quaisquer
-          efeitos que voc&ecirc; gerar n&atilde;o podem sair da &aacute;rea que
-          voc&ecirc; ocupava quando lan&ccedil;ou esta magia. Efeitos de
-          &aacute;rea com dura&ccedil;&atilde;o maior que a da bolha voltam a
-          agir normalmente quando ela termina.</p>
+          <p><em>Congelar o tempo:</em> voc&ecirc; gera uma bolha na qual o
+          tempo passa mais lentamente. Para outras criaturas, a bolha surge e
+          desaparece instantaneamente, mas, para voc&ecirc;, ela dura 3 rodadas,
+          durante as quais voc&ecirc; pode agir e n&atilde;o &eacute; afetado
+          por efeitos cont&iacute;nuos (como chamas). Por&eacute;m, durante
+          essas 3 rodadas, voc&ecirc; e quaisquer efeitos que voc&ecirc; gerar
+          n&atilde;o podem sair da &aacute;rea que voc&ecirc; ocupava quando
+          lan&ccedil;ou esta magia. Efeitos de &aacute;rea com
+          dura&ccedil;&atilde;o maior que a da bolha voltam a agir normalmente
+          quando ela termina.</p>
 
-          <p style="text-align: justify;"><em>Saltar no tempo:</em> voc&ecirc; e
-          at&eacute; 5 criaturas volunt&aacute;rias s&atilde;o transportadas de
-          1 a 24 horas para o futuro, desaparecendo com um brilho. Voc&ecirc;s
-          ressurgem no mesmo lugar, com a mesma velocidade e
-          orienta&ccedil;&atilde;o; do seu ponto de vista, nenhum tempo se
-          passou. Se um objeto s&oacute;lido agora ocupa o espa&ccedil;o de uma
-          criatura, ela ressurge na &aacute;rea vazia mais pr&oacute;xima.</p>
+          <p><em>Saltar no tempo:</em> voc&ecirc; e at&eacute; 5 criaturas
+          volunt&aacute;rias s&atilde;o transportadas de 1 a 24 horas para o
+          futuro, desaparecendo com um brilho. Voc&ecirc;s ressurgem no mesmo
+          lugar, com a mesma velocidade e orienta&ccedil;&atilde;o; do seu ponto
+          de vista, nenhum tempo se passou. Se um objeto s&oacute;lido agora
+          ocupa o espa&ccedil;o de uma criatura, ela ressurge na &aacute;rea
+          vazia mais pr&oacute;xima.</p>
 
-          <p style="text-align: justify;"><em>Voltar no tempo: </em>voc&ecirc;
-          revive os &uacute;ltimos segundos. Todas as a&ccedil;&otilde;es da
-          rodada anterior s&atilde;o desfeitas (incluindo perda de PV e PM).
-          Tudo retorna &agrave; posi&ccedil;&atilde;o em que estava no
-          in&iacute;cio do seu turno na &uacute;ltima rodada e voc&ecirc;
-          &eacute; o &uacute;nico que sabe o que acontecer&aacute;. Todos os
-          outros personagens envolvidos na cena devem repetir as mesmas
-          a&ccedil;&otilde;es &mdash; exceto se voc&ecirc; fizer algo a respeito
-          (como avisar seus aliados sobre o que vai acontecer).</p>
+          <p><em>Voltar no tempo: </em>voc&ecirc; revive os &uacute;ltimos
+          segundos. Todas as a&ccedil;&otilde;es da rodada anterior s&atilde;o
+          desfeitas (incluindo perda de PV e PM). Tudo retorna &agrave;
+          posi&ccedil;&atilde;o em que estava no in&iacute;cio do seu turno na
+          &uacute;ltima rodada e voc&ecirc; &eacute; o &uacute;nico que sabe o
+          que acontecer&aacute;. Todos os outros personagens envolvidos na cena
+          devem repetir as mesmas a&ccedil;&otilde;es &mdash; exceto se
+          voc&ecirc; fizer algo a respeito (como avisar seus aliados sobre o que
+          vai acontecer).</p>
         unidentified: ''
       source: T20, pg. 187 (JdA)
       ativacao:
@@ -1188,13 +1186,13 @@ items:
           <section class="secret">Dissipar Magia (Padrão, 3 PM) O dragão escolhe
           uma criatura, objeto ou esfera de 3m em alcance médio e faz um teste
           de Misticismo. Todas as magias no alvo escolhido com CD menor que o
-          resultado do teste são dissipadas</section><p style="text-align:
-          justify;">Voc&ecirc; dissipa outras magias que estejam ativas, como se
-          sua dura&ccedil;&atilde;o tivesse acabado. Note que efeitos de magias
-          instant&acirc;neas n&atilde;o podem ser dissipados (n&atilde;o se pode
-          dissipar uma <em>Bola de Fogo</em> &nbsp;ou <em>Rel&acirc;mpago</em>
-          depois que j&aacute; causaram dano...). Se lan&ccedil;ar essa magia em
-          uma criatura ou &aacute;rea, fa&ccedil;a um teste de Misticismo;
+          resultado do teste são dissipadas</section><p>Voc&ecirc; dissipa
+          outras magias que estejam ativas, como se sua dura&ccedil;&atilde;o
+          tivesse acabado. Note que efeitos de magias instant&acirc;neas
+          n&atilde;o podem ser dissipados (n&atilde;o se pode dissipar uma
+          <em>Bola de Fogo</em> &nbsp;ou <em>Rel&acirc;mpago</em> depois que
+          j&aacute; causaram dano...). Se lan&ccedil;ar essa magia em uma
+          criatura ou &aacute;rea, fa&ccedil;a um teste de Misticismo;
           voc&ecirc; dissipa as magias com CD igual ou menor que o resultado do
           teste. Se lan&ccedil;ada contra um item m&aacute;gico, o transforma em
           um item mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
@@ -1477,13 +1475,12 @@ items:
         value: >-
           <section class="secret">Enfeitiçar (Padrão, 1 PM) Um humanoide em
           alcance curto fica enfeitiçado até o final da cena (Vontade
-          evita)</section><p style="text-align: justify;">O alvo fica
-          enfeiti&ccedil;ado (veja a p&aacute;gina 394). Um alvo hostil ou que
-          esteja envolvido em um combate recebe +5 em seu teste de
-          resist&ecirc;ncia. Se voc&ecirc; ou seus aliados tomarem qualquer
-          a&ccedil;&atilde;o hostil contra o alvo, a magia &eacute; dissipada e
-          o alvo retorna &agrave; atitude que tinha antes (ou piorada, de acordo
-          com o mestre).</p>
+          evita)</section><p>O alvo fica enfeiti&ccedil;ado (veja a
+          p&aacute;gina 394). Um alvo hostil ou que esteja envolvido em um
+          combate recebe +5 em seu teste de resist&ecirc;ncia. Se voc&ecirc; ou
+          seus aliados tomarem qualquer a&ccedil;&atilde;o hostil contra o alvo,
+          a magia &eacute; dissipada e o alvo retorna &agrave; atitude que tinha
+          antes (ou piorada, de acordo com o mestre).</p>
         unidentified: ''
       source: T20, pg. 191 (JdA)
       ativacao:
@@ -1667,23 +1664,21 @@ items:
         value: >-
           <section class="secret">Globo de Invulnerabilidade (Padrão, 15 PM,
           sustentada) O dragão é envolto por uma esfera mágica com 3m de raio
-          que detém qualquer magia de 4º círculo ou menor</section><p
-          style="text-align: justify;">Voc&ecirc; &eacute; envolto por uma
-          esfera m&aacute;gica brilhante com 3m de raio, que det&eacute;m
-          qualquer magia de 2&ordm; c&iacute;rculo ou menor. Nenhuma magia pode
-          ser lan&ccedil;ada contra um alvo dentro do globo e magias de
-          &aacute;rea n&atilde;o o penetram. No entanto, magias ainda podem ser
-          lan&ccedil;adas de dentro para fora.</p>
+          que detém qualquer magia de 4º círculo ou menor</section><p>Voc&ecirc;
+          &eacute; envolto por uma esfera m&aacute;gica brilhante com 3m de
+          raio, que det&eacute;m qualquer magia de 2&ordm; c&iacute;rculo ou
+          menor. Nenhuma magia pode ser lan&ccedil;ada contra um alvo dentro do
+          globo e magias de &aacute;rea n&atilde;o o penetram. No entanto,
+          magias ainda podem ser lan&ccedil;adas de dentro para fora.</p>
 
-          <p style="text-align: justify;">Uma magia que dissipa outras magias
-          s&oacute; dissipa o globo se for usada diretamente sobre voc&ecirc;,
-          n&atilde;o o afetando se usada em &aacute;rea. Efeitos m&aacute;gicos
-          n&atilde;o s&atilde;o dissipados quando entram na esfera, apenas
-          suprimidos (voltam a funcionar fora do globo, caso sua
-          dura&ccedil;&atilde;o n&atilde;o tenha acabado). O globo &eacute;
-          im&oacute;vel e n&atilde;o tem efeito sobre criaturas ou objetos.
-          Ap&oacute;s lan&ccedil;&aacute;-lo, voc&ecirc; pode entrar ou sair
-          livremente.</p>
+          <p>Uma magia que dissipa outras magias s&oacute; dissipa o globo se
+          for usada diretamente sobre voc&ecirc;, n&atilde;o o afetando se usada
+          em &aacute;rea. Efeitos m&aacute;gicos n&atilde;o s&atilde;o
+          dissipados quando entram na esfera, apenas suprimidos (voltam a
+          funcionar fora do globo, caso sua dura&ccedil;&atilde;o n&atilde;o
+          tenha acabado). O globo &eacute; im&oacute;vel e n&atilde;o tem efeito
+          sobre criaturas ou objetos. Ap&oacute;s lan&ccedil;&aacute;-lo,
+          voc&ecirc; pode entrar ou sair livremente.</p>
         unidentified: ''
       source: T20, pg. 196 (JdA)
       ativacao:
@@ -1901,13 +1896,13 @@ items:
       description:
         value: >-
           <section class="secret">Segunda Chance (Padrão, 20 PM) Uma criatura
-          adjacente cura 300 PV e condições (veja a página 205)</section><p
-          style="text-align:justify;">Um brilho alaranjado, na forma de asas de
-          fênix, emana do alvo. Ele recupera 200 pontos de vida e se cura de
-          qualquer das seguintes condições: abalado, apavorado, alquebrado,
-          atordoado, cego, confuso, debilitado, enjoado, envenenado, esmorecido,
-          exausto, fascinado, fatigado, fraco, frustrado, lento, ofuscado,
-          paralisado, pasmo ou surdo.</p>
+          adjacente cura 300 PV e condições (veja a página 205)</section><p>Um
+          brilho alaranjado, na forma de asas de fênix, emana do alvo. Ele
+          recupera 200 pontos de vida e se cura de qualquer das seguintes
+          condições: abalado, apavorado, alquebrado, atordoado, cego, confuso,
+          debilitado, enjoado, envenenado, esmorecido, exausto, fascinado,
+          fatigado, fraco, frustrado, lento, ofuscado, paralisado, pasmo ou
+          surdo.</p>
         unidentified: ''
       source: T20, pg. 205 (JdA)
       ativacao:
@@ -2175,11 +2170,10 @@ items:
       description:
         value: >-
           <section class="secret">Velocidade (Padrão, 10 PM, sustentada) O
-          dragão pode executar uma ação padrão adicional por turno</section><p
-          style="text-align: justify;">O alvo pode realizar uma
-          a&ccedil;&atilde;o padr&atilde;o ou de movimento adicional por turno.
-          Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
-          magias e ativar engenhocas.</p>
+          dragão pode executar uma ação padrão adicional por turno</section><p>O
+          alvo pode realizar uma a&ccedil;&atilde;o padr&atilde;o ou de
+          movimento adicional por turno. Esta a&ccedil;&atilde;o n&atilde;o pode
+          ser usada para lan&ccedil;ar magias e ativar engenhocas.</p>
         unidentified: ''
       source: T20, pg. 210 (JdA)
       ativacao:
@@ -2698,9 +2692,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Drag&otilde;es s&atilde;o imunes a
-          efeitos de atordoamento, cansa&ccedil;o, dano do tipo de seu sopro,
-          metamorfose e paralisia.</p>
+          <p>Drag&otilde;es s&atilde;o imunes a efeitos de atordoamento,
+          cansa&ccedil;o, dano do tipo de seu sopro, metamorfose e
+          paralisia.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -2765,13 +2759,12 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Drag&otilde;es jovens ou mais velhos
-          podem se transformar em outras criaturas, como a magia Metamorfose
-          (mas sem limita&ccedil;&atilde;o para tamanhos menores que o seu).
-          Eles costumam usar esta habilidade para se infiltrar em sociedades
-          humanoides, aprender sobre seus costumes ou apenas quando n&atilde;o
-          querem ser reconhecidos. Um drag&atilde;o morto reverte &agrave; sua
-          forma original.</p>
+          <p>Drag&otilde;es jovens ou mais velhos podem se transformar em outras
+          criaturas, como a magia Metamorfose (mas sem limita&ccedil;&atilde;o
+          para tamanhos menores que o seu). Eles costumam usar esta habilidade
+          para se infiltrar em sociedades humanoides, aprender sobre seus
+          costumes ou apenas quando n&atilde;o querem ser reconhecidos. Um
+          drag&atilde;o morto reverte &agrave; sua forma original.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -2903,8 +2896,7 @@ items:
     system:
       description:
         value: >-
-          <p><span class="fontstyle0"><strong style="text-align:
-          justify;">[Tesouro Especial] <strong>[Material
+          <p><span><strong>[Tesouro Especial] <strong>[Material
           Especial]</strong></strong></span></p>
 
           <p>Cobi&ccedil;ado por artes&atilde;os em toda Arton, o couro escamado
@@ -2912,30 +2904,23 @@ items:
           ser empregado para fabricar certos itens superiores. Tanto o couro
           bruto quanto itens de couro de drag&atilde;o n&atilde;o existem
           &agrave; venda; a &uacute;nica maneira de obter esse material &eacute;
-          derrotar um drag&atilde;o. <span class="fontstyle0">(</span><span
-          class="fontstyle0">CD para extrair depende do
+          derrotar um drag&atilde;o. <span>(CD para extrair depende do
           drag&atilde;o).</span></p>
 
-          <p>&nbsp;</p>
+          <p><span><strong>Armaduras leves e escudos</strong> (exigem uma
+          pe&ccedil;a para ser fabricado): Defesa +1, redu&ccedil;&atilde;o de
+          dano 10 contra o tipo de dano do sopro do drag&atilde;o e
+          resist&ecirc;ncia a magia +2. </span></p>
 
-          <p><span class="fontstyle0"><strong>Armaduras leves e escudos</strong>
-          (exigem uma pe&ccedil;a para ser fabricado): Defesa +1,
-          redu&ccedil;&atilde;o de dano 10 contra o tipo de dano do sopro do
-          drag&atilde;o e resist&ecirc;ncia a magia +2. </span></p>
+          <p><span><strong>Armaduras pesadas</strong> (exigem tr&ecirc;s
+          pe&ccedil;as): Defesa +2, redu&ccedil;&atilde;o de dano 20 contra o
+          tipo de dano do sopro do drag&atilde;o e resist&ecirc;ncia a magia +5.
+          </span></p>
 
-          <p><span class="fontstyle0"><strong>Armaduras pesadas</strong> (exigem
-          tr&ecirc;s pe&ccedil;as): Defesa +2, redu&ccedil;&atilde;o de dano 20
-          contra o tipo de dano do sopro do drag&atilde;o e resist&ecirc;ncia a
-          magia +5. </span></p>
-
-          <p><span class="fontstyle0"><strong>Esot&eacute;rico </strong>(Exige 1
-          Pe&ccedil;a). Quando lan&ccedil;a uma magia que cause dano do mesmo
-          tipo do sopro do drag&atilde;o, voc&ecirc; pode gastar 1 PM para
-          aumentar o dano da magia em +1 por dado.</span></p>
-
-          <p>&nbsp;</p>
-
-          <p>&nbsp;</p>
+          <p><span><strong>Esot&eacute;rico </strong>(Exige 1 Pe&ccedil;a).
+          Quando lan&ccedil;a uma magia que cause dano do mesmo tipo do sopro do
+          drag&atilde;o, voc&ecirc; pode gastar 1 PM para aumentar o dano da
+          magia em +1 por dado.</span></p>
         unidentified: ''
       source: T20, pg. 311 (JdA)
       carregado: true

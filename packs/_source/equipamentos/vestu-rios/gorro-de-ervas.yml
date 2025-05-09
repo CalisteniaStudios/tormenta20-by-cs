@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/gorro-de-ervas.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Formado por duas camadas de tecido, este
-      chap&eacute;u &eacute; preenchido com ervas preparadas para auxiliar a
-      concentra&ccedil;&atilde;o do usu&aacute;rio. Fornece +1 em Vontade.</p>
+      <p>Formado por duas camadas de tecido, este chap&eacute;u &eacute;
+      preenchido com ervas preparadas para auxiliar a concentra&ccedil;&atilde;o
+      do usu&aacute;rio. Fornece +1 em Vontade.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

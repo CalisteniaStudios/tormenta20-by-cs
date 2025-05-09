@@ -284,8 +284,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta magia cria uma barreira mística
-      invisível que fornece ao alvo +2 em testes de resistência.</p>
+      <p>Esta magia cria uma barreira mística invisível que fornece ao alvo +2
+      em testes de resistência.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 202 (JdA)

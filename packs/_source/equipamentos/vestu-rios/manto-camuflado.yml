@@ -4,12 +4,11 @@ img: systems/tormenta20/icons/itens/gerais/manto-camuflado.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um manto camuflado &eacute; feito para um
-      tipo de terreno espec&iacute;fico (veja a habilidade Explorador, na
-      p&aacute;gina 51). Por exemplo, um manto camuflado para floresta pode ser
-      verde e marrom e coberto de folhas, enquanto um manto urbano pode ser
-      cinza ou negro. Usar um manto camuflado no terreno correto fornece +2 em
-      Furtividade.</p>
+      <p>Um manto camuflado &eacute; feito para um tipo de terreno
+      espec&iacute;fico (veja a habilidade Explorador, na p&aacute;gina 51). Por
+      exemplo, um manto camuflado para floresta pode ser verde e marrom e
+      coberto de folhas, enquanto um manto urbano pode ser cinza ou negro. Usar
+      um manto camuflado no terreno correto fornece +2 em Furtividade.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

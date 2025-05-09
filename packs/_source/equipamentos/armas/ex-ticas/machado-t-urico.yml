@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Uma haste comprida com uma lâmina
-      extremamente grossa na ponta, esta é uma arma ancestral dos minotauros. Um
-      machado táurico é muito grande para ser usado sem treinamento especial;
-      por isso, é uma arma exótica. Além disso, por ser pesado e desbalanceado,
-      impõe –2 em testes de ataque.</p>
+      <p>Uma haste comprida com uma lâmina extremamente grossa na ponta, esta é
+      uma arma ancestral dos minotauros. Um machado táurico é muito grande para
+      ser usado sem treinamento especial; por isso, é uma arma exótica. Além
+      disso, por ser pesado e desbalanceado, impõe –2 em testes de ataque.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 149 (JdA)

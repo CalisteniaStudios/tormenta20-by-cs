@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode atacar com um soco, chute ou
-      qualquer outro golpe que use seu próprio corpo como se fosse uma arma
-      corpo a corpo. Um ataque desarmado causa dano não letal.</p>
+      <p>Você pode atacar com um soco, chute ou qualquer outro golpe que use seu
+      próprio corpo como se fosse uma arma corpo a corpo. Um ataque desarmado
+      causa dano não letal.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 143 (JdA)

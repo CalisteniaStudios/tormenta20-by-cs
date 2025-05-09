@@ -9,12 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando um inimigo
-      adjacente sofre dano de um de seus aliados, voc&ecirc; pode gastar 2 PM
-      para fazer um ataque corpo a corpo contra este inimigo.</p>
+      <p>Uma vez por rodada, quando um inimigo adjacente sofre dano de um de
+      seus aliados, voc&ecirc; pode gastar 2 PM para fazer um ataque corpo a
+      corpo contra este inimigo.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> 6&ordm;
-      n&iacute;vel de ladino.</p>
+      <p><em>Pr&eacute;-requisito:</em> 6&ordm; n&iacute;vel de ladino.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 74 (JdA)

@@ -91,10 +91,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Esta magia garante a sobrevivência em
-      ambientes hostis. O alvo fica imune aos efeitos de calor e frio extremos,
-      pode respirar na água se respirar ar (ou vice-versa) e não sufoca em
-      fumaça densa.</p>
+      <p>Esta magia garante a sobrevivência em ambientes hostis. O alvo fica
+      imune aos efeitos de calor e frio extremos, pode respirar na água se
+      respirar ar (ou vice-versa) e não sufoca em fumaça densa.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 207 (JdA)

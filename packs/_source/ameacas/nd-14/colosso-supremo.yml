@@ -361,9 +361,9 @@ items:
     system:
       description:
         value: >-
-          <section class="secret">Balista</section><p style="text-align:
-          justify;">Vers&atilde;o maior e mais potente da besta leve. Recarregar
-          uma besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
+          <section class="secret">Balista</section><p>Vers&atilde;o maior e mais
+          potente da besta leve. Recarregar uma besta pesada &eacute; uma
+          a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
       source: ''
       equipado: 0
@@ -486,14 +486,13 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Goblins especialmente pequenos
-          rastejam por dentro dos dutos do colosso fazendo reparos, sendo a
-          fonte da cura acelerada do construto. Por estarem dentro do colosso,
-          os goblins s&atilde;o imunes a dano, mas ainda podem ser afetados por
-          efeitos mentais. Eles possuem Vontade +3 (mas recebem a
-          resist&ecirc;ncia a magia do colosso) e, se forem afetados por
-          qualquer condi&ccedil;&atilde;o, a cura acelerada deixa de
-          funcionar.</p>
+          <p>Goblins especialmente pequenos rastejam por dentro dos dutos do
+          colosso fazendo reparos, sendo a fonte da cura acelerada do construto.
+          Por estarem dentro do colosso, os goblins s&atilde;o imunes a dano,
+          mas ainda podem ser afetados por efeitos mentais. Eles possuem Vontade
+          +3 (mas recebem a resist&ecirc;ncia a magia do colosso) e, se forem
+          afetados por qualquer condi&ccedil;&atilde;o, a cura acelerada deixa
+          de funcionar.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -599,9 +598,9 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O colosso dispara um jato de chamas
-          que atinge um cone de 12m. Criaturas na &aacute;rea sofrem 8d8+10
-          pontos de dano de fogo (Ref CD 38 reduz &agrave; metade).</p>
+          <p>O colosso dispara um jato de chamas que atinge um cone de 12m.
+          Criaturas na &aacute;rea sofrem 8d8+10 pontos de dano de fogo (Ref CD
+          38 reduz &agrave; metade).</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -674,10 +673,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">O colosso percorre at&eacute; o dobro
-          do seu deslocamento, passando por qualquer criatura Grande ou menor.
-          Uma criatura atropelada sofre 6d8+15 pontos de dano de impacto
-          (Reflexos CD 38 reduz &agrave; metade).</p>
+          <p>O colosso percorre at&eacute; o dobro do seu deslocamento, passando
+          por qualquer criatura Grande ou menor. Uma criatura atropelada sofre
+          6d8+15 pontos de dano de impacto (Reflexos CD 38 reduz &agrave;
+          metade).</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -806,11 +805,10 @@ items:
     system:
       description:
         value: >-
-          <p><span class="fontstyle0"><strong style="text-align:
-          justify;">[Tesouro Especial]</strong></span></p>
+          <p><span><strong>[Tesouro Especial]</strong></span></p>
 
-          <p><span class="fontstyle0" style="font-family: var(--font-primary);
-          font-size: var(--font-size-14);">As engrenagens conta como T$ 1.000 em
+          <p><span style="font-family: var(--font-primary); font-size:
+          var(--font-size-14);">As engrenagens conta como T$ 1.000 em
           mat&eacute;ria-prima para fabricar engenhocas (CD para extrair
           29).</span></p>
         unidentified: ''

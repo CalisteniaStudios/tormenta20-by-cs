@@ -56,9 +56,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma varinha t&iacute;pica, feita de
-      madeira de boa qualidade e entalhada com runas. A CD para resistir a suas
-      magias arcanas aumenta em +1.</p>
+      <p>Uma varinha t&iacute;pica, feita de madeira de boa qualidade e
+      entalhada com runas. A CD para resistir a suas magias arcanas aumenta em
+      +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 160 (JdA)

@@ -55,10 +55,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um ataque desarmado, voc&ecirc;
-      pode gastar 2 PM. Se fizer isso e acertar o ataque, o oponente deve fazer
-      um teste de Fortitude (CD For). Se ele falhar, fica <a
-      class="content-link" draggable="true"
+      <p>Quando faz um ataque desarmado, voc&ecirc; pode gastar 2 PM. Se fizer
+      isso e acertar o ataque, o oponente deve fazer um teste de Fortitude (CD
+      For). Se ele falhar, fica <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.condicoes.Brehje5KouE25Q16"
       data-id="Brehje5KouE25Q16" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de

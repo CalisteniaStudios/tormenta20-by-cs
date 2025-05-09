@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode gastar 3 PM para rolar novamente
-      um teste recém realizado (apenas uma vez por teste).</p>
+      <p>Você pode gastar 3 PM para rolar novamente um teste recém realizado
+      (apenas uma vez por teste).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 131 (JdA)

@@ -4,15 +4,15 @@ img: systems/tormenta20/icons/itens/gerais/batata-ambiciosa.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Batatas cortadas em tiras e mergulhadas em
-      &oacute;leo fervente. Gordurentas e pouco nutritivas, s&atilde;o o tipo de
-      prato que s&oacute; &eacute; servido numa metr&oacute;pole. Apesar disso,
-      s&atilde;o uma unanimidade! Gostosas, deixam qualquer um empolgado para
-      realizar fa&ccedil;anhas. Voc&ecirc; recebe +1d6 num &uacute;nico teste a
-      sua escolha realizado nesse dia.</p>
+      <p>Batatas cortadas em tiras e mergulhadas em &oacute;leo fervente.
+      Gordurentas e pouco nutritivas, s&atilde;o o tipo de prato que s&oacute;
+      &eacute; servido numa metr&oacute;pole. Apesar disso, s&atilde;o uma
+      unanimidade! Gostosas, deixam qualquer um empolgado para realizar
+      fa&ccedil;anhas. Voc&ecirc; recebe +1d6 num &uacute;nico teste a sua
+      escolha realizado nesse dia.</p>
 
-      <p style="text-align: justify;">Para n&atilde;o esquecer, deixe 1d6 em
-      cima da sua ficha. De prefer&ecirc;ncia, amarelo.</p>
+      <p>Para n&atilde;o esquecer, deixe 1d6 em cima da sua ficha. De
+      prefer&ecirc;ncia, amarelo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 162 (JdA)

@@ -8,11 +8,10 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;"><strong>[Item de
-      Origem]</strong>&nbsp;</p>
+      <p><strong>[Item de Origem]</strong>&nbsp;</p>
 
-      <p style="text-align: justify;">um animal n&atilde;o combativo (como
-      uma&nbsp; galinha, porco ou ovelha).</p>
+      <p>um animal n&atilde;o combativo (como uma&nbsp; galinha, porco ou
+      ovelha).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 90 (JdA)

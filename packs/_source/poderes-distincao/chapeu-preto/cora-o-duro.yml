@@ -6,19 +6,18 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">N&atilde;o &eacute; f&aacute;cil encontrar
-      algo que possa abalar o chap&eacute;u preto &mdash; a esta altura, ele
-      pr&oacute;prio j&aacute; cometeu todo tipo de atrocidades na vida.</p>
+      <p>N&atilde;o &eacute; f&aacute;cil encontrar algo que possa abalar o
+      chap&eacute;u preto &mdash; a esta altura, ele pr&oacute;prio j&aacute;
+      cometeu todo tipo de atrocidades na vida.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;"><br>Voc&ecirc; &eacute; imune a
-      condi&ccedil;&otilde;es de medo e recebe +2 em Vontade. Esse b&ocirc;nus
-      aumenta em +1 para cada dois outros poderes de chap&eacute;u preto que
-      possuir.</p>
+      <p><br>Voc&ecirc; &eacute; imune a condi&ccedil;&otilde;es de medo e
+      recebe +2 em Vontade. Esse b&ocirc;nus aumenta em +1 para cada dois outros
+      poderes de chap&eacute;u preto que possuir.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisitos: treinado em Luta ou
-      Pontaria, Presen&ccedil;a Aterradora.</p>
+      <p>Pr&eacute;-requisitos: treinado em Luta ou Pontaria, Presen&ccedil;a
+      Aterradora.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 20

@@ -6,14 +6,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e 3 PM para reanimar o cad&aacute;ver de uma
-      criatura Pequena ou M&eacute;dia adjacente por um dia. O cad&aacute;ver
-      funciona como um parceiro iniciante de um tipo a sua escolha entre
-      combatente, fort&atilde;o ou guardi&atilde;o. Al&eacute;m disso, quando
-      sofre dano, voc&ecirc; pode sacrificar esse parceiro; se fizer isso,
-      voc&ecirc; sofre apenas metade do dano, mas o cad&aacute;ver &eacute;
-      destru&iacute;do.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 3 PM para
+      reanimar o cad&aacute;ver de uma criatura Pequena ou M&eacute;dia
+      adjacente por um dia. O cad&aacute;ver funciona como um parceiro iniciante
+      de um tipo a sua escolha entre combatente, fort&atilde;o ou
+      guardi&atilde;o. Al&eacute;m disso, quando sofre dano, voc&ecirc; pode
+      sacrificar esse parceiro; se fizer isso, voc&ecirc; sofre apenas metade do
+      dano, mas o cad&aacute;ver &eacute; destru&iacute;do.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

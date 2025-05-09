@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/ossos-de-monstro.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Pequenas falanges de criaturas
-      monstruosas, tratadas com &oacute;leos alqu&iacute;micos. Fornece +2 na CD
-      de magias de necromancia.</p>
+      <p>Pequenas falanges de criaturas monstruosas, tratadas com &oacute;leos
+      alqu&iacute;micos. Fornece +2 na CD de magias de necromancia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

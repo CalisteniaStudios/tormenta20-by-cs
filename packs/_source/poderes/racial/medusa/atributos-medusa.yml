@@ -49,7 +49,7 @@ effects:
 flags: {}
 system:
   description:
-    value: '<p style="text-align: justify;">Destreza +2, Carisma +1.</p>'
+    value: <p>Destreza +2, Carisma +1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 29 (JdA)

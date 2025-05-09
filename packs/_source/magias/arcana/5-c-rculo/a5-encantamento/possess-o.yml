@@ -174,19 +174,19 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; projeta sua consci&ecirc;ncia
-      no corpo do alvo. Enquanto possuir uma criatura, voc&ecirc; assume o
-      controle total do corpo dela. O seu pr&oacute;prio corpo fica inconsciente
-      e a consci&ecirc;ncia do alvo fica inerte. Em termos de jogo, voc&ecirc;
-      continua usando a sua ficha, mas com os atributos f&iacute;sicos e
-      deslocamento da criatura. Se o alvo passar no teste de resist&ecirc;ncia,
-      sabe que voc&ecirc; tentou possu&iacute;-lo e fica imune a esta magia por
-      um dia. Caso o corpo da criatura morra enquanto voc&ecirc; a possui, a
-      criatura morre e voc&ecirc; deve fazer um teste de Vontade contra a CD da
-      sua pr&oacute;pria magia. Se passar, sua consci&ecirc;ncia retorna para o
-      seu corpo (contanto que esteja dentro do alcance). Do contr&aacute;rio,
-      voc&ecirc; tamb&eacute;m morre. Retornar para o seu corpo voluntariamente
-      &eacute; uma a&ccedil;&atilde;o livre.</p>
+      <p>Voc&ecirc; projeta sua consci&ecirc;ncia no corpo do alvo. Enquanto
+      possuir uma criatura, voc&ecirc; assume o controle total do corpo dela. O
+      seu pr&oacute;prio corpo fica inconsciente e a consci&ecirc;ncia do alvo
+      fica inerte. Em termos de jogo, voc&ecirc; continua usando a sua ficha,
+      mas com os atributos f&iacute;sicos e deslocamento da criatura. Se o alvo
+      passar no teste de resist&ecirc;ncia, sabe que voc&ecirc; tentou
+      possu&iacute;-lo e fica imune a esta magia por um dia. Caso o corpo da
+      criatura morra enquanto voc&ecirc; a possui, a criatura morre e voc&ecirc;
+      deve fazer um teste de Vontade contra a CD da sua pr&oacute;pria magia. Se
+      passar, sua consci&ecirc;ncia retorna para o seu corpo (contanto que
+      esteja dentro do alcance). Do contr&aacute;rio, voc&ecirc; tamb&eacute;m
+      morre. Retornar para o seu corpo voluntariamente &eacute; uma
+      a&ccedil;&atilde;o livre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 201 (JdA)

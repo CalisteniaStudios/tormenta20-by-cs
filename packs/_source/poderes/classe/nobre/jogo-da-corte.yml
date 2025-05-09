@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode gastar 1 PM para rolar novamente
-      um teste recém realizado de Diplomacia, Intuição ou Nobreza.</p>
+      <p>Você pode gastar 1 PM para rolar novamente um teste recém realizado de
+      Diplomacia, Intuição ou Nobreza.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 80 (JdA)

@@ -61,16 +61,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Sua apar&ecirc;ncia e postura assombrosas
-      o permitem manipular e assustar pessoas ignorantes ou supersticiosas. O
-      mestre define o que exatamente voc&ecirc; pode fazer e quem se encaixa
-      nessa descri&ccedil;&atilde;o. Como regra geral, voc&ecirc; recebe +5 em
+      <p>Sua apar&ecirc;ncia e postura assombrosas o permitem manipular e
+      assustar pessoas ignorantes ou supersticiosas. O mestre define o que
+      exatamente voc&ecirc; pode fazer e quem se encaixa nessa
+      descri&ccedil;&atilde;o. Como regra geral, voc&ecirc; recebe +5 em
       Engana&ccedil;&atilde;o e Intimida&ccedil;&atilde;o contra pessoas
       n&atilde;o treinadas em Conhecimento ou Misticismo.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 38 (JdA)

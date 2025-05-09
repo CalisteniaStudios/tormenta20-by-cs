@@ -49,10 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Se estiver usando uma arma de ataque
-      &agrave; dist&acirc;ncia, voc&ecirc; soma seu b&ocirc;nus de Sabedoria nas
-      rolagens de dano (limitado pelo seu n&iacute;vel).
-      <em>Pr&eacute;-requisito:</em> Sab 1.</p>
+      <p>Se estiver usando uma arma de ataque &agrave; dist&acirc;ncia,
+      voc&ecirc; soma seu b&ocirc;nus de Sabedoria nas rolagens de dano
+      (limitado pelo seu n&iacute;vel). <em>Pr&eacute;-requisito:</em> Sab
+      1.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

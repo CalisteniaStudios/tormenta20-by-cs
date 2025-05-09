@@ -107,9 +107,8 @@ _id: Pqq7sz8D1n9QMBwl
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um de seus antepassados foi um majestoso
-      drag&atilde;o. Escolha um tipo de dano entre &aacute;cido, eletricidade,
-      fogo ou frio.</p>
+      <p>Um de seus antepassados foi um majestoso drag&atilde;o. Escolha um tipo
+      de dano entre &aacute;cido, eletricidade, fogo ou frio.</p>
 
       <ul>
 
@@ -117,8 +116,6 @@ system:
       +1 ponto de dano por dado.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

@@ -184,12 +184,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um ataque, voc&ecirc; pode
-      gastar 1 PM para receber +4 no teste de ataque ou na rolagem de dano. A
-      cada quatro n&iacute;veis, pode gastar +1 PM para aumentar o b&ocirc;nus
-      em +4. Voc&ecirc; pode dividir os b&ocirc;nus igualmente. Por exemplo, no
-      17&ordm; n&iacute;vel, pode gastar 5 PM para receber +20 no ataque, +20 no
-      dano ou +10 no ataque e +10 no dano.</p>
+      <p>Quando faz um ataque, voc&ecirc; pode gastar 1 PM para receber +4 no
+      teste de ataque ou na rolagem de dano. A cada quatro n&iacute;veis, pode
+      gastar +1 PM para aumentar o b&ocirc;nus em +4. Voc&ecirc; pode dividir os
+      b&ocirc;nus igualmente. Por exemplo, no 17&ordm; n&iacute;vel, pode gastar
+      5 PM para receber +20 no ataque, +20 no dano ou +10 no ataque e +10 no
+      dano.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 65 (JdA)

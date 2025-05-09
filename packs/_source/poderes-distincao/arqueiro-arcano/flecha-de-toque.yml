@@ -6,19 +6,17 @@ system:
     value: >-
       <blockquote>
 
-      <p style="text-align: justify;">Com um sussurro m&aacute;gico, o arqueiro
-      faz sua flecha transportar uma de suas magias.</p>
+      <p>Com um sussurro m&aacute;gico, o arqueiro faz sua flecha transportar
+      uma de suas magias.</p>
 
       </blockquote>
 
-      <p style="text-align: justify;">Suas magias com alcance de toque recebem
-      um novo aprimoramento. +2 PM: como parte da execu&ccedil;&atilde;o da
-      magia, voc&ecirc; faz um ataque &agrave; dist&acirc;ncia com seu arco
-      arcano contra o alvo. Se acertar, causa o dano do ataque e o efeito da
-      magia.</p>
+      <p>Suas magias com alcance de toque recebem um novo aprimoramento. +2 PM:
+      como parte da execu&ccedil;&atilde;o da magia, voc&ecirc; faz um ataque
+      &agrave; dist&acirc;ncia com seu arco arcano contra o alvo. Se acertar,
+      causa o dano do ataque e o efeito da magia.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Arco
-      Arcano.</p>
+      <p><em>Pr&eacute;-requisito:</em> Arco Arcano.</p>
     chat: ''
     unidentified: ''
   source: Distinções, pg. 16

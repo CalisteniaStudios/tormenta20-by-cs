@@ -10,13 +10,12 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode arremessar itens
-      alqu&iacute;micos e po&ccedil;&otilde;es em alcance m&eacute;dio.
-      Voc&ecirc; pode usar sua Intelig&ecirc;ncia em vez de Destreza para
-      calcular a CD do teste de resist&ecirc;ncia desses itens.</p>
+      <p>Voc&ecirc; pode arremessar itens alqu&iacute;micos e
+      po&ccedil;&otilde;es em alcance m&eacute;dio. Voc&ecirc; pode usar sua
+      Intelig&ecirc;ncia em vez de Destreza para calcular a CD do teste de
+      resist&ecirc;ncia desses itens.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Alquimista
-      de Batalha.</p>
+      <p><em>Pr&eacute;-requisito:</em> Alquimista de Batalha.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

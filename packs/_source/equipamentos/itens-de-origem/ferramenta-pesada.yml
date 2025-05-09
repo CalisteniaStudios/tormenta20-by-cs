@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/ferramenta-pesada.webp
 system:
   description:
     value: >-
-      <p style="text-align:justify;"><strong>[Item de Origem]</strong>&nbsp;<br
+      <p><strong>[Item de Origem]</strong>&nbsp;<br /><br /><br /><br /><br
       /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
-      /><br /><br /><br /><br /></p>
+      /></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 89 (JdA)

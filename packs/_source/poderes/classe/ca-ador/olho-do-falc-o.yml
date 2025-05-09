@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você pode usar a habilidade Marca da Presa
-      em criaturas em alcance longo.</p>
+      <p>Você pode usar a habilidade Marca da Presa em criaturas em alcance
+      longo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 51 (JdA)

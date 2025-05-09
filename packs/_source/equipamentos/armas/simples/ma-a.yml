@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Bastão com um peso cheio de protuberâncias
-      na ponta, a maça é usada por clérigos que fazem votos de não derramar
-      sangue. De fato, um golpe de maça nem sempre derrama sangue, mas esmaga
-      ossos.</p>
+      <p>Bastão com um peso cheio de protuberâncias na ponta, a maça é usada por
+      clérigos que fazem votos de não derramar sangue. De fato, um golpe de maça
+      nem sempre derrama sangue, mas esmaga ossos.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 149 (JdA)

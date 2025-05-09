@@ -55,16 +55,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em testes de ataque
-      para desarmar. Quando desarma uma criatura, pode gastar 1 PM para
-      arremessar a arma dela para longe. Para definir onde a arma cai, role 1d8
-      para a dire&ccedil;&atilde;o (sendo "1" diretamente &agrave; sua frente,
-      "2" &agrave; frente e &agrave; direita e assim por diante) e 1d6 para a
-      dist&acirc;ncia (medida em quadrados de 1,5m a partir da criatura
-      desarmada).</p>
+      <p>Voc&ecirc; recebe +2 em testes de ataque para desarmar. Quando desarma
+      uma criatura, pode gastar 1 PM para arremessar a arma dela para longe.
+      Para definir onde a arma cai, role 1d8 para a dire&ccedil;&atilde;o (sendo
+      "1" diretamente &agrave; sua frente, "2" &agrave; frente e &agrave;
+      direita e assim por diante) e 1d6 para a dist&acirc;ncia (medida em
+      quadrados de 1,5m a partir da criatura desarmada).</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em> Combate
-      Defensivo.</p>
+      <p><em>Pr&eacute;-requisito:</em> Combate Defensivo.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 125 (JdA)

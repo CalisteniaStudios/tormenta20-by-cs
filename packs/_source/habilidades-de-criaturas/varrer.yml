@@ -4,10 +4,9 @@ img: systems/tormenta20/icons/poderes/ameacas/varrer.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma vez por rodada, quando o sargento-mor
-      faz um ataque corpo a corpo e reduz os pontos de vida do alvo para 0 ou
-      menos, pode realizar um ataque adicional contra outra criatura dentro do
-      seu alcance.</p>
+      <p>Uma vez por rodada, quando o sargento-mor faz um ataque corpo a corpo e
+      reduz os pontos de vida do alvo para 0 ou menos, pode realizar um ataque
+      adicional contra outra criatura dentro do seu alcance.</p>
     unidentified: ''
   source: ''
   ativacao:

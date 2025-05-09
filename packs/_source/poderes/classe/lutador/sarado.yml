@@ -49,9 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma sua For&ccedil;a no seu
-      total de pontos de vida e em Fortitude. Voc&ecirc; pode usar For&ccedil;a
-      em vez de Carisma em testes de <a class="content-link" draggable="true"
+      <p>Voc&ecirc; soma sua For&ccedil;a no seu total de pontos de vida e em
+      Fortitude. Voc&ecirc; pode usar For&ccedil;a em vez de Carisma em testes
+      de <a class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.pericias.u3bLZxqLhvqQjlfz"
       data-id="u3bLZxqLhvqQjlfz" data-type="JournalEntry"
       data-pack="tormenta20.pericias" data-tooltip="Registro de
@@ -59,7 +59,7 @@ system:
       background-color: rgb(221, 221, 221);"> </span>com pessoas que se atraiam
       por f&iacute;sicos bem definidos.</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: For 3.</p>
+      <p>Pr&eacute;-requisito: For 3.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 77 (JdA)

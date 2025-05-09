@@ -111,9 +111,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Um pilar de fogo sagrado desce dos céus,
-      causando 6d6 pontos de dano de fogo mais 6d6 pontos de dano de luz nas
-      criaturas e objetos livres na área.</p>
+      <p>Um pilar de fogo sagrado desce dos céus, causando 6d6 pontos de dano de
+      fogo mais 6d6 pontos de dano de luz nas criaturas e objetos livres na
+      área.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 184 (JdA)

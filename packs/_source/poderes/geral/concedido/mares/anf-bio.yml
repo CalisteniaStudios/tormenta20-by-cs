@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode respirar embaixo
-      d&rsquo;&aacute;gua e adquire deslocamento de nata&ccedil;&atilde;o igual
-      a seu deslocamento terrestre.</p>
+      <p>Voc&ecirc; pode respirar embaixo d&rsquo;&aacute;gua e adquire
+      deslocamento de nata&ccedil;&atilde;o igual a seu deslocamento
+      terrestre.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

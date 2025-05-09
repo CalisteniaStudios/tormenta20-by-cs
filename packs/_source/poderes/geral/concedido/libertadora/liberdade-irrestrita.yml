@@ -63,13 +63,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando faz um teste para evitar
-      condi&ccedil;&otilde;es de medo, paralisia e petrifica&ccedil;&atilde;o,
-      voc&ecirc; pode rolar esse teste novamente. Isso inclui testes de manobra
-      contra agarrar, testes de resist&ecirc;ncia contra magias como
-      <em>Imobilizar</em> etc. Se ainda assim falhar, no in&iacute;cio de seus
-      pr&oacute;ximos turnos pode rolar novamente, at&eacute; se libertar. Cada
-      tentativa recebe um b&ocirc;nus cumulativo de +1.</p>
+      <p>Quando faz um teste para evitar condi&ccedil;&otilde;es de medo,
+      paralisia e petrifica&ccedil;&atilde;o, voc&ecirc; pode rolar esse teste
+      novamente. Isso inclui testes de manobra contra agarrar, testes de
+      resist&ecirc;ncia contra magias como <em>Imobilizar</em> etc. Se ainda
+      assim falhar, no in&iacute;cio de seus pr&oacute;ximos turnos pode rolar
+      novamente, at&eacute; se libertar. Cada tentativa recebe um b&ocirc;nus
+      cumulativo de +1.</p>
     chat: ''
     unidentified: ''
   source: Guia NPC, pg. 16 (1.1)

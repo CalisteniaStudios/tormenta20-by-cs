@@ -100,20 +100,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em Diplomacia e
-      Intui&ccedil;&atilde;o. Al&eacute;m disso, pode lan&ccedil;ar <a
-      class="content-link" draggable="true"
-      data-uuid="Compendium.tormenta20.magias.eJcIYwz9CthoWZs4"
+      <p>Voc&ecirc; recebe +2 em Diplomacia e Intui&ccedil;&atilde;o.
+      Al&eacute;m disso, pode lan&ccedil;ar <a class="content-link"
+      draggable="true" data-uuid="Compendium.tormenta20.magias.eJcIYwz9CthoWZs4"
       data-id="eJcIYwz9CthoWZs4" data-type="Item" data-pack="tormenta20.magias"
       data-tooltip="Magia Item">Luz</a> (como uma magia divina; atributo-chave
       Carisma). Caso aprenda novamente essa magia, seu custo diminui em &ndash;1
       PM.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 31 (JdA)

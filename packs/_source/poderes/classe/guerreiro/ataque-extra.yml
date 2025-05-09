@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A partir do 6&ordm; n&iacute;vel, quando
-      usa a a&ccedil;&atilde;o agredir, voc&ecirc; pode gastar 2 PM para
-      realizar um ataque adicional uma vez por rodada.</p>
+      <p>A partir do 6&ordm; n&iacute;vel, quando usa a a&ccedil;&atilde;o
+      agredir, voc&ecirc; pode gastar 2 PM para realizar um ataque adicional uma
+      vez por rodada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 66 (JdA)

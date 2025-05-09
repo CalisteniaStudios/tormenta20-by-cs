@@ -9,9 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Adaptado do machado de lenhador, este não é
-      um instrumento para corte de árvores, mas sim uma arma capaz de causar
-      ferimentos terríveis.</p>
+      <p>Adaptado do machado de lenhador, este não é um instrumento para corte
+      de árvores, mas sim uma arma capaz de causar ferimentos terríveis.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 149 (JdA)

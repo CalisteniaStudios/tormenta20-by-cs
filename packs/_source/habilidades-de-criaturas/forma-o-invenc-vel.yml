@@ -4,8 +4,8 @@ img: systems/tormenta20/icons/poderes/ameacas/forma.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Os aliados em alcance curto do
-      capit&atilde;o-baluarte recebem +2 na Defesa.</p>
+      <p>Os aliados em alcance curto do capit&atilde;o-baluarte recebem +2 na
+      Defesa.</p>
     unidentified: ''
   source: ''
   ativacao:

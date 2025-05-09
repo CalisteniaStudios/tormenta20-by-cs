@@ -9,20 +9,19 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; soma seu Carisma no seu total
-      de pontos de mana no 1&ordm; n&iacute;vel. Al&eacute;m disso, torna-se
-      devoto de um deus dispon&iacute;vel para paladinos (Azgher, Khalmyr, Lena,
-      Lin-Wu, Marah, Tanna-Toh, Thyatis, Valkaria). Veja as regras de devotos na
-      p&aacute;gina 96. Ao contr&aacute;rio de devotos normais, voc&ecirc;
-      recebe dois poderes concedidos por se tornar devoto, em vez de apenas
-      um.</p>
+      <p>Voc&ecirc; soma seu Carisma no seu total de pontos de mana no 1&ordm;
+      n&iacute;vel. Al&eacute;m disso, torna-se devoto de um deus
+      dispon&iacute;vel para paladinos (Azgher, Khalmyr, Lena, Lin-Wu, Marah,
+      Tanna-Toh, Thyatis, Valkaria). Veja as regras de devotos na p&aacute;gina
+      96. Ao contr&aacute;rio de devotos normais, voc&ecirc; recebe dois poderes
+      concedidos por se tornar devoto, em vez de apenas um.</p>
 
-      <p style="text-align: justify;">Como alternativa, voc&ecirc; pode ser um
-      paladino do bem, lutando em prol da bondade e da justi&ccedil;a como um
-      todo. N&atilde;o recebe nenhum Poder Concedido, mas n&atilde;o precisa
-      seguir nenhuma Obriga&ccedil;&atilde;o &amp; Restri&ccedil;&atilde;o
-      (al&eacute;m do C&oacute;digo do Her&oacute;i, abaixo). Cultuar o bem
-      conta como sua devo&ccedil;&atilde;o.</p>
+      <p>Como alternativa, voc&ecirc; pode ser um paladino do bem, lutando em
+      prol da bondade e da justi&ccedil;a como um todo. N&atilde;o recebe nenhum
+      Poder Concedido, mas n&atilde;o precisa seguir nenhuma
+      Obriga&ccedil;&atilde;o &amp; Restri&ccedil;&atilde;o (al&eacute;m do
+      C&oacute;digo do Her&oacute;i, abaixo). Cultuar o bem conta como sua
+      devo&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 82 (JdA)

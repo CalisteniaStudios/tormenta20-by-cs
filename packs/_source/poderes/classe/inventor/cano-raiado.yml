@@ -60,11 +60,11 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando usa uma arma de disparo feita por
-      voc&ecirc; mesmo, ela recebe +1 na margem de amea&ccedil;a.</p>
+      <p>Quando usa uma arma de disparo feita por voc&ecirc; mesmo, ela recebe
+      +1 na margem de amea&ccedil;a.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisitos:</em>
-      Bal&iacute;stica, 5&ordm; n&iacute;vel de inventor.</p>
+      <p><em>Pr&eacute;-requisitos:</em> Bal&iacute;stica, 5&ordm; n&iacute;vel
+      de inventor.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

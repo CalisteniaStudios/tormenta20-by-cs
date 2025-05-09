@@ -9,10 +9,10 @@ items:
     system:
       description:
         value: >-
-          <p style="text-align: justify;">Uma g&aacute;rgula pode permanecer
-          completamente im&oacute;vel. Se ela estiver assim, um personagem deve
-          passar num teste de Percep&ccedil;&atilde;o (CD 35) para perceber que
-          ela &eacute; uma criatura e n&atilde;o uma est&aacute;tua.</p>
+          <p>Uma g&aacute;rgula pode permanecer completamente im&oacute;vel. Se
+          ela estiver assim, um personagem deve passar num teste de
+          Percep&ccedil;&atilde;o (CD 35) para perceber que ela &eacute; uma
+          criatura e n&atilde;o uma est&aacute;tua.</p>
         unidentified: ''
       source: ''
       ativacao:

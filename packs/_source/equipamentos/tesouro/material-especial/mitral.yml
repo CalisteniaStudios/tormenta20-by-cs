@@ -4,8 +4,7 @@ img: systems/tormenta20/icons/itens/gerais/mitral.webp
 system:
   description:
     value: >-
-      <p><span class="fontstyle0"><strong style="text-align: justify;">[Material
-      Especial]</strong></span></p>
+      <p><span><strong>[Material Especial]</strong></span></p>
 
       <p>Metal raro e valioso, o mitral &eacute; prateado, brilhante e mais leve
       que a&ccedil;o. Itens de mitral ocupam &ndash;1 espa&ccedil;o
@@ -17,23 +16,17 @@ system:
       Defesa.<br><strong>Esot&eacute;rico.</strong> Permite que voc&ecirc; pague
       +2 PM ao lan&ccedil;ar uma magia para aumentar a CD dela em +2.</p>
 
-      <p>&nbsp;</p>
 
-      <p><span class="fontstyle0"><strong style="text-align:
-      justify;">Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align:
-      justify;">Armas,&nbsp;</span></span><span style="text-align: justify;
-      font-family: var(--font-primary); font-size:
-      var(--font-size-14);">Armaduras leves e Escudo:&nbsp; +T$ 1500</span></p>
+      <p><span><strong>Pre&ccedil;os:</strong></span></p>
 
-      <p><span class="fontstyle0"><span style="text-align: justify;">Armaduras
-      pesadas:&nbsp; +T$ 12000</span></span></p>
+      <p><span><span>Armas,&nbsp;</span></span><span style="font-family:
+      var(--font-primary); font-size: var(--font-size-14);">Armaduras leves e
+      Escudo:&nbsp; +T$ 1500</span></p>
 
-      <p><span class="fontstyle0"><span style="text-align:
-      justify;">Esot&eacute;ricos:&nbsp; +T$ 3000</span></span></p>
+      <p><span><span>Armaduras pesadas:&nbsp; +T$ 12000</span></span></p>
 
-      <p>&nbsp;</p>
+      <p><span><span>Esot&eacute;ricos:&nbsp; +T$ 3000</span></span></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 167 (JdA)

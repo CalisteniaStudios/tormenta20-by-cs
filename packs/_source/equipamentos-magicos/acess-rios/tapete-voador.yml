@@ -9,10 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Com um comando, este tapete flutua,
-      fornecendo deslocamento de voo 12m. O tapete tem 3m x 3m e pode carregar
-      seis criaturas M&eacute;dias (ou 120 espa&ccedil;os). Se voc&ecirc;
-      estiver em alcance longo do tapete, pode comandar o voo dele.</p>
+      <p>Com um comando, este tapete flutua, fornecendo deslocamento de voo 12m.
+      O tapete tem 3m x 3m e pode carregar seis criaturas M&eacute;dias (ou 120
+      espa&ccedil;os). Se voc&ecirc; estiver em alcance longo do tapete, pode
+      comandar o voo dele.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

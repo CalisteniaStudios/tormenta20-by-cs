@@ -4,9 +4,8 @@ img: systems/tormenta20/icons/itens/gerais/capa-esvoacante.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Favorita entre heróis ousados, esta capa
-      de seda produz movimentos amplos e chamativos, que fornecem +1 em
-      Enganação.</p>
+      <p>Favorita entre heróis ousados, esta capa de seda produz movimentos
+      amplos e chamativos, que fornecem +1 em Enganação.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 159 (JdA)

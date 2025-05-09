@@ -9,29 +9,24 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi corrompido pela
-      Tormenta.</p>
+      <p>Seu sangue foi corrompido pela Tormenta.</p>
 
       <ul>
 
-      <li style="text-align: justify;">B&aacute;sica. Voc&ecirc; recebe um poder
-      da Tormenta. Quando perder Carisma por adquirir poderes da Tormenta, pode
-      aplicar a perda a outro atributo. Sua rela&ccedil;&atilde;o com
-      invas&atilde;o aberrante lhe permite sacrificar partes espec&iacute;ficas
-      de seu ser.</li>
+      <li>B&aacute;sica. Voc&ecirc; recebe um poder da Tormenta. Quando perder
+      Carisma por adquirir poderes da Tormenta, pode aplicar a perda a outro
+      atributo. Sua rela&ccedil;&atilde;o com invas&atilde;o aberrante lhe
+      permite sacrificar partes espec&iacute;ficas de seu ser.</li>
 
-      <li style="text-align: justify;">Aprimorada. Escolha uma magia para cada
-      poder da Tormenta que voc&ecirc; possui. Essas magias custam &ndash;1 PM.
-      Sempre que recebe um novo poder da Tormenta, voc&ecirc; pode escolher uma
-      nova magia. Esta heran&ccedil;a conta como um poder da Tormenta.</li>
+      <li>Aprimorada. Escolha uma magia para cada poder da Tormenta que
+      voc&ecirc; possui. Essas magias custam &ndash;1 PM. Sempre que recebe um
+      novo poder da Tormenta, voc&ecirc; pode escolher uma nova magia. Esta
+      heran&ccedil;a conta como um poder da Tormenta.</li>
 
-      <li style="text-align: justify;">Superior. Voc&ecirc; recebe +4 PM para
-      cada poder da Tormenta que tiver. Esta heran&ccedil;a conta como um poder
-      da Tormenta.</li>
+      <li>Superior. Voc&ecirc; recebe +4 PM para cada poder da Tormenta que
+      tiver. Esta heran&ccedil;a conta como um poder da Tormenta.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

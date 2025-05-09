@@ -9,12 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Este arco refor&ccedil;ado tem a altura de
-      uma pessoa. Ao contr&aacute;rio da vers&atilde;o curta, &eacute;
-      primariamente uma arma de guerra. Por ter uma puxada pesada, permite que
-      voc&ecirc; aplique sua For&ccedil;a &agrave;s rolagens de dano (ao
-      contr&aacute;rio de outras armas de disparo). Por&eacute;m, um arco longo
-      n&atilde;o pode ser usado se voc&ecirc; estiver montado</p>
+      <p>Este arco refor&ccedil;ado tem a altura de uma pessoa. Ao
+      contr&aacute;rio da vers&atilde;o curta, &eacute; primariamente uma arma
+      de guerra. Por ter uma puxada pesada, permite que voc&ecirc; aplique sua
+      For&ccedil;a &agrave;s rolagens de dano (ao contr&aacute;rio de outras
+      armas de disparo). Por&eacute;m, um arco longo n&atilde;o pode ser usado
+      se voc&ecirc; estiver montado</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 146 (JdA)

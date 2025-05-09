@@ -49,9 +49,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe redu&ccedil;&atilde;o de
-      fogo 10 e pode pagar 1 PM para criar &aacute;gua pura e pot&aacute;vel
-      suficiente para um odre (ou outro recipiente pequeno).</p>
+      <p>Voc&ecirc; recebe redu&ccedil;&atilde;o de fogo 10 e pode pagar 1 PM
+      para criar &aacute;gua pura e pot&aacute;vel suficiente para um odre (ou
+      outro recipiente pequeno).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 134 (JdA)

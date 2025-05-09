@@ -193,12 +193,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; cria um v&iacute;nculo mental
-      com um animal prestativo em rela&ccedil;&atilde;o a voc&ecirc;. O
-      <em>Aliado Animal</em> obedece a voc&ecirc; no melhor de suas capacidades,
-      mesmo que isso arrisque a vida dele. Ele funciona como um parceiro
-      veterano, de um tipo a sua escolha entre ajudante, combatente,
-      fort&atilde;o, guardi&atilde;o, montaria ou perseguidor.</p>
+      <p>Voc&ecirc; cria um v&iacute;nculo mental com um animal prestativo em
+      rela&ccedil;&atilde;o a voc&ecirc;. O <em>Aliado Animal</em> obedece a
+      voc&ecirc; no melhor de suas capacidades, mesmo que isso arrisque a vida
+      dele. Ele funciona como um parceiro veterano, de um tipo a sua escolha
+      entre ajudante, combatente, fort&atilde;o, guardi&atilde;o, montaria ou
+      perseguidor.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 178 (JdA)

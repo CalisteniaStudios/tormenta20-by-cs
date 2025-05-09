@@ -50,9 +50,8 @@ _id: zN0rhkCdrNYDXb0d
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um de seus antepassados foi um majestoso
-      drag&atilde;o. Escolha um tipo de dano entre &aacute;cido, eletricidade,
-      fogo ou frio.</p>
+      <p>Um de seus antepassados foi um majestoso drag&atilde;o. Escolha um tipo
+      de dano entre &aacute;cido, eletricidade, fogo ou frio.</p>
 
       <ul>
 
@@ -61,8 +60,6 @@ system:
       escolhido.</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

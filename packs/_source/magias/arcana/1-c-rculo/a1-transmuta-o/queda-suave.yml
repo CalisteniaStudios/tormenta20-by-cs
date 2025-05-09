@@ -178,22 +178,20 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo cai lentamente. A velocidade da
-      queda &eacute; reduzida para 18m por rodada &mdash; o suficiente para
-      n&atilde;o causar dano.</p>
+      <p>O alvo cai lentamente. A velocidade da queda &eacute; reduzida para 18m
+      por rodada &mdash; o suficiente para n&atilde;o causar dano.</p>
 
-      <p style="text-align: justify;">Como lan&ccedil;ar esta magia &eacute; uma
-      rea&ccedil;&atilde;o, voc&ecirc; pode lan&ccedil;&aacute;-la r&aacute;pido
-      o bastante para salvar a si ou um aliado de quedas inesperadas.</p>
+      <p>Como lan&ccedil;ar esta magia &eacute; uma rea&ccedil;&atilde;o,
+      voc&ecirc; pode lan&ccedil;&aacute;-la r&aacute;pido o bastante para
+      salvar a si ou um aliado de quedas inesperadas.</p>
 
-      <p style="text-align: justify;">Lan&ccedil;ada sobre um proj&eacute;til
-      &mdash; como uma flecha ou uma rocha largada do alto de um penhasco
-      &mdash;, a magia faz com que ele cause metade do dano normal, devido
-      &agrave; lentid&atilde;o.</p>
+      <p>Lan&ccedil;ada sobre um proj&eacute;til &mdash; como uma flecha ou uma
+      rocha largada do alto de um penhasco &mdash;, a magia faz com que ele
+      cause metade do dano normal, devido &agrave; lentid&atilde;o.</p>
 
-      <p style="text-align: justify;"><em>Queda Suave</em> s&oacute; funciona em
-      criaturas e objetos em queda livre ou similar; a magia n&atilde;o vai
-      frear um golpe de espada ou o mergulho rasante de um atacante voador.</p>
+      <p><em>Queda Suave</em> s&oacute; funciona em criaturas e objetos em queda
+      livre ou similar; a magia n&atilde;o vai frear um golpe de espada ou o
+      mergulho rasante de um atacante voador.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 202 (JdA)

@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Como um tapete voador, mas pode carregar
-      duas pessoas (ou 40 espa&ccedil;os).</p>
+      <p>Como um tapete voador, mas pode carregar duas pessoas (ou 40
+      espa&ccedil;os).</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 345 (JdA)

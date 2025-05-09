@@ -136,15 +136,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Usado por chefes b&aacute;rbaros das
-      Montanhas Sanguin&aacute;rias, este <strong>gib&atilde;o de peles
-      defensor</strong> &eacute; feito do couro de monstros, como basiliscos e
-      serpes. Se voc&ecirc; usar o poder Ataque Poderoso ou fizer uma investida,
-      recebe um b&ocirc;nus de +2d6 nas rolagens de dano.</p>
+      <p>Usado por chefes b&aacute;rbaros das Montanhas Sanguin&aacute;rias,
+      este <strong>gib&atilde;o de peles defensor</strong> &eacute; feito do
+      couro de monstros, como basiliscos e serpes. Se voc&ecirc; usar o poder
+      Ataque Poderoso ou fizer uma investida, recebe um b&ocirc;nus de +2d6 nas
+      rolagens de dano.</p>
 
-      <p style="text-align: justify;"><strong>Defensor</strong> O item &eacute;
-      encantado para desviar golpes. O b&ocirc;nus na Defesa do item aumenta em
-      +2</p>
+      <p><strong>Defensor</strong> O item &eacute; encantado para desviar
+      golpes. O b&ocirc;nus na Defesa do item aumenta em +2</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 340 (JdA)

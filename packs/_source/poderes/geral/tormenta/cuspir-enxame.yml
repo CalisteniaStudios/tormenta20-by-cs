@@ -56,16 +56,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o completa e 2 PM para criar um enxame de insetos rubros
-      em um ponto a sua escolha em alcance curto e em dura&ccedil;&atilde;o
-      sustentada. O enxame tem tamanho m&eacute;dio e pode passar pelo
-      espa&ccedil;o de outras criaturas. Uma vez por rodada, voc&ecirc; pode
-      gastar uma a&ccedil;&atilde;o de movimento para mover o enxame 9m. No fim
-      do seu turno, o enxame causa 2d6 pontos de dano de &aacute;cido a qualquer
-      criatura no espa&ccedil;o que ele estiver ocupando. Para cada dois outros
-      poderes da Tormenta que possui, voc&ecirc; pode gastar +1PM quando usa
-      este poder para aumentar o dano do enxame em +1d6.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 2 PM para
+      criar um enxame de insetos rubros em um ponto a sua escolha em alcance
+      curto e em dura&ccedil;&atilde;o sustentada. O enxame tem tamanho
+      m&eacute;dio e pode passar pelo espa&ccedil;o de outras criaturas. Uma vez
+      por rodada, voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento
+      para mover o enxame 9m. No fim do seu turno, o enxame causa 2d6 pontos de
+      dano de &aacute;cido a qualquer criatura no espa&ccedil;o que ele estiver
+      ocupando. Para cada dois outros poderes da Tormenta que possui, voc&ecirc;
+      pode gastar +1PM quando usa este poder para aumentar o dano do enxame em
+      +1d6.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

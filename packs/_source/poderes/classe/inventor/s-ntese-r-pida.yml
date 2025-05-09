@@ -10,12 +10,11 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando fabrica um item alqu&iacute;mico ou
-      po&ccedil;&atilde;o, voc&ecirc; pode fabricar o dobro de doses no mesmo
-      tempo (pagando o custo de mat&eacute;ria-prima de cada uma).</p>
+      <p>Quando fabrica um item alqu&iacute;mico ou po&ccedil;&atilde;o,
+      voc&ecirc; pode fabricar o dobro de doses no mesmo tempo (pagando o custo
+      de mat&eacute;ria-prima de cada uma).</p>
 
-      <p style="text-align: justify;">Pr&eacute;-requisito: Alquimista
-      Iniciado.</p>
+      <p>Pr&eacute;-requisito: Alquimista Iniciado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 70 (JdA)

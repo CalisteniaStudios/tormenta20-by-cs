@@ -49,7 +49,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; recebe +2 em
+      <p>Voc&ecirc; recebe +2 em
       @UUID[Compendium.tormenta20.pericias.ZMXVeEARJHe4WsWx]{Atletismo}. Quando
       escala, n&atilde;o fica
       @UUID[Compendium.tormenta20.condicoes.QBpAB16MIn9BVLNw]{Desprevenido}<span

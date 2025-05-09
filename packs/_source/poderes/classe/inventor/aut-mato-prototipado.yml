@@ -10,16 +10,14 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; pode gastar uma
-      a&ccedil;&atilde;o padr&atilde;o e 2 PM para ativar uma melhoria
-      experimental em seu aut&ocirc;mato. Role 1d6. Em um resultado 2 a 6,
-      voc&ecirc; aumenta o n&iacute;vel de parceiro do aut&ocirc;mato em um
-      passo (at&eacute; mestre), ou concede a ele a habilidade iniciante de
-      outro de seus tipos, at&eacute; o fim da cena. Em um resultado 1, o
-      aut&ocirc;mato engui&ccedil;a como uma engenhoca.</p>
+      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 2 PM para
+      ativar uma melhoria experimental em seu aut&ocirc;mato. Role 1d6. Em um
+      resultado 2 a 6, voc&ecirc; aumenta o n&iacute;vel de parceiro do
+      aut&ocirc;mato em um passo (at&eacute; mestre), ou concede a ele a
+      habilidade iniciante de outro de seus tipos, at&eacute; o fim da cena. Em
+      um resultado 1, o aut&ocirc;mato engui&ccedil;a como uma engenhoca.</p>
 
-      <p style="text-align: justify;"><em>Pr&eacute;-requisito:</em>
-      Aut&ocirc;mato.</p>
+      <p><em>Pr&eacute;-requisito:</em> Aut&ocirc;mato.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 69 (JdA)

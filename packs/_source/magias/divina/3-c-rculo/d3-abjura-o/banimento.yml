@@ -62,21 +62,21 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; expulsa uma criatura n&atilde;o
-      nativa de Arton. Um alvo nativo de outro mundo (como muitos
-      esp&iacute;ritos), &eacute; teletransportado de volta para um lugar
-      aleat&oacute;rio de seu mundo de origem. J&aacute; um alvo morto-vivo tem
-      sua conex&atilde;o com as energias negativas rompidas, sendo reduzido a 0
-      PV. Se passar na resist&ecirc;ncia, em vez dos efeitos acima, o alvo fica
-      enjoado por 1d4 rodadas.</p>
+      <p>Voc&ecirc; expulsa uma criatura n&atilde;o nativa de Arton. Um alvo
+      nativo de outro mundo (como muitos esp&iacute;ritos), &eacute;
+      teletransportado de volta para um lugar aleat&oacute;rio de seu mundo de
+      origem. J&aacute; um alvo morto-vivo tem sua conex&atilde;o com as
+      energias negativas rompidas, sendo reduzido a 0 PV. Se passar na
+      resist&ecirc;ncia, em vez dos efeitos acima, o alvo fica enjoado por 1d4
+      rodadas.</p>
 
-      <p style="text-align: justify;">Se voc&ecirc; tiver um ou mais itens que
-      se oponham ao alvo de alguma maneira, a CD do teste de resist&ecirc;ncia
-      aumenta em +2 por item. Por exemplo, se lan&ccedil;ar a magia contra
-      dem&ocirc;nios do frio (vulner&aacute;veis a &aacute;gua benta e que
-      odeiam luz e calor) enquanto segura um frasco de &aacute;gua benta e uma
-      tocha acesa, a CD&nbsp; aumenta em +4. O mestre decide se determinado item
-      &eacute; forte o bastante contra a criatura para isso.</p>
+      <p>Se voc&ecirc; tiver um ou mais itens que se oponham ao alvo de alguma
+      maneira, a CD do teste de resist&ecirc;ncia aumenta em +2 por item. Por
+      exemplo, se lan&ccedil;ar a magia contra dem&ocirc;nios do frio
+      (vulner&aacute;veis a &aacute;gua benta e que odeiam luz e calor) enquanto
+      segura um frasco de &aacute;gua benta e uma tocha acesa, a CD&nbsp;
+      aumenta em +4. O mestre decide se determinado item &eacute; forte o
+      bastante contra a criatura para isso.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 182 (JdA)

@@ -295,12 +295,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; fortalece um item, aumentando o
-      b&ocirc;nus de Defesa de uma armadura ou escudo em +2. No caso de um
-      vestu&aacute;rio, ele passa a oferecer +2 na Defesa (n&atilde;o cumulativo
-      com armadura). Os efeitos desta magia s&atilde;o uma melhoria no item,
-      portanto s&atilde;o cumulativos com outras magias, mas n&atilde;o com
-      b&ocirc;nus por encantos nesse item.&nbsp;</p>
+      <p>Voc&ecirc; fortalece um item, aumentando o b&ocirc;nus de Defesa de uma
+      armadura ou escudo em +2. No caso de um vestu&aacute;rio, ele passa a
+      oferecer +2 na Defesa (n&atilde;o cumulativo com armadura). Os efeitos
+      desta magia s&atilde;o uma melhoria no item, portanto s&atilde;o
+      cumulativos com outras magias, mas n&atilde;o com b&ocirc;nus por encantos
+      nesse item.&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 210 (JdA)

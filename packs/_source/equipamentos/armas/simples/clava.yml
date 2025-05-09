@@ -9,10 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Um pedaço de madeira empunhado como arma,
-      geralmente usado por bárbaros ou criaturas brutais — ou como arma
-      improvisada, como um galho de árvore ou pedaço de mobília. Sendo fácil de
-      conseguir, seu preço é zero.</p>
+      <p>Um pedaço de madeira empunhado como arma, geralmente usado por bárbaros
+      ou criaturas brutais — ou como arma improvisada, como um galho de árvore
+      ou pedaço de mobília. Sendo fácil de conseguir, seu preço é zero.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 147 (JdA)

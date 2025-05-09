@@ -9,11 +9,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; deve sempre manter sua palavra
-      e nunca pode recusar um pedido de ajuda de algu&eacute;m inocente.
-      Al&eacute;m disso, nunca pode mentir, trapacear ou roubar. Se violar o
-      c&oacute;digo, voc&ecirc; perde todos os seus PM e s&oacute; pode
-      recuper&aacute;-los a partir do pr&oacute;ximo dia.</p>
+      <p>Voc&ecirc; deve sempre manter sua palavra e nunca pode recusar um
+      pedido de ajuda de algu&eacute;m inocente. Al&eacute;m disso, nunca pode
+      mentir, trapacear ou roubar. Se violar o c&oacute;digo, voc&ecirc; perde
+      todos os seus PM e s&oacute; pode recuper&aacute;-los a partir do
+      pr&oacute;ximo dia.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 82 (JdA)

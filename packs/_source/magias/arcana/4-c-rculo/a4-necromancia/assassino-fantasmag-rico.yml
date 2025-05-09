@@ -45,30 +45,28 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Usando os medos subconscientes do alvo,
-      voc&ecirc; cria uma imagem daquilo que ele mais teme. Apenas a
-      pr&oacute;pria v&iacute;tima pode ver o Assassino Fantasmag&oacute;rico
-      com nitidez; outras criaturas presentes (incluindo o conjurador) enxergam
-      apenas um espectro sombrio.</p>
+      <p>Usando os medos subconscientes do alvo, voc&ecirc; cria uma imagem
+      daquilo que ele mais teme. Apenas a pr&oacute;pria v&iacute;tima pode ver
+      o Assassino Fantasmag&oacute;rico com nitidez; outras criaturas presentes
+      (incluindo o conjurador) enxergam apenas um espectro sombrio.</p>
 
-      <p style="text-align: justify;">Quando voc&ecirc; lan&ccedil;a a magia, o
-      espectro surge adjacente a voc&ecirc; e a v&iacute;tima faz um teste de
-      Vontade. Se ela passar, percebe que o espectro &eacute; uma ilus&atilde;o
-      e a magia &eacute; dissipada. Se falhar, acredita na exist&ecirc;ncia do
-      espectro, que ent&atilde;o flutua 18m por rodada em dire&ccedil;&atilde;o
-      &agrave; v&iacute;tima, sempre no fim do seu turno. Ele &eacute;
-      incorp&oacute;reo e imune a magias (exceto magias que dissipam
-      outras).</p>
+      <p>Quando voc&ecirc; lan&ccedil;a a magia, o espectro surge adjacente a
+      voc&ecirc; e a v&iacute;tima faz um teste de Vontade. Se ela passar,
+      percebe que o espectro &eacute; uma ilus&atilde;o e a magia &eacute;
+      dissipada. Se falhar, acredita na exist&ecirc;ncia do espectro, que
+      ent&atilde;o flutua 18m por rodada em dire&ccedil;&atilde;o &agrave;
+      v&iacute;tima, sempre no fim do seu turno. Ele &eacute; incorp&oacute;reo
+      e imune a magias (exceto magias que dissipam outras).</p>
 
-      <p style="text-align: justify;">Se o espectro terminar seu turno adjacente
-      &agrave; v&iacute;tima, ela deve fazer um teste de Fortitude. Se passar,
-      sofre 6d6 pontos de dano de trevas (este dano n&atilde;o pode reduzir o
-      alvo a menos de 0 PV e n&atilde;o o deixa sangrando). Se falhar, sofre um
-      colapso, ficando imediatamente com &ndash;1 PV e sangrando.</p>
+      <p>Se o espectro terminar seu turno adjacente &agrave; v&iacute;tima, ela
+      deve fazer um teste de Fortitude. Se passar, sofre 6d6 pontos de dano de
+      trevas (este dano n&atilde;o pode reduzir o alvo a menos de 0 PV e
+      n&atilde;o o deixa sangrando). Se falhar, sofre um colapso, ficando
+      imediatamente com &ndash;1 PV e sangrando.</p>
 
-      <p style="text-align: justify;">O espectro persegue o alvo
-      implacavelmente. Ele desaparece se o alvo ficar inconsciente ou se afastar
-      al&eacute;m de alcance longo dele, ou se for dissipado.</p>
+      <p>O espectro persegue o alvo implacavelmente. Ele desaparece se o alvo
+      ficar inconsciente ou se afastar al&eacute;m de alcance longo dele, ou se
+      for dissipado.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 181 (JdA)

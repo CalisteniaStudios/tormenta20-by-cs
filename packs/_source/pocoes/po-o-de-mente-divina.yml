@@ -140,10 +140,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Voc&ecirc; traz inspira&ccedil;&atilde;o
-      divina &agrave; mente do alvo. Escolha entre Intelig&ecirc;ncia, Sabedoria
-      ou Carisma. O alvo recebe +4 no atributo escolhido. Esse aumento
-      n&atilde;o oferece PV, PM ou per&iacute;cias adicionais.</p>
+      <p>Voc&ecirc; traz inspira&ccedil;&atilde;o divina &agrave; mente do alvo.
+      Escolha entre Intelig&ecirc;ncia, Sabedoria ou Carisma. O alvo recebe +4
+      no atributo escolhido. Esse aumento n&atilde;o oferece PV, PM ou
+      per&iacute;cias adicionais.</p>
     unidentified: ''
   source: ''
   carregado: true

@@ -4,10 +4,9 @@ img: systems/tormenta20/icons/poderes/ameacas/imunidade-aberrante.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Dem&ocirc;nios Aberrantes s&atilde;o
-      imunes a acertos cr&iacute;ticos, &aacute;cido, cansa&ccedil;o,
-      eletricidade, fogo, frio, luz, paralisia, metabolismo, metamorfose, trevas
-      e veneno.</p>
+      <p>Dem&ocirc;nios Aberrantes s&atilde;o imunes a acertos cr&iacute;ticos,
+      &aacute;cido, cansa&ccedil;o, eletricidade, fogo, frio, luz, paralisia,
+      metabolismo, metamorfose, trevas e veneno.</p>
     unidentified: ''
   source: ''
   ativacao:

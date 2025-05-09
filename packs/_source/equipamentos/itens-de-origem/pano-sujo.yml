@@ -4,7 +4,7 @@ img: systems/tormenta20/icons/itens/gerais/pano-sujo.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;"><strong>[Item de
+      <p><strong>[Item de
       Origem]</strong>&nbsp;<br><br><br><br><br><br><br><br><br><br></p>
     chat: ''
     unidentified: ''

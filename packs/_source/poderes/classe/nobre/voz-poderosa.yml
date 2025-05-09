@@ -53,8 +53,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você recebe +2 em Diplomacia e Intimidação.
-      Suas habilidades de nobre com alcance curto passam para alcance médio.</p>
+      <p>Você recebe +2 em Diplomacia e Intimidação. Suas habilidades de nobre
+      com alcance curto passam para alcance médio.</p>
     chat: ''
     unidentified: ''
   source: ''

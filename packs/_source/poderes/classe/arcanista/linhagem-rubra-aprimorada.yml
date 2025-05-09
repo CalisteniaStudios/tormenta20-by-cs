@@ -57,20 +57,17 @@ _id: jHphQ7PhkkBsDTR8
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi corrompido pela
-      Tormenta.</p>
+      <p>Seu sangue foi corrompido pela Tormenta.</p>
 
       <ul>
 
-      <li style="text-align: justify;">Aprimorada. Escolha uma magia para cada
-      poder da Tormenta que voc&ecirc; possui. Essas magias custam &ndash;1 PM.
-      Sempre que recebe um novo poder da Tormenta, voc&ecirc; pode escolher uma
-      nova magia. Esta heran&ccedil;a conta como um poder da Tormenta. (exceto
-      para perda de Carisma).</li>
+      <li>Aprimorada. Escolha uma magia para cada poder da Tormenta que
+      voc&ecirc; possui. Essas magias custam &ndash;1 PM. Sempre que recebe um
+      novo poder da Tormenta, voc&ecirc; pode escolher uma nova magia. Esta
+      heran&ccedil;a conta como um poder da Tormenta. (exceto para perda de
+      Carisma).</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 39 (JdA)

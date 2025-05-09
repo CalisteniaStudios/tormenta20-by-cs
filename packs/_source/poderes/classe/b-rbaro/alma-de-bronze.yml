@@ -9,13 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Quando entra em f&uacute;ria, voc&ecirc;
-      recebe uma quantidade de pontos de vida tempor&aacute;rios igual a seu
-      n&iacute;vel + sua For&ccedil;a.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p>&nbsp;</p>
+      <p>Quando entra em f&uacute;ria, voc&ecirc; recebe uma quantidade de
+      pontos de vida tempor&aacute;rios igual a seu n&iacute;vel + sua
+      For&ccedil;a.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 41 (JdA)

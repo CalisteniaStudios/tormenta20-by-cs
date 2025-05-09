@@ -9,38 +9,38 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A v&iacute;tima deve fazer um teste de
-      Reflexos (CD Sab). Se passar, fica ca&iacute;da. Se falhar, fica agarrada.
-      Uma criatura agarrada pode se soltar com uma a&ccedil;&atilde;o
-      padr&atilde;o e um teste de For&ccedil;a ou Acrobacia (CD Sab).</p>
+      <p>A v&iacute;tima deve fazer um teste de Reflexos (CD Sab). Se passar,
+      fica ca&iacute;da. Se falhar, fica agarrada. Uma criatura agarrada pode se
+      soltar com uma a&ccedil;&atilde;o padr&atilde;o e um teste de For&ccedil;a
+      ou Acrobacia (CD Sab).</p>
 
-      <p style="text-align: justify;">&nbsp;</p>
 
-      <p style="text-align: justify;"><strong>Armadilhas</strong><br>Esses
-      poderes compartilham as seguintes regras.</p>
 
-      <p style="text-align: justify;">&bull; Preparar uma armadilha gasta uma
-      a&ccedil;&atilde;o completa e 3 PM.</p>
+      <p><strong>Armadilhas</strong><br>Esses poderes compartilham as seguintes
+      regras.</p>
 
-      <p style="text-align: justify;">&bull; Uma armadilha afeta uma &aacute;rea
-      de 3m de lado adjacente a voc&ecirc; e &eacute; acionada pela primeira
-      criatura que entrar na &aacute;rea.</p>
+      <p>&bull; Preparar uma armadilha gasta uma a&ccedil;&atilde;o completa e 3
+      PM.</p>
 
-      <p style="text-align: justify;">&bull; Uma criatura que o veja preparando
-      a armadilha saber&aacute; que ela est&aacute; l&aacute;.</p>
+      <p>&bull; Uma armadilha afeta uma &aacute;rea de 3m de lado adjacente a
+      voc&ecirc; e &eacute; acionada pela primeira criatura que entrar na
+      &aacute;rea.</p>
 
-      <p style="text-align: justify;">&bull; &Eacute; poss&iacute;vel aplicar
-      veneno a uma armadilha, como se ela fosse uma arma.</p>
+      <p>&bull; Uma criatura que o veja preparando a armadilha saber&aacute; que
+      ela est&aacute; l&aacute;.</p>
 
-      <p style="text-align: justify;">Uma criatura que n&atilde;o o veja
-      preparando a armadilha pode encontr&aacute;-la se gastar uma
-      a&ccedil;&atilde;o padr&atilde;o procurando e passar em um teste de
-      Investiga&ccedil;&atilde;o (CD Sab).</p>
+      <p>&bull; &Eacute; poss&iacute;vel aplicar veneno a uma armadilha, como se
+      ela fosse uma arma.</p>
 
-      <p style="text-align: justify;">Voc&ecirc; n&atilde;o precisa de nenhum
-      item para criar a armadilha, pois usa materiais naturais, como galhos e
-      cip&oacute;s. Por&eacute;m, precisa estar em um ambiente prop&iacute;cio,
-      como uma floresta, um beco repleto de entulhos etc.</p>
+      <p>Uma criatura que n&atilde;o o veja preparando a armadilha pode
+      encontr&aacute;-la se gastar uma a&ccedil;&atilde;o padr&atilde;o
+      procurando e passar em um teste de Investiga&ccedil;&atilde;o (CD
+      Sab).</p>
+
+      <p>Voc&ecirc; n&atilde;o precisa de nenhum item para criar a armadilha,
+      pois usa materiais naturais, como galhos e cip&oacute;s. Por&eacute;m,
+      precisa estar em um ambiente prop&iacute;cio, como uma floresta, um beco
+      repleto de entulhos etc.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 50 (JdA)

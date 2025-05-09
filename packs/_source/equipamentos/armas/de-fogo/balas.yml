@@ -9,9 +9,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma bolsa com 20 balas (pequenas esferas
-      de chumbo) e p&oacute;lvora. Recarregar uma pistola ou um mosquete
-      &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
+      <p>Uma bolsa com 20 balas (pequenas esferas de chumbo) e p&oacute;lvora.
+      Recarregar uma pistola ou um mosquete &eacute; uma a&ccedil;&atilde;o
+      padr&atilde;o.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 151 (JdA)

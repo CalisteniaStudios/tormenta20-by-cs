@@ -49,11 +49,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Este <strong>escudo pesado
-      defensor</strong> é coberto de espinhos. Você pode gastar uma ação de
-      movimento e 2 PM para disparar um espinho em um alvo em alcance curto. O
-      espinho acerta automaticamente e causa [[/r 1d10+2]] pontos de dano de
-      perfuração.</p><p style="text-align:justify;"><b>Defensor</b> O item é
+      <p>Este <strong>escudo pesado defensor</strong> é coberto de espinhos.
+      Você pode gastar uma ação de movimento e 2 PM para disparar um espinho em
+      um alvo em alcance curto. O espinho acerta automaticamente e causa [[/r
+      1d10+2]] pontos de dano de perfuração.</p><p><b>Defensor</b> O item é
       encantado para desviar golpes. O bônus na Defesa do item aumenta em +2</p>
     chat: ''
     unidentified: ''

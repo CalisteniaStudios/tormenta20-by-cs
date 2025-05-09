@@ -55,11 +55,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Em forma selvagem, voc&ecirc; pode
-      lan&ccedil;ar magias e empunhar catalizadores e esot&eacute;ricos.</p>
+      <p>Em forma selvagem, voc&ecirc; pode lan&ccedil;ar magias e empunhar
+      catalizadores e esot&eacute;ricos.</p>
 
-      <p style="text-align: justify;"><em>Pre-requisitos:</em> Forma
-      Selvagem&nbsp;</p>
+      <p><em>Pre-requisitos:</em> Forma Selvagem&nbsp;</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 62 (JdA)

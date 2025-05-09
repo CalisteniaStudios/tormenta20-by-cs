@@ -9,18 +9,15 @@ _id: B7NtJu97UJyyN0xi
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Seu sangue foi corrompido pela
-      Tormenta.</p>
+      <p>Seu sangue foi corrompido pela Tormenta.</p>
 
       <ul>
 
-      <li style="text-align: justify;">Superior. Voc&ecirc; recebe +4 PM para
-      cada poder da Tormenta que tiver. Esta heran&ccedil;a conta como um poder
-      da Tormenta. (exceto para perda de Carisma).</li>
+      <li>Superior. Voc&ecirc; recebe +4 PM para cada poder da Tormenta que
+      tiver. Esta heran&ccedil;a conta como um poder da Tormenta. (exceto para
+      perda de Carisma).</li>
 
       </ul>
-
-      <p>&nbsp;</p>
     chat: ''
     unidentified: ''
   source: Tormenta 20 Básico - Edição do Ano, pág. 39.

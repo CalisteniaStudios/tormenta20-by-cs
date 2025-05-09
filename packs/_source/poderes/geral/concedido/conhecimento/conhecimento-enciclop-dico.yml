@@ -9,8 +9,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Você se torna treinado em duas perícias
-      baseadas em Inteligência a sua escolha.</p>
+      <p>Você se torna treinado em duas perícias baseadas em Inteligência a sua
+      escolha.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 132 (JdA)

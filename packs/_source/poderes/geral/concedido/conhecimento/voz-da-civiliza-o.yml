@@ -8,9 +8,7 @@ sort: 0
 flags: {}
 system:
   description:
-    value: >-
-      <p style="text-align:justify;">Você está sempre sob efeito de
-      <i>Compreensão</i>.</p>
+    value: <p>Você está sempre sob efeito de <i>Compreensão</i>.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 136 (JdA)

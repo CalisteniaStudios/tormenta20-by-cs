@@ -182,8 +182,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Humanoides na &aacute;rea s&atilde;o
-      acometidos de grande tristeza, adquirindo as condi&ccedil;&otilde;es
+      <p>Humanoides na &aacute;rea s&atilde;o acometidos de grande tristeza,
+      adquirindo as condi&ccedil;&otilde;es
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.Q6GUW7cDfTW5AXRz]{Fraco}
       e
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.XvqIlV5v4YBeFUBs]{Frustrado}.

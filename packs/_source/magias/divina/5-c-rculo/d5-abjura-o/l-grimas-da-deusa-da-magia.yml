@@ -147,9 +147,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify;">Se falhar no teste de resistência, o alvo
-      perde a habilidade de lançar magias arcanas até o fim da cena. Se passar,
-      perde a habilidade por uma rodada.</p>
+      <p>Se falhar no teste de resistência, o alvo perde a habilidade de lançar
+      magias arcanas até o fim da cena. Se passar, perde a habilidade por uma
+      rodada.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 196 (JdA)

@@ -4,9 +4,9 @@ img: systems/tormenta20/icons/itens/gerais/po-de-cristal.webp
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Uma pitada de p&oacute; de algum mineral
-      cristalino puro, como quartzo ou top&aacute;zio. Suas propriedades
-      diminuem o custo de magias de encantamento em &ndash;1 PM.</p>
+      <p>Uma pitada de p&oacute; de algum mineral cristalino puro, como quartzo
+      ou top&aacute;zio. Suas propriedades diminuem o custo de magias de
+      encantamento em &ndash;1 PM.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 161 (JdA)

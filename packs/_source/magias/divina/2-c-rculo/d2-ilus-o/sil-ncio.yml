@@ -135,9 +135,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Um sil&ecirc;ncio sepulcral recai sobre a
-      &aacute;rea e nenhum som &eacute; produzido nela. Enquanto estiverem na
-      &aacute;rea, todas as criaturas ficam
+      <p>Um sil&ecirc;ncio sepulcral recai sobre a &aacute;rea e nenhum som
+      &eacute; produzido nela. Enquanto estiverem na &aacute;rea, todas as
+      criaturas ficam
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.eaJwtq58TBZw0Oyo]{Surdo}.
       Al&eacute;m disso, como lan&ccedil;ar magias exige palavras
       m&aacute;gicas, normalmente nenhuma magia pode ser lan&ccedil;ada dentro

@@ -9,17 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A partir do 2&ordm; n&iacute;vel, quando
-      sofre um efeito que permite um teste de Reflexos para reduzir o dano
-      &agrave; metade, voc&ecirc; n&atilde;o sofre dano algum se passar.
-      Voc&ecirc; ainda sofre dano normal se falhar no teste de Reflexos. Esta
-      habilidade exige liberdade de movimentos; voc&ecirc; n&atilde;o pode
-      us&aacute;-la se estiver de armadura pesada ou na condi&ccedil;&atilde;o
-      im&oacute;vel.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>A partir do 2&ordm; n&iacute;vel, quando sofre um efeito que permite um
+      teste de Reflexos para reduzir o dano &agrave; metade, voc&ecirc;
+      n&atilde;o sofre dano algum se passar. Voc&ecirc; ainda sofre dano normal
+      se falhar no teste de Reflexos. Esta habilidade exige liberdade de
+      movimentos; voc&ecirc; n&atilde;o pode us&aacute;-la se estiver de
+      armadura pesada ou na condi&ccedil;&atilde;o im&oacute;vel.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 47 (JdA)

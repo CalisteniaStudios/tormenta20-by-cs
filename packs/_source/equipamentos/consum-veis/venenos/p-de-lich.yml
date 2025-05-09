@@ -46,17 +46,15 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Veneno letal, usado para assassinar alvos
-      poderosos.</p>
+      <p>Veneno letal, usado para assassinar alvos poderosos.</p>
 
-      <p style="text-align: justify;"><strong>Tipo:
-      </strong><em>Ingest&atilde;o.</em></p>
+      <p><strong>Tipo: </strong><em>Ingest&atilde;o.</em></p>
 
-      <p style="text-align: justify;"><strong>Efeito: </strong>P<em>erde 4d12 PV
-      por rodada durante 5 rodadas (perde 4d12 PV). </em></p>
+      <p><strong>Efeito: </strong>P<em>erde 4d12 PV por rodada durante 5 rodadas
+      (perde 4d12 PV). </em></p>
 
-      <p style="text-align: justify;"><em>A CD para </em><em>fabricar e para
-      resistir a este veneno aumenta em +5.</em></p>
+      <p><em>A CD para </em><em>fabricar e para resistir a este veneno aumenta
+      em +5.</em></p>
     chat: ''
     unidentified: ''
   source: T20, pg. 162 (JdA)

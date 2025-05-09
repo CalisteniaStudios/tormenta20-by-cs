@@ -10,19 +10,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Voc&ecirc; lan&ccedil;a magias
-      atrav&eacute;s de um poder inato que corre em seu sangue. Escolha uma
-      linhagem como origem de seus poderes (veja a p&aacute;gina 39). Voc&ecirc;
-      recebe a heran&ccedil;a b&aacute;sica da linhagem escolhida. Voc&ecirc;
-      n&atilde;o depende de nenhum item ou estudo, mas sua capacidade de
-      aprender magias &eacute; limitada &mdash; voc&ecirc; aprende uma magia
-      nova a cada n&iacute;vel &iacute;mpar (3&ordm;, 5&ordm;, 7&ordm; etc.), em
-      vez de a cada n&iacute;vel. Seu atributo-chave para magias &eacute;
-      Carisma.</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
-
-      <p style="text-align: justify;">&nbsp;</p>
+      <p>Voc&ecirc; lan&ccedil;a magias atrav&eacute;s de um poder inato que
+      corre em seu sangue. Escolha uma linhagem como origem de seus poderes
+      (veja a p&aacute;gina 39). Voc&ecirc; recebe a heran&ccedil;a
+      b&aacute;sica da linhagem escolhida. Voc&ecirc; n&atilde;o depende de
+      nenhum item ou estudo, mas sua capacidade de aprender magias &eacute;
+      limitada &mdash; voc&ecirc; aprende uma magia nova a cada n&iacute;vel
+      &iacute;mpar (3&ordm;, 5&ordm;, 7&ordm; etc.), em vez de a cada
+      n&iacute;vel. Seu atributo-chave para magias &eacute; Carisma.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 37 (JdA)

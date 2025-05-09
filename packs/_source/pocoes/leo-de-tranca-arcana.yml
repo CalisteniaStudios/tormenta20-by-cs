@@ -9,11 +9,10 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">Esta magia tranca uma porta ou outro item
-      que possa ser aberto ou fechado (como um ba&uacute;, caixa etc.),
-      aumentando a CD de testes de For&ccedil;a ou Ladinagem para abri-lo em
-      +10. Voc&ecirc; pode abrir livremente sua pr&oacute;pria tranca sem
-      problemas.</p>
+      <p>Esta magia tranca uma porta ou outro item que possa ser aberto ou
+      fechado (como um ba&uacute;, caixa etc.), aumentando a CD de testes de
+      For&ccedil;a ou Ladinagem para abri-lo em +10. Voc&ecirc; pode abrir
+      livremente sua pr&oacute;pria tranca sem problemas.</p>
     unidentified: ''
   source: T20, pg. 209 (JdA)
   carregado: true

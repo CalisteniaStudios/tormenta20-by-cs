@@ -50,14 +50,13 @@ flags:
 system:
   description:
     value: >-
-      <p style="text-align: justify;">A partir do 7&ordm; n&iacute;vel,
-      voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 2 PM para
-      analisar um objeto em alcance curto. Se fizer isso, ignora a
-      redu&ccedil;&atilde;o de dano dele. Voc&ecirc; tamb&eacute;m pode usar
-      esta habilidade para encontrar uma fraqueza em um inimigo. Se ele estiver
-      de armadura ou for um construto, voc&ecirc; recebe +2 em seus testes de
-      ataque contra ele. Os benef&iacute;cios desta habilidade duram at&eacute;
-      o fim da cena.</p>
+      <p>A partir do 7&ordm; n&iacute;vel, voc&ecirc; pode gastar uma
+      a&ccedil;&atilde;o de movimento e 2 PM para analisar um objeto em alcance
+      curto. Se fizer isso, ignora a redu&ccedil;&atilde;o de dano dele.
+      Voc&ecirc; tamb&eacute;m pode usar esta habilidade para encontrar uma
+      fraqueza em um inimigo. Se ele estiver de armadura ou for um construto,
+      voc&ecirc; recebe +2 em seus testes de ataque contra ele. Os
+      benef&iacute;cios desta habilidade duram at&eacute; o fim da cena.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 70 (JdA)

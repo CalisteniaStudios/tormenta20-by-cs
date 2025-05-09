@@ -141,9 +141,8 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align: justify;">O alvo fica com sua imagem nublada, como
-      se vista atrav&eacute;s de um l&iacute;quido, recebendo os efeitos de
-      camuflagem leve.</p>
+      <p>O alvo fica com sua imagem nublada, como se vista atrav&eacute;s de um
+      l&iacute;quido, recebendo os efeitos de camuflagem leve.</p>
     chat: ''
     unidentified: ''
   source: T20, pg. 183 (JdA)
