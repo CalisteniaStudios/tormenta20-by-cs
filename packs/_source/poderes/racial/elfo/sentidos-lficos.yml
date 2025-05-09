@@ -59,7 +59,7 @@ system:
     unidentified: ''
   source: T20, pg. 22 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -101,10 +101,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306184258
-  modifiedTime: 1684630371462
+  modifiedTime: 1746814137433
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

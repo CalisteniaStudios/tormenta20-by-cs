@@ -2,7 +2,58 @@ _id: WEQnmmUNI1guD5HV
 name: Herança Divina
 type: poder
 img: systems/tormenta20/icons/racas/suraggel.webp
-effects: []
+effects:
+  - name: Herança Divina
+    img: systems/tormenta20/icons/racas/suraggel.webp
+    origin: Compendium.tormenta20.poderes.Item.WEQnmmUNI1guD5HV
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: hXD4Zg1ZULMtHGVS
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.sentidos.value
+        mode: 2
+        value: penumbra
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1746815819582
+      modifiedTime: 1746815839230
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!WEQnmmUNI1guD5HV.hXD4Zg1ZULMtHGVS'
 folder: 6YFutDj74vMohmap
 sort: 0
 flags: {}
@@ -15,7 +66,7 @@ system:
     unidentified: ''
   source: T20, pg. 31 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -57,10 +108,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306184719
-  modifiedTime: 1684630371462
+  modifiedTime: 1746815810347
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

@@ -2,7 +2,94 @@ _id: GYlYSYLGcK89eelM
 name: Natureza Esquelética
 type: poder
 img: systems/tormenta20/icons/racas/osteon.webp
-effects: []
+effects:
+  - name: Natureza Esquelética
+    img: systems/tormenta20/icons/racas/osteon.webp
+    origin: Compendium.tormenta20.poderes.Item.GYlYSYLGcK89eelM
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: ERR981go5h4kQB3s
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.sentidos.value
+        mode: 2
+        value: escuro
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: cansaco
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: exausto
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: fatigado
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: metabolismo
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: doente
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: enjoado
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: sangrando
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: envenenado
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: trevas
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1746815354163
+      modifiedTime: 1746815464980
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!GYlYSYLGcK89eelM.ERR981go5h4kQB3s'
 folder: voEJdcAKDfYsKoTC
 sort: 100000
 flags: {}
@@ -20,7 +107,7 @@ system:
     unidentified: ''
   source: T20 - JdA, PG.29
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -62,10 +149,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.341'
+  systemVersion: 1.4.214
+  coreVersion: '13.342'
   createdTime: 1664306183899
-  modifiedTime: 1746636168835
+  modifiedTime: 1746815349976
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

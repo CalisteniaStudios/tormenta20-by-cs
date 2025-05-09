@@ -104,6 +104,56 @@ effects:
     statuses: []
     sort: 0
     _key: '!items.effects!HSB1rlovnC4GjdgV.4QsRr4WpeeVxWznX'
+  - name: Natureza Venenosa
+    img: systems/tormenta20/icons/racas/medusa.webp
+    origin: Compendium.tormenta20.poderes.Item.HSB1rlovnC4GjdgV
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: bPnPA6QZb0jaoyOb
+    type: base
+    system: {}
+    changes:
+      - key: ''
+        value: ''
+        mode: 2
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1746815205958
+      modifiedTime: 1746815209031
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!HSB1rlovnC4GjdgV.bPnPA6QZb0jaoyOb'
 folder: WBW7mJa7n0MHwWe7
 sort: 0
 flags: {}
