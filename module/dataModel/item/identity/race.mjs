@@ -7,7 +7,15 @@ export default class RaceData extends IdentityData {
 	static defineSchema() {
 		return {
 			...super.defineSchema(),
-			atributos: this.schemaAbilities()
+			atributos: this.schemaAbilities(),
+			pv: new fields.SchemaField({
+				flat: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.FlatBonus" }),
+				perLevel: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.BonusPerLevel" })
+			}),
+			pm: new fields.SchemaField({
+				flat: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.FlatBonus" }),
+				perLevel: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.BonusPerLevel" })
+			})
 			// progressao: new _fields.MappingField(),
 		};
 	}
