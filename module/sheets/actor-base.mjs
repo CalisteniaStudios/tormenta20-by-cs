@@ -483,26 +483,19 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	*/
 	_prepareMovementSpeed(actorData) {
 		const movement = foundry.utils.deepClone(actorData.system.attributes.movement) || {};
-		// Prepare an array of available movement speeds
-		const labels = {
-			walk: "",
-			burrow: "Escavar",
-			climb: "Escalar",
-			fly: "Voo",
-			swim: "Natação"
-		};
-		const speeds = {};
-		for (const [type, label] of Object.entries(labels)) {
+		// Return an array of available movement speeds
+		return Object.entries(T20.movementTypes).reduce((speeds, [type, label]) => {
 			const value = movement[type];
 			if (value > 0) {
-				let speedStr = `${label} ${value}${movement.unit}`.trim();
+				const name = type === "walk" ? "" : label;
+				let speedStr = `${name} ${value}${movement.unit}`.trim();
 				if (type === "fly" && movement.hover) {
 					speedStr += " (Flutuando)";
 				}
 				speeds[type] = speedStr;
 			}
-		}
-		return speeds;
+			return speeds;
+		}, {});
 	}
 
 	/* -------------------------------------------- */
