@@ -1,22 +1,68 @@
-_id: 6nOyp5hEPdHJenBO
 name: Faro
 type: poder
 img: systems/tormenta20/icons/racas/minotauro.webp
-effects: []
+effects:
+  - name: Faro
+    img: systems/tormenta20/icons/racas/minotauro.webp
+    origin: Item.6nOyp5hEPdHJenBO
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: KBa1fdanq3AR9NzX
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.sentidos.value
+        mode: 2
+        value: faro
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      lastModifiedBy: null
+    _key: '!items.effects!KuNWTgJXHsg6tfzy.KBa1fdanq3AR9NzX'
 folder: a4zeBAMZyYPB6hKz
-sort: 0
 flags: {}
 system:
   description:
     value: >-
-      <p>Voc&ecirc; tem olfato apurado. Contra inimigos em alcance curto que
-      n&atilde;o possa ver, voc&ecirc; n&atilde;o fica desprevenido e camuflagem
+      <p style="text-align:justify">Você tem olfato apurado. Contra inimigos em
+      alcance curto que não possa ver, você não fica desprevenido e camuflagem
       total lhe causa apenas 20% de chance de falha.</p>
-    chat: ''
     unidentified: ''
   source: T20, pg. 25 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -28,7 +74,6 @@ system:
   target:
     value: null
     width: null
-    units: ''
     type: ''
   range:
     value: null
@@ -54,16 +99,19 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  rolltags: []
 ownership:
   default: 0
 _stats:
-  systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
-  createdTime: 1664306183319
-  modifiedTime: 1684630371462
-  lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
-_key: '!items!6nOyp5hEPdHJenBO'
+  coreVersion: '13.342'
+  systemId: tormenta20
+  systemVersion: 1.4.214
+  createdTime: 1746812820654
+  modifiedTime: 1746812820712
+  lastModifiedBy: t20builder000000
+_id: KuNWTgJXHsg6tfzy
+sort: 300000
+_key: '!items!KuNWTgJXHsg6tfzy'
 
