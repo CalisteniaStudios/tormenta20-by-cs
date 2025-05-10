@@ -106,14 +106,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const actorData = this.actor.system;
 				let lvlconfig = this.actor.getFlag("tormenta20", "lvlconfig");
 				if (!lvlconfig) {
-					lvlconfig = {
-						pv: { for: false, des: false, int: false, sab: false, car: false },
-						pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
-						pvBonus: ["0", "0"],
-						pmBonus: ["0", "0"],
-						manual: false
-					};
-					this.actor.setFlag("tormenta20", "lvlconfig", lvlconfig);
+					this.actor.setFlag("tormenta20", "lvlconfig", { manual: false });
 				}
 				// Novo nivel de classe preexistente
 				if (cls) {

@@ -180,7 +180,6 @@ export default class CreatureData extends Tormenta20TypeData {
 	}
 
 	static schemaAttributes(type="character") {
-
 		const _fields = tormenta20.data.fields;
 		let schema = {
 			carga: this.schemaEncumbrance(),
@@ -195,7 +194,20 @@ export default class CreatureData extends Tormenta20TypeData {
 			sentidos: this.schemaSenses(),
 			treino: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.AttributeTrainingValue", hint: "T20.AttributeTrainingValueHint" })
 		};
-		if (type === "npc") {
+		if (type === "character") {
+			for (const key of ["pv", "pm"]) {
+				schema[key].fields.atributos = new fields.SchemaField(Object.fromEntries(
+					Object.keys(T20.atributos).filter((atr) => key !== "pv" || atr !== "con")
+						.map((abl) => [abl, new fields.BooleanField()])
+				));
+				schema[key].fields.bonus = new fields.SchemaField({
+					nivel: new fields.ArrayField(new fields.StringField()),
+					nivelPar: new fields.ArrayField(new fields.StringField()),
+					nivelImpar: new fields.ArrayField(new fields.StringField()),
+					flat: new fields.ArrayField(new fields.StringField())
+				});
+			}
+		} else if (type === "npc") {
 			schema.nd = new fields.StringField({ required: true, initial: "1", label: "T20.FoeCRValue", hint: "T20.FoeCRValueHint" });
 		} else if (type === "simple") {
 			delete schema.cd;

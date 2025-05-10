@@ -297,15 +297,7 @@ export default class ActorT20 extends Actor {
 		let sheetFlags = {};
 
 		if (this.getFlag("tormenta20", "lvlconfig") === undefined) {
-			let levelConfig = {
-				pv: { for: false, des: false, con: true, int: false, sab: false, car: false },
-				// con: true,
-				pm: { for: false, des: false, con: false, int: false, sab: false, car: false },
-				pvBonus: ["0", "0"],
-				pmBonus: ["0", "0"],
-				manual: false
-			};
-			baseFlags.tormenta20.lvlconfig = levelConfig;
+			baseFlags.tormenta20.lvlconfig = { manual: false };
 		}
 		baseFlags.tormenta20.sheet = sheetFlags;
 		if (!foundry.utils.isEmpty(sheetFlags)) foundry.utils.mergeObject(flags, baseFlags);
@@ -559,43 +551,34 @@ export default class ActorT20 extends Actor {
 	* @private
 	*/
 	_preparePVPMTotal() {
-		const resourcePV = this.system.attributes.pv;
-		const resourcePM = this.system.attributes.pm;
+		let lvlc = this.getFlag("tormenta20", "lvlconfig");
+		if (lvlc.manual) return;
 
 		const nivel = Number(this.system.attributes.nivel.value);
-		const con = this.system.atributos.con;
-
-		const soma = { pv: 0, pm: 0 };
-		let lvlc = this.getFlag("tormenta20", "lvlconfig");
-		if (!lvlc || lvlc.manual) return;
-
-		for (let classe of this.itemTypes.classe) {
-			let c = classe.system;
-			let iniPV = c.inicial ? c.pvPorNivel * 3 : 0;
-			soma.pv += Number(iniPV);
-			soma.pv += (Number(c.niveis) * Number(c.pvPorNivel));
-			soma.pm += c.niveis * c.pmPorNivel;
+		const rollData = this.getRollData();
+		for (const type of ["pv", "pm"]) {
+			let soma = 0;
+			const { atributos, bonus } = this.system.attributes[type];
+			for (const classe of this.itemTypes.classe) {
+				let c = classe.system;
+				const initial = type === "pv" && c.inicial ? c[`${type}PorNivel`] * 3 : 0;
+				soma += Number(initial) + (Number(c.niveis) * Number(c[`${type}PorNivel`]));
+			}
+			bonus.flat.forEach((value) => soma += Number(simplifyRollFormula(value, rollData)));
+			bonus.nivel.forEach((value) => soma += (Number(simplifyRollFormula(value, rollData)) * nivel));
+			bonus.nivelPar.forEach((value) => soma += (Number(simplifyRollFormula(value, rollData)) * Math.floor(nivel / 2)));
+			bonus.nivelImpar.forEach((value) => soma += (Number(simplifyRollFormula(value, rollData)) * Math.ceil(nivel / 2)));
+			Object.entries(atributos).filter(([atr, value]) => value)
+				.forEach(([atr, value]) => {
+					const { base, racial } = this.system.atributos[atr];
+					soma += Number(base) + Number(racial);
+				});
+			if (type === "pv") {
+				soma += this.system.atributos.con.value * nivel;
+				this.system.attributes[type].min = -Math.floor(soma / 2);
+			}
+			this.system.attributes[type].max = Math.floor(soma);
 		}
-		if (con) soma.pv += con.value * nivel;
-		if (lvlc.pvBonus[0]) soma.pv += Number(lvlc.pvBonus[0]);
-		if (lvlc.pvBonus[1]) soma.pv += Number(lvlc.pvBonus[1]) * nivel;
-		soma.pv = Math.floor(soma.pv);
-		if (lvlc.pmBonus[0]) soma.pm += Number(lvlc.pmBonus[0]);
-		if (lvlc.pmBonus[1]) soma.pm += Number(lvlc.pmBonus[1]) * nivel;
-		soma.pm = Math.floor(soma.pm);
-		for (let [atr, value] of Object.entries(lvlc.pv)) {
-			if (atr === "con") continue;
-			let abl = this.system.atributos[atr];
-			if (value) soma.pv += Number(abl.base) + Number(abl.racial);
-		}
-		for (let [atr, value] of Object.entries(lvlc.pm)) {
-			let abl = this.system.atributos[atr];
-			if (value) soma.pm += Number(abl.base) + Number(abl.racial);
-		}
-
-		resourcePV.min = (Math.floor(soma.pv/2)*-1);
-		resourcePV.max = soma.pv;
-		resourcePM.max = soma.pm;
 	}
 
 	/* -------------------------------------------- */

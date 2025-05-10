@@ -14,15 +14,6 @@ export function registerHandlebarsHelpers() {
 		if (!actor) return "";
 		const rollData = actor.getRollData();
 		const modFields = actor.modifiedFields;
-		if (hbl.hash.path in modFields) {
-			for (const fieldGroup of Object.values(modFields)) {
-				for (const field of fieldGroup) {
-					if (typeof field.value === "string" && field.value.startsWith("@")) {
-						field.value = Roll.replaceFormulaData(field.value, rollData);
-					}
-				}
-			}
-		}
 		const path = hbl.hash.path;
 		const pathTerms = path.split(".").filter((t) => !["system", "attributes", "tracos"].includes(t));
 		const [type, key] = pathTerms;
@@ -43,7 +34,6 @@ export function registerHandlebarsHelpers() {
 			}
 			case "pv":
 			case "pm": {
-				const lvlconfig = actor.flags.tormenta20?.lvlconfig || { [type]: {}, [`${type}Bonus`]: [null, null] };
 				const level = actor.system.attributes.nivel.value;
 				const classes = actor.items.filter((i) => i.type === "classe")
 					.map((c) => {
@@ -62,17 +52,20 @@ export function registerHandlebarsHelpers() {
 						value: raceItem.system[type].flat + (level * raceItem.system[type].perLevel)
 					}
 					: { value: 0 };
-				const atr = Object.fromEntries(
-					Object.entries(actor.system.atributos)
-						.filter(([key, data]) => lvlconfig[type][key])
-						.map(([key, data]) => ([data.name, data.value]))
-				);
+				const atr = Object.entries(actor.system.atributos)
+					.filter(([key, data]) => actor.system.attributes[type].atributos[key] || (key === "con" && type === "pv"))
+					.map(([key, data]) => {
+						const value = key === "con" && type === "pv" ? level * data.value : data.value;
+						return [data.name, value];
+					});
 				listEffects = [
 					...classes.map((c) => ({ label: c.label, value: c[type] })),
-					...Object.entries(atr).map(([label, value]) => ({ label, value })),
+					...atr.map(([label, value]) => ({ label, value })),
 					(race.value > 0 ? { ...race } : false),
-					(lvlconfig[`${type}Bonus`][0] ? { label: "T20.FlatBonus", value: lvlconfig[`${type}Bonus`][0] } : false),
-					(lvlconfig[`${type}Bonus`][1] ? { label: "T20.BonusPerLevel", value: lvlconfig[`${type}Bonus`][1] } : false)
+					...(modFields[`system.attributes.${type}.bonus.nivel`] ?? []),
+					...(modFields[`system.attributes.${type}.bonus.nivelPar`] ?? []),
+					...(modFields[`system.attributes.${type}.bonus.nivelImpar`] ?? []),
+					...(modFields[`system.attributes.${type}.bonus.flat`] ?? [])
 				];
 				break;
 			}
@@ -142,13 +135,17 @@ export function registerHandlebarsHelpers() {
 		let total = 0;
 		for (const item of listEffects.filter(Boolean)) {
 			listItems += `<li class="flexrow"><label>${item.label}:</label><span>`;
+			let value = item.value;
+			if (typeof value === "string" && value.startsWith("@")) {
+				value = Roll.replaceFormulaData(value, rollData);
+			}
 			if (item.mode === 5) {
-				listItems += `${item.value}</span></li>`;
-				total = item.value;
+				listItems += `${value}</span></li>`;
+				total = value;
 				break;
 			} else {
-				listItems += `${item.value >= 0 ? `+${Number(item.value)}` : item.value}</span></li>`;
-				total += Number(item.value);
+				listItems += `${value >= 0 ? `+${Number(value)}` : value}</span></li>`;
+				total += Number(value);
 			}
 		}
 		if (total >= 0) total = `+${total}`;
