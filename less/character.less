@@ -11,22 +11,6 @@
     min-width: 650px;
     min-height: 700px;
 
-    .sheet-header {
-      .charlevel {
-        flex: 1;
-        margin-left: auto;
-      }
-      .header-exp {
-        max-width: 120px;
-      }
-      .experience {
-        margin: 0;
-        font-size: var(--font-size-14);
-      }
-      .xpbar {
-        margin: 0;
-      }
-    }
     .sheet-tabs {
       .item[data-tab=journal],
       .item[data-tab=effects] {
@@ -48,51 +32,82 @@
 
   .sheet-header {
 
-    // Character Level
-    .charlevel {
-      flex: 0 0 20px;
-      color: @colorDark;
-      white-space: nowrap;
-      height: @actorNameHeight;
-      align-items: center;
-    }
-    .level {
-      flex: 0 0 76px;
-      // font-size: 2em;
-      padding: 3px 6px;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      background: @colorFaint;
-      line-height: 1;
-      text-align: center;
-    }
 
-    // Experience Tracking
-    .experience {
-      margin-bottom: -10px;
-      align-items: center;
-      // font-size: 18px;
-      input {
-        height: auto;
+    .header-exp {
+      flex: 0 0 115px;
+      // Character Level
+      .charlevel {
+        flex: 1;
+        gap: 0.5rem;
+        color: @colorDark;
+        white-space: nowrap;
+        height: @actorNameHeight;
+        align-items: center;
+
+        * {
+          margin-left: auto;
+        }
+
+        .level {
+          flex: 0 0 76px;
+          // font-size: 2em;
+          padding: 3px 6px;
+          border: 1px solid transparent;
+          border-radius: 4px;
+          background: @colorFaint;
+          line-height: 1;
+          text-align: center;
+        }
+
+        .experience {
+          opacity: 0;
+          display: none;
+          transition: opacity 500ms ease;
+        }
+
+        .config-button[data-action="rest"] {
+          flex: 0;
+          opacity: 0;
+          transition: opacity 500ms ease;
+        }
+
+        &:hover {
+          .config-button[data-action="rest"] {
+            opacity: 1;
+          }
+          .experience {
+            opacity: 1;
+            display: initial;
+          }
+        }
       }
-      span.max-xp {
-        color: @colorTan;
-        flex: none;
-        margin: 0px 3px;
+      // Experience Tracking
+      .experience {
+        font-size: var(--font-size-14);
+        align-items: center;
+        // font-size: 18px;
+        input {
+          height: auto;
+        }
+        span.max-xp {
+          color: @colorTan;
+          flex: none;
+          margin: 0px 3px;
+        }
       }
-    }
-    .xpbar {
-      flex: 0 0 8px;
-      width: 100%;
-      margin-bottom: 15px;
-      background: @colorTan;
-      border: 1px solid #000;
-      border-radius: 3px;
-      .bar {
-        height: 6px;
-        display: block;
-        background: #5ee192;
-        border-radius: 2px;
+      .xpbar {
+        flex: 0 0 8px;
+        width: 100%;
+        margin-bottom: 3px;
+        background: @colorTan;
+        border: 1px solid #000;
+        border-radius: 3px;
+        .bar {
+          height: 6px;
+          display: block;
+          background: #5ee192;
+          border-radius: 2px;
+        }
       }
     }
 

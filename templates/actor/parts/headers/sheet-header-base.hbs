@@ -5,8 +5,12 @@
 			<h1 class="charname">
 				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}" />
 			</h1>
-			{{#unless disableExperience}}
 			<aside class="header-exp flexcol">
+				<div class="charlevel flexrow">
+					<a class="config-button" data-action="rest" title="{{localize 'T20.Rest'}}"><i class="fa-solid fa-bed"></i></a>
+					<div class="level config-button" data-action="progression">{{ localize 'T20.Level' }} {{system.attributes.nivel.value}}</div>
+				</div>
+				{{#unless disableExperience}}
 				<div class="experience flexrow">
 					<input type="text" placeholder="0" data-dtype="Number" name="system.attributes.nivel.xp.value" value="{{system.attributes.nivel.xp.value}}"/>
 					<span class="sep">/</span>
@@ -15,11 +19,7 @@
 				<div class="xpbar">
 					<span class="bar" style="width: {{system.attributes.nivel.xp.pct}}%"></span>
 				</div>
-			</aside>
-			{{/unless}}
-			<aside class="charlevel flexrow">
-
-				<div class="level config-button" data-action="progression">{{ localize 'T20.Level' }} {{system.attributes.nivel.value}}</div>
+				{{/unless}}
 			</aside>
 		</div>
 		{{!-- Character Summary --}}

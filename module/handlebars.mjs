@@ -41,6 +41,41 @@ export function registerHandlebarsHelpers() {
 				];
 				break;
 			}
+			case "pv":
+			case "pm": {
+				const lvlconfig = actor.flags.tormenta20?.lvlconfig || { [type]: {}, [`${type}Bonus`]: [null, null] };
+				const level = actor.system.attributes.nivel.value;
+				const classes = actor.items.filter((i) => i.type === "classe")
+					.map((c) => {
+						const initialHP = type === "pv" && c.system.inicial ? c.system.pvPorNivel * 3 : 0;
+						const levelCount = Number(c.system.niveis);
+						const porNivel = Number(c.system[`${type}PorNivel`]);
+						return {
+							label: `${c.name} ${levelCount}`,
+							[type]: initialHP + (levelCount * porNivel)
+						};
+					});
+				const raceItem = actor.items.find((i) => i.type === "race");
+				const race = raceItem
+					? {
+						label: raceItem.name,
+						value: raceItem.system[type].flat + (level * raceItem.system[type].perLevel)
+					}
+					: { value: 0 };
+				const atr = Object.fromEntries(
+					Object.entries(actor.system.atributos)
+						.filter(([key, data]) => lvlconfig[type][key])
+						.map(([key, data]) => ([data.name, data.value]))
+				);
+				listEffects = [
+					...classes.map((c) => ({ label: c.label, value: c[type] })),
+					...Object.entries(atr).map(([label, value]) => ({ label, value })),
+					(race.value > 0 ? { ...race } : false),
+					(lvlconfig[`${type}Bonus`][0] ? { label: "T20.FlatBonus", value: lvlconfig[`${type}Bonus`][0] } : false),
+					(lvlconfig[`${type}Bonus`][1] ? { label: "T20.BonusPerLevel", value: lvlconfig[`${type}Bonus`][1] } : false)
+				];
+				break;
+			}
 			case "pericias": {
 				// ['meionivel', 'treino', 'atributo', 'outros', 'condi', 'tamanho', ...efeitos]
 				const skill = actor.system.pericias[key];

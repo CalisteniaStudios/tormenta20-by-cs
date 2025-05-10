@@ -2,7 +2,6 @@ import ActiveEffectT20 from "../documents/active-effects.mjs";
 
 import AbilityCalculator from "../apps/ability-calculator.mjs";
 import ActorSettings from "../apps/actor-settings.mjs";
-import LevelSettings from "../apps/level-settings.mjs";
 import ActorMovementConfig from "../apps/movement-config.mjs";
 import ActorResistanceConfig from "../apps/resistance-config.mjs";
 import RestConfigDialog from "../apps/rest-config.mjs";
@@ -758,9 +757,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const button = event.currentTarget;
 		let app;
 		switch (button.dataset.action) {
-			case "level":
-				app = new LevelSettings(this.object);
-				break;
 			case "movement":
 				app = new ActorMovementConfig(this.object);
 				break;
