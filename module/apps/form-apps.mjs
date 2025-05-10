@@ -1,6 +1,5 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 const { BooleanField, NumberField, StringField } = foundry.data.fields;
-const { createCheckboxInput } = foundry.applications.fields;
 
 /* TODO REFACTOR THIS */
 export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -67,7 +66,6 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 			name,
 			value: game.settings.get("tormenta20", name)
 		};
-		if (setting.type === Boolean) data.input = createCheckboxInput;
 		if (setting.choices) data.options = Object.entries(setting.choices)
 			.map(([value, label]) => ({ value, label: game.i18n.localize(label) }));
 		return data;
