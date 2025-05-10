@@ -18,14 +18,13 @@ export default function () {
 		});
 
 		if (game.user.isGM) {
-			const prototypeTokenOverrides = game.settings.get("core", "prototypeTokenOverrides");
-			if (prototypeTokenOverrides.character.disposition === undefined) {
+			// Define o padrão dos token de PJ
+			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5") {
+				const prototypeTokenOverrides = game.settings.get("core", "prototypeTokenOverrides");
 				prototypeTokenOverrides.character.disposition = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
-			}
-			if (prototypeTokenOverrides.character.sight.enabled === undefined) {
 				prototypeTokenOverrides.character.sight.enabled = true;
+				game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			}
-			game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			let oldActors = game.actors.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.4.100");
 			// Migration
 			for (const actor of oldActors) {
