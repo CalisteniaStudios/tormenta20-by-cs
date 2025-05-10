@@ -58,13 +58,19 @@ export function registerHandlebarsHelpers() {
 						const value = key === "con" && type === "pv" ? level * data.value : data.value;
 						return [data.name, value];
 					});
+				const bonusNivel = modFields[`system.attributes.${type}.bonus.nivel`]
+					?.map(({ label, mode, value }) => ({ label, mode, value, multiplier: level }));
+				const bonusNivelPar = modFields[`system.attributes.${type}.bonus.nivelPar`]
+					?.map(({ label, mode, value }) => ({ label, mode, value, multiplier: Math.floor(level / 2) }));
+				const bonusNivelImpar = modFields[`system.attributes.${type}.bonus.nivelImpar`]
+					?.map(({ label, mode, value }) => ({ label, mode, value, multiplier: Math.ceil(level / 2) }));
 				listEffects = [
 					...classes.map((c) => ({ label: c.label, value: c[type] })),
 					...atr.map(([label, value]) => ({ label, value })),
 					(race.value > 0 ? { ...race } : false),
-					...(modFields[`system.attributes.${type}.bonus.nivel`] ?? []),
-					...(modFields[`system.attributes.${type}.bonus.nivelPar`] ?? []),
-					...(modFields[`system.attributes.${type}.bonus.nivelImpar`] ?? []),
+					...(bonusNivel ?? []),
+					...(bonusNivelPar ?? []),
+					...(bonusNivelImpar ?? []),
 					...(modFields[`system.attributes.${type}.bonus.flat`] ?? [])
 				];
 				break;
@@ -137,7 +143,7 @@ export function registerHandlebarsHelpers() {
 			listItems += `<li class="flexrow"><label>${item.label}:</label><span>`;
 			let value = item.value;
 			if (typeof value === "string" && value.startsWith("@")) {
-				value = Roll.replaceFormulaData(value, rollData);
+				value = Roll.replaceFormulaData(value, rollData) * (item.multiplier ?? 1);
 			}
 			if (item.mode === 5) {
 				listItems += `${value}</span></li>`;
