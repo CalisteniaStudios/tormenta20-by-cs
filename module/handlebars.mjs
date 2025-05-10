@@ -45,13 +45,6 @@ export function registerHandlebarsHelpers() {
 							[type]: initialHP + (levelCount * porNivel)
 						};
 					});
-				const raceItem = actor.items.find((i) => i.type === "race");
-				const race = raceItem
-					? {
-						label: raceItem.name,
-						value: raceItem.system[type].flat + (level * raceItem.system[type].perLevel)
-					}
-					: { value: 0 };
 				const atr = Object.entries(actor.system.atributos)
 					.filter(([key, data]) => actor.system.attributes[type].atributos[key] || (key === "con" && type === "pv"))
 					.map(([key, data]) => {
@@ -67,7 +60,6 @@ export function registerHandlebarsHelpers() {
 				listEffects = [
 					...classes.map((c) => ({ label: c.label, value: c[type] })),
 					...atr.map(([label, value]) => ({ label, value })),
-					(race.value > 0 ? { ...race } : false),
 					...(bonusNivel ?? []),
 					...(bonusNivelPar ?? []),
 					...(bonusNivelImpar ?? []),

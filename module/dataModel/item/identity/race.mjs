@@ -5,17 +5,12 @@ export default class RaceData extends IdentityData {
 
 	/** @inheritDoc */
 	static defineSchema() {
+		const _fields = tormenta20.data.fields;
 		return {
 			...super.defineSchema(),
 			atributos: this.schemaAbilities(),
-			pv: new fields.SchemaField({
-				flat: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.FlatBonus" }),
-				perLevel: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.BonusPerLevel" })
-			}),
-			pm: new fields.SchemaField({
-				flat: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.FlatBonus" }),
-				perLevel: new fields.NumberField({ required: true, nullable: false, initial: 0, label: "T20.BonusPerLevel" })
-			})
+			movement: new fields.EmbeddedDataField(_fields.MovementData),
+			tamanho: new fields.StringField({ required: true, nullable: false, choices: Object.keys(T20.actorSizes), initial: "med", label: "T20.TraitActorSize", hint: "T20.TraitActorSizeHint" })
 			// progressao: new _fields.MappingField(),
 		};
 	}
