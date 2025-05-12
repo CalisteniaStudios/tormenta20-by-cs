@@ -4,7 +4,8 @@ export default class ActiveEffectEdit extends FormApplication {
 		const options = super.defaultOptions;
 		options.id = "actor-settings";
 		// options.template = "systems/tormenta20/templates/apps/actor-settings.hbs";
-		(options.template = "systems/tormenta20/templates/apps/effect-edit.hbs"), (options.height = 400);
+		options.template = "systems/tormenta20/templates/apps/effect-edit.hbs";
+		options.height = 400;
 		options.width = 600;
 		options.minimizable = true;
 		options.title = "Configurar Efeitos de Items";
