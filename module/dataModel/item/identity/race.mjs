@@ -8,23 +8,20 @@ export default class RaceData extends IdentityData {
 		const _fields = tormenta20.data.fields;
 		return {
 			...super.defineSchema(),
-			atributos: this.schemaAbilities(),
+			atributos: new fields.SchemaField(
+				Object.fromEntries(
+					Object.keys(T20.atributos).map((abl) => [abl, new fields.NumberField({
+						required: true, nullable: false, initial: 0, min: -5
+					})])
+				)),
+			atributosEscolhaLivre: new fields.SchemaField(
+				Object.fromEntries(
+					Object.keys(T20.atributos).map((abl) => [abl, new fields.BooleanField()])
+				)),
 			movement: new fields.EmbeddedDataField(_fields.MovementData),
 			tamanho: new fields.StringField({ required: true, nullable: false, choices: Object.keys(T20.actorSizes), initial: "med", label: "T20.TraitActorSize", hint: "T20.TraitActorSizeHint" })
 			// progressao: new _fields.MappingField(),
 		};
-	}
-
-	static schemaAbilities() {
-		let getSchema = () => {
-			return new fields.SchemaField({
-				value: new fields.NumberField({ required: true, nullable: false, initial: 0, min: -5, label: "T20.AbilityValue", hint: "T20.AbilityValueHint" })
-			});
-		};
-
-		let schema = {};
-		Object.keys(T20.atributos).forEach((abl) => schema[abl] = getSchema());
-		return new fields.SchemaField(schema);
 	}
 
 	/* -------------------------------------------- */
