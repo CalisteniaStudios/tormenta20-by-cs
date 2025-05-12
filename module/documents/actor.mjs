@@ -552,7 +552,7 @@ export default class ActorT20 extends Actor {
 	*/
 	_preparePVPMTotal() {
 		let lvlc = this.getFlag("tormenta20", "lvlconfig");
-		if (lvlc.manual) return;
+		if (lvlc?.manual) return;
 
 		const nivel = Number(this.system.attributes.nivel.value);
 		const rollData = this.getRollData();
