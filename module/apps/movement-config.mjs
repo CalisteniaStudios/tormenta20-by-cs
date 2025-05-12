@@ -3,7 +3,6 @@
  * @extends {DocumentSheet}
  */
 export default class ActorMovementConfig extends DocumentSheet {
-
 	/** @override */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {

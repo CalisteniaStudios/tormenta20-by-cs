@@ -4,7 +4,6 @@
  * @mixes SheetsT20
  */
 export default class JournalSheetT20 extends JournalSheet {
-
 	/** @override */
 	static get defaultOptions() {
 		const options = JournalSheet.defaultOptions;

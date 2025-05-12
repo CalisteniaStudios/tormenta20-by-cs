@@ -4,7 +4,7 @@ import { applyOnUseEffects } from "./ability-use.mjs";
  * @type {Dialog}
  */
 export default class AbilityUseDialog extends Dialog {
-	constructor(item, dialogData={}, options={}) {
+	constructor(item, dialogData = {}, options = {}) {
 		super(dialogData, options);
 		this.options.classes.push(...["tormenta20", "ability-use-form"]);
 
@@ -56,7 +56,7 @@ export default class AbilityUseDialog extends Dialog {
 		const pmCost = itemData?.custo > 0;
 		let aprimoramentos = [];
 
-		function filterAE(ae, keys=[], tags=[]) {
+		function filterAE(ae, keys = [], tags = []) {
 			const name = item.name;
 			let items = ae.getFlag("tormenta20", "items");
 			items = items ? items.split(";").map((i) => i.trim()) : [];
@@ -68,9 +68,12 @@ export default class AbilityUseDialog extends Dialog {
 		}
 
 		const relate = {
-			atributo: "ability", pericia: "skill",
-			arma: "attack", magia: "spell",
-			poder: "power", consumivel: "consumable",
+			atributo: "ability",
+			pericia: "skill",
+			arma: "attack",
+			magia: "spell",
+			poder: "power",
+			consumivel: "consumable",
 			equipamento: "equipment"
 		};
 		let utype = "";
@@ -78,9 +81,7 @@ export default class AbilityUseDialog extends Dialog {
 			case "atributo":
 			case "pericia":
 				utype = relate[item.type];
-				aprimoramentos = [
-					...item.actor.effects.filter((ae) => filterAE(ae, ["onuse", utype]))
-				];
+				aprimoramentos = [...item.actor.effects.filter((ae) => filterAE(ae, ["onuse", utype]))];
 				item.validOnUseEffects = aprimoramentos;
 				break;
 			case "arma":
@@ -105,28 +106,37 @@ export default class AbilityUseDialog extends Dialog {
 			title: game.i18n.format("T20.AbilityUseHint", item),
 			note: "",
 			custo: itemData?.custo ?? null,
-			formula: ["atributo", "pericia"].includes(item.type) || !!itemData.rolls?.find((r) => ["ataque", "formula"].includes(r.type)),
+			formula:
+				["atributo", "pericia"].includes(item.type)
+				|| !!itemData.rolls?.find((r) => ["ataque", "formula"].includes(r.type)),
 			formuladano: !!itemData.rolls?.find((r) => r.type === "dano"),
 			itype: item.type,
 			consumeMP: pmCost,
 			aprimoramentos: aprimoramentos,
 			rollMode: game.settings.get("core", "rollMode"),
 			rollModes: CONFIG.Dice.rollModes,
-			rollKeeping: (event.altKey ? "khd20" : (event.ctrlKey ? "kld20" : "")),
+			rollKeeping: event.altKey ? "khd20" : event.ctrlKey ? "kld20" : "",
 			rollKeep: { khd20: "Melhor de 2d20", kld20: "Pior de 2d20" },
 			errors: []
 		};
 
 		// Render the ability usage template
-		const html = await foundry.applications.handlebars.renderTemplate("systems/tormenta20/templates/apps/ability-use.hbs", data);
+		const html = await foundry.applications.handlebars.renderTemplate(
+			"systems/tormenta20/templates/apps/ability-use.hbs",
+			data
+		);
 
 		// Create the Dialog and return data as a Promise
 		const icon = item.type === "magia" ? "fas fa-magic" : "fa-fist-raised";
-		const label = item.type === "magia" ? game.i18n.localize("T20.AbilityUseCast") : game.i18n.localize("T20.AbilityUseUse");
+		const label =
+			item.type === "magia" ? game.i18n.localize("T20.AbilityUseCast") : game.i18n.localize("T20.AbilityUseUse");
 
 		return await new Promise((resolve) => {
 			const dlg = new this(item, {
-				title: game.i18n.format("T20.AbilityUseHint", { name: item.name, type: item.type }),
+				title: game.i18n.format("T20.AbilityUseHint", {
+					name: item.name,
+					type: item.type
+				}),
 				content: html,
 				buttons: {
 					use: {
@@ -144,7 +154,7 @@ export default class AbilityUseDialog extends Dialog {
 			});
 			if (item.type === "magia" && (item.actor.getFlag("tormenta20", "createPotion") || game.user.isGM)) {
 				dlg.data.buttons.brew = {
-					icon: "<i class=\"fas fa-flask\"></i>",
+					icon: '<i class="fas fa-flask"></i>',
 					label: game.i18n.localize("T20.BrewPotion"),
 					callback: (html) => {
 						const fd = new foundry.applications.ux.FormDataExtended(html[0].querySelector("form"));

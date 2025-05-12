@@ -1,10 +1,7 @@
-
 export default class Tormenta20TypeData extends foundry.abstract.TypeDataModel {
-
 	/** @inheritDoc */
 	static defineSchema() {
-		return {
-		};
+		return {};
 	}
 
 	/* -------------------------------------------- */
@@ -66,7 +63,7 @@ export default class Tormenta20TypeData extends foundry.abstract.TypeDataModel {
 	/* -------------------------------------------- */
 
 	/** @inheritDoc */
-	async toEmbed(config, options={}) {
+	async toEmbed(config, options = {}) {
 		return null;
 	}
 

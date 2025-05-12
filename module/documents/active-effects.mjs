@@ -3,7 +3,6 @@ import { effectMigration } from "./migrations.mjs";
  * Extend the base ActiveEffect class to implement system-specific logic.
  */
 export default class ActiveEffectT20 extends ActiveEffect {
-
 	/** @inheritdoc */
 	static migrateData(data) {
 		super.migrateData(data);
@@ -43,7 +42,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	get isTemporary() {
 		const scene = this.getFlag("tormenta20", "durationScene");
 		const duration = this.duration.seconds ?? (this.duration.rounds || this.duration.turns) ?? 0;
-		return scene || (duration > 0) || this.statuses.size;
+		return scene || duration > 0 || this.statuses.size;
 	}
 	/* --------------------------------------------- */
 
@@ -139,17 +138,18 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	 */
 	determineSuppression() {
 		this.isSuppressed = false;
-		if (this.disabled || (this.parent.documentName !== "Actor")) return;
-		const [parentType, parentId, documentType, documentId, syntheticItem, syntheticItemId] = this.origin?.split(".") ?? [];
+		if (this.disabled || this.parent.documentName !== "Actor") return;
+		const [parentType, parentId, documentType, documentId, syntheticItem, syntheticItemId] =
+			this.origin?.split(".") ?? [];
 		let item;
 		// Case 1: This is a linked or sidebar actor
 		if (parentType === "Actor") {
-			if ((parentId !== this.parent.id) || (documentType !== "Item")) return;
+			if (parentId !== this.parent.id || documentType !== "Item") return;
 			item = this.parent.items.get(documentId);
 		}
 		// Case 2: This is a synthetic actor on the scene
 		else if (parentType === "Scene") {
-			if ((documentId !== this.parent.token?.id) || (syntheticItem !== "Item")) return;
+			if (documentId !== this.parent.token?.id || syntheticItem !== "Item") return;
 			item = this.parent.items.get(syntheticItemId);
 		}
 		if (!item) return;
@@ -159,11 +159,11 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	/* --------------------------------------------- */
 
 	/**
- * Manage Active Effect instances through the Actor Sheet via effect control buttons.
- * @param {MouseEvent} event        The left-click event on the effect control
- * @param {ActorT20|ItemT20} owner  The owning document which manages this effect
- * @returns {Promise|null}          Promise that resolves when the changes are complete.
- */
+	 * Manage Active Effect instances through the Actor Sheet via effect control buttons.
+	 * @param {MouseEvent} event        The left-click event on the effect control
+	 * @param {ActorT20|ItemT20} owner  The owning document which manages this effect
+	 * @returns {Promise|null}          Promise that resolves when the changes are complete.
+	 */
 	static onManageActiveEffect(event, owner) {
 		event.preventDefault();
 		const a = event.currentTarget;
@@ -173,18 +173,24 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		const temp = li.dataset.effectType === "onuseTemp";
 		switch (a.dataset.action) {
 			case "create":
-				const isOnUse = type=="onuse";
+				const isOnUse = type == "onuse";
 				const itemEffect = owner.documentName === "Item";
-				return owner.createEmbeddedDocuments("ActiveEffect", [{
-					name: (isOnUse || !itemEffect) ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
-					img: (isOnUse ? "icons/svg/upgrade.svg" : itemEffect ? owner.img : "icons/svg/aura.svg"),
-					origin: owner.uuid,
-					tint: "#FFFFFF",
-					flags: { tormenta20: { onuse: isOnUse, durationScene: temp } },
-					"duration.rounds": (type === "temporary" || temp) ? 1 : undefined,
-					"duration.seconds": undefined,
-					disabled: ["inactive", "onuse"].includes(type)
-				}], { renderSheet: true });
+				return owner.createEmbeddedDocuments(
+					"ActiveEffect",
+					[
+						{
+							name: isOnUse || !itemEffect ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
+							img: isOnUse ? "icons/svg/upgrade.svg" : itemEffect ? owner.img : "icons/svg/aura.svg",
+							origin: owner.uuid,
+							tint: "#FFFFFF",
+							flags: { tormenta20: { onuse: isOnUse, durationScene: temp } },
+							"duration.rounds": type === "temporary" || temp ? 1 : undefined,
+							"duration.seconds": undefined,
+							disabled: ["inactive", "onuse"].includes(type)
+						}
+					],
+					{ renderSheet: true }
+				);
 			case "create-status":
 				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];
 				if (!statusEffect) return false;
@@ -207,7 +213,6 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	 * @return {object}                   Data for rendering
 	 */
 	static prepareActiveEffectCategories(effects) {
-
 		// Define effect header categories
 		const categories = {
 			onuse: {

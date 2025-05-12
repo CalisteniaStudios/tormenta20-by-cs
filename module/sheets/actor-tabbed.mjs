@@ -1,4 +1,3 @@
-
 import ActorSheetT20Character from "./actor-character.mjs";
 
 export default class ActorSheetT20CharacterTabbed extends ActorSheetT20Character {

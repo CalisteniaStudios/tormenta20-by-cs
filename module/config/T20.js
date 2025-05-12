@@ -52,9 +52,11 @@ T20.effectTypes = {
 	veneno: "T20.EffectTypePoison"
 };
 preLocalize("effectTypes");
-T20.conditionTypes = foundry.utils.mergeObject({ ...T20.effectTypes },
+T20.conditionTypes = foundry.utils.mergeObject(
+	{ ...T20.effectTypes },
 	T20.statusEffectIcons.reduce(function (o, s) {
-		o[s.id] = s.name; return o;
+		o[s.id] = s.name;
+		return o;
 	}, {})
 );
 preLocalize("conditionTypes");
@@ -66,11 +68,11 @@ preLocalize("conditionTypes");
  * @enum {number}
  */
 T20.tokenHPColors = {
-	damage: 0xFF0000,
-	healing: 0x00FF00,
-	temp: 0xFF0000,
+	damage: 0xff0000,
+	healing: 0x00ff00,
+	temp: 0xff0000,
 	tempmax: 0x440066,
-	negmax: 0xAA0000
+	negmax: 0xaa0000
 };
 
 /**
@@ -78,7 +80,7 @@ T20.tokenHPColors = {
  * @enum {number}
  */
 T20.tokenMPColors = {
-	temp: 0x0000FF,
+	temp: 0x0000ff,
 	tempmax: 0x440066,
 	negmax: 0x550000
 };
@@ -401,7 +403,12 @@ SYSTEMRULES.skills = {
 	intu: { abl: "sab", systems: ["core"] },
 	inve: { abl: "int", systems: ["core"] },
 	joga: { abl: "car", systems: ["core"] },
-	ladi: { abl: "des", systems: ["core"], trainedOnly: true, armorPenalty: true },
+	ladi: {
+		abl: "des",
+		systems: ["core"],
+		trainedOnly: true,
+		armorPenalty: true
+	},
 	luta: { abl: "for", systems: ["core"] },
 	mist: { abl: "int", systems: ["core"], trainedOnly: true },
 	nobr: { abl: "int", systems: ["core"], trainedOnly: true },
@@ -458,7 +465,8 @@ T20.skillCompendiumEntries = {
 /* -------------- Experience -------------- */
 
 T20.xpPorNivel = [
-	0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000
+	0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000,
+	153000, 171000, 190000
 ];
 
 /* ---------------- Senses ---------------- */
@@ -698,7 +706,7 @@ T20.weaponProperties = {
 	des: "T20.WeaponPropertiesUnbalanced",
 	dup: "T20.WeaponPropertiesDouble", // WeaponPropertiesDou
 	ver: "T20.WeaponPropertiesVersatile", // WeaponPropertiesVer
-	hib: "T20.WeaponPropertiesHibrid"// WeaponPropertiesVer
+	hib: "T20.WeaponPropertiesHibrid" // WeaponPropertiesVer
 };
 // "arr": "T20.WeaponPropertiesThr",
 // "dst": "T20.WeaponPropertiesRan",
@@ -1030,16 +1038,25 @@ T20.tableSize = {
 };
 
 T20.tableMovement = {
-	type:	["T20.NPCB_Bipedal", "T20.NPCB_Bipedal", "T20.NPCB_Bipedal",
-		"T20.NPCB_Quadrupedal", "T20.NPCB_Quadrupedal", "T20.NPCB_Quadrupedal",
-		"T20.NPCB_Flying", "T20.NPCB_Flying", "T20.NPCB_Flying",
-		"T20.NPCB_Climber", "T20.NPCB_Burrower", "T20.NPCB_Swimmer"
+	type: [
+		"T20.NPCB_Bipedal",
+		"T20.NPCB_Bipedal",
+		"T20.NPCB_Bipedal",
+		"T20.NPCB_Quadrupedal",
+		"T20.NPCB_Quadrupedal",
+		"T20.NPCB_Quadrupedal",
+		"T20.NPCB_Flying",
+		"T20.NPCB_Flying",
+		"T20.NPCB_Flying",
+		"T20.NPCB_Climber",
+		"T20.NPCB_Burrower",
+		"T20.NPCB_Swimmer"
 	],
-	size:	["Pequeno ou menor", "Médio", "Grande ou maior", "Pequeno ou maior", "Médio", "Grande", "", "", ""],
-	size2:	[["min", "peq"], ["med"], ["gra", "eno", "col"]],
-	slow:	[4.5, 6, 9, 6, 9, 12, 12, 15, 18, 4.5, 4.5, 9],
-	normal:	[6, 9, 12, 9, 12, 15, 15, 18, 24, 9, 6, 15],
-	fast:	[9, 12, 15, 12, 15, 18, 18, 24, 36, 12, 9, 24]
+	size: ["Pequeno ou menor", "Médio", "Grande ou maior", "Pequeno ou maior", "Médio", "Grande", "", "", ""],
+	size2: [["min", "peq"], ["med"], ["gra", "eno", "col"]],
+	slow: [4.5, 6, 9, 6, 9, 12, 12, 15, 18, 4.5, 4.5, 9],
+	normal: [6, 9, 12, 9, 12, 15, 15, 18, 24, 9, 6, 15],
+	fast: [9, 12, 15, 12, 15, 18, 18, 24, 36, 12, 9, 24]
 };
 
 T20.tableAbilities = {
@@ -1054,12 +1071,70 @@ T20.RoleMods = {
 };
 
 T20.NDparams = {
-	labels: ["", "T20.AbbreviationCR", "T20.Attack", "T20.Damage", "T20.Defense", "T20.HP", "T20.Skills", "T20.NPCB_SaveGood", "T20.NPCB_SaveNormal", "T20.NPCB_SaveBad", "T20.AbbreviationDC"],
+	labels: [
+		"",
+		"T20.AbbreviationCR",
+		"T20.Attack",
+		"T20.Damage",
+		"T20.Defense",
+		"T20.HP",
+		"T20.Skills",
+		"T20.NPCB_SaveGood",
+		"T20.NPCB_SaveNormal",
+		"T20.NPCB_SaveBad",
+		"T20.AbbreviationDC"
+	],
 	pat: ["i", "i", "i", "i", "i", "i", "v", "v", "v", "v", "v", "v", "c", "c", "c", "c", "c", "c", "l", "l", "l", "l"],
-	cr: ["1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
+	cr: [
+		"1/4",
+		"1/2",
+		"1",
+		"2",
+		"3",
+		"4",
+		"5",
+		"6",
+		"7",
+		"8",
+		"9",
+		"10",
+		"11",
+		"12",
+		"13",
+		"14",
+		"15",
+		"16",
+		"17",
+		"18",
+		"19",
+		"20"
+	],
 	attack: [7, 7, 9, 11, 13, 15, 18, 20, 22, 24, 26, 29, 32, 35, 37, 40, 42, 45, 47, 50, 52, 55],
 	attackqty: [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4],
-	damage: ["1d6+3", "1d6+3", "1d8+6", "1d10+10", "1d12+12", "2d6+14", "1d12+11", "2d6+15", "2d8+19", "2d10+20", "2d12+21", "3d6+26", "3d8+24", "3d10+26", "3d12+28", "4d6+38", "4d8+40", "4d10+42", "4d12+35", "4d12+40", "4d12+45", "4d12+50"],
+	damage: [
+		"1d6+3",
+		"1d6+3",
+		"1d8+6",
+		"1d10+10",
+		"1d12+12",
+		"2d6+14",
+		"1d12+11",
+		"2d6+15",
+		"2d8+19",
+		"2d10+20",
+		"2d12+21",
+		"3d6+26",
+		"3d8+24",
+		"3d10+26",
+		"3d12+28",
+		"4d6+38",
+		"4d8+40",
+		"4d10+42",
+		"4d12+35",
+		"4d12+40",
+		"4d12+45",
+		"4d12+50"
+	],
 	defense: [15, 15, 16, 18, 21, 24, 28, 31, 34, 37, 40, 43, 46, 48, 50, 52, 54, 56, 59, 61, 63, 65],
 	hp: [10, 10, 20, 40, 70, 110, 150, 190, 230, 270, 310, 350, 400, 450, 550, 600, 650, 700, 750, 800, 850, 900],
 	topskill: [4, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 25, 26, 27, 28, 29, 30, 32, 33, 34, 35],

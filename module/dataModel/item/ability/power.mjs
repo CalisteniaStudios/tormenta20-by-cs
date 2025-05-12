@@ -11,8 +11,20 @@ export default class PowerData extends Tormenta20ItemData {
 			...this.schemaActivation(type),
 			...this.schemaSavingThrow(type),
 			...this.schemaRolls(),
-			tipo: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemType", hint: "T20.ItemTypeHint" }),
-			subtipo: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemSubType", hint: "T20.ItemSubTypeHint" })
+			tipo: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "",
+				label: "T20.ItemType",
+				hint: "T20.ItemTypeHint"
+			}),
+			subtipo: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "",
+				label: "T20.ItemSubType",
+				hint: "T20.ItemSubTypeHint"
+			})
 		};
 	}
 

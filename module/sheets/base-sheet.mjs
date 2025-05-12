@@ -8,8 +8,7 @@ export default function Tormenta20BaseSheetMixin(Base) {
 		/** @override */
 		static DEFAULT_OPTIONS = {
 			classes: ["standard-form", "tormenta20"],
-			window: {
-			},
+			window: {},
 			actions: {
 				logToConsole: { handler: this.#logToConsole, buttons: [0] },
 				toggleMode: { handler: this.#onToggleMode, buttons: [0] },
@@ -327,18 +326,14 @@ export default function Tormenta20BaseSheetMixin(Base) {
 					// REST
 					break;
 				default:
-
 			}
 		}
 
-		static async #onFilter(event, target) {
-
-		}
+		static async #onFilter(event, target) {}
 
 		static async #onExpand(event, target) {
 			const { expand, type, entryId } = target.dataset;
 			if (this._expanded[type] instanceof Array) {
-
 			} else {
 				this._expanded[type] = entryId;
 			}
@@ -355,10 +350,7 @@ export default function Tormenta20BaseSheetMixin(Base) {
 
 		async _getHandlerDocument(id) {
 			const document = this.document;
-			return	await fromUuid(id)
-				?? document.items?.get(id)
-				?? document.effects?.get(id)
-				?? document;
+			return (await fromUuid(id)) ?? document.items?.get(id) ?? document.effects?.get(id) ?? document;
 		}
 
 		_getCreateData(type, target) {
@@ -366,7 +358,6 @@ export default function Tormenta20BaseSheetMixin(Base) {
 				case "pericia": {
 					const key = foundry.applications.api.DialogV2.prompt({
 						window: { title: "I18N.DIALOG.CreateSkill" }
-
 					});
 					return {
 						key: key,
@@ -410,6 +401,5 @@ export default function Tormenta20BaseSheetMixin(Base) {
 			const sheetEffects = {};
 			return sheetEffects;
 		}
-
 	};
 }

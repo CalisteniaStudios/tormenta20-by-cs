@@ -2,7 +2,6 @@ import IdentityData from "./identity.mjs";
 
 const fields = foundry.data.fields;
 export default class RaceData extends IdentityData {
-
 	/** @inheritDoc */
 	static defineSchema() {
 		const _fields = tormenta20.data.fields;
@@ -10,19 +9,36 @@ export default class RaceData extends IdentityData {
 			...super.defineSchema(),
 			atributos: new fields.SchemaField(
 				Object.fromEntries(
-					Object.keys(T20.atributos).map((abl) => [abl, new fields.NumberField({
-						required: true, nullable: false, initial: 0, min: -5
-					})])
-				)),
+					Object.keys(T20.atributos).map((abl) => [
+						abl,
+						new fields.NumberField({
+							required: true,
+							nullable: false,
+							initial: 0,
+							min: -5
+						})
+					])
+				)
+			),
 			atributosEscolhaLivre: new fields.SchemaField({
 				atributos: new fields.SchemaField(
-					Object.fromEntries(
-						Object.keys(T20.atributos).map((abl) => [abl, new fields.BooleanField()])
-					)),
-				description: new fields.StringField({ required: true, nullable: false, initial: "" })
+					Object.fromEntries(Object.keys(T20.atributos).map((abl) => [abl, new fields.BooleanField()]))
+				),
+				description: new fields.StringField({
+					required: true,
+					nullable: false,
+					initial: ""
+				})
 			}),
 			movement: new fields.EmbeddedDataField(_fields.MovementData),
-			tamanho: new fields.StringField({ required: true, nullable: false, choices: Object.keys(T20.actorSizes), initial: "med", label: "T20.TraitActorSize", hint: "T20.TraitActorSizeHint" })
+			tamanho: new fields.StringField({
+				required: true,
+				nullable: false,
+				choices: Object.keys(T20.actorSizes),
+				initial: "med",
+				label: "T20.TraitActorSize",
+				hint: "T20.TraitActorSizeHint"
+			})
 			// progressao: new _fields.MappingField(),
 		};
 	}
@@ -52,7 +68,7 @@ export default class RaceData extends IdentityData {
 	/* -------------------------------------------- */
 
 	/** @inheritDoc */
-	async toEmbed(config, options={}) {
+	async toEmbed(config, options = {}) {
 		return null;
 	}
 

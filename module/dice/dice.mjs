@@ -1,13 +1,21 @@
-export async function d20Roll({ parts=[], data={}, event={}, advantage=null, disadvantage=null, critical=20, fumble=1, targetValue=null, options={} }={}) {
-
+export async function d20Roll({
+	parts = [],
+	data = {},
+	event = {},
+	advantage = null,
+	disadvantage = null,
+	critical = 20,
+	fumble = 1,
+	targetValue = null,
+	options = {}
+} = {}) {
 	parts = parts.concat(["@bonus"]);
 	let adv = 0;
-	if (options.rollKeep=="khd20" || event.altKey || parts[0].includes("kh")) adv = 1;
-	else if (options.rollKeep=="kld20" || event.ctrlKey || parts[0].includes("kl")) adv = -1;
+	if (options.rollKeep == "khd20" || event.altKey || parts[0].includes("kh")) adv = 1;
+	else if (options.rollKeep == "kld20" || event.ctrlKey || parts[0].includes("kl")) adv = -1;
 
 	// Define the inner roll function
 	const _roll = async (parts, adv, form) => {
-
 		// Determine the d20 roll and modifiers
 		let nd = 1;
 		let mods = "";
@@ -34,7 +42,7 @@ export async function d20Roll({ parts=[], data={}, event={}, advantage=null, dis
 
 		try {
 			await roll.roll();
-		} catch(err) {
+		} catch (err) {
 			console.error(err);
 			ui.notifications.error(`Avaliação de rolagem falhou: ${err.message}`);
 			return null;
@@ -56,16 +64,28 @@ export async function d20Roll({ parts=[], data={}, event={}, advantage=null, dis
 	return roll;
 }
 
-export async function damageRoll({ parts, actor, data={}, event={}, critical=false, lancinante=false, criticalMultiplier=2, minmax=false, rd = 0 }) {
-
+export async function damageRoll({
+	parts,
+	actor,
+	data = {},
+	event = {},
+	critical = false,
+	lancinante = false,
+	criticalMultiplier = 2,
+	minmax = false,
+	rd = 0
+}) {
 	parts = parts.concat(["@bonus"]);
 
 	// Define inner roll function
 	const _roll = async function (parts, crit) {
 		if (!data.bonus) parts.pop();
 		parts = parts
-			.flatMap(([formula, key]) => String(formula).split("+")
-				.map((part) => [part.trim(), key]))
+			.flatMap(([formula, key]) =>
+				String(formula)
+					.split("+")
+					.map((part) => [part.trim(), key])
+			)
 			.map(([formula, key]) => {
 				const label = formula && key ? `${formula}[${key}]` : formula;
 				return label.toString().replace(/^\+|\s/g, "");
@@ -111,10 +131,9 @@ export async function damageRoll({ parts, actor, data={}, event={}, critical=fal
 			let _fterms = [];
 			roll.terms.forEach((term, i) => {
 				if (term.options.flavor === "danoCritico") {
-					if (_fterms[i-1] instanceof foundry.dice.terms.OperatorTerm) {
+					if (_fterms[i - 1] instanceof foundry.dice.terms.OperatorTerm) {
 						_fterms.pop();
 					}
-
 				} else {
 					_fterms.push(term);
 				}
@@ -130,7 +149,7 @@ export async function damageRoll({ parts, actor, data={}, event={}, critical=fal
 			let l = await roll.evaluate({ maximize: max, minimize: min });
 			l._formula = l._formula.replaceAll(/(\[\w*\])/g, "");
 			return l;
-		} catch(err) {
+		} catch (err) {
 			console.error(err);
 			ui.notifications.error(`Avaliação de rolagem falhou: ${err.message}`);
 			return null;
@@ -161,32 +180,40 @@ export function simplifyRollFormula2(formula, data, { constantFirst = false } = 
 
 	const rollableTerms = []; // Terms that are non-constant, and their associated operators
 	const constantTerms = []; // Terms that are constant, and their associated operators
-	let operators = [];       // Temporary storage for operators before they are moved to one of the above
+	let operators = []; // Temporary storage for operators before they are moved to one of the above
 
-	for (let term of terms) {                                 // For each term
-		if (term instanceof foundry.dice.terms.OperatorTerm) operators.push(term); // If the term is an addition/subtraction operator, push the term into the operators array
-		else {                                                  // Otherwise the term is not an operator
-			if (term instanceof foundry.dice.terms.DiceTerm) {                       // If the term is something rollable
-				rollableTerms.push(...operators);                   // Place all the operators into the rollableTerms array
-				rollableTerms.push(term);                           // Then place this rollable term into it as well
-			}                                                     //
+	for (let term of terms) {
+		// For each term
+		if (term instanceof foundry.dice.terms.OperatorTerm)
+			operators.push(term); // If the term is an addition/subtraction operator, push the term into the operators array
+		else {
+			// Otherwise the term is not an operator
+			if (term instanceof foundry.dice.terms.DiceTerm) {
+				// If the term is something rollable
+				rollableTerms.push(...operators); // Place all the operators into the rollableTerms array
+				rollableTerms.push(term); // Then place this rollable term into it as well
+			} //
 			else if (term instanceof foundry.dice.terms.ParentheticalTerm) {
-				const numTerm = new foundry.dice.terms.NumericTerm({ number: Roll.safeEval(term.term) });
+				const numTerm = new foundry.dice.terms.NumericTerm({
+					number: Roll.safeEval(term.term)
+				});
 				constantTerms.push(...operators);
 				constantTerms.push(numTerm);
-			} else {                                                // Otherwise, this must be a constant
-				constantTerms.push(...operators);                   // Place the operators into the constantTerms array
-				constantTerms.push(term);                           // Then also add this constant term to that array.
-			}                                                     //
-			operators = [];                                       // Finally, the operators have now all been assigend to one of the arrays, so empty this before the next iteration.
+			} else {
+				// Otherwise, this must be a constant
+				constantTerms.push(...operators); // Place the operators into the constantTerms array
+				constantTerms.push(term); // Then also add this constant term to that array.
+			} //
+			operators = []; // Finally, the operators have now all been assigend to one of the arrays, so empty this before the next iteration.
 		}
 	}
 
-	const constantFormula = Roll.getFormula(constantTerms) || 0;  // Cleans up the constant terms and produces a new formula string
-	const rollableFormula = Roll.getFormula(rollableTerms);  // Cleans up the non-constant terms and produces a new formula string
-	const constantPart = Roll.safeEval(constantFormula);     // Mathematically evaluate the constant formula to produce a single constant term
+	const constantFormula = Roll.getFormula(constantTerms) || 0; // Cleans up the constant terms and produces a new formula string
+	const rollableFormula = Roll.getFormula(rollableTerms); // Cleans up the non-constant terms and produces a new formula string
+	const constantPart = Roll.safeEval(constantFormula); // Mathematically evaluate the constant formula to produce a single constant term
 	const parts = constantFirst // Order the rollable and constant terms, either constant first or second depending on the optional argumen
-		? [constantPart, rollableFormula] : [rollableFormula, constantPart];
+		? [constantPart, rollableFormula]
+		: [rollableFormula, constantPart];
 
 	// Join the parts with a + sign, pass them to `Roll` once again to clean up the formula
 	return new Roll(parts.filterJoin(" + ")).formula;
@@ -203,7 +230,7 @@ function _isUnsupportedTerm(term) {
 	const diceTerm = term instanceof foundry.dice.terms.DiceTerm;
 	const operator = term instanceof foundry.dice.terms.OperatorTerm && ["+", "-", "*"].includes(term.operator);
 	const number = term instanceof foundry.dice.terms.NumericTerm;
-	const parents = term instanceof foundry.dice.terms.ParentheticalTerm && Roll.safeEval(term.term);
+	const parents = term instanceof foundry.dice.terms.ParentheticalTerm && Roll.safeEval(term.term);
 
 	return !(diceTerm || operator || number || parents);
 }
@@ -217,12 +244,12 @@ function _isUnsupportedTerm(term) {
  *
  * @returns {string}  The resulting simplified formula.
  */
-export function simplifyRollFormula(formula, data = {}, { preserveFlavor=false } = {}) {
+export function simplifyRollFormula(formula, data = {}, { preserveFlavor = false } = {}) {
 	// Create a new roll and verify that the formula is valid before attempting simplification.
 	let roll;
 	try {
 		roll = new Roll(formula, data);
-	} catch(err) {
+	} catch (err) {
 		console.log(formula, data);
 		console.warn(`Unable to simplify formula '${formula}': ${err}`);
 	}
@@ -235,10 +262,9 @@ export function simplifyRollFormula(formula, data = {}, { preserveFlavor=false }
 	roll.terms = _simplifyOperatorTerms(roll.terms);
 
 	if (/[*/]/.test(roll.formula)) {
-		return ((roll.isDeterministic) && (!/\[/.test(roll.formula) || !preserveFlavor)
+		return roll.isDeterministic && (!/\[/.test(roll.formula) || !preserveFlavor)
 			? roll.roll().total.toString()
-			: roll.constructor.getFormula(roll.terms)
-		);
+			: roll.constructor.getFormula(roll.terms);
 	}
 
 	// Flatten the roll formula and eliminate string terms.
@@ -270,13 +296,10 @@ function _simplifyOperatorTerms(terms) {
 
 		// If one of the terms is not an operator, add the current term as is.
 		if (ops.has(undefined)) acc.push(term);
-
 		// Replace consecutive "+ -" operators with a "-" operator.
-		else if ((ops.has("+")) && (ops.has("-"))) acc.splice(-1, 1, new foundry.dice.terms.OperatorTerm({ operator: "-" }));
-
+		else if (ops.has("+") && ops.has("-")) acc.splice(-1, 1, new foundry.dice.terms.OperatorTerm({ operator: "-" }));
 		// Replace double "-" operators with a "+" operator.
-		else if ((ops.has("-")) && (ops.size === 1)) acc.splice(-1, 1, new foundry.dice.terms.OperatorTerm({ operator: "+" }));
-
+		else if (ops.has("-") && ops.size === 1) acc.splice(-1, 1, new foundry.dice.terms.OperatorTerm({ operator: "+" }));
 		// Don't include "+" operators that directly follow "+", "*", or "/". Otherwise, add the term as is.
 		else if (!ops.has("+")) acc.push(term);
 
@@ -326,10 +349,10 @@ function _simplifyDiceTerms(terms) {
 	}, {});
 
 	// Add new die and operator terms to simplified for each die size and sign
-	const simplified = Object.entries(diceQuantities).flatMap(([key, number]) => ([
+	const simplified = Object.entries(diceQuantities).flatMap(([key, number]) => [
 		new foundry.dice.terms.OperatorTerm({ operator: key.charAt(0) }),
 		new foundry.dice.terms.Die({ number, faces: parseInt(key.slice(1)) })
-	]));
+	]);
 	return [...simplified, ...annotated];
 }
 
@@ -343,7 +366,10 @@ function _simplifyDiceTerms(terms) {
 function _expandParentheticalTerms(terms) {
 	terms = terms.reduce((acc, term) => {
 		if (term instanceof foundry.dice.terms.ParentheticalTerm) {
-			if (term.isDeterministic) term = new foundry.dice.terms.NumericTerm({ number: Roll.safeEval(term.term) });
+			if (term.isDeterministic)
+				term = new foundry.dice.terms.NumericTerm({
+					number: Roll.safeEval(term.term)
+				});
 			else {
 				const subterms = new Roll(term.term).terms;
 				term = _expandParentheticalTerms(subterms);
@@ -365,12 +391,14 @@ function _expandParentheticalTerms(terms) {
  */
 function _groupTermsByType(terms) {
 	// Add an initial operator so that terms can be rearranged arbitrarily.
-	if (!(terms[0] instanceof foundry.dice.terms.OperatorTerm)) terms.unshift(new foundry.dice.terms.OperatorTerm({ operator: "+" }));
+	if (!(terms[0] instanceof foundry.dice.terms.OperatorTerm))
+		terms.unshift(new foundry.dice.terms.OperatorTerm({ operator: "+" }));
 
 	return terms.reduce((obj, term, i) => {
 		let type;
 		if (term instanceof foundry.dice.terms.DiceTerm) type = foundry.dice.terms.DiceTerm;
-		else if ((term instanceof foundry.dice.terms.FunctionTerm) && (term.isDeterministic)) type = foundry.dice.terms.NumericTerm;
+		else if (term instanceof foundry.dice.terms.FunctionTerm && term.isDeterministic)
+			type = foundry.dice.terms.NumericTerm;
 		else type = term.constructor;
 		const key = `${type.name.charAt(0).toLowerCase()}${type.name.substring(1)}s`;
 
@@ -388,9 +416,12 @@ function _groupTermsByType(terms) {
  * @returns {Array | Array[]}  A pair of term arrays, one containing annotated terms.
  */
 function _separateAnnotatedTerms(terms) {
-	return terms.reduce((obj, curr, i) => {
-		if (curr instanceof foundry.dice.terms.OperatorTerm) return obj;
-		obj[curr.flavor ? "annotated" : "unannotated"].push(terms[i - 1], curr);
-		return obj;
-	}, { annotated: [], unannotated: [] });
+	return terms.reduce(
+		(obj, curr, i) => {
+			if (curr instanceof foundry.dice.terms.OperatorTerm) return obj;
+			obj[curr.flavor ? "annotated" : "unannotated"].push(terms[i - 1], curr);
+			return obj;
+		},
+		{ annotated: [], unannotated: [] }
+	);
 }

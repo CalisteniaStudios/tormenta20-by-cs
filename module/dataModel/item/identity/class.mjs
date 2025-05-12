@@ -10,10 +10,31 @@ export default class ClassData extends IdentityData {
 		return {
 			...super.defineSchema(),
 			...this.schemaRolls(),
-			niveis: new fields.NumberField({ required: true, initial: 1, label: "T20.ItemClassLevels", hint: "T20.ItemClassLevelsHint" }),
-			pvPorNivel: new fields.NumberField({ required: true, initial: 1, label: "T20.ItemClassHPLevel", hint: "T20.ItemClassHPLevelHint" }),
-			pmPorNivel: new fields.NumberField({ required: true, initial: 1, label: "T20.ItemClassMPLevel", hint: "T20.ItemClassMPLevelHint" }),
-			inicial: new fields.BooleanField({ required: true, nullable: false, initial: false, label: "T20.ItemClassIsInitial", hint: "T20.ItemClassIsInitialHint" })
+			niveis: new fields.NumberField({
+				required: true,
+				initial: 1,
+				label: "T20.ItemClassLevels",
+				hint: "T20.ItemClassLevelsHint"
+			}),
+			pvPorNivel: new fields.NumberField({
+				required: true,
+				initial: 1,
+				label: "T20.ItemClassHPLevel",
+				hint: "T20.ItemClassHPLevelHint"
+			}),
+			pmPorNivel: new fields.NumberField({
+				required: true,
+				initial: 1,
+				label: "T20.ItemClassMPLevel",
+				hint: "T20.ItemClassMPLevelHint"
+			}),
+			inicial: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false,
+				label: "T20.ItemClassIsInitial",
+				hint: "T20.ItemClassIsInitialHint"
+			})
 		};
 	}
 }

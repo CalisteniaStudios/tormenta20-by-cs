@@ -156,4 +156,3 @@ T20Augments.MATERIAL.ESOTERICO["sun-crystal"] = {};
 T20Augments.MATERIAL.ESOTERICO["iron-coral"] = {};
 T20Augments.MATERIAL.ESOTERICO["kraken-feather"] = {};
 T20Augments.MATERIAL.ESOTERICO["razza-chitin"] = {};
-

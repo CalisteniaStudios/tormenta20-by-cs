@@ -29,17 +29,27 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/** @override */
 	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions,
-			{
-				scrollY: [
-					".tormenta20.base .sheet-body",
-					".tormenta20.builder .tab.attributes",
-					".tab.skills", ".tab.attributes", ".tab.spells", ".tab.inventory", ".tab.journal", ".tab.effects", ".tab.powers"
-				],
-				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
-				height: 700
-			}
-		);
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			scrollY: [
+				".tormenta20.base .sheet-body",
+				".tormenta20.builder .tab.attributes",
+				".tab.skills",
+				".tab.attributes",
+				".tab.spells",
+				".tab.inventory",
+				".tab.journal",
+				".tab.effects",
+				".tab.powers"
+			],
+			tabs: [
+				{
+					navSelector: ".sheet-tabs",
+					contentSelector: ".sheet-body",
+					initial: "attributes"
+				}
+			],
+			height: 700
+		});
 	}
 
 	/* -------------------------------------------- */
@@ -54,10 +64,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/**
-	* Determine whether an Owned Item will be shown based on the current set of filters
-	* @return {boolean}
-	* @private
-	*/
+	 * Determine whether an Owned Item will be shown based on the current set of filters
+	 * @return {boolean}
+	 * @private
+	 */
 	// TODO Implement filters
 	// _filterItems(items, filters) {
 	// }
@@ -104,7 +114,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			enableLanguages: game.settings.get("tormenta20", "enableLanguages"),
 			equipmentSlots: game.settings.get("tormenta20", "equipmentSlots"),
 			gameSystem: game.settings.get("tormenta20", "gameSystem"),
-			editMode: this.isEditable && (this._mode === this.constructor.MODES.EDIT)
+			editMode: this.isEditable && this._mode === this.constructor.MODES.EDIT
 		};
 
 		// Sort Owned Items
@@ -138,7 +148,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			}
 		}
 		sheetData.skills = Object.values(sheetData.skills).sort((a, b) => {
-			return a.order-b.order;
+			return a.order - b.order;
 		});
 
 		// Update traits
@@ -169,9 +179,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Activate event listeners using the prepared sheet HTML
-	* @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
-	*/
+	 * Activate event listeners using the prepared sheet HTML
+	 * @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
+	 */
 	activateListeners(html) {
 		super.activateListeners(html);
 
@@ -207,7 +217,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		html.find("#configure-skills").click(async (ev) => {
 			const { MODES } = this.constructor;
 			const toggle = ev.currentTarget;
-			this._mode = (this._mode === MODES.EDIT) ? MODES.PLAY : MODES.EDIT;
+			this._mode = this._mode === MODES.EDIT ? MODES.PLAY : MODES.EDIT;
 			await this.submit();
 			this.render();
 		});
@@ -222,7 +232,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		html.find(".item-edit").click((ev) => this._onItemEdit($(ev.currentTarget)));
 		html.find(".item-dialog").click(this._onItemDialog.bind(this));
 		html.find(".item-create").click(this._onItemCreate.bind(this));
-		html.find(".item-qty input").click((ev) => ev.target.select())
+		html
+			.find(".item-qty input")
+			.click((ev) => ev.target.select())
 			.change(this._onQtyChange.bind(this));
 
 		// Active Effect management
@@ -250,12 +262,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
-   * Handle activation of a context menu for an embedded Item document.
-   * Dynamically populate the array of context menu options.
-   * Reuse the item context options provided by the base ActorSheetT20 class.
-   * @param {HTMLElement} element       The HTML element for which the context menu is activated
-   * @protected
-   */
+	 * Handle activation of a context menu for an embedded Item document.
+	 * Dynamically populate the array of context menu options.
+	 * Reuse the item context options provided by the base ActorSheetT20 class.
+	 * @param {HTMLElement} element       The HTML element for which the context menu is activated
+	 * @protected
+	 */
 	_onItemToggleContext(element) {
 		const item = this.actor.items.get(element.closest("li").dataset.itemId || element.dataset?.itemId);
 		if (!item) return;
@@ -270,7 +282,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	 * @protected
 	 */
 	_getItemToggleContextOptions(item) {
-		const equipados = this.actor.items.filter((i) => (i.system.equipado2?.slot > 0));
+		const equipados = this.actor.items.filter((i) => i.system.equipado2?.slot > 0);
 		const equips = this.actor.system.equipamentos;
 		const compendiumLocked = item.collection?.locked;
 
@@ -311,7 +323,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		}
 		if (game.settings.get("tormenta20", "equipmentSlots") && item.system.equipado2) {
 			const img = (image) => `<img src='${image}' width='20px' height='20px' style='vertical-align: middle;'>`;
-			const dec = (number) => ((number % 1).toFixed(1) * 10);
+			const dec = (number) => (number % 1).toFixed(1) * 10;
 			const isEquippedInSlot = (it, slot1, slot2) =>
 				dec(it.system.equipado2.slot) === slot1 && Math.floor(it.system.equipado2.slot) === slot2;
 			if (["hand", "both"].includes(item.system.equipado2.type)) {
@@ -321,36 +333,41 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 					name: twoHanded?.name ?? "T20.Empty",
 					group: "equips",
 					// icon: `<i class='fa-solid fa-hand-back-fist'></i><i class='fa-solid fa-hand-back-fist'></i>${twoHanded ? img(twoHanded.img) : ""}`,
-					icon: twoHanded ? img(twoHanded.img) : `<span class="fa-stack">
+					icon: twoHanded
+						? img(twoHanded.img)
+						: `<span class="fa-stack">
 						<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
 						<b class="fa-stack-1x">2</b>
 					</span>`,
 					classes: twoHanded ? "flexrow" : "",
 					callback: () => this._onToggleItem(item, "hand", 12, twoHanded?.id)
 				});
-				for (let slot=1; slot <= equips.limiteEmpunhado; slot++) {
+				for (let slot = 1; slot <= equips.limiteEmpunhado; slot++) {
 					const wieldingTwoHanded = twoHanded && [1, 2].includes(slot);
 					const slotItem = wieldingTwoHanded ? null : equipados.find((it) => isEquippedInSlot(it, 1, slot));
-					const icon = wieldingTwoHanded ? img(twoHanded.img) : (slotItem ? img(slotItem.img) : `<span class="fa-stack">
+					const icon = wieldingTwoHanded
+						? img(twoHanded.img)
+						: slotItem
+							? img(slotItem.img)
+							: `<span class="fa-stack">
 						<i class="fa-solid fa-hand-back-fist fa-stack-1x"></i>
-					</span>`);
+					</span>`;
 					options.push({
-						name: ((wieldingTwoHanded ? twoHanded.name : slotItem?.name ?? "T20.Empty")),
+						name: wieldingTwoHanded ? twoHanded.name : (slotItem?.name ?? "T20.Empty"),
 						group: "equips",
 						icon,
 						classes: `${twoHanded || slotItem ? "flexrow" : ""}`,
 						callback: () => this._onToggleItem(item, "hand", slot, slotItem?.id)
 					});
 				}
-
 			}
 			if (["body", "both"].includes(item.system.equipado2.type)) {
 				// options.push({ name: ("T20.Wearing"), group: "equips", icon: '<i class="fa-solid fa-sort-down"></i>' }); // SECTION
-				for (let slot=1; slot <= equips.limiteVestido; slot++) {
+				for (let slot = 1; slot <= equips.limiteVestido; slot++) {
 					const slotItem = equipados.find((it) => isEquippedInSlot(it, 2, slot));
 					// && (it.system.preparada === slot || it.system.equipado === slot)
 					options.push({
-						name: (slotItem?.name ?? "T20.Empty"),
+						name: slotItem?.name ?? "T20.Empty",
 						group: "equips",
 						classes: `${slotItem ? "flexrow" : ""}`,
 						icon: slotItem ? img(slotItem.img) : '<i class="fa-solid fa-shirt" style="opacity: 0.5;"></i>',
@@ -435,38 +452,50 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const updateItems = [];
 		if (currentId) {
 			updateItems.push({
-				_id: currentId, "system.equipado2.slot": 0
+				_id: currentId,
+				"system.equipado2.slot": 0
 			});
 		}
 		if (item.id === currentId) {
 			// When same just remove;
 		} else if (context === "hand") {
 			updateItems.push({
-				_id: item.id, "system.equipado2.slot": index + 0.1
+				_id: item.id,
+				"system.equipado2.slot": index + 0.1
 			});
 			let oldItems = [];
-			if (index > 2) { // Remove only current // Cant TwoHand
-			} else if (index === 12) { // Remove one handed if equipping two handed
-				oldItems = this.actor.items.filter((it) => item.id != it.id && ([1.1, 2.1].includes(it.system.equipado2?.slot)));
-			} else { // Remove two handed if equipping one handed
-				oldItems = this.actor.items.filter((it) => item.id != it.id && ([12.1].includes(it.system.equipado2?.slot)));
+			if (index > 2) {
+				// Remove only current // Cant TwoHand
+			} else if (index === 12) {
+				// Remove one handed if equipping two handed
+				oldItems = this.actor.items.filter((it) => item.id != it.id && [1.1, 2.1].includes(it.system.equipado2?.slot));
+			} else {
+				// Remove two handed if equipping one handed
+				oldItems = this.actor.items.filter((it) => item.id != it.id && [12.1].includes(it.system.equipado2?.slot));
 			}
 
 			for (const oldItem of oldItems) {
 				updateItems.push({
-					_id: oldItem.id, "system.equipado2.slot": 0
+					_id: oldItem.id,
+					"system.equipado2.slot": 0
 				});
 			}
-
 		} else if (context === "body") {
 			updateItems.push({
-				_id: item.id, "system.equipado2.slot": index + 0.2
+				_id: item.id,
+				"system.equipado2.slot": index + 0.2
 			});
-			let oldItems = this.actor.items.filter((it) => item.id != it.id && (["leve", "pesada"].includes(item.system.tipo) && ["leve", "pesada"].includes(it.system.tipo)));
+			let oldItems = this.actor.items.filter(
+				(it) =>
+					item.id != it.id
+					&& ["leve", "pesada"].includes(item.system.tipo)
+					&& ["leve", "pesada"].includes(it.system.tipo)
+			);
 			// it.system.tipo === item.system.tipo
 			for (const oldItem of oldItems) {
 				updateItems.push({
-					_id: oldItem.id, "system.equipado2.slot": 0
+					_id: oldItem.id,
+					"system.equipado2.slot": 0
 				});
 			}
 		}
@@ -476,11 +505,11 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Prepare the display of movement speed data for the Actor
-	* @param {object} actorData
-	* @returns {{primary: string, special: string}}
-	* @private
-	*/
+	 * Prepare the display of movement speed data for the Actor
+	 * @param {object} actorData
+	 * @returns {{primary: string, special: string}}
+	 * @private
+	 */
 	_prepareMovementSpeed(actorData) {
 		const movement = foundry.utils.deepClone(actorData.system.attributes.movement) || {};
 		// Return an array of available movement speeds
@@ -501,7 +530,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	_prepareSenses(actorData) {
-		const senses = actorData.system.attributes.sentidos || { value: [], custom: "" };
+		const senses = actorData.system.attributes.sentidos || {
+			value: [],
+			custom: ""
+		};
 		if (!senses.value) senses.value = [];
 		for (let [k, label] of Object.entries(CONFIG.T20.senses)) {
 			const v = senses.value?.indexOf(k);
@@ -515,10 +547,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
-	* @param {object} traits   The raw traits data object from the actor data
-	* @private
-	*/
+	 * Prepare the data structure for traits data like languages, resistances & vulnerabilities, and proficiencies
+	 * @param {object} traits   The raw traits data object from the actor data
+	 * @private
+	 */
 	_prepareTraits(traits) {
 		const map = {
 			ic: CONFIG.T20.conditionTypes,
@@ -540,7 +572,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 			// Add custom entry
 			if (trait.custom) {
-				trait.custom.split(";").forEach((c, i) => trait.selected[`custom${i+1}`] = c.trim());
+				trait.custom.split(";").forEach((c, i) => (trait.selected[`custom${i + 1}`] = c.trim()));
 			}
 			trait.cssClass = !foundry.utils.isEmpty(trait.selected) ? "" : "inactive";
 		}
@@ -551,29 +583,83 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	_prepareModificadores() {
 		const modificadores = [
 			{ name: "system.modificadores.atributos.for", label: "Testes de Força" },
-			{ name: "system.modificadores.atributos.des", label: "Testes de Destreza" },
-			{ name: "system.modificadores.atributos.con", label: "Testes de Constintuição" },
-			{ name: "system.modificadores.atributos.int", label: "Testes de Inteligência" },
-			{ name: "system.modificadores.atributos.sab", label: "Testes de Sabedoria" },
-			{ name: "system.modificadores.atributos.car", label: "Testes de Carisma" },
-			{ name: "system.modificadores.atributos.geral", label: "Testes de Atributos" },
-			{ name: "system.modificadores.atributos.fisicos", label: "Testes de Atbs. Fisicos" },
-			{ name: "system.modificadores.atributos.mentais", label: "Testes de Atbs. Mentais" },
+			{
+				name: "system.modificadores.atributos.des",
+				label: "Testes de Destreza"
+			},
+			{
+				name: "system.modificadores.atributos.con",
+				label: "Testes de Constintuição"
+			},
+			{
+				name: "system.modificadores.atributos.int",
+				label: "Testes de Inteligência"
+			},
+			{
+				name: "system.modificadores.atributos.sab",
+				label: "Testes de Sabedoria"
+			},
+			{
+				name: "system.modificadores.atributos.car",
+				label: "Testes de Carisma"
+			},
+			{
+				name: "system.modificadores.atributos.geral",
+				label: "Testes de Atributos"
+			},
+			{
+				name: "system.modificadores.atributos.fisicos",
+				label: "Testes de Atbs. Fisicos"
+			},
+			{
+				name: "system.modificadores.atributos.mentais",
+				label: "Testes de Atbs. Mentais"
+			},
 			{ name: "system.modificadores.custoPM", label: "Aumento de custo de PM" },
 			{ name: "system.modificadores.dano.geral", label: "Dano Geral" },
 			{ name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo" },
 			{ name: "system.modificadores.dano.ad", label: "Dano A Distância" },
 			{ name: "system.modificadores.dano.mag", label: "Dano de Magias" },
-			{ name: "system.modificadores.pericias.geral", label: "Testes de Perícias" },
-			{ name: "system.modificadores.pericias.ataque", label: "Testes de Perícias de Ataque" },
-			{ name: "system.modificadores.pericias.semataque", label: "Testes de Perícias, exceto de Ataque" },
-			{ name: "system.modificadores.pericias.resistencia", label: "Testes de Perícias de Resistências" },
-			{ name: "system.modificadores.pericias.atr.for", label: "Testes de Perícias de Força" },
-			{ name: "system.modificadores.pericias.atr.des", label: "Testes de Perícias de Destreza" },
-			{ name: "system.modificadores.pericias.atr.con", label: "Testes de Perícias de Constituição" },
-			{ name: "system.modificadores.pericias.atr.int", label: "Testes de Perícias de Inteligência" },
-			{ name: "system.modificadores.pericias.atr.sab", label: "Testes de Perícias de Sabedoria" },
-			{ name: "system.modificadores.pericias.atr.car", label: "Testes de Perícias de Carisma" }
+			{
+				name: "system.modificadores.pericias.geral",
+				label: "Testes de Perícias"
+			},
+			{
+				name: "system.modificadores.pericias.ataque",
+				label: "Testes de Perícias de Ataque"
+			},
+			{
+				name: "system.modificadores.pericias.semataque",
+				label: "Testes de Perícias, exceto de Ataque"
+			},
+			{
+				name: "system.modificadores.pericias.resistencia",
+				label: "Testes de Perícias de Resistências"
+			},
+			{
+				name: "system.modificadores.pericias.atr.for",
+				label: "Testes de Perícias de Força"
+			},
+			{
+				name: "system.modificadores.pericias.atr.des",
+				label: "Testes de Perícias de Destreza"
+			},
+			{
+				name: "system.modificadores.pericias.atr.con",
+				label: "Testes de Perícias de Constituição"
+			},
+			{
+				name: "system.modificadores.pericias.atr.int",
+				label: "Testes de Perícias de Inteligência"
+			},
+			{
+				name: "system.modificadores.pericias.atr.sab",
+				label: "Testes de Perícias de Sabedoria"
+			},
+			{
+				name: "system.modificadores.pericias.atr.car",
+				label: "Testes de Perícias de Carisma"
+			}
 		];
 		for (let b of modificadores) {
 			b.value = foundry.utils.getProperty(this.object._source, b.name) || [];
@@ -621,7 +707,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				label: game.i18n.localize("T20.Configure"),
 				class: "t20-configure-sheet",
 				icon: "fas fa-wrench",
-				onclick: () => (new ActorSettings(this.actor).render(true))
+				onclick: () => new ActorSettings(this.actor).render(true)
 			});
 		}
 		if (this.actor.type === "npc") {
@@ -632,7 +718,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				onclick: () => {
 					new StatblockParser({
 						actor: this.actor,
-						statblock: "", schema: {}, items: [], log: []
+						statblock: "",
+						schema: {},
+						items: [],
+						log: []
 					}).render(true);
 				}
 			});
@@ -650,7 +739,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			if (item.type === "magia") {
 				item.system.resistencia.atributo = this.actor.system.attributes.conjuracao;
 				remainingItems.push(item);
-			} else if (item.type === "consumivel") { // Stack consumables
+			} else if (item.type === "consumivel") {
+				// Stack consumables
 				const it = this.actor.itemTypes.consumivel.find((c) => c.name === itemData.name);
 				if (it) {
 					const qtd = it.system.qtd + 1;
@@ -682,10 +772,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			// Pericias
 			if (li.dataset.itemId) {
 				let skill;
-				if (li.dataset.type=="oficios") {
+				if (li.dataset.type == "oficios") {
 					skill = this.actor.system.pericias.ofi.mais[li.dataset.itemId];
 					dragData.subtype = li.dataset.type;
-				} else if (li.dataset.type=="custom") {
+				} else if (li.dataset.type == "custom") {
 					skill = this.actor.system.periciasCustom[li.dataset.itemId];
 					dragData.subtype = li.dataset.type;
 				} else {
@@ -706,14 +796,20 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	async _onRollAtributo(event) {
 		event.preventDefault();
 		let atributo = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		return await this.actor.rollAtributo(atributo, { event: event, message: true });
+		return await this.actor.rollAtributo(atributo, {
+			event: event,
+			message: true
+		});
 	}
 
 	/*  */
 	async _onRollPericia(event) {
 		event.preventDefault();
 		let pericia = event.currentTarget.parentElement.dataset.itemId || event.currentTarget.dataset.itemId;
-		return await this.actor.rollPericia(pericia, { event: event, message: true });
+		return await this.actor.rollPericia(pericia, {
+			event: event,
+			message: true
+		});
 	}
 
 	/**
@@ -741,10 +837,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Handle spawning the application which allows a checkbox of multiple trait options
-	* @param {Event} event   The click event which originated the selection
-	* @private
-	*/
+	 * Handle spawning the application which allows a checkbox of multiple trait options
+	 * @param {Event} event   The click event which originated the selection
+	 * @private
+	 */
 	_onConfigMenu(event) {
 		event.preventDefault();
 		const button = event.currentTarget;
@@ -776,10 +872,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/**
-	* Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
-	* @param {Event} event   The click event which originated the selection
-	* @private
-	*/
+	 * Handle spawning the TraitSelector application which allows a checkbox of multiple trait options
+	 * @param {Event} event   The click event which originated the selection
+	 * @private
+	 */
 	_onTraitSelector(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
@@ -796,9 +892,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 					choices[fk] = { label: fv, choices: {} };
 					let ch = Object.values(cdtypes).filter((i) => i.flags?.tormenta20?.category === fk);
 					if (ch) {
-						ch.map((i) => choices[fk].choices[i.id] = { label: i.name });
+						ch.map((i) => (choices[fk].choices[i.id] = { label: i.name }));
 						//  ch.map(i => {return {label:i.label}}) };
-						done = [...done, ...(ch.map((i) => i.id))];
+						done = [...done, ...ch.map((i) => i.id)];
 					}
 				} else if (Object.keys(cdtypes).includes(fk) && !fv.flags?.tormenta20?.category) {
 					choices[fk] = { label: fv, choices: [] };
@@ -814,10 +910,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-	* @param {Event} event   The originating click event
-	* @private
-	*/
+	 * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
 	_onItemCreate(event) {
 		event.preventDefault();
 		const header = event.currentTarget;
@@ -829,7 +925,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			system: tipo ? { tipo } : {}
 		};
 		delete itemData.system.type;
-		return this.actor.createEmbeddedDocuments("Item", [itemData], { renderSheet: true });
+		return this.actor.createEmbeddedDocuments("Item", [itemData], {
+			renderSheet: true
+		});
 	}
 
 	async _onItemDialog(event) {
@@ -842,20 +940,20 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/**
-	* Handle editing an existing Owned Item for the Actor
-	* @param {Event} li   The originating click event
-	* @private
-	*/
+	 * Handle editing an existing Owned Item for the Actor
+	 * @param {Event} li   The originating click event
+	 * @private
+	 */
 	_onItemEdit(li) {
 		const item = this.actor.items.get(li.parent().data("itemId"));
 		if (item) return item.sheet.render(true);
 	}
 
 	/**
-	* Handle deleting an existing Owned Item for the Actor
-	* @param {Event} li   The originating click event
-	* @private
-	*/
+	 * Handle deleting an existing Owned Item for the Actor
+	 * @param {Event} li   The originating click event
+	 * @private
+	 */
 	_onItemDelete(li) {
 		const item = this.actor.items.get(li.parent().data("itemId"));
 		if (item) return item.delete();
@@ -867,9 +965,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/**
-	* Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
-	* @private
-	*/
+	 * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+	 * @private
+	 */
 	async _onItemSummary(event) {
 		event.preventDefault();
 		let li = $(event.currentTarget).parents(".item");
@@ -950,10 +1048,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Handle creating a Skill for the actor
-	* @param {Event} event   The originating click event
-	* @private
-	*/
+	 * Handle creating a Skill for the actor
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
 	async _onPericiaCustomCreate(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
@@ -998,14 +1096,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			// MESSAGE ERROR
 			ui.notifications.info("Número limite de pericias");
 		} else pericias[`${key}${keyN}`] = pericia;
-		pericias = Object.keys(pericias).sort()
-			.reduce(
-				(obj, key) => {
-					obj[key] = pericias[key];
-					return obj;
-				},
-				{}
-			);
+		pericias = Object.keys(pericias)
+			.sort()
+			.reduce((obj, key) => {
+				obj[key] = pericias[key];
+				return obj;
+			}, {});
 		await this.actor.update({ "system.pericias": pericias });
 	}
 
@@ -1059,8 +1155,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/*  Rendering                                   */
 	/* -------------------------------------------- */
 
-	async _render(force, { MODES, ...options }={}) {
-		if ((MODES === undefined) && (options.renderContext === "createItem")) MODES = this.constructor.MODES.EDIT;
+	async _render(force, { MODES, ...options } = {}) {
+		if (MODES === undefined && options.renderContext === "createItem") MODES = this.constructor.MODES.EDIT;
 		this._mode = MODES ?? this._mode ?? this.constructor.MODES.PLAY;
 		return super._render(force, options);
 	}

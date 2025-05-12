@@ -5,18 +5,18 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 	class Tormenta20SpeedProvider extends SpeedProvider {
 		get colors() {
 			return [
-				{ id: "walk", default: 0x3222C7, name: "Deslocamento" },
-				{ id: "dash", default: 0xFFEC07, name: "Dobro" },
-				{ id: "run", default: 0xC033E0, name: "Triplo" },
-				{ id: "run2", default: 0x1BCAD8, name: "Quádruplo" }
+				{ id: "walk", default: 0x3222c7, name: "Deslocamento" },
+				{ id: "dash", default: 0xffec07, name: "Dobro" },
+				{ id: "run", default: 0xc033e0, name: "Triplo" },
+				{ id: "run2", default: 0x1bcad8, name: "Quádruplo" }
 			];
 		}
 
 		getRanges(token) {
 			const baseSpeed = token.actor.system.attributes.movement.walk;
 			const enjoadoLento = token.actor.system.referencias?.find(
-				(condicao) =>
-					condicao.label === "Enjoado" || condicao.label === "Lento");
+				(condicao) => condicao.label === "Enjoado" || condicao.label === "Lento"
+			);
 			let runMultiplier = this.getSetting("dashMultiplier");
 			if (enjoadoLento) runMultiplier = 1;
 			const ranges = [

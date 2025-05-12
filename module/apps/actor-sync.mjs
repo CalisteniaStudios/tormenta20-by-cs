@@ -69,17 +69,27 @@ export default class ActorSync extends DocumentSheet {
 
 		for (const item of this.actor.items) {
 			let status = {};
-			status.uuid = await foundry.applications.ux.TextEditor.implementation.enrichHTML(`@UUID[${item.uuid}]{${item.name}}`, {
-				relativeTo: this.actor, secrets: this.actor.isOwner, async: true
-			});
+			status.uuid = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+				`@UUID[${item.uuid}]{${item.name}}`,
+				{
+					relativeTo: this.actor,
+					secrets: this.actor.isOwner,
+					async: true
+				}
+			);
 			const srcItem = await fromUuid(item.getFlag("core", "sourceId"));
 
 			console.groupCollapsed(`Item: ${item.name}`);
 			if (!(item.type in itemTypes)) itemTypes[item.type] = [];
 			if (srcItem) {
-				status.sourceId = await foundry.applications.ux.TextEditor.implementation.enrichHTML(`@UUID[${srcItem.uuid}]{${srcItem.name}}`, {
-					relativeTo: this.actor, secrets: this.actor.isOwner, async: true
-				});
+				status.sourceId = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+					`@UUID[${srcItem.uuid}]{${srcItem.name}}`,
+					{
+						relativeTo: this.actor,
+						secrets: this.actor.isOwner,
+						async: true
+					}
+				);
 
 				let _item = item.toObject();
 				let _source = srcItem.toObject();
@@ -99,21 +109,27 @@ export default class ActorSync extends DocumentSheet {
 				ignore.system = Object.fromEntries(ignore.system.map((k) => [`-=${k}`, null]));
 				ignore.flags = Object.fromEntries(ignore.flags.map((k) => [`-=${k}`, null]));
 
-				_item.system = foundry.utils.mergeObject(_item.system, ignore.system, { performDeletions: true });
+				_item.system = foundry.utils.mergeObject(_item.system, ignore.system, {
+					performDeletions: true
+				});
 				_item.system = foundry.utils.flattenObject(_item.system);
 				_source.system = foundry.utils.mergeObject(_source.system, ignore.system, { performDeletions: true });
 				_source.system = foundry.utils.flattenObject(_source.system);
-				_item.flags.tormenta20 = foundry.utils.mergeObject(_item.flags.tormenta20 ?? {}, ignore.flags, { performDeletions: true });
-				_source.flags.tormenta20 = foundry.utils.mergeObject(_source.flags.tormenta20 ?? {}, ignore.flags, { performDeletions: true });
+				_item.flags.tormenta20 = foundry.utils.mergeObject(_item.flags.tormenta20 ?? {}, ignore.flags, {
+					performDeletions: true
+				});
+				_source.flags.tormenta20 = foundry.utils.mergeObject(_source.flags.tormenta20 ?? {}, ignore.flags, {
+					performDeletions: true
+				});
 
 				status.name = _item.name == _source.name;
 				status.name_diff = status.name ? null : _source.name;
 				status.flags_diff = this.#listDiff(_item.flags.tormenta20, _source.flags.tormenta20);
-				status.flags = (status.flags_diff === "");
+				status.flags = status.flags_diff === "";
 				status.system_diff = this.#listDiff(_item.system, _source.system);
-				status.system = (status.system_diff === "");
+				status.system = status.system_diff === "";
 				status.effects_diff = this.#listDiff(_item.effects, _source.effects);
-				status.effects = (status.effects_diff === "");
+				status.effects = status.effects_diff === "";
 			} else {
 				status.sourceId = "Não encontrado";
 			}
@@ -131,7 +147,8 @@ export default class ActorSync extends DocumentSheet {
 	#listDiff(obj1, obj2) {
 		let diff = foundry.utils.diffObject(obj1 ?? {}, obj2 ?? {});
 		if (foundry.utils.isEmpty(diff)) return "";
-		return Object.entries(diff).map((e) => `<span>${e.join(" => ")}</span>`)
+		return Object.entries(diff)
+			.map((e) => `<span>${e.join(" => ")}</span>`)
 			.join("<br>");
 	}
 

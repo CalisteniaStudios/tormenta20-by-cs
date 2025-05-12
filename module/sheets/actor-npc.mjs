@@ -5,7 +5,6 @@ import ActorSheetT20 from "./actor-base.mjs";
  * @extends {ActorSheetT20}
  */
 export default class ActorSheetT20NPC extends ActorSheetT20 {
-
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -15,8 +14,16 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "npc"],
 			tabs: [
-				{ navSelector: ".primary", contentSelector: ".sheet-body.primary", initial: "statblock" },
-				{ navSelector: ".secondary", contentSelector: ".sheet-body.secondary", initial: "sheet" }
+				{
+					navSelector: ".primary",
+					contentSelector: ".sheet-body.primary",
+					initial: "statblock"
+				},
+				{
+					navSelector: ".secondary",
+					contentSelector: ".sheet-body.secondary",
+					initial: "sheet"
+				}
 			],
 			template: "systems/tormenta20/templates/actor/npc-sheet.hbs",
 			width: 500,
@@ -120,13 +127,16 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	 */
 	_getResistencias(data) {
 		const resistencias = this.actor.system.tracos.resistencias;
-		data.resistencias = Object.entries(resistencias).reduce((o, r) => {
-			if (r[1].imunidade) o.imu.push(r[0]);
-			else if (r[1].vulnerabilidade) o.vul.push(r[0]);
-			else if (r[1].value && o.rd[r[1].value]) o.rd[r[1].value].push(r[0]);
-			else if (r[1].value && !o.rd[r[1].value]) o.rd[r[1].value] = [r[0]];
-			return o;
-		}, { imu: [], vul: [], rd: [] });
+		data.resistencias = Object.entries(resistencias).reduce(
+			(o, r) => {
+				if (r[1].imunidade) o.imu.push(r[0]);
+				else if (r[1].vulnerabilidade) o.vul.push(r[0]);
+				else if (r[1].value && o.rd[r[1].value]) o.rd[r[1].value].push(r[0]);
+				else if (r[1].value && !o.rd[r[1].value]) o.rd[r[1].value] = [r[0]];
+				return o;
+			},
+			{ imu: [], vul: [], rd: [] }
+		);
 		let x = {};
 		x.imu = data.resistencias.imu.join(", ");
 		x.vul = data.resistencias.vul.join(", ");
@@ -135,47 +145,67 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 	/* -------------------------------------------- */
 
 	/**
-	* Organize Owned Items for rendering the NPC sheet
-	* @private
-	*/
+	 * Organize Owned Items for rendering the NPC sheet
+	 * @private
+	 */
 	async _prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
 		// Categorize items as inventory
 		const inventario = {
-			arma: { label: "Armas", items: [], dataset: { type: "arma" }, melee: 0, ranged: 0 },
-			equipamento: { label: "Equipamentos", items: [], dataset: { type: "equipamento" } },
-			consumivel: { label: "Consumível", items: [], dataset: { type: "consumivel" } },
+			arma: {
+				label: "Armas",
+				items: [],
+				dataset: { type: "arma" },
+				melee: 0,
+				ranged: 0
+			},
+			equipamento: {
+				label: "Equipamentos",
+				items: [],
+				dataset: { type: "equipamento" }
+			},
+			consumivel: {
+				label: "Consumível",
+				items: [],
+				dataset: { type: "consumivel" }
+			},
 			tesouro: { label: "Tesouro", items: [], dataset: { type: "tesouro" } }
 		};
 
 		// Partition items by category
-		let [items, magias, poderes] = await data.items.reduce(async (arr, item) => {
-			// Item details
-			item.img = item.img || CONST.DEFAULT_TOKEN;
-			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
-			item.system.description.value = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description.value, {
-				secrets: true,
-				async: true,
-				relativeTo: item
-			});
-			if (item.type === "magia") {
-				let element = document.createElement("div");
-				element.innerHTML = item.system.description.value;
-				if (element.querySelector(".secret")) {
-					let description = element.querySelector(".secret").innerText;
-					description = description.replace(item.name, "");
-					item.system.description.value = `<span>${description}</span>`;
+		let [items, magias, poderes] = await data.items.reduce(
+			async (arr, item) => {
+				// Item details
+				item.img = item.img || CONST.DEFAULT_TOKEN;
+				item.isStack = Number.isNumeric(item.system.qtd) && item.system.qtd !== 1;
+				item.system.description.value = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+					item.system.description.value,
+					{
+						secrets: true,
+						async: true,
+						relativeTo: item
+					}
+				);
+				if (item.type === "magia") {
+					let element = document.createElement("div");
+					element.innerHTML = item.system.description.value;
+					if (element.querySelector(".secret")) {
+						let description = element.querySelector(".secret").innerText;
+						description = description.replace(item.name, "");
+						item.system.description.value = `<span>${description}</span>`;
+					}
 				}
-			}
 
-			if (!Array.isArray(arr)) arr = await arr;
-			// Classify items into types
-			if (item.type === "magia") arr[1].push(item);
-			else if (item.type === "poder") arr[2].push(item);
-			else if (Object.keys(inventario).includes(item.type)) arr[0].push(item);
-			return arr;
-		}, [[], [], []]);
+				if (!Array.isArray(arr)) arr = await arr;
+				// Classify items into types
+				if (item.type === "magia") arr[1].push(item);
+				else if (item.type === "poder") arr[2].push(item);
+				else if (Object.keys(inventario).includes(item.type)) arr[0].push(item);
+				return arr;
+			},
+			[[], [], []]
+		);
 
 		// Organize items
 		for (let i of items) {
@@ -216,7 +246,5 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		actorData.inventario = inventario;
 		// inventario.itens = {label: "Itens", items: items};
 		// actorData.inventario = inventario;
-
 	}
-
 }

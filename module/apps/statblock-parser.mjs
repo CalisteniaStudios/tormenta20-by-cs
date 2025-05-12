@@ -1,6 +1,5 @@
 export default class StatblockParser extends FormApplication {
-
-	constructor(object={}, options={}) {
+	constructor(object = {}, options = {}) {
 		super(object, options);
 
 		this.object.packequipamentos = game.packs.get("tormenta20.equipamentos");
@@ -10,7 +9,6 @@ export default class StatblockParser extends FormApplication {
 		this.object.packequipamentos.getDocuments();
 		this.object.packsmagias.getDocuments();
 		this.object.packspoderes.getDocuments();
-
 	}
 
 	/** @override */
@@ -42,9 +40,9 @@ export default class StatblockParser extends FormApplication {
 		html.find(".apply").click(this._applyToActor.bind(this));
 	}
 
-	toRegExpOr(list, values=false) {
+	toRegExpOr(list, values = false) {
 		let j;
-		if (list instanceof Array && list.every((i) => typeof (i) == "string")) {
+		if (list instanceof Array && list.every((i) => typeof i == "string")) {
 			j = list.join("|");
 		} else if (list instanceof Object && values) {
 			j = Object.values(list).join("|");
@@ -63,7 +61,11 @@ export default class StatblockParser extends FormApplication {
 		let acEffects = actor.effects.map((m) => m.id);
 		actor.deleteEmbeddedDocuments("ActiveEffect", acEffects);
 
-		actor.update({ type: "npc", name: this.object.schema.name, system: this.object.schema });
+		actor.update({
+			type: "npc",
+			name: this.object.schema.name,
+			system: this.object.schema
+		});
 		actor.createEmbeddedDocuments("Item", this.object.items);
 		return this.close();
 	}
@@ -72,7 +74,10 @@ export default class StatblockParser extends FormApplication {
 		ev.preventDefault();
 		console.groupCollapsed("Statblock Parser");
 		const statblock = ev.currentTarget.closest("form").statblock.value.replaceAll("–", "-");
-		const schema = new Actor({ type: "npc", name: "template" }).system.toObject();
+		const schema = new Actor({
+			type: "npc",
+			name: "template"
+		}).system.toObject();
 		const log = [];
 		const itemsList = [];
 		this.object.items = [];
@@ -127,7 +132,9 @@ export default class StatblockParser extends FormApplication {
 		}
 
 		// GET TYPE (SUBTYPE), SIZE AND ROLE;
-		line = statblock.find((i) => i.match(this.toRegExpOr(T20.creatureTypes)) && i.match(this.toRegExpOr(T20.actorSizes)));
+		line = statblock.find(
+			(i) => i.match(this.toRegExpOr(T20.creatureTypes)) && i.match(this.toRegExpOr(T20.actorSizes))
+		);
 		if (line) {
 			let t = line.match(this.toRegExpOr(T20.creatureTypes, true))?.[0] ?? "Monstro";
 			let st = line.match(/\((\w+)\)/i)?.[0] ?? "";
@@ -135,7 +142,10 @@ export default class StatblockParser extends FormApplication {
 			let r = line.match(this.toRegExpOr(T20.creatureRoles, true))?.[0] ?? "Solo";
 			schema.detalhes.tipo = foundry.utils.invertObject(T20.creatureTypes)[t[0]];
 			schema.detalhes.raca = st;
-			log.type = { success: true, message: `Tipo: ${t} ${st ? `(${st})` : ""}` };
+			log.type = {
+				success: true,
+				message: `Tipo: ${t} ${st ? `(${st})` : ""}`
+			};
 			schema.tracos.tamanho = foundry.utils.invertObject(T20.actorSizes)[s[0]] ?? "";
 			log.size = { success: true, message: `Tamanho: ${s}` };
 			schema.detalhes.role = foundry.utils.invertObject(T20.creatureRoles)[r[0]] ?? "";
@@ -145,7 +155,9 @@ export default class StatblockParser extends FormApplication {
 		// GET ABILITIES;
 		line = statblock.find((i) => i.match(/([A-z]{3} ([\-]?[\d|\—])+, ){5}/gi));
 		if (line) {
-			let abilities = line.toLowerCase().split(",")
+			let abilities = line
+				.toLowerCase()
+				.split(",")
 				.map((i) => i.trim().split(" "));
 			for (const [abl, value] of abilities) {
 				schema.atributos[abl] = Number(value);
@@ -178,10 +190,9 @@ export default class StatblockParser extends FormApplication {
 		}
 		// GET RESISTANCES
 		if (line) {
-			const res = re[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-]?\d+[,]?)/ig, "").trim() || "";
+			const res = re[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-]?\d+[,]?)/gi, "").trim() || "";
 			schema.detalhes.resistencias = res;
 			// log.res = {success: true, message: `Resistencias (Texto): ${res}`};
-
 		}
 		// console.log(schema, log);
 	}
@@ -195,7 +206,7 @@ export default class StatblockParser extends FormApplication {
 			log.push({ success: true, message: `Nome: ${schema.name}` });
 			schema.attributes.nd = foe.nd;
 			log.push({ success: true, message: `ND: ${schema.attributes.nd}` });
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Nome ou ND" });
 		}
@@ -206,33 +217,54 @@ export default class StatblockParser extends FormApplication {
 			const cRole = Object.fromEntries(Object.entries(CONFIG.T20.creatureRoles).map(([key, value]) => [value, key]));
 			const cSize = Object.fromEntries(Object.entries(CONFIG.T20.actorSizes).map(([key, value]) => [value, key]));
 
-			let types = statblock.capitalize().match(/.* (especial|solo|lacaio)/i)[0].replace(/Iniciativa|\(|\)/ig, "").trim()
+			let types = statblock
+				.capitalize()
+				.match(/.* (especial|solo|lacaio)/i)[0]
+				.replace(/Iniciativa|\(|\)/gi, "")
+				.trim()
 				.split(" ")
 				.map((m) => cType[m] || cRole[m.capitalize()] || cSize[m] || m);
 			for (let t of types) {
 				if (CONFIG.T20.creatureTypes[t]) {
 					schema.detalhes.tipo = t;
-					log.push({ success: true, message: `Tipo de Criatura: ${schema.detalhes.tipo}` });
+					log.push({
+						success: true,
+						message: `Tipo de Criatura: ${schema.detalhes.tipo}`
+					});
 				} else if (CONFIG.T20.creatureRoles[t]) {
 					schema.detalhes.role = t;
-					log.push({ success: true, message: `Papel em Combate: ${schema.detalhes.role}` });
+					log.push({
+						success: true,
+						message: `Papel em Combate: ${schema.detalhes.role}`
+					});
 				} else if (CONFIG.T20.actorSizes[t]) {
 					schema.tracos.tamanho = t;
-					log.push({ success: true, message: `Tamanho: ${schema.tracos.tamanho}` });
+					log.push({
+						success: true,
+						message: `Tamanho: ${schema.tracos.tamanho}`
+					});
 				} else {
 					schema.detalhes.raca = t;
-					log.push({ success: true, message: `Subtipo de Criatura: ${schema.detalhes.raca}` });
+					log.push({
+						success: true,
+						message: `Subtipo de Criatura: ${schema.detalhes.raca}`
+					});
 				}
 			}
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
-			log.push({ success: false, message: "Tipo de Criatura, Papel em Combate, Tamanho, Subtipo de Criatura" });
+			log.push({
+				success: false,
+				message: "Tipo de Criatura, Papel em Combate, Tamanho, Subtipo de Criatura"
+			});
 		}
 
 		// Extrai atributos
 		try {
 			let abilities = statblock.match(/For ([\-|\–]?[\d|\—]+), *[^\n]*/i);
-			abilities = abilities[0].toLowerCase().match(/(\w+) ([\-|\–]?[\d|\—]+)/g)
+			abilities = abilities[0]
+				.toLowerCase()
+				.match(/(\w+) ([\-|\–]?[\d|\—]+)/g)
 				.map((m) => {
 					return { [m.split(" ")[0]]: m.split(" ")[1] };
 				});
@@ -243,7 +275,7 @@ export default class StatblockParser extends FormApplication {
 				msg += `${abl}: ${value} `;
 			}
 			log.push({ success: true, message: `Atributos: ${msg}` });
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Atributos" });
 		}
@@ -255,27 +287,39 @@ export default class StatblockParser extends FormApplication {
 			if (hp && hp.groups) {
 				schema.attributes.pv.value = parseInt(hp.groups.value);
 				schema.attributes.pv.max = parseInt(hp.groups.value);
-				log.push({ success: true, message: `Pontos de Vida: ${schema.attributes.pv.max}` });
+				log.push({
+					success: true,
+					message: `Pontos de Vida: ${schema.attributes.pv.max}`
+				});
 			}
 			if (mp && mp.groups) {
 				schema.attributes.pm.value = parseInt(mp.groups.value);
 				schema.attributes.pm.max = parseInt(mp.groups.value);
-				log.push({ success: true, message: `Pontos de Mana: ${schema.attributes.pm.max}` });
+				log.push({
+					success: true,
+					message: `Pontos de Mana: ${schema.attributes.pm.max}`
+				});
 			} else {
 				schema.attributes.pm.value = 0;
 				schema.attributes.pm.max = 0;
 			}
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
-			log.push({ success: false, message: "Pontos de Vida e/ou Pontos de Mana" });
+			log.push({
+				success: false,
+				message: "Pontos de Vida e/ou Pontos de Mana"
+			});
 		}
 
 		// Extrai Defesa
 		try {
 			let def = statblock.match(/Defesa (?<value>\d+)/i).groups;
 			schema.attributes.defesa.base = def.value || 10;
-			log.push({ success: true, message: `Defesa: ${schema.attributes.defesa.base}` });
-		} catch(error) {
+			log.push({
+				success: true,
+				message: `Defesa: ${schema.attributes.defesa.base}`
+			});
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Defesa" });
 		}
@@ -283,17 +327,24 @@ export default class StatblockParser extends FormApplication {
 		// Extrai Resistências
 		try {
 			let res = statblock.replace(/\n/g, " ").match(/Defesa .* Pontos de Vida/i);
-			res = res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-|\–]?\d+[,]?|Pontos de Vida)/ig, "").trim() || "";
+			res =
+				res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-|\–]?\d+[,]?|Pontos de Vida)/gi, "").trim() || "";
 			schema.detalhes.resistencias = res;
-			log.push({ success: true, message: `Resistências (Texto): ${schema.detalhes.resistencias}` });
+			log.push({
+				success: true,
+				message: `Resistências (Texto): ${schema.detalhes.resistencias}`
+			});
 
-			res = res.replace(/ |,/g, "_").slugify()
-				.replace(/_/g, " ");
-			res = res.replace(/imunidade|reducao|resistencia|vulnerabilidade/ig, (match) => `#${match}`).split("#")
+			res = res.replace(/ |,/g, "_").slugify().replace(/_/g, " ");
+			res = res
+				.replace(/imunidade|reducao|resistencia|vulnerabilidade/gi, (match) => `#${match}`)
+				.split("#")
 				.filter(Boolean)
 				.map((m) => m.trim());
 			res = res.map((m) => {
-				return { [m.match(/imunidade|reducao|resistencia|vulnerabilidade/i)]: m.split(" ") };
+				return {
+					[m.match(/imunidade|reducao|resistencia|vulnerabilidade/i)]: m.split(" ")
+				};
 			});
 
 			let ic = [];
@@ -307,9 +358,11 @@ export default class StatblockParser extends FormApplication {
 				} else if (r.reducao) {
 					let [value, vuln] = r.reducao.find((f) => parseInt(f)).split("/");
 					rd.push(
-						...r.reducao.filter((f) => CONFIG.T20.damageTypes[f]).map((f) => {
-							return { [f]: value };
-						})
+						...r.reducao
+							.filter((f) => CONFIG.T20.damageTypes[f])
+							.map((f) => {
+								return { [f]: value };
+							})
 					);
 				} else if (r.resistencia) {
 					// TODO criar mecanica de resistência
@@ -320,7 +373,10 @@ export default class StatblockParser extends FormApplication {
 
 			if (ic.length) {
 				schema.tracos.ic.value = ic;
-				log.push({ success: true, message: `Imunidades a Condições: ${ic.join(", ")}` });
+				log.push({
+					success: true,
+					message: `Imunidades a Condições: ${ic.join(", ")}`
+				});
 			}
 			msg = "";
 			let tmp = Object.assign({}, ...rd);
@@ -332,14 +388,23 @@ export default class StatblockParser extends FormApplication {
 			for (let k of dmgimuni) {
 				schema.tracos.resistencias[k].imunidade = true;
 			}
-			log.push({ success: true, message: `Imunidade a dano: ${dmgimuni.join(", ")}` });
+			log.push({
+				success: true,
+				message: `Imunidade a dano: ${dmgimuni.join(", ")}`
+			});
 			for (let k of dmgvuln) {
 				schema.tracos.resistencias[k].vulnerabilidade = true;
 			}
-			log.push({ success: true, message: `Vulnerabilidade a dano: ${dmgvuln.join(", ")}` });
-		} catch(error) {
+			log.push({
+				success: true,
+				message: `Vulnerabilidade a dano: ${dmgvuln.join(", ")}`
+			});
+		} catch (error) {
 			console.warn(error);
-			log.push({ success: false, message: "Imunidades a Condições e Reduções de Dano" });
+			log.push({
+				success: false,
+				message: "Imunidades a Condições e Reduções de Dano"
+			});
 		}
 
 		// Extrai Deslocamentos
@@ -353,7 +418,9 @@ export default class StatblockParser extends FormApplication {
 				movementTxt = movementTxt.replace(`, ${temp}`, "", movementTxt);
 			}
 
-			let movement = movementTxt.slugify().replaceAll("-", " ")
+			let movement = movementTxt
+				.slugify()
+				.replaceAll("-", " ")
 				.replace(/^Deslocamento ([A-z]+)/i, "$1")
 				.split(",")
 				.map((m) => [m.match(/\w+/)[0], m.match(/\d+/)[0]]);
@@ -361,14 +428,20 @@ export default class StatblockParser extends FormApplication {
 			// movement2.split(',').map(d => d.split(' '));
 			msg = "";
 			for (let [move, value] of movement) {
-				let ms = { deslocamento: "walk", escalar: "climb", escavar: "burrow", natacao: "swim", voo: "fly" };
+				let ms = {
+					deslocamento: "walk",
+					escalar: "climb",
+					escavar: "burrow",
+					natacao: "swim",
+					voo: "fly"
+				};
 				if (ms[move]) {
 					schema.attributes.movement[ms[move]] = parseInt(value);
 					msg += `${move} ${value}; `;
 				}
 			}
 			log.push({ success: true, message: `Movimento: ${msg}` });
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Deslocamentos" });
 		}
@@ -382,14 +455,14 @@ export default class StatblockParser extends FormApplication {
 			sentidos = sentidos.filter((f) => senses[f]).map((m) => senses[m]);
 			schema.attributes.sentidos.value = sentidos;
 			log.push({ success: true, message: `Sentidos: ${sentidos.join(", ")}` });
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Sentidos" });
 		}
 	}
 
 	parseSkills(statblock, schema, itemsList, log) {
-		let msg ="";
+		let msg = "";
 		try {
 			const ndparams = T20.FoeParams(schema.detalhes.role, schema.attributes.nd);
 			let sks = foundry.utils.invertObject(T20.pericias);
@@ -397,8 +470,12 @@ export default class StatblockParser extends FormApplication {
 			sks.Ref = "refl";
 			sks.Von = "vont";
 			// this.toRegExpOr(sks);
-			let skills = statblock.replace(/\n/g, " ").replace("–", "-")
-				.match(/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/ig);
+			let skills = statblock
+				.replace(/\n/g, " ")
+				.replace("–", "-")
+				.match(
+					/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/gi
+				);
 			skills = skills.map((m) => {
 				return { [sks[m.split(" ")[0]]]: { value: parseInt(m.split(" ")[1]) } };
 			});
@@ -419,11 +496,18 @@ export default class StatblockParser extends FormApplication {
 					else if (["S", "S+"].includes(nd)) nivel = 20;
 					else nivel = Number(nd) || 1;
 
-					let sizeStealth = { min: 5, peq: 2, med: 0, gra: -2, eno: -5, col: -10 };
-					let meionivel = Math.floor(nivel/2);
-					let treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
-					let atributo = (schema.atributos[skill.atributo].base) ?? "for";
-					let tamanho = (key == "furt" ? (sizeStealth[schema.tracos.tamanho]) : 0);
+					let sizeStealth = {
+						min: 5,
+						peq: 2,
+						med: 0,
+						gra: -2,
+						eno: -5,
+						col: -10
+					};
+					let meionivel = Math.floor(nivel / 2);
+					let treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
+					let atributo = schema.atributos[skill.atributo].base ?? "for";
+					let tamanho = key == "furt" ? sizeStealth[schema.tracos.tamanho] : 0;
 
 					let comTreino = meionivel + treino + atributo + tamanho;
 					let semTreino = meionivel + atributo + tamanho;
@@ -441,7 +525,7 @@ export default class StatblockParser extends FormApplication {
 				schema.pericias[key] = skill;
 			}
 			log.push({ success: true, message: `Perícias: ${msg}` });
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Perícias" });
 		}
@@ -457,19 +541,21 @@ export default class StatblockParser extends FormApplication {
 				name = name.split("(")[0].trim();
 			} else {
 				idx = name.split(" ").find((f) => f.length > 3 && f[0].match(/[a-z]/));
-				idx = idx ? (name.split(" ").indexOf(idx) - 1) : 5;
+				idx = idx ? name.split(" ").indexOf(idx) - 1 : 5;
 				name = idx ? name.split(" ", idx).join(" ") : name;
 			}
 		}
 		let names = [];
 		let words = name.split(" ", idx);
 		let conc = "";
-		for (let i=0; i <= words.length; i++) {
-			for (let j=1; j < 6; j++) {
-				if (i+j > words.length) continue;
-				conc = words.slice(i, i+j).join(" ");
+		for (let i = 0; i <= words.length; i++) {
+			for (let j = 1; j < 6; j++) {
+				if (i + j > words.length) continue;
+				conc = words.slice(i, i + j).join(" ");
 				names.push(conc.slugify());
-				conc = words.map((m) => m.replace(/.$/, "")).slice(i, i+j)
+				conc = words
+					.map((m) => m.replace(/.$/, ""))
+					.slice(i, i + j)
 					.join(" ");
 				names.push(conc.slugify());
 			}
@@ -479,8 +565,10 @@ export default class StatblockParser extends FormApplication {
 			return { exists: true };
 		}
 		const packs = {
-			arma: "packequipamentos", equipamento: "packequipamentos",
-			magia: "packsmagias", poder: "packspoderes"
+			arma: "packequipamentos",
+			equipamento: "packequipamentos",
+			magia: "packsmagias",
+			poder: "packspoderes"
 		};
 		names.sort((a, b) => b.length - a.length);
 		// let item = game.items.find( f => f.type == type && names.includes(f.name.slugify()) );
@@ -491,7 +579,7 @@ export default class StatblockParser extends FormApplication {
 				if (item) return;
 				item = this.object[packs.equipamento].find((f) => f.type == type && f.name.slugify() == n);
 			} else {
-				item = game.items.find((f) => f.type==type && f.name.slugify() == n);
+				item = game.items.find((f) => f.type == type && f.name.slugify() == n);
 				if (item) return;
 				item = this.object[packs[type]].find((f) => f.type == type && f.name.slugify() == n);
 			}
@@ -501,7 +589,10 @@ export default class StatblockParser extends FormApplication {
 
 		if (!item) {
 			type = type == "*" ? "tesouro" : type;
-			item = new game.tormenta20.entities.ItemT20({ type: type, name: words.join(" ") });
+			item = new game.tormenta20.entities.ItemT20({
+				type: type,
+				name: words.join(" ")
+			});
 		}
 		item = item.toObject();
 		delete item._id;
@@ -509,10 +600,11 @@ export default class StatblockParser extends FormApplication {
 	}
 
 	parseAbilities(statblock, schema, itemsList, log) {
-		let msg ="";
+		let msg = "";
 		try {
-
-			let actions = Object.fromEntries(Object.entries(CONFIG.T20.abilityActivationTypes).map(([key, value]) => [value, key]));
+			let actions = Object.fromEntries(
+				Object.entries(CONFIG.T20.abilityActivationTypes).map(([key, value]) => [value, key])
+			);
 			let abilities = "";
 			let lines = statblock.split(/\n/);
 			if (statblock.match(/À Distância .*(\n)/i)) {
@@ -527,7 +619,7 @@ export default class StatblockParser extends FormApplication {
 			}
 			if (statblock.match(/Deslocamento (.|\n)*/i)) {
 				abilities = statblock.match(/Deslocamento .*(\n)/i)[0];
-				abilities = lines.find((l) => (l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/i)));
+				abilities = lines.find((l) => l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/i));
 				// schema.detalhes.movimento = abilities.split(',')[1] ?? '';
 			}
 			// abilities = abilities.match(/((.|\n)*)\nFor /)[1];
@@ -536,16 +628,33 @@ export default class StatblockParser extends FormApplication {
 			// abilities = abilities.filter( m => !m.match(/(For ([\-|\–]?[\d|\—]+), Des)|(Perícias )|(Equipamento )|(Tesouro )/) );
 			// abilities = abilities.map( m =>  m.replace(/<abl>|<\/abl>/g,'').replace(/\n/g,' ').trim());
 
-			abilities = lines.filter((l) => !l.match(/ND (\d+|\d+\/\d+)$/i) && !l.match(/^Defesa \d+, Fort (\+|\-)\d+, Ref (\+|\-)\d+/i) && !l.match(/^Corpo a Corpo /i) && !l.match(/^À Distância /i) && !(l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/)) && !l.match(/^Iniciativa (\+|\-)\d+, Percepção (\+|\-)\d+/i) && !l.match(/^Deslocamento /i) && !l.match(/^Pontos de (Vida|Mana) \d+/i) && !l.match(/^Perícias \w+ (\+|\-) ?\d+/i) && !l.match(/^(Equipamento|Equipamentos|Tesouro)/i) && !l.match(/^Parceiro/i) && !l.match(/^For (\-?\d+|—)/i) && !(l.match(/^(Animal|Humanoide|Construto|Morto-vivo|Mosntro|Espirito)/i) && l.match(/(Minusculo|Pequeno|Médio|Grande|Enorme|Colossal)/i)));
+			abilities = lines.filter(
+				(l) =>
+					!l.match(/ND (\d+|\d+\/\d+)$/i)
+					&& !l.match(/^Defesa \d+, Fort (\+|\-)\d+, Ref (\+|\-)\d+/i)
+					&& !l.match(/^Corpo a Corpo /i)
+					&& !l.match(/^À Distância /i)
+					&& !(l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/))
+					&& !l.match(/^Iniciativa (\+|\-)\d+, Percepção (\+|\-)\d+/i)
+					&& !l.match(/^Deslocamento /i)
+					&& !l.match(/^Pontos de (Vida|Mana) \d+/i)
+					&& !l.match(/^Perícias \w+ (\+|\-) ?\d+/i)
+					&& !l.match(/^(Equipamento|Equipamentos|Tesouro)/i)
+					&& !l.match(/^Parceiro/i)
+					&& !l.match(/^For (\-?\d+|—)/i)
+					&& !(
+						l.match(/^(Animal|Humanoide|Construto|Morto-vivo|Mosntro|Espirito)/i)
+						&& l.match(/(Minusculo|Pequeno|Médio|Grande|Enorme|Colossal)/i)
+					)
+			);
 			abilities = abilities.map((m) => {
 				return { desc: m };
 			});
 			abilities.forEach((ability) => {
-
 				let spell = !!ability.desc.match(/• /);
 				if (spell) ability.desc = ability.desc.replace("•", "").trim();
 
-				let item = this.searchItem(ability.desc, (spell?"magia":"poder"), itemsList);
+				let item = this.searchItem(ability.desc, spell ? "magia" : "poder", itemsList);
 				if (item.exists) return;
 
 				ability.action = "";
@@ -586,7 +695,7 @@ export default class StatblockParser extends FormApplication {
 			msg = `Magias encontradas ${spells.length} `;
 			msg += `(${spells.map((m) => m.name).join(", ")})`;
 			log.push({ success: true, message: `${msg}` });
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Poderes e Magias" });
 		}
@@ -601,7 +710,9 @@ export default class StatblockParser extends FormApplication {
 			armaData = armaData[0];
 
 			// Limpa e separa as armas;
-			armaData = armaData.replace(/Corpo a Corpo|À Distância/ig, "").replace(/\n/g, " ")
+			armaData = armaData
+				.replace(/Corpo a Corpo|À Distância/gi, "")
+				.replace(/\n/g, " ")
 				.replace(" e ", "|")
 				.replace(" ou ", "|")
 				.replace("), ", ")|")
@@ -617,7 +728,10 @@ export default class StatblockParser extends FormApplication {
 				// Prepara Rolagem de Ataque
 				if (arma.atk) {
 					let attackRoll = {
-						name: "Ataque", key: "ataque0", type: "ataque", versatil: "",
+						name: "Ataque",
+						key: "ataque0",
+						type: "ataque",
+						versatil: "",
 						parts: [
 							["1d20", "", "weapon"],
 							["", "", "skill"],
@@ -629,25 +743,27 @@ export default class StatblockParser extends FormApplication {
 				// Prepara Rolagem de Dano
 				if (arma.dmg) {
 					let [dmg, crit] = arma.dmg.split(",");
-					dmg = dmg.split("mais").map((rp) => rp.trim().split(" ")
-						.map((t) => t.slugify())
-						.filter((m) => m.match(/\d+d\d+[\+|\-]?[\d+]?/) || CONFIG.T20.damageTypes[m]));
+					dmg = dmg.split("mais").map((rp) =>
+						rp
+							.trim()
+							.split(" ")
+							.map((t) => t.slugify())
+							.filter((m) => m.match(/\d+d\d+[\+|\-]?[\d+]?/) || CONFIG.T20.damageTypes[m])
+					);
 					let wdmg = dmg.shift();
 					let weaponDamage = item.system.rolls.find((r) => r.type == "dano");
-					let dmgtype = ((weaponDamage ? weaponDamage.parts[0][1] : wdmg[1] || "corte"));
+					let dmgtype = weaponDamage ? weaponDamage.parts[0][1] : wdmg[1] || "corte";
 					let damageRoll = {
-						name: "Dano", key: "dano1", type: "dano", versatil: "",
-						parts: [
-							[wdmg[0], dmgtype, "weapon"],
-							["", dmgtype, "ability"],
-							...dmg
-						]
+						name: "Dano",
+						key: "dano1",
+						type: "dano",
+						versatil: "",
+						parts: [[wdmg[0], dmgtype, "weapon"], ["", dmgtype, "ability"], ...dmg]
 					};
 					rolls.push(damageRoll);
 					crit = crit?.trim().match(/(?<margem>\d+)?\/?(?<multi>x\d)?/).groups || {};
 					item.system.criticoM = parseInt(crit.margem) || 20;
 					item.system.criticoX = parseInt(crit.multi) || 2;
-
 				}
 				item.system.rolls = rolls;
 				item.system.description.value = `<section class="secret">${arma.name}</section>${item.system.description.value}`;
@@ -659,7 +775,7 @@ export default class StatblockParser extends FormApplication {
 			msg += `Armas encontradas: ${armaData.length} `;
 			msg += `(${armaData.map((m) => m.name).join(", ")})`;
 			log.push({ success: true, message: `${msg}` });
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Armas" });
 		}
@@ -671,7 +787,9 @@ export default class StatblockParser extends FormApplication {
 			let equipamentos = statblock.replace(/\n/g, " ").match(/Equipamento[s]? .* Tesouro/i);
 			equipamentos = equipamentos ? equipamentos[0] : false;
 			if (equipamentos) {
-				equipamentos = equipamentos.replace(/Equipamento|Equipamentos|Tesouro/ig, "").split(",")
+				equipamentos = equipamentos
+					.replace(/Equipamento|Equipamentos|Tesouro/gi, "")
+					.split(",")
 					.map((m) => m.replace(".", "").trim());
 				equipamentos = equipamentos.map((m) => {
 					return { desc: m };
@@ -691,7 +809,7 @@ export default class StatblockParser extends FormApplication {
 				msg += `(${equipamentos.map((m) => m.name).join(", ")})`;
 				log.push({ success: true, message: `${msg}` });
 			}
-		} catch(error) {
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Equipamentos" });
 		}
@@ -700,11 +818,13 @@ export default class StatblockParser extends FormApplication {
 			let tesouros = statblock.replace(/\n/g, " ").match(/Tesouro .*\n/i)[0];
 			tesouros = tesouros.replace(/Tesouro/i, "").trim();
 			schema.detalhes.tesouro = tesouros;
-			log.push({ success: true, message: `Tesouro (Texto): ${schema.detalhes.tesouro}` });
-		} catch(error) {
+			log.push({
+				success: true,
+				message: `Tesouro (Texto): ${schema.detalhes.tesouro}`
+			});
+		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Tesouro" });
 		}
 	}
-
 }

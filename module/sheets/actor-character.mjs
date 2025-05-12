@@ -6,7 +6,6 @@ import ActorSheetT20 from "./actor-base.mjs";
  * @type {ActorSheetT20}
  */
 export default class ActorSheetT20Character extends ActorSheetT20 {
-
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -122,9 +121,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const race = this.actor.itemTypes.race[0];
 				if (race) race.delete();
 				const atributos = Object.fromEntries(
-					Object.entries(item.system.atributos).map(([key, data]) => [
-						[`system.atributos.${key}.racial`], data.value
-					])
+					Object.entries(item.system.atributos).map(([key, data]) => [[`system.atributos.${key}.racial`], data.value])
 				);
 				this.actor.update(atributos);
 				remainingItems.push(item);
@@ -138,9 +135,9 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	/* -------------------------------------------- */
 
 	/**
-	* Organize and classify Owned Items for Character sheets
-	* @private
-	*/
+	 * Organize and classify Owned Items for Character sheets
+	 * @private
+	 */
 	async _prepareItems(data) {
 		const actorData = data.actor;
 		// Initialize containers.
@@ -161,56 +158,72 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		// Categorize items as inventory
 		const inventario = {
 			arma: { label: "Armas", items: [], dataset: { type: "arma" } },
-			equipamento: { label: "Equipamentos", items: [], dataset: { type: "equipamento" } },
-			consumivel: { label: "Consumível", items: [], dataset: { type: "consumivel" } },
+			equipamento: {
+				label: "Equipamentos",
+				items: [],
+				dataset: { type: "equipamento" }
+			},
+			consumivel: {
+				label: "Consumível",
+				items: [],
+				dataset: { type: "consumivel" }
+			},
 			tesouro: { label: "Tesouro", items: [], dataset: { type: "tesouro" } }
 		};
 
 		// Partition items by category
-		let [items, magias, poderes, classes] = await data.items.reduce(async (arr, item) => {
-			// Item details
-			item.img = item.img || CONST.DEFAULT_TOKEN;
-			item.isStack = Number.isNumeric(item.system.qtd) && (item.system.qtd !== 1);
-			try {
-				if (typeof item.system.description === "string" || item.system.description instanceof String) {
-					item.system.description = { value: item.system.description };
+		let [items, magias, poderes, classes] = await data.items.reduce(
+			async (arr, item) => {
+				// Item details
+				item.img = item.img || CONST.DEFAULT_TOKEN;
+				item.isStack = Number.isNumeric(item.system.qtd) && item.system.qtd !== 1;
+				try {
+					if (typeof item.system.description === "string" || item.system.description instanceof String) {
+						item.system.description = { value: item.system.description };
+					}
+
+					item.system.description.value = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+						item.system.description.value,
+						{
+							secrets: item.isOwner,
+							async: true,
+							relativeTo: item
+						}
+					);
+				} catch (err) {
+					ui.notifications.error("Falha ao carregar descrição", {
+						permanent: false
+					});
 				}
 
-				item.system.description.value = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description.value, {
-					secrets: item.isOwner,
-					async: true,
-					relativeTo: item
-				});
-			} catch(err) {
-				ui.notifications.error("Falha ao carregar descrição", { permanent: false });
-			}
-
-			if (item.type === "classe") {
-				item.abbr = item.name.substr(0, 4);
-			}
-
-			let isFav = item.flags.tormenta20?.favorito || false;
-			if (isFav) {
-				if (item.type === "arma") {
-					favoritos.armas.push(item);
-				} else if (item.type === "poder") {
-					favoritos.poderes.push(item);
-				} else if (item.type === "magia") {
-					favoritos.magias[item.system.circulo].spells.push(item);
-					favoritos.qtdMagias++;
-				} else if (["consumivel", "equipamento"].includes(item.type)) {
-					favoritos.itens.push(item);
+				if (item.type === "classe") {
+					item.abbr = item.name.substr(0, 4);
 				}
-			}
 
-			if (!Array.isArray(arr)) arr = await arr;
-			// Classify items into types
-			if (item.type === "magia") arr[1].push(item);
-			else if (item.type === "poder") arr[2].push(item);
-			else if (item.type === "classe") arr[3].push(item);
-			else if (Object.keys(inventario).includes(item.type)) arr[0].push(item);
-			return arr;
-		}, [[], [], [], []]);
+				let isFav = item.flags.tormenta20?.favorito || false;
+				if (isFav) {
+					if (item.type === "arma") {
+						favoritos.armas.push(item);
+					} else if (item.type === "poder") {
+						favoritos.poderes.push(item);
+					} else if (item.type === "magia") {
+						favoritos.magias[item.system.circulo].spells.push(item);
+						favoritos.qtdMagias++;
+					} else if (["consumivel", "equipamento"].includes(item.type)) {
+						favoritos.itens.push(item);
+					}
+				}
+
+				if (!Array.isArray(arr)) arr = await arr;
+				// Classify items into types
+				if (item.type === "magia") arr[1].push(item);
+				else if (item.type === "poder") arr[2].push(item);
+				else if (item.type === "classe") arr[3].push(item);
+				else if (Object.keys(inventario).includes(item.type)) arr[0].push(item);
+				return arr;
+			},
+			[[], [], [], []]
+		);
 
 		// Apply active item filters
 		// TODO

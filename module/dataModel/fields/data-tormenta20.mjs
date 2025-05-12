@@ -1,6 +1,4 @@
-
 export default class Tormenta20DataModel extends foundry.abstract.DataModel {
-
 	get document() {
 		let parent = this.parent;
 		while (parent) {
@@ -18,10 +16,8 @@ export default class Tormenta20DataModel extends foundry.abstract.DataModel {
 		for (const fieldPath of Object.keys(dataFields)) {
 			dataFields[fieldPath] = schema.getField(fieldPath);
 			if (dataFields[fieldPath].hasOwnProperty("fieldPath")) continue;
-
 		}
 
 		return foundry.utils.expandObject(dataFields);
 	}
-
 }

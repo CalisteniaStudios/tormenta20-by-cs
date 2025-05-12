@@ -1,7 +1,6 @@
 import IdentityData from "./identity.mjs";
 
 export default class BackgroundData extends IdentityData {
-
 	/** @inheritDoc */
 	static defineSchema() {
 		const fields = foundry.data.fields;
@@ -35,7 +34,7 @@ export default class BackgroundData extends IdentityData {
 	/* -------------------------------------------- */
 
 	/** @inheritDoc */
-	async toEmbed(config, options={}) {
+	async toEmbed(config, options = {}) {
 		return null;
 	}
 

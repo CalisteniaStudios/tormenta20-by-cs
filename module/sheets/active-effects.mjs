@@ -9,6 +9,8 @@ export default class ActiveEffectConfigT20 extends foundry.applications.sheets.A
 
 	static PARTS = {
 		...super.PARTS,
-		details: { template: "systems/tormenta20/templates/apps/active-effect/details.hbs" }
+		details: {
+			template: "systems/tormenta20/templates/apps/active-effect/details.hbs"
+		}
 	};
 }

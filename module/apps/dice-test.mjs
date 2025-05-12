@@ -1,5 +1,5 @@
 export default class DiceTest extends FormApplication {
-	constructor(object={}, options={}) {
+	constructor(object = {}, options = {}) {
 		super(object, options);
 
 		this.object = {
@@ -47,5 +47,4 @@ export default class DiceTest extends FormApplication {
 	deleteTerm(event) {
 		console.log(event);
 	}
-
 }

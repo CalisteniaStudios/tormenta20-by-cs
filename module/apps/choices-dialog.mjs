@@ -1,11 +1,10 @@
 export default class ChoicesDialog extends Dialog {
-	constructor(item, dialogData={}, options={}) {
+	constructor(item, dialogData = {}, options = {}) {
 		super(dialogData, options);
 		this.options.classes.push(...["tormenta20", "choices-form"]);
 	}
 
 	static async create(list = [], source, somefing) {
-
 		/* HELPERS */
 		function getInputType(key) {
 			switch (key) {
@@ -60,7 +59,10 @@ export default class ChoicesDialog extends Dialog {
 		};
 
 		// Render the ability usage template
-		const html = await foundry.applications.handlebars.renderTemplate("systems/tormenta20/templates/apps/choices-dialog.hbs", data);
+		const html = await foundry.applications.handlebars.renderTemplate(
+			"systems/tormenta20/templates/apps/choices-dialog.hbs",
+			data
+		);
 
 		return await new Promise((resolve) => {
 			const dlg = new this(source, {

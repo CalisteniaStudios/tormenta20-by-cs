@@ -3,7 +3,6 @@
  * @implements {FormApplication}
  */
 export default class TraitSelector extends FormApplication {
-
 	/** @override */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
@@ -34,7 +33,6 @@ export default class TraitSelector extends FormApplication {
 
 	/** @override */
 	getData() {
-
 		// Get current values
 		let attr = foundry.utils.getProperty(this.object, this.attribute);
 		if (foundry.utils.getType(attr) !== "Object") attr = { value: [], custom: "" };
@@ -75,15 +73,15 @@ export default class TraitSelector extends FormApplication {
 		// Obtain choices
 		const chosen = [];
 		for (let [k, v] of Object.entries(formData)) {
-			if ((k !== "custom") && v) chosen.push(k);
+			if (k !== "custom" && v) chosen.push(k);
 		}
 		updateData[`${this.attribute}.value`] = chosen;
 
 		// Validate the number chosen
-		if (this.options.minimum && (chosen.length < this.options.minimum)) {
+		if (this.options.minimum && chosen.length < this.options.minimum) {
 			return ui.notifications.error(`Você precisa escolher no mínimo ${this.options.minimum} perícias`);
 		}
-		if (this.options.maximum && (chosen.length > this.options.maximum)) {
+		if (this.options.maximum && chosen.length > this.options.maximum) {
 			return ui.notifications.error(`Você pode escolher no máximo ${this.options.maximum} perícias`);
 		}
 

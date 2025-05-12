@@ -3,11 +3,10 @@ import ActiveEffectT20 from "../documents/active-effects.mjs";
 import ItemT20 from "../documents/item.mjs";
 
 /**
-* Extend the basic ItemSheet with some very simple modifications
-* @extends {ItemSheet}
-*/
+ * Extend the basic ItemSheet with some very simple modifications
+ * @extends {ItemSheet}
+ */
 export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
-
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
@@ -19,11 +18,14 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			width: 620,
 			height: 480,
 			scrollY: [".tab.details"],
-			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
-			dragDrop: [
-				{ dragSelector: "[data-effect-id]", dropSelector: ".effects-list" },
-				{ dropSelector: ".opt-drop" }
-			]
+			tabs: [
+				{
+					navSelector: ".sheet-tabs",
+					contentSelector: ".sheet-body",
+					initial: "description"
+				}
+			],
+			dragDrop: [{ dragSelector: "[data-effect-id]", dropSelector: ".effects-list" }, { dropSelector: ".opt-drop" }]
 		});
 	}
 
@@ -45,7 +47,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/** @inheritdoc */
 	setPosition(position = {}) {
 		if (!(this._minimized || position.height)) {
-			position.height = (this._tabs[0].active === "details") ? "auto" : this.options.height;
+			position.height = this._tabs[0].active === "details" ? "auto" : this.options.height;
 		}
 		return super.setPosition(position);
 	}
@@ -53,7 +55,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/* -------------------------------------------- */
 
 	/** @inheritdoc */
-	_getSubmitData(updateData={}) {
+	_getSubmitData(updateData = {}) {
 		const formData = foundry.utils.expandObject(super._getSubmitData(updateData));
 		// Create the expanded update data object
 		// const fd = new foundry.applications.ux.FormDataExtended(this.form, {editors: this.editors});
@@ -103,9 +105,9 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			system: item.system,
 			labels: this.item.labels,
 			isOwned: item.isOwned,
-			isCharacterOwned: item.isOwned && item.parent.type==="character",
-			isNPCOwned: item.isOwned && item.parent.type==="npc",
-			isSimpleOwned: item.isOwned && item.parent.type==="simle",
+			isCharacterOwned: item.isOwned && item.parent.type === "character",
+			isNPCOwned: item.isOwned && item.parent.type === "npc",
+			isSimpleOwned: item.isOwned && item.parent.type === "simle",
 
 			itemUpgradeStatus: this._itemUpgradeStatus,
 
@@ -275,7 +277,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		}
 		let pIndex = Number(tgt.dataset.pIndex);
 		let oIndex = Number(tgt.dataset.oIndex);
-		if (pIndex>=0 && oIndex>=0 && data.uuid) {
+		if (pIndex >= 0 && oIndex >= 0 && data.uuid) {
 			let progression = foundry.utils.deepClone(this.item.system.progression);
 			progression[pIndex].list[oIndex] = {
 				type: "item",
@@ -308,9 +310,9 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Get status text for itens;
-	* @retun {string}
-	*/
+	 * Get status text for itens;
+	 * @retun {string}
+	 */
 	_getItemStatus() {
 		if (this.item.type === "classe") {
 			return game.i18n.localize(this.item.system.inicial ? "T20.ClassOriginal" : "");
@@ -318,19 +320,24 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			return game.i18n.localize(this.item.system.preparada ? "T20.SpellPrepPrepared" : "");
 		} else if (["arma"].includes(this.item.type)) {
 			if (game.settings.get("tormenta20", "equipmentSlots")) {
-				return game.i18n.localize(this.item.system.equipado2.slot ? (parseInt(this.item.system.equipado2.slot) === 12 ? "T20.WieldedDual" : "T20.Wielded") : "");
+				return game.i18n.localize(
+					this.item.system.equipado2.slot
+						? parseInt(this.item.system.equipado2.slot) === 12
+							? "T20.WieldedDual"
+							: "T20.Wielded"
+						: ""
+				);
 			}
-			return game.i18n.localize(this.item.system.equipado ? (this.item.system.equipado === 2 ? "T20.WieldedDual" : "T20.Wielded") : "");
-
+			return game.i18n.localize(
+				this.item.system.equipado ? (this.item.system.equipado === 2 ? "T20.WieldedDual" : "T20.Wielded") : ""
+			);
 		} else if (["equipamento"].includes(this.item.type)) {
 			if (game.settings.get("tormenta20", "equipmentSlots")) {
 				return game.i18n.localize(this.item.system.equipado2.slot ? "T20.Weared" : "");
 			}
 			return game.i18n.localize(this.item.system.equipado ? "T20.Weared" : "");
-
 		}
 		return "";
-
 	}
 
 	/* -------------------------------------------- */
@@ -344,23 +351,33 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		const props = [];
 		const labels = this.item.labels;
 		if (this.item.type === "arma") {
-			props.push(...Object.entries(this.item.system.propriedades)
-				.filter((e) => e[1] === true)
-				.map((e) => CONFIG.T20.weaponProperties[e[0]]));
+			props.push(
+				...Object.entries(this.item.system.propriedades)
+					.filter((e) => e[1] === true)
+					.map((e) => CONFIG.T20.weaponProperties[e[0]])
+			);
 		} else if (this.item.type === "magia") {
-			let hTags = { ativacao: "T20.ActivationCost", range: "T20.Range", target: "T20.Target", area: "T20.Area", effect: "T20.Effect", duration: "T20.Duration", save: "T20.Resistance" };
+			let hTags = {
+				ativacao: "T20.ActivationCost",
+				range: "T20.Range",
+				target: "T20.Target",
+				area: "T20.Area",
+				effect: "T20.Effect",
+				duration: "T20.Duration",
+				save: "T20.Resistance"
+			};
 
 			for (let [h, tag] of Object.entries(hTags)) {
 				hTags[h] = game.i18n.localize(tag);
 			}
 			props.push(
-				labels.ativacao? `<b>${hTags.ativacao}:</b> ${labels.ativacao}` : null,
-				labels.range? `<b>${hTags.range}:</b> ${labels.range}` : null,
-				labels.alvo? `<b>${hTags.target}:</b> ${labels.alvo}` : null,
-				labels.area? `<b>${hTags.area}:</b> ${labels.area}` : null,
-				labels.effect? `<b>${hTags.effect}:</b> ${labels.effect}` : null,
-				labels.duration? `<b>${hTags.duration}:</b> ${labels.duration}` : null,
-				labels.save? `<b>${hTags.save}:</b> ${labels.save}` : null
+				labels.ativacao ? `<b>${hTags.ativacao}:</b> ${labels.ativacao}` : null,
+				labels.range ? `<b>${hTags.range}:</b> ${labels.range}` : null,
+				labels.alvo ? `<b>${hTags.target}:</b> ${labels.alvo}` : null,
+				labels.area ? `<b>${hTags.area}:</b> ${labels.area}` : null,
+				labels.effect ? `<b>${hTags.effect}:</b> ${labels.effect}` : null,
+				labels.duration ? `<b>${hTags.duration}:</b> ${labels.duration}` : null,
+				labels.save ? `<b>${hTags.save}:</b> ${labels.save}` : null
 			);
 		}
 		return props.filter((p) => !!p);
@@ -369,10 +386,10 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/* -------------------------------------------- */
 
 	/**
-	*	Get consummable resources;
-	* @param {Object} item		Item being displayed
-	* @returns {{string: string}} An object of valid consummable resources;
-	*/
+	 *	Get consummable resources;
+	 * @param {Object} item		Item being displayed
+	 * @returns {{string: string}} An object of valid consummable resources;
+	 */
 	_getConsummableResources(item) {
 		const consume = item.system.consume || {};
 		if (!consume.type) return [];
@@ -381,12 +398,15 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 		// Ammunition
 		if (consume.type === "ammo") {
-			return actor.itemTypes.consumivel.reduce((ammo, i) => {
-				if (i.system.consumableType === "ammo") {
-					ammo[i.id] = `${i.name} (${i.system.quantidade})`;
-				}
-				return ammo;
-			}, { [item._id]: `${item.name} (${item.system.quantidade})` });
+			return actor.itemTypes.consumivel.reduce(
+				(ammo, i) => {
+					if (i.system.consumableType === "ammo") {
+						ammo[i.id] = `${i.name} (${i.system.quantidade})`;
+					}
+					return ammo;
+				},
+				{ [item._id]: `${item.name} (${item.system.quantidade})` }
+			);
 		}
 
 		// Attributes
@@ -413,17 +433,17 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/* -------------------------------------------- */
 
 	/**
-	* Add or remove a roll part from the roll formula
-	* @param {Event} event     The original click event
-	* @return {Promise}
-	* @private
-	*/
+	 * Add or remove a roll part from the roll formula
+	 * @param {Event} event     The original click event
+	 * @return {Promise}
+	 * @private
+	 */
 	async _onPartsControl(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
 		// Add new damage component
 		if (a.classList.contains("add-part") && a.dataset.rollId) {
-			await this._onSubmit(event);  // Submit any unsaved changes
+			await this._onSubmit(event); // Submit any unsaved changes
 			const key = a.dataset.rollId;
 			const rolls = this.item.system.toObject().rolls;
 			rolls[key].parts.push(["", "", ""]);
@@ -432,7 +452,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 		// Remove a damage component
 		if (a.classList.contains("delete-part") && a.dataset.rollId) {
-			await this._onSubmit(event);  // Submit any unsaved changes
+			await this._onSubmit(event); // Submit any unsaved changes
 			const key = a.dataset.rollId;
 			const li = a.closest(".roll-part");
 			const rolls = this.item.system.toObject().rolls;
@@ -532,13 +552,16 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		};
 		itemData.system.qtd = 1;
 		itemData.system.espacos = 0.5;
-		itemData.system.preco = 30 * (itemData.system.ativacao.custo**2);
+		itemData.system.preco = 30 * itemData.system.ativacao.custo ** 2;
 		itemData.system.ativacao.custo = 0;
 		itemData.system.tipo = "scroll";
 		if (this.actor) {
 			this.actor.createEmbeddedDocuments("Item", [itemData]);
 			if (this.actor.type === "character") {
-				let msg = game.i18n.format("T20.ConsumableCreated", { actor: this.actor.name, name: itemData.name });
+				let msg = game.i18n.format("T20.ConsumableCreated", {
+					actor: this.actor.name,
+					name: itemData.name
+				});
 				ChatMessage.create({ content: msg });
 			}
 		} else {
@@ -550,7 +573,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/** Create effects based on upgrades
 	 * @param upgrades
 	 * @private
-	*/
+	 */
 	_createEffects(upgrades) {
 		const values = Object.values(upgrades);
 
@@ -562,15 +585,10 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			.filter((e) => !!e && !!e.flags.tormenta20.upgrade);
 
 		// Delete old effects
-		const effectsToDelete = existingEffects
-			.filter((e) => !values.includes(e.flags.tormenta20.upgrade));
+		const effectsToDelete = existingEffects.filter((e) => !values.includes(e.flags.tormenta20.upgrade));
 		if (effectsToDelete.length) {
-			const actorEffectsToDelete = effectsToDelete
-				.filter((e) => e.parent.id === this.item.actor?.id)
-				.map((e) => e.id);
-			const itemEffectsToDelete = effectsToDelete
-				.filter((e) => e.parent.id === this.item.id)
-				.map((e) => e.id);
+			const actorEffectsToDelete = effectsToDelete.filter((e) => e.parent.id === this.item.actor?.id).map((e) => e.id);
+			const itemEffectsToDelete = effectsToDelete.filter((e) => e.parent.id === this.item.id).map((e) => e.id);
 
 			this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete);
 			this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete);
@@ -581,8 +599,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		if (!availableEffects) return;
 
 		const effects = values
-			.filter((v) => availableEffects[v]
-				&& !existingEffects.some((e) => e.flags.tormenta20.upgrade === v))
+			.filter((v) => availableEffects[v] && !existingEffects.some((e) => e.flags.tormenta20.upgrade === v))
 			.map((v) => ({
 				...availableEffects[v],
 				name: game.i18n.localize(availableEffects[v].name),
@@ -619,11 +636,10 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 		const statusByType = {};
 
-		Object.values(this.item.system.upgrades)
-			.forEach((v) => {
-				if (!v || !v.length) return;
-				statusByType[v] = status[v] === "DONE" ? "implemented" : "not-implemented";
-			});
+		Object.values(this.item.system.upgrades).forEach((v) => {
+			if (!v || !v.length) return;
+			statusByType[v] = status[v] === "DONE" ? "implemented" : "not-implemented";
+		});
 
 		return statusByType;
 	}
@@ -649,9 +665,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			return Object.assign(upgrades, T20.upgrades.tools);
 		}
 
-		return Object.assign(upgrades,
-			T20.upgrades.armor.general,
-			T20.upgrades.armor[this.item.system.tipo]);
+		return Object.assign(upgrades, T20.upgrades.armor.general, T20.upgrades.armor[this.item.system.tipo]);
 	}
 
 	get _upgradeStatus() {
@@ -680,9 +694,11 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 	get _isUpgradable() {
 		if (!["arma", "equipamento", "consumivel"].includes(this.item.type)) return false;
-		if (this.item.system.tipo
-			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje", "ammo"]
-				.includes(this.item.system.tipo)) return false;
+		if (
+			this.item.system.tipo
+			&& !["esoterico", "pesada", "leve", "escudo", "ferramenta", "traje", "ammo"].includes(this.item.system.tipo)
+		)
+			return false;
 
 		return true;
 	}

@@ -1,5 +1,5 @@
 export default class RestConfigDialog extends foundry.applications.api.DialogV2 {
-	constructor(options={}) {
+	constructor(options = {}) {
 		super(options);
 		this.options.classes.push(...["tormenta20"]);
 	}
@@ -10,7 +10,7 @@ export default class RestConfigDialog extends foundry.applications.api.DialogV2 
 			return;
 		}
 
-		async function descanso(actors, modificador, modPV, modPM, curaCP=0, curaAC=0) {
+		async function descanso(actors, modificador, modPV, modPM, curaCP = 0, curaAC = 0) {
 			let msg = [];
 			for (let actor of actors) {
 				if (actor.actor) {
@@ -93,21 +93,23 @@ export default class RestConfigDialog extends foundry.applications.api.DialogV2 
 				icon: "fa-solid fa-bed"
 			},
 			content,
-			buttons: [{
-				label: "OK",
-				action: "ok",
-				callback: (event, button, dlg) => {
-					const modQ = parseFloat(dlg.element.querySelector("[name=qualidade]").value);
-					const modPV = parseInt(dlg.element.querySelector("[name=modPV]").value);
-					const modPM = parseInt(dlg.element.querySelector("[name=modPM]").value);
-					const curaCP = dlg.element.querySelector("[name=curaCP]").checked;
-					const curaAC = dlg.element.querySelector("[name=curaAC]").checked;
-					descanso(actors, modQ, modPV, modPM, curaCP, curaAC);
+			buttons: [
+				{
+					label: "OK",
+					action: "ok",
+					callback: (event, button, dlg) => {
+						const modQ = parseFloat(dlg.element.querySelector("[name=qualidade]").value);
+						const modPV = parseInt(dlg.element.querySelector("[name=modPV]").value);
+						const modPM = parseInt(dlg.element.querySelector("[name=modPM]").value);
+						const curaCP = dlg.element.querySelector("[name=curaCP]").checked;
+						const curaAC = dlg.element.querySelector("[name=curaAC]").checked;
+						descanso(actors, modQ, modPV, modPM, curaCP, curaAC);
+					}
+				},
+				{
+					label: "Cancel"
 				}
-			},
-			{
-				label: "Cancel"
-			}],
+			],
 			position: { width: 400 }
 		});
 	}

@@ -2,7 +2,6 @@ import Tormenta20DataModel from "./data-tormenta20.mjs";
 import ActorMovementConfig from "../../apps/movement-config.mjs";
 
 export default class MovementData extends Tormenta20DataModel {
-
 	/** @inheritDoc */
 	static defineSchema() {
 		const fields = foundry.data.fields;
@@ -66,5 +65,4 @@ export default class MovementData extends Tormenta20DataModel {
 	/* -------------------------------------------- */
 	/*  System Operations                           */
 	/* -------------------------------------------- */
-
 }

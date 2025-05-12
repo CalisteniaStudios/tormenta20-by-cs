@@ -7,15 +7,7 @@ const name = "tormenta20";
 const distDirectory = "dist";
 const srcDirectory = ".";
 
-const staticFiles = [
-	"assets",
-	"icons",
-	"json",
-	"lang",
-	"templates",
-	"LICENSE",
-	"system.json"
-];
+const staticFiles = ["assets", "icons", "json", "lang", "templates", "LICENSE", "system.json"];
 
 export default defineConfig({
 	strictDeprecations: true,

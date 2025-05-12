@@ -33,12 +33,12 @@ const itemKey = (value, configKey) => {
 	let temp = Object.entries(lang).find((t) => t[1] == value);
 	let valueUnlocalized = temp ? `T20.${temp[0]}` : value;
 
-	if (Object.entries(configKey).find((t) => t[1]==value)) {
-		return Object.entries(configKey).find((t) => t[1]==value)[0];
+	if (Object.entries(configKey).find((t) => t[1] == value)) {
+		return Object.entries(configKey).find((t) => t[1] == value)[0];
 	} else if (configKey[value.toLowerCase()]) {
 		return configKey[value.toLowerCase()];
-	} else if (Object.entries(configKey).find((t) => t[1]==valueUnlocalized)) {
-		return Object.entries(configKey).find((t) => t[1]==valueUnlocalized)[0];
+	} else if (Object.entries(configKey).find((t) => t[1] == valueUnlocalized)) {
+		return Object.entries(configKey).find((t) => t[1] == valueUnlocalized)[0];
 	}
 	return null;
 };
@@ -64,13 +64,23 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 	let rolls = [];
 	let damageTypeTarget;
 	if (["atributo", "pericia"].includes(item.type)) {
-		item.key = "roll";// item.id;
+		item.key = "roll"; // item.id;
 		rolls = [item];
 	} else {
 		if (ch.key.match(/dano\:\w+/)) {
 			[ch.key, damageTypeTarget] = ch.key.split(":");
 		}
-		const atributosEspeciais = ["pericia", "atributoAtq", "atributoDano", "tipoDano", "passos", "danoCritico", "critico", "ignoraRD", "danoMultiplicavel"];
+		const atributosEspeciais = [
+			"pericia",
+			"atributoAtq",
+			"atributoDano",
+			"tipoDano",
+			"passos",
+			"danoCritico",
+			"critico",
+			"ignoraRD",
+			"danoMultiplicavel"
+		];
 		rolls = id.rolls.filter((r) => {
 			return (
 				(ch.key === "roll" && item.type !== "arma")
@@ -99,7 +109,10 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		}
 		let p = 0;
 		if (rollMods && sourceName) {
-			p = Math.max(rollMods[r.key].findIndex((i) => i.src == sourceName), 0);
+			p = Math.max(
+				rollMods[r.key].findIndex((i) => i.src == sourceName),
+				0
+			);
 			// p-=1;
 		} else if (damageTypeTarget) {
 			// p = Math.max( rollMods[r.key].findIndex( part => part.dmgType == damageTypeTarget ), 0);
@@ -113,22 +126,26 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				rollMods[r.key][p].die = ch.value;
 			}
 			// To add Roll Modifiers => kh
-			else if (!ch.value.match(re.die) && foundry.dice.terms.Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/g, "")] && !["min", "max"].includes(ch.value)) {
+			else if (
+				!ch.value.match(re.die)
+				&& foundry.dice.terms.Die.MODIFIERS[ch.value.replace(/\d+|\>|\<|\+|\-|\=/g, "")]
+				&& !["min", "max"].includes(ch.value)
+			) {
 				if (ch.value.match(/k|kh|kl/)) {
 					if (r.parts[p][0] == "1d20") {
-						r.parts[p][0] = r.parts[p][0].replace("1d", "2d")+ch.value;
+						r.parts[p][0] = r.parts[p][0].replace("1d", "2d") + ch.value;
 					} else if (r.parts[0][0] == "1d20") {
-						r.parts[0][0] = r.parts[0][0].replace("1d", "2d")+ch.value;
+						r.parts[0][0] = r.parts[0][0].replace("1d", "2d") + ch.value;
 					} else if (r.parts[0] == "1d20") {
-						r.parts[0] = r.parts[0].replace("1d", "2d")+ch.value;
+						r.parts[0] = r.parts[0].replace("1d", "2d") + ch.value;
 					}
-				} else r.parts[p][0] = r.parts[p][0]+ch.value;
+				} else r.parts[p][0] = r.parts[p][0] + ch.value;
 			}
 			// To add more dice => 1d8+1
-			else if (ch.value.match(re.die) && (r.parts[p][0].toString().match(re.die))) {
+			else if (ch.value.match(re.die) && r.parts[p][0].toString().match(re.die)) {
 				// match at object? || rollMods[r.key][p].match(re.die)
 				let tempAp = [];
-				ch.value.match(re.split).forEach((rt) => tempAp.push(Number(rt) * qty||rt));
+				ch.value.match(re.split).forEach((rt) => tempAp.push(Number(rt) * qty || rt));
 				if (tempAp[0]) rollMods[r.key][p].addDie += tempAp[0];
 				if (tempAp[4]) rollMods[r.key][p].addNum += tempAp[4];
 			}
@@ -141,14 +158,14 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				options.minmax = ch.value;
 			}
 			// To modify a weapon damage step => passos 1
-			else if (r.type == "dano" && ch.key=="passos") {
+			else if (r.type == "dano" && ch.key == "passos") {
 				if (Number(ch.value)) {
 					rollMods[r.key][p].dmgStep += Number(ch.value) * qty;
 				} else {
 					try {
 						ch.value = simplifyRollFormula(ch.value, item.getRollData());
 						rollMods[r.key][p].dmgStep += Number(ch.value) * qty;
-					} catch(error) {
+					} catch (error) {
 						console.warn(error);
 					}
 				}
@@ -159,18 +176,17 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			// Only multiply from the same src
 			if (rollMods[r.key].find((m) => m.src == sourceName)) {
 				let temp = r.parts.pop();
-				r.parts.push([temp[0]*(Number(ch.value)+qty-1), ""]);
+				r.parts.push([temp[0] * (Number(ch.value) + qty - 1), ""]);
 			}
 		}
 		// ADD CHANGES
 		else if (ch.mode == 2) {
 			// ADD ROLL FROM ITEM
 			if (ch.value == "roll") {
-				const itr = item.actor.items.get(ef.origin.split(".")[3])
-					.system.rolls.find((r) => r.type=="dano");
+				const itr = item.actor.items.get(ef.origin.split(".")[3]).system.rolls.find((r) => r.type == "dano");
 				r.parts.push(itr.parts[0]);
 			} else if (item.type == "pericia") {
-				item.bonus.push((Number(ch.value * qty) || ch.value));
+				item.bonus.push(Number(ch.value * qty) || ch.value);
 			} else if (item.type == "atributo") {
 				r.parts.push(Number(ch.value * qty) || ch.value);
 			} // To add one extra dice from source 1d => 2d6 + 1d6
@@ -198,8 +214,8 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 					addNum: 0,
 					perDie: 0,
 					extraDie: 0,
-					dmgType: (dmgTypeG?.groups?.dtype ?? ""),
-					src: (sourceName ?? "")
+					dmgType: dmgTypeG?.groups?.dtype ?? "",
+					src: sourceName ?? ""
 				});
 				continue;
 			} // To ignore part of Damage Reduction
@@ -218,19 +234,28 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 					addNum: 0,
 					perDie: 0,
 					extraDie: 0,
-					dmgType: (dmgTypeG?.groups?.dtype ?? ""),
-					src: (sourceName ?? "")
+					dmgType: dmgTypeG?.groups?.dtype ?? "",
+					src: sourceName ?? ""
 				});
 				continue;
 			}
 
 			if (rollMods && sourceName) {
-				rollMods[r.key].push({ die: null, dmgStep: 0, override: null, addDie: 0, addNum: 0, perDie: 0, extraDie: 0, src: sourceName });
+				rollMods[r.key].push({
+					die: null,
+					dmgStep: 0,
+					override: null,
+					addDie: 0,
+					addNum: 0,
+					perDie: 0,
+					extraDie: 0,
+					src: sourceName
+				});
 			}
 		}
 		// OVERRIDE CHANGES
 		else if (ch.mode == 5) {
-			if (r.type=="dano") {
+			if (r.type == "dano") {
 				if (item.type == "arma" && ch.key == "atributoDano") {
 					r.parts[1][0] = ch.value.charAt(0) == "@" ? ch.value : `@${ch.value}`;
 				} else if (item.type == "arma" && ch.key == "tipoDano") {
@@ -242,7 +267,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				} else if (Number(ch.value) || ch.value.charAt(0) == "@" || ch.value.match(re.die)) {
 					rollMods[r.key][p].override = ch.value;
 				}
-			} else if (r.type=="ataque") {
+			} else if (r.type == "ataque") {
 				if (item.type == "arma" && ch.key == "pericia") {
 					r.parts[1][0] = ch.value;
 				} else if (item.type == "arma" && ch.key == "atributoAtq") {
@@ -263,18 +288,18 @@ const itemFields = {
 	// atributoAtq:	["rolls.0.parts.1.1", C.atributos ],
 	// atributoDano:	["rolls.1.parts.1.0", C.atributos ],
 	// tipoDano:			["rolls.1.parts.1.1", C.damageTypes ],
-	criticoM:	["criticoM", null],
-	criticoX:	["criticoX", null],
+	criticoM: ["criticoM", null],
+	criticoX: ["criticoX", null],
 	// ARMA / MAGIA / PODER / CONSUMIVEL
-	alcance:	["alcance", C.distanceUnits],
+	alcance: ["alcance", C.distanceUnits],
 	// MAGIA / PODER / CONSUMIVEL
-	alvo:	["alvo", null],
-	area:	["area", null],
-	execucao:	["ativacao.execucao", C.abilityActivationTypes],
-	duracao:	["duracao.units", C.timePeriods],
-	resistencia:	["resistencia.txt", null],
-	atributoCD:	["resistencia.atributo", C.atributos],
-	cd:	["resistencia.bonus", null]
+	alvo: ["alvo", null],
+	area: ["area", null],
+	execucao: ["ativacao.execucao", C.abilityActivationTypes],
+	duracao: ["duracao.units", C.timePeriods],
+	resistencia: ["resistencia.txt", null],
+	atributoCD: ["resistencia.atributo", C.atributos],
+	cd: ["resistencia.bonus", null]
 
 	// efeito: 			["efeito", null ],
 	// PERICIA
@@ -298,7 +323,7 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 	else if (ch.mode == 1) {
 		if (Number(ch.value)) {
 			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
-			if (Number.isNumeric(temp)) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qty);
+			if (Number.isNumeric(temp)) _campos[campos[ch.key][0]] = Number(temp) * (Number(ch.value) * qty);
 		}
 	}
 	// ADD CHANGES
@@ -307,12 +332,12 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 		if (ch.value.match(re.float) && ch.key == "area") {
 			let n1 = id.area.match(re.float)[0].replace(",", ".");
 			let n2 = ch.value.toString().match(re.float)[0].replace(",", ".");
-			let n3 = `${Number(n1) + (Number(n2) * qty)}`;
+			let n3 = `${Number(n1) + Number(n2) * qty}`;
 			_campos[ch.key] = id.area.replace(n1.replace(".", ","), n3);
 		} else if (Number(ch.value)) {
 			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
 			if (Number.isNumeric(temp)) {
-				_campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qty);
+				_campos[campos[ch.key][0]] = Number(temp) + Number(ch.value) * qty;
 			}
 		}
 	}
@@ -337,9 +362,9 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 };
 
 const actorFields = {
-	atributo:	["atributo", null],
-	treinado:	["treinado", null],
-	treino:	["treino", null]
+	atributo: ["atributo", null],
+	treinado: ["treinado", null],
+	treino: ["treino", null]
 };
 /**
  * Modify data from actor
@@ -356,14 +381,14 @@ const applyActorChanges = (ch, qty, ef, item, id, ad) => {
 	else if (ch.mode == 1) {
 		if (Number(ch.value)) {
 			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
-			if (Number(temp)) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qty);
+			if (Number(temp)) _campos[campos[ch.key][0]] = Number(temp) * (Number(ch.value) * qty);
 		}
 	}
 	// ADD CHANGES
 	else if (ch.mode == 2) {
 		if (Number(ch.value)) {
 			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
-			if (Number(temp)) _campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qty);
+			if (Number(temp)) _campos[campos[ch.key][0]] = Number(temp) + Number(ch.value) * qty;
 		}
 	}
 	// OVERRIDE CHANGES
@@ -371,7 +396,6 @@ const applyActorChanges = (ch, qty, ef, item, id, ad) => {
 		if (ch.key == "treinado") {
 			_campos.treino = !ch.value ? 0 : ad.attributes.treino;
 		} else if (campos[ch.key]) _campos[campos[ch.key][0]] = ch.value;
-
 	}
 
 	foundry.utils.mergeObject(item, foundry.utils.expandObject(_campos));
@@ -383,9 +407,9 @@ const effectFields = (key) => {
 	return false;
 };
 const effectFields2 = {
-	efeito:	[],
-	condicao:	[],
-	treino:	[]
+	efeito: [],
+	condicao: [],
+	treino: []
 };
 /**
  * Retrieve Active Effects from the Item or from System Status
@@ -412,7 +436,9 @@ const applyEffectChanges = (ch, qty, ef, optEffectList, effectList, effectChange
 	// Modify effect
 	else if (false && ch.key.match(/\$([^\#]+)\#/)) {
 		if (qty && !ch.value.startsWith("@")) {
-			ch.value = new Roll(ch.value).alter(qty, 0, { multiplyNumeric: true }).formula;
+			ch.value = new Roll(ch.value).alter(qty, 0, {
+				multiplyNumeric: true
+			}).formula;
 		}
 		effectChanges.push(ch);
 		return;
@@ -483,7 +509,8 @@ function applyRollModifiers(item, rollMods) {
 
 				if (passosIndx < C.passosDano.length) {
 					if (indx + rollMods[r.key][i].dmgStep < 0) rollMods[r.key][i].dmgStep = -indx;
-					else if (indx + rollMods[r.key][i].dmgStep >= C.passosDano[passosIndx].length) rollMods[r.key][i].dmgStep = C.passosDano[passosIndx].length - 1 - indx;
+					else if (indx + rollMods[r.key][i].dmgStep >= C.passosDano[passosIndx].length)
+						rollMods[r.key][i].dmgStep = C.passosDano[passosIndx].length - 1 - indx;
 					danoBase = C.passosDano[passosIndx][indx + rollMods[r.key][i].dmgStep];
 					dano = dano.replace(/^\d+d\d+/, danoBase);
 				}
@@ -525,10 +552,12 @@ function applyRollModifiers(item, rollMods) {
  * @param {Object} rolledItem     Item being used;
  * @param {Object} configuration  Submited data from Ability Use Dialog.
  */
-function applyOnUseEffects(rolledItem, configuration=null) {
+function applyOnUseEffects(rolledItem, configuration = null) {
 	if (!configuration) return {};
-	const item = rolledItem; const id = item.system;
-	const actor = item.actor; const ad = actor.system;
+	const item = rolledItem;
+	const id = item.system;
+	const actor = item.actor;
+	const ad = actor.system;
 	const hasMPCost = id.ativacao?.custo > 0;
 
 	const options = {};
@@ -538,8 +567,17 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 	let rollMods;
 	if (item.type != "pericia" && item.type != "atributo") {
 		rollMods = id.rolls.reduce(function (acc, r) {
-			acc[r.key] = r.parts.map((i) => ({ die: null, dmgStep: 0, override: null,
-				addDie: 0, addNum: 0, extraDie: 0, perDie: 0, dmgType: i[1], src: i[2] }));
+			acc[r.key] = r.parts.map((i) => ({
+				die: null,
+				dmgStep: 0,
+				override: null,
+				addDie: 0,
+				addNum: 0,
+				extraDie: 0,
+				perDie: 0,
+				dmgType: i[1],
+				src: i[2]
+			}));
 			return acc;
 		}, {});
 	} else {
@@ -551,8 +589,16 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 	const applied = foundry.utils.expandObject(configuration).aprs ?? {};
 	const onUseEffects = item.validOnUseEffects.filter((ef) => applied[ef.id]?.aplica);
 	// Get Active Effects From Item
-	const effectList = item.effects.filter((ef) => (ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && !ef.disabled) || (!ef.flags.tormenta20.onuse && !ef.disabled));
-	const optEffectList = item.effects.filter((ef) => (ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && ef.disabled) || (!ef.flags.tormenta20.onuse && ef.disabled));
+	const effectList = item.effects.filter(
+		(ef) =>
+			(ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && !ef.disabled)
+			|| (!ef.flags.tormenta20.onuse && !ef.disabled)
+	);
+	const optEffectList = item.effects.filter(
+		(ef) =>
+			(ef.flags.tormenta20.onuse && ef.flags.tormenta20.durationScene && ef.disabled)
+			|| (!ef.flags.tormenta20.onuse && ef.disabled)
+	);
 
 	//
 	const effectChanges = [];
@@ -572,16 +618,20 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 	});
 
 	// SORT
-	onUseEffects.sort((a, b) => (
-		(a.changes.some((ch) => ch.mode == 5) && !b.changes.some((ch) => ch.mode == 5)) ? -1 : (b.changes.some((ch) => ch.mode == 5) && !a.changes.some((ch) => ch.mode == 5)) ? 1 : 0
-	)
+	onUseEffects.sort((a, b) =>
+		a.changes.some((ch) => ch.mode == 5) && !b.changes.some((ch) => ch.mode == 5)
+			? -1
+			: b.changes.some((ch) => ch.mode == 5) && !a.changes.some((ch) => ch.mode == 5)
+				? 1
+				: 0
 	);
 
 	// Prepare chatData and rollModifiers for onUseEffects
 	for (let ef of onUseEffects) {
 		// Prepare onUseEffects chat content;
 		let ouEff = {};
-		ouEff.description = item.type !== "arma"? ef.name : (item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : (ef.sourceName));
+		ouEff.description =
+			item.type !== "arma" ? ef.name : item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : ef.sourceName;
 		if (["Unknown", actor.name].includes(ouEff.description)) ouEff.description = ef.name;
 		ouEff.cost = Number(applied[ef.id]?.custo) * applied[ef.id]?.aplica || applied[ef.id]?.custo;
 		// Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
@@ -590,7 +640,7 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 		// If an onUseEffects from the same source was applied before, sum its cost and quantity
 		if (options.onUseEffects.find((i) => i.description == ouEff.description)) {
 			let apl = options.onUseEffects.find((i) => i.description == ouEff.description);
-			apl.qty += ouEff.qty-1 || 0;
+			apl.qty += ouEff.qty - 1 || 0;
 			// apl.cost = Number(apl.cost) + Number(ouEff.cost) ?? Number(apl.cost) + Number(0);
 			apl.cost = apl.cost == "" ? apl.cost : Number(apl.cost);
 			if (ouEff.cost != "" && Number(ouEff.cost)) apl.cost += Number(ouEff.cost);
@@ -599,7 +649,7 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 		}
 
 		id.ativacao.custo += Number(ouEff.cost) || 0;
-		if (!Number(applied[ef.id]?.custo+1) && item.type == "magia") options.truque = true;
+		if (!Number(applied[ef.id]?.custo + 1) && item.type == "magia") options.truque = true;
 
 		const temBonusTeste = ef.changes.filter((ch) => ["roll", "ataque"].includes(ch.key)).length > 1;
 		// Prepare onUseEffects rollModifiers
@@ -619,8 +669,11 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 
 			changes.forEach(function (efch) {
 				if (!ef.flags.tormenta20.aumenta || (ef.flags.tormenta20.aumenta && efch.map((i) => i.key).includes(ch.key))) {
-					if (ch.key == "system.tamanho" && efch.findIndex((i) => i.key=="system.tamanho")) {
-						efch.splice(efch.findIndex((i) => i.key=="system.tamanho"), 1);
+					if (ch.key == "system.tamanho" && efch.findIndex((i) => i.key == "system.tamanho")) {
+						efch.splice(
+							efch.findIndex((i) => i.key == "system.tamanho"),
+							1
+						);
 					}
 					// Push the change to the changes list
 					efch.push({
@@ -696,9 +749,9 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 			}
 
 			if (tempEffect.changes) {
-				tempEffect.changes.sort((c, d) => !Number(c.value) || c.key.match(/efeito.\w+/) ? 1 : -1);
+				tempEffect.changes.sort((c, d) => (!Number(c.value) || c.key.match(/efeito.\w+/) ? 1 : -1));
 				tempEffect.changes = tempEffect.changes.reduce((object, ch) => {
-					let key = ch.key.match(/efeito.\w+/)? ch.key.toString().split(".")[1] : ch.key;
+					let key = ch.key.match(/efeito.\w+/) ? ch.key.toString().split(".")[1] : ch.key;
 					let idx = object.map((ob) => ob.key).indexOf(key);
 					if (ch.mode == 2 && idx == -1 && ch.key.match(/efeito.\w+/)) {
 						ch.key = key;
@@ -718,7 +771,7 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 									if (Number(object[idx].value)) {
 										object[idx].value = Number(object[idx].value) * Number(ch.value);
 									} else if (object[idx].value.match(re.die)) {
-										object[idx].value = object[idx].value.replace(/\d+/, (m) => Number(m*ch.value));
+										object[idx].value = object[idx].value.replace(/\d+/, (m) => Number(m * ch.value));
 									}
 								} else {
 									object[idx].value = Number(object[idx].value) + Number(ch.value);
@@ -737,7 +790,7 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 									object[idx].value = Number(object[idx].value) * Number(value);
 								}
 							}
-						} catch(error) {
+						} catch (error) {
 							if (ch.mode == 2) {
 								if (ch.key.match(/efeito.\w+/)) {
 									object[idx].value = ch.value;
@@ -753,11 +806,16 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 							}
 						}
 					} else {
-						object.push({ key: ch.key, mode: ch.mode, value: ch.value, priority: ch.priority });
+						object.push({
+							key: ch.key,
+							mode: ch.mode,
+							value: ch.value,
+							priority: ch.priority
+						});
 					}
 					return object;
 				}, []);
-				tempEffect.changes.forEach((m) => m.key = m.key.replace(/\&\w+$/, ""));
+				tempEffect.changes.forEach((m) => (m.key = m.key.replace(/\&\w+$/, "")));
 			}
 		}
 		// Set Origin as the Actor who caused the effects
@@ -766,7 +824,6 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 		tempEffect.origin = item.uuid ?? actor.uuid;
 		tempEffect.origin = tempEffect.origin?.replace(/.?ActiveEffect.\w+/, "");
 		options.effects.push([tempEffect, ...children]);
-
 	});
 
 	// Brew Potion
@@ -776,7 +833,4 @@ function applyOnUseEffects(rolledItem, configuration=null) {
 	return options;
 }
 
-export {
-	applyOnUseEffects
-};
-
+export { applyOnUseEffects };

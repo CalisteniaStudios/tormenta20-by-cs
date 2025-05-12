@@ -1,5 +1,5 @@
 export default class ChatMessageTormenta20 extends ChatMessage {
-	async renderHTML({ canDelete, canClose=false, ...rest }={}) {
+	async renderHTML({ canDelete, canClose = false, ...rest } = {}) {
 		const html = await super.renderHTML({ canDelete, canClose, ...rest });
 		this._highlightCriticalSuccessFailure(html);
 		return html;
@@ -10,15 +10,15 @@ export default class ChatMessageTormenta20 extends ChatMessage {
 		// Highlight rolls where the first part is a d20 roll
 		for (let [index, d20Roll] of this.rolls.entries()) {
 			const d0 = d20Roll.dice[0];
-			if ((d0?.faces !== 20) || (d0?.values.length !== 1)) continue;
+			if (d0?.faces !== 20 || d0?.values.length !== 1) continue;
 
 			d20Roll = CONFIG.Dice.rolls.RollT20.fromRoll(d20Roll);
 			const d = d20Roll.dice[0];
 
 			// Ensure it is an un-modified d20 roll
-			const isD20 = (d.faces === 20) && (d.values.length === 1);
+			const isD20 = d.faces === 20 && d.values.length === 1;
 			if (!isD20) return;
-			const isModifiedRoll = ("success" in d.results[0]) || d.options.marginSuccess || d.options.marginFailure;
+			const isModifiedRoll = "success" in d.results[0] || d.options.marginSuccess || d.options.marginFailure;
 			if (isModifiedRoll) return;
 
 			// Highlight successes and failures

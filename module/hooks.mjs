@@ -3,12 +3,10 @@ import * as chat from "./chat.mjs";
 import * as macros from "./macros.mjs";
 
 export default function () {
-
 	/**
-	* Once the entire VTT framework is initialized, check to see if we should perform a data migration
-	*/
+	 * Once the entire VTT framework is initialized, check to see if we should perform a data migration
+	 */
 	Hooks.once("ready", async function () {
-
 		// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 		Hooks.on("hotbarDrop", (bar, data, slot) => {
 			if (["Item", "ActiveEffect"].includes(data.type)) {
@@ -31,7 +29,7 @@ export default function () {
 				let updateData = {};
 				for (let [key, ability] of Object.entries(actor._source.system.atributos)) {
 					updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
-					updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus/2 : 0;
+					updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus / 2 : 0;
 				}
 
 				if (actor.type === "npc") {
@@ -42,7 +40,6 @@ export default function () {
 			}
 			return game.settings.set("tormenta20", "systemMigrationVersion", game.system.version);
 		}
-
 	});
 
 	/* -------------------------------------------- */
@@ -73,7 +70,6 @@ export default function () {
 
 	/* Chat Hooks */
 	Hooks.on("renderChatMessageHTML", (app, html, data) => {
-
 		chat.hideDieFlavor(app, html, data);
 		chat.ApplyButtons(app, html, data);
 		// Highlight critical success or failure die
@@ -88,13 +84,25 @@ export default function () {
 
 		if (cardDamageDetails) cardDamageDetails.style.display = "none";
 
-		html.querySelectorAll(".item-name").forEach((el) => el.addEventListener("click", chat._onChatCardToggleContent.bind(this)));
-		html.querySelectorAll(".chat-message").forEach((el) => el.addEventListener("click", chat._onChatCardToggleDamage.bind(this)));
-		html.querySelectorAll(".chat-apply-ae").forEach((el) => el.addEventListener("click", chat._onChatCardApplyEffect.bind(this)));
-		html.querySelectorAll(".chat-place-template").forEach((el) => el.addEventListener("click", chat._onChatPlaceTemplate.bind(this)));
+		html
+			.querySelectorAll(".item-name")
+			.forEach((el) => el.addEventListener("click", chat._onChatCardToggleContent.bind(this)));
+		html
+			.querySelectorAll(".chat-message")
+			.forEach((el) => el.addEventListener("click", chat._onChatCardToggleDamage.bind(this)));
+		html
+			.querySelectorAll(".chat-apply-ae")
+			.forEach((el) => el.addEventListener("click", chat._onChatCardApplyEffect.bind(this)));
+		html
+			.querySelectorAll(".chat-place-template")
+			.forEach((el) => el.addEventListener("click", chat._onChatPlaceTemplate.bind(this)));
 
-		html.querySelectorAll(".apply-dmg").forEach((el) => el.addEventListener("click", chat._onChatApplyDamage.bind(this)));
-		html.querySelectorAll(".chat-spend-mana").forEach((el) => el.addEventListener("click", chat._onChatSpendMana.bind(this)));
+		html
+			.querySelectorAll(".apply-dmg")
+			.forEach((el) => el.addEventListener("click", chat._onChatApplyDamage.bind(this)));
+		html
+			.querySelectorAll(".chat-spend-mana")
+			.forEach((el) => el.addEventListener("click", chat._onChatSpendMana.bind(this)));
 	});
 
 	// Disabling the setting with a tooltip instead of removing it so we don't get users asking in core support why these core settings can't be found anywhere
@@ -102,7 +110,8 @@ export default function () {
 		const disableSetting = (s) => {
 			const element = html.querySelector(`[name="core.${s}"]`);
 			element.disabled = true;
-			element.closest(".form-group").dataset.tooltipText = "Configuração desativada porque o sistema não usa esta configuração.";
+			element.closest(".form-group").dataset.tooltipText =
+				"Configuração desativada porque o sistema não usa esta configuração.";
 			element.closest(".form-group").dataset.tooltipDirection = "CENTER";
 		};
 		disableSetting("gridTemplates");

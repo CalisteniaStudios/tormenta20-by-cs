@@ -6,7 +6,14 @@ T20Conditions.abalado = {
 	duration: { rounds: 999 },
 	statuses: ["abalado"],
 	icon: "systems/tormenta20/icons/conditions/abalado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, stack: "apavorado", category: "medo" } },
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			stack: "apavorado",
+			category: "medo"
+		}
+	},
 	changes: [{ key: "system.pericias.*.condi", mode: 3, value: -2 }]
 };
 
@@ -16,9 +23,17 @@ T20Conditions.agarrado = {
 	duration: { rounds: 999 },
 	statuses: ["agarrado"],
 	icon: "systems/tormenta20/icons/conditions/agarrado.svg",
-	flags: { tormenta20: { condition: true, childEffect: ["desprevenido", "imovel"], category: "movimento" } },
-	changes: [{ key: "system.pericias.luta.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.pont.condi", mode: 3, value: -2 }]
+	flags: {
+		tormenta20: {
+			condition: true,
+			childEffect: ["desprevenido", "imovel"],
+			category: "movimento"
+		}
+	},
+	changes: [
+		{ key: "system.pericias.luta.condi", mode: 3, value: -2 },
+		{ key: "system.pericias.pont.condi", mode: 3, value: -2 }
+	]
 };
 
 T20Conditions.alquebrado = {
@@ -27,7 +42,9 @@ T20Conditions.alquebrado = {
 	duration: { rounds: 999 },
 	statuses: ["alquebrado"],
 	icon: "systems/tormenta20/icons/conditions/alquebrado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "mental" } },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "mental" }
+	},
 	changes: [{ key: "system.modificadores.custoPM", mode: 2, value: 1 }]
 };
 
@@ -37,7 +54,9 @@ T20Conditions.apavorado = {
 	duration: { rounds: 999 },
 	statuses: ["apavorado"],
 	icon: "systems/tormenta20/icons/conditions/apavorado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "medo" } },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "medo" }
+	},
 	changes: [{ key: "system.pericias.*.condi", mode: 3, value: -5 }]
 };
 
@@ -47,7 +66,14 @@ T20Conditions.atordoado = {
 	duration: { rounds: 999 },
 	statuses: ["atordoado"],
 	icon: "systems/tormenta20/icons/conditions/atordoado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["desprevenido"], category: "mental" } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["desprevenido"],
+			category: "mental"
+		}
+	}
 };
 
 T20Conditions.caido = {
@@ -57,9 +83,11 @@ T20Conditions.caido = {
 	statuses: ["caido"],
 	icon: "systems/tormenta20/icons/conditions/caido.svg",
 	flags: { tormenta20: { condition: true } },
-	changes: [{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
+	changes: [
+		{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
 		{ key: "system.attributes.defesa.outros", mode: 3, value: -5 },
-		{ key: "system.attributes.movement.*", mode: 3, value: 1.5 }]
+		{ key: "system.attributes.movement.*", mode: 3, value: 1.5 }
+	]
 };
 
 T20Conditions.cego = {
@@ -68,8 +96,16 @@ T20Conditions.cego = {
 	duration: { rounds: 999 },
 	statuses: ["cego"],
 	icon: "systems/tormenta20/icons/conditions/cego.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["desprevenido", "lento"], category: "sentidos" } },
-	changes: [{ key: "system.pericias.acro.condi", mode: 3, value: -5 },
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["desprevenido", "lento"],
+			category: "sentidos"
+		}
+	},
+	changes: [
+		{ key: "system.pericias.acro.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.atle.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.cava.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.furt.condi", mode: 3, value: -5 },
@@ -77,7 +113,8 @@ T20Conditions.cego = {
 		{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.pilo.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.pont.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.refl.condi", mode: 3, value: -5 }]
+		{ key: "system.pericias.refl.condi", mode: 3, value: -5 }
+	]
 };
 
 T20Conditions.confuso = {
@@ -86,7 +123,9 @@ T20Conditions.confuso = {
 	duration: { rounds: 999 },
 	statuses: ["confuso"],
 	icon: "systems/tormenta20/icons/conditions/confuso.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "mental" } }
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "mental" }
+	}
 };
 
 T20Conditions.debilitado = {
@@ -95,8 +134,11 @@ T20Conditions.debilitado = {
 	duration: { rounds: 999 },
 	statuses: ["debilitado"],
 	icon: "systems/tormenta20/icons/conditions/debilitado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, stack: "inconsciente" } },
-	changes: [{ key: "system.modificadores.atributos.for", mode: 2, value: -5 },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, stack: "inconsciente" }
+	},
+	changes: [
+		{ key: "system.modificadores.atributos.for", mode: 2, value: -5 },
 		{ key: "system.modificadores.atributos.des", mode: 2, value: -5 },
 		{ key: "system.modificadores.atributos.con", mode: 2, value: -5 },
 		{ key: "system.pericias.acro.condi", mode: 3, value: -5 },
@@ -108,7 +150,8 @@ T20Conditions.debilitado = {
 		{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.pilo.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.pont.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.refl.condi", mode: 3, value: -5 }]
+		{ key: "system.pericias.refl.condi", mode: 3, value: -5 }
+	]
 };
 
 T20Conditions.desprevenido = {
@@ -118,8 +161,10 @@ T20Conditions.desprevenido = {
 	statuses: ["desprevenido"],
 	icon: "systems/tormenta20/icons/conditions/desprevenido.svg",
 	flags: { tormenta20: { condition: true, durationScene: true } },
-	changes: [{ key: "system.pericias.refl.condi", mode: 3, value: -5 },
-		{ key: "system.attributes.defesa.condi", mode: 3, value: -5 }]
+	changes: [
+		{ key: "system.pericias.refl.condi", mode: 3, value: -5 },
+		{ key: "system.attributes.defesa.condi", mode: 3, value: -5 }
+	]
 };
 
 T20Conditions.doente = {
@@ -128,7 +173,13 @@ T20Conditions.doente = {
 	duration: { rounds: 999 },
 	statuses: ["doente"],
 	icon: "systems/tormenta20/icons/conditions/doente.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "metabolismo" } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			category: "metabolismo"
+		}
+	}
 };
 
 T20Conditions.emchamas = {
@@ -147,7 +198,9 @@ T20Conditions.enfeiticado = {
 	duration: { rounds: 999 },
 	statuses: ["enfeiticado"],
 	icon: "systems/tormenta20/icons/conditions/enfeiticado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "mental" } }
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "mental" }
+	}
 };
 
 T20Conditions.enjoado = {
@@ -156,7 +209,13 @@ T20Conditions.enjoado = {
 	duration: { rounds: 999 },
 	statuses: ["enjoado"],
 	icon: "systems/tormenta20/icons/conditions/enjoado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "metabolismo" } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			category: "metabolismo"
+		}
+	}
 };
 
 T20Conditions.enredado = {
@@ -165,9 +224,18 @@ T20Conditions.enredado = {
 	duration: { rounds: 999 },
 	statuses: ["enredado"],
 	icon: "systems/tormenta20/icons/conditions/enredado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["lento", "vulneravel"], category: "movimento" } },
-	changes: [{ key: "system.pericias.luta.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.pont.condi", mode: 3, value: -2 }]
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["lento", "vulneravel"],
+			category: "movimento"
+		}
+	},
+	changes: [
+		{ key: "system.pericias.luta.condi", mode: 3, value: -2 },
+		{ key: "system.pericias.pont.condi", mode: 3, value: -2 }
+	]
 };
 
 T20Conditions.envenenado = {
@@ -176,7 +244,9 @@ T20Conditions.envenenado = {
 	duration: { rounds: 999 },
 	statuses: ["envenenado"],
 	icon: "systems/tormenta20/icons/conditions/envenenado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "veneno" } }
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "veneno" }
+	}
 };
 
 T20Conditions.esmorecido = {
@@ -185,8 +255,11 @@ T20Conditions.esmorecido = {
 	duration: { rounds: 999 },
 	statuses: ["esmorecido"],
 	icon: "systems/tormenta20/icons/conditions/esmorecido.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "mental" } },
-	changes: [{ key: "system.modificadores.atributos.int", mode: 2, value: -5 },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "mental" }
+	},
+	changes: [
+		{ key: "system.modificadores.atributos.int", mode: 2, value: -5 },
 		{ key: "system.modificadores.atributos.sab", mode: 2, value: -5 },
 		{ key: "system.modificadores.atributos.car", mode: 2, value: -5 },
 		{ key: "system.pericias.ades.condi", mode: 3, value: -5 },
@@ -206,7 +279,8 @@ T20Conditions.esmorecido = {
 		{ key: "system.pericias.perc.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.reli.condi", mode: 3, value: -5 },
 		{ key: "system.pericias.sobr.condi", mode: 3, value: -5 },
-		{ key: "system.pericias.vont.condi", mode: 3, value: -5 }]
+		{ key: "system.pericias.vont.condi", mode: 3, value: -5 }
+	]
 };
 
 T20Conditions.exausto = {
@@ -215,7 +289,15 @@ T20Conditions.exausto = {
 	duration: { rounds: 999 },
 	statuses: ["exausto"],
 	icon: "systems/tormenta20/icons/conditions/exausto.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, stack: "inconsciente", childEffect: ["debilitado", "lento", "vulneravel"], category: "cansaco" } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			stack: "inconsciente",
+			childEffect: ["debilitado", "lento", "vulneravel"],
+			category: "cansaco"
+		}
+	}
 };
 
 T20Conditions.fascinado = {
@@ -224,7 +306,9 @@ T20Conditions.fascinado = {
 	duration: { rounds: 999 },
 	statuses: ["fascinado"],
 	icon: "systems/tormenta20/icons/conditions/fascinado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "mental" } },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "mental" }
+	},
 	changes: [{ key: "system.pericias.perc.condi", mode: 3, value: -5 }]
 };
 
@@ -234,7 +318,15 @@ T20Conditions.fatigado = {
 	duration: { rounds: 999 },
 	statuses: ["fatigado"],
 	icon: "systems/tormenta20/icons/conditions/fatigado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, stack: "exausto", childEffect: ["fraco", "vulneravel"], category: "cansaco" } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			stack: "exausto",
+			childEffect: ["fraco", "vulneravel"],
+			category: "cansaco"
+		}
+	}
 };
 
 T20Conditions.fraco = {
@@ -243,8 +335,11 @@ T20Conditions.fraco = {
 	duration: { rounds: 999 },
 	statuses: ["fraco"],
 	icon: "systems/tormenta20/icons/conditions/fraco.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, stack: "debilitado" } },
-	changes: [{ key: "system.modificadores.atributos.for", mode: 2, value: -2 },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, stack: "debilitado" }
+	},
+	changes: [
+		{ key: "system.modificadores.atributos.for", mode: 2, value: -2 },
 		{ key: "system.modificadores.atributos.des", mode: 2, value: -2 },
 		{ key: "system.modificadores.atributos.con", mode: 2, value: -2 },
 		{ key: "system.pericias.acro.condi", mode: 3, value: -2 },
@@ -256,7 +351,8 @@ T20Conditions.fraco = {
 		{ key: "system.pericias.luta.condi", mode: 3, value: -2 },
 		{ key: "system.pericias.pilo.condi", mode: 3, value: -2 },
 		{ key: "system.pericias.pont.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.refl.condi", mode: 3, value: -2 }]
+		{ key: "system.pericias.refl.condi", mode: 3, value: -2 }
+	]
 };
 
 T20Conditions.frustrado = {
@@ -265,8 +361,16 @@ T20Conditions.frustrado = {
 	duration: { rounds: 999 },
 	statuses: ["frustrado"],
 	icon: "systems/tormenta20/icons/conditions/frustrado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, stack: "esmorecido", category: "mental" } },
-	changes: [{ key: "system.modificadores.atributos.int", mode: 2, value: -2 },
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			stack: "esmorecido",
+			category: "mental"
+		}
+	},
+	changes: [
+		{ key: "system.modificadores.atributos.int", mode: 2, value: -2 },
 		{ key: "system.modificadores.atributos.sab", mode: 2, value: -2 },
 		{ key: "system.modificadores.atributos.car", mode: 2, value: -2 },
 		{ key: "system.pericias.ades.condi", mode: 3, value: -2 },
@@ -286,7 +390,8 @@ T20Conditions.frustrado = {
 		{ key: "system.pericias.perc.condi", mode: 3, value: -2 },
 		{ key: "system.pericias.reli.condi", mode: 3, value: -2 },
 		{ key: "system.pericias.sobr.condi", mode: 3, value: -2 },
-		{ key: "system.pericias.vont.condi", mode: 3, value: -2 }]
+		{ key: "system.pericias.vont.condi", mode: 3, value: -2 }
+	]
 };
 
 T20Conditions.imovel = {
@@ -295,12 +400,16 @@ T20Conditions.imovel = {
 	duration: { rounds: 999 },
 	statuses: ["imovel"],
 	icon: "systems/tormenta20/icons/conditions/imovel.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "movimento" } },
-	changes: [{ key: "system.attributes.movement.walk", mode: 3, value: 0 },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "movimento" }
+	},
+	changes: [
+		{ key: "system.attributes.movement.walk", mode: 3, value: 0 },
 		{ key: "system.attributes.movement.burrow", mode: 3, value: 0 },
 		{ key: "system.attributes.movement.climb", mode: 3, value: 0 },
 		{ key: "system.attributes.movement.fly", mode: 3, value: 0 },
-		{ key: "system.attributes.movement.swim", mode: 3, value: 0 }]
+		{ key: "system.attributes.movement.swim", mode: 3, value: 0 }
+	]
 };
 
 T20Conditions.inconsciente = {
@@ -309,7 +418,13 @@ T20Conditions.inconsciente = {
 	duration: { rounds: 999 },
 	statuses: ["inconsciente"],
 	icon: "systems/tormenta20/icons/conditions/inconsciente.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["indefeso"] } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["indefeso"]
+		}
+	}
 };
 
 T20Conditions.indefeso = {
@@ -318,7 +433,13 @@ T20Conditions.indefeso = {
 	duration: { rounds: 999 },
 	statuses: ["indefeso"],
 	icon: "systems/tormenta20/icons/conditions/indefeso.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["desprevenido"] } },
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["desprevenido"]
+		}
+	},
 	changes: [{ key: "system.attributes.defesa.condi", mode: 3, value: -10 }]
 };
 
@@ -337,7 +458,9 @@ T20Conditions.lento = {
 	duration: { rounds: 999 },
 	statuses: ["lento"],
 	icon: "systems/tormenta20/icons/conditions/lento.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "movimento" } },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "movimento" }
+	},
 	changes: [{ key: "system.attributes.movement.*", mode: 1, value: 0.5 }]
 };
 
@@ -356,7 +479,9 @@ T20Conditions.ofuscado = {
 	duration: { rounds: 999 },
 	statuses: ["ofuscado"],
 	icon: "systems/tormenta20/icons/conditions/ofuscado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "sentidos" } },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "sentidos" }
+	},
 	changes: [
 		{ key: "system.pericias.perc.condi", mode: 3, value: -2 },
 		{ key: "system.pericias.luta.condi", mode: 3, value: -2 },
@@ -370,7 +495,14 @@ T20Conditions.paralisado = {
 	duration: { rounds: 999 },
 	statuses: ["paralisado"],
 	icon: "systems/tormenta20/icons/conditions/paralisado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["imovel", "indefeso"], category: "movimento" } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["imovel", "indefeso"],
+			category: "movimento"
+		}
+	}
 };
 
 T20Conditions.pasmo = {
@@ -379,7 +511,9 @@ T20Conditions.pasmo = {
 	duration: { rounds: 999 },
 	statuses: ["pasmo"],
 	icon: "systems/tormenta20/icons/conditions/pasmo.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "mental" } }
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "mental" }
+	}
 };
 
 T20Conditions.petrificado = {
@@ -388,7 +522,14 @@ T20Conditions.petrificado = {
 	duration: { rounds: 999 },
 	statuses: ["petrificado"],
 	icon: "systems/tormenta20/icons/conditions/petrificado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["inconsciente"], category: "metamorfose" } },
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["inconsciente"],
+			category: "metamorfose"
+		}
+	},
 	changes: [{ key: "system.tracos.resistencias.dano.value", mode: 3, value: 8 }]
 };
 
@@ -398,7 +539,13 @@ T20Conditions.sangrando = {
 	duration: { rounds: 999 },
 	statuses: ["sangrando"],
 	icon: "systems/tormenta20/icons/conditions/sangrando.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "metabolismo" } },
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			category: "metabolismo"
+		}
+	},
 	changes: [{ key: "dano", mode: 0, value: "1d6[perda]" }]
 };
 
@@ -418,7 +565,9 @@ T20Conditions.surdo = {
 	duration: { rounds: 999 },
 	statuses: ["surdo"],
 	icon: "systems/tormenta20/icons/conditions/surdo.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "sentidos" } },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "sentidos" }
+	},
 	changes: [{ key: "system.pericias.inic.condi", mode: 3, value: -5 }]
 };
 
@@ -428,7 +577,13 @@ T20Conditions.surpreendido = {
 	duration: { rounds: 999 },
 	statuses: ["surpreendido"],
 	icon: "systems/tormenta20/icons/conditions/surpreendido.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, childEffect: ["desprevenido"] } }
+	flags: {
+		tormenta20: {
+			condition: true,
+			durationScene: true,
+			childEffect: ["desprevenido"]
+		}
+	}
 };
 
 T20Conditions.vulneravel = {
@@ -447,7 +602,9 @@ T20Conditions.sobrecarregado = {
 	duration: { rounds: 999 },
 	statuses: ["sobrecarregado"],
 	icon: "systems/tormenta20/icons/conditions/sobrecarregado.svg",
-	flags: { tormenta20: { condition: true, durationScene: true, category: "movimento" } },
+	flags: {
+		tormenta20: { condition: true, durationScene: true, category: "movimento" }
+	},
 	changes: [
 		{ key: "system.attributes.defesa.pda", mode: 2, value: 2 },
 		{ key: "system.attributes.movement.*", mode: 2, value: -3 }

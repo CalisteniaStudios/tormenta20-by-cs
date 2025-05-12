@@ -1,4 +1,3 @@
-
 /* -------------------------------------------- */
 /*  Chat Message Overrides                      */
 /* -------------------------------------------- */
@@ -7,7 +6,7 @@
  * Render Action Buttons Over chat-card
  */
 export const ApplyButtons = function (app, html, data) {
-	let chatHTML = html.querySelector(".message-content");// .find(".tormenta20.chat-card");
+	let chatHTML = html.querySelector(".message-content"); // .find(".tormenta20.chat-card");
 	if (!chatHTML) return;
 
 	let button;
@@ -74,27 +73,25 @@ export const ApplyButtons = function (app, html, data) {
 			btncontainer.append(button);
 
 			btnparent.append(btncontainer);
-
 		}
-
 	}
-
 };
 
 export const hideDieFlavor = function (ChatMessage, html, data) {
 	const coreMessage = !$(html).find(".tormenta20")[0];
-	const haveDamageRoll = ChatMessage.rolls.find((r) => r._formula.match(/\[(\w+)\]/) && game.tormenta20.config.damageTypes[r._formula.match(/\[(\w+)\]/)[1]]);
+	const haveDamageRoll = ChatMessage.rolls.find(
+		(r) => r._formula.match(/\[(\w+)\]/) && game.tormenta20.config.damageTypes[r._formula.match(/\[(\w+)\]/)[1]]
+	);
 	const rolls = $(html).find(".dice-roll");
 	if (coreMessage && haveDamageRoll) {
-		$(html).find(".message-content")
-			.append('<div class="roll roll--dano"></div>');
-		$(html).find(".message-content")
-			.addClass("tormenta20 chat-card item-card");
+		$(html).find(".message-content").append('<div class="roll roll--dano"></div>');
+		$(html).find(".message-content").addClass("tormenta20 chat-card item-card");
 
 		for (const roll of rolls) {
-			$(roll).find(".dice-formula")[0].textContent = $(roll).find(".dice-formula")[0].textContent.replace(/\[\w+\]/g, "");
-			$(html).find(".roll.roll--dano")
-				.append($(roll));
+			$(roll).find(".dice-formula")[0].textContent = $(roll)
+				.find(".dice-formula")[0]
+				.textContent.replace(/\[\w+\]/g, "");
+			$(html).find(".roll.roll--dano").append($(roll));
 		}
 	}
 };
@@ -104,10 +101,10 @@ export const hideDieFlavor = function (ChatMessage, html, data) {
 /* -------------------------------------------- */
 
 /**
-	 * TODO [Delayed to V10 to use Message With Multi Rolls]
-	 * Call Reroll Method for selected roll and update chat card
-	 * @param {HTMLElement} roll The chat entry which contains the roll data
-	 */
+ * TODO [Delayed to V10 to use Message With Multi Rolls]
+ * Call Reroll Method for selected roll and update chat card
+ * @param {HTMLElement} roll The chat entry which contains the roll data
+ */
 function _onChatReRoll(event) {
 	event.preventDefault();
 	const btn = event.currentTarget;
@@ -124,18 +121,19 @@ function _onChatSpendCatarse(event) {
 
 function _callApplyDamage(roll, multiplier) {
 	if (canvas.tokens.controlled.length) {
-		return Promise.all(canvas.tokens.controlled.map((tk) => {
-			if (roll) return tk.actor.applyDamageV2(roll, multiplier);
-			// return tk.actor.applyDamage(amount, multiplier, true);
-		}));
+		return Promise.all(
+			canvas.tokens.controlled.map((tk) => {
+				if (roll) return tk.actor.applyDamageV2(roll, multiplier);
+				// return tk.actor.applyDamage(amount, multiplier, true);
+			})
+		);
 	}
 	ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
-
 }
 
 /**
-	* Get rolled damage value and call Actor apply damage Method
-	*/
+ * Get rolled damage value and call Actor apply damage Method
+ */
 export function _onChatApplyDamage(event) {
 	event.preventDefault();
 	const btn = event.currentTarget;
@@ -148,24 +146,25 @@ export function _onChatApplyDamage(event) {
 
 	if (amount && multiplier) {
 		if (canvas.tokens.controlled.length) {
-			return Promise.all(canvas.tokens.controlled.map((tk) => {
-				if (roll) return tk.actor.applyDamageV2(roll, multiplier);
-				return tk.actor.applyDamage(amount, multiplier, true);
-			}));
+			return Promise.all(
+				canvas.tokens.controlled.map((tk) => {
+					if (roll) return tk.actor.applyDamageV2(roll, multiplier);
+					return tk.actor.applyDamage(amount, multiplier, true);
+				})
+			);
 		}
 		ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
-
 	}
 }
 
 /**
-	* Apply rolled dice damage to the token or tokens which are currently controlled.
-	* This allows for damage to be scaled by a multiplier to account for healing, critical hits, or resistance
-	*
-	* @param {HTMLElement} li The chat entry which contains the roll data
-	* @param {Number} multiplier A damage multiplier to apply to the rolled damage.
-	* @return {Promise}
-	*/
+ * Apply rolled dice damage to the token or tokens which are currently controlled.
+ * This allows for damage to be scaled by a multiplier to account for healing, critical hits, or resistance
+ *
+ * @param {HTMLElement} li The chat entry which contains the roll data
+ * @param {Number} multiplier A damage multiplier to apply to the rolled damage.
+ * @return {Promise}
+ */
 export async function applyChatCardDamage(li, multiplier) {
 	const message = game.messages.get(li.dataset.messageId);
 	const rolls = message.rolls.filter((r) => r.options.type === "damage");
@@ -188,7 +187,6 @@ export async function applyChatCardDamage(li, multiplier) {
 				no: { label: "Cancela" }
 			}
 		}).render(true);
-
 	} else {
 		roll = rolls.pop();
 		if (roll) _callApplyDamage(roll, multiplier);
@@ -199,33 +197,35 @@ function applyChatCardDamageOld(message, multiplier) {
 	if (canvas.tokens.controlled.length) {
 		let roll = message.find(".roll--dano") ?? message.find(".dice-roll");
 		const amount = roll.find(".dice-total").text();
-		return Promise.all(canvas.tokens.controlled.map((t) => {
-			const a = t.actor;
-			return a.applyDamage(amount, multiplier, true);
-		}));
+		return Promise.all(
+			canvas.tokens.controlled.map((t) => {
+				const a = t.actor;
+				return a.applyDamage(amount, multiplier, true);
+			})
+		);
 	}
 	ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
-
 }
 
 /**
-	* Get mana cost value and call Actor spend mana Method
-	* @param {Event} event   The originating click event
-	* @private
-	*/
+ * Get mana cost value and call Actor spend mana Method
+ * @param {Event} event   The originating click event
+ * @private
+ */
 export function _onChatSpendMana(event) {
 	event.preventDefault();
 	const btn = event.currentTarget;
 	const amount = Number(btn.value);
 	if (canvas.tokens.controlled.length) {
-		return Promise.all(canvas.tokens.controlled.map((tk) => {
-			const actor = tk.actor;
-			return actor.spendMana(amount, 0, false);
-		}));
+		return Promise.all(
+			canvas.tokens.controlled.map((tk) => {
+				const actor = tk.actor;
+				return actor.spendMana(amount, 0, false);
+			})
+		);
 	}
 
 	ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
-
 }
 
 /**
@@ -239,20 +239,21 @@ export function _onChatSpendMana(event) {
 export function applyChatManaSpend(message, adjust, recover = false) {
 	if (canvas.tokens.controlled.length) {
 		const amount = message.find(".chat-spend-mana").val();
-		return Promise.all(canvas.tokens.controlled.map((tk) => {
-			const actor = tk.actor;
-			return actor.spendMana(amount, adjust, recover);
-		}));
+		return Promise.all(
+			canvas.tokens.controlled.map((tk) => {
+				const actor = tk.actor;
+				return actor.spendMana(amount, adjust, recover);
+			})
+		);
 	}
 	ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os gastos de mana");
-
 }
 
 /**
-	* Handle toggling the visibility of chat card content when the name is clicked
-	* @param {Event} event   The originating click event
-	* @private
-	*/
+ * Handle toggling the visibility of chat card content when the name is clicked
+ * @param {Event} event   The originating click event
+ * @private
+ */
 export function _onChatCardToggleContent(event) {
 	event.preventDefault();
 	const chatCard = event.currentTarget.closest(".chat-message");
@@ -272,10 +273,10 @@ export function _onChatCardToggleDamage(event) {
 }
 
 /**
-		* Retrieve AbilityTemplate data and Draw on Canvas
-		* @param {Event} event   The originating click event
-		* @private
-		*/
+ * Retrieve AbilityTemplate data and Draw on Canvas
+ * @param {Event} event   The originating click event
+ * @private
+ */
 export function _onChatPlaceTemplate(event) {
 	event.preventDefault();
 	const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
@@ -303,17 +304,17 @@ export function _onChatPlaceTemplate(event) {
 }
 
 /**
-	* Handle Active Effetcs Applying on Tokens
-	* @param {Event} event   The originating click event
-	* @private
-	*/
+ * Handle Active Effetcs Applying on Tokens
+ * @param {Event} event   The originating click event
+ * @private
+ */
 export async function _onChatCardApplyEffect(event) {
 	event.preventDefault();
 	const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
 	const actorId = event.currentTarget.closest(".item-card").dataset.actorId;
 	const buttonId = event.currentTarget.dataset.effectIndex;
 	const actors = canvas.tokens.controlled;
-	if (actors.length && buttonId>=0) {
+	if (actors.length && buttonId >= 0) {
 		const chatEffect = game.messages.get(chatCardId).flags.tormenta20?.effects[buttonId];
 		if (chatEffect[0].duration.seconds) {
 			chatEffect[0].duration.startTime = game.time.worldTime;

@@ -13,8 +13,20 @@ export default class ConsumableData extends Tormenta20ItemData {
 			...this.schemaSavingThrow(type),
 			...this.schemaUpgrades(type),
 			...this.schemaRolls(),
-			tipo: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemType", hint: "T20.ItemTypeHint" }),
-			subtipo: new fields.StringField({ required: true, nullable: false, initial: "", label: "T20.ItemSubType", hint: "T20.ItemSubTypeHint" })
+			tipo: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "",
+				label: "T20.ItemType",
+				hint: "T20.ItemTypeHint"
+			}),
+			subtipo: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "",
+				label: "T20.ItemSubType",
+				hint: "T20.ItemSubTypeHint"
+			})
 		};
 
 		return schema;

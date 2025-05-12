@@ -37,22 +37,22 @@ export default class RollT20 extends Roll {
 	 * Apply optional modifiers which customize the behavior of the d20term
 	 * @private
 	 */
-	configureFormulaModifiers() {
-	}
+	configureFormulaModifiers() {}
 
 	/**
 	 * Apply optional modifiers which customize the behavior of the d20term
 	 * @private
 	 */
-	configureAttackModifiers() {
-	}
+	configureAttackModifiers() {}
 
 	/**
 	 * Apply optional modifiers which customize the behavior of the d20term
 	 * @private
 	 */
 	configureDamageModifiers() {
-		const modifiers = this.options.modifiers.sort((a, b) => RollT20.SORTMODIFIERS[a.type] - RollT20.SORTMODIFIERS[b.type]);
+		const modifiers = this.options.modifiers.sort(
+			(a, b) => RollT20.SORTMODIFIERS[a.type] - RollT20.SORTMODIFIERS[b.type]
+		);
 		for (const mod of modifiers) {
 			mod.value = mod.value.toString();
 			switch (mod.type) {
@@ -94,29 +94,31 @@ export default class RollT20 extends Roll {
 		} else {
 			newTerm = new DiceTerm({ number: mod.value, options });
 		}
-		this.terms.push(
-			new OperatorTerm({ operator: "+" }),
-			newTerm
-		);
+		this.terms.push(new OperatorTerm({ operator: "+" }), newTerm);
 	}
 
 	modAddPerDie(mod) {
 		mod.value = Roll.replaceFormulaData(mod.value, this.data);
 		mod.value = Roll.safeEval(mod.value);
 		if (!isFinite(mod.value)) return;
-		const dies = this.terms.filter((term) => {
-			const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(",") : false;
-			const origin = mod.conditions.origin ? mod.conditions.origin.split(",") : false;
-			if (!(term instanceof DiceTerm)) return false;
-			if (flavor && !flavor.includes(term.options.flavor)) return false;
-			if (origin && !origin.includes(term.options.origin)) return false;
-			return true;
-		}).map((term) => term.number);
+		const dies = this.terms
+			.filter((term) => {
+				const flavor = mod.conditions.flavor ? mod.conditions.flavor.split(",") : false;
+				const origin = mod.conditions.origin ? mod.conditions.origin.split(",") : false;
+				if (!(term instanceof DiceTerm)) return false;
+				if (flavor && !flavor.includes(term.options.flavor)) return false;
+				if (origin && !origin.includes(term.options.origin)) return false;
+				return true;
+			})
+			.map((term) => term.number);
 		const total = Roll.safeEval(...dies) * mod.value;
 		if (!total) return;
 		this.terms.push(
 			new OperatorTerm({ operator: "+" }),
-			new NumericTerm({ number: total, options: { flavor: mod.flavor, origin: mod.origin } })
+			new NumericTerm({
+				number: total,
+				options: { flavor: mod.flavor, origin: mod.origin }
+			})
 		);
 	}
 

@@ -59,15 +59,25 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 	createSettingField(name) {
 		const setting = game.settings.settings.get(`tormenta20.${name}`);
 		if (!setting) throw new Error(`Setting \`tormenta20.${name}\` not registered.`);
-		const Field = { [Boolean]: BooleanField, [Number]: NumberField, [String]: StringField }[setting.type];
+		const Field = {
+			[Boolean]: BooleanField,
+			[Number]: NumberField,
+			[String]: StringField
+		}[setting.type];
 		if (!Field) throw new Error("Automatic field generation only available for Boolean, Number, or String types");
 		const data = {
-			field: new Field({ label: game.i18n.localize(setting.name), hint: game.i18n.localize(setting.hint) }),
+			field: new Field({
+				label: game.i18n.localize(setting.name),
+				hint: game.i18n.localize(setting.hint)
+			}),
 			name,
 			value: game.settings.get("tormenta20", name)
 		};
-		if (setting.choices) data.options = Object.entries(setting.choices)
-			.map(([value, label]) => ({ value, label: game.i18n.localize(label) }));
+		if (setting.choices)
+			data.options = Object.entries(setting.choices).map(([value, label]) => ({
+				value,
+				label: game.i18n.localize(label)
+			}));
 		return data;
 	}
 
@@ -78,10 +88,12 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 			const setting = game.settings.settings.get(`tormenta20.${key}`);
 			const current = game.settings.get("tormenta20", key, { document: true });
 			const prior = current?._source?.value ?? current;
-			const updated = await game.settings.set("tormenta20", key, value, { document: true });
+			const updated = await game.settings.set("tormenta20", key, value, {
+				document: true
+			});
 			if (prior === (updated?._source?.value ?? updated)) continue;
-			requiresClientReload ||= (setting.scope !== CONST.SETTING_SCOPES.WORLD) && setting.requiresReload;
-			requiresWorldReload ||= (setting.scope === CONST.SETTING_SCOPES.WORLD) && setting.requiresReload;
+			requiresClientReload ||= setting.scope !== CONST.SETTING_SCOPES.WORLD && setting.requiresReload;
+			requiresWorldReload ||= setting.scope === CONST.SETTING_SCOPES.WORLD && setting.requiresReload;
 		}
 		if (requiresClientReload || requiresWorldReload) {
 			return SettingsConfig.reloadConfirm({ world: requiresWorldReload });
@@ -124,10 +136,7 @@ export class Tormenta20OptionalRulesSettings extends Tormenta20BaseSettings {
 	/** @inheritDoc */
 	async _preparePartContext(partId, context, options) {
 		context = await super._preparePartContext(partId, context, options);
-		context.fields = [
-			this.createSettingField("progressiveDefense"),
-			this.createSettingField("lancinatingVersion")
-		];
+		context.fields = [this.createSettingField("progressiveDefense"), this.createSettingField("lancinatingVersion")];
 		return context;
 	}
 }

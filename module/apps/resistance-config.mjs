@@ -3,7 +3,6 @@
  * @extends {DocumentSheet}
  */
 export default class ActorResistanceConfig extends DocumentSheet {
-
 	/** @override */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
@@ -28,7 +27,14 @@ export default class ActorResistanceConfig extends DocumentSheet {
 		const sourceResistance = foundry.utils.getProperty(this.document._source, "system.tracos.resistencias") || {};
 
 		const resist = Object.keys(CONFIG.T20.damageTypes).reduce((o, k) => {
-			o[k] = { value: 0, base: 0, bonus: [], excecao: 0, imunidade: false, vulnerabilidade: false };
+			o[k] = {
+				value: 0,
+				base: 0,
+				bonus: [],
+				excecao: 0,
+				imunidade: false,
+				vulnerabilidade: false
+			};
 			return o;
 		}, {});
 

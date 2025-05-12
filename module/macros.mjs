@@ -2,8 +2,8 @@
 /*  Macros Scripts                              */
 /* -------------------------------------------- */
 const macroScripts = {
-	SKILL: "game.tormenta20.rollSkillMacro(\"{label}\",\"{subtype}\");",
-	ITEM: "game.tormenta20.rollItemMacro(\"{name}\");",
+	SKILL: 'game.tormenta20.rollSkillMacro("{label}","{subtype}");',
+	ITEM: 'game.tormenta20.rollItemMacro("{name}");',
 	EXTRAWEAPON: {
 		atq: "0",
 		dadoDano: "",
@@ -52,12 +52,12 @@ if(actor){
 import ItemT20 from "./documents/item.mjs";
 
 /**
-* Create a Macro from an Item drop.
-* Get an existing item macro if one exists, otherwise create a new one.
-* @param {Object} data     The dropped data
-* @param {number} slot     The hotbar slot to use
-* @returns {Promise}
-*/
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {Object} data     The dropped data
+ * @param {number} slot     The hotbar slot to use
+ * @returns {Promise}
+ */
 export async function createT20Macro(data, slot) {
 	// Create the macro command
 	let command = "";
@@ -78,9 +78,7 @@ export async function createT20Macro(data, slot) {
 
 	if (data.type === "Item") {
 		let item = await fromUuid(data.uuid);
-		if (!(item instanceof ItemT20)) return ui.notifications.warn(
-			"Não há uma macro para este tipo de item."
-		);
+		if (!(item instanceof ItemT20)) return ui.notifications.warn("Não há uma macro para este tipo de item.");
 
 		if (item.type === "arma") {
 			command = macroScripts.WEAPON.replace("{name}", item.name);
@@ -108,9 +106,7 @@ export async function createT20Macro(data, slot) {
 
 	if (data.type === "ActiveEffect") {
 		let effect = await fromUuid(data.uuid);
-		if (!(effect instanceof ActiveEffect)) return ui.notifications.warn(
-			"Não há uma macro para este tipo de item."
-		);
+		if (!(effect instanceof ActiveEffect)) return ui.notifications.warn("Não há uma macro para este tipo de item.");
 
 		command = macroScripts.EFFECT.replace("{label}", effect.name);
 		let macro = game.macros.find((m) => m.name === effect.name && m.command === command);
@@ -129,11 +125,11 @@ export async function createT20Macro(data, slot) {
 /* -------------------------------------------- */
 
 /**
-* Create a Macro from an Item drop.
-* Get an existing item macro if one exists, otherwise create a new one.
-* @param {string} itemName
-* @return {Promise}
-*/
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {string} itemName
+ * @return {Promise}
+ */
 export async function rollItemMacro(itemName, extra = {}) {
 	const speaker = ChatMessage.getSpeaker();
 	let actor;
@@ -143,12 +139,14 @@ export async function rollItemMacro(itemName, extra = {}) {
 	// Get matching items
 	const items = actor ? actor.items.filter((i) => i.name === itemName) : [];
 	if (items.length > 1) {
-		ui.notifications.warn(`O personagem ${actor.name} possui mais de um Item ${itemName}. O primeiro encontrado será usado.`);
+		ui.notifications.warn(
+			`O personagem ${actor.name} possui mais de um Item ${itemName}. O primeiro encontrado será usado.`
+		);
 	} else if (items.length === 0) {
 		return ui.notifications.warn(`O personagem selecionado não possui um Item chamado ${itemName}`);
 	}
 	if (items[0].type === "arma" && (extra.atq.match(/^=/) || extra.dano.match(/^=/))) {
-		ui.notifications.warn("Substituir bonus de ataque e dano (ie: \"=15\") não é suportado no momento.");
+		ui.notifications.warn('Substituir bonus de ataque e dano (ie: "=15") não é suportado no momento.');
 	}
 	const item = items[0];
 
@@ -159,7 +157,7 @@ export async function rollItemMacro(itemName, extra = {}) {
 	} else {
 		rollConfigs.configureDialog = event.shiftKey;
 	}
-	rollConfigs.extra	= extra;
+	rollConfigs.extra = extra;
 	// Trigger the item roll
 	return item.roll(rollConfigs);
 }
@@ -192,7 +190,8 @@ export async function msgFromJournal(name, source, sourceName) {
 	}
 	if (!journal) return;
 	if (game.tormenta20.config.statusEffectIcons.find((i) => i.label === name)) {
-		style = 'style="position:relative; background: #ddd9d5;padding: 0.5rem; margin-left:-7px;margin-right:-7px;margin-bottom:-7px;margin-top:-27px"';
+		style =
+			'style="position:relative; background: #ddd9d5;padding: 0.5rem; margin-left:-7px;margin-right:-7px;margin-bottom:-7px;margin-top:-27px"';
 	}
 	if (!page) return;
 
@@ -207,7 +206,13 @@ export async function msgFromJournal(name, source, sourceName) {
  * Create Standard rollChatMessage
  *
  * */
-export async function rollChatMessage({ rolls= [], templateData={ item: { name: "Teste", img: "icons/svg/dice-target.svg" }, system: { description: { value: "Teste" } } } }) {
+export async function rollChatMessage({
+	rolls = [],
+	templateData = {
+		item: { name: "Teste", img: "icons/svg/dice-target.svg" },
+		system: { description: { value: "Teste" } }
+	}
+}) {
 	templateData.rolls = [];
 	// Render dice rolls
 	for (let roll of Object.values(rolls)) {

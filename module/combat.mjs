@@ -1,8 +1,7 @@
-
 /**
-* Override the default Initiative formula to customize special behaviors of the system.
-* See Combat._getInitiativeFormula for more detail.
-*/
+ * Override the default Initiative formula to customize special behaviors of the system.
+ * See Combat._getInitiativeFormula for more detail.
+ */
 export const _getInitiativeFormula = function (combatant) {
 	const actor = combatant.actor;
 	if (!actor) return "1d20";
@@ -17,10 +16,10 @@ export const _getInitiativeFormula = function (combatant) {
 };
 
 /**
-* When the Combat encounter updates - re-render open Actor sheets for combatants in the encounter.
-*/
+ * When the Combat encounter updates - re-render open Actor sheets for combatants in the encounter.
+ */
 Hooks.on("updateCombat", (combat, data, options, userId) => {
-	const updateTurn = ("turn" in data) || ("round" in data);
+	const updateTurn = "turn" in data || "round" in data;
 	if (!updateTurn) return;
 	for (let t of combat.turns) {
 		const a = t.actor;
@@ -29,10 +28,10 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 });
 
 /**
-* When the Combat apply on turn effects
-*/
+ * When the Combat apply on turn effects
+ */
 Hooks.on("updateCombat", (combat, data, options, userId) => {
-	const updateTurn = (combat.round > 0 && ("turn" in data) || ("round" in data));
+	const updateTurn = (combat.round > 0 && "turn" in data) || "round" in data;
 	if (!updateTurn) return;
 	const combatantId = combat.current.combatantId;
 	let combatant = combat.combatants.get(combatantId);
@@ -44,16 +43,14 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 		// Effects Applied to CurrentCombatant Activated on Own Turn
 		if (curActor.id === actor.id) {
 			let eff = actor.effects.filter(function (ae) {
-				return (!ae.flags.tormenta20.onuse
-								&& ae.changes.find((c) => ["sustentado", "dano"].includes(c.key))
-				);
+				return !ae.flags.tormenta20.onuse && ae.changes.find((c) => ["sustentado", "dano"].includes(c.key));
 			});
 			let e;
 			for (let ef of eff) {
 				if (ef.changes.find((c) => c.key === "sustentado")) {
 					ChatMessage.create({ content: "Sustentar Magia" });
 				}
-				if (e = ef.changes.find((c) => c.key === "dano")) {
+				if ((e = ef.changes.find((c) => c.key === "dano"))) {
 					new Roll(e.value, {}, { flavor: `${ef.name}` }).toMessage();
 				}
 			}
@@ -66,14 +63,11 @@ Hooks.on("updateCombat", (combat, data, options, userId) => {
 		 */
 		else {
 			let eff = actor.effects.filter(function (ae) {
-				return (!ae.flags.tormenta20.onuse
-							&& ae.origin?.match(curActor.id)
-							&& ae.changes.find((c) => c.key === "@dano")
-				);
+				return !ae.flags.tormenta20.onuse && ae.origin?.match(curActor.id) && ae.changes.find((c) => c.key === "@dano");
 			});
 			let e;
 			for (let ef of eff) {
-				if (e = ef.changes.find((c) => c.key === "@dano")) {
+				if ((e = ef.changes.find((c) => c.key === "@dano"))) {
 					new Roll(e.value).toMessage();
 				}
 			}

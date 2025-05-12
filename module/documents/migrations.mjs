@@ -50,7 +50,7 @@ export const commitMigration = function () {
  * RollTags. Change From Tags, so RollTags for RollData and Tags for future search
  */
 export function item14113(data) {}
-itemMigration.migrateRollTags = function (doc, updateEffectData={}) {
+itemMigration.migrateRollTags = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "system.tags")) return;
 	if (foundry.utils.isEmpty(doc.system.rolltags) && !foundry.utils.isEmpty(doc.system.tags)) {
 		doc.system.rolltags = doc.system.tags;
@@ -68,7 +68,9 @@ itemMigration.migrateRollTags = function (doc, updateEffectData={}) {
  */
 export function actor14112(data) {}
 actorMigration.migrateResistances = function (doc, updateEffectData = {}) {
-	const resistances = foundry.utils.getProperty(doc, "_source.system.tracos.resistencias") ?? foundry.utils.getProperty(doc, "system.tracos.resistencias");
+	const resistances =
+		foundry.utils.getProperty(doc, "_source.system.tracos.resistencias")
+		?? foundry.utils.getProperty(doc, "system.tracos.resistencias");
 	if (!resistances) return;
 	const _resistances = Object.entries(resistances);
 	const hasDeprecated = _resistances.find((i, r) => Number(r.value) != 0);
@@ -94,8 +96,9 @@ actorMigration.migrateResistances = function (doc, updateEffectData = {}) {
  * Equipped2. Hand/Body slots
  */
 export function item14112(data) {}
-itemMigration.migrateEquipSlot = function (doc, updateEffectData={}) {
-	if (!foundry.utils.getProperty(doc, "system.equipado2") || !foundry.utils.getProperty(doc, "system.equipado2.type")) return;
+itemMigration.migrateEquipSlot = function (doc, updateEffectData = {}) {
+	if (!foundry.utils.getProperty(doc, "system.equipado2") || !foundry.utils.getProperty(doc, "system.equipado2.type"))
+		return;
 	if (!["arma", "equipamento"].includes(doc.type)) return;
 
 	if (!doc.system.equipado2) doc.system.equipado2 = {};
@@ -105,7 +108,7 @@ itemMigration.migrateEquipSlot = function (doc, updateEffectData={}) {
 		doc.system.equipado2.type = "hand";
 	} else if (["leve", "pesada", "traje", "acessorio"].includes(doc.system.tipo)) {
 		doc.system.equipado2.type = "body";
-	} else if ((["eng"].includes(doc.system.tipo) && doc.system.escola)) {
+	} else if (["eng"].includes(doc.system.tipo) && doc.system.escola) {
 		doc.system.equipado2.type = "both";
 	}
 };
@@ -113,7 +116,7 @@ itemMigration.migrateEquipSlot = function (doc, updateEffectData={}) {
 export function effect14112(data) {}
 
 // Migrate Resistances Key:  replace .value with .bonus
-effectMigration.migrateResistancesPath = function (doc, updateEffectData={}) {
+effectMigration.migrateResistancesPath = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "changes")) return;
 	for (const change of doc.changes) {
 		if (!change.key.match(/system\.tracos\.resistencias\.\w+\.value/)) continue;
@@ -122,7 +125,7 @@ effectMigration.migrateResistancesPath = function (doc, updateEffectData={}) {
 };
 
 // Migrate Abilities Key:  replace .value with .racial
-effectMigration.migrateAbilitiesPath = function (doc, updateEffectData={}) {
+effectMigration.migrateAbilitiesPath = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "changes") && !foundry.utils.getProperty(doc, "name")) return;
 	if (!doc.name.match(/\w - Atributos|Atributos - \w|Aumento de Atributo - \w/)) return;
 	for (const change of doc.changes) {
@@ -140,7 +143,7 @@ effectMigration.migrateAbilitiesPath = function (doc, updateEffectData={}) {
  * Moved NPC ND FROM detalhes.nd => attributes.nd
  */
 export function actor14101(data) {}
-actorMigration.migrateCRLevel = function (doc, updateEffectData={}) {
+actorMigration.migrateCRLevel = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "system.attributes.nivel")) return;
 	if (!["npc"].includes(doc.type)) return;
 	if (isNaN(doc.system.attributes.nivel.value) || !isFinite(doc.system.attributes.nivel.value)) {
@@ -161,55 +164,66 @@ actorMigration.migrateCRLevel = function (doc, updateEffectData={}) {
  */
 export function item14101(data) {}
 
-itemMigration.migrateProficiencyTypes = function (doc, updateEffectData={}) {
+itemMigration.migrateProficiencyTypes = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "system.tipoUso")) return;
 	if (!["arma"].includes(doc.type)) return;
 
 	if (!doc.system.proficiencia && doc.system.tipoUso) {
 		let proficiencia = {
-			sim: "simples", mar: "marcial",
-			exo: "exotica", fog: "fogo",
-			nat: "natural", imp: "improvisada"
+			sim: "simples",
+			mar: "marcial",
+			exo: "exotica",
+			fog: "fogo",
+			nat: "natural",
+			imp: "improvisada"
 		};
 		doc.system.proficiencia = proficiencia[doc.system.tipoUso] ?? "sim";
 		doc.system.tipoUso = null;
 	}
 };
 
-itemMigration.migratePurposeTypes = function (doc, updateEffectData={}) {
-	if (!foundry.utils.getProperty(doc, "system.propriedades") || foundry.utils.getProperty(doc, "system.proposito")) return;
+itemMigration.migratePurposeTypes = function (doc, updateEffectData = {}) {
+	if (!foundry.utils.getProperty(doc, "system.propriedades") || foundry.utils.getProperty(doc, "system.proposito"))
+		return;
 	if (!["arma"].includes(doc.type)) return;
-	if (foundry.utils.hasProperty(doc.system.propriedades, "arr")
+	if (
+		foundry.utils.hasProperty(doc.system.propriedades, "arr")
 		&& foundry.utils.hasProperty(doc.system.propriedades, "mun")
 		&& foundry.utils.hasProperty(doc.system.propriedades, "dst")
 	) {
-		let proposito = doc.system.propriedades.arr ? "arremesso"
-			: (doc.system.propriedades.mun || doc.system.propriedades.dst ? "disparo"
-				: "corpo-a-corpo");
+		let proposito = doc.system.propriedades.arr
+			? "arremesso"
+			: doc.system.propriedades.mun || doc.system.propriedades.dst
+				? "disparo"
+				: "corpo-a-corpo";
 		doc.system.proposito = proposito;
 	}
 
-	if (!doc.system.empunhadura
+	if (
+		!doc.system.empunhadura
 		&& foundry.utils.hasProperty(doc.system.propriedades, "lev")
-		&& foundry.utils.hasProperty(doc.system.propriedades, "dms")) {
-		let empunhadura = doc.system.propriedades.lev ? "leve" : (doc.system.propriedades.dms ? "duas" : "uma");
-		doc.system.empunhadura = empunhadura;
-	}
-};
-
-itemMigration.migrateWieldTypes = function (doc, updateEffectData={}) {
-	if (!foundry.utils.getProperty(doc, "system.propriedades") || foundry.utils.getProperty(doc, "system.empunhadura")) return;
-	if (!["arma"].includes(doc.type)) return;
-
-	if (foundry.utils.hasProperty(doc.system.propriedades, "lev")
 		&& foundry.utils.hasProperty(doc.system.propriedades, "dms")
 	) {
-		let empunhadura = doc.system.propriedades.lev ? "leve" : (doc.system.propriedades.dms ? "duas" : "uma");
+		let empunhadura = doc.system.propriedades.lev ? "leve" : doc.system.propriedades.dms ? "duas" : "uma";
 		doc.system.empunhadura = empunhadura;
 	}
 };
 
-itemMigration.migrateEquipAugments = function (doc, updateEffectData={}) {
+itemMigration.migrateWieldTypes = function (doc, updateEffectData = {}) {
+	if (!foundry.utils.getProperty(doc, "system.propriedades") || foundry.utils.getProperty(doc, "system.empunhadura"))
+		return;
+	if (!["arma"].includes(doc.type)) return;
+
+	if (
+		foundry.utils.hasProperty(doc.system.propriedades, "lev")
+		&& foundry.utils.hasProperty(doc.system.propriedades, "dms")
+	) {
+		let empunhadura = doc.system.propriedades.lev ? "leve" : doc.system.propriedades.dms ? "duas" : "uma";
+		doc.system.empunhadura = empunhadura;
+	}
+};
+
+itemMigration.migrateEquipAugments = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "system.system.upgrades")) return;
 	if (!["equipamento", "consumivel", "arma"].includes(doc.type)) return;
 	if (!foundry.utils.isEmpty(doc.system.upgrades)) return;
@@ -255,7 +269,7 @@ itemMigration.migrateEquipAugments = function (doc, updateEffectData={}) {
  */
 export function actor14001(data) {}
 
-actorMigration.migrateCreatureType = function (doc, updateEffectData={}) {
+actorMigration.migrateCreatureType = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "system.detalhes.tipo")) return;
 	if (!["character", "npc"].includes(doc.type)) return;
 	if (!doc.system.detalhes.tipo) return;
@@ -272,7 +286,7 @@ actorMigration.migrateCreatureType = function (doc, updateEffectData={}) {
  */
 export function item14001(data) {}
 
-itemMigration.migrateDuration = function (doc, updateEffectData={}) {
+itemMigration.migrateDuration = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "system.duracao.value")) return;
 	if (!["consumivel", "poder", "magia"].includes(doc.type)) return;
 	if (isNaN(doc.system.duracao.value) || !isFinite(doc.system.duracao.value)) {
@@ -280,7 +294,7 @@ itemMigration.migrateDuration = function (doc, updateEffectData={}) {
 	}
 };
 
-itemMigration.migrateEquipStatus = function (doc, updateEffectData={}) {
+itemMigration.migrateEquipStatus = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "system.equipado")) return;
 	if (!["arma"].includes(doc.type)) return;
 	if (typeof doc.system.equipado === "boolean") {

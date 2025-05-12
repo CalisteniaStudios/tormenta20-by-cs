@@ -1,5 +1,5 @@
 export default class CharacterProgression extends FormApplication {
-	constructor(object={}, options={}) {
+	constructor(object = {}, options = {}) {
 		super(object, options);
 	}
 
@@ -39,6 +39,5 @@ export default class CharacterProgression extends FormApplication {
 		// const data = foundry.utils.expandObject(formData);
 		// delete data.classes;
 		// await this.object.setFlag("tormenta20", "lvlconfig", data);
-
 	}
 }

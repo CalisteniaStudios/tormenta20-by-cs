@@ -11,11 +11,10 @@ export default class CompendiumT20 extends foundry.applications.sidebar.apps.Com
 		if (options.query) {
 			this.query = options.query;
 		}
-
 	}
 
 	/* inheritDoc */
-	async getData(options={}) {
+	async getData(options = {}) {
 		const context = await super.getData();
 		if (this.query) {
 			const queryKey = Object.entries(this.query)[0][0];

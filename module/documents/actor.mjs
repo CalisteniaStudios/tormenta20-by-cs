@@ -51,7 +51,6 @@ export default class ActorT20 extends Actor {
 			for (let j of tipos) {
 				if (i.getFlag("tormenta20", j)) types[i.type].push(i);
 			}
-
 		}
 		return types;
 	}
@@ -62,7 +61,11 @@ export default class ActorT20 extends Actor {
 				for (let ch of ef.changes) {
 					if (!acc[ch.key]) acc[ch.key] = [];
 					if (ch.mode === 2 && !acc[ch.key].find((f) => f.mode === 5)) {
-						acc[ch.key].push({ label: ef.name, value: ch.value, mode: ch.mode });
+						acc[ch.key].push({
+							label: ef.name,
+							value: ch.value,
+							mode: ch.mode
+						});
 					} else if (ch.mode === 5) {
 						acc[ch.key] = [{ label: ef.name, value: ch.value, mode: ch.mode }];
 					}
@@ -83,7 +86,6 @@ export default class ActorT20 extends Actor {
 			// return ['@ndtreinado','@ndsemtreino','@outros','@condi'];
 		}
 		return ["@atributo", "@outros", "@condi"];
-
 	}
 	/* -------------------------------------------- */
 
@@ -107,7 +109,6 @@ export default class ActorT20 extends Actor {
 			return ["@base", "@outros"];
 		}
 		return ["@base", "@outros"];
-
 	}
 
 	/* -------------------------------------------- */
@@ -120,7 +121,6 @@ export default class ActorT20 extends Actor {
 			return ["@base"];
 		}
 		return ["@base"];
-
 	}
 
 	/* -------------------------------------------- */
@@ -132,7 +132,6 @@ export default class ActorT20 extends Actor {
 			return ["1d20", ...this.skillFormula, "@arma"];
 		}
 		return ["1d20", ...this.skillFormula, "@arma"];
-
 	}
 
 	/* -------------------------------------------- */
@@ -217,7 +216,7 @@ export default class ActorT20 extends Actor {
 		// Loop through ability and add modifiers
 		for (let [key, ability] of Object.entries(system.atributos)) {
 			ability.name = CONFIG.T20.atributos[key];
-			ability.value = (ability.base + ability.racial + ability.bonus);
+			ability.value = ability.base + ability.racial + ability.bonus;
 		}
 	}
 
@@ -267,7 +266,7 @@ export default class ActorT20 extends Actor {
 		if (this.type === "character") {
 			this._preparePVPMTotal();
 		} else if (this.type === "npc") {
-			system.attributes.pv.min = (Math.floor(system.attributes.pv.max/2)*-1);
+			system.attributes.pv.min = Math.floor(system.attributes.pv.max / 2) * -1;
 		}
 	}
 
@@ -278,17 +277,15 @@ export default class ActorT20 extends Actor {
 	/**
 	 * Unused in favor of preparePreDerivedData & preparePosDerivedData
 	 **/
-	prepareDerivedData() {
-
-	}
+	prepareDerivedData() {}
 
 	/* -------------------------------------------- */
 	/*  Data Preparation Helpers                    */
 	/* -------------------------------------------- */
 
 	/**
-	* Prepare Character type specific data
-	*/
+	 * Prepare Character type specific data
+	 */
 	_prepareCharacterData() {
 		const system = this.system;
 		const flags = this.flags;
@@ -304,13 +301,13 @@ export default class ActorT20 extends Actor {
 
 		const nivel = this.nivel;
 		system.attributes.nivel.value = nivel;
-		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
+		system.attributes.treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
 		// Experience required for next level
 		const xp = system.attributes.nivel.xp;
 		xp.proximo = this.getLevelExp(nivel || 1);
 		const anterior = this.getLevelExp(nivel - 1 || 0);
 		const necessario = xp.proximo - anterior;
-		const pct = Math.round((xp.value - anterior) * 100 / necessario);
+		const pct = Math.round(((xp.value - anterior) * 100) / necessario);
 		xp.pct = Math.clamp(pct, 0, 100);
 	}
 
@@ -330,8 +327,8 @@ export default class ActorT20 extends Actor {
 		else system.attributes.nivel.value = Number(nd) || 1;
 		const nivel = system.attributes.nivel.value;
 
-		system.attributes.treino = (nivel > 14 ? 6 : (nivel > 6 ? 4 : 2));
-		system.attributes.meionivel = Math.floor(system.attributes.nivel.value/2);
+		system.attributes.treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
+		system.attributes.meionivel = Math.floor(system.attributes.nivel.value / 2);
 		// system.attributes.treino = crData.topskill;
 		// system.attributes.meionivel = crData.botskill;
 		// Experience Reward
@@ -363,8 +360,8 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Prepare ability score modifier
-	*/
+	 * Prepare ability score modifier
+	 */
 	static _prepareModifier(ability = {}) {
 		ability.value = Number(ability.value || 0);
 		ability.bonus = Number(ability.bonus || 0);
@@ -374,9 +371,9 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Prepare defense value.
-	* @private
-	*/
+	 * Prepare defense value.
+	 * @private
+	 */
 	_prepareDefense() {
 		const system = this.system;
 		const rollData = this.getRollData();
@@ -385,7 +382,9 @@ export default class ActorT20 extends Actor {
 		let parts = this.defenseFormula;
 		let pda = 0;
 
-		const items = this.items.filter((i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const items = this.items.filter(
+			(i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
+		);
 		const armor = items.find((i) => ["leve", "pesada"].includes(i.system.tipo));
 		const shield = items.find((i) => i.type === "equipamento" && i.system.tipo === "escudo");
 		const accessories = items.filter((i) => !["escudo", "leve", "pesada"].includes(i.system.tipo));
@@ -406,14 +405,16 @@ export default class ActorT20 extends Actor {
 		}
 		if (game.settings.get("tormenta20", "progressiveDefense")) parts.push("@meionivel");
 
-		rollData.base = this.type === "character" ? 10 : (defense.base || 10);
+		rollData.base = this.type === "character" ? 10 : defense.base || 10;
 		rollData.atributo = defense.atributo ? atributo : 0;
 		rollData.armadura = armor ? armor.system.armadura.value : 0;
 		rollData.escudo = shield ? shield.system.armadura.value : 0;
 		rollData.outros = defense.outros;
 		rollData.condi = defense.condi;
 
-		const result = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
+		const result = simplifyRollFormula(parts.join("+"), rollData, {
+			constantFirst: true
+		}).trim();
 
 		system.attributes.defesa.value = parseInt(result);
 		system.attributes.defesa.pda += -pda;
@@ -424,7 +425,9 @@ export default class ActorT20 extends Actor {
 	_prepareMovement() {
 		const system = this.system;
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
-		const items = this.items.filter((i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado));
+		const items = this.items.filter(
+			(i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
+		);
 		const armor = items.find((i) => i.system.tipo === "pesada");
 		if (armor) {
 			for (let [key, value] of Object.entries(system.attributes.movement)) {
@@ -438,9 +441,9 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Prepare skill value.
-	* @private
-	*/
+	 * Prepare skill value.
+	 * @private
+	 */
 	_prepareSkills(key, pericia, roll = false) {
 		const system = this.system;
 		// const pericia = system.pericias[key] || false;
@@ -451,7 +454,10 @@ export default class ActorT20 extends Actor {
 
 		pericia.label = pericia.label || CONFIG.T20.pericias[key] || "";
 		pericia.pda = ["acro", "furt", "ladi"].includes(key) || Boolean(pericia.label.match(/\+/g));
-		pericia.st = ["ades", "atua", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key) || Boolean(key.match(/ofi[1-9]/)) || Boolean(pericia.label.match(/\*/g));
+		pericia.st =
+			["ades", "atua", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key)
+			|| Boolean(key.match(/ofi[1-9]/))
+			|| Boolean(pericia.label.match(/\*/g));
 		pericia.custom = Boolean(key.match(/ofi[1-9]|_pc[1-9]/));
 		pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
 
@@ -466,17 +472,21 @@ export default class ActorT20 extends Actor {
 
 		let atributo = rollData[pericia.atributo];
 		rollData.atributo = atributo || 0;
-		pericia.outros ? rollData.outros = pericia.outros : parts = parts.filter((f) => f != "@outros");
-		pericia.condi ? rollData.condi = pericia.condi : parts = parts.filter((f) => f != "@condi");
+		pericia.outros ? (rollData.outros = pericia.outros) : (parts = parts.filter((f) => f != "@outros"));
+		pericia.condi ? (rollData.condi = pericia.condi) : (parts = parts.filter((f) => f != "@condi"));
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = foundry.utils.getProperty(system, "modificadores.pericias") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
-		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length) parts.push("@resistencia");
+		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length)
+			parts.push("@resistencia");
 		else if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
 		else if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
-		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length) parts.push(...bonuses.atr[pericia.atributo]);
+		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length)
+			parts.push(...bonuses.atr[pericia.atributo]);
 
-		const result = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
+		const result = simplifyRollFormula(parts.join("+"), rollData, {
+			constantFirst: true
+		}).trim();
 		if (!roll) {
 			pericia.value = parseInt(result.replace(" ", "")) || 0;
 		} else {
@@ -492,7 +502,9 @@ export default class ActorT20 extends Actor {
 		const rollData = this.getRollData();
 		for (const [key, res] of Object.entries(system.tracos.resistencias)) {
 			let parts = [res.base, ...res.bonus];
-			const result = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
+			const result = simplifyRollFormula(parts.join("+"), rollData, {
+				constantFirst: true
+			}).trim();
 			system.tracos.resistencias[key].value = Number(result) === Number.prototype ? Number(result) : result;
 		}
 	}
@@ -500,11 +512,11 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Compute the level and percentage of encumbrance for an Actor.
-	* @param {Object} system			The data object for the Actor being rendered
-	* @returns {{max: number, value: number, pct: number}}	An object describing the character's encumbrance level
-	* @private
-	*/
+	 * Compute the level and percentage of encumbrance for an Actor.
+	 * @param {Object} system			The data object for the Actor being rendered
+	 * @returns {{max: number, value: number, pct: number}}	An object describing the character's encumbrance level
+	 * @private
+	 */
 	_computeEncumbrance(system) {
 		/* FLAGS */
 		const flags = {};
@@ -519,14 +531,14 @@ export default class ActorT20 extends Actor {
 			const q = i.system.qtd || 0;
 			const w = (flags.organised && i.system.espacos === 0.5 ? 0.25 : i.system.espacos) || 0;
 			// const w = i.system.espacos || 0;
-			return weight + (q * w);
+			return weight + q * w;
 		}, 0);
 		// Get the total weight from coins (1 === 1000)
 		let coins = Object.values(system.dinheiro).reduce((a, b) => a + b);
 		weight.value = weight.value + Math.floor(coins / 1000);
 		// weight.value = Math.floor( weight.value );
 		if (["vehicle", "simple"].includes(this.type)) {
-			weight.encumbered = weight > (weight.max / 2);
+			weight.encumbered = weight > weight.max / 2;
 			weight.pct = Math.clamp((weight.value * 100) / weight.max, 0, 100);
 			return weight;
 		}
@@ -535,7 +547,9 @@ export default class ActorT20 extends Actor {
 		const parts = [weight.base, ...weight.bonus];
 		const rollData = this.getRollData();
 		// const result = simplifyRollFormula(parts.join('+'), rollData, { constantFirst: true }).trim();
-		const base = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
+		const base = simplifyRollFormula(parts.join("+"), rollData, {
+			constantFirst: true
+		}).trim();
 		const limit = (Number(base) || 10) + (atr > 0 ? atr * 2 : atr);
 		weight.limit = limit;
 		weight.max = limit * 2;
@@ -547,9 +561,9 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Prepare HP and MP max value.
-	* @private
-	*/
+	 * Prepare HP and MP max value.
+	 * @private
+	 */
 	_preparePVPMTotal() {
 		let lvlc = this.getFlag("tormenta20", "lvlconfig");
 		if (lvlc?.manual) return;
@@ -562,13 +576,16 @@ export default class ActorT20 extends Actor {
 			for (const classe of this.itemTypes.classe) {
 				let c = classe.system;
 				const initial = type === "pv" && c.inicial ? c[`${type}PorNivel`] * 3 : 0;
-				soma += Number(initial) + (Number(c.niveis) * Number(c[`${type}PorNivel`]));
+				soma += Number(initial) + Number(c.niveis) * Number(c[`${type}PorNivel`]);
 			}
-			bonus.flat.forEach((value) => soma += Number(simplifyRollFormula(value, rollData)));
-			bonus.nivel.forEach((value) => soma += (Number(simplifyRollFormula(value, rollData)) * nivel));
-			bonus.nivelPar.forEach((value) => soma += (Number(simplifyRollFormula(value, rollData)) * Math.floor(nivel / 2)));
-			bonus.nivelImpar.forEach((value) => soma += (Number(simplifyRollFormula(value, rollData)) * Math.ceil(nivel / 2)));
-			Object.entries(atributos).filter(([atr, value]) => value)
+			bonus.flat.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData))));
+			bonus.nivel.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData)) * nivel));
+			bonus.nivelPar.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData)) * Math.floor(nivel / 2)));
+			bonus.nivelImpar.forEach(
+				(value) => (soma += Number(simplifyRollFormula(value, rollData)) * Math.ceil(nivel / 2))
+			);
+			Object.entries(atributos)
+				.filter(([atr, value]) => value)
 				.forEach(([atr, value]) => {
 					const { base, racial } = this.system.atributos[atr];
 					soma += Number(base) + Number(racial);
@@ -584,10 +601,10 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Calculate HP and MP recovery by rest.
-	* @private
-	*/
-	async descanso(modificador=1, modPV=0, modPM=0, curaCP=false, curaAC=false, toChat=true) {
+	 * Calculate HP and MP recovery by rest.
+	 * @private
+	 */
+	async descanso(modificador = 1, modPV = 0, modPM = 0, curaCP = false, curaAC = false, toChat = true) {
 		let descricao = "";
 		const nivel = this.system.attributes.nivel.value;
 		let rec = {
@@ -660,9 +677,11 @@ export default class ActorT20 extends Actor {
 		}, {});
 		// Set power type modifiers (ie.: tormenta, distinction)
 		const powers = {};
-		this.items.map((m) => m.system.rolltags).flat()
+		this.items
+			.map((m) => m.system.rolltags)
+			.flat()
 			.map((f) => f.capitalize())
-			.forEach((f) => powers[f] = (powers[f] ?? 0) +1);
+			.forEach((f) => (powers[f] = (powers[f] ?? 0) + 1));
 
 		for (let [k, v] of Object.entries(powers)) {
 			powers[`${k}2`] = Math.floor((v - 1) / 2);
@@ -727,10 +746,10 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Return the amount of experience granted by killing a creature of a certain CR.
-	* @param cr {Number}		 The creature's challenge rating
-	* @return {Number}			 The amount of experience granted per kill
-	*/
+	 * Return the amount of experience granted by killing a creature of a certain CR.
+	 * @param cr {Number}		 The creature's challenge rating
+	 * @return {Number}			 The amount of experience granted per kill
+	 */
 	getCRExp(cr) {
 		if (["S", "S+"].includes(cr)) return 20 * 1000;
 		else if (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(cr)) return 1000 * cr.toFixed(3);
@@ -740,16 +759,19 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Add a list of itens to the actor
-	* TODO at Advancement
-	* @param {Array.<ItemT20>} itens - The itens being added to the Actor;
-	* @returns {Promise<ItemT20[]>}
-	**/
+	 * Add a list of itens to the actor
+	 * TODO at Advancement
+	 * @param {Array.<ItemT20>} itens - The itens being added to the Actor;
+	 * @returns {Promise<ItemT20[]>}
+	 **/
 	async addEmbeddedItems(items) {
 		let itemsToAdd = items;
 		if (itemsToAdd.length === 0) return;
 		// create the selected items with this actor as parent
-		return ItemT20.createDocuments(itemsToAdd.map((i) => i.toJSON()), { parent: this });
+		return ItemT20.createDocuments(
+			itemsToAdd.map((i) => i.toJSON()),
+			{ parent: this }
+		);
 	}
 
 	/**
@@ -818,7 +840,7 @@ export default class ActorT20 extends Actor {
 					// UPDATE ABILITIES TO GOTY
 					for (let [key, ability] of Object.entries(this._source.system.atributos)) {
 						updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
-						if (ability.bonus !== 0) updateData[`system.atributos.${key}.bonus`] = ability.bonus/2;
+						if (ability.bonus !== 0) updateData[`system.atributos.${key}.bonus`] = ability.bonus / 2;
 					}
 					// UPDATE NPC DEFENSE TO GOTY
 					if (this.type === "npc") {
@@ -842,7 +864,9 @@ export default class ActorT20 extends Actor {
 		// console.log(foundry.utils.flattenObject(changed));
 		await super._preUpdate(changed, options, user);
 		if ("pv" in (this.system.attributes || {})) {
-			foundry.utils.setProperty(options, "tormenta20.pv", { ...this.system.attributes.pv });
+			foundry.utils.setProperty(options, "tormenta20.pv", {
+				...this.system.attributes.pv
+			});
 		}
 	}
 
@@ -854,7 +878,7 @@ export default class ActorT20 extends Actor {
 		/* Check Encumbered Status and Add/Remove its ActiveEffect */
 		if (game.userId === userId) this._checkEncumbered();
 
-		const { pv } = (options?.tormenta20 || {});
+		const { pv } = options?.tormenta20 || {};
 		if (pv) {
 			const curr = this.system.attributes.pv;
 			const changes = {
@@ -862,12 +886,12 @@ export default class ActorT20 extends Actor {
 				temp: curr.temp - pv.temp
 			};
 			changes.total = changes.pv + changes.temp;
-			if (Number.isInteger(changes.total) && (changes.total !== 0)) this._displayTokenEffect(changes);
+			if (Number.isInteger(changes.total) && changes.total !== 0) this._displayTokenEffect(changes);
 		}
 	}
 
 	_checkEncumbered() {
-		if (this.type=="character") {
+		if (this.type == "character") {
 			const ef = this.effects.find((ef) => ef.statuses.has("sobrecarregado"));
 			const wasEncumbered = Boolean(ef);
 			const isEncumbered = this.system.attributes?.carga?.encumbered;
@@ -879,7 +903,6 @@ export default class ActorT20 extends Actor {
 				}
 			}
 		}
-
 	}
 
 	/* -------------------------------------------- */
@@ -887,7 +910,6 @@ export default class ActorT20 extends Actor {
 	/** @inheritdoc */
 	_onCreate(data, options, userId) {
 		super._onCreate(data, options, userId);
-
 	}
 
 	/* -------------------------------------------- */
@@ -927,7 +949,7 @@ export default class ActorT20 extends Actor {
 					choices.push(choice);
 				}
 			}
-			if (!foundry.utils.isEmpty(choices) && (userId === game.userId)) {
+			if (!foundry.utils.isEmpty(choices) && userId === game.userId) {
 				let chosen = await ChoicesDialog.create(choices, this);
 				chosen = foundry.utils.expandObject(chosen);
 				for (let [id, c] of Object.entries(chosen)) {
@@ -948,10 +970,11 @@ export default class ActorT20 extends Actor {
 	async modifyTokenAttribute(attribute, value, isDelta, isBar) {
 		if (attribute === "attributes.pv" || attribute === "attributes.pm") {
 			const hp = foundry.utils.getProperty(this.system, attribute);
-			const delta = isDelta ? (-1 * value) : (hp.value + hp.temp) - value;
+			const delta = isDelta ? -1 * value : hp.value + hp.temp - value;
 			if (attribute === "attributes.pm") {
 				return this.spendMana(delta);
-			} return this.applyDamage(delta);
+			}
+			return this.applyDamage(delta);
 		}
 		return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
 	}
@@ -959,16 +982,17 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Apply a certain amount of damage or healing to the health pool for Actor
-	* @param {number} amount			 An amount of damage (positive) or healing (negative) to sustain
-	* @param {number} multiplier	 A multiplier which allows for resistance, vulnerability, or healing
-	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
-	*/
+	 * Apply a certain amount of damage or healing to the health pool for Actor
+	 * @param {number} amount			 An amount of damage (positive) or healing (negative) to sustain
+	 * @param {number} multiplier	 A multiplier which allows for resistance, vulnerability, or healing
+	 * @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
+	 */
 	async applyDamageV2(roll, multiplier = 1) {
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
-		const rdsEx = Object.entries(rds).filter((i) => i[1].excecao)
+		const rdsEx = Object.entries(rds)
+			.filter((i) => i[1].excecao)
 			.reduce((acc, [key, value]) => (acc[key] = value.excecao), {});
 
 		const PCVuln = this.type === "character";
@@ -986,7 +1010,6 @@ export default class ActorT20 extends Actor {
 					if (t.faces && PCVuln && rds[dType] && rds[dType].vulnerabilidade) {
 						acc[dType].vuln += t.number;
 					}
-
 				}
 				return acc;
 			}, {});
@@ -1041,11 +1064,11 @@ export default class ActorT20 extends Actor {
 				}
 				dmg.value = rds[type]?.imunidade ? 0 : dmg.value;
 				dmg.vuln = rds[type]?.imunidade ? 0 : dmg.vuln;
-				let acc = Math.max((dmg.value + dmg.vuln) - r, 0);
+				let acc = Math.max(dmg.value + dmg.vuln - r, 0);
 				dmg.final = acc;
 				dmg.rd = r;
 
-				final.total += Math.max((dmg.value + dmg.vuln), 0);
+				final.total += Math.max(dmg.value + dmg.vuln, 0);
 				final.damage += acc;
 			}
 		}
@@ -1081,14 +1104,16 @@ export default class ActorT20 extends Actor {
 	}
 
 	async displayDamageCard(dmgParts, final, show) {
-
 		let label = {
-			damage: "T20.HP", mana: "T20.MP", tempHP: "T20.HealingTemp", tempMP: "T20.ManaTemp"
+			damage: "T20.HP",
+			mana: "T20.MP",
+			tempHP: "T20.HealingTemp",
+			tempMP: "T20.ManaTemp"
 		};
 		let chatDamage = {};
 		for (let [type, value] of Object.entries(final)) {
 			if (type === "total") chatDamage.total = value * -1;
-			if (type != "total" && (type != "damage" && value != 0)) {
+			if (type != "total" && type != "damage" && value != 0) {
 				chatDamage.type = type;
 				chatDamage.label = label[type];
 				chatDamage.value = value *= -1;
@@ -1157,12 +1182,16 @@ export default class ActorT20 extends Actor {
 
 		// Delegate damage application to a hook
 		// TODO replace this in the future with a better modifyTokenAttribute function in the core
-		const allowed = Hooks.call("modifyTokenAttribute", {
-			attribute: "attributes.pv",
-			value: amount,
-			isDelta: false,
-			isBar: true
-		}, updates);
+		const allowed = Hooks.call(
+			"modifyTokenAttribute",
+			{
+				attribute: "attributes.pv",
+				value: amount,
+				isDelta: false,
+				isBar: true
+			},
+			updates
+		);
 
 		return allowed !== false ? this.update(updates) : this;
 	}
@@ -1170,11 +1199,11 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Spend or recover mana points for Actor
-	* @param {number} amount			 An amount of spent (positive) or recover (negative) mana points
-	* @param {number} adjust			 A adjust for the value due to specific conditions
-	* @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
-	*/
+	 * Spend or recover mana points for Actor
+	 * @param {number} amount			 An amount of spent (positive) or recover (negative) mana points
+	 * @param {number} adjust			 A adjust for the value due to specific conditions
+	 * @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
+	 */
 	async spendMana(amount = 0, adjust = 0, recover) {
 		let spendMana = 0;
 		let tmpPMspend;
@@ -1212,15 +1241,14 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Roll Teste de Perícia
-	* @param {String} key  The skill ID (e.g. "cura")
-	* @param {Object} options    Options which configure how skill tests are rolled
-	* @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
-	*/
+	 * Roll Teste de Perícia
+	 * @param {String} key  The skill ID (e.g. "cura")
+	 * @param {Object} options    Options which configure how skill tests are rolled
+	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
+	 */
 	async rollPericia(key, options = { message: true }) {
 		const actor = this;
-		const cloneActor = await this.clone({ name: `${this.name} (Temp)` },
-			{ save: false, keepId: true });
+		const cloneActor = await this.clone({ name: `${this.name} (Temp)` }, { save: false, keepId: true });
 		let pericia = foundry.utils.deepClone(cloneActor.system.pericias[key]);
 		const ad = cloneActor.system;
 		const event = options.event;
@@ -1239,7 +1267,7 @@ export default class ActorT20 extends Actor {
 		};
 		itemData = foundry.utils.mergeObject(itemData, pericia);
 		let parts = cloneActor._prepareSkills(key, pericia, true);
-		parts = parts.map((i) => typeof i === "string" ? i.replace(/^\+/, "") : i);
+		parts = parts.map((i) => (typeof i === "string" ? i.replace(/^\+/, "") : i));
 		itemData.parts = parts.filter(Boolean);
 		let needsConfiguration;
 
@@ -1247,7 +1275,7 @@ export default class ActorT20 extends Actor {
 		if (UsageConfig === "default") {
 			needsConfiguration = !(options.event?.shiftKey ?? false);
 		} else {
-			needsConfiguration = (options.event?.shiftKey ?? false);
+			needsConfiguration = options.event?.shiftKey ?? false;
 		}
 		let configuration = {};
 		if (needsConfiguration) {
@@ -1257,7 +1285,9 @@ export default class ActorT20 extends Actor {
 
 			rollMode = configuration.rollMode;
 		} else {
-			let active = cloneActor.effects.filter((ef) => ef.getFlag("tormenta20", "onuse") && ef.getFlag("tormenta20", "pericia") && !ef.disabled);
+			let active = cloneActor.effects.filter(
+				(ef) => ef.getFlag("tormenta20", "onuse") && ef.getFlag("tormenta20", "pericia") && !ef.disabled
+			);
 			configuration.aprs = active.reduce((o, ef) => {
 				o[ef.id] = { aplica: 1, custo: ef.flags.tormenta20.custo };
 				return o;
@@ -1268,14 +1298,19 @@ export default class ActorT20 extends Actor {
 		rConfig.itemData = itemData;
 
 		// Compose roll options
-		const rollConfig = foundry.utils.mergeObject({
-			parts: rConfig.itemData?.parts.map((i) => typeof i === "string" ? i.replace(/^\+| /, "") : i).filter(Boolean) || [],
-			actor: cloneActor,
-			event: event,
-			data: this.getRollData(),
-			title: itemData.label,
-			flavor: itemData.label
-		}, rConfig);
+		const rollConfig = foundry.utils.mergeObject(
+			{
+				parts:
+					rConfig.itemData?.parts.map((i) => (typeof i === "string" ? i.replace(/^\+| /, "") : i)).filter(Boolean)
+					|| [],
+				actor: cloneActor,
+				event: event,
+				data: this.getRollData(),
+				title: itemData.label,
+				flavor: itemData.label
+			},
+			rConfig
+		);
 
 		let toInitiative = function () {
 			let combatente;
@@ -1283,15 +1318,13 @@ export default class ActorT20 extends Actor {
 				let combate = game.combats.active;
 				if (pericia.label === "Iniciativa" && combate) {
 					let roll = rConfig.itemData.rolled;
-					let combatente = combate.combatants.find(
-						(combatant) => combatant.actor.id === actor.id
-					);
+					let combatente = combate.combatants.find((combatant) => combatant.actor.id === actor.id);
 					if (combatente && combatente.initiative === null) {
 						combate.setInitiative(combatente.id, roll.total);
 						console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
 					}
 				}
-			} catch(error) {
+			} catch (error) {
 				console.warn(`Foundry VTT | Erro ao adicionar a Iniciativa, ${combatente._id} (${combatente.actor.name})`);
 			}
 		};
@@ -1316,17 +1349,16 @@ export default class ActorT20 extends Actor {
 			return this.displayCard({ options, rollMode });
 		}
 		return await d20Roll(rollConfig);
-
 	}
 
 	/* -------------------------------------------- */
 
 	/**
-	* Roll Teste de Atributo
-	* @param {String} abilityId  The ability ID (e.g. "for")
-	* @param {Object} options    Options which configure how ability tests are rolled
-	* @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
-	*/
+	 * Roll Teste de Atributo
+	 * @param {String} abilityId  The ability ID (e.g. "for")
+	 * @param {Object} options    Options which configure how ability tests are rolled
+	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
+	 */
 	async rollAtributo(key, options = { message: true }) {
 		const label = CONFIG.T20.atributos[key];
 		const abl = this.system.atributos[key];
@@ -1368,7 +1400,7 @@ export default class ActorT20 extends Actor {
 		if (UsageConfig === "default") {
 			needsConfiguration = !(options.event?.shiftKey ?? false);
 		} else {
-			needsConfiguration = (options.event?.shiftKey ?? false);
+			needsConfiguration = options.event?.shiftKey ?? false;
 		}
 		let configuration = {};
 		if (needsConfiguration) {
@@ -1381,7 +1413,9 @@ export default class ActorT20 extends Actor {
 		}
 		// Aways Active Effect
 		else {
-			let active = this.effects.filter((ef) => ef.getFlag("tormenta20", "onuse") && ef.getFlag("tormenta20", "atributo") && !ef.disabled);
+			let active = this.effects.filter(
+				(ef) => ef.getFlag("tormenta20", "onuse") && ef.getFlag("tormenta20", "atributo") && !ef.disabled
+			);
 			configuration.aprs = active.reduce((o, ef) => {
 				o[ef.id] = { aplica: 1, custo: ef.flags.tormenta20.custo };
 				return o;
@@ -1390,14 +1424,17 @@ export default class ActorT20 extends Actor {
 		}
 		rConfig.itemData = itemData;
 		// rollData
-		const rollConfig = foundry.utils.mergeObject({
-			parts: parts.filter(Boolean),
-			data: this.getRollData(),
-			event: event,
-			title: game.i18n.format("T20.AbilityPromptTitle", { atributo: label }),
-			flavor: game.i18n.localize("T20.AbilityCheck"),
-			messageData: { "flags.tormenta20.roll": { type: "ability", key } }
-		}, rConfig);
+		const rollConfig = foundry.utils.mergeObject(
+			{
+				parts: parts.filter(Boolean),
+				data: this.getRollData(),
+				event: event,
+				title: game.i18n.format("T20.AbilityPromptTitle", { atributo: label }),
+				flavor: game.i18n.localize("T20.AbilityCheck"),
+				messageData: { "flags.tormenta20.roll": { type: "ability", key } }
+			},
+			rConfig
+		);
 
 		const autoSpendMana = game.settings.get("tormenta20", "automaticManaSpend");
 		let consumeMana = 0;
@@ -1418,7 +1455,6 @@ export default class ActorT20 extends Actor {
 			return this.displayCard({ options, rollMode });
 		}
 		return await d20Roll(rollConfig);
-
 	}
 
 	/* -------------------------------------------- */
@@ -1432,12 +1468,12 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	* Display the chat card for an Item as a Chat Message
-	* @param {object} options          Options which configure the display of the item chat card
-	* @param {string} rollMode         The message visibility mode to apply to the created card
-	* @param {boolean} createMessage   Whether to automatically create a ChatMessage entity (if true), or only return
-	*                                  the prepared message data (if false)
-	*/
+	 * Display the chat card for an Item as a Chat Message
+	 * @param {object} options          Options which configure the display of the item chat card
+	 * @param {string} rollMode         The message visibility mode to apply to the created card
+	 * @param {boolean} createMessage   Whether to automatically create a ChatMessage entity (if true), or only return
+	 *                                  the prepared message data (if false)
+	 */
 	async displayCard({ options, rollMode, createMessage = true } = {}) {
 		// Basic template rendering data
 		const token = this.getActiveTokens()[0] ?? null;
@@ -1493,7 +1529,6 @@ export default class ActorT20 extends Actor {
 			return await ChatMessage.create(chatData);
 		}
 		return chatData;
-
 	}
 
 	/**
@@ -1530,7 +1565,7 @@ export default class ActorT20 extends Actor {
 			canvas.interface.createScrollingText(t.center, value.signedString(), {
 				anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
 				// Adapt the font size relative to the Actor's HP total to emphasize more significant blows
-				fontSize: 16 + (32 * pct), // Range between [16, 48]
+				fontSize: 16 + 32 * pct, // Range between [16, 48]
 				fill,
 				stroke: 0x000000,
 				strokeThickness: 4,

@@ -1,4 +1,3 @@
-
 /**
  * An extension of the base CombatTracker class to provide some Tormenta20-specific functionality.
  * @extends {CombatTracker}
@@ -10,10 +9,10 @@ export default class CombatTrackerT20 extends CombatTracker {
 		const btn = event.currentTarget;
 		const combatantId = btn.closest(".combatant").dataset.combatantId;
 		const combatant = this.viewed.combatants.get(combatantId);
-		if ((btn.dataset.control === "rollInitiative") && combatant?.actor) return combatant.actor.rollInitiativeDialog();
+		if (btn.dataset.control === "rollInitiative" && combatant?.actor) return combatant.actor.rollInitiativeDialog();
 	}
 
-	async getData(options={}) {
+	async getData(options = {}) {
 		const context = await super.getData(options);
 		await this.calculateNDEncontro(context);
 		return context;
@@ -55,19 +54,16 @@ export default class CombatTrackerT20 extends CombatTracker {
 		// SINGLE CREATURE
 		if (ndsValues.length == 1) {
 			this.encontro.nd = ndsValues[0];
-
 		}
 		// MULTIPLE CREATURE SAME ND
 		else if (ndsValues.every((nd) => nd == ndsValues[0])) {
 			this.encontro.nd = ndsValues[0] + this.getNDDobro(ndsValues.length);
-
 		}
 		// MULTIPLE CREATURE DIFFERENT ND GROUPS WITH SINGLE
 		else if (Math.max(..._ndsGroups.map((nd) => nd.qty)) == 1) {
 			const base = Math.max(...ndsValues);
 			const diff = this.getNDDistance(base, ndsValues);
 			this.encontro.nd = Math.floor(base + diff);
-
 		}
 		// MULTIPLE CREATURE DIFFERENT ND GROUPS WITH MULTIPLE
 		else if (Math.max(..._ndsGroups.map((nd) => nd.qty)) > 1) {
@@ -90,7 +86,6 @@ export default class CombatTrackerT20 extends CombatTracker {
 			const base = Math.max(...ndsValues2);
 			const diff = this.getNDDistance(base, _ndsGroups2);
 			this.encontro.nd = Math.floor(base + diff);
-
 		}
 	}
 
@@ -175,7 +170,6 @@ export default class CombatTrackerT20 extends CombatTracker {
 			else this.encontro.nd += 0;
 		}
 		this.encontro.nd = Math.floor(this.encontro.nd);
-
 	}
 
 	calculateSingle(npcs) {
@@ -202,5 +196,4 @@ export default class CombatTrackerT20 extends CombatTracker {
 		}
 		return groupedNds;
 	}
-
 }

@@ -29,6 +29,5 @@ export default class AbilityCalculator extends FormApplication {
 
 	async _updateObject(event, formData) {
 		const data = foundry.utils.expandObject(formData);
-
 	}
 }

@@ -26,23 +26,24 @@ export function registerHandlebarsHelpers() {
 				const abl = actor.system.atributos[key];
 				listEffects = [
 					{ label: "Base", value: abl.base },
-					(abl.racial ? { label: "Racial", value: abl.racial } : false),
-					(abl.bonus ? { label: "Bônus Temporário", value: abl.bonus } : false),
-					...(modFields[path]??[])
+					abl.racial ? { label: "Racial", value: abl.racial } : false,
+					abl.bonus ? { label: "Bônus Temporário", value: abl.bonus } : false,
+					...(modFields[path] ?? [])
 				];
 				break;
 			}
 			case "pv":
 			case "pm": {
 				const level = actor.system.attributes.nivel.value;
-				const classes = actor.items.filter((i) => i.type === "classe")
+				const classes = actor.items
+					.filter((i) => i.type === "classe")
 					.map((c) => {
 						const initialHP = type === "pv" && c.system.inicial ? c.system.pvPorNivel * 3 : 0;
 						const levelCount = Number(c.system.niveis);
 						const porNivel = Number(c.system[`${type}PorNivel`]);
 						return {
 							label: `${c.name} ${levelCount}`,
-							[type]: initialHP + (levelCount * porNivel)
+							[type]: initialHP + levelCount * porNivel
 						};
 					});
 				const atr = Object.entries(actor.system.atributos)
@@ -51,12 +52,26 @@ export function registerHandlebarsHelpers() {
 						const value = key === "con" && type === "pv" ? level * data.value : data.value;
 						return [data.name, value];
 					});
-				const bonusNivel = modFields[`system.attributes.${type}.bonus.nivel`]
-					?.map(({ label, mode, value }) => ({ label, mode, value, multiplier: level }));
-				const bonusNivelPar = modFields[`system.attributes.${type}.bonus.nivelPar`]
-					?.map(({ label, mode, value }) => ({ label, mode, value, multiplier: Math.floor(level / 2) }));
-				const bonusNivelImpar = modFields[`system.attributes.${type}.bonus.nivelImpar`]
-					?.map(({ label, mode, value }) => ({ label, mode, value, multiplier: Math.ceil(level / 2) }));
+				const bonusNivel = modFields[`system.attributes.${type}.bonus.nivel`]?.map(({ label, mode, value }) => ({
+					label,
+					mode,
+					value,
+					multiplier: level
+				}));
+				const bonusNivelPar = modFields[`system.attributes.${type}.bonus.nivelPar`]?.map(({ label, mode, value }) => ({
+					label,
+					mode,
+					value,
+					multiplier: Math.floor(level / 2)
+				}));
+				const bonusNivelImpar = modFields[`system.attributes.${type}.bonus.nivelImpar`]?.map(
+					({ label, mode, value }) => ({
+						label,
+						mode,
+						value,
+						multiplier: Math.ceil(level / 2)
+					})
+				);
 				listEffects = [
 					...classes.map((c) => ({ label: c.label, value: c[type] })),
 					...atr.map(([label, value]) => ({ label, value })),
@@ -74,22 +89,27 @@ export function registerHandlebarsHelpers() {
 				const meioNivel = rollData.meionivel;
 				const treino = rollData.treino;
 				listEffects = [
-					(meioNivel ? { label: "Metade do Nível", value: meioNivel } : false),
-					(skill.treinado ? { label: "Treino", value: treino } : false),
-					{ label: CONFIG.T20.atributos[skill.atributo], value: rollData[skill.atributo] },
-					(skill.outros ? { label: "Outros", value: skill.outros } : false),
-					(skill.size ? { label: "Tamanho", value: rollData.tamanho } : false),
-					(skill.condi ? { label: "Condição", value: skill.condi } : false),
-					(skill.pda && actor.pda ? { label: "Penalidade de Armadura", value: actor.pda } : false),
+					meioNivel ? { label: "Metade do Nível", value: meioNivel } : false,
+					skill.treinado ? { label: "Treino", value: treino } : false,
+					{
+						label: CONFIG.T20.atributos[skill.atributo],
+						value: rollData[skill.atributo]
+					},
+					skill.outros ? { label: "Outros", value: skill.outros } : false,
+					skill.size ? { label: "Tamanho", value: rollData.tamanho } : false,
+					skill.condi ? { label: "Condição", value: skill.condi } : false,
+					skill.pda && actor.pda ? { label: "Penalidade de Armadura", value: actor.pda } : false,
 
 					...(modFields["system.modificadores.pericias.geral"] ?? []),
-					...(["luta", "pont"].includes(key) ? modFields["system.modificadores.pericias.ataque"]??[] : []),
-					...(["fort", "refl", "vont"].includes(key) ? modFields["system.modificadores.pericias.resistencia"]??[] : []),
-					...(!["luta", "pont"].includes(key) ? modFields["system.modificadores.pericias.semataque"]??[] : []),
+					...(["luta", "pont"].includes(key) ? (modFields["system.modificadores.pericias.ataque"] ?? []) : []),
+					...(["fort", "refl", "vont"].includes(key)
+						? (modFields["system.modificadores.pericias.resistencia"] ?? [])
+						: []),
+					...(!["luta", "pont"].includes(key) ? (modFields["system.modificadores.pericias.semataque"] ?? []) : []),
 
 					...(modFields[`system.modificadores.pericias.atr.${skill.atributo}`] ?? []),
 
-					...(modFields[path]??[])
+					...(modFields[path] ?? [])
 				];
 				break;
 			}
@@ -110,15 +130,18 @@ export function registerHandlebarsHelpers() {
 				const meioNivel = game.settings.get("tormenta20", "progressiveDefense") ? rollData.meionivel : 0;
 				listEffects = [
 					{ label: "Base", value: defesa.base },
-					(meioNivel ? { label: "Metade do Nível", value: meioNivel } : false),
-					(defesa.atributo && !armaduraPesada
-						? { label: CONFIG.T20.atributos[defesa.atributo], value: rollData[defesa.atributo] }
-						: false),
+					meioNivel ? { label: "Metade do Nível", value: meioNivel } : false,
+					defesa.atributo && !armaduraPesada
+						? {
+								label: CONFIG.T20.atributos[defesa.atributo],
+								value: rollData[defesa.atributo]
+							}
+						: false,
 					...armaduras,
-					(defesa.outros ? { label: "Outros", value: defesa.outros } : false),
+					defesa.outros ? { label: "Outros", value: defesa.outros } : false,
 					// (rollData.armadura ? { label: "Armadura", value: rollData.armadura } : false),
 					// (rollData.escudo ? { label: "Escudo", value: rollData.escudo } : false),
-					...(modFields[path]??[])
+					...(modFields[path] ?? [])
 				];
 				break;
 			}
@@ -165,17 +188,15 @@ export function registerHandlebarsHelpers() {
 		return JSON.stringify(str);
 	});
 
-	Handlebars.registerHelper("conditionTip",
-		function (context, condition, options) {
-			let ret = "";
-			for (let prop in context) {
-				if (condition === prop) {
-					ret = `${ret} ${context[prop].tooltip}`;
-				}
+	Handlebars.registerHelper("conditionTip", function (context, condition, options) {
+		let ret = "";
+		for (let prop in context) {
+			if (condition === prop) {
+				ret = `${ret} ${context[prop].tooltip}`;
 			}
-			return ret;
 		}
-	);
+		return ret;
+	});
 	Handlebars.registerHelper("stripTags", function (str) {
 		return str.replace(/<[^>]*>?/gm, "");
 	});
@@ -196,16 +217,16 @@ export function registerHandlebarsHelpers() {
 		return a * b;
 	});
 
-	Handlebars.registerHelper("find", function (arr, key, value, flat=false) {
+	Handlebars.registerHelper("find", function (arr, key, value, flat = false) {
 		if (flat) return !!arr.find((i) => foundry.utils.flattenObject(i)[key] === value);
 		return !!arr.find((i) => i[key] === value);
 	});
 
 	Handlebars.registerHelper("ift", function (v, rtrue, rfalse) {
-		return (v ? rtrue : rfalse);
+		return v ? rtrue : rfalse;
 	});
 
-	Handlebars.registerHelper("includes", function (v, choices=[]) {
+	Handlebars.registerHelper("includes", function (v, choices = []) {
 		return choices.includes(v);
 	});
 
@@ -214,7 +235,8 @@ export function registerHandlebarsHelpers() {
 	 * @returns {Handlebars.SafeString}
 	 */
 	Handlebars.registerHelper("t20-classes", function (items) {
-		const classes = items.filter((i) => i.type === "classe")
+		const classes = items
+			.filter((i) => i.type === "classe")
 			.sort((a, b) => (b.system.inicial || 0) - (a.system.inicial || 0))
 			.map(function (i) {
 				return {
