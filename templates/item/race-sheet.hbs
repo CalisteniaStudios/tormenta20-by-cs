@@ -28,7 +28,13 @@
 			<div class="form-group">
 				<label>{{ localize "T20.AbilityFreeChoice" }}</label>
 				<div class="flexrow">
-					{{#each system.atributosEscolhaLivre as |atr key|}}
+					<input type="text"
+						style="flex-basis: 100%;"
+						name="system.atributos.atributosEscolhaLivre.description"
+						placeholder="Ex: Escolha 3 atributos"
+						value="{{system.atributos.atributosEscolhaLivre.description}}"
+					/>
+					{{#each system.atributosEscolhaLivre.atributos as |atr key|}}
 					<div style="flex-basis: 33%">
 						<label>{{localize (lookup ../config.atributos key)}}</label>
 						<input type="checkbox" name="system.atributosEscolhaLivre.{{key}}" {{checked atr}} />

@@ -14,10 +14,13 @@ export default class RaceData extends IdentityData {
 						required: true, nullable: false, initial: 0, min: -5
 					})])
 				)),
-			atributosEscolhaLivre: new fields.SchemaField(
-				Object.fromEntries(
-					Object.keys(T20.atributos).map((abl) => [abl, new fields.BooleanField()])
-				)),
+			atributosEscolhaLivre: new fields.SchemaField({
+				atributos: new fields.SchemaField(
+					Object.fromEntries(
+						Object.keys(T20.atributos).map((abl) => [abl, new fields.BooleanField()])
+					)),
+				description: new fields.StringField({ required: true, nullable: false, initial: "" })
+			}),
 			movement: new fields.EmbeddedDataField(_fields.MovementData),
 			tamanho: new fields.StringField({ required: true, nullable: false, choices: Object.keys(T20.actorSizes), initial: "med", label: "T20.TraitActorSize", hint: "T20.TraitActorSizeHint" })
 			// progressao: new _fields.MappingField(),
