@@ -733,7 +733,7 @@ export default class ActorT20 extends Actor {
 	*/
 	getCRExp(cr) {
 		if (["S", "S+"].includes(cr)) return 20 * 1000;
-		else if (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(cr)) return 1000 * eval(cr).toFixed(3);
+		else if (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(cr)) return 1000 * cr.toFixed(3);
 		(Number(cr) || 0) * 1000;
 	}
 

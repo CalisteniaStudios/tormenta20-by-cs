@@ -297,11 +297,8 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 	// MULTIPLY CHANGES
 	else if (ch.mode == 1) {
 		if (Number(ch.value)) {
-			let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
-			if (Number(temp)) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qty);
-			else if (temp) {
-				temp.replace(/\d+/, (match) => Number(match)*(Number(ch.value)*qty));
-			}
+			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
+			if (Number.isNumeric(temp)) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qty);
 		}
 	}
 	// ADD CHANGES
@@ -313,12 +310,9 @@ const applyItemChanges = (ch, qty, ef, item, id) => {
 			let n3 = `${Number(n1) + (Number(n2) * qty)}`;
 			_campos[ch.key] = id.area.replace(n1.replace(".", ","), n3);
 		} else if (Number(ch.value)) {
-			let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
-			if (Number.isNumeric(Number(temp))) {
+			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
+			if (Number.isNumeric(temp)) {
 				_campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qty);
-			} else if (temp !== false) {
-				temp = temp.replace(/\d+/, (match) => Number(match)+(Number(ch.value)*qty));
-				_campos[campos[ch.key][0]] = temp;
 			}
 		}
 	}
@@ -361,27 +355,21 @@ const applyActorChanges = (ch, qty, ef, item, id, ad) => {
 	// MULTIPLY CHANGES
 	else if (ch.mode == 1) {
 		if (Number(ch.value)) {
-			let temp = eval(`item.${campos[ch.key][0]}`) ?? false;
+			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
 			if (Number(temp)) _campos[campos[ch.key][0]] = Number(temp)* (Number(ch.value)*qty);
-			else if (temp) {
-				temp.replace(/\d+/, (match) => Number(match)*(Number(ch.value)*qty));
-			}
 		}
 	}
 	// ADD CHANGES
 	else if (ch.mode == 2) {
 		if (Number(ch.value)) {
-			let temp = eval(`id.${campos[ch.key][0]}`) ?? false;
+			const temp = foundry.utils.getProperty(id, campos[ch.key][0]);
 			if (Number(temp)) _campos[campos[ch.key][0]] = Number(temp)+ (Number(ch.value)*qty);
-			else if (temp) {
-				temp.replace(/\d+/, (match) => Number(match)+(Number(ch.value)*qty));
-			}
 		}
 	}
 	// OVERRIDE CHANGES
 	else if (ch.mode == 5) {
 		if (ch.key == "treinado") {
-			_campos.treino = !eval(ch.value)? 0 : ad.attributes.treino;
+			_campos.treino = !ch.value ? 0 : ad.attributes.treino;
 		} else if (campos[ch.key]) _campos[campos[ch.key][0]] = ch.value;
 
 	}
