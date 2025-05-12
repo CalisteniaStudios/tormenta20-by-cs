@@ -144,6 +144,8 @@
   "T20.AbilityModifier": "Modificador",
   "T20.AbilityModifierAbbr": "Mod.",
   "T20.AbilityModifierBonus": "Mod. de Atributo",
+  "T20.AbilityFreeChoice": "Escolha Livre",
+  "T20.AbilityFreeChoiceHint": "Atributos que podem ser escolhidos pelo jogador para serem aumentados em +1.",
 
   "T20.AbilityPromptText": "???",
   "T20.AbilityPromptTitle": "Teste de Atributo {atributo}",
