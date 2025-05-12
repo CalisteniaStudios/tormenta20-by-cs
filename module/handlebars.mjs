@@ -255,7 +255,7 @@ export function registerHandlebarsHelpers() {
 	 * @returns {Handlebars.SafeString}
 	 */
 	Handlebars.registerHelper("t20-rollFlavor", function (label) {
-		return new Handlebars.SafeString(CONFIG.T20.damageTypes[label] ?? label);
+		return new Handlebars.SafeString(CONFIG.T20.damageTypes[label] ?? T20.healingTypes[label] ?? label);
 	});
 
 	/**
