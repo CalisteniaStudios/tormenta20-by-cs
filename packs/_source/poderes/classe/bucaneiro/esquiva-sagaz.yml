@@ -7,11 +7,11 @@ effects:
     changes:
       - key: system.attributes.defesa.bonus
         mode: 2
-        value: '1'
+        value: floor((@nvl.bucaneiro - 3)/4 + 1)
         priority: null
-      - key: system.atributos.refl.bonus
+      - key: system.pericias.refl.bonus
         mode: 2
-        value: '1'
+        value: floor((@nvl.bucaneiro - 3)/4 + 1)
         priority: null
     disabled: false
     duration:
@@ -28,14 +28,25 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
-    tint: '#ffffff'
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ""
+        aumenta: false
+        custo: ""
+    tint: "#ffffff"
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      coreVersion: "13.342"
+      systemId: tormenta20
+      systemVersion: 1.4.214
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1747113150028
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -43,10 +54,10 @@ effects:
     img: systems/tormenta20/icons/poderes/classes/especialistas/esquiva-sagaz.webp
     type: base
     system: {}
-    description: ''
+    description: ""
     statuses: []
     sort: 0
-    _key: '!items.effects!i98ipNXoK3Uw17HX.qpSrtUIVTUtWEQwF'
+    _key: "!items.effects!i98ipNXoK3Uw17HX.qpSrtUIVTUtWEQwF"
 folder: 86kIqRb842xHRnBV
 sort: 0
 flags:
@@ -60,58 +71,57 @@ system:
       habilidade exige liberdade de movimentos; voc&ecirc; n&atilde;o pode
       us&aacute;-la se estiver de armadura pesada ou na condi&ccedil;&atilde;o
       im&oacute;vel.</p>
-    chat: ''
-    unidentified: ''
+    chat: ""
+    unidentified: ""
   source: T20, pg. 48 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
-    qtd: ''
-    condicao: ''
-    special: ''
+    qtd: ""
+    condicao: ""
+    special: ""
   duracao:
     value: 0
-    units: ''
-    special: ''
+    units: ""
+    special: ""
   target:
     value: null
     width: null
-    units: ''
-    type: ''
+    units: ""
+    type: ""
   range:
     value: null
-    units: ''
+    units: ""
   consume:
-    type: ''
-    target: ''
+    type: ""
+    target: ""
     amount: null
     mpMultiplier: false
-  efeito: ''
+  efeito: ""
   alcance: none
-  alvo: ''
-  area: ''
+  alvo: ""
+  area: ""
   resistencia:
-    pericia: ''
+    pericia: ""
     atributo: sab
     bonus: 0
-    txt: ''
+    txt: ""
   rolls: []
   tipo: ability
   subtipo: Bucaneiro
-  chatFlavor: ''
-  origin: ''
+  chatFlavor: ""
+  origin: ""
   tags: []
-  chatGif: ''
+  chatGif: ""
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: "13.342"
   createdTime: 1658361717640
-  modifiedTime: 1684630371462
+  modifiedTime: 1747112745262
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
-_key: '!items!i98ipNXoK3Uw17HX'
-
+_key: "!items!i98ipNXoK3Uw17HX"

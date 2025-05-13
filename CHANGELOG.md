@@ -12,12 +12,17 @@
 - Adicionado: O tamanho do personagem altera automaticamente o tamanho do token.
   - Personagens minúsculos agora ocupam apenas 1/4 de quadrado.
   - Personagens pequenos agora têm sua escala de token reduzida em 20%.
+- Adicionado: Automação de PV/PM por nível para poderes e habilidades.
 - Alterado: Melhorias visuais nas fichas de personagens. A maioria das mudanças foram feitas na ficha com abas.
   - Lista de perícias agora é menor e permite ocultar perícias somente treinadas que não forem treinadas.
   - Clique do botão direito em itens na ficha de personagem abre um menu com opções para interagir com o item.
   - Passar o mouse sobre Defesa ou bônus de perícias discrimina os seus modificadores.
 - Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do Foundry.
 - Alterado: Clicar para usar itens sem efeitos de uso ou rolagens não abre uma janela para usá-los.
+- Alterado: Poderes que escalam automaticamente com o nível (ex: Instinto Selvagem) foram automatizados.
+  - Exceções: poderes que usam o nível em fórmulas de dano (Ataque Furtivo).
+- Alterado: Raio Arcano foi automatizado.
+- Corrigido: Bônus em Reflexos do poder Esquiva Sagaz.
 
 ## Versão 1.4.214
 - Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;

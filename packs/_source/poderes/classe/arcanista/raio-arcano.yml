@@ -2,60 +2,7 @@ _id: mlzUTxfA4loIefuG
 name: Raio Arcano
 type: poder
 img: systems/tormenta20/icons/classes/arcanista.webp
-effects:
-  - origin: Item.mlzUTxfA4loIefuG
-    tint: '#ffffff'
-    flags:
-      tormenta20:
-        onuse: true
-        durationScene: false
-        self: true
-        attack: false
-        skill: false
-        ability: false
-        power: false
-        spell: false
-        consumable: false
-        items: ''
-        aumenta: true
-        custo: ''
-        equipment: false
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: true
-    _id: vB29YFPodB7vEd1r
-    changes:
-      - key: dano
-        mode: 0
-        value: 1d8
-        priority: 0
-    transfer: false
-    name: >-
-      Raio Arcano: Aumenta o dano em 1d8 para cada círculo de magia acima do 1º
-      que puder lançar.
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/upgrade.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!items.effects!mlzUTxfA4loIefuG.vB29YFPodB7vEd1r'
+effects: []
 folder: dB8yQeNYIsAMdhNN
 sort: 0
 flags: {}
@@ -109,9 +56,10 @@ system:
       key: dano0
       type: dano
       parts:
-        - - 1d8
+        - - (@circulo)d8
           - essencia
           - ''
+      versatil: ''
   tipo: classe
   subtipo: Arcanista
   tags:
@@ -123,10 +71,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.201
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306185150
-  modifiedTime: 1690154786885
+  modifiedTime: 1747112367575
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

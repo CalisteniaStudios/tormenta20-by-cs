@@ -9,6 +9,17 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
     duration:
       startTime: null
       seconds: null
@@ -20,18 +31,18 @@ effects:
     disabled: false
     _id: XbsFbC7qjVcrI7pR
     changes:
-      - key: system.tracos.resistencias.dano.value
+      - key: system.tracos.resistencias.dano.bonus
         mode: 2
-        value: '2'
+        value: floor((@nvl.barbaro - 5)/3 + 2)
         priority: null
     transfer: true
     _stats:
       coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      systemId: tormenta20
+      systemVersion: 1.4.214
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1747112650839
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -58,7 +69,7 @@ system:
     unidentified: ''
   source: T20, pg. 42 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -100,10 +111,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1658361716908
-  modifiedTime: 1684630371462
+  modifiedTime: 1747112510610
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
