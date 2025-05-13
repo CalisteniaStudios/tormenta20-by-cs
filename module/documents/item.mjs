@@ -1294,13 +1294,24 @@ export default class ItemT20 extends Item {
 			}
 
 			// Add damage bonus formula
-			const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
-			if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "", ""]);
-			if (pericia === "luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
-			else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
-			if (this.type === "magia" && bonuses.mag.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
-			else if (this.type === "consumivel" && this.system.tipo === "alchemy" && bonuses.alq.filter(Boolean).length)
-				parts.push(["@danoALQ", "", ""]);
+			const isHealing = parts.some((p) => p[1].includes("cura"));
+			const isSpell = this.type === "magia";
+			const isAlchemical = this.type === "consumivel" && this.system.tipo === "alchemy";
+			if (isHealing) {
+				const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
+				if (bonuses.geral.filter(Boolean).length) parts.push(["@cura", "", ""]);
+				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@curaMagica", "", ""]);
+				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
+			} else {
+				const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
+				if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "", ""]);
+
+				if (pericia === "luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
+				else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
+
+				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
+				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
+			}
 
 			// Call the roll helper utility
 			foundry.utils.mergeObject(rollConfig, options);

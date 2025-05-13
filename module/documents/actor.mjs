@@ -730,6 +730,10 @@ export default class ActorT20 extends Actor {
 		data.danoAD = simplifyRollFormula(dmgMods.ad?.filter(Boolean).join(" + "), data) || 0;
 		data.danoALQ = simplifyRollFormula(dmgMods.alq?.filter(Boolean).join(" + "), data) || 0;
 
+		let healMods = this.system.modificadores?.cura || {};
+		data.cura = simplifyRollFormula(healMods.geral?.filter(Boolean).join(" + "), data) || 0;
+		data.curaMagica = simplifyRollFormula(healMods.mag?.filter(Boolean).join(" + "), data) || 0;
+
 		return data;
 	}
 

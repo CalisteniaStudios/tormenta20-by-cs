@@ -779,6 +779,16 @@ export default class CreatureData extends Tormenta20TypeData {
 					hint: "T20.ModsDamageRangedEffectsValuesHint"
 				})
 			}),
+			cura: new fields.SchemaField({
+				geral: new fields.ArrayField(new fields.StringField(), {
+					label: "T20.ModsDamageGeneralEffectsValues",
+					hint: "T20.ModsDamageGeneralEffectsValuesHint"
+				}),
+				mag: new fields.ArrayField(new fields.StringField(), {
+					label: "T20.ModsDamageSpellEffectsValues",
+					hint: "T20.ModsDamageSpellEffectsValuesHint"
+				})
+			}),
 			dano: new fields.SchemaField({
 				ad: new fields.ArrayField(new fields.StringField(), {
 					label: "T20.ModsDamageRangedEffectsValues",

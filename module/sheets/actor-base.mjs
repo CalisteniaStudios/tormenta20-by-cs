@@ -620,6 +620,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			{ name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo" },
 			{ name: "system.modificadores.dano.ad", label: "Dano A Distância" },
 			{ name: "system.modificadores.dano.mag", label: "Dano de Magias" },
+			{ name: "system.modificadores.cura.geral", label: "Cura Geral" },
+			{ name: "system.modificadores.cura.alq", label: "Cura Alquímica" },
+			{ name: "system.modificadores.cura.mag", label: "Cura Mágica" },
 			{
 				name: "system.modificadores.pericias.geral",
 				label: "Testes de Perícias"
