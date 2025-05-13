@@ -570,6 +570,7 @@ export default class ActorT20 extends Actor {
 
 		const nivel = Number(this.system.attributes.nivel.value);
 		const rollData = this.getRollData();
+		const { domDaEsperanca } = this.flags.tormenta20;
 		for (const type of ["pv", "pm"]) {
 			let soma = 0;
 			const { atributos, bonus } = this.system.attributes[type];
@@ -585,13 +586,15 @@ export default class ActorT20 extends Actor {
 				(value) => (soma += Number(simplifyRollFormula(value, rollData)) * Math.ceil(nivel / 2))
 			);
 			Object.entries(atributos)
-				.filter(([atr, value]) => value)
+				.filter(([atr, value]) => !(domDaEsperanca && type === "pv" && atr === "sab") && value)
 				.forEach(([atr, value]) => {
 					const { base, racial } = this.system.atributos[atr];
 					soma += Number(base) + Number(racial);
 				});
 			if (type === "pv") {
-				soma += this.system.atributos.con.value * nivel;
+				if (domDaEsperanca) {
+					soma += this.system.atributos.sab.value * nivel;
+				} else soma += this.system.atributos.con.value * nivel;
 				this.system.attributes[type].min = -Math.floor(soma / 2);
 			}
 			this.system.attributes[type].max = Math.floor(soma);

@@ -1,7 +1,58 @@
 name: Dom da Esperança
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-paz.webp
-effects: []
+effects:
+  - name: Dom da Esperança
+    img: systems/tormenta20/icons/poderes/concedidos-paz.webp
+    origin: Compendium.tormenta20.poderes.Item.bTocosYd9lw0Vil8
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: SiOpIxFlWr3t6yEe
+    type: base
+    system: {}
+    changes:
+      - key: flags.tormenta20.domDaEsperanca
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747120788453
+      modifiedTime: 1747121765728
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!bTocosYd9lw0Vil8.SiOpIxFlWr3t6yEe'
 flags: {}
 system:
   description:
@@ -13,7 +64,7 @@ system:
     unidentified: ''
   source: T20, pg. 133 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -53,10 +104,10 @@ system:
   chatGif: ''
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306185652
-  modifiedTime: 1684630371462
+  modifiedTime: 1747120933796
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

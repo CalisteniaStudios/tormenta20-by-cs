@@ -34,6 +34,7 @@ export function registerHandlebarsHelpers() {
 			}
 			case "pv":
 			case "pm": {
+				const { domDaEsperanca } = actor.flags.tormenta20;
 				const level = actor.system.attributes.nivel.value;
 				const classes = actor.items
 					.filter((i) => i.type === "classe")
@@ -46,10 +47,16 @@ export function registerHandlebarsHelpers() {
 							[type]: initialHP + levelCount * porNivel
 						};
 					});
+
+				const useCon = (key) => !domDaEsperanca && key === "con";
+				const useSab = (key) => domDaEsperanca && key === "sab";
 				const atr = Object.entries(actor.system.atributos)
-					.filter(([key, data]) => actor.system.attributes[type].atributos[key] || (key === "con" && type === "pv"))
+					.filter(
+						([key, data]) =>
+							actor.system.attributes[type].atributos[key] || (type === "pv" && (useCon(key) || useSab(key)))
+					)
 					.map(([key, data]) => {
-						const value = key === "con" && type === "pv" ? level * data.value : data.value;
+						const value = type === "pv" && (useCon(key) || useSab(key)) ? level * data.value : data.value;
 						return [data.name, value];
 					});
 				const bonusNivel = modFields[`system.attributes.${type}.bonus.nivel`]?.map(({ label, mode, value }) => ({
