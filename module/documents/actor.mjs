@@ -570,7 +570,8 @@ export default class ActorT20 extends Actor {
 
 		const nivel = Number(this.system.attributes.nivel.value);
 		const rollData = this.getRollData();
-		const { domDaEsperanca } = this.flags.tormenta20;
+		// TODO abstrair para um sistema de substituição da Constituição por qualquer atributo
+		const { substituirCon } = this.flags.tormenta20;
 		for (const type of ["pv", "pm"]) {
 			let soma = 0;
 			const { atributos, bonus } = this.system.attributes[type];
@@ -586,14 +587,14 @@ export default class ActorT20 extends Actor {
 				(value) => (soma += Number(simplifyRollFormula(value, rollData)) * Math.ceil(nivel / 2))
 			);
 			Object.entries(atributos)
-				.filter(([atr, value]) => !(domDaEsperanca && type === "pv" && atr === "sab") && value)
+				.filter(([atr, value]) => !(atr === substituirCon && type === "pv") && value)
 				.forEach(([atr, value]) => {
 					const { base, racial } = this.system.atributos[atr];
 					soma += Number(base) + Number(racial);
 				});
 			if (type === "pv") {
-				if (domDaEsperanca) {
-					soma += this.system.atributos.sab.value * nivel;
+				if (substituirCon) {
+					soma += this.system.atributos[substituirCon].value * nivel;
 				} else soma += this.system.atributos.con.value * nivel;
 				this.system.attributes[type].min = -Math.floor(soma / 2);
 			}
@@ -736,7 +737,7 @@ export default class ActorT20 extends Actor {
 		data.danoALQ = simplifyRollFormula(dmgMods.alq?.filter(Boolean).join(" + "), data) || 0;
 
 		let healMods = this.system.modificadores?.cura || {};
-		data.cura = simplifyRollFormula(healMods.geral?.filter(Boolean).join(" + "), data) || 0;
+		data.curaGeral = simplifyRollFormula(healMods.geral?.filter(Boolean).join(" + "), data) || 0;
 		data.curaMagica = simplifyRollFormula(healMods.mag?.filter(Boolean).join(" + "), data) || 0;
 
 		return data;

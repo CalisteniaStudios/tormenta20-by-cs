@@ -34,9 +34,9 @@ effects:
     type: base
     system: {}
     changes:
-      - key: flags.tormenta20.domDaEsperanca
+      - key: flags.tormenta20.substituirCon
         mode: 5
-        value: 'true'
+        value: sab
         priority: null
     description: ''
     transfer: true
@@ -50,7 +50,7 @@ effects:
       systemId: tormenta20
       systemVersion: 1.4.214
       createdTime: 1747120788453
-      modifiedTime: 1747121765728
+      modifiedTime: 1747159948277
       lastModifiedBy: t20builder000000
     _key: '!items.effects!bTocosYd9lw0Vil8.SiOpIxFlWr3t6yEe'
 flags: {}
