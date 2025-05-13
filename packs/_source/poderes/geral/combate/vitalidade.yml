@@ -8,7 +8,22 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
     changes:
+      - key: system.attributes.pv.bonus.nivel
+        mode: 2
+        value: '1'
+        priority: null
       - key: system.pericias.fort.bonus
         mode: 2
         value: '2'
@@ -27,11 +42,11 @@ effects:
     transfer: true
     _stats:
       coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      systemId: tormenta20
+      systemVersion: 1.4.214
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1747116183453
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -57,7 +72,7 @@ system:
     unidentified: ''
   source: T20, pg. 129 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -99,10 +114,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306185697
-  modifiedTime: 1684630371462
+  modifiedTime: 1747116184590
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

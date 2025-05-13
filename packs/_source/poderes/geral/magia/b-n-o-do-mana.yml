@@ -2,7 +2,58 @@ _id: mIJosF8T9x1eKyV8
 name: Bênção do Mana
 type: poder
 img: systems/tormenta20/icons/poderes/concedidos-magia.webp
-effects: []
+effects:
+  - name: Bênção do Mana
+    img: systems/tormenta20/icons/poderes/concedidos-magia.webp
+    origin: Compendium.tormenta20.poderes.Item.mIJosF8T9x1eKyV8
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: gzA96f6ItrgTCTEx
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.bonus.nivelImpar
+        mode: 2
+        value: '1'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747116425145
+      modifiedTime: 1747116477831
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!mIJosF8T9x1eKyV8.gzA96f6ItrgTCTEx'
 folder: Kye2KzNfCgJW92Kb
 sort: 0
 flags: {}
@@ -13,7 +64,7 @@ system:
     unidentified: ''
   source: T20, pg. 132 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -55,10 +106,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306185146
-  modifiedTime: 1684630371462
+  modifiedTime: 1747116441549
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

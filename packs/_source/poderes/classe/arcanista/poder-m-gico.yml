@@ -2,7 +2,58 @@ _id: H69cIFxpZQhNwsYP
 name: Poder Mágico
 type: poder
 img: systems/tormenta20/icons/classes/arcanista.webp
-effects: []
+effects:
+  - name: Poder Mágico
+    img: systems/tormenta20/icons/classes/arcanista.webp
+    origin: Compendium.tormenta20.poderes.Item.H69cIFxpZQhNwsYP
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: xkWCLgZXNRSGZ1JY
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.bonus.flat
+        mode: 2
+        value: '@nvl.arcanista'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747116808293
+      modifiedTime: 1747116839370
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!H69cIFxpZQhNwsYP.xkWCLgZXNRSGZ1JY'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
 flags: {}
@@ -18,7 +69,7 @@ system:
     unidentified: ''
   source: T20, pg. 38 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -61,10 +112,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306183901
-  modifiedTime: 1684630371462
+  modifiedTime: 1747116840674
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

@@ -2,7 +2,58 @@ _id: AopKlk0yieqqhmAj
 name: Sangue Mágico
 type: poder
 img: systems/tormenta20/icons/racas/elfo.webp
-effects: []
+effects:
+  - name: Sangue Mágico
+    img: systems/tormenta20/icons/racas/elfo.webp
+    origin: Compendium.tormenta20.poderes.Item.AopKlk0yieqqhmAj
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 9uQ8QNFKIwkbWC0w
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.bonus.nivel
+        mode: 2
+        value: '1'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747117798812
+      modifiedTime: 1747117813341
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!AopKlk0yieqqhmAj.9uQ8QNFKIwkbWC0w'
 folder: sP6NJ3uhryFkjai6
 sort: 0
 flags: {}
@@ -13,7 +64,7 @@ system:
     unidentified: ''
   source: T20, pg. 22 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -55,10 +106,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306183807
-  modifiedTime: 1684630371462
+  modifiedTime: 1747117814166
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
