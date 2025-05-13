@@ -13,6 +13,7 @@
   - Personagens minúsculos agora ocupam apenas 1/4 de quadrado.
   - Personagens pequenos agora têm sua escala de token reduzida em 20%.
 - Adicionado: Automação de PV/PM por nível para poderes e habilidades.
+- Adicionado: Automação do poder Dom da Esperança (e suporte para qualquer atributo substituir Constituição).
 - Alterado: Melhorias visuais nas fichas de personagens. A maioria das mudanças foram feitas na ficha com abas.
   - Lista de perícias agora é menor e permite ocultar perícias somente treinadas que não forem treinadas.
   - Clique do botão direito em itens na ficha de personagem abre um menu com opções para interagir com o item.
