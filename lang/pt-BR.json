@@ -18,7 +18,6 @@
     }
   },
 
-
   "T20.S3": "/* ---------------- SYSTEM ---------------- */",
   "T20.title": "Sistema Tormenta20",
   "T20.Name": "Nome",
@@ -47,7 +46,6 @@
   "T20.Empty": "Vazio",
   "T20.Handling": "Empunhando",
   "T20.Wearing": "Vestindo",
-
 
   "T20.Die": "Dado",
   "T20.Dice": "Dados",
@@ -144,8 +142,9 @@
   "T20.AbilityModifier": "Modificador",
   "T20.AbilityModifierAbbr": "Mod.",
   "T20.AbilityModifierBonus": "Mod. de Atributo",
-  "T20.AbilityFreeChoice": "Escolha Livre",
-  "T20.AbilityFreeChoiceHint": "Atributos que podem ser escolhidos pelo jogador para serem aumentados em +1.",
+  "T20.DynamicAbilities": "Atributos Dinâmicos",
+  "T20.DynamicAbilitiesHint": "Os jogadores poderão definir os atributos selecionados ao escolher esta raça.",
+  "T20.DynamicAbilitiesDesc": "+1 em Três Atributos Diferentes",
 
   "T20.AbilityPromptText": "???",
   "T20.AbilityPromptTitle": "Teste de Atributo {atributo}",
@@ -253,8 +252,8 @@
   "T20.Background": "Origem",
   "T20.Deity": "Divindade",
 
-  "T20.AbilityCheck":"Teste de Atributo",
-  "T20.SkillCheck":"Teste de Perícia",
+  "T20.AbilityCheck": "Teste de Atributo",
+  "T20.SkillCheck": "Teste de Perícia",
 
   "T20.ResourcePrimary": "Recurso 1",
   "T20.ResourceSecondary": "Recurso 2",
@@ -610,24 +609,24 @@
   "T20.ConsumableSubtypeOil": "Óleo",
   "T20.ConsumableSubtypeScroll": "Pergaminho",
 
-  "T20.EffectTypeArcane":"Arcano",
-  "T20.EffectTypeStun":"Atordoamento",
-  "T20.EffectTypeWeariness":"Cansaço",
-  "T20.EffectTypeClimatic":"Climático",
-  "T20.EffectTypeHealing":"Cura",
-  "T20.EffectTypeDamage":"Dano",
-  "T20.EffectTypeHoly":"Divino",
-  "T20.EffectTypeLight":"Luz",
-  "T20.EffectTypeMagic":"Mágico",
-  "T20.EffectTypeFear":"Medo",
-  "T20.EffectTypeMental":"Mental",
-  "T20.EffectTypePsychic":"Psíquico",
-  "T20.EffectTypeMetabolism":"Metabolismo",
-  "T20.EffectTypePolymorph":"Metamorfose",
-  "T20.EffectTypeMovement":"Movimento",
-  "T20.EffectTypeSenses":"Sentidos",
-  "T20.EffectTypeDarkness":"Trevas",
-  "T20.EffectTypePoison":"Veneno",
+  "T20.EffectTypeArcane": "Arcano",
+  "T20.EffectTypeStun": "Atordoamento",
+  "T20.EffectTypeWeariness": "Cansaço",
+  "T20.EffectTypeClimatic": "Climático",
+  "T20.EffectTypeHealing": "Cura",
+  "T20.EffectTypeDamage": "Dano",
+  "T20.EffectTypeHoly": "Divino",
+  "T20.EffectTypeLight": "Luz",
+  "T20.EffectTypeMagic": "Mágico",
+  "T20.EffectTypeFear": "Medo",
+  "T20.EffectTypeMental": "Mental",
+  "T20.EffectTypePsychic": "Psíquico",
+  "T20.EffectTypeMetabolism": "Metabolismo",
+  "T20.EffectTypePolymorph": "Metamorfose",
+  "T20.EffectTypeMovement": "Movimento",
+  "T20.EffectTypeSenses": "Sentidos",
+  "T20.EffectTypeDarkness": "Trevas",
+  "T20.EffectTypePoison": "Veneno",
 
   "T20.Treasure": "Tesouro",
   "T20.Treasures": "Tesouros",
@@ -686,7 +685,7 @@
   "T20.SpecialMaterialDarkWood": "Madeira Tollon",
   "T20.SpecialMaterialRedMatter": "Matéria Vermelha",
   "T20.SpecialMaterialMithril": "Mitral",
-	"T20.SpecialMaterialDragonLeather": "Couro de Dragão",
+  "T20.SpecialMaterialDragonLeather": "Couro de Dragão",
   "T20.SpecialMaterialRainbowMetal": "Metal Arco-Íris",
   "T20.SpecialMaterialSilver": "Prata",
   "T20.SpecialMaterialMonsterHull": "Casco de Monstro",
@@ -736,7 +735,6 @@
   "T20.ItemUpgradesMacabre": "Macabro",
   "T20.ItemUpgradesMultifunctional": "Multifuncional",
 
-
   "T20.WeaponUpgradesTooltipAccurate": "Fabricada para ser mais precisa e balanceada, a arma fornece +1 nos testes de ataque.",
   "T20.WeaponUpgradesTooltipPungent": "Temperada diversas vezes para adquirir o fio ou o equilíbrio perfeito, a arma fornece +2 nos testes de ataque. Pré-requisito: Certeira.",
   "T20.WeaponUpgradesTooltipCruel": "Rebarbas, espinhos e até mesmo lâminas adicionais compõem uma arma cruel. Ela fornece +1 nas rolagens de dano.",
@@ -774,7 +772,6 @@
   "T20.ItemUpgradesTooltipDiscreet": "O item é disfarçado como outro item inócuo (como um florete escondido em uma bengala) ou modificado para ser telescópico (podendo se dobrar em si mesmo para ocupar menos espaço). O item ocupa –1 espaço (mínimo 1) e fornece +5 em testes de Ladinagem para ser ocultado.",
   "T20.ItemUpgradesTooltipMacabre": "Um item macabro é pintado com sangue seco, esculpido na forma de uma caveira ou decorado com pedaços de orelhas, dedos e olhos. Essa aparência assustadora fornece +2 em testes de Intimidação, mas impõe uma penalidade de –2 em testes de Diplomacia.",
   "T20.ItemUpgradesTooltipMultifunctional": "Ameaças de Arton pg. 399",
-
 
   "T20.S10": "/* ------------ Item Enchants ------------ */",
 
@@ -1070,7 +1067,6 @@
   "T20.FoeRoleCaptain": "Capitão",
   "T20.FoeRoleBoss": "Chefão",
 
-
   "T20.NPCB_Concept": "Conceito e Nome",
   "T20.NPCB_Type": "Tipo e Tamanho",
   "T20.NPCB_CR": "Nível de Desafio",
@@ -1102,11 +1098,9 @@
   "T20.NCPB_SkillGood": "Per. Forte",
   "T20.NCPB_SkillBad": "Per. Fraca",
 
-
   "T20.NPCB_SaveGood": "Res. Forte",
   "T20.NPCB_SaveNormal": "Res. Média",
   "T20.NPCB_SaveBad": "Res. Fraca",
-
 
   "T20.NPCB_ConceptHint": "Pense no nome e no conceito da ameaça, uma descrição em poucas palavras (Ex.; 'réptil alado que cospe fogo', 'combatente purista que usa magia', 'humanoide grande que tanka e bate'); \n Escolha uma função para a ameaça que vai servir de referência do que ela pode fazer e como pode ser usada.",
   "T20.NPCB_TypeHint": "Escolha o tipo da criatura. O tipo define natureza, determina quais habilidades e magias podem afetar a criatura e alguns fornecem habilidades especiais. \n Em seguida defina o tamanho e e deslocamento.",
@@ -1116,7 +1110,6 @@
   "T20.NPCB_PowersHint": "Escolha as habilidades das criaturas, pense em 1 ou 2 por patamar da de jogo. Equilibre as escolhas entre formas especiais de ataque, habilidades defensivas e habilidades sensoriais ou de movimentação.",
   "T20.NPCB_TraitsHint": "Para definir os valores de atributo escolha valores compatíveis com o conceito da criatura de acordo com a tabela. \nEntão defina as perícias que a criatura é treinada e defina seu valor pelas regras normais, usando ND como nível de personagem.",
   "T20.NPCB_LootHint": "Com base nas estatísticas da criatura e do patamar defina os equipamentos que ela trás (Ex. se uma criatura humanóide tem defesa alta, seu tesouro pode incluir armadura e escudo). \nAlém disso defina o seu tesouro que ela renderá ao grupo de acordo com a tabela de tesouro do Capítulo 7 de Tormenta20.",
-
 
   "T20.NPCB_FoeRoleCombatantHint": "COMBATENTE. Poder Ofensivo e Defensivo elevado. Exemplos: mercenário, urso.",
   "T20.NPCB_FoeRoleCasterHint": "CONJURADOR. Poder Ofensivo e Defensivo reduzido, mas com efeitos de dano em área, condições e controle de terreno. Exemplos: mago, engenhoqueiro.",
@@ -1201,13 +1194,12 @@
   "T20.SettingProgressiveDefense": "Defesa Progressiva",
   "T20.SettingProgressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",
 
-
   "T20.S90": "/* --------------- Status --------------- */",
 
-  "T20.StatusTypeFear":"Condição de Medo",
-	"T20.StatusTypeParalyze":"Condição de Paralisia",
-	"T20.StatusTypeSenses":"Condição de sentidos",
-	"T20.StatusTypeFatigue":"Condição de Fadiga",
+  "T20.StatusTypeFear": "Condição de Medo",
+  "T20.StatusTypeParalyze": "Condição de Paralisia",
+  "T20.StatusTypeSenses": "Condição de sentidos",
+  "T20.StatusTypeFatigue": "Condição de Fadiga",
 
   "T20.S99": "/* --------------- Creature --------------- */",
   "T20.S0": "/* --------------- END --------------- */",

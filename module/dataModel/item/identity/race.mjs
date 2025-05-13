@@ -20,25 +20,27 @@ export default class RaceData extends IdentityData {
 					])
 				)
 			),
-			atributosEscolhaLivre: new fields.SchemaField({
-				atributos: new fields.SchemaField(
-					Object.fromEntries(Object.keys(T20.atributos).map((abl) => [abl, new fields.BooleanField()]))
-				),
+			atributosDinamicos: new fields.SchemaField({
+				value: new fields.SetField(new fields.StringField({ required: true, blank: false })),
 				description: new fields.StringField({
 					required: true,
 					nullable: false,
-					initial: ""
+					initial: game.i18n.localize("T20.DynamicAbilitiesDesc")
 				})
 			}),
 			movement: new fields.EmbeddedDataField(_fields.MovementData),
-			tamanho: new fields.StringField({
-				required: true,
-				nullable: false,
-				choices: Object.keys(T20.actorSizes),
-				initial: "med",
-				label: "T20.TraitActorSize",
-				hint: "T20.TraitActorSizeHint"
-			})
+			tamanho: new fields.SetField(
+				new fields.StringField({
+					required: true,
+					nullable: false,
+					initial: "med",
+					label: "T20.TraitActorSize",
+					hint: "T20.TraitActorSizeHint"
+				}),
+				{
+					initial: ["med"]
+				}
+			)
 			// progressao: new _fields.MappingField(),
 		};
 	}

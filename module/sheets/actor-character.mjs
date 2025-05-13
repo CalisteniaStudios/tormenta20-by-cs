@@ -1,5 +1,5 @@
-import ActorSheetT20 from "./actor-base.mjs";
 import RaceData from "../dataModel/item/identity/race.mjs";
+import ActorSheetT20 from "./actor-base.mjs";
 
 /**
  * An Actor sheet for player character type actors.

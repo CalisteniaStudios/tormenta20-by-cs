@@ -51,7 +51,7 @@
   .tox {
     min-height: 15em;
 
-    .tox-editor-header{
+    .tox-editor-header {
       border-bottom: 1px solid var(--faint-color);
       min-width: max-content;
       background: unset;
@@ -63,7 +63,7 @@
       width: 24px;
       height: 24px;
     }
-    .tox-tbtn--select{
+    .tox-tbtn--select {
       width: auto;
     }
     .tox-tbtn--bespoke {
@@ -190,7 +190,6 @@
   /* ----------------------------------------- */
 
   .details {
-
     // Item Sheet form fields
     input[type="text"],
     input[type="number"],
@@ -204,6 +203,31 @@
       span {
         text-align: center;
         line-height: 24px;
+      }
+
+      .form-fields {
+        multi-select {
+          &.small-tags {
+            .tag {
+              font-size: var(--font-size-11);
+            }
+          }
+        }
+      }
+
+      &.racas,
+      &.movimento {
+        > .flexrow {
+          gap: 0.25rem 0.5rem;
+
+          > .flexrow {
+            flex-basis: calc(33% - 0.5rem);
+
+            input[type="number"] {
+              text-align: center;
+            }
+          }
+        }
       }
     }
 
@@ -268,7 +292,6 @@
       flex: initial;
     }
   }
-
 
   /* ----------------------------------------- */
   /*  Item Actions                             */

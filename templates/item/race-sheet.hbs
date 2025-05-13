@@ -12,11 +12,11 @@
 		{{!-- Details Tab --}}
 		<div class="tab details" data-group="primary" data-tab="details">
 
-			<div class="form-group">
-				<label>{{ localize "T20.Abilities" }}</label>
+			<h3>{{ localize "T20.Abilities" }}</h3>
+			<div class="form-group racas">
 				<div class="flexrow">
 					{{#each system.atributos as |atr key|}}
-					<div class="flexcol" style="flex-basis: 33%">
+					<div class="flexrow">
 						<label>{{localize (lookup ../config.atributos key)}}</label>
 						<input type="number" name="system.atributos.{{key}}" value="{{atr}}" />
 					</div>
@@ -26,36 +26,42 @@
 			</div>
 
 			<div class="form-group">
-				<label>{{ localize "T20.AbilityFreeChoice" }}</label>
-				<div class="flexrow">
-					<input type="text"
-						style="flex-basis: 100%;"
-						name="system.atributos.atributosEscolhaLivre.description"
-						placeholder="Ex: Escolha 3 atributos"
-						value="{{system.atributos.atributosEscolhaLivre.description}}"
-					/>
-					{{#each system.atributosEscolhaLivre.atributos as |atr key|}}
-					<div style="flex-basis: 33%">
-						<label>{{localize (lookup ../config.atributos key)}}</label>
-						<input type="checkbox" name="system.atributosEscolhaLivre.{{key}}" {{checked atr}} />
-					</div>
-					{{/each}}
+				<label>{{ localize "T20.DynamicAbilities"}}</label>
+				<div class="form-fields flex6">
+					<multi-select class="small-tags" name="system.atributosDinamicos.value">
+						{{ selectOptions config.atributos selected=system.atributosDinamicos.value  }}
+					</multi-select>
 				</div>
-				<p class="notes">{{ localize "T20.AbilityFreeChoiceHint"}}</p>
+				<p class="notes">{{ localize "T20.DynamicAbilitiesHint"}}</p>
 			</div>
 
 			<div class="form-group">
+				<label>{{ localize "T20.ItemDescription"}}</label>
+				<div class="form-fields">
+					<input type="text" name="system.atributosDinamicos.description"
+						value="{{ifThen system.atributosDinamicos.value.size system.atributosDinamicos.description ''}}"
+						{{disabled (not system.atributosDinamicos.value.size)}}
+					/>
+				</div>
+				<p class="notes"></p>
+			</div>
+
+			<h3>{{ localize "T20.Other"}}</h3>
+			<div class="form-group movimento">
 				<label>{{ localize "T20.Movement" }}</label>
 				<div class="flexrow">
 					{{#each config.movementTypes as |mov key|}}
-					<div class="flexcol" style="flex-basis: 33%">
+					<div class="flexrow">
 						<label>{{mov}}</label>
 						<input type="number" name="system.movement.{{key}}" value="{{lookup @root.system.movement key}}" />
 					</div>
 					{{/each}}
-					<div class="flexcol" style="flex-basis: 33%">
+					<div class="flexrow">
 						<label>{{localize "T20.MovementHover"}}</label>
-						<input type="checkbox" name="system.movement.hover" {{checked system.movement.hover}}>
+						<input type="checkbox" name="system.movement.hover"
+							{{checked (and system.movement.fly system.movement.hover)}}
+							{{disabled (not system.movement.fly)}}
+						/>
 					</div>
 				</div>
 				<p class="notes"></p>
@@ -63,10 +69,10 @@
 
 			<div class="form-group">
 				<label>{{ localize "T20.Size" }}</label>
-				<div class="form-field">
-					<select class="actor-size" name="system.tracos.tamanho">
-						{{selectOptions config.actorSizes selected=system.tamanho}}
-					</select>
+				<div class="form-fields flex6">
+					<multi-select class="small-tags" name="system.tamanho">
+						{{ selectOptions config.actorSizes selected=system.tamanho  }}
+					</multi-select>
 				</div>
 			</div>
 		</div>
