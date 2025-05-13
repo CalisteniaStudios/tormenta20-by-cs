@@ -104,7 +104,7 @@ export default class RaceData extends IdentityData {
 	/** @inheritDoc */
 	_onDelete(options, userId) {}
 
-		/**
+	/**
 	 * Fetch all racial abilities for a given race from the poderes compendium.
 	 * @param {string} race - The race name (subtype).
 	 * @returns {Promise<Array>} Array of ability data objects.
@@ -116,9 +116,7 @@ export default class RaceData extends IdentityData {
 			return [];
 		}
 		const index = await pack.getIndex({ fields: ["name", "system.tipo", "system.subtipo"] });
-		const filteredEntries = index.filter(
-			(entry) => entry.system.tipo === "racial" && entry.system.subtipo === race
-		);
+		const filteredEntries = index.filter((entry) => entry.system.tipo === "racial" && entry.system.subtipo === race);
 		const abilities = [];
 		for (const entry of filteredEntries) {
 			const doc = await pack.getDocument(entry._id);
@@ -126,5 +124,4 @@ export default class RaceData extends IdentityData {
 		}
 		return abilities;
 	}
-
 }
