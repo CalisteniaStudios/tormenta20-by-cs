@@ -1294,7 +1294,8 @@ export default class ItemT20 extends Item {
 			}
 
 			// Add damage bonus formula
-			const isHealing = parts.some((p) => p[1].includes("cura"));
+			const isHealing = parts.some((p) => p[1] === "curapv");
+			const perda = parts.some((p) => p[1] === "perda");
 			const isSpell = this.type === "magia";
 			const isAlchemical = this.type === "consumivel" && this.system.tipo === "alchemy";
 			if (isHealing) {
@@ -1302,7 +1303,7 @@ export default class ItemT20 extends Item {
 				if (bonuses.geral.filter(Boolean).length) parts.push(["@cura", "", ""]);
 				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@curaMagica", "", ""]);
 				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
-			} else {
+			} else if (!perda) {
 				const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
 				if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "", ""]);
 
