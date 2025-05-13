@@ -1,4 +1,5 @@
 import ActorSheetT20 from "./actor-base.mjs";
+import RaceData from "../dataModel/item/identity/race.mjs";
 
 /**
  * An Actor sheet for player character type actors.
@@ -121,9 +122,14 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const race = this.actor.itemTypes.race[0];
 				if (race) race.delete();
 				const atributos = Object.fromEntries(
-					Object.entries(item.system.atributos).map(([key, data]) => [[`system.atributos.${key}.racial`], data.value])
+					Object.entries(item.system.atributos).map(([key, data]) => [`system.atributos.${key}.racial`, data])
 				);
 				this.actor.update(atributos);
+				// Importa poderes raciais
+				const abilities = await RaceData.getRaceAbilities(item.name);
+				if (abilities.length) {
+					await this.actor.createEmbeddedDocuments("Item", abilities);
+				}
 				remainingItems.push(item);
 			} else remainingItems.push(item);
 		}
