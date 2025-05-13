@@ -157,8 +157,8 @@ export function registerHandlebarsHelpers() {
 		for (const item of listEffects.filter(Boolean)) {
 			listItems += `<li class="flexrow"><label>${item.label}:</label><span>`;
 			let value = item.value;
-			if (typeof value === "string" && value.startsWith("@")) {
-				value = Roll.replaceFormulaData(value, rollData) * (item.multiplier ?? 1);
+			if ((typeof value === "string" && value.includes("@")) || item.multiplier) {
+				value = new Roll(`${value} * ${item.multiplier ?? 1}`, rollData).evaluateSync().total;
 			}
 			if (item.mode === 5) {
 				listItems += `${value}</span></li>`;
