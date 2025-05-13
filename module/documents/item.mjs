@@ -680,8 +680,9 @@ export default class ItemT20 extends Item {
 				);
 				const updates = {
 					...atributos,
-					"system.tracos.tamanho": "med",
-					"system.attributes.movement": {'walk':9}
+					// O dataModel garante que campos { required: true } sejam resetados ao valor inicial
+					"system.tracos.tamanho": undefined,
+					"system.attributes.movement": undefined
 				};
 				this.actor.update(updates);
 			}
