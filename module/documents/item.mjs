@@ -678,7 +678,12 @@ export default class ItemT20 extends Item {
 				const atributos = Object.fromEntries(
 					Object.keys(this.system.atributos).map((key) => [[`system.atributos.${key}.racial`], 0])
 				);
-				this.actor.update(atributos);
+				const updates = {
+					...atributos,
+					"system.tracos.tamanho": "med",
+					"system.attributes.movement": {'walk':9}
+				};
+				this.actor.update(updates);
 			}
 		}
 	}
