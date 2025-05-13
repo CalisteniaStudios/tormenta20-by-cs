@@ -40,12 +40,12 @@ effects:
         equipment: false
         spell: false
         consumable: false
-        items: ""
+        items: ''
         aumenta: false
-        custo: ""
-    tint: "#ffffff"
+        custo: ''
+    tint: '#ffffff'
     _stats:
-      coreVersion: "13.342"
+      coreVersion: '13.342'
       systemId: tormenta20
       systemVersion: 1.4.214
       createdTime: null
@@ -59,10 +59,10 @@ effects:
       systems/tormenta20/icons/poderes/classes/combatentes/instinto-selvagem.webp
     type: base
     system: {}
-    description: ""
+    description: ''
     statuses: []
     sort: 0
-    _key: "!items.effects!U6Op7yMmr16WMRRY.Fscqth17BX6S5yqs"
+    _key: '!items.effects!U6Op7yMmr16WMRRY.Fscqth17BX6S5yqs'
 folder: UhsYJ0BvPTkMyG53
 sort: 0
 flags: {}
@@ -72,57 +72,58 @@ system:
       <p>No 3&ordm; n&iacute;vel, voc&ecirc; recebe +1 em rolagens de dano,
       Percep&ccedil;&atilde;o e Reflexos. A cada seis n&iacute;veis, esse
       b&ocirc;nus aumenta em +1.</p>
-    chat: ""
-    unidentified: ""
+    chat: ''
+    unidentified: ''
   source: T20, pg. 42 (JdA)
   ativacao:
     execucao: passive
     custo: 0
-    qtd: ""
-    condicao: ""
-    special: ""
+    qtd: ''
+    condicao: ''
+    special: ''
   duracao:
     value: 0
-    units: ""
-    special: ""
+    units: ''
+    special: ''
   target:
     value: null
     width: null
-    units: ""
-    type: ""
+    units: ''
+    type: ''
   range:
     value: null
-    units: ""
+    units: ''
   consume:
-    type: ""
-    target: ""
+    type: ''
+    target: ''
     amount: null
     mpMultiplier: false
-  efeito: ""
+  efeito: ''
   alcance: none
-  alvo: ""
-  area: ""
+  alvo: ''
+  area: ''
   resistencia:
-    pericia: ""
+    pericia: ''
     atributo: sab
     bonus: 0
-    txt: ""
+    txt: ''
   rolls: []
   tipo: ability
   subtipo: Bárbaro
-  chatFlavor: ""
-  origin: ""
+  chatFlavor: ''
+  origin: ''
   tags: []
-  chatGif: ""
+  chatGif: ''
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.214
-  coreVersion: "13.342"
+  coreVersion: '13.342'
   createdTime: 1658361717060
   modifiedTime: 1747112186038
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
-_key: "!items!U6Op7yMmr16WMRRY"
+_key: '!items!U6Op7yMmr16WMRRY'
+
