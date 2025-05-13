@@ -2,7 +2,58 @@ _id: cgYwUcWVGrsAqVWF
 name: Magias (Clérigo)
 type: poder
 img: systems/tormenta20/icons/poderes/classes/conjuradores/magias-c.webp
-effects: []
+effects:
+  - name: Magias (Clérigo)
+    img: systems/tormenta20/icons/poderes/classes/conjuradores/magias-c.webp
+    origin: Compendium.tormenta20.poderes.Item.cgYwUcWVGrsAqVWF
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 6OH8ed61mHZ60ohZ
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.atributos.sab
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747119984576
+      modifiedTime: 1747120018686
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!cgYwUcWVGrsAqVWF.6OH8ed61mHZ60ohZ'
 folder: RDLTxoI4mIyfR6dr
 sort: 0
 flags: {}
@@ -25,7 +76,7 @@ system:
     unidentified: ''
   source: ''
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -67,10 +118,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1666306933349
-  modifiedTime: 1684630371462
+  modifiedTime: 1747119997770
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

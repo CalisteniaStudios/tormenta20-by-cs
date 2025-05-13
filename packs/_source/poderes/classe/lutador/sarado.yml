@@ -5,6 +5,10 @@ img: systems/tormenta20/icons/classes/lutador.webp
 effects:
   - _id: oWbeoWWh7mMVZxlG
     changes:
+      - key: system.attributes.pv.atributos.for
+        mode: 5
+        value: 'true'
+        priority: null
       - key: system.pericias.fort.bonus
         mode: 2
         value: '@for'
@@ -24,14 +28,25 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
     tint: '#ffffff'
     _stats:
       coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      systemId: tormenta20
+      systemVersion: 1.4.214
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1747120594684
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null

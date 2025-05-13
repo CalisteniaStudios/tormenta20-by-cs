@@ -2,7 +2,58 @@ _id: EIM4Ph8h4v1WdLT4
 name: Magias (Druida)
 type: poder
 img: systems/tormenta20/icons/poderes/classes/conjuradores/magias-d.webp
-effects: []
+effects:
+  - name: Magias (Druida)
+    img: systems/tormenta20/icons/poderes/classes/conjuradores/magias-d.webp
+    origin: Compendium.tormenta20.poderes.Item.EIM4Ph8h4v1WdLT4
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: q09q1Qynl2vJvx9x
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.atributos.sab
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747120001405
+      modifiedTime: 1747120012294
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!EIM4Ph8h4v1WdLT4.q09q1Qynl2vJvx9x'
 folder: 8LraP5E2KHsZTAz8
 sort: 0
 flags: {}
@@ -28,7 +79,7 @@ system:
     unidentified: ''
   source: T20, pg. 61 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -70,10 +121,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306183827
-  modifiedTime: 1684630371462
+  modifiedTime: 1747120007271
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

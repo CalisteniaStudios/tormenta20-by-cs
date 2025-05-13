@@ -2,7 +2,58 @@ _id: ysNQeQE4GRsjobs2
 name: Elo com a Natureza
 type: poder
 img: systems/tormenta20/icons/classes/cacador.webp
-effects: []
+effects:
+  - name: Elo com a Natureza
+    img: systems/tormenta20/icons/classes/cacador.webp
+    origin: Compendium.tormenta20.poderes.Item.ysNQeQE4GRsjobs2
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: oQaWau91M57wmq51
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.atributos.sab
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747119880896
+      modifiedTime: 1747119896814
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!ysNQeQE4GRsjobs2.oQaWau91M57wmq51'
 folder: iT3rUBmGhu5hbNic
 sort: 2600000
 flags: {}
@@ -18,7 +69,7 @@ system:
     unidentified: ''
   source: T20, pg. 51 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -60,10 +111,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1658361717764
-  modifiedTime: 1684630426990
+  modifiedTime: 1747119900986
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

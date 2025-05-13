@@ -3,7 +3,59 @@ name: 'Caminho do Arcanista: Bruxo'
 type: poder
 img: >-
   systems/tormenta20/icons/poderes/classes/conjuradores/caminho-arcanista-bruxo.webp
-effects: []
+effects:
+  - name: 'Caminho do Arcanista: Bruxo'
+    img: >-
+      systems/tormenta20/icons/poderes/classes/conjuradores/caminho-arcanista-bruxo.webp
+    origin: Compendium.tormenta20.poderes.Item.cfV8GthtoVPbREG6
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: SzuzL9pH5KcX8AcE
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.atributos.int
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747120182017
+      modifiedTime: 1747120188981
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!cfV8GthtoVPbREG6.SzuzL9pH5KcX8AcE'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
 flags: {}
@@ -24,7 +76,7 @@ system:
     unidentified: ''
   source: T20, pg. 37 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -67,10 +119,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306184742
-  modifiedTime: 1684630371462
+  modifiedTime: 1747120190199
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

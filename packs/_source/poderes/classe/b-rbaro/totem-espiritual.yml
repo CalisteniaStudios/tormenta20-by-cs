@@ -2,7 +2,58 @@ _id: SEeY3Ed8beYBsM5C
 name: Totem Espiritual
 type: poder
 img: systems/tormenta20/icons/classes/barbaro.webp
-effects: []
+effects:
+  - name: Totem Espiritual
+    img: systems/tormenta20/icons/classes/barbaro.webp
+    origin: Compendium.tormenta20.poderes.Item.SEeY3Ed8beYBsM5C
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: IhgXrYQOJlgOzYh6
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.atributos.sab
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747119681329
+      modifiedTime: 1747119900174
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!SEeY3Ed8beYBsM5C.IhgXrYQOJlgOzYh6'
 folder: UhsYJ0BvPTkMyG53
 sort: 0
 flags: {}
@@ -50,7 +101,7 @@ system:
     unidentified: ''
   source: T20, pg. 42 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -92,10 +143,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1658361717057
-  modifiedTime: 1684630371462
+  modifiedTime: 1747119902423
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

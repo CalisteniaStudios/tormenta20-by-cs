@@ -8,6 +8,17 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
     duration:
       startTime: null
       seconds: null
@@ -23,14 +34,18 @@ effects:
         mode: 2
         value: '5'
         priority: null
+      - key: system.attributes.pv.atributos.car
+        mode: 5
+        value: 'true'
+        priority: null
     transfer: false
     _stats:
       coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      systemId: tormenta20
+      systemVersion: 1.4.214
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1747120306221
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -64,7 +79,7 @@ system:
     unidentified: ''
   source: T20, pg. 39 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -107,10 +122,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306185706
-  modifiedTime: 1684630371462
+  modifiedTime: 1747120311275
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

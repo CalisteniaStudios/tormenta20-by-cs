@@ -3,7 +3,59 @@ name: 'Caminho do Arcanista: Feiticeiro'
 type: poder
 img: >-
   systems/tormenta20/icons/poderes/classes/conjuradores/caminho-arcanista-feiticeiro.webp
-effects: []
+effects:
+  - name: 'Caminho do Arcanista: Feiticeiro'
+    img: >-
+      systems/tormenta20/icons/poderes/classes/conjuradores/caminho-arcanista-feiticeiro.webp
+    origin: Compendium.tormenta20.poderes.Item.QwCmKz13eeecU8te
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: MbBqro4KZhCXdutf
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.atributos.car
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747120196275
+      modifiedTime: 1747120203140
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!QwCmKz13eeecU8te.MbBqro4KZhCXdutf'
 folder: dB8yQeNYIsAMdhNN
 sort: 0
 flags: {}
@@ -22,7 +74,7 @@ system:
     unidentified: ''
   source: T20, pg. 37 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -64,10 +116,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306184299
-  modifiedTime: 1684630371462
+  modifiedTime: 1747120203825
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

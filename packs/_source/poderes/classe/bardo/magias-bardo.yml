@@ -2,7 +2,58 @@ _id: 5i2hWzYKWOjGtnyA
 name: Magias (Bardo)
 type: poder
 img: systems/tormenta20/icons/poderes/classes/especialistas/magias-b.webp
-effects: []
+effects:
+  - name: Magias (Bardo)
+    img: systems/tormenta20/icons/poderes/classes/especialistas/magias-b.webp
+    origin: Compendium.tormenta20.poderes.Item.5i2hWzYKWOjGtnyA
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: wNpc57DBoBST0B0y
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pm.atributos.car
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747120028898
+      modifiedTime: 1747120038396
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!5i2hWzYKWOjGtnyA.wNpc57DBoBST0B0y'
 folder: vXRLLa3BIKBZdiua
 sort: 0
 flags: {}
@@ -30,7 +81,7 @@ system:
     unidentified: ''
   source: T20, pg. 44 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -72,10 +123,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1658361717184
-  modifiedTime: 1684630371462
+  modifiedTime: 1747120039188
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
