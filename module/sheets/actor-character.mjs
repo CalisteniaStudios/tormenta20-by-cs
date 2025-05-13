@@ -122,7 +122,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				const race = this.actor.itemTypes.race[0];
 				if (race) race.delete();
 				const atributos = Object.fromEntries(
-					Object.entries(item.system.atributos).map(([key, data]) => [[`system.atributos.${key}.racial`], data.value])
+					Object.entries(item.system.atributos).map(([key, data]) => [`system.atributos.${key}.racial`, data])
 				);
 				this.actor.update(atributos);
 				// Importa poderes raciais
