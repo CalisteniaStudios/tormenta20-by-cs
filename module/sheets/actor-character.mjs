@@ -121,10 +121,16 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			} else if (item.type === "race") {
 				const race = this.actor.itemTypes.race[0];
 				if (race) race.delete();
-				const atributos = Object.fromEntries(
+				const updates = Object.fromEntries(
 					Object.entries(item.system.atributos).map(([key, data]) => [`system.atributos.${key}.racial`, data])
 				);
-				this.actor.update(atributos);
+				if (item.system.tamanho) {
+					updates["system.tracos.tamanho"] = item.system.tamanho;
+				}
+				if (item.system.movement) {
+					updates["system.attributes.movement"] = item.system.movement;
+				}
+				await this.actor.update(updates);
 				// Importa poderes raciais
 				const abilities = await RaceData.getRaceAbilities(item.name);
 				if (abilities.length) {
