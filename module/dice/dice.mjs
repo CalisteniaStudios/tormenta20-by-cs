@@ -262,9 +262,10 @@ export function simplifyRollFormula(formula, data = {}, { preserveFlavor = false
 	roll.terms = _simplifyOperatorTerms(roll.terms);
 
 	if (/[*/]/.test(roll.formula)) {
-		return roll.isDeterministic && (!/\[/.test(roll.formula) || !preserveFlavor)
-			? roll.roll().total.toString()
-			: roll.constructor.getFormula(roll.terms);
+		if (roll.isDeterministic && !/d\(/.test(roll.formula) && (!/\[/.test(roll.formula) || !preserveFlavor)) {
+			return String(new Roll(roll.formula).evaluateSync().total);
+		}
+		return roll.constructor.getFormula(roll.terms);
 	}
 
 	// Flatten the roll formula and eliminate string terms.
