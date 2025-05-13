@@ -185,7 +185,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		new foundry.applications.ux.ContextMenu.implementation(html, ".item", [], {
+		new foundry.applications.ux.ContextMenu.implementation(html, ":not(.effects-list) .item", [], {
 			eventName: "contextmenu",
 			onOpen: this._onItemToggleContext.bind(this)
 		});
