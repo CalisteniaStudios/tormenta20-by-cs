@@ -690,6 +690,8 @@ export default class ActorT20 extends Actor {
 		}
 		foundry.utils.mergeObject(data, powers);
 
+		data.circulo = this.items.filter((i) => i.type === "magia").reduce((max, m) => Math.max(max, m.system.circulo), 0);
+
 		// Set casting ability
 		/* TODO CLASS SPELLBOOK */
 		let atbchave = this.system.attributes.conjuracao || "";
