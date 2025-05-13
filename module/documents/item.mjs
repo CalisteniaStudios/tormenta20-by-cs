@@ -1293,26 +1293,29 @@ export default class ItemT20 extends Item {
 				parts[0][0] = r.versatil;
 			}
 
-			// Add damage bonus formula
-			const isHealing = parts.some((p) => p[1] === "curapv");
-			const perda = parts.some((p) => p[1] === "perda");
 			const isSpell = this.type === "magia";
 			const isAlchemical = this.type === "consumivel" && this.system.tipo === "alchemy";
-			if (isHealing) {
-				const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
-				if (bonuses.geral.filter(Boolean).length) parts.push(["@cura", "", ""]);
-				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@curaMagica", "", ""]);
-				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
-			} else if (!perda) {
-				const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
-				if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "", ""]);
+			parts
+				.filter((part) => !["curatpv", "curapm", "curatpm", "perda"].includes(part[1]))
+				.forEach((part, i) => {
+					let [dano, tipo] = part;
+					if (tipo === "curapv") {
+						const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
+						if (bonuses.geral.filter(Boolean).length) dano += "+ @curaGeral";
+						if (isSpell && bonuses.mag.filter(Boolean).length) dano += "+ @curaMagica";
+						else if (isAlchemical && bonuses.alq.filter(Boolean).length) dano += "+ @danoALQ";
+					} else {
+						const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
+						if (bonuses.geral.filter(Boolean).length) dano += "+ @dano";
 
-				if (pericia === "luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
-				else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
+						if (pericia === "luta" && bonuses.cac.filter(Boolean).length) dano += "+ @danoCAC";
+						else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) dano += "+ @danoAD";
 
-				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
-				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
-			}
+						if (isSpell && bonuses.mag.filter(Boolean).length) dano += "+ @danoMagico";
+						else if (isAlchemical && bonuses.alq.filter(Boolean).length) dano += "+ @danoALQ";
+					}
+					parts[i] = [dano, tipo, part[2]];
+				});
 
 			// Call the roll helper utility
 			foundry.utils.mergeObject(rollConfig, options);
