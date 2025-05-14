@@ -480,6 +480,7 @@ export default class ItemT20 extends Item {
 		// Take no further action for un-owned items
 		if (!this.isOwned) return { rollData, parts };
 		const actorData = this.actor.system;
+		const flags = this.actor.flags.tormenta20 || {};
 
 		// Add skill bonus
 		if (roll.parts[1][0]) {
@@ -488,10 +489,28 @@ export default class ItemT20 extends Item {
 				rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
 			}
 			// Change Skill Ability modifier
-			if (roll.parts[1][1]) {
+			let atributo = roll.parts[1][1];
+			if (!atributo) {
+				const { empunhadura, proposito } = this.system.proposito;
+				const { for: forca, des } = actorData.atributos;
+				const usarAcuidade = flags?.acuidade && des.value > forca.value;
+				switch (proposito) {
+					case "arremesso":
+						if (flags?.arremessoPotente) atributo = "for";
+						break;
+					case "disparo":
+						break;
+					case "corpo-a-corpo":
+					case "corpo-a-corpo-arremesso":
+					default: {
+						if (usarAcuidade && empunhadura === "leve") atributo = "des";
+					}
+				}
+			}
+			if (atributo) {
 				const skill = actorData.pericias[roll.parts[1][0]];
 				const abls = actorData.atributos;
-				rollData.skill = skill.value - abls[skill.atributo].value + abls[roll.parts[1][1]].value;
+				rollData.skill = skill.value - abls[skill.atributo].value + abls[atributo].value;
 			}
 		}
 
@@ -1267,6 +1286,7 @@ export default class ItemT20 extends Item {
 	async rollDamage({ critical = false, event = null, versatile = false, options = {} } = {}) {
 		const itemData = this.system;
 		const actorData = this.actor.system;
+		const flags = this.actor.flags.tormenta20 || {};
 		let pericia;
 		let lancinante = false;
 		options.type = "damage";
@@ -1305,7 +1325,24 @@ export default class ItemT20 extends Item {
 				.filter((part) => !["curatpv", "curapm", "curatpm", "perda"].includes(part[1]))
 				.forEach((part, i) => {
 					let [dano, tipo] = part;
-					if (tipo === "curapv") {
+					if (dano === "padrao") {
+						const { empunhadura, proposito } = this.system.proposito;
+						const { for: forca, des } = actorData.atributos;
+						const usarAcuidade = flags?.acuidade && des.value > forca.value;
+						switch (proposito) {
+							case "disparo":
+								dano = flags?.estiloDisparo ? "@des" : "";
+								break;
+							case "arremesso":
+								dano = usarAcuidade ? "@des" : "@for";
+								break;
+							case "corpo-a-corpo":
+							case "corpo-a-corpo-arremesso":
+							default: {
+								dano = usarAcuidade && empunhadura === "leve" ? "@des" : "@for";
+							}
+						}
+					} else if (tipo === "curapv") {
 						const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
 						if (bonuses.geral.filter(Boolean).length) dano += "+ @curaGeral";
 						if (isSpell && bonuses.mag.filter(Boolean).length) dano += "+ @curaMagica";

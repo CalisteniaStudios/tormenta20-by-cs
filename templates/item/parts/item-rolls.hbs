@@ -1,3 +1,28 @@
+{{#*inline "optgroups"}}
+	<optgroup label="{{localize "T20.DefaultPlural"}}">
+		{{#if none}}<option value="">{{ localize "T20.None" }}</option>{{/if}}
+		<option value="dano">{{localize "T20.Damage"}}</option>
+		<option value="perda">{{localize "T20.DamageLoss"}}</option>
+	</optgroup>
+	<optgroup label="{{localize "T20.DamagePhysicalPlural"}}">
+		<option value="corte">{{localize "T20.DamageSlashing"}}</option>
+		<option value="impacto">{{localize "T20.DamageBludgeoning"}}</option>
+		<option value="perfuracao">{{localize "T20.DamagePiercing"}}</option>
+	</optgroup>
+	<optgroup label="{{localize "T20.DamageElementalPlural"}}">
+		{{#each @root.config.damageTypes as |name type|}}
+			{{#unless (includes type "dano" "perda" "corte" "impacto" "perfuracao")}}
+			<option value="{{type}}">{{localize name}}</option>
+			{{/unless}}
+		{{/each}}
+	</optgroup>
+	<optgroup label="{{localize "T20.HealingPlural"}}">
+		{{#each @root.config.healingTypes as |name type|}}
+			<option value="{{type}}">{{localize name}}</option>
+		{{/each}}
+	</optgroup>
+{{/inline}}
+
 <div class="rolls flexrow">
 	<h3>{{ localize "T20.Rolls" }}</h3>
 	<span class="rolls-controls">
@@ -36,14 +61,14 @@
 					<select name="system.rolls.{{key}}.parts.1.0">
 						{{#select (lookup (lookup roll.parts 1) 0) }}
 							<!-- <option value="">{{ localize "T20.None" }}</option> -->
-							<optgroup label="Pardrões">
+							<optgroup label="{{localize "T20.DefaultPlural"}}">
+								<option value="atua">{{ localize (lookup ../config.pericias 'atua')}}</option>
 								<option value="luta">{{ localize (lookup ../config.pericias 'luta')}}</option>
 								<option value="pont">{{ localize (lookup ../config.pericias 'pont')}}</option>
-								<option value="atua">{{ localize (lookup ../config.pericias 'atua')}}</option>
 							</optgroup>
 							<optgroup label="Outras Perícias">
 								{{#each ../config.pericias as |name type|}}
-									{{#unless (or (eq type "luta" ) (eq type "pont" ) (eq type "atua") )}}
+									{{#unless (includes type "luta" "pont" "atua")}}
 										<option value="{{type}}">{{localize name}}</option>
 									{{/unless}}
 								{{/each}}
@@ -60,15 +85,6 @@
 					</select>
 					<input type="text" name="system.rolls.{{key}}.parts.2.0" value="{{lookup (lookup roll.parts 2) 0}}" placeholder="Bônus" />
 				</li>
-				{{#if ready}}
-					{{#each roll.parts as |part i| }}
-						<li class="roll-part flexrow" data-roll-part="{{i}}">
-							<input type="text" name="system.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this '0'}}" />
-							<input type="text" name="system.rolls.{{key}}.parts.{{i}}.1" value="{{lookup this '1'}}" />
-							<a class="parts-control delete-part" data-roll-id="{{key}}" title="{{key}}"><i class="fas fa-minus"></i></a>
-						</li>
-					{{/each}}
-				{{/if}}
 			</ol>
 		</div>
 	{{/if}}
@@ -91,6 +107,7 @@
 					<select name="system.rolls.{{key}}.parts.1.0" title="Atributo">
 						{{#select (lookup (lookup roll.parts 1) 0)}}
 							<option value=""></option>
+							<option value="padrao">{{localize 'T20.Default'}}</option>
 							{{#each ../config.atributos as |name type|}}
 								<option value="@{{type}}">{{localize name}}</option>
 							{{/each}}
@@ -102,37 +119,24 @@
 
 					<select name="system.rolls.{{key}}.parts.0.1" title="Tipo de Dano">
 						{{#select (lookup (lookup roll.parts 0) 1)}}
-							<option value="">{{ localize "T20.None" }}</option>
-							{{#each ../config.damageTypes as |name type|}}
-								<option value="{{type}}">{{localize name}}</option>
-							{{/each}}
-							{{#each ../config.healingTypes as |name type|}}
-								<option value="{{type}}">{{localize name}}</option>
-							{{/each}}
+							{{> "optgroups"}}
 						{{/select}}
 					</select>
 				</li>
 				{{/if}}
 				{{#each roll.parts as |part i| }}
-					{{#if (and (eq ../../item.type "arma") (lt i 2) )}}
-					{{else}}
+					{{#unless (and (eq @root.item.type "arma") (lt i 2) )}}
 						<li class="roll-part flexrow" data-roll-part="{{i}}">
 							<input type="text" name="system.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this "0"}}"/ title="Dano">
 							<select name="system.rolls.{{key}}.parts.{{i}}.1">
 								{{#select (lookup this "1") }}
-									<option value="">{{ localize "T20.None" }}</option>
-									{{#each ../../config.damageTypes as |name type|}}
-										<option value="{{type}}">{{ localize name}}</option>
-									{{/each}}
-									{{#each ../../config.healingTypes as |name type|}}
-										<option value="{{type}}">{{ localize name}}</option>
-									{{/each}}
+									{{> "optgroups" none=true }}
 								{{/select}}
 							</select>
 							<a class="parts-control delete-part" data-roll-id="{{key}}" title="{{key}}">
 								<i class="fas fa-minus"></i></a>
 						</li>
-					{{/if}}
+					{{/unless}}
 				{{/each}}
 			</ol>
 		</div>

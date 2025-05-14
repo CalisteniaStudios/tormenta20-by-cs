@@ -232,7 +232,8 @@ export function registerHandlebarsHelpers() {
 		return v ? rtrue : rfalse;
 	});
 
-	Handlebars.registerHelper("includes", function (v, choices = []) {
+	Handlebars.registerHelper("includes", function (v, ...choices) {
+		const options = choices.pop();
 		return choices.includes(v);
 	});
 

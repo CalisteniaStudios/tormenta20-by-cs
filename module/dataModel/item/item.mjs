@@ -326,7 +326,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 						key: "ataque"
 					},
 					{
-						parts: [["1d6", "dano"], [""]], // [[dano, tipo], [atributo]]
+						parts: [["1d6", "dano"], ["padrao"]], // [[dano, tipo], [atributo]]
 						versatil: "",
 						name: "Dano",
 						type: "dano",
