@@ -248,6 +248,16 @@ export const SystemSettings = function () {
 		requiresReload: true
 	});
 
+	game.settings.register("tormenta20", "lightFinesseWeapons", {
+		name: game.i18n.localize("T20.SettingLightFinesseWeapons"),
+		hint: game.i18n.localize("T20.SettingLightFinesseWeaponsHint"),
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean,
+		requiresReload: true
+	});
+
 	game.settings.register("tormenta20", "openRaces", {
 		name: game.i18n.localize("T20.SettingOpenRaces"),
 		hint: game.i18n.localize("T20.SettingOpenRacesHint"),

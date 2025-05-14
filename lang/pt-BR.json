@@ -1196,6 +1196,8 @@
   "T20.SettingLancinatingRevised": "Revisado: Encanto Dilacerante",
 
   "T20.SettingOptionalRulesSettings": "Regras Opcionais",
+  "T20.SettingLightFinesseWeapons": "Armas Leves e Ágeis",
+  "T20.SettingLightFinesseWeaponsHint": "Ataques corpo a corpo e rolagens de dano com armas leves, ágeis e de arremesso podem usar Destreza em vez de Força.",
   "T20.SettingProgressiveDefense": "Defesa Progressiva",
   "T20.SettingProgressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",
   "T20.SettingOpenRaces": "Raças Abertas",
