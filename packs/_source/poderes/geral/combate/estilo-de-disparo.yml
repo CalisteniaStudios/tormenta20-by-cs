@@ -2,7 +2,58 @@ _id: sRuSasAfCGydYSnj
 name: Estilo de Disparo
 type: poder
 img: systems/tormenta20/icons/poderes/combate.webp
-effects: []
+effects:
+  - name: Estilo de Disparo
+    img: systems/tormenta20/icons/poderes/combate.webp
+    origin: Compendium.tormenta20.poderes.Item.sRuSasAfCGydYSnj
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 9b1kvMHR4mOo5WjX
+    type: base
+    system: {}
+    changes:
+      - key: flags.tormenta20.estiloDisparo
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747191330688
+      modifiedTime: 1747191532549
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!sRuSasAfCGydYSnj.9b1kvMHR4mOo5WjX'
 folder: Rgbah8U70jOKi5DF
 sort: 0
 flags: {}

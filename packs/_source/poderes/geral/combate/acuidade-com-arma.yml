@@ -3,14 +3,16 @@ name: Acuidade com Arma
 type: poder
 img: systems/tormenta20/icons/poderes/combate.webp
 effects:
-  - origin: Item.ma3p9pqGlGsneo2Q
+  - name: Acuidade com Arma
+    img: systems/tormenta20/icons/poderes/combate.webp
+    origin: Compendium.tormenta20.poderes.Item.ma3p9pqGlGsneo2Q
     tint: '#ffffff'
     flags:
       tormenta20:
-        onuse: true
+        onuse: false
         durationScene: false
         self: false
-        attack: true
+        attack: false
         skill: false
         ability: false
         power: false
@@ -22,42 +24,36 @@ effects:
         custo: ''
     duration:
       startTime: null
-      seconds: null
       combat: null
+      seconds: null
       rounds: null
       turns: null
       startRound: null
       startTurn: null
-    disabled: true
-    _id: OSbYNk1D6XaNB7S6
+    disabled: false
+    _id: 6cuBDkun2A8mtSlh
+    type: base
+    system: {}
     changes:
-      - key: atributoAtq
+      - key: flags.tormenta20.acuidade
         mode: 5
-        value: des
-        priority: 0
-      - key: atributoDano
-        mode: 5
-        value: des
-        priority: 0
+        value: 'true'
+        priority: null
+    description: ''
     transfer: true
+    statuses: []
+    sort: 0
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    name: Acuidade com Arma
-    img: icons/svg/upgrade.svg
-    type: base
-    system: {}
-    description: ''
-    statuses: []
-    sort: 0
-    _key: '!items.effects!ma3p9pqGlGsneo2Q.OSbYNk1D6XaNB7S6'
+      coreVersion: '13.342'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1747191278344
+      modifiedTime: 1747192301438
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!ma3p9pqGlGsneo2Q.6cuBDkun2A8mtSlh'
 folder: Rgbah8U70jOKi5DF
 sort: 0
 flags: {}
@@ -73,7 +69,7 @@ system:
     unidentified: ''
   source: T20, pg. 124 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -115,10 +111,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306185147
-  modifiedTime: 1684630371462
+  modifiedTime: 1747191313069
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
