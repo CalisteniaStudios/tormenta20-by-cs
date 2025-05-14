@@ -9,6 +9,7 @@
   - `system.attributes.movement.*` adiciona um modificador a todas as velocidades.
 - Adicionado: Ícones para cada tipo de ator e item.
 - Adicionado: Regra opcional para adicionar metade do nível na Defesa.
+- Adicionado: Regra opcional para aplicar Acuidade automaticamente.
 - Adicionado: O tamanho do personagem altera automaticamente o tamanho do token.
   - Personagens minúsculos agora ocupam apenas 1/4 de quadrado.
   - Personagens pequenos agora têm sua escala de token reduzida em 20%.
