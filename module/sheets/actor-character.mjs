@@ -1,5 +1,6 @@
 import RaceData from "../dataModel/item/identity/race.mjs";
 import ActorSheetT20 from "./actor-base.mjs";
+import PericiaSelection from "../automations/pericia-selection.mjs"; // You will create this
 
 /**
  * An Actor sheet for player character type actors.
@@ -137,11 +138,70 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					await this.actor.createEmbeddedDocuments("Item", abilities);
 				}
 				remainingItems.push(item);
+			} else if (item.type === "poder") {
+				const tags = item.system?.automationtags ?? [];
+				if (tags.includes("pericia")) {
+					const pericias = await this.promptPericiaSelection();
+					if (!pericias || !pericias.length) continue; // User cancelled
+					this._applyTreinado(item, pericias);
+				}
+				remainingItems.push(item);
 			} else remainingItems.push(item);
 		}
 
 		// Default drop handling if levels were not added
 		return super._onDropItemCreate(remainingItems);
+	}
+
+	/**
+	 * Add or replace passive effects in the power item that set the selected pericias as trained.
+	 * @param {object} item - The power item object.
+	 * @param {string[]} pericias - Array of pericia keys to train.
+	 */
+	_applyTreinado(item, pericias) {
+		item.effects = item.effects || [];
+		// Remove any previous auto-trained pericia effect
+		item.effects = item.effects.filter(e =>
+			!e.changes?.some(c => c.key?.startsWith("system.pericias.") && c.key?.endsWith(".treinado"))
+		);
+
+		for (const pericia of pericias) {
+			item.effects.push({
+				name: game.i18n.localize(CONFIG.T20.pericias[pericia] || pericia),
+				icon: item.img,
+				disabled: false,
+				transfer: true,
+				changes: [
+					{
+						key: `system.pericias.${pericia}.treinado`,
+						value: true,
+						mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+						priority: 20
+					}
+				],
+				flags: {
+					tormenta20: {
+						autoTrainedPericia: true
+					}
+				}
+			});
+		}
+	}
+
+	/**
+	 * Prompt user to select pericias when dropping a power with the flag set.
+	 * @returns {Promise<string[]|null>} The selected pericia keys or null if cancelled.
+	 */
+	async promptPericiaSelection() {
+		const pericias = this.actor.system.pericias || {};
+		const periciaList = Object.entries(pericias).map(([key, value]) => ({
+			key,
+			label: game.i18n.localize(CONFIG.T20.pericias[key] || key)
+		}));
+		return new Promise((resolve) => {
+			const dialog = new PericiaSelection(periciaList, resolve);
+			dialog.render(true);
+		});
 	}
 
 	/* -------------------------------------------- */

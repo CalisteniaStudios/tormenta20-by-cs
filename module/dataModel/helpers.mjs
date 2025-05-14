@@ -480,6 +480,7 @@ function getObjectBaseData() {
 		origin: new fields.StringField({ initial: "" }),
 		tags: new fields.ArrayField(new fields.StringField()),
 		rolltags: new fields.ArrayField(new fields.StringField()),
+		automationtags: new fields.ArrayField(new fields.StringField()),
 		chatFlavor: new fields.StringField({
 			required: true,
 			nullable: false,

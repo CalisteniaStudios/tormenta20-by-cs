@@ -193,9 +193,9 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".tag-input").keydown(this._onTagChange.bind(this));
 			html.find(".tag-delete").click(this._onTagDelete.bind(this));
 
-			// Progression Tab
-			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
-			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
+			 // Automation tags
+			html.find('.automationtag-input').keydown(this._onAutomationTagChange.bind(this));
+			html.find('.tag-delete').click(this._onAutomationTagDelete.bind(this));
 
 			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
 
@@ -254,6 +254,27 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		const rolltags = this.item.system.rolltags;
 		rolltags.splice(idx, 1);
 		this.item.update({ "system.rolltags": rolltags });
+	}
+
+	async _onAutomationTagChange(event) {
+		if (event.key !== "Enter") return;
+		event.preventDefault();
+		const input = event.currentTarget;
+		const tag = input.value.trim();
+		if (!tag) return;
+		const tags = Array.from(this.item.system.automationtags || []);
+		if (!tags.includes(tag)) {
+			tags.push(tag);
+			await this.item.update({ "system.automationtags": tags });
+		}
+		input.value = "";
+	}
+
+	async _onAutomationTagDelete(event) {
+		const tagId = $(event.currentTarget).data('tag-id');
+		let tags = Array.from(this.item.system.automationtags || []);
+		tags = tags.filter((t, idx) => idx != tagId && t != tagId);
+		await this.item.update({ "system.automationtags": tags });
 	}
 
 	/** @inheritdoc */

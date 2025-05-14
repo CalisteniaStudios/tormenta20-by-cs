@@ -106,6 +106,8 @@ export default class RaceData extends IdentityData {
 	/** @inheritDoc */
 	_onDelete(options, userId) {}
 
+	/* -------------------------------------------- */
+	
 	/**
 	 * Fetch all racial abilities for a given race from the poderes compendium.
 	 * @param {string} race - The race name (subtype).
