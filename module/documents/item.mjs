@@ -493,7 +493,8 @@ export default class ItemT20 extends Item {
 			if (!atributo) {
 				const { empunhadura, proposito } = this.system.proposito;
 				const { for: forca, des } = actorData.atributos;
-				const usarAcuidade = flags?.acuidade && des.value > forca.value;
+				const usarAcuidade =
+					(game.settings.get("tormenta20", "openRaces") || flags?.acuidade) && des.value > forca.value;
 				switch (proposito) {
 					case "arremesso":
 						if (flags?.arremessoPotente) atributo = "for";
@@ -1328,7 +1329,8 @@ export default class ItemT20 extends Item {
 					if (dano === "padrao") {
 						const { empunhadura, proposito } = this.system.proposito;
 						const { for: forca, des } = actorData.atributos;
-						const usarAcuidade = flags?.acuidade && des.value > forca.value;
+						const usarAcuidade =
+							(game.settings.get("tormenta20", "openRaces") || flags?.acuidade) && des.value > forca.value;
 						switch (proposito) {
 							case "disparo":
 								dano = flags?.estiloDisparo ? "@des" : "";

@@ -1198,6 +1198,8 @@
   "T20.SettingOptionalRulesSettings": "Regras Opcionais",
   "T20.SettingProgressiveDefense": "Defesa Progressiva",
   "T20.SettingProgressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",
+  "T20.SettingOpenRaces": "Raças Abertas",
+  "T20.SettingOpenRacesHint": "A distribuição de atributos raciais é aberta.",
 
   "T20.S90": "/* --------------- Status --------------- */",
 

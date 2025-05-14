@@ -136,7 +136,11 @@ export class Tormenta20OptionalRulesSettings extends Tormenta20BaseSettings {
 	/** @inheritDoc */
 	async _preparePartContext(partId, context, options) {
 		context = await super._preparePartContext(partId, context, options);
-		context.fields = [this.createSettingField("progressiveDefense"), this.createSettingField("lancinatingVersion")];
+		context.fields = [
+			this.createSettingField("progressiveDefense"),
+			this.createSettingField("lancinatingVersion"),
+			this.createSettingField("openRaces")
+		];
 		return context;
 	}
 }
