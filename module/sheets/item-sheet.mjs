@@ -210,6 +210,11 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".effect-control").click((ev) => {
 				ActiveEffectT20.onManageActiveEffect(ev, this.item);
 			});
+
+			// Progression Tab
+			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
+			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
+
 		}
 	}
 
