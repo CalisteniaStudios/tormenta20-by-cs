@@ -705,6 +705,16 @@ export default class ItemT20 extends Item {
 					"system.attributes.movement": undefined
 				};
 				this.actor.update(updates);
+
+				// Remove racial powers
+				const raceName = this.name;
+				const racialPowers = this.actor.items.filter(
+					(i) => i.type === "poder" && i.system?.tipo === "racial" && i.system?.subtipo === raceName
+				);
+				if (racialPowers.length) {
+					const ids = racialPowers.map((i) => i.id);
+					this.actor.deleteEmbeddedDocuments("Item", ids);
+				}
 			}
 		}
 	}
