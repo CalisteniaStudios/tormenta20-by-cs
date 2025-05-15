@@ -1,13 +1,11 @@
-<li class="directory-item entry document {{ @root.documentCls }} flexrow" data-entry-id="{{ id }}">
+<li class="directory-item entry document {{@root.documentCls}} flexrow" data-entry-id="{{id}}">
 	{{#if thumbnail}}
-	<img class="thumbnail" src="{{ thumbnail }}" alt="{{ name }}" loading="lazy">
+		<img class="thumbnail" src="{{thumbnail}}" alt="{{name}}" loading="lazy" />
 	{{/if}}
-	<div class="flexcol">
-		<a class="entry-name ellipsis flexcol" data-action="activateEntry">{{ name }}</a>
+	<a class="entry-name ellipsis" data-action="activateEntry">
+		{{name}}
 		{{#if (eq type "character")}}
-			<span class="actor-level">
-				{{t20-classes items}}
-			</span>
+			<p class="actor-level">{{t20-classes items}}</p>
 		{{/if}}
-	</div>
+	</a>
 </li>
