@@ -38,17 +38,7 @@
 			{{> "tormenta20.item-resistencia"}}
 
 			<hr>
-			<div class="form-group">
-				<label for="TAGS">TAGS</label>
-				<input type="text" name="rolltags" class="tag-input"><br>
-			</div>
-			{{#if item.system.rolltags }}
-			<div class="tag-list">
-				{{#each item.system.rolltags as |tag t| }}
-				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
-				{{/each}}
-			</div>
-			{{/if}}
+			{{{rolltags}}}
 			{{!-- Chat Message Flavor --}}
 			<div class="form-group stacked">
 				<label>{{ localize "T20.ChatFlavor" }}</label>

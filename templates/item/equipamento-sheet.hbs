@@ -66,17 +66,7 @@
 			<hr>
 			{{> "tormenta20.item-rolls"}}
 			<hr>
-			<div class="form-group">
-				<label for="TAGS">TAGS</label>
-				<input type="text" name="rolltags" class="tag-input"><br>
-			</div>
-			{{#if item.system.rolltags }}
-			<div class="tag-list">
-				{{#each item.system.rolltags as |tag t| }}
-				<span class="tag">{{tag}} <a class="tag-delete" data-tag-id="{{t}}">x</a></span>
-				{{/each}}
-			</div>
-			{{/if}}
+			{{{rolltags}}}
 		</div>
 
 		{{#if (or (eq item.system.tipo "leve") (eq item.system.tipo "pesada") (eq item.system.tipo "escudo") (eq item.system.tipo "esoterico") (eq item.system.tipo "traje") (eq item.system.tipo "ferramenta")) }}

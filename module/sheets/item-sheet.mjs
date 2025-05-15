@@ -129,7 +129,13 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			// Prepare Active Effects
 			effects: ActiveEffectT20.prepareActiveEffectCategories(item.effects),
 			// Resource to Consume
-			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system)
+			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system),
+			rolltags: foundry.applications.elements.HTMLStringTagsElement.create({
+				localize: true,
+				name: "system.rolltags",
+				placeholder: "Tags",
+				value: item.system.rolltags
+			}).outerHTML
 		});
 
 		sheetData.documentName = "Item";
@@ -190,9 +196,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".rolls-control").click(this._onRollsControl.bind(this));
 			html.find(".parts-control").click(this._onPartsControl.bind(this));
 
-			html.find(".tag-input").keydown(this._onTagChange.bind(this));
-			html.find(".tag-delete").click(this._onTagDelete.bind(this));
-
 			// Progression Tab
 			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
 			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
@@ -221,39 +224,12 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	async _onSubmit(event, options = {}) {
 		// Process the form data
 		const formData = this._getSubmitData(null);
-		if (formData.rolltags) {
-			let rolltags = [...this.item.system.rolltags, formData.rolltags];
-			rolltags = rolltags.map((m) => m.capitalize());
-			formData["system.rolltags"] = rolltags;
-			delete formData.rolltags;
-			options.updateData = formData;
-		}
-
 		const expandedFormData = foundry.utils.expandObject(formData);
 		if (expandedFormData.system?.enableAutoUpgrades && expandedFormData.system?.upgrades) {
 			this._createEffects(expandedFormData.system.upgrades);
 		}
 
 		await super._onSubmit(event, options);
-	}
-
-	async _onTagChange(event) {
-		const key = event.key;
-		// Valid entries
-		if (!key.match(/([A-z]|\d|-|:)/)) {
-			event.preventDefault();
-		}
-		if (key.match(/(Enter|;|,|\s)/)) {
-			return this._onSubmit(event);
-		}
-	}
-
-	async _onTagDelete(event) {
-		const tag = event.currentTarget;
-		const idx = tag.dataset.tagId;
-		const rolltags = this.item.system.rolltags;
-		rolltags.splice(idx, 1);
-		this.item.update({ "system.rolltags": rolltags });
 	}
 
 	/** @inheritdoc */
