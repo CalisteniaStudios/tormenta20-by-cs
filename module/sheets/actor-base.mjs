@@ -137,17 +137,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				else if (sheetData.isNPC && s === "fort") skl.order = -3;
 				else if (sheetData.isNPC && s === "refl") skl.order = -2;
 				else if (sheetData.isNPC && s === "vont") skl.order = -1;
-				else if (s.match(/_pc[1-9]/)) skl.order = 6;
-				else if (s === "_pc0") skl.order = 5;
-				else if (s > "ofi9") skl.order = 4;
-				else if (s.match(/ofi[1-9]/)) skl.order = 3;
-				else if (s === "ofi0") skl.order = 2;
-				else if (s < "ofi0") skl.order = 1;
 				skl.key = s;
 				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
 			}
 		}
 		sheetData.skills = Object.values(sheetData.skills).sort((a, b) => {
+			if (a.order === b.order) return a.label.localeCompare(b.label);
 			return a.order - b.order;
 		});
 
