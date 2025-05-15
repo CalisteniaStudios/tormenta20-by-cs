@@ -56,7 +56,7 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 	 * @param {string} name  Setting key within the tormenta20 namespace.
 	 * @returns {object}
 	 */
-	createSettingField(name) {
+	createSettingField(name, config = {}) {
 		const setting = game.settings.settings.get(`tormenta20.${name}`);
 		if (!setting) throw new Error(`Setting \`tormenta20.${name}\` not registered.`);
 		const Field = {
@@ -71,7 +71,8 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 				hint: game.i18n.localize(setting.hint)
 			}),
 			name,
-			value: game.settings.get("tormenta20", name)
+			value: game.settings.get("tormenta20", name),
+			...config
 		};
 		if (setting.choices)
 			data.options = Object.entries(setting.choices).map(([value, label]) => ({
