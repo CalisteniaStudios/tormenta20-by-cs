@@ -571,7 +571,7 @@ export default class ActorT20 extends Actor {
 		const nivel = Number(this.system.attributes.nivel.value);
 		const rollData = this.getRollData();
 		// TODO abstrair para um sistema de substituição da Constituição por qualquer atributo
-		const { substituirCon } = this.flags.tormenta20;
+		const { substituirCon } = this.flags.tormenta20 ?? {};
 		for (const type of ["pv", "pm"]) {
 			let soma = 0;
 			const { atributos, bonus } = this.system.attributes[type];

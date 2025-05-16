@@ -129,7 +129,13 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			// Prepare Active Effects
 			effects: ActiveEffectT20.prepareActiveEffectCategories(item.effects),
 			// Resource to Consume
-			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system)
+			abilityConsumptionTargets: this._getItemConsumptionTargets(item.system),
+			rolltags: foundry.applications.elements.HTMLStringTagsElement.create({
+				localize: true,
+				name: "system.rolltags",
+				placeholder: "Tags",
+				value: item.system.rolltags
+			}).outerHTML
 		});
 
 		sheetData.documentName = "Item";
@@ -190,9 +196,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".rolls-control").click(this._onRollsControl.bind(this));
 			html.find(".parts-control").click(this._onPartsControl.bind(this));
 
-			html.find(".tag-input").keydown(this._onTagChange.bind(this));
-			html.find(".tag-delete").click(this._onTagDelete.bind(this));
-
 			 // Automation tags
 			html.find('.automationtag-input').keydown(this._onAutomationTagChange.bind(this));
 			html.find('.tag-delete').click(this._onAutomationTagDelete.bind(this));
@@ -226,60 +229,12 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	async _onSubmit(event, options = {}) {
 		// Process the form data
 		const formData = this._getSubmitData(null);
-		if (formData.rolltags) {
-			let rolltags = [...this.item.system.rolltags, formData.rolltags];
-			rolltags = rolltags.map((m) => m.capitalize());
-			formData["system.rolltags"] = rolltags;
-			delete formData.rolltags;
-			options.updateData = formData;
-		}
-
 		const expandedFormData = foundry.utils.expandObject(formData);
 		if (expandedFormData.system?.enableAutoUpgrades && expandedFormData.system?.upgrades) {
 			this._createEffects(expandedFormData.system.upgrades);
 		}
 
 		await super._onSubmit(event, options);
-	}
-
-	async _onTagChange(event) {
-		const key = event.key;
-		// Valid entries
-		if (!key.match(/([A-z]|\d|-|:)/)) {
-			event.preventDefault();
-		}
-		if (key.match(/(Enter|;|,|\s)/)) {
-			return this._onSubmit(event);
-		}
-	}
-
-	async _onTagDelete(event) {
-		const tag = event.currentTarget;
-		const idx = tag.dataset.tagId;
-		const rolltags = this.item.system.rolltags;
-		rolltags.splice(idx, 1);
-		this.item.update({ "system.rolltags": rolltags });
-	}
-
-	async _onAutomationTagChange(event) {
-		if (event.key !== "Enter") return;
-		event.preventDefault();
-		const input = event.currentTarget;
-		const tag = input.value.trim();
-		if (!tag) return;
-		const tags = Array.from(this.item.system.automationtags || []);
-		if (!tags.includes(tag)) {
-			tags.push(tag);
-			await this.item.update({ "system.automationtags": tags });
-		}
-		input.value = "";
-	}
-
-	async _onAutomationTagDelete(event) {
-		const tagId = $(event.currentTarget).data('tag-id');
-		let tags = Array.from(this.item.system.automationtags || []);
-		tags = tags.filter((t, idx) => idx != tagId && t != tagId);
-		await this.item.update({ "system.automationtags": tags });
 	}
 
 	/** @inheritdoc */

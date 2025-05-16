@@ -1,49 +1,84 @@
 <div class="form-group input-select">
-	<label>{{ localize "T20.Cost" }}</label>
+	<label>{{localize "T20.PMCost"}}</label>
 	<div class="form-fields">
-		<input type="number" name="system.ativacao.custo" value="{{item.system.ativacao.custo}}" data-dtype="Number" placeholder="0" /><label>{{ localize "T20.MP" }}</label>
+		<input
+			type="number"
+			name="system.ativacao.custo"
+			value="{{item.system.ativacao.custo}}"
+			data-dtype="Number"
+			placeholder="0"
+		/>
 	</div>
 </div>
 
 <div class="form-group input-select">
-	<label>{{ localize "T20.ConsumeTitle" }}</label>
+	<label>{{localize "T20.ConsumeTitle"}}</label>
 	<div class="form-fields">
 		<select name="system.consume.type">
-			{{selectOptions config.abilityConsumptionTypes selected=system.consume.type blank=''}}
+			{{selectOptions config.abilityConsumptionTypes selected=system.consume.type blank=""}}
 		</select>
 		<select name="system.consume.target">
-			{{selectOptions abilityConsumptionTargets selected=system.consume.target blank=''}}
+			{{selectOptions abilityConsumptionTargets selected=system.consume.target blank=""}}
 		</select>
-		<input type="number" name="system.consume.amount" value="{{system.consume.amount}}" placeholder="{{localize 'T20.QuantityAbbr'}}"/>
-		<input type="checkbox" name="system.consume.mpMultiplier" data-dtype="Boolean" {{checked system.consume.mpMultiplier}} title="{{localize 'T20.ConsumeMPMultiplier'}}">
+		<input
+			type="number"
+			name="system.consume.amount"
+			value="{{system.consume.amount}}"
+			placeholder="{{localize 'T20.QuantityAbbr'}}"
+		/>
+		<input
+			type="checkbox"
+			name="system.consume.mpMultiplier"
+			data-dtype="Boolean"
+			{{checked system.consume.mpMultiplier}}
+			title="{{localize 'T20.ConsumeMPMultiplier'}}"
+		/>
 	</div>
 </div>
 
-{{!-- Activation Cost --}}
+{{! Activation Cost }}
 <div class="form-group input-select">
-	<label>{{ localize "T20.ActivationCost" }}</label>
+	<label>{{localize "T20.ActivationCost"}}</label>
 	<div class="form-fields">
 		<select name="system.ativacao.execucao">
-			{{selectOptions config.abilityActivationTypes selected=item.system.ativacao.execucao localize=true }}
+			{{selectOptions config.abilityActivationTypes selected=item.system.ativacao.execucao localize=true}}
 		</select>
-		{{#if (eq system.ativacao.execucao "special") }}
+		{{#if (eq system.ativacao.execucao "special")}}
 			<div class="form-fields">
-				<input type="text" placeholder="{{ localize 'T20.Description' }}" title="{{ localize 'T20.Description' }}" name="system.ativacao.special" value="{{item.system.ativacao.special}}" />
+				<input
+					type="text"
+					placeholder="{{localize 'T20.Description'}}"
+					title="{{localize 'T20.Description'}}"
+					name="system.ativacao.special"
+					value="{{item.system.ativacao.special}}"
+				/>
 			</div>
 		{{else}}
-			<input type="hidden" name="system.ativacao.special" value="">
+			<input type="hidden" name="system.ativacao.special" value="" />
 		{{/if}}
-		{{#if (or (eq item.system.ativacao.execucao "minute") (eq item.system.ativacao.execucao "hour") (eq item.system.ativacao.execucao "day") ) }}
+		{{#if
+			(or
+				(eq item.system.ativacao.execucao "minute")
+				(eq item.system.ativacao.execucao "hour")
+				(eq item.system.ativacao.execucao "day")
+			)
+		}}
 			<div class="form-fields">
-				<input type="text" name="system.ativacao.qtd" value="{{item.system.ativacao.qtd}}" placeholder="{{ localize 'T20.Quantity' }}" title="{{ localize 'T20.Quantity' }}" />
+				<input
+					type="text"
+					name="system.ativacao.qtd"
+					value="{{item.system.ativacao.qtd}}"
+					placeholder="{{localize 'T20.Quantity'}}"
+					title="{{localize 'T20.Quantity'}}"
+				/>
 			</div>
 		{{else}}
-			<input type="hidden" name="system.ativacao.qtd" value="">
+			<input type="hidden" name="system.ativacao.qtd" value="" />
 		{{/if}}
 	</div>
 </div>
 
-{{!-- Activation Condition --}}
+{{! Activation Condition }}
 <div class="form-group">
 	<label>Condição de Ativação</label>
 	<div class="form-fields">
@@ -51,12 +86,12 @@
 	</div>
 </div>
 
-{{!-- Ability Range --}}
+{{! Ability Range }}
 <div class="form-group input-select">
-	<label>{{ localize "T20.Range" }}</label>
+	<label>{{localize "T20.Range"}}</label>
 	<div class="form-fields">
-		{{#if (or (eq item.system.alcance "m") (eq item.system.alcance "km") )}}
-			<input type="text" name="system.range.value" value="{{item.system.range.value}}" data-dtype="Number">
+		{{#if (or (eq item.system.alcance "m") (eq item.system.alcance "km"))}}
+			<input type="text" name="system.range.value" value="{{item.system.range.value}}" data-dtype="Number" />
 		{{/if}}
 		<select name="system.alcance">
 			{{selectOptions config.distanceUnits selected=item.system.alcance localize=true}}
@@ -64,40 +99,60 @@
 	</div>
 </div>
 
-{{!-- Ability Target --}}
+{{! Ability Target }}
 <div class="form-group input-select-select">
-	<label>{{ localize "T20.Target" }}</label>
+	<label>{{localize "T20.Target"}}</label>
 	<div class="form-fields">
 		<input type="text" name="system.alvo" value="{{item.system.alvo}}" data-dtype="String" />
 	</div>
 </div>
 
 <div class="form-group">
-	<label>{{ localize "T20.Area" }}</label>
+	<label>{{localize "T20.Area"}}</label>
 	<div class="form-fields">
 		<input type="text" name="system.area" value="{{item.system.area}}" data-dtype="String" />
 	</div>
 </div>
 
 <div class="form-group">
-	<label>{{ localize "T20.Effect" }}</label>
+	<label>{{localize "T20.Effect"}}</label>
 	<div class="form-fields">
 		<input type="text" name="system.efeito" value="{{item.system.efeito}}" data-dtype="String" />
 	</div>
 </div>
 
-{{!-- Effect Duration --}}
+{{! Effect Duration }}
 <div class="form-group input-select">
-	<label>{{ localize "T20.Duration" }}</label>
+	<label>{{localize "T20.Duration"}}</label>
 	<div class="form-fields">
-		{{#if (or (eq item.system.duracao.units "round") (eq item.system.duracao.units "turn") (eq item.system.duracao.units "minute") (eq item.system.duracao.units "hour") (eq item.system.duracao.units "day") (eq item.system.duracao.units "month") (eq item.system.duracao.units "year") )}}
-			<input type="text" name="system.duracao.value" value="{{item.system.duracao.value}}" placeholder="{{ localize 'T20.Quantity' }}" />
+		{{#if
+			(or
+				(eq item.system.duracao.units "round")
+				(eq item.system.duracao.units "turn")
+				(eq item.system.duracao.units "minute")
+				(eq item.system.duracao.units "hour")
+				(eq item.system.duracao.units "day")
+				(eq item.system.duracao.units "month")
+				(eq item.system.duracao.units "year")
+			)
+		}}
+			<input
+				type="text"
+				name="system.duracao.value"
+				value="{{item.system.duracao.value}}"
+				placeholder="{{localize 'T20.Quantity'}}"
+			/>
 		{{/if}}
 		<select name="system.duracao.units">
-			{{selectOptions config.timePeriods selected=item.system.duracao.units localize=true blank=''}}
+			{{selectOptions config.timePeriods selected=item.system.duracao.units localize=true blank=""}}
 		</select>
 		{{#if (eq item.system.duracao.units "special")}}
-			<input type="text" name="system.duracao.special" value="{{item.system.duracao.special}}" placeholder="{{ localize 'T20.Description' }}" />
+			<input
+				type="text"
+				name="system.duracao.special"
+				value="{{item.system.duracao.special}}"
+				placeholder="{{localize 'T20.Description'}}"
+			/>
 		{{/if}}
 	</div>
 </div>

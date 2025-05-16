@@ -34,7 +34,7 @@ export function registerHandlebarsHelpers() {
 			}
 			case "pv":
 			case "pm": {
-				const { substituirCon } = actor.flags.tormenta20;
+				const { substituirCon } = actor.flags.tormenta20 ?? {};
 				const level = actor.system.attributes.nivel.value;
 				const classes = actor.items
 					.filter((i) => i.type === "classe")

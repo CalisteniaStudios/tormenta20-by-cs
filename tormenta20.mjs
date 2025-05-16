@@ -86,6 +86,7 @@ globalThis.tormenta20 = {
 		ItemT20
 	},
 	macros: macros,
+	utils,
 	rollItemMacro: macros.rollItemMacro,
 	rollSkillMacro: macros.rollSkillMacro
 };
