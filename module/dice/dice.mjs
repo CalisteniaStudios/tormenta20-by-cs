@@ -59,7 +59,7 @@ export async function d20Roll({
 			}
 		}
 		roll.options.type = "attack";
-		roll.options.title = options.title;
+		// roll.options.title = options.title;
 		return roll;
 	};
 	// Create the Roll instance
