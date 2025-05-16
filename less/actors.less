@@ -14,7 +14,8 @@
 
   .modesto();
 
-  .ability-scores, .skills-list {
+  .ability-scores,
+  .skills-list {
     .rollable:hover {
       color: red;
       text-shadow: 0 0 10px red;
@@ -26,7 +27,6 @@
   /*  Sheet Header                             */
   /* ----------------------------------------- */
   .sheet-header {
-
     // Portrait Artwork
     img.profile {
       flex: 0 0 @actorImageProfileTabbed;
@@ -78,7 +78,8 @@
         border-right: @borderGroove;
         border-radius: 0;
 
-        &.health, &.mana {
+        &.health,
+        &.mana {
           .attribute-footer {
             input {
               width: 50%;
@@ -188,7 +189,6 @@
         font-size: var(--font-size-14);
       }
       // Defense panel
-
     }
   }
 
@@ -293,7 +293,6 @@
     }
   }
 
-
   // Proficiency Toggle Buttons
   .proficiency-toggle {
     color: @colorBeige;
@@ -382,7 +381,8 @@
       margin-bottom: 4px;
     }
 
-    .form-group, .form-group-stacked {
+    .form-group,
+    .form-group-stacked {
       margin: 0 0 3px 0;
       justify-content: space-between;
     }
@@ -396,7 +396,7 @@
 
     select {
       max-width: 200px;
-      background-color: rgba(0, 0, 0, .05);
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
     i.fas {
@@ -421,20 +421,20 @@
     .trait-list {
       list-style: none;
       margin: 0;
-      padding: 0 0 0 .5em;
+      padding: 0 0 0 0.5em;
       .tag {
         display: inline-flex;
-        background-color: rgba(0, 0, 0, .05);
+        background-color: rgba(0, 0, 0, 0.05);
       }
       .speedtag {
         list-style: none;
         display: inline-flex;
         text-transform: lowercase;
         // background-color: rgba(0, 0, 0, .05);
-        &:last-child::after{
+        &:last-child::after {
           content: "";
         }
-        &:after{
+        &:after {
           content: ",";
         }
       }
@@ -566,8 +566,7 @@
       &:first-child {
         font-weight: bold;
       }
-      &:not(.item-header){
-
+      &:not(.item-header) {
         &:not(:hover) {
           .item-controls {
             visibility: hidden;
@@ -634,7 +633,6 @@
       }
     }
 
-
     // Inventory Header
     .item-header {
       line-height: 24px;
@@ -652,9 +650,15 @@
       word-break: break-word;
       white-space: nowrap;
       overflow: hidden;
-      &:last-child { border-right: none; }
-      &.item-action {flex: 0 0 100px}
-      &.attunement {flex: 0 0 24px}
+      &:last-child {
+        border-right: none;
+      }
+      &.item-action {
+        flex: 0 0 100px;
+      }
+      &.attunement {
+        flex: 0 0 24px;
+      }
     }
 
     .item-qty,
@@ -743,7 +747,8 @@
       .item-name {
         flex: 1;
       }
-      .item-total, .item-outros {
+      .item-total,
+      .item-outros {
         text-align: center;
         flex: 0 0 @itemImageSize;
       }
@@ -783,7 +788,7 @@
     background: @colorTan;
     border-radius: 5px;
     position: relative;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .9) inset;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9) inset;
     padding: 0 0.5rem;
 
     .encumbrance-bar {
@@ -803,7 +808,7 @@
       text-align: center;
       font-weight: 700;
       font-size: var(--font-size-13);
-      color: #EEE;
+      color: #eee;
       text-shadow: 0 0 2px #000;
     }
 
@@ -811,8 +816,12 @@
       display: block;
       position: absolute;
       border: 4px solid transparent;
-      &.encumbrance-30 { left: 30% }
-      &.encumbrance-50 { left: 50% }
+      &.encumbrance-30 {
+        left: 30%;
+      }
+      &.encumbrance-50 {
+        left: 50%;
+      }
     }
 
     .arrow-up {
@@ -839,8 +848,12 @@
       .encumbrance-bar {
         background-color: rgb(108, 87, 25);
       }
-      .arrow-up { border-bottom: 4px solid #000; }
-      .arrow-down { border-top: 4px solid #000; }
+      .arrow-up {
+        border-bottom: 4px solid #000;
+      }
+      .arrow-down {
+        border-top: 4px solid #000;
+      }
     }
   }
 
@@ -851,7 +864,8 @@
   .spellcasting-ability {
     flex: 0 0 240px;
     margin: 0;
-    label, span {
+    label,
+    span {
       flex: none;
     }
     input {
@@ -890,7 +904,9 @@
     color: @colorTan;
   }
 
-  .spell-school, .spell-action, .spell-target {
+  .spell-school,
+  .spell-action,
+  .spell-target {
     flex: 0 0 100px;
     // font-size: 12px;
     color: @colorTan;
@@ -913,7 +929,9 @@
   }
 
   // Empty spellbook controls
-  .spellbook-empty .item-controls { flex: 1; }
+  .spellbook-empty .item-controls {
+    flex: 1;
+  }
 
   /* ----------------------------------------- */
   /*  Features Tab                             */
@@ -921,7 +939,7 @@
 
   // Original class icon
   .features i.original-class {
-    color: #4b4a44
+    color: #4b4a44;
   }
   .features .item-detail select {
     max-width: 90%;
@@ -935,7 +953,8 @@
     padding: 0px;
   }
 
-  .item-description, #context-menu {
+  .item-description,
+  #context-menu {
     span.fa-stack {
       height: 1em;
       line-height: 1em;

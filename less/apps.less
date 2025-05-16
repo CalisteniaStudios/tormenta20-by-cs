@@ -15,7 +15,7 @@
 }
 
 .app {
-	background: url(./assets/side-bar.png) repeat;
+  background: url(./assets/side-bar.png) repeat;
 }
 
 .tormenta20 {
@@ -150,7 +150,8 @@
 
 .tormenta20.hd-config {
   .form-group {
-    button.increment, button.decrement {
+    button.increment,
+    button.decrement {
       flex: 0 0 1rem;
       line-height: 1rem;
     }
@@ -171,7 +172,6 @@
     }
   }
 }
-
 
 /* ----------------------------------------- */
 /*  Entity Sheets Specifically               */
@@ -311,14 +311,15 @@
   /*  Notifications                            */
   /* ----------------------------------------- */
 
-  .warnings, .info {
+  .warnings,
+  .info {
     flex: 0 0 100%;
     margin: 0;
     padding: 0;
     list-style: none;
 
     .notification {
-      font-family: 'Signika', sans-serif;
+      font-family: "Signika", sans-serif;
       font-weight: normal;
       font-size: 13px;
       box-shadow: none;
@@ -494,7 +495,7 @@
     overflow-y: auto;
     scrollbar-width: thin;
     color: @colorDark;
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     font-size: 14px;
 
     // Child lists
@@ -513,13 +514,13 @@
 
       text-align: left;
       align-items: center;
-      h3, h4 {
+      h3,
+      h4 {
         margin: 0;
         overflow-x: hidden;
         border: unset;
       }
     }
-
 
     // &.ae-onuse {
     //   // Individual Item
@@ -545,7 +546,7 @@
         position: absolute;
         right: 80px;
         width: 190px;
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
         border-radius: 15px;
         padding: 7px;
         .active {
@@ -554,7 +555,6 @@
       }
     }
 
-
     .item {
       align-items: center;
       height: auto;
@@ -562,7 +562,9 @@
       padding: 0 2px;
 
       border-bottom: 1px solid @colorFaint;
-      &:last-child { border-bottom: none; }
+      &:last-child {
+        border-bottom: none;
+      }
       .item-name {
         color: @colorDark;
         .item-image {
@@ -700,7 +702,7 @@
   padding: 3px;
   border: 1px solid #000;
   border-radius: 3px;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(4px);
   color: @colorFaint;
   text-align: left;
@@ -731,20 +733,25 @@
     td::before {
       opacity: 0.6;
     }
-    td.mode-1::before { // Multiply
+    td.mode-1::before {
+      // Multiply
       content: "×";
     }
-    td.mode-2::before { // Add
+    td.mode-2::before {
+      // Add
       content: "+";
     }
-    td.mode-2.negative::before { // Subtract
+    td.mode-2.negative::before {
+      // Subtract
       content: "−";
       margin-right: -1px;
     }
-    td.mode-3::before { // Downgrade
+    td.mode-3::before {
+      // Downgrade
       content: "↓";
     }
-    td.mode-4::before { // Upgrade
+    td.mode-4::before {
+      // Upgrade
       content: "↑";
     }
   }
@@ -805,7 +812,9 @@
     margin-top: 0.5em;
   }
 
-  .item-name > label, .item-image, input {
+  .item-name > label,
+  .item-image,
+  input {
     cursor: pointer;
   }
 
