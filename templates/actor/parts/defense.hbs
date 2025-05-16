@@ -4,9 +4,8 @@
 		{{#if (or isSimple isVehicle)}}
 		<input type="number" data-dtype="Number" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}">
 		{{else}}
-		<h1 style="height:auto">{{system.attributes.defesa.value}}</h1>
+		{{system.attributes.defesa.value}}
 		{{/if}}
-		<div class="property-attribution tooltip"></div>
 	</div>
 	{{#if (or isNPC isCharacter)}}
 	<footer class="attribute-footer">

@@ -347,9 +347,12 @@
 
   "T20.Healing": "Cura",
   "T20.HealingPlural": "Curas",
-  "T20.HealingTemp": "PV Temporário",
+  "T20.HealingTemp": "PV Temporários",
   "T20.ManaRecovery": "Recuperação de Mana",
-  "T20.ManaTemp": "PM Temporário",
+  "T20.ManaTemp": "PM Temporários",
+  "T20.Temp": "Temp",
+  "T20.Temporary": "Temporário",
+  "T20.TemporaryPlural": "Temporários",
 
   "T20.Action": "Ação",
   "T20.ActionPassive": "Passivo",
