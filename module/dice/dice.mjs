@@ -10,12 +10,12 @@ export async function d20Roll({
 	critical = 20,
 	fumble = 1,
 	targetValue = null,
-	options = {}
+	...options
 } = {}) {
 	parts = parts.concat(["@bonus"]);
 	let adv = 0;
-	if (options.rollKeep == "khd20" || event.altKey || parts[0].includes("kh")) adv = 1;
-	else if (options.rollKeep == "kld20" || event.ctrlKey || parts[0].includes("kl")) adv = -1;
+	if (options.rollKeep === "khd20" || event.altKey || parts[0].includes("kh")) adv = 1;
+	else if (options.rollKeep === "kld20" || event.ctrlKey || parts[0].includes("kl")) adv = -1;
 
 	// Define the inner roll function
 	const _roll = async (parts, adv, form) => {
