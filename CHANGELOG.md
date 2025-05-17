@@ -37,6 +37,7 @@
 ### Regras
 - Adicionado: Regra opcional para adicionar metade do nível na Defesa.
 - Adicionado: Regra opcional para aplicar Acuidade automaticamente.
+- Adicionado: Regras de ficha para desativar cálculo de Carga e carga de moedas.
 - Adicionado: Automação de PV/PM por nível para poderes e habilidades.
 - Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do Foundry.
 
