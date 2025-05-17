@@ -699,15 +699,12 @@ export default class ItemT20 extends Item {
 				});
 			} else if (this.type === "race") {
 				const grantedItems = this.getFlag("tormenta20", "grantedItems") ?? [];
-				const atributos = Object.fromEntries(
-					Object.keys(this.system.atributos).map((key) => [[`system.atributos.${key}.racial`], 0])
-				);
 				const updates = {
-					...atributos,
 					// O dataModel garante que campos { required: true } sejam resetados ao valor inicial
 					"system.tracos.tamanho": undefined,
 					"system.attributes.movement": undefined
 				};
+				Object.keys(this.system.atributos).forEach((key) => (updates[`system.atributos.${key}.racial`] = 0));
 				this.actor.update(updates);
 				const granted = [...new Set(grantedItems.filter((grant) => this.parent?.items.has(grant)))];
 				this.parent.deleteEmbeddedDocuments("Item", granted);
