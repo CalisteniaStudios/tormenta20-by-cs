@@ -3,6 +3,8 @@ import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import { applyOnUseEffects } from "../apps/ability-use.mjs";
 import { d20Roll, damageRoll, simplifyRollFormula } from "../dice/dice.mjs";
 import { itemMigration } from "./migrations.mjs";
+import AtributosDinamicosDialog from "../apps/dynamic-attributes-dialog.mjs";
+
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -833,6 +835,23 @@ export default class ItemT20 extends Item {
 				changes[`system.attributes.movement.${key}`] = value;
 			}
 		});
+
+		const atributosDinamicos = this.system.atributosDinamicos;
+		const dynValue = atributosDinamicos?.value;
+		const hasDynamic = Array.isArray(dynValue)
+			? dynValue.length > 0
+			: dynValue && typeof dynValue.size === "number"
+				? dynValue.size > 0
+				: false;
+
+		if (hasDynamic) {
+			const values = await AtributosDinamicosDialog.prompt(atributosDinamicos);
+			for (const [key, value] of Object.entries(values)) {
+				const num = Number(value);
+				changes[`system.atributos.${key}.racial`] = Number.isFinite(num) ? num : 0;
+			}
+			Object.assign(changes, updates);
+		}
 		this.actor.update(changes);
 
 		// Importa poderes raciais
