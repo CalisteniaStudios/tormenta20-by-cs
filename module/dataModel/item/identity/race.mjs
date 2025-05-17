@@ -105,25 +105,4 @@ export default class RaceData extends IdentityData {
 
 	/** @inheritDoc */
 	_onDelete(options, userId) {}
-
-	/**
-	 * Fetch all racial abilities for a given race from the poderes compendium.
-	 * @param {string} race - The race name (subtype).
-	 * @returns {Promise<Array>} Array of ability data objects.
-	 */
-	static async getRaceAbilities(race) {
-		const pack = game.packs.get("tormenta20.poderes");
-		if (!pack) {
-			ui.notifications.error("Compendium 'tormenta20.poderes' not found.");
-			return [];
-		}
-		const index = await pack.getIndex({ fields: ["name", "system.tipo", "system.subtipo"] });
-		const filteredEntries = index.filter((entry) => entry.system.tipo === "racial" && entry.system.subtipo === race);
-		const abilities = [];
-		for (const entry of filteredEntries) {
-			const doc = await pack.getDocument(entry._id);
-			abilities.push(doc.toObject());
-		}
-		return abilities;
-	}
 }

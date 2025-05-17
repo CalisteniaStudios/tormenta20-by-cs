@@ -625,6 +625,9 @@ export default class ItemT20 extends Item {
 			case "poder":
 				updates = this._onCreateOwnedPower(data, actorData, isNPC);
 				break;
+			case "race":
+				updates = await this._onCreateOwnedRace(data, actorData, isNPC);
+				break;
 		}
 		updates["flags.tormenta20.-=favorito"] = null;
 		if (updates) return this.updateSource(updates);
@@ -695,6 +698,7 @@ export default class ItemT20 extends Item {
 					"system.attributes.nivel.value": this.actor.nivel
 				});
 			} else if (this.type === "race") {
+				const grantedItems = this.getFlag("tormenta20", "grantedItems") ?? [];
 				const atributos = Object.fromEntries(
 					Object.keys(this.system.atributos).map((key) => [[`system.atributos.${key}.racial`], 0])
 				);
@@ -705,16 +709,8 @@ export default class ItemT20 extends Item {
 					"system.attributes.movement": undefined
 				};
 				this.actor.update(updates);
-				// Remove racial powers
-				const raceName = this.name;
-				const racialPowers = this.actor.items.filter(
-					(i) => i.type === "poder" && i.system?.tipo === "racial" && i.system?.subtipo === raceName
-				);
-				if (racialPowers.length) {
-					const ids = racialPowers.map((i) => i.id);
-					this.actor.deleteEmbeddedDocuments("Item", ids);
-				}
-
+				const granted = [...new Set(grantedItems.filter((grant) => this.parent?.items.has(grant)))];
+				this.parent.deleteEmbeddedDocuments("Item", granted);
 			}
 		}
 	}
@@ -775,7 +771,6 @@ export default class ItemT20 extends Item {
 		}
 		return updates;
 	}
-
 	/* -------------------------------------------- */
 
 	/**
@@ -818,6 +813,46 @@ export default class ItemT20 extends Item {
 		// 		console.error(error);
 		// 	}
 		// }
+		return updates;
+	}
+
+	/* -------------------------------------------- */
+
+	async _onCreateOwnedRace(data, actorData, isNPC) {
+		const updates = {};
+		const changes = Object.fromEntries(
+			Object.entries(this.system.atributos).map(([key, data]) => [`system.atributos.${key}.racial`, data])
+		);
+		const items = [];
+		const grantedItems = [];
+		const pack = game.packs.get("tormenta20.poderes");
+
+		changes["system.tracos.tamanho"] = [...this.system.tamanho][0];
+		Object.entries(this.system.movement).forEach(([key, value]) => {
+			if (value > 0 || (key === "hover" && value && this.system.movement.fly)) {
+				changes[`system.attributes.movement.${key}`] = value;
+			}
+		});
+		this.actor.update(changes);
+
+		// Importa poderes raciais
+		if (!pack) {
+			ui.notifications.error("Compendium 'tormenta20.poderes' not found.");
+			return [];
+		}
+		const index = await pack.getIndex({ fields: ["name", "system.tipo", "system.subtipo"] });
+		const filteredEntries = index.filter(
+			(entry) => entry.system.tipo === "racial" && entry.system.subtipo === this.name
+		);
+		for (const entry of filteredEntries) {
+			const doc = await pack.getDocument(entry._id);
+			items.push(doc.toObject());
+			grantedItems.push(doc.id);
+		}
+		if (items.length) {
+			await ItemT20.createDocuments(items, { keepId: true, parent: this.parent, pack: this.actor.pack });
+			updates["flags.tormenta20.grantedItems"] = grantedItems;
+		}
 		return updates;
 	}
 
