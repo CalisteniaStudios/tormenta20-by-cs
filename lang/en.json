@@ -40,7 +40,6 @@
   "T20.Handling": "Handling",
   "T20.Wearing": "Wearing",
 
-
   "T20.Die": "Die",
   "T20.Dice": "Data",
   "T20.Bonus": "Bonus",
@@ -236,8 +235,8 @@
   "T20.Background": "Origin",
   "T20.Deity": "Divinity",
 
-  "T20.AbilityCheck":"Attribute Test",
-  "T20.SkillCheck":"Skill Check",
+  "T20.AbilityCheck": "Attribute Test",
+  "T20.SkillCheck": "Skill Check",
 
   "T20.ResourcePrimary": "Resource 1",
   "T20.ResourceSecondary": "Resource 2",
@@ -577,24 +576,24 @@
   "T20.ConsumableSubtypeOil": "Oil",
   "T20.ConsumableSubtypeScroll": "Scroll",
 
-  "T20.EffectTypeArcane":"Arcane",
-  "T20.EffectTypeStun":"Stun",
-  "T20.EffectTypeWeariness":"Tiredness",
-  "T20.EffectTypeClimatic":"Climatic",
-  "T20.EffectTypeHealing":"Healing",
-  "T20.EffectTypeDamage":"Damage",
-  "T20.EffectTypeHoly":"Divine",
-  "T20.EffectTypeLight":"Light",
-  "T20.EffectTypeMagic":"Magic",
-  "T20.EffectTypeFear":"Fear",
-  "T20.EffectTypeMental":"Mental",
-  "T20.EffectTypePsychic":"Psychic",
-  "T20.EffectTypeMetabolism":"Metabolism",
-  "T20.EffectTypePolymorph":"Metamorphosis",
-  "T20.EffectTypeMovement":"Movement",
-  "T20.EffectTypeSenses":"Senses",
-  "T20.EffectTypeDarkness":"Darkness",
-  "T20.EffectTypePoison":"Poison",
+  "T20.EffectTypeArcane": "Arcane",
+  "T20.EffectTypeStun": "Stun",
+  "T20.EffectTypeWeariness": "Tiredness",
+  "T20.EffectTypeClimatic": "Climatic",
+  "T20.EffectTypeHealing": "Healing",
+  "T20.EffectTypeDamage": "Damage",
+  "T20.EffectTypeHoly": "Divine",
+  "T20.EffectTypeLight": "Light",
+  "T20.EffectTypeMagic": "Magic",
+  "T20.EffectTypeFear": "Fear",
+  "T20.EffectTypeMental": "Mental",
+  "T20.EffectTypePsychic": "Psychic",
+  "T20.EffectTypeMetabolism": "Metabolism",
+  "T20.EffectTypePolymorph": "Metamorphosis",
+  "T20.EffectTypeMovement": "Movement",
+  "T20.EffectTypeSenses": "Senses",
+  "T20.EffectTypeDarkness": "Darkness",
+  "T20.EffectTypePoison": "Poison",
 
   "T20.Treasure": "Treasure",
   "T20.Treasures": "Treasures",
@@ -638,13 +637,13 @@
 
   "T20.S09": "/* ------------ Item Upgrades ------------ */",
 
-"T20.WIPEnhancements": "Note: Not all enhancements in this section have been automated. The icons below indicate whether they have been automated or not, as per the legend.",
-"T20.WIPEnhancementsImplemented": "Automated",
-"T20.WIPEnhancementsNotImplemented": "Not Automated",
-"T20.WIPEnhancementsNotSelected": "Not Selected",
+  "T20.WIPEnhancements": "Note: Not all enhancements in this section have been automated. The icons below indicate whether they have been automated or not, as per the legend.",
+  "T20.WIPEnhancementsImplemented": "Automated",
+  "T20.WIPEnhancementsNotImplemented": "Not Automated",
+  "T20.WIPEnhancementsNotSelected": "Not Selected",
 
-"T20.EnhancementsAutomationEnable": "Enable Enhancement Automation",
-"T20.EnhancementsAutomationEnableHint": "If enabled, the effects of enhancements will be automatically applied",
+  "T20.EnhancementsAutomationEnable": "Enable Enhancement Automation",
+  "T20.EnhancementsAutomationEnableHint": "If enabled, the effects of enhancements will be automatically applied",
 
   "T20.SpecialMaterial": "Special Material",
   "T20.SpecialMaterialRubySteel": "Ruby-Steel",
@@ -790,7 +789,7 @@
   "T20.WeaponEnchantTooltipAssassin": "The weapon increases the extra damage dice of a sneak attack to d8. Also, when you make a Sneak Attack, you can spend 2M. If you do, you can reroll any 1s on those damage dice extra.",
   "T20.WeaponEnchantTooltipHunter": "The weapon pursues the target, negating penalties for light and total concealment and light cover. If the weapon is a ranged weapon, its range also increases by one category.",
   "T20.WeaponEnchantTooltipFreezing": "The weapon deals +1d6 cold damage. Once per round, when you attack, you can spend 2 MP. If you do so and the attack hits, the victim is ensnared for one round. A freezing weapon is covered by a layer of ice and fog.",
-  "T20.WeaponEnchantTooltipCaster": "A spellcaster can cast a spell that targets a creature or affects an area on the weapon. The spell has no effect on the fly, instead it is stored in the item. When it hits an attack with the weapon, you can discharge stored magic as a free action and without paying its cost. It targets (or as the center of its area) the creature or point hit by the attack. Once the spell is discharged, another one can be stored." ,
+  "T20.WeaponEnchantTooltipCaster": "A spellcaster can cast a spell that targets a creature or affects an area on the weapon. The spell has no effect on the fly, instead it is stored in the item. When it hits an attack with the weapon, you can discharge stored magic as a free action and without paying its cost. It targets (or as the center of its area) the creature or point hit by the attack. Once the spell is discharged, another one can be stored.",
   "T20.WeaponEnchantTooltipCorrosive": "The weapon deals +1d6 acid damage. Once per round, when you attack, you can increase 2 MP. If you do and the attack hits, the victim takes 4d4 points of acid damage on the next round . A corrosive weapon gives off vapors and drips toxic liquid.",
   "T20.WeaponEnchantTooltipDancing": "You can spend a move action and 1 MP to make the weapon float and attack a creature at close range of your choice, with the same stats as if you were wielding it. This effect has a sustained duration. ; if you stop holding it, the weapon drops to the ground.",
   "T20.WeaponEnchantTooltipDefender": "Weapon moves to parry attacks against you. You get +2 Defense.",
@@ -819,7 +818,7 @@
   "T20.EquipmentEnchantmentTooltipWinged": "You can spend 2 MP to make wings emerge from your back and gain 12m flying speed for one round. You can spend 1 MP at the start of each of your turns to maintain the effect.",
   "T20.EquipmentEnchantmentTooltipAnimateed": "You can spend a move action and 1 MP to make the shield float around you until the end of the scene. You gain the same bonus to Defense as if you were wielding the shield, but you retain the two hands free. You can only be protected by one shield at a time.",
   "T20.EquipmentEnchantmentTooltipFrightful": "You can spend a move action and 2 MP to generate a wave of fear. Enemies within close range must pass a Will save (Cha DC) or be shaken until the end of the scene. A frightening item features bloodstains, dangling bones, and other gruesome decorations.",
-  "T20.EquipmentEnchantmentTooltipCaustic": "You gain acid reduction 10 and can spend a move action and 2 MP to make the item drip acid. If you do, your attacks deal +1d4 acid damage until the end of the scene." ,
+  "T20.EquipmentEnchantmentTooltipCaustic": "You gain acid reduction 10 and can spend a move action and 2 MP to make the item drip acid. If you do, your attacks deal +1d4 acid damage until the end of the scene.",
   "T20.EquipmentEnchantmentTooltipDefending": "The item is enchanted to deflect hits. The item's Defense bonus increases by +2.",
   "T20.EquipmentEnchantmentTooltipSlick": "You get +10 to Acrobatics checks to escape and to Maneuver checks versus grapple. A slippery item always seems to be covered in slightly greasy oil.",
   "T20.EquipmentEnchantmentTooltipBashing": "This shield provides +2 to attacks and damage and has its damage increased by one step.",
@@ -1021,7 +1020,6 @@
   "T20.FoeRoleCaptain": "Captain",
   "T20.FoeRoleBoss": "Boss",
 
-
   "T20.NPCB_Concept": "Concept and Name",
   "T20.NPCB_Type": "Type and Size",
   "T20.NPCB_CR": "Challenge Level",
@@ -1053,11 +1051,9 @@
   "T20.NCPB_SkillGood": "Per. Strong",
   "T20.NCPB_SkillBad": "Per. Weak",
 
-
   "T20.NPCB_SaveGood": "Res. Strong",
   "T20.NPCB_SaveNormal": "Average Res.",
   "T20.NPCB_SaveBad": "Res. Weak",
-
 
   "T20.NPCB_ConceptHint": "Think of the threat's name and concept, a brief description (eg, 'winged reptile that breathes fire', 'purist combatant that uses magic', 'large humanoid that tanks and hits'); \n Choose a role for the threat that will serve as a benchmark of what it can do and how it can be used.",
   "T20.NPCB_TypeHint": "Choose the creature's type. The type defines the nature, determines what abilities and spells can affect the creature, and some provide special abilities.\nThen define the size and speed.",
@@ -1067,7 +1063,6 @@
   "T20.NPCB_PowersHint": "Choose the creatures' abilities, think 1 or 2 per tier of the game. Balance the choices between special forms of attack, defensive abilities, and sensory or movement abilities.",
   "T20.NPCB_TraitsHint": "To define the attribute values, choose values compatible with the concept of the creature according to the table. \nThen define the skills that the creature is trained in and define their value by the normal rules, using CR as skill level character.",
   "T20.NPCB_LootHint": "Based on the creature's stats and tier, define the equipment it brings (Eg if a humanoid creature has high defense, its treasure can include armor and shield). \nAlso, define your treasure that you want. it will yield to the party according to the treasure table in Chapter 7 of Tempest20.",
-
 
   "T20.NPCB_FoeRoleCombatantHint": "COMBATANT. High Offensive and Defensive power. Examples: mercenary, bear.",
   "T20.NPCB_FoeRoleCasterHint": "CASTLER. Offensive and Defensive power reduced, but with area damage effects, conditions and terrain control. Examples: mage, gadgeteer.",
@@ -1135,13 +1130,12 @@
   "T20.SettingEquipmentSlots": "Wrapped/Worn Items Control",
   "T20.SettingEquipmentSlotsHint": "Changes how to control equipped items.",
 
-
   "T20.S90": "/* --------------- Status --------------- */",
 
-  "T20.StatusTypeFear":"Fear Condition",
-  "T20.StatusTypeParalyze":"Paralysis Condition",
-  "T20.StatusTypeSenses":"Senses condition",
-  "T20.StatusTypeFatigue":"Fatigue Condition",
+  "T20.StatusTypeFear": "Fear Condition",
+  "T20.StatusTypeParalyze": "Paralysis Condition",
+  "T20.StatusTypeSenses": "Senses condition",
+  "T20.StatusTypeFatigue": "Fatigue Condition",
 
   "T20.S99": "/* --------------- Creature --------------- */",
   "T20.S0": "/* --------------- END --------------- */",
