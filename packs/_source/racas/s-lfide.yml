@@ -1,0 +1,51 @@
+name: Sílfide
+type: race
+img: systems/tormenta20/icons/racas/silfide.webp
+system:
+  description:
+    value: ''
+    unidentified: ''
+  source: ''
+  origin: ''
+  tags: []
+  rolltags: []
+  chatFlavor: ''
+  chatGif: ''
+  atributos:
+    for: -2
+    des: 1
+    con: 0
+    int: 0
+    sab: 0
+    car: 2
+  atributosDinamicos:
+    value: []
+    description: +1 em Três Atributos Diferentes
+  movement:
+    burrow: 0
+    climb: 0
+    fly: 0
+    swim: 0
+    walk: 9
+    hover: false
+    unit: m
+  tamanho:
+    - min
+effects: []
+folder: null
+ownership:
+  default: 0
+flags: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.342'
+  systemId: tormenta20
+  systemVersion: 1.4.214
+  createdTime: 1747515732387
+  modifiedTime: 1747515739682
+  lastModifiedBy: t20builder000000
+_id: sviyQ98Ng0xPb5mk
+sort: 300000
+_key: '!items!sviyQ98Ng0xPb5mk'
+

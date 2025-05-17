@@ -3,55 +3,6 @@ type: poder
 img: systems/tormenta20/icons/racas/silfide.webp
 effects:
   - name: Asas de Borboleta
-    img: systems/tormenta20/icons/racas/silfide.webp
-    origin: Compendium.tormenta20.poderes.Item.iklfz1WE671VTZcA
-    tint: '#ffffff'
-    flags:
-      tormenta20:
-        onuse: false
-        durationScene: false
-        self: false
-        attack: false
-        skill: false
-        ability: false
-        power: false
-        equipment: false
-        spell: false
-        consumable: false
-        items: ''
-        aumenta: false
-        custo: ''
-    duration:
-      startTime: null
-      combat: null
-      seconds: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: false
-    _id: wLvJ6R5Lf3mDATtI
-    type: base
-    system: {}
-    changes:
-      - key: system.tracos.tamanho
-        mode: 5
-        value: min
-        priority: null
-    description: ''
-    transfer: true
-    statuses: []
-    sort: 0
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-      coreVersion: '13.342'
-      systemId: tormenta20
-      systemVersion: 1.4.214
-      lastModifiedBy: null
-    _key: '!items.effects!Cg6Ojr0YEKOO6s1I.wLvJ6R5Lf3mDATtI'
-  - name: Asas de Borboleta
     img: icons/svg/upgrade.svg
     origin: Compendium.tormenta20.poderes.Item.iklfz1WE671VTZcA
     tint: '#ffffff'

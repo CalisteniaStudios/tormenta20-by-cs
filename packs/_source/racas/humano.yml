@@ -1,0 +1,57 @@
+name: Humano
+type: race
+img: systems/tormenta20/icons/racas/humano.webp
+system:
+  description:
+    value: ''
+    unidentified: ''
+  source: ''
+  origin: ''
+  tags: []
+  rolltags: []
+  chatFlavor: ''
+  chatGif: ''
+  atributos:
+    for: 0
+    des: 0
+    con: 0
+    int: 0
+    sab: 0
+    car: 0
+  movement:
+    burrow: 0
+    climb: 0
+    fly: 0
+    swim: 0
+    walk: 9
+    hover: false
+    unit: m
+  tamanho:
+    - med
+  atributosDinamicos:
+    value:
+      - for
+      - des
+      - con
+      - int
+      - sab
+      - car
+    description: +1 em Três Atributos Diferentes
+effects: []
+folder: null
+ownership:
+  default: 0
+flags: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.342'
+  systemId: tormenta20
+  systemVersion: 1.4.214
+  createdTime: 1747515721162
+  modifiedTime: 1747515739682
+  lastModifiedBy: t20builder000000
+_id: OPPiMQMKIxl8yJpm
+sort: 1500000
+_key: '!items!OPPiMQMKIxl8yJpm'
+

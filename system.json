@@ -8,13 +8,22 @@
     "verified": "13",
     "maximum": "13"
   },
-  "authors": [{"name": "Vizael"}],
+  "authors": [{ "name": "Vizael" }],
   "esmodules": ["tormenta20.mjs"],
   "styles": ["tormenta20.css"],
   "documentTypes": {
     "Actor": {
       "character": {
-        "htmlFields": ["detalhes.biography.value", "detalhes.biography.public", "detalhes.diario.value", "detalhes.diario1.value", "detalhes.diario2.value", "detalhes.diario3.value", "detalhes.diario4.value", "detalhes.diario5.value"]
+        "htmlFields": [
+          "detalhes.biography.value",
+          "detalhes.biography.public",
+          "detalhes.diario.value",
+          "detalhes.diario1.value",
+          "detalhes.diario2.value",
+          "detalhes.diario3.value",
+          "detalhes.diario4.value",
+          "detalhes.diario5.value"
+        ]
       },
       "npc": {
         "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
@@ -51,6 +60,13 @@
     }
   },
   "packs": [
+    {
+      "name": "racas",
+      "label": "Raças",
+      "system": "tormenta20",
+      "path": "./packs/racas",
+      "type": "Item"
+    },
     {
       "name": "classes",
       "label": "Classes",
@@ -100,8 +116,8 @@
       "path": "./packs/habilidades-de-criaturas",
       "type": "Item",
       "ownership": {
-          "PLAYER": "LIMITED",
-          "ASSISTANT": "OWNER"
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
       }
     },
     {
@@ -125,8 +141,8 @@
       "path": "./packs/ameacas",
       "type": "Actor",
       "ownership": {
-          "PLAYER": "LIMITED",
-          "ASSISTANT": "OWNER"
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
       }
     },
     {
@@ -136,8 +152,8 @@
       "path": "./packs/convocacoes",
       "type": "Actor",
       "ownership": {
-          "PLAYER": "LIMITED",
-          "ASSISTANT": "OWNER"
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
       }
     },
     {
@@ -164,23 +180,44 @@
   ],
   "packFolders": [
     {
-      "name": "Actors", "sorting": "m", "color": "#000000",
-      "packs": ["ameacas","convocacoes"]
+      "name": "Actors",
+      "sorting": "m",
+      "color": "#000000",
+      "packs": ["ameacas", "convocacoes"]
     },
     {
-      "name": "Items", "sorting": "m", "color": "#000000",
-      "packs": ["classes", "poderes", "poderes-distincao", "equipamentos", "equipamentos-magicos", "magias", "habilidades-de-criaturas", "pocoes", "parceiros"]
+      "name": "Items",
+      "sorting": "m",
+      "color": "#000000",
+      "packs": [
+        "racas",
+        "classes",
+        "poderes",
+        "poderes-distincao",
+        "equipamentos",
+        "equipamentos-magicos",
+        "magias",
+        "habilidades-de-criaturas",
+        "pocoes",
+        "parceiros"
+      ]
     },
     {
-      "name": "Journals", "sorting": "m", "color": "#000000",
+      "name": "Journals",
+      "sorting": "m",
+      "color": "#000000",
       "packs": ["basico"]
     },
     {
-      "name": "RollTables", "sorting": "m", "color": "#000000",
+      "name": "RollTables",
+      "sorting": "m",
+      "color": "#000000",
       "packs": ["tabelas-de-tesouro"]
     },
     {
-      "name": "Macros", "sorting": "m", "color": "#000000",
+      "name": "Macros",
+      "sorting": "m",
+      "color": "#000000",
       "packs": ["macros"]
     }
   ],

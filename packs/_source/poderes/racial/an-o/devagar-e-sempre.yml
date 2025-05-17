@@ -2,47 +2,7 @@ _id: SEoIE7cAzTVXn00n
 name: Devagar e sempre
 type: poder
 img: systems/tormenta20/icons/racas/anao.webp
-effects:
-  - origin: Item.SEoIE7cAzTVXn00n
-    tint: '#ffffff'
-    flags:
-      tormenta20:
-        onuse: false
-        durationScene: false
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: false
-    _id: WmFcjgmehMbaKWby
-    changes:
-      - key: system.attributes.movement.walk
-        mode: 5
-        value: '6'
-        priority: null
-    transfer: true
-    _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    name: Devagar e sempre
-    img: systems/tormenta20/icons/racas/anao.webp
-    type: base
-    system: {}
-    description: ''
-    statuses: []
-    sort: 0
-    _key: '!items.effects!SEoIE7cAzTVXn00n.WmFcjgmehMbaKWby'
+effects: []
 folder: QXmpsdR2yksENTdS
 sort: 0
 flags: {}
@@ -55,7 +15,7 @@ system:
     unidentified: ''
   source: T20, pg. 20 (JdA)
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -97,10 +57,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
+  systemVersion: 1.4.214
   coreVersion: '13.342'
   createdTime: 1664306184306
-  modifiedTime: 1684630371462
+  modifiedTime: 1747514965385
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
