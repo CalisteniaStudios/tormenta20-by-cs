@@ -479,10 +479,6 @@
       }
     }
 
-    .item-list {
-      font-size: var(--font-size-14);
-    }
-
     .inventory-list {
       flex: 0 1 100%;
     }
@@ -525,8 +521,12 @@
     margin: 5px 0;
     background-color: @colorFaint;
     border-radius: 10px;
-    font-size: var(--font-size-16);
+    font-size: var(--font-size-14);
     list-style: none;
+
+    &:first-child {
+      margin-top: 0;
+    }
 
     &.favorites {
       margin: 0;
