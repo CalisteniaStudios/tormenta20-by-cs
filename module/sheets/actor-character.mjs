@@ -1,4 +1,3 @@
-import RaceData from "../dataModel/item/identity/race.mjs";
 import ActorSheetT20 from "./actor-base.mjs";
 import PericiaSelection from "../automations/pericia-selection.mjs"; // You will create this
 
@@ -122,21 +121,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 			} else if (item.type === "race") {
 				const race = this.actor.itemTypes.race[0];
 				if (race) race.delete();
-				const updates = Object.fromEntries(
-					Object.entries(item.system.atributos).map(([key, data]) => [`system.atributos.${key}.racial`, data])
-				);
-				if (item.system.tamanho) {
-					updates["system.tracos.tamanho"] = item.system.tamanho;
-				}
-				if (item.system.movement) {
-					updates["system.attributes.movement"] = item.system.movement;
-				}
-				await this.actor.update(updates);
-				// Importa poderes raciais
-				const abilities = await RaceData.getRaceAbilities(item.name);
-				if (abilities.length) {
-					await this.actor.createEmbeddedDocuments("Item", abilities);
-				}
 				remainingItems.push(item);
 			} else if (item.type === "poder") {
 				const tags = item.system?.automationtags ?? [];
