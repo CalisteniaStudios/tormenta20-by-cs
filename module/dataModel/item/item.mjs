@@ -314,6 +314,17 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			delete schema.ativacao.execucao;
 			delete schema.ativacao.qtd;
 			delete schema.ativacao.special;
+		} else if (type === "poder") {
+			delete schema.consume;
+			delete schema.duracao;
+			delete schema.range;
+			delete schema.target;
+			delete schema.alvo;
+			delete schema.area;
+			delete schema.ativacao.condicao;
+			delete schema.ativacao.execucao;
+			delete schema.ativacao.qtd;
+			delete schema.ativacao.special;
 		}
 		return schema;
 	}
