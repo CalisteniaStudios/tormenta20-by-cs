@@ -110,14 +110,35 @@ export class Tormenta20ActorSheetSettings extends Tormenta20BaseSettings {
 		}
 	};
 
+	/** @override */
+	static PARTS = {
+		config: {
+			template: "systems/tormenta20/templates/apps/base-config.hbs"
+		},
+		weight: {
+			template: "systems/tormenta20/templates/apps/base-config.hbs"
+		},
+		footer: {
+			template: "templates/generic/form-footer.hbs"
+		}
+	};
+
 	/** @inheritDoc */
 	async _preparePartContext(partId, context, options) {
 		context = await super._preparePartContext(partId, context, options);
-		context.fields = [
-			this.createSettingField("disableExperience"),
-			this.createSettingField("enableLanguages"),
-			this.createSettingField("disableJournal")
-		];
+		switch (partId) {
+			case "config":
+				context.fields = [
+					this.createSettingField("disableExperience"),
+					this.createSettingField("enableLanguages"),
+					this.createSettingField("disableJournal")
+				];
+				break;
+			case "weight":
+				context.fields = [this.createSettingField("carryWeight"), this.createSettingField("currencyWeight")];
+				context.legend = game.i18n.localize("T20.Encumbrance");
+				break;
+		}
 		return context;
 	}
 }

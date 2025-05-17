@@ -518,6 +518,7 @@ export default class ActorT20 extends Actor {
 	 * @private
 	 */
 	_computeEncumbrance(system) {
+		if (!game.settings.get("tormenta20", "carryWeight")) return;
 		/* FLAGS */
 		const flags = {};
 		flags.organised = this.getFlag("tormenta20", "inventarioOrganizado");
@@ -534,8 +535,10 @@ export default class ActorT20 extends Actor {
 			return weight + q * w;
 		}, 0);
 		// Get the total weight from coins (1 === 1000)
-		let coins = Object.values(system.dinheiro).reduce((a, b) => a + b);
-		weight.value = weight.value + Math.floor(coins / 1000);
+		if (game.settings.get("tormenta20", "currencyWeight")) {
+			const coins = Object.values(system.dinheiro).reduce((a, b) => a + b);
+			weight.value = weight.value + Math.floor(coins / 1000);
+		}
 		// weight.value = Math.floor( weight.value );
 		if (["vehicle", "simple"].includes(this.type)) {
 			weight.encumbered = weight > weight.max / 2;

@@ -414,8 +414,8 @@ export default class CreatureData extends Tormenta20TypeData {
 			}),
 			temp: new fields.NumberField({
 				required: true,
-				nullable: false,
-				initial: 0,
+				// nullable: false,
+				// initial: 0,
 				min: 0,
 				step: 1,
 				integer: true,

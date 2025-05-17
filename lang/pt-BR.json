@@ -347,9 +347,12 @@
 
   "T20.Healing": "Cura",
   "T20.HealingPlural": "Curas",
-  "T20.HealingTemp": "PV Temporário",
+  "T20.HealingTemp": "PV Temporários",
   "T20.ManaRecovery": "Recuperação de Mana",
-  "T20.ManaTemp": "PM Temporário",
+  "T20.ManaTemp": "PM Temporários",
+  "T20.Temp": "Temp",
+  "T20.Temporary": "Temporário",
+  "T20.TemporaryPlural": "Temporários",
 
   "T20.Action": "Ação",
   "T20.ActionPassive": "Passivo",
@@ -1144,6 +1147,7 @@
   "T20.ItemSheet": "Ficha de Item",
   "T20.ActiveEffectSheet": "Ficha de Efeito Ativo",
   "T20.CharacterBuilderSheet": "Criação de Ameaça",
+  "T20.Sheets": "Fichas",
   "T20.SettingSheetSettings": "Configurações das Fichas",
 
   "T20.ActorTraitSelection": "Seleção de Características",
@@ -1203,6 +1207,10 @@
   "T20.SettingProgressiveDefenseHint": "Adiciona +1 na Defesa a cada nível par.",
   "T20.SettingOpenRaces": "Raças Abertas",
   "T20.SettingOpenRacesHint": "A distribuição de atributos raciais é aberta.",
+  "T20.SettingCarryWeight": "Limites de Carga",
+  "T20.SettingCarryWeightHint": "Calcula o limite de carga e aplica a condição Sobrecarregado quando acima do limite.",
+  "T20.SettingCurrencyWeight": "Espaço de Moedas",
+  "T20.SettingCurrencyWeightHint": "Calcula o espaço de moedas (1 espaço a cada mil moedas) caso a regra de Limites de Carga esteja ativa.",
 
   "T20.S90": "/* --------------- Status --------------- */",
 

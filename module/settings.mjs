@@ -254,8 +254,7 @@ export const SystemSettings = function () {
 		scope: "world",
 		config: false,
 		default: false,
-		type: Boolean,
-		requiresReload: true
+		type: Boolean
 	});
 
 	game.settings.register("tormenta20", "openRaces", {
@@ -264,7 +263,24 @@ export const SystemSettings = function () {
 		scope: "world",
 		config: false,
 		default: false,
-		type: Boolean,
-		requiresReload: true
+		type: Boolean
+	});
+
+	game.settings.register("tormenta20", "carryWeight", {
+		name: game.i18n.localize("T20.SettingCarryWeight"),
+		hint: game.i18n.localize("T20.SettingCarryWeightHint"),
+		scope: "world",
+		config: false,
+		default: true,
+		type: Boolean
+	});
+
+	game.settings.register("tormenta20", "currencyWeight", {
+		name: game.i18n.localize("T20.SettingCurrencyWeight"),
+		hint: game.i18n.localize("T20.SettingCurrencyWeightHint"),
+		scope: "world",
+		config: false,
+		default: true,
+		type: Boolean
 	});
 };
