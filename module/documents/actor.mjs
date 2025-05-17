@@ -864,8 +864,11 @@ export default class ActorT20 extends Actor {
 				this.updateSource(updateData);
 				break;
 		}
-		if (this.type === "character") {
-			updateData.prototypeToken = { actorLink: true };
+		const sourceId = this._stats?.compendiumSource;
+		if (!sourceId?.startsWith("Compendium.")) {
+			if (this.type === "character") {
+				updateData.prototypeToken = { actorLink: true };
+			}
 		}
 		this.updateSource(updateData);
 	}
