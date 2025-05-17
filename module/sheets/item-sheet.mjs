@@ -196,9 +196,9 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".rolls-control").click(this._onRollsControl.bind(this));
 			html.find(".parts-control").click(this._onPartsControl.bind(this));
 
-			// Progression Tab
-			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
-			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
+			 // Automation tags
+			html.find('.automationtag-input').keydown(this._onAutomationTagChange.bind(this));
+			html.find('.tag-delete').click(this._onAutomationTagDelete.bind(this));
 
 			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
 
@@ -213,6 +213,11 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".effect-control").click((ev) => {
 				ActiveEffectT20.onManageActiveEffect(ev, this.item);
 			});
+
+			// Progression Tab
+			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
+			// html.find(".progression-option-control").click(this._onProgressionOptionControl.bind(this));
+
 		}
 	}
 

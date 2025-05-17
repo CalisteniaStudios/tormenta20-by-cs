@@ -15,6 +15,7 @@ Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
 * Victor Kullack
 * Alexandre Galdino
 * Vinicius Lima Silva
+* Gabriel Vieira
 
 ## Atribuições
 - [FoundryVTT](https://github.com/FoundryVTT/) pelo módulo [dnd5e](https://github.com/FoundryVTT/dnd5e), cujo código foi adaptado neste sistema.

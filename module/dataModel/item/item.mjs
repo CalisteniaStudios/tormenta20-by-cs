@@ -39,6 +39,10 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 				label: "T20.ItemTagsList",
 				hint: "T20.ItemTagsListHint"
 			}),
+			automationtags: new fields.ArrayField(new fields.StringField(), {
+				label: "T20.ItemAutomationTags",
+				hint: "T20.ItemAutomationTagsHint"
+			}),
 			chatFlavor: new fields.StringField({
 				required: true,
 				nullable: false,
