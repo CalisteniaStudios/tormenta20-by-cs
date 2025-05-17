@@ -237,10 +237,6 @@ export function registerHandlebarsHelpers() {
 		return choices.includes(v);
 	});
 
-	Handlebars.registerHelper('isNumber', function(value) {
-  return typeof value === "number";
-});
-
 	/**
 	 * @param {object} items
 	 * @returns {Handlebars.SafeString}
