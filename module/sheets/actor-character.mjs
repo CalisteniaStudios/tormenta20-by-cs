@@ -120,7 +120,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 				}
 			} else if (item.type === "race") {
 				const race = this.actor.itemTypes.race[0];
-				if (race) race.delete();
+				if (race) await race.delete();
 				remainingItems.push(item);
 			} else if (item.type === "poder") {
 				const tags = item.system?.automationtags ?? [];
