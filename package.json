@@ -13,7 +13,8 @@
     "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs .",
     "lint:errors": "eslint --quiet --ext .js,.cjs,.mjs .",
     "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs --fix .",
-    "postinstall": "npm run build:ci"
+    "postinstall": "npm run build:ci",
+    "prepare": "husky"
   },
   "browserslist": [
     "last 3 versions"
@@ -35,9 +36,11 @@
     "fancy-log": "^2.0.0",
     "fs-extra": "^11.2.0",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "js-yaml": "^4.1.0",
     "less-watch-compiler": "^1.16.3",
     "lessc": "^1.0.2",
+    "lint-staged": "^16.0.0",
     "prettier": "3.5.3",
     "rollup": "^4.40.1",
     "rollup-plugin-postcss": "^4.0.2",
