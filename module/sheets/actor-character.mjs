@@ -1,5 +1,5 @@
-import ActorSheetT20 from "./actor-base.mjs";
 import PericiaSelection from "../automations/pericia-selection.mjs"; // You will create this
+import ActorSheetT20 from "./actor-base.mjs";
 
 /**
  * An Actor sheet for player character type actors.
@@ -145,8 +145,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 	_applyTreinado(item, pericias) {
 		item.effects = item.effects || [];
 		// Remove any previous auto-trained pericia effect
-		item.effects = item.effects.filter(e =>
-			!e.changes?.some(c => c.key?.startsWith("system.pericias.") && c.key?.endsWith(".treinado"))
+		item.effects = item.effects.filter(
+			(e) => !e.changes?.some((c) => c.key?.startsWith("system.pericias.") && c.key?.endsWith(".treinado"))
 		);
 
 		for (const pericia of pericias) {
@@ -250,6 +250,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					ui.notifications.error("Falha ao carregar descrição", {
 						permanent: false
 					});
+					console.warn(err);
 				}
 
 				if (item.type === "classe") {

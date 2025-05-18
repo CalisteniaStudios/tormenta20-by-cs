@@ -7,7 +7,7 @@ export default class PericiaSelection extends FormApplication {
 	}
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "power-pericia-select",
 			classes: ["tormenta20", "dialog"],
 			title: game.i18n.localize("T20.SelectPericia"),
@@ -26,7 +26,7 @@ export default class PericiaSelection extends FormApplication {
 		const $btns = html.find("button.pericia-btn");
 		const $concluir = html.find("button.concluir-btn");
 
-		$btns.click(ev => {
+		$btns.click((ev) => {
 			ev.preventDefault();
 			const key = ev.currentTarget.value;
 			const idx = this.selected.indexOf(key);
@@ -41,7 +41,7 @@ export default class PericiaSelection extends FormApplication {
 			$concluir.prop("disabled", this.selected.length === 0 || this.selected.length > 2);
 		});
 
-		html.find("form").submit(ev => {
+		html.find("form").submit((ev) => {
 			ev.preventDefault();
 			if (this.selected.length === 0 || this.selected.length > 2) return;
 			this._resolve([...this.selected]);

@@ -7,7 +7,6 @@ import path from "path";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-
 /**
  * Folder where the compiled compendium packs should be located relative to the
  * base 5e system folder.
@@ -21,20 +20,15 @@ const PACK_DEST = "dist/packs";
  */
 const PACK_SRC = "packs/_source";
 
-
 // eslint-disable-next-line
-const argv = yargs(hideBin(process.argv))
-	.command(packageCommand())
-	.help().alias("help", "h")
-	.argv;
-
+const argv = yargs(hideBin(process.argv)).command(packageCommand()).help().alias("help", "h").argv;
 
 // eslint-disable-next-line
 function packageCommand() {
 	return {
 		command: "package [action] [pack] [entry]",
 		describe: "Manage packages",
-		builder: yargs => {
+		builder: (yargs) => {
 			yargs.positional("action", {
 				describe: "The action to perform.",
 				type: "string",
@@ -49,9 +43,9 @@ function packageCommand() {
 				type: "string"
 			});
 		},
-		handler: async argv => {
+		handler: async (argv) => {
 			const { action, pack, entry } = argv;
-			switch ( action ) {
+			switch (action) {
 				case "clean":
 					return await cleanPacks(pack, entry);
 				case "pack":
@@ -62,7 +56,6 @@ function packageCommand() {
 		}
 	};
 }
-
 
 /* ----------------------------------------- */
 /*  Clean Packs                              */
@@ -75,30 +68,29 @@ function packageCommand() {
  * @param {boolean} [options.clearSourceId=true]  Should the core sourceId flag be deleted.
  * @param {number} [options.ownership=0]          Value to reset default ownership to.
  */
-function cleanPackEntry(data, { clearSourceId=true, ownership=0 }={}) {
-	if ( data.ownership ) data.ownership = { default: ownership };
-	if ( clearSourceId ) {
+function cleanPackEntry(data, { clearSourceId = true, ownership = 0 } = {}) {
+	if (data.ownership) data.ownership = { default: ownership };
+	if (clearSourceId) {
 		delete data._stats?.compendiumSource;
 		delete data.flags?.core?.sourceId;
 	}
 	delete data.flags?.importSource;
 	delete data.flags?.exportSource;
-	if ( data._stats?.lastModifiedBy ) data._stats.lastModifiedBy = "t20builder000000"; // Precisa ter 16 caracters, senão tudo explode
+	if (data._stats?.lastModifiedBy) data._stats.lastModifiedBy = "t20builder000000"; // Precisa ter 16 caracters, senão tudo explode
 
 	// Remove empty entries in flags
-	if ( !data.flags ) data.flags = {};
+	if (!data.flags) data.flags = {};
 	Object.entries(data.flags).forEach(([key, contents]) => {
-		if ( contents === null || Object.keys(contents).length === 0 ) delete data.flags[key];
+		if (contents === null || Object.keys(contents).length === 0) delete data.flags[key];
 	});
 
-	if ( data.effects ) data.effects.forEach(i => cleanPackEntry(i, { clearSourceId: false }));
-	if ( data.items ) data.items.forEach(i => cleanPackEntry(i, { clearSourceId: false }));
-	if ( data.pages ) data.pages.forEach(i => cleanPackEntry(i, { ownership: -1 }));
-	if ( data.system?.description?.value ) data.system.description.value = cleanString(data.system.description.value);
-	if ( data.label ) data.label = cleanString(data.label);
-	if ( data.name ) data.name = cleanString(data.name);
+	if (data.effects) data.effects.forEach((i) => cleanPackEntry(i, { clearSourceId: false }));
+	if (data.items) data.items.forEach((i) => cleanPackEntry(i, { clearSourceId: false }));
+	if (data.pages) data.pages.forEach((i) => cleanPackEntry(i, { ownership: -1 }));
+	if (data.system?.description?.value) data.system.description.value = cleanString(data.system.description.value);
+	if (data.label) data.label = cleanString(data.label);
+	if (data.name) data.name = cleanString(data.name);
 }
-
 
 /**
  * Removes invisible whitespace characters and normalizes single- and double-quotes.
@@ -106,9 +98,11 @@ function cleanPackEntry(data, { clearSourceId=true, ownership=0 }={}) {
  * @returns {string}    The cleaned string.
  */
 function cleanString(str) {
-	return str.replace(/\u2060/gu, "").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"');
+	return str
+		.replace(/\u2060/gu, "")
+		.replace(/[‘’]/gu, "'")
+		.replace(/[“”]/gu, '"');
 }
-
 
 /**
  * Cleans and formats source files, removing unnecessary permissions and flags and adding the proper spacing.
@@ -121,9 +115,9 @@ function cleanString(str) {
  */
 async function cleanPacks(packName, entryName) {
 	entryName = entryName?.toLowerCase();
-	const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true }).filter(file =>
-		file.isDirectory() && ( !packName || (packName === file.name) )
-	);
+	const folders = fs
+		.readdirSync(PACK_SRC, { withFileTypes: true })
+		.filter((file) => file.isDirectory() && (!packName || packName === file.name));
 
 	/**
 	 * Walk through directories to find files.
@@ -132,19 +126,19 @@ async function cleanPacks(packName, entryName) {
 	 */
 	async function* _walkDir(directoryPath) {
 		const directory = await readdir(directoryPath, { withFileTypes: true });
-		for ( const entry of directory ) {
+		for (const entry of directory) {
 			const entryPath = path.join(directoryPath, entry.name);
-			if ( entry.isDirectory() ) yield* _walkDir(entryPath);
-			else if ( path.extname(entry.name) === ".yml" ) yield entryPath;
+			if (entry.isDirectory()) yield* _walkDir(entryPath);
+			else if (path.extname(entry.name) === ".yml") yield entryPath;
 		}
 	}
 
-	for ( const folder of folders ) {
+	for (const folder of folders) {
 		logger.info(`Cleaning pack ${folder.name}`);
-		for await ( const src of _walkDir(path.join(PACK_SRC, folder.name)) ) {
+		for await (const src of _walkDir(path.join(PACK_SRC, folder.name))) {
 			const data = YAML.load(await readFile(src, { encoding: "utf8" }));
-			if ( entryName && (entryName !== data.name.toLowerCase()) ) continue;
-			if ( !data._id || !data._key ) {
+			if (entryName && entryName !== data.name.toLowerCase()) continue;
+			if (!data._id || !data._key) {
 				console.log(`Failed to clean \x1b[31m${src}\x1b[0m, must have _id and _key.`);
 				continue;
 			}
@@ -154,7 +148,6 @@ async function cleanPacks(packName, entryName) {
 		}
 	}
 }
-
 
 /* ----------------------------------------- */
 /*  Compile Packs                            */
@@ -169,18 +162,17 @@ async function cleanPacks(packName, entryName) {
  */
 async function compilePacks(packName) {
 	// Determine which source folders to process
-	const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true }).filter(file =>
-		file.isDirectory() && ( !packName || (packName === file.name) )
-	);
+	const folders = fs
+		.readdirSync(PACK_SRC, { withFileTypes: true })
+		.filter((file) => file.isDirectory() && (!packName || packName === file.name));
 
-	for ( const folder of folders ) {
+	for (const folder of folders) {
 		const src = path.join(PACK_SRC, folder.name);
 		const dest = path.join(PACK_DEST, folder.name);
 		logger.info(`Compiling pack ${folder.name}`);
 		await compilePack(src, dest, { recursive: true, log: true, transformEntry: cleanPackEntry, yaml: true });
 	}
 }
-
 
 /* ----------------------------------------- */
 /*  Extract Packs                            */
@@ -202,9 +194,9 @@ async function extractPacks(packName, entryName) {
 	const system = JSON.parse(fs.readFileSync("./system.json", { encoding: "utf8" }));
 
 	// Determine which source packs to process.
-	const packs = system.packs.filter(p => !packName || p.name === packName);
+	const packs = system.packs.filter((p) => !packName || p.name === packName);
 
-	for ( const packInfo of packs ) {
+	for (const packInfo of packs) {
 		const dest = path.join(PACK_SRC, packInfo.name);
 		const distPath = `dist/${packInfo.path.startsWith("./") ? packInfo.path.slice(2) : packInfo.path}`;
 		logger.info(`Extracting pack ${packInfo.name}`);
@@ -212,44 +204,50 @@ async function extractPacks(packName, entryName) {
 		const folders = {};
 		const containers = {};
 		await extractPack(distPath, dest, {
-			log: false, transformEntry: e => {
-				if ( e._key.startsWith("!folders") ) folders[e._id] = { name: slugify(e.name), folder: e.folder };
-				else if ( e.type === "container" ) containers[e._id] = {
-					name: slugify(e.name), container: e.system?.container, folder: e.folder
-				};
+			log: false,
+			transformEntry: (e) => {
+				if (e._key.startsWith("!folders")) folders[e._id] = { name: slugify(e.name), folder: e.folder };
+				else if (e.type === "container")
+					containers[e._id] = {
+						name: slugify(e.name),
+						container: e.system?.container,
+						folder: e.folder
+					};
 				return false;
 			}
 		});
 		const buildPath = (collection, entry, parentKey) => {
 			let parent = collection[entry[parentKey]];
 			entry.path = entry.name;
-			while ( parent ) {
+			while (parent) {
 				entry.path = path.join(parent.name, entry.path);
 				parent = collection[parent[parentKey]];
 			}
 		};
-		Object.values(folders).forEach(f => buildPath(folders, f, "folder"));
-		Object.values(containers).forEach(c => {
+		Object.values(folders).forEach((f) => buildPath(folders, f, "folder"));
+		Object.values(containers).forEach((c) => {
 			buildPath(containers, c, "container");
 			const folder = folders[c.folder];
-			if ( folder ) c.path = path.join(folder.path, c.path);
+			if (folder) c.path = path.join(folder.path, c.path);
 		});
 
 		await extractPack(distPath, dest, {
-			log: true, transformEntry: entry => {
-				if ( entryName && (entryName !== entry.name.toLowerCase()) ) return false;
+			log: true,
+			transformEntry: (entry) => {
+				if (entryName && entryName !== entry.name.toLowerCase()) return false;
 				cleanPackEntry(entry);
-			}, transformName: entry => {
-				if ( entry._id in folders ) return path.join(folders[entry._id].path, "_folder.yml");
-				if ( entry._id in containers ) return path.join(containers[entry._id].path, "_container.yml");
+			},
+			transformName: (entry) => {
+				if (entry._id in folders) return path.join(folders[entry._id].path, "_folder.yml");
+				if (entry._id in containers) return path.join(containers[entry._id].path, "_container.yml");
 				const outputName = slugify(entry.name);
 				const parent = containers[entry.system?.container] ?? folders[entry.folder];
 				return path.join(parent?.path ?? "", `${outputName}.yml`);
-			}, yaml: true
+			},
+			yaml: true
 		});
 	}
 }
-
 
 /**
  * Standardize name format.
@@ -257,5 +255,10 @@ async function extractPacks(packName, entryName) {
  * @returns {string}
  */
 function slugify(name) {
-	return name.toLowerCase().replace("'", "").replace(/[^a-z0-9]+/gi, " ").trim().replace(/\s+|-{2,}/g, "-");
+	return name
+		.toLowerCase()
+		.replace("'", "")
+		.replace(/[^a-z0-9]+/gi, " ")
+		.trim()
+		.replace(/\s+|-{2,}/g, "-");
 }

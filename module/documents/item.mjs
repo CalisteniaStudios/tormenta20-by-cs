@@ -1,10 +1,9 @@
 // import { T20 } from '../config.mjs';
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import { applyOnUseEffects } from "../apps/ability-use.mjs";
+import AtributosDinamicosDialog from "../apps/dynamic-attributes-dialog.mjs";
 import { d20Roll, damageRoll, simplifyRollFormula } from "../dice/dice.mjs";
 import { itemMigration } from "./migrations.mjs";
-import AtributosDinamicosDialog from "../apps/dynamic-attributes-dialog.mjs";
-
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -55,7 +54,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasAttack() {
-		return !!this.system.rolls.find((r) => r.type == "ataque");
+		return !!this.system.rolls.find((r) => r.type === "ataque");
 	}
 
 	/* -------------------------------------------- */
@@ -65,7 +64,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasDamage() {
-		return !!this.system.rolls.find((r) => r.type == "dano");
+		return !!this.system.rolls.find((r) => r.type === "dano");
 	}
 
 	/* -------------------------------------------- */
@@ -191,7 +190,7 @@ export default class ItemT20 extends Item {
 			}
 			if (this.parent?.type === "character" && this.system.equipado && this.system.equipado2.slot === 0) {
 				const equip2 = this.system.equipado2;
-				if (this.system.equipado2.type == "hand" && this.system.equipado === 2) {
+				if (this.system.equipado2.type === "hand" && this.system.equipado === 2) {
 					this.system.equipado2.slot = 12.1;
 				} else {
 					let equips = this.actor.items.filter((it) => it.system.equipado && it.system.equipado2.type === equip2.type);
@@ -215,7 +214,6 @@ export default class ItemT20 extends Item {
 	 */
 	prepareDerivedData() {
 		const system = this.system;
-		const C = CONFIG.T20;
 		const labels = (this.labels = {});
 		const gameSystem = game.settings.get("tormenta20", "gameSystem");
 
