@@ -261,7 +261,7 @@ export default class ItemT20 extends Item {
 		}
 
 		// Activation
-		if (system.hasOwnProperty("ativacao")) {
+		if (foundry.utils.hasProperty(system, "ativacao")) {
 			let act = system.ativacao || {};
 			if (["minute", "hour", "day"].includes(act.execucao)) {
 				labels.ativacao = [act.qtd, T20.abilityActivationTypes[act.execucao]].join(" ");
@@ -317,7 +317,7 @@ export default class ItemT20 extends Item {
 		}
 
 		// Saving Throw
-		if (system.hasOwnProperty("resistencia")) {
+		if (foundry.utils.hasProperty(system, "resistencia")) {
 			let save = system.resistencia || {};
 			const actorData = this.actor?.system ?? null;
 			const actorFlags = this.actor?.flags ?? null;
@@ -655,7 +655,7 @@ export default class ItemT20 extends Item {
 		if (game.userId !== userId) return;
 		// Set Initial Class
 		if (this.parent && this.type === "classe") {
-			if (changed.system?.hasOwnProperty("inicial")) {
+			if (foundry.utils.hasProperty(changed.system, "inicial")) {
 				const classes = this.actor.items.filter((i) => i.type === "classe" && i.id != this.id);
 				let updateItems;
 				// When set as initial, unset other classes
@@ -671,7 +671,7 @@ export default class ItemT20 extends Item {
 				}
 				if (updateItems) this.actor.updateEmbeddedDocuments("Item", updateItems);
 			}
-			if (changed.system?.hasOwnProperty("niveis")) {
+			if (foundry.utils.hasProperty(changed.system, "niveis")) {
 				this.actor.update({
 					"system.attributes.nivel.value": this.actor.nivel
 				});
@@ -1271,7 +1271,7 @@ export default class ItemT20 extends Item {
 				save: "T20.Resistance"
 			};
 			const r = Object.entries(labels).map(function (t) {
-				if (headerTags.hasOwnProperty(t[0]) && t[1]) {
+				if (foundry.utils.hasProperty(headerTags, t[0]) && t[1]) {
 					let tag = game.i18n.localize(headerTags[t[0]]);
 
 					return `<b>${tag}:</b> ${t[1]};`;

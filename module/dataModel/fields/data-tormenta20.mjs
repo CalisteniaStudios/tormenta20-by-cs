@@ -15,7 +15,7 @@ export default class Tormenta20DataModel extends foundry.abstract.DataModel {
 
 		for (const fieldPath of Object.keys(dataFields)) {
 			dataFields[fieldPath] = schema.getField(fieldPath);
-			if (dataFields[fieldPath].hasOwnProperty("fieldPath")) continue;
+			if (foundry.utils.hasProperty(dataFields[fieldPath], "fieldPath")) continue;
 		}
 
 		return foundry.utils.expandObject(dataFields);

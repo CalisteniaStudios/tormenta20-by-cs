@@ -116,7 +116,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			itemType: game.i18n.localize(`TYPES.Item.${item.type}`),
 			itemStatus: this._getItemStatus(),
 			itemProperties: this._getItemProperties(),
-			isPhysical: item.system.hasOwnProperty("qtd"),
+			isPhysical: foundry.utils.hasProperty(item.system, "qtd"),
 			// TextEditors
 			htmlFields: {
 				description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description.value, {

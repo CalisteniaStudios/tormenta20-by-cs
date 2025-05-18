@@ -344,7 +344,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		if (!item.equipado) return;
 
 		const { slot: equippedSlot } = item.equipado;
-		const isHand = item.equipado.type === "hand" || item.system.hasOwnProperty("empunhadura");
+		const isHand = item.equipado.type === "hand" || foundry.utils.hasProperty(item.system, "empunhadura");
 		// const body = item.equipado.type === "body" ||
 		if (game.settings.get("tormenta20", "equipmentSlots")) {
 			slot = parseInt(equippedSlot) === 12 ? 2 : 1;
