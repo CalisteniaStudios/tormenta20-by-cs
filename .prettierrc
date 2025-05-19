@@ -7,10 +7,6 @@
 		{
 			"files": ["*.less"],
 			"options": { "tabWidth": 2, "useTabs": false }
-		},
-		{
-			"files": ["*.html", "*.hbs"],
-			"options": { "printWidth": 160 }
 		}
 	]
 }
