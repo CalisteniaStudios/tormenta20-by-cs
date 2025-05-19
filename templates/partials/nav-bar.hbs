@@ -20,11 +20,11 @@
 			<a class="item" data-tab="effects"><i class="fas fa-wand-magic-sparkles"></i> {{localize "T20.Effects"}}</a>
 		{{/if}}
 		{{#if (eq layout "vehicle")}}
-			<a class="item active" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
+			<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
 			<a class="item" data-tab="description">{{localize "T20.Description"}}</a>
 		{{/if}}
 		{{#if (eq layout "simple")}}
-			<a class="item active" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
+			<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
 			<a class="item" data-tab="description">{{localize "T20.Description"}}</a>
 		{{/if}}
 	</nav>
@@ -34,7 +34,7 @@
 {{#if (eq documentName "Item")}}
 	{{! ITEM GERAL }}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<a class="item active" data-tab="description">{{localize "T20.Description"}}</a>
+		<a class="item" data-tab="description">{{localize "T20.Description"}}</a>
 		{{#unless (eq item.type "tesouro")}}
 			<a class="item" data-tab="details">{{localize "T20.Details"}}</a>
 		{{/unless}}
