@@ -1,7 +1,6 @@
 // import { T20 } from '../config.mjs';
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import { applyOnUseEffects } from "../apps/ability-use.mjs";
-import AtributosDinamicosDialog from "../apps/dynamic-attributes-dialog.mjs";
 import { d20Roll, damageRoll, simplifyRollFormula } from "../dice/dice.mjs";
 import { itemMigration } from "./migrations.mjs";
 
@@ -832,20 +831,32 @@ export default class ItemT20 extends Item {
 		});
 
 		const atributosDinamicos = this.system.atributosDinamicos;
-		const dynValue = atributosDinamicos?.value;
-		const hasDynamic = Array.isArray(dynValue)
-			? dynValue.length > 0
-			: dynValue && typeof dynValue.size === "number"
-				? dynValue.size > 0
-				: false;
-
-		if (hasDynamic) {
-			const values = await AtributosDinamicosDialog.prompt(atributosDinamicos);
-			for (const [key, value] of Object.entries(values)) {
-				const num = Number(value);
-				changes[`system.atributos.${key}.racial`] = Number.isFinite(num) ? num : 0;
-			}
-			Object.assign(changes, updates);
+		if (atributosDinamicos.value.size) {
+			await foundry.applications.api.DialogV2.wait({
+				window: { title: "Atributos Dinâmicos" },
+				position: { width: 400 },
+				content: await foundry.applications.handlebars.renderTemplate(
+					"systems/tormenta20/templates/apps/dynamic-attributes-dialog.hbs",
+					{
+						config: CONFIG.T20,
+						description: atributosDinamicos.description,
+						atributosList: atributosDinamicos.value
+					}
+				),
+				buttons: [
+					{
+						action: "apply",
+						label: game.i18n.localize("T20.Apply"),
+						callback: (event, button) => {
+							const fd = new foundry.applications.ux.FormDataExtended(button.form);
+							const atributos = fd.object;
+							for (const [key, value] of Object.entries(atributos)) {
+								changes[`system.atributos.${key}.racial`] = value ?? 0;
+							}
+						}
+					}
+				]
+			});
 		}
 		this.actor.update(changes);
 

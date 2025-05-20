@@ -1,16 +1,9 @@
-<form>
-  <h3>{{description}}</h3>
-  <div class="form-group">
-    {{#each atributosList as |attr|}}
-      <div class="attribute-row">
-        <label for="attr-{{attr}}">{{attr}}</label>
-        <input type="number" name="{{attr}}" id="attr-{{attr}}" value="0" />
-      </div>
-    {{/each}}
-  </div>
-  <footer class="sheet-footer flexrow">
-    <button type="submit" class="dialog-button dialog-apply">
-      {{localize 'T20.Apply'}}
-    </button>
-  </footer>
-</form>
+<h3>{{description}}</h3>
+<div class="form-group">
+  {{#each atributosList as |attr|}}
+    <div class="attribute-row">
+      <label for="attr-{{attr}}">{{lookup ../config.atributosAbr attr}}</label>
+      <input type="number" name="{{attr}}" id="attr-{{attr}}" value="0" />
+    </div>
+  {{/each}}
+</div>
