@@ -43,6 +43,7 @@
 - Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do Foundry.
 
 ### Rolagens
+- Adicionado: Acuidade, Arremesso Potente e Estilo de Disparo automatizados.
 - Corrigido: As opções "Melhor/Pior de 2d20" não são ignoradas.
 - Corrigido: Botões do clique direito do mouse funcionam para rolagens avulsas no chat.
 - Corrigido: Multiplicação de dano ocorre antes da Redução de Dano.
