@@ -68,13 +68,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify">Seu corpo artificial é resistente, mas
-      rígido. Seu deslocamento é 6m, mas não é reduzido por uso de armadura ou
-      excesso de carga. Você recebe +2 na Defesa, mas possui penalidade de
-      armadura -2. Você leva um dia para vestir ou remover uma armadura (pois
-      precisa acoplar as peças ao seu chassi). Por ser acoplada, sua armadura
-      não conta no limite de itens que você pode usar (mas você continua podendo
-      usar apenas uma armadura).</p>
+      <p>Seu corpo artificial é resistente, mas rígido. Seu deslocamento é 6m,
+      mas não é reduzido por uso de armadura ou excesso de carga. Você recebe +2
+      na Defesa, mas possui penalidade de armadura -2. Você leva um dia para
+      vestir ou remover uma armadura (pois precisa acoplar as peças ao seu
+      chassi). Por ser acoplada, sua armadura não conta no limite de itens que
+      você pode usar (mas você continua podendo usar apenas uma armadura).</p>
     unidentified: ''
   source: T20, pg. 27 (JdA)
   ativacao:

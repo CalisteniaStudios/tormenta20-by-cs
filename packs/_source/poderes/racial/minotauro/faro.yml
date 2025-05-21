@@ -56,9 +56,9 @@ flags: {}
 system:
   description:
     value: >-
-      <p style="text-align:justify">Você tem olfato apurado. Contra inimigos em
-      alcance curto que não possa ver, você não fica desprevenido e camuflagem
-      total lhe causa apenas 20% de chance de falha.</p>
+      <p>Você tem olfato apurado. Contra inimigos em alcance curto que não possa
+      ver, você não fica desprevenido e camuflagem total lhe causa apenas 20% de
+      chance de falha.</p>
     unidentified: ''
   source: T20, pg. 25 (JdA)
   ativacao:
