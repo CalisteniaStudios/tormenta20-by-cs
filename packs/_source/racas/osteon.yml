@@ -36,6 +36,15 @@ system:
       - sab
       - car
     description: +1 em Três Atributos Diferentes
+  grants:
+    - title: ''
+      desc: ''
+      type: multi
+      choices:
+        - uuid: Compendium.tormenta20.poderes.Item.l1E04OA0ThZFOeL5
+        - uuid: Compendium.tormenta20.poderes.Item.Wj1J9EBK9tOe2hkz
+        - uuid: Compendium.tormenta20.poderes.Item.GYlYSYLGcK89eelM
+        - uuid: Compendium.tormenta20.poderes.Item.jmQolgYJTzN0MIBs
 effects: []
 folder: null
 ownership:
@@ -48,7 +57,7 @@ _stats:
   systemId: tormenta20
   systemVersion: 1.4.214
   createdTime: 1747515727906
-  modifiedTime: 1747515739682
+  modifiedTime: 1747802004827
   lastModifiedBy: t20builder000000
 _id: DBhFX1NX1wzTNqa5
 sort: 800000

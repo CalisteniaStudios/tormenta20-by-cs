@@ -31,6 +31,15 @@ system:
   atributosDinamicos:
     value: []
     description: +1 em Três Atributos Diferentes
+  grants:
+    - title: ''
+      desc: ''
+      type: multi
+      choices:
+        - uuid: Compendium.tormenta20.poderes.Item.726XcodKEzHaBYI7
+        - uuid: Compendium.tormenta20.poderes.Item.SEoIE7cAzTVXn00n
+        - uuid: Compendium.tormenta20.poderes.Item.xWWtgcHqV6PvElXX
+        - uuid: Compendium.tormenta20.poderes.Item.ZfvrgyuDZB7CAptc
 effects: []
 folder: null
 ownership:
@@ -43,7 +52,7 @@ _stats:
   systemId: tormenta20
   systemVersion: 1.4.214
   createdTime: 1747515716511
-  modifiedTime: 1747515739682
+  modifiedTime: 1747801874756
   lastModifiedBy: t20builder000000
 _id: VZd0kqQaLQzoISfB
 sort: 1600000

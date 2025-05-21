@@ -31,6 +31,14 @@ system:
     unit: m
   tamanho:
     - med
+  grants:
+    - title: ''
+      desc: ''
+      type: multi
+      choices:
+        - uuid: Compendium.tormenta20.poderes.Item.pjuN5W676oemur1X
+        - uuid: Compendium.tormenta20.poderes.Item.AopKlk0yieqqhmAj
+        - uuid: Compendium.tormenta20.poderes.Item.PEn3CaxnaMEIAXUR
 effects: []
 folder: null
 ownership:
@@ -43,7 +51,7 @@ _stats:
   systemId: tormenta20
   systemVersion: 1.4.214
   createdTime: 1747515718307
-  modifiedTime: 1747515739682
+  modifiedTime: 1747801895562
   lastModifiedBy: t20builder000000
 _id: VprQ9XynfS5PqoMF
 sort: 1700000
