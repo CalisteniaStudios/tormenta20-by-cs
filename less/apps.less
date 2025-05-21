@@ -822,8 +822,10 @@
 
 .attribute-config {
   .flexrow {
-    > * {
-      flex-basis: calc(33% - 0.5rem);
+    gap: 0.5rem;
+    input {
+      flex: 0 0 30px;
+      text-align: center;
     }
   }
 }
