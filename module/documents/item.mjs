@@ -829,7 +829,7 @@ export default class ItemT20 extends Item {
 					contentClasses: ["standard-form", "attribute-config"],
 					title: "Atributos Dinâmicos"
 				},
-				position: { width: 450 },
+				position: { width: 400 },
 				content: await foundry.applications.handlebars.renderTemplate(
 					"systems/tormenta20/templates/apps/dynamic-attributes-dialog.hbs",
 					{

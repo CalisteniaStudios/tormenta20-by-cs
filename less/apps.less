@@ -821,11 +821,22 @@
 }
 
 .attribute-config {
-  .flexrow {
-    gap: 0.5rem;
-    input {
-      flex: 0 0 30px;
-      text-align: center;
+  h4 {
+    margin: 0;
+  }
+  .form-group {
+    div.flexcol {
+      align-items: center;
+      label {
+        text-align: center;
+        &.ability-name {
+          text-transform: uppercase;
+        }
+      }
+      input {
+        text-align: center;
+        width: 44px;
+      }
     }
   }
 }
