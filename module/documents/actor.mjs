@@ -1064,7 +1064,9 @@ export default class ActorT20 extends Actor {
 				}
 				if (rds[type]?.imunidade) dmg.value = 0;
 				else if (rds[type]?.vulnerabilidade) dmg.vuln = Math.floor(dmg.value * 0.5);
-				final.damage += Math.max(dmg.value + dmg.vuln - r, 0);
+				const result = dmg.value + dmg.vuln - r;
+				const min = multiplier > 0 ? 0 : -Infinity;
+				final.damage += Math.max(result, min);
 			}
 		}
 
