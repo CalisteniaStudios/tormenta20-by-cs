@@ -1,7 +1,7 @@
-<h3>{{description}}</h3>
-<div class="form-group">
+<h4>{{description}}</h4>
+<div class="form-group flexrow">
   {{#each atributosList as |attr|}}
-    <div class="attribute-row">
+    <div class="flexrow">
       <label for="attr-{{attr}}">{{lookup ../config.atributosAbr attr}}</label>
       <input type="number" name="{{attr}}" id="attr-{{attr}}" value="0" />
     </div>

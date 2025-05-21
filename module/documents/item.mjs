@@ -830,17 +830,23 @@ export default class ItemT20 extends Item {
 			}
 		});
 
+		const openRaces = game.settings.get("tormenta20", "openRaces");
 		const atributosDinamicos = this.system.atributosDinamicos;
-		if (atributosDinamicos.value.size) {
+		if (atributosDinamicos.value.size || openRaces) {
+			const description = openRaces ? "Distribua os atributos da sua raça" : atributosDinamicos.description;
+			const atributosList = openRaces ? Object.keys(CONFIG.T20.atributos) : atributosDinamicos.value;
 			await foundry.applications.api.DialogV2.wait({
-				window: { title: "Atributos Dinâmicos" },
+				window: {
+					contentClasses: ["standard-form", "attribute-config"],
+					title: "Atributos Dinâmicos"
+				},
 				position: { width: 400 },
 				content: await foundry.applications.handlebars.renderTemplate(
 					"systems/tormenta20/templates/apps/dynamic-attributes-dialog.hbs",
 					{
 						config: CONFIG.T20,
-						description: atributosDinamicos.description,
-						atributosList: atributosDinamicos.value
+						description,
+						atributosList
 					}
 				),
 				buttons: [
