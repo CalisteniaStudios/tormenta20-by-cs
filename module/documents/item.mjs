@@ -821,7 +821,6 @@ export default class ItemT20 extends Item {
 		);
 		const items = [];
 		const grantedItems = [];
-		const pack = game.packs.get("tormenta20.poderes");
 
 		changes["system.tracos.tamanho"] = [...this.system.tamanho][0];
 		Object.entries(this.system.movement).forEach(([key, value]) => {
@@ -831,7 +830,7 @@ export default class ItemT20 extends Item {
 		});
 
 		const openRaces = game.settings.get("tormenta20", "openRaces");
-		const atributosDinamicos = this.system.atributosDinamicos;
+		const { atributosDinamicos, grants } = this.system;
 		if (atributosDinamicos.value.size || openRaces) {
 			const description = openRaces ? "Distribua os atributos da sua raça" : atributosDinamicos.description;
 			const atributosList = openRaces ? Object.keys(CONFIG.T20.atributos) : atributosDinamicos.value;
@@ -867,18 +866,13 @@ export default class ItemT20 extends Item {
 		this.actor.update(changes);
 
 		// Importa poderes raciais
-		if (!pack) {
-			ui.notifications.error("Compendium 'tormenta20.poderes' not found.");
-			return [];
-		}
-		const index = await pack.getIndex({ fields: ["name", "system.tipo", "system.subtipo"] });
-		const filteredEntries = index.filter(
-			(entry) => entry.system.tipo === "racial" && entry.system.subtipo === this.name
-		);
-		for (const entry of filteredEntries) {
-			const doc = await pack.getDocument(entry._id);
-			items.push(doc.toObject());
-			grantedItems.push(doc.id);
+		for (const grant of grants) {
+			for (const choice of grant.choices) {
+				const item = await fromUuid(choice.uuid);
+				if (!item) continue;
+				items.push(item.toObject());
+				grantedItems.push(item.id);
+			}
 		}
 		if (items.length) {
 			await ItemT20.createDocuments(items, { keepId: true, parent: this.parent, pack: this.actor.pack });
