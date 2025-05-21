@@ -17,12 +17,19 @@ export default function () {
 
 		if (game.user.isGM) {
 			// Define o padrão dos token de PJ
-			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5") {
+			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.000") {
 				const prototypeTokenOverrides = game.settings.get("core", "prototypeTokenOverrides");
 				prototypeTokenOverrides.character.disposition = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
 				prototypeTokenOverrides.character.sight.enabled = true;
 				game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			}
+			game.actors
+				.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.5.000")
+				.forEach((actor) => {
+					actor.items
+						.filter((item) => item.flags?.favorito)
+						.forEach((item) => item.setFlag("tormenta20", "favorito", true));
+				});
 			let oldActors = game.actors.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.4.100");
 			// Migration
 			for (const actor of oldActors) {
