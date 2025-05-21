@@ -79,6 +79,40 @@
 					{{/if}}
 				</div>
 			</div>
+			<div class="form-group input-select">
+				<label>{{localize "T20.Duration"}}</label>
+				<div class="form-fields">
+					{{#if
+						(or
+							(eq item.system.duracao.units "round")
+							(eq item.system.duracao.units "turn")
+							(eq item.system.duracao.units "minute")
+							(eq item.system.duracao.units "hour")
+							(eq item.system.duracao.units "day")
+							(eq item.system.duracao.units "month")
+							(eq item.system.duracao.units "year")
+						)
+					}}
+						<input
+							type="text"
+							name="system.duracao.value"
+							value="{{item.system.duracao.value}}"
+							placeholder="{{localize 'T20.Quantity'}}"
+						/>
+					{{/if}}
+					<select name="system.duracao.units">
+						{{selectOptions config.timePeriods selected=item.system.duracao.units localize=true blank=""}}
+					</select>
+					{{#if (eq item.system.duracao.units "special")}}
+						<input
+							type="text"
+							name="system.duracao.special"
+							value="{{item.system.duracao.special}}"
+							placeholder="{{localize 'T20.Description'}}"
+						/>
+					{{/if}}
+				</div>
+			</div>
 
 			{{> "tormenta20.item-resistencia"}}
 

@@ -316,7 +316,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			delete schema.ativacao.special;
 		} else if (type === "poder") {
 			delete schema.consume;
-			delete schema.duracao;
 			delete schema.range;
 			delete schema.target;
 			delete schema.alvo;
