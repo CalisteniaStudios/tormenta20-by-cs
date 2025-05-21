@@ -248,8 +248,8 @@
   "secondaryTokenAttribute": "attributes.pm",
   "url": "https://gitlab.com/vizael/Tormenta20",
   "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/1.4.214/system.json",
-  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/1.4.214/Tormenta20-1.4.214.zip",
-  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/1.4.214",
-  "license": "LICENSE.txt",
+  "download": "This is auto replaced",
+  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/",
+  "license": "https://gitlab.com/vizael/Tormenta20/-/blob/master/LICENSE",
   "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues"
 }
