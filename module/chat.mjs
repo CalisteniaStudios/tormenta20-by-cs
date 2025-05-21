@@ -10,7 +10,7 @@ export const ApplyButtons = function (app, html, data) {
 	if (!chatHTML) return;
 
 	let button;
-	let btnparent;
+	// let btnparent;
 	let btncontainer;
 	// Get Element To Append to;
 	// btnparent = chatHTML.querySelectorAll('.roll:not(.roll--dano) .dice-formula')[0];
@@ -27,17 +27,17 @@ export const ApplyButtons = function (app, html, data) {
 		return b;
 	};
 
-	btnparent = chatHTML.querySelectorAll(".roll:not(.roll--dano)")[0];
+	// btnparent = chatHTML.querySelectorAll(".roll:not(.roll--dano)")[0];
 
-	if (false && btnparent) {
-		btncontainer = document.createElement("span");
-		btncontainer.classList.add("dice-btn", "formula", "right");
+	// if (false && btnparent) {
+	// 	btncontainer = document.createElement("span");
+	// 	btncontainer.classList.add("dice-btn", "formula", "right");
 
-		button = btnCreate('<i class="fas fa-redo"></i>', ["chat-reroll"], "Re-rolar");
-		btncontainer.append(button);
+	// 	button = btnCreate('<i class="fas fa-redo"></i>', ["chat-reroll"], "Re-rolar");
+	// 	btncontainer.append(button);
 
-		btnparent.append(btncontainer);
-	}
+	// 	btnparent.append(btncontainer);
+	// }
 
 	// Get Element To Append to;
 	// btnparent = chatHTML.querySelectorAll('.roll--dano .dice-total')[0];
@@ -105,25 +105,25 @@ export const hideDieFlavor = function (ChatMessage, html, data) {
  * Call Reroll Method for selected roll and update chat card
  * @param {HTMLElement} roll The chat entry which contains the roll data
  */
-function _onChatReRoll(event) {
-	event.preventDefault();
-	const btn = event.currentTarget;
-	const chatCardId = btn.closest(".chat-message").dataset.messageId;
-	const message = game.messages.get(chatCardId);
-}
+// function _onChatReRoll(event) {
+// 	event.preventDefault();
+// 	const btn = event.currentTarget;
+// 	const chatCardId = btn.closest(".chat-message").dataset.messageId;
+// 	const message = game.messages.get(chatCardId);
+// }
 
-function _onChatSpendCatarse(event) {
-	event.preventDefault();
-	const btn = event.currentTarget;
-	const chatCardId = btn.closest(".chat-message").dataset.messageId;
-	const message = game.messages.get(chatCardId);
-}
+// function _onChatSpendCatarse(event) {
+// 	event.preventDefault();
+// 	const btn = event.currentTarget;
+// 	const chatCardId = btn.closest(".chat-message").dataset.messageId;
+// 	const message = game.messages.get(chatCardId);
+// }
 
-function _callApplyDamage(roll, multiplier) {
+function _callApplyDamage(roll, multiplier, type = "dano") {
 	if (canvas.tokens.controlled.length) {
 		return Promise.all(
-			canvas.tokens.controlled.map((tk) => {
-				if (roll) return tk.actor.applyDamageV2(roll, multiplier);
+			canvas.tokens.controlled.forEach((tk) => {
+				if (roll) return tk.actor.applyDamageV2(roll, multiplier, type);
 				// return tk.actor.applyDamage(amount, multiplier, true);
 			})
 		);
@@ -165,9 +165,9 @@ export function _onChatApplyDamage(event) {
  * @param {Number} multiplier A damage multiplier to apply to the rolled damage.
  * @return {Promise}
  */
-export async function applyChatCardDamage(li, multiplier) {
+export async function applyChatCardDamage(li, multiplier, type = "dano") {
 	const message = game.messages.get(li.dataset.messageId);
-	const rolls = message.rolls.filter((r) => r.options.type === "damage");
+	const rolls = message.rolls;
 	let roll;
 	if (rolls.length > 1) {
 		let options = rolls.map((r) => `<option value="${r.options.title}">${r.options.title} (${r.total})</option>`);
@@ -181,31 +181,30 @@ export async function applyChatCardDamage(li, multiplier) {
 					callback: (html) => {
 						chosen = html.find("[name=roll]")[0].value;
 						roll = rolls.find((r) => r.options.title === chosen);
-						if (roll) _callApplyDamage(roll, multiplier);
+						if (roll) _callApplyDamage(roll, multiplier, type);
 					}
 				},
 				no: { label: "Cancela" }
 			}
 		}).render(true);
 	} else {
-		roll = rolls.pop();
-		if (roll) _callApplyDamage(roll, multiplier);
+		_callApplyDamage(rolls[0], multiplier, type);
 	}
 }
 
-function applyChatCardDamageOld(message, multiplier) {
-	if (canvas.tokens.controlled.length) {
-		let roll = message.find(".roll--dano") ?? message.find(".dice-roll");
-		const amount = roll.find(".dice-total").text();
-		return Promise.all(
-			canvas.tokens.controlled.map((t) => {
-				const a = t.actor;
-				return a.applyDamage(amount, multiplier, true);
-			})
-		);
-	}
-	ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
-}
+// function applyChatCardDamageOld(message, multiplier) {
+// 	if (canvas.tokens.controlled.length) {
+// 		let roll = message.find(".roll--dano") ?? message.find(".dice-roll");
+// 		const amount = roll.find(".dice-total").text();
+// 		return Promise.all(
+// 			canvas.tokens.controlled.map((t) => {
+// 				const a = t.actor;
+// 				return a.applyDamage(amount, multiplier, true);
+// 			})
+// 		);
+// 	}
+// 	ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
+// }
 
 /**
  * Get mana cost value and call Actor spend mana Method
@@ -238,7 +237,8 @@ export function _onChatSpendMana(event) {
  */
 export function applyChatManaSpend(message, adjust, recover = false) {
 	if (canvas.tokens.controlled.length) {
-		const amount = message.find(".chat-spend-mana").val();
+		const amount =
+			message.querySelector(".chat-spend-mana")?.value ?? game.messages.get(message.dataset.messageId).rolls[0].total;
 		return Promise.all(
 			canvas.tokens.controlled.map((tk) => {
 				const actor = tk.actor;
@@ -287,7 +287,7 @@ export function _onChatPlaceTemplate(event) {
 	const actor = game.actors.get(card.dataset.actorId);
 	if (!actor) return;
 
-	const storedData = chatCard.getFlag("tormenta20", "itemData");
+	// const storedData = chatCard.getFlag("tormenta20", "itemData");
 	const storedTemplate = chatCard.getFlag("tormenta20", "template");
 	// let item = new game.tormenta20.entities.ItemT20(storedData, {name:'temp',type:'tesouro',parent: actor});
 	let item = { system: storedTemplate, actor: actor };
@@ -311,7 +311,7 @@ export function _onChatPlaceTemplate(event) {
 export async function _onChatCardApplyEffect(event) {
 	event.preventDefault();
 	const chatCardId = event.currentTarget.closest(".chat-message").dataset.messageId;
-	const actorId = event.currentTarget.closest(".item-card").dataset.actorId;
+	// const actorId = event.currentTarget.closest(".item-card").dataset.actorId;
 	const buttonId = event.currentTarget.dataset.effectIndex;
 	const actors = canvas.tokens.controlled;
 	if (actors.length && buttonId >= 0) {
