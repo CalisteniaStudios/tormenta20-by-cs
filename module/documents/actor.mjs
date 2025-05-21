@@ -1003,7 +1003,7 @@ export default class ActorT20 extends Actor {
 	 * @param {number} multiplier	 A multiplier which allows for resistance, vulnerability, or healing
 	 * @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	 */
-	async applyDamageV2(roll, multiplier = 1) {
+	async applyDamageV2(roll, multiplier = 1, type = "dano") {
 		const pv = this.system.attributes.pv;
 		const pm = this.system.attributes.pm;
 		const rds = this.system.tracos?.resistencias;
@@ -1011,21 +1011,13 @@ export default class ActorT20 extends Actor {
 			.filter((i) => i[1].excecao)
 			.reduce((acc, [key, value]) => (acc[key] = value.excecao), {});
 
-		const PCVuln = this.type === "character";
-		const NPCVuln = this.type === "npc";
 		let damage;
 		if (roll) {
-			let defaultDamage = "dano";
 			damage = roll.terms.reduce((acc, t, idx) => {
-				if (idx === 0 && t.options.flavor) defaultDamage = t.options.flavor;
-				let dType = t.options.flavor ?? defaultDamage;
-				if (!acc[dType]) acc[dType] = { value: 0, vuln: 0, rd: 0, final: 0 };
+				if (idx === 0 && t.options.flavor) type = t.options.flavor;
+				if (!acc[type]) acc[type] = { value: 0, vuln: 0, rd: 0, final: 0 };
 				if (Number(t.total)) {
-					acc[dType].value += Math.floor(t.total * multiplier);
-					// TODO Vulnerability per dice
-					if (t.faces && PCVuln && rds[dType] && rds[dType].vulnerabilidade) {
-						acc[dType].vuln += t.number;
-					}
+					acc[type].value += Math.floor(t.total * multiplier);
 				}
 				return acc;
 			}, {});
@@ -1043,7 +1035,6 @@ export default class ActorT20 extends Actor {
 		// Apply Damage Reduction for each type of damage
 		let final = {
 			damage: 0 - (rds.dano?.value ? rds.dano.value : 0),
-			total: 0,
 			tempHP: 0,
 			mana: 0,
 			tempMP: 0
@@ -1074,18 +1065,9 @@ export default class ActorT20 extends Actor {
 				if (!foundry.utils.isEmpty(rdsEx) && !rdsEx[type]) {
 					r += Number(Object.values(rdsEx)[0]);
 				}
-				if (NPCVuln && rds[type]?.vulnerabilidade) {
-					dmg.value = Math.floor(dmg.value * 1.5);
-					dmg.vuln = Math.floor(dmg.vuln * 1.5);
-				}
-				dmg.value = rds[type]?.imunidade ? 0 : dmg.value;
-				dmg.vuln = rds[type]?.imunidade ? 0 : dmg.vuln;
-				let acc = Math.max(dmg.value + dmg.vuln - r, 0);
-				dmg.final = acc;
-				dmg.rd = r;
-
-				final.total += Math.max(dmg.value + dmg.vuln, 0);
-				final.damage += acc;
+				if (rds[type]?.imunidade) dmg.value = 0;
+				else if (rds[type]?.vulnerabilidade) dmg.vuln = Math.floor(dmg.value * 0.5);
+				final.damage += Math.max(dmg.value + dmg.vuln - r, 0);
 			}
 		}
 

@@ -41,6 +41,11 @@
 - Adicionado: Automação de PV/PM por nível para poderes e habilidades.
 - Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do Foundry.
 
+### Rolagens
+- Corrigido: Botões do clique direito do mouse funcionam para rolagens avulsas no chat.
+- Corrigido: Multiplicação de dano agora ocorre antes da Redução de Dano.
+- Corrigido: Vulnerabilidade a dano agora aplica +50% de dano em vez de +1 por dado para PJs e o triplo do dano à Ameaças.
+
 ## Versão 1.4.214
 - Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;
 - Adicionado: Efeito de Uso `danoMultiplicavel`, o valor adicionado é multiplicado no crítico.

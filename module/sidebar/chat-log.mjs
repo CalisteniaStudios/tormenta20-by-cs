@@ -44,7 +44,7 @@ export default class ChatLogTormenta20 extends foundry.applications.sidebar.tabs
 				name: "Aplicar Cura",
 				icon: '<i class="fas fa-user-plus" style="color: #00AA00;"></i>',
 				condition: canApply,
-				callback: (li) => applyChatCardDamage(li, -1, true)
+				callback: (li) => applyChatCardDamage(li, -1, "curapv")
 			},
 			{
 				name: "Gastar Mana",
