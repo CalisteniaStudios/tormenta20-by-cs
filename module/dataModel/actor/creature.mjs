@@ -723,7 +723,11 @@ export default class CreatureData extends Tormenta20TypeData {
 
 	static schemaModifiers(type = "character") {
 		return new fields.SchemaField({
-			custoPM: new fields.StringField({
+			custoPM: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				min: 0,
 				label: "T20.ModsMPExtraValue",
 				hint: "T20.ModsMPExtraValueHint"
 			}),
