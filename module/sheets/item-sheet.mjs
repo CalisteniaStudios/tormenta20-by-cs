@@ -196,10 +196,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".rolls-control").click(this._onRollsControl.bind(this));
 			html.find(".parts-control").click(this._onPartsControl.bind(this));
 
-			// Automation tags
-			// html.find('.automationtag-input').keydown(this._onAutomationTagChange.bind(this));
-			// html.find('.tag-delete').click(this._onAutomationTagDelete.bind(this));
-
 			html.find(".trait-selector").click(this._onConfigureTraits.bind(this));
 
 			html.find(".effect-control-list").click((ev) => {
