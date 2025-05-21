@@ -28,14 +28,14 @@
 		<li class="form-group choiceset-item" data-uuid="{{this.uuid}}" data-id="{{@index}}">
 			<div class="item flexrow">
 				<img src="{{this.img}}" height="32" width="32">
-				<label>
-					{{this.name}}
+				<div class="item-name">
+					<label>{{this.name}}</label>
 					<span class="item-controls">
 						<a data-action="delete-item">
 							<i class="fa fa-xmark"></i>
 						</a>
 					</span>
-				</label>
+				</div>
 			</div>
 			<input type="text" name="system.grants.{{@../../key}}.choices.{{@index}}.uuid" value="{{this.uuid}}" hidden>
 			<input type="text" name="system.grants.{{@../../key}}.choices.{{@index}}.img" value="{{this.img}}" hidden>

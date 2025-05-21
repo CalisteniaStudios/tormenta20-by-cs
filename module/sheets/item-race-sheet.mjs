@@ -31,14 +31,42 @@ export default class RaceSheetT20 extends ItemSheetT20 {
 		return context;
 	}
 
+	_cache = {};
+
 	/* -------------------------------------------- */
 
 	async activateListeners(html) {
 		super.activateListeners(html);
+		html.find(".item .item-name > label, .item .item-description").click((event) => this._onItemSummary(event));
+
 		html.find("[data-action='add-choiceset']").on("click", this._onAddChoiceSet.bind(this));
 		html.find("[data-action='delete-choiceset']").on("click", this._onDeleteChoiceSet.bind(this));
 		html.find("[data-action='delete-item']").on("click", this._onDeleteItem.bind(this));
 		// @todo add click event on item's img/label to render the item
+	}
+
+	async _onItemSummary(event) {
+		event.preventDefault();
+		let li = $(event.currentTarget).parents(".choiceset-item");
+		const uuid = li.data("uuid");
+		// fromUuid é custoso e pouco responsivo, por isso vale a pena usar cache
+		let item = this._cache[uuid] ?? (await fromUuid(uuid));
+		if (!item) return;
+		this._cache[uuid] = item;
+		let chatData = await item.getChatData();
+		if (!chatData.description.value) return;
+		// Toggle summary
+		if (li.hasClass("expanded")) {
+			let summary = li.children(".item-summary");
+			summary.slideUp(200, () => summary.remove());
+		} else {
+			let div = $(`<div class="item-summary">${chatData.description.value}</div>`);
+			let props = $("<div class='item-properties'></div>");
+			div.append(props);
+			li.append(div.hide());
+			div.slideDown(200);
+		}
+		li.toggleClass("expanded");
 	}
 
 	_onAddChoiceSet(event) {
