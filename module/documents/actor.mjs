@@ -1011,16 +1011,13 @@ export default class ActorT20 extends Actor {
 			.filter((i) => i[1].excecao)
 			.reduce((acc, [key, value]) => (acc[key] = value.excecao), {});
 
-		let damage;
+		let damage = {};
 		if (roll) {
-			damage = roll.terms.reduce((acc, t, idx) => {
-				if (idx === 0 && t.options.flavor) type = t.options.flavor;
-				if (!acc[type]) acc[type] = { value: 0, vuln: 0, rd: 0, final: 0 };
-				if (Number(t.total)) {
-					acc[type].value += Math.floor(t.total * multiplier);
-				}
-				return acc;
-			}, {});
+			const dType = roll.terms[0]?.options?.flavor ?? type;
+			const value = Math.floor(roll.total * multiplier);
+			if (!damage[dType]) {
+				damage[dType] = { value, vuln: 0, rd: 0, final: 0 };
+			} else damage[dType].value += value;
 		}
 
 		let rdIgnorada = Math.abs(roll.options.rd ?? 0);
