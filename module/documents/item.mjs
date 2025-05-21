@@ -1295,7 +1295,7 @@ export default class ItemT20 extends Item {
 	 * @param {object} options        Roll options which are configured and provided to the d20Roll function
 	 * @return {Promise<Roll|null>}   A Promise which resolves to the created Roll instance
 	 */
-	async rollAttack(options = {}) {
+	async rollAttack({ options = {} }) {
 		const itemData = this.system;
 		const flags = this.actor.flags.tormenta20 || {};
 		options.type = "attack";
