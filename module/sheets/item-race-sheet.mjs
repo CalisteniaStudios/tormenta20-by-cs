@@ -130,7 +130,7 @@ export default class RaceSheetT20 extends ItemSheetT20 {
 		// if (data.choiceSet === Number(setId)) return false; // return this._onSortItem(event, item, setId);
 		if (data.choiceSet === Number(setId)) return this._onSortItem(event, item, setId);
 		if (grants[setId].choices.find((c) => c.uuid === uuid)) {
-			ui.notifications.warn("PBTA.Warnings.Playbook.ChoiceSetAlreadyGrant", { localize: true });
+			ui.notifications.warn("T20.RepeatedGrant", { localize: true });
 			return false;
 		}
 		if ("choiceSet" in data && data.choiceSet !== Number(setId)) {
