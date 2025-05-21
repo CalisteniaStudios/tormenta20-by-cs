@@ -434,40 +434,40 @@ const applyEffectChanges = (ch, qty, ef, optEffectList, effectList, effectChange
 		if (tef) effectList.push(new ActiveEffect(tef));
 	}
 	// Modify effect
-	else if (false && ch.key.match(/\$([^\#]+)\#/)) {
-		if (qty && !ch.value.startsWith("@")) {
-			ch.value = new Roll(ch.value).alter(qty, 0, {
-				multiplyNumeric: true
-			}).formula;
-		}
-		effectChanges.push(ch);
-		return;
-		let m = ch.key.match(/\$(.*)#(.*)/);
-		console.warn(m, optEffectList, effectList);
-		let _ef = effectList.find((eff) => eff.name == m[1]);
-		let index = effectList.map((eff) => eff.name).indexOf(m[1]);
-		// for (const iterator of Object.entries( effectList ) ) {
+	// else if (false && ch.key.match(/\$([^\#]+)\#/)) {
+	// 	if (qty && !ch.value.startsWith("@")) {
+	// 		ch.value = new Roll(ch.value).alter(qty, 0, {
+	// 			multiplyNumeric: true
+	// 		}).formula;
+	// 	}
+	// 	effectChanges.push(ch);
+	// 	return;
+	// 	let m = ch.key.match(/\$(.*)#(.*)/);
+	// 	console.warn(m, optEffectList, effectList);
+	// 	let _ef = effectList.find((eff) => eff.name == m[1]);
+	// 	let index = effectList.map((eff) => eff.name).indexOf(m[1]);
+	// 	// for (const iterator of Object.entries( effectList ) ) {
 
-		// }
-		for (const _ch of _ef.changes) {
-			if (_ch.key != m[2]) continue;
-			if (ch.mode == CHANGEMODES.CUSTOM) {
-			} else if (ch.mode == CHANGEMODES.MULTIPLY) {
-			} else if (ch.mode == CHANGEMODES.ADD) {
-			} else if (ch.mode == CHANGEMODES.DOWNGRADE) {
-			} else if (ch.mode == CHANGEMODES.UPGRADE) {
-			} else if (ch.mode == CHANGEMODES.OVERRIDE) {
-				_ch.value = ch.value;
-				console.log(ch.value);
-			}
-		}
-		// effectList = effectList.filter(eff => eff.name != m[1]);
-		effectList.pop();
-		effectList.push(_ef);
+	// 	// }
+	// 	for (const _ch of _ef.changes) {
+	// 		if (_ch.key != m[2]) continue;
+	// 		if (ch.mode == CHANGEMODES.CUSTOM) {
+	// 		} else if (ch.mode == CHANGEMODES.MULTIPLY) {
+	// 		} else if (ch.mode == CHANGEMODES.ADD) {
+	// 		} else if (ch.mode == CHANGEMODES.DOWNGRADE) {
+	// 		} else if (ch.mode == CHANGEMODES.UPGRADE) {
+	// 		} else if (ch.mode == CHANGEMODES.OVERRIDE) {
+	// 			_ch.value = ch.value;
+	// 			console.log(ch.value);
+	// 		}
+	// 	}
+	// 	// effectList = effectList.filter(eff => eff.name != m[1]);
+	// 	effectList.pop();
+	// 	effectList.push(_ef);
 
-		// effectList[index] = _ef;
-		console.log(effectList.find((ef) => ef.name == m[1]));
-	}
+	// 	// effectList[index] = _ef;
+	// 	console.log(effectList.find((ef) => ef.name == m[1]));
+	// }
 };
 
 /**

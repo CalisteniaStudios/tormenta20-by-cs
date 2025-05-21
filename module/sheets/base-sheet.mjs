@@ -361,7 +361,8 @@ export default function Tormenta20BaseSheetMixin(Base) {
 					});
 					return {
 						key: key,
-						type: "oficio" ?? "custom"
+						// type: "oficio" ?? "custom"
+						type: "oficio"
 					};
 				}
 				default:
