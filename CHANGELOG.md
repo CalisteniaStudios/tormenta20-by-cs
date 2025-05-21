@@ -6,8 +6,8 @@
 ### Documentos
 - Adicionado: Ícones para cada tipo de ator e item.
 - Adicionado: O tamanho do personagem altera automaticamente o tamanho do token.
-  - Personagens minúsculos agora ocupam apenas 1/4 de quadrado.
-  - Personagens pequenos agora têm sua escala de token reduzida em 20%.
+  - Personagens minúsculos ocupam apenas 1/4 de quadrado.
+  - Personagens pequenos têm sua escala de token reduzida em 20%.
 - Adicionado: Automação de PV/PM por nível para poderes e habilidades.
 - Alterado: Raio Arcano foi automatizado.
 - Corrigido: Bônus em Reflexos do poder Esquiva Sagaz.
@@ -26,10 +26,11 @@
 - Alterado: Perda de PV, Cura de PV Temporários, Cura de PM e Cura de PM Temporários não são afetados por modificadores de dano ou cura.
 - Alterado: Poderes que escalam automaticamente com o nível (ex: Instinto Selvagem) foram automatizados.
   - Exceções: poderes que usam o nível em fórmulas de dano (Ataque Furtivo).
+- Corrigido: A condição Alquebrado e o modificador `system.modificadores.custoPM` funcionam corretamente (Gasto de Mana Automático precisa estar ativo).
 
 ### Fichas
 - Alterado: Melhorias visuais nas fichas de personagens. A maioria das mudanças foram feitas na ficha com abas.
-  - Lista de perícias agora é menor e permite ocultar perícias somente treinadas que não forem treinadas.
+  - Lista de perícias teve seu tamanho reduzido e permite ocultar perícias somente treinadas que não forem treinadas.
   - Clique do botão direito em itens na ficha de personagem abre um menu com opções para interagir com o item.
   - Passar o mouse sobre Defesa ou bônus de perícias discrimina os seus modificadores.
 - Alterado: Clicar para usar itens sem efeitos de uso ou rolagens não abre uma janela para usá-los.
@@ -42,9 +43,11 @@
 - Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do Foundry.
 
 ### Rolagens
+- Corrigido: As opções "Melhor/Pior de 2d20" não são ignoradas.
 - Corrigido: Botões do clique direito do mouse funcionam para rolagens avulsas no chat.
-- Corrigido: Multiplicação de dano agora ocorre antes da Redução de Dano.
-- Corrigido: Vulnerabilidade a dano agora aplica +50% de dano em vez de +1 por dado para PJs e o triplo do dano à Ameaças.
+- Corrigido: Multiplicação de dano ocorre antes da Redução de Dano.
+- Corrigido: Multiplicação de dano respeita valores negativos.
+- Corrigido: Vulnerabilidade a dano aplica +50% de dano em vez de +1 por dado para PJs e o triplo do dano à Ameaças.
 
 ## Versão 1.4.214
 - Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;
