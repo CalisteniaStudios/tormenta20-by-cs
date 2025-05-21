@@ -1021,7 +1021,7 @@ export default class ActorT20 extends Actor {
 				let dType = t.options.flavor ?? defaultDamage;
 				if (!acc[dType]) acc[dType] = { value: 0, vuln: 0, rd: 0, final: 0 };
 				if (Number(t.total)) {
-					acc[dType].value += t.total;
+					acc[dType].value += Math.floor(t.total * multiplier);
 					// TODO Vulnerability per dice
 					if (t.faces && PCVuln && rds[dType] && rds[dType].vulnerabilidade) {
 						acc[dType].vuln += t.number;
@@ -1088,12 +1088,6 @@ export default class ActorT20 extends Actor {
 				final.damage += acc;
 			}
 		}
-		// Apply the multiplier
-		final.damage = Math.floor(final.damage * multiplier);
-		final.total = Math.floor(final.total * multiplier);
-		final.tempHP = Math.floor(final.tempHP * multiplier);
-		final.mana = Math.floor(final.mana * multiplier);
-		final.tempMP = Math.floor(final.tempMP * multiplier);
 
 		// Deduct value from temp attr first
 		const tmpHP = parseInt(pv.temp) || 0;
