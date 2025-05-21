@@ -14,7 +14,8 @@
     "lint:errors": "eslint --quiet --ext .js,.cjs,.mjs .",
     "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs --fix .",
     "postinstall": "npm run build:ci",
-    "prepare": "husky"
+    "prepare": "husky",
+    "update-manifest": "node ./utils/update-manifest.js"
   },
   "browserslist": [
     "last 3 versions"
@@ -30,6 +31,7 @@
     "@guanghechen/rollup-plugin-copy": "^6.0.7",
     "@stylistic/eslint-plugin-js": "^1.8.1",
     "autoprefixer": "^10.4.21",
+    "chalk": "^5.4.1",
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.0",
