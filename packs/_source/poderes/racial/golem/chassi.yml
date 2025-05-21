@@ -31,6 +31,10 @@ effects:
         mode: 2
         value: '1'
         priority: null
+      - key: system.attributes.movement.walk
+        mode: 5
+        value: '6'
+        priority: null
     disabled: false
     duration:
       startTime: null
@@ -50,8 +54,7 @@ effects:
       coreVersion: '13.342'
       systemId: tormenta20
       systemVersion: 1.4.214
-      lastModifiedBy: t20builder000000
-      modifiedTime: 1747515164310
+      lastModifiedBy: null
     name: Chassi
     img: systems/tormenta20/icons/racas/golem.webp
     type: base

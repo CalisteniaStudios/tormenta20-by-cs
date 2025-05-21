@@ -28,20 +28,7 @@ export default class RaceData extends IdentityData {
 					nullable: false,
 					initial: game.i18n.localize("T20.DynamicAbilitiesDesc")
 				})
-			}),
-			movement: new fields.EmbeddedDataField(_fields.MovementData),
-			tamanho: new fields.SetField(
-				new fields.StringField({
-					required: true,
-					nullable: false,
-					initial: "med",
-					label: "T20.TraitActorSize",
-					hint: "T20.TraitActorSizeHint"
-				}),
-				{
-					initial: ["med"]
-				}
-			)
+			})
 			// progressao: new _fields.MappingField(),
 		};
 	}

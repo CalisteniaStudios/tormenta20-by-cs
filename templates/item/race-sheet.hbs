@@ -46,36 +46,6 @@
 				</div>
 				<p class="notes"></p>
 			</div>
-
-			<h3>{{ localize "T20.Other"}}</h3>
-			<div class="form-group movimento">
-				<label>{{ localize "T20.Movement" }}</label>
-				<div class="flexrow">
-					{{#each config.movementTypes as |mov key|}}
-					<div class="flexrow">
-						<label>{{mov}}</label>
-						<input type="number" name="system.movement.{{key}}" value="{{lookup @root.system.movement key}}" />
-					</div>
-					{{/each}}
-					<div class="flexrow">
-						<label>{{localize "T20.MovementHover"}}</label>
-						<input type="checkbox" name="system.movement.hover"
-							{{checked (and system.movement.fly system.movement.hover)}}
-							{{disabled (not system.movement.fly)}}
-						/>
-					</div>
-				</div>
-				<p class="notes"></p>
-			</div>
-
-			<div class="form-group">
-				<label>{{ localize "T20.Size" }}</label>
-				<div class="form-fields flex6">
-					<multi-select class="small-tags" name="system.tamanho">
-						{{ selectOptions config.actorSizes selected=system.tamanho  }}
-					</multi-select>
-				</div>
-			</div>
 		</div>
 
 		<div class="tab grants" data-group="primary" data-tab="grants">

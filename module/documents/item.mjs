@@ -698,12 +698,9 @@ export default class ItemT20 extends Item {
 				});
 			} else if (this.type === "race") {
 				const grantedItems = this.getFlag("tormenta20", "grantedItems") ?? [];
-				const updates = {
-					// O dataModel garante que campos { required: true } sejam resetados ao valor inicial
-					"system.tracos.tamanho": undefined,
-					"system.attributes.movement": undefined
-				};
-				Object.keys(this.system.atributos).forEach((key) => (updates[`system.atributos.${key}.racial`] = 0));
+				const updates = Object.fromEntries(
+					Object.keys(this.system.atributos).map((key) => [`system.atributos.${key}.racial`, 0])
+				);
 				this.actor.update(updates);
 				const granted = [...new Set(grantedItems.filter((grant) => this.parent?.items.has(grant)))];
 				this.parent.deleteEmbeddedDocuments("Item", granted);
@@ -821,13 +818,6 @@ export default class ItemT20 extends Item {
 		);
 		const items = [];
 		const grantedItems = [];
-
-		changes["system.tracos.tamanho"] = [...this.system.tamanho][0];
-		Object.entries(this.system.movement).forEach(([key, value]) => {
-			if (value > 0 || (key === "hover" && value && this.system.movement.fly)) {
-				changes[`system.attributes.movement.${key}`] = value;
-			}
-		});
 
 		const openRaces = game.settings.get("tormenta20", "openRaces");
 		const { atributosDinamicos, grants } = this.system;

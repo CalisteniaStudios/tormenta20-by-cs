@@ -2,7 +2,51 @@ _id: y0onvqs27lHcbJK5
 name: Peste Esguia
 type: poder
 img: systems/tormenta20/icons/racas/goblin.webp
-effects: []
+effects:
+  - _id: ehybDa2i9Kvt1dkd
+    changes:
+      - key: system.attributes.movement.walk
+        mode: 5
+        value: '9'
+        priority: null
+      - key: system.tracos.tamanho
+        mode: 5
+        value: peq
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    origin: Item.MqcETRAFEr4mNDGU
+    transfer: true
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Peste Esguia
+    img: systems/tormenta20/icons/racas/goblin.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!y0onvqs27lHcbJK5.ehybDa2i9Kvt1dkd'
 folder: dlQytstdFJCCmHM7
 sort: 0
 flags: {}
@@ -15,7 +59,7 @@ system:
     unidentified: ''
   source: T20, pg. 23 (JdA)
   ativacao:
-    execucao: passive
+    execucao: ''
     custo: 0
     qtd: ''
     condicao: ''
@@ -57,10 +101,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.214
+  systemVersion: 1.4.116
   coreVersion: '13.342'
   createdTime: 1664306185704
-  modifiedTime: 1747515378360
+  modifiedTime: 1684630371462
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
