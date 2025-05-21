@@ -4,6 +4,7 @@
 	{{!-- Item Sheet Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item" data-tab="details">{{ localize "T20.Details" }}</a>
+		<a class="item" data-tab="grants">{{ localize "T20.Grants" }}</a>
 	</nav>
 
 	{{!-- Item Sheet Body --}}
@@ -75,6 +76,10 @@
 					</multi-select>
 				</div>
 			</div>
+		</div>
+
+		<div class="tab grants" data-group="primary" data-tab="grants">
+			{{> "tormenta20.item-grants"}}
 		</div>
 
 	</section>

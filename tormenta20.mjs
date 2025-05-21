@@ -28,6 +28,7 @@ import ActorSheetT20Character from "./module/sheets/actor-character.mjs";
 import ActorSheetT20NPC from "./module/sheets/actor-npc.mjs";
 import ActorSheetT20Simple from "./module/sheets/actor-simple.mjs";
 import ActorSheetT20CharacterTabbed from "./module/sheets/actor-tabbed.mjs";
+import RaceSheetT20 from "./module/sheets/item-race-sheet.mjs";
 import ItemSheetT20 from "./module/sheets/item-sheet.mjs";
 
 // Import Applications
@@ -182,6 +183,12 @@ Hooks.once("init", async function () {
 	foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
 	foundry.documents.collections.Items.registerSheet("tormenta20", ItemSheetT20, {
 		makeDefault: true,
+		label: "T20.ItemSheet"
+	});
+	foundry.documents.collections.Items.unregisterSheet("tormenta20", ItemSheetT20, { types: ["race"] });
+	foundry.documents.collections.Items.registerSheet("tormenta20", RaceSheetT20, {
+		makeDefault: true,
+		types: ["race"],
 		label: "T20.ItemSheet"
 	});
 

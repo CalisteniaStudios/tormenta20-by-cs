@@ -44,6 +44,7 @@ module.exports = defineConfig([
 				Compendium: false,
 				Dialog: false,
 				DocumentSheet: false,
+				Folder: false,
 				FormApplication: false,
 				Handlebars: false,
 				Item: false,

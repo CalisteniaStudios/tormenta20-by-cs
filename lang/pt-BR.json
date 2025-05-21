@@ -19,7 +19,6 @@
   },
 
   "T20.S3": "/* ---------------- SYSTEM ---------------- */",
-  "T20.title": "Sistema Tormenta20",
   "T20.Name": "Nome",
   "T20.SourceBook": "Fonte",
   "T20.Properties": "Propriedades",
@@ -46,6 +45,10 @@
   "T20.Empty": "Vazio",
   "T20.Handling": "Empunhando",
   "T20.Wearing": "Vestindo",
+
+  "T20.Grants": "Concessões",
+  "T20.AddItemGrant": "Adicionar Concessão de Item",
+  "T20.DropItemsHere": "Arraste itens aqui",
 
   "T20.Die": "Dado",
   "T20.Dice": "Dados",

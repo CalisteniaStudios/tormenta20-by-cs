@@ -468,4 +468,32 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 		}
 		return schema;
 	}
+
+	static schemaItemGrants(type = "classe") {
+		let schema = {};
+
+		if (type === "race") {
+			schema.grants = new foundry.data.fields.ArrayField(
+				new foundry.data.fields.SchemaField({
+					title: new foundry.data.fields.StringField({ initial: "", required: true }),
+					desc: new foundry.data.fields.StringField({ initial: "", required: true }),
+					type: new foundry.data.fields.StringField({ initial: "multi", choices: ["single", "multi"] }),
+					choices: new foundry.data.fields.ArrayField(
+						new foundry.data.fields.SchemaField({
+							uuid: new foundry.data.fields.StringField({ initial: "", required: true })
+						})
+					)
+				})
+			);
+			schema.skills = new foundry.data.fields.ArrayField(
+				new foundry.data.fields.SchemaField({
+					title: new foundry.data.fields.StringField({ initial: "", required: true }),
+					desc: new foundry.data.fields.StringField({ initial: "", required: true }),
+					type: new foundry.data.fields.StringField({ initial: "multi", choices: ["single", "multi"] }),
+					choices: new fields.SetField(new fields.StringField({ required: true, blank: false }))
+				})
+			);
+		}
+		return schema;
+	}
 }

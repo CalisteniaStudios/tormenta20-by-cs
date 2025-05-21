@@ -52,6 +52,7 @@ export const preloadHandlebarsTemplates = async function () {
 		"systems/tormenta20/templates/item/parts/item-modificacoes.hbs",
 		"systems/tormenta20/templates/item/parts/item-resistencia.hbs",
 		"systems/tormenta20/templates/item/parts/item-progression.hbs",
+		"systems/tormenta20/templates/item/parts/item-grants.hbs",
 
 		// Rolls
 		"systems/tormenta20/templates/chat/roll-breakdown.hbs",

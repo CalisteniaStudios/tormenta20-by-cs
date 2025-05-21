@@ -7,6 +7,7 @@ export default class RaceData extends IdentityData {
 		const _fields = tormenta20.data.fields;
 		return {
 			...super.defineSchema(),
+			...this.schemaItemGrants("race"),
 			atributos: new fields.SchemaField(
 				Object.fromEntries(
 					Object.keys(T20.atributos).map((abl) => [
