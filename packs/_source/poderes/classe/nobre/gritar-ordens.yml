@@ -5,7 +5,7 @@ img: systems/tormenta20/icons/poderes/classes/especialistas/gritar-ordens.webp
 effects:
   - _id: QvyGGYdG7eHpb92I
     changes:
-      - key: system.pericias.modificadores.geral
+      - key: system.modificadores.pericias.geral
         mode: 2
         value: '1'
         priority: 0
@@ -34,18 +34,19 @@ effects:
         custo: '1'
         durationScene: false
         items: ''
+        equipment: false
     tint: '#ffffff'
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.344'
+      systemId: tormenta20
+      systemVersion: 1.4.214
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1747933947943
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    name: gritar ordens
+    name: Gritar Ordens
     img: icons/svg/upgrade.svg
     type: base
     system: {}
