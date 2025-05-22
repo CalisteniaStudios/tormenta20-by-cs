@@ -9,8 +9,12 @@
   - Personagens minúsculos ocupam apenas 1/4 de quadrado.
   - Personagens pequenos têm sua escala de token reduzida em 20%.
 - Adicionado: Automação de PV/PM por nível para poderes e habilidades.
+
+### Poderes, Habilidades e Magias
 - Alterado: Raio Arcano foi automatizado.
 - Corrigido: Bônus em Reflexos do poder Esquiva Sagaz.
+- Corrigido: Texto de Armadura Arcana e aprimoramento que altera duração para um dia.
+- Corrigido: Efeito de uso de Gritar Ordens.
 
 ### Efeitos
 - Adicionado: Atributo "curinga" para efeitos:
