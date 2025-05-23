@@ -9,12 +9,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Normalmente feito de aço, este escudo é preso ao antebraço  e  também 
+      <p>Normalmente feito de aço, este escudo é preso ao antebraço  e  também
       deve  ser  empunhado com firmeza, impedindo o usuário de usar aquela
       mão.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 154 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 154
   equipado: false
   equipado2:
     slot: 0

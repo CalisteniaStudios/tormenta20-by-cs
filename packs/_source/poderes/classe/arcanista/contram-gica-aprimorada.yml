@@ -15,7 +15,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> <em>Dissipar Magia</em>.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 38 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 38
   ativacao:
     execucao: reaction
     custo: 0

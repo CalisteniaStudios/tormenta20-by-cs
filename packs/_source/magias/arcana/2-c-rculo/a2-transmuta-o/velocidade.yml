@@ -202,7 +202,7 @@ system:
       usada para lan&ccedil;ar magias e ativar engenhocas.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 210 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 210
   ativacao:
     execucao: action
     custo: 3

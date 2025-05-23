@@ -16,7 +16,7 @@ system:
       in&iacute;cio de seu pr&oacute;ximo turno.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 77 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 77
   ativacao:
     execucao: passive
     custo: 0

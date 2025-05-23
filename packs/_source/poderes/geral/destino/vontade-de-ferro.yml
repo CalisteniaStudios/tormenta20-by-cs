@@ -70,7 +70,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> Sab 1.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 131 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 131
   ativacao:
     execucao: passive
     custo: 0

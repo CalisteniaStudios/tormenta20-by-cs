@@ -55,7 +55,7 @@ system:
     value: <p>Você recebe visão na penumbra e +2 em Misticismo e Percepção.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 22 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 22
   ativacao:
     execucao: passive
     custo: 0

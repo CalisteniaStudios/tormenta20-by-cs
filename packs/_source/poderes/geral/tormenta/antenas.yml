@@ -61,7 +61,7 @@ system:
       em +1 para cada dois outros poderes da Tormenta que você possui.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 136 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 136
   ativacao:
     execucao: ''
     custo: 0

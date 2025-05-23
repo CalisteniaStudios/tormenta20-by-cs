@@ -12,7 +12,7 @@ system:
       resultados.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 135 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 135
   ativacao:
     execucao: reaction
     custo: 2

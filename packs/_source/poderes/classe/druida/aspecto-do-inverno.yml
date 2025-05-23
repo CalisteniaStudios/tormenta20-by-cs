@@ -106,7 +106,7 @@ system:
       causam +1 ponto de dano por dado.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 61 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 61
   ativacao:
     execucao: ''
     custo: 0

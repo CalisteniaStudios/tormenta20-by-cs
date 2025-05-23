@@ -11,7 +11,7 @@ system:
     value: <p>Você pode vender itens 10% mais caro (não cumulativo com barganha).</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 93 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 93
   ativacao:
     execucao: ''
     custo: 0

@@ -165,7 +165,7 @@ system:
       feito de terra, argila ou pedra.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 188 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 188
   ativacao:
     execucao: action
     custo: 1

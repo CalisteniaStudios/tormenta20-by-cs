@@ -64,7 +64,7 @@ system:
       falar com animais livremente.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 30 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 30
   ativacao:
     execucao: passive
     custo: 0

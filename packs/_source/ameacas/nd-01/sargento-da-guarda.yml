@@ -124,7 +124,7 @@ items:
           sangue, mas esmaga ossos.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 149 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 149
       equipado: 0
       equipado2:
         slot: 0
@@ -253,7 +253,7 @@ items:
           <p>Longa veste de anéis metálicos interligados, formando uma malha
           flexível e resistente, que vai até os joelhos.</p>
         unidentified: ''
-      source: T20, pg. 154 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 154
       equipado: true
       carregado: true
       peso: 20
@@ -320,7 +320,7 @@ items:
           &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma
           besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
-      source: T20, pg. 151 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 151
       carregado: true
       peso: 0.075
       espacos: 0.05
@@ -453,7 +453,7 @@ items:
           a&ccedil;&atilde;o de movimento.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 146 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 146
       equipado: 0
       equipado2:
         slot: 0

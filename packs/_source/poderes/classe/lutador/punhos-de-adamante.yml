@@ -61,7 +61,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> 8&ordm; n&iacute;vel de lutador.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 77 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 77
   ativacao:
     execucao: passive
     custo: 0

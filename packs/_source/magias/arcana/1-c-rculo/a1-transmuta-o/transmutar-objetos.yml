@@ -386,7 +386,7 @@ system:
       <p><em>Transmutar Objetos </em>anula <em>Despeda&ccedil;ar</em>.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 210 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 210
   ativacao:
     execucao: action
     custo: 1

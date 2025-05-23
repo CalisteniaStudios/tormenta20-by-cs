@@ -68,7 +68,7 @@ system:
       trevas a criaturas vivas e cura mortos-vivos.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 57 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 57
   ativacao:
     execucao: action
     custo: 1

@@ -117,7 +117,7 @@ system:
       <p><em>Custo adicional:</em> sacrif&iacute;cio de 1 PM.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 204 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 204
   ativacao:
     execucao: action
     custo: 15

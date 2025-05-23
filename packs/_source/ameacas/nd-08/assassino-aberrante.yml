@@ -82,7 +82,7 @@ items:
           contra um alvo adjacente que esteja desprevenido ou que se mova para
           fora de seu alcance
         unidentified: ''
-      source: T20, pg. 65 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 65
       ativacao:
         execucao: reaction
         custo: 0

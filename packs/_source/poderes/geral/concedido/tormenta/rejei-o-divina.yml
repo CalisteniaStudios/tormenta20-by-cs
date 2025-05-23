@@ -61,7 +61,7 @@ system:
     value: <p>Voc&ecirc; recebe resist&ecirc;ncia a magia divina +5.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 135 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 135
   ativacao:
     execucao: ''
     custo: 0

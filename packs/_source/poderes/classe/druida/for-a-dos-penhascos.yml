@@ -102,7 +102,7 @@ system:
       Druida.&nbsp;</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 62 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 62
   ativacao:
     execucao: reaction
     custo: 1

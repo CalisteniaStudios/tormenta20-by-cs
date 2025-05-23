@@ -238,7 +238,7 @@ system:
       monstro ou &ldquo;nada&rdquo; se a c&acirc;mara estiver vazia.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 187 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 187
   ativacao:
     execucao: full
     custo: 3

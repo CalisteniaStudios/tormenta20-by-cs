@@ -109,7 +109,7 @@ system:
       criatura que possa ver, contanto que tenham um idioma em comum.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 202 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 202
   ativacao:
     execucao: action
     custo: 15

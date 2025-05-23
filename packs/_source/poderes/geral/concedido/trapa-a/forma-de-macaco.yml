@@ -113,7 +113,7 @@ system:
       voc&ecirc; fa&ccedil;a um ataque, lance uma magia ou sofra dano.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 134 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 134
   ativacao:
     execucao: full
     custo: 2

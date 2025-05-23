@@ -20,7 +20,7 @@ system:
       <p><em>Pr&eacute;-requisito: </em>Alquimista Iniciado.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 69 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 69
   ativacao:
     execucao: full
     custo: 3

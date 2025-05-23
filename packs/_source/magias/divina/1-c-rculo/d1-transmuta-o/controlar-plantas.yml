@@ -245,7 +245,7 @@ system:
       criatura na &aacute;rea, exigindo um novo teste de Reflexos.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 188 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 188
   ativacao:
     execucao: action
     custo: 1

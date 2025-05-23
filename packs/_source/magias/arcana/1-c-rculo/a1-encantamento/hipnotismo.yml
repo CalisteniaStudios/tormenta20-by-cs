@@ -398,7 +398,7 @@ system:
       criatura passar, fica imune a este efeito por um dia.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 194 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 194
   ativacao:
     execucao: action
     custo: 1

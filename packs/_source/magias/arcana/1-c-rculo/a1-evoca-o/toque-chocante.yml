@@ -171,7 +171,7 @@ system:
       resistência.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 209 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 209
   ativacao:
     execucao: action
     custo: 1

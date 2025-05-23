@@ -60,7 +60,7 @@ system:
       ver, você não fica desprevenido e camuflagem total lhe causa apenas 20% de
       chance de falha.</p>
     unidentified: ''
-  source: T20, pg. 25 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 25
   ativacao:
     execucao: passive
     custo: 0

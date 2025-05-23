@@ -70,7 +70,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> Con 1.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 129 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 129
   ativacao:
     execucao: passive
     custo: 0

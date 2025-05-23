@@ -185,7 +185,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> 6&ordm; n&iacute;vel de personagem.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 129 e 130 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 129 e 130
   ativacao:
     execucao: ''
     custo: 0

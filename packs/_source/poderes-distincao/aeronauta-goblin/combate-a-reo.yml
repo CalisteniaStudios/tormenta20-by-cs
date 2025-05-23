@@ -20,7 +20,7 @@ system:
       <em>Pr&eacute;-requisito:</em> treinado em Pilotagem.</p>
     chat: ''
     unidentified: ''
-  source: Distinções, pg 7
+  source: Tormenta20 — Distinções, pág. 7
   ativacao:
     execucao: passive
     custo: 0

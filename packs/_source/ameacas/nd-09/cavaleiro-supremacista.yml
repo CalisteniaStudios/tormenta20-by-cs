@@ -442,7 +442,7 @@ items:
           brechas em sua defesa. Quando faz&nbsp;um teste de ataque, voc&ecirc;
           rola dois dados e usa o melhor resultado</p>
         unidentified: ''
-      source: T20, pg. 185 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 185
       ativacao:
         execucao: free
         custo: 1
@@ -577,7 +577,7 @@ items:
           lan&ccedil;ada contra um item m&aacute;gico, o transforma em um item
           mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
-      source: T20, pg. 191 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 191
       ativacao:
         execucao: action
         custo: 3
@@ -970,7 +970,7 @@ items:
           final da cena</section><p>Sua pele ganha aspecto e dureza de rocha.
           Voc&ecirc; recebe redu&ccedil;&atilde;o de dano 5.</p>
         unidentified: ''
-      source: T20, pg. 201 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 201
       ativacao:
         execucao: action
         custo: 6
@@ -1199,7 +1199,7 @@ items:
           armadura de metal (ou carrega muito metal, a critério do mestre),
           sofre uma penalidade de –5 no teste de resistência.</p>
         unidentified: ''
-      source: T20, pg. 209 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 209
       ativacao:
         execucao: action
         custo: 1
@@ -1471,7 +1471,7 @@ items:
           turno. Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para
           lan&ccedil;ar magias e ativar engenhocas.</p>
         unidentified: ''
-      source: T20, pg. 210 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 210
       ativacao:
         execucao: action
         custo: 3
@@ -1545,7 +1545,7 @@ items:
           duas m&atilde;os.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 147 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 147
       equipado: 0
       equipado2:
         slot: 0
@@ -1680,7 +1680,7 @@ items:
           um ferreiro cobra T$ 200 para adaptar uma armadura completa a um novo
           usuário.</p>
         unidentified: ''
-      source: T20, pg. 154 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 154
       equipado: true
       carregado: true
       peso: 25

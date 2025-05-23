@@ -225,7 +225,7 @@ system:
       <p><strong>Mestre</strong>: muda para +3 em testes de ataque e voc&ecirc;
       pode gastar 5 PM para fazer um ataque extra em seu turno.</p>
     unidentified: ''
-  source: T20, pg. 261 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 261
   ativacao:
     execucao: ''
     custo: 0

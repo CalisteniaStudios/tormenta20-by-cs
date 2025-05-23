@@ -22,7 +22,7 @@ system:
       Vitalidade.</p>
     chat: ''
     unidentified: ''
-  source: Distinções, pg. 33-35
+  source: Tormenta20 — Distinções, págs. 33-35
   ativacao:
     execucao: reaction
     custo: 1

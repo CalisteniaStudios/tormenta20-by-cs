@@ -21,7 +21,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> Flecha de Toque.</p>
     chat: ''
     unidentified: ''
-  source: Distinções, pg. 16
+  source: Tormenta20 — Distinções, pág. 16
   ativacao:
     execucao: reaction
     custo: null

@@ -170,7 +170,7 @@ system:
       dist&acirc;ncia do perigo. Se falhar, sabe apenas que o perigo existe.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 196 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 196
   ativacao:
     execucao: action
     custo: 1

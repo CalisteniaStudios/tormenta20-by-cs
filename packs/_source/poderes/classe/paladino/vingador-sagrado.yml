@@ -114,7 +114,7 @@ system:
       causa mais dois dados de dano.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 84 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 84
   ativacao:
     execucao: full
     custo: 10

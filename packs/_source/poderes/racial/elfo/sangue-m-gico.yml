@@ -62,7 +62,7 @@ system:
     value: <p>Você recebe +1 ponto de mana por nível.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 22 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 22
   ativacao:
     execucao: passive
     custo: 0

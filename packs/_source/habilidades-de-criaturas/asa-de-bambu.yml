@@ -49,7 +49,7 @@ system:
       <p>O engenhoqueiro recebe deslocamento de voo 12m at&eacute; o fim da
       cena.</p>
     unidentified: ''
-  source: T20, pg. 211 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 211
   ativacao:
     execucao: action
     custo: 0

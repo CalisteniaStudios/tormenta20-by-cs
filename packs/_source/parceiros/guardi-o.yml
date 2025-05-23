@@ -158,7 +158,7 @@ system:
       <p><strong>Mestre</strong>: muda para +4 em Defesa e +2 em testes de
       resist&ecirc;ncia.</p>
     unidentified: ''
-  source: T20, pg. 261 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 261
   ativacao:
     execucao: ''
     custo: 0

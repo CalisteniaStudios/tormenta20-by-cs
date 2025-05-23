@@ -22,7 +22,7 @@ system:
       empunhando causar +1d6 de dano por frio at&eacute; o fim da cena.</p>
     chat: ''
     unidentified: ''
-  source: Distinções, pg. 12
+  source: Tormenta20 — Distinções, pág. 12
   ativacao:
     execucao: free
     custo: null

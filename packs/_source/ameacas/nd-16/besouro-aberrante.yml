@@ -61,7 +61,7 @@ items:
           fraco pode atacar a criatura com -5 no teste de ataque, mas, se
           acertar, ignora as proteções da carapaça
         unidentified: ''
-      source: T20, pg. 136 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 136
       ativacao:
         execucao: ''
         custo: 0

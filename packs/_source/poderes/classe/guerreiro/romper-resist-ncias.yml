@@ -60,7 +60,7 @@ system:
       para ignorar 10 pontos de redu&ccedil;&atilde;o de dano.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 66 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 66
   ativacao:
     execucao: ''
     custo: 1

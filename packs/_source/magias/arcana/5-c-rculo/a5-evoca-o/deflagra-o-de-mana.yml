@@ -103,7 +103,7 @@ system:
       do dano e seus itens mágicos voltam a funcionar após um dia.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 189 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 189
   ativacao:
     execucao: full
     custo: 15

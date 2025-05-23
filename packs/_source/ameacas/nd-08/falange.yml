@@ -85,7 +85,7 @@ items:
           medindo entre 80cm e 1m.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 148 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 148
       equipado: 0
       equipado2:
         slot: 0
@@ -332,11 +332,11 @@ items:
     system:
       description:
         value: >-
-          <p>Normalmente feito de aço, este escudo é preso ao antebraço  e 
+          <p>Normalmente feito de aço, este escudo é preso ao antebraço  e
           também  deve  ser  empunhado com firmeza, impedindo o usuário de usar
           aquela mão.</p>
         unidentified: ''
-      source: T20, pg. 154 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 154
       equipado: true
       carregado: true
       peso: 7
@@ -400,7 +400,7 @@ items:
       description:
         value: <p>Uma cota de malha reforçada com placas de metal.</p>
         unidentified: ''
-      source: T20, pg. 154 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 154
       equipado: true
       carregado: true
       peso: 22

@@ -137,7 +137,7 @@ system:
       pode usar a perícia Diplomacia para tentar mudar sua atitude.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 211 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 211
   ativacao:
     execucao: action
     custo: 3

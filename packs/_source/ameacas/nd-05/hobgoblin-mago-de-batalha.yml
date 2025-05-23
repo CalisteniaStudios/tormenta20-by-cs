@@ -56,7 +56,7 @@ items:
           dano com magias
         chat: ''
         unidentified: ''
-      source: T20, pg. 39 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 39
       ativacao:
         execucao: ''
         custo: 0
@@ -367,7 +367,7 @@ items:
           passar, fica abalado por 1d4 rodadas.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 179 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 179
       ativacao:
         execucao: action
         custo: 1
@@ -644,7 +644,7 @@ items:
           armaduras.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 181 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 181
       ativacao:
         execucao: action
         custo: 1
@@ -875,7 +875,7 @@ items:
           objetos livres na área.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 182 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 182
       ativacao:
         execucao: action
         custo: 3
@@ -1243,7 +1243,7 @@ items:
           melhor resultado</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 185 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 185
       ativacao:
         execucao: free
         custo: 1
@@ -1507,7 +1507,7 @@ items:
           de vida iguais à metade do dano causado (se causou algum dano).</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 209 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 209
       ativacao:
         execucao: action
         custo: 3
@@ -1586,7 +1586,7 @@ items:
           medindo entre 80cm e 1m.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 148 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 148
       equipado: 0
       equipado2:
         slot: 0
@@ -1718,7 +1718,7 @@ items:
           pontos de mana.&nbsp;</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 160 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 160
       equipado: false
       carregado: true
       peso: 0.1

@@ -67,7 +67,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> Ataque Poderoso.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 129 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 129
   ativacao:
     execucao: ''
     custo: 1

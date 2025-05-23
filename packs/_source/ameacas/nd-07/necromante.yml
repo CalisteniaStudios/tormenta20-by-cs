@@ -255,7 +255,7 @@ items:
           assustadoras. Se falhar na resist&ecirc;ncia, fica apavorado por 1
           rodada, depois abalado. Se passar, fica abalado por 1d4 rodadas.</p>
         unidentified: ''
-      source: T20, pg. 179 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 179
       ativacao:
         execucao: action
         custo: 1
@@ -530,7 +530,7 @@ items:
           outras magias, mas n&atilde;o com b&ocirc;nus fornecido por
           armaduras.</p>
         unidentified: ''
-      source: T20, pg. 181 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 181
       ativacao:
         execucao: action
         custo: 1
@@ -603,7 +603,7 @@ items:
           testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 146 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -779,7 +779,7 @@ items:
           mana &eacute; uma a&ccedil;&atilde;o padr&atilde;o e recupera 1d4
           pontos de mana.&nbsp;</p>
         unidentified: ''
-      source: T20, pg. 160 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 160
       carregado: true
       peso: 0.1
       espacos: 0.5
@@ -1117,7 +1117,7 @@ items:
           na &aacute;rea tamb&eacute;m tem direito ao teste de
           resist&ecirc;ncia, para evitar a condi&ccedil;&atilde;o).</p>
         unidentified: ''
-      source: T20, pg. 188 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 188
       ativacao:
         execucao: action
         custo: 3
@@ -1392,7 +1392,7 @@ items:
           dano de trevas. Voc&ecirc; recupera pontos de vida iguais &agrave;
           metade do dano causado (se causou algum dano).</p>
         unidentified: ''
-      source: T20, pg. 209 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 209
       ativacao:
         execucao: action
         custo: 3

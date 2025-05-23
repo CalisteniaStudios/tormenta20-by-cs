@@ -57,7 +57,7 @@ system:
       n&atilde;o pode ser reanimada novamente com esta magia.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 203 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 203
   ativacao:
     execucao: full
     custo: 15

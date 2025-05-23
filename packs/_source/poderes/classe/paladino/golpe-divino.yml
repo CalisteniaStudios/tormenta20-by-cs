@@ -118,7 +118,7 @@ system:
       +1 PM para aumentar o dano em +1d8.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 82 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 82
   ativacao:
     execucao: free
     custo: 2

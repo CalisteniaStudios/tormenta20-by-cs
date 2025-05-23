@@ -294,7 +294,7 @@ system:
       ataque, voc&ecirc; rola dois dados e usa o melhor resultado</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 185 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 185
   ativacao:
     execucao: free
     custo: 1

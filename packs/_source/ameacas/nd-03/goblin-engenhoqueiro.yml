@@ -88,7 +88,7 @@ items:
           testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 146 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -261,7 +261,7 @@ items:
           leve &eacute; uma a&ccedil;&atilde;o de movimento.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 146 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -430,7 +430,7 @@ items:
           <p>O engenhoqueiro recebe deslocamento de voo 12m at&eacute; o fim da
           cena.</p>
         unidentified: ''
-      source: T20, pg. 211 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 211
       ativacao:
         execucao: action
         custo: 0
@@ -536,7 +536,7 @@ items:
           pontos de dano de fogo e ficam em chamas (Reflexos CD 19 reduz o dano
           &agrave; metade e evita a condi&ccedil;&atilde;o).</p>
         unidentified: ''
-      source: T20, pg. 193 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 193
       ativacao:
         execucao: action
         custo: 0
@@ -732,7 +732,7 @@ items:
           diante. Um personagem sem os instrumentos de seu Ofício sofre –5 nessa
           perícia.</p>
         unidentified: ''
-      source: T20, pg. 158 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 158
       carregado: true
       peso: 4
       espacos: 1
@@ -808,7 +808,7 @@ items:
           &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma
           besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
-      source: T20, pg. 151 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 151
       carregado: true
       peso: 0.075
       espacos: 0.05

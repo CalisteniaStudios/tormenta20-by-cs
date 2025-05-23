@@ -317,7 +317,7 @@ system:
       de bordão continua funcionando e causando dano como uma espada).</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 191 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 191
   ativacao:
     execucao: action
     custo: 1

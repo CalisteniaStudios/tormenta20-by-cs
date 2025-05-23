@@ -92,7 +92,7 @@ system:
       condição. A magia termina se o alvo chegar a 0 pontos de vida.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 196 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 196
   ativacao:
     execucao: action
     custo: 10

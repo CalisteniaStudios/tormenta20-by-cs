@@ -305,7 +305,7 @@ items:
           explosão, causando 6d6 pontos de dano de fogo em todas as criaturas e
           objetos livres na área.</p>
         unidentified: ''
-      source: T20, pg. 182 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 182
       ativacao:
         execucao: action
         custo: 3
@@ -672,7 +672,7 @@ items:
           brechas em sua defesa. Quando faz&nbsp;um teste de ataque, voc&ecirc;
           rola dois dados e usa o melhor resultado</p>
         unidentified: ''
-      source: T20, pg. 185 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 185
       ativacao:
         execucao: free
         custo: 1
@@ -936,7 +936,7 @@ items:
           Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
           magias e ativar engenhocas.</p>
         unidentified: ''
-      source: T20, pg. 210 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 210
       ativacao:
         execucao: action
         custo: 3
@@ -1006,7 +1006,7 @@ items:
           mas sim uma arma capaz de causar ferimentos terríveis.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 149 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 149
       equipado: 0
       equipado2:
         slot: 0
@@ -1341,7 +1341,7 @@ items:
           um ferreiro cobra T$ 200 para adaptar uma armadura completa a um novo
           usuário.</p>
         unidentified: ''
-      source: T20, pg. 154 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 154
       equipado: false
       carregado: true
       peso: 25

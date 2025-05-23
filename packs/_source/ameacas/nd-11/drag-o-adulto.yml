@@ -446,7 +446,7 @@ items:
           n&atilde;o impedem que voc&ecirc; fique inconsciente, comece a
           sangrar, morra...).</p>
         unidentified: ''
-      source: T20, pg. 183 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 183
       ativacao:
         execucao: action
         custo: 3
@@ -732,7 +732,7 @@ items:
           adjacente cura 12d8+12 PV</section><p>Voc&ecirc; canaliza energia
           positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         unidentified: ''
-      source: T20, pg. 189 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 189
       ativacao:
         execucao: action
         custo: 1
@@ -875,7 +875,7 @@ items:
           teste. Se lan&ccedil;ada contra um item m&aacute;gico, o transforma em
           um item mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
-      source: T20, pg. 191 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 191
       ativacao:
         execucao: action
         custo: 3
@@ -1160,7 +1160,7 @@ items:
           a magia &eacute; dissipada e o alvo retorna &agrave; atitude que tinha
           antes (ou piorada, de acordo com o mestre).</p>
         unidentified: ''
-      source: T20, pg. 191 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 191
       ativacao:
         execucao: action
         custo: 1
@@ -1358,7 +1358,7 @@ items:
           sobre criaturas ou objetos. Ap&oacute;s lan&ccedil;&aacute;-lo,
           voc&ecirc; pode entrar ou sair livremente.</p>
         unidentified: ''
-      source: T20, pg. 196 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 196
       ativacao:
         execucao: action
         custo: 6
@@ -1622,7 +1622,7 @@ items:
           Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
           magias e ativar engenhocas.</p>
         unidentified: ''
-      source: T20, pg. 210 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 210
       ativacao:
         execucao: action
         custo: 3
@@ -2374,7 +2374,7 @@ items:
           drag&atilde;o, voc&ecirc; pode gastar 1 PM para aumentar o dano da
           magia em +1 por dado.</span></p>
         unidentified: ''
-      source: T20, pg. 311 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 311
       carregado: true
       peso: 0
       espacos: 1
@@ -2610,7 +2610,7 @@ system:
       vulnerabilidade a frio
     tesouro: >-
       Dobro e 4 peças de couro de dragão (CD 26 para extrair, veja o quadro na
-      página 312).
+      pág. na 312).
     role: solo
     origem: ''
     ataquescac: Mordida +35 (4d10+25, 18) e duas garras +35 (3d10+25, 18).

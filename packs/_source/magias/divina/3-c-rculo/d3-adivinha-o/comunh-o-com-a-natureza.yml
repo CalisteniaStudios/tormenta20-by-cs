@@ -227,7 +227,7 @@ system:
       magia termina se voc&ecirc; ficar sem dados.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 184 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 184
   ativacao:
     execucao: full
     custo: 6

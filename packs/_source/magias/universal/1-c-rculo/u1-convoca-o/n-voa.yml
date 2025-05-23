@@ -353,7 +353,7 @@ system:
       vendaval a dispersa em 1 rodada. Esta magia não funciona sob a água.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 200 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 200
   ativacao:
     execucao: action
     custo: 1

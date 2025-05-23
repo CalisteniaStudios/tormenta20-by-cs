@@ -19,7 +19,7 @@ system:
       <p><em>Pr&eacute;-requisito:</em> Arco Arcano.</p>
     chat: ''
     unidentified: ''
-  source: Distinções, pg. 16
+  source: Tormenta20 — Distinções, pág. 16
   ativacao:
     execucao: passive
     custo: null

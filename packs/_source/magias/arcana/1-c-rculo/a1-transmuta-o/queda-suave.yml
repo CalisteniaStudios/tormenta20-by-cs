@@ -194,7 +194,7 @@ system:
       mergulho rasante de um atacante voador.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 202 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 202
   ativacao:
     execucao: reaction
     custo: 1

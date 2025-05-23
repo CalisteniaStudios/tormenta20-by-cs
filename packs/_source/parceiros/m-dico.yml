@@ -132,7 +132,7 @@ system:
       <p><strong>Mestre:&nbsp;</strong>como acima, mas voc&ecirc; tamb&eacute;m
       pode gastar 5 PM para recuperar 6d8+6 PV.</p>
     unidentified: ''
-  source: T20, pg. 261 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 261
   ativacao:
     execucao: free
     custo: 1

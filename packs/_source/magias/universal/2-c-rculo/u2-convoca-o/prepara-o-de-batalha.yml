@@ -61,7 +61,7 @@ system:
       termina se voc&ecirc; perder a posse deles.</p>
     chat: ''
     unidentified: ''
-  source: Guia NPC, pg. 16 (1.2)
+  source: Guia de NPCs, pág. 16 (1.2)
   ativacao:
     execucao: action
     custo: 3

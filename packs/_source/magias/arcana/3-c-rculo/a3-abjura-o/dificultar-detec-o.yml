@@ -141,7 +141,7 @@ system:
       seu equipamento.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 190 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 190
   ativacao:
     execucao: action
     custo: 6

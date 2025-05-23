@@ -111,7 +111,7 @@ system:
       eletricidade em todas as criaturas e objetos livres na área.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 203 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 203
   ativacao:
     execucao: action
     custo: 3

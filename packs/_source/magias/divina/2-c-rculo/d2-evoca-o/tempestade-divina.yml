@@ -412,7 +412,7 @@ system:
       dano de impacto por rodada, no in&iacute;cio de seus turnos).</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 208 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 208
   ativacao:
     execucao: full
     custo: 3

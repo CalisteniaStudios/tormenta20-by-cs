@@ -49,12 +49,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Seu tamanho é Pequeno (veja a página 106) e seu deslocamento é 6m. Você
+      <p>Seu tamanho é Pequeno (veja a pág. na 106) e seu deslocamento é 6m. Você
       recebe +2 em Enganação e usa o modificador de Destreza para Atletismo (em
       vez de Força).</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 28 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 28
   ativacao:
     execucao: ''
     custo: 0

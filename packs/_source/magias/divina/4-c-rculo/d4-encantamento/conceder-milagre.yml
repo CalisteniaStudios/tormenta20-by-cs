@@ -91,7 +91,7 @@ system:
       &ndash;3 PM at&eacute; que o alvo lance a magia.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 186 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 186
   ativacao:
     execucao: action
     custo: 10

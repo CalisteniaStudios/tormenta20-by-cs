@@ -130,7 +130,7 @@ system:
       cada 3m escalados.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 199 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 199
   ativacao:
     execucao: action
     custo: 10

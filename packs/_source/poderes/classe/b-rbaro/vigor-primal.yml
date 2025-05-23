@@ -65,7 +65,7 @@ system:
       que gastar, voc&ecirc; recupera 1d12 pontos de vida.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 42 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 42
   ativacao:
     execucao: move
     custo: 1

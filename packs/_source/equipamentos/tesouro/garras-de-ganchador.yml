@@ -6,7 +6,7 @@ system:
     value: "<p><span class=\"fontstyle0\"><strong>[Tesouro Especial]</strong></span></p>\n\t\t<p>As garras do Ganchador valem T$ 500 em matéria-prima para fabricar armas de corte superiores. (CD 20 para extrair).</p>\n\t\t\n\t\t"
     chat: ''
     unidentified: ''
-  source: T20, pg. 308 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 308
   equipado: false
   equipado2:
     slot: 0

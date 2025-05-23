@@ -137,7 +137,7 @@ system:
       ficar sem PM ou no fim do dia (o que acontecer primeiro).</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 186 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 186
   ativacao:
     execucao: full
     custo: 6

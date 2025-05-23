@@ -53,7 +53,7 @@ system:
       na Defesa, limitado pelo seu n&iacute;vel.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 76 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 76
   ativacao:
     execucao: passive
     custo: 0

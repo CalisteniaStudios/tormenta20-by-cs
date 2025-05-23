@@ -16,7 +16,7 @@ items:
           medindo entre 80cm e 1m.</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 148 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 148
       equipado: 0
       equipado2:
         slot: 0
@@ -150,7 +150,7 @@ items:
           voc&ecirc; estiver montado</p>
         chat: ''
         unidentified: ''
-      source: T20, pg. 146 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -279,7 +279,7 @@ items:
           <p>Longa veste de anéis metálicos interligados, formando uma malha
           flexível e resistente, que vai até os joelhos.</p>
         unidentified: ''
-      source: T20, pg. 154 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 154
       equipado: true
       carregado: true
       peso: 20
@@ -342,11 +342,11 @@ items:
     system:
       description:
         value: >-
-          <p>Normalmente feito de aço, este escudo é preso ao antebraço  e 
+          <p>Normalmente feito de aço, este escudo é preso ao antebraço  e
           também  deve  ser  empunhado com firmeza, impedindo o usuário de usar
           aquela mão.</p>
         unidentified: ''
-      source: T20, pg. 154 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 154
       equipado: true
       carregado: true
       peso: 7
@@ -413,7 +413,7 @@ items:
           met&aacute;lica e penas para estabilizar o voo. Recarregar um arco com
           uma flecha &eacute; uma a&ccedil;&atilde;o livre</p>
         unidentified: ''
-      source: T20, pg. 151 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 151
       carregado: true
       peso: 0.075
       espacos: 0.05

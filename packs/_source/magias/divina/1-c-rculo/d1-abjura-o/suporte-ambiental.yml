@@ -96,7 +96,7 @@ system:
       respirar ar (ou vice-versa) e não sufoca em fumaça densa.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 207 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 207
   ativacao:
     execucao: action
     custo: 1

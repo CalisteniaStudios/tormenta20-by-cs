@@ -66,7 +66,7 @@ system:
       usou Marca da Presa a 0 pontos de vida, recupera 5 PM.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 51 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 51
   ativacao:
     execucao: ''
     custo: 5

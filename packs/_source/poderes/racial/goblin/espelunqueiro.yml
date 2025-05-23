@@ -63,7 +63,7 @@ system:
       <p>Você recebe visão no escuro e deslocamento de escalada igual ao seu
       deslocamento terrestre.</p>
     unidentified: ''
-  source: T20, pg. 23 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 23
   ativacao:
     execucao: passive
     custo: 0

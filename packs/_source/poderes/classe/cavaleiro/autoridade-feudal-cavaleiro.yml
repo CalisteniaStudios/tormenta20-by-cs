@@ -19,7 +19,7 @@ system:
       do mestre). Pr&eacute;-requisito: 6&ordm; n&iacute;vel de Cavaleiro.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 54 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 54
   ativacao:
     execucao: hour
     custo: 2

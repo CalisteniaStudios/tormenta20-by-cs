@@ -698,7 +698,7 @@ items:
           drag&atilde;o, voc&ecirc; pode gastar 1 PM para aumentar o dano da
           magia em +1 por dado.</span></p>
         unidentified: ''
-      source: T20, pg. 311 (JdA)
+      source: Tormenta20 — Edição Jogo do Ano, pág. 311
       carregado: true
       peso: 0
       espacos: 1
@@ -934,7 +934,7 @@ system:
       vulnerabilidade a frio
     tesouro: >-
       Dobro e 2 peças de couro de dragão (CD 22 para extrair, veja o quadro na
-      página 312).
+      pág. na 312).
     role: solo
     origem: ''
     ataquescac: Mordida +25 (2d6+14, 19) e duas garras +25 (1d8+14, 19).

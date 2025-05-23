@@ -18,7 +18,7 @@ system:
       Enormes aumentam em um passo e Colossais aumentam em dois passos.</p>
     chat: ''
     unidentified: ''
-  source: T20, pg. 76 (JdA)
+  source: Tormenta20 — Edição Jogo do Ano, pág. 76
   ativacao:
     execucao: passive
     custo: 0
