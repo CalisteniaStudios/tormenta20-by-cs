@@ -26,12 +26,6 @@ Crie um fork do projeto, faça as suas modificações e então envie um Merge Re
 
 Tenha certeza que o branch `master` é o mais atual do projeto original, pois é possível que exista algum branch para atualizações futuras.
 
-### Conteúdo de Compêndios
-
-- Aceitamos qualquer conteúdo que estiver sob a licença OGL que for identificado como Conteúdo Open Game.
-
-- Não envie gráficos sem antes receber permissão do dono do copyright.
-
 ### Merge Requests
 
 Merge Requests ("MRs" ou "PRs" como são conhecidos no Github) podem ser feitos por qualquer um. Títulos de MRs devem ser escritos no modo imperativo e descrever de forma clara e consica o que está sendo modificado. Uma descrição é geralmente necessária para explicar mais detalhes.
