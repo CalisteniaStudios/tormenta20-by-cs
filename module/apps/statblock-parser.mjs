@@ -477,7 +477,8 @@ export default class StatblockParser extends FormApplication {
 					/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/gi
 				);
 			skills = skills.map((m) => {
-				return { [sks[m.split(" ")[0]]]: { value: parseInt(m.split(" ")[1]) } };
+				const pericia = m.split(" ")[0].toLowerCase().capitalize();
+				return { [sks[pericia]]: { value: parseInt(m.split(" ")[1]) } };
 			});
 			skills = Object.assign({}, ...skills);
 			msg = "";
