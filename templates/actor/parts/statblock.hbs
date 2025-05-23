@@ -11,7 +11,7 @@
 	{{ localize (lookup config.creatureTypes system.detalhes.tipo) }}
 	{{#if system.detalhes.raca }} ({{system.detalhes.raca}}) {{/if}}
 	{{ localize (lookup config.actorSizes system.tracos.tamanho) }}
-	
+
 	{{#if system.detalhes.role}}({{ localize (lookup config.creatureRoles system.detalhes.role) }}){{/if}}
 </i>
 
@@ -48,14 +48,10 @@
 
 	<span class="rollable pericia-rollable skill" data-item-id="vont" data-type="padrao">
 		<label>{{ localize 'T20.SkillVontAbbr'}}: </label>
-		{{numberFormat system.pericias.vont.value sign=true}}{{#if (or system.detalhes.resistencias)}};{{/if}} 
+		{{numberFormat system.pericias.vont.value sign=true}}{{#if system.detalhes.resistencias}},{{/if}}
 	</span>
-	{{#if resistencias }}
-	, {{resistencias}}
-	{{/if}}
-	{{#if system.detalhes.resistencias }}
-	, {{system.detalhes.resistencias}}
-	{{/if}}
+	{{#if resistencias}}{{resistencias}}{{#if system.detalhes.resistencias}}, {{/if}}{{/if}}
+	{{#if system.detalhes.resistencias}}{{system.detalhes.resistencias}}{{/if}}
 </div>
 <div class="npc-line">
 	<label>{{ localize 'T20.HitPoints'}}: </label>
@@ -105,7 +101,7 @@
 		{{/each}}
 		{{/if}}
 		{{#if (gt actor.inventario.arma.ranged 0) }}
-		<label>{{localize 'T20.Ranged'}}: 
+		<label>{{localize 'T20.Ranged'}}:
 		{{#if system.detalhes.ataquesad }}{{system.detalhes.ataquesad}}{{/if}}
 		</label>
 		{{#each actor.inventario.arma.items as |item id|}}
@@ -123,8 +119,8 @@
 		{{/if}}
 		{{/each}}
 		{{/if}}
-		
-		
+
+
 		{{#if actor.poderes}}
 		{{#each actor.poderes as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">

@@ -38,6 +38,10 @@
   - Clique do botão direito em itens na ficha de personagem abre um menu com opções para interagir com o item.
   - Passar o mouse sobre Defesa ou bônus de perícias discrimina os seus modificadores.
 - Alterado: Clicar para usar itens sem efeitos de uso ou rolagens não abre uma janela para usá-los.
+- Alterado: Importação de Bloco de Estatísticas (IBE) agora remove o plural de nomes de armas como "Duas Pancadas".
+- Alterado: IBE não falha se o bloco não contém o campo ND.
+- Corrigido: Lista de perícias da IBE não depende mais da caixa alta/baixa do nome.
+- Corrigido: Tesouros da IBE devem ser lidos corretamente (com mais frequência).
 
 ### Regras
 - Adicionado: Regra opcional para adicionar metade do nível na Defesa.

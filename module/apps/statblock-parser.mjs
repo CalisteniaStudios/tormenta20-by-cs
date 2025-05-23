@@ -616,12 +616,12 @@ export default class StatblockParser extends FormApplication {
 			if (statblock.match(/À Distância .*(\n)/i)) {
 				abilities = statblock.match(/À Distância .*(\n)/i)[0];
 				abilities = lines.find((l) => l.match(/^À Distância /i));
-				schema.detalhes.ataquesad = abilities.replace("À Distância ", "");
+				schema.detalhes.ataquesad = abilities.replace(/À Distância /i, "");
 			}
 			if (statblock.match(/Corpo a Corpo .*(\n)/i)) {
 				abilities = statblock.match(/Corpo a Corpo .*(\n)/i)[0];
 				abilities = lines.find((l) => l.match(/^Corpo a Corpo /i));
-				schema.detalhes.ataquescac = abilities.replace("Corpo a Corpo ", "");
+				schema.detalhes.ataquescac = abilities.replace(/Corpo a Corpo /i, "");
 			}
 			if (statblock.match(/Deslocamento (.|\n)*/i)) {
 				abilities = statblock.match(/Deslocamento .*(\n)/i)[0];
@@ -714,6 +714,8 @@ export default class StatblockParser extends FormApplication {
 			let armaData = statblock.match(/((Corpo a Corpo|À Distância) [^\.]*)/i);
 			if (!armaData[0]) return;
 			armaData = armaData[0];
+			const proposito = armaData.match(/Corpo a Corpo/i) ? "corpo-a-corpo" : "disparo";
+			const regexNumeral = /\b(dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez)\b\s+(\w+)/i;
 
 			// Limpa e separa as armas;
 			armaData = armaData
@@ -728,8 +730,13 @@ export default class StatblockParser extends FormApplication {
 			// Extrai os dados das armas
 			armaData = armaData.map((arma) => arma.match(/(?<name>.*[^\+|\-]) (?<atk>[+|-]\d+) \((?<dmg>.*)\)/).groups);
 			armaData.forEach((arma) => {
+				if (regexNumeral.test(arma.name)) {
+					arma.name = arma.name.replace(regexNumeral, (original, numero, palavra) => {
+						return game.tormenta20.utils.despluralizar(palavra).titleCase();
+					});
+				}
 				let item = this.searchItem(arma.name, "arma", itemsList);
-				if (item.exists) return;
+				if (!item) return;
 				let rolls = [];
 				// Prepara Rolagem de Ataque
 				if (arma.atk) {
@@ -773,6 +780,7 @@ export default class StatblockParser extends FormApplication {
 				}
 				item.system.rolls = rolls;
 				item.system.description.value = `<section class="secret">${arma.name}</section>${item.system.description.value}`;
+				item.system.proposito = proposito;
 
 				arma.item = item;
 			});
@@ -821,7 +829,7 @@ export default class StatblockParser extends FormApplication {
 		}
 
 		try {
-			let tesouros = statblock.replace(/\n/g, " ").match(/Tesouro .*\n/i)[0];
+			let tesouros = statblock.match(/Tesouro .*/i)[0];
 			tesouros = tesouros.replace(/Tesouro/i, "").trim();
 			schema.detalhes.tesouro = tesouros;
 			log.push({

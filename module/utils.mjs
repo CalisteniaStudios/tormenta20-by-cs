@@ -101,3 +101,25 @@ export function uuidToObject(uuid) {
 export function stringify(obj) {
 	return JSON.stringify(obj, null, 3);
 }
+
+/**
+ * Tira o plural de palavras em Português.
+ * Atenção para palavras terminadas em "us", que geralmente não estão no plural (deus, virus, ônibus, bônus).
+ * @param {string} palavra
+ * @param {boolean} pulaUS	Determina se a "us" deve ser considerado plural ou não.
+ * @returns {string}
+ */
+export function despluralizar(palavra, pulaUS = true) {
+	if (palavra.endsWith("ões") || palavra.endsWith("ães")) {
+		return `${palavra.slice(0, -3)}ão`;
+	} else if (palavra.endsWith("is") && palavra.length > 3) {
+		return `${palavra.slice(0, -2)}l`;
+	} else if (palavra.endsWith("res")) {
+		return palavra.slice(0, -2);
+	} else if (palavra.endsWith("ses")) {
+		return palavra.slice(0, -2);
+	} else if (palavra.endsWith("s") && (!pulaUS || !palavra.endsWith("us"))) {
+		return palavra.slice(0, -1);
+	}
+	return palavra;
+}

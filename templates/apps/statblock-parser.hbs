@@ -6,7 +6,7 @@
 		<aside>
 			<h2>DATA</h2>
 			<button class="validate">{{localize 'T20.Validate'}}</button>
-			<button class="apply">{{localize 'T20.Apply'}}</button>
+			<button class="apply" {{disabled (not log.length)}}>{{localize 'T20.Apply'}}</button>
 
 			<ul>
 				{{#each log as | l k | }}
