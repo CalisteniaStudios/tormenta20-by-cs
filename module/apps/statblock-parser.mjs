@@ -234,19 +234,19 @@ export default class StatblockParser extends FormApplication {
 					schema.detalhes.tipo = t;
 					log.push({
 						success: true,
-						message: `Tipo de Criatura: ${schema.detalhes.tipo}`
+						message: `Tipo de Criatura: ${CONFIG.T20.creatureTypes[t]}`
 					});
 				} else if (CONFIG.T20.creatureRoles[t]) {
 					schema.detalhes.role = t;
 					log.push({
 						success: true,
-						message: `Papel em Combate: ${schema.detalhes.role}`
+						message: `Papel em Combate: ${CONFIG.T20.creatureRoles[t]}`
 					});
 				} else if (CONFIG.T20.actorSizes[t]) {
 					schema.tracos.tamanho = t;
 					log.push({
 						success: true,
-						message: `Tamanho: ${schema.tracos.tamanho}`
+						message: `Tamanho: ${CONFIG.T20.actorSizes[t]}`
 					});
 				} else {
 					schema.detalhes.raca = t;
@@ -380,7 +380,7 @@ export default class StatblockParser extends FormApplication {
 				schema.tracos.ic.value = ic;
 				log.push({
 					success: true,
-					message: `Imunidades a Condições: ${ic.join(", ")}`
+					message: `Imunidades a Condições: ${ic.join(", ") || "—"}`
 				});
 			}
 			msg = "";
@@ -389,7 +389,7 @@ export default class StatblockParser extends FormApplication {
 				schema.tracos.resistencias[k].base = parseInt(v) || 0;
 				msg += `${k}: ${v}; `;
 			}
-			log.push({ success: true, message: `Resistência a dano: ${msg}` });
+			log.push({ success: true, message: `Resistência a dano: ${msg || "—"}` });
 			for (let k of dmgimuni) {
 				schema.tracos.resistencias[k].imunidade = true;
 			}
@@ -402,7 +402,7 @@ export default class StatblockParser extends FormApplication {
 			}
 			log.push({
 				success: true,
-				message: `Vulnerabilidade a dano: ${dmgvuln.join(", ")}`
+				message: `Vulnerabilidade a dano: ${dmgvuln.join(", ") || "—"}`
 			});
 		} catch (error) {
 			console.warn(error);
@@ -527,7 +527,7 @@ export default class StatblockParser extends FormApplication {
 						skill.outros = skill.value - semTreino;
 					}
 				}
-				msg += `${key}: ${skill.value}; `;
+				msg += `${CONFIG.T20.pericias[key]}: ${skill.value}; `;
 				schema.pericias[key] = skill;
 			}
 			log.push({ success: true, message: `Perícias: ${msg}` });
