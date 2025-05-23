@@ -126,7 +126,7 @@ export default function () {
 	});
 
 	/* Add hook for End of Scene */
-	Hooks.on("renderSidebarTab", async (app, html) => endSegment(app, html));
+	Hooks.on("renderCombatTracker", async (app, html) => endSegment(app, html));
 
 	/* Debug hook */
 	// Hooks.on("modifyTokenAttribute", async (attribute, value, isDelta, isBar) => {

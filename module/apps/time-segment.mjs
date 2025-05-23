@@ -1,10 +1,11 @@
 export const endSegment = async function (app, html) {
-	if (app.options.id === "combat" && game.user.isGM) {
-		let button = $(
-			"<button class='scene-segment flexF' title='Terminar a Cena'><img src='systems/tormenta20/icons/clapperboard.svg' width='32' height='32' /></i></button>"
-		);
+	if (game.user.isGM) {
+		const button = document.createElement("button");
+		button.className = "scene-segment flexF";
+		button.title = "Terminar a Cena";
+		button.innerHTML = "<i class='fa-solid fa-clapperboard'></i> Terminar Cena";
 
-		button.click(async function () {
+		button.addEventListener("click", async function () {
 			let historico = "";
 			for await (const token of canvas.tokens.placeables) {
 				if (!token.actorLink) {
@@ -43,10 +44,19 @@ export const endSegment = async function (app, html) {
 				outputHistorico = ` Os seguintes efeitos foram removidos:${historico}`;
 			}
 
-			let chatMessage = `<div class='tormenta20 chat-card item-card'><header class='card-header flexrow'><img class='invert' src='systems/tormenta20/icons/clapperboard.svg' width='36' height='36' style='flex:0'><h3 class='item-name'><div>Cena Finalizada</div></h3></header><div class='card-content'>A cena atual foi terminada pelo mestre.${outputHistorico}</div></div>`;
+			let chatMessage = `<div class='tormenta20 chat-card item-card'>
+				<header class='card-header flexrow'>
+					<h3 class="item-name">
+						<i class="fa-solid fa-clapperboard" style=""></i> Cena Finalizada
+					</h3>
+				</header>
+				<div class='card-content'>A cena atual foi terminada pelo mestre.${outputHistorico}</div>
+			</div>`;
 			toChat(chatMessage);
 		});
 
-		html.find(".directory-footer").append(button);
+		const footer = html.querySelector(".combat-controls");
+		footer.classList.add("flexrow");
+		footer.appendChild(button);
 	}
 };
