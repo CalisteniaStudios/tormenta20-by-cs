@@ -201,11 +201,16 @@ export default class StatblockParser extends FormApplication {
 		let msg = "";
 		// Extrai o nome e ND
 		try {
-			let foe = statblock.replace(/\n/g, " ").match(/(?<name>.*) ND (?<nd>[\d|\d\/\d]+)/).groups;
-			schema.name = foe.name;
-			log.push({ success: true, message: `Nome: ${schema.name}` });
-			schema.attributes.nd = foe.nd;
-			log.push({ success: true, message: `ND: ${schema.attributes.nd}` });
+			const name = statblock.match(/(.*)\n*/);
+			const nd = statblock.match(/ND ([\d|\d\/\d]+)/);
+			if (name) {
+				schema.name = name[1];
+				log.push({ success: true, message: `Nome: ${schema.name}` });
+			} else log.push({ success: false, message: "Nome" });
+			if (nd) {
+				schema.attributes.nd = nd[1];
+				log.push({ success: true, message: `ND: ${schema.attributes.nd}` });
+			} else log.push({ success: false, message: "ND" });
 		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Nome ou ND" });
