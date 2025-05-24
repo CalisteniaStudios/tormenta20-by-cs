@@ -20,7 +20,7 @@ effects:
         items: ''
         durationScene: false
     changes:
-      - key: system.attributes.sentidos.value adicionar
+      - key: system.attributes.sentidos.value
         mode: 2
         value: escuro
         priority: 0
@@ -37,12 +37,12 @@ effects:
     transfer: false
     tint: '#ffffff'
     _stats:
-      coreVersion: '13.342'
+      coreVersion: '13.344'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1748126063607
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
