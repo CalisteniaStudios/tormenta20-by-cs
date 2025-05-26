@@ -1016,7 +1016,7 @@ export default class ActorT20 extends Actor {
 			const dType = roll.terms[0]?.options?.flavor ?? type;
 			const value = Math.floor(roll.total * multiplier);
 			if (!damage[dType]) {
-				damage[dType] = { value, vuln: 0, rd: 0, final: 0 };
+				damage[dType] = { value, rd: 0, final: 0 };
 			} else damage[dType].value += value;
 		}
 
@@ -1063,8 +1063,9 @@ export default class ActorT20 extends Actor {
 					r += Number(Object.values(rdsEx)[0]);
 				}
 				if (rds[type]?.imunidade) dmg.value = 0;
-				else if (rds[type]?.vulnerabilidade) dmg.vuln = Math.floor(dmg.value * 0.5);
-				const result = dmg.value + dmg.vuln - r;
+				else if (rds[type]?.vulnerabilidade) dmg.value = Math.floor(dmg.value * 1.5);
+				else if (rds[type]?.danoPorDado) dmg.value += roll.terms[0].number;
+				const result = dmg.value - r;
 				const min = multiplier > 0 ? 0 : -Infinity;
 				final.damage += Math.max(result, min);
 			}

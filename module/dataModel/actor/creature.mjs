@@ -906,6 +906,11 @@ export default class CreatureData extends Tormenta20TypeData {
 					initial: false,
 					label: "T20.DamageReductionVulnerability",
 					hint: "T20.DamageReductionVulnerabilityHint"
+				}),
+				danoPorDado: new fields.BooleanField({
+					required: true,
+					nullable: false,
+					initial: false
 				})
 			});
 		};

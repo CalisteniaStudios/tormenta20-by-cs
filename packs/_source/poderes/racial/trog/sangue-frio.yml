@@ -2,7 +2,58 @@ _id: 0uPMzPcd5TJqZ0GD
 name: Sangue Frio
 type: poder
 img: systems/tormenta20/icons/racas/trog.webp
-effects: []
+effects:
+  - name: Sangue Frio
+    img: systems/tormenta20/icons/racas/trog.webp
+    origin: Compendium.tormenta20.poderes.Item.0uPMzPcd5TJqZ0GD
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: Hev9elOZdnjStaPJ
+    type: base
+    system: {}
+    changes:
+      - key: system.tracos.resistencias.frio.danoPorDado
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.344'
+      systemId: tormenta20
+      systemVersion: 1.4.214
+      createdTime: 1748292308152
+      modifiedTime: 1748292322207
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!0uPMzPcd5TJqZ0GD.Hev9elOZdnjStaPJ'
 folder: yZkJsw7mVnvsffNC
 sort: 0
 flags: {}
