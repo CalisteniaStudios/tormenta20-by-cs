@@ -1029,8 +1029,8 @@ items:
       description:
         value: >-
           <section class="secret">Controlar o Tempo (Padrão, 15 PM) O dragão
-          controla o tempo ao seu redor (veja pág. na 187)</section><p>Aquele que
-          controla o tempo controla o mundo. Escolha um dos efeitos a
+          controla o tempo ao seu redor (veja pág. na 187)</section><p>Aquele
+          que controla o tempo controla o mundo. Escolha um dos efeitos a
           seguir.</p>
 
           <p><em>Congelar o tempo:</em> voc&ecirc; gera uma bolha na qual o
@@ -3252,8 +3252,8 @@ system:
       imunidade a fogo, redução de dano 20, resistência a magia +5,
       vulnerabilidade a frio
     tesouro: >-
-      Dobro e 6 peças couro de dragão (CD 26 para extrair, veja o quadro na
-      pág. na 312).
+      Dobro e 6 peças couro de dragão (CD 26 para extrair, veja o quadro na pág.
+      na 312).
     role: solo
     origem: ''
     ataquescac: Mordida +55 (6d20+50, 16) e duas garras +50 (6d20+50, 16).

@@ -71,8 +71,8 @@ system:
   description:
     value: >-
       <p>Quando faz um teste de perícia, você pode gastar uma quantidade de PM a
-      sua escolha (limitado pelo seu modificador de Carisma). Para cada PM que
-      gastar, recebe +2 no teste.</p>
+      sua escolha (limitado pelo seu Carisma). Para cada PM que gastar, recebe
+      +2 no teste.</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 79
@@ -119,10 +119,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306184253
-  modifiedTime: 1684630371462
+  modifiedTime: 1748283461996
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

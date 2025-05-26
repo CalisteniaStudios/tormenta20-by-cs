@@ -5,31 +5,31 @@ system:
   atributos:
     for:
       value: 3
-      base: -4
+      base: 3
       racial: 0
       bonus: 0
     des:
       value: 3
-      base: -4
+      base: 3
       racial: 0
       bonus: 0
     con:
-      value: 0
+      value: -5
       base: -5
       racial: 0
       bonus: 0
     int:
-      value: 0
+      value: -5
       base: -5
       racial: 0
       bonus: 0
     sab:
-      value: 0
+      value: -5
       base: -5
       racial: 0
       bonus: 0
     car:
-      value: 0
+      value: -5
       base: -5
       racial: 0
       bonus: 0
@@ -40,10 +40,10 @@ system:
     tp: 0
   attributes:
     pv:
-      value: 12
+      value: 1
       temp: 0
       min: 0
-      max: 12
+      max: 1
     pm:
       value: 0
       temp: 0
@@ -639,13 +639,10 @@ items:
     system:
       description:
         value: >-
-          <p>Carni&ccedil;al: como o esqueleto, mas tem For 16, Des 16, 12 PV e
-          causa 1d8+3 pontos de dano de trevas mais perda de 1d8 PV por veneno.
-          Al&eacute;m disso, criaturas atingidas por um carni&ccedil;al devem
-          passar num teste de Fortitude (CD igual &agrave; da magia) ou ficam
-          paralisadas por 1 rodada. Uma criatura que passe no teste de
-          resist&ecirc;ncia fica imune &agrave; paralisia dos carni&ccedil;ais
-          por 24 horas.</p>
+          <p>Criaturas atingidas por um carni&ccedil;al devem passar num teste
+          de Fortitude (CD igual &agrave; da magia) ou ficam paralisadas por 1
+          rodada. Uma criatura que passe no teste de resist&ecirc;ncia fica
+          imune &agrave; paralisia dos carni&ccedil;ais por 24 horas.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -725,10 +722,10 @@ effects: []
 flags: {}
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664754994311
-  modifiedTime: 1668270368826
+  modifiedTime: 1748283425570
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

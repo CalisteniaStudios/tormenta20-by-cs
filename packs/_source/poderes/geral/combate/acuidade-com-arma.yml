@@ -61,8 +61,8 @@ system:
   description:
     value: >-
       <p>Quando usa uma arma leve de corpo a corpo ou uma arma de arremesso,
-      voc&ecirc; pode usar seu modificador de Destreza em vez de For&ccedil;a
-      nos testes de ataque e rolagens de dano.</p>
+      voc&ecirc; pode usar sua Destreza em vez de For&ccedil;a nos testes de
+      ataque e rolagens de dano.</p>
 
       <p><em>Pr&eacute;-requisito:</em> Des 1&nbsp;</p>
     chat: ''

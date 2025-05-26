@@ -55,13 +55,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Voc&ecirc; pode direcionar aliados em alcance curto. Gaste uma
-      a&ccedil;&atilde;o padr&atilde;o e 1 PM por aliado que quiser direcionar
-      (limitado pelo seu modificador de Carisma). No pr&oacute;ximo turno do
-      aliado, ele ganha uma a&ccedil;&atilde;o de movimento.</p>
-
-      <p><em>Pr&eacute;-requisitos:</em> Int 13, treinado em Guerra, 6&ordm;
-      n&iacute;vel de nobre.</p>
+      <p>Você pode direcionar aliados em alcance curto. Gaste uma ação padrão e
+      1 PM por aliado que quiser direcionar (limitado pelo seu Carisma). No
+      próximo turno do aliado, ele ganha uma ação de
+      movimento.</p><p><em>Pré-requisitos:</em> Int 1, treinado em Guerra, 6º
+      nível de nobre.</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 79
@@ -108,10 +106,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306184312
-  modifiedTime: 1684630371462
+  modifiedTime: 1748283495953
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

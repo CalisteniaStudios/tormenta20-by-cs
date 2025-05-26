@@ -49,14 +49,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Seu tamanho é Pequeno (veja a pág. na 106) e seu deslocamento é 6m. Você
-      recebe +2 em Enganação e usa o modificador de Destreza para Atletismo (em
-      vez de Força).</p>
+      <p>Seu tamanho é Pequeno (veja a pág. na 106) e seu deslocamento é 6m.
+      Você recebe +2 em Enganação e pode usar Destreza como atributo-chave de
+      Atletismo (em vez de Força).</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 28
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -98,10 +98,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306184749
-  modifiedTime: 1684630371462
+  modifiedTime: 1748284080554
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
