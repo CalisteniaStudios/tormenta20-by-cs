@@ -142,7 +142,9 @@ export function _onChatApplyDamage(event) {
 	const chatCardId = btn.closest(".chat-message").dataset.messageId;
 	const message = game.messages.get(chatCardId);
 	const rollTitle = btn.closest(".roll").dataset.rollTitle;
-	const roll = message.rolls.find((r) => r.options.title === rollTitle && r.options.type === "damage");
+	const roll = message.rolls.find(
+		(r) => r.options.title === rollTitle && (!r.options.type || r.options.type === "damage")
+	);
 
 	if (amount && multiplier) {
 		if (canvas.tokens.controlled.length) {
