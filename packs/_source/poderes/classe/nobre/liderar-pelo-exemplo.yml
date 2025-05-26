@@ -55,18 +55,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Voc&ecirc; pode pagar 2 PM para servir de inspira&ccedil;&atilde;o.
-      At&eacute; o in&iacute;cio de seu pr&oacute;ximo turno, sempre que
-      voc&ecirc; passar em um teste de per&iacute;cia, aliados em alcance curto
-      que fizerem um teste da mesma per&iacute;cia podem usar o resultado total
-      do seu teste em vez de rolar o dado.</p>
-
-      <p><em>Pr&eacute;-requisito:</em> 6&ordm; n&iacute;vel de nobre.</p>
+      <p>Você pode pagar 2 PM para servir de inspiração. Até o início de seu
+      próximo turno, sempre que você passar em um teste de perícia, aliados em
+      alcance curto que fizerem um teste da mesma perícia podem usar o resultado
+      do seu teste em vez de fazer o seu próprio.</p><p><em>Pré-requisito:</em>
+      6º nível de nobre.</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 80
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 2
     qtd: ''
     condicao: ''
@@ -108,10 +106,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306185148
-  modifiedTime: 1684630371462
+  modifiedTime: 1748281800082
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
