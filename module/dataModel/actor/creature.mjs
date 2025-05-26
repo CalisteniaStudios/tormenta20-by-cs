@@ -28,8 +28,8 @@ export default class CreatureData extends Tormenta20TypeData {
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		if (data.pericias.ofi0) delete data.pericias.ofi0;
-		if (data.pericias._pc0) delete data.pericias._pc0;
+		if (data.pericias?.ofi0) delete data.pericias.ofi0;
+		if (data.pericias?._pc0) delete data.pericias._pc0;
 		return super.migrateData(data);
 	}
 
