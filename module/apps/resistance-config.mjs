@@ -8,7 +8,7 @@ export default class ActorResistanceConfig extends DocumentSheet {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20"],
 			template: "systems/tormenta20/templates/apps/resistance-config.hbs",
-			width: 300,
+			width: 330,
 			height: "auto"
 		});
 	}
