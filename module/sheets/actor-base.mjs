@@ -200,6 +200,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		html.find(".show-controls").click(this._toggleControls.bind(this));
 		html.find(".pericia-rollable").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 
+		// Raças
+		html.find(".add-raca").click((ev) => {
+			game.packs.get("tormenta20.racas").render(true);
+		});
 		// Classes
 		html.find(".add-classe").click((ev) => {
 			game.packs.get("tormenta20.classes").render(true);

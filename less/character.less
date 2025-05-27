@@ -128,14 +128,17 @@
         margin: 0 3px;
       }
     }
+    .summary .char-race,
     .summary .char-class {
       color: revert;
-
+      white-space: nowrap;
+      align-items: center;
+      align-content: center;
+    }
+    .summary .char-class {
       &:not(.sem-classe) {
         flex: 0 1 auto;
       }
-      white-space: nowrap;
-      align-items: center;
 
       &:not(:hover) {
         .item-delete,
