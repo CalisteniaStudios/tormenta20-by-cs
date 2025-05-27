@@ -187,12 +187,14 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				r.parts.push(itr.parts[0]);
 			} else if (item.type == "pericia") {
 				item.bonus.push(Number(ch.value * qty) || ch.value);
+				continue;
 			} else if (item.type == "atributo") {
 				r.parts.push(Number(ch.value * qty) || ch.value);
 			} // To add one extra dice from source 1d => 2d6 + 1d6
 			else if (ch.key == "dano" && ch.value.match(/^\dd$/)) {
 				let n = parseInt(ch.value) ?? 0;
 				if (n) rollMods[r.key][p].extraDie = n;
+				continue;
 			} // To add term multipliable when critical
 			else if (["danoCritico", "danoMultiplicavel"].includes(ch.key)) {
 				if (r.type != "dano") continue;
@@ -222,6 +224,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			else if (r.type === "dano" && ch.key === "ignoraRD") {
 				r.rd ??= 0;
 				r.rd += Math.abs(Number(ch.value * qty)) * -1;
+				continue;
 			} else {
 				const dmgTypeG = ch.value.match(re.dmgType);
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
@@ -238,6 +241,19 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 					src: sourceName ?? ""
 				});
 				continue;
+			}
+
+			if (rollMods && sourceName) {
+				rollMods[r.key].push({
+					die: null,
+					dmgStep: 0,
+					override: null,
+					addDie: 0,
+					addNum: 0,
+					perDie: 0,
+					extraDie: 0,
+					src: sourceName
+				});
 			}
 		}
 		// OVERRIDE CHANGES
