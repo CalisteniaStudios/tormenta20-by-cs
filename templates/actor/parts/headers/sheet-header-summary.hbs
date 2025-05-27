@@ -1,6 +1,6 @@
 <ul class="attributes summary flexrow">
 	<li class="char-race">
-		<span class="item" {{#if actor.race}}data-item-id="{{actor.race._id}}"{{/if}}>
+		<span {{#if actor.race}}class="item" data-item-id="{{actor.race._id}}"{{/if}}>
 			<a class="item-control item-edit {{#unless actor.race}}add-raca{{/unless}}" title="{{ localize 'T20.Edit'}}">
 				{{ifThen actor.race actor.race.name (localize 'T20.Race')}}
 			</a>
