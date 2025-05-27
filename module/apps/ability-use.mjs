@@ -190,7 +190,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			} else if (item.type == "atributo") {
 				r.parts.push(Number(ch.value * qty) || ch.value);
 			} // To add one extra dice from source 1d => 2d6 + 1d6
-			else if (ch.key == "dano" && ch.value.match(/^1d$/)) {
+			else if (ch.key == "dano" && ch.value.match(/^\dd$/)) {
 				let n = parseInt(ch.value) ?? 0;
 				if (n) rollMods[r.key][p].extraDie = n;
 			} // To add term multipliable when critical
@@ -632,7 +632,7 @@ function applyOnUseEffects(rolledItem, configuration = null) {
 		let ouEff = {};
 		ouEff.description =
 			item.type !== "arma" ? ef.name : item.id == ef.parent.id ? `${ef.parent.name} - ${ef.name}` : ef.sourceName;
-		if (["Unknown", actor.name].includes(ouEff.description)) ouEff.description = ef.name;
+		if ([game.i18n.localize("Unknown"), actor.name].includes(ouEff.description)) ouEff.description = ef.name;
 		ouEff.cost = Number(applied[ef.id]?.custo) * applied[ef.id]?.aplica || applied[ef.id]?.custo;
 		// Number(aplicados[ef.id]?.custo) * aplicados[ef.id]?.aplica || aplicados[ef.id]?.custo;
 		ouEff.qty = Number(applied[ef.id]?.aplica) || 1;
