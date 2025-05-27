@@ -239,19 +239,6 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				});
 				continue;
 			}
-
-			if (rollMods && sourceName) {
-				rollMods[r.key].push({
-					die: null,
-					dmgStep: 0,
-					override: null,
-					addDie: 0,
-					addNum: 0,
-					perDie: 0,
-					extraDie: 0,
-					src: sourceName
-				});
-			}
 		}
 		// OVERRIDE CHANGES
 		else if (ch.mode == 5) {
