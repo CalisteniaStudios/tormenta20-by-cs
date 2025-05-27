@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: diplomacia
+        items: Diplomacia
         aumenta: false
         custo: ''
     duration:

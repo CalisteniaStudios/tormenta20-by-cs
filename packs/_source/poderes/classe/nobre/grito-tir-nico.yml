@@ -16,7 +16,7 @@ effects:
         power: true
         spell: false
         consumable: false
-        items: palavras afiadas
+        items: Palavras Afiadas
         aumenta: false
         custo: ' '
         equipment: false

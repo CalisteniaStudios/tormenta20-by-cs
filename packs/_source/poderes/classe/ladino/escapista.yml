@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: acrobacia
+        items: Acrobacia
         aumenta: false
         custo: ''
     duration:

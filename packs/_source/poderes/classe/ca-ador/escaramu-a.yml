@@ -110,7 +110,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: reflexos
+        items: Reflexos
         aumenta: false
         custo: ''
     duration:

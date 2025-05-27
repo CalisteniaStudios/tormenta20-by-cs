@@ -1101,7 +1101,7 @@ items:
             power: false
             spell: true
             consumable: false
-            items: acalmar animal
+            items: Acalmar Animal
             aumenta: false
             custo: '-1'
         duration:
@@ -1575,7 +1575,7 @@ effects:
         power: false
         spell: true
         consumable: false
-        items: acalmar animal
+        items: Acalmar Animal
         aumenta: false
         custo: '-1'
     duration:

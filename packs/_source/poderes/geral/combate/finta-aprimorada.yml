@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: enganacao
+        items: Enganação
         aumenta: false
         custo: ''
     duration:

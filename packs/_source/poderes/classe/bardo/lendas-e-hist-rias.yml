@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: conhecimento;misticismo;nobreza;religião
+        items: Conhecimento;Misticismo;Nobreza;Religião
         aumenta: false
         custo: '1'
     duration:

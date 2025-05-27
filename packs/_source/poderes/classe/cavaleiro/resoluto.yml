@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: fortitude;reflexos;vontade
+        items: Fortitude;Reflexos;Vontade
         aumenta: false
         custo: '1'
     duration:

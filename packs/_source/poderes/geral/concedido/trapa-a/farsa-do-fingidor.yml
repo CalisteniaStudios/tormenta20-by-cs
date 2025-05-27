@@ -16,7 +16,7 @@ effects:
         power: false
         spell: true
         consumable: false
-        items: criar ilusao
+        items: Criar Ilusão
         aumenta: false
         custo: '-1'
     duration:

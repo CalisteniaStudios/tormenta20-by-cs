@@ -16,7 +16,7 @@ effects:
         power: true
         spell: false
         consumable: false
-        items: presenca aristocratica
+        items: Presença Aristocrática
         aumenta: false
         custo: ''
     duration:

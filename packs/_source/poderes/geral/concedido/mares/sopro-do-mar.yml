@@ -15,7 +15,7 @@ effects:
         power: false
         spell: true
         consumable: false
-        items: sopro das uivantes
+        items: Sopro das Uivantes
         aumenta: false
         custo: '-1'
     duration:

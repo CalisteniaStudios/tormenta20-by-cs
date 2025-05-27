@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: diplomacia;intimidacao
+        items: Diplomacia;Intimidação
         aumenta: false
         custo: ''
     duration:

@@ -16,7 +16,7 @@ effects:
         power: false
         spell: true
         consumable: false
-        items: enfeiticar
+        items: Enfeitiçar
         aumenta: false
         custo: '-1'
     duration:

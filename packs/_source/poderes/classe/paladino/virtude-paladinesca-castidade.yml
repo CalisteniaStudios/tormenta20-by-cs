@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: intuicao
+        items: Intuição
         aumenta: false
         custo: ''
     duration:

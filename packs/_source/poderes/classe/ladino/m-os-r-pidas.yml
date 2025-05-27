@@ -29,7 +29,7 @@ effects:
         aumenta: false
         custo: '1'
         durationScene: false
-        items: ladinagem
+        items: Ladinagem
     tint: '#ffffff'
     _stats:
       coreVersion: '13.342'

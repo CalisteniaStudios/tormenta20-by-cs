@@ -16,7 +16,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: intimidacao
+        items: Intimidação
         aumenta: false
         custo: '1'
     duration:

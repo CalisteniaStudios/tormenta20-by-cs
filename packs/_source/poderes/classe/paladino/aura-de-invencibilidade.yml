@@ -16,7 +16,7 @@ effects:
         power: true
         spell: false
         consumable: false
-        items: aura sagrada
+        items: Aura Sagrada
         aumenta: false
         custo: ''
     duration:

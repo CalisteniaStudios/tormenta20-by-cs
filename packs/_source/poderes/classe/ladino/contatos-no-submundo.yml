@@ -73,7 +73,7 @@ effects:
         power: false
         spell: false
         consumable: false
-        items: investigacao
+        items: Investigação
         aumenta: false
         custo: ''
     duration:

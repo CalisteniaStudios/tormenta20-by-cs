@@ -33,7 +33,7 @@ effects:
         aumenta: false
         custo: ''
         durationScene: false
-        items: percepcao;sobrevivencia
+        items: Percepção;Sobrevivência
     tint: '#ffffff'
     _stats:
       coreVersion: '13.342'

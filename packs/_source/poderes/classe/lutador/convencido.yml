@@ -33,7 +33,7 @@ effects:
         aumenta: false
         custo: ''
         durationScene: false
-        items: fortitude;reflexos;vontade
+        items: Fortitude;Reflexos;Vontade
     tint: '#ffffff'
     _stats:
       coreVersion: '13.342'

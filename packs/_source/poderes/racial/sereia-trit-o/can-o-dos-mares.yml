@@ -16,7 +16,7 @@ effects:
         power: false
         spell: true
         consumable: false
-        items: amedrontar;comando;despedacar;enfeiticar;hipnotismo;sono
+        items: Amedrontar;Comando;Despedaçar;Enfeitiçar;Hipnotismo;Sono
         aumenta: false
         custo: '-1'
     duration:
