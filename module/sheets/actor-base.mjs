@@ -856,6 +856,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			case "rest":
 				RestConfigDialog.create([this.object]);
 				break;
+			case "resources":
+				app = new tormenta20.applications.ResourceConfig(this.actor);
+				break;
 			// case "progression":
 			// 	app = new CharacterProgression(this.object);
 			// 	break;

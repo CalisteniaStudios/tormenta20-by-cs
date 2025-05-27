@@ -36,6 +36,7 @@ import AbilityUseDialog from "./module/apps/ability-use-dialog.mjs";
 import ActorSettings from "./module/apps/actor-settings.mjs";
 import CharacterProgression from "./module/apps/character-progression.mjs";
 import CompendiumT20 from "./module/apps/compendium.mjs";
+import ResourceConfig from "./module/apps/resource-config.mjs";
 import RestConfigDialog from "./module/apps/rest-config.mjs";
 import StatblockParser from "./module/apps/statblock-parser.mjs";
 import TraitSelector from "./module/apps/trait-selector.mjs";
@@ -68,6 +69,7 @@ globalThis.tormenta20 = {
 		ActorSettings,
 		StatblockParser,
 		RestConfigDialog,
+		ResourceConfig,
 		CompendiumT20,
 		CharacterProgression
 	},

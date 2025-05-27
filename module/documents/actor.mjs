@@ -583,7 +583,7 @@ export default class ActorT20 extends Actor {
 				const initial = type === "pv" && c.inicial ? c[`${type}PorNivel`] * 3 : 0;
 				soma += Number(initial) + Number(c.niveis) * Number(c[`${type}PorNivel`]);
 			}
-			bonus.flat.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData))));
+			bonus.total.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData))));
 			bonus.nivel.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData)) * nivel));
 			bonus.nivelPar.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData)) * Math.floor(nivel / 2)));
 			bonus.nivelImpar.forEach(

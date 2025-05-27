@@ -484,10 +484,22 @@ export default class CreatureData extends Tormenta20TypeData {
 					)
 				);
 				schema[key].fields.bonus = new fields.SchemaField({
-					nivel: new fields.ArrayField(new fields.StringField()),
-					nivelPar: new fields.ArrayField(new fields.StringField()),
-					nivelImpar: new fields.ArrayField(new fields.StringField()),
-					flat: new fields.ArrayField(new fields.StringField())
+					nivel: new fields.ArrayField(new fields.StringField(), {
+						min: 1,
+						initial: ["0"]
+					}),
+					nivelPar: new fields.ArrayField(new fields.StringField(), {
+						min: 1,
+						initial: ["0"]
+					}),
+					nivelImpar: new fields.ArrayField(new fields.StringField(), {
+						min: 1,
+						initial: ["0"]
+					}),
+					total: new fields.ArrayField(new fields.StringField(), {
+						min: 1,
+						initial: ["0"]
+					})
 				});
 			}
 		} else if (type === "npc") {
