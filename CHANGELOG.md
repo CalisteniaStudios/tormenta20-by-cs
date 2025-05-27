@@ -10,11 +10,12 @@
   - Personagens pequenos têm sua escala de token reduzida em 20%.
 - Adicionado: Automação de PV/PM por nível para poderes e habilidades.
 
-### Poderes, Habilidades e Magias
+### Itens
 - Alterado: Raio Arcano foi automatizado.
 - Corrigido: Bônus em Reflexos do poder Esquiva Sagaz.
 - Corrigido: Texto de Armadura Arcana e aprimoramento que altera duração para um dia.
 - Corrigido: Efeito de uso de Gritar Ordens.
+- Corrigido: Diversos efeitos que afetavam itens/perícias específicos funcionam corretamente (ex: Finta Aprimorada).
 
 ### Efeitos
 - Adicionado: Atributo "curinga" para efeitos:
