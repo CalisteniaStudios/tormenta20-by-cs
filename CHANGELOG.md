@@ -27,6 +27,8 @@
   - `system.modificadores.cura.mag` adiciona um modificador a todo tipo de cura mágica.
 - Adicionado: Automação do poder Dom da Esperança (e suporte para qualquer atributo substituir Constituição):
   - `flags.tormenta20.substituirCon` com o ID de um atributo irá substituir Constituição pelo atributo.
+- Adicionado: Campo para causar 1 de dano adicional para cada dado de dano (ex: Sangue Frio do Trog).
+  - `system.tracos.resistencias.TIPO_DO_DANO.danoPorDado` com valor `true` ativa o efeito.
 - Alterado: Perda de PV, Cura de PV Temporários, Cura de PM e Cura de PM Temporários não são afetados por modificadores de dano ou cura.
 - Alterado: Poderes que escalam automaticamente com o nível (ex: Instinto Selvagem) foram automatizados.
   - Exceções: poderes que usam o nível em fórmulas de dano (Ataque Furtivo).
