@@ -63,6 +63,7 @@
 - Corrigido: Vulnerabilidade a dano aplica +50% de dano em vez de +1 por dado para PJs e o triplo do dano à Ameaças.
 - Corrigido: Efeitos que adicionam mais de um dado de dano agora funcionam.
 - Corrigido: Efeito de Uso com adição não impedem a execução de efeitos abaixo dele.
+- Corrigido: Efeitos de Uso de múltiplas aplicações com valores de dado agora funcionam.
 
 ## Versão 1.4.214
 - Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;

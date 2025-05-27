@@ -37,16 +37,16 @@ effects:
         equipment: false
     tint: '#ffffff'
     _stats:
-      coreVersion: '13.342'
+      coreVersion: '13.344'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1748389721111
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    name: Aumenta o dano em 2d6 segundo a tabela de classe.
+    name: Aumenta o dano em 2d6.
     img: icons/svg/upgrade.svg
     type: base
     system: {}
@@ -54,87 +54,21 @@ effects:
     statuses: []
     sort: 0
     _key: '!items.effects!zcqfqdZfcQiOM5Sv.I8A9dao7Mx04k20B'
-  - origin: Item.zcqfqdZfcQiOM5Sv
-    tint: '#ffffff'
-    flags:
-      tormenta20:
-        onuse: true
-        durationScene: false
-        self: true
-        attack: false
-        skill: false
-        ability: false
-        power: false
-        equipment: false
-        spell: false
-        consumable: false
-        items: ''
-        aumenta: false
-        custo: ''
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: true
-    _id: sfyg6zlz17uZSOOL
-    changes:
-      - key: dano
-        mode: 0
-        value: d8
-        priority: 0
-    transfer: false
-    _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    name: Grito Tirânico
-    img: icons/svg/upgrade.svg
-    type: base
-    system: {}
-    description: ''
-    statuses: []
-    sort: 0
-    _key: '!items.effects!zcqfqdZfcQiOM5Sv.sfyg6zlz17uZSOOL'
 folder: 1gk4CeDo7oR1b0oD
 sort: 0
 flags: {}
 system:
   description:
     value: >-
-      <p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 1 PM para
-      fazer um teste de Diplomacia ou Intimida&ccedil;&atilde;o oposto ao teste
-      de Vontade de uma criatura inteligente (Int &ndash;3 ou maior) em alcance
-      curto. Se vencer, voc&ecirc; causa 2d6 pontos de dano ps&iacute;quico
-      n&atilde;o letal &agrave; criatura. Se perder, causa metade deste dano. Se
-      a criatura for reduzida a 0 ou menos PV, em vez de cair inconsciente, ela
-      se rende (se voc&ecirc; usou Diplomacia) ou fica apavorada e foge de
-      voc&ecirc; da maneira mais eficiente poss&iacute;vel (se usou
-      Intimida&ccedil;&atilde;o). A cada quatro n&iacute;veis, voc&ecirc; pode
-      gastar +1 PM para aumentar o dano (veja a tabela da classe). Mental.</p>
-
-      <ul>
-
-      <li>N&iacute;vel 2 - 2d6</li>
-
-      <li>N&iacute;vel 6 - 4d6</li>
-
-      <li>N&iacute;vel 10 - 6d6</li>
-
-      <li>N&iacute;vel 14 - 8d6</li>
-
-      <li>N&iacute;vel 18 - 10d6</li>
-
-      </ul>
+      <p>Você pode gastar uma ação padrão e 1 PM para fazer um teste de
+      Diplomacia ou Intimidação oposto ao teste de Vontade de uma criatura
+      inteligente (Int –3 ou maior) em alcance curto. Se vencer, você causa 2d6
+      pontos de dano psíquico não letal à criatura. Se perder, causa metade
+      deste dano. Se a criatura for reduzida a 0 ou menos PV, em vez de cair
+      inconsciente, ela se rende (se você usou Diplomacia) ou fica apavorada e
+      foge de você da maneira mais eficiente possível (se usou Intimidação). A
+      cada quatro níveis, você pode gastar +1 PM para aumentar o dano (veja a
+      tabela da classe). Mental.</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 80
@@ -189,10 +123,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306185708
-  modifiedTime: 1684630371462
+  modifiedTime: 1748389749345
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
