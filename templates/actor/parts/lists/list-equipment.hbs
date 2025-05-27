@@ -4,6 +4,9 @@
 		<div class="item-def" data-tooltip="{{ localize 'T20.Defense'}} / {{ localize 'T20.ArmorPenalty'}}"><i class="fa-solid fa-shield"></i> / <i class="fa-solid fa-person-hiking"></i></div>
 		<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
 		<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
+		<div class="item-equipped" data-tooltip="{{localize 'T20.Equipped'}}">
+			<i class="fas fa-shield-alt"></i>
+		</div>
 	</li>
 	{{#each actor.inventario.equipamento.items as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
@@ -16,12 +19,28 @@
 			</div>
 			<div class="item-qty">
 				{{#if ../owner}}
-				<input type="text" data-dtype="Number" placeholder="0" classe="item-qty" value="{{item.system.qtd}}">
+					<input type="text" data-dtype="Number" placeholder="0" classe="item-qty" value="{{item.system.qtd}}">
 				{{else}}
 					{{item.system.qtd}}
 				{{/if}}
 			</div>
 			<div class="item-weight">{{item.espacosTotal}}</div>
+			{{#if @root.isCharacter }}
+				<div class="item-equipped" style="flex: 0 0 1em;">
+					{{#if @root.equipmentSlots}}
+						{{#if (and item.system.equipado2.type item.equipado.slot)}}
+							<span class="fa-stack">
+								{{{item.equipado.icon1}}}
+								{{{item.equipado.icon2}}}
+							</span>
+						{{/if}}
+					{{else}}
+						{{#if item.system.equipado}}
+							<i class="fas fa-shield-alt"></i>
+						{{/if}}
+					{{/if}}
+				</div>
+			{{/if}}
 		</li>
-		{{/each}}
+	{{/each}}
 </ol>
