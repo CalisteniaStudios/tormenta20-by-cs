@@ -35,7 +35,7 @@ effects:
     type: base
     system: {}
     changes:
-      - key: system.attributes.pm.bonus.flat
+      - key: system.attributes.pm.bonus.total
         mode: 2
         value: '@nvl.arcanista'
         priority: null

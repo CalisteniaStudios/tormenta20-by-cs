@@ -50,7 +50,6 @@ export default class ResourceConfig extends FormApplication {
 
 	async _updateObject(event, formData) {
 		const data = foundry.utils.expandObject(formData);
-		delete data.classes;
 		return await this.object.update(data);
 	}
 }

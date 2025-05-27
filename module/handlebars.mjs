@@ -58,6 +58,8 @@ export function registerHandlebarsHelpers() {
 						const value = type === "pv" && atributoMultiplicado(key) ? level * data.value : data.value;
 						return [data.name, value];
 					});
+				const { nivel, nivelImpar, nivelPar } = actor.system.attributes[type].bonus;
+				const manualOverride = Number(nivel[0]) + Number(nivelImpar[0]) + Number(nivelPar[0]);
 				const bonusNivel = modFields[`system.attributes.${type}.bonus.nivel`]?.map(({ label, mode, value }) => ({
 					label,
 					mode,
@@ -84,7 +86,8 @@ export function registerHandlebarsHelpers() {
 					...(bonusNivel ?? []),
 					...(bonusNivelPar ?? []),
 					...(bonusNivelImpar ?? []),
-					...(modFields[`system.attributes.${type}.bonus.flat`] ?? [])
+					...(modFields[`system.attributes.${type}.bonus.total`] ?? []),
+					manualOverride ? { label: game.i18n.localize("T20.ManualOverride"), value: manualOverride } : false
 				];
 				break;
 			}
