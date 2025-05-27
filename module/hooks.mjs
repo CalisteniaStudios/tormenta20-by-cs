@@ -15,6 +15,8 @@ export default function () {
 			}
 		});
 
+		ui.compendium.compileSearchIndex();
+
 		if (game.user.isGM) {
 			// Define o padrão dos token de PJ
 			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.000") {

@@ -123,3 +123,38 @@ export function despluralizar(palavra, pulaUS = true) {
 	}
 	return palavra;
 }
+
+export function fontAwesomeIcon(glyph, { style = "solid", fixedWidth = false } = {}) {
+	const styleClass = `fa-${style}`;
+	const glyphClass = glyph.startsWith("fa-") ? glyph : `fa-${glyph}`;
+	const icon = document.createElement("i");
+	icon.classList.add(styleClass, glyphClass);
+	if (fixedWidth) icon.classList.add("fa-fw");
+
+	return icon;
+}
+
+export function htmlQuery(parent, selectors) {
+	if (!(parent instanceof Element || parent instanceof Document)) return null;
+	return parent.querySelector(selectors);
+}
+
+export function createHTMLElement(nodeName, { classes = [], dataset = {}, children = [], innerHTML } = {}) {
+	const element = document.createElement(nodeName);
+	if (classes.length > 0) element.classList.add(...classes);
+
+	for (const [key, value] of Object.entries(dataset).filter(([, v]) => v !== false)) {
+		element.dataset[key] = value === true ? "" : String(value);
+	}
+
+	if (innerHTML) {
+		element.innerHTML = innerHTML;
+	} else {
+		for (const child of children) {
+			const childElement = child instanceof HTMLElement ? child : new Text(child);
+			element.appendChild(childElement);
+		}
+	}
+
+	return element;
+}
