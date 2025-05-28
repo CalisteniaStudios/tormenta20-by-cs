@@ -1380,6 +1380,8 @@ export default class ItemT20 extends Item {
 				parts[0][0] = r.versatil;
 			}
 
+			const isHealing = parts.some((p) => p[1] === "curapv");
+			const perda = parts.some((p) => p[1] === "perda");
 			const isSpell = this.type === "magia";
 			const isAlchemical = this.type === "consumivel" && this.system.tipo === "alchemy";
 			parts
@@ -1404,23 +1406,24 @@ export default class ItemT20 extends Item {
 								dano = usarAcuidade && empunhadura === "leve" ? "@des" : "@for";
 							}
 						}
-					} else if (tipo === "curapv") {
-						const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
-						if (bonuses.geral.filter(Boolean).length) dano += "+ @curaGeral";
-						if (isSpell && bonuses.mag.filter(Boolean).length) dano += "+ @curaMagica";
-						else if (isAlchemical && bonuses.alq.filter(Boolean).length) dano += "+ @danoALQ";
-					} else {
-						const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
-						if (bonuses.geral.filter(Boolean).length) dano += "+ @dano";
-
-						if (pericia === "luta" && bonuses.cac.filter(Boolean).length) dano += "+ @danoCAC";
-						else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) dano += "+ @danoAD";
-
-						if (isSpell && bonuses.mag.filter(Boolean).length) dano += "+ @danoMagico";
-						else if (isAlchemical && bonuses.alq.filter(Boolean).length) dano += "+ @danoALQ";
 					}
 					parts[i] = [dano, tipo, part[2]];
 				});
+			if (isHealing) {
+				const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
+				if (bonuses.geral.filter(Boolean).length) parts.push(["@curaGeral", "", ""]);
+				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@curaMagica", "", ""]);
+				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
+			} else if (!perda) {
+				const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
+				if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "Bônus Geral", ""]);
+
+				if (pericia === "luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
+				else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
+
+				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
+				else if (isAlchemical && bonuses.mag.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
+			}
 
 			// Call the roll helper utility
 			foundry.utils.mergeObject(rollConfig, options);
