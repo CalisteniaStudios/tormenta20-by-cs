@@ -558,32 +558,6 @@ T20.profArmaduras = {
 preLocalize("profArmaduras");
 
 /* ---------------------------------------- */
-/*  Class Data - TODO: REMOVE               */
-/* ---------------------------------------- */
-
-T20.pvPorNivel = [2, 3, 4, 5, 6];
-T20.pmPorNivel = [3, 4, 5, 6];
-
-T20.atributoPV = {
-	forPV: "T20.AbilityStr",
-	desPV: "T20.AbilityDex",
-	intPV: "T20.AbilityInt",
-	sabPV: "T20.AbilityWis",
-	carPV: "T20.AbilityCha"
-};
-preLocalize("atributoPV");
-
-T20.atributoPM = {
-	forPM: "T20.AbilityStr",
-	desPM: "T20.AbilityDex",
-	conPM: "T20.AbilityCon",
-	intPM: "T20.AbilityInt",
-	sabPM: "T20.AbilityWis",
-	carPM: "T20.AbilityCha"
-};
-preLocalize("atributoPM");
-
-/* ---------------------------------------- */
 /*  Power Data                              */
 /* ---------------------------------------- */
 
