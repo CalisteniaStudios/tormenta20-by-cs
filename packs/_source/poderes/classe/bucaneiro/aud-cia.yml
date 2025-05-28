@@ -62,9 +62,7 @@ effects:
     _key: '!items.effects!YmeB9GgmcJ54D9WU.vKUI4c2RbhCkoW9v'
 folder: 86kIqRb842xHRnBV
 sort: 0
-flags:
-  tormenta20:
-    version: 1.3.0.0
+flags: {}
 system:
   description:
     value: >-

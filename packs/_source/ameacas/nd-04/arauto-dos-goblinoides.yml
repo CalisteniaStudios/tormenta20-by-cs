@@ -788,9 +788,7 @@ items:
         sort: 0
         _key: >-
           !actors.items.effects!7TCQN1jw49OLjGb6.MVvaf0kVDpWnc62s.Nzx93ileTOT6jhFR
-    flags:
-      tormenta20:
-        version: 1.3.0.0
+    flags: {}
     system:
       description:
         value: >-

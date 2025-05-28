@@ -357,9 +357,7 @@ items:
   - name: Cascos
     type: arma
     sort: 250000
-    flags:
-      tormenta20:
-        version: 1.3.0.0
+    flags: {}
     img: icons/commodities/bones/hooves-cloven-brown.webp
     effects: []
     folder: 43511xoe42co6Cd5

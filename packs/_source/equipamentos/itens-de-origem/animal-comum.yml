@@ -2,9 +2,7 @@ name: Animal Comum
 type: tesouro
 img: systems/tormenta20/icons/itens/gerais/animal-comum.webp
 effects: []
-flags:
-  tormenta20:
-    version: 1.3.0.0
+flags: {}
 system:
   description:
     value: >-

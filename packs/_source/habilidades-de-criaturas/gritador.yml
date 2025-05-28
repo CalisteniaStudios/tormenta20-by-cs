@@ -46,9 +46,7 @@ effects:
     statuses: []
     sort: 0
     _key: '!items.effects!f0LosNC45Jb0g0H7.Nzx93ileTOT6jhFR'
-flags:
-  tormenta20:
-    version: 1.3.0.0
+flags: {}
 system:
   description:
     value: >-

@@ -63,9 +63,7 @@ system:
     atributo: ''
     bonus: 0
 effects: []
-flags:
-  tormenta20:
-    version: 1.3.0.0
+flags: {}
 _stats:
   systemId: tormenta20
   systemVersion: 1.4.116

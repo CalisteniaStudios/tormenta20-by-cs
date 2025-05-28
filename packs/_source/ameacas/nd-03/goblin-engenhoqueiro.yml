@@ -650,9 +650,7 @@ items:
         sort: 0
         _key: >-
           !actors.items.effects!G7CDTFhKKlvssbYh.2racARRKADCUoo82.Nzx93ileTOT6jhFR
-    flags:
-      tormenta20:
-        version: 1.3.0.0
+    flags: {}
     system:
       description:
         value: >-

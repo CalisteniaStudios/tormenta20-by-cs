@@ -5,9 +5,7 @@ img: systems/tormenta20/icons/itens/gerais/animal-urbano.webp
 effects: []
 folder: jMEkEeU9nUclA8No
 sort: 250000
-flags:
-  tormenta20:
-    version: 1.3.0.0
+flags: {}
 system:
   description:
     value: |-

@@ -1,8 +1,6 @@
 name: Cascos
 type: arma
-flags:
-  tormenta20:
-    version: 1.3.0.0
+flags: {}
 img: systems/tormenta20/icons/poderes/ameacas/cascos.webp
 effects: []
 system:

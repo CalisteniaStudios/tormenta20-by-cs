@@ -45,9 +45,7 @@ effects:
     _key: '!items.effects!U46WyhdXk6LSjCps.6Grg40I5SBRTW3Fp'
 folder: jMEkEeU9nUclA8No
 sort: 100007
-flags:
-  tormenta20:
-    version: 1.3.0.0
+flags: {}
 system:
   description:
     value: <p><strong>[Item de Origem]</strong>&nbsp;</p>
