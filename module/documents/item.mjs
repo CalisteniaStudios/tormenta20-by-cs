@@ -490,7 +490,7 @@ export default class ItemT20 extends Item {
 			// Change Skill Ability modifier
 			let atributo = roll.parts[1][1];
 			if (!atributo) {
-				const { empunhadura, proposito } = this.system.proposito;
+				const { empunhadura, proposito } = this.system;
 				const { for: forca, des } = actorData.atributos;
 				const usarAcuidade =
 					(game.settings.get("tormenta20", "lightFinesseWeapons") || flags?.acuidade) && des.value > forca.value;
@@ -1387,7 +1387,7 @@ export default class ItemT20 extends Item {
 				.forEach((part, i) => {
 					let [dano, tipo] = part;
 					if (dano === "padrao") {
-						const { empunhadura, proposito } = this.system.proposito;
+						const { empunhadura, proposito } = this.system;
 						const { for: forca, des } = actorData.atributos;
 						const usarAcuidade =
 							(game.settings.get("tormenta20", "lightFinesseWeapons") || flags?.acuidade) && des.value > forca.value;
