@@ -21,7 +21,7 @@ export default class CompendiumDirectoryT20 extends foundry.applications.sidebar
 
 	static PARTS = {
 		...super.PARTS,
-		match: { template: "systems/pf2e/templates/sidebar/compendium-directory/search-result.hbs" }
+		match: { template: "systems/tormenta20/templates/sidebar/compendium-directory/search-result.hbs" }
 	};
 
 	get searchEngine() {
