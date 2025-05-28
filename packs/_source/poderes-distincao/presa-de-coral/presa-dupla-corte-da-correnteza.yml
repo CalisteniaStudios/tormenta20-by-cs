@@ -1,0 +1,88 @@
+name: 'Presa Dupla: Corte da Correnteza'
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Os Presas de Coral aprendem a usar espadas em pares para atacar de
+      forma implac&aacute;vel e replicar a intensidade da correnteza
+      mar&iacute;tima.</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">Voc&ecirc; recebe +1 nas rolagens de dano com
+      cimitarras, espadas curtas e espadas longas; para cada dois outros poderes
+      de Presa de Coral que possuir, este b&ocirc;nus aumenta em +1. Al&eacute;m
+      disso, se estiver empunhando duas dessas armas, voc&ecirc; pode gastar uma
+      a&ccedil;&atilde;o padr&atilde;o e 4 PM para gir&aacute;-las em um arco e
+      invocar um redemoinho de &aacute;gua salgada. Fa&ccedil;a um ataque corpo
+      a corpo com cada uma das armas e compare-os com a Defesa de cada inimigo
+      adjacente. Ent&atilde;o, fa&ccedil;a uma rolagem de dano para cada ataque,
+      e aplique o resultado correspondente a cada inimigo atingido. Inimigos
+      atingidos pelos dois ataques ficam sangrando.</p>
+
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos</em>: treinado em
+      Iniciativa, Luta e Reflexos, Estilo de Duas Armas.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 40-41
+  ativacao:
+    execucao: action
+    custo: 4
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Presa de Coral
+  origin: ''
+  tags:
+    - PresadeCoral
+  chatFlavor: ''
+  chatGif: ''
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083101946
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: GZMfer6vQDo3m7C1
+folder: vsGbYK3LgW5Oreol
+sort: 0
+ownership:
+  default: 0
+_key: '!items!GZMfer6vQDo3m7C1'
+

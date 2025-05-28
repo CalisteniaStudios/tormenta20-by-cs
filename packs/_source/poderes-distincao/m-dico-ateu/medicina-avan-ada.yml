@@ -1,0 +1,121 @@
+name: Medicina Avançada
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Para aqueles formados no Col&eacute;gio Real, a medicina &eacute; mais
+      do que instinto, &eacute; uma ci&ecirc;ncia fundamentada na l&oacute;gica
+      e raz&atilde;o.</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">Voc&ecirc; pode usar o modificador de
+      Intelig&ecirc;ncia para Cura (em vez de Sabedoria). Al&eacute;m disso, os
+      dados de cura de seu poder Medicina mudam para 1d10 (em vez de 1d6).</p>
+
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos:</em> Foco em
+      Per&iacute;cia (Cura), Medicina.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 28-29
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Médico Ateu
+  origin: ''
+  tags:
+    - MedicoAteu
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.eezJmGx7hyiRmlf5
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: QOnubMCsjKlAhMnI
+    changes:
+      - key: system.pericia.atributo
+        mode: 0
+        value: '@int'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Medicina Avançada
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!eezJmGx7hyiRmlf5.QOnubMCsjKlAhMnI'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083101946
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: eezJmGx7hyiRmlf5
+folder: EckmJGi0doueXy41
+sort: 0
+ownership:
+  default: 0
+_key: '!items!eezJmGx7hyiRmlf5'
+

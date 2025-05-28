@@ -1,0 +1,127 @@
+name: Saúde Perfeita
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Um bom m&eacute;dico sabe cuidar de si mesmo (ou assim esperamos).</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">Voc&ecirc; se torna imune a condi&ccedil;&otilde;es
+      de fadiga, doen&ccedil;as e venenos e recebe +5 PV e +1 PM para cada poder
+      de M&eacute;dico Ateu que possui.</p>
+
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos:</em> treinado em
+      Fortitude, Acompanhamento M&eacute;dico, Medicina Avan&ccedil;ada.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 28-29
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Médico Ateu
+  origin: ''
+  tags:
+    - MedicoAteu
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.J8Sq4bazoZ8UODMS
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 6iIfp4Y00IWBiNvL
+    changes:
+      - key: system.tracos.ic.value
+        mode: 2
+        value: doente
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: veneno
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: fatigado
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Saúde Perfeita
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!J8Sq4bazoZ8UODMS.6iIfp4Y00IWBiNvL'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083101946
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: J8Sq4bazoZ8UODMS
+folder: EckmJGi0doueXy41
+sort: 0
+ownership:
+  default: 0
+_key: '!items!J8Sq4bazoZ8UODMS'
+

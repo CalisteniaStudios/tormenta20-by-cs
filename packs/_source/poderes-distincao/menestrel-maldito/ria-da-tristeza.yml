@@ -1,0 +1,87 @@
+name: Ária da Tristeza
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Para aqueles acostumados com a ang&uacute;stia de um menestrel maldito,
+      sua incr&iacute;vel habilidade torna a m&uacute;sica muito
+      agrad&aacute;vel. Para os desavisados, por&eacute;m, sua tristeza pode ser
+      infecciosa.</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">Sua habilidade Inspira&ccedil;&atilde;o s&oacute;
+      funciona com aqueles familiarizados com a trag&eacute;dia que o levou a
+      procurar o dem&ocirc;nio azul (em termos de regras, qualquer pessoa para
+      quem voc&ecirc; tenha contado sua hist&oacute;ria). Quaisquer outras
+      criaturas no alcance, em vez disso, ficam
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ]{Atordoado}
+      por uma rodada (CD Car evita). Uma criatura s&oacute; pode ser atordoada
+      por este poder uma vez por cena.</p>
+
+      <p class="MsoNormal"><em>Pr&eacute;-requisito</em>: T&eacute;cnica
+      Endiabrada.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 38-39
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Menestrel Maldito
+  origin: ''
+  tags:
+    - MenestrelMaldito
+  chatFlavor: ''
+  chatGif: ''
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083101946
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: R7kSdjSAdWccTVuh
+folder: y8ETZkiSeolvnkXp
+sort: 0
+ownership:
+  default: 0
+_key: '!items!R7kSdjSAdWccTVuh'
+

@@ -1,0 +1,129 @@
+name: Tambor das Profundezas
+type: equipamento
+img: systems/tormenta20/icons/itens/gerais/tambor-das-profundezas.webp
+system:
+  description:
+    value: >-
+      <p>Um instrumento t&iacute;pico de an&otilde;es de Doherimm, capaz de sons
+      graves e retumbantes. Enquanto empunha este item, o alcance da habilidade
+      Inspira&ccedil;&atilde;o e de qualquer M&uacute;sica de Bardo &eacute;
+      dobrado. Conta como um instrumento musical.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 158
+  equipado: false
+  equipado2:
+    slot: 0
+    type: hand
+  carregado: true
+  peso: 0
+  espacos: 1
+  qtd: 1
+  preco: 80
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: ferramenta
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  melhorias:
+    enhanced: null
+    golden: null
+    gems: null
+    discreet: null
+    macabre: null
+    energetic: null
+    harmonized: null
+    specialmaterial: null
+    powerful: null
+    enhancer: null
+    vigilant: null
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  encantos: {}
+effects:
+  - origin: Item.J376sbiNq6ZscU8t
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: true
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: OxeBJLiKinz5MeYN
+    changes: []
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Tambor das Profundezas: Dobra o alcance de Inspiração e Músicas de bardo.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!J376sbiNq6ZscU8t.OxeBJLiKinz5MeYN'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663512910780
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: J376sbiNq6ZscU8t
+folder: VqWdhvUwkVTlura5
+sort: 100098
+ownership:
+  default: 0
+_key: '!items!J376sbiNq6ZscU8t'
+

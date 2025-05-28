@@ -1,0 +1,132 @@
+name: Cavaleiro das Trevas
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Vigilantes mascarados se sentem mais &agrave; vontade na
+      escurid&atilde;o</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">Voc&ecirc; recebe vis&atilde;o no escuro. Quando
+      desfere um acerto cr&iacute;tico ou ataque furtivo contra uma criatura,
+      voc&ecirc; pode gastar 2 PM para ignorar a imunidade a acertos
+      cr&iacute;ticos e/ou ataques furtivos do alvo. Por fim, suas rolagens de
+      dano contra criaturas desprevenidas ou sob alguma condi&ccedil;&atilde;o
+      de medo recebem +1d6. Esse dado adicional aumenta em um passo para cada
+      dois outros poderes de vigilante mascarado que voc&ecirc; tenha.</p>
+
+      <p class="MsoNormal">Pr&eacute;-requisitos: Ataque Furtivo, Traje das
+      Sombras</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 31-32
+  ativacao:
+    execucao: ''
+    custo: 2
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls:
+    - name: Dano
+      key: dano0
+      type: dano
+      parts:
+        - - 1d6
+          - ''
+          - ''
+      versatil: ''
+  tipo: distincao
+  subtipo: Vigilante Mascarado
+  origin: ''
+  tags:
+    - VigilanteMascarado
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.p7dkbrmgC74qMgpI
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: VLi0QayqBczBqdyt
+    changes:
+      - key: system.tracos.ic.value
+        mode: 2
+        value: escuro
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cavaleiro das Trevas
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!p7dkbrmgC74qMgpI.VLi0QayqBczBqdyt'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083905345
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: p7dkbrmgC74qMgpI
+folder: NxFKO0AHIR0pQgBN
+sort: 0
+ownership:
+  default: 0
+_key: '!items!p7dkbrmgC74qMgpI'
+

@@ -1,8 +1,12 @@
 @import "./variables.less";
 
 @actorNameHeight: 60px;
+@itemImageSize: 34px;
 
 .tormenta20.sheet.actor {
+  @import "./character.less";
+  @import "./npc.less";
+  @import "./simple.less";
 
   /* ----------------------------------------- */
   /*  Shared Styles                            */
@@ -10,51 +14,31 @@
 
   .modesto();
 
-  .rollable:hover {
-    color: red;
-    text-shadow: 0 0 10px red;
-    cursor: pointer;
-  }
-
-  font-size: 18px;
-  // Attribute Configuration
-  .trait-selector,
-  .config-button {
-    color: @colorOlive;
-    right: -6px;
-    top: -3px;
-    // font-size: 10px;
-    font-weight: normal;
+  .ability-scores,
+  .skills-list {
+    .rollable:hover {
+      color: red;
+      text-shadow: 0 0 10px red;
+      cursor: pointer;
+    }
   }
 
   /* ----------------------------------------- */
   /*  Sheet Header                             */
   /* ----------------------------------------- */
   .sheet-header {
-
     // Portrait Artwork
     img.profile {
-      flex: 0 0 160px;
-      max-width: 160px;
-      height: 160px;
-    }
-
-    // Character Name
-    h1.charname {
-      flex: 1;
-      height: @actorNameHeight;
-      padding: 0;
-      input {
-        height: @actorNameHeight - 20px;
-        margin: 10px 0;
-      }
+      flex: 0 0 @actorImageProfileTabbed;
+      max-width: @actorImageProfileTabbed;
+      height: @actorImageProfileTabbed;
     }
 
     // Character Level
     .header-exp {
-      flex: 0 0 150px;
+      flex: 0 0 auto;
+      max-width: 130px;
       margin-right: 3px;
-      height: @actorNameHeight;
       justify-content: flex-end;
       text-align: right;
     }
@@ -64,15 +48,6 @@
       height: 30px;
       border-bottom: @borderGroove;
       // font-size: 18px;
-      input, span {
-        display: block;
-        height: 24px;
-        line-height: 24px;
-      }
-      span {
-        margin-inline-start: 4px;
-        border-block-start: 1px solid transparent;
-      }
       select {
         position: relative;
         top: -4px;
@@ -90,6 +65,16 @@
         border: none;
         border-right: @borderGroove;
         border-radius: 0;
+
+        &.health,
+        &.mana {
+          .attribute-footer {
+            input {
+              height: 18px;
+              width: 33%;
+            }
+          }
+        }
 
         &:last-child {
           border-right: none;
@@ -130,7 +115,7 @@
   h4.box-title {
     height: 18px;
     line-height: 16px;
-    margin: 4px 8px 2px;
+    margin: 4px 4px 0px;
     .modesto();
     // font-size: 18px;
     color: @colorOlive;
@@ -189,10 +174,10 @@
         font-family: "Signika", sans-serif;
         // font-size: 18px;
         font-weight: 400;
-        white-space: nowrap
+        white-space: nowrap;
+        font-size: var(--font-size-14);
       }
       // Defense panel
-
     }
   }
 
@@ -232,6 +217,12 @@
 
     h4.ability-name {
       text-transform: uppercase;
+    }
+    .atributo-value {
+      font-size: var(--font-size-18);
+    }
+    .attribute-footer {
+      font-size: var(--font-size-14);
     }
     h1 {
       // font-size: 1.5rem;
@@ -291,7 +282,6 @@
     }
   }
 
-
   // Proficiency Toggle Buttons
   .proficiency-toggle {
     color: @colorBeige;
@@ -310,67 +300,6 @@
   /* ----------------------------------------- */
   /*  Skills                                   */
   /* ----------------------------------------- */
-
-  // ul.skills-list {
-  //   flex: 0 0 180px;
-  //   height: 440px;
-  //   list-style: none;
-  //   margin: 0 5px 0;
-  //   padding: 3px 0 2px;
-  //   border: @borderGroove;
-  //   border-radius: 3px;
-
-  //   li.skill {
-  //     height: 24px;
-  //     padding: 3px 2px;
-
-  //     &:nth-child(even) {
-  //       background: rgba(0, 0, 0, 0.05);
-  //     }
-
-  //     h4 {
-  //       flex: 1px;
-  //       margin: 0;
-  //       // font-size: 11px;
-  //       line-height: 18px;
-  //     }
-
-  //     .skill-proficiency {
-  //       flex: 0 0 16px;
-  //       line-height: 18px;
-  //     }
-
-  //     .skill-name-controls {
-  //       position: relative;
-
-  //       .config-button {
-  //         right: 3px;
-  //         top: 4px;
-  //         position: absolute;
-  //         display: none;
-  //       }
-
-  //       &:hover .config-button {
-  //         display: block;
-  //       }
-  //     }
-
-  //     .skill-ability {
-  //       flex: 0 0 26px;
-  //       text-transform: capitalize;
-  //     }
-
-  //     .skill-mod {
-  //       flex: 0 0 20px;
-  //     }
-
-  //     .skill-passive {
-  //       flex: 0 0 26px;
-  //       text-align: center;
-  //       color: @colorTan;
-  //     }
-  //   }
-  // }
 
   /* ----------------------------------------- */
   /*  Statuses                                 */
@@ -435,16 +364,16 @@
   }
 
   .traits {
-    .form-group, .form-group-stacked {
-      margin: 0 0 3px 0;
-      justify-content: space-between;
+    font-size: 12px;
+
+    h3 {
+      margin-bottom: 4px;
     }
 
-    .trait-selector,
-    .config-button {
-      flex: initial;
-      font-size: 16px;
-      color: @colorDark;
+    .form-group,
+    .form-group-stacked {
+      margin: 0 0 3px 0;
+      justify-content: space-between;
     }
 
     label {
@@ -456,7 +385,7 @@
 
     select {
       max-width: 200px;
-      background-color: rgba(0, 0, 0, .05);
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
     i.fas {
@@ -481,20 +410,20 @@
     .trait-list {
       list-style: none;
       margin: 0;
-      padding: 0 0 0 .5em;
+      padding: 0 0 0 0.5em;
       .tag {
         display: inline-flex;
-        background-color: rgba(0, 0, 0, .05);
+        background-color: rgba(0, 0, 0, 0.05);
       }
       .speedtag {
         list-style: none;
         display: inline-flex;
         text-transform: lowercase;
         // background-color: rgba(0, 0, 0, .05);
-        &:last-child::after{
+        &:last-child::after {
           content: "";
         }
-        &:after{
+        &:after {
           content: ",";
         }
       }
@@ -519,39 +448,61 @@
   }
 
   .inventory-list {
-    .currency {
+    overflow: hidden auto;
+
+    .inventory-currency {
+      margin-bottom: 5px;
+    }
+  }
+
+  .tab {
+    &.inventory.active {
       display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      &.flexrow {
+        gap: 0.5rem;
+      }
+      .item-controls {
+        flex: 0;
+        align-content: center;
+      }
+    }
+
+    .inventory-list {
+      flex: 0 1 100%;
+    }
+
+    .currency {
+      gap: 0.5rem;
       align-items: center;
       list-style: none;
       padding: 0;
-      // font-size: 12px;
+      margin: 0;
+      font-size: var(--font-size-12);
 
       .currency-header {
-        flex: 0 0 13px;
+        flex: 0 0 auto;
         text-align: center;
         align-items: center;
-        margin-right: 0.5rem;
+        font-size: 18px;
       }
       .currency-item {
         display: flex;
         align-items: center;
         background: @colorFaint;
         border-radius: 5px;
-        padding: 0 0.25rem 0 0;
-        margin-right: 0.5rem;
+        padding: 0 0.25rem;
         line-height: 30px;
       }
       label {
         flex: unset;
-        font-size: 12px;
       }
       input {
-        text-align: right;
-        flex: 1;
-        padding-left: 0.25rem;
+        margin-left: 0.25rem;
         border: 0;
-        background: none;
-        margin: 0;
       }
     }
   }
@@ -562,38 +513,88 @@
     margin: 5px 0;
     background-color: @colorFaint;
     border-radius: 10px;
-    font-size: 16px;
-    .item * {
-      align-items: center;
+    font-size: var(--font-size-14);
+    list-style: none;
+
+    &.favorites {
+      margin: 0;
+
+      & + * {
+        margin-top: 5px;
+      }
+
+      .item-detail {
+        flex: 0 0 50px;
+      }
     }
     .item {
+      * {
+        align-items: center;
+
+        .item-description {
+          align-items: unset;
+
+          label {
+            font-weight: bold;
+          }
+
+          span.fa-stack {
+            font-size: 14px;
+          }
+
+          .item-tipo {
+            color: var(--color-text-dark-3);
+            font-size: var(--font-size-12);
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
 
       &:first-child {
         font-weight: bold;
+      }
+      &:not(.item-header) {
+        &:not(:hover) {
+          .item-controls {
+            visibility: hidden;
+
+            .item-control.item-toggle.active {
+              visibility: visible;
+            }
+          }
+        }
+
+        &:last-child {
+          padding-bottom: 2px;
+        }
       }
 
       align-items: center;
       .item-name {
         cursor: pointer;
         .item-image {
-          flex: 0 0 30px;
-          height: 30px;
+          flex: 0 0 @itemImageSize;
+          height: @itemImageSize;
           background-size: cover;
           margin-right: 3px;
         }
         input.stored {
           opacity: 0.75;
         }
-        &.rollable:hover {
-          color: red;
-          text-shadow: 0 0 10px red;
-          cursor: pointer;
-        }
-        &.rollable:hover .item-image {
-          background-image: url("../../icons/svg/d20-grey.svg") !important;
-        }
-        &.rollable .item-image:hover {
-          background-image: url("../../icons/svg/d20-black.svg") !important;
+        &.rollable {
+          label:hover {
+            color: red;
+            text-shadow: 0 0 10px red;
+            cursor: pointer;
+          }
+          &:hover .item-image {
+            background-image: url("../../icons/svg/d20-grey.svg") !important;
+          }
+          .item-image:hover {
+            background-image: url("../../icons/svg/d20-black.svg") !important;
+          }
         }
       }
 
@@ -621,7 +622,6 @@
       }
     }
 
-
     // Inventory Header
     .item-header {
       line-height: 24px;
@@ -639,39 +639,48 @@
       word-break: break-word;
       white-space: nowrap;
       overflow: hidden;
-      &:last-child { border-right: none; }
-      &.item-action {flex: 0 0 100px}
-      &.attunement {flex: 0 0 24px}
+      &:last-child {
+        border-right: none;
+      }
+      &.item-action {
+        flex: 0 0 100px;
+      }
+      &.attunement {
+        flex: 0 0 24px;
+      }
+    }
+
+    .item-qty,
+    .item-weight,
+    .item-controls {
+      flex: 0 0 44px;
+    }
+
+    .item-equipped {
+      flex: 0 0 1em;
     }
 
     .item-qty,
     .item-weight {
       text-align: center;
-      flex: 0 0 40px;
       border-left: 1px solid @colorFaint;
       border-right: 1px solid @colorFaint;
     }
 
     // Item Control Buttons
     .item-controls {
-      // todo Tabbed 64px;
-      flex: 0 0 65px;
       font-size: 12px;
       text-align: right;
+      // height: @itemImageSize;
 
-      .item-control.item-toggle i {
-        opacity: 0.5;
-      }
-      .item-control.item-toggle.active i {
-        opacity: 1;
-      }
-
-      nav#context-menu {
-        text-align: left;
-        width: auto;
-        white-space: nowrap;
-        right: 0;
-        left: unset;
+      .item-control.item-toggle {
+        &:not(.active) {
+          span {
+            i {
+              opacity: 0.5;
+            }
+          }
+        }
       }
     }
 
@@ -685,14 +694,6 @@
       }
       .item-toggle.active i {
         opacity: 1;
-      }
-
-      nav#context-menu {
-        text-align: left;
-        width: auto;
-        white-space: nowrap;
-        right: 0;
-        left: unset;
       }
     }
 
@@ -711,7 +712,7 @@
   .skills-list {
     list-style: none;
     margin: 0 5px 0;
-    padding: 3px 0 2px;
+    padding: 0;
     border: @borderGroove;
     border-radius: 3px;
     font-size: 16px;
@@ -722,34 +723,48 @@
     }
 
     .skill {
-      &:nth-child(even) {
+      &.flexrow {
+        gap: 5px;
+      }
+      &:not(.item-header, .create-skill):nth-child(odd) {
         background: #c9c7b8;
       }
 
-      *:not(.item-name) {
-        text-align: center;
-      }
       align-items: center;
       height: auto;
-      padding: 0 3px;
       .item-image {
-        flex: 0 0 32px;
+        flex: 0 0 10px;
+        margin: 0px 3px;
+        font-size: 10px;
       }
       .item-name {
         flex: 1;
       }
-      .item-total {
-        flex: 0 0 48px;
+      .item-total,
+      .item-outros {
+        text-align: center;
+        flex: 0 0 @itemImageSize;
       }
       .item-abl {
-        flex: 0 0 60px;
+        flex: 0 0 30px;
+        text-transform: uppercase;
+        font-size: 12px;
+        text-align: center;
+        span {
+          color: var(--color-text-dark-3);
+        }
+        select {
+          border: none;
+          height: 15px;
+          text-transform: inherit;
+        }
       }
-      .item-outros {
-        flex: 0 0 48px;
+      .item-skill-create {
+        flex: 0 0 60px;
       }
       input {
         border: @borderGroove;
-        max-height: 23px;
+        max-height: 17px;
       }
     }
   }
@@ -763,12 +778,11 @@
 
   /* Encumbrance Bar */
   .encumbrance {
-
-    // margin-right: 14px;
     background: @colorTan;
     border-radius: 5px;
     position: relative;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .9) inset;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9) inset;
+    padding: 0 0.5rem;
 
     .encumbrance-bar {
       position: absolute;
@@ -776,18 +790,18 @@
       left: 1px;
       background: #6c8aa5;
       height: calc(100% - 1px);
-      border: 1px solid #cde4ff;
       border-radius: 4px;
     }
 
     .encumbrance-label {
-      display: block;
+      display: flex;
       position: relative;
       width: 100%;
+      justify-content: space-between;
       text-align: center;
       font-weight: 700;
-      font-size: 13px;
-      color: #EEE;
+      font-size: var(--font-size-13);
+      color: #eee;
       text-shadow: 0 0 2px #000;
     }
 
@@ -795,8 +809,12 @@
       display: block;
       position: absolute;
       border: 4px solid transparent;
-      &.encumbrance-30 { left: 30% }
-      &.encumbrance-50 { left: 50% }
+      &.encumbrance-30 {
+        left: 30%;
+      }
+      &.encumbrance-50 {
+        left: 50%;
+      }
     }
 
     .arrow-up {
@@ -820,8 +838,15 @@
     }
 
     &.encumbered {
-      .arrow-up { border-bottom: 4px solid #000; }
-      .arrow-down { border-top: 4px solid #000; }
+      .encumbrance-bar {
+        background-color: rgb(108, 87, 25);
+      }
+      .arrow-up {
+        border-bottom: 4px solid #000;
+      }
+      .arrow-down {
+        border-top: 4px solid #000;
+      }
     }
   }
 
@@ -832,7 +857,8 @@
   .spellcasting-ability {
     flex: 0 0 240px;
     margin: 0;
-    label, span {
+    label,
+    span {
       flex: none;
     }
     input {
@@ -871,7 +897,9 @@
     color: @colorTan;
   }
 
-  .spell-school, .spell-action, .spell-target {
+  .spell-school,
+  .spell-action,
+  .spell-target {
     flex: 0 0 100px;
     // font-size: 12px;
     color: @colorTan;
@@ -894,7 +922,9 @@
   }
 
   // Empty spellbook controls
-  .spellbook-empty .item-controls { flex: 1; }
+  .spellbook-empty .item-controls {
+    flex: 1;
+  }
 
   /* ----------------------------------------- */
   /*  Features Tab                             */
@@ -902,7 +932,7 @@
 
   // Original class icon
   .features i.original-class {
-    color: #4b4a44
+    color: #4b4a44;
   }
   .features .item-detail select {
     max-width: 90%;
@@ -914,6 +944,55 @@
 
   .editor {
     padding: 0px;
+  }
+
+  .item-description,
+  #context-menu {
+    span.fa-stack {
+      height: 1em;
+      line-height: 1em;
+      width: 1em;
+
+      b.fa-stack-1x {
+        color: white;
+        font-size: 10px;
+      }
+    }
+  }
+
+  #context-menu {
+    width: auto;
+
+    [data-group-id]:has(li) {
+      position: relative;
+      margin-block-start: 0.5rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset-inline: 1rem;
+        inset-block-start: -0.25rem;
+        border-block-start: 1px solid var(--color-border-light-2);
+      }
+    }
+    span.fa-stack {
+      margin-right: 8px;
+
+      .fa-hand-back-fist {
+        &::before {
+          font-size: 1.2em;
+        }
+      }
+    }
+    .context-group {
+      border-bottom: none;
+    }
+    .context-item.flexrow {
+      img {
+        flex: 0;
+        margin-right: 3px;
+      }
+    }
   }
 }
 

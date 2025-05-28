@@ -1,0 +1,200 @@
+name: Vigilante
+type: poder
+img: systems/tormenta20/icons/itens/gerais/parceiros.webp
+effects:
+  - origin: Item.DpTB2ElpvJ9mK0Bn
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: EDkAN01a8pBQuzzc
+    changes:
+      - key: system.pericias.perc.bonus
+        mode: 2
+        value: '2'
+        priority: null
+      - key: system.pericias.inic.bonus
+        mode: 2
+        value: '2'
+        priority: null
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vigilante Iniciante
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!DpTB2ElpvJ9mK0Bn.EDkAN01a8pBQuzzc'
+  - origin: Item.DpTB2ElpvJ9mK0Bn
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 26d74R5A8kJ23gRF
+    changes: []
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vigilante Veterano
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!DpTB2ElpvJ9mK0Bn.26d74R5A8kJ23gRF'
+  - origin: Item.DpTB2ElpvJ9mK0Bn
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: l3HTmKDlPQazjYWp
+    changes: []
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vigilante Mestre
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!DpTB2ElpvJ9mK0Bn.l3HTmKDlPQazjYWp'
+flags:
+  scene-packer:
+    sourceId: Item.rOO6U1bkk4xrlize
+    defaultPermission: 2
+    hash: 489a612a8235f62cd560028b82b1bf4c35524979
+system:
+  description:
+    value: >-
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
+
+      <p>Um vigia ou animal de guarda, sempre atento aos arredores.</p>
+
+      <p><strong>Iniciante</strong>: +2 em Percep&ccedil;&atilde;o e
+      Iniciativa.</p>
+
+      <p><strong>Veterano</strong>: voc&ecirc; pode usar o poder Esquiva
+      Sobrenatural.&nbsp;</p>
+
+      <p><strong>Mestre</strong>: voc&ecirc; pode usar o poder Olhos nas
+      Costas.</p>
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 261
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: geral
+  subtipo: Parceiros
+  chatFlavor: ''
+  origin: ''
+  tags: []
+  chatGif: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1663051700555
+  modifiedTime: 1668270847527
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: DpTB2ElpvJ9mK0Bn
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!DpTB2ElpvJ9mK0Bn'
+

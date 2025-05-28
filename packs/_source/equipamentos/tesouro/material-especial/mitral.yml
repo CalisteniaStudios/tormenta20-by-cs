@@ -1,0 +1,116 @@
+name: Mitral
+type: consumivel
+img: systems/tormenta20/icons/itens/gerais/mitral.webp
+system:
+  description:
+    value: >-
+      <p><span><strong>[Material Especial]</strong></span></p>
+
+      <p>Metal raro e valioso, o mitral &eacute; prateado, brilhante e mais leve
+      que a&ccedil;o. Itens de mitral ocupam &ndash;1 espa&ccedil;o
+      (m&iacute;nimo 1).<br><strong>Arma.</strong> Aumenta sua margem de
+      amea&ccedil;a em 1. Por exemplo, uma espada longa de mitral tem margem de
+      amea&ccedil;a 18-20.<br><strong>Armadura e Escudo. </strong>Tem sua
+      penalidade de armadura diminu&iacute;da em 2. Armaduras pesadas de mitral
+      permitem que voc&ecirc; aplique at&eacute; dois pontos de sua Destreza na
+      Defesa.<br><strong>Esot&eacute;rico.</strong> Permite que voc&ecirc; pague
+      +2 PM ao lan&ccedil;ar uma magia para aumentar a CD dela em +2.</p>
+
+
+
+      <p><span><strong>Pre&ccedil;os:</strong></span></p>
+
+      <p><span><span>Armas,&nbsp;</span></span><span style="font-family:
+      var(--font-primary); font-size: var(--font-size-14);">Armaduras leves e
+      Escudo:&nbsp; +T$ 1500</span></p>
+
+      <p><span><span>Armaduras pesadas:&nbsp; +T$ 12000</span></span></p>
+
+      <p><span><span>Esot&eacute;ricos:&nbsp; +T$ 3000</span></span></p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 167
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 0
+  espacos: 1
+  qtd: 1
+  preco: 12000
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: material
+  uses:
+    autoDestroy: false
+  chatFlavor: ''
+  origin: ''
+  subtipo: ''
+  tags: []
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.200
+  coreVersion: '13.342'
+  createdTime: null
+  modifiedTime: 1685245430778
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: xhMlNmtwTZtRnw3f
+folder: xqMxYK1BhlZ6ktNc
+sort: 600000
+ownership:
+  default: 0
+_key: '!items!xhMlNmtwTZtRnw3f'
+

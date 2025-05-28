@@ -1,0 +1,83 @@
+_id: ohZXRVN8Ji4Z1uSm
+name: Saco de Dormir
+type: tesouro
+img: systems/tormenta20/icons/itens/gerais/saco-de-dormir.webp
+effects: []
+folder: 0G5uMjOsWAFaPYAZ
+sort: 391
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Um colch&atilde;o com uma coberta fina o bastante para ser enrolada e
+      amarrada, &eacute; especialmente &uacute;til para aventureiros, que nunca
+      sabem onde v&atilde;o passar a noite. Dormir ao relento&nbsp; sem um
+      acampamento e um saco de dormir diminui sua recupera&ccedil;&atilde;o de
+      PV e PM (veja a p&aacute;gina 106).</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 155/157
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 2.5
+  espacos: 1
+  qtd: 1
+  preco: 1
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  container: false
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+  ativacao:
+    custo: 0
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  consume:
+    amount: 0
+    mpMultiplier: false
+    target: ''
+    type: ''
+  duracao:
+    units: ''
+    value: 0
+    special: ''
+  range:
+    units: ''
+    value: 0
+  target:
+    type: ''
+    value: 0
+    width: 0
+  alcance: ''
+  alvo: ''
+  area: ''
+  efeito: ''
+  resistencia:
+    txt: ''
+    pericia: ''
+    atributo: ''
+    bonus: 0
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1664312772420
+  modifiedTime: 1684618015754
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!items!ohZXRVN8Ji4Z1uSm'
+

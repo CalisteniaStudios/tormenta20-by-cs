@@ -1,0 +1,80 @@
+name: Herói dos Reinos
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>O guardi&atilde;o da realidade est&aacute; sempre pronto para se erguer
+      e lutar.</p>
+
+      </blockquote>
+
+      <p>O custo em PM da primeira habilidade que voc&ecirc; usa em cada cena
+      &eacute; reduzido em &ndash;1 PM, cumulativo com outras
+      redu&ccedil;&otilde;es. Al&eacute;m disso, no come&ccedil;o de cada cena,
+      voc&ecirc; recebe 5 PV tempor&aacute;rios para cada poder de
+      guardi&atilde;o da realidade que possuir. <em>Pr&eacute;-requisito:</em>
+      Basti&atilde;o da Realidade.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, pág. 24
+  ativacao:
+    execucao: passive
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Guardião da Realidade
+  chatFlavor: ''
+  origin: ''
+  tags:
+    - GuardiaodaRealidade
+  chatGif: ''
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1662564170748
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: AKyVw1XuDVGxWFBh
+folder: YXlTMaY22gwCu0fc
+sort: 0
+ownership:
+  default: 0
+_key: '!items!AKyVw1XuDVGxWFBh'
+

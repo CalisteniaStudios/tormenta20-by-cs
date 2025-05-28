@@ -13,7 +13,7 @@ const fields = foundry.data.fields;
  */
 class MappingField extends fields.ObjectField {
 	constructor(model, options) {
-		if ( !(model instanceof foundry.data.fields.DataField) ) {
+		if (!(model instanceof foundry.data.fields.DataField)) {
 			throw new Error("MappingField must have a DataField as its contained element");
 		}
 		super(options);
@@ -32,7 +32,7 @@ class MappingField extends fields.ObjectField {
 		return foundry.utils.mergeObject(super._defaults, {
 			initialKeys: null,
 			initialValue: null,
-      initialKeysOnly: false
+			initialKeysOnly: false
 		});
 	}
 
@@ -40,7 +40,10 @@ class MappingField extends fields.ObjectField {
 
 	/** @inheritdoc */
 	_cleanType(value, options) {
-		Object.entries(value).forEach(([k, v]) => value[k] = this.model.clean(v, options));
+		Object.entries(value).forEach(([k, v]) => {
+			if (k.startsWith("-=")) return;
+			value[k] = this.model.clean(v, options);
+		});
 		return value;
 	}
 
@@ -50,9 +53,9 @@ class MappingField extends fields.ObjectField {
 	getInitialValue(data) {
 		let keys = this.initialKeys;
 		const initial = super.getInitialValue(data);
-		if ( !keys || !foundry.utils.isEmpty(initial) ) return initial;
-		if ( !(keys instanceof Array) ) keys = Object.keys(keys);
-		for ( const key of keys ) initial[key] = this._getInitialValueForKey(key);
+		if (!keys || !foundry.utils.isEmpty(initial)) return initial;
+		if (!(keys instanceof Array)) keys = Object.keys(keys);
+		for (const key of keys) initial[key] = this._getInitialValueForKey(key);
 		return initial;
 	}
 
@@ -72,10 +75,10 @@ class MappingField extends fields.ObjectField {
 	/* -------------------------------------------- */
 
 	/** @override */
-	_validateType(value, options={}) {
-		if ( foundry.utils.getType(value) !== "Object" ) throw new Error("must be an Object");
+	_validateType(value, options = {}) {
+		if (foundry.utils.getType(value) !== "Object") throw new Error("must be an Object");
 		const errors = this._validateValues(value, options);
-		if ( !foundry.utils.isEmpty(errors) ) throw new foundry.data.fields.ModelValidationError(errors);
+		if (!foundry.utils.isEmpty(errors)) throw new foundry.data.fields.ModelValidationError(errors);
 	}
 
 	/* -------------------------------------------- */
@@ -88,9 +91,10 @@ class MappingField extends fields.ObjectField {
 	 */
 	_validateValues(value, options) {
 		const errors = {};
-		for ( const [k, v] of Object.entries(value) ) {
+		for (const [k, v] of Object.entries(value)) {
+			if (k.startsWith("-=")) continue;
 			const error = this.model.validate(v, options);
-			if ( error ) errors[k] = error;
+			if (error) errors[k] = error;
 		}
 		return errors;
 	}
@@ -98,12 +102,12 @@ class MappingField extends fields.ObjectField {
 	/* -------------------------------------------- */
 
 	/** @override */
-	initialize(value, model, options={}) {
-		if ( !value ) return value;
+	initialize(value, model, options = {}) {
+		if (!value) return value;
 		const obj = {};
-		const initialKeys = (this.initialKeys instanceof Array) ? this.initialKeys : Object.keys(this.initialKeys ?? {});
+		const initialKeys = this.initialKeys instanceof Array ? this.initialKeys : Object.keys(this.initialKeys ?? {});
 		const keys = this.initialKeysOnly ? initialKeys : Object.keys(value);
-		for ( const key of keys ) {
+		for (const key of keys) {
 			const data = value[key] ?? this._getInitialValueForKey(key, value);
 			obj[key] = this.model.initialize(data, model, options);
 		}
@@ -114,8 +118,8 @@ class MappingField extends fields.ObjectField {
 
 	/** @inheritdoc */
 	_getField(path) {
-		if ( path.length === 0 ) return this;
-		else if ( path.length === 1 ) return this.model;
+		if (path.length === 0) return this;
+		else if (path.length === 1) return this.model;
 		path.shift();
 		return this.model._getField(path);
 	}
@@ -126,20 +130,23 @@ class ActorSkillsField extends MappingField {
 	getInitialValue(data) {
 		let keys = this.initialKeys;
 		const initial = super.getInitialValue(data);
-		if ( !keys || !foundry.utils.isEmpty(initial) ) return initial;
-		if ( !(keys instanceof Array) ) keys = Object.keys(keys);
-		for ( const key of keys ) initial[key] = this._getInitialValueForKey(key);
+		if (!keys || !foundry.utils.isEmpty(initial)) return initial;
+		if (!(keys instanceof Array)) keys = Object.keys(keys);
+		for (const key of keys) initial[key] = this._getInitialValueForKey(key);
 		return initial;
 	}
+
 	getInitialValue2(data) {
 		let keys = this.options.initialKeys;
-		if ( !keys || !foundry.utils.isEmpty(this.initial()) ) return super.getInitialValue(data);
-		if ( !(keys instanceof Array) ) {
-			const gameSystem = game.settings.get('tormenta20', 'gameSystem');
-			keys = Object.entries(keys).filter((f)=> f[1].systems.some(s=>['core',gameSystem].includes(s))).map(m=>m[0]);
+		if (!keys || !foundry.utils.isEmpty(this.initial())) return super.getInitialValue(data);
+		if (!(keys instanceof Array)) {
+			const gameSystem = game.settings.get("tormenta20", "gameSystem");
+			keys = Object.entries(keys)
+				.filter((f) => f[1].systems.some((s) => ["core", gameSystem].includes(s)))
+				.map((m) => m[0]);
 		}
 		const initial = {};
-		for ( const key of keys ) {
+		for (const key of keys) {
 			const modelInitial = this.model.getInitialValue();
 			initial[key] = this.initialValue?.(key, modelInitial) ?? modelInitial;
 		}
@@ -153,26 +160,179 @@ class SkillData extends foundry.abstract.DataModel {
 	/** @override */
 	static defineSchema() {
 		return {
-			atributo: new fields.StringField({ required: true, nullable:false, blank: false, choices: Object.keys(T20.atributos), initial: 'for', label: "T20.SkillAbility", hint: "T20.SkillAbilityHint"}),
-			treinado: new fields.BooleanField({ required: true, nullable:false, initial: false , label: "T20.SkillTrained", hint: "T20.SkillTrainedHint"}),
-			st: new fields.BooleanField({ required: true, nullable:false, initial: false , label: "T20.SkillTrainedOnly", hint: "T20.SkillTrainedOnlyHint"}),
-			pda: new fields.BooleanField({ required: true, nullable:false, initial: false , label: "T20.SkillArmorPenalty", hint: "T20.SkillArmorPenaltyHint"}),
-			size: new fields.BooleanField({ required: true, nullable:false, initial: false , label: "T20.SkillSizeModifier", hint: "T20.SkillSizeModifierHint"}),
-			value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 , label: "T20.SkillValue", hint: "T20.SkillValueHint"}),
-			outros: new fields.NumberField({ required: true, nullable:false, initial:0 , label: "T20.SkillOtherValue", hint: "T20.SkillOtherValueHint"}),
-			condi: new fields.NumberField({ required: true, nullable:false, initial:0 , label: "T20.SkillStatusEffectValue", hint: "T20.SkillStatusEffectValueHint"}),
-			bonus: new fields.ArrayField(new fields.StringField(), {label: "T20.SkillEffectsValues", hint: "T20.SkillEffectsValuesHint"}),
-			custom: new fields.BooleanField({ required: true, nullable:false, initial: false , label: "T20.SkillCustom", hint: "T20.SkillCustomHint"}),
-			label: new fields.StringField({ required: true, nullable:false, initial: '' , label: "T20.SkillLabel", hint: "T20.SkillLabelHint"}),
-			nome: new fields.StringField({ required: true, nullable:false, initial: '' , label: "T20.SkillNameValue", hint: "T20.SkillNameHint"}),
+			atributo: new fields.StringField({
+				required: true,
+				nullable: false,
+				blank: false,
+				choices: Object.keys(T20.atributos),
+				initial: "for",
+				label: "T20.SkillAbility",
+				hint: "T20.SkillAbilityHint"
+			}),
+			treinado: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false,
+				label: "T20.SkillTrained",
+				hint: "T20.SkillTrainedHint"
+			}),
+			st: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false,
+				label: "T20.SkillTrainedOnly",
+				hint: "T20.SkillTrainedOnlyHint"
+			}),
+			pda: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false,
+				label: "T20.SkillArmorPenalty",
+				hint: "T20.SkillArmorPenaltyHint"
+			}),
+			size: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false,
+				label: "T20.SkillSizeModifier",
+				hint: "T20.SkillSizeModifierHint"
+			}),
+			value: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				min: 0,
+				label: "T20.SkillValue",
+				hint: "T20.SkillValueHint"
+			}),
+			outros: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				label: "T20.SkillOtherValue",
+				hint: "T20.SkillOtherValueHint"
+			}),
+			condi: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				label: "T20.SkillStatusEffectValue",
+				hint: "T20.SkillStatusEffectValueHint"
+			}),
+			bonus: new fields.ArrayField(new fields.StringField(), {
+				label: "T20.SkillEffectsValues",
+				hint: "T20.SkillEffectsValuesHint"
+			}),
+			custom: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false,
+				label: "T20.SkillCustom",
+				hint: "T20.SkillCustomHint"
+			}),
+			label: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "",
+				label: "T20.SkillLabel",
+				hint: "T20.SkillLabelHint"
+			}),
+			nome: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "",
+				label: "T20.SkillNameValue",
+				hint: "T20.SkillNameHint"
+			})
 			// order: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-		}
-	};
-	
+		};
+	}
+
 	static migrateData(data) {
-		if ( data.bonus?.length > 0 ) data.bonus = [];
-		if ( data.condi != 0 ) data.condi = 0;
+		if (data.bonus?.length > 0) data.bonus = [];
+		if (data.condi != 0) data.condi = 0;
 		return super.migrateData(data);
+	}
+}
+
+/* ----------------------------- */
+
+/**
+ * @typedef {StringFieldOptions} FormulaFieldOptions
+ * @property {boolean} [deterministic=false]  Is this formula not allowed to have dice values?
+ */
+
+/**
+ * Special case StringField which represents a formula.
+ *
+ * @param {FormulaFieldOptions} [options={}]  Options which configure the behavior of the field.
+ * @property {boolean} deterministic=false    Is this formula not allowed to have dice values?
+ */
+class FormulaField extends foundry.data.fields.StringField {
+	/** @inheritDoc */
+	static get _defaults() {
+		return foundry.utils.mergeObject(super._defaults, {
+			deterministic: false
+		});
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritDoc */
+	_validateType(value) {
+		const roll = new Roll(value.replace(/@([a-z.0-9_-]+)/gi, "1"));
+		roll.evaluateSync({ strict: false });
+		if (this.options.deterministic && !roll.isDeterministic) throw new Error(`must not contain dice terms: ${value}`);
+		super._validateType(value);
+	}
+
+	/* -------------------------------------------- */
+	/*  Active Effect Integration                   */
+	/* -------------------------------------------- */
+
+	/** @override */
+	_castChangeDelta(delta) {
+		return this._cast(delta).trim();
+	}
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	_applyChangeAdd(value, delta, model, change) {
+		if (!value) return delta;
+		const operator = delta.startsWith("-") ? "-" : "+";
+		delta = delta.replace(/^[+-]/, "").trim();
+		return `${value} ${operator} ${delta}`;
+	}
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	_applyChangeMultiply(value, delta, model, change) {
+		if (!value) return delta;
+		const terms = new Roll(value).terms;
+		if (terms.length > 1) return `(${value}) * ${delta}`;
+		return `${value} * ${delta}`;
+	}
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	_applyChangeUpgrade(value, delta, model, change) {
+		if (!value) return delta;
+		const terms = new Roll(value).terms;
+		if (terms.length === 1 && terms[0].fn === "max") return value.replace(/\)$/, `, ${delta})`);
+		return `max(${value}, ${delta})`;
+	}
+
+	/* -------------------------------------------- */
+
+	/** @override */
+	_applyChangeDowngrade(value, delta, model, change) {
+		if (!value) return delta;
+		const terms = new Roll(value).terms;
+		if (terms.length === 1 && terms[0].fn === "min") return value.replace(/\)$/, `, ${delta})`);
+		return `min(${value}, ${delta})`;
 	}
 }
 
@@ -181,8 +341,7 @@ class SkillData extends foundry.abstract.DataModel {
 class PartData extends foundry.abstract.DataModel {
 	/** @override */
 	static defineSchema() {
-		return {
-		}
+		return {};
 	}
 }
 
@@ -190,61 +349,99 @@ class RollData extends foundry.abstract.DataModel {
 	/** @override */
 	static defineSchema() {
 		return {
-			key: new fields.StringField({ required: true, nullable:false, initial:'roll'}),
-			name: new fields.StringField({ required: true, nullable:false, initial:'Roll' }),
-			parts: new fields.ArrayField(new fields.ArrayField(
-				new fields.StringField({ required: true, nullable:false, initial:''}),
-				{
-					// validate: r => (r.length === 3),
-					// validationError: "must be a length-3 array",
-					initial: ['','','']
-				}
-			)),
+			key: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "roll"
+			}),
+			name: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: "Roll"
+			}),
+			parts: new fields.ArrayField(
+				new fields.ArrayField(
+					new fields.StringField({
+						required: true,
+						nullable: false,
+						initial: ""
+					}),
+					{
+						// validate: r => (r.length === 3),
+						// validationError: "must be a length-3 array",
+						initial: ["", "", ""]
+					}
+				)
+			),
 			// parts: new fields.ArrayField(new PartData)),
 			// parts: new fields.ObjectField({ initial:{ 0:['1d4','ac'] } }),
-			type: new fields.StringField({ required: true, nullable:false, choices:['ataque','dano','formula'], initial:'dano'}),
-			versatil: new fields.StringField({ nullable:false, initial:'' }),
+			type: new fields.StringField({
+				required: true,
+				nullable: false,
+				choices: ["ataque", "dano", "formula"],
+				initial: "dano"
+			}),
+			versatil: new fields.StringField({ nullable: false, initial: "" })
 		};
 	}
 
 	/** @override */
-	validate(value, options={}) {
+	validate(value, options = {}) {
 		return super.validate(value, options);
 	}
 
 	/** @override */
-	_validateType(value, options={}) {
+	_validateType(value, options = {}) {
 		return super._validateType(value, options);
 	}
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		for ( let [k, v] of Object.entries(data.parts) ){
-			if( v.length !== 3 ){
-				data.parts[k] = [ v[0] ?? '', v[1] ?? '', v[2] ?? '' ];
+		for (let [k, v] of Object.entries(data.parts)) {
+			if (v.length !== 3) {
+				data.parts[k] = [v[0] ?? "", v[1] ?? "", v[2] ?? ""];
 			}
 		}
-		if ( data.type == 'ataque' ) {
-			if( data.parts[1][0] == '' ) data.parts[1][0] = 'luta';
+		if (data.type === "ataque") {
+			if (data.parts[1][0] === "") data.parts[1][0] = "luta";
 		}
 		return super.migrateData(data);
 	}
 }
 
-function getRollData(){
+function getRollData() {
 	return {
-		key: new fields.StringField({ required: true, nullable:false, initial:'roll'}),
-		name: new fields.StringField({ required: true, nullable:false, initial:'Roll' }),
-		parts: new fields.ArrayField(new fields.ArrayField(
-			new fields.StringField({ required: true, nullable:false, initial:''}),
-			{
-				validate: r => (r.length === 3),
-				validationError: "must be a length-3 array",
-				initial: ['','','']
-			}
-		)),
-		type: new fields.StringField({ required: true, nullable:false, choices:['ataque','dano','formula'], initial:'dano'}),
-		versatil: new fields.StringField({ nullable:false, initial:'' }),
+		key: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: "roll"
+		}),
+		name: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: "Roll"
+		}),
+		parts: new fields.ArrayField(
+			new fields.ArrayField(
+				new fields.StringField({
+					required: true,
+					nullable: false,
+					initial: ""
+				}),
+				{
+					validate: (r) => r.length === 3,
+					validationError: "must be a length-3 array",
+					initial: ["", "", ""]
+				}
+			)
+		),
+		type: new fields.StringField({
+			required: true,
+			nullable: false,
+			choices: ["ataque", "dano", "formula"],
+			initial: "dano"
+		}),
+		versatil: new fields.StringField({ nullable: false, initial: "" })
 	};
 }
 
@@ -256,17 +453,34 @@ function getRollData(){
 const AbilitiesSchema = () => {
 	let getSchema = () => {
 		return new fields.SchemaField({
-			value: new fields.NumberField({ required: true, nullable:false, initial:0, min:-5 }),
-			base: new fields.NumberField({ required: true, nullable:false, initial:0}),
-			racial: new fields.NumberField({ required: true, nullable:false, initial:0}),
-			bonus: new fields.NumberField({ required: true, nullable:false, initial:0}),
+			value: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				min: -5
+			}),
+			base: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0
+			}),
+			racial: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0
+			}),
+			bonus: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0
+			})
 		});
-	}
-	
+	};
+
 	let schema = {};
-	Object.keys(T20.atributos).forEach( abl => schema[abl] = getSchema());
+	Object.keys(T20.atributos).forEach((abl) => (schema[abl] = getSchema()));
 	return schema;
-}
+};
 
 /* ---------------------------- */
 
@@ -274,24 +488,59 @@ const AbilitiesSchema = () => {
 const ResistanceSchema = () => {
 	let getSchema = () => {
 		return new fields.SchemaField({
-			value: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-			imunidade: new fields.BooleanField({ required: true, nullable:false, initial: false }),
-			vulnerabilidade: new fields.BooleanField({ required: true, nullable:false, initial: false }),
+			value: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				min: 0
+			}),
+			imunidade: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false
+			}),
+			vulnerabilidade: new fields.BooleanField({
+				required: true,
+				nullable: false,
+				initial: false
+			})
 		});
-	}
-	
+	};
+
 	let schema = {};
-	Object.keys(T20.damageTypes).forEach( dmg => schema[dmg] = getSchema());
+	Object.keys(T20.damageTypes).forEach((dmg) => (schema[dmg] = getSchema()));
 	return schema;
-}
+};
 
-
-function _resourceSchema () {
+function _resourceSchema() {
 	return new fields.SchemaField({
-		value: new fields.NumberField({ required: true, nullable:false, initial:0, step:1, integer:true }),
-		temp: new fields.NumberField({ required: true, nullable:false, initial:0, min:0, step:1, integer:true }),
-		min: new fields.NumberField({ required: true, nullable:false, initial:0, integer:true }),
-		max: new fields.NumberField({ required: true, nullable:false, initial:3, integer:true }),
+		value: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			step: 1,
+			integer: true
+		}),
+		temp: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			min: 0,
+			step: 1,
+			integer: true
+		}),
+		min: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			integer: true
+		}),
+		max: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 3,
+			integer: true
+		})
 	});
 }
 
@@ -300,33 +549,87 @@ function _resourceSchema () {
 function getObjectBaseData() {
 	return {
 		description: new fields.SchemaField({
-			value: new fields.HTMLField({ required: true, nullable:false, initial:'' }),
-			chat: new fields.HTMLField({ initial:'' }),
-			unidentified: new fields.HTMLField({ initial:'' }),
+			value: new fields.HTMLField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			chat: new fields.HTMLField({ initial: "" }),
+			unidentified: new fields.HTMLField({ initial: "" })
 		}),
-		source: new fields.StringField({ initial: '' }),
-		origin: new fields.StringField({ initial: '' }),
+		source: new fields.StringField({ initial: "" }),
+		origin: new fields.StringField({ initial: "" }),
 		tags: new fields.ArrayField(new fields.StringField()),
 		rolltags: new fields.ArrayField(new fields.StringField()),
-		chatFlavor: new fields.StringField({ required: true, nullable:false, initial: '' }),
-	}
+		automationtags: new fields.ArrayField(new fields.StringField()),
+		chatFlavor: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: ""
+		})
+	};
 }
 
 // Physical Object Data
 function getObjectItemData() {
 	return {
-		carregado: new fields.BooleanField({ required: true, nullable:false, initial: true }),
-		espacos: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-		peso: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-		qtd: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-		preco: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-		pv: new fields.SchemaField({
-			value: new fields.NumberField({ required: true, nullable:false, initial:0, step:1, integer:true }),
-			min: new fields.NumberField({ required: true, nullable:false, initial:0, integer:true }),
-			max: new fields.NumberField({ required: true, nullable:false, initial:3, integer:true }),
+		carregado: new fields.BooleanField({
+			required: true,
+			nullable: false,
+			initial: true
 		}),
-		rd: new fields.NumberField({ required: true, nullable:false, initial:0, min:0 }),
-	}
+		espacos: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			min: 0
+		}),
+		peso: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			min: 0
+		}),
+		qtd: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			min: 0
+		}),
+		preco: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			min: 0
+		}),
+		pv: new fields.SchemaField({
+			value: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				step: 1,
+				integer: true
+			}),
+			min: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0,
+				integer: true
+			}),
+			max: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 3,
+				integer: true
+			})
+		}),
+		rd: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			min: 0
+		})
+	};
 }
 
 // Acvation Data
@@ -334,66 +637,135 @@ function getActivationItemData() {
 	return {
 		// ativacao
 		ativacao: new fields.SchemaField({
-			custo: new fields.NumberField({  required:true, initial:0 }),
-			condicao: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			execucao: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			qtd: new fields.StringField({ initial: '' }),
-			special: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			custo: new fields.NumberField({ required: true, initial: 0 }),
+			condicao: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			execucao: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			qtd: new fields.StringField({ initial: "" }),
+			special: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			})
 		}),
 		// consume
 		consume: new fields.SchemaField({
-			amount: new fields.NumberField({ initial:0 }),
-			mpMultiplier: new fields.BooleanField({ required:true, initial:false }),
-			target: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			type: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			amount: new fields.NumberField({ initial: 0 }),
+			mpMultiplier: new fields.BooleanField({ required: true, initial: false }),
+			target: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			type: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			})
 		}),
 		// duracao
 		duracao: new fields.SchemaField({
-			units: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			value: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-			special: new fields.StringField({ required: true, nullable:false, initial: '' }),
+			units: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			value: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 0
+			}),
+			special: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			})
 		}),
 		// range
 		range: new fields.SchemaField({
-			units: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			value: new fields.NumberField({ initial:0 }),
+			units: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			value: new fields.NumberField({ initial: 0 })
 		}),
 		// target
 		target: new fields.SchemaField({
-			type: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			value: new fields.NumberField({ initial:0 }),
-			width: new fields.NumberField({ initial:0 }),
+			type: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			value: new fields.NumberField({ initial: 0 }),
+			width: new fields.NumberField({ initial: 0 })
 		}),
-		
-		alcance: new fields.StringField({ required: true, nullable:false, initial: '' }),
-		alvo: new fields.StringField({ required: true, nullable:false, initial: '' }),
-		area: new fields.StringField({ required: true, nullable:false, initial: '' }),
-		efeito: new fields.StringField({ required: true, nullable:false, initial: '' }),
-	}
+
+		alcance: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: ""
+		}),
+		alvo: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: ""
+		}),
+		area: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: ""
+		}),
+		efeito: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: ""
+		})
+	};
 }
 
 // Acvation Data
 function getSaveItemData() {
 	return {
 		resistencia: new fields.SchemaField({
-			txt: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			pericia: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			atributo: new fields.StringField({ required: true, nullable:false, initial: '' }),
-			bonus: new fields.NumberField({ required: true, initial:0 }),
+			txt: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			pericia: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			atributo: new fields.StringField({
+				required: true,
+				nullable: false,
+				initial: ""
+			}),
+			bonus: new fields.NumberField({ required: true, initial: 0 })
 		})
-	}
+	};
 }
 
 export {
-	MappingField,
-	ActorSkillsField,
-	SkillData,
-	AbilitiesSchema,
-	ResistanceSchema,
 	_resourceSchema,
+	AbilitiesSchema,
+	ActorSkillsField,
+	FormulaField,
+	getActivationItemData,
 	getObjectBaseData,
 	getObjectItemData,
-	getActivationItemData,
 	getSaveItemData,
+	MappingField,
+	ResistanceSchema,
 	RollData,
-}
+	SkillData
+};

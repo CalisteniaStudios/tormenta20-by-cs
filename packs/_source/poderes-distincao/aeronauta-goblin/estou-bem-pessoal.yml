@@ -1,0 +1,118 @@
+name: Estou Bem, Pessoal!
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Por mais que o aeronauta saiba pilotar, acidentes acontecem, mas ele
+      aprendeu a estar pronto para eles.</p>
+
+      </blockquote>
+
+      <p>Voc&ecirc; recebe resist&ecirc;ncia a impacto 5 e sofre apenas metade
+      do dano de quedas. Estes benef&iacute;cios se estendem a qualquer aeronave
+      que voc&ecirc; estiver pilotando. <em>Pr&eacute;-requisito:</em> Combate
+      A&eacute;reo.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, pág. 9
+  ativacao:
+    execucao: passive
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Aeronauta Goblin
+  origin: ''
+  tags:
+    - AeronautaGoblin
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.GAkbEClbwEcoP94B
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: rvRQyEoPOuD4kdrd
+    changes:
+      - key: system.tracos.resistencias.impacto.value
+        mode: 2
+        value: '5'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estou Bem, Pessoal!
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!GAkbEClbwEcoP94B.rvRQyEoPOuD4kdrd'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1665847889294
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: GAkbEClbwEcoP94B
+folder: 62pUBDtKHHsJNktu
+sort: 0
+ownership:
+  default: 0
+_key: '!items!GAkbEClbwEcoP94B'
+

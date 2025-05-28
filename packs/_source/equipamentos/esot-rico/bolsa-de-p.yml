@@ -1,0 +1,120 @@
+name: Bolsa de Pó
+type: equipamento
+img: systems/tormenta20/icons/itens/gerais/bolsa-de-po.webp
+effects:
+  - origin: Item.Ye9upc42yVz6pHwH
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: eHWCJclZDfxaVxFQ
+    changes: []
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Bolsa de Pó: Quando lança uma magia de encantamento ou ilusão, você recebe
+      +2 PM para gastar em aprimoramentos.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!KncQ047S2f8rBvK2.eHWCJclZDfxaVxFQ'
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Uma bolsa com p&oacute; multicolorido, fabricado a partir das
+      p&eacute;talas trituradas de flores que nascem apenas na Pondsm&acirc;nia.
+      Quando lan&ccedil;a uma magia de encantamento ou ilus&atilde;o, voc&ecirc;
+      recebe +2 PM para gastar em aprimoramentos.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 159
+  equipado: false
+  equipado2:
+    slot: 0
+    type: hand
+  carregado: true
+  peso: 0
+  espacos: 1
+  qtd: 1
+  preco: 300
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: esoterico
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663377681721
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: KncQ047S2f8rBvK2
+folder: q5xr48fQpaZDdVTn
+sort: 100000
+ownership:
+  default: 0
+_key: '!items!KncQ047S2f8rBvK2'
+

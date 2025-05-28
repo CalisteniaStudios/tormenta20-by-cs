@@ -1,22 +1,23 @@
-
 import ActorSheetT20Character from "./actor-character.mjs";
 
 export default class ActorSheetT20CharacterTabbed extends ActorSheetT20Character {
 	/** @override */
-	get template() {
-		let layout = game.settings.get("tormenta20", "sheetTemplate");
-		return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
-		if ( !game.user.isGM && this.actor.limited ) {
-			return "systems/tormenta20/templates/actor/actor-sheet-limited.html";
-		} else if(layout == 'base'){
-			return "systems/tormenta20/templates/actor/actor-sheet-base.html" ;
-		} else if(layout == 'tabbed') {
-			return "systems/tormenta20/templates/actor/actor-sheet-tabbed.html";
-		}
+	static get defaultOptions() {
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			classes: ["tormenta20", "sheet", "actor", "character", "tabbed"],
+			height: 850,
+			width: 650
+		});
 	}
+
+	layout = "tabbed";
+
 	async getData() {
 		const sheetData = await super.getData();
-		sheetData['layout'] = 'tabbed';
+		const { poderes } = sheetData.actor;
+		for (const tipo of Object.keys(CONFIG.T20.powerType)) {
+			sheetData.actor[`poderes${tipo.capitalize()}`] = poderes.filter((p) => p.system.tipo === tipo);
+		}
 		return sheetData;
 	}
 }

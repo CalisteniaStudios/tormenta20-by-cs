@@ -1,0 +1,530 @@
+_id: FUc6Lrqbe8pAWJ0Q
+name: Acessórios Médios
+img: icons/svg/d20-grey.svg
+results:
+  - _id: aSNXyWFnEPzhW1Dh
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/anel.webp
+    weight: 1
+    range:
+      - 1
+      - 4
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel de Telecinesia
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.HvaItUlAcCtEUUPc
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.aSNXyWFnEPzhW1Dh'
+  - _id: QcRJUoAnUjRBF1LM
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/bola-de-cristal.webp
+    weight: 1
+    range:
+      - 5
+      - 8
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bola de Cristal
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.NQhYZu63b2iFZfv4
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.QcRJUoAnUjRBF1LM'
+  - _id: 6yEaKtPsHRfvNse0
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/caveira.webp
+    weight: 1
+    range:
+      - 9
+      - 10
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Caveira Maldita
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.UncHq3oaHPx2AuPx
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.6yEaKtPsHRfvNse0'
+  - _id: UcqVKncUI4wrzXrj
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/botas-aladas.webp
+    weight: 1
+    range:
+      - 11
+      - 14
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Botas Aladas
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.56TGgR3gpMyWTVq2
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.UcqVKncUI4wrzXrj'
+  - _id: Ojewiy9MCo7eqBWX
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/bracelete-bronze.webp
+    weight: 1
+    range:
+      - 15
+      - 18
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Braceletes de Bronze
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.VBjVXrxkC1a7P2t3
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.Ojewiy9MCo7eqBWX'
+  - _id: yUYdfqk7LiI4uT88
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/anel.webp
+    weight: 1
+    range:
+      - 19
+      - 24
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel da Energia
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.eAsClXIWZNoFXiqW
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.yUYdfqk7LiI4uT88'
+  - _id: gvmXaDBEktJtsIOK
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/anel.webp
+    weight: 1
+    range:
+      - 25
+      - 30
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel da Vitalidade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.BPnw00NblhjMIwm0
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.gvmXaDBEktJtsIOK'
+  - _id: vGd0dRZpQ1KI6qdS
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/bracadeiras-do-arqueiro.webp
+    weight: 1
+    range:
+      - 35
+      - 38
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Braçadeiras do Arqueiro
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.asJJmcBkZ5TP6Mnp
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.vGd0dRZpQ1KI6qdS'
+  - _id: nvvYESeD8t8U2EV6
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/brinco.webp
+    weight: 1
+    range:
+      - 39
+      - 42
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Brincos da Paz
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.Fbdu5n9CAaiknpAS
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.nvvYESeD8t8U2EV6'
+  - _id: O8E78EmIzXpqqA4G
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/faixas-do-pugilista.webp
+    weight: 1
+    range:
+      - 43
+      - 46
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Faixas do Pugilista
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.JqiWjXlU9pdOZTeb
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.O8E78EmIzXpqqA4G'
+  - _id: QUmLNHbMscnX7Lq2
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/manto-da-aranha.webp
+    weight: 1
+    range:
+      - 47
+      - 50
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto da Aranha
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.UUHcUX4NovvA4h1C
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.QUmLNHbMscnX7Lq2'
+  - _id: XIF79e6axWVGNVl9
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/vassoura.webp
+    weight: 1
+    range:
+      - 51
+      - 54
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vassoura Voadora
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.lH4WuC99PGlKzRgc
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.XIF79e6axWVGNVl9'
+  - _id: xD6Ey7tmpyKskPSi
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/simbolo-abencoado.webp
+    weight: 1
+    range:
+      - 55
+      - 58
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Símbolo Abençoado
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.PymQTrvR91CIsUlW
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.xD6Ey7tmpyKskPSi'
+  - _id: oh2SAi3WjJbd1uD8
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/amuleto.webp
+    weight: 1
+    range:
+      - 59
+      - 64
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Amuleto da Robustez
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.WAObGl5rjxba8J8s
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.oh2SAi3WjJbd1uD8'
+  - _id: ety8Y3qwBzMTvVDY
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/bota.webp
+    weight: 1
+    range:
+      - 65
+      - 68
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Botas Velozes
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.PihGn7sFqQLTc7IC
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.ety8Y3qwBzMTvVDY'
+  - _id: XgaRivcX2HPsGDLl
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/cinto-da-forca-do-gigante.webp
+    weight: 1
+    range:
+      - 69
+      - 74
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cinto da Força do Gigante
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.PBfThK5WWVbIY0iP
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.XgaRivcX2HPsGDLl'
+  - _id: fKLlihSwyHycUjp8
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/coroa.webp
+    weight: 1
+    range:
+      - 75
+      - 80
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Coroa Majestosa
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.Yiw7Y6JtQm81gJt1
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.fKLlihSwyHycUjp8'
+  - _id: VHJe35JLpv3J6MV8
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/manto.webp
+    weight: 1
+    range:
+      - 81
+      - 86
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Estola da Serenidade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.wVnn7FGD0t0BU11O
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.VHJe35JLpv3J6MV8'
+  - _id: AQk662yg44OjgwUe
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/manto-do-morcego.webp
+    weight: 1
+    range:
+      - 87
+      - 88
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Manto do Morcego
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.qEhhSwNSZmOAh8k4
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.AQk662yg44OjgwUe'
+  - _id: 03bpVzFTINQBaKCE
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/pulseiras-da-celeridade.webp
+    weight: 1
+    range:
+      - 89
+      - 94
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Pulseiras da Celeridade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.vHpWMHosmAzPmMIV
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.03bpVzFTINQBaKCE'
+  - _id: sucnfhSahX8RHxUO
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/coroa.webp
+    weight: 1
+    range:
+      - 95
+      - 100
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tiara da Sapiência
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.vcHZCbjaAe7Ttd1Q
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.sucnfhSahX8RHxUO'
+  - _id: PaOWGJIXh4GrPTBC
+    type: document
+    img: systems/tormenta20/icons/itens/anel-invisilidade.webp
+    weight: 1
+    range:
+      - 31
+      - 34
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Anel de Invisibilidade
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.quofrh3DWIAAjHAI
+    description: ''
+    _key: '!tables.results!FUc6Lrqbe8pAWJ0Q.PaOWGJIXh4GrPTBC'
+formula: 1d100
+replacement: true
+displayRoll: true
+folder: null
+sort: 0
+flags: {}
+ownership:
+  default: 0
+description: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.1008
+  coreVersion: '13.342'
+  createdTime: 1664312664953
+  modifiedTime: 1667354515221
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!FUc6Lrqbe8pAWJ0Q'
+

@@ -1,0 +1,104 @@
+name: Veneno de aranha gigante
+type: consumivel
+img: systems/tormenta20/icons/itens/gerais/veneno.webp
+system:
+  description:
+    value: >-
+      <p><strong>Tipo:
+      </strong><em>Ingest&atilde;o</em><strong><em>.</em></strong></p>
+
+      <p><strong>Efeito:</strong> V&iacute;tima fica fraca (anula)</p>
+
+
+
+      <p><strong>[Tesouro Especial]</strong></p>
+
+      <p><strong>Extraindo de uma aranha gigante: </strong>1d4 doses de veneno
+      de aranha gigante (CD 15 para extrair, T$ 75 cada dose)</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 287
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 0
+  espacos: 0.5
+  qtd: 1
+  preco: 0
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: alchemy
+  uses:
+    autoDestroy: false
+  chatFlavor: ''
+  origin: ''
+  subtipo: ''
+  tags: []
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: null
+  modifiedTime: 1684618219985
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: t6KNqLZXkb5VHN71
+folder: bxpHxgHjOuykr5Rh
+sort: 1100000
+ownership:
+  default: 0
+_key: '!items!t6KNqLZXkb5VHN71'
+

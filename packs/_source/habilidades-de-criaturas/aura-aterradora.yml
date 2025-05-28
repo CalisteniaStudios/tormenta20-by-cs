@@ -1,0 +1,142 @@
+name: Aura Aterradora
+type: poder
+img: systems/tormenta20/icons/poderes/ameacas/aura-aterradora.webp
+system:
+  description:
+    value: >-
+      <p>A simples vis&atilde;o de um drag&atilde;o adulto ou mais velho
+      amedronta o mais valente dos aventureiros. Uma criatura que comece seu
+      turno em alcance longo do drag&atilde;o fica apavorada (se tiver 4
+      n&iacute;veis ou menos) ou abalada (se tiver 5 n&iacute;veis ou mais)
+      at&eacute; o fim da cena (Vontade evita). Uma criatura que passe no teste
+      de resist&ecirc;ncia fica imune a esta habilidade por um dia.</p>
+    unidentified: ''
+  source: ''
+  ativacao:
+    execucao: passive
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: long
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: Vontade evita
+  rolls: []
+  tipo: racial
+  subtipo: ''
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.e31Rv6abHQNaulQA
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+    duration:
+      rounds: 99
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: au3nOz2MtQ2H9g1b
+    changes: []
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Abalado
+    img: systems/tormenta20/icons/conditions/abalado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!e31Rv6abHQNaulQA.au3nOz2MtQ2H9g1b'
+  - origin: Item.e31Rv6abHQNaulQA
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+    duration:
+      rounds: 99
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 99RlGk3AHuiCfoFE
+    changes: []
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Apavorado
+    img: systems/tormenta20/icons/conditions/abalado.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!e31Rv6abHQNaulQA.99RlGk3AHuiCfoFE'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1666318666177
+  modifiedTime: 1668270615328
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: e31Rv6abHQNaulQA
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!e31Rv6abHQNaulQA'
+

@@ -1,0 +1,86 @@
+name: Reconhecimento e Infiltração
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Para cumprir sua miss&atilde;o letal, um Cavaleiro do Corvo deve ser
+      capaz de se mover de forma r&aacute;pida e silenciosa mesmo com
+      equipamento completo.</p>
+
+      </blockquote>
+
+      <p>Voc&ecirc; n&atilde;o sofre penalidade por armadura em per&iacute;cias
+      e seu deslocamento n&atilde;o &eacute; reduzido por uso de armadura ou por
+      terreno dif&iacute;cil. Al&eacute;m disso, a penalidade que voc&ecirc;
+      sofre por fazer uma a&ccedil;&atilde;o chamativa quando usa Furtividade
+      para se esconder &eacute; reduzida para &ndash;5 (em vez de
+      &ndash;20).</p>
+
+      <p><em>Pr&eacute;-Requisitos:</em> N&atilde;o Tenho Nome, deve ter
+      executado pelo menos uma miss&atilde;o (uma aventura) em que tenha entrado
+      e sa&iacute;do furtivamente de um local relevante para seu objetivo sem
+      ser detectado.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, pág. 18
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Cavaleiro do Corvo
+  origin: ''
+  tags:
+    - CavaleirodoCorvo
+  chatFlavor: ''
+  chatGif: ''
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667073750294
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: VFfaY6EvJBIqik5S
+folder: HmYZ3wnVn66EAlGT
+sort: 0
+ownership:
+  default: 0
+_key: '!items!VFfaY6EvJBIqik5S'
+

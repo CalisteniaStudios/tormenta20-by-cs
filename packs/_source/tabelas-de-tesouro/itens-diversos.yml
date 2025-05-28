@@ -1,0 +1,597 @@
+_id: bc3rvZ76RKxnh8xN
+name: Itens Diversos
+img: icons/svg/d20-grey.svg
+results:
+  - _id: OLgi6EcvvWXabDAM
+    type: document
+    img: systems/tormenta20/icons/itens/acido.webp
+    weight: 1
+    range:
+      - 1
+      - 5
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ácido
+    documentUuid: Compendium.tormenta20.equipamentos.Item.8xfLuPry0uNNnYfz
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.OLgi6EcvvWXabDAM'
+  - _id: ApQbIguJGoYQqCzP
+    type: document
+    img: systems/tormenta20/icons/itens/agua-benta.webp
+    weight: 1
+    range:
+      - 6
+      - 10
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Água benta
+    documentUuid: Compendium.tormenta20.equipamentos.Item.labWwyXiXHl7JvE0
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.ApQbIguJGoYQqCzP'
+  - _id: cs4fvypKyXJd7Mgg
+    type: document
+    img: systems/tormenta20/icons/itens/algemas.webp
+    weight: 1
+    range:
+      - 11
+      - 11
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Algemas
+    documentUuid: Compendium.tormenta20.equipamentos.Item.lkNT2EjekhRIb5vt
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.cs4fvypKyXJd7Mgg'
+  - _id: KGYancfRzFtlM375
+    type: document
+    img: systems/tormenta20/icons/itens/balsamo.webp
+    weight: 1
+    range:
+      - 12
+      - 26
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bálsamo restaurador
+    documentUuid: Compendium.tormenta20.equipamentos.Item.26L5Yr66Qmiu02oY
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.KGYancfRzFtlM375'
+  - _id: HKfqIbg7VoABYZ4r
+    type: document
+    img: systems/tormenta20/icons/itens/corda.webp
+    weight: 1
+    range:
+      - 27
+      - 31
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Corda (10m)
+    documentUuid: Compendium.tormenta20.equipamentos.Item.zhN019SNUiYzz3aU
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.HKfqIbg7VoABYZ4r'
+  - _id: JqHjlpWDgvfkQ7GD
+    type: document
+    img: systems/tormenta20/icons/itens/bomba.webp
+    weight: 1
+    range:
+      - 32
+      - 32
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bomba
+    documentUuid: Compendium.tormenta20.equipamentos.Item.tvG1l6hpNOc7XnP8
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.JqHjlpWDgvfkQ7GD'
+  - _id: VAnd3EeLyzhSV6lV
+    type: document
+    img: systems/tormenta20/icons/itens/mana.webp
+    weight: 1
+    range:
+      - 33
+      - 47
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Essência de mana
+    documentUuid: Compendium.tormenta20.equipamentos.Item.JC6bm2uh4g7oaGge
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.VAnd3EeLyzhSV6lV'
+  - _id: yTX7kLz8DJciyEI5
+    type: document
+    img: systems/tormenta20/icons/itens/espelho-de-metal.webp
+    weight: 1
+    range:
+      - 48
+      - 49
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espelho de metal
+    documentUuid: Compendium.tormenta20.equipamentos.Item.o5AfIxUf49F8UHv4
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.yTX7kLz8DJciyEI5'
+  - _id: 5DeRLMrPcmYmFiiM
+    type: document
+    img: systems/tormenta20/icons/itens/fogo.webp
+    weight: 1
+    range:
+      - 50
+      - 54
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Fogo alquímico
+    documentUuid: Compendium.tormenta20.equipamentos.Item.bqvXc1d8etuqgOTy
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.5DeRLMrPcmYmFiiM'
+  - _id: CYGuWxWOmSgpU2Ui
+    type: document
+    img: systems/tormenta20/icons/itens/instrumento-musical.webp
+    weight: 1
+    range:
+      - 55
+      - 56
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Instrumento musical
+    documentUuid: Compendium.tormenta20.equipamentos.Item.uq053FGugxkBTn7W
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.CYGuWxWOmSgpU2Ui'
+  - _id: ONGjbiOJT58PakNK
+    type: document
+    img: systems/tormenta20/icons/itens/kit-oficio.webp
+    weight: 1
+    range:
+      - 57
+      - 58
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Kit de Ofício
+    documentUuid: Compendium.tormenta20.equipamentos.Item.mMPUi2VjdE3rNGkg
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.ONGjbiOJT58PakNK'
+  - _id: dUUhwvM8TLPxGvn4
+    type: document
+    img: systems/tormenta20/icons/itens/kit-disfarce.webp
+    weight: 1
+    range:
+      - 59
+      - 60
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Kit de disfarces
+    documentUuid: Compendium.tormenta20.equipamentos.Item.7d9rOIGNdGSTnXUG
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.dUUhwvM8TLPxGvn4'
+  - _id: YWSalbYGiFhtRbmE
+    type: document
+    img: systems/tormenta20/icons/itens/kit-ladrao.webp
+    weight: 1
+    range:
+      - 61
+      - 62
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Kit de ladrão
+    documentUuid: Compendium.tormenta20.equipamentos.Item.Wjpiz1Um7NkFXPDa
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.YWSalbYGiFhtRbmE'
+  - _id: zctA3QIOOIqUDaaS
+    type: document
+    img: systems/tormenta20/icons/itens/kit-medico.webp
+    weight: 1
+    range:
+      - 63
+      - 64
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Kit de medicamentos
+    documentUuid: Compendium.tormenta20.equipamentos.Item.MJkN9zjZCSzauSy4
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.zctA3QIOOIqUDaaS'
+  - _id: UGDHvrgw1wOXj2Se
+    type: document
+    img: systems/tormenta20/icons/itens/lampiao.webp
+    weight: 1
+    range:
+      - 65
+      - 69
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lampião
+    documentUuid: Compendium.tormenta20.equipamentos.Item.hSNkEKLoTHuywNya
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.UGDHvrgw1wOXj2Se'
+  - _id: Y1enbJVQBOKNlGys
+    type: document
+    img: systems/tormenta20/icons/itens/mochila.webp
+    weight: 1
+    range:
+      - 70
+      - 74
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mochila
+    documentUuid: Compendium.tormenta20.equipamentos.Item.aEa1jA74DcgjMdlC
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.Y1enbJVQBOKNlGys'
+  - _id: nebQJjz8ix0sOuNy
+    type: document
+    img: systems/tormenta20/icons/itens/odre.webp
+    weight: 1
+    range:
+      - 75
+      - 79
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Odre
+    documentUuid: Compendium.tormenta20.equipamentos.Item.tfn3Pvgp2qQBz6ZP
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.nebQJjz8ix0sOuNy'
+  - _id: ka7xEvjy4fLdeNkY
+    type: document
+    img: systems/tormenta20/icons/itens/pe-de-cabra.webp
+    weight: 1
+    range:
+      - 80
+      - 81
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Pé de cabra
+    documentUuid: Compendium.tormenta20.equipamentos.Item.0QLhtTZeNl25J8sg
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.ka7xEvjy4fLdeNkY'
+  - _id: TYvgfm4qEtAYo2QD
+    type: document
+    img: systems/tormenta20/icons/itens/pederneira.webp
+    weight: 1
+    range:
+      - 82
+      - 83
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Pederneira
+    documentUuid: Compendium.tormenta20.equipamentos.Item.ccWud10GWKY34k9t
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.TYvgfm4qEtAYo2QD'
+  - _id: 6sdtRHvq3XvdxKWn
+    type: document
+    img: systems/tormenta20/icons/itens/racao.webp
+    weight: 1
+    range:
+      - 84
+      - 88
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Ração de viagem (por dia)
+    documentUuid: Compendium.tormenta20.equipamentos.Item.zGMMNqHS1uxdxZGZ
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.6sdtRHvq3XvdxKWn'
+  - _id: pJtKUXtFFVFb19gR
+    type: text
+    weight: 1
+    range:
+      - 84
+      - 88
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: '[[1d6]] rações'
+    name: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.pJtKUXtFFVFb19gR'
+  - _id: ezHXICmgLqdMdHEB
+    type: document
+    img: systems/tormenta20/icons/itens/saco-de-dormir.webp
+    weight: 1
+    range:
+      - 89
+      - 93
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Saco de Dormir
+    documentUuid: Compendium.tormenta20.equipamentos.Item.ohZXRVN8Ji4Z1uSm
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.ezHXICmgLqdMdHEB'
+  - _id: PB9nCYjq386SBEUF
+    type: document
+    img: systems/tormenta20/icons/itens/tocha.webp
+    weight: 1
+    range:
+      - 94
+      - 98
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Tocha
+    documentUuid: Compendium.tormenta20.equipamentos.Item.ujmPaJ9SNjtVnfLB
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.PB9nCYjq386SBEUF'
+  - _id: iP5mpFtOH8i9m5X5
+    type: document
+    img: systems/tormenta20/icons/itens/vara.webp
+    weight: 1
+    range:
+      - 99
+      - 100
+    drawn: false
+    flags: {}
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vara de madeira (3m)
+    documentUuid: Compendium.tormenta20.equipamentos.Item.iLBmT2s4tuCfvT8R
+    description: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.iP5mpFtOH8i9m5X5'
+  - _id: g2wt5TCDg6zpLQjc
+    type: text
+    weight: 1
+    range:
+      - 94
+      - 98
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: '[[1d3]] tochas'
+    name: ''
+    _key: '!tables.results!bc3rvZ76RKxnh8xN.g2wt5TCDg6zpLQjc'
+formula: 1d100
+replacement: true
+displayRoll: true
+folder: null
+sort: 0
+flags: {}
+ownership:
+  default: 0
+description: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.1008
+  coreVersion: '13.342'
+  createdTime: 1664312665102
+  modifiedTime: 1667354515232
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!bc3rvZ76RKxnh8xN'
+

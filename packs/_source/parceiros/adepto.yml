@@ -1,0 +1,226 @@
+name: Adepto
+type: poder
+img: systems/tormenta20/icons/itens/gerais/parceiros.webp
+effects:
+  - origin: Item.WP0roXCa40nveA4L
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: '-1'
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: vxotvfOolhH4xkbu
+    changes: []
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Adepto Iniciante: custo para lançar suas magias de 1º círculo diminui –1
+      PM.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!WP0roXCa40nveA4L.vxotvfOolhH4xkbu'
+  - origin: Item.WP0roXCa40nveA4L
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: '-1'
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: QPad2QFZW9TGhihY
+    changes: []
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Adepto Veterano: reduz o custo de suas magias de 1º e 2º círculo em -1PM.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!WP0roXCa40nveA4L.QPad2QFZW9TGhihY'
+  - origin: Item.WP0roXCa40nveA4L
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: '-1'
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: zAiMFoC0tnMOshiZ
+    changes: []
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Adepto Mestre: reduz o custo de suas magias de 1º e 2º círculo em -1PM,
+      cumulativo com outras reduções.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!WP0roXCa40nveA4L.zAiMFoC0tnMOshiZ'
+flags:
+  scene-packer:
+    sourceId: Item.rOO6U1bkk4xrlize
+    defaultPermission: 2
+    hash: 489a612a8235f62cd560028b82b1bf4c35524979
+system:
+  description:
+    value: >-
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
+
+      <p>Um conjurador capaz de ajud&aacute;-lo a lan&ccedil;ar suas magias.</p>
+
+      <p><strong>Iniciante</strong>: o custo para lan&ccedil;ar suas magias de
+      1&ordm; c&iacute;rculo diminui &ndash;1 PM.</p>
+
+      <p><strong>Veterano</strong>: como acima, mas tamb&eacute;m reduz o custo
+      de suas magias de 2&ordm;&nbsp;c&iacute;rculo.</p>
+
+      <p><strong>Mestre</strong>: como acima, e esta redu&ccedil;&atilde;o se
+      torna cumulativa com outras redu&ccedil;&otilde;es.</p>
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 260
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: geral
+  subtipo: Parceiros
+  chatFlavor: ''
+  origin: ''
+  tags: []
+  chatGif: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1663051700555
+  modifiedTime: 1668270847523
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: WP0roXCa40nveA4L
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!WP0roXCa40nveA4L'
+

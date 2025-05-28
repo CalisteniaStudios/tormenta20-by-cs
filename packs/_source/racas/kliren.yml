@@ -1,0 +1,60 @@
+name: Kliren
+type: race
+img: systems/tormenta20/icons/racas/kliren.webp
+system:
+  description:
+    value: ''
+    unidentified: ''
+  source: ''
+  origin: ''
+  tags: []
+  rolltags: []
+  chatFlavor: ''
+  chatGif: ''
+  atributos:
+    for: -1
+    des: 0
+    con: 0
+    int: 2
+    sab: 0
+    car: 1
+  atributosDinamicos:
+    value: []
+    description: +1 em Três Atributos Diferentes
+  movement:
+    burrow: 0
+    climb: 0
+    fly: 0
+    swim: 0
+    walk: 9
+    hover: false
+    unit: m
+  tamanho:
+    - med
+  grants:
+    - title: ''
+      desc: ''
+      type: multi
+      choices:
+        - uuid: Compendium.tormenta20.poderes.Item.5W1KPafxjV4C7EmB
+        - uuid: Compendium.tormenta20.poderes.Item.9LjWgSEYKGmd0ix9
+        - uuid: Compendium.tormenta20.poderes.Item.YlgdiUlZOAsflTvN
+        - uuid: Compendium.tormenta20.poderes.Item.kV4orwvtjHg0Ao2M
+effects: []
+folder: null
+ownership:
+  default: 0
+flags: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.342'
+  systemId: tormenta20
+  systemVersion: 1.4.214
+  createdTime: 1747515724266
+  modifiedTime: 1747801956973
+  lastModifiedBy: t20builder000000
+_id: wMJ1gB4FmwlO5fzT
+sort: 900000
+_key: '!items!wMJ1gB4FmwlO5fzT'
+

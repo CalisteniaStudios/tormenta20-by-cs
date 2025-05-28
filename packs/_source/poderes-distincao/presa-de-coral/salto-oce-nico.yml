@@ -1,0 +1,125 @@
+name: Salto Oceânico
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Os Presas de Coral s&atilde;o t&atilde;o integrados ao oceano que podem
+      nadar at&eacute; mesmo em terra firme.</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">Voc&ecirc; recebe deslocamento de
+      nata&ccedil;&atilde;o igual ao seu deslocamento (caso j&aacute; possua
+      deslocamento de nata&ccedil;&atilde;o, ele aumenta em 6 metros).
+      Al&eacute;m disso, voc&ecirc; aprende e pode lan&ccedil;ar a magia Salto
+      Dimensional sem precisar de gestos ou palavras, e pode
+      lan&ccedil;&aacute;-la como uma a&ccedil;&atilde;o de movimento se estiver
+      imerso na &aacute;gua, sob a chuva ou em solo molhado, mas nunca pode
+      lan&ccedil;&aacute;-la em outros alvos.</p>
+
+      <p class="MsoNormal"><em>Pr&eacute;-requisito</em>: um poder de Presa de
+      Coral.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 40-41
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Presa de Coral
+  origin: ''
+  tags:
+    - PresadeCoral
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.XPr7Dnh8MdN1yt7D
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: BqUMclJkyba1dY8e
+    changes:
+      - key: system.attribute.movement.swim
+        mode: 2
+        value: '9'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Salto Oceânico
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!XPr7Dnh8MdN1yt7D.BqUMclJkyba1dY8e'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083101946
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: XPr7Dnh8MdN1yt7D
+folder: vsGbYK3LgW5Oreol
+sort: 0
+ownership:
+  default: 0
+_key: '!items!XPr7Dnh8MdN1yt7D'
+

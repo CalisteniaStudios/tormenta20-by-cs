@@ -1,0 +1,81 @@
+_id: 0QLhtTZeNl25J8sg
+name: Pé de cabra
+type: tesouro
+img: systems/tormenta20/icons/itens/gerais/pe-de-cabra.webp
+effects: []
+folder: 0G5uMjOsWAFaPYAZ
+sort: 782
+flags: {}
+system:
+  description:
+    value: >-
+      <p>&nbsp;Esta barra de ferro fornece +5 em testes de For&ccedil;a para
+      abrir portas, janelas e ba&uacute;s fechados. Um p&eacute; de cabra pode
+      ser usado como arma, com as estat&iacute;sticas de uma clava.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 155
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 2.5
+  espacos: 1
+  qtd: 1
+  preco: 2
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  container: false
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+  ativacao:
+    custo: 0
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  consume:
+    amount: 0
+    mpMultiplier: false
+    target: ''
+    type: ''
+  duracao:
+    units: ''
+    value: 0
+    special: ''
+  range:
+    units: ''
+    value: 0
+  target:
+    type: ''
+    value: 0
+    width: 0
+  alcance: ''
+  alvo: ''
+  area: ''
+  efeito: ''
+  resistencia:
+    txt: ''
+    pericia: ''
+    atributo: ''
+    bonus: 0
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1664312772387
+  modifiedTime: 1684617941414
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!items!0QLhtTZeNl25J8sg'
+

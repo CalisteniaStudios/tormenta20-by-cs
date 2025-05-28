@@ -1,0 +1,5 @@
+* text eol=lf
+*.json text eol=lf
+*.jpg -text
+*.png -text
+*.webp -text

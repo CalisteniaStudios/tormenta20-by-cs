@@ -1,17 +1,17 @@
 export const T20AmmoUpgrades = {};
 
 T20AmmoUpgrades.status = {
-	accurate: 'DONE',
-	pungent: 'DONE',
-	cruel: 'DONE',
-	atrocious: 'DONE',
-	balanced: 'DONE',
-	harmonized: 'DONE',
-	injection:'MANUAL',
-	massive: 'DONE',
-	specialmaterial: 'MANUAL',
-	scope: 'MANUAL',
-	precise: 'DONE',
+	accurate: "DONE",
+	pungent: "DONE",
+	cruel: "DONE",
+	atrocious: "DONE",
+	balanced: "DONE",
+	harmonized: "DONE",
+	injection: "MANUAL",
+	massive: "DONE",
+	specialmaterial: "MANUAL",
+	scope: "MANUAL",
+	precise: "DONE"
 };
 
 T20AmmoUpgrades.accurate = {
@@ -20,14 +20,14 @@ T20AmmoUpgrades.accurate = {
 	tint: "#FFFFFF",
 	changes: [
 		{
-			"key": "ataque",
-			"value": "1",
-			"mode": 2,
-			"priority": 0
+			key: "ataque",
+			value: "1",
+			mode: 2,
+			priority: 0
 		}
 	],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "accurate",
@@ -37,7 +37,7 @@ T20AmmoUpgrades.accurate = {
 	},
 	disabled: false,
 	transfer: true
-}
+};
 
 T20AmmoUpgrades.pungent = {
 	name: "T20.WeaponUpgradesPungent",
@@ -45,14 +45,14 @@ T20AmmoUpgrades.pungent = {
 	tint: "#FFFFFF",
 	changes: [
 		{
-			"key": "ataque",
-			"value": "2",
-			"mode": 2,
-			"priority": 0
+			key: "ataque",
+			value: "2",
+			mode: 2,
+			priority: 0
 		}
 	],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "pungent",
@@ -70,14 +70,14 @@ T20AmmoUpgrades.cruel = {
 	tint: "#FF0000",
 	changes: [
 		{
-			"key": "dano",
-			"value": "1",
-			"mode": 2,
-			"priority": 0
+			key: "dano",
+			value: "1",
+			mode: 2,
+			priority: 0
 		}
 	],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "cruel",
@@ -95,14 +95,14 @@ T20AmmoUpgrades.atrocious = {
 	tint: "#FF0000",
 	changes: [
 		{
-			"key": "dano",
-			"value": "2",
-			"mode": 2,
-			"priority": 0
+			key: "dano",
+			value: "2",
+			mode: 2,
+			priority: 0
 		}
 	],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "atrocious",
@@ -120,14 +120,14 @@ T20AmmoUpgrades.balanced = {
 	tint: "#00FF00",
 	changes: [
 		{
-			"key": "system.pericias.luta.outros",
-			"value": "2",
-			"mode": 2,
-			"priority": 0
+			key: "system.pericias.luta.outros",
+			value: "2",
+			mode: 2,
+			priority: 0
 		}
 	],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "balanced",
@@ -146,8 +146,8 @@ T20AmmoUpgrades.harmonized = {
 	description: "T20.WeaponUpgradesTooltipHarmonized",
 	tint: "#FFFF00",
 	changes: [],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "harmonized",
@@ -166,14 +166,14 @@ T20AmmoUpgrades.massive = {
 	tint: "#800080",
 	changes: [
 		{
-			"key": "criticoX",
-			"value": "1",
-			"mode": 2,
-			"priority": 0
+			key: "criticoX",
+			value: "1",
+			mode: 2,
+			priority: 0
 		}
 	],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "massive",
@@ -191,14 +191,14 @@ T20AmmoUpgrades.precise = {
 	tint: "#808080",
 	changes: [
 		{
-			"key": "criticoM",
-			"value": "-1",
-			"mode": 2,
-			"priority": 0
+			key: "criticoM",
+			value: "-1",
+			mode: 2,
+			priority: 0
 		}
 	],
-	flags: { 
-		tormenta20: { 
+	flags: {
+		tormenta20: {
 			onuse: true,
 			durationScene: false,
 			upgrade: "precise",

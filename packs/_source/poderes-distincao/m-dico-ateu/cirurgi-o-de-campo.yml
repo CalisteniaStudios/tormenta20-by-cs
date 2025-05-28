@@ -1,0 +1,88 @@
+name: Cirurgião de Campo
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Acostumado a praticar seu of&iacute;cio sob press&atilde;o, um doutor
+      aprende a agir rapidamente e a tratar os mais severos ferimentos.</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">O tempo que voc&ecirc; leva para usar itens
+      alqu&iacute;micos e po&ccedil;&otilde;es que recuperem PV, PM ou
+      condi&ccedil;&otilde;es &eacute; reduzido em um passo (de
+      a&ccedil;&atilde;o completa para padr&atilde;o e de a&ccedil;&atilde;o
+      padr&atilde;o para movimento). Al&eacute;m disso, voc&ecirc; pode gastar 6
+      PM e uma a&ccedil;&atilde;o completa para fazer um teste de Cura (CD 30)
+      em uma criatura que tenha morrido h&aacute; at&eacute; 1 rodada. Se
+      voc&ecirc; passar, a criatura &eacute; ressuscitada com 0 ponto de vida e
+      estabilizada. Voc&ecirc; pode usar esse poder uma vez por dia por
+      criatura.</p>
+
+      <p class="MsoNormal"><em>Pr&eacute;-requisitos:</em> Medicina
+      Avan&ccedil;ada, deve ter usado primeiros socorros com um resultado 30 ou
+      mais em pelo menos tr&ecirc;s criaturas.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 28-29
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Médico Ateu
+  origin: ''
+  tags:
+    - MedicoAteu
+  chatFlavor: ''
+  chatGif: ''
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083101946
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: lNCPPBamuSThA0Gm
+folder: EckmJGi0doueXy41
+sort: 0
+ownership:
+  default: 0
+_key: '!items!lNCPPBamuSThA0Gm'
+

@@ -1,0 +1,122 @@
+name: Costela de Lich
+type: equipamento
+img: systems/tormenta20/icons/itens/gerais/costela-de-lich.webp
+effects:
+  - origin: Item.FLmuXN3wg9KxC3BH
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: H6DQFuSF71NcRSIr
+    changes:
+      - key: dano
+        mode: 2
+        value: 1d6
+        priority: 0
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Costela de Lich: Causa +1d6 pontos de dano de trevas.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!hJSIRtVZKM0fmDb5.H6DQFuSF71NcRSIr'
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Esta varinha &eacute; feita a partir do osso de um morto-vivo. Suas
+      magias causam +1d6 pontos de dano de trevas. Se estiver empunhando esta
+      varinha voc&ecirc; n&atilde;o recupera PV por efeitos m&aacute;gicos de
+      cura.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 160
+  equipado: false
+  equipado2:
+    slot: 0
+    type: hand
+  carregado: true
+  peso: 0
+  espacos: 1
+  qtd: 1
+  preco: 300
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: esoterico
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663377681721
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: hJSIRtVZKM0fmDb5
+folder: q5xr48fQpaZDdVTn
+sort: 125000
+ownership:
+  default: 0
+_key: '!items!hJSIRtVZKM0fmDb5'
+

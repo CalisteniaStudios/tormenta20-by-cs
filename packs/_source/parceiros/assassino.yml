@@ -1,0 +1,252 @@
+name: Assassino
+type: poder
+img: systems/tormenta20/icons/itens/gerais/parceiros.webp
+effects:
+  - origin: Item.BNhavlxkPCr8P4Vi
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: true
+        skill: false
+        ability: false
+        power: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: JrSMxQnTD6qJd9t2
+    changes:
+      - key: dano
+        mode: 2
+        value: 1d6
+        priority: 0
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Assassino Iniciante: Ataque Furtivo +1d6.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!BNhavlxkPCr8P4Vi.JrSMxQnTD6qJd9t2'
+  - origin: Item.BNhavlxkPCr8P4Vi
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: true
+        skill: false
+        ability: false
+        power: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: rZhb3HeR5I9Z8TUE
+    changes:
+      - key: ataque
+        mode: 2
+        value: '2'
+        priority: 0
+      - key: dano
+        mode: 2
+        value: 1d6
+        priority: 0
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Assassino Veterano: Ataque Furtivo +1d6 e recebe o bônus de flanquear
+      contra um inimigo por rodada.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!BNhavlxkPCr8P4Vi.rZhb3HeR5I9Z8TUE'
+  - origin: Item.BNhavlxkPCr8P4Vi
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: true
+        skill: false
+        ability: false
+        power: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: 6RK2uZN4xhG3eyow
+    changes:
+      - key: dano
+        mode: 2
+        value: 2d6
+        priority: 0
+      - key: ataque
+        mode: 2
+        value: '2'
+        priority: 0
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: >-
+      Assassino Mestre: Ataque Furtivo +2d6 e recebe o bônus de flanquear contra
+      um inimigo por rodada.
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!BNhavlxkPCr8P4Vi.6RK2uZN4xhG3eyow'
+flags:
+  scene-packer:
+    sourceId: Item.rOO6U1bkk4xrlize
+    defaultPermission: 2
+    hash: 489a612a8235f62cd560028b82b1bf4c35524979
+system:
+  description:
+    value: >-
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
+
+      <p>Um ladino ou outro tipo furtivo que mata pessoas.</p>
+
+      <p><strong>Iniciante</strong>: voc&ecirc; recebe a habilidade Ataque
+      Furtivo +1d6. Se j&aacute; possui a habilidade, o b&ocirc;nus &eacute;
+      cumulativo.</p>
+
+      <p><strong>Veterano</strong>: al&eacute;m do Ataque Furtivo, fornece
+      b&ocirc;nus por flanquear contra um inimigo por rodada.</p>
+
+      <p><strong>Mestre</strong>: muda o dano do Ataque Furtivo para +2d6.</p>
+
+      <p>Note que, al&eacute;m de fornecer +2 em testes de ataque corpo a corpo,
+      o b&ocirc;nus por flanquear facilita que o personagem use seu Ataque
+      Furtivo.</p>
+
+      <p>Esse b&ocirc;nus pode ser utilizado apenas em um ataque por rodada.</p>
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 260
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: geral
+  subtipo: Parceiros
+  chatFlavor: ''
+  origin: ''
+  tags: []
+  chatGif: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1663051700555
+  modifiedTime: 1668270847523
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: BNhavlxkPCr8P4Vi
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!BNhavlxkPCr8P4Vi'
+

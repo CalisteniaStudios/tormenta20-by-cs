@@ -1,0 +1,125 @@
+name: Sorriso Trágico
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>A melancolia por tr&aacute;s do sorriso de um menestrel maldito
+      &eacute; extremamente sedutora. Muitos cora&ccedil;&otilde;es j&aacute;
+      foram partidos dessa forma.</p>
+
+      </blockquote>
+
+      <p class="MsoNormal">Voc&ecirc; recebe +2 em Diplomacia e
+      Engana&ccedil;&atilde;o. Esse b&ocirc;nus aumenta em +1 para cada outros
+      dois poderes de menestrel maldito.</p>
+
+      <p class="MsoNormal"><em>Pr&eacute;-requisito</em>: T&eacute;cnica
+      Endiabrada.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, págs. 38-39
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Menestrel Maldito
+  origin: ''
+  tags:
+    - MenestrelMaldito
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.3MtkryIq3nlzgrWW
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: Z4UVwmoqyXhjYAav
+    changes:
+      - key: system.pericias.dipl.bonus
+        mode: 2
+        value: (@MenestrelMaldito2*1)
+        priority: null
+      - key: system.pericias.enga.bonus
+        mode: 2
+        value: (@MenestrelMaldito2*1)
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sorriso Trágico
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!3MtkryIq3nlzgrWW.Z4UVwmoqyXhjYAav'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667083101946
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: 3MtkryIq3nlzgrWW
+folder: y8ETZkiSeolvnkXp
+sort: 0
+ownership:
+  default: 0
+_key: '!items!3MtkryIq3nlzgrWW'
+

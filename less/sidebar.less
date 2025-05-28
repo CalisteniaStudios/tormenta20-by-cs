@@ -1,24 +1,13 @@
-.directory-item {
-  .entity-name,
-  .document-name,
-  .entry-name {
-    text-overflow: ellipsis;
-    padding-right: 10px;
-  }
-}
-
 .actors-sidebar {
   .directory-item.actor {
-      h4 {
-          line-height: normal;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-      }
-
+    a.entry-name.ellipsis {
+      line-height: var(--font-size-15);
+      padding: 10px 10px 10px 0px;
       .actor-level {
-          font-size: x-small;
-          color: var(--color-text-light-primary);
+        font-size: x-small;
+        color: var(--color-text-secondary);
+        margin: 0;
       }
+    }
   }
 }

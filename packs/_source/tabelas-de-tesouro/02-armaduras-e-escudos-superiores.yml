@@ -1,0 +1,266 @@
+_id: 9PhQW4aV50V0il75
+name: 02 Armaduras e Escudos Superiores
+img: icons/svg/d20-grey.svg
+results:
+  - _id: 0nTFFMQID1unzQuv
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 1
+      - 15
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Ajustada
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.0nTFFMQID1unzQuv'
+  - _id: H6fp0hNTiO7tZn9I
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 16
+      - 25
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Sob Medida (Conta como duas modificações)
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.H6fp0hNTiO7tZn9I'
+  - _id: UwZoM3d83WjDVbOv
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 26
+      - 50
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Reforçada
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.UwZoM3d83WjDVbOv'
+  - _id: v8f8ihLXyB4VX7jT
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 51
+      - 60
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Selada
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.v8f8ihLXyB4VX7jT'
+  - _id: kmnnRWEq63X7YRum
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 61
+      - 65
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Delicada
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.kmnnRWEq63X7YRum'
+  - _id: ECoG3bQjzCRZ2azs
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 66
+      - 70
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Polida
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.ECoG3bQjzCRZ2azs'
+  - _id: CQaHYy3TfqFhbPWx
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 71
+      - 75
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Espinhos
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.CQaHYy3TfqFhbPWx'
+  - _id: 36bjMqkRw4hciu3B
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 76
+      - 80
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Banhada a Ouro
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.36bjMqkRw4hciu3B'
+  - _id: 0Hv76jaDHu0XAThG
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 81
+      - 85
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Cravejada de Gemas
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.0Hv76jaDHu0XAThG'
+  - _id: pNI1zpiA0FT0vlX3
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 86
+      - 90
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Macabra
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.pNI1zpiA0FT0vlX3'
+  - _id: pubkomyQKBI7u4G2
+    type: text
+    weight: 1
+    range:
+      - 91
+      - 100
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Material Especial
+    name: ''
+    _key: '!tables.results!9PhQW4aV50V0il75.pubkomyQKBI7u4G2'
+formula: 1d100
+replacement: true
+displayRoll: true
+folder: null
+sort: 0
+flags: {}
+ownership:
+  default: 0
+description: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.1008
+  coreVersion: '13.342'
+  createdTime: 1664312664941
+  modifiedTime: 1667354515210
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!9PhQW4aV50V0il75'
+

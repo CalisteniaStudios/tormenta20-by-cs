@@ -1,0 +1,121 @@
+name: Varinha Arcana
+type: equipamento
+img: systems/tormenta20/icons/itens/gerais/varinha-arcana.webp
+effects:
+  - origin: Item.FLmuXN3wg9KxC3BH
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: H6DQFuSF71NcRSIr
+    changes:
+      - key: cd
+        mode: 2
+        value: '1'
+        priority: 0
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Varinha Arcana: A CD para resistir às suas magias arcanas aumenta em +1.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!wPChv8ymcWkPofWu.H6DQFuSF71NcRSIr'
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Uma varinha t&iacute;pica, feita de madeira de boa qualidade e
+      entalhada com runas. A CD para resistir a suas magias arcanas aumenta em
+      +1.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 160
+  equipado: false
+  equipado2:
+    slot: 0
+    type: hand
+  carregado: true
+  peso: 0
+  espacos: 1
+  qtd: 1
+  preco: 100
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: esoterico
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663377681721
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: wPChv8ymcWkPofWu
+folder: q5xr48fQpaZDdVTn
+sort: 300000
+ownership:
+  default: 0
+_key: '!items!wPChv8ymcWkPofWu'
+

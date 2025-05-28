@@ -1,0 +1,118 @@
+name: Bote
+type: poder
+img: systems/tormenta20/icons/poderes/ameacas/bote.webp
+system:
+  description:
+    value: >-
+      <p>O grifo faz uma investida e ataca com sua mordida e suas duas garras.
+      Os tr&ecirc;s ataques recebem o b&ocirc;nus de +2 da investida, mas devem
+      ser feitos contra o mesmo alvo.</p>
+    unidentified: ''
+  source: ''
+  ativacao:
+    execucao: full
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: ability
+  subtipo: ''
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.O33OJJxfLmdoYa33
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: true
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: Q9Nx00b81V4boOgR
+    changes:
+      - key: ataque
+        mode: 2
+        value: '2'
+        priority: 0
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Bote
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!ULey4aDXMLnkrrrN.Q9Nx00b81V4boOgR'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1666321513948
+  modifiedTime: 1668270615328
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: ULey4aDXMLnkrrrN
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!ULey4aDXMLnkrrrN'
+

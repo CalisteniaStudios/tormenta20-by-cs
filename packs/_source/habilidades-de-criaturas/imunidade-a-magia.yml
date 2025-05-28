@@ -1,0 +1,104 @@
+type: poder
+name: Imunidade a Magia
+img: systems/tormenta20/icons/poderes/ameacas/imunidade-magia.webp
+system:
+  description:
+    value: >-
+      O golem de ferro é imune a efeitos mágicos, com as seguintes exceções.
+      Efeitos mágicos de eletricidade deixam o golem de ferro lento por 1d6
+      rodadas. Efeitos mágicos de fogo removem a condição lento e curam 1 PV
+      para cada 3 pontos de dano que causariam
+    unidentified: ''
+  source: ''
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: ability
+  subtipo: ''
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.fCqhLlEwnuVp5d1h
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: PowuR4jXzudQ5wVx
+    changes: []
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lento
+    img: systems/tormenta20/icons/conditions/lento.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!fCqhLlEwnuVp5d1h.PowuR4jXzudQ5wVx'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1667006548755
+  modifiedTime: 1668270615330
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: fCqhLlEwnuVp5d1h
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!fCqhLlEwnuVp5d1h'
+

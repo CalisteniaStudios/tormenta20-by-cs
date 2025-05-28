@@ -1,0 +1,151 @@
+_id: 34ZGhD61vaoBYaZD
+name: Escudo do Conjurador
+type: equipamento
+img: systems/tormenta20/icons/itens/itens-magicos/escudo-do-conjurador.webp
+effects:
+  - origin: Item.34ZGhD61vaoBYaZD
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: xSZYSBzl9OV2uZEN
+    changes:
+      - key: system.attributes.defesa.bonus
+        mode: 2
+        value: '2'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Defensor
+    img: systems/tormenta20/icons/itens/itens-magicos/escudo-do-conjurador.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!34ZGhD61vaoBYaZD.xSZYSBzl9OV2uZEN'
+folder: SkZDe8cUamd0vHjD
+sort: 103125
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Este <strong>escudo leve defensor</strong> tem uma pequena tira de
+      couro na parte interna, sobre a qual um conjurador pode lançar uma magia.
+      A magia não surte efeito na hora; em vez disso, fica inscrita na tira. A
+      tira pode então ser lida como um pergaminho. Uma vez que a magia seja
+      lançada, outra pode ser inscrita.</p><p><b>Defensor</b> O item é encantado
+      para desviar golpes. O bônus na Defesa do item aumenta em +2</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 340
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 3
+  espacos: 1
+  qtd: 1
+  preco: 45000
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: escudo
+  armadura:
+    value: 1
+    penalidade: -1
+    maxAtr: 0
+  rolls: []
+  melhorias:
+    thorny: null
+    adjusted: null
+    undermeasure: null
+    delicate: null
+    specialmaterial: null
+    polished: null
+    reinforced: null
+    sealed: null
+    golden: null
+    gems: null
+    discreet: null
+    macabre: null
+  encantos:
+    animateed: null
+    bashing: null
+    abascanth: null
+    blessed: null
+    acrobatic: null
+    winged: null
+    frightful: null
+    caustic: null
+    defending: Defensor
+    slick: null
+    ghostly: null
+    ortification: null
+    frost: null
+    guardian: null
+    hypnotic: null
+    illusory: null
+    incandescent: null
+    invulnerable: null
+    opaque: null
+    protector: null
+    reflecting: null
+    lightning: null
+    blinding: null
+    shadow: null
+    zealous: null
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+  ativacao:
+    custo: 0
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: defending
+    encanto2: ''
+    encanto3: ''
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1664314000086
+  modifiedTime: 1684622968431
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!items!34ZGhD61vaoBYaZD'
+

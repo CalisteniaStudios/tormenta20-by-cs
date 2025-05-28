@@ -1,0 +1,640 @@
+_id: d24tb9DE0tiOQfBV
+name: 03 Armas Mágicas
+img: icons/svg/d20-grey.svg
+results:
+  - _id: y5Uz5bTMSVoebt6z
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 1
+      - 5
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Ameaçadora
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.y5Uz5bTMSVoebt6z'
+  - _id: PR6w2x7dMKvzqiEX
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 6
+      - 10
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Anticriatura
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.PR6w2x7dMKvzqiEX'
+  - _id: DtdblzBdIRlaHPB5
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 11
+      - 12
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Arremesso
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.DtdblzBdIRlaHPB5'
+  - _id: 0eY5obsluJbzAbID
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 13
+      - 14
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Assassina
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.0eY5obsluJbzAbID'
+  - _id: wNt7XKRfFbvhWpEf
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 15
+      - 16
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Caçadora
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.wNt7XKRfFbvhWpEf'
+  - _id: mqA4OOXOqUAEHcNe
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 17
+      - 21
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Congelante
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.mqA4OOXOqUAEHcNe'
+  - _id: 9wJL5UJnhSOO8L38
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 22
+      - 23
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Conjuradora
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.9wJL5UJnhSOO8L38'
+  - _id: XznOsOae2mCf11JV
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 24
+      - 28
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Corrosiva
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.XznOsOae2mCf11JV'
+  - _id: i1GSiCjd73Fr9Htn
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 29
+      - 30
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Dançarina
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.i1GSiCjd73Fr9Htn'
+  - _id: FSAJsIyzD7HQWARN
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 31
+      - 34
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Defensora
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.FSAJsIyzD7HQWARN'
+  - _id: I3Vo4O0jboba5WgB
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 35
+      - 36
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Drestruidora
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.I3Vo4O0jboba5WgB'
+  - _id: 1i0yBSdHdpE9Qxkw
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 37
+      - 38
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Drenante
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.1i0yBSdHdpE9Qxkw'
+  - _id: F8Jm045wrjBMRhkj
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 39
+      - 43
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Elétrica
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.F8Jm045wrjBMRhkj'
+  - _id: kMZqptrEcakOknIY
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 44
+      - 45
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Energética (Conta como dois encantos)
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.kMZqptrEcakOknIY'
+  - _id: FojmoFWIix4Meae8
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 46
+      - 47
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Excruciante
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.FojmoFWIix4Meae8'
+  - _id: 7TmtRd5sqJHdCYO5
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 48
+      - 52
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Flamejante
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.7TmtRd5sqJHdCYO5'
+  - _id: f2oDX6xnwxNKap2M
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 53
+      - 62
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Formidável
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.f2oDX6xnwxNKap2M'
+  - _id: t1d1ZRGBCNkJOfWt
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 63
+      - 64
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Lancinante
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.t1d1ZRGBCNkJOfWt'
+  - _id: RfGk1xmCngn1F7hD
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 65
+      - 72
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Magnífica (Conta como dois encantos)
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.RfGk1xmCngn1F7hD'
+  - _id: 3lpTfxbOl3eUrd8w
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 73
+      - 74
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Piedosa
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.3lpTfxbOl3eUrd8w'
+  - _id: x51AJjaufbw6iSb4
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 75
+      - 76
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Profana
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.x51AJjaufbw6iSb4'
+  - _id: NcnMSdFIWLCnEszC
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 77
+      - 78
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Sagrada
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.NcnMSdFIWLCnEszC'
+  - _id: XCFhR7PRbrNZDUK7
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 79
+      - 80
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Sanguinária
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.XCFhR7PRbrNZDUK7'
+  - _id: synpdzc2v3zLcTdY
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 81
+      - 82
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Trovejante
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.synpdzc2v3zLcTdY'
+  - _id: GV1X2J4Dt8rMwRaU
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 83
+      - 84
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Tumular
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.GV1X2J4Dt8rMwRaU'
+  - _id: z9B2je9Xj3Rp1Hkr
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 85
+      - 88
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Veloz
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.z9B2je9Xj3Rp1Hkr'
+  - _id: fzGxeXpycY7epd42
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 89
+      - 90
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Venenosa
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.fzGxeXpycY7epd42'
+  - _id: kp99p4YA1glVKbEe
+    type: text
+    weight: 1
+    range:
+      - 91
+      - 100
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Arma específica
+    name: ''
+    _key: '!tables.results!d24tb9DE0tiOQfBV.kp99p4YA1glVKbEe'
+formula: 1d100
+replacement: true
+displayRoll: true
+folder: null
+sort: 0
+flags: {}
+ownership:
+  default: 0
+description: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.1008
+  coreVersion: '13.342'
+  createdTime: 1664312665113
+  modifiedTime: 1667354515213
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!d24tb9DE0tiOQfBV'
+

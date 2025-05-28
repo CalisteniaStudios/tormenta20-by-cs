@@ -1,0 +1,59 @@
+name: Dahllan
+type: race
+img: systems/tormenta20/icons/racas/dahllan.webp
+system:
+  description:
+    value: ''
+    unidentified: ''
+  source: ''
+  origin: ''
+  tags: []
+  rolltags: []
+  chatFlavor: ''
+  chatGif: ''
+  atributos:
+    for: 0
+    des: 1
+    con: 0
+    int: -1
+    sab: 2
+    car: 0
+  movement:
+    burrow: 0
+    climb: 0
+    fly: 0
+    swim: 0
+    walk: 9
+    hover: false
+    unit: m
+  tamanho:
+    - med
+  atributosDinamicos:
+    value: []
+    description: +1 em Três Atributos Diferentes
+  grants:
+    - title: ''
+      desc: ''
+      type: multi
+      choices:
+        - uuid: Compendium.tormenta20.poderes.Item.p7v7djagMfcV24FI
+        - uuid: Compendium.tormenta20.poderes.Item.azlQPwLSPLE0hm04
+        - uuid: Compendium.tormenta20.poderes.Item.CqQidKBaMloCcYbp
+effects: []
+folder: null
+ownership:
+  default: 0
+flags: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.342'
+  systemId: tormenta20
+  systemVersion: 1.4.214
+  createdTime: 1747515717482
+  modifiedTime: 1747801885425
+  lastModifiedBy: t20builder000000
+_id: BAX0RUhauH7Sqve2
+sort: 1800000
+_key: '!items!BAX0RUhauH7Sqve2'
+

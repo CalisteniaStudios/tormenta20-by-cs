@@ -1,0 +1,35 @@
+_id: u3fr3IOtTXmsk2BT
+name: Bardo
+type: classe
+img: systems/tormenta20/icons/classes/bardo.webp
+effects: []
+folder: null
+sort: 0
+flags: {}
+system:
+  description:
+    value: ''
+    unidentified: ''
+  source: ''
+  niveis: 1
+  pvPorNivel: 3
+  pmPorNivel: 4
+  inicial: false
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1664312712758
+  modifiedTime: 1668270628857
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!items!u3fr3IOtTXmsk2BT'
+

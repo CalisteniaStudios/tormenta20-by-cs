@@ -1,0 +1,300 @@
+_id: kZ5SIHrPXGytuHo2
+name: Armaduras e Escudos
+img: icons/svg/d20-grey.svg
+results:
+  - _id: YDN1rPtaFJnpOxOE
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/acolchoada.webp
+    weight: 1
+    range:
+      - 1
+      - 5
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Armadura acolchoada
+    documentUuid: Compendium.tormenta20.equipamentos.Item.1YPU63ssevbZjxzw
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.YDN1rPtaFJnpOxOE'
+  - _id: QXefv5LGgybIYFXY
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/completa.webp
+    weight: 1
+    range:
+      - 6
+      - 20
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Armadura completa
+    documentUuid: Compendium.tormenta20.equipamentos.Item.CTeeKAq8zZlaJTpA
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.QXefv5LGgybIYFXY'
+  - _id: YOS6UsipI3eFUmW3
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/couro.webp
+    weight: 1
+    range:
+      - 21
+      - 25
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Armadura de couro
+    documentUuid: Compendium.tormenta20.equipamentos.Item.Yz49Gs97dQw2emgU
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.YOS6UsipI3eFUmW3'
+  - _id: uBszeZp6zA417BDI
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/brunea.webp
+    weight: 1
+    range:
+      - 26
+      - 30
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Brunea
+    documentUuid: Compendium.tormenta20.equipamentos.Item.0Zlo3JJpJsaZwyNS
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.uBszeZp6zA417BDI'
+  - _id: xk0ESVfjPzp5Gor3
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/malha.webp
+    weight: 1
+    range:
+      - 31
+      - 35
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cota de malha
+    documentUuid: Compendium.tormenta20.equipamentos.Item.wvwi8zPSP8mRx7LO
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.xk0ESVfjPzp5Gor3'
+  - _id: 1qZvuSouHWiFVBd0
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/couraca.webp
+    weight: 1
+    range:
+      - 36
+      - 50
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Couraça
+    documentUuid: Compendium.tormenta20.equipamentos.Item.JVB4JAaxPjf0PFFN
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.1qZvuSouHWiFVBd0'
+  - _id: IS1ys7WnPcA2nL0y
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/couro-batido.webp
+    weight: 1
+    range:
+      - 51
+      - 60
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Couro batido
+    documentUuid: Compendium.tormenta20.equipamentos.Item.WgvSphAYGMovXy4w
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.IS1ys7WnPcA2nL0y'
+  - _id: owtLI6m4JSkTycvk
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/escudo-leve.webp
+    weight: 1
+    range:
+      - 61
+      - 70
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo leve
+    documentUuid: Compendium.tormenta20.equipamentos.Item.0w1vZm2RGM40opxT
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.owtLI6m4JSkTycvk'
+  - _id: JqXpNGLxkSLbw0ms
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/escudo-pesado.webp
+    weight: 1
+    range:
+      - 71
+      - 80
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Escudo pesado
+    documentUuid: Compendium.tormenta20.equipamentos.Item.1yGTB9tyXXSaN1wS
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.JqXpNGLxkSLbw0ms'
+  - _id: XhJipk6WLIY5GBwQ
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/peles.webp
+    weight: 1
+    range:
+      - 81
+      - 85
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Gibão de peles
+    documentUuid: Compendium.tormenta20.equipamentos.Item.JKt9XIXTwuIjMbLD
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.XhJipk6WLIY5GBwQ'
+  - _id: 84FpEgr6CcUfZImJ
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/loriga.webp
+    weight: 1
+    range:
+      - 86
+      - 90
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Loriga segmentada
+    documentUuid: Compendium.tormenta20.equipamentos.Item.kuaSYghrOnRFa1Om
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.84FpEgr6CcUfZImJ'
+  - _id: K9ZNcGpKmRDzzwrJ
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/meia-armadura.webp
+    weight: 1
+    range:
+      - 91
+      - 100
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Meia armadura
+    documentUuid: Compendium.tormenta20.equipamentos.Item.nFV1X6lQbAhbocA6
+    description: ''
+    _key: '!tables.results!kZ5SIHrPXGytuHo2.K9ZNcGpKmRDzzwrJ'
+formula: 1d12
+replacement: true
+displayRoll: true
+folder: null
+sort: 0
+flags: {}
+ownership:
+  default: 0
+description: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.1008
+  coreVersion: '13.342'
+  createdTime: 1664312665118
+  modifiedTime: 1667354515224
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!kZ5SIHrPXGytuHo2'
+

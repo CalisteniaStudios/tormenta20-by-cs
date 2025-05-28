@@ -1,0 +1,224 @@
+name: Dance!
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>Todos os gestos do chap&eacute;u preto inspiram amea&ccedil;a.</p>
+
+      </blockquote>
+
+      <p><br>Quando faz um teste de Intimida&ccedil;&atilde;o, voc&ecirc; pode
+      gastar 1 PM para fazer uma demonstra&ccedil;&atilde;o de habilidade com
+      sua arma como parte deste teste. Se fizer isso, voc&ecirc; recebe um
+      b&ocirc;nus em seu teste de Intimida&ccedil;&atilde;o igual ao seu
+      modificador de For&ccedil;a, se estiver usando uma arma corpo a corpo, ou
+      de Destreza, se estiver usando uma arma de ataque &agrave;
+      dist&acirc;ncia.</p>
+
+      <p>Pr&eacute;-requisitos: Cora&ccedil;&atilde;o Duro.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, pág. 20
+  ativacao:
+    execucao: ''
+    custo: 1
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Chapeu Preto
+  origin: ''
+  tags:
+    - ChapeuPreto
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.RYSvAwapxq8TCVlu
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: true
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ' 1'
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: 1lmcIE0nyeJ8dI4g
+    changes:
+      - key: system.pericias.inti.bonus
+        mode: 2
+        value: '@for'
+        priority: 0
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Intimidação + Força
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!RYSvAwapxq8TCVlu.1lmcIE0nyeJ8dI4g'
+  - origin: Item.RYSvAwapxq8TCVlu
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: true
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: '1'
+    duration:
+      rounds: null
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: QOHyh4nufDGi2RuE
+    changes:
+      - key: system.pericias.inti.bonus
+        mode: 2
+        value: '@des'
+        priority: 0
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Intimidação + Destreza
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!RYSvAwapxq8TCVlu.QOHyh4nufDGi2RuE'
+  - origin: Item.RYSvAwapxq8TCVlu
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: JkNGgdNi5TJnfBLh
+    changes:
+      - key: system.pericias.inti.bonus
+        mode: 2
+        value: '0'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Dance!
+    img: systems/tormenta20/icons/poderes/distincao.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!RYSvAwapxq8TCVlu.JkNGgdNi5TJnfBLh'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667074226526
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: RYSvAwapxq8TCVlu
+folder: ELRx5oblpz3uQpB7
+sort: 0
+ownership:
+  default: 0
+_key: '!items!RYSvAwapxq8TCVlu'
+

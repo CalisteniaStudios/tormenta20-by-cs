@@ -1,0 +1,596 @@
+_id: tO36XeYOLWeZqoC2
+name: 04 Armaduras e Escudos Mágicos
+img: icons/svg/d20-grey.svg
+results:
+  - _id: Yy4ceGb3Vkjxb7zT
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 1
+      - 6
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Abascanto
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.Yy4ceGb3Vkjxb7zT'
+  - _id: gpOdAKBDOXATndIQ
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 7
+      - 10
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Abençoado
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.gpOdAKBDOXATndIQ'
+  - _id: NvnR3n82IMgZtPqO
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 11
+      - 12
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Acrobático
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.NvnR3n82IMgZtPqO'
+  - _id: 9Mi2iFOFWMPXqmDf
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 13
+      - 14
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Alado
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.9Mi2iFOFWMPXqmDf'
+  - _id: QL7vDNIc5UirHlGL
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 15
+      - 16
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Animado (Somente para escudos. Para armaduras, role novamente.)
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.QL7vDNIc5UirHlGL'
+  - _id: FT7c6vjtRGobj4lb
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 17
+      - 18
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Assustador
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.FT7c6vjtRGobj4lb'
+  - _id: 1B9kCYRa3zoVKRGl
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 19
+      - 22
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Cáustica
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.1B9kCYRa3zoVKRGl'
+  - _id: TsJFvPEU3N51IebZ
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 23
+      - 32
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Defensor
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.TsJFvPEU3N51IebZ'
+  - _id: 17fzeJCKCZ03YHvA
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 33
+      - 34
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Escorregadio
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.17fzeJCKCZ03YHvA'
+  - _id: M0iooPQrbh5jHkha
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 35
+      - 36
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Esmagador (Somente para escudos. Para armaduras, role novamente.)
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.M0iooPQrbh5jHkha'
+  - _id: jkqzUGdRlmCFxLVI
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 37
+      - 38
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Fantasmagórico
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.jkqzUGdRlmCFxLVI'
+  - _id: TSD1cEgiAzBujTW0
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 39
+      - 40
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Fortificado
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.TSD1cEgiAzBujTW0'
+  - _id: jjDDQODkun6erddD
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 41
+      - 44
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Gélido
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.jjDDQODkun6erddD'
+  - _id: GfOO49BbZYNk19XC
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 45
+      - 54
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Guardião (Conta como dois encantos)
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.GfOO49BbZYNk19XC'
+  - _id: LR4mEezzfz9mn4PJ
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 55
+      - 56
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Hipnótico
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.LR4mEezzfz9mn4PJ'
+  - _id: ow8kjGbbTANNObZU
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 57
+      - 58
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Ilusório
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.ow8kjGbbTANNObZU'
+  - _id: uv6bulj8q1aT7t6U
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 59
+      - 62
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Incandescente
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.uv6bulj8q1aT7t6U'
+  - _id: jNlPPB1AewXCiXmc
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 63
+      - 68
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Invulnerável
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.jNlPPB1AewXCiXmc'
+  - _id: TNdtckYw7LH55uC1
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 69
+      - 72
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Opaco
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.TNdtckYw7LH55uC1'
+  - _id: 9bYs65wTsWdIrPBF
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 73
+      - 78
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Protetor
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.9bYs65wTsWdIrPBF'
+  - _id: jpMBICj0BQ7zPUDr
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 79
+      - 80
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Refletor
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.jpMBICj0BQ7zPUDr'
+  - _id: yzc38XAx3SpgFPPd
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 81
+      - 84
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Relampejante
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.yzc38XAx3SpgFPPd'
+  - _id: uGb9gjteU6PHL1hO
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 85
+      - 86
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Reluzente
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.uGb9gjteU6PHL1hO'
+  - _id: A5jepZQm0zuEoGX9
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 87
+      - 88
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Sombrio
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.A5jepZQm0zuEoGX9'
+  - _id: rmI9AUG0KYBjI5JN
+    flags: {}
+    type: text
+    img: icons/svg/d20-black.svg
+    weight: 1
+    range:
+      - 89
+      - 90
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Zeloso
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.rmI9AUG0KYBjI5JN'
+  - _id: EhRcuneNG6Gv100b
+    type: text
+    weight: 1
+    range:
+      - 91
+      - 100
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    description: Armadura ou escudo específico
+    name: ''
+    _key: '!tables.results!tO36XeYOLWeZqoC2.EhRcuneNG6Gv100b'
+formula: 1d100
+replacement: true
+displayRoll: true
+folder: null
+sort: 0
+flags: {}
+ownership:
+  default: 0
+description: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.1008
+  coreVersion: '13.342'
+  createdTime: 1664312665207
+  modifiedTime: 1667354515215
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!tO36XeYOLWeZqoC2'
+

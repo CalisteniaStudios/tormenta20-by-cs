@@ -1,0 +1,233 @@
+name: Perseguidor
+type: poder
+img: systems/tormenta20/icons/itens/gerais/parceiros.webp
+effects:
+  - origin: Item.0MvC3jJCv0311Ysr
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 1Tc5ACaCgkRTIYI4
+    changes:
+      - key: system.pericias.perc.bonus
+        mode: 2
+        value: '2'
+        priority: null
+      - key: system.pericias.sobr.bonus
+        mode: 2
+        value: '2'
+        priority: null
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Perseguidor Iniciante
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!0MvC3jJCv0311Ysr.1Tc5ACaCgkRTIYI4'
+  - origin: Item.0MvC3jJCv0311Ysr
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: WujM2pTO7gLuuJCk
+    changes: []
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Perseguidor Veterano
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!0MvC3jJCv0311Ysr.WujM2pTO7gLuuJCk'
+  - origin: Item.0MvC3jJCv0311Ysr
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: true
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: PuhMZiugbVf0SWMk
+    changes: []
+    transfer: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Perseguidor Mestre
+    img: icons/environment/settlement/wagon-black.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!0MvC3jJCv0311Ysr.PuhMZiugbVf0SWMk'
+flags:
+  scene-packer:
+    sourceId: Item.rOO6U1bkk4xrlize
+    defaultPermission: 2
+    hash: 489a612a8235f62cd560028b82b1bf4c35524979
+system:
+  description:
+    value: >-
+      <p>Cada parceiro pode ajudar apenas um personagem por vez. No
+      in&iacute;cio do seu turno, voc&ecirc; pode gastar uma a&ccedil;&atilde;o
+      de movimento para passar um parceiro para outro personagem em alcance
+      curto at&eacute; o fim da cena (para fazer isso com um animal, voc&ecirc;
+      precisa ser treinado em Adestramento).</p>
+
+      <p>Um ca&ccedil;ador, animal farejador ou outro especialista em localizar
+      alvos.</p>
+
+      <p><strong>Iniciante</strong>: +2 em Percep&ccedil;&atilde;o e
+      Sobreviv&ecirc;ncia.</p>
+
+      <p><strong>Veterano</strong>: voc&ecirc; pode usar o poder Sentidos
+      Agu&ccedil;ados.</p>
+
+      <p><strong>Mestre</strong>: voc&ecirc; pode usar Percep&ccedil;&atilde;o
+      &agrave;s Cegas.</p>
+
+      <table border="1">
+
+      <tbody>
+
+      <tr>
+
+      <td>
+
+      <p><strong>Percep&ccedil;&atilde;o &agrave;s Cegas.</strong>&nbsp;A
+      criatura usa sentidos&nbsp;diferentes da vis&atilde;o (como radar, sonar,
+      sensibilidade&nbsp;a vibra&ccedil;&otilde;es etc.). Escurid&atilde;o e
+      invisibilidade n&atilde;o a&nbsp;afetam. Esta habilidade tem alcance curto
+      (a menos&nbsp;que especificado o contr&aacute;rio).</p>
+
+      </td>
+
+      </tr>
+
+      </tbody>
+
+      </table>
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 261
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: geral
+  subtipo: Parceiros
+  chatFlavor: ''
+  origin: ''
+  tags: []
+  chatGif: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.101
+  coreVersion: '13.342'
+  createdTime: 1663051700555
+  modifiedTime: 1668270847527
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: 0MvC3jJCv0311Ysr
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!0MvC3jJCv0311Ysr'
+

@@ -1,0 +1,116 @@
+name: Orbe Cristalina
+type: equipamento
+img: systems/tormenta20/icons/itens/gerais/orbe-cristalina.webp
+effects:
+  - origin: Item.FLmuXN3wg9KxC3BH
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: H6DQFuSF71NcRSIr
+    changes: []
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Orbe: O limite de PM que você pode gastar em magias aumenta em +1.'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!kc5hodyP1AIeDJnv.H6DQFuSF71NcRSIr'
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Esta esfera perfeita concentra seu poder m&aacute;gico. O limite de PM
+      que voc&ecirc; pode gastar em magias arcanas aumenta em +1.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 160
+  equipado: false
+  equipado2:
+    slot: 0
+    type: hand
+  carregado: true
+  peso: 0
+  espacos: 1
+  qtd: 1
+  preco: 750
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: esoterico
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663377681721
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: kc5hodyP1AIeDJnv
+folder: q5xr48fQpaZDdVTn
+sort: 101563
+ownership:
+  default: 0
+_key: '!items!kc5hodyP1AIeDJnv'
+

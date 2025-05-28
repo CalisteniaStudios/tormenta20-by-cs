@@ -1,0 +1,151 @@
+_id: rIxUZtwLHeEfggsD
+name: Mochila de Carga
+type: equipamento
+img: systems/tormenta20/icons/itens/itens-magicos/mochila-carga.webp
+effects:
+  - origin: Item.cHardFND12H5x3eS
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: RMOPq91AXQT3P3eH
+    changes:
+      - key: system.attributes.carga.bonus
+        mode: 2
+        value: '10'
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Mochila de Carga
+    img: systems/tormenta20/icons/itens/itens-magicos/mochila-carga.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!rIxUZtwLHeEfggsD.RMOPq91AXQT3P3eH'
+folder: BgJUCrqjG6EVBIfP
+sort: 4400000
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Este item, que parece uma simples mochila de pano, est&aacute; na
+      verdade ligado a um espa&ccedil;o interdimensional &mdash; fazendo com que
+      seja maior por dentro do que por fora. A mochila de carga aumenta sua
+      capacidade de carga em 10 espa&ccedil;os (ela pr&oacute;pria n&atilde;o
+      gasta um espa&ccedil;o). Se a mochila for rasgada, os objetos em seu
+      interior s&atilde;o destru&iacute;dos. Criaturas vivas colocadas no
+      interior da mochila podem sobreviver at&eacute; 10 minutos, mas depois
+      disso ficar&atilde;o sem ar.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 345
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 0
+  espacos: 0
+  qtd: 1
+  preco: 3000
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: acessorio
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  rolls: []
+  melhorias:
+    adjusted: null
+    undermeasure: null
+    delicate: null
+    thorny: null
+    specialmaterial: null
+    polished: null
+    reinforced: null
+    sealed: null
+    golden: null
+    gems: null
+    discreet: null
+    macabre: null
+    enhanced: null
+  encantos:
+    abascanth: null
+    blessed: null
+    acrobatic: null
+    winged: null
+    frightful: null
+    caustic: null
+    defending: null
+    slick: null
+    ghostly: null
+    ortification: null
+    frost: null
+    guardian: null
+    hypnotic: null
+    illusory: null
+    incandescent: null
+    invulnerable: null
+    opaque: null
+    protector: null
+    reflecting: null
+    lightning: null
+    blinding: null
+    shadow: null
+    zealous: null
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1666280541307
+  modifiedTime: 1684623039339
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!items!rIxUZtwLHeEfggsD'
+

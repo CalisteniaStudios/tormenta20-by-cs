@@ -1,0 +1,129 @@
+name: Coração Duro
+type: poder
+img: systems/tormenta20/icons/poderes/distincao.webp
+system:
+  description:
+    value: >-
+      <blockquote>
+
+      <p>N&atilde;o &eacute; f&aacute;cil encontrar algo que possa abalar o
+      chap&eacute;u preto &mdash; a esta altura, ele pr&oacute;prio j&aacute;
+      cometeu todo tipo de atrocidades na vida.</p>
+
+      </blockquote>
+
+      <p><br>Voc&ecirc; &eacute; imune a condi&ccedil;&otilde;es de medo e
+      recebe +2 em Vontade. Esse b&ocirc;nus aumenta em +1 para cada dois outros
+      poderes de chap&eacute;u preto que possuir.</p>
+
+      <p>Pr&eacute;-requisitos: treinado em Luta ou Pontaria, Presen&ccedil;a
+      Aterradora.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Distinções, pág. 20
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: distincao
+  subtipo: Chapeu Preto
+  origin: ''
+  tags:
+    - ChapeuPreto
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - origin: Item.RpcuSPwa2GL3cAuS
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: ZAveLLx0c5wBAXNF
+    changes:
+      - key: system.pericias.vont.bonus
+        mode: 2
+        value: (@ChapeuPreto2*1)
+        priority: null
+      - key: system.tracos.ic.value
+        mode: 2
+        value: medo
+        priority: null
+      - key: system.pericias.vont.bonus
+        mode: 2
+        value: '1'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Coração Duro
+    img: icons/magic/control/fear-fright-shadow-monster-red.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!RpcuSPwa2GL3cAuS.ZAveLLx0c5wBAXNF'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1667074226526
+  modifiedTime: 1684614605298
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: RpcuSPwa2GL3cAuS
+folder: ELRx5oblpz3uQpB7
+sort: 0
+ownership:
+  default: 0
+_key: '!items!RpcuSPwa2GL3cAuS'
+

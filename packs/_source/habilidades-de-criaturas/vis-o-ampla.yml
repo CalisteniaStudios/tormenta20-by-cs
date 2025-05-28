@@ -1,0 +1,107 @@
+name: Visão Ampla
+type: poder
+img: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
+system:
+  description:
+    value: >-
+      <p>Um lefeu recebe +5 em Percep&ccedil;&atilde;o e n&atilde;o pode ser
+      flanqueado.</p>
+    chat: ''
+    unidentified: ''
+  source: ''
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: ability
+  subtipo: ''
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+effects:
+  - name: Visão Ampla
+    origin: Compendium.tormenta20.habilidades-de-criaturas.Item.EIYfP5jU2e73gtyR
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: hzHR5CmkAoSjbmwI
+    changes:
+      - key: system.pericias.perc.bonus
+        mode: 2
+        value: '5'
+    description: ''
+    transfer: true
+    statuses: []
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: systems/tormenta20/icons/poderes/ameacas/visao-ampla.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!EIYfP5jU2e73gtyR.hzHR5CmkAoSjbmwI'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.203d2
+  coreVersion: '13.342'
+  createdTime: 1666320018824
+  modifiedTime: 1700000199181
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: EIYfP5jU2e73gtyR
+folder: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!EIYfP5jU2e73gtyR'
+

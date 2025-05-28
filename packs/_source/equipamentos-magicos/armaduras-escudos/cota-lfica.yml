@@ -1,0 +1,156 @@
+_id: s3q5ZBqb0BoRpeSq
+name: Cota Élfica
+type: equipamento
+img: systems/tormenta20/icons/itens/itens-magicos/cota-elfica.webp
+effects:
+  - origin: Item.s3q5ZBqb0BoRpeSq
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: gSoXSPitQUwFxdUw
+    changes:
+      - key: system.attributes.defesa.bonus
+        mode: 2
+        value: '2'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Defensora
+    img: systems/tormenta20/icons/itens/itens-magicos/cota-elfica.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!s3q5ZBqb0BoRpeSq.gSoXSPitQUwFxdUw'
+folder: SkZDe8cUamd0vHjD
+sort: 125000
+flags: {}
+system:
+  description:
+    value: >-
+      <p>Composta de an&eacute;is fin&iacute;ssimos, esta <strong>cota de malha
+      defensora de mitral</strong> parece ser feita de seda. Ela permite que
+      voc&ecirc; aplique seu b&ocirc;nus de Destreza na Defesa como se fosse uma
+      armadura leve.</p>
+
+      <p><strong>Defensora</strong> O item &eacute; encantado para desviar
+      golpes. O b&ocirc;nus na Defesa do item aumenta em +2.</p>
+
+      <p><strong>Mitral </strong>Metal muito raro, o mitral &eacute; prateado e
+      brilhante, tendo metade do peso do a&ccedil;o. Armaduras e escudos de
+      mitral t&ecirc;m sua penalidade de armadura diminu&iacute;da em 2.
+      Armaduras pesadas de mitral permitem que seu usu&aacute;rio aplique
+      at&eacute; dois pontos de seu b&ocirc;nus de Destreza na Defesa</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 340
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 20
+  espacos: 5
+  qtd: 1
+  preco: 30000
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: leve
+  armadura:
+    value: 6
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  melhorias:
+    adjusted: null
+    undermeasure: null
+    delicate: null
+    thorny: null
+    specialmaterial: Material especial
+    polished: null
+    reinforced: null
+    sealed: null
+    golden: null
+    gems: null
+    discreet: null
+    macabre: null
+  encantos:
+    abascanth: null
+    blessed: null
+    acrobatic: null
+    winged: null
+    frightful: null
+    caustic: null
+    defending: Defensor
+    slick: null
+    ghostly: null
+    ortification: null
+    frost: null
+    guardian: null
+    hypnotic: null
+    illusory: null
+    incandescent: null
+    invulnerable: null
+    opaque: null
+    protector: null
+    reflecting: null
+    lightning: null
+    blinding: null
+    shadow: null
+    zealous: null
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+  ativacao:
+    custo: 0
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  upgrades:
+    melhoria1: specialmaterial
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: defending
+    encanto2: ''
+    encanto3: ''
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1664314000116
+  modifiedTime: 1684622960825
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!items!s3q5ZBqb0BoRpeSq'
+

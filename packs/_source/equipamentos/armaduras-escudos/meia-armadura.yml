@@ -1,0 +1,68 @@
+_id: nFV1X6lQbAhbocA6
+name: Meia armadura
+type: equipamento
+img: systems/tormenta20/icons/itens/equipamentos/meia-armadura.webp
+effects: []
+folder: KTYYM7B9o8xVYRLQ
+sort: 100025
+flags: {}
+system:
+  description:
+    value: <p>Uma cota de malha reforçada com placas de metal.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 154
+  equipado: false
+  equipado2:
+    slot: 0
+    type: body
+  carregado: true
+  peso: 22
+  espacos: 5
+  qtd: 1
+  preco: 600
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: pesada
+  armadura:
+    value: 8
+    penalidade: -4
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  chatGif: ''
+  ativacao:
+    custo: 0
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+ownership:
+  default: 0
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1664312772419
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!items!nFV1X6lQbAhbocA6'
+

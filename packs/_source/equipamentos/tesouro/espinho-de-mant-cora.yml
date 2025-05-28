@@ -1,0 +1,86 @@
+name: Espinho de Mantícora
+type: tesouro
+img: systems/tormenta20/icons/itens/gerais/espinho.webp
+system:
+  description:
+    value: >-
+      <p><span><strong>[Tesouro Especial]</strong></span></p>
+
+      <p><span>Os espinhos da mant&iacute;cora valem T$ 150 como
+      mat&eacute;ria-prima para fabricar flechas superiores </span><span
+      style="font-family: var(--font-primary); font-size:
+      var(--font-size-14);">(</span><span style="font-family:
+      var(--font-primary); font-size: var(--font-size-14);">CD para extrair
+      17).</span></p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 287
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 0
+  espacos: 0
+  qtd: 1
+  preco: 150
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  container: false
+  rolls: []
+  origin: ''
+  chatFlavor: ''
+  tags: []
+  chatGif: ''
+  ativacao:
+    custo: 0
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  consume:
+    amount: 0
+    mpMultiplier: false
+    target: ''
+    type: ''
+  duracao:
+    units: ''
+    value: 0
+    special: ''
+  range:
+    units: ''
+    value: 0
+  target:
+    type: ''
+    value: 0
+    width: 0
+  alcance: ''
+  alvo: ''
+  area: ''
+  efeito: ''
+  resistencia:
+    txt: ''
+    pericia: ''
+    atributo: ''
+    bonus: 0
+effects: []
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: null
+  modifiedTime: 1684617424529
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: 3i3lkiwxfMxyWO31
+folder: 5PDivJJGRX0EFLEP
+sort: 112500
+ownership:
+  default: 0
+_key: '!items!3i3lkiwxfMxyWO31'
+

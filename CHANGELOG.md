@@ -1,5 +1,70 @@
 # Lista de Mudanças
 
+## Versão 1.5.000
+- Atualizado para Foundry V13.
+
+### Documentos
+- Adicionado: Ícones para cada tipo de ator e item.
+- Adicionado: O tamanho do personagem altera automaticamente o tamanho do token.
+  - Personagens minúsculos ocupam apenas 1/4 de quadrado.
+  - Personagens pequenos têm sua escala de token reduzida em 20%.
+- Adicionado: Automação de PV/PM por nível para poderes e habilidades.
+
+### Itens
+- Alterado: Raio Arcano foi automatizado.
+- Corrigido: Bônus em Reflexos do poder Esquiva Sagaz.
+- Corrigido: Texto de Armadura Arcana e aprimoramento que altera duração para um dia.
+- Corrigido: Efeito de uso de Gritar Ordens.
+- Corrigido: Diversos efeitos que afetavam itens/perícias específicos funcionam corretamente (ex: Finta Aprimorada).
+
+### Efeitos
+- Adicionado: Atributo "curinga" para efeitos:
+  - `system.atributos.*.bonus` adiciona um modificador a todos os atributos.
+  - `system.pericias.*.bonus` adiciona um modificador a todas as perícias.
+  - `system.pericias.*.condi` adiciona uma penalidade de condição a todas as perícias.
+  - `system.attributes.movement.*` adiciona um modificador a todas as velocidades.
+- Adicionado: Modificador de cura para efeitos:
+  - `system.modificadores.cura.geral` adiciona um modificador a todo tipo de cura.
+  - `system.modificadores.cura.mag` adiciona um modificador a todo tipo de cura mágica.
+- Adicionado: Automação do poder Dom da Esperança (e suporte para qualquer atributo substituir Constituição):
+  - `flags.tormenta20.substituirCon` com o ID de um atributo irá substituir Constituição pelo atributo.
+- Adicionado: Campo para causar 1 de dano adicional para cada dado de dano (ex: Sangue Frio do Trog).
+  - `system.tracos.resistencias.TIPO_DO_DANO.danoPorDado` com valor `true` ativa o efeito.
+- Alterado: Perda de PV, Cura de PV Temporários, Cura de PM e Cura de PM Temporários não são afetados por modificadores de dano ou cura.
+- Alterado: Poderes que escalam automaticamente com o nível (ex: Instinto Selvagem) foram automatizados.
+  - Exceções: poderes que usam o nível em fórmulas de dano (Ataque Furtivo).
+- Corrigido: A condição Alquebrado e o modificador `system.modificadores.custoPM` funcionam corretamente (Gasto de Mana Automático precisa estar ativo).
+
+### Fichas
+- Alterado: Melhorias visuais nas fichas de personagens. A maioria das mudanças foram feitas na ficha com abas.
+  - Lista de perícias teve seu tamanho reduzido e permite ocultar perícias somente treinadas que não forem treinadas.
+  - Clique do botão direito em itens na ficha de personagem abre um menu com opções para interagir com o item.
+  - Passar o mouse sobre Defesa ou bônus de perícias discrimina os seus modificadores.
+- Alterado: Clicar para usar itens sem efeitos de uso ou rolagens não abre uma janela para usá-los.
+- Alterado: Importação de Bloco de Estatísticas (IBE) agora remove o plural de nomes de armas como "Duas Pancadas".
+- Alterado: IBE não falha se o bloco não contém o campo ND.
+- Corrigido: Lista de perícias da IBE não depende mais da caixa alta/baixa do nome.
+- Corrigido: Tesouros da IBE devem ser lidos corretamente (com mais frequência).
+
+### Regras
+- Adicionado: Regra opcional para adicionar metade do nível na Defesa.
+- Adicionado: Regra opcional para aplicar Acuidade automaticamente.
+- Adicionado: Regras de ficha para desativar cálculo de Carga e carga de moedas.
+- Adicionado: Automação de PV/PM por nível para poderes e habilidades.
+- Adicionado: Configuração padrão para o módulo Item Piles.
+- Alterado: Configurações de ficha foram removidas devido a redundância com a funcionalidade do Foundry.
+
+### Rolagens
+- Adicionado: Acuidade, Arremesso Potente e Estilo de Disparo automatizados.
+- Corrigido: As opções "Melhor/Pior de 2d20" não são ignoradas.
+- Corrigido: Botões do clique direito do mouse funcionam para rolagens avulsas no chat.
+- Corrigido: Multiplicação de dano ocorre antes da Redução de Dano.
+- Corrigido: Multiplicação de dano respeita valores negativos.
+- Corrigido: Vulnerabilidade a dano aplica +50% de dano em vez de +1 por dado para PJs e o triplo do dano à Ameaças.
+- Corrigido: Efeitos que adicionam mais de um dado de dano agora funcionam.
+- Corrigido: Efeito de Uso com adição não impedem a execução de efeitos abaixo dele.
+- Corrigido: Efeitos de Uso de múltiplas aplicações agora multiplicam dados (ex: Vindicação, Palavras Afidas).
+
 ## Versão 1.4.214
 - Adicionado: Efeito de Uso `ignoraRD`, para ignorar o valor definido ao aplicar o dano;
 - Adicionado: Efeito de Uso `danoMultiplicavel`, o valor adicionado é multiplicado no crítico.

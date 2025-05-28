@@ -1,139 +1,223 @@
 {
   "id": "tormenta20",
-  "name": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
   "version": "1.4.214",
-  "minimumCoreVersion": "12",
-  "compatibleCoreVersion": "12",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12",
-    "maximum": "12"
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
   },
-  "authors": [{"name": "Vizael"}],
+  "authors": [{ "name": "Vizael" }],
   "esmodules": ["tormenta20.mjs"],
   "styles": ["tormenta20.css"],
-  "scripts": [],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": [
+          "detalhes.biography.value",
+          "detalhes.biography.public",
+          "detalhes.diario.value",
+          "detalhes.diario1.value",
+          "detalhes.diario2.value",
+          "detalhes.diario3.value",
+          "detalhes.diario4.value",
+          "detalhes.diario5.value"
+        ]
+      },
+      "npc": {
+        "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
+      },
+      "simple": {
+        "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
+      }
+    },
+    "Item": {
+      "arma": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "equipamento": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "classe": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "consumivel": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "magia": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "poder": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "race": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "tesouro": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      }
+    }
+  },
   "packs": [
+    {
+      "name": "racas",
+      "label": "Raças",
+      "system": "tormenta20",
+      "path": "./packs/racas",
+      "type": "Item"
+    },
     {
       "name": "classes",
       "label": "Classes",
       "system": "tormenta20",
-      "path": "./packs/classes.db",
+      "path": "./packs/classes",
       "type": "Item"
     },
     {
       "name": "poderes",
       "label": "Poderes",
       "system": "tormenta20",
-      "path": "./packs/poderes.db",
+      "path": "./packs/poderes",
       "type": "Item"
     },
     {
       "name": "poderes-distincao",
       "label": "Poderes de Distinção",
       "system": "tormenta20",
-      "path": "./packs/poderes-distincao.db",
+      "path": "./packs/poderes-distincao",
       "type": "Item"
     },
     {
       "name": "equipamentos",
       "label": "Equipamentos",
       "system": "tormenta20",
-      "path": "./packs/equipamentos.db",
+      "path": "./packs/equipamentos",
       "type": "Item"
     },
     {
       "name": "equipamentos-magicos",
       "label": "Itens Mágicos",
       "system": "tormenta20",
-      "path": "./packs/equipamentos-magicos.db",
+      "path": "./packs/equipamentos-magicos",
       "type": "Item"
     },
     {
       "name": "magias",
       "label": "Magias",
       "system": "tormenta20",
-      "path": "./packs/magias.db",
+      "path": "./packs/magias",
       "type": "Item"
     },
     {
       "name": "habilidades-de-criaturas",
       "label": "Habilidades de Criaturas",
       "system": "tormenta20",
-      "path": "./packs/habilidades-de-criaturas.db",
-      "type": "Item"
+      "path": "./packs/habilidades-de-criaturas",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "pocoes",
       "label": "Poções",
       "system": "tormenta20",
-      "path": "./packs/pocoes.db",
+      "path": "./packs/pocoes",
       "type": "Item"
     },
     {
       "name": "parceiros",
       "label": "Parceiros",
       "system": "tormenta20",
-      "path": "./packs/parceiros.db",
+      "path": "./packs/parceiros",
       "type": "Item"
     },
     {
       "name": "ameacas",
       "label": "Ameaças",
       "system": "tormenta20",
-      "path": "./packs/ameacas.db",
-      "type": "Actor"
+      "path": "./packs/ameacas",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "convocacoes",
       "label": "Convocações",
       "system": "tormenta20",
-      "path": "./packs/convocacoes.db",
-      "type": "Actor"
+      "path": "./packs/convocacoes",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "basico",
       "label": "Livro Básico",
       "system": "tormenta20",
-      "path": "./packs/basico.db",
+      "path": "./packs/basico",
       "type": "JournalEntry"
     },
     {
       "name": "tabelas-de-tesouro",
       "label": "Tabelas de Tesouro",
       "system": "tormenta20",
-      "path": "./packs/tabelas-de-tesouro.db",
+      "path": "./packs/tabelas-de-tesouro",
       "type": "RollTable"
     },
     {
       "name": "macros",
       "label": "Macros",
       "system": "tormenta20",
-      "path": "./packs/macros.db",
+      "path": "./packs/macros",
       "type": "Macro"
     }
   ],
   "packFolders": [
     {
-      "name": "Actors", "sorting": "m", "color": "#000000",
-      "packs": ["ameacas","convocacoes"]
+      "name": "Actors",
+      "sorting": "m",
+      "color": "#000000",
+      "packs": ["ameacas", "convocacoes"]
     },
     {
-      "name": "Items", "sorting": "m", "color": "#000000",
-      "packs": ["classes", "poderes", "poderes-distincao", "equipamentos", "equipamentos-magicos", "magias", "habilidades-de-criaturas", "pocoes", "parceiros"]
+      "name": "Items",
+      "sorting": "m",
+      "color": "#000000",
+      "packs": [
+        "racas",
+        "classes",
+        "poderes",
+        "poderes-distincao",
+        "equipamentos",
+        "equipamentos-magicos",
+        "magias",
+        "habilidades-de-criaturas",
+        "pocoes",
+        "parceiros"
+      ]
     },
     {
-      "name": "Journals", "sorting": "m", "color": "#000000",
+      "name": "Journals",
+      "sorting": "m",
+      "color": "#000000",
       "packs": ["basico"]
     },
     {
-      "name": "RollTables", "sorting": "m", "color": "#000000",
+      "name": "RollTables",
+      "sorting": "m",
+      "color": "#000000",
       "packs": ["tabelas-de-tesouro"]
     },
     {
-      "name": "Macros", "sorting": "m", "color": "#000000",
+      "name": "Macros",
+      "sorting": "m",
+      "color": "#000000",
       "packs": ["macros"]
     }
   ],
@@ -150,10 +234,11 @@
     }
   ],
   "flags": {
-    "hotReload": false
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["tormenta20.css", "templates", "lang"]
+    }
   },
-  "gridDistance": 1.5,
-  "gridUnits": "m",
   "grid": {
     "distance": 1.5,
     "units": "m",
@@ -163,9 +248,8 @@
   "secondaryTokenAttribute": "attributes.pm",
   "url": "https://gitlab.com/vizael/Tormenta20",
   "manifest": "https://gitlab.com/vizael/Tormenta20/-/raw/1.4.214/system.json",
-  "download": "https://gitlab.com/vizael/Tormenta20/-/archive/1.4.214/Tormenta20-1.4.214.zip",
-  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/1.4.214",
-  "license": "LICENSE.txt",
-  "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues",
-  "allowBugReporter": true
+  "download": "This is auto replaced",
+  "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/",
+  "license": "https://gitlab.com/vizael/Tormenta20/-/blob/master/LICENSE",
+  "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues"
 }

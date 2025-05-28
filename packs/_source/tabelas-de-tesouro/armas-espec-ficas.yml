@@ -1,0 +1,438 @@
+_id: ZrTyJa3F5Xhx2dhr
+name: Armas Específicas
+img: icons/svg/d20-grey.svg
+results:
+  - _id: S1ly0Mk78bmxbvt4
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/azagaia-do-relampago.webp
+    weight: 1
+    range:
+      - 1
+      - 5
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Azagaia dos Relâmpagos
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.0gjHApA2kZhUpeBc
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.S1ly0Mk78bmxbvt4'
+  - _id: 8CvAdlvbt5VdMrkW
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/espada-baronial.webp
+    weight: 1
+    range:
+      - 6
+      - 15
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espada Baronial
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.zKL5mWuHBsXAm4Fy
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.8CvAdlvbt5VdMrkW'
+  - _id: bmUe6MAAwLpLdghZ
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/lamina-da-luz.webp
+    weight: 1
+    range:
+      - 16
+      - 25
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lâmina da Luz
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.7ZSpOEZBMbT3aVsO
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.bmUe6MAAwLpLdghZ'
+  - _id: 0D9v0mO40IzH3PNt
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/lanca.webp
+    weight: 1
+    range:
+      - 26
+      - 30
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Lança Animalesca
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.uUp6qw8AnoR6igO1
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.0D9v0mO40IzH3PNt'
+  - _id: ik7GDXyo2WArZbH4
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/maca-do-terror.webp
+    weight: 1
+    range:
+      - 31
+      - 35
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Maça do Terror
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.jhdwYNYHEozyC6wy
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.ik7GDXyo2WArZbH4'
+  - _id: hqSqvNVLxiZrphNZ
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/florete-fugaz.webp
+    weight: 1
+    range:
+      - 36
+      - 40
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Florete Fugaz
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.NGJkBqxukaxF9jza
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.hqSqvNVLxiZrphNZ'
+  - _id: nxTXK9yEVAx417YP
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/cajado-da-destruicao.webp
+    weight: 1
+    range:
+      - 41
+      - 45
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cajado da Destruição
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.02lvsZmWSfVanJi0
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.nxTXK9yEVAx417YP'
+  - _id: GVgcfIgl8OsvF4zY
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/cajado-da-vida.webp
+    weight: 1
+    range:
+      - 46
+      - 50
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cajado da Vida
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.TlNcV8TJ62EXQMm8
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.GVgcfIgl8OsvF4zY'
+  - _id: NtcKhyKk7b128K4y
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/machado-silvestre.webp
+    weight: 1
+    range:
+      - 51
+      - 55
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Machado Silvestre
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.8tAO6PDX7s5DJOiN
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.NtcKhyKk7b128K4y'
+  - _id: plYBapVcUC36rHuT
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/martelo-de-doherimm.webp
+    weight: 1
+    range:
+      - 56
+      - 60
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Martelo dos Anões
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.nqrXpjRujHTalKhC
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.plYBapVcUC36rHuT'
+  - _id: 7IlnsUfV8gNwVJIH
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/arco-poder.webp
+    weight: 1
+    range:
+      - 61
+      - 67
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Arco do Poder
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.dL1mC5IMyt8nniom
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.7IlnsUfV8gNwVJIH'
+  - _id: 1tAO0mIs1Y14BmEt
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/lingua-do-deserto.webp
+    weight: 1
+    range:
+      - 68
+      - 72
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Língua do Deserto
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.tZZb0i0i1eg3E6BJ
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.1tAO0mIs1Y14BmEt'
+  - _id: PHor0ZGKmigh4R3M
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/besta-pesada.webp
+    weight: 1
+    range:
+      - 73
+      - 77
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Besta Explosiva
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.iFaZtyir56zrjir9
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.PHor0ZGKmigh4R3M'
+  - _id: ksQp0N8W3CoGuTzM
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/punhal-sszzaazita.webp
+    weight: 1
+    range:
+      - 78
+      - 82
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Punhal Traiçoeiro
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.1ZXiPXFQmdWUr51u
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.ksQp0N8W3CoGuTzM'
+  - _id: VCV5SJHCVCH9QV3U
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/espada-sortuda.webp
+    weight: 1
+    range:
+      - 83
+      - 87
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Espada Sortuda
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.ykRLVOsNEnypuNUA
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.VCV5SJHCVCH9QV3U'
+  - _id: 35mi87dp7jRAKfuN
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/avalanche.webp
+    weight: 1
+    range:
+      - 88
+      - 92
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Avalanche
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.JWcrwkfQSIVnD9SR
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.35mi87dp7jRAKfuN'
+  - _id: k9uSNeypmidNE8Rq
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/cajado-do-poder.webp
+    weight: 1
+    range:
+      - 93
+      - 95
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Cajado do Poder
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.LtG3azBFsLf4OkV1
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.k9uSNeypmidNE8Rq'
+  - _id: gV0NEFHz0P31GlsH
+    flags: {}
+    type: document
+    img: systems/tormenta20/icons/itens/vingadora-sagrada.webp
+    weight: 1
+    range:
+      - 96
+      - 100
+    drawn: false
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Vingadora Sagrada
+    documentUuid: Compendium.tormenta20.equipamentos-magicos.Item.8BBFvJdLe3sCiX8f
+    description: ''
+    _key: '!tables.results!ZrTyJa3F5Xhx2dhr.gV0NEFHz0P31GlsH'
+formula: 1d100
+replacement: true
+displayRoll: true
+folder: null
+sort: 0
+flags: {}
+ownership:
+  default: 0
+description: ''
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.1008
+  coreVersion: '13.342'
+  createdTime: 1664312665032
+  modifiedTime: 1667354515231
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!ZrTyJa3F5Xhx2dhr'
+

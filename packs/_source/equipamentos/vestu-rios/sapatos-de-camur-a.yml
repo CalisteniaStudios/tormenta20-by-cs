@@ -1,0 +1,115 @@
+name: Sapatos de Camurça
+type: equipamento
+img: systems/tormenta20/icons/itens/gerais/sapatos-de-camurca.webp
+system:
+  description:
+    value: >-
+      <p>Leves e resistentes, aprimoram o equil&iacute;brio e a firmeza dos
+      p&eacute;s, fornecendo +1 em Acrobacia.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 159
+  equipado: false
+  equipado2:
+    slot: 0
+    type: body
+  carregado: true
+  peso: 1
+  espacos: 1
+  qtd: 1
+  preco: 8
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: traje
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  melhorias:
+    enhanced: null
+    golden: null
+    gems: null
+    discreet: null
+    macabre: null
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  encantos: {}
+effects:
+  - origin: Item.GykbrJ2G6IpBNJ5k
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: ebP82wAzn1xEIULN
+    changes:
+      - key: system.pericias.acro.bonus
+        mode: 2
+        value: '1'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Sapatos de Camurça
+    img: systems/tormenta20/icons/itens/gerais/sapatos-de-camurca.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!GykbrJ2G6IpBNJ5k.ebP82wAzn1xEIULN'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663532558587
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: GykbrJ2G6IpBNJ5k
+folder: 3kNyXnAknru6qWyM
+sort: 150000
+ownership:
+  default: 0
+_key: '!items!GykbrJ2G6IpBNJ5k'
+

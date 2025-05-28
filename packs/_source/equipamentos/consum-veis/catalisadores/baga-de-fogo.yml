@@ -1,0 +1,145 @@
+name: Baga-de-Fogo
+type: consumivel
+img: systems/tormenta20/icons/itens/gerais/baga-de-fogo.webp
+system:
+  description:
+    value: >-
+      <p>Pequeno fruto vermelho, apreciado por seu sabor picante. Usado como
+      catalisador, adiciona +1d6 de dano de fogo a magias.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 161
+  equipado: false
+  equipado2:
+    slot: 0
+    type: ''
+  carregado: true
+  peso: 0.1
+  espacos: 0.5
+  qtd: 1
+  preco: 15
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  ativacao:
+    execucao: ''
+    custo: 0
+    qtd: ''
+    condicao: ''
+    special: ''
+  duracao:
+    value: 0
+    units: ''
+    special: ''
+  target:
+    value: null
+    width: null
+    units: ''
+    type: ''
+  range:
+    value: null
+    units: ''
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    mpMultiplier: false
+  efeito: ''
+  alcance: none
+  alvo: ''
+  area: ''
+  resistencia:
+    pericia: ''
+    atributo: ''
+    bonus: 0
+    txt: ''
+  rolls: []
+  tipo: alchemy
+  uses:
+    autoDestroy: false
+  chatFlavor: ''
+  origin: ''
+  tags: []
+  subtipo: ''
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  melhorias: {}
+  encantos: {}
+effects:
+  - origin: Item.MT4QgnaAwWgr4pet
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        spell: true
+        consumable: true
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    _id: mhMNYFNWFT6UyhFS
+    changes:
+      - key: dano
+        mode: 2
+        value: 1d6
+        priority: 0
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: 'Baga de Fogo: adiciona +1d6 de dano de fogo a magias'
+    img: icons/svg/upgrade.svg
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!MT4QgnaAwWgr4pet.mhMNYFNWFT6UyhFS'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663365561715
+  modifiedTime: 1684616975714
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: MT4QgnaAwWgr4pet
+folder: QiIu6dfsnRA5FIHj
+sort: 100000
+ownership:
+  default: 0
+_key: '!items!MT4QgnaAwWgr4pet'
+

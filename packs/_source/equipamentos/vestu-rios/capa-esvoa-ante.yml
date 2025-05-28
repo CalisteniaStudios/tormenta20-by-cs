@@ -1,0 +1,115 @@
+name: Capa Esvoaçante
+type: equipamento
+img: systems/tormenta20/icons/itens/gerais/capa-esvoacante.webp
+system:
+  description:
+    value: >-
+      <p>Favorita entre heróis ousados, esta capa de seda produz movimentos
+      amplos e chamativos, que fornecem +1 em Enganação.</p>
+    chat: ''
+    unidentified: ''
+  source: Tormenta20 — Edição Jogo do Ano, pág. 159
+  equipado: false
+  equipado2:
+    slot: 0
+    type: body
+  carregado: true
+  peso: 1.5
+  espacos: 1
+  qtd: 1
+  preco: 25
+  pv:
+    value: 0
+    min: 0
+    max: 0
+  rd: 0
+  tipo: traje
+  armadura:
+    value: 0
+    penalidade: 0
+    maxAtr: 0
+  rolls: []
+  origin: ''
+  tags: []
+  chatFlavor: ''
+  ativacao:
+    custo: null
+    condicao: ''
+    execucao: ''
+    qtd: ''
+    special: ''
+  melhorias:
+    enhanced: null
+    golden: null
+    gems: null
+    discreet: null
+    macabre: null
+  chatGif: ''
+  upgrades:
+    melhoria1: ''
+    melhoria2: ''
+    melhoria3: ''
+    melhoria4: ''
+    material: ''
+    encanto1: ''
+    encanto2: ''
+    encanto3: ''
+  encantos: {}
+effects:
+  - origin: Item.oZlDoq0HxOucTgGK
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: vaz9mlBjfgXSdRZH
+    changes:
+      - key: system.pericias.enga.bonus
+        mode: 2
+        value: '1'
+        priority: null
+    transfer: true
+    _stats:
+      coreVersion: '13.342'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    name: Capa Esvoaçante
+    img: systems/tormenta20/icons/itens/gerais/capa-esvoacante.webp
+    type: base
+    system: {}
+    description: ''
+    statuses: []
+    sort: 0
+    _key: '!items.effects!oZlDoq0HxOucTgGK.vaz9mlBjfgXSdRZH'
+flags: {}
+_stats:
+  systemId: tormenta20
+  systemVersion: 1.4.116
+  coreVersion: '13.342'
+  createdTime: 1663532558587
+  modifiedTime: 1684809353177
+  lastModifiedBy: t20builder000000
+  duplicateSource: null
+  exportSource: null
+_id: oZlDoq0HxOucTgGK
+folder: 3kNyXnAknru6qWyM
+sort: 1700000
+ownership:
+  default: 0
+_key: '!items!oZlDoq0HxOucTgGK'
+
