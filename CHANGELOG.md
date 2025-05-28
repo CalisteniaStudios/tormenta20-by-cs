@@ -1,6 +1,6 @@
 # Lista de Mudanças
 
-## Versão 1.5.000
+## Versão 1.5.001
 - Atualizado para Foundry V13.
 
 ### Documentos
