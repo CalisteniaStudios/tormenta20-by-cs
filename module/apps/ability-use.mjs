@@ -227,8 +227,14 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				continue;
 			} else {
 				const dmgTypeG = ch.value.match(re.dmgType);
+				const dicePattern = /^\dd\d+$/i;
+				let value = Number(ch.value * qty) || ch.value;
+				if (dicePattern.test(ch.value)) {
+					const dice = ch.value.split("d");
+					value = `${dice[0] * qty}d${dice[1]}`;
+				}
 				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
-				r.parts.push([Number(ch.value * qty) || ch.value, ""]);
+				r.parts.push([value, ""]);
 				rollMods[r.key].push({
 					die: null,
 					dmgStep: 0,
