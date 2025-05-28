@@ -15,7 +15,7 @@ system:
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 137
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -51,8 +51,10 @@ system:
       key: dano0
       type: dano
       parts:
-        - - '1'
+        - - '@Tormenta'
           - curatpm
+          - ''
+      versatil: ''
   tipo: geral
   subtipo: Tormenta
   chatFlavor: ''
@@ -64,10 +66,10 @@ system:
     - Tormenta
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306183282
-  modifiedTime: 1684803392336
+  modifiedTime: 1748407093876
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

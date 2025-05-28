@@ -7,7 +7,7 @@ effects:
     changes:
       - key: system.pericias.inti.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
       - key: system.attributes.sentidos.value
         mode: 2
         value: escuro

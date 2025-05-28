@@ -11,7 +11,7 @@ items:
         changes:
           - key: system.attributes.defesa.bonus
             mode: 2
-            value: (@tormenta2*1)
+            value: (@Tormenta2)
             priority: null
         disabled: false
         duration:

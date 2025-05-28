@@ -7,10 +7,10 @@ effects:
     changes:
       - key: system.pericias.atle.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
       - key: system.pericias.fort.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
     disabled: false
     duration:
       startTime: null
@@ -75,7 +75,7 @@ effects:
     changes:
       - key: ataque
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
         priority: 0
     transfer: true
     _stats:
@@ -109,7 +109,7 @@ system:
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 137
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -154,10 +154,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306184740
-  modifiedTime: 1684803410533
+  modifiedTime: 1748407152583
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

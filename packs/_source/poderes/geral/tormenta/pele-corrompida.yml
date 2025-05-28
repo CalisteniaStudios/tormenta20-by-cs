@@ -5,24 +5,30 @@ img: systems/tormenta20/icons/poderes/tormenta.webp
 effects:
   - _id: ufd1BF04V4iKII4f
     changes:
-      - key: system.tracos.resistencias.acido.value
+      - key: system.tracos.resistencias.acido.bonus
         mode: 2
-        value: '2'
-      - key: system.tracos.resistencias.eletricidade.value
+        value: 2+(@Tormenta2 * 2)
+        priority: null
+      - key: system.tracos.resistencias.eletricidade.bonus
         mode: 2
-        value: '2'
-      - key: system.tracos.resistencias.fogo.value
+        value: 2+(@Tormenta2 * 2)
+        priority: null
+      - key: system.tracos.resistencias.fogo.bonus
         mode: 2
-        value: '2'
-      - key: system.tracos.resistencias.frio.value
+        value: 2+(@Tormenta2 * 2)
+        priority: null
+      - key: system.tracos.resistencias.frio.bonus
         mode: 2
-        value: '2'
-      - key: system.tracos.resistencias.luz.value
+        value: 2+(@Tormenta2 * 2)
+        priority: null
+      - key: system.tracos.resistencias.luz.bonus
         mode: 2
-        value: '2'
-      - key: system.tracos.resistencias.trevas.value
+        value: 2+(@Tormenta2 * 2)
+        priority: null
+      - key: system.tracos.resistencias.trevas.bonus
         mode: 2
-        value: '2'
+        value: 2+(@Tormenta2 * 2)
+        priority: null
     disabled: false
     duration:
       startTime: null
@@ -38,14 +44,25 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
     tint: '#ffffff'
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.344'
+      systemId: tormenta20
+      systemVersion: 1.4.214
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1748406378428
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -71,7 +88,7 @@ system:
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 137
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -116,10 +133,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306185153
-  modifiedTime: 1684803461494
+  modifiedTime: 1748406381305
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

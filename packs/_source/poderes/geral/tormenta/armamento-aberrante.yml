@@ -7,7 +7,7 @@ effects:
     changes:
       - key: passos
         mode: 0
-        value: (@Tormenta2*1)
+        value: (@Tormenta2)
         priority: 0
       - key: '?.items.arma'
         mode: 0

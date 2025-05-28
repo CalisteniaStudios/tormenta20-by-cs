@@ -7,15 +7,15 @@ effects:
     changes:
       - key: system.pericias.inic.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
         priority: null
       - key: system.pericias.perc.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
         priority: null
       - key: system.pericias.vont.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
         priority: null
     disabled: false
     duration:
@@ -63,7 +63,7 @@ system:
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 136
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -108,10 +108,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306183825
-  modifiedTime: 1684803217266
+  modifiedTime: 1748406409189
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

@@ -32,7 +32,7 @@ effects:
     changes:
       - key: roll
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
         priority: 0
     transfer: true
     _stats:
@@ -67,7 +67,7 @@ system:
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 137
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: null
     qtd: ''
     condicao: ''
@@ -103,7 +103,7 @@ system:
       key: dano0
       type: dano
       parts:
-        - - (1+(@Tormenta2*1))d6
+        - - (1+(@Tormenta2))d6
           - psiquico
   tipo: geral
   subtipo: Tormenta
@@ -116,10 +116,10 @@ system:
     - Tormenta
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306184717
-  modifiedTime: 1684803469073
+  modifiedTime: 1748407201966
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

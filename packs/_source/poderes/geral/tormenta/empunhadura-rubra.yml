@@ -7,7 +7,7 @@ effects:
     changes:
       - key: system.pericias.luta.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
         priority: null
     disabled: false
     duration:

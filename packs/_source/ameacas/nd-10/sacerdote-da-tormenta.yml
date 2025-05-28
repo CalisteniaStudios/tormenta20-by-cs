@@ -1185,7 +1185,7 @@ items:
           key: dano0
           type: dano
           parts:
-            - - '@tormenta*1'
+            - - '@Tormenta'
               - acido
               - ''
           versatil: ''

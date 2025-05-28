@@ -33,7 +33,7 @@ effects:
     changes:
       - key: passos
         mode: 0
-        value: 1+(@Tormenta4*1)
+        value: 1+(@Tormenta4)
         priority: 0
     transfer: true
     _stats:

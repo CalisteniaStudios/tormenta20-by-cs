@@ -22,7 +22,7 @@ effects:
     changes:
       - key: system.attributes.defesa.bonus
         mode: 2
-        value: 1+(@Tormenta2*1)
+        value: 1+(@Tormenta2)
         priority: null
     transfer: true
     _stats:
@@ -56,7 +56,7 @@ system:
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 136
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -101,10 +101,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.4.214
+  coreVersion: '13.344'
   createdTime: 1664306185646
-  modifiedTime: 1684803257614
+  modifiedTime: 1748406538301
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
