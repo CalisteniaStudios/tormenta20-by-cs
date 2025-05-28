@@ -20,6 +20,7 @@ import TokenDocumentT20 from "./module/documents/token.mjs";
 
 // Import Canvas
 import AbilityTemplate from "./module/canvas/ability-template.mjs";
+import TokenRulerT20 from "./module/canvas/token-ruler.mjs";
 import TokenT20 from "./module/canvas/token.mjs";
 
 // Import Sheets
@@ -107,6 +108,7 @@ Hooks.once("init", async function () {
 
 	CONFIG.Token.documentClass = TokenDocumentT20;
 	CONFIG.Token.objectClass = TokenT20;
+	CONFIG.Token.rulerClass = TokenRulerT20;
 	CONFIG.time.roundTime = 6;
 
 	CONFIG.MeasuredTemplate.objectClass = AbilityTemplate;
