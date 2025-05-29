@@ -59,6 +59,7 @@ export const preloadHandlebarsTemplates = async function () {
 
 		// Active Effects
 		"systems/tormenta20/templates/apps/active-effect/details.hbs",
+		"systems/tormenta20/templates/apps/active-effect/duration.hbs",
 
 		// Development Partials
 		"systems/tormenta20/templates/actor/parts/teste.hbs"

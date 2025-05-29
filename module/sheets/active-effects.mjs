@@ -11,6 +11,9 @@ export default class ActiveEffectConfigT20 extends foundry.applications.sheets.A
 		...super.PARTS,
 		details: {
 			template: "systems/tormenta20/templates/apps/active-effect/details.hbs"
+		},
+		duration: {
+			template: "systems/tormenta20/templates/apps/active-effect/duration.hbs"
 		}
 	};
 }
