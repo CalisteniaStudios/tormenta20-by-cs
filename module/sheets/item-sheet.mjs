@@ -101,6 +101,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		const source = item.toObject();
 
 		foundry.utils.mergeObject(sheetData, {
+			rootId: this.id,
 			source: source.system,
 			system: item.system,
 			labels: this.item.labels,

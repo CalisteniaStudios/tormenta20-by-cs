@@ -1,17 +1,13 @@
 <div class="tab enhancements" data-group="primary" data-tab="enhancements">
 	<div class="form-group">
-		<input type="checkbox" name="system.enableAutoUpgrades" data-dtype="Boolean" {{checked system.enableAutoUpgrades}}>
-		<label>{{ localize 'T20.EnhancementsAutomationEnable'}} <i class="fa-solid fa-circle-info not-selected" data-tooltip="{{localize 'T20.EnhancementsAutomationEnableHint'}}"></i></label>
-	</div>
-
-	<span class="wip-title">{{localize "T20.WIPEnhancements"}}</span>
-
-	<div class="form-group">
-		<div class="form-fields wip-fields">
-			<label><i class="fa-solid fa-circle-info not-selected"></i> {{localize "T20.WIPEnhancementsNotSelected"}}</label>
-			<label><i class="fa-solid fa-circle-info implemented"></i> {{localize "T20.WIPEnhancementsImplemented"}}</label>
-			<label for=""><i class="fa-solid fa-circle-info not-implemented"></i> {{localize "T20.WIPEnhancementsNotImplemented"}}</label>
+		<label for="{{rootId}}-system.enableAutoUpgrades">{{ localize 'T20.EnhancementsAutomationEnable'}}</label>
+		<div class="form-fields">
+			<input id="{{rootId}}-system.enableAutoUpgrades" type="checkbox" name="system.enableAutoUpgrades" data-dtype="Boolean" {{checked system.enableAutoUpgrades}}>
 		</div>
+		<p class="notes">{{localize "T20.WIPEnhancements"}}
+			<i class="fa-solid fa-circle-info implemented"></i> {{localize "T20.WIPEnhancementsImplemented"}}
+			<i class="fa-solid fa-circle-info not-implemented"></i> {{localize "T20.WIPEnhancementsNotImplemented"}}
+		</p>
 	</div>
 
 	{{#if (or (eq item.type "arma") (and (eq item.type "consumivel") (eq item.system.tipo "ammo"))  ) }}
