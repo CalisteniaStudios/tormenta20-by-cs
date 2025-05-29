@@ -20,6 +20,10 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 		const perpendicular = [0, 90, 180, 270, 360];
 		const diagonal = [45, 135, 225, 315];
 		direction = Math.round(direction / 45) * 45;
+		if (canvas.grid.isSquare) {
+			const distanceUnit = canvas.dimensions.distance;
+			distance = Math.round(distance / distanceUnit) * distanceUnit;
+		}
 		// Diagonal Cone
 		if (diagonal.includes(direction)) {
 			angle = 90;
