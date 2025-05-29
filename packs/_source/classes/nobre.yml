@@ -20,14 +20,23 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  pericias:
+    inatas: >-
+      Diplomacia (Car) ou Intimidação (Car), Vontade (Sab), mais 4 a sua escolha
+      entre Adestramento (Car), Atuação (Car), Cavalgar (Des), Conhecimento
+      (Int), Diplomacia (Car), Enganação (Car), Fortitude (Con), Guerra (Int),
+      Iniciativa (Des), Intimidação (Car), Intuição (Sab), Investiga- ção (Int),
+      Jogatina (Car), Luta (For), Nobreza (Int), Ofício (Int), Percepção (Sab) e
+      Pontaria (Des).
+    numero: 4
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1664312712757
-  modifiedTime: 1668270628858
+  modifiedTime: 1748555734472
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

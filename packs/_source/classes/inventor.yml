@@ -15,14 +15,21 @@ system:
   chatFlavor: ''
   rolls: []
   chatGif: ''
+  pericias:
+    inatas: >-
+      Ofício (Int) e Vontade (Sab), mais 4 a sua escolha entre Conhecimento
+      (Int), Cura (Sab), Diplomacia (Car), Fortitude (Con), Iniciativa (Des),
+      Investigação (Int), Luta (For), Misticismo (Int), Ofício (Int), Pilotagem
+      (Des), Percepção (Sab) e Pontaria (Des).
+    numero: 4
 effects: []
 flags: {}
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1665005503826
-  modifiedTime: 1668270628858
+  modifiedTime: 1748555690073
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

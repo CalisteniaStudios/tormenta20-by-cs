@@ -20,14 +20,21 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  pericias:
+    inatas: >-
+      Fortitude (Con) e Luta (For), mais 4 a sua escolha entre Acrobacia (Des),
+      Adestramento (Car), Atletismo (For), Enganação (Car), Furtividade (Des),
+      Iniciativa (Des), Intimidação (Car), Ofício (Int), Percepção (Sab),
+      Pontaria (Des) e Reflexos (Des).
+    numero: 4
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1664312712757
-  modifiedTime: 1668270628858
+  modifiedTime: 1748555721999
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

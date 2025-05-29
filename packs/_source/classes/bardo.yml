@@ -20,14 +20,22 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  pericias:
+    numero: 6
+    inatas: >-
+      Atuação (Car) e Reflexos (Des) mais 6 a sua escolha entre Acrobacia (Des),
+      Cavalgar (Des), Conhecimento (Int), Diplomacia (Car), Enganação (Car),
+      Furtividade (Des), Iniciativa (Des), Intuição (Sab), Investigação (Int),
+      Jogatina (Car), Ladinagem (Des), Luta (For), Misticismo (Int), Nobreza
+      (Int), Percepção (Sab), Pontaria (Des) e Vontade (Sab).
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1664312712758
-  modifiedTime: 1668270628857
+  modifiedTime: 1748555565363
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

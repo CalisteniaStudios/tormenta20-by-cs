@@ -20,14 +20,21 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  pericias:
+    inatas: >-
+      Sobrevivência (Sab) e Vontade (Sab), mais 4 a sua escolha entre
+      Adestramento (Car) Atletismo (For), Cavalgar (Des), Conhecimento (Int),
+      Cura (Sab), Fortitude (Con), Iniciativa (Des), Intuição (Sab), Luta (For),
+      Misticismo (Int), Ofício (Int), Percepção (Sab) e Religião (Sab).
+    numero: 4
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1664312712755
-  modifiedTime: 1668270628858
+  modifiedTime: 1748555658977
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

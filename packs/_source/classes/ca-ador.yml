@@ -20,14 +20,22 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  pericias:
+    numero: 6
+    inatas: >-
+      Luta (For) ou Pontaria (Des), Sobre- vivência (Sab), mais 6 a sua escolha
+      entre Adestra- mento (Car), Atletismo (For), Cavalgar (Des), Cura (Sab),
+      Fortitude (Con), Furtividade (Des), Iniciativa (Des), Investigação (Int),
+      Luta (For), Ofício (Int), Percepção (Sab), Pontaria (Des) e Reflexos
+      (Des).
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1664312712758
-  modifiedTime: 1668270628857
+  modifiedTime: 1748555604074
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

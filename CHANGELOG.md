@@ -10,6 +10,7 @@
 - Corrigido: Desenho de Cones agora têm a distância correta.
 - Corrigido: Duração "Cena" re-adicionada aos Efeitos Ativos.
 - Corrigido: Aprimoramentos não removem efeitos do mesmo tipo provindos de outros itens.
+- Corrigido: Classes não salvavam Perícias Iniciais e Número de Perícias
 
 ## Versão 1.5.001
 - Atualizado para Foundry V13.

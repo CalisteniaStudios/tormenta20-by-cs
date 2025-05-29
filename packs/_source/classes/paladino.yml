@@ -20,14 +20,21 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  pericias:
+    inatas: >-
+      Luta (For) e Vontade (Sab) mais 2 a sua escolha entre Adestramento (Car),
+      Atletismo (For), Cavalgar (Des), Cura (Sab), Diplomacia (Car), Fortitude
+      (Con), Guerra (Int), Iniciativa (Des), Intuição (Sab), Nobreza (Int),
+      Percepção (Sab) e Religião (Sab).
+    numero: 2
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1658349969910
-  modifiedTime: 1668270628858
+  modifiedTime: 1748555810936
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

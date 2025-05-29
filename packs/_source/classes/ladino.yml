@@ -20,14 +20,23 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
+  pericias:
+    inatas: >-
+      Ladinagem (Des) e Reflexos (Des), mais 8 a sua escolha entre Acrobacia
+      (Des), Atletismo (For), Atuação (Car), Cavalgar (Des), Conhecimento (Int),
+      Diplomacia (Car), Enganação (Car), Furtividade (Des), Iniciativa (Des),
+      Intimidação (Car), Intuição (Sab), Investigação (Int), Jogatina (Car),
+      Luta (For), Ofício (Int), Percepção (Sab), Pilotagem (Des) e Pontaria
+      (Des).
+    numero: 8
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: v1.5.002
+  coreVersion: '13.344'
   createdTime: 1664312712757
-  modifiedTime: 1668270628858
+  modifiedTime: 1748555798960
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
