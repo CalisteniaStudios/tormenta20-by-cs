@@ -10,6 +10,18 @@ export default class ClassData extends IdentityData {
 		return {
 			...super.defineSchema(),
 			...this.schemaRolls(),
+			pericias: new fields.SchemaField({
+				inatas: new fields.StringField({
+					required: true,
+					nullable: false,
+					initial: ""
+				}),
+				numero: new fields.NumberField({
+					required: true,
+					nullable: false,
+					initial: 0
+				})
+			}),
 			niveis: new fields.NumberField({
 				required: true,
 				initial: 1,
