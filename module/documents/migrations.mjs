@@ -104,9 +104,9 @@ itemMigration.migrateEquipSlot = function (doc, updateEffectData = {}) {
 	if (!doc.system.equipado2) doc.system.equipado2 = {};
 	if (!doc.system.equipado2.slot) doc.system.equipado2.slot = 0;
 
-	if (doc.system.empunhadura || ["escudo", "esoterico", "ferramenta"].includes(doc.system.tipo)) {
+	if (doc.system.empunhadura || ["escudo", "ferramenta"].includes(doc.system.tipo)) {
 		doc.system.equipado2.type = "hand";
-	} else if (["leve", "pesada", "traje", "acessorio"].includes(doc.system.tipo)) {
+	} else if (["leve", "pesada", "traje"].includes(doc.system.tipo)) {
 		doc.system.equipado2.type = "body";
 	} else if (["eng"].includes(doc.system.tipo) && doc.system.escola) {
 		doc.system.equipado2.type = "both";
