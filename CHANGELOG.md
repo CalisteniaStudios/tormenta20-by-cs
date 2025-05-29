@@ -1,10 +1,15 @@
 # Lista de Mudanças
 
 ## Versão 1.5.002
+- Alterado: Fichas agora usam a fonte Signika em vez da fonte Roboto.
+- Alterado: Custo de Mana negativo não é mais exibido no chat.
 - Corrigido: Bônus de Dano agora são aplicados apenas uma vez.
 - Corrigido: Automação do poder Acuidade com Arma, Arremesso Potente e Estilo de Disparo.
 - Corrigido: Bônus do poder Esse Cheiro.
 - Corrigido: Penalidade de Armadura da condição Sobrecarregado.
+- Corrigido: Desenho de Cones agora têm a distância correta.
+- Corrigido: Duração "Cena" re-adicionada aos Efeitos Ativos.
+- Corrigido: Aprimoramentos não removem efeitos do mesmo tipo provindos de outros itens.
 
 ## Versão 1.5.001
 - Atualizado para Foundry V13.
