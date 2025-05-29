@@ -209,6 +209,14 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".effect-control").click((ev) => {
 				ActiveEffectT20.onManageActiveEffect(ev, this.item);
 			});
+			if (this.item.system.enableAutoUpgrades) {
+				html.find(".tab.enhancements select").change(async (ev) => {
+					const { name, value } = ev.currentTarget;
+					const key = name.replace("system.upgrades.", "");
+					if (this.item.system.upgrades[key]) await this._deleteEffect(this.item.system.upgrades[key]);
+					if (value) await this._createEffect(value);
+				});
+			}
 
 			// Progression Tab
 			// html.find(".progression-control").click(this._onProgressionControl.bind(this));
@@ -219,18 +227,6 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/* -------------------------------------------- */
 	/*  Interactions                                */
 	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	async _onSubmit(event, options = {}) {
-		// Process the form data
-		const formData = this._getSubmitData(null);
-		const expandedFormData = foundry.utils.expandObject(formData);
-		if (expandedFormData.system?.enableAutoUpgrades && expandedFormData.system?.upgrades) {
-			this._createEffects(expandedFormData.system.upgrades);
-		}
-
-		await super._onSubmit(event, options);
-	}
 
 	/** @inheritdoc */
 	// async _onDrop(event) {
@@ -545,65 +541,53 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		}
 	}
 
-	/* -------------------------------------------- */
-	/** Create effects based on upgrades
-	 * @param upgrades
-	 * @private
-	 */
-	_createEffects(upgrades) {
-		const values = Object.values(upgrades);
+	async _createEffect(upgrade) {
+		const availableEffects = this._availableEffects;
+		if (!availableEffects) return;
 
-		const existingEffects = [
+		const effect = {
+			...availableEffects[upgrade],
+			name: game.i18n.localize(availableEffects[upgrade].name),
+			description: game.i18n.localize(availableEffects[upgrade].description ?? ""),
+			icon: this.item.img,
+			origin: this.item.uuid,
+			// We need to internationalize the items list
+			flags: {
+				...availableEffects[upgrade].flags,
+				tormenta20: {
+					...availableEffects[upgrade].flags.tormenta20,
+					items: (availableEffects[upgrade].flags.tormenta20.items || "")
+						.split(";")
+						.map((i) => i.trim())
+						.filter((i) => !!i)
+						.map((i) => game.i18n.localize(i))
+						.join(";")
+				}
+			}
+		};
+
+		if (!effect) return;
+
+		if (effect.transfer) await this.item.actor?.createEmbeddedDocuments("ActiveEffect", [effect]);
+		await this.item.createEmbeddedDocuments("ActiveEffect", [effect]);
+	}
+
+	async _deleteEffect(upgrade) {
+		const effectsToDelete = [
 			this.item.getEmbeddedCollection("ActiveEffect").contents,
 			this.item.actor?.getEmbeddedCollection("ActiveEffect").contents
 		]
 			.flat()
-			.filter((e) => !!e && e.flags?.tormenta20?.upgrade && e.origin === this.item.uuid);
+			.filter((e) => !!e && e.flags?.tormenta20?.upgrade === upgrade && e.origin === this.item.uuid);
 
 		// Delete old effects
-		const effectsToDelete = existingEffects.filter((e) => !values.includes(e.flags.tormenta20.upgrade));
 		if (effectsToDelete.length) {
 			const actorEffectsToDelete = effectsToDelete.filter((e) => e.parent.id === this.item.actor?.id).map((e) => e.id);
 			const itemEffectsToDelete = effectsToDelete.filter((e) => e.parent.id === this.item.id).map((e) => e.id);
 
-			this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete);
-			this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete);
+			await this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete);
+			await this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete);
 		}
-
-		// Create new effects
-		const availableEffects = this._availableEffects;
-		if (!availableEffects) return;
-
-		const effects = values
-			.filter((v) => availableEffects[v] && !existingEffects.some((e) => e.flags.tormenta20.upgrade === v))
-			.map((v) => ({
-				...availableEffects[v],
-				name: game.i18n.localize(availableEffects[v].name),
-				description: game.i18n.localize(availableEffects[v].description ?? ""),
-				icon: this.item.img,
-				origin: this.item.uuid,
-				// We need to internationalize the items list
-				flags: {
-					...availableEffects[v].flags,
-					tormenta20: {
-						...availableEffects[v].flags.tormenta20,
-						items: (availableEffects[v].flags.tormenta20.items || "")
-							.split(";")
-							.map((i) => i.trim())
-							.filter((i) => !!i)
-							.map((i) => game.i18n.localize(i))
-							.join(";"),
-						custo: availableEffects[v].flags.tormenta20.custo || ""
-					}
-				}
-			}));
-
-		if (!effects.length) return;
-
-		const actorEffects = effects.filter((e) => e.transfer);
-
-		this.item.actor?.createEmbeddedDocuments("ActiveEffect", actorEffects);
-		this.item.createEmbeddedDocuments("ActiveEffect", effects);
 	}
 
 	get _itemUpgradeStatus() {
