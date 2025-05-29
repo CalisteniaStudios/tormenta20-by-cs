@@ -12,7 +12,7 @@
   /*  Shared Styles                            */
   /* ----------------------------------------- */
 
-  .modesto();
+  .signika();
 
   .ability-scores,
   .skills-list {
@@ -95,14 +95,14 @@
         }
 
         // Attribution Tooltip
-        .property-attribution {
-          min-width: 150px;
-          top: 50px;
-          font-family: Signika, sans-serif;
-          // font-size: 14px;
-          font-weight: normal;
-          line-height: 1rem;
-        }
+        // .property-attribution {
+        //   min-width: 150px;
+        //   top: 50px;
+        //   .signika();
+        //   // font-size: 14px;
+        //   font-weight: normal;
+        //   line-height: 1rem;
+        // }
       }
     }
   }
@@ -116,7 +116,6 @@
     height: 18px;
     line-height: 16px;
     margin: 4px 4px 0px;
-    .modesto();
     // font-size: 18px;
     color: @colorOlive;
     border-bottom: 1px solid @colorFaint;
@@ -155,7 +154,7 @@
         align-items: center;
         height: 28px;
         line-height: 28px;
-        .modesto();
+        .signika();
 
         > * {
           font-weight: 400;
@@ -171,7 +170,7 @@
         flex: 0 0 18px;
         margin-top: -1px;
         line-height: 18px;
-        font-family: "Signika", sans-serif;
+        .signika();
         // font-size: 18px;
         font-weight: 400;
         white-space: nowrap;
@@ -211,7 +210,6 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    .modesto();
     border: @borderGroove;
     border-radius: 3px;
 
@@ -364,10 +362,11 @@
   }
 
   .traits {
-    font-size: 12px;
+    font-size: var(--font-size-13);
 
     h3 {
-      margin-bottom: 4px;
+      margin-bottom: 0.25rem;
+      text-align: center;
     }
 
     .form-group,
