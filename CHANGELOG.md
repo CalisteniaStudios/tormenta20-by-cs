@@ -1,5 +1,11 @@
 # Lista de Mudanças
 
+## Versão 1.5.002
+- Corrigido: Bônus de Dano agora são aplicados apenas uma vez.
+- Corrigido: Automação do poder Acuidade com Arma, Arremesso Potente e Estilo de Disparo.
+- Corrigido: Bônus do poder Esse Cheiro.
+- Corrigido: Penalidade de Armadura da condição Sobrecarregado.
+
 ## Versão 1.5.001
 - Atualizado para Foundry V13.
 
