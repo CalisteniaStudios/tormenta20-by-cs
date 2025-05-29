@@ -558,7 +558,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			this.item.actor?.getEmbeddedCollection("ActiveEffect").contents
 		]
 			.flat()
-			.filter((e) => !!e && !!e.flags.tormenta20.upgrade);
+			.filter((e) => !!e && e.flags?.tormenta20?.upgrade && e.origin === this.item.uuid);
 
 		// Delete old effects
 		const effectsToDelete = existingEffects.filter((e) => !values.includes(e.flags.tormenta20.upgrade));
