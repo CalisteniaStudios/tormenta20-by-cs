@@ -1470,7 +1470,7 @@ export default class ActorT20 extends Actor {
 		// Basic template rendering data
 		const token = this.getActiveTokens()[0] ?? null;
 
-		let manaCost = Number(options.itemData?.system?.ativacao?.custo) || null;
+		let manaCost = Math.max(options.itemData?.system?.ativacao?.custo, 0) || null;
 		if (options.truque) manaCost = 0;
 		else if (options.halfCost) manaCost = Math.floor(manaCost / 2);
 
