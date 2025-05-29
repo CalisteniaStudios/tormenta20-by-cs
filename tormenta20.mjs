@@ -53,6 +53,7 @@ import "./module/modules.mjs";
 import * as utils from "./module/utils.mjs";
 
 // import {getSystemActorData,  getSystemItemData} from "./dataModel/data.mjs";
+import TemplateLayerT20 from "./module/canvas/template-layer.mjs";
 import ActorDirectoryTormenta20 from "./module/sidebar/actor-directory.mjs";
 import ChatLogTormenta20 from "./module/sidebar/chat-log.mjs";
 import CompendiumDirectoryT20 from "./module/sidebar/compendium-directory.mjs";
@@ -81,6 +82,7 @@ globalThis.tormenta20 = {
 	},
 	canvas: {
 		AbilityTemplate,
+		TemplateLayerT20,
 		TokenT20
 	},
 	config: T20,
@@ -111,6 +113,7 @@ Hooks.once("init", async function () {
 	CONFIG.Token.rulerClass = TokenRulerT20;
 	CONFIG.time.roundTime = 6;
 
+	CONFIG.Canvas.layers.templates.layerClass = TemplateLayerT20;
 	CONFIG.MeasuredTemplate.objectClass = AbilityTemplate;
 
 	// Register T20 stuff

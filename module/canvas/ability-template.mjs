@@ -1,66 +1,13 @@
+const { Ray } = foundry.canvas.geometry;
+
 /**
  * A helper class for building MeasuredTemplates for spells and abilities
  * @extends {MeasuredTemplate}
  */
 export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredTemplate {
-	_computeShape() {
-		if (canvas.grid.type !== 1) {
-			return super._computeShape();
-		}
-
-		const { t, distance, direction, angle, width } = this.document;
-		// const x = this.position.x;
-		// const y = this.position.y;
-		switch (t) {
-			case "circle":
-				// return this.constructor.getT20CircleShape(distance, x, y);
-				return new PIXI.Polygon(canvas.grid.getCircle({ x: 0, y: 0 }, distance));
-			case "cone":
-				return this.constructor.getT20ConeShape(distance, direction, angle);
-			case "rect":
-				return this.constructor.getRectShape(distance, direction);
-			case "ray":
-				return this.constructor.getRayShape(distance, direction, width);
-		}
-	}
-
-	/**
-	 * Tormenta20 Circles GridTemplate shaped.
-	 * @inheritdoc
-	 */
-	static getT20CircleShape(distance, cX, cY) {
-		console.log("getT20CircleShape");
-		const distanceUnit = canvas.dimensions.distance;
-		const distancePixels = canvas.dimensions.distancePixels;
-		const size = canvas.dimensions.size;
-
-		const xCentered = !Number.isInteger(cX / size);
-		const yCentered = !Number.isInteger(cY / size);
-		let points = [];
-		// START: First Quarter
-		let x = distance + (xCentered ? distanceUnit / 2 : 0);
-		let y = 0;
-		points = points.concat([[x, y]]);
-
-		x = points.findLast(Boolean)[0];
-		y = points.findLast(Boolean)[1];
-		for (let i = 0; i < 50; i++) {
-			y += distanceUnit / (yCentered && i === 0 ? 2 : 1);
-			points = points.concat([[x, y]]);
-
-			x += -distanceUnit / (xCentered && i === 0 ? 1 : 1);
-			points = points.concat([[x, y]]);
-			if (x <= 0) break;
-		}
-		// Mirror quarter
-		let pointsA = points.map((i) => [i[0] * -1, i[1]]).reverse();
-		points = [...points, ...pointsA];
-		// Mirror half
-		let pointsB = points.map((i) => [Number(i[0]), i[1] * -1]).reverse();
-		points = [...points, ...pointsB];
-
-		points = points.flat().map((i) => Number.parseInt(i * distancePixels));
-		return new PIXI.Polygon(points);
+	/** @override */
+	static getCircleShape(distance) {
+		return new PIXI.Polygon(canvas.grid.getCircle({ x: 0, y: 0 }, distance));
 	}
 
 	/**
@@ -69,23 +16,22 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 	 * VERTICAL = !GriTemplate + FLAT + Angle 67
 	 * @inheritdoc
 	 */
-	static getT20ConeShape(distance, direction, angle) {
-		const perpendicular = [0, 90, 180, 270];
+	static getConeShape(distance, direction, angle) {
+		const perpendicular = [0, 90, 180, 270, 360];
 		const diagonal = [45, 135, 225, 315];
-		direction = this.roundToClosest(direction);
-		if (direction === 360) direction = 0;
+		direction = Math.round(direction / 45) * 45;
 		// Diagonal Cone
 		if (diagonal.includes(direction)) {
 			angle = 90;
-			return this.getT20ConeShapeDiagonal(distance, direction, angle);
+			return this.getDiagonalConeShape(distance, direction, angle);
 		}
 		// Perpendicular Cone
 		else if (perpendicular.includes(direction)) {
-			return this.getT20ConeShapeVertical(distance, direction, angle);
+			return this.getPerpendicularConeShape(distance, direction, angle);
 		}
 	}
 
-	static getT20ConeShapeVertical(distance, direction, angle) {
+	static getPerpendicularConeShape(distance, direction, angle) {
 		const distanceUnit = canvas.dimensions.distance;
 		const distancePixels = canvas.dimensions.distancePixels;
 		let points = [];
@@ -127,7 +73,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 		return new PIXI.Polygon(points);
 	}
 
-	static getT20ConeShapeDiagonal(distance, direction, angle) {
+	static getDiagonalConeShape(distance, direction, angle) {
 		const distanceUnit = canvas.dimensions.distance;
 		const distancePixels = canvas.dimensions.distancePixels;
 		let points = [];
@@ -160,8 +106,22 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 		return new PIXI.Polygon(points);
 	}
 
-	static roundToClosest(number) {
-		return Math.round(number / 45) * 45;
+	/** @override */
+	static getRayShape(distance, direction, width) {
+		const d = canvas.dimensions;
+		width *= d.distancePixels;
+		const p00 = Ray.fromAngle(0, 0, Math.toRadians(direction - 90), width / 2).B;
+		const p01 = Ray.fromAngle(0, 0, Math.toRadians(direction + 90), width / 2).B;
+		const p10 = canvas.grid.getTranslatedPoint(p00, direction, distance);
+		const p11 = canvas.grid.getTranslatedPoint(p01, direction, distance);
+
+		return new PIXI.Polygon(p00.x, p00.y, p10.x, p10.y, p11.x, p11.y, p01.x, p01.y);
+	}
+
+	/** @override */
+	static getRectShape(distance, direction) {
+		const endpoint = canvas.grid.getTranslatedPoint({ x: 0, y: 0 }, direction, distance);
+		return new PIXI.Rectangle(0, 0, endpoint.x, endpoint.y).normalize();
 	}
 
 	/* ---------------------------------------------------- */
@@ -257,6 +217,18 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 
 		// Activate interactivity
 		this.activatePreviewListeners(initialLayer);
+	}
+
+	/* -------------------------------------------- */
+
+	_refreshShape() {
+		const { x, y, direction, distance } = this.document;
+
+		// Grid type
+		this.ray = new Ray({ x, y }, canvas.grid.getTranslatedPoint({ x, y }, direction, distance));
+
+		// Get the Template shape
+		this.shape = this._computeShape();
 	}
 
 	/* -------------------------------------------- */
