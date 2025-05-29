@@ -457,7 +457,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			enableAutoUpgrades: new fields.BooleanField({
 				required: false,
 				nullable: false,
-				initial: false,
+				initial: true,
 				label: "T20.EnhancementsAutomationEnable",
 				hint: "T20.EnhancementsAutomationEnableHint"
 			})
