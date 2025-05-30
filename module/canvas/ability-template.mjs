@@ -10,32 +10,18 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 		return new PIXI.Polygon(canvas.grid.getCircle({ x: 0, y: 0 }, distance));
 	}
 
-	/**
-	 * Tormenta20 Cones are flat shaped and without GridTemplate mode.
-	 * DIAGONAL = GridTemplate + FLAT
-	 * VERTICAL = !GriTemplate + FLAT + Angle 67
-	 * @inheritdoc
-	 */
+	/** @override */
 	static getConeShape(distance, direction, angle) {
-		const perpendicular = [0, 90, 180, 270, 360];
-		const diagonal = [45, 135, 225, 315];
-		direction = Math.round(direction / 45) * 45;
 		if (canvas.grid.isSquare) {
-			const distanceUnit = canvas.dimensions.distance;
-			distance = Math.round(distance / distanceUnit) * distanceUnit;
+			const diagonal = [45, 135, 225, 315];
+			direction = Math.round(direction / 45) * 45;
+			if (diagonal.includes(direction)) return this.getDiagonalConeShape(distance, direction);
+			return this.getParallelConeShape(distance, direction);
 		}
-		// Diagonal Cone
-		if (diagonal.includes(direction)) {
-			angle = 90;
-			return this.getDiagonalConeShape(distance, direction, angle);
-		}
-		// Perpendicular Cone
-		else if (perpendicular.includes(direction)) {
-			return this.getPerpendicularConeShape(distance, direction, angle);
-		}
+		return new PIXI.Polygon(canvas.grid.getCone({ x: 0, y: 0 }, distance, direction, angle));
 	}
 
-	static getPerpendicularConeShape(distance, direction, angle) {
+	static getParallelConeShape(distance, direction) {
 		const distanceUnit = canvas.dimensions.distance;
 		const distancePixels = canvas.dimensions.distancePixels;
 		let points = [];
@@ -77,7 +63,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 		return new PIXI.Polygon(points);
 	}
 
-	static getDiagonalConeShape(distance, direction, angle) {
+	static getDiagonalConeShape(distance, direction) {
 		const distanceUnit = canvas.dimensions.distance;
 		const distancePixels = canvas.dimensions.distancePixels;
 		let points = [];

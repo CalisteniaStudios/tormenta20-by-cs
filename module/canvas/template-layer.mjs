@@ -11,6 +11,10 @@ export default class TemplateLayerT20 extends foundry.canvas.layers.TemplateLaye
 		const { origin, destination, preview } = interaction;
 		const ray = new Ray(origin, destination);
 		let distance = canvas.grid.measurePath([origin, destination]).distance;
+		if (preview.document.t === "cone") {
+			const distanceUnit = canvas.dimensions.distance;
+			distance = Math.max(Math.round(distance / distanceUnit) * distanceUnit, distanceUnit * 2);
+		}
 
 		// Update the preview object
 		preview.document.direction = Math.normalizeDegrees(Math.toDegrees(ray.angle));

@@ -114,6 +114,7 @@ Hooks.once("init", async function () {
 	CONFIG.time.roundTime = 6;
 
 	CONFIG.Canvas.layers.templates.layerClass = TemplateLayerT20;
+	CONFIG.MeasuredTemplate.defaults.angle = 90;
 	CONFIG.MeasuredTemplate.objectClass = AbilityTemplate;
 
 	// Register T20 stuff
