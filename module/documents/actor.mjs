@@ -403,7 +403,9 @@ export default class ActorT20 extends Actor {
 		if (armor && armor.system.tipo === "pesada") {
 			atributo = Math.clamp(atributo, 0, maxAtr);
 		}
-		if (game.settings.get("tormenta20", "progressiveDefense")) parts.push("@meionivel");
+		if (this.type === "character" && game.settings.get("tormenta20", "progressiveDefense")) {
+			parts.push("@meionivel");
+		}
 
 		rollData.base = this.type === "character" ? 10 : defense.base || 10;
 		rollData.atributo = defense.atributo ? atributo : 0;
