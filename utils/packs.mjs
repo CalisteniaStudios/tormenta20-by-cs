@@ -258,7 +258,7 @@ function slugify(name) {
 	return name
 		.toLowerCase()
 		.replace("'", "")
-		.replace(/[^a-z0-9]+/gi, " ")
+		.replace(/[^a-z0-9áâãàäéêèëíìïóôõòöúùüçñ]+/gi, " ")
 		.trim()
 		.replace(/\s+|-{2,}/g, "-");
 }
