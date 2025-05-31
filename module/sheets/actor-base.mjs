@@ -320,7 +320,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				callback: () => item.setFlag("tormenta20", "favorito", !favorito)
 			});
 		}
-		if (game.settings.get("tormenta20", "equipmentSlots") && item.system.equipado2) {
+		if (game.settings.get("tormenta20", "equipmentSlots") && item.system.equipado2 && equips) {
 			const img = (image) => `<img src='${image}' width='20px' height='20px' style='vertical-align: middle;'>`;
 			const dec = (number) => (number % 1).toFixed(1) * 10;
 			const isEquippedInSlot = (it, slot1, slot2) =>

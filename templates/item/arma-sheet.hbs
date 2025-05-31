@@ -22,7 +22,7 @@
 				<label>{{ localize "T20.WeaponProficiency" }}</label>
 				<div class="form-fields">
 					<select name="system.proficiencia">
-						{{selectOptions config.weaponTypes blank="" selected=item.system.proficiencia localize=true}}
+						{{selectOptions config.weaponTypes selected=item.system.proficiencia localize=true}}
 					</select>
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 				<label>{{ localize "T20.WeaponPurpose" }}</label>
 				<div class="form-fields">
 					<select name="system.proposito">
-						{{selectOptions config.weaponPurposeTypes blank="" selected=item.system.proposito localize=true}}
+						{{selectOptions config.weaponPurposeTypes selected=item.system.proposito localize=true}}
 					</select>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 				<label>{{ localize "T20.WeaponWielding" }}</label>
 				<div class="form-fields">
 					<select name="system.empunhadura">
-						{{selectOptions config.weaponWieldingTypes blank="" selected=item.system.empunhadura localize=true}}
+						{{selectOptions config.weaponWieldingTypes selected=item.system.empunhadura localize=true}}
 					</select>
 				</div>
 			</div>

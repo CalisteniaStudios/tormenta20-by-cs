@@ -48,27 +48,27 @@ export default class WeaponData extends Tormenta20ItemData {
 			proficiencia: new fields.StringField({
 				required: true,
 				nullable: false,
-				blank: true,
+				blank: false,
 				choices: Object.keys(T20.weaponTypes),
-				initial: "",
+				initial: "simples",
 				label: "T20.ItemWeaponProficiency",
 				hint: "T20.ItemWeaponProficiencyHint"
 			}),
 			proposito: new fields.StringField({
 				required: true,
 				nullable: false,
-				blank: true,
+				blank: false,
 				choices: Object.keys(T20.weaponPurposeTypes),
-				initial: "",
+				initial: "corpo-a-corpo",
 				label: "T20.ItemWeaponPurpose",
 				hint: "T20.ItemWeaponPurposeHint"
 			}),
 			empunhadura: new fields.StringField({
 				required: true,
 				nullable: false,
-				blank: true,
+				blank: false,
 				choices: Object.keys(T20.weaponWieldingTypes),
-				initial: "",
+				initial: "leve",
 				label: "T20.ItemWeaponWielding",
 				hint: "T20.ItemWeaponWieldingHint"
 			}),
