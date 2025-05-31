@@ -398,19 +398,6 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	 * Return the amount of experience granted by killing a creature of a certain CR.
-	 * @param cr {Number}		 The creature's challenge rating
-	 * @return {Number}			 The amount of experience granted per kill
-	 */
-	getCRExp(cr) {
-		if (["S", "S+"].includes(cr)) return 20 * 1000;
-		else if (["1/2", "1/3", "1/4", "1/6", "1/8"].includes(cr)) return 1000 * cr.toFixed(3);
-		(Number(cr) || 0) * 1000;
-	}
-
-	/* -------------------------------------------- */
-
-	/**
 	 * Add a list of itens to the actor
 	 * TODO at Advancement
 	 * @param {Array.<ItemT20>} itens - The itens being added to the Actor;

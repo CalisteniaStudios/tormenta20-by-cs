@@ -1,5 +1,6 @@
 import CreatureData from "./templates/creature.mjs";
 
+import { parseFraction } from "../../utils.mjs";
 import { ActorSkillsField, SkillData } from "../helpers.mjs";
 import AttributesFields from "./templates/attributes.mjs";
 
@@ -49,9 +50,7 @@ export default class MenaceData extends CreatureData {
 
 		let nd = this.attributes.nd;
 		// const crData = T20.NPCParams(nd);
-
-		if (["1/2", "1/4"].includes(nd)) this.attributes.nivel.value = 1;
-		else if (["S", "S+"].includes(nd)) this.attributes.nivel.value = 20;
+		if (["S", "S+"].includes(nd)) this.attributes.nivel.value = 20;
 		else this.attributes.nivel.value = Number(nd) || 1;
 		const nivel = this.attributes.nivel.value;
 
@@ -59,7 +58,7 @@ export default class MenaceData extends CreatureData {
 		this.attributes.meionivel = Math.floor(this.attributes.nivel.value / 2);
 		// Experience Reward
 		this.attributes.defesa.condi = 0;
-		this.attributes.nivel.xp.value = this.parent.getCRExp(nd);
+		this.attributes.nivel.xp.value = parseFraction(nd) * 1000;
 
 		if (this.biography?.value) {
 			this.detalhes.biography.value += this.biography.value;

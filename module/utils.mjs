@@ -177,3 +177,9 @@ export function simplifyBonus(bonus, data = {}) {
 		return 0;
 	}
 }
+
+export function parseFraction(fraction) {
+	let [num, denom] = fraction.split("/").map(Number);
+	denom = isNaN(denom) ? 1 : denom;
+	return num / denom;
+}
