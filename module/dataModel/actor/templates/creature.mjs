@@ -1,6 +1,7 @@
-import Tormenta20TypeData from "../base.mjs";
+import { simplifyRollFormula } from "../../../dice/dice.mjs";
+import Tormenta20TypeData from "../../base.mjs";
 
-import { ActorSkillsField, SkillData } from "../helpers.mjs";
+import { ActorSkillsField, SkillData } from "../../helpers.mjs";
 
 const fields = foundry.data.fields;
 
@@ -993,5 +994,69 @@ export default class CreatureData extends Tormenta20TypeData {
 		}
 
 		return new fields.SchemaField(schema);
+	}
+
+	prepareAtributos({ rollData = {} } = {}) {
+		const flags = this.parent.flags.tormenta20 ?? {};
+		Object.values(this.atributos).forEach((a) => (a.value = a.base + a.racial + a.bonus));
+	}
+
+	prepareSkills({ rollData = {} } = {}) {
+		for ( const [id, skillData] of Object.entries(this.pericias) ) {
+			this.prepareSkill(id, { skillData, rollData });
+		}
+	}
+
+	prepareSkill(skillId, { skillData, rollData, atributo }={}) {
+		if (skillId === "ofic") return;
+
+		let parts = this.parent.skillFormula;
+
+		skillData ??= foundry.utils.deepClone(this.skills[skillId]);
+		rollData ??= this.parent.getRollData();
+		atributo ??= skillData.atributo;
+		skillData.atributo = atributo;
+		rollData.atributo = rollData[skillData.atributo];
+
+		skillData.label = skillData.label || CONFIG.T20.pericias[skillId] || skillId;
+		skillData.pda = ["acro", "furt", "ladi"].includes(skillId) || Boolean(skillData.label.match(/\+/g));
+		skillData.st =
+			["ades", "atua", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(skillId)
+			|| Boolean(skillId.match(/ofi[1-9]/))
+			|| Boolean(skillData.label.match(/\*/g));
+		skillData.custom = Boolean(skillId.match(/ofi[1-9]|_pc[1-9]/));
+		skillData.nome = skillData.label.replace(/[\*\+]/g, "").trim();
+
+		if (this.type === "npc" && ["fort", "refl", "vont", "luta", "pont"].includes(skillId)) {
+			parts = ["@outros", "@condi"];
+		}
+
+		if (!skillData.treinado) parts = parts.filter((f) => f !== "@treino");
+		if (skillData.bonus.length) parts.push(...skillData.bonus);
+		if (skillData.pda && rollData.pda) parts.push("-@pda");
+		if (skillId === "furt" && rollData.tamanho) parts.push("@tamanho");
+
+		if (skillData.outros) rollData.outros = skillData.outros
+		else parts = parts.filter((f) => f !== "@outros")
+
+		if (skillData.condi) rollData.condi = skillData.condi
+		else (parts = parts.filter((f) => f !== "@condi"));
+
+		// GET GLOBAL ACTOR MODIFIERS
+		const bonuses = foundry.utils.getProperty(this, "modificadores.pericias") || {};
+		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
+		if (["fort", "refl", "vont"].includes(skillId) && bonuses.resistencia.filter(Boolean).length)
+			parts.push("@resistencia");
+		else if (!["luta", "pont"].includes(skillId) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
+		else if (["luta", "pont"].includes(skillId) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
+		if (bonuses.atr && bonuses.atr[skillData.atributo]?.filter(Boolean).length)
+			parts.push(...bonuses.atr[skillData.atributo]);
+
+		const result = simplifyRollFormula(parts.join("+"), rollData, {
+			constantFirst: true
+		}).trim();
+		skillData.value = parseInt(result.trim()) || 0;
+
+		return skillData;
 	}
 }

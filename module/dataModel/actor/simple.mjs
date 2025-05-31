@@ -1,6 +1,7 @@
-import CreatureData from "./creature.mjs";
+import CreatureData from "./templates/creature.mjs";
 
-import { ActorSkillsField, SkillData, _resourceSchema } from "../helpers.mjs";
+import { ActorSkillsField, SkillData } from "../helpers.mjs";
+import AttributesFields from "./templates/attributes.mjs";
 
 export default class SimpleData extends CreatureData {
 	/** @override */
@@ -24,8 +25,19 @@ export default class SimpleData extends CreatureData {
 		};
 	}
 
-	/** @inheritdoc */
-	static migrateData(data) {
-		return super.migrateData(data);
+	prepareBaseData() {
+		AttributesFields.prepareBaseDefense.call(this);
+	}
+
+	prepareDerivedData() {
+		const rollData = this.parent.getRollData();
+		this.prepareAtributos({ rollData });
+		this.prepareSkills({ rollData });
+
+		AttributesFields.prepareDefense.call(this, rollData);
+		AttributesFields.prepareSpellcastingAbility.call(this);
+		AttributesFields.prepareMovement.call(this);
+		AttributesFields.prepareEncumbrance.call(this, rollData);
+		AttributesFields.prepareDamageResistances.call(this, rollData);
 	}
 }

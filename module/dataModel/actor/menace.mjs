@@ -1,6 +1,7 @@
-import CreatureData from "./creature.mjs";
+import CreatureData from "./templates/creature.mjs";
 
-import { ActorSkillsField, SkillData, _resourceSchema } from "../helpers.mjs";
+import { ActorSkillsField, SkillData } from "../helpers.mjs";
+import AttributesFields from "./templates/attributes.mjs";
 
 export default class MenaceData extends CreatureData {
 	/** @override */
@@ -39,5 +40,45 @@ export default class MenaceData extends CreatureData {
 			data.attributes.nivel.value = 1;
 		}
 		return super.migrateData(data);
+	}
+
+	prepareBaseData() {
+		const flags = this.parent.flags;
+		let npcFlags = {};
+		if (this.parent.getFlag("tormenta20", "showCD") === undefined) npcFlags.showCD = true;
+
+		let nd = this.attributes.nd;
+		// const crData = T20.NPCParams(nd);
+
+		if (["1/2", "1/4"].includes(nd)) this.attributes.nivel.value = 1;
+		else if (["S", "S+"].includes(nd)) this.attributes.nivel.value = 20;
+		else this.attributes.nivel.value = Number(nd) || 1;
+		const nivel = this.attributes.nivel.value;
+
+		this.attributes.treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
+		this.attributes.meionivel = Math.floor(this.attributes.nivel.value / 2);
+		// Experience Reward
+		this.attributes.defesa.condi = 0;
+		this.attributes.nivel.xp.value = this.parent.getCRExp(nd);
+
+		if (this.biography?.value) {
+			this.detalhes.biography.value += this.biography.value;
+		}
+
+		let baseFlags = { tormenta20: npcFlags };
+		if (!foundry.utils.isEmpty(npcFlags)) foundry.utils.mergeObject(flags, baseFlags);
+
+		AttributesFields.prepareBaseDefense.call(this);
+	}
+
+	prepareDerivedData() {
+		const rollData = this.parent.getRollData();
+		this.prepareAtributos({ rollData });
+		this.prepareSkills({ rollData });
+
+		AttributesFields.prepareMovement.call(this);
+		AttributesFields.prepareEncumbrance.call(this, rollData);
+		AttributesFields.prepareDamageResistances.call(this, rollData);
+		this.attributes.pv.min = Math.floor(this.attributes.pv.max / 2) * -1;
 	}
 }

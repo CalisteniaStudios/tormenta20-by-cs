@@ -1,6 +1,7 @@
-import CreatureData from "./creature.mjs";
+import CreatureData from "./templates/creature.mjs";
 
-import { ActorSkillsField, SkillData, _resourceSchema } from "../helpers.mjs";
+import { ActorSkillsField, SkillData } from "../helpers.mjs";
+import AttributesFields from "./templates/attributes.mjs";
 
 export default class CharacterData extends CreatureData {
 	/** @override */
@@ -46,5 +47,33 @@ export default class CharacterData extends CreatureData {
 			data.detalhes.tipo = cType ?? "hum";
 		}
 		return super.migrateData(data);
+	}
+
+	prepareBaseData() {
+		const nivel = this.parent.nivel;
+		this.attributes.nivel.value = nivel;
+		this.attributes.treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
+		// Experience required for next level
+		const xp = this.attributes.nivel.xp;
+		xp.proximo = this.parent.getLevelExp(nivel || 1);
+		const anterior = this.parent.getLevelExp(nivel - 1 || 0);
+		const necessario = xp.proximo - anterior;
+		const pct = Math.round(((xp.value - anterior) * 100) / necessario);
+		xp.pct = Math.clamp(pct, 0, 100);
+
+		AttributesFields.prepareBaseDefense.call(this);
+	}
+
+	prepareDerivedData() {
+		const rollData = this.parent.getRollData();
+		this.prepareAtributos({ rollData });
+		this.prepareSkills({ rollData });
+
+		AttributesFields.prepareDefense.call(this, rollData);
+		AttributesFields.prepareSpellcastingAbility.call(this);
+		AttributesFields.prepareMovement.call(this);
+		AttributesFields.prepareEncumbrance.call(this, rollData);
+		AttributesFields.prepareDamageResistances.call(this, rollData);
+		AttributesFields.preparePVPM.call(this, rollData);
 	}
 }
