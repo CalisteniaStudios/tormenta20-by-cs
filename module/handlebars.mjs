@@ -34,30 +34,8 @@ export function registerHandlebarsHelpers() {
 			}
 			case "pv":
 			case "pm": {
-				const { substituirCon } = actor.flags.tormenta20 ?? {};
+				const { substituirCon = "con" } = actor.flags.tormenta20 ?? {};
 				const level = actor.system.attributes.nivel.value;
-				const classes = actor.items
-					.filter((i) => i.type === "classe")
-					.map((c) => {
-						const initialHP = type === "pv" && c.system.inicial ? c.system.pvPorNivel * 3 : 0;
-						const levelCount = Number(c.system.niveis);
-						const porNivel = Number(c.system[`${type}PorNivel`]);
-						return {
-							label: `${c.name} ${levelCount}`,
-							[type]: initialHP + levelCount * porNivel
-						};
-					});
-
-				const atributoMultiplicado = (key) => (!substituirCon && key === "con") || key === substituirCon;
-				const atr = Object.entries(actor.system.atributos)
-					.filter(
-						([key, data]) =>
-							actor.system.attributes[type].atributos[key] || (type === "pv" && atributoMultiplicado(key))
-					)
-					.map(([key, data]) => {
-						const value = type === "pv" && atributoMultiplicado(key) ? level * data.value : data.value;
-						return [data.name, value];
-					});
 				const { nivel, nivelImpar, nivelPar } = actor.system.attributes[type].bonus;
 				const manualOverride = Number(nivel[0]) + Number(nivelImpar[0]) + Number(nivelPar[0]);
 				const bonusNivel = modFields[`system.attributes.${type}.bonus.nivel`]?.map(({ label, mode, value }) => ({
@@ -80,6 +58,43 @@ export function registerHandlebarsHelpers() {
 						multiplier: Math.ceil(level / 2)
 					})
 				);
+				const classes = actor.items
+					.filter((i) => i.type === "classe")
+					.map((c) => {
+						const initialHP = type === "pv" && c.system.inicial ? c.system.pvPorNivel * 3 : 0;
+						const levelCount = Number(c.system.niveis);
+						const porNivel = Number(c.system[`${type}PorNivel`]);
+						return {
+							label: `${c.name} ${levelCount}`,
+							[type]: initialHP + levelCount * porNivel
+						};
+					});
+
+				const atr = Object.entries(actor.system.atributos)
+					.filter(([key]) => actor.system.attributes[type].atributos[key])
+					.map(([key, data]) => [data.name, data.value]);
+				let atrPV;
+				const contarAtributoPV = type === "pv" && this.system.atributos[substituirCon].value;
+				if (contarAtributoPV) {
+					atrPV = 0;
+					for (const classe of actor.items.filter((i) => i.type === "classe")) {
+						const c = classe.system;
+						for (let i = 1; i < c.niveis + 1; i++) {
+							let soma = 0;
+							if (c.inicial && i === 1) soma += 4 * Number(c[`${type}PorNivel`]);
+							else soma += Number(c[`${type}PorNivel`]);
+							soma += bonusNivel?.reduce((sum, data) => sum + Number(data.value), 0) ?? 0;
+							soma +=
+								(i % 2 === 0
+									? bonusNivelPar?.reduce((sum, data) => sum + Number(data.value), 0)
+									: bonusNivelImpar?.reduce((sum, data) => sum + Number(data.value), 0)) ?? 0;
+							if (soma + this.system.atributos[substituirCon].value < 1) atrPV += 1 - soma;
+							else atrPV += this.system.atributos[substituirCon].value;
+						}
+					}
+					if (atrPV) atr.unshift([actor.system.atributos[substituirCon].name, atrPV]);
+				}
+
 				listEffects = [
 					...classes.map((c) => ({ label: c.label, value: c[type] })),
 					...atr.map(([label, value]) => ({ label, value })),

@@ -574,35 +574,40 @@ export default class ActorT20 extends Actor {
 		if (lvlc?.manual) return;
 
 		const nivel = Number(this.system.attributes.nivel.value);
+		if (!nivel) return;
 		const rollData = this.getRollData();
-		// TODO abstrair para um sistema de substituição da Constituição por qualquer atributo
-		const { substituirCon } = this.flags.tormenta20 ?? {};
+		const { substituirCon = "con" } = this.flags.tormenta20 ?? {};
 		for (const type of ["pv", "pm"]) {
 			let soma = 0;
 			const { atributos, bonus } = this.system.attributes[type];
+			const bonusPorNivel = {
+				nivel: bonus.nivel.reduce((sum, value) => sum + Number(simplifyRollFormula(value, rollData)), 0),
+				nivelPar: bonus.nivelPar.reduce((sum, value) => sum + Number(simplifyRollFormula(value, rollData)), 0),
+				nivelImpar: bonus.nivelImpar.reduce((sum, value) => sum + Number(simplifyRollFormula(value, rollData)), 0)
+			};
 			for (const classe of this.itemTypes.classe) {
-				let c = classe.system;
-				const initial = type === "pv" && c.inicial ? c[`${type}PorNivel`] * 3 : 0;
-				soma += Number(initial) + Number(c.niveis) * Number(c[`${type}PorNivel`]);
+				const c = classe.system;
+				for (let i = 1; i < c.niveis + 1; i++) {
+					let sum = 0;
+					if (type === "pv" && c.inicial && i === 1) sum += 4 * Number(c[`${type}PorNivel`]);
+					else sum += Number(c[`${type}PorNivel`]);
+					sum += bonusPorNivel.nivel;
+					sum += i % 2 === 0 ? bonusPorNivel.nivelPar : bonusPorNivel.nivelImpar;
+					if (type === "pv") {
+						sum += this.system.atributos[substituirCon].value;
+						sum = Math.max(sum, 1);
+					}
+					soma += sum;
+				}
 			}
-			bonus.total.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData))));
-			bonus.nivel.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData)) * nivel));
-			bonus.nivelPar.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData)) * Math.floor(nivel / 2)));
-			bonus.nivelImpar.forEach(
-				(value) => (soma += Number(simplifyRollFormula(value, rollData)) * Math.ceil(nivel / 2))
-			);
 			Object.entries(atributos)
-				.filter(([atr, value]) => !(atr === substituirCon && type === "pv") && value)
+				.filter(([atr, value]) => value)
 				.forEach(([atr, value]) => {
 					const { base, racial } = this.system.atributos[atr];
 					soma += Number(base) + Number(racial);
 				});
-			if (type === "pv") {
-				if (substituirCon) {
-					soma += this.system.atributos[substituirCon].value * nivel;
-				} else soma += this.system.atributos.con.value * nivel;
-				this.system.attributes[type].min = -Math.floor(soma / 2);
-			}
+			bonus.total.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData))));
+			if (type === "pv") this.system.attributes[type].min = -Math.floor(soma / 2);
 			this.system.attributes[type].max = Math.floor(soma);
 		}
 	}

@@ -37,7 +37,11 @@ effects:
     changes:
       - key: system.attributes.pv.bonus.total
         mode: 2
-        value: 3 + @nivel
+        value: '2'
+        priority: null
+      - key: system.attributes.pv.bonus.nivel
+        mode: 2
+        value: '1'
         priority: null
     description: ''
     transfer: true
@@ -47,11 +51,11 @@ effects:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.342'
+      coreVersion: '13.344'
       systemId: tormenta20
       systemVersion: 1.4.214
       createdTime: 1747116927435
-      modifiedTime: 1747116950566
+      modifiedTime: 1748677568478
       lastModifiedBy: t20builder000000
     _key: '!items.effects!xWWtgcHqV6PvElXX.Mw8yBYQOwhc5XXam'
 folder: QXmpsdR2yksENTdS
