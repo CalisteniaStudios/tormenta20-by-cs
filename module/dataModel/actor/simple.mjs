@@ -25,16 +25,12 @@ export default class SimpleData extends CreatureData {
 		};
 	}
 
-	prepareBaseData() {
-		AttributesFields.prepareBaseDefense.call(this);
-	}
-
 	prepareDerivedData() {
 		const rollData = this.parent.getRollData();
 		this.prepareAtributos({ rollData });
+		AttributesFields.prepareDefense.call(this, rollData);
 		this.prepareSkills({ rollData });
 
-		AttributesFields.prepareDefense.call(this, rollData);
 		AttributesFields.prepareSpellcastingAbility.call(this);
 		AttributesFields.prepareMovement.call(this);
 		AttributesFields.prepareEncumbrance.call(this, rollData);

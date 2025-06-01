@@ -122,7 +122,7 @@ export function registerHandlebarsHelpers() {
 					skill.outros ? { label: "Outros", value: skill.outros } : false,
 					skill.size ? { label: "Tamanho", value: rollData.tamanho } : false,
 					skill.condi ? { label: "Condição", value: skill.condi } : false,
-					skill.pda && actor.pda ? { label: "Penalidade de Armadura", value: actor.pda } : false,
+					skill.pda && rollData.pda ? { label: "Penalidade de Armadura", value: -rollData.pda } : false,
 
 					...(modFields["system.modificadores.pericias.geral"] ?? []),
 					...(["luta", "pont"].includes(key) ? (modFields["system.modificadores.pericias.ataque"] ?? []) : []),

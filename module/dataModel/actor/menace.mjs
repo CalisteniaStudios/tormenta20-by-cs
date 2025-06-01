@@ -66,13 +66,12 @@ export default class MenaceData extends CreatureData {
 
 		let baseFlags = { tormenta20: npcFlags };
 		if (!foundry.utils.isEmpty(npcFlags)) foundry.utils.mergeObject(flags, baseFlags);
-
-		AttributesFields.prepareBaseDefense.call(this);
 	}
 
 	prepareDerivedData() {
 		const rollData = this.parent.getRollData();
 		this.prepareAtributos({ rollData });
+		AttributesFields.prepareDefense.call(this, rollData);
 		this.prepareSkills({ rollData });
 
 		AttributesFields.prepareMovement.call(this);

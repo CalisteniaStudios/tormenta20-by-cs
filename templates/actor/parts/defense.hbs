@@ -11,7 +11,7 @@
 	<footer class="attribute-footer">
 		<div class="flexrow">
 			{{#if isNPC}}
-			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.BaseDefense'}}">
+			<input type="number" data-dtype="Number" placeholder="0" name="system.attributes.defesa.base" value="{{system.attributes.defesa.base}}" title="{{localize 'T20.DefenseBaseValue'}}">
 			{{else if isCharacter}}
 			<select name="system.attributes.defesa.atributo" value="{{system.attributes.defesa.atributo}}" title="{{ localize 'T20.AbilityBonus'}}">
 				{{selectOptions config.atributosAbr selected=system.attributes.defesa.atributo blank=''}}

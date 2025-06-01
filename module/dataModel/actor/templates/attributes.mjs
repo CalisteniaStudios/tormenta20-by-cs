@@ -1,11 +1,6 @@
 import { simplifyRollFormula } from "../../../dice/dice.mjs";
 
 export default class AttributesFields {
-	static prepareBaseDefense() {
-		const defesa = this.attributes.defesa;
-		defesa.value = 10;
-	}
-
 	static prepareDefense(rollData) {
 		const defesa = this.attributes.defesa;
 		let parts = this.parent.defenseFormula;
@@ -16,23 +11,22 @@ export default class AttributesFields {
 		}
 
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
-		const items = this.parent.items.filter(
-			(i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
+		const items = this.parent.itemTypes.equipamento.filter(
+			(i) => (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
 		);
 
 		const armor = items.find((i) => ["leve", "pesada"].includes(i.system.tipo));
 		const shield = items.find((i) => i.type === "equipamento" && i.system.tipo === "escudo");
 		const accessories = items.filter((i) => !["escudo", "leve", "pesada"].includes(i.system.tipo));
-		let accDef = accessories.map((m) => m.system.armadura.value).reduce((sum, v) => sum + v, 0);
-		let accPda = accessories.map((m) => m.system.armadura.penalidade).reduce((sum, v) => sum + v, 0);
+		const accDef = accessories.map((m) => m.system.armadura.value).reduce((sum, v) => sum + v, 0);
+		const accPda = accessories.map((m) => m.system.armadura.penalidade).reduce((sum, v) => sum + v, 0);
 		parts.push(accDef);
 		pda += armor ? armor.system.armadura.penalidade : 0;
 		pda += shield ? shield.system.armadura.penalidade : 0;
-		pda += accPda ? accPda : 0;
-		// console.warn( this.name, defense.bonus);
+		pda += accPda ?? 0;
 		parts.push(...defesa.bonus);
 		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
-		let atributo = rollData[defesa.atributo];
+		let atributo = this.atributos[defesa.atributo].value;
 		if (armor && armor.system.tipo === "pesada") {
 			atributo = Math.clamp(atributo, 0, maxAtr);
 		}
@@ -48,13 +42,14 @@ export default class AttributesFields {
 		}).trim();
 
 		defesa.value = parseInt(result);
-		defesa.pda += -pda;
+		defesa.pda = -pda;
+		rollData.pda = -pda;
 	}
 
 	static prepareMovement() {
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
-		const items = this.parent.items.filter(
-			(i) => i.type === "equipamento" && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
+		const items = this.parent.itemTypes.equipamento.filter(
+			(i) => (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
 		);
 		const armor = items.find((i) => i.system.tipo === "pesada");
 		if (armor) {

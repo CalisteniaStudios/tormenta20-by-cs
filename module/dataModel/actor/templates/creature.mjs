@@ -998,7 +998,10 @@ export default class CreatureData extends Tormenta20TypeData {
 
 	prepareAtributos({ rollData = {} } = {}) {
 		const flags = this.parent.flags.tormenta20 ?? {};
-		Object.values(this.atributos).forEach((a) => (a.value = a.base + a.racial + a.bonus));
+		Object.entries(this.atributos).forEach(([key, atr]) => {
+			atr.value = atr.base + atr.racial + atr.bonus
+			rollData[key] = atr.value;
+		});
 	}
 
 	prepareSkills({ rollData = {} } = {}) {
@@ -1034,7 +1037,7 @@ export default class CreatureData extends Tormenta20TypeData {
 		if (!skillData.treinado) parts = parts.filter((f) => f !== "@treino");
 		if (skillData.bonus.length) parts.push(...skillData.bonus);
 		if (skillData.pda && rollData.pda) parts.push("-@pda");
-		if (skillId === "furt" && rollData.tamanho) parts.push("@tamanho");
+		if (skillData.size && rollData.tamanho) parts.push("@tamanho");
 
 		if (skillData.outros) rollData.outros = skillData.outros
 		else parts = parts.filter((f) => f !== "@outros")
