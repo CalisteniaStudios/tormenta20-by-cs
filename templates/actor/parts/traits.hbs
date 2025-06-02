@@ -27,14 +27,15 @@
 		{{#each system.tracos.resistencias as |v k|}}
 			{{#if v.imunidade }}
 				<li class="tag {{k}}" title="{{localize 'T20.DamImm'}}">{{k}} <i class="fas fa-fist-raised"></i></li>
+				<li class="tag {{k}}" title="{{localize 'T20.DamImm'}}">{{lookup @root.config.damageTypes k}} <i class="fas fa-fist-raised"></i></li>
 			{{else if v.danoPorDado }}
-				<li class="tag {{k}}" title="{{localize 'T20.DamPerDie'}}">{{k}} <i class="fa-solid fa-dice"></i></li>
+				<li class="tag {{k}}" title="{{localize 'T20.DamPerDie'}}">{{lookup @root.config.damageTypes k}} <i class="fa-solid fa-dice"></i></li>
 			{{else if v.vulnerabilidade }}
-				<li class="tag {{k}}" title="{{localize 'T20.DamVuln'}}">{{k}} <i class="fas fa-skull"></i></li>
+				<li class="tag {{k}}" title="{{localize 'T20.DamVuln'}}">{{lookup @root.config.damageTypes k}} <i class="fas fa-skull"></i></li>
 			{{else if (gt v.excecao 0)}}
-				<li class="tag {{k}}">{{v.excecao}}/{{k}}</li>
+				<li class="tag {{k}}">{{v.excecao}}/{{lookup @root.config.damageTypes k}}</li>
 			{{else if (gt v.value 0)}}
-				<li class="tag {{k}}">{{k}} {{v.value}}</li>
+				<li class="tag {{k}}">{{lookup @root.config.damageTypes k}} {{v.value}}</li>
 			{{/if}}
 		{{/each}}
 	</ul>
