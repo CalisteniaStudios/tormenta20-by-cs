@@ -1,30 +1,10 @@
 import CreatureData from "./templates/creature.mjs";
 
 import { parseFraction } from "../../utils.mjs";
-import { ActorSkillsField, SkillData } from "../helpers.mjs";
 import AttributesFields from "./templates/attributes.mjs";
 
 export default class MenaceData extends CreatureData {
-	/** @override */
-	static defineSchema() {
-		const fields = foundry.data.fields;
-		const type = "npc";
-		return {
-			atributos: this.schemaAbilities(type),
-			attributes: this.schemaAttributes(type),
-			detalhes: this.schemaDetails(type),
-			dinheiro: this.schemaCurrency(type),
-			modificadores: this.schemaModifiers(type),
-			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
-				initialKeys: SYSTEMRULES.skills,
-				initialValue: super._initialSkillValue.bind(this),
-				initialKeysOnly: false
-			}),
-			// pericias: new MappingField(new SkillData(), {required: true, initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue, initialKeysOnly: false}),
-			resources: new fields.ObjectField(),
-			tracos: this.schemaTraits(type)
-		};
-	}
+	static actorType = "npc";
 
 	/** @inheritdoc */
 	static migrateData(data) {

@@ -1,25 +1,15 @@
 import CreatureData from "./templates/creature.mjs";
 
-import { ActorSkillsField, SkillData } from "../helpers.mjs";
 import AttributesFields from "./templates/attributes.mjs";
 
 export default class CharacterData extends CreatureData {
+	static actorType = "character";
+
 	/** @override */
 	static defineSchema() {
-		const type = "character";
 		const fields = foundry.data.fields;
 		return {
-			atributos: this.schemaAbilities(type),
-			attributes: this.schemaAttributes(type),
-			detalhes: this.schemaDetails(type),
-			dinheiro: this.schemaCurrency(type),
-			modificadores: this.schemaModifiers(type),
-			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
-				initialKeys: SYSTEMRULES.skills,
-				initialValue: super._initialSkillValue.bind(this),
-				initialKeysOnly: false
-			}),
-			// pericias: new MappingField(new SkillData(),{required: true, initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue, initialKeysOnly: false}),
+			...super.defineSchema(),
 			equipamentos: new fields.SchemaField({
 				limiteEmpunhado: new fields.NumberField({
 					required: true,
@@ -33,9 +23,7 @@ export default class CharacterData extends CreatureData {
 					initial: 4,
 					min: 1
 				})
-			}),
-			resources: new fields.ObjectField(),
-			tracos: this.schemaTraits(type)
+			})
 		};
 	}
 

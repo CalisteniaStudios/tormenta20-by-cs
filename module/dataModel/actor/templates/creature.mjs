@@ -6,23 +6,85 @@ import { ActorSkillsField, SkillData } from "../../helpers.mjs";
 const fields = foundry.data.fields;
 
 export default class CreatureData extends Tormenta20TypeData {
+	static actorType;
+
 	/** @inheritDoc */
-	static defineSchema() {
+	static defineSchema(type) {
+		type ??= this.actorType;
 		const fields = foundry.data.fields;
 		const _fields = tormenta20.data.fields;
 		return {
-			atributos: this.schemaAbilities(),
-			attributes: this.schemaAttributes(),
-			detalhes: this.schemaDetails(),
-			dinheiro: this.schemaCurrency(),
-			modificadores: this.schemaModifiers(),
+			...super.defineSchema(),
+			atributos: this.schemaAbilities(type),
+			attributes: this.schemaAttributes(type),
+			detalhes: this.schemaDetails(type),
+			dinheiro: this.schemaCurrency(type),
+			modificadores: this.schemaModifiers(type),
 			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
 				initialKeys: SYSTEMRULES.skills,
-				initialValue: super._initialSkillValue.bind(this),
+				initialValue: this._initialSkillValue.bind(this),
 				initialKeysOnly: false
 			}),
-			// pericias: new MappingField(new SkillData(),{initialKeys: SYSTEMRULES.skills, initialValue: this._initialSkillValue.bind(this), initialKeysOnly: false}),
-			resources: new fields.ObjectField(), // this.schemaResources(),
+			resources: new fields.TypedObjectField(
+				new fields.SchemaField({
+					value: new fields.NumberField({
+						required: true,
+						nullable: false,
+						initial: 0,
+						step: 1,
+						integer: true,
+						label: "T20.ResourceValue",
+						hint: "T20.ResourceValueHint"
+					}),
+					max: new fields.NumberField({
+						required: true,
+						nullable: false,
+						initial: 0,
+						integer: true,
+						label: "T20.ResourceMaxValue",
+						hint: "T20.ResourceMaxValueHint"
+					}),
+					label: new fields.StringField({
+						required: true,
+						nullable: false,
+						initial: ""
+					})
+				}),
+				{
+					initial: {
+						primary: {
+							value: 0,
+							max: 0,
+							label: ""
+						},
+						secondary: {
+							value: 0,
+							max: 0,
+							label: ""
+						},
+						tertiary: {
+							value: 0,
+							max: 0,
+							label: ""
+						},
+						deathsave: {
+							value: 0,
+							max: 3,
+							label: ""
+						},
+						shadow: {
+							value: 0,
+							max: 5,
+							label: ""
+						},
+						catarse: {
+							value: 0,
+							max: 3,
+							label: ""
+						}
+					}
+				}
+			),
 			tracos: this.schemaTraits()
 		};
 	}
@@ -31,6 +93,9 @@ export default class CreatureData extends Tormenta20TypeData {
 	static migrateData(data) {
 		if (data.pericias?.ofi0) delete data.pericias.ofi0;
 		if (data.pericias?._pc0) delete data.pericias._pc0;
+		if (Object.keys(data.resources).length === 0) {
+			data.resources = foundry.utils.deepClone(this.schema.fields.resources.initial);
+		}
 		return super.migrateData(data);
 	}
 
