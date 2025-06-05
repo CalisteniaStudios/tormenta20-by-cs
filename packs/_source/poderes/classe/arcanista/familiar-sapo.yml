@@ -2,58 +2,57 @@ name: Familiar Sapo
 type: poder
 img: systems/tormenta20/icons/classes/arcanista.webp
 effects:
-  - origin: Item.wy59756oAHeyE3hu
+  - name: Familiar Sapo
+    img: systems/tormenta20/icons/classes/arcanista.webp
+    origin: Compendium.tormenta20.poderes.Item.DdyVJEaZpWm4OFdX
     tint: '#ffffff'
     flags:
       tormenta20:
-        onuse: true
+        onuse: false
         durationScene: false
         self: false
         attack: false
         skill: false
         ability: false
         power: false
-        spell: true
+        equipment: false
+        spell: false
         consumable: false
         items: ''
         aumenta: false
         custo: ''
     duration:
       startTime: null
-      seconds: null
       combat: null
+      seconds: null
       rounds: null
       turns: null
       startRound: null
       startTurn: null
-    disabled: true
-    _id: pgiOeYq86CAfHGz2
+    disabled: false
+    _id: eW1Xdp8YPPNRcraZ
+    type: base
+    system: {}
     changes:
-      - key: cd
+      - key: system.attributes.pv.bonus.nivel
         mode: 2
-        value: '1'
-        priority: 0
+        value: '@atributoChave'
+        priority: null
+    description: ''
     transfer: true
+    statuses: []
+    sort: 0
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    name: >-
-      Familiar Borboleta: Aumenta a CD dos testes de vontade das suas magias em
-      +1.
-    img: icons/svg/upgrade.svg
-    type: base
-    system: {}
-    description: ''
-    statuses: []
-    sort: 0
-    _key: '!items.effects!DdyVJEaZpWm4OFdX.pgiOeYq86CAfHGz2'
+      coreVersion: '13.344'
+      systemId: tormenta20
+      systemVersion: v1.5.003
+      createdTime: 1749092753148
+      modifiedTime: 1749092819035
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!DdyVJEaZpWm4OFdX.eW1Xdp8YPPNRcraZ'
 flags: {}
 system:
   description:
@@ -76,7 +75,7 @@ system:
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, pág. 38
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -117,10 +116,10 @@ system:
   chatGif: ''
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.344'
   createdTime: 1664306183824
-  modifiedTime: 1684630371462
+  modifiedTime: 1749092824196
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
