@@ -301,7 +301,7 @@
   "T20.ShowTemporaryAbilityBonus": "Mostrar campo 'Bônus Temporário'",
   "T20.ShowCurrencyPlatinum": "Mostrar campo Platina",
   "T20.ShowProficiencyBonus": "Mostrar bônus de treinamento",
-  "T20.HideUntrainedSkills": "Esconder Perícias \"Somente Treinadas\" Destreinadas",
+  "T20.HideUntrainedSkills": "Esconder perícias \"Somente Treinadas\" não treinadas",
   "T20.ShowPrepareSpells": "Preparar magias (para magos)",
   "T20.ShowBrewPotion": "Preparar Poções",
   "T20.BrewPotion": "Preparar Poção",
