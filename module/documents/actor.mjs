@@ -171,15 +171,6 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	/** @override */
-	prepareBaseData() {
-		const system = this.system;
-		for (let [key, resource] of Object.entries(system.resources)) {
-			if (["vehicle", "simple"].includes(this.type)) break;
-			if (!resource.label) resource.label = T20.resources[key];
-		}
-	}
-
 	preparePrototypeToken() {
 		TokenDocumentT20.prepareSize(this.prototypeToken);
 	}
