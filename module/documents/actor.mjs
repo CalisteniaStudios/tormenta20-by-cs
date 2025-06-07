@@ -5,7 +5,6 @@ import { applyOnUseEffects } from "../apps/ability-use.mjs";
 import ChoicesDialog from "../apps/choices-dialog.mjs";
 import { d20Roll, simplifyRollFormula } from "../dice/dice.mjs";
 import { actorMigration } from "./migrations.mjs";
-import TokenDocumentT20 from "./token.mjs";
 
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -165,14 +164,6 @@ export default class ActorT20 extends Actor {
 
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach((item) => item.prepareFinalAttributes());
-
-		this.preparePrototypeToken();
-	}
-
-	/* -------------------------------------------- */
-
-	preparePrototypeToken() {
-		TokenDocumentT20.prepareSize(this.prototypeToken);
 	}
 
 	/* -------------------------------------------- */
