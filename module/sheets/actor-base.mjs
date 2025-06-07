@@ -673,13 +673,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	/*  Interactions                                */
 	/* -------------------------------------------- */
 
-	/** @inheritdoc */
-	async _onSubmit(...args) {
-		await super._onSubmit(...args);
-	}
-
-	/* -------------------------------------------- */
-
 	async _renderOuter() {
 		const html = await super._renderOuter();
 		const header = html[0].querySelector(".window-header");
@@ -711,8 +704,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				icon: "fas fa-wrench",
 				onclick: () => new ActorSettings(this.actor).render(true)
 			});
-		}
-		if (this.actor.type === "npc") {
+		} else if (this.actor.type === "npc") {
 			buttons.unshift({
 				label: game.i18n.localize("T20.ParseStatblock"),
 				class: "t20-parse-statblock",
