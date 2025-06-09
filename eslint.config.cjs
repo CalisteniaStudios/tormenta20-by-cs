@@ -55,7 +55,6 @@ module.exports = defineConfig([
 				Hooks: false,
 				Macro: false,
 				Roll: false,
-				SearchFilter: false,
 				SettingsConfig: false,
 				TokenDocument: false,
 				VisionMode: false,
