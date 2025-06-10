@@ -47,12 +47,15 @@
 
   .sheet-header {
     // flex-direction: column;
-    max-height: 56px;
     display: unset;
     flex-direction: unset;
     flex-wrap: unset;
     justify-content: unset; // flex-start;
     align-items: center;
+
+    img.profile-img {
+      max-width: 200px;
+    }
 
     label {
       font-size: 14px;
@@ -153,6 +156,14 @@
 
   .sheet-body {
     min-width: 100%;
+
+    .npc-line {
+      .item-name {
+        &:hover {
+          font-weight: 700;
+        }
+      }
+    }
   }
 
   ul.skills-list {
