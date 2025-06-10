@@ -108,7 +108,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			isOwned: item.isOwned,
 			isCharacterOwned: item.isOwned && item.parent.type === "character",
 			isNPCOwned: item.isOwned && item.parent.type === "npc",
-			isSimpleOwned: item.isOwned && item.parent.type === "simle",
+			isSimpleOwned: item.isOwned && item.parent.type === "simple",
 
 			itemUpgradeStatus: this._itemUpgradeStatus,
 
