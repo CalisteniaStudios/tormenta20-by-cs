@@ -291,10 +291,7 @@ export default class ActorT20 extends Actor {
 
 		// Set level abbreviation
 		data.nivel = Number(this.system.attributes?.nivel?.value || 1);
-		if (data.nivel <= 4) data.patamar = 1;
-		else if (data.nivel <= 10) data.patamar = 2;
-		else if (data.nivel <= 16) data.patamar = 3;
-		else data.patamar = 4;
+		data.patamar = CONFIG.T20.patamares.findIndex((nivel) => data.nivel <= nivel) + 1;
 		data.meionivel = Math.floor(data.nivel / 2) || 0;
 		if (this.type === "npc") {
 			let nd = data.attributes.nd;
