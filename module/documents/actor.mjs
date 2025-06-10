@@ -291,6 +291,10 @@ export default class ActorT20 extends Actor {
 
 		// Set level abbreviation
 		data.nivel = Number(this.system.attributes?.nivel?.value || 1);
+		if (data.nivel <= 4) data.patamar = 1;
+		else if (data.nivel <= 10) data.patamar = 2;
+		else if (data.nivel <= 16) data.patamar = 3;
+		else data.patamar = 4;
 		data.meionivel = Math.floor(data.nivel / 2) || 0;
 		if (this.type === "npc") {
 			let nd = data.attributes.nd;
@@ -315,6 +319,10 @@ export default class ActorT20 extends Actor {
 			powers[`${k}2`] = Math.floor((v - 1) / 2);
 			powers[`${k}3`] = Math.floor((v - 1) / 3);
 			powers[`${k}4`] = Math.floor((v - 1) / 4);
+			powers[`${k.toLowerCase()}`] = v;
+			powers[`${k.toLowerCase()}2`] = Math.floor((v - 1) / 2);
+			powers[`${k.toLowerCase()}3`] = Math.floor((v - 1) / 3);
+			powers[`${k.toLowerCase()}4`] = Math.floor((v - 1) / 4);
 		}
 		foundry.utils.mergeObject(data, powers);
 
