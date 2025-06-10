@@ -180,6 +180,6 @@ export function simplifyBonus(bonus, data = {}) {
 
 export function parseFraction(fraction) {
 	let [num, denom] = fraction.split("/").map(Number);
-	denom = isNaN(denom) ? 1 : denom;
+	denom = isNaN(denom) || denom === 0 ? 1 : denom;
 	return num / denom;
 }
