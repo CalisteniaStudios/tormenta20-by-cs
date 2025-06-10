@@ -308,7 +308,8 @@ const itemFields = {
 	duracao: ["duracao.units", C.timePeriods],
 	resistencia: ["resistencia.txt", null],
 	atributoCD: ["resistencia.atributo", C.atributos],
-	cd: ["resistencia.bonus", null]
+	cd: ["resistencia.bonus", null],
+	CD: ["resistencia.bonus", null] // Redundância para evitar problema entre maiúscula/minúsculas
 
 	// efeito: 			["efeito", null ],
 	// PERICIA
