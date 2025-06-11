@@ -34,7 +34,7 @@ effects:
     type: base
     system: {}
     changes:
-      - key: system.attributes.pv.bonus.nivel
+      - key: system.attributes.pv.bonus.total
         mode: 2
         value: '@atributoChave'
         priority: null
