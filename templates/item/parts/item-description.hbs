@@ -37,8 +37,8 @@
 		{{/if}}
 		{{#if (and (eq item.type "tesouro") )}}
 		<div class="form-group">
-			<label><label>{{ localize "T20.Container" }}?
-			<input type="checkbox" name="system.container" value="{{item.system.container}}" {checked item.system.container}} data-dtype="Boolean"/></label>
+			<label>{{ localize "T20.Container" }}?<label>
+			<input type="checkbox" name="system.container" value="{{item.system.container}}" {{checked item.system.container}} data-dtype="Boolean"/></label>
 		</div>
 		{{/if}}
 		{{/if}}
