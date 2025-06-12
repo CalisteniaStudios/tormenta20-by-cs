@@ -1,0 +1,62 @@
+<div class="tab description active" data-group="primary" data-tab="description">
+	<div class="flexrow">
+		<div class="base-fields flexcol" style="flex: 0 0 250px; margin-right: 24px;">
+			<div class="form-group">
+				<label>{{ localize "T20.BasesType"}}</label>
+				<div class="form-fields">
+					<input name="system.tipo" type="text" value="{{system.tipo}}" placeholder="Tipo" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.BasesSize"}}</label>
+				<div class="form-fields">
+					<select name="system.porte">
+						{{selectOptions config.porteType selected=system.porte localize=true}}
+					</select>
+				</div>
+			</div>
+			<li class="attribute seguranca">
+				<h4 class="attribute-name box-title">{{ localize "T20.BasesSecurity"}}</h4>
+				<div class="attribute-value">
+					{{system.seguranca.total}}
+				</div>
+				<footer class="attribute-footer">
+					<div class="flexrow">
+						<input type="number" data-dtype="Number" placeholder="0" name="system.seguranca.base"
+							value="{{system.seguranca.base}}" title="{{localize 'T20.BasesSecurity'}}">
+					</div>
+				</footer>
+			</li>
+			<div class="form-group">
+				<label>{{ localize "T20.BasesMaintenance"}}</label>
+				<div class="form-fields">
+					<span>
+						{{lookup config.maintenanceCost system.porte}} {{localize "T20.CurrencySilverAbbr"}}
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{ localize "T20.BasesRooms" }}</label>
+				<div class="form-fields">
+					<span>
+						{{lookup config.roomsNumber system.porte}}
+					</span>
+				</div>
+			</div>
+			<div>
+				<a class="config-button" data-action="movement" data-target="system.attributes.movement">
+					<label>{{ localize 'T20.Movement'}}:</label>
+				</a>
+				<ul class="trait-list">
+					{{#each movement as | move key | }}
+					<li class="speedtag {{key}}">{{localize move}}</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		<div class="item-description">
+			{{editor system.detalhes.biography.value target="system.detalhes.biography.value" button=true owner=owner
+			editable=editable engine="prosemirror"}}
+		</div>
+	</div>
+</div>

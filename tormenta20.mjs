@@ -25,6 +25,7 @@ import TokenT20 from "./module/canvas/token.mjs";
 
 // Import Sheets
 import ActiveEffectConfigT20 from "./module/sheets/active-effects.mjs";
+import ActorSheetT20Bases from "./module/sheets/actor-bases.mjs";
 import ActorSheetT20Character from "./module/sheets/actor-character.mjs";
 import ActorSheetT20NPC from "./module/sheets/actor-npc.mjs";
 import ActorSheetT20Simple from "./module/sheets/actor-simple.mjs";
@@ -153,6 +154,7 @@ Hooks.once("init", async function () {
 
 	// DATA MODEL
 
+	CONFIG.Actor.dataModels.bases = tormenta20.data.models.BasesData;
 	CONFIG.Actor.dataModels.character = tormenta20.data.models.CharacterData;
 	CONFIG.Actor.dataModels.npc = tormenta20.data.models.MenaceData;
 	CONFIG.Actor.dataModels.simple = tormenta20.data.models.SimpleData;
@@ -168,6 +170,11 @@ Hooks.once("init", async function () {
 
 	// Register sheet application classes
 	foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20Bases, {
+		types: ["bases"],
+		makeDefault: true,
+		label: "T20.BasesSheet" // "Ficha de Bases"
+	});
 	foundry.documents.collections.Actors.registerSheet("tormenta20", ActorSheetT20Character, {
 		types: ["character"],
 		makeDefault: true,

@@ -1,5 +1,5 @@
-import Tormenta20DataModel from "./data-tormenta20.mjs";
 import ActorMovementConfig from "../../apps/movement-config.mjs";
+import Tormenta20DataModel from "./data-tormenta20.mjs";
 
 export default class MovementData extends Tormenta20DataModel {
 	/** @inheritDoc */

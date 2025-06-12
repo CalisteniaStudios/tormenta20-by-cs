@@ -1,0 +1,39 @@
+<div class="tab comodos" data-group="primary" data-tab="comodos">
+	<div class="form-group stacked">
+		<div class="form-fields">
+			{{#if comodosPoderes.length}}
+			<div style="display: flex; flex-direction: column; gap: 0.5em;">
+				{{#each comodosPoderes as |comodo idx|}}
+				<ul class="item-list">
+					<li class="item item-header flexrow">
+						<div class="item-name">{{comodo.name}}</div>
+					</li>
+					{{#each comodo.poderes as |poder|}}
+					<li class="item flexrow" data-item-id="{{poder._id}}">
+						<div class="item-name flexrow rollable flex2" data-label="{{poder.name}}">
+							<div class="item-image" style="background-image: url('{{poder.img}}')"></div>
+							<label>{{poder.name}}</label>
+						</div>
+					</li>
+					{{/each}}
+					{{#if comodo.mobilias.length}}
+					<li>
+						<ul class="item-list" style="margin-left:2em;">
+							{{#each comodo.mobilias as |mobilia|}}
+							<li class="item flexrow" data-item-id="{{mobilia._id}}">
+								<div class="item-name flexrow flex2" data-label="{{mobilia.name}}">
+									<div class="item-image" style="background-image: url('{{mobilia.img}}')"></div>
+									<label>{{mobilia.name}}</label>
+								</div>
+							</li>
+							{{/each}}
+						</ul>
+					</li>
+					{{/if}}
+				</ul>
+				{{/each}}
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</div>

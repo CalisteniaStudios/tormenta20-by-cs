@@ -1,3 +1,4 @@
+export { default as BasesData } from "./actor/bases.mjs";
 export { default as CharacterData } from "./actor/character.mjs";
 export { default as MenaceData } from "./actor/menace.mjs";
 export { default as SimpleData } from "./actor/simple.mjs";

@@ -1,5 +1,6 @@
 {
   "T20.S1": "/* ---------------- ACTOR ----------------- */",
+  "Types.Actor.bases": "Base",
   "Types.Actor.character": "Player Character",
   "Types.Actor.npc": "Threats",
   "Types.Actor.vehicle": "Vehicles",
@@ -1088,6 +1089,7 @@
 
   "T20.S98": "/* --------------- Settings --------------- */",
 
+  "T20.BasesSheet": "Bases Sheet",
   "T20.CharacterSheet": "Character Sheet",
   "T20.CharacterSheetTabbed": "Character Sheet - Tabs",
   "T20.NPCSheet": "NPC sheet",
@@ -1133,6 +1135,28 @@
 
   "T20.SettingEquipmentSlots": "Wrapped/Worn Items Control",
   "T20.SettingEquipmentSlotsHint": "Changes how to control equipped items.",
+
+  "T20.S80": "/* --------------- Bases --------------- */",
+  "T20.BaseSizeMininmal": "Minimal",
+	"T20.BaseSizeModest": "Modest",
+	"T20.BaseSizeBasic": "Basic",
+	"T20.BaseSizeFormidable": "Formidable",
+	"T20.BaseSizeGrand": "Grand",
+	"T20.BaseSizeSupreme": "Supreme",
+  "T20.BasesRoom": "Room",
+  "T20.BasesRooms": "Rooms",
+  "T20.BasesFurniture": "Furniture",
+  "T20.BasesType": "Type",
+  "T20.BasesSize": "Size",
+  "T20.BasesSecurity": "Security",
+  "T20.BasesMaintenance": "Maintenance",
+  "T20.BasesName": "Name",
+  "T20.BasesDescription": "Description",
+  "T20.BasesRoomsNumber": "Number of Rooms",
+  "T20.BasesLevel": "Level",
+  "T20.BasesSecurityBonus": "Security Bonus",
+  "T20.BasesSecurityTotal": "Total Security",
+  "T20.PowerTypeBase": "Base Power",
 
   "T20.S90": "/* --------------- Status --------------- */",
 

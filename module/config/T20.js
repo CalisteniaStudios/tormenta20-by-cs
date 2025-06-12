@@ -560,6 +560,38 @@ T20.profArmaduras = {
 preLocalize("profArmaduras");
 
 /* ---------------------------------------- */
+/*  Bases Data                          */
+/* ---------------------------------------- */
+
+T20.porteType = {
+	min: "T20.BaseSizeMininmal",
+	mod: "T20.BaseSizeModest",
+	bas: "T20.BaseSizeBasic",
+	for: "T20.BaseSizeFormidable",
+	gra: "T20.BaseSizeGrand",
+	sup: "T20.BaseSizeSupreme"
+};
+preLocalize("porteType");
+
+T20.maintenanceCost = {
+	min: 100,
+	mod: 300,
+	bas: 600,
+	for: 1000,
+	gra: 1500,
+	sup: 2100
+};
+
+T20.roomsNumber = {
+	min: 0,
+	mod: 3,
+	bas: 6,
+	for: 9,
+	gra: 12,
+	sup: 15
+};
+
+/* ---------------------------------------- */
 /*  Power Data                              */
 /* ---------------------------------------- */
 
@@ -571,7 +603,8 @@ T20.powerType = {
 	origem: "T20.PowerTypeBackground",
 	racial: "T20.PowerTypeRacial",
 	distincao: "T20.PowerTypeDistincao",
-	complicacao: "T20.PowerTypeComplicacao"
+	complicacao: "T20.PowerTypeComplicacao",
+	base: "T20.PowerTypeBase"
 };
 preLocalize("powerType");
 
@@ -580,7 +613,9 @@ T20.powerSubType = {
 	concedido: "T20.PowerSubTypeDivine",
 	destino: "T20.PowerSubTypeDestiny",
 	magia: "T20.PowerSubTypeSpell",
-	tormenta: "T20.PowerSubTypeTormenta"
+	tormenta: "T20.PowerSubTypeTormenta",
+	comodo: "T20.BasesRoom",
+	mobilia: "T20.BasesFurniture"
 };
 preLocalize("powerSubType");
 

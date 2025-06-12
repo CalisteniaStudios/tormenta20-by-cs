@@ -258,7 +258,6 @@ export default class ItemT20 extends Item {
 		else if (this.type === "equipamento") {
 			labels.armadura = system.armadura.valor ? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
 		}
-
 		// Activation
 		if (foundry.utils.hasProperty(system, "ativacao")) {
 			let act = system.ativacao || {};
@@ -321,7 +320,9 @@ export default class ItemT20 extends Item {
 			const actorData = this.actor?.system ?? null;
 			const actorFlags = this.actor?.flags ?? null;
 			const nivel = actorData?.attributes?.nivel?.value ?? 0;
-			const atr = actorData?.atributos[save.atributo]?.value ?? 0;
+			const atr = /(c[oô]modo|mob[ií]lia)/i.test(this.name)
+				? (actorData?.[save.atributo] ?? 0)
+				: (actorData?.atributos?.[save.atributo]?.value ?? 0);
 			let base = this.isOwned && actorData ? (Math.floor(nivel / 2) ?? 0) : 0;
 			let mod = this.isOwned && atr ? atr : 0;
 

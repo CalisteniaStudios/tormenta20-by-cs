@@ -18,6 +18,9 @@ export default class ActorT20 extends Actor {
 		if (itemData.type === "simple") {
 			img = "systems/tormenta20/icons/svg/portrait.svg";
 		}
+		if (itemData.type === "bases") {
+			img = "systems/tormenta20/icons/svg/castle.svg";
+		}
 		return { img, texture: { src: img } };
 	}
 
@@ -281,6 +284,7 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	getRollData() {
+		if (this.type === "bases") return {};
 		// const data = foundry.utils.deepClone(super.getRollData());
 		const data = { ...this.system };
 		// super.getRollData();
@@ -479,7 +483,7 @@ export default class ActorT20 extends Actor {
 		}
 		const sourceId = this._stats?.compendiumSource;
 		if (!sourceId?.startsWith("Compendium.")) {
-			if (this.type === "character") {
+			if (["character", "bases"].includes(this.type)) {
 				updateData.prototypeToken = { actorLink: true };
 			}
 		}
