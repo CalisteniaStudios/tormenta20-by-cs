@@ -80,6 +80,23 @@
 				</div>
 			</div>
 			<div class="form-group input-select">
+				<label>{{localize "T20.Range"}}</label>
+				<div class="form-fields">
+					{{#if (or (eq item.system.alcance "m") (eq item.system.alcance "km"))}}
+						<input type="text" name="system.range.value" value="{{item.system.range.value}}" data-dtype="Number" />
+					{{/if}}
+					<select name="system.alcance">
+						{{selectOptions config.distanceUnits selected=item.system.alcance localize=true}}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{localize "T20.Effect"}}</label>
+				<div class="form-fields">
+					<input type="text" name="system.efeito" value="{{item.system.efeito}}" data-dtype="String" />
+				</div>
+			</div>
+			<div class="form-group input-select">
 				<label>{{localize "T20.Duration"}}</label>
 				<div class="form-fields">
 					{{#if
