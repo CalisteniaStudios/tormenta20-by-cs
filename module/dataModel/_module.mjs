@@ -15,3 +15,6 @@ export { default as BackgroundData } from "./item/identity/background.mjs";
 export { default as ClassData } from "./item/identity/class.mjs";
 export { default as DevotionData } from "./item/identity/devotion.mjs";
 export { default as RaceData } from "./item/identity/race.mjs";
+
+export { default as FurnitureData } from "./item/abstract/furniture.mjs";
+export { default as RoomData } from "./item/abstract/room.mjs";

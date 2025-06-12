@@ -161,9 +161,11 @@ Hooks.once("init", async function () {
 
 	CONFIG.Item.dataModels.arma = tormenta20.data.models.WeaponData;
 	CONFIG.Item.dataModels.classe = tormenta20.data.models.ClassData;
+	CONFIG.Item.dataModels.comodo = tormenta20.data.models.RoomData;
 	CONFIG.Item.dataModels.consumivel = tormenta20.data.models.ConsumableData;
 	CONFIG.Item.dataModels.equipamento = tormenta20.data.models.EquipmentData;
 	CONFIG.Item.dataModels.magia = tormenta20.data.models.SpellData;
+	CONFIG.Item.dataModels.mobilia = tormenta20.data.models.FurnitureData;
 	CONFIG.Item.dataModels.poder = tormenta20.data.models.PowerData;
 	CONFIG.Item.dataModels.race = tormenta20.data.models.RaceData;
 	CONFIG.Item.dataModels.tesouro = tormenta20.data.models.LootData;

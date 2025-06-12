@@ -11,42 +11,19 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 
 	async getData(options) {
 		const data = await super.getData(options);
-		data.config = CONFIG.T20;
-
 		const rooms = Number(data.system.rooms?.number) || 0;
-		const poderes = this.actor.items.filter((i) => i.type === "poder" && i.system?.subtipo === "comodo");
-		const mobilias = this.actor.items.filter((i) => i.type === "poder" && i.system?.subtipo === "mobilia");
-
-		const extractComodoName = (poder) => poder.name.match(/^Cômodo -\s*(.+)$/i)?.[1]?.trim() || null;
-
 		const comodos = Array.from({ length: rooms }, (_, i) => ({
 			name: `Cômodo ${i + 1}`,
-			poderes: [],
+			item: null,
 			mobilias: []
 		}));
 
-		for (const poder of poderes) {
-			const comodoName = extractComodoName(poder);
-			let targetComodo = null;
-
-			if (comodoName) {
-				targetComodo = comodos.find((c) => c.poderes.length === 0 && c.name.startsWith("Cômodo"));
-				if (targetComodo) {
-					targetComodo.name = comodoName;
-				} else {
-					targetComodo = comodos.find((c) => c.name === comodoName);
-				}
-			}
-			if (targetComodo) {
-				targetComodo.poderes.push(poder);
-			}
+		for (const [i, comodo] of this.actor.itemTypes.comodo.entries()) {
+			comodos[i].item = comodo;
 		}
 
-		for (const mobilia of mobilias) {
-			const targetComodo = comodos.find((c) => c.mobilias.length === 0);
-			if (targetComodo) {
-				targetComodo.mobilias.push(mobilia);
-			}
+		for (const [i, mobilia] of this.actor.itemTypes.mobilia.entries()) {
+			comodos[i].mobilias = [mobilia];
 		}
 
 		data.comodosPoderes = comodos;
@@ -69,17 +46,13 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 		const remainingItems = [];
 		const rooms = Number(this.actor.system.rooms?.number) || 0;
 
-		const poderes = this.actor.items.filter((i) => i.type === "poder" && i.system?.subtipo === "comodo");
-		const filledComodos = poderes.length;
-		const currentComodoNames = poderes.map((p) => p.name).filter(Boolean);
+		const filledComodos = this.actor.itemTypes.comodo.length;
+		const currentComodoNames = this.actor.itemTypes.comodo.map((p) => p.name).filter(Boolean);
 
-		const mobilias = this.actor.items.filter((i) => i.type === "poder" && i.system?.subtipo === "mobilia");
-		const mobiliasCount = mobilias.length;
+		const mobilias = this.actor.itemTypes.mobilia.length;
 
 		for (const item of itemData) {
-			const subtipo = item.system?.subtipo;
-
-			if (item.type === "poder" && subtipo === "comodo") {
+			if (item.type === "comodo") {
 				const comodoName = item.name?.trim();
 				if (comodoName && currentComodoNames.includes(comodoName)) {
 					ui.notifications.warn(
@@ -92,20 +65,17 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 					continue;
 				}
 				remainingItems.push(item);
-			} else if (item.type === "poder" && subtipo === "mobilia") {
-				if (mobiliasCount >= filledComodos) {
+			} else if (item.type === "mobilia") {
+				if (mobilias >= filledComodos) {
 					ui.notifications.warn(
 						"Cada cômodo só pode ter uma mobília. Adicione mais cômodos para importar mais mobílias."
 					);
 					continue;
 				}
 				remainingItems.push(item);
-			} else if (item.type === "poder") {
-				ui.notifications.warn(`Só é possível adicionar poderes com subtipo "comodo" ou "mobilia".`);
-				continue;
 			} else {
-				// Allow importing magias and any other items
-				remainingItems.push(item);
+				ui.notifications.warn(`Só é possível adicionar Cômodos e Mobílias.`);
+				continue;
 			}
 		}
 		return super._onDropItemCreate(remainingItems);

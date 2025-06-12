@@ -8,14 +8,14 @@
 					<li class="item item-header flexrow">
 						<div class="item-name">{{comodo.name}}</div>
 					</li>
-					{{#each comodo.poderes as |poder|}}
-					<li class="item flexrow" data-item-id="{{poder._id}}">
-						<div class="item-name flexrow rollable flex2" data-label="{{poder.name}}">
-							<div class="item-image" style="background-image: url('{{poder.img}}')"></div>
-							<label>{{poder.name}}</label>
+					{{#if comodo.item}}
+					<li class="item flexrow" data-item-id="{{comodo.item._id}}">
+						<div class="item-name flexrow rollable flex2" data-label="{{comodo.item.name}}">
+							<div class="item-image" style="background-image: url('{{comodo.item.img}}')"></div>
+							<label>{{comodo.item.name}}</label>
 						</div>
 					</li>
-					{{/each}}
+					{{/if}}
 					{{#if comodo.mobilias.length}}
 					<li>
 						<ul class="item-list" style="margin-left:2em;">

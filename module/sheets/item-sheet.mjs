@@ -34,10 +34,12 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/** @inheritdoc */
 	get template() {
 		const path = "systems/tormenta20/templates/item";
-		if (this.item.type === "consumivel" || this.item.type === "tesouro") {
+		if (["consumivel", "tesouro"].includes(this.item.type)) {
 			return `${path}/item-sheet.hbs`;
 		} else if (this.item.type === "armadura") {
 			return `${path}/equip-sheet.hbs`;
+		} else if (["comodo", "mobilia"].includes(this.item.type)) {
+			return `${path}/room-furniture-sheet.hbs`;
 		}
 		return `${path}/${this.item.type}-sheet.hbs`;
 	}

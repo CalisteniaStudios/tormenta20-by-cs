@@ -603,8 +603,7 @@ T20.powerType = {
 	origem: "T20.PowerTypeBackground",
 	racial: "T20.PowerTypeRacial",
 	distincao: "T20.PowerTypeDistincao",
-	complicacao: "T20.PowerTypeComplicacao",
-	base: "T20.PowerTypeBase"
+	complicacao: "T20.PowerTypeComplicacao"
 };
 preLocalize("powerType");
 
@@ -613,9 +612,7 @@ T20.powerSubType = {
 	concedido: "T20.PowerSubTypeDivine",
 	destino: "T20.PowerSubTypeDestiny",
 	magia: "T20.PowerSubTypeSpell",
-	tormenta: "T20.PowerSubTypeTormenta",
-	comodo: "T20.BasesRoom",
-	mobilia: "T20.BasesFurniture"
+	tormenta: "T20.PowerSubTypeTormenta"
 };
 preLocalize("powerSubType");
 

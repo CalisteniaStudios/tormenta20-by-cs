@@ -13,12 +13,16 @@ export default class ItemT20 extends Item {
 			return { img: "icons/svg/sword.svg" };
 		} else if (itemData.type === "classe") {
 			return { img: "systems/tormenta20/icons/svg/strong.svg" };
+		} else if (itemData.type === "comodo") {
+			return { img: "systems/tormenta20/icons/svg/door.svg" };
 		} else if (itemData.type === "consumivel") {
 			return { img: "systems/tormenta20/icons/svg/potion-ball.svg" };
 		} else if (itemData.type === "equipamento") {
 			return { img: "systems/tormenta20/icons/svg/armor-vest.svg" };
 		} else if (itemData.type === "magia") {
 			return { img: "systems/tormenta20/icons/svg/scroll-unfurled.svg" };
+		} else if (itemData.type === "mobilia") {
+			return { img: "systems/tormenta20/icons/svg/armchair.svg" };
 		} else if (itemData.type === "poder") {
 			return { img: "systems/tormenta20/icons/svg/skills.svg" };
 		} else if (itemData.type === "race") {
@@ -258,6 +262,7 @@ export default class ItemT20 extends Item {
 		else if (this.type === "equipamento") {
 			labels.armadura = system.armadura.valor ? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
 		}
+
 		// Activation
 		if (foundry.utils.hasProperty(system, "ativacao")) {
 			let act = system.ativacao || {};

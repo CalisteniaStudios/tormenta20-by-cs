@@ -31,7 +31,7 @@
       "simple": {
         "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
       },
-      "bases":{
+      "bases": {
         "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
       }
     },
@@ -45,10 +45,16 @@
       "classe": {
         "htmlFields": ["description.value", "description.unidentified"]
       },
+      "comodo": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
       "consumivel": {
         "htmlFields": ["description.value", "description.unidentified"]
       },
       "magia": {
+        "htmlFields": ["description.value", "description.unidentified"]
+      },
+      "mobilia": {
         "htmlFields": ["description.value", "description.unidentified"]
       },
       "poder": {
