@@ -320,9 +320,7 @@ export default class ItemT20 extends Item {
 			const actorData = this.actor?.system ?? null;
 			const actorFlags = this.actor?.flags ?? null;
 			const nivel = actorData?.attributes?.nivel?.value ?? 0;
-			const atr = /(c[oô]modo|mob[ií]lia)/i.test(this.name)
-				? (actorData?.[save.atributo] ?? 0)
-				: (actorData?.atributos?.[save.atributo]?.value ?? 0);
+			const atr = actorData?.atributos?.[save.atributo]?.value ?? 0;
 			let base = this.isOwned && actorData ? (Math.floor(nivel / 2) ?? 0) : 0;
 			let mod = this.isOwned && atr ? atr : 0;
 
@@ -1190,7 +1188,7 @@ export default class ItemT20 extends Item {
 		const token = this.actor.token;
 		let rolls = [];
 
-		let manaCost = Math.max(this.system.ativacao.custo, 0) || (options.hasManaCost ? 1 : null);
+		let manaCost = Math.max(this.system.ativacao?.custo, 0) || (options.hasManaCost ? 1 : null);
 		if (options.truque) manaCost = 0;
 		else if (options.halfCost) manaCost = Math.floor(manaCost / 2);
 

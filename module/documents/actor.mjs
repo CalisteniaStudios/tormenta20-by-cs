@@ -284,7 +284,6 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	getRollData() {
-		if (this.type === "bases") return {};
 		// const data = foundry.utils.deepClone(super.getRollData());
 		const data = { ...this.system };
 		// super.getRollData();
@@ -331,47 +330,51 @@ export default class ActorT20 extends Actor {
 
 		// Set casting ability
 		/* TODO CLASS SPELLBOOK */
-		let atbchave = this.system.attributes.conjuracao || "";
-		data.atributoChave = this.system.atributos[atbchave]?.value ?? 0;
+		const atbchave = this.system.attributes.conjuracao;
+		if (atbchave) data.atributoChave = this.system.atributos[atbchave]?.value ?? 0;
 
 		// Set defense bonuses modifiers
-		let defMods = this.system.modificadores?.defesa || {};
-		data.armadura = defMods.armadura || 0;
-		data.armaduraLeve = defMods.armaduraLeve || 0;
-		data.armaduraPesada = defMods.armaduraPesada || 0;
-		data.escudo = defMods.escudo || 0;
+		if (this.system.defesa) {
+			let defMods = this.system.modificadores?.defesa || {};
+			data.armadura = defMods.armadura || 0;
+			data.armaduraLeve = defMods.armaduraLeve || 0;
+			data.armaduraPesada = defMods.armaduraPesada || 0;
+			data.escudo = defMods.escudo || 0;
+		}
 
 		// Set skill bonuses modifiers
-		let skillMods = this.system.modificadores?.pericias || {};
-		const size = this.system.tracos.tamanho;
-		const sizeMod = { min: 5, peq: 2, med: 0, gra: -2, eno: -5, col: -10 };
+		if (this.system.pericias) {
+			let skillMods = this.system.modificadores?.pericias || {};
+			const size = this.system.tracos.tamanho;
+			const sizeMod = { min: 5, peq: 2, med: 0, gra: -2, eno: -5, col: -10 };
 
-		data.treino = this.system.attributes?.treino || 0;
-		data.tamanho = sizeMod[size];
-		data.pda = this.system.attributes?.defesa.pda || 0;
+			data.treino = this.system.attributes?.treino || 0;
+			data.tamanho = sizeMod[size];
+			data.pda = this.system.attributes?.defesa.pda || 0;
 
-		data.pericia = simplifyRollFormula(skillMods.geral?.filter(Boolean).join(" + "), data) || 0;
-		data.semataque = simplifyRollFormula(skillMods.semataque?.filter(Boolean).join(" + "), data) || 0;
-		data.ataque = simplifyRollFormula(skillMods.ataque?.filter(Boolean).join(" + "), data) || 0;
-		data.resistencia = simplifyRollFormula(skillMods.resistencia?.filter(Boolean).join(" + "), data) || 0;
+			data.pericia = simplifyRollFormula(skillMods.geral?.filter(Boolean).join(" + "), data) || 0;
+			data.semataque = simplifyRollFormula(skillMods.semataque?.filter(Boolean).join(" + "), data) || 0;
+			data.ataque = simplifyRollFormula(skillMods.ataque?.filter(Boolean).join(" + "), data) || 0;
+			data.resistencia = simplifyRollFormula(skillMods.resistencia?.filter(Boolean).join(" + "), data) || 0;
 
-		// Set ability bonuses modifiers
-		let ablMods = this.system.modificadores?.atributos || {};
-		data.atributo = simplifyRollFormula(ablMods.geral?.filter(Boolean).join(" + "), data) || 0;
-		data.fisicos = simplifyRollFormula(ablMods.fisicos?.filter(Boolean).join(" + "), data) || 0;
-		data.mentais = simplifyRollFormula(ablMods.mentais?.filter(Boolean).join(" + "), data) || 0;
+			// Set ability bonuses modifiers
+			let ablMods = this.system.modificadores?.atributos || {};
+			data.atributo = simplifyRollFormula(ablMods.geral?.filter(Boolean).join(" + "), data) || 0;
+			data.fisicos = simplifyRollFormula(ablMods.fisicos?.filter(Boolean).join(" + "), data) || 0;
+			data.mentais = simplifyRollFormula(ablMods.mentais?.filter(Boolean).join(" + "), data) || 0;
 
-		// Set damage bonuses modifiers
-		let dmgMods = this.system.modificadores?.dano || {};
-		data.dano = simplifyRollFormula(dmgMods.geral?.filter(Boolean).join(" + "), data) || 0;
-		data.danoMagico = simplifyRollFormula(dmgMods.mag?.filter(Boolean).join(" + "), data) || 0;
-		data.danoCAC = simplifyRollFormula(dmgMods.cac?.filter(Boolean).join(" + "), data) || 0;
-		data.danoAD = simplifyRollFormula(dmgMods.ad?.filter(Boolean).join(" + "), data) || 0;
-		data.danoALQ = simplifyRollFormula(dmgMods.alq?.filter(Boolean).join(" + "), data) || 0;
+			// Set damage bonuses modifiers
+			let dmgMods = this.system.modificadores?.dano || {};
+			data.dano = simplifyRollFormula(dmgMods.geral?.filter(Boolean).join(" + "), data) || 0;
+			data.danoMagico = simplifyRollFormula(dmgMods.mag?.filter(Boolean).join(" + "), data) || 0;
+			data.danoCAC = simplifyRollFormula(dmgMods.cac?.filter(Boolean).join(" + "), data) || 0;
+			data.danoAD = simplifyRollFormula(dmgMods.ad?.filter(Boolean).join(" + "), data) || 0;
+			data.danoALQ = simplifyRollFormula(dmgMods.alq?.filter(Boolean).join(" + "), data) || 0;
 
-		let healMods = this.system.modificadores?.cura || {};
-		data.curaGeral = simplifyRollFormula(healMods.geral?.filter(Boolean).join(" + "), data) || 0;
-		data.curaMagica = simplifyRollFormula(healMods.mag?.filter(Boolean).join(" + "), data) || 0;
+			let healMods = this.system.modificadores?.cura || {};
+			data.curaGeral = simplifyRollFormula(healMods.geral?.filter(Boolean).join(" + "), data) || 0;
+			data.curaMagica = simplifyRollFormula(healMods.mag?.filter(Boolean).join(" + "), data) || 0;
+		}
 
 		return data;
 	}
