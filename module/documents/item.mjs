@@ -876,6 +876,13 @@ export default class ItemT20 extends Item {
 	}
 
 	/* -------------------------------------------- */
+
+	static async createDialog(data = {}, createOptions = {}, options = {}) {
+		options.classes = [...(options.classes ?? []), "dialog-item-create"];
+		return super.createDialog(data, createOptions, options);
+	}
+
+	/* -------------------------------------------- */
 	/*  Gameplay Mechanics                          */
 	/* -------------------------------------------- */
 

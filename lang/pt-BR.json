@@ -407,7 +407,15 @@
 
   "T20.DrawPreview": "Desenhar Área de Efeito",
 
-  "T20.Item": "Item",
+  "T20.Item": {
+    "CreationDialog": {
+      "Categories": {
+        "Physical": "Físico",
+        "Character": "Personagem",
+        "Other": "Outro"
+      }
+    }
+  },
   "T20.Items": "Itens",
   "T20.ItemView": "Ver Item",
   "T20.LevelDown": "Diminuir Nível",

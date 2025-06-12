@@ -142,4 +142,30 @@ export default function () {
 	Hooks.on("closeCompendiumT20", (compendium, html) => {
 		compendium.collection.apps = [new Compendium(compendium.collection)];
 	});
+
+	Hooks.on("renderDialogV2", (_dialog, html) => {
+		if (html.classList.contains("dialog-item-create")) {
+			const select = html.querySelector("select[name=type]");
+			const option = select?.querySelector("option");
+			if (select && option) {
+				const localize = (str) => game.i18n.localize(`T20.Item.CreationDialog.Categories.${str}`);
+				select.append(extractOptGroup(select, localize("Physical"), ["arma", "equipamento", "consumivel", "tesouro"]));
+				select.append(extractOptGroup(select, localize("Character"), ["classe", "poder", "race"]));
+				select.append(extractOptGroup(select, localize("Other")));
+				option.selected = true;
+			}
+		}
+	});
+}
+
+function extractOptGroup(select, label, types) {
+	const options = select.querySelectorAll(":scope > option");
+	const filtered = [...options.values()].filter((option) => !types || types.includes(option.value));
+	const optgroup = document.createElement("optgroup");
+	optgroup.label = label;
+	for (const physicalElement of filtered) {
+		optgroup.appendChild(physicalElement);
+	}
+
+	return optgroup;
 }
