@@ -1234,6 +1234,7 @@
   "T20.SettingCurrencyWeightHint": "Calcula o espaço de moedas (1 espaço a cada mil moedas) caso a regra de Limites de Carga esteja ativa.",
 
   "T20.S80": "/* --------------- Bases --------------- */",
+  "T20.Accomodations": "Acomodações",
   "T20.BaseSizeMininmal": "Mínima",
   "T20.BaseSizeModest": "Modesta",
   "T20.BaseSizeBasic": "Básica",
@@ -1251,6 +1252,7 @@
   "T20.BasesDescription": "Descrição",
   "T20.BasesRoomsNumber": "Número de Cômodos",
   "T20.BasesLevel": "Nível",
+  "T20.BasesSecurityBaseValue": "Valor Base de Segurança",
   "T20.BasesSecurityBonus": "Bônus de Segurança",
   "T20.BasesSecurityTotal": "Segurança Total",
   "T20.PowerTypeBase": "Base",

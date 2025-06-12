@@ -4,6 +4,7 @@
 @itemImageSize: 34px;
 
 .tormenta20.sheet.actor {
+  @import "./bases.less";
   @import "./character.less";
   @import "./npc.less";
   @import "./simple.less";
@@ -66,13 +67,10 @@
         border-right: @borderGroove;
         border-radius: 0;
 
-        &.health,
-        &.mana {
-          .attribute-footer {
-            input {
-              height: 18px;
-              width: 33%;
-            }
+        .attribute-footer {
+          input {
+            height: 18px;
+            width: 33%;
           }
         }
 
@@ -120,6 +118,7 @@
     color: @colorOlive;
     border-bottom: 1px solid @colorFaint;
     white-space: nowrap;
+    flex: 0;
   }
 
   /* ----------------------------------------- */

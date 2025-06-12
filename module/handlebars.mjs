@@ -173,7 +173,10 @@ export function registerHandlebarsHelpers() {
 
 			case "seguranca": {
 				if (actor.type === "bases") {
-					listEffects = [{ label: "Segurança", value: actor.system.seguranca }];
+					listEffects = [
+						{ label: "Base", value: actor.system.seguranca.base },
+						...(modFields[`system.seguranca.bonus`] ?? [])
+					];
 				}
 				break;
 			}

@@ -4,8 +4,8 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "bases"],
 			template: "systems/tormenta20/templates/actor/bases-sheet.hbs",
-			width: 900,
-			height: 600
+			height: 600,
+			width: 650
 		});
 	}
 
