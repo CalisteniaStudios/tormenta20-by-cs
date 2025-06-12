@@ -1,9 +1,8 @@
 <div class="tab comodos" data-group="primary" data-tab="comodos">
 	<div class="form-group stacked">
 		<div class="form-fields">
-			{{#if comodosPoderes.length}}
 			<div style="display: flex; flex-direction: column; gap: 0.5em;">
-				{{#each comodosPoderes as |comodo idx|}}
+				{{#each acomodacoes as |comodo idx|}}
 				<ul class="item-list">
 					<li class="item item-header flexrow">
 						<div class="item-name">{{comodo.name}}</div>
@@ -33,7 +32,6 @@
 				</ul>
 				{{/each}}
 			</div>
-			{{/if}}
 		</div>
 	</div>
 </div>

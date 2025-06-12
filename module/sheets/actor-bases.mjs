@@ -12,21 +12,20 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 	async getData(options) {
 		const data = await super.getData(options);
 		const rooms = Number(data.system.rooms?.number) || 0;
-		const comodos = Array.from({ length: rooms }, (_, i) => ({
-			name: `Cômodo ${i + 1}`,
-			item: null,
-			mobilias: []
-		}));
+		const comodos = this.actor.itemTypes.comodo;
+		const acomodacoes = [];
 
-		for (const [i, comodo] of this.actor.itemTypes.comodo.entries()) {
-			comodos[i].item = comodo;
+		for (let i = 0; i < Math.max(rooms, comodos.length); i++) {
+			const item = comodos[i];
+			const name = i >= rooms ? "Cômodo Extra" : `Cômodo ${i + 1}`;
+			acomodacoes.push(item ? { name, item } : { name });
 		}
 
 		for (const [i, mobilia] of this.actor.itemTypes.mobilia.entries()) {
-			comodos[i].mobilias = [mobilia];
+			acomodacoes[i].mobilias = [mobilia];
 		}
 
-		data.comodosPoderes = comodos;
+		data.acomodacoes = acomodacoes;
 		return data;
 	}
 
@@ -44,9 +43,6 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 	async _onDropItemCreate(itemData) {
 		itemData = Array.isArray(itemData) ? itemData : [itemData];
 		const remainingItems = [];
-		const rooms = Number(this.actor.system.rooms?.number) || 0;
-
-		const filledComodos = this.actor.itemTypes.comodo.length;
 		const currentComodoNames = this.actor.itemTypes.comodo.map((p) => p.name).filter(Boolean);
 
 		const mobilias = this.actor.itemTypes.mobilia.length;
@@ -60,13 +56,9 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 					);
 					continue;
 				}
-				if (filledComodos >= rooms) {
-					ui.notifications.warn("Todos os cômodos estão ocupados. Exclua um para adicionar outro.");
-					continue;
-				}
 				remainingItems.push(item);
 			} else if (item.type === "mobilia") {
-				if (mobilias >= filledComodos) {
+				if (mobilias >= this.actor.itemTypes.comodo.length) {
 					ui.notifications.warn(
 						"Cada cômodo só pode ter uma mobília. Adicione mais cômodos para importar mais mobílias."
 					);
