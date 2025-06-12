@@ -1,0 +1,24 @@
+<form class="tormenta20 sheet actor" autocomplete="off">
+	{{> "tormenta20.sheet-header-bases"}}
+
+	<!-- Tabs Navigation -->
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item" data-tab="description">{{ localize "T20.Description" }}</a>
+		<a class="item" data-tab="comodos">{{ localize "T20.BasesRooms" }}</a>
+		<a class="item" data-tab="effects">{{ localize "T20.Effects" }}</a>
+	</nav>
+
+	<section class="sheet-body">
+		<!-- Tab: Descrição -->
+		{{> "tormenta20.bases-characteristics"}}
+
+		<!-- Tab: Cômodos -->
+		{{> "tormenta20.bases-rooms"}}
+
+		{{!-- Efeitos Tab --}}
+		<div class="tab effects" data-group="primary" data-tab="effects">
+			{{> "tormenta20.active-effects"}}
+		</div>
+
+	</section>
+</form>

@@ -143,13 +143,11 @@ export function registerHandlebarsHelpers() {
 				const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
 				const armaduras = actor.itemTypes.equipamento
 					.filter((i) => (equipmentSlots ? i.system.equipado2.slot : i.system.equipado))
-					.map((i) => {
-						return {
-							label: i.name,
-							value: i.system.armadura.value,
-							tipo: i.system.tipo
-						};
-					});
+					.map((i) => ({
+						label: i.name,
+						value: i.system.armadura.value,
+						tipo: i.system.tipo
+					}));
 				const armaduraPesada = armaduras.some((i) => i.tipo === "pesada");
 				const meioNivel = game.settings.get("tormenta20", "progressiveDefense") ? rollData.meionivel : 0;
 				listEffects = [
@@ -172,6 +170,13 @@ export function registerHandlebarsHelpers() {
 			case "rd":
 				// ['base', ...efeitos]
 				break;
+
+			case "seguranca": {
+				if (actor.type === "bases") {
+					listEffects = [{ label: "Segurança", value: actor.system.seguranca }];
+				}
+				break;
+			}
 
 			default:
 				break;

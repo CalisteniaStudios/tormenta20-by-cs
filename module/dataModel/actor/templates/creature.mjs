@@ -395,7 +395,7 @@ export default class CreatureData extends Tormenta20TypeData {
 				})
 			})
 		};
-		if (type === "npc") {
+		if (type === "npc" || type === "bases") {
 			delete schema.pct;
 			delete schema.proximo;
 		} else if (type === "simple") {

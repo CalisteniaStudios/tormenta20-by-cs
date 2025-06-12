@@ -30,6 +30,9 @@
       },
       "simple": {
         "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
+      },
+      "bases":{
+        "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
       }
     },
     "Item": {

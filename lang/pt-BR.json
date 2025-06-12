@@ -1,6 +1,7 @@
 {
   "TYPES": {
     "Actor": {
+      "bases": "Base",
       "character": "Personagem de Jogador",
       "npc": "Ameaça",
       "vehicle": "Veículos",
@@ -1149,6 +1150,7 @@
 
   "T20.S98": "/* --------------- Settings --------------- */",
 
+  "T20.BasesSheet": "Ficha de Bases",
   "T20.CharacterSheet": "Ficha de Personagem T20",
   "T20.CharacterSheetTabbed": "Ficha de Personagem T20 - Abas",
   "T20.SimpleActorSheet": "Ficha de Personagem do Mestre",
@@ -1220,6 +1222,28 @@
   "T20.SettingCarryWeightHint": "Calcula o limite de carga e aplica a condição Sobrecarregado quando acima do limite.",
   "T20.SettingCurrencyWeight": "Espaço de Moedas",
   "T20.SettingCurrencyWeightHint": "Calcula o espaço de moedas (1 espaço a cada mil moedas) caso a regra de Limites de Carga esteja ativa.",
+
+  "T20.S80": "/* --------------- Bases --------------- */",
+  "T20.BaseSizeMininmal": "Mínima",
+	"T20.BaseSizeModest": "Modesta",
+	"T20.BaseSizeBasic": "Básica",
+	"T20.BaseSizeFormidable": "Formidável",
+	"T20.BaseSizeGrand": "Grandiosa",
+	"T20.BaseSizeSupreme": "Suprema",
+  "T20.BasesRoom": "Cômodo",
+  "T20.BasesRooms": "Cômodos",
+  "T20.BasesFurniture": "Mobília",
+  "T20.BasesType": "Tipo",
+  "T20.BasesSize": "Porte",
+  "T20.BasesSecurity": "Segurança",
+  "T20.BasesMaintenance": "Manutenção",
+  "T20.BasesName": "Nome",
+  "T20.BasesDescription": "Descrição",
+  "T20.BasesRoomsNumber": "Número de Cômodos",
+  "T20.BasesLevel": "Nível",
+  "T20.BasesSecurityBonus": "Bônus de Segurança",
+  "T20.BasesSecurityTotal": "Segurança Total",
+  "T20.PowerTypeBase": "Base",
 
   "T20.S90": "/* --------------- Status --------------- */",
 

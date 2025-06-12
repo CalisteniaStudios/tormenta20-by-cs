@@ -124,35 +124,37 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		}
 		sheetData.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-		// Ability Scores
-		for (let [a, abl] of Object.entries(sheetData.system.atributos)) {
-			abl.label = CONFIG.T20.atributos[a];
-		}
-
-		// Skills
-		if (sheetData.skills) {
-			for (let [s, skl] of Object.entries(sheetData.skills)) {
-				if (sheetData.isNPC && s === "inic") skl.order = -5;
-				else if (sheetData.isNPC && s === "perc") skl.order = -4;
-				else if (sheetData.isNPC && s === "fort") skl.order = -3;
-				else if (sheetData.isNPC && s === "refl") skl.order = -2;
-				else if (sheetData.isNPC && s === "vont") skl.order = -1;
-				skl.key = s;
-				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
+		if (this.actor.type !== "bases") {
+			// Ability Scores
+			for (let [a, abl] of Object.entries(sheetData.system.atributos)) {
+				abl.label = CONFIG.T20.atributos[a];
 			}
-		}
-		sheetData.skills = Object.values(sheetData.skills).sort((a, b) => {
-			if (a.order === b.order) return a.label.localeCompare(b.label);
-			return a.order - b.order;
-		});
 
-		// Update traits
-		this._prepareTraits(sheetData.system.tracos);
+			// Skills
+			if (sheetData.skills) {
+				for (let [s, skl] of Object.entries(sheetData.skills)) {
+					if (sheetData.isNPC && s === "inic") skl.order = -5;
+					else if (sheetData.isNPC && s === "perc") skl.order = -4;
+					else if (sheetData.isNPC && s === "fort") skl.order = -3;
+					else if (sheetData.isNPC && s === "refl") skl.order = -2;
+					else if (sheetData.isNPC && s === "vont") skl.order = -1;
+					skl.key = s;
+					skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
+				}
+			}
+			sheetData.skills = Object.values(sheetData.skills).sort((a, b) => {
+				if (a.order === b.order) return a.label.localeCompare(b.label);
+				return a.order - b.order;
+			});
+
+			// Update traits
+			this._prepareTraits(sheetData.system.tracos);
+
+			// Prepare owned items
+			await this._prepareItems(sheetData);
+		}
 		// Update bonuses
 		sheetData.modificadores = []; // this._prepareModificadores();
-
-		// Prepare owned items
-		await this._prepareItems(sheetData);
 
 		// Enrich HTML text
 		sheetData.htmlFields.biography = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
