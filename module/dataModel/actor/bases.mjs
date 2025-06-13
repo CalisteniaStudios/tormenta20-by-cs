@@ -40,17 +40,11 @@ export default class BasesData extends Tormenta20TypeData {
 				required: false,
 				label: "T20.BasesMaintenance"
 			}),
-			rooms: new fields.SchemaField({
-				number: new fields.NumberField({
-					required: false,
-					initial: 0,
-					label: "T20.BasesRoomsNumber"
-				})
-			}),
-			mobilias: new fields.StringField({
+			rooms: new fields.NumberField({
 				required: false,
-				initial: "",
-				label: "T20.BasesFurniture"
+				initial: 0,
+				min: 0,
+				label: "T20.BasesRoomsNumber"
 			}),
 			detalhes: new fields.SchemaField({
 				biography: new fields.SchemaField({
@@ -63,16 +57,6 @@ export default class BasesData extends Tormenta20TypeData {
 				})
 			}),
 			attributes: new fields.SchemaField({
-				nivel: new fields.SchemaField({
-					value: new fields.NumberField({
-						required: true,
-						nullable: false,
-						initial: 0,
-						min: 0,
-						max: 20,
-						label: "T20.BasesLevel"
-					})
-				}),
 				movement: new fields.EmbeddedDataField(_fields.MovementData, {
 					initial: {
 						walk: 0,

@@ -36,7 +36,7 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 		html.find('select[name="system.porte"]').change(async (ev) => {
 			const porte = ev.currentTarget.value;
 			const roomsNumber = CONFIG.T20.roomsNumber[porte] ?? 0;
-			await this.actor.update({ "system.rooms.number": roomsNumber });
+			await this.actor.update({ "system.rooms": roomsNumber });
 		});
 	}
 
