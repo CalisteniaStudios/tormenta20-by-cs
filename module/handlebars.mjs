@@ -72,7 +72,7 @@ export function registerHandlebarsHelpers() {
 
 				const atr = Object.entries(actor.system.atributos)
 					.filter(([key]) => actor.system.attributes[type].atributos[key])
-					.map(([key, data]) => [data.name, data.value]);
+					.map(([key, data]) => [CONFIG.T20.atributos[key], data.value]);
 				let atrPV;
 				const contarAtributoPV = type === "pv" && this.system.atributos[substituirCon].value;
 				if (contarAtributoPV) {
