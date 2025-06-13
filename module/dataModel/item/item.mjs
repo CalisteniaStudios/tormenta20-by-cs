@@ -478,7 +478,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 					type: new foundry.data.fields.StringField({ initial: "multi", choices: ["single", "multi"] }),
 					choices: new foundry.data.fields.ArrayField(
 						new foundry.data.fields.SchemaField({
-							uuid: new foundry.data.fields.StringField({ initial: "", required: true })
+							uuid: new foundry.data.fields.DocumentUUIDField({ type: "Item", embedded: false })
 						})
 					)
 				})

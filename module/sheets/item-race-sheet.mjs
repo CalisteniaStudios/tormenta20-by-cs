@@ -8,7 +8,7 @@ export default class RaceSheetT20 extends ItemSheetT20 {
 	}
 
 	get unsupportedItemTypes() {
-		return new Set(["race", "classe"]);
+		return new Set(["comobodo", "mobilia", "race", "classe"]);
 	}
 
 	async getData() {
@@ -18,13 +18,13 @@ export default class RaceSheetT20 extends ItemSheetT20 {
 				const choices = await Promise.all(
 					cs.choices.map(async (c) => {
 						const item = await fromUuid(c.uuid);
-						if (!item) return;
+						if (!item) return null;
 						c.img = item.img;
 						c.name = item.name;
 						return c;
 					})
 				);
-				cs.choices = choices.filter((c) => c?.name);
+				cs.choices = choices.filter(Boolean);
 				this.item.system.grants[index] = cs;
 			})
 		);
