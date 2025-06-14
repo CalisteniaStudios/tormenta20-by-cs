@@ -71,7 +71,7 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 		}
 		for (const id of this.actor.system.residentes) {
 			const residente = game.actors.get(id);
-			if (!residente) continue;
+			if (!residente || !residente.isOwner) continue;
 			const toDelete = residente.effects.filter((ef) => ef.getFlag("tormenta20", "grantedFromBase")).map((ef) => ef.id);
 			await residente.createEmbeddedDocuments("ActiveEffect", toCreate);
 			await residente.deleteEmbeddedDocuments("ActiveEffect", toDelete);
