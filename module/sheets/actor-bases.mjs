@@ -9,9 +9,11 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 		});
 	}
 
+	/* -------------------------------------------- */
+
 	async getData(options) {
-		const data = await super.getData(options);
-		const rooms = data.system.rooms;
+		const sheetData = await super.getData(options);
+		const rooms = this.actor.system.rooms;
 		const comodos = this.actor.itemTypes.comodo;
 		const acomodacoes = [];
 
@@ -25,9 +27,15 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 			acomodacoes[i].mobilias = [mobilia];
 		}
 
-		data.acomodacoes = acomodacoes;
-		return data;
+		sheetData.acomodacoes = acomodacoes;
+		sheetData.residentes = this.actor.system.residentes
+			.map((id) => game.actors.get(id))
+			.filter((actor) => actor)
+			.map((actor) => ({ id: actor.id, img: actor.img, name: actor.name }));
+		return sheetData;
 	}
+
+	/* -------------------------------------------- */
 
 	activateListeners(html) {
 		super.activateListeners(html);
@@ -38,6 +46,53 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 			const roomsNumber = CONFIG.T20.roomsNumber[porte] ?? 0;
 			await this.actor.update({ "system.rooms": roomsNumber });
 		});
+		html.find("[data-action='delete-item']").on("click", this._onDeleteItem.bind(this));
+		html.find("[data-action='transfer-effects']").on("click", this._onTransferEffects.bind(this));
+	}
+
+	_onDeleteItem(event) {
+		event.preventDefault();
+		const { id } = event.target.closest(".choiceset-item").dataset;
+		if (!id) return;
+		const residentes = this.actor.system.residentes;
+		residentes.delete(id);
+		this.actor.update({ "system.residentes": residentes });
+	}
+
+	async _onTransferEffects(event) {
+		const toCreate = [];
+		const types = ["comodo", "mobilia"];
+		for (const type of types) {
+			for (const item of this.actor.itemTypes[type]) {
+				if (!item.system.residentes || !item.effects.size) continue;
+				for (const effect of item.effects) {
+					const effectData = effect.toJSON();
+					foundry.utils.setProperty(effectData, "flags.tormenta20.grantedFromBase", true);
+					toCreate.push(effectData);
+				}
+			}
+		}
+		for (const id of this.actor.system.residentes) {
+			const residente = game.actors.get(id);
+			if (!residente) continue;
+			const toDelete = residente.effects.filter((ef) => ef.getFlag("tormenta20", "grantedFromBase")).map((ef) => ef.id);
+			await residente.createEmbeddedDocuments("ActiveEffect", toCreate);
+			await residente.deleteEmbeddedDocuments("ActiveEffect", toDelete);
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	async _onDropActor(event, actor) {
+		const uuid = actor.uuid.split("Actor.");
+		const id = uuid.pop();
+		if (uuid.filter(Boolean).length) return;
+		if (game.actors.get(id).type !== "character") return;
+		const residentes = this.actor.system.residentes;
+		if (!residentes.has(id)) {
+			residentes.add(id);
+			this.actor.update({ "system.residentes": residentes });
+		}
 	}
 
 	async _onDropItemCreate(itemData) {

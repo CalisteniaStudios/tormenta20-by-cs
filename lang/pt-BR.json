@@ -51,6 +51,7 @@
 
   "T20.Grants": "Concessões",
   "T20.AddItemGrant": "Adicionar Concessão de Item",
+  "T20.DropActorsHere": "Arraste atores aqui",
   "T20.DropItemsHere": "Arraste itens aqui",
   "T20.RepeatedGrant": "Item já existe nessa concessão.",
 

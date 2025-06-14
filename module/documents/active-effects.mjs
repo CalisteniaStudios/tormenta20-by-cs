@@ -19,6 +19,13 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		return data;
 	}
 
+	async _preCreate(data, options, user) {
+		await super._preCreate(data, options, user);
+		if (this.parent && ["comodo", "mobilia"].includes(this.parent.type)) {
+			this.updateSource({ transfer: !this.parent.system.residentes });
+		}
+	}
+
 	/**
 	 * Is this active effect currently suppressed?
 	 * @type {boolean}
