@@ -379,6 +379,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 				}),
 				bonus: new fields.NumberField({
 					required: true,
+					nullable: false,
 					initial: 0,
 					label: "T20.ItemSavingThrowDCBonus",
 					hint: "T20.ItemSavingThrowDCBonusHint"
