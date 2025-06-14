@@ -13,21 +13,6 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 
 	async getData(options) {
 		const sheetData = await super.getData(options);
-		const rooms = this.actor.system.rooms;
-		const comodos = this.actor.itemTypes.comodo;
-		const acomodacoes = [];
-
-		for (let i = 0; i < Math.max(rooms, comodos.length); i++) {
-			const item = comodos[i];
-			const name = i >= rooms ? "Cômodo Extra" : `Cômodo ${i + 1}`;
-			acomodacoes.push(item ? { name, item } : { name });
-		}
-
-		for (const [i, mobilia] of this.actor.itemTypes.mobilia.entries()) {
-			acomodacoes[i].mobilias = [mobilia];
-		}
-
-		sheetData.acomodacoes = acomodacoes;
 		sheetData.residentes = this.actor.system.residentes
 			.map((id) => game.actors.get(id))
 			.filter((actor) => actor)
@@ -35,10 +20,22 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 		return sheetData;
 	}
 
+	async _prepareItems(data) {
+		data.comodos = this.actor.itemTypes.comodo.sort((a, b) => a.sort - b.sort);
+		data.mobilias = this.actor.itemTypes.mobilia.sort((a, b) => a.sort - b.sort);
+		data.residentes = this.actor.system.residentes
+			.map((id) => game.actors.get(id))
+			.filter((actor) => actor)
+			.map((actor) => ({ id: actor.id, img: actor.img, name: actor.name }));
+	}
+
 	/* -------------------------------------------- */
 
 	activateListeners(html) {
 		super.activateListeners(html);
+
+		// Item summaries
+		html.find(".item .item-name > label, .item .item-description").click((event) => this._onItemSummary(event));
 
 		// Listener para troca de porte
 		html.find('select[name="system.porte"]').change(async (ev) => {
