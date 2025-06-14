@@ -19,10 +19,10 @@
 		<div class="tab residentes" data-group="primary" data-tab="residentes">
 			<div class="flexcol">
 				{{#if residentes.size}}
-				<ol style="columns: 2;">
+				<ol style="columns: 2; margin: 0;">
 					{{#each residentes}}
 					<li class="form-group choiceset-item" data-id="{{this.id}}">
-						<div class="item flexrow">
+						<div class="item flexrow" style="gap: 0.5rem;">
 							<img src="{{this.img}}" height="32" width="32" style="flex: 0;">
 							<div class="item-name">
 								<label>{{this.name}}</label>
@@ -38,7 +38,7 @@
 				</ol>
 				<hr>
 				{{/if}}
-				<div class="drop-zone" style="text-align: center;">{{localize "T20.DropActorsHere"}}</div>
+				<div class="drop-zone" style="text-align: center; margin: 5px 0;">{{localize "T20.DropActorsHere"}}</div>
 				<footer>
 					<button type="button" data-action="transfer-effects" {{disabled (not residentes.size)}}>
 						<i class="fa fa-plus"></i>Adicionar Efeitos aos Residentes
