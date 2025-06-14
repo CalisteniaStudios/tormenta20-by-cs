@@ -7,7 +7,7 @@ export default class BasesData extends Tormenta20TypeData {
 		const _fields = tormenta20.data.fields;
 		return {
 			tipo: new fields.StringField({
-				required: false,
+				required: true,
 				initial: "",
 				label: "T20.BasesType"
 			}),
@@ -21,28 +21,35 @@ export default class BasesData extends Tormenta20TypeData {
 			}),
 			seguranca: new fields.SchemaField({
 				base: new fields.NumberField({
-					required: false,
+					required: true,
+					nullable: false,
 					initial: 0,
+					integer: true,
+					min: 0,
 					label: "T20.BasesSecurity"
 				}),
 				bonus: new fields.NumberField({
-					required: false,
+					required: true,
+					nullable: false,
 					initial: 0,
+					integer: true,
 					label: "T20.BasesSecurityBonus"
 				}),
 				total: new fields.NumberField({
-					required: false,
+					required: true,
+					nullable: false,
 					initial: 0,
+					integer: true,
+					min: 0,
 					label: "T20.BasesSecurityTotal"
 				})
 			}),
-			maintenance: new fields.StringField({
-				required: false,
-				label: "T20.BasesMaintenance"
-			}),
+			residentes: new fields.SetField(new fields.ForeignDocumentField(foundry.documents.BaseActor, { idOnly: true })),
 			rooms: new fields.NumberField({
-				required: false,
+				required: true,
+				nullable: false,
 				initial: 0,
+				integer: true,
 				min: 0,
 				label: "T20.BasesRoomsNumber"
 			}),
