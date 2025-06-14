@@ -48,6 +48,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 					initial: "attributes"
 				}
 			],
+			dragDrop: [{ dragSelector: ".item-list .item:not(.item-header)" }],
 			height: 700
 		});
 	}
@@ -165,7 +166,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		return sheetData;
 	}
 
-	async _prepareItems() {}
+	async _prepareItems(data) {}
 
 	async enrichHTML(text, data) {
 		return await foundry.applications.ux.TextEditor.implementation.enrichHTML(text, {
