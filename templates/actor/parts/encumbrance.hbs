@@ -1,4 +1,5 @@
 {{#with system.attributes.carga as | carga | }}
+{{#if carga.max}}
 <div class="encumbrance{{#if carga.encumbered}} encumbered{{/if}}" title="{{localize T20.Encumbrance}}">
 	<span class="encumbrance-bar" style="width:{{carga.pct}}%"></span>
 	<div class="encumbrance-label">
@@ -12,4 +13,5 @@
 	<i class="encumbrance-breakpoint encumbrance-50 arrow-up"></i>
 	<i class="encumbrance-breakpoint encumbrance-50 arrow-down"></i>
 </div>
+{{/if}}
 {{/with}}
