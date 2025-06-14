@@ -11,7 +11,7 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 
 	async getData(options) {
 		const data = await super.getData(options);
-		const rooms = Number(data.system.rooms?.number) || 0;
+		const rooms = data.system.rooms;
 		const comodos = this.actor.itemTypes.comodo;
 		const acomodacoes = [];
 
