@@ -9,7 +9,7 @@ items:
     img: icons/magic/control/fear-fright-monster-purple-blue.webp
     system:
       description:
-        value: Vontade CD 40 evita (veja o quadro na p. na 311)
+        value: Vontade CD 40 evita (veja o quadro na página 311)
         unidentified: ''
       source: ''
       ativacao:
@@ -765,7 +765,7 @@ items:
         value: >-
           <section class="secret">Controlar a Gravidade (Padrão, 10 PM,
           sustentada) O dragão controla os efeitos da gravidade em um cubo de
-          12m de lado em alcance médio (veja p. na 186)</section><p>Voc&ecirc;
+          12m de lado em alcance médio (veja página 186)</section><p>Voc&ecirc;
           controla os efeitos da gravidade dentro da &aacute;rea. Ao
           lan&ccedil;ar a magia, escolha um dos efeitos abaixo. Enquanto a magia
           durar, voc&ecirc; pode usar uma a&ccedil;&atilde;o padr&atilde;o para

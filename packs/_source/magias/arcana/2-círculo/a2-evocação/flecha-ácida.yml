@@ -45,7 +45,7 @@ effects:
       além do normal, se o alvo coberto pelo muco ácido estiver usando armadura
       ou escudo, o item é corroído. Isso reduz o bônus na Defesa do item em 1
       ponto permanentemente. O item pode ser consertado, restaurando seu bônus
-      (veja Ofício, na p. na 121).
+      (veja Ofício, na página 121).
     img: icons/svg/upgrade.svg
     type: base
     system: {}
