@@ -506,23 +506,27 @@ function applyRollModifiers(item, rollMods) {
 			}
 
 			if (dano.toString().match(re.die) && rollMods[r.key][i]?.dmgStep) {
-				let indx = -1;
-				let passosIndx = 0;
 				let danoBase = dano.match(/^\d+d\d+/)[0];
-				if (danoBase == "2d4") danoBase = "1d8";
-				if (danoBase == "2d6" || danoBase == "3d4") danoBase = "1d12";
+				if (item.type === "magia") {
+					const conversoes = { 4: 6, 6: 8, 8: 10, 10: 12 };
+					const { qtd, dado } = danoBase.match(/^(?<qtd>\d+)d(?<dado>\d+)$/).groups;
+					if (conversoes[dado]) dano = dano.replace(/^\d+d\d+/, `${qtd}d${conversoes[dado]}`);
+				} else {
+					const conversoes = { "2d4": "1d8", "3d4": "1d12" };
+					danoBase = conversoes[danoBase] || danoBase;
 
-				for (passosIndx = 0; passosIndx < C.passosDano.length; passosIndx++) {
-					indx = C.passosDano[passosIndx].indexOf(danoBase);
-					if (indx != -1) break;
-				}
+					const passosIndx = C.passosDano.findIndex((passos) => passos.includes(danoBase));
 
-				if (passosIndx < C.passosDano.length) {
-					if (indx + rollMods[r.key][i].dmgStep < 0) rollMods[r.key][i].dmgStep = -indx;
-					else if (indx + rollMods[r.key][i].dmgStep >= C.passosDano[passosIndx].length)
-						rollMods[r.key][i].dmgStep = C.passosDano[passosIndx].length - 1 - indx;
-					danoBase = C.passosDano[passosIndx][indx + rollMods[r.key][i].dmgStep];
-					dano = dano.replace(/^\d+d\d+/, danoBase);
+					if (passosIndx !== -1) {
+						const passos = C.passosDano[passosIndx];
+						const index = passos.indexOf(danoBase);
+						const step = rollMods[r.key][i].dmgStep;
+
+						const newIndex = Math.max(0, Math.min(index + step, passos.length - 1));
+						rollMods[r.key][i].dmgStep = newIndex - index;
+
+						dano = dano.replace(/^\d+d\d+/, passos[newIndex]);
+					}
 				}
 			}
 
