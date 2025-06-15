@@ -512,7 +512,7 @@ function applyRollModifiers(item, rollMods) {
 					const { qtd, dado } = danoBase.match(/^(?<qtd>\d+)d(?<dado>\d+)$/).groups;
 					if (conversoes[dado]) dano = dano.replace(/^\d+d\d+/, `${qtd}d${conversoes[dado]}`);
 				} else {
-					const conversoes = { "2d4": "1d8", "3d4": "1d12" };
+					const conversoes = { "2d4": "1d8", "2d6": "1d12", "3d4": "1d12" };
 					danoBase = conversoes[danoBase] || danoBase;
 
 					const passosIndx = C.passosDano.findIndex((passos) => passos.includes(danoBase));
