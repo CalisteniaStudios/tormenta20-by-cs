@@ -234,7 +234,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		html.find(".update-cd").click(this._onUpdateCD.bind(this));
 
 		// Item management
-		html.find(".item-edit").click((ev) => this._onItemEdit($(ev.currentTarget)));
 		html.find(".item-dialog").click(this._onItemDialog.bind(this));
 		html.find(".item-create").click(this._onItemCreate.bind(this));
 		html
@@ -940,26 +939,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		};
 		const type = event.currentTarget.dataset.type;
 		return await Item.createDialog({}, { parent: this.actor }, { types: types[type] });
-	}
-
-	/**
-	 * Handle editing an existing Owned Item for the Actor
-	 * @param {Event} li   The originating click event
-	 * @private
-	 */
-	_onItemEdit(li) {
-		const item = this.actor.items.get(li.parent().data("itemId"));
-		if (item) return item.sheet.render(true);
-	}
-
-	/**
-	 * Handle deleting an existing Owned Item for the Actor
-	 * @param {Event} li   The originating click event
-	 * @private
-	 */
-	_onItemDelete(li) {
-		const item = this.actor.items.get(li.parent().data("itemId"));
-		if (item) return item.delete();
 	}
 
 	_onItemFavorite(li) {

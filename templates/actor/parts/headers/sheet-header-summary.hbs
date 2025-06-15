@@ -1,7 +1,7 @@
 <ul class="attributes summary flexrow">
 	<li class="char-race">
 		<span {{#if actor.race}}class="item" data-item-id="{{actor.race._id}}"{{/if}}>
-			<a class="item-control item-edit {{#unless actor.race}}add-raca{{/unless}}" title="{{ localize 'T20.Edit'}}">
+			<a class="item-control {{#unless actor.race}}add-raca{{/unless}}" title="{{ localize 'T20.Edit'}}">
 				{{ifThen actor.race actor.race.name (localize 'T20.Race')}}
 			</a>
 		</span>
@@ -13,7 +13,7 @@
 		{{#if actor.classes.length }}
 		{{#each actor.classes as | class key | }}
 		<span class="item" data-item-id="{{class._id}}">
-			<a class="item-control item-edit" title="{{ localize 'T20.Edit'}}">
+			<a class="item-control" title="{{ localize 'T20.Edit'}}">
 				{{#if (eq ../actor.classes.length 1)}} {{class.name}} {{else}} {{class.abbr}} {{/if}}
 				{{class.system.niveis}}
 			</a>
@@ -24,7 +24,7 @@
 		</a>
 		{{else}}
 		<span data-item-id="{{class._id}}">
-			<a class="item-control item-edit add-classe"> {{ localize 'T20.Class'}} </a>
+			<a class="item-control add-classe"> {{ localize 'T20.Class'}} </a>
 		</span>
 		{{/if}}
 	</li>
