@@ -30,8 +30,8 @@ export default class ChatMessageTormenta20 extends ChatMessage {
 			if (isAttack) {
 				const critical = d.options.critical || 20;
 				const fumble = d.options.fumble || 1;
-				if (d.total >= critical) total.classList.add("critical");
-				else if (d.total <= fumble) total.classList.add("fumble");
+				if (d.total >= critical) total.classList.add("success", "critical");
+				else if (d.total <= fumble) total.classList.add("failure", "fumble");
 				else if (d.options.target) {
 					if (d.total >= d.options.target) total.classList.add("success");
 					else total.classList.add("failure");
