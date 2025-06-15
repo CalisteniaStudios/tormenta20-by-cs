@@ -380,7 +380,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 					});
 				}
 			}
-		} else if (item.type === "equipamento") {
+		} else if (item.type === "equipamento" && equips) {
 			let icon = "fa-shirt";
 			let icon2 = "";
 			if (item.system.equipado2.type === "hand") {
@@ -396,7 +396,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				</span>`,
 				callback: this._onToggleArmor.bind(this)
 			});
-		} else if (item.type === "arma") {
+		} else if (item.type === "arma" && equips) {
 			options.push({
 				name: item.system.equipado !== 1 ? "T20.EquipOneHand" : "T20.Unequip",
 				group: "equips",
@@ -446,7 +446,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				name: item.system.preparada ? "T20.SpellPrepUnprepare" : "T20.SpellPrepPrepare",
 				group: "spell",
 				icon: "<i class='fas fa-sun'></i>",
-				condition: this.actor.getFlag("tormenta20", "mago"),
+				condition: this.actor.getFlag("tormenta20", "mago") ?? false,
 				callback: () => item.update({ "system.preparada": !item.system.preparada })
 			});
 		}
