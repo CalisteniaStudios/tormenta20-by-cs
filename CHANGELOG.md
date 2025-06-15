@@ -1,5 +1,22 @@
 # Lista de Mudanças
 
+## Versão 1.5.005
+- Adicionado: Base agora tem um botão para transferir os bônus de Cômodos e Mobílias aos residentes.
+- Adicionado: Efeito ativo `passos` agora afeta magias.
+- Adicionado: Efeito visual do crítico melhorado.
+- Corrigido: Efeito ativo `cd` funciona novamente.
+- Corrigido: Cálculo de bônus de ataques de NPCs.
+
+## Versão 1.5.004
+- Adicionado ator do tipo Base e itens do tipo Cômodo e Mobília
+- Campo @patamar adicionado ao getRollData
+- Atualizações nos poderes Anatomia Insana, Coração Heróico e Familiar Sapo.
+- Atores: consertos na preparação de dados
+
+## Versão 1.5.003
+- Melhoria ao desenhar Cones
+- Conserto de cálculo de dano onde RD alta acabava curando o personagem
+
 ## Versão 1.5.002
 - Alterado: Fichas agora usam a fonte Signika em vez da fonte Roboto.
 - Alterado: Custo de Mana negativo não é mais exibido no chat.
