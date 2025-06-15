@@ -42,9 +42,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+15'
+            - - '+10'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -121,10 +122,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772402
-      modifiedTime: 1700236480532
+      modifiedTime: 1749966529498
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
       duplicateSource: null
@@ -176,9 +177,10 @@ items:
             - - pont
               - ''
               - ''
-            - - '+11'
+            - - '+8'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -255,10 +257,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772394
-      modifiedTime: 1700236485878
+      modifiedTime: 1749966529512
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.B1hiWU8eEI1NHwcv
       duplicateSource: null

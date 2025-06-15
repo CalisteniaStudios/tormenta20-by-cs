@@ -114,9 +114,10 @@ items:
             - - pont
               - ''
               - ''
-            - - '+8'
+            - - '+5'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -235,10 +236,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772409
-      modifiedTime: 1700236661060
+      modifiedTime: 1749966529080
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
       duplicateSource: null
@@ -287,9 +288,10 @@ items:
             - - pont
               - ''
               - ''
-            - - '+9'
+            - - '+6'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -366,10 +368,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772412
-      modifiedTime: 1700236670022
+      modifiedTime: 1749966529096
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.dUtNefh57IswhzOr
       duplicateSource: null

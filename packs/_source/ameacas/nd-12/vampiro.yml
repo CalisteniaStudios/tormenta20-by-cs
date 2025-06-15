@@ -433,10 +433,10 @@ items:
             - - 1d20
               - ''
               - ''
-            - - ''
+            - - luta
               - ''
               - ''
-            - - '+25'
+            - - '+13'
               - ''
               - ''
           versatil: ''
@@ -518,10 +518,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772402
-      modifiedTime: 1667015255453
+      modifiedTime: 1749966529969
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.LirOBCaOzAEWQpFk
       duplicateSource: null
@@ -558,10 +558,10 @@ items:
             - - 1d20
               - ''
               - ''
-            - - ''
+            - - luta
               - ''
               - ''
-            - - '+36'
+            - - '+24'
               - ''
               - ''
           versatil: ''
@@ -677,10 +677,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1667015226473
+      modifiedTime: 1749966529996
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null

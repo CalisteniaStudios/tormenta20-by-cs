@@ -310,9 +310,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '17'
+            - - '+10'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -423,10 +424,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700236945145
+      modifiedTime: 1749966528770
       lastModifiedBy: t20builder000000
       compendiumSource: Item.K5G1Mz2Vykrmn5aB
       duplicateSource: null
@@ -468,9 +469,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '17'
+            - - '+10'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -581,10 +583,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700236949666
+      modifiedTime: 1749966528781
       lastModifiedBy: t20builder000000
       compendiumSource: Item.D0wp4XltbdzsgGEW
       duplicateSource: null

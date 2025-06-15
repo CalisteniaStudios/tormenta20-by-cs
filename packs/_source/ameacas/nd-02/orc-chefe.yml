@@ -255,9 +255,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+11'
+            - - '+5'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -376,10 +377,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312773032
-      modifiedTime: 1700236550494
+      modifiedTime: 1749966529306
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.v5HYdRxOsBcnXATP
       duplicateSource: null
