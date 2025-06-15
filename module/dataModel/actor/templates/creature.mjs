@@ -93,7 +93,7 @@ export default class CreatureData extends Tormenta20TypeData {
 	static migrateData(data) {
 		if (data.pericias?.ofi0) delete data.pericias.ofi0;
 		if (data.pericias?._pc0) delete data.pericias._pc0;
-		if (Object.keys(data.resources).length === 0) {
+		if (!Object.keys(data.resources ?? {}).length) {
 			data.resources = foundry.utils.deepClone(this.schema.fields.resources.initial);
 		}
 		return super.migrateData(data);
