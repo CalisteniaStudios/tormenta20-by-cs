@@ -161,6 +161,11 @@
       .item-name {
         &:hover {
           text-shadow: 0px 0px 0px black;
+
+          label,
+          .item-list {
+            text-shadow: none;
+          }
         }
       }
     }
@@ -197,7 +202,7 @@
     }
 
     * {
-      font-size: 0.75rem;
+      font-size: var(--font-size-12);
     }
 
     hr {
@@ -240,12 +245,35 @@
         position: absolute;
         left: 0px;
       }
-      .magias .item-list {
-        display: inline;
+      .magias {
+        .item-list {
+          display: inline;
+
+          .item {
+            display: inline;
+            font-weight: 400;
+
+            &.rollable {
+              &:hover {
+                text-shadow: 0 0 0 black;
+              }
+            }
+          }
+        }
+
+        .item-list,
+        span {
+          &:hover {
+            text-shadow: none;
+          }
+        }
       }
-      .magias .item {
-        display: inline;
-        font-weight: 400;
+    }
+
+    .skill {
+      &:hover {
+        font-weight: 700;
+        // text-shadow: 0 0 0 black;
       }
     }
   }
