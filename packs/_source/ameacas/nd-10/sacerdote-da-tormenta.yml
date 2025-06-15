@@ -65,7 +65,7 @@ items:
           completa ou menor, o sacerdote de Aharadak muda a execução dela para
           livre
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 131
+      source: Tormenta20 — Edição Jogo do Ano, p. 131
       ativacao:
         execucao: free
         custo: 4
@@ -415,7 +415,7 @@ items:
           adjacente cura 11d8+11 PV</section><p>Voc&ecirc; canaliza energia
           positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 189
+      source: Tormenta20 — Edição Jogo do Ano, p. 189
       ativacao:
         execucao: action
         custo: 1
@@ -597,7 +597,7 @@ items:
           <em>Perdi&ccedil;&atilde;o</em> anula
           <em>B&ecirc;n&ccedil;&atilde;o</em>.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 201
+      source: Tormenta20 — Edição Jogo do Ano, p. 201
       ativacao:
         execucao: action
         custo: 1
@@ -875,7 +875,7 @@ items:
           Voc&ecirc; n&atilde;o pode lan&ccedil;ar magias enquanto estiver sob
           efeito de Pot&ecirc;ncia Divina.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 201
+      source: Tormenta20 — Edição Jogo do Ano, p. 201
       ativacao:
         execucao: action
         custo: 6
@@ -1078,7 +1078,7 @@ items:
           lançar magias exige palavras mágicas, normalmente nenhuma magia pode
           ser lançada dentro da área.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 206
+      source: Tormenta20 — Edição Jogo do Ano, p. 206
       ativacao:
         execucao: action
         custo: 3
@@ -1146,7 +1146,7 @@ items:
           Quando o sacerdote de Aharadak sofre dano por um ataque corpo a corpo,
           o atacante sofre 10 pontos de dano de ácido.
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 137
+      source: Tormenta20 — Edição Jogo do Ano, p. 137
       ativacao:
         execucao: ''
         custo: 0
@@ -1224,7 +1224,7 @@ items:
           ou desarmar.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 147
+      source: Tormenta20 — Edição Jogo do Ano, p. 147
       equipado: 0
       equipado2:
         slot: 0
@@ -1516,7 +1516,7 @@ items:
           corrente ao redor do pesco&ccedil;o) ou empunhando um s&iacute;mbolo
           sagrado para usar qualquer poder concedido.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 157
+      source: Tormenta20 — Edição Jogo do Ano, p. 157
       equipado: false
       carregado: true
       peso: 0

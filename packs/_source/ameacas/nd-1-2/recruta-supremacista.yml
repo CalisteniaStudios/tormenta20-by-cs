@@ -127,7 +127,7 @@ items:
           arma alongada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 146
+      source: Tormenta20 — Edição Jogo do Ano, p. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -299,7 +299,7 @@ items:
           <p>Longa veste de anéis metálicos interligados, formando uma malha
           flexível e resistente, que vai até os joelhos.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: true
       carregado: true
       peso: 20

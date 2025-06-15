@@ -59,7 +59,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p>&nbsp;Voc&ecirc; &eacute; dissimulado, atento para rumores e
+      <p>Voc&ecirc; &eacute; dissimulado, atento para rumores e
       &oacute;timo em espalhar fofocas. Quando faz um teste de
       Investiga&ccedil;&atilde;o para interrogar ou um teste de
       Engana&ccedil;&atilde;o para intriga, voc&ecirc; rola dois dados e usa o
@@ -71,7 +71,7 @@ system:
       Investiga&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 45
+  source: Tormenta20 — Edição Jogo do Ano, p. 45
   ativacao:
     execucao: ''
     custo: 0

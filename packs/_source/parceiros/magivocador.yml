@@ -12,16 +12,16 @@ system:
 
       <p>Um conjurador especializado em magias ofensivas.</p>
 
-      <p><strong>Iniciante:&nbsp;</strong>o dano de suas magias aumenta em +1
+      <p><strong>Iniciante:</strong>o dano de suas magias aumenta em +1
       dado do mesmo tipo.</p>
 
-      <p><strong>Veterano:</strong>&nbsp;como acima, e a CD para resistir a suas
+      <p><strong>Veterano:</strong>como acima, e a CD para resistir a suas
       magias aumenta em +1.</p>
 
       <p><strong>Mestre:</strong> como acima, e o dano de suas magias aumenta em
       +1 por dado (para um total de +2 dados).</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 261
+  source: Tormenta20 — Edição Jogo do Ano, p. 261
   ativacao:
     execucao: ''
     custo: 0

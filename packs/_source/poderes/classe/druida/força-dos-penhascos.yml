@@ -99,10 +99,10 @@ system:
       contato com o solo ou uma superf&iacute;cie de pedra, pode gastar uma
       quantidade de PM limitada por sua Sabedoria. Para cada PM gasto, reduz
       esse dano em 10. Pr&eacute;-requisito: 4&ordm; n&iacute;vel de
-      Druida.&nbsp;</p>
+      Druida.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 62
+  source: Tormenta20 — Edição Jogo do Ano, p. 62
   ativacao:
     execucao: reaction
     custo: 1

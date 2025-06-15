@@ -287,7 +287,7 @@ system:
     value: >-
       <p>Quando usar Forma Selvagem, voc&ecirc; pode gastar 6 PM ao todo para
       assumir uma forma aprimorada. Pr&eacute;-requisitos: Forma Selvagem,
-      6&ordm; n&iacute;vel de Druida.&nbsp;</p>
+      6&ordm; n&iacute;vel de Druida.</p>
 
       <ul>
 
@@ -336,7 +336,7 @@ system:
       morrer.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 62 e 63
+  source: Tormenta20 — Edição Jogo do Ano, p. 62 e 63
   ativacao:
     execucao: ''
     custo: 6

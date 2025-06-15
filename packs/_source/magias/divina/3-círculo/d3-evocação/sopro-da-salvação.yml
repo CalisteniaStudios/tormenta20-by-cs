@@ -133,28 +133,28 @@ system:
       cone de poeira reluzente. O sopro afeta apenas seus aliados na
       &aacute;rea, curando 2d8+4 pontos de vida e removendo uma das seguintes
       condi&ccedil;&otilde;es de todos os alvos:
-      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ccqJXj25EVIzUhzo]{Abalado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ]{Atordoado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.5n105JaAFlwIfkyX]{Apavorado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.uub1TaaEaq0Vuncl]{Alquebrado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.qN5JjvnXDq4Xak1K]{Cego},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ynLMPpmMnZwV6rxf]{Confuso},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.AlTDv5dptSLGiZel]{Debilitado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.BUMyxT4YI9mdC8Aj]{Enjoado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.YpyVEwCbNVAfFLBm]{Esmorecido},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.6yXEaW3dSXtfsJ4i]{Exausto},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.R5FPPrfq68i9ddyv]{Fascinado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.MCED18aEe4UFeEVf]{Fatigado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.Q6GUW7cDfTW5AXRz]{Fraco},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.XvqIlV5v4YBeFUBs]{Frustrado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.e8JmqkgvL3H26vbi]{Lento},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.3dcJKe2SGu8mnafU]{Paralisado},&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.CMPtwuGkHgeKu8CC]{Pasmo}&nbsp;
-      e&nbsp;
-      &nbsp;@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.eaJwtq58TBZw0Oyo]{Surdo}.</p>
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ccqJXj25EVIzUhzo]{Abalado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ]{Atordoado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.5n105JaAFlwIfkyX]{Apavorado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.uub1TaaEaq0Vuncl]{Alquebrado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.qN5JjvnXDq4Xak1K]{Cego},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.ynLMPpmMnZwV6rxf]{Confuso},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.AlTDv5dptSLGiZel]{Debilitado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.BUMyxT4YI9mdC8Aj]{Enjoado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.YpyVEwCbNVAfFLBm]{Esmorecido},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.6yXEaW3dSXtfsJ4i]{Exausto},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.R5FPPrfq68i9ddyv]{Fascinado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.MCED18aEe4UFeEVf]{Fatigado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.Q6GUW7cDfTW5AXRz]{Fraco},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.XvqIlV5v4YBeFUBs]{Frustrado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.e8JmqkgvL3H26vbi]{Lento},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.3dcJKe2SGu8mnafU]{Paralisado},
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.CMPtwuGkHgeKu8CC]{Pasmo}
+      e
+      @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.eaJwtq58TBZw0Oyo]{Surdo}.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 207
+  source: Tormenta20 — Edição Jogo do Ano, p. 207
   ativacao:
     execucao: action
     custo: 6

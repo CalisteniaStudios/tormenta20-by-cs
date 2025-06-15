@@ -115,7 +115,7 @@ system:
       <p>Voc&ecirc; pode controlar os movimentos e comportamentos de massas de
       ar. Ao lan&ccedil;ar a magia, escolha um dos efeitos abaixo.</p>
 
-      <p><em>Ascender:&nbsp;</em>cria uma corrente de ar ascendente capaz de
+      <p><em>Ascender:</em>cria uma corrente de ar ascendente capaz de
       erguer do ch&atilde;o uma criatura ou objeto m&eacute;dio, fazendo o alvo
       ﬂutuar para cima e para baixo conforme sua vontade. Voc&ecirc; pode gastar
       uma a&ccedil;&atilde;o de movimento para subir ou descer o alvo at&eacute;
@@ -132,10 +132,10 @@ system:
       fazer uma manobra derrubar contra uma criatura voadora dentro do alcance,
       usando seu atributo-chave no lugar de For&ccedil;a.</p>
 
-      <p><em>Sopro:</em>&nbsp;cria uma lufada de vento a partir de suas
+      <p><em>Sopro:</em>cria uma lufada de vento a partir de suas
       m&atilde;os, que empurra qualquer criatura M&eacute;dia ou menor em um
       cone de 4,5m &mdash; fa&ccedil;a uma
-      manobra&nbsp;<em>empurrar</em>&nbsp;usando seu atributo-chave ao
+      manobra<em>empurrar</em>usando seu atributo-chave ao
       inv&eacute;s de for&ccedil;a, usando o mesmo resultado de sua rolagem para
       todos os alvos. A lufada de vento tamb&eacute;m faz qualquer coisa que um
       vento forte e s&uacute;bito faria, como levantar p&oacute;, dispersar
@@ -143,7 +143,7 @@ system:
       embarca&ccedil;&atilde;o. Manter o sopro ativo exige uma
       a&ccedil;&atilde;o padr&atilde;o.</p>
 
-      <p><em>Vento:&nbsp;</em>cria uma &aacute;rea de vento forte (Tormenta20
+      <p><em>Vento:</em>cria uma &aacute;rea de vento forte (Tormenta20
       p&aacute;gina 253) dentro do alcance da magia. Se lan&ccedil;ada numa
       &aacute;rea que j&aacute; esteja com algum efeito de vento, aumenta esse
       efeito em um passo. Manter o vento ativo requer uma a&ccedil;&atilde;o de

@@ -148,10 +148,10 @@ system:
       data-uuid="Compendium.tormenta20.condicoes.HUaxNVGH9vufA81N"
       data-id="HUaxNVGH9vufA81N" data-type="JournalEntry"
       data-pack="tormenta20.condicoes" data-tooltip="Registro de
-      Di&aacute;rio">Surdo</a>.&nbsp;&nbsp;</p>
+      Di&aacute;rio">Surdo</a>.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 82
+  source: Tormenta20 — Edição Jogo do Ano, p. 82
   ativacao:
     execucao: special
     custo: 1

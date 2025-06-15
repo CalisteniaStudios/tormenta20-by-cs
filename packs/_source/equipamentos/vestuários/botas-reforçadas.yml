@@ -5,12 +5,12 @@ system:
   description:
     value: >-
       <p>Grossas e resistentes, estas botas de cano alto protegem contra perigos
-      do&nbsp; terreno. Aumentam seu deslocamento em +1,5m se ele for reduzido
+      do terreno. Aumentam seu deslocamento em +1,5m se ele for reduzido
       por terreno dif&iacute;cil (ap&oacute;s a
       redu&ccedil;&atilde;o).<br><br></p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 159
+  source: Tormenta20 — Edição Jogo do Ano, p. 159
   equipado: false
   equipado2:
     slot: 0

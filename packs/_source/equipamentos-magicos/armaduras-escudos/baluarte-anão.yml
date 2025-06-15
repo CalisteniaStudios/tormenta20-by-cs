@@ -133,7 +133,7 @@ system:
       fornece proteção sem igual. Se você não se deslocar em seu turno, a RD que
       ela fornece aumenta para 10 até seu próximo turno.</p>
 
-      <p><strong>Reforçada.</strong>&nbsp;Placas adicionais, uma camada extra de
+      <p><strong>Reforçada.</strong>Placas adicionais, uma camada extra de
       cota de malha ou acolchoamento, proteção dobrada nas juntas e áreas
       vulneráveis... O bônus na Defesa e a penalidade de armadura de uma
       armadura ou escudo com esta modificação aumentam em +1. Uma armadura não
@@ -149,7 +149,7 @@ system:
       pesadas, RD 5.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 340
+  source: Tormenta20 — Edição Jogo do Ano, p. 340
   equipado: false
   equipado2:
     slot: 0

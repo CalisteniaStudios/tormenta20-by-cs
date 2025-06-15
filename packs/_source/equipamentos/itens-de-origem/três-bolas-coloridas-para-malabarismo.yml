@@ -4,11 +4,11 @@ img: systems/tormenta20/icons/itens/gerais/bolas-malabarista.webp
 system:
   description:
     value: >-
-      <p><strong>[Item de Origem]</strong>&nbsp;<br>+1 em
+      <p><strong>[Item de Origem]</strong><br>+1 em
       Atua&ccedil;&atilde;o</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 90
+  source: Tormenta20 — Edição Jogo do Ano, p. 90
   equipado: false
   equipado2:
     slot: 0

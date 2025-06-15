@@ -55,10 +55,10 @@ system:
       normalmente ocupam meio espa&ccedil;o, em vez disso ocupam 1/4 de
       espa&ccedil;o.</p>
 
-      <p>Pr&eacute;-requisito: Int 1.&nbsp;</p>
+      <p>Pr&eacute;-requisito: Int 1.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 130
+  source: Tormenta20 — Edição Jogo do Ano, p. 130
   ativacao:
     execucao: ''
     custo: null

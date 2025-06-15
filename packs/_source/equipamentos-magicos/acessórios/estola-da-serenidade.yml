@@ -51,10 +51,10 @@ system:
     value: >-
       <p>Esta faixa de pano com inscri&ccedil;&otilde;es m&aacute;gicas &eacute;
       usada sobre a nuca, com as duas extremidades caindo paralelas na frente do
-      corpo. Voc&ecirc; recebe +2 em Sabedoria.&nbsp;</p>
+      corpo. Voc&ecirc; recebe +2 em Sabedoria.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 344
+  source: Tormenta20 — Edição Jogo do Ano, p. 344
   equipado: false
   equipado2:
     slot: 0

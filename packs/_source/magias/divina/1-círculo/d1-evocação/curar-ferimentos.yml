@@ -225,7 +225,7 @@ system:
       na criatura tocada.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 189
+  source: Tormenta20 — Edição Jogo do Ano, p. 189
   ativacao:
     execucao: action
     custo: 1

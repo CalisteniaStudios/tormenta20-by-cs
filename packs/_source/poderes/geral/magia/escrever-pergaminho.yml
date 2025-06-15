@@ -10,7 +10,7 @@ system:
   description:
     value: >-
       <p>Voc&ecirc; pode usar a per&iacute;cia Of&iacute;cio (escriba)
-      para&nbsp; fabricar pergaminhos com magias que conhe&ccedil;a. Veja a
+      para fabricar pergaminhos com magias que conhe&ccedil;a. Veja a
       p&aacute;gina 121 para a regra de fabricar itens e as p&aacute;ginas 333 e
       341 para as regras de pergaminhos. De acordo com o mestre, voc&ecirc; pode
       usar objetos similares, como runas, tabuletas de argila etc.</p>
@@ -20,10 +20,10 @@ system:
       data-uuid="Compendium.tormenta20.pericias.iviKBc19dNgZYBJ0"
       data-id="iviKBc19dNgZYBJ0" data-type="JournalEntry"
       data-pack="tormenta20.pericias" data-tooltip="Registro de
-      Di&aacute;rio">Of&iacute;cio</a>&nbsp;(escriba).</p>
+      Di&aacute;rio">Of&iacute;cio</a>(escriba).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 131
+  source: Tormenta20 — Edição Jogo do Ano, p. 131
   ativacao:
     execucao: ''
     custo: 0

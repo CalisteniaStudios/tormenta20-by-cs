@@ -115,7 +115,7 @@ system:
       1d6 pontos de dano de impacto para cada 1,5m de deslocamento.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 193
+  source: Tormenta20 — Edição Jogo do Ano, p. 193
   ativacao:
     execucao: full
     custo: 10

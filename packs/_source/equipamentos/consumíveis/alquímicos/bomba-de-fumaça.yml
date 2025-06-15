@@ -16,10 +16,10 @@ system:
       em um ponto em alcance curto. Ela gera uma nuvem de fuma&ccedil;a espessa
       de 6m de raio, que obscurece a vis&atilde;o &mdash; criaturas a at&eacute;
       1,5m t&ecirc;m camuflagem e criaturas a partir de 3m t&ecirc;m camuflagem
-      total.&nbsp;</p>
+      total.</p>
     chat: ''
     unidentified: ''
-  source: Guia de NPCs, pág. 20 (1.1)
+  source: Guia de NPCs, p. 20 (1.1)
   equipado: false
   equipado2:
     slot: 0

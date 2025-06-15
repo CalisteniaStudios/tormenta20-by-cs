@@ -12,13 +12,13 @@ system:
       </blockquote>
 
       <p class="MsoNormal">Voc&ecirc; aprende e pode lan&ccedil;ar a magia
-      &nbsp;@UUID[Item.h98JyQAldmgexmzR]{Vis&atilde;o da Verdade}. Caso aprenda
+      @UUID[Item.h98JyQAldmgexmzR]{Vis&atilde;o da Verdade}. Caso aprenda
       novamente essa magia, seu custo diminui em &ndash;1 PM.</p>
 
       <p class="MsoNormal"><em>Pr&eacute;-requisito</em>: Olho do Sol</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Distinções, págs. 33-35
+  source: Tormenta20 — Distinções, p. 33-35
   ativacao:
     execucao: ''
     custo: 0

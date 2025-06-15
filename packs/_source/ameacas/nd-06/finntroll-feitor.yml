@@ -392,7 +392,7 @@ items:
           fornecendo +2 em testes para derrubar ou desarmar.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 147
+      source: Tormenta20 — Edição Jogo do Ano, p. 147
       equipado: 0
       equipado2:
         slot: 0
@@ -834,7 +834,7 @@ items:
           metade do dano e evita a condi&ccedil;&atilde;o. Uma criatura
           s&oacute; pode ficar atordoada por esta magia uma vez por cena.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 184
+      source: Tormenta20 — Edição Jogo do Ano, p. 184
       ativacao:
         execucao: action
         custo: 1
@@ -1115,7 +1115,7 @@ items:
           cumulativo com outras magias, mas n&atilde;o com b&ocirc;nus fornecido
           por armaduras.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 181
+      source: Tormenta20 — Edição Jogo do Ano, p. 181
       ativacao:
         execucao: action
         custo: 1
@@ -1398,7 +1398,7 @@ items:
           o alvo retorna &agrave; atitude que tinha antes (ou piorada, de acordo
           com o mestre).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 191
+      source: Tormenta20 — Edição Jogo do Ano, p. 191
       ativacao:
         execucao: action
         custo: 1
@@ -1644,7 +1644,7 @@ items:
           condições fraco e frustrado. Se passarem na resistência, adquirem
           essas condições por uma rodada.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 190
+      source: Tormenta20 — Edição Jogo do Ano, p. 190
       ativacao:
         execucao: action
         custo: 3
@@ -1848,7 +1848,7 @@ items:
           atos suicidas. A cada rodada, o alvo pode fazer um teste de Vontade.
           Se passar, a magia é dissipada.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 198
+      source: Tormenta20 — Edição Jogo do Ano, p. 198
       ativacao:
         execucao: action
         custo: 3
@@ -2016,7 +2016,7 @@ items:
           <p>Você dispara um poderoso raio que causa 6d6 pontos de dano de
           eletricidade em todas as criaturas e objetos livres na área.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 203
+      source: Tormenta20 — Edição Jogo do Ano, p. 203
       ativacao:
         execucao: action
         custo: 3

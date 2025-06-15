@@ -349,7 +349,7 @@ system:
       O alvo recebe +2 na Defesa.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 192
+  source: Tormenta20 — Edição Jogo do Ano, p. 192
   ativacao:
     execucao: reaction
     custo: 1

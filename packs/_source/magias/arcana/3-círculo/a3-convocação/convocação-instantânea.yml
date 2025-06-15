@@ -207,7 +207,7 @@ system:
       física, caso não conheça a criatura).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 188
+  source: Tormenta20 — Edição Jogo do Ano, p. 188
   ativacao:
     execucao: action
     custo: 6

@@ -20,11 +20,11 @@ system:
       gastar +1 PM para aumentar estes b&ocirc;nus em +1.</p>
 
       <p class="MsoNormal"><em><span style="mso-spacerun:
-      yes;">&nbsp;</span>Pr&eacute;-requisitos:</em> Ca&ccedil;ador de
+      yes;"></span>Pr&eacute;-requisitos:</em> Ca&ccedil;ador de
       Bandidos.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Distinções, págs. 33-35
+  source: Tormenta20 — Distinções, p. 33-35
   ativacao:
     execucao: move
     custo: 2

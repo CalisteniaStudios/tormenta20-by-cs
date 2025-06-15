@@ -17,10 +17,10 @@ system:
       b&ocirc;nus na Defesa por cobertura do alvo.</p>
 
       <p><em>Pr&eacute;-requisitos: </em>Forma Et&eacute;rea, Arco
-      Arcano.&nbsp;</p>
+      Arcano.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Distinções, pág. 16
+  source: Tormenta20 — Distinções, p. 16
   ativacao:
     execucao: reaction
     custo: null

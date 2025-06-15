@@ -17,7 +17,7 @@ items:
           sangue, mas esmaga ossos.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 149
+      source: Tormenta20 — Edição Jogo do Ano, p. 149
       equipado: 1
       equipado2:
         slot: 0
@@ -142,7 +142,7 @@ items:
     system:
       description:
         value: >-
-          <p><strong>[Item de Origem]</strong>&nbsp;<br /><br /><br /><br /><br
+          <p><strong>[Item de Origem]</strong><br /><br /><br /><br /><br
           /><br /><br /><br /><br /><br /></p>
         unidentified: ''
       source: ''
@@ -222,7 +222,7 @@ items:
           <p>Versão mais pesada da armadura de couro, reforçada com rebites de
           metal.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: true
       carregado: true
       peso: 10

@@ -9,7 +9,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p>&nbsp;Quando chega em uma comunidade portu&aacute;ria, voc&ecirc; pode
+      <p>Quando chega em uma comunidade portu&aacute;ria, voc&ecirc; pode
       fazer um teste de Carisma (CD 10). Se passar, encontra um amigo para o
       qual pode pedir um favor ou que pode ajud&aacute;-lo como parceiro
       veterano de um tipo a sua escolha por um dia.</p>
@@ -17,7 +17,7 @@ system:
       <p>Pr&eacute;-requisitos: Car 1, 6&ordm; n&iacute;vel de bucaneiro.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 47
+  source: Tormenta20 — Edição Jogo do Ano, p. 47
   ativacao:
     execucao: ''
     custo: null

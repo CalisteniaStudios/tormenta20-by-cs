@@ -93,7 +93,7 @@ system:
     value: >-
       <p>Voc&ecirc; fica coberto por um manto de energia sombria. Nesta forma,
       torna-se incorp&oacute;reo (inclui seu equipamento): s&oacute; pode ser
-      afetado por armas m&aacute;gicas,&nbsp; ou por outras criaturas
+      afetado por armas m&aacute;gicas, ou por outras criaturas
       incorp&oacute;reas e pode atravessar objetos s&oacute;lidos, mas
       n&atilde;o manipul&aacute;-los. Tamb&eacute;m n&atilde;o pode atacar
       criaturas normais (mas ainda pode lan&ccedil;ar magias nelas). Al&eacute;m
@@ -106,7 +106,7 @@ system:
       em alcance m&eacute;dio.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 197
+  source: Tormenta20 — Edição Jogo do Ano, p. 197
   ativacao:
     execucao: action
     custo: 6

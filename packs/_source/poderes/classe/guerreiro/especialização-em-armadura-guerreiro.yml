@@ -51,14 +51,14 @@ system:
     value: >-
       <p><span style="color: #191813; font-family: Roboto,
       sans-serif;">Voc&ecirc; recebe resist&ecirc;ncia a dano 5 se estiver
-      usando uma armadura pesada.&nbsp;</span><em style="box-sizing: border-box;
+      usando uma armadura pesada.</span><em style="box-sizing: border-box;
       user-select: text; color: #191813; font-family: Roboto,
       sans-serif;">Pr&eacute;-requisito:</em><span style="color: #191813;
-      font-family: Roboto, sans-serif;">&nbsp;12&ordm; n&iacute;vel de
+      font-family: Roboto, sans-serif;">12&ordm; n&iacute;vel de
       guerreiro.</span></p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 65
+  source: Tormenta20 — Edição Jogo do Ano, p. 65
   ativacao:
     execucao: ''
     custo: 0

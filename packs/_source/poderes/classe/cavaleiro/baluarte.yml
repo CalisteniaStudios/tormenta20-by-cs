@@ -228,16 +228,16 @@ system:
       pode gastar 1 PM para receber +2 na Defesa e nos testes de
       resist&ecirc;ncia at&eacute; o in&iacute;cio do seu pr&oacute;ximo turno.
       a cada quatro n&iacute;veis pode gastar +1 PM para aumentar o b&ocirc;nus
-      em +2.&nbsp;<br>A partir do 7&ordm; n&iacute;vel, quando usar esta
+      em +2.<br>A partir do 7&ordm; n&iacute;vel, quando usar esta
       habilidade, voc&ecirc; pode gastar 2 PM adicionais para fornecer o mesmo
       b&ocirc;nus a todos os aliados adjacentes. Por exemplo, pode gastar 4PM ao
       todo para receber +4 na Defesa e nos testes de resist&ecirc;ncia e
       fornecer este mesmo b&ocirc;nus aos outros. A partir do 15&ordm;
       n&iacute;vel, voc&ecirc; pode gastar 5PM adicinais para fornecer o
-      b&ocirc;nus a todos os aliados em alcance curto.&nbsp;</p>
+      b&ocirc;nus a todos os aliados em alcance curto.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 53
+  source: Tormenta20 — Edição Jogo do Ano, p. 53
   ativacao:
     execucao: ''
     custo: 1

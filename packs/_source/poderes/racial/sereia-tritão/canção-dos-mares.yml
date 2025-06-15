@@ -61,12 +61,12 @@ system:
       @UUID[Compendium.tormenta20.magias.I177NeKSwiAn8vz5]{Despeda&ccedil;ar},
       @UUID[Compendium.tormenta20.magias.lJYJQFhk5oai46Ty]{Enfeiti&ccedil;ar},
       @UUID[Compendium.tormenta20.magias.N1xVfw9A8TiYeLae]{Hipnotismo} ou
-      @UUID[Compendium.tormenta20.magias.vTVcrCjSdnOmcIyi]{Sono}&nbsp;(atributo-chave
+      @UUID[Compendium.tormenta20.magias.vTVcrCjSdnOmcIyi]{Sono}(atributo-chave
       Carisma). Caso aprenda novamente uma dessas magias, seu custo diminui em
-      &ndash;1&nbsp;</p>
+      &ndash;1</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 30
+  source: Tormenta20 — Edição Jogo do Ano, p. 30
   ativacao:
     execucao: ''
     custo: 0

@@ -265,7 +265,7 @@ system:
       a&ccedil;&atilde;o de movimento e fazer um teste de Cavalgar (CD 10) por
       turno para guiar a montaria. Se passar, recebe os benef&iacute;cios dela.
       Se falhar, perde a a&ccedil;&atilde;o de movimento. Se falhar por 5 ou
-      mais, cai da montaria e sofre 1d6 pontos de dano. Se for treinado em&nbsp;
+      mais, cai da montaria e sofre 1d6 pontos de dano. Se for treinado em
       avalgar,<br>voc&ecirc; recebe os b&ocirc;nus da montaria automaticamente,
       sem precisar gastar a a&ccedil;&atilde;o ou fazer o teste.</p>
 
@@ -288,9 +288,9 @@ system:
 
       <p>Montarias podem ser compradas ou recebidas por habilidades. No primeiro
       caso, s&atilde;o sempre parceiros iniciantes. No segundo, seu poder
-      &eacute; definido pela habilidade em quest&atilde;o.&nbsp;</p>
+      &eacute; definido pela habilidade em quest&atilde;o.</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 262
+  source: Tormenta20 — Edição Jogo do Ano, p. 262
   ativacao:
     execucao: ''
     custo: 0

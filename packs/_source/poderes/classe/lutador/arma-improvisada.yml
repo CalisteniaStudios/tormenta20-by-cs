@@ -20,7 +20,7 @@ system:
       resultado do d20 for um n&uacute;mero &iacute;mpar, a arma quebra.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 76
+  source: Tormenta20 — Edição Jogo do Ano, p. 76
   ativacao:
     execucao: move
     custo: 0

@@ -10,11 +10,11 @@ system:
   description:
     value: >-
       <p>Voc&ecirc; recebe +3m em seu deslocamento e pode lan&ccedil;ar
-      @UUID[Compendium.tormenta20.magias.XWEJNZMs6Wb9uUHF]{Velocidade}&nbsp;(apenas
+      @UUID[Compendium.tormenta20.magias.XWEJNZMs6Wb9uUHF]{Velocidade}(apenas
       sobre voc&ecirc; mesmo).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 342
+  source: Tormenta20 — Edição Jogo do Ano, p. 342
   equipado: false
   equipado2:
     slot: 0

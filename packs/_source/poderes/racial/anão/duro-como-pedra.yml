@@ -66,7 +66,7 @@ system:
     value: <p>Você recebe +3 pontos de vida no 1º nível e +1 por nível seguinte.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 20
+  source: Tormenta20 — Edição Jogo do Ano, p. 20
   ativacao:
     execucao: passive
     custo: 0

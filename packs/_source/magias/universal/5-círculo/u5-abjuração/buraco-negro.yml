@@ -72,7 +72,7 @@ system:
       arrastando (metade de seu deslocamento) para longe dele. Se falharem,
       perdem a a&ccedil;&atilde;o (mas podem gastar outra para tentar
       novamente). Se terminarem seu turno no espa&ccedil;o do buraco negro,
-      s&atilde;o sugadas, desaparecendo para sempre.&nbsp;</p>
+      s&atilde;o sugadas, desaparecendo para sempre.</p>
 
       <p>N&atilde;o se conhece o destino das coisas sugadas pelo buraco negro,
       uma vez que jamais retornam. Alguns estudiosos sugerem que podem ser
@@ -81,7 +81,7 @@ system:
       dia poder realizar essa jornada.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 182
+  source: Tormenta20 — Edição Jogo do Ano, p. 182
   ativacao:
     execucao: full
     custo: 15

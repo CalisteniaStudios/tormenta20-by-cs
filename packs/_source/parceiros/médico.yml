@@ -129,10 +129,10 @@ system:
       pode gastar 3 PM para recuperar 3d8+3 PV ou remover uma
       condi&ccedil;&atilde;o prejudicial (como abalado ou fatigado).</p>
 
-      <p><strong>Mestre:&nbsp;</strong>como acima, mas voc&ecirc; tamb&eacute;m
+      <p><strong>Mestre:</strong>como acima, mas voc&ecirc; tamb&eacute;m
       pode gastar 5 PM para recuperar 6d8+6 PV.</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 261
+  source: Tormenta20 — Edição Jogo do Ano, p. 261
   ativacao:
     execucao: free
     custo: 1

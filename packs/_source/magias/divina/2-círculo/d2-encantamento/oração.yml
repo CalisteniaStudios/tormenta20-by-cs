@@ -314,11 +314,11 @@ system:
       sofrem &ndash;2 em testes de per&iacute;cia e rolagens de dano. Esse
       efeito &eacute; cumulativo com outras magias.</p>
 
-      <p>Componente Material: T$ 25&nbsp;por PM gastos em incensos ou outras
+      <p>Componente Material: T$ 25por PM gastos em incensos ou outras
       oferendas.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 200
+  source: Tormenta20 — Edição Jogo do Ano, p. 200
   ativacao:
     execucao: action
     custo: 3

@@ -5,7 +5,7 @@ system:
   description:
     value: >-
       <p>Uma criatura que comece seu turno em alcance curto do colosso perde 4d6
-      PV e fica enjoada&nbsp; Fortitude CD 38 evita). Veneno</p>
+      PV e fica enjoada Fortitude CD 38 evita). Veneno</p>
     unidentified: ''
   source: ''
   ativacao:

@@ -300,10 +300,10 @@ system:
       oferecer +2 na Defesa (n&atilde;o cumulativo com armadura). Os efeitos
       desta magia s&atilde;o uma melhoria no item, portanto s&atilde;o
       cumulativos com outras magias, mas n&atilde;o com b&ocirc;nus por encantos
-      nesse item.&nbsp;</p>
+      nesse item.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 210
+  source: Tormenta20 — Edição Jogo do Ano, p. 210
   ativacao:
     execucao: action
     custo: 3

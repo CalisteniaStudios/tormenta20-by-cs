@@ -51,10 +51,10 @@ system:
     value: >-
       <p>Esta pulseira de platina agu&ccedil;a todos os seus movimentos.
       Voc&ecirc; recebe +2 em Destreza (somente ap&oacute;s um dia de
-      uso).&nbsp;</p>
+      uso).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 345
+  source: Tormenta20 — Edição Jogo do Ano, p. 345
   equipado: false
   equipado2:
     slot: 0

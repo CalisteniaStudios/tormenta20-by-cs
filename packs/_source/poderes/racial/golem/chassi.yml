@@ -75,7 +75,7 @@ system:
       chassi). Por ser acoplada, sua armadura não conta no limite de itens que
       você pode usar (mas você continua podendo usar apenas uma armadura).</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 27
+  source: Tormenta20 — Edição Jogo do Ano, p. 27
   ativacao:
     execucao: passive
     custo: 0

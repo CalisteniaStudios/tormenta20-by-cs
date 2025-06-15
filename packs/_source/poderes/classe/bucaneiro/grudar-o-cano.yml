@@ -14,10 +14,10 @@ system:
       &ndash;5 no teste de ataque e aumenta seu dano em um
       passo.<em><br></em></p>
 
-      <p><em>Pr&eacute;-requisitos:</em>&nbsp;treinado em Luta, Pistoleiro.</p>
+      <p><em>Pr&eacute;-requisitos:</em>treinado em Luta, Pistoleiro.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 48
+  source: Tormenta20 — Edição Jogo do Ano, p. 48
   ativacao:
     execucao: ''
     custo: 0

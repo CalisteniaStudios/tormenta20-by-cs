@@ -11,12 +11,12 @@ system:
     value: >-
       <p>Enquanto sua aura estiver ativa, no in&iacute;cio de cada um de seus
       turnos, esp&iacute;ritos e mortos-vivos a sua escolha dentro dela sofrem
-      dano de luz igual a 5 + seu&nbsp; Carisma.</p>
+      dano de luz igual a 5 + seu Carisma.</p>
 
       <p><em>Pr&eacute;-requisito:</em> 10&deg; n&iacute;vel de paladino.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 83
+  source: Tormenta20 — Edição Jogo do Ano, p. 83
   ativacao:
     execucao: passive
     custo: 0

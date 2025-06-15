@@ -9,7 +9,7 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Esta corda de 15m &eacute;&nbsp; bastante fina, mas forte o suficiente
+      <p>Esta corda de 15m &eacute; bastante fina, mas forte o suficiente
       para suportar at&eacute; seis criaturas M&eacute;dias (ou 120
       espa&ccedil;os). Com um comando (uma a&ccedil;&atilde;o de movimento), a
       corda se move em qualquer dire&ccedil;&atilde;o (incluindo para cima) a 3m
@@ -17,7 +17,7 @@ system:
       desamarrar e voltar da mesma forma</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 343
+  source: Tormenta20 — Edição Jogo do Ano, p. 343
   equipado: false
   equipado2:
     slot: 0

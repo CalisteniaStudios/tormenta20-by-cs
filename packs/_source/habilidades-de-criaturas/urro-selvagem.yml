@@ -6,7 +6,7 @@ system:
     value: >-
       <p>O orc chefe recebe +2 em testes de ataque e rolagens de dano corpo a
       corpo at&eacute; o final da cena, mas n&atilde;o pode fazer nenhuma
-      a&ccedil;&atilde;o&nbsp; que exija calma e concentra&ccedil;&atilde;o.</p>
+      a&ccedil;&atilde;o que exija calma e concentra&ccedil;&atilde;o.</p>
     unidentified: ''
   source: ''
   ativacao:

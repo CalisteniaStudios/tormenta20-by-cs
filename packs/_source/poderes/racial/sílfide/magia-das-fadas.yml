@@ -61,7 +61,7 @@ system:
       data-tooltip="Magia Item">Criar Ilus&atilde;o</a>, <a class="content-link"
       draggable="true" data-uuid="Compendium.tormenta20.magias.lJYJQFhk5oai46Ty"
       data-id="lJYJQFhk5oai46Ty" data-type="Item" data-pack="tormenta20.magias"
-      data-tooltip="Magia Item">Enfeiti&ccedil;ar</a>,&nbsp; <a
+      data-tooltip="Magia Item">Enfeiti&ccedil;ar</a>, <a
       class="content-link" draggable="true"
       data-uuid="Compendium.tormenta20.magias.eJcIYwz9CthoWZs4"
       data-id="eJcIYwz9CthoWZs4" data-type="Item" data-pack="tormenta20.magias"
@@ -73,7 +73,7 @@ system:
       magias, seu custo diminui em &ndash;1 PM.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 30
+  source: Tormenta20 — Edição Jogo do Ano, p. 30
   ativacao:
     execucao: ''
     custo: 0

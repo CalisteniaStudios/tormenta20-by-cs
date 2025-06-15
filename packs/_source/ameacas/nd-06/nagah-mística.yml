@@ -64,7 +64,7 @@ items:
           Uma vez por rodada, quando lança uma magia com execução de ação
           completa ou menor, a nagah mística muda a execução dela para livre
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 131
+      source: Tormenta20 — Edição Jogo do Ano, p. 131
       ativacao:
         execucao: free
         custo: 4
@@ -336,7 +336,7 @@ items:
           fechar os olhos, você não recebe o bônus (mas o atacante ainda sofre
           penalidades normais por não enxergar).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 195
+      source: Tormenta20 — Edição Jogo do Ano, p. 195
       ativacao:
         execucao: action
         custo: 1
@@ -507,7 +507,7 @@ items:
           poderoso raio que causa 6d6 pontos de dano de eletricidade em todas as
           criaturas e objetos livres na área.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 203
+      source: Tormenta20 — Edição Jogo do Ano, p. 203
       ativacao:
         execucao: action
         custo: 3
@@ -779,7 +779,7 @@ items:
           Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
           magias e ativar engenhocas.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 210
+      source: Tormenta20 — Edição Jogo do Ano, p. 210
       ativacao:
         execucao: action
         custo: 3
@@ -919,7 +919,7 @@ items:
           testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 146
+      source: Tormenta20 — Edição Jogo do Ano, p. 146
       equipado: 0
       equipado2:
         slot: 0

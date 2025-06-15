@@ -163,7 +163,7 @@ system:
       de combate ficam a crit&eacute;rio do mestre.</p>
 
       <p><span style="font-family: var(--font-primary); font-size:
-      var(--font-size-14);">&nbsp;</span></p>
+      var(--font-size-14);"></span></p>
 
       <p class="MsoNormal"><em>Carni&ccedil;al:</em> como esqueletos, mas
       t&ecirc;m For 3, Des 3, Defesa 27 e causam 1d8+3 pontos de dano de trevas
@@ -174,7 +174,7 @@ system:
       imune &agrave; paralisia dos carni&ccedil;ais por um dia.</p>
 
       <p><span style="font-family: var(--font-primary); font-size:
-      var(--font-size-14);">&nbsp;</span></p>
+      var(--font-size-14);"></span></p>
 
       <p><span style="font-family: var(--font-primary); font-size:
       var(--font-size-14);"><em>Sombra:</em> </span>como esqueletos, mas
@@ -185,7 +185,7 @@ system:
       sol.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 186
+  source: Tormenta20 — Edição Jogo do Ano, p. 186
   ativacao:
     execucao: full
     custo: 3

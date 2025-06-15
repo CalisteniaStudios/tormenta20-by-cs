@@ -144,12 +144,12 @@ system:
       efeitos de &aacute;rea. Al&eacute;m disso, o pr&oacute;prio alvo
       tamb&eacute;m n&atilde;o pode fazer a&ccedil;&otilde;es hostis (incluindo
       for&ccedil;ar outras criaturas a atac&aacute;-lo), ou a magia &eacute;
-      dissipada &mdash; mas pode usar&nbsp; habilidades e magias de cura e
+      dissipada &mdash; mas pode usar habilidades e magias de cura e
       suporte como @UUID[Item.soVAGPRWQmKxOrPm]{Curar Ferimentos} e
       @UUID[Item.OTsBw84Ci2IKPStn]{B&ecirc;n&ccedil;&atilde;o}.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 205
+  source: Tormenta20 — Edição Jogo do Ano, p. 205
   ativacao:
     execucao: action
     custo: 1

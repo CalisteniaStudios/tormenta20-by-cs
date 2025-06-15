@@ -82,7 +82,7 @@ items:
           capazes. Mede entre 40 e 50cm.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 148
+      source: Tormenta20 — Edição Jogo do Ano, p. 148
       equipado: 0
       equipado2:
         slot: 0
@@ -372,7 +372,7 @@ items:
           padrão. Exige as duas mãos.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 150
+      source: Tormenta20 — Edição Jogo do Ano, p. 150
       equipado: 0
       equipado2:
         slot: 0
@@ -503,7 +503,7 @@ items:
           p&oacute;lvora. Recarregar uma pistola ou um mosquete &eacute; uma
           a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 151
+      source: Tormenta20 — Edição Jogo do Ano, p. 151
       carregado: true
       peso: 0.025
       espacos: 0.05

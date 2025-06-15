@@ -162,11 +162,11 @@ system:
 
       <td>
 
-      <p><strong>Percep&ccedil;&atilde;o &agrave;s Cegas.</strong>&nbsp;A
-      criatura usa sentidos&nbsp;diferentes da vis&atilde;o (como radar, sonar,
-      sensibilidade&nbsp;a vibra&ccedil;&otilde;es etc.). Escurid&atilde;o e
-      invisibilidade n&atilde;o a&nbsp;afetam. Esta habilidade tem alcance curto
-      (a menos&nbsp;que especificado o contr&aacute;rio).</p>
+      <p><strong>Percep&ccedil;&atilde;o &agrave;s Cegas.</strong>A
+      criatura usa sentidosdiferentes da vis&atilde;o (como radar, sonar,
+      sensibilidadea vibra&ccedil;&otilde;es etc.). Escurid&atilde;o e
+      invisibilidade n&atilde;o aafetam. Esta habilidade tem alcance curto
+      (a menosque especificado o contr&aacute;rio).</p>
 
       </td>
 
@@ -176,7 +176,7 @@ system:
 
       </table>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 261
+  source: Tormenta20 — Edição Jogo do Ano, p. 261
   ativacao:
     execucao: ''
     custo: 0

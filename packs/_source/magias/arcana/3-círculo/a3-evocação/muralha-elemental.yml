@@ -156,7 +156,7 @@ system:
       muralha (a sua escolha) emite ondas de calor, que causam 2d6 pontos de
       dano de fogo em criaturas a at&eacute; 6m quando voc&ecirc; lan&ccedil;a a
       magia e no in&iacute;cio de seus turnos. Atravessar a muralha causa 8d6
-      pontos de dano de fogo. Caso seja criada em&nbsp; uma &aacute;rea onde
+      pontos de dano de fogo. Caso seja criada em uma &aacute;rea onde
       existem criaturas, elas sofrem dano como se estivessem atravessando a
       muralha, mas podem fazer um teste de Reflexos para reduzir o dano &agrave;
       metade (a criatura escolhe para qual lado quer escapar, mas se escapar
@@ -172,7 +172,7 @@ system:
       frio.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 200
+  source: Tormenta20 — Edição Jogo do Ano, p. 200
   ativacao:
     execucao: action
     custo: 6

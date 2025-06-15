@@ -21,10 +21,10 @@ system:
       fabricar itens m&aacute;gicos dessas categorias. Considera-se que
       voc&ecirc; estava trabalhando nos itens que recebe e voc&ecirc; n&atilde;o
       gasta dinheiro, tempo ou pontos de mana neles (mas gasta em itens que
-      fabricar futuramente).&nbsp;</p>
+      fabricar futuramente).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 70
+  source: Tormenta20 — Edição Jogo do Ano, p. 70
   ativacao:
     execucao: ''
     custo: 0

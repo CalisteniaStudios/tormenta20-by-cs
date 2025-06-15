@@ -300,7 +300,7 @@ items:
           atributo).</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 181
+      source: Tormenta20 — Edição Jogo do Ano, p. 181
       ativacao:
         execucao: action
         custo: 1
@@ -532,7 +532,7 @@ items:
           <em>Perdi&ccedil;&atilde;o</em>.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 182
+      source: Tormenta20 — Edição Jogo do Ano, p. 182
       ativacao:
         execucao: action
         custo: 1
@@ -820,7 +820,7 @@ items:
           positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 189
+      source: Tormenta20 — Edição Jogo do Ano, p. 189
       ativacao:
         execucao: action
         custo: 1
@@ -971,7 +971,7 @@ items:
           que não usam machados.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 149
+      source: Tormenta20 — Edição Jogo do Ano, p. 149
       equipado: 0
       equipado2:
         slot: 0
@@ -1108,7 +1108,7 @@ items:
           usuário.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: true
       carregado: true
       peso: 25
@@ -1176,7 +1176,7 @@ items:
           escudo, mas não manusear uma arma.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: true
       carregado: true
       peso: 3
@@ -1280,7 +1280,7 @@ items:
           sagrado para usar qualquer poder concedido.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 157
+      source: Tormenta20 — Edição Jogo do Ano, p. 157
       equipado: true
       carregado: true
       peso: 0

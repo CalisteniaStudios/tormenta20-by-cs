@@ -218,7 +218,7 @@ system:
       <p>Ap&oacute;s uma breve uni&atilde;o com a natureza local, voc&ecirc;
       obt&eacute;m informa&ccedil;&otilde;es e intui&ccedil;&otilde;es sobre a
       regi&atilde;o em que est&aacute;, numa dist&acirc;ncia equivalente a um
-      dia de viagem. Voc&ecirc; recebe 6d4 dados de aux&iacute;lio.&nbsp;</p>
+      dia de viagem. Voc&ecirc; recebe 6d4 dados de aux&iacute;lio.</p>
 
       <p>Enquanto a magia durar, sempre que for realizar um teste de
       per&iacute;cia em &aacute;reas naturais, voc&ecirc; pode gastar 2d4 (mais
@@ -227,7 +227,7 @@ system:
       magia termina se voc&ecirc; ficar sem dados.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 184
+  source: Tormenta20 — Edição Jogo do Ano, p. 184
   ativacao:
     execucao: full
     custo: 6

@@ -50,11 +50,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Este cinto largo&nbsp; &eacute; feito de couro com rebites de ferro.
+      <p>Este cinto largo &eacute; feito de couro com rebites de ferro.
       Voc&ecirc; recebe +2 em For&ccedil;a.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 343
+  source: Tormenta20 — Edição Jogo do Ano, p. 343
   equipado: false
   equipado2:
     slot: 0

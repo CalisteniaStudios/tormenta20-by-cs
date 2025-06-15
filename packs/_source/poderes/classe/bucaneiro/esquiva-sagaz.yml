@@ -64,14 +64,14 @@ flags: {}
 system:
   description:
     value: >-
-      <p>&nbsp;No 3&ordm; n&iacute;vel, voc&ecirc; recebe +1 na Defesa e em
+      <p>No 3&ordm; n&iacute;vel, voc&ecirc; recebe +1 na Defesa e em
       Reflexos. Esse b&ocirc;nus aumenta em +1 a cada quatro n&iacute;veis. Esta
       habilidade exige liberdade de movimentos; voc&ecirc; n&atilde;o pode
       us&aacute;-la se estiver de armadura pesada ou na condi&ccedil;&atilde;o
       im&oacute;vel.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 48
+  source: Tormenta20 — Edição Jogo do Ano, p. 48
   ativacao:
     execucao: passive
     custo: 0

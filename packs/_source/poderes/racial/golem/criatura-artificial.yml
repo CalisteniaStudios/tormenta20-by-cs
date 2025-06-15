@@ -89,7 +89,7 @@ system:
   description:
     value: "<p>Você é uma criatura do tipo construto. Recebe visão no escuro e imunidade a efeitos de cansaço, metabólicos e de veneno. Além disso, não precisa respirar, alimentar-se ou dormir, mas não se beneficia de cura mundana e de itens da categoria alimentação. Você precisa ficar inerte por oito horas por dia para recarregar sua fonte de energia. Se fizer isso, recupera PV e PM por descanso em condições normais (golens não são afetados por condições boas ou ruins de descanso). Por fim, a perícia cura não funciona em você, mas Ofícios (artesanato) pode ser usada no lugar dela.\_</p>"
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 27
+  source: Tormenta20 — Edição Jogo do Ano, p. 27
   ativacao:
     execucao: passive
     custo: 0

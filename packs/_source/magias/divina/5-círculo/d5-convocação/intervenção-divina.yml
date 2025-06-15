@@ -17,7 +17,7 @@ system:
       causar dano).</p>
 
       <p>&bull; Dissipar os efeitos de qualquer magia de 4&ordm; c&iacute;rculo
-      ou menor.&nbsp;</p>
+      ou menor.</p>
 
       <p>Voc&ecirc; pode implorar por algo ainda mais poderoso. Nesse caso, a
       magia requer o sacrif&iacute;cio de 2 PM e pode fazer coisas como:</p>
@@ -39,7 +39,7 @@ system:
       e objetivos da divindade do conjurador.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 195
+  source: Tormenta20 — Edição Jogo do Ano, p. 195
   ativacao:
     execucao: full
     custo: 15

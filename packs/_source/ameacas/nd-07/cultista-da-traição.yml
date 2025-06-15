@@ -245,7 +245,7 @@ items:
           Uma criatura em alcance curto fica atordoada por uma rodada (apenas
           uma vez por cena; Fort CD 22 evita)
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 29
+      source: Tormenta20 — Edição Jogo do Ano, p. 29
       ativacao:
         execucao: move
         custo: 0
@@ -431,7 +431,7 @@ items:
           testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 146
+      source: Tormenta20 — Edição Jogo do Ano, p. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -819,7 +819,7 @@ items:
           original nos testes de ataque (n&atilde;o cumulativo com efeitos que
           somam este atributo).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 181
+      source: Tormenta20 — Edição Jogo do Ano, p. 181
       ativacao:
         execucao: action
         custo: 1
@@ -1028,7 +1028,7 @@ items:
           <p><em>Venha:</em> o alvo gasta seu turno se aproximando de voc&ecirc;
           (usando todas as suas a&ccedil;&otilde;es).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 184
+      source: Tormenta20 — Edição Jogo do Ano, p. 184
       ativacao:
         execucao: action
         custo: 1
@@ -1313,7 +1313,7 @@ items:
           <p>Voc&ecirc; canaliza energia positiva que recupera 2d8+2 pontos de
           vida na criatura tocada.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 189
+      source: Tormenta20 — Edição Jogo do Ano, p. 189
       ativacao:
         execucao: action
         custo: 1
@@ -1721,7 +1721,7 @@ items:
           Vontade para anul&aacute;-la. <em>Escurid&atilde;o</em> anula
           <em>Luz</em>.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 193
+      source: Tormenta20 — Edição Jogo do Ano, p. 193
       ativacao:
         execucao: action
         custo: 1
@@ -1988,7 +1988,7 @@ items:
           Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para mover
           o enxame 12m.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 192
+      source: Tormenta20 — Edição Jogo do Ano, p. 192
       ativacao:
         execucao: full
         custo: 3
@@ -2224,7 +2224,7 @@ items:
           ficam enjoadas por 1 rodada. Se passarem na resist&ecirc;ncia, sofrem
           metade do dano e n&atilde;o ficam enjoadas.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 199
+      source: Tormenta20 — Edição Jogo do Ano, p. 199
       ativacao:
         execucao: action
         custo: 3
@@ -2300,7 +2300,7 @@ items:
           <p>A mais robusta das armaduras leves, formada por uma placa metálica
           que protege o peito e as costas, presa sobre um casaco de couro.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: false
       carregado: true
       peso: 15
@@ -2367,7 +2367,7 @@ items:
           deixando a mão livre. O usuário pode carregar um objeto na mão do
           escudo, mas não manusear uma arma.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: false
       carregado: true
       peso: 3
@@ -2470,7 +2470,7 @@ items:
           corrente ao redor do pesco&ccedil;o) ou empunhando um s&iacute;mbolo
           sagrado para usar qualquer poder concedido.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 157
+      source: Tormenta20 — Edição Jogo do Ano, p. 157
       equipado: false
       carregado: true
       peso: 0

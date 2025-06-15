@@ -263,7 +263,7 @@ system:
       criaturas em alcance longo.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 178
+  source: Tormenta20 — Edição Jogo do Ano, p. 178
   ativacao:
     execucao: action
     custo: 1

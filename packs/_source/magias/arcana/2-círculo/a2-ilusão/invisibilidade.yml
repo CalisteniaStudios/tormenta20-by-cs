@@ -284,10 +284,10 @@ system:
       apanhados por ele ficam invis&iacute;veis. Qualquer parte de um item
       carregado que se estenda al&eacute;m de seu alcance corpo a corpo natural
       se torna vis&iacute;vel. Uma luz nunca fica invis&iacute;vel (mesmo que
-      sua fonte seja).&nbsp;</p>
+      sua fonte seja).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 195
+  source: Tormenta20 — Edição Jogo do Ano, p. 195
   ativacao:
     execucao: free
     custo: 3

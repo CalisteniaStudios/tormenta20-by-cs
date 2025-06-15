@@ -281,14 +281,14 @@ system:
     value: >-
       <p>Quando usa Forma Selvagem, voc&ecirc; pode gastar 10PM ao todo para
       assumir uma forma superior. Pr&eacute;-requisitos: Forma Selvagem,
-      12&ordm; n&iacute;vel de Druida.&nbsp;</p>
+      12&ordm; n&iacute;vel de Druida.</p>
 
       <ul>
 
       <li><strong>Forma &Aacute;gil:</strong> Voc&ecirc; recebe Destreza +6,
       deslocamento +6m e duas armas naturais de 1d10 e margem de amea&ccedil;a
       19. Se atacar com ambas, sofre -2 em todos os seus testes de ataque
-      at&eacute; o seu pr&oacute;ximo turno.&nbsp;</li>
+      at&eacute; o seu pr&oacute;ximo turno.</li>
 
       <li><strong>Forma Feroz:</strong> Voc&ecirc; recebe For&ccedil;a +10, +6
       na Defesa e uma arma natural que causa 4d6 pontos de dano. Seu tamanho
@@ -297,7 +297,7 @@ system:
       <li><strong>Forma Resistente:</strong> Voc&ecirc; recebe For&ccedil;a +5,
       +10 na Defesa, Redu&ccedil;&atilde;o de dano 10 e uma arma natural que
       causa 2d6 pontos de dano. Seu tamanho muda para Enorme (-5 em Furtividade,
-      +5 em testes de manobra).&nbsp;</li>
+      +5 em testes de manobra).</li>
 
       <li><strong>Forma Sorrateira:</strong> Voc&ecirc; recebe Destreza +6 e
       deslocamento de voo 18m. Seu tamanho muda para Min&uacute;sculo (+5 em
@@ -329,7 +329,7 @@ system:
       morrer.</h4>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 62 e 63
+  source: Tormenta20 — Edição Jogo do Ano, p. 62 e 63
   ativacao:
     execucao: full
     custo: 10

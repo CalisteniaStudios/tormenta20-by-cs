@@ -8,7 +8,7 @@ system:
       g&ocirc;ndola parecida com um grande cesto, o bal&atilde;o goblin &eacute;
       um engenho tecnol&oacute;gico sem igual em Arton. Um bal&atilde;o tem
       tamanho Enorme, deslocamento voo 12m, Defesa 5 (+ Des do baloeiro), 100 PV
-      e pode carregar at&eacute;&nbsp; 8 criaturas M&eacute;dias ou 160
+      e pode carregar at&eacute; 8 criaturas M&eacute;dias ou 160
       espa&ccedil;os. Ao contr&aacute;rio do que possa parecer, quedas de
       bal&otilde;es raramente s&atilde;o fatais. Quando o bal&atilde;o perde
       mais da metade de seus PV, come&ccedil;a a perder ar e flutua lentamente
@@ -17,11 +17,11 @@ system:
       cai de forma perigosa caso perca todos os seus PV. Neste caso, os
       ocupantes sofrem dano normal pela queda, de acordo com a altura. Remendar
       um bal&atilde;o em pleno voo exige uma a&ccedil;&atilde;o completa e um
-      teste de&nbsp; Of&iacute;cio (artesanato) contra CD 15. Se voc&ecirc;
+      teste de Of&iacute;cio (artesanato) contra CD 15. Se voc&ecirc;
       passar no teste, recupera 1d8 PV do bal&atilde;o.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 163
+  source: Tormenta20 — Edição Jogo do Ano, p. 163
   equipado: false
   equipado2:
     slot: 0

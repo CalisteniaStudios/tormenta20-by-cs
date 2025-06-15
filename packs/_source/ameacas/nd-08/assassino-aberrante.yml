@@ -82,7 +82,7 @@ items:
           contra um alvo adjacente que esteja desprevenido ou que se mova para
           fora de seu alcance
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 65
+      source: Tormenta20 — Edição Jogo do Ano, p. 65
       ativacao:
         execucao: reaction
         custo: 0
@@ -144,7 +144,7 @@ items:
     system:
       description:
         value: >-
-          <p>Condi&ccedil;&atilde;o paralisado por 1d6 horas . &nbsp;(Fort CD
+          <p>Condi&ccedil;&atilde;o paralisado por 1d6 horas . (Fort CD
           26<br>reduz para lento por 1d6 rodadas).</p>
         unidentified: ''
       source: ''

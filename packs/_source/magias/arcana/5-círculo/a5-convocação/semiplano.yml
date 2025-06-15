@@ -135,11 +135,11 @@ system:
       <p>Voc&ecirc; escolhe a forma e a apar&ecirc;ncia do semiplano &mdash; uma
       caverna, um asteroide que singra o &eacute;ter, um palacete de cristal
       etc. Ele cont&eacute;m ar, luz e calor, mas al&eacute;m disso &eacute;
-      vazio. Entretanto, voc&ecirc; pode levar itens (mob&iacute;lia,&nbsp;
+      vazio. Entretanto, voc&ecirc; pode levar itens (mob&iacute;lia,
       ferramentas etc.) a cada viagem.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 205
+  source: Tormenta20 — Edição Jogo do Ano, p. 205
   ativacao:
     execucao: full
     custo: 15

@@ -4,7 +4,7 @@ img: systems/tormenta20/icons/itens/gerais/traje-artista.webp
 system:
   description:
     value: >-
-      <p><strong>[Item de Origem]</strong>&nbsp;<br /><br /><br /><br /><br
+      <p><strong>[Item de Origem]</strong><br /><br /><br /><br /><br
       /><br /><br /><br /><br /><br /></p>
     chat: ''
     unidentified: ''

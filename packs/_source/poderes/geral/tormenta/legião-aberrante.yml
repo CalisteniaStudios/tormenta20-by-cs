@@ -66,10 +66,10 @@ system:
       da Tormenta que voc&ecirc; possui.</p>
 
       <p><em>Pr&eacute;-requisito:</em> Anatomia insana, tr&ecirc;s outros
-      poderes da Tormenta.&nbsp;</p>
+      poderes da Tormenta.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 137
+  source: Tormenta20 — Edição Jogo do Ano, p. 137
   ativacao:
     execucao: passive
     custo: 0

@@ -65,7 +65,7 @@ system:
       recuperar no m&aacute;ximo 5 PM por dia com esta magia.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 186
+  source: Tormenta20 — Edição Jogo do Ano, p. 186
   ativacao:
     execucao: action
     custo: 10

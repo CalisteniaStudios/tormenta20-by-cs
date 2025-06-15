@@ -58,10 +58,10 @@ system:
       <p>Quando lan&ccedil;a uma magia divina que causa dano, voc&ecirc; pode
       gastar +1 PM. Se fizer isso, muda o tipo de dano da magia para luz (se sua
       divindade canalliza energia positiva) ou trevas (se canaliza energia
-      negativa).&nbsp;</p>
+      negativa).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 58
+  source: Tormenta20 — Edição Jogo do Ano, p. 58
   ativacao:
     execucao: ''
     custo: 1

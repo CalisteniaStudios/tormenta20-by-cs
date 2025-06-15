@@ -6,13 +6,13 @@ flags: {}
 system:
   description:
     value: >-
-      <p><strong>[Item de Origem]</strong>&nbsp;</p>
+      <p><strong>[Item de Origem]</strong></p>
 
-      <p>um animal n&atilde;o combativo (como uma&nbsp; galinha, porco ou
+      <p>um animal n&atilde;o combativo (como uma galinha, porco ou
       ovelha).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 90
+  source: Tormenta20 — Edição Jogo do Ano, p. 90
   equipado: false
   equipado2:
     slot: 0

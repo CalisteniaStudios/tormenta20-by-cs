@@ -327,7 +327,7 @@ items:
           passar, fica abalado por 1d4 rodadas.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 179
+      source: Tormenta20 — Edição Jogo do Ano, p. 179
       ativacao:
         execucao: action
         custo: 1
@@ -616,7 +616,7 @@ items:
           tocada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 189
+      source: Tormenta20 — Edição Jogo do Ano, p. 189
       ativacao:
         execucao: action
         custo: 1
@@ -800,7 +800,7 @@ items:
           <em>B&ecirc;n&ccedil;&atilde;o</em>.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 201
+      source: Tormenta20 — Edição Jogo do Ano, p. 201
       ativacao:
         execucao: action
         custo: 1
@@ -871,7 +871,7 @@ items:
           existem.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 149
+      source: Tormenta20 — Edição Jogo do Ano, p. 149
       equipado: 0
       equipado2:
         slot: 0
@@ -1002,7 +1002,7 @@ items:
           sagrado para usar qualquer poder concedido.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 157
+      source: Tormenta20 — Edição Jogo do Ano, p. 157
       equipado: true
       carregado: true
       peso: 0

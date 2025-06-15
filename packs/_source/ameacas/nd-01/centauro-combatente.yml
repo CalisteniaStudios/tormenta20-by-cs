@@ -65,7 +65,7 @@ items:
           Quando faz uma investida com seu tacape, o centauro causa +1d12 pontos
           de dano
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 54
+      source: Tormenta20 — Edição Jogo do Ano, p. 54
       ativacao:
         execucao: ''
         custo: 0
@@ -237,7 +237,7 @@ items:
           pregos de uma clava. Não é uma arma elegante, mas faz o serviço.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 150
+      source: Tormenta20 — Edição Jogo do Ano, p. 150
       equipado: 0
       equipado2:
         slot: 0
@@ -500,7 +500,7 @@ items:
           longo n&atilde;o pode ser usado se voc&ecirc; estiver montado</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 146
+      source: Tormenta20 — Edição Jogo do Ano, p. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -630,7 +630,7 @@ items:
           met&aacute;lica e penas para estabilizar o voo. Recarregar um arco com
           uma flecha &eacute; uma a&ccedil;&atilde;o livre</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 151
+      source: Tormenta20 — Edição Jogo do Ano, p. 151
       carregado: true
       peso: 0.075
       espacos: 0.05

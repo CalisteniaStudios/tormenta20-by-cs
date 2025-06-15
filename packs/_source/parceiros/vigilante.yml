@@ -138,12 +138,12 @@ system:
       Iniciativa.</p>
 
       <p><strong>Veterano</strong>: voc&ecirc; pode usar o poder Esquiva
-      Sobrenatural.&nbsp;</p>
+      Sobrenatural.</p>
 
       <p><strong>Mestre</strong>: voc&ecirc; pode usar o poder Olhos nas
       Costas.</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 261
+  source: Tormenta20 — Edição Jogo do Ano, p. 261
   ativacao:
     execucao: ''
     custo: 0

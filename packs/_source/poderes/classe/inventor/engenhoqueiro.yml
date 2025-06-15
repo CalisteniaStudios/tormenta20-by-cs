@@ -18,7 +18,7 @@ system:
       <p><em>Pr&eacute;-requisitos:</em> Int 3, treinado em Of&iacute;cio
       (engenhoqueiro).</p>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <h1><span>Engenhocas</span></h1>
 
@@ -30,7 +30,7 @@ system:
       Monstro</em>), um projetor de imagens (<em>Criar Ilus&atilde;o</em>), um
       ve&iacute;culo a vapor (<em>Montaria Arcana</em>) etc.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <div>Uma engenhoca &eacute; um item mundano Min&uacute;sculo que ocupa 1
       espa&ccedil;o e possui Defesa 15, pontos de vida iguais &agrave; metade
@@ -42,7 +42,7 @@ system:
       caixinha de engrenagens que se desdobra na forma de uma moto de madeira.
       Suas estat&iacute;sticas n&atilde;o mudam.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <h2>Fabrica&ccedil;&atilde;o</h2>
 
@@ -52,7 +52,7 @@ system:
       criar engenhocas com magias de 2&ordm; c&iacute;rculo e, a cada quatro
       n&iacute;veis, pode criar engenhocas de um c&iacute;rculo maior.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <div>
 
@@ -63,7 +63,7 @@ system:
       gastar T$ 300 e passar em um teste de Of&iacute;cio (engenhoqueiro) contra
       CD 23.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <h3><strong>Limite de Engenhocas</strong></h3>
 
@@ -72,7 +72,7 @@ system:
       voc&ecirc; pode ter ao mesmo tempo &eacute; igual a sua
       Intelig&ecirc;ncia.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <h2>Ativa&ccedil;&atilde;o</h2>
 
@@ -85,14 +85,14 @@ system:
       trabalho. Cada nova ativa&ccedil;&atilde;o da engenhoca no mesmo dia
       aumenta a CD do teste de Of&iacute;cio em +5.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <div>Quando ativa uma engenhoca, voc&ecirc; pode usar quaisquer
       aprimoramentos da magia que ela simula, at&eacute; um custo igual a sua
       Intelig&ecirc;ncia. A CD para ativar a engenhoca aumenta em +1 por PM e
       voc&ecirc; paga o custo em PM dos aprimoramentos.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <div>Se a engenhoca simula o efeito de uma magia com custos especiais,
       esse custo deve ser pago a cada ativa&ccedil;&atilde;o. Para outros custos
@@ -104,13 +104,13 @@ system:
       exigir um teste de Misticismo, use Of&iacute;cio (engenhoqueiro) em seu
       lugar.</div>
 
-      <div>&nbsp;</div>
+      <div></div>
 
       <h3>Efeito Mundano</h3>
 
       <p>O efeito de uma engenhoca n&atilde;o &eacute; m&aacute;gico e
       n&atilde;o est&aacute; sujeito &agrave;s limita&ccedil;&otilde;es de
-      magias (n&atilde;o pode ser&nbsp; dissipado, funciona em &aacute;reas de
+      magias (n&atilde;o pode ser dissipado, funciona em &aacute;reas de
       antimagia etc.).</p>
 
       <h3>Penalidade de Armadura.</h3>
@@ -132,7 +132,7 @@ system:
       </div>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 69 e 70
+  source: Tormenta20 — Edição Jogo do Ano, p. 69 e 70
   ativacao:
     execucao: ''
     custo: 0

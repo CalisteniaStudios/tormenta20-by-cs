@@ -175,7 +175,7 @@ system:
       pontos de dano de fogo em todas as criaturas e objetos livres na área.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 182
+  source: Tormenta20 — Edição Jogo do Ano, p. 182
   ativacao:
     execucao: action
     custo: 3

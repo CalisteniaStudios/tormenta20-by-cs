@@ -11,10 +11,10 @@ system:
     value: >-
       <p>Uma pasta verde e fedorenta, feita de ervas medicinais. Esfregar essa
       pasta em um ferimento &eacute; uma a&ccedil;&atilde;o completa e recupera
-      2d4 pontos de vida.&nbsp;</p>
+      2d4 pontos de vida.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 160
+  source: Tormenta20 — Edição Jogo do Ano, p. 160
   equipado: false
   equipado2:
     slot: 0

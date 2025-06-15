@@ -49,12 +49,12 @@ flags: {}
 system:
   description:
     value: >-
-      <p>&nbsp;O acabamento deste colar ou bracelete remete a um animal
+      <p>O acabamento deste colar ou bracelete remete a um animal
       poderoso, como um urso ou lobo. Voc&ecirc; recebe +1 em
       Constitui&ccedil;&atilde;o (somente ap&oacute;s um dia de uso).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 345
+  source: Tormenta20 — Edição Jogo do Ano, p. 345
   equipado: false
   equipado2:
     slot: 0

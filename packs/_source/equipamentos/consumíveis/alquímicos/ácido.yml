@@ -13,10 +13,10 @@ system:
       corrosivo. Para usar o &aacute;cido, voc&ecirc; gasta uma
       a&ccedil;&atilde;o padr&atilde;o e escolhe uma criatura em alcance curto.
       Essa criatura sofre 2d4 pontos de dano de &aacute;cido (Reflexos CD Des
-      reduz &agrave; metade).&nbsp;</p>
+      reduz &agrave; metade).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 160
+  source: Tormenta20 — Edição Jogo do Ano, p. 160
   equipado: false
   equipado2:
     slot: 0

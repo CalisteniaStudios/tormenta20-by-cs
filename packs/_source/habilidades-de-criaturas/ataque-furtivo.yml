@@ -6,7 +6,7 @@ system:
     value: >-
       <p>Uma vez por rodada, o chefe bandido causa +2d6 pontos de dano com
       ataques corpo a corpo, ou &agrave; dist&acirc;ncia em alcance curto,
-      contra alvos&nbsp; esprevenidos ou que esteja flanqueando.</p>
+      contra alvos desprevenidos ou que esteja flanqueando.</p>
     unidentified: ''
   source: ''
   ativacao:

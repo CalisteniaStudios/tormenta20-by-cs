@@ -187,10 +187,10 @@ system:
 
       <p>Note que, como efeitos de magia n&atilde;o acumulam, lan&ccedil;ar esta
       magia duas vezes contra o mesmo alvo n&atilde;o ir&aacute; deix&aacute;-lo
-      exausto.&nbsp;</p>
+      exausto.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 202
+  source: Tormenta20 — Edição Jogo do Ano, p. 202
   ativacao:
     execucao: action
     custo: 1

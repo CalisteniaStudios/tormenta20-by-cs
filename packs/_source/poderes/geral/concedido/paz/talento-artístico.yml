@@ -57,11 +57,11 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Voc&ecirc; recebe +2 emAcrobacia,&nbsp; Atua&ccedil;&atilde;o e
+      <p>Voc&ecirc; recebe +2 emAcrobacia, Atua&ccedil;&atilde;o e
       Diplomacia.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 135
+  source: Tormenta20 — Edição Jogo do Ano, p. 135
   ativacao:
     execucao: ''
     custo: 0

@@ -117,7 +117,7 @@ items:
           cena, recebe +1d8 em rolagens de dano contra essa criatura (ou +2d8,
           se a criatura for um anão, elfo ou humano)
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 50
+      source: Tormenta20 — Edição Jogo do Ano, p. 50
       ativacao:
         execucao: move
         custo: 0
@@ -416,7 +416,7 @@ items:
           lâmina curva e muito afiada. A cimitarra é uma arma ágil</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 147
+      source: Tormenta20 — Edição Jogo do Ano, p. 147
       equipado: 0
       equipado2:
         slot: 0
@@ -547,7 +547,7 @@ items:
           a&ccedil;&atilde;o padr&atilde;o.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 146
+      source: Tormenta20 — Edição Jogo do Ano, p. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -690,7 +690,7 @@ items:
           voc&ecirc;.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 150
+      source: Tormenta20 — Edição Jogo do Ano, p. 150
       equipado: 0
       equipado2:
         slot: 0
@@ -810,7 +810,7 @@ items:
           &eacute; uma a&ccedil;&atilde;o de movimento; j&aacute; recarregar uma
           besta pesada &eacute; uma a&ccedil;&atilde;o padr&atilde;o.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 151
+      source: Tormenta20 — Edição Jogo do Ano, p. 151
       carregado: true
       peso: 0.075
       espacos: 0.05

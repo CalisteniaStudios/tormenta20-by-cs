@@ -237,7 +237,7 @@ system:
       ostenta&ccedil;&atilde;o. Al&eacute;m disso, pode atrair a cobi&ccedil;a
       de ladr&otilde;es.</p>
 
-      <p><strong>Guardi&atilde;</strong>&nbsp;O item emite um campo de
+      <p><strong>Guardi&atilde;</strong>O item emite um campo de
       for&ccedil;a que desvia ataques. O b&ocirc;nus na Defesa do item aumenta
       em +4. Pr&eacute;-requisito:defensor.</p>
 
@@ -246,7 +246,7 @@ system:
       ataque, que ent&atilde;o &eacute; resolvido normalmente.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 340
+  source: Tormenta20 — Edição Jogo do Ano, p. 340
   equipado: false
   equipado2:
     slot: 0

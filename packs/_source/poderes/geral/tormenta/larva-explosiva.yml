@@ -12,10 +12,10 @@ system:
       cada dois outros poderes de Tormenta que voc&ecirc; possui, o dano aumenta
       em 2d4. Voc&ecirc; &eacute; imune a este dano.</p>
 
-      <p><em>Pr&eacute;-requisito:</em> Dentes Afiados.&nbsp;</p>
+      <p><em>Pr&eacute;-requisito:</em> Dentes Afiados.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 137
+  source: Tormenta20 — Edição Jogo do Ano, p. 137
   ativacao:
     execucao: ''
     custo: 0

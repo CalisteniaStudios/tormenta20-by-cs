@@ -15,7 +15,7 @@ items:
           bônus cumulativo de +2 em testes de ataque e rolagens de dano até o
           fim da cena.
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 42
+      source: Tormenta20 — Edição Jogo do Ano, p. 42
       ativacao:
         execucao: ''
         custo: 0
@@ -83,7 +83,7 @@ items:
           existem.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 149
+      source: Tormenta20 — Edição Jogo do Ano, p. 149
       equipado: 0
       equipado2:
         slot: 0

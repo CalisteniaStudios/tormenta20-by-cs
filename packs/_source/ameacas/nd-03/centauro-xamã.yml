@@ -319,7 +319,7 @@ items:
           lan&ccedil;ar a magia, voc&ecirc; pode mudar o tipo de dano da arma
           (escolhendo entre corte, impacto ou perfura&ccedil;&atilde;o).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 181
+      source: Tormenta20 — Edição Jogo do Ano, p. 181
       ativacao:
         execucao: action
         custo: 1
@@ -630,7 +630,7 @@ items:
           vegetação tenta enredar novamente qualquer criatura na área, exigindo
           um novo teste de Reflexos.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 188
+      source: Tormenta20 — Edição Jogo do Ano, p. 188
       ativacao:
         execucao: action
         custo: 1
@@ -916,7 +916,7 @@ items:
           adjacente cura 4d8+4 PV</section><p>Voc&ecirc; canaliza energia
           positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 189
+      source: Tormenta20 — Edição Jogo do Ano, p. 189
       ativacao:
         execucao: action
         custo: 1
@@ -1142,7 +1142,7 @@ items:
           O centauro está sempre sob efeito da magia Voz Divina, apenas para
           falar com animais. e
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 136
+      source: Tormenta20 — Edição Jogo do Ano, p. 136
       ativacao:
         execucao: ''
         custo: 0
@@ -1211,7 +1211,7 @@ items:
           <em>dupla</em></p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 147
+      source: Tormenta20 — Edição Jogo do Ano, p. 147
       equipado: 0
       equipado2:
         slot: 0
@@ -1469,7 +1469,7 @@ items:
           corrente ao redor do pesco&ccedil;o) ou empunhando um s&iacute;mbolo
           sagrado para usar qualquer poder concedido.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 157
+      source: Tormenta20 — Edição Jogo do Ano, p. 157
       equipado: true
       carregado: true
       peso: 0

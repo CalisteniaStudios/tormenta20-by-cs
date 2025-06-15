@@ -15,10 +15,10 @@ system:
       ent&atilde;o uma a&ccedil;&atilde;o padr&atilde;o para arremess&aacute;-la
       em um ponto em alcance curto. Criaturas a at&eacute; 3m desse ponto sofrem
       6d6 pontos de dano de impacto. Um teste de Reflexos (CD Des) reduz o dano
-      &agrave; metade.&nbsp;</p>
+      &agrave; metade.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 160
+  source: Tormenta20 — Edição Jogo do Ano, p. 160
   equipado: false
   equipado2:
     slot: 0

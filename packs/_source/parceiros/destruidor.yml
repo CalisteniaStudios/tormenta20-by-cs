@@ -134,7 +134,7 @@ system:
       gastar 4 PM para causar 6d6 pontos de dano em uma &aacute;rea de 6m de
       raio em alcance m&eacute;dio.</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 261
+  source: Tormenta20 — Edição Jogo do Ano, p. 261
   ativacao:
     execucao: free
     custo: 1

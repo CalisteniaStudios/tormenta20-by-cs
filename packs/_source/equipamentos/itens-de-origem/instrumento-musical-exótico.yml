@@ -4,11 +4,11 @@ img: systems/tormenta20/icons/itens/gerais/instrumento-musical-exotico.webp
 system:
   description:
     value: |-
-      <p><strong>[Item de Origem]</strong>&nbsp;</p>
-      <p>+1 em uma per&iacute;cia de Carisma&nbsp; aprovada pelo mestre</p>
+      <p><strong>[Item de Origem]</strong></p>
+      <p>+1 em uma per&iacute;cia de Carisma aprovada pelo mestre</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 90
+  source: Tormenta20 — Edição Jogo do Ano, p. 90
   equipado: false
   equipado2:
     slot: 0

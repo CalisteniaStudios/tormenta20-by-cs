@@ -439,10 +439,10 @@ items:
           final da cena, sempre que faz um ataque, o cavaleiro rola dois dados e
           usa o melhor resultado</section><p>Voc&ecirc; amplia sua
           percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando
-          brechas em sua defesa. Quando faz&nbsp;um teste de ataque, voc&ecirc;
+          brechas em sua defesa. Quando fazum teste de ataque, voc&ecirc;
           rola dois dados e usa o melhor resultado</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 185
+      source: Tormenta20 — Edição Jogo do Ano, p. 185
       ativacao:
         execucao: free
         custo: 1
@@ -570,14 +570,14 @@ items:
           magias que estejam ativas, como se sua dura&ccedil;&atilde;o tivesse
           acabado. Note que efeitos de magias instant&acirc;neas n&atilde;o
           podem ser dissipados (n&atilde;o se pode dissipar uma <em>Bola de
-          Fogo</em> &nbsp;ou <em>Rel&acirc;mpago</em> depois que j&aacute;
+          Fogo</em> ou <em>Rel&acirc;mpago</em> depois que j&aacute;
           causaram dano...). Se lan&ccedil;ar essa magia em uma criatura ou
           &aacute;rea, fa&ccedil;a um teste de Misticismo; voc&ecirc; dissipa as
           magias com CD igual ou menor que o resultado do teste. Se
           lan&ccedil;ada contra um item m&aacute;gico, o transforma em um item
           mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 191
+      source: Tormenta20 — Edição Jogo do Ano, p. 191
       ativacao:
         execucao: action
         custo: 3
@@ -970,7 +970,7 @@ items:
           final da cena</section><p>Sua pele ganha aspecto e dureza de rocha.
           Voc&ecirc; recebe redu&ccedil;&atilde;o de dano 5.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 201
+      source: Tormenta20 — Edição Jogo do Ano, p. 201
       ativacao:
         execucao: action
         custo: 6
@@ -1199,7 +1199,7 @@ items:
           armadura de metal (ou carrega muito metal, a critério do mestre),
           sofre uma penalidade de –5 no teste de resistência.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 209
+      source: Tormenta20 — Edição Jogo do Ano, p. 209
       ativacao:
         execucao: action
         custo: 1
@@ -1471,7 +1471,7 @@ items:
           turno. Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para
           lan&ccedil;ar magias e ativar engenhocas.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 210
+      source: Tormenta20 — Edição Jogo do Ano, p. 210
       ativacao:
         execucao: action
         custo: 3
@@ -1545,7 +1545,7 @@ items:
           duas m&atilde;os.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 147
+      source: Tormenta20 — Edição Jogo do Ano, p. 147
       equipado: 0
       equipado2:
         slot: 0
@@ -1681,7 +1681,7 @@ items:
           um ferreiro cobra T$ 200 para adaptar uma armadura completa a um novo
           usuário.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: true
       carregado: true
       peso: 25

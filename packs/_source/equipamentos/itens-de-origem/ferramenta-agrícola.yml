@@ -4,11 +4,11 @@ img: systems/tormenta20/icons/itens/gerais/ferramenta-agricula.webp
 system:
   description:
     value: >-
-      <p><strong>[Item de Origem]</strong>&nbsp;<br /><br /><br /><br /><br
+      <p><strong>[Item de Origem]</strong><br /><br /><br /><br /><br
       /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 90
+  source: Tormenta20 — Edição Jogo do Ano, p. 90
   equipado: 0
   equipado2:
     slot: 0

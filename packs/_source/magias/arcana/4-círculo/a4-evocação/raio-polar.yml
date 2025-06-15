@@ -159,7 +159,7 @@ system:
       que passar no teste causa 10 pontos de dano ao bloco, ignorando a RD.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 203
+  source: Tormenta20 — Edição Jogo do Ano, p. 203
   ativacao:
     execucao: action
     custo: 10

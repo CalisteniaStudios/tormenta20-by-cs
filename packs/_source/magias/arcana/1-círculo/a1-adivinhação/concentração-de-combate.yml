@@ -290,11 +290,11 @@ system:
   description:
     value: >-
       <p>Voc&ecirc; amplia sua percep&ccedil;&atilde;o, antecipando movimentos
-      dos inimigos e achando brechas em sua defesa. Quando faz&nbsp;um teste de
+      dos inimigos e achando brechas em sua defesa. Quando fazum teste de
       ataque, voc&ecirc; rola dois dados e usa o melhor resultado</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 185
+  source: Tormenta20 — Edição Jogo do Ano, p. 185
   ativacao:
     execucao: free
     custo: 1

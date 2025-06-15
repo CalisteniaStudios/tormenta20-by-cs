@@ -58,10 +58,10 @@ system:
       <p>Em forma selvagem, voc&ecirc; pode lan&ccedil;ar magias e empunhar
       catalizadores e esot&eacute;ricos.</p>
 
-      <p><em>Pre-requisitos:</em> Forma Selvagem&nbsp;</p>
+      <p><em>Pre-requisitos:</em> Forma Selvagem</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 62
+  source: Tormenta20 — Edição Jogo do Ano, p. 62
   ativacao:
     execucao: ''
     custo: 0

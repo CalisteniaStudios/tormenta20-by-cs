@@ -9,7 +9,7 @@ items:
     system:
       description:
         value: >-
-          <p>&nbsp;O ogro sofre -5 em testes de Intui&ccedil;&atilde;o e Vontade
+          <p>O ogro sofre -5 em testes de Intui&ccedil;&atilde;o e Vontade
           (j&aacute; contabilizados na ficha)</p>
         chat: ''
         unidentified: ''
@@ -151,7 +151,7 @@ items:
           pregos de uma clava. Não é uma arma elegante, mas faz o serviço.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 150
+      source: Tormenta20 — Edição Jogo do Ano, p. 150
       equipado: 0
       equipado2:
         slot: 0

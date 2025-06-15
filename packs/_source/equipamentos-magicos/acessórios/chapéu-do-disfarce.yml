@@ -11,7 +11,7 @@ system:
     value: >-
       <p>Voc&ecirc; pode lan&ccedil;ar
       @UUID[Compendium.tormenta20.magias.19donXyns0pliwj9]{Disfarce
-      Ilus&oacute;rio}&nbsp;(CD Car), com o aprimoramento que inclui odores e
+      Ilus&oacute;rio}(CD Car), com o aprimoramento que inclui odores e
       sensa&ccedil;&otilde;es e muda o b&ocirc;nus em Engana&ccedil;&atilde;o
       para disfarces para +20, sem pagar seu custo em PM. Voc&ecirc; n&atilde;o
       pode usar outros aprimoramentos. Como parte do disfarce, o chap&eacute;u
@@ -19,7 +19,7 @@ system:
       diante.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 343
+  source: Tormenta20 — Edição Jogo do Ano, p. 343
   equipado: false
   equipado2:
     slot: 0

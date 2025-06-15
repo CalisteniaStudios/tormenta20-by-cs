@@ -62,7 +62,7 @@ items:
           primeiro Ataque Furtivo que causar dano a ela até o fim do seu próximo
           turno, ele dobra os dados de dano do Ataque Furtivo
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 73
+      source: Tormenta20 — Edição Jogo do Ano, p. 73
       ativacao:
         execucao: move
         custo: 0
@@ -136,7 +136,7 @@ items:
           para reduzir o dano à metade, o sombra dos Goblinóides não sofre dano
           algum se passar e sofre apenas metade do dano se falhar
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 73
+      source: Tormenta20 — Edição Jogo do Ano, p. 73
       ativacao:
         execucao: ''
         custo: 0
@@ -428,7 +428,7 @@ items:
           arremessada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 149
+      source: Tormenta20 — Edição Jogo do Ano, p. 149
       equipado: 0
       equipado2:
         slot: 0
@@ -562,7 +562,7 @@ items:
           arremessada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 149
+      source: Tormenta20 — Edição Jogo do Ano, p. 149
       equipado: 0
       equipado2:
         slot: 0
@@ -692,7 +692,7 @@ items:
         value: >-
           <p>Uma vez por rodada, o chefe bandido causa +2d6 pontos de dano com
           ataques corpo a corpo, ou &agrave; dist&acirc;ncia em alcance curto,
-          contra alvos&nbsp; esprevenidos ou que esteja flanqueando.</p>
+          contra alvos desprevenidos ou que esteja flanqueando.</p>
         unidentified: ''
       source: ''
       ativacao:
@@ -860,14 +860,14 @@ items:
       description:
         value: >-
           <p>Veneno poderoso, extra&iacute;do de animais ou plantas
-          perigosos.&nbsp;</p>
+          perigosos.</p>
 
           <p><strong>Tipo:</strong> <em>Contato.</em></p>
 
           <p><strong>Efeito:</strong> <em>Perde 2d12 PV por rodada durante 3
           rodadas (perde 2d12 PV).</em></p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 162
+      source: Tormenta20 — Edição Jogo do Ano, p. 162
       carregado: true
       peso: 0.5
       espacos: 0.5
@@ -963,7 +963,7 @@ items:
           <p>Versão mais pesada da armadura de couro, reforçada com rebites de
           metal.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 154
+      source: Tormenta20 — Edição Jogo do Ano, p. 154
       equipado: false
       carregado: true
       peso: 10

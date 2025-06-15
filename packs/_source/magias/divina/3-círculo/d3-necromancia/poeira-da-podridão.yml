@@ -58,7 +58,7 @@ system:
       que falharem no teste n&atilde;o podem recuperar PV por uma rodada.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 201
+  source: Tormenta20 — Edição Jogo do Ano, p. 201
   ativacao:
     execucao: action
     custo: 6

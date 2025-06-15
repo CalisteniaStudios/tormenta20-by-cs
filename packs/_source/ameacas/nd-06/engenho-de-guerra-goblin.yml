@@ -335,7 +335,7 @@ items:
       description:
         value: >-
           <p>O engenho faz um ataque corpo a corpo em cada criatura
-          adjacente&nbsp; (ataque +20, dano 4d6+10<br>corte, 19, corte).</p>
+          adjacente (ataque +20, dano 4d6+10<br>corte, 19, corte).</p>
         unidentified: ''
       source: ''
       ativacao:

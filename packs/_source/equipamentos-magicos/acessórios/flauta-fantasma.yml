@@ -11,12 +11,12 @@ system:
     value: >-
       <p>Voc&ecirc; pode lan&ccedil;ar
       @UUID[Compendium.tormenta20.magias.w6DanTXGXcuu5I0N]{Esculpir
-      Sons}&nbsp;(CD Car) sem pagar seu custo em PM. Voc&ecirc; s&oacute; pode
+      Sons}(CD Car) sem pagar seu custo em PM. Voc&ecirc; s&oacute; pode
       usar a flauta fantasma se for treinado em
       @UUID[Compendium.tormenta20.pericias.eiKvnk0prKaG2rl0]{Atua&ccedil;&atilde;o}.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 344
+  source: Tormenta20 — Edição Jogo do Ano, p. 344
   equipado: false
   equipado2:
     slot: 0

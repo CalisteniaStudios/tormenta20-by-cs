@@ -47,7 +47,7 @@ system:
   description:
     value: >-
       <p>Veneno poderoso, extra&iacute;do de animais ou plantas
-      perigosos.&nbsp;</p>
+      perigosos.</p>
 
       <p><strong>Tipo:</strong> <em>Contato.</em></p>
 
@@ -55,7 +55,7 @@ system:
       (perde 2d12 PV).</em></p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 162
+  source: Tormenta20 — Edição Jogo do Ano, p. 162
   equipado: false
   equipado2:
     slot: 0

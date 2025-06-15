@@ -14,14 +14,14 @@ system:
       <p class="MsoNormal">Quando faz um ataque corpo a corpo, voc&ecirc; pode
       gastar 2 PM para desferir um golpe purificador. Voc&ecirc; soma seu
       b&ocirc;nus de Carisma no teste de ataque e, se acertar, gera o efeito
-      b&aacute;sico da magia @UUID[Item.rfTGYwrXLjcIAIP5]{Dissipar Magia}&nbsp;
+      b&aacute;sico da magia @UUID[Item.rfTGYwrXLjcIAIP5]{Dissipar Magia}
       tendo como alvo a criatura atingida.</p>
 
       <p class="MsoNormal">Pr&eacute;-requisito: Ben&ccedil;&atilde;o
       Arcana.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Distinções, págs. 26-27
+  source: Tormenta20 — Distinções, p. 26-27
   ativacao:
     execucao: ''
     custo: 0

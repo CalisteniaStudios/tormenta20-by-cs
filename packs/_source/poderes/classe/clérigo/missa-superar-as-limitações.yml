@@ -47,7 +47,7 @@ system:
     value: >-
       <p>Voc&ecirc; encoraja os ouvintes a superar suas pr&oacute;prias
       habilidades. Cada participante recebe +1d6 num &uacute;nico teste a sua
-      escolha. Pode us&aacute;-lo mesmo ap&oacute;s rolar o dado.&nbsp;</p>
+      escolha. Pode us&aacute;-lo mesmo ap&oacute;s rolar o dado.</p>
 
 
 
@@ -70,7 +70,7 @@ system:
       dia.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 58
+  source: Tormenta20 — Edição Jogo do Ano, p. 58
   ativacao:
     execucao: ''
     custo: 0

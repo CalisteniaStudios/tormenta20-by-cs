@@ -46,7 +46,7 @@ system:
       pontos de dano de fogo e ficam em chamas (Reflexos CD 19 reduz o dano
       &agrave; metade e evita a condi&ccedil;&atilde;o).</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 193
+  source: Tormenta20 — Edição Jogo do Ano, p. 193
   ativacao:
     execucao: action
     custo: 0

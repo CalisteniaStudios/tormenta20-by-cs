@@ -164,12 +164,12 @@ system:
       1&ordm; c&iacute;rculo diminui &ndash;1 PM.</p>
 
       <p><strong>Veterano</strong>: como acima, mas tamb&eacute;m reduz o custo
-      de suas magias de 2&ordm;&nbsp;c&iacute;rculo.</p>
+      de suas magias de 2&ordm;c&iacute;rculo.</p>
 
       <p><strong>Mestre</strong>: como acima, e esta redu&ccedil;&atilde;o se
       torna cumulativa com outras redu&ccedil;&otilde;es.</p>
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 260
+  source: Tormenta20 — Edição Jogo do Ano, p. 260
   ativacao:
     execucao: ''
     custo: 0

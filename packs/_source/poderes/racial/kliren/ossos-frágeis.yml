@@ -14,7 +14,7 @@ system:
       dano. Se cair de 3m de altura (dano 2d6), sofre 2d6+2 pontos de dano.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 28
+  source: Tormenta20 — Edição Jogo do Ano, p. 28
   ativacao:
     execucao: ''
     custo: 0

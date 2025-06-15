@@ -62,12 +62,12 @@ system:
       ou habilidades m&aacute;gicas dentro dele.</p>
 
       <p>Magias que dissipam outras magias, como Dissipar Magia,
-      n&atilde;o&nbsp;dissipam um Campo Antimagia, e dois Campos na mesma
+      n&atilde;odissipam um Campo Antimagia, e dois Campos na mesma
       &aacute;rea n&atilde;o se neutralizam. Artefatos e deuses maiores
       n&atilde;o s&atilde;o afetados por um Campo Antimagia</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 183
+  source: Tormenta20 — Edição Jogo do Ano, p. 183
   ativacao:
     execucao: action
     custo: 10

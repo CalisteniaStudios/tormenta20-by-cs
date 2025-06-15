@@ -64,7 +64,7 @@ system:
       seu próximo turno.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 55
+  source: Tormenta20 — Edição Jogo do Ano, p. 55
   ativacao:
     execucao: passive
     custo: 1

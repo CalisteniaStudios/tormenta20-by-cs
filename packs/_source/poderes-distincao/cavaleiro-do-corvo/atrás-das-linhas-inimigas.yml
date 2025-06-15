@@ -15,7 +15,7 @@ system:
       class="content-link" draggable="true"
       data-uuid="JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.MCED18aEe4UFeEVf"
       data-id="MCED18aEe4UFeEVf" data-type="JournalEntryPage" data-tooltip="Text
-      Page">Fatigado</a>&nbsp;e
+      Page">Fatigado</a>e
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.bD6XAyHQrWYr0BTQ]{Atordoado}
       e sua recupera&ccedil;&atilde;o de pontos de vida e pontos de mana por
       descanso nunca &eacute; inferior &agrave; normal, independente das
@@ -23,7 +23,7 @@ system:
       Reconhecimento e Infiltra&ccedil;&atilde;o.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Distinções, pág. 18
+  source: Tormenta20 — Distinções, p. 18
   ativacao:
     execucao: passive
     custo: 0

@@ -11,16 +11,16 @@ system:
     value: >-
       <p>Esta magia cria um tremor de terra que rasga o solo. O terremoto dura
       uma rodada, durante a qual criaturas sobre o solo ficam atordoadas.
-      Barreiras f&iacute;sicas n&atilde;o&nbsp;interrompem a &aacute;rea de<em>
+      Barreiras f&iacute;sicas n&atilde;ointerrompem a &aacute;rea de<em>
       Terremoto</em>.</p>
 
-      <p>O efeito exato depende do terreno.&nbsp;</p>
+      <p>O efeito exato depende do terreno.</p>
 
       <p><em>Caverna ou subterr&acirc;neo:</em> a magia derruba o teto, causando
       12d6 pontos de dano de impacto e agarrando
       (@UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.TSRZ1cAIIIpsvOfK]{Agarrado})
       todas as criaturas na &aacute;rea. Um teste de Reflexos reduz o dano
-      &agrave; metade e evita a condi&ccedil;&atilde;o.&nbsp;</p>
+      &agrave; metade e evita a condi&ccedil;&atilde;o.</p>
 
       <p><em>Constru&ccedil;&atilde;o:</em> todas as estruturas na &aacute;rea
       sofrem 200 pontos de dano de impacto, o suficiente para derrubar
@@ -58,7 +58,7 @@ system:
       pr&oacute;pria criatura ou de um aliado adjacente).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 209
+  source: Tormenta20 — Edição Jogo do Ano, p. 209
   ativacao:
     execucao: action
     custo: 10

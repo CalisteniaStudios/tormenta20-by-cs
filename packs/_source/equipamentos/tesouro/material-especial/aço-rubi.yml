@@ -27,13 +27,13 @@ system:
 
       <p><span><strong>Pre&ccedil;os:</strong></span></p>
 
-      <p><span><span>Armas, Armaduras pesadas e Esot&eacute;ricos:&nbsp; +T$
+      <p><span><span>Armas, Armaduras pesadas e Esot&eacute;ricos: +T$
       6000</span></span></p>
 
-      <p><span><span>Armaduras leves e Escudo:&nbsp; +T$ 3000</span></span></p>
+      <p><span><span>Armaduras leves e Escudo: +T$ 3000</span></span></p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 166
+  source: Tormenta20 — Edição Jogo do Ano, p. 166
   equipado: false
   equipado2:
     slot: 0

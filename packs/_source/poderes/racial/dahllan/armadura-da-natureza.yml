@@ -53,7 +53,7 @@ system:
       em casca de árvore, recebendo +2 na Defesa até o fim da cena.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 21
+  source: Tormenta20 — Edição Jogo do Ano, p. 21
   ativacao:
     execucao: move
     custo: 1

@@ -446,7 +446,7 @@ items:
           n&atilde;o impedem que voc&ecirc; fique inconsciente, comece a
           sangrar, morra...).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 183
+      source: Tormenta20 — Edição Jogo do Ano, p. 183
       ativacao:
         execucao: action
         custo: 3
@@ -732,7 +732,7 @@ items:
           adjacente cura 12d8+12 PV</section><p>Voc&ecirc; canaliza energia
           positiva que recupera 2d8+2 pontos de vida na criatura tocada.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 189
+      source: Tormenta20 — Edição Jogo do Ano, p. 189
       ativacao:
         execucao: action
         custo: 1
@@ -868,14 +868,14 @@ items:
           outras magias que estejam ativas, como se sua dura&ccedil;&atilde;o
           tivesse acabado. Note que efeitos de magias instant&acirc;neas
           n&atilde;o podem ser dissipados (n&atilde;o se pode dissipar uma
-          <em>Bola de Fogo</em> &nbsp;ou <em>Rel&acirc;mpago</em> depois que
+          <em>Bola de Fogo</em> ou <em>Rel&acirc;mpago</em> depois que
           j&aacute; causaram dano...). Se lan&ccedil;ar essa magia em uma
           criatura ou &aacute;rea, fa&ccedil;a um teste de Misticismo;
           voc&ecirc; dissipa as magias com CD igual ou menor que o resultado do
           teste. Se lan&ccedil;ada contra um item m&aacute;gico, o transforma em
           um item mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 191
+      source: Tormenta20 — Edição Jogo do Ano, p. 191
       ativacao:
         execucao: action
         custo: 3
@@ -1160,7 +1160,7 @@ items:
           a magia &eacute; dissipada e o alvo retorna &agrave; atitude que tinha
           antes (ou piorada, de acordo com o mestre).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 191
+      source: Tormenta20 — Edição Jogo do Ano, p. 191
       ativacao:
         execucao: action
         custo: 1
@@ -1358,7 +1358,7 @@ items:
           sobre criaturas ou objetos. Ap&oacute;s lan&ccedil;&aacute;-lo,
           voc&ecirc; pode entrar ou sair livremente.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 196
+      source: Tormenta20 — Edição Jogo do Ano, p. 196
       ativacao:
         execucao: action
         custo: 6
@@ -1622,7 +1622,7 @@ items:
           Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
           magias e ativar engenhocas.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 210
+      source: Tormenta20 — Edição Jogo do Ano, p. 210
       ativacao:
         execucao: action
         custo: 3
@@ -2376,7 +2376,7 @@ items:
           drag&atilde;o, voc&ecirc; pode gastar 1 PM para aumentar o dano da
           magia em +1 por dado.</span></p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 311
+      source: Tormenta20 — Edição Jogo do Ano, p. 311
       carregado: true
       peso: 0
       espacos: 1
@@ -2612,7 +2612,7 @@ system:
       vulnerabilidade a frio
     tesouro: >-
       Dobro e 4 peças de couro de dragão (CD 26 para extrair, veja o quadro na
-      pág. na 312).
+      p. na 312).
     role: solo
     origem: ''
     ataquescac: Mordida +35 (4d10+25, 18) e duas garras +35 (3d10+25, 18).

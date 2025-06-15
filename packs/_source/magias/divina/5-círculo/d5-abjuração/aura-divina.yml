@@ -196,7 +196,7 @@ system:
       vez que a criatura entrar novamente na &aacute;rea.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 182
+  source: Tormenta20 — Edição Jogo do Ano, p. 182
   ativacao:
     execucao: action
     custo: 15

@@ -6,13 +6,13 @@ system:
     value: >-
       <p>Ve&iacute;culo de quatro rodas, capaz de transportar at&eacute; quatro
       pessoas em uma cabine fechada, mais dois condutores do lado de fora.
-      &Eacute; puxada&nbsp; por dois cavalos ou um trobo. Inclui os arreios
+      &Eacute; puxada por dois cavalos ou um trobo. Inclui os arreios
       necess&aacute;rios para controlar os animais. Tem as mesmas
       estat&iacute;sticas de uma carro&ccedil;a, mas fornece cobertura leve a
       seus passageiros.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 163
+  source: Tormenta20 — Edição Jogo do Ano, p. 163
   equipado: false
   equipado2:
     slot: 0

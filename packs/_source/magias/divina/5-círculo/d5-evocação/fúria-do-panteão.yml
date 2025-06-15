@@ -15,7 +15,7 @@ system:
       magia. Al&eacute;m disso, inimigos na &aacute;rea t&ecirc;m a visibilidade
       reduzida (como a magia N&eacute;voa). Uma vez por turno, voc&ecirc; pode
       gastar uma a&ccedil;&atilde;o de movimento para gerar um dos
-      efeitos&nbsp;a seguir.</p>
+      efeitosa seguir.</p>
 
       <p><em>Nevasca.</em> Inimigos na &aacute;rea sofrem 10d6 pontos de dano de
       frio (Fortitude reduz &agrave; metade). A &aacute;rea fica coberta de
@@ -23,7 +23,7 @@ system:
       at&eacute; voc&ecirc; usar siroco.</p>
 
       <p><em>Raios.</em> At&eacute; 6 inimigos a sua escolha na &aacute;rea
-      sofrem 10d8 pontos de dano de&nbsp; eletricidade (Reflexos reduz &agrave;
+      sofrem 10d8 pontos de dano de eletricidade (Reflexos reduz &agrave;
       metade).</p>
 
       <p><em>Siroco.</em> Transforma a chuva em uma tempestade de areia
@@ -40,7 +40,7 @@ system:
       condi&ccedil;&atilde;o).</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Edição Jogo do Ano, pág. 196
+  source: Tormenta20 — Edição Jogo do Ano, p. 196
   ativacao:
     execucao: full
     custo: 15

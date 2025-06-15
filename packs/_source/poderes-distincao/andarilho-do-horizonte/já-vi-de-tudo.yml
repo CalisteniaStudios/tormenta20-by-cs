@@ -17,15 +17,15 @@ system:
       Page">Sobreviv&ecirc;ncia</a> para identificar qualquer tipo de criatura e
       recebe +2 em
       @UUID[JournalEntry.cvmCTh9o45aiBHmJ.JournalEntryPage.PcT6ZdZqQgsF5xh2]{Fortitude}
-      e&nbsp;<span style="white-space: nowrap; background-color: rgba(255, 0, 0,
+      e<span style="white-space: nowrap; background-color: rgba(255, 0, 0,
       0.05);"> <a class="content-link" draggable="true"
       data-uuid="JournalEntry.cvmCTh9o45aiBHmJ.JournalEntryPage.TjjV15fV27nEoWyX"
       data-id="TjjV15fV27nEoWyX" data-type="JournalEntryPage" data-tooltip="Text
-      Page">Conhecimento</a></span>&nbsp;Para cada dois outros poderes de
+      Page">Conhecimento</a></span>Para cada dois outros poderes de
       andarilho do horizonte, este b&ocirc;nus aumenta em +1.</p>
     chat: ''
     unidentified: ''
-  source: Tormenta20 — Distinções, pág. 13
+  source: Tormenta20 — Distinções, p. 13
   ativacao:
     execucao: passive
     custo: 0

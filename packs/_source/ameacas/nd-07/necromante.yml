@@ -255,7 +255,7 @@ items:
           assustadoras. Se falhar na resist&ecirc;ncia, fica apavorado por 1
           rodada, depois abalado. Se passar, fica abalado por 1d4 rodadas.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 179
+      source: Tormenta20 — Edição Jogo do Ano, p. 179
       ativacao:
         execucao: action
         custo: 1
@@ -530,7 +530,7 @@ items:
           outras magias, mas n&atilde;o com b&ocirc;nus fornecido por
           armaduras.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 181
+      source: Tormenta20 — Edição Jogo do Ano, p. 181
       ativacao:
         execucao: action
         custo: 1
@@ -603,7 +603,7 @@ items:
           testes de ataque. Uma adaga pode ser arremessada.</p>
         chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 146
+      source: Tormenta20 — Edição Jogo do Ano, p. 146
       equipado: 0
       equipado2:
         slot: 0
@@ -778,9 +778,9 @@ items:
           <p>Esta po&ccedil;&atilde;o feita de ervas raras e compostos
           alqu&iacute;micos recupera energia pessoal. Beber a ess&ecirc;ncia de
           mana &eacute; uma a&ccedil;&atilde;o padr&atilde;o e recupera 1d4
-          pontos de mana.&nbsp;</p>
+          pontos de mana.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 160
+      source: Tormenta20 — Edição Jogo do Ano, p. 160
       carregado: true
       peso: 0.1
       espacos: 0.5
@@ -870,7 +870,7 @@ items:
     system:
       description:
         value: >-
-          <p>&nbsp;O necromante conjura seis mortos-vivos feitos de sombra em
+          <p>O necromante conjura seis mortos-vivos feitos de sombra em
           espa&ccedil;os desocupados em alcance curto. No turno do necromante,
           cada morto-vivo pode andar (deslocamento 9m) e causar dano a uma
           criatura adjacente (2d8 pontos de dano de trevas). Os mortos-vivos
@@ -1118,7 +1118,7 @@ items:
           na &aacute;rea tamb&eacute;m tem direito ao teste de
           resist&ecirc;ncia, para evitar a condi&ccedil;&atilde;o).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 188
+      source: Tormenta20 — Edição Jogo do Ano, p. 188
       ativacao:
         execucao: action
         custo: 3
@@ -1393,7 +1393,7 @@ items:
           dano de trevas. Voc&ecirc; recupera pontos de vida iguais &agrave;
           metade do dano causado (se causou algum dano).</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, pág. 209
+      source: Tormenta20 — Edição Jogo do Ano, p. 209
       ativacao:
         execucao: action
         custo: 3
