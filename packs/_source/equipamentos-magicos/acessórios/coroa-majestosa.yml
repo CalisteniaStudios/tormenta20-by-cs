@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: kDQPShgcIw357inz
     changes:
-      - key: system.atributos.car.value
+      - key: system.atributos.car.bonus
         mode: 2
         value: '2'
         priority: null

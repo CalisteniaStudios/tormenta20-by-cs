@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: xsciQ6tPDuvTeePS
     changes:
-      - key: system.atributos.sab.value
+      - key: system.atributos.sab.bonus
         mode: 2
         value: '2'
         priority: null
@@ -60,7 +60,7 @@ effects:
     disabled: false
     _id: a2yjal72SZMuOJwG
     changes:
-      - key: system.atributos.car.value
+      - key: system.atributos.car.bonus
         mode: 2
         value: '2'
         priority: null
@@ -111,7 +111,7 @@ effects:
     disabled: false
     _id: JD0iLQ2Fb7Mx9xxa
     changes:
-      - key: system.atributos.int.value
+      - key: system.atributos.int.bonus
         mode: 2
         value: '2'
         priority: null

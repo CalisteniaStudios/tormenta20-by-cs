@@ -107,15 +107,15 @@ effects:
     _key: '!items.effects!L14jqsUhL7vvpmDM.jOX40cLUJtRwb0IP'
   - _id: LtHrEMsKKyIBARMw
     changes:
-      - key: system.atributos.int.value
+      - key: system.atributos.int.bonus
         mode: 2
         value: '0'
         priority: null
-      - key: system.atributos.sab.value
+      - key: system.atributos.sab.bonus
         mode: 2
         value: '0'
         priority: null
-      - key: system.atributos.car.value
+      - key: system.atributos.car.bonus
         mode: 2
         value: '0'
         priority: null
@@ -203,7 +203,7 @@ effects:
     _key: '!items.effects!L14jqsUhL7vvpmDM.K8i1KECd0UhhOKD4'
   - _id: gvGWIMqoEX8nca8r
     changes:
-      - key: system.atributos.int.value
+      - key: system.atributos.int.bonus
         mode: 2
         value: '2'
         priority: 0
@@ -254,7 +254,7 @@ effects:
     _key: '!items.effects!L14jqsUhL7vvpmDM.gvGWIMqoEX8nca8r'
   - _id: 4Ovv73nGbtKp4TnX
     changes:
-      - key: system.atributos.sab.value
+      - key: system.atributos.sab.bonus
         mode: 2
         value: '2'
         priority: 0
@@ -305,7 +305,7 @@ effects:
     _key: '!items.effects!L14jqsUhL7vvpmDM.4Ovv73nGbtKp4TnX'
   - _id: EYuxCHv7zn3CVSNg
     changes:
-      - key: system.atributos.car.value
+      - key: system.atributos.car.bonus
         mode: 2
         value: '2'
         priority: 0

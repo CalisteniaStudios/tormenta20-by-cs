@@ -151,7 +151,7 @@ effects:
     disabled: true
     _id: FJNRfzwlnk60NZg4
     changes:
-      - key: system.atributos.car.value
+      - key: system.atributos.car.bonus
         mode: 2
         value: '1'
         priority: 0
@@ -191,7 +191,7 @@ effects:
     disabled: true
     _id: yothk5q9V5aB358t
     changes:
-      - key: system.atributos.car.value
+      - key: system.atributos.car.bonus
         mode: 2
         value: '1'
         priority: null

@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: rDrBobrKAqclLlO2
     changes:
-      - key: system.atributos.con.value
+      - key: system.atributos.con.bonus
         mode: 2
         value: '1'
         priority: null

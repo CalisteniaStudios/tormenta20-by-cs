@@ -21,7 +21,7 @@ effects:
     disabled: false
     _id: d2M2W9qqYAffcvnd
     changes:
-      - key: system.atributos.des.value
+      - key: system.atributos.des.bonus
         mode: 2
         value: '1'
         priority: null

@@ -31,15 +31,15 @@ effects:
     disabled: false
     _id: F0zVn89RuO4sSv6u
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 2
         value: '2'
         priority: null
-      - key: system.atributos.con.value
+      - key: system.atributos.con.bonus
         mode: 2
         value: '2'
         priority: null
-      - key: system.atributos.des.value
+      - key: system.atributos.des.bonus
         mode: 2
         value: '2'
         priority: null

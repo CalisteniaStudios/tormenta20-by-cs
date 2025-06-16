@@ -30,7 +30,7 @@ effects:
     disabled: false
     _id: ZRO5UKzSqjS0wwoK
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 2
         value: '5'
         priority: null
@@ -74,7 +74,7 @@ effects:
     disabled: false
     _id: 8gHCIqbA6YxxQRNB
     changes:
-      - key: system.atributos.des.value
+      - key: system.atributos.des.bonus
         mode: 2
         value: '4'
         priority: null
@@ -118,7 +118,7 @@ effects:
     disabled: false
     _id: AwQ59unmhDZEasB3
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 2
         value: '3'
         priority: null
@@ -166,7 +166,7 @@ effects:
     disabled: false
     _id: GgdcHArVfMmQL6Qs
     changes:
-      - key: system.atributos.des.value
+      - key: system.atributos.des.bonus
         mode: 2
         value: '4'
         priority: null
@@ -206,7 +206,7 @@ effects:
     disabled: false
     _id: YSqTMkRdjpuVJm13
     changes:
-      - key: system.atributos.des.value
+      - key: system.atributos.des.bonus
         mode: 2
         value: '4'
         priority: null

@@ -20,7 +20,7 @@ effects:
         items: ''
         equipment: false
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 2
         value: '1'
         priority: 0
@@ -162,7 +162,7 @@ effects:
     _key: '!items.effects!MbArAZo487Yb3hdl.gT58wfOEzw5hn1E3'
   - _id: CYW1kpakzd0nMIx8
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 2
         value: '4'
         priority: null

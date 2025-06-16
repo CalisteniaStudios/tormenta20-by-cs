@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: sWyVoZF3zO1Vt4t0
     changes:
-      - key: system.atributos.int.value
+      - key: system.atributos.int.base
         mode: 2
         value: '1'
         priority: null

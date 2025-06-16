@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: bM50gVtEQX0NHu9N
     changes:
-      - key: system.atributos.des.value
+      - key: system.atributos.des.base
         mode: 2
         value: '1'
         priority: null

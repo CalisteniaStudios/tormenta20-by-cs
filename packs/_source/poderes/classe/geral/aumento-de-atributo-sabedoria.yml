@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: t0Imw5DLPdgBTOqA
     changes:
-      - key: system.atributos.sab.value
+      - key: system.atributos.sab.base
         mode: 2
         value: '1'
         priority: null

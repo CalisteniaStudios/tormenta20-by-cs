@@ -268,7 +268,7 @@ effects:
         durationScene: true
         onuse: false
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 2
         value: '2'
         priority: null
@@ -308,7 +308,7 @@ effects:
         durationScene: true
         onuse: false
     changes:
-      - key: system.atributos.des.value
+      - key: system.atributos.des.bonus
         mode: 2
         value: '2'
         priority: null
@@ -344,7 +344,7 @@ effects:
     _key: '!items.effects!wXiJf2x05HqH5B6P.HLrhcQDKmFvW5e0k'
   - _id: nEUrBHlV305ewLqE
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 5
         value: '1'
         priority: null

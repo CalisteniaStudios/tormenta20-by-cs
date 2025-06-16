@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: JaePVlVXVqaZwpNq
     changes:
-      - key: system.atributos.sab.value
+      - key: system.atributos.sab.bonus
         mode: 2
         value: '1'
         priority: null

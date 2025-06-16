@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: pB8sGewh2cBYpgDm
     changes:
-      - key: system.atributos.for.value
+      - key: system.atributos.for.bonus
         mode: 2
         value: '1'
         priority: null
