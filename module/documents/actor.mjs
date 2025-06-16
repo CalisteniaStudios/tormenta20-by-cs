@@ -622,20 +622,44 @@ export default class ActorT20 extends Actor {
 	 * @return {Promise<Actor>}		 A Promise which resolves once the damage has been applied
 	 */
 	async applyDamageV2(roll, multiplier = 1, type = "dano") {
-		const pv = this.system.attributes.pv;
-		const pm = this.system.attributes.pm;
+		const { pv, pm } = this.system.attributes;
 		const rds = this.system.tracos?.resistencias;
-		const rdsEx = Object.entries(rds)
-			.filter((i) => i[1].excecao)
-			.reduce((acc, [key, value]) => (acc[key] = value.excecao), {});
+		const rdsEx = Object.entries(rds).reduce((acc, [key, value]) => {
+			if (value.excecao) acc[key] = value.excecao;
+			return acc;
+		}, {});
+		const final = {
+			damage: -(rds.dano?.value ? rds.dano.value : 0),
+			loss: 0,
+			heal: 0,
+			tempHP: 0,
+			mana: 0,
+			tempMP: 0
+		};
 
 		const damage = {};
 		for (const { operator, total, options } of roll.terms) {
 			if (!operator) {
 				const flavor = options?.flavor ?? type;
-				damage[flavor] ??= { value: 0, rd: 0, final: 0 };
+				damage[flavor] ??= {
+					value: 0,
+					rd: Number(rds[flavor]?.value) || 0
+				};
 				damage[flavor].value += total;
 			}
+		}
+
+		const map = { curapv: "heal", curatpv: "tempHP", curapm: "mana", curatpm: "tempMP" };
+		Object.entries(map).forEach(([key, value]) => {
+			if (damage[key]) {
+				final[value] += damage[key].value;
+				delete damage[key];
+			}
+		});
+		if (damage.perda) {
+			if (multiplier > 0) final.damage += damage.perda.value;
+			else final.heal += damage.perda.value;
+			delete damage.perda;
 		}
 
 		let rdIgnorada = Math.abs(roll.options.rd ?? 0);
@@ -646,62 +670,39 @@ export default class ActorT20 extends Actor {
 		}
 
 		if (rdIgnorada) ignoraRD("dano");
-
-		// Apply Damage Reduction for each type of damage
-		let final = {
-			damage: 0 - (rds.dano?.value ? rds.dano.value : 0),
-			tempHP: 0,
-			mana: 0,
-			tempMP: 0
-		};
-
 		for (let [type, dmg] of Object.entries(damage)) {
-			if (type === "curapv" || type === "perda") {
-				final.damage = 0;
-				final.damage += dmg.value;
-			} else if (type === "curatpv") {
-				final.damage = 0;
-				final.tempHP += dmg.value;
-			} else if (type === "curapm") {
-				final.damage = 0;
-				final.mana += dmg.value;
-			} else if (type === "curatpm") {
-				final.damage = 0;
-				final.tempMP += dmg.value;
-			} else {
-				let r = 0;
-				if (type !== "dano") {
-					// OLD: Number(rds.dano?.value ?? 0) +
-					// Somava RD do tipo 'dano' a todos os tipos;
-					if (rdIgnorada) ignoraRD(type);
-					r = Number(rds[type]?.value ?? 0);
-				}
+			let rd = 0;
+			// Apply Damage Reduction for each type of damage
+			if (type !== "dano") {
+				if (rdIgnorada) ignoraRD(type);
+				rd = Number(rds[type]?.value ?? 0);
+			}
 
-				if (!foundry.utils.isEmpty(rdsEx) && !rdsEx[type]) {
-					r += Number(Object.values(rdsEx)[0]);
-				}
+			if (!foundry.utils.isEmpty(rdsEx) && !rdsEx[type]) {
+				rd += Number(Object.values(rdsEx)[0]);
+			}
+
+			if (multiplier > 0) {
 				if (rds[type]?.imunidade) dmg.value = 0;
 				else if (rds[type]?.vulnerabilidade) dmg.value = Math.floor(dmg.value * 1.5);
 				else if (rds[type]?.danoPorDado) dmg.value += roll.terms[0].number;
-				const min = multiplier > 0 ? 0 : -Infinity;
-				final.damage = Math.max(final.damage + dmg.value - r, min);
-			}
+				final.damage += Math.max(dmg.value - rd, 0);
+			} else final.heal += dmg.value;
 		}
+		final.damage = Math.max(final.damage, 0);
 
 		// Deduct value from temp attr first
-		const tmpHP = parseInt(pv.temp) || 0;
-		const tmpMP = parseInt(pm.temp) || 0;
-		const hpt = final.damage > 0 ? Math.min(tmpHP, final.damage) : 0;
-		const mpt = final.damage > 0 ? Math.min(tmpMP, final.mana) : 0;
+		const hpt = Math.min(pv.temp, final.damage + final.loss);
+		const mpt = Math.min(pm.temp, final.mana);
 		// Remaining goes to attr
-		const dhp = Math.clamp(pv.value - (final.damage - hpt), pv.min, pv.max);
+		const dhp = Math.clamp(pv.value + final.heal - (final.damage + final.loss - hpt), pv.min, pv.max);
 		const dmp = Math.clamp(pm.value - (final.mana - mpt), pm.min, pm.max);
 
 		// Update the Actor
 		const updates = {
-			"system.attributes.pv.temp": tmpHP - hpt - final.tempHP,
+			"system.attributes.pv.temp": pv.temp - hpt + final.tempHP,
 			"system.attributes.pv.value": dhp,
-			"system.attributes.pm.temp": tmpMP - mpt - final.tempMP,
+			"system.attributes.pm.temp": pm.temp - mpt + final.tempMP,
 			"system.attributes.pm.value": dmp
 		};
 
