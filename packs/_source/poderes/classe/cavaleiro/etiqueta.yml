@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: zG4W0d7lLCniHMmh
     changes:
-      - key: system.pericias.dipl.outros
+      - key: system.pericias.dipl.bonus
         mode: 2
         value: '2'
         priority: null
@@ -60,7 +60,7 @@ effects:
     disabled: false
     _id: ioZVEDsQ5B3TvBcG
     changes:
-      - key: system.pericias.nobr.outros
+      - key: system.pericias.nobr.bonus
         mode: 2
         value: '2'
         priority: null

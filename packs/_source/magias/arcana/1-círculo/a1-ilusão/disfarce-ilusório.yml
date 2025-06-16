@@ -178,7 +178,7 @@ effects:
         consumable: false
         durationScene: false
     changes:
-      - key: system.pericias.enga.outros
+      - key: system.pericias.enga.bonus
         mode: 2
         value: '10'
         priority: null
