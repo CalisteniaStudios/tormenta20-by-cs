@@ -1050,7 +1050,7 @@ export default class CreatureData extends Tormenta20TypeData {
 		skillData.atributo = atributo;
 		rollData.atributo = rollData[skillData.atributo];
 
-		skillData.label ??= CONFIG.T20.pericias[skillId] || skillId;
+		skillData.label ||= CONFIG.T20.pericias[skillId] || skillId;
 
 		if (!skillData.treinado) parts = parts.filter((f) => f !== "@treino");
 		if (skillData.bonus.length) parts.push(...skillData.bonus);
