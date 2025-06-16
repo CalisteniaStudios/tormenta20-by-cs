@@ -593,7 +593,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			},
 			{
 				name: "system.modificadores.atributos.con",
-				label: "Testes de Constintuição"
+				label: "Testes de Constituição"
 			},
 			{
 				name: "system.modificadores.atributos.int",
