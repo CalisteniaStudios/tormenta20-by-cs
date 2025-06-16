@@ -13,11 +13,11 @@ system:
   chatGif: ''
   atributos:
     for: 0
-    des: 0
+    des: -1
     con: 2
     int: 0
     sab: 1
-    car: -1
+    car: 0
   movement:
     burrow: 0
     climb: 0
@@ -48,11 +48,11 @@ flags: {}
 _stats:
   duplicateSource: null
   exportSource: null
-  coreVersion: '13.342'
+  coreVersion: '13.345'
   systemId: tormenta20
-  systemVersion: 1.4.214
+  systemVersion: v1.5.003
   createdTime: 1747515716511
-  modifiedTime: 1747801874756
+  modifiedTime: 1750033420141
   lastModifiedBy: t20builder000000
 _id: VZd0kqQaLQzoISfB
 sort: 1600000
