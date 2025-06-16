@@ -6,7 +6,6 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 	/** @override */
 	static DEFAULT_OPTIONS = {
 		tag: "form",
-		classes: ["standard-form"],
 		position: {
 			width: 500
 		},
@@ -15,7 +14,8 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 			handler: Tormenta20BaseSettings.#onCommitChanges
 		},
 		window: {
-			title: "Configurações"
+			title: "Configurações",
+			contentClasses: ["standard-form"]
 		}
 	};
 
