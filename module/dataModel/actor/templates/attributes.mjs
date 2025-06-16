@@ -160,7 +160,6 @@ export default class AttributesFields {
 					if (type === "pv" && c.inicial && i === 1) sum += 4 * Number(c[`${type}PorNivel`]);
 					else sum += Number(c[`${type}PorNivel`]);
 					sum += bonusPorNivel.nivel;
-					sum += i % 2 === 0 ? bonusPorNivel.nivelPar : bonusPorNivel.nivelImpar;
 					if (type === "pv") {
 						sum += this.atributos[substituirCon].value;
 						sum = Math.max(sum, 1);
@@ -168,6 +167,8 @@ export default class AttributesFields {
 					soma += sum;
 				}
 			}
+			soma += Math.ceil(this.attributes.nivel.value / 2) * bonusPorNivel.nivelImpar;
+			soma += Math.floor(this.attributes.nivel.value / 2) * bonusPorNivel.nivelPar;
 			Object.entries(atributos)
 				.filter(([atr, value]) => value)
 				.forEach(([atr, value]) => {
