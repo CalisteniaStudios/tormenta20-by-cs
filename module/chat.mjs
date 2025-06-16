@@ -121,12 +121,7 @@ export const hideDieFlavor = function (ChatMessage, html, data) {
 
 function _callApplyDamage(roll, multiplier, type = "dano") {
 	if (canvas.tokens.controlled.length) {
-		return Promise.all(
-			canvas.tokens.controlled.forEach((tk) => {
-				if (roll) return tk.actor.applyDamageV2(roll, multiplier, type);
-				// return tk.actor.applyDamage(amount, multiplier, true);
-			})
-		);
+		return Promise.all(canvas.tokens.controlled.map((tk) => tk.actor.applyDamageV2(roll, multiplier, type)));
 	}
 	ui.notifications.warn("É necessario selecionar um ou mais tokens, para aplicar os valores rolados");
 }
