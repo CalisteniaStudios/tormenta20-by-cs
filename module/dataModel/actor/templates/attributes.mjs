@@ -153,13 +153,16 @@ export default class AttributesFields {
 				nivelPar: bonus.nivelPar.reduce((sum, value) => sum + Number(simplifyRollFormula(value, rollData)), 0),
 				nivelImpar: bonus.nivelImpar.reduce((sum, value) => sum + Number(simplifyRollFormula(value, rollData)), 0)
 			};
+			let levelSum = 0;
 			for (const classe of this.parent.itemTypes.classe) {
 				const c = classe.system;
 				for (let i = 1; i < c.niveis + 1; i++) {
+					levelSum++;
 					let sum = 0;
 					if (type === "pv" && c.inicial && i === 1) sum += 4 * Number(c[`${type}PorNivel`]);
 					else sum += Number(c[`${type}PorNivel`]);
 					sum += bonusPorNivel.nivel;
+					sum += levelSum % 2 === 0 ? bonusPorNivel.nivelPar : bonusPorNivel.nivelImpar;
 					if (type === "pv") {
 						sum += this.atributos[substituirCon].value;
 						sum = Math.max(sum, 1);
@@ -167,8 +170,6 @@ export default class AttributesFields {
 					soma += sum;
 				}
 			}
-			soma += Math.ceil(this.attributes.nivel.value / 2) * bonusPorNivel.nivelImpar;
-			soma += Math.floor(this.attributes.nivel.value / 2) * bonusPorNivel.nivelPar;
 			Object.entries(atributos)
 				.filter(([atr, value]) => value)
 				.forEach(([atr, value]) => {

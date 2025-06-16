@@ -52,6 +52,8 @@ export default class CharacterData extends CreatureData {
 
 	prepareDerivedData() {
 		const rollData = this.parent.getRollData();
+		this.prepareBaseAtributos({ rollData });
+		AttributesFields.preparePVPM.call(this, rollData);
 		this.prepareAtributos({ rollData });
 		AttributesFields.prepareDefense.call(this, rollData);
 		this.prepareSkills({ rollData });
@@ -60,6 +62,5 @@ export default class CharacterData extends CreatureData {
 		AttributesFields.prepareMovement.call(this);
 		AttributesFields.prepareEncumbrance.call(this, rollData);
 		AttributesFields.prepareDamageResistances.call(this, rollData);
-		AttributesFields.preparePVPM.call(this, rollData);
 	}
 }

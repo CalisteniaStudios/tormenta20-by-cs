@@ -34,7 +34,7 @@ export function registerHandlebarsHelpers() {
 			}
 			case "pv":
 			case "pm": {
-				const { substituirCon = "con" } = actor.flags.tormenta20 ?? {};
+				const { substituirCon: con = "con" } = actor.flags.tormenta20 ?? {};
 				const level = actor.system.attributes.nivel.value;
 				const { nivel, nivelImpar, nivelPar } = actor.system.attributes[type].bonus;
 				const manualOverride = Number(nivel[0]) + Number(nivelImpar[0]) + Number(nivelPar[0]);
@@ -72,27 +72,28 @@ export function registerHandlebarsHelpers() {
 
 				const atr = Object.entries(actor.system.atributos)
 					.filter(([key]) => actor.system.attributes[type].atributos[key])
-					.map(([key, data]) => [CONFIG.T20.atributos[key], data.value]);
-				let atrPV;
-				const contarAtributoPV = type === "pv" && this.system.atributos[substituirCon].value;
-				if (contarAtributoPV) {
-					atrPV = 0;
+					.map(([key, data]) => [CONFIG.T20.atributos[key], data.base + data.racial]);
+				let atrPV = 0;
+				const atributoSemBonus = this.system.atributos[con].base + this.system.atributos[con].racial;
+				if (type === "pv" && atributoSemBonus) {
+					let levelSum = 0;
 					for (const classe of actor.items.filter((i) => i.type === "classe")) {
 						const c = classe.system;
 						for (let i = 1; i < c.niveis + 1; i++) {
+							levelSum++;
 							let soma = 0;
 							if (c.inicial && i === 1) soma += 4 * Number(c[`${type}PorNivel`]);
 							else soma += Number(c[`${type}PorNivel`]);
 							soma += bonusNivel?.reduce((sum, data) => sum + Number(data.value), 0) ?? 0;
 							soma +=
-								(i % 2 === 0
+								(levelSum % 2 === 0
 									? bonusNivelPar?.reduce((sum, data) => sum + Number(data.value), 0)
 									: bonusNivelImpar?.reduce((sum, data) => sum + Number(data.value), 0)) ?? 0;
-							if (soma + this.system.atributos[substituirCon].value < 1) atrPV += 1 - soma;
-							else atrPV += this.system.atributos[substituirCon].value;
+							if (soma + atributoSemBonus < 1) atrPV += 1 - soma;
+							else atrPV += atributoSemBonus;
 						}
 					}
-					if (atrPV) atr.unshift([actor.system.atributos[substituirCon].name, atrPV]);
+					if (atrPV) atr.unshift([CONFIG.T20.atributos[con], atrPV]);
 				}
 
 				listEffects = [

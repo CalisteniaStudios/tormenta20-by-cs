@@ -4,6 +4,7 @@
 - Adicionado: Base agora tem um botão para transferir os bônus de Cômodos e Mobílias aos residentes.
 - Adicionado: Efeito ativo `passos` agora afeta magias.
 - Adicionado: Efeito visual do crítico melhorado.
+- Alterado: Cálculo de PV/PM ignora `bonus` de atributos.
 - Corrigido: Efeito ativo `cd` funciona novamente.
 - Corrigido: Cálculo de bônus de ataques de NPCs.
 
