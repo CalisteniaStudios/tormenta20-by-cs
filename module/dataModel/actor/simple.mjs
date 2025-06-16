@@ -11,7 +11,6 @@ export default class SimpleData extends CreatureData {
 		AttributesFields.prepareDefense.call(this, rollData);
 		this.prepareSkills({ rollData });
 
-		AttributesFields.prepareSpellcastingAbility.call(this);
 		AttributesFields.prepareMovement.call(this);
 		AttributesFields.prepareEncumbrance.call(this, rollData);
 		AttributesFields.prepareDamageResistances.call(this, rollData);

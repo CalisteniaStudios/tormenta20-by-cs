@@ -41,6 +41,8 @@ export default class CharacterData extends CreatureData {
 		const nivel = this.parent.nivel;
 		this.attributes.nivel.value = nivel;
 		this.attributes.treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
+		this.attributes.cd = 10 + Math.floor((this.attributes.nivel?.value || 0) / 2);
+
 		// Experience required for next level
 		const xp = this.attributes.nivel.xp;
 		xp.proximo = this.parent.getLevelExp(nivel || 1);
@@ -59,7 +61,6 @@ export default class CharacterData extends CreatureData {
 		AttributesFields.prepareDefense.call(this, rollData);
 		this.prepareSkills({ rollData });
 
-		AttributesFields.prepareSpellcastingAbility.call(this);
 		AttributesFields.prepareMovement.call(this);
 		AttributesFields.prepareEncumbrance.call(this, rollData);
 		AttributesFields.prepareDamageResistances.call(this, rollData);

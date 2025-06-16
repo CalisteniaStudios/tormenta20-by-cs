@@ -181,8 +181,4 @@ export default class AttributesFields {
 			this.attributes[type].max = Math.floor(soma);
 		}
 	}
-
-	static prepareSpellcastingAbility() {
-		this.attributes.cd = 10 + Math.floor((this.attributes.nivel?.value || 0) / 2);
-	}
 }
