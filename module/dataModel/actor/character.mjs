@@ -48,11 +48,12 @@ export default class CharacterData extends CreatureData {
 		const necessario = xp.proximo - anterior;
 		const pct = Math.round(((xp.value - anterior) * 100) / necessario);
 		xp.pct = Math.clamp(pct, 0, 100);
+
+		this.prepareBaseAtributos();
 	}
 
 	prepareDerivedData() {
 		const rollData = this.parent.getRollData();
-		this.prepareBaseAtributos({ rollData });
 		AttributesFields.preparePVPM.call(this, rollData);
 		this.prepareAtributos({ rollData });
 		AttributesFields.prepareDefense.call(this, rollData);

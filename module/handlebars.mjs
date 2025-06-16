@@ -72,9 +72,9 @@ export function registerHandlebarsHelpers() {
 
 				const atr = Object.entries(actor.system.atributos)
 					.filter(([key]) => actor.system.attributes[type].atributos[key])
-					.map(([key, data]) => [CONFIG.T20.atributos[key], data.base + data.racial]);
+					.map(([key, data]) => [CONFIG.T20.atributos[key], data.value - data.bonus]);
 				let atrPV = 0;
-				const atributoSemBonus = this.system.atributos[con].base + this.system.atributos[con].racial;
+				const atributoSemBonus = this.system.atributos[con].value - this.system.atributos[con].bonus;
 				if (type === "pv" && atributoSemBonus) {
 					let levelSum = 0;
 					for (const classe of actor.items.filter((i) => i.type === "classe")) {
