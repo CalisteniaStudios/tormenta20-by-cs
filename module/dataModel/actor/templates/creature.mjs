@@ -1050,18 +1050,7 @@ export default class CreatureData extends Tormenta20TypeData {
 		skillData.atributo = atributo;
 		rollData.atributo = rollData[skillData.atributo];
 
-		skillData.label = skillData.label || CONFIG.T20.pericias[skillId] || skillId;
-		skillData.pda = ["acro", "furt", "ladi"].includes(skillId) || Boolean(skillData.label.match(/\+/g));
-		skillData.st =
-			["ades", "atua", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(skillId)
-			|| Boolean(skillId.match(/ofi[1-9]/))
-			|| Boolean(skillData.label.match(/\*/g));
-		skillData.custom = Boolean(skillId.match(/ofi[1-9]|_pc[1-9]/));
-		skillData.nome = skillData.label.replace(/[\*\+]/g, "").trim();
-
-		if (this.type === "npc" && ["fort", "refl", "vont", "luta", "pont"].includes(skillId)) {
-			parts = ["@outros", "@condi"];
-		}
+		skillData.label ??= CONFIG.T20.pericias[skillId] || skillId;
 
 		if (!skillData.treinado) parts = parts.filter((f) => f !== "@treino");
 		if (skillData.bonus.length) parts.push(...skillData.bonus);
@@ -1077,7 +1066,7 @@ export default class CreatureData extends Tormenta20TypeData {
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = foundry.utils.getProperty(this, "modificadores.pericias") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
-		if (["fort", "refl", "vont"].includes(skillId) && bonuses.resistencia.filter(Boolean).length)
+		if (Object.keys(CONFIG.T20.resistencias).includes(skillId) && bonuses.resistencia.filter(Boolean).length)
 			parts.push("@resistencia");
 		else if (!["luta", "pont"].includes(skillId) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
 		else if (["luta", "pont"].includes(skillId) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");

@@ -206,13 +206,6 @@ class SkillData extends foundry.abstract.DataModel {
 				initial: "",
 				label: "T20.SkillLabel",
 				hint: "T20.SkillLabelHint"
-			}),
-			nome: new fields.StringField({
-				required: true,
-				nullable: false,
-				initial: "",
-				label: "T20.SkillNameValue",
-				hint: "T20.SkillNameHint"
 			})
 			// order: new fields.NumberField({ required: true, nullable:false, initial:0 }),
 		};
