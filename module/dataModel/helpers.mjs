@@ -169,34 +169,10 @@ class SkillData extends foundry.abstract.DataModel {
 				label: "T20.SkillAbility",
 				hint: "T20.SkillAbilityHint"
 			}),
-			treinado: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false,
-				label: "T20.SkillTrained",
-				hint: "T20.SkillTrainedHint"
-			}),
-			st: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false,
-				label: "T20.SkillTrainedOnly",
-				hint: "T20.SkillTrainedOnlyHint"
-			}),
-			pda: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false,
-				label: "T20.SkillArmorPenalty",
-				hint: "T20.SkillArmorPenaltyHint"
-			}),
-			size: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false,
-				label: "T20.SkillSizeModifier",
-				hint: "T20.SkillSizeModifierHint"
-			}),
+			treinado: new fields.BooleanField({ label: "T20.SkillTrained", hint: "T20.SkillTrainedHint" }),
+			st: new fields.BooleanField({ label: "T20.SkillTrainedOnly", hint: "T20.SkillTrainedOnlyHint" }),
+			pda: new fields.BooleanField({ label: "T20.SkillArmorPenalty", hint: "T20.SkillArmorPenaltyHint" }),
+			size: new fields.BooleanField({ label: "T20.SkillSizeModifier", hint: "T20.SkillSizeModifierHint" }),
 			value: new fields.NumberField({
 				required: true,
 				nullable: false,
@@ -223,13 +199,7 @@ class SkillData extends foundry.abstract.DataModel {
 				label: "T20.SkillEffectsValues",
 				hint: "T20.SkillEffectsValuesHint"
 			}),
-			custom: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false,
-				label: "T20.SkillCustom",
-				hint: "T20.SkillCustomHint"
-			}),
+			custom: new fields.BooleanField({ label: "T20.SkillCustom", hint: "T20.SkillCustomHint" }),
 			label: new fields.StringField({
 				required: true,
 				nullable: false,
@@ -494,16 +464,8 @@ const ResistanceSchema = () => {
 				initial: 0,
 				min: 0
 			}),
-			imunidade: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false
-			}),
-			vulnerabilidade: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false
-			})
+			imunidade: new fields.BooleanField(),
+			vulnerabilidade: new fields.BooleanField()
 		});
 	};
 
@@ -658,7 +620,7 @@ function getActivationItemData() {
 		// consume
 		consume: new fields.SchemaField({
 			amount: new fields.NumberField({ initial: 0 }),
-			mpMultiplier: new fields.BooleanField({ required: true, initial: false }),
+			mpMultiplier: new fields.BooleanField(),
 			target: new fields.StringField({
 				required: true,
 				nullable: false,

@@ -41,11 +41,7 @@ export default class MovementData extends Tormenta20DataModel {
 				label: "T20.MovementWalkValue",
 				hint: "T20.MovementWalkValueHint"
 			}),
-			hover: new fields.BooleanField({
-				initial: false,
-				label: "T20.MovementHoverStatus",
-				hint: "T20.MovementHoverStatusHint"
-			}),
+			hover: new fields.BooleanField({ label: "T20.MovementHoverStatus", hint: "T20.MovementHoverStatusHint" }),
 			unit: new fields.StringField({
 				initial: "m",
 				label: "T20.MovementUnitType",

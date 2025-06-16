@@ -12,13 +12,7 @@ export default class EquipmentData extends Tormenta20ItemData {
 			...this.schemaActivation(type),
 			...this.schemaUpgrades(type),
 			...this.schemaRolls(),
-			equipado: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false,
-				label: "T20.ItemEquipped",
-				hint: "T20.ItemEquippedHint"
-			}),
+			equipado: new fields.BooleanField({ label: "T20.ItemEquipped", hint: "T20.ItemEquippedHint" }),
 			equipado2: new fields.SchemaField({
 				slot: new fields.NumberField({
 					required: true,

@@ -173,26 +173,10 @@ export default class CreatureData extends Tormenta20TypeData {
 					choices: Object.keys(T20.atributos),
 					initial: "for"
 				}),
-				treinado: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false
-				}),
-				st: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false
-				}),
-				pda: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false
-				}),
-				size: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false
-				}),
+				treinado: new fields.BooleanField(),
+				st: new fields.BooleanField(),
+				pda: new fields.BooleanField(),
+				size: new fields.BooleanField(),
 				value: new fields.NumberField({
 					required: true,
 					nullable: false,
@@ -214,11 +198,7 @@ export default class CreatureData extends Tormenta20TypeData {
 					nullable: false,
 					initial: ""
 				}),
-				custom: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false
-				}),
+				custom: new fields.BooleanField(),
 				label: new fields.StringField({
 					required: true,
 					nullable: false,
@@ -352,11 +332,7 @@ export default class CreatureData extends Tormenta20TypeData {
 				label: "T20.EncumbrancePercentage",
 				hint: "T20.EncumbrancePercentageHint"
 			}),
-			encumbered: new fields.BooleanField({
-				initial: false,
-				label: "T20.EncumbranceStatus",
-				hint: "T20.EncumbranceStatusHint"
-			})
+			encumbered: new fields.BooleanField({ label: "T20.EncumbranceStatus", hint: "T20.EncumbranceStatusHint" })
 		});
 	}
 
@@ -440,11 +416,7 @@ export default class CreatureData extends Tormenta20TypeData {
 				label: "T20.MovementWalkValue",
 				hint: "T20.MovementWalkValueHint"
 			}),
-			hover: new fields.BooleanField({
-				initial: false,
-				label: "T20.MovementHoverStatus",
-				hint: "T20.MovementHoverStatusHint"
-			}),
+			hover: new fields.BooleanField({ label: "T20.MovementHoverStatus", hint: "T20.MovementHoverStatusHint" }),
 			unit: new fields.StringField({
 				initial: "m",
 				label: "T20.MovementUnitType",
@@ -971,25 +943,9 @@ export default class CreatureData extends Tormenta20TypeData {
 					label: "T20.DamageReductionException",
 					hint: "T20.DamageReductionExceptionHint"
 				}),
-				imunidade: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false,
-					label: "T20.DamageReductionImunity",
-					hint: "T20.DamageReductionImunityHint"
-				}),
-				vulnerabilidade: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false,
-					label: "T20.DamageReductionVulnerability",
-					hint: "T20.DamageReductionVulnerabilityHint"
-				}),
-				danoPorDado: new fields.BooleanField({
-					required: true,
-					nullable: false,
-					initial: false
-				})
+				imunidade: new fields.BooleanField({ label: "T20.DamageReductionImunity", hint: "T20.DamageReductionImunityHint" }),
+				vulnerabilidade: new fields.BooleanField({ label: "T20.DamageReductionVulnerability", hint: "T20.DamageReductionVulnerabilityHint" }),
+				danoPorDado: new fields.BooleanField()
 			});
 		};
 

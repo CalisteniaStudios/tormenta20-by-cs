@@ -180,8 +180,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 					hint: "T20.ItemConsuptionQuantityHint"
 				}),
 				mpMultiplier: new fields.BooleanField({
-					required: true,
-					initial: false,
 					label: "T20.ItemConsuptionMultiplier",
 					hint: "T20.ItemConsuptionMultiplierHint"
 				}),

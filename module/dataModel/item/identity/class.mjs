@@ -40,13 +40,7 @@ export default class ClassData extends IdentityData {
 				label: "T20.ItemClassMPLevel",
 				hint: "T20.ItemClassMPLevelHint"
 			}),
-			inicial: new fields.BooleanField({
-				required: true,
-				nullable: false,
-				initial: false,
-				label: "T20.ItemClassIsInitial",
-				hint: "T20.ItemClassIsInitialHint"
-			})
+			inicial: new fields.BooleanField({ label: "T20.ItemClassIsInitial", hint: "T20.ItemClassIsInitialHint" })
 		};
 	}
 }
