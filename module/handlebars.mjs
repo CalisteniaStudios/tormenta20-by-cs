@@ -193,14 +193,22 @@ export function registerHandlebarsHelpers() {
 			if ((typeof value === "string" && value.includes("@")) || item.multiplier) {
 				value = new Roll(`${value} * ${item.multiplier ?? 1}`, rollData).evaluateSync().total;
 			}
-			if (item.mode === 5) {
-				listItems += `${value}</span></li>`;
-				total = value;
-				break;
-			} else {
-				listItems += `${value >= 0 ? `+${Number(value)}` : value}</span></li>`;
-				total += Number(value);
+			const numValue = Number(value);
+			switch (item.mode) {
+				case 1:
+					listItems += `x${numValue < 0 ? `(${numValue})` : numValue}`;
+					total *= numValue;
+					break;
+				case 5:
+					listItems = `<li class="flexrow"><label>${item.label}:</label><span>=${numValue}`;
+					total = numValue;
+					break;
+				case 2:
+				default:
+					listItems += value >= 0 ? `+${numValue}` : numValue;
+					total += numValue;
 			}
+			listItems += "</span></li>";
 		}
 		if (total >= 0) total = `+${total}`;
 		let tooltip = `
