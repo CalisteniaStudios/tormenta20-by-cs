@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: u19quzeRqcp0Bpjy
     changes:
-      - key: system.atributos.for.base
+      - key: system.atributos.for.value
         mode: 2
         value: '1'
         priority: null

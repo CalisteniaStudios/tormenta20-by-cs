@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: DzeQWjBFoqCLFmdD
     changes:
-      - key: system.atributos.car.base
+      - key: system.atributos.car.value
         mode: 2
         value: '1'
         priority: null

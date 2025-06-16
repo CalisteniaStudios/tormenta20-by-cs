@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: EaZM3e5aTcml3PpB
     changes:
-      - key: system.atributos.con.base
+      - key: system.atributos.con.value
         mode: 2
         value: '1'
         priority: null
