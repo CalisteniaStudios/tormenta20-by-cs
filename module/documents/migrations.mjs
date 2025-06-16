@@ -127,10 +127,10 @@ effectMigration.migrateResistancesPath = function (doc, updateEffectData = {}) {
 // Migrate Abilities Key:  replace .value with .racial
 effectMigration.migrateAbilitiesPath = function (doc, updateEffectData = {}) {
 	if (!foundry.utils.getProperty(doc, "changes") && !foundry.utils.getProperty(doc, "name")) return;
-	if (!doc.name.match(/\w - Atributos|Atributos - \w|Aumento de Atributo - \w/)) return;
 	for (const change of doc.changes) {
-		if (!change.key.match(/system\.atributos\.\w+\.value/)) continue;
-		change.key = change.key.replace(/\.value/, ".racial");
+		if (!/system\.atributos\.\w+\.value/.test(change.key)) continue;
+		if (/Aumento de Atributo - \w/.test(doc.name)) change.key = change.key.replace(/\.value/, ".base");
+		else change.key = change.key.replace(/\.value/, ".bonus");
 	}
 };
 
