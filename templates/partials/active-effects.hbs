@@ -28,14 +28,20 @@
 				<img class="item-image" src="{{effect.img}}"/>
 				<h4 class="item-name">{{effect.name}}</h4>
 				{{else}}
-				<h4 class="item-name"><b>
-				{{effect.flags.tormenta20.custo}}
-
-				{{#if (and (eq effect.flags.tormenta20.custo '') (eq ../../item.type 'magia'))}}{{localize 'T20.Cantrip'}}:
-				{{else if (eq effect.flags.tormenta20.custo '')}}—
-				{{else}}{{localize 'T20.MP'}}:{{/if}}
-				</b>
-				{{effect.name}}</h4>
+				<h4 class="item-name">
+					<b>
+					{{#if (not effect.flags.tormenta20.custo)}}
+						{{#if (eq ../../item.type 'magia')}}
+							{{localize 'T20.Cantrip'}}:
+						{{else}}
+							—
+						{{/if}}
+					{{else}}
+						{{effect.flags.tormenta20.custo}} {{localize 'T20.MP'}}:
+					{{/if}}
+					</b>
+					{{effect.name}}
+				</h4>
 				{{/unless}}
 			</div>
 			{{#unless (or (eq sid 'onuse') (eq sid 'onuseTemp'))}}
