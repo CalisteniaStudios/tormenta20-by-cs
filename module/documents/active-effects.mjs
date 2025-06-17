@@ -13,9 +13,6 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		// }
 		effectMigration.migrateAbilitiesPath(data);
 		effectMigration.migrateResistancesPath(data);
-		if (!foundry.utils.isEmpty(foundry.utils.diffObject(start, data))) {
-			foundry.utils.setProperty(data, "flags.tormenta20.needCommit", true);
-		}
 		return data;
 	}
 

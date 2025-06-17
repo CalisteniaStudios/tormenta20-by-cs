@@ -33,7 +33,6 @@ export default class ItemT20 extends Item {
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		const start = foundry.utils.deepClone(data);
 		itemMigration.migrateDuration(data);
 		itemMigration.migrateEquipStatus(data);
 		itemMigration.migrateProficiencyTypes(data);
@@ -42,10 +41,6 @@ export default class ItemT20 extends Item {
 		itemMigration.migrateEquipAugments(data);
 		itemMigration.migrateEquipSlot(data);
 		itemMigration.migrateRollTags(data);
-
-		if (!foundry.utils.isEmpty(foundry.utils.diffObject(start, data))) {
-			foundry.utils.setProperty(data, "flags.tormenta20.needCommit", true);
-		}
 		return super.migrateData(data);
 	}
 	/* -------------------------------------------- */

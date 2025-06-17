@@ -24,14 +24,9 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		const start = foundry.utils.deepClone(data);
 		actorMigration.migrateCreatureType(data);
 		actorMigration.migrateCRLevel(data);
 		actorMigration.migrateResistances(data);
-
-		if (!foundry.utils.isEmpty(foundry.utils.diffObject(start, data))) {
-			foundry.utils.setProperty(data, "flags.tormenta20.needCommit", true);
-		}
 		return super.migrateData(data);
 	}
 
