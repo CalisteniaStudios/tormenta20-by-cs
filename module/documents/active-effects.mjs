@@ -1,3 +1,6 @@
+import ActiveEffectWizard from "../apps/active-effect-wizard.mjs";
+import ActorT20 from "./actor.mjs";
+import ItemT20 from "./item.mjs";
 import { effectMigration } from "./migrations.mjs";
 /**
  * Extend the base ActiveEffect class to implement system-specific logic.
@@ -6,11 +9,6 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	/** @inheritdoc */
 	static migrateData(data) {
 		super.migrateData(data);
-		const start = foundry.utils.deepClone(data);
-		// if( data.name === undefined && data.label) {
-		// 	console.error(data);
-		// 	data.name = data.label;
-		// }
 		effectMigration.migrateAbilitiesPath(data);
 		effectMigration.migrateResistancesPath(data);
 		return data;
@@ -167,30 +165,28 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		const type = li.dataset.effectType === "onuseTemp" ? "onuse" : li.dataset.effectType;
 		const temp = li.dataset.effectType === "onuseTemp";
 		switch (a.dataset.action) {
-			case "create":
-				const isOnUse = type == "onuse";
+			case "create": {
+				const isOnUse = type === "onuse";
 				const itemEffect = owner.documentName === "Item";
-				return owner.createEmbeddedDocuments(
-					"ActiveEffect",
-					[
-						{
-							name: isOnUse || !itemEffect ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
-							img: isOnUse ? "icons/svg/upgrade.svg" : itemEffect ? owner.img : "icons/svg/aura.svg",
-							origin: owner.uuid,
-							tint: "#FFFFFF",
-							flags: { tormenta20: { onuse: isOnUse, durationScene: temp } },
-							"duration.rounds": type === "temporary" || temp ? 1 : undefined,
-							"duration.seconds": undefined,
-							disabled: ["inactive", "onuse"].includes(type)
-						}
-					],
-					{ renderSheet: true }
-				);
-			case "create-status":
+				return new ActiveEffectWizard(owner, {
+					name: isOnUse || !itemEffect ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
+					img: isOnUse ? "icons/svg/upgrade.svg" : itemEffect ? owner.img : "icons/svg/aura.svg",
+					origin: owner.uuid,
+					tint: "#FFFFFF",
+					flags: { tormenta20: { onuse: isOnUse, durationScene: temp, self: owner.type === "magia" } },
+					"duration.rounds": type === "temporary" || temp ? 1 : undefined,
+					"duration.seconds": undefined,
+					disabled: ["inactive", "onuse"].includes(type)
+				}).render({
+					force: true
+				});
+			}
+			case "create-status": {
 				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];
 				if (!statusEffect) return false;
 				statusEffect.transfer = false;
 				return owner.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+			}
 			case "edit":
 				return effect.sheet.render(true);
 			case "delete":
@@ -212,7 +208,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		const categories = {
 			onuse: {
 				type: "onuse",
-				label: game.i18n.localize("T20.OnUseEffect"), // "Efeitos de Uso",
+				label: game.i18n.localize("T20.OnUseEffects"), // "Efeitos de Uso",
 				effects: []
 			},
 			onuseTemp: {

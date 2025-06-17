@@ -334,4 +334,9 @@ export function registerHandlebarsHelpers() {
 		}
 		return new Handlebars.SafeString(desc.filterJoin(separator));
 	});
+
+	Handlebars.registerHelper("collapsible", function (states, id) {
+		const currentlyOpen = Boolean(states[id]);
+		return currentlyOpen ? "open" : "";
+	});
 }
