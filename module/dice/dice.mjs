@@ -100,7 +100,8 @@ export async function damageRoll({
 			})
 			.filterJoin("+");
 		// Create the damage roll
-		const roll = new Roll(parts, data, { type: "damage", rd });
+		const rollFormula = simplifyRollFormula(parts, data);
+		const roll = new Roll(rollFormula, data, { type: "damage", rd });
 
 		// Modify the damage formula for critical hits
 		if (crit === true) {
