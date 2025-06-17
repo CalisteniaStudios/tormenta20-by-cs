@@ -1062,14 +1062,6 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	/** @inheritDoc */
-	applyActiveEffects() {
-		this.effects.forEach((e) => e.determineSuppression());
-		return super.applyActiveEffects();
-	}
-
-	/* -------------------------------------------- */
-
 	/**
 	 * Display the chat card for an Item as a Chat Message
 	 * @param {object} options          Options which configure the display of the item chat card
