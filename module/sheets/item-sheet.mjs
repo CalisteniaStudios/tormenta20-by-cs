@@ -546,7 +546,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 	async _createEffect(upgrade) {
 		const availableEffects = this._availableEffects;
-		if (!availableEffects) return;
+		if (!availableEffects || !availableEffects[upgrade]) return;
 
 		const effect = {
 			...availableEffects[upgrade],
