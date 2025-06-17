@@ -40,8 +40,13 @@ export async function d20Roll({
 			parts[0] = formula;
 		}
 
+		const rollFormula = simplifyRollFormula(
+			parts.map((p) => p.toString().replace(/^\+|\s/g, "")).filterJoin("+"),
+			data
+		);
+
 		// Execute the roll
-		let roll = new Roll(parts.map((p) => p.toString().replace(/^\+|\s/g, "")).filterJoin("+"), data);
+		let roll = new Roll(rollFormula, data);
 
 		try {
 			await roll.roll();
