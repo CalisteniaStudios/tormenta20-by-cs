@@ -850,7 +850,8 @@ export default class ItemT20 extends Item {
 							const fd = new foundry.applications.ux.FormDataExtended(button.form);
 							const atributos = fd.object;
 							for (const [key, value] of Object.entries(atributos)) {
-								changes[`system.atributos.${key}.racial`] = this.system.atributos[key] + (value ?? 0);
+								const base = openRaces ? 0 : this.system.atributos[key];
+								changes[`system.atributos.${key}.racial`] = base + (value ?? 0);
 							}
 						}
 					}
