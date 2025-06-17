@@ -10,9 +10,9 @@ system:
   description:
     value: >-
       <p>Voc&ecirc; pode lan&ccedil;ar
-      @UUID[Compendium.tormenta20.magias.w6DanTXGXcuu5I0N]{Esculpir
-      Sons}(CD Car) sem pagar seu custo em PM. Voc&ecirc; s&oacute; pode
-      usar a flauta fantasma se for treinado em
+      @UUID[Compendium.tormenta20.magias.w6DanTXGXcuu5I0N]{Esculpir Sons}(CD
+      Car) sem pagar seu custo em PM. Voc&ecirc; s&oacute; pode usar a flauta
+      fantasma se for treinado em
       @UUID[Compendium.tormenta20.pericias.eiKvnk0prKaG2rl0]{Atua&ccedil;&atilde;o}.</p>
     chat: ''
     unidentified: ''
@@ -20,7 +20,7 @@ system:
   equipado: false
   equipado2:
     slot: 0
-    type: ''
+    type: hand
   carregado: true
   peso: 0
   espacos: 1
@@ -98,10 +98,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1666280396716
-  modifiedTime: 1684623039339
+  modifiedTime: 1750186687159
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

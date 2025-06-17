@@ -49,16 +49,16 @@ flags: {}
 system:
   description:
     value: >-
-      <p>O acabamento deste colar ou bracelete remete a um animal
-      poderoso, como um urso ou lobo. Voc&ecirc; recebe +1 em
-      Constitui&ccedil;&atilde;o (somente ap&oacute;s um dia de uso).</p>
+      <p>O acabamento deste colar ou bracelete remete a um animal poderoso, como
+      um urso ou lobo. Voc&ecirc; recebe +1 em Constitui&ccedil;&atilde;o
+      (somente ap&oacute;s um dia de uso).</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, p. 345
   equipado: false
   equipado2:
     slot: 0
-    type: ''
+    type: body
   carregado: true
   peso: 0
   espacos: 1
@@ -105,10 +105,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1664314000115
-  modifiedTime: 1684623052855
+  modifiedTime: 1750186437054
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

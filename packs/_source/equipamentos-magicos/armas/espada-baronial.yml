@@ -22,7 +22,7 @@ system:
   equipado: 0
   equipado2:
     slot: 0
-    type: ''
+    type: hand
   carregado: true
   peso: 2
   espacos: 0
@@ -64,7 +64,7 @@ system:
       versatil: ''
   criticoM: 19
   criticoX: 2
-  alcance: '-'
+  alcance: ''
   tipoUso: sim
   propriedades:
     ada: false
@@ -82,6 +82,8 @@ system:
     leve: false
     municao: false
     versatil: false
+    des: false
+    hib: false
   encantos:
     arremesso: false
     lancinante: false
@@ -162,10 +164,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1664314000121
-  modifiedTime: 1684622976854
+  modifiedTime: 1750186139388
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

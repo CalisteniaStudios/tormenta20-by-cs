@@ -9,19 +9,19 @@ flags: {}
 system:
   description:
     value: >-
-      <p>Esta corda de 15m &eacute; bastante fina, mas forte o suficiente
-      para suportar at&eacute; seis criaturas M&eacute;dias (ou 120
-      espa&ccedil;os). Com um comando (uma a&ccedil;&atilde;o de movimento), a
-      corda se move em qualquer dire&ccedil;&atilde;o (incluindo para cima) a 3m
-      por rodada, fixando-se firmemente onde voc&ecirc; quiser. Ela pode se
-      desamarrar e voltar da mesma forma</p>
+      <p>Esta corda de 15m &eacute; bastante fina, mas forte o suficiente para
+      suportar at&eacute; seis criaturas M&eacute;dias (ou 120 espa&ccedil;os).
+      Com um comando (uma a&ccedil;&atilde;o de movimento), a corda se move em
+      qualquer dire&ccedil;&atilde;o (incluindo para cima) a 3m por rodada,
+      fixando-se firmemente onde voc&ecirc; quiser. Ela pode se desamarrar e
+      voltar da mesma forma</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, p. 343
   equipado: false
   equipado2:
     slot: 0
-    type: ''
+    type: body
   carregado: true
   peso: 0
   espacos: 1
@@ -68,10 +68,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1666279219627
-  modifiedTime: 1684623039339
+  modifiedTime: 1750186436949
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

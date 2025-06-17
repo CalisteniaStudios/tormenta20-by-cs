@@ -133,8 +133,8 @@ system:
       fornece proteção sem igual. Se você não se deslocar em seu turno, a RD que
       ela fornece aumenta para 10 até seu próximo turno.</p>
 
-      <p><strong>Reforçada.</strong>Placas adicionais, uma camada extra de
-      cota de malha ou acolchoamento, proteção dobrada nas juntas e áreas
+      <p><strong>Reforçada.</strong>Placas adicionais, uma camada extra de cota
+      de malha ou acolchoamento, proteção dobrada nas juntas e áreas
       vulneráveis... O bônus na Defesa e a penalidade de armadura de uma
       armadura ou escudo com esta modificação aumentam em +1. Uma armadura não
       pode ser reforçada e delicada.</p>
@@ -153,7 +153,7 @@ system:
   equipado: false
   equipado2:
     slot: 0
-    type: ''
+    type: body
   carregado: true
   peso: 25
   espacos: 5
@@ -230,10 +230,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1664314000090
-  modifiedTime: 1684622924342
+  modifiedTime: 1750186436467
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

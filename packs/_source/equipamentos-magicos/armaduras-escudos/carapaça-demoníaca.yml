@@ -155,7 +155,7 @@ system:
   equipado: false
   equipado2:
     slot: 0
-    type: ''
+    type: body
   carregado: true
   peso: 25
   espacos: 5
@@ -232,10 +232,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1664314000101
-  modifiedTime: 1684622946811
+  modifiedTime: 1750186436736
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
