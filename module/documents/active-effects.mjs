@@ -30,7 +30,23 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	 * Is this active effect currently suppressed?
 	 * @type {boolean}
 	 */
-	isSuppressed = false;
+	get isSuppressed() {
+		if (super.isSuppressed) return true;
+		if (this.parent.documentName !== "Actor") return false;
+		const [parentType, parentId, documentType, documentId, syntheticItem, syntheticItemId] =
+			this.origin?.split(".") ?? [];
+		let item;
+		// Case 1: This is a linked or sidebar actor
+		if (parentType === "Actor" && !(parentId !== this.parent.id || documentType !== "Item")) {
+			item = this.parent.items.get(documentId);
+		}
+		// Case 2: This is a synthetic actor on the scene
+		else if (parentType === "Scene" && !(documentId !== this.parent.token?.id || syntheticItem !== "Item")) {
+			item = this.parent.items.get(syntheticItemId);
+		}
+		if (item) return item.areEffectsSuppressed;
+		return false;
+	}
 
 	/** @override */
 	get active() {
@@ -55,10 +71,10 @@ export default class ActiveEffectT20 extends ActiveEffect {
 
 	/** @inheritdoc */
 	apply(actor, change) {
-		if (this.isSuppressed) return null;
 		if (change.key.match(/\.\?+\./)) return null;
 		if (change.key.startsWith("flags.tormenta20.")) change = this._prepareFlagChange(actor, change);
 		const wildcardPatterns = [
+			"system.atributos.*.value",
 			"system.atributos.*.bonus",
 			"system.pericias.*.bonus",
 			"system.pericias.*.condi",
