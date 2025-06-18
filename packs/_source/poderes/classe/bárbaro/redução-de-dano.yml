@@ -33,7 +33,7 @@ effects:
     changes:
       - key: system.tracos.resistencias.dano.bonus
         mode: 2
-        value: floor((@nvl.barbaro - 5)/3 + 2)
+        value: floor((@nvl.barbaro - 5)/3) * 2 + 2
         priority: null
     transfer: true
     _stats:
