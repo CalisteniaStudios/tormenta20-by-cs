@@ -54,9 +54,9 @@ export default class ActorT20 extends Actor {
 		return this.effects.reduce((acc, ef) => {
 			if (ef.modifiesActor) {
 				for (let ch of ef.changes) {
-					if ([0, 3, 4].includes(ch.value)) continue;
+					if ([3, 4].includes(ch.value)) continue;
 					if (!acc[ch.key]) acc[ch.key] = [];
-					acc[ch.key] = [{ label: ef.name, value: ch.value, mode: ch.mode }];
+					acc[ch.key].push({ label: ef.name, value: ch.value, mode: ch.mode });
 				}
 			}
 			return acc;
