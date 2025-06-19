@@ -40,8 +40,13 @@ export async function d20Roll({
 			parts[0] = formula;
 		}
 
+		const rollFormula = simplifyRollFormula(
+			parts.map((p) => p.toString().replace(/^\+|\s/g, "")).filterJoin("+"),
+			data
+		);
+
 		// Execute the roll
-		let roll = new Roll(parts.map((p) => p.toString().replace(/^\+|\s/g, "")).filterJoin("+"), data);
+		let roll = new Roll(rollFormula, data);
 
 		try {
 			await roll.roll();
@@ -95,7 +100,8 @@ export async function damageRoll({
 			})
 			.filterJoin("+");
 		// Create the damage roll
-		const roll = new Roll(parts, data, { type: "damage", rd });
+		const rollFormula = simplifyRollFormula(parts, data);
+		const roll = new Roll(rollFormula, data, { type: "damage", rd });
 
 		// Modify the damage formula for critical hits
 		if (crit === true) {

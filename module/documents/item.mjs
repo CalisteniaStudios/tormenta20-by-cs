@@ -1423,7 +1423,7 @@ export default class ItemT20 extends Item {
 				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
 			} else if (!perda) {
 				const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
-				if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "Bônus Geral", ""]);
+				if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "", ""]);
 
 				if (pericia === "luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
 				else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
