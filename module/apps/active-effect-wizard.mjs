@@ -240,11 +240,11 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			{
 				label: `${game.i18n.localize("T20.Defense")}: ${game.i18n.localize("T20.Bonus")}`,
 				key: "system.attributes.defesa.bonus"
-			},
-			{
-				label: `${game.i18n.localize("T20.Defense")}: ${game.i18n.localize("T20.Ability")}`,
-				key: "system.attributes.defesa.atributo"
 			}
+			// {
+			// 	label: `${game.i18n.localize("T20.Defense")}: ${game.i18n.localize("T20.Ability")}`,
+			// 	key: "system.attributes.defesa.atributo"
+			// }
 		];
 	}
 
@@ -336,10 +336,10 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 
 	#getOtherStatsPresets() {
 		return [
-			{
-				label: game.i18n.localize("T20.Size"),
-				key: "system.tracos.tamanho"
-			},
+			// {
+			// 	label: game.i18n.localize("T20.Size"),
+			// 	key: "system.tracos.tamanho"
+			// },
 			{
 				label: game.i18n.localize("T20.SpellDC"),
 				key: "system.attributes.cd"
