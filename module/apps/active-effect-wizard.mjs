@@ -185,7 +185,7 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		return [
 			{
 				key: "bonus",
-				label: game.i18n.localize("T20.RD")
+				label: game.i18n.localize("T20.DR")
 			},
 			{
 				key: "vulnerabilidade",
