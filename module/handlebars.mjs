@@ -1,20 +1,11 @@
 export function registerHandlebarsHelpers() {
-	Handlebars.registerHelper("concat", function () {
-		let outStr = "";
-		for (let arg in arguments) {
-			if (typeof arguments[arg] != "object") {
-				outStr += arguments[arg];
-			}
-		}
-		return outStr;
-	});
-
-	Handlebars.registerHelper("fieldBonuses", function (sheet, hbl) {
+	Handlebars.registerHelper("fieldBonuses", function (path, options) {
+		const { root: sheet } = options.data;
 		const actor = game.actors.get(sheet.actor._id) || fromUuidSync(sheet.uuid);
 		if (!actor) return "";
 		const rollData = actor.getRollData();
 		const modFields = actor.modifiedFields;
-		const path = hbl.hash.path;
+		if (typeof path === "object") path = path.string;
 		const pathTerms = path.split(".").filter((t) => !["system", "attributes", "tracos"].includes(t));
 		const [type, key] = pathTerms;
 		let listEffects = [];
@@ -185,7 +176,6 @@ export function registerHandlebarsHelpers() {
 			default:
 				break;
 		}
-		// data-tooltip="{{fieldBonuses @root path=(concat 'system.pericias.' skill.key)}}" data-tooltip-direction="LEFT"
 		let total = 0;
 		for (const item of listEffects.filter(Boolean)) {
 			listItems += `<li class="flexrow"><label>${item.label}:</label><span>`;
