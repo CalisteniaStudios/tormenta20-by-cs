@@ -1,3 +1,5 @@
+import ActorT20 from "../documents/actor.mjs";
+
 export default class StatblockParser extends FormApplication {
 	constructor(object = {}, options = {}) {
 		super(object, options);
@@ -74,7 +76,7 @@ export default class StatblockParser extends FormApplication {
 		ev.preventDefault();
 		console.groupCollapsed("Statblock Parser");
 		const statblock = ev.currentTarget.closest("form").statblock.value.replaceAll("–", "-");
-		const schema = new Actor({
+		const schema = new ActorT20({
 			type: "npc",
 			name: "template"
 		}).system.toObject();
