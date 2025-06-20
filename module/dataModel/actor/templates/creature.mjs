@@ -55,32 +55,32 @@ export default class CreatureData extends Tormenta20TypeData {
 						primary: {
 							value: 0,
 							max: 0,
-							label: T20.resources.primary
+							label: game.i18n.localize(T20.resources.primary)
 						},
 						secondary: {
 							value: 0,
 							max: 0,
-							label: T20.resources.secondary
+							label: game.i18n.localize(T20.resources.secondary)
 						},
 						tertiary: {
 							value: 0,
 							max: 0,
-							label: T20.resources.tertiary
+							label: game.i18n.localize(T20.resources.tertiary)
 						},
 						deathsave: {
 							value: 0,
 							max: 3,
-							label: T20.resources.deathsave
+							label: game.i18n.localize(T20.resources.deathsave)
 						},
 						shadow: {
 							value: 0,
 							max: 5,
-							label: T20.resources.shadow
+							label: game.i18n.localize(T20.resources.shadow)
 						},
 						catarse: {
 							value: 0,
 							max: 3,
-							label: T20.resources.catarse
+							label: game.i18n.localize(T20.resources.catarse)
 						}
 					}
 				}
