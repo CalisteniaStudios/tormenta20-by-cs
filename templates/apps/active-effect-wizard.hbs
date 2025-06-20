@@ -21,11 +21,7 @@
 				</select>
 				<input type='text' class='value' value='{{this.value}}' />
 				<span class='change-controls'>
-					<button
-					type='button'
-					class='delete-change'
-					data-action='deleteChange'
-					>
+					<button type='button' class='delete-change' data-action='deleteChange' >
 					<i class='fa-solid fa-trash'></i>
 					</button>
 				</span>
@@ -60,7 +56,7 @@
 					{{#each weaponPresets}}
 					<li>
 						<button type='button' data-key='{{key}}' data-action='addChange'>
-						{{label}}
+							{{label}}
 						</button>
 					</li>
 					{{/each}}
@@ -68,14 +64,14 @@
 			</span>
 		</details>
 		{{/if}}
-		<details data-category='atributo' {{collapsible collapsibleStates 'attribute'}}>
+		<details data-category='atributo' {{collapsible collapsibleStates 'atributo'}}>
 			<summary>{{localize 'T20.Attributes'}}</summary>
 			<span class='content'>
 				<div class='form-group'>
 					<label>{{localize 'T20.EffectWizard.SelectAttribute'}}</label>
 					<span class='form-fields'>
 						<select name='currAttribute' class='target'>
-							{{selectOptions attributes selected=currAttribute localize=true}}
+							{{selectOptions attributes selected=currAttribute}}
 						</select>
 					</span>
 				</div>
@@ -98,7 +94,7 @@
 					</label>
 					<span class='form-fields'>
 						<select name='currSkill' class='target'>
-							{{selectOptions skillSuggestions selected=currSkill localize=true}}
+							{{selectOptions skillSuggestions selected=currSkill}}
 						</select>
 					</span>
 				</div>
@@ -109,6 +105,30 @@
 				</div>
 			</span>
 		</details>
+		<details data-category='resistance' {{collapsible collapsibleStates 'resistance'}}>
+			<summary>{{localize 'T20.ResistancesWeaknesses'}}</summary>
+			<span class='content'>
+				<div class='form-group'>
+					<label for='aewizard-skill'>
+						{{localize 'T20.EffectWizard.EnterResistance.Label'}}
+					</label>
+					<span class='form-fields'>
+						<select name='currResistance' class='target'>
+							{{selectOptions resistanceSuggestions selected=currResistance}}
+						</select>
+					</span>
+				</div>
+				<ul class='unmarked-list other-presets'>
+					{{#each resistancePresets}}
+					<li>
+						<button type='button' data-key='{{key}}' data-action='addChange' {{disabled this.disabled}}>
+							{{label}}
+						</button>
+					</li>
+					{{/each}}
+				</ul>
+			</span>
+		</details>
 		<details data-category='derived' {{collapsible collapsibleStates 'derived'}}>
 			<summary>{{localize 'T20.Derived'}}</summary>
 			<span class='content'>
@@ -116,7 +136,7 @@
 					{{#each derivedPresets}}
 					<li>
 						<button type='button' data-key='{{key}}' data-action='addChange'>
-						{{label}}
+							{{label}}
 						</button>
 					</li>
 					{{/each}}
@@ -206,7 +226,7 @@
 					{{#each otherPresets}}
 					<li>
 						<button type='button' data-key='{{key}}' data-action='addChange'>
-						{{label}}
+							{{label}}
 						</button>
 					</li>
 					{{/each}}

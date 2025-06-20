@@ -177,9 +177,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 					"duration.rounds": type === "temporary" || temp ? 1 : undefined,
 					"duration.seconds": undefined,
 					disabled: ["inactive", "onuse"].includes(type)
-				}).render({
-					force: true
-				});
+				}).render({ force: true });
 			}
 			case "create-status": {
 				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];

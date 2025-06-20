@@ -31,14 +31,15 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 	#collapsibleStates = {
 		arma: true,
 		magia: true,
-		attribute: true,
-		skill: true,
-		derived: true
+		atributo: true,
+		skill: true
 	};
 
 	currAttribute = "for";
 
 	currSkill = "acro";
+
+	currResistance = "dano";
 
 	document;
 
@@ -115,6 +116,8 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			collapsibleStates: this.#collapsibleStates,
 			expirationOptions: this.#getExpirationOptions(),
 			skillSuggestions: this.#getSkillSuggestions(),
+			resistanceSuggestions: this.#getResistanceSuggestions(),
+			resistancePresets: this.#getResistancePresets(),
 			derivedPresets: this.#getDerivedPresets(),
 			globalModPresets: this.#getGlobalModPresets(),
 			otherPresets: this.#getOtherStatsPresets(),
@@ -124,6 +127,7 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			attributes: { "*": "Todos os Atributos", ...CONFIG.T20.atributos },
 			currAttribute: this.currAttribute,
 			currSkill: this.currSkill,
+			currResistance: this.currResistance,
 			changeModes: {
 				[foundry.CONST.ACTIVE_EFFECT_MODES.ADD]: "EFFECT.MODE_ADD",
 				[foundry.CONST.ACTIVE_EFFECT_MODES.MULTIPLY]: "EFFECT.MODE_MULTIPLY",
@@ -164,6 +168,39 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		};
 		const source = parent instanceof ActorT20 ? this.document.system.pericias : CONFIG.T20.pericias;
 		return { "*": "Todas as Perícias", ...createSuggestions(source) };
+	}
+
+	#getResistanceSuggestions() {
+		const createSuggestions = () => {
+			return Object.fromEntries(
+				Object.entries(CONFIG.T20.damageTypes)
+					.map(([key, label]) => [key, label])
+					.filter(([_, label]) => label)
+			);
+		};
+		return createSuggestions();
+	}
+
+	#getResistancePresets() {
+		return [
+			{
+				key: "bonus",
+				label: game.i18n.localize("T20.RD")
+			},
+			{
+				key: "vulnerabilidade",
+				label: game.i18n.localize("T20.Weakness")
+			},
+			{
+				key: "imunidade",
+				label: game.i18n.localize("T20.Immunity")
+			},
+			{
+				key: "danoPorDado",
+				label: game.i18n.localize("T20.DamPerDie"),
+				disabled: ["dano", "perda"].includes(this.currResistance)
+			}
+		];
 	}
 
 	#getDerivedPresets() {
@@ -425,6 +462,21 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			key = `@${category.capitalize()}{${target}}[system.${keyPart}]`;
 		} else if (category === "atributo") {
 			label = `${CONFIG.T20.atributos[target]} ${currentTarget.innerText}`.trim();
+			key = `system.atributos.${target}.${keyPart}`;
+		} else if (category === "resistance") {
+			const dano = CONFIG.T20.damageTypes[target];
+			let str = "";
+			if (keyPart === "bonus") {
+				if (target === "dano" || target === "perda") str = "T20.DamResType";
+				else str = "T20.DamResOf";
+			} else if (keyPart === "vulnerabilidade") {
+				if (target === "dano" || target === "perda") str = "T20.DamVulnType";
+				else str = "T20.DamVulnOf";
+			} else if (keyPart === "imunidade") {
+				if (target === "dano" || target === "perda") str = "T20.DamImmType";
+				else str = "T20.DamImmOf";
+			} else if (keyPart === "danoPorDado") label = game.i18n.format("T20.DamPerDieOf", { tipo: dano });
+			label = game.i18n.format(str, { tipo: dano });
 			key = `system.atributos.${target}.${keyPart}`;
 		} else {
 			label = target;

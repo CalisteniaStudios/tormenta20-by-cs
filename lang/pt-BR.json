@@ -336,12 +336,19 @@
 
   "T20.DamExce": "Reduz todo o dano pelo valor, exceto este tipo.",
   "T20.DamImm": "Imunidade a Dano",
+  "T20.DamImmType": "Imunidade a {tipo}",
+  "T20.DamImmOf": "Imunidade a Dano de {tipo}",
   "T20.StatusImm": "Imunidade a Condições",
   "T20.StatusEffects": "Condições",
   "T20.DamRes": "Resistência a Dano",
+  "T20.DamResType": "Resistência a {tipo}",
+  "T20.DamResOf": "Resistência a Dano de {tipo}",
   "T20.DR": "RD",
   "T20.DamVuln": "Vulnerabilidade a Dano",
+  "T20.DamVulnType": "Vulnerabilidade a {tipo}",
+  "T20.DamVulnOf": "Vulnerabilidade a Dano de {tipo}",
   "T20.DamPerDie": "Dano extra por Dado",
+  "T20.DamPerDieOf": "Dano extra por Dado de {tipo}",
   "T20.DamageElemental": "Elemental",
   "T20.DamageElementalPlural": "Elementais",
   "T20.DamageType": "Tipo de Dano",
@@ -484,8 +491,11 @@
   "T20.AbbreviationKgs": "kgs",
   "T20.AbbreviationConc": "Sust.",
 
+  "T20.ResistancesWeaknesses": "Resistências e Vulnerabilidades",
+  "T20.Immunity": "Imunidade",
   "T20.Resistance": "Resistência",
   "T20.Resistances": "Resistências",
+  "T20.Weakness": "Vulnerabilidade",
 
   "T20.MovementConfig": "Configure o deslocamento e deslocamentos especiais dessa criatura.",
   "T20.Movement": "Deslocamento",
@@ -1246,7 +1256,7 @@
     "Label": "Modificadores Globais"
   },
   "T20.EffectWizard": {
-    "Add": "Adicionar",
+    "Add": "Criar Efeito",
     "Preview": "Prévia",
     "Change": "Mudança",
     "Mode": "Modo",
@@ -1254,6 +1264,9 @@
     "Changes": "Alterações",
     "OtherStats": "Outros Valores",
     "SelectAttribute": "Selecione um Atributo",
+    "EnterResistance": {
+      "Label": "Selecione um tipo de dano"
+    },
     "EnterSkill": {
       "Label": "Selecione uma Perícia",
       "Hint": ""
