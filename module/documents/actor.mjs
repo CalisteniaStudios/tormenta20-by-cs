@@ -844,7 +844,8 @@ export default class ActorT20 extends Actor {
 	 * @param {Object} options    Options which configure how skill tests are rolled
 	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
 	 */
-	async rollPericia(key, options = { message: true }) {
+	async rollPericia(key, options = {}) {
+		options.message ??= true;
 		const actor = this;
 		const cloneActor = await this.clone({ name: `${this.name} (Temp)` }, { save: false, keepId: true });
 		let pericia = foundry.utils.deepClone(cloneActor.system.pericias[key]);
@@ -957,11 +958,12 @@ export default class ActorT20 extends Actor {
 	 * @param {Object} options    Options which configure how ability tests are rolled
 	 * @return {Promise<Roll>}    A Promise which resolves to the created Roll instance
 	 */
-	async rollAtributo(key, options = { message: true }) {
+	async rollAtributo(key, options = {}) {
+		options.message ??= true;
 		const label = CONFIG.T20.atributos[key];
 		const abl = this.system.atributos[key];
 		const actor = this;
-		const event = options.event;
+		const event = options.event ?? {};
 		let rollMode = game.settings.get("core", "rollMode");
 
 		// Construct parts

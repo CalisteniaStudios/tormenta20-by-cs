@@ -253,6 +253,15 @@
     "units": "m",
     "diagonals": 3
   },
+  "relationships": {
+    "recommends": [
+      {
+        "id": "vision-t20",
+        "type": "module",
+        "manifest": "https://github.com/mclemente/vision-t20/releases/latest/download/module.json"
+      }
+    ]
+  },
   "primaryTokenAttribute": "attributes.pv",
   "secondaryTokenAttribute": "attributes.pm",
   "url": "https://gitlab.com/vizael/Tormenta20",

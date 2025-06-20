@@ -869,3 +869,42 @@ aside[role="tooltip"] {
     }
   }
 }
+
+#token-hud .status-effects {
+  --effect-font-size: var(--font-size-12);
+  --effect-columns: 3;
+  font-size: var(--effect-font-size);
+  grid-template-columns: repeat(var(--effect-columns), calc(var(--effect-font-size) * 9));
+  line-height: var(--effect-size);
+  text-align: left;
+
+  .effect {
+    cursor: pointer;
+    position: relative;
+    gap: 0.25rem;
+
+    &:hover {
+      * {
+        opacity: 0.7;
+      }
+    }
+
+    &.active {
+      * {
+        opacity: 1;
+      }
+    }
+
+    &.overlay {
+      border: 1px solid var(--control-active-border-color);
+      * {
+        opacity: 1;
+        border: none;
+      }
+    }
+
+    img {
+      flex: 0 0 auto;
+    }
+  }
+}

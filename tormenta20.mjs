@@ -41,6 +41,7 @@ import CompendiumT20 from "./module/apps/compendium.mjs";
 import ResourceConfig from "./module/apps/resource-config.mjs";
 import RestConfigDialog from "./module/apps/rest-config.mjs";
 import StatblockParser from "./module/apps/statblock-parser.mjs";
+import TokenHUDT20 from "./module/apps/token-hud.mjs";
 import TraitSelector from "./module/apps/trait-selector.mjs";
 // import CombatTrackerT20 from "./module/apps/combat.mjs";
 
@@ -112,6 +113,7 @@ Hooks.once("init", async function () {
 	CONFIG.Token.documentClass = TokenDocumentT20;
 	CONFIG.Token.objectClass = TokenT20;
 	CONFIG.Token.rulerClass = TokenRulerT20;
+	CONFIG.Token.hudClass = TokenHUDT20;
 	CONFIG.time.roundTime = 6;
 
 	CONFIG.Canvas.layers.templates.layerClass = TemplateLayerT20;
