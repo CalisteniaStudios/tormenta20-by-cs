@@ -1,5 +1,5 @@
 export const endSegment = async function (app, html) {
-	if (game.user.isGM) {
+	if (game.user.isGM && !app.element.querySelector(".scene-segment")) {
 		const button = document.createElement("button");
 		button.className = "scene-segment flexF";
 		button.title = "Terminar a Cena";
