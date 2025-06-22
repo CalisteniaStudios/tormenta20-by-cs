@@ -1044,7 +1044,7 @@ export default class CreatureData extends Tormenta20TypeData {
 
 		let parts = this.parent.skillFormula;
 
-		skillData ??= foundry.utils.deepClone(this.skills[skillId]);
+		skillData ??= foundry.utils.deepClone(this.pericias[skillId]);
 		rollData ??= this.parent.getRollData();
 		atributo ??= skillData.atributo;
 		skillData.atributo = atributo;
