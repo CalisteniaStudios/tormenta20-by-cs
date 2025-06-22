@@ -493,4 +493,32 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 		}
 		return schema;
 	}
+
+	static migrateData(source) {
+		if (typeof source.description === "string") {
+			source.description = { value: source.description, unidentified: "" };
+		}
+		return source;
+	}
+
+	prepareBaseData() {
+		const item = this.parent;
+		// TODO move to another file
+		if (item.isOwned && item.parent === "character" && game.settings.get("tormenta20", "equipmentSlots")) {
+			if (this.equipado && this.equipado2.slot === 0) {
+				const equip2 = this.equipado2;
+				if (this.equipado2.type === "hand" && this.equipado === 2) {
+					this.equipado2.slot = 12.1;
+				} else {
+					let equips = this.actor.items.filter((it) => it.equipado && it.equipado2.type === equip2.type);
+					let limite = equip2.type === "hand" ? "limiteEmpunhado" : "limiteVestido";
+					equips = equips.map((it) => it.id);
+					this.equipado2.slot =
+						(equip2.type === "hand" ? 1.1 : 1.2) + Math.min(equips.indexOf(this.id), this.actor.equipamentos[limite]);
+				}
+			}
+		} else if (!item.isOwned && ["arma", "equipamento"].includes(this.type)) {
+			this.system.equipado = false;
+		}
+	}
 }
