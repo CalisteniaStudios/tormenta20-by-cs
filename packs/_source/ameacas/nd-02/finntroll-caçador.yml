@@ -442,10 +442,9 @@ items:
             - - luta
               - ''
               - ''
-            - - '+9'
+            - - '+12'
               - ''
               - ''
-          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -522,10 +521,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.203d2
+      coreVersion: '13.342'
       createdTime: 1664312773034
-      modifiedTime: 1749966530210
+      modifiedTime: 1700236401182
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.y6IKZPxsQebq1AkW
       duplicateSource: null
@@ -573,10 +572,9 @@ items:
             - - pont
               - ''
               - ''
-            - - '+8'
+            - - '+12'
               - ''
               - ''
-          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -653,10 +651,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.203d2
+      coreVersion: '13.342'
       createdTime: 1664312772417
-      modifiedTime: 1749966530222
+      modifiedTime: 1700236434718
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.iYY0Jr19T5ERm43G
       duplicateSource: null
@@ -716,10 +714,9 @@ items:
             - - luta
               - ''
               - ''
-            - - '+9'
+            - - '+12'
               - ''
               - ''
-          versatil: ''
       criticoM: 20
       criticoX: 2
       alcance: short
@@ -785,10 +782,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.203d2
+      coreVersion: '13.342'
       createdTime: 1664312772411
-      modifiedTime: 1749966530234
+      modifiedTime: 1700236419814
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.d7ghPf8u43lS2KL6
       duplicateSource: null
