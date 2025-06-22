@@ -324,4 +324,18 @@ export function registerHandlebarsHelpers() {
 		}
 		return new Handlebars.SafeString(desc.filterJoin(separator));
 	});
+
+	Handlebars.registerHelper("t20-itemLabels", function (item) {
+		const desc = [];
+		let separator = ", ";
+		const { ativacao, custoPM, toHit, dano, critico, tipo, subtipo } = item.labels;
+		if (item.type === "arma") {
+			desc.push(`${toHit} (${dano}, ${critico})`);
+		} else if (item.type === "magia") {
+			desc.push(ativacao);
+		} else {
+			desc.push(ativacao, custoPM);
+		}
+		return new Handlebars.SafeString(desc.filterJoin(separator));
+	});
 }
