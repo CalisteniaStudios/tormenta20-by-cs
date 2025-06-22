@@ -299,6 +299,20 @@ class FormulaField extends foundry.data.fields.StringField {
 	}
 }
 
+/* ----------------------------- */
+
+class PenaltyField extends fields.NumberField {
+	static get _defaults() {
+		return Object.assign(super._defaults, {
+			max: 0
+		});
+	}
+
+	_cast(value) {
+		return this.nullable && value === "" ? null : -Math.abs(Number(value));
+	}
+}
+
 /* ----------- Items ----------- */
 
 class PartData extends foundry.abstract.DataModel {
@@ -720,6 +734,7 @@ export {
 	getObjectItemData,
 	getSaveItemData,
 	MappingField,
+	PenaltyField,
 	ResistanceSchema,
 	RollData,
 	SkillData

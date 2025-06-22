@@ -1,3 +1,4 @@
+import { PenaltyField } from "../../helpers.mjs";
 import Tormenta20ItemData from "../item.mjs";
 
 const fields = foundry.data.fields;
@@ -38,7 +39,7 @@ export default class EquipmentData extends Tormenta20ItemData {
 					label: "T20.ItemEquipmentDefenseMaxAbility",
 					hint: "T20.ItemEquipmentDefenseMaxAbilityHint"
 				}),
-				penalidade: new fields.NumberField({
+				penalidade: new PenaltyField({
 					required: true,
 					nullable: false,
 					initial: 0,

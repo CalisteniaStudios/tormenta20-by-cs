@@ -1,7 +1,7 @@
 import { simplifyRollFormula } from "../../../dice/dice.mjs";
 import Tormenta20TypeData from "../../base.mjs";
 
-import { ActorSkillsField, SkillData } from "../../helpers.mjs";
+import { ActorSkillsField, PenaltyField, SkillData } from "../../helpers.mjs";
 
 const fields = foundry.data.fields;
 
@@ -228,7 +228,7 @@ export default class CreatureData extends Tormenta20TypeData {
 				label: "T20.DefenseAbilityBonus",
 				hint: "T20.DefenseAbilityBonusHint"
 			}),
-			pda: new fields.NumberField({
+			pda: new PenaltyField({
 				required: true,
 				nullable: false,
 				initial: 0,
@@ -1054,7 +1054,7 @@ export default class CreatureData extends Tormenta20TypeData {
 
 		if (!skillData.treinado) parts = parts.filter((f) => f !== "@treino");
 		if (skillData.bonus.length) parts.push(...skillData.bonus);
-		if (skillData.pda && rollData.pda) parts.push("-@pda");
+		if (skillData.pda && rollData.pda) parts.push("@pda");
 		if (skillData.size && rollData.tamanho) parts.push("@tamanho");
 
 		if (skillData.outros) rollData.outros = skillData.outros

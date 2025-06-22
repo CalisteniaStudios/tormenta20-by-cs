@@ -42,8 +42,8 @@ export default class AttributesFields {
 		}).trim();
 
 		defesa.value = parseInt(result);
-		defesa.pda = -pda;
-		rollData.pda = -pda;
+		defesa.pda = pda;
+		rollData.pda = pda;
 	}
 
 	static prepareMovement() {
