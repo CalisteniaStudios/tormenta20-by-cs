@@ -466,7 +466,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		} else if (context === "hand") {
 			updateItems.push({
 				_id: item.id,
-				"system.equipado2.slot": index + 0.1
+				"system.equipado2.slot": index + 0.1,
+				"system.equipado": true
 			});
 			let oldItems = [];
 			if (index > 2) {
