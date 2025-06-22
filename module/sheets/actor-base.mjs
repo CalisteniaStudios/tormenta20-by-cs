@@ -361,6 +361,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 						group: "equips",
 						icon,
 						classes: `${twoHanded || slotItem ? "flexrow" : ""}`,
+						condition: item.system.empunhadura !== "duas",
 						callback: () => this._onToggleItem(item, "hand", slot, slotItem?.id)
 					});
 				}
@@ -470,9 +471,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				"system.equipado": true
 			});
 			let oldItems = [];
-			if (index > 2) {
-				// Remove only current // Cant TwoHand
-			} else if (index === 12) {
+			if (index === 12) {
 				// Remove one handed if equipping two handed
 				oldItems = this.actor.items.filter((it) => item.id != it.id && [1.1, 2.1].includes(it.system.equipado2?.slot));
 			} else {
