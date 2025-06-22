@@ -175,18 +175,8 @@ export default class ItemT20 extends Item {
 	prepareBaseData() {
 		super.prepareBaseData();
 
-		if (this.type === "equipamento" && this.parent?.type !== "character") {
-			this.system.equipado = false;
-		}
-		//
-		if (game.settings.get("tormenta20", "equipmentSlots")) {
-			if (this.type === "equipamento" && this.parent?.type === "character") {
-				this.system.equipado = false;
-			}
-			if (this.type === "arma" && this.parent?.type === "character") {
-				this.system.equipado = 0;
-			}
-			if (this.parent?.type === "character" && this.system.equipado && this.system.equipado2.slot === 0) {
+		if (this.parent?.type === "character" && game.settings.get("tormenta20", "equipmentSlots")) {
+			if (this.system.equipado && this.system.equipado2.slot === 0) {
 				const equip2 = this.system.equipado2;
 				if (this.system.equipado2.type === "hand" && this.system.equipado === 2) {
 					this.system.equipado2.slot = 12.1;
@@ -199,6 +189,8 @@ export default class ItemT20 extends Item {
 						+ Math.min(equips.indexOf(this.id), this.actor.system.equipamentos[limite]);
 				}
 			}
+		} else if (this.type === "equipamento") {
+			this.system.equipado = false;
 		}
 
 		/* FIX item description issues */

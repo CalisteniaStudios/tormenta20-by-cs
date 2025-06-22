@@ -112,8 +112,8 @@ export default class ActorT20 extends Actor {
 	/* -------------------------------------------- */
 
 	get pda() {
-		return this.items.reduce((acc, item) => {
-			if (item.type === "equipamento" && item.system.equipado) {
+		return this.itemTypes.equipamento.reduce((acc, item) => {
+			if (item.system.equipado) {
 				acc += parseInt(item.system.armadura.penalidade);
 			}
 			return acc;

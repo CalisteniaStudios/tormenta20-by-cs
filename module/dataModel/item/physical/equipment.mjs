@@ -24,8 +24,8 @@ export default class EquipmentData extends Tormenta20ItemData {
 				}),
 				type: new fields.StringField({
 					required: true,
-					blank: true,
-					initial: "",
+					blank: false,
+					initial: "body",
 					choices: ["hand", "body", "both"],
 					label: "T20.ItemSlotType",
 					hint: "T20.ItemSlotTypeHint"

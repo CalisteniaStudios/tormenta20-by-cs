@@ -457,7 +457,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		if (currentId) {
 			updateItems.push({
 				_id: currentId,
-				"system.equipado2.slot": 0
+				"system.equipado2.slot": 0,
+				"system.equipado": false
 			});
 		}
 		if (item.id === currentId) {
@@ -487,7 +488,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		} else if (context === "body") {
 			updateItems.push({
 				_id: item.id,
-				"system.equipado2.slot": index + 0.2
+				"system.equipado2.slot": index + 0.2,
+				"system.equipado": true
 			});
 			let oldItems = this.actor.items.filter(
 				(it) =>
