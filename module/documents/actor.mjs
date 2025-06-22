@@ -65,18 +65,6 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	get skillFormula() {
-		// later ...@bonus, @pda
-		if (this.type === "character") {
-			return ["@meionivel", "@treino", "@atributo", "@outros", "@condi"];
-		} else if (this.type === "npc") {
-			return ["@meionivel", "@treino", "@atributo", "@outros", "@condi"];
-			// return ['@ndtreinado','@ndsemtreino','@outros','@condi'];
-		}
-		return ["@atributo", "@outros", "@condi"];
-	}
-	/* -------------------------------------------- */
-
 	get defenseFormula() {
 		// later ...@bonus
 		if (this.type === "character") {
@@ -111,17 +99,6 @@ export default class ActorT20 extends Actor {
 
 	/* -------------------------------------------- */
 
-	get attackRollFormula() {
-		if (this.type === "character") {
-			return ["1d20", ...this.skillFormula, "@arma"];
-		} else if (this.type === "npc") {
-			return ["1d20", ...this.skillFormula, "@arma"];
-		}
-		return ["1d20", ...this.skillFormula, "@arma"];
-	}
-
-	/* -------------------------------------------- */
-
 	get nivel() {
 		return this.items.reduce((acc, item) => {
 			if (item.type === "classe") {
@@ -144,7 +121,7 @@ export default class ActorT20 extends Actor {
 	}
 
 	/* -------------------------------------------- */
-	/*  DataPreparation                             */
+	/*  Data Preparation                            */
 	/* -------------------------------------------- */
 
 	/** @override */
@@ -153,66 +130,6 @@ export default class ActorT20 extends Actor {
 
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
 		this.items.forEach((item) => item.prepareFinalAttributes());
-	}
-
-	/* -------------------------------------------- */
-	/*  Data Preparation Helpers                    */
-	/* -------------------------------------------- */
-
-	/**
-	 * Prepare skill value.
-	 * @private
-	 */
-	_prepareSkills(key, pericia, roll = false) {
-		const system = this.system;
-		// const pericia = system.pericias[key] || false;
-		if (key === "ofic") return;
-
-		const rollData = this.getRollData();
-		let parts = this.skillFormula;
-
-		pericia.label = pericia.label || CONFIG.T20.pericias[key] || "";
-		pericia.pda = ["acro", "furt", "ladi"].includes(key) || Boolean(pericia.label.match(/\+/g));
-		pericia.st =
-			["ades", "atua", "conh", "guer", "joga", "ladi", "mist", "ocul", "nobr", "pilo", "reli"].includes(key)
-			|| Boolean(key.match(/ofi[1-9]/))
-			|| Boolean(pericia.label.match(/\*/g));
-		pericia.custom = Boolean(key.match(/ofi[1-9]|_pc[1-9]/));
-		pericia.nome = pericia.label.replace(/[\*\+]/g, "").trim();
-
-		if (this.type === "npc" && ["fort", "refl", "vont", "luta", "pont"].includes(key)) {
-			parts = ["@outros", "@condi"];
-		}
-
-		if (!pericia.treinado) parts = parts.filter((f) => f != "@treino");
-		if (pericia.bonus.length) parts.push(...pericia.bonus);
-		if (pericia.pda && rollData.pda) parts.push("-@pda");
-		if (key === "furt" && rollData.tamanho) parts.push("@tamanho");
-
-		let atributo = rollData[pericia.atributo];
-		rollData.atributo = atributo || 0;
-		pericia.outros ? (rollData.outros = pericia.outros) : (parts = parts.filter((f) => f != "@outros"));
-		pericia.condi ? (rollData.condi = pericia.condi) : (parts = parts.filter((f) => f != "@condi"));
-		// GET GLOBAL ACTOR MODIFIERS
-		const bonuses = foundry.utils.getProperty(system, "modificadores.pericias") || {};
-		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
-		if (["fort", "refl", "vont"].includes(key) && bonuses.resistencia.filter(Boolean).length)
-			parts.push("@resistencia");
-		else if (!["luta", "pont"].includes(key) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
-		else if (["luta", "pont"].includes(key) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
-		if (bonuses.atr && bonuses.atr[pericia.atributo]?.filter(Boolean).length)
-			parts.push(...bonuses.atr[pericia.atributo]);
-
-		const result = simplifyRollFormula(parts.join("+"), rollData, {
-			constantFirst: true
-		}).trim();
-		if (!roll) {
-			pericia.value = parseInt(result.replace(" ", "")) || 0;
-		} else {
-			let dice = pericia.parts ? pericia.parts[0] : "1d20";
-			const formula = this.type === "npc" ? [dice, result].join("+") : [dice, ...parts].join("+");
-			return Roll.replaceFormulaData(formula, rollData).split("+");
-		}
 	}
 
 	/* -------------------------------------------- */
@@ -846,36 +763,28 @@ export default class ActorT20 extends Actor {
 	 */
 	async rollPericia(key, options = {}) {
 		options.message ??= true;
-		const actor = this;
-		const cloneActor = await this.clone({ name: `${this.name} (Temp)` }, { save: false, keepId: true });
-		let pericia = foundry.utils.deepClone(cloneActor.system.pericias[key]);
-		const ad = cloneActor.system;
+		const pericia = this.system.pericias[key];
 		const event = options.event;
 		let consumeMana = 0;
 		let rollMode = game.settings.get("core", "rollMode");
 
 		let rConfig = {};
-		let itemData = {
+		const itemData = {
 			name: pericia.label,
 			type: "pericia",
-			parts: [],
+			parts: ["1d20", String(pericia.value)],
 			id: key,
-			actor: cloneActor,
+			actor: this,
 			system: { ativacao: { custo: 0 } },
-			isOwned: true
+			isOwned: true,
+			...pericia
 		};
-		itemData = foundry.utils.mergeObject(itemData, pericia);
-		let parts = cloneActor._prepareSkills(key, pericia, true);
-		parts = parts.map((i) => (typeof i === "string" ? i.replace(/^\+/, "") : i));
-		itemData.parts = parts.filter(Boolean);
 		let needsConfiguration;
 
 		const UsageConfig = game.settings.get("tormenta20", "UsageConfig");
-		if (UsageConfig === "default") {
-			needsConfiguration = !(options.event?.shiftKey ?? false);
-		} else {
-			needsConfiguration = options.event?.shiftKey ?? false;
-		}
+		if (UsageConfig === "default") needsConfiguration = !(options.event?.shiftKey ?? false);
+		else needsConfiguration = options.event?.shiftKey ?? false;
+
 		let configuration = {};
 		if (needsConfiguration) {
 			configuration = await AbilityUseDialog.create(itemData);
@@ -884,7 +793,7 @@ export default class ActorT20 extends Actor {
 
 			rollMode = configuration.rollMode;
 		} else {
-			let active = cloneActor.effects.filter(
+			let active = this.effects.filter(
 				(ef) => ef.getFlag("tormenta20", "onuse") && ef.getFlag("tormenta20", "pericia") && !ef.disabled
 			);
 			configuration.aprs = active.reduce((o, ef) => {
@@ -899,10 +808,8 @@ export default class ActorT20 extends Actor {
 		// Compose roll options
 		const rollConfig = foundry.utils.mergeObject(
 			{
-				parts:
-					rConfig.itemData?.parts.map((i) => (typeof i === "string" ? i.replace(/^\+| /, "") : i)).filter(Boolean)
-					|| [],
-				actor: cloneActor,
+				parts: itemData.parts,
+				actor: this,
 				event: event,
 				data: this.getRollData(),
 				title: itemData.label,
@@ -917,7 +824,7 @@ export default class ActorT20 extends Actor {
 				let combate = game.combats.active;
 				if (pericia.label === "Iniciativa" && combate) {
 					let roll = rConfig.itemData.rolled;
-					let combatente = combate.combatants.find((combatant) => combatant.actor.id === actor.id);
+					let combatente = combate.combatants.find((combatant) => combatant.actor.id === this.id);
 					if (combatente && combatente.initiative === null) {
 						combate.setInitiative(combatente.id, roll.total);
 						console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);

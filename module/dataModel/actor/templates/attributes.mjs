@@ -3,7 +3,8 @@ import { simplifyRollFormula } from "../../../dice/dice.mjs";
 export default class AttributesFields {
 	static prepareDefense(rollData) {
 		const defesa = this.attributes.defesa;
-		let parts = this.parent.defenseFormula;
+		const parts = [defesa.base];
+
 		let pda = 0;
 
 		if (this.parent.type === "character" && game.settings.get("tormenta20", "progressiveDefense")) {
@@ -20,22 +21,21 @@ export default class AttributesFields {
 		const accessories = items.filter((i) => !["escudo", "leve", "pesada"].includes(i.system.tipo));
 		const accDef = accessories.map((m) => m.system.armadura.value).reduce((sum, v) => sum + v, 0);
 		const accPda = accessories.map((m) => m.system.armadura.penalidade).reduce((sum, v) => sum + v, 0);
-		parts.push(accDef);
+		if (accDef) parts.push(accDef);
 		pda += armor ? armor.system.armadura.penalidade : 0;
 		pda += shield ? shield.system.armadura.penalidade : 0;
 		pda += accPda ?? 0;
 		parts.push(...defesa.bonus);
 		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
 		let atributo = this.atributos[defesa.atributo].value;
-		if (armor && armor.system.tipo === "pesada") {
+		if (armor?.system.tipo !== "pesada" || Number.between(atributo, -Infinity, maxAtr)) {
 			atributo = Math.clamp(atributo, 0, maxAtr);
+			parts.push(`@${defesa.atributo}`);
 		}
-		rollData.base = defesa.base;
-		rollData.atributo = defesa.atributo ? atributo : 0;
-		rollData.armadura = armor ? armor.system.armadura.value : 0;
-		rollData.escudo = shield ? shield.system.armadura.value : 0;
-		rollData.outros = defesa.outros;
-		rollData.condi = defesa.condi;
+		if (armor) parts.push(armor.system.armadura.value);
+		if (shield) parts.push(shield.system.armadura.value);
+		if (defesa.outros) parts.push(defesa.outros);
+		if (defesa.condi) parts.push(defesa.condi);
 
 		const result = simplifyRollFormula(parts.join("+"), rollData, {
 			constantFirst: true

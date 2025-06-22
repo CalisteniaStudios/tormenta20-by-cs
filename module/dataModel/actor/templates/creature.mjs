@@ -271,10 +271,10 @@ export default class CreatureData extends Tormenta20TypeData {
 		if (type === "npc") {
 		} else if (type === "simple") {
 			delete schema.atributo;
-			delete schema.pda.atributo;
-			delete schema.base.atributo;
-			delete schema.outros.atributo;
-			delete schema.condi.atributo;
+			delete schema.pda;
+			delete schema.base;
+			delete schema.outros;
+			delete schema.condi;
 		}
 		return new fields.SchemaField(schema);
 	}
@@ -1042,41 +1042,39 @@ export default class CreatureData extends Tormenta20TypeData {
 	prepareSkill(skillId, { skillData, rollData, atributo }={}) {
 		if (skillId === "ofic") return;
 
-		let parts = this.parent.skillFormula;
+		const parts = ["@meionivel"];
 
 		skillData ??= foundry.utils.deepClone(this.pericias[skillId]);
 		rollData ??= this.parent.getRollData();
 		atributo ??= skillData.atributo;
 		skillData.atributo = atributo;
-		rollData.atributo = rollData[skillData.atributo];
 
 		skillData.label ||= CONFIG.T20.pericias[skillId] || skillId;
 
-		if (!skillData.treinado) parts = parts.filter((f) => f !== "@treino");
+		parts.push(`@${skillData.atributo}`);
+		if (skillData.treinado) parts.push("@treino");
 		if (skillData.bonus.length) parts.push(...skillData.bonus);
 		if (skillData.pda && rollData.pda) parts.push("@pda");
 		if (skillData.size && rollData.tamanho) parts.push("@tamanho");
-
-		if (skillData.outros) rollData.outros = skillData.outros
-		else parts = parts.filter((f) => f !== "@outros")
-
-		if (skillData.condi) rollData.condi = skillData.condi
-		else (parts = parts.filter((f) => f !== "@condi"));
+		if (skillData.outros) parts.push(skillData.outros);
+		if (skillData.condi) parts.push(skillData.condi);
 
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = foundry.utils.getProperty(this, "modificadores.pericias") || {};
 		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
-		if (Object.keys(CONFIG.T20.resistencias).includes(skillId) && bonuses.resistencia.filter(Boolean).length)
+		if (Object.keys(CONFIG.T20.resistencias).includes(skillId) && bonuses.resistencia.filter(Boolean).length) {
 			parts.push("@resistencia");
+		}
 		else if (!["luta", "pont"].includes(skillId) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
 		else if (["luta", "pont"].includes(skillId) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
-		if (bonuses.atr && bonuses.atr[skillData.atributo]?.filter(Boolean).length)
+		if (bonuses.atr && bonuses.atr[skillData.atributo]?.filter(Boolean).length) {
 			parts.push(...bonuses.atr[skillData.atributo]);
+		}
 
 		const result = simplifyRollFormula(parts.join("+"), rollData, {
 			constantFirst: true
 		}).trim();
-		skillData.value = parseInt(result.trim()) || 0;
+		skillData.value = parseInt(result) || 0;
 
 		return skillData;
 	}

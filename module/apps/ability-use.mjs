@@ -709,7 +709,6 @@ function applyOnUseEffects(rolledItem, configuration = null) {
 		// Apply the modifications to the rolls data
 		id.rolls = applyRollModifiers(item, rollMods);
 	} else if (item.type == "pericia") {
-		item.parts = actor._prepareSkills(item.id, item, true);
 		if (configuration.bonus) item.parts.push(configuration.bonus);
 	}
 
