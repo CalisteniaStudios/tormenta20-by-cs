@@ -216,14 +216,6 @@ export default class ItemT20 extends Item {
 		// Weapons
 		else if (this.type === "arma") {
 			labels.critico = `${system.criticoM}/${system.criticoX}x`;
-			let rollAttack = this.system.rolls.find((r) => r.type === "ataque");
-			let rollDamage = this.system.rolls.find((r) => r.type === "dano");
-
-			if (this.isEmbedded && this.parent.type === "npc") {
-				// TODO ERRO
-				if (rollAttack) labels.npcattack = rollAttack?.parts[2][0] ?? "";
-				if (rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? ""; //
-			}
 		}
 		// Spells
 		else if (this.type === "magia") {
@@ -329,7 +321,7 @@ export default class ItemT20 extends Item {
 
 		// Damage Types
 		if (!(system.rolls instanceof Array)) system.rolls = [];
-		if (system.rolls?.find((r) => r.type === "dano")) {
+		else if (system.rolls?.find((r) => r.type === "dano")) {
 			let dano = system.rolls.find((r) => r.type === "dano") || {};
 			if (dano.parts) {
 				labels.dano = dano.parts
@@ -473,7 +465,7 @@ export default class ItemT20 extends Item {
 		const flags = this.actor.flags.tormenta20 || {};
 
 		// Add skill bonus
-		if (roll.parts[1][0]) {
+		if (this.parent?.type !== "npc" && roll.parts[1][0]) {
 			parts[1] = "@skill";
 			if (!foundry.utils.isEmpty(actorData.pericias)) {
 				rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
