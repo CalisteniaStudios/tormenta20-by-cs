@@ -19,7 +19,13 @@
 				<select class='mode'>
 					{{selectOptions @root.changeModes selected=this.mode localize=true }}
 				</select>
+				{{#if this.boolean}}
+				<input type='checkbox' class='value' {{checked this.value}} />
+				{{else if this.choices}}
+				{{formInput this.field value=this.value classes="value" name="" }}
+				{{else}}
 				<input type='text' class='value' value='{{this.value}}' />
+				{{/if}}
 				<span class='change-controls'>
 					<button type='button' class='delete-change' data-action='deleteChange' >
 					<i class='fa-solid fa-trash'></i>
@@ -101,6 +107,9 @@
 				<div class='flexrow button-list'>
 					<button type='button' data-key='bonus' data-action='addChange'>
 						{{localize 'T20.Bonus'}}
+					</button>
+					<button type='button' data-key='atributo' data-action='addChange'>
+						{{localize 'T20.Ability'}}
 					</button>
 				</div>
 			</span>

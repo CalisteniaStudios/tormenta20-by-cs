@@ -17,6 +17,8 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			...this.#effect,
 			...effectData
 		};
+		// PJs têm praticamente todos os campos utilizáveis
+		this.templateModel = new ActorT20({ name: "Template", type: "character" });
 	}
 
 	#effect = {
@@ -90,7 +92,8 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		if (!target) return; // TODO: what actually do
 		const index = target.closest("li")?.dataset.index;
 		if (target.classList.contains("value")) {
-			this.#changes[Number(index)].value = target.value;
+			if (target.type === "checkbox") this.#changes[Number(index)].value = target.checked;
+			else this.#changes[Number(index)].value = target.value;
 		} else if (target.classList.contains("mode")) {
 			this.#changes[Number(index)].mode = Number(target.value);
 		} else if (target.classList.contains("target")) {
@@ -452,14 +455,16 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		const tgt = details?.querySelector(".target");
 		const target = tgt?.value ?? currentTarget.innerText;
 
-		let label = "";
-		let key = "";
+		let label = target;
+		let key = keyPart;
+		let boolean = false;
+		let choices;
 		if (category === "skill") {
 			if (!target) {
 				return ui.notifications.warn("Please enter a skill name first!");
 			}
 			label = `${tgt.options[tgt.selectedIndex].text} ${currentTarget.innerText}`.trim();
-			key = `@${category.capitalize()}{${target}}[system.${keyPart}]`;
+			key = `system.pericias.${target}.${keyPart}`;
 		} else if (category === "atributo") {
 			label = `${CONFIG.T20.atributos[target]} ${currentTarget.innerText}`.trim();
 			key = `system.atributos.${target}.${keyPart}`;
@@ -472,21 +477,32 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			} else if (keyPart === "vulnerabilidade") {
 				if (target === "dano" || target === "perda") str = "T20.DamVulnType";
 				else str = "T20.DamVulnOf";
+				boolean = true;
 			} else if (keyPart === "imunidade") {
 				if (target === "dano" || target === "perda") str = "T20.DamImmType";
 				else str = "T20.DamImmOf";
-			} else if (keyPart === "danoPorDado") label = game.i18n.format("T20.DamPerDieOf", { tipo: dano });
+				boolean = true;
+			} else if (keyPart === "danoPorDado") {
+				label = game.i18n.format("T20.DamPerDieOf", { tipo: dano });
+				boolean = true;
+			}
 			label = game.i18n.format(str, { tipo: dano });
-			key = `system.atributos.${target}.${keyPart}`;
-		} else {
-			label = target;
-			key = keyPart;
+			key = `system.tracos.resistencias.${target}.${keyPart}`;
 		}
+		if (!boolean) {
+			const property = foundry.utils.getProperty(this.templateActor, key);
+			boolean = typeof property === "boolean";
+		}
+		const field = this.templateModel.system.schema.getField(key.replace("system.", ""));
+		if (field?.choices !== undefined) choices = true;
 
 		this.#changes?.push({
 			label: label,
 			key: key,
-			mode: foundry.CONST.ACTIVE_EFFECT_MODES.ADD
+			mode: foundry.CONST.ACTIVE_EFFECT_MODES.ADD,
+			boolean,
+			choices,
+			field
 		});
 		this.render({ force: true });
 	}

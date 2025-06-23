@@ -164,7 +164,7 @@ class SkillData extends foundry.abstract.DataModel {
 				required: true,
 				nullable: false,
 				blank: false,
-				choices: Object.keys(T20.atributos),
+				choices: T20.atributos,
 				initial: "for",
 				label: "T20.SkillAbility",
 				hint: "T20.SkillAbilityHint"
