@@ -254,6 +254,7 @@ function _isUnsupportedTerm(term) {
  * @returns {string}  The resulting simplified formula.
  */
 export function simplifyRollFormula(formula, data = {}, { preserveFlavor = false, deterministic = false } = {}) {
+	if (!formula) return "";
 	// Create a new roll and verify that the formula is valid before attempting simplification.
 	let roll;
 	try {

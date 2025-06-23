@@ -1225,8 +1225,8 @@
   "T20.SettingsCampaignSettingRule": "Cenário de Jogo",
   "T20.SettingsCampaignSettingHint": "Altera regras de acordo com cenários de Jogo.",
 
-  "T20.SettingEquipmentSlots": "Controle de Itens Empunhados/Vestidos",
-  "T20.SettingEquipmentSlotsHint": "Altera a forma como controlar items equipados.",
+  "T20.SettingEquipmentSlots": "Controlar Itens Equipáveis",
+  "T20.SettingEquipmentSlotsHint": "Itens empunháveis passam a ser limitados pela quantidade de mãos do personagem e itens vestidos passam a ser limitados pelo limite de itens vestidos.",
   "T20.SettingUsageConfig": "Configuração de Uso",
   "T20.SettingUsageConfigHint": "Define como a janela de configuração de uso aparece.",
   "T20.SettingUsageConfigDefault": "Clique Esquerdo",

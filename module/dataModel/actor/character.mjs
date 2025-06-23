@@ -55,6 +55,8 @@ export default class CharacterData extends CreatureData {
 	}
 
 	prepareDerivedData() {
+		// Pontos são calculados primeiro pois ignoram bônus de Atributo
+		// Defesa é calculada antes de Perícias para calcular a Penalidade de Armadura
 		const rollData = this.parent.getRollData();
 		AttributesFields.preparePVPM.call(this, rollData);
 		this.prepareAtributos({ rollData });

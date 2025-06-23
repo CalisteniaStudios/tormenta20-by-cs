@@ -4,9 +4,11 @@
 		<div class="item-rolls flex2">{{ localize 'T20.Attack'}} ({{ localize 'T20.Damage'}}, {{ localize 'T20.Critical'}})</div>
 		<div class="item-qty">{{ localize 'T20.QuantityAbbr' }}</div>
 		<div class="item-weight">{{localize 'T20.SlotsAbbr'}}</div>
+		{{#if @root.isCharacter }}
 		<div class="item-equipped" data-tooltip="{{localize 'T20.Equipped'}}">
 			<i class="fa-solid fa-hand-back-fist"></i>
 		</div>
+		{{/if}}
 	</li>
 	{{#each actor.inventario.arma.items as |item id|}}
 		<li class="item flexrow" data-item-id="{{item._id}}">
@@ -16,7 +18,7 @@
 			</div>
 
 			<div class="item-rolls flex2">
-				{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
+				{{"t20-itemLabels" item}}
 			</div>
 
 			<div class="item-qty">
@@ -28,7 +30,7 @@
 			</div>
 			<div class="item-weight">{{item.espacosTotal}}</div>
 			{{#if @root.isCharacter }}
-				<div class="item-equipped" style="flex: 0 0 1em;">
+				<div class="item-equipped">
 					{{#if @root.equipmentSlots}}
 						{{#if (and item.system.equipado2.type item.equipado.slot)}}
 							<span class="fa-stack">

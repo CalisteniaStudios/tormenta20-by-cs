@@ -52,7 +52,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasAttack() {
-		return !!this.system.rolls.find((r) => r.type === "ataque");
+		return this.system.rolls?.some((r) => r.type === "ataque") ?? false;
 	}
 
 	/* -------------------------------------------- */
@@ -62,7 +62,7 @@ export default class ItemT20 extends Item {
 	 * @type {boolean}
 	 */
 	get hasDamage() {
-		return !!this.system.rolls.find((r) => r.type === "dano");
+		return this.system.rolls?.some((r) => r.type === "dano") ?? false;
 	}
 
 	/* -------------------------------------------- */
@@ -172,66 +172,16 @@ export default class ItemT20 extends Item {
 	/*  DataPreparation                             */
 	/* -------------------------------------------- */
 
-	prepareBaseData() {
-		super.prepareBaseData();
-
-		if (this.type === "equipamento" && this.parent?.type !== "character") {
-			this.system.equipado = false;
-		}
-		//
-		if (game.settings.get("tormenta20", "equipmentSlots")) {
-			if (this.type === "equipamento" && this.parent?.type === "character") {
-				this.system.equipado = false;
-			}
-			if (this.type === "arma" && this.parent?.type === "character") {
-				this.system.equipado = 0;
-			}
-			if (this.parent?.type === "character" && this.system.equipado && this.system.equipado2.slot === 0) {
-				const equip2 = this.system.equipado2;
-				if (this.system.equipado2.type === "hand" && this.system.equipado === 2) {
-					this.system.equipado2.slot = 12.1;
-				} else {
-					let equips = this.actor.items.filter((it) => it.system.equipado && it.system.equipado2.type === equip2.type);
-					let limite = equip2.type === "hand" ? "limiteEmpunhado" : "limiteVestido";
-					equips = equips.map((it) => it.id);
-					this.system.equipado2.slot =
-						(equip2.type === "hand" ? 1.1 : 1.2)
-						+ Math.min(equips.indexOf(this.id), this.actor.system.equipamentos[limite]);
-				}
-			}
-		}
-
-		/* FIX item description issues */
-		if (typeof this.system.description === "string" || this.system.description instanceof String) {
-			this.system.description = { value: this.system.description };
-		}
-	}
-
 	/**
 	 * Augment the basic Item data model with additional dynamic system.
 	 */
 	prepareDerivedData() {
 		const system = this.system;
 		const labels = (this.labels = {});
-		const gameSystem = game.settings.get("tormenta20", "gameSystem");
 
-		// Classes
-		if (this.type === "classe") {
-			// TODO Skyfall Class/Archetype
-			let maxLvl = gameSystem === "Skyfall" ? 10 : 20;
-			system.niveis = Math.clamp(system.niveis, 1, maxLvl);
-		}
 		// Weapons
-		else if (this.type === "arma") {
+		if (this.type === "arma") {
 			labels.critico = `${system.criticoM}/${system.criticoX}x`;
-			let rollAttack = this.system.rolls.find((r) => r.type === "ataque");
-			let rollDamage = this.system.rolls.find((r) => r.type === "dano");
-
-			if (this.isEmbedded && this.parent.type === "npc") {
-				// TODO ERRO
-				if (rollAttack) labels.npcattack = rollAttack?.parts[2][0] ?? "";
-				if (rollDamage) labels.npcdamage = rollDamage?.parts[0][0] ?? ""; //
-			}
 		}
 		// Spells
 		else if (this.type === "magia") {
@@ -336,7 +286,6 @@ export default class ItemT20 extends Item {
 		}
 
 		// Damage Types
-		if (!(system.rolls instanceof Array)) system.rolls = [];
 		if (system.rolls?.find((r) => r.type === "dano")) {
 			let dano = system.rolls.find((r) => r.type === "dano") || {};
 			if (dano.parts) {
@@ -481,7 +430,7 @@ export default class ItemT20 extends Item {
 		const flags = this.actor.flags.tormenta20 || {};
 
 		// Add skill bonus
-		if (roll.parts[1][0]) {
+		if (this.parent?.type !== "npc" && roll.parts[1][0]) {
 			parts[1] = "@skill";
 			if (!foundry.utils.isEmpty(actorData.pericias)) {
 				rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
@@ -629,20 +578,6 @@ export default class ItemT20 extends Item {
 		}
 		updates["flags.tormenta20.-=favorito"] = null;
 		if (updates) return this.updateSource(updates);
-	}
-
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	_onCreate(data, options, userId) {
-		super._onCreate(data, options, userId);
-	}
-
-	/* -------------------------------------------- */
-
-	/** @inheritdoc */
-	async _preUpdate(changed, options, user) {
-		await super._preUpdate(changed, options, user);
 	}
 
 	/* -------------------------------------------- */

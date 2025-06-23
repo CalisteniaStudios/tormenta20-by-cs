@@ -477,10 +477,10 @@ items:
             - - 1d20
               - ''
               - ''
-            - - luta
+            - - ''
               - ''
               - ''
-            - - '+20'
+            - - '+37'
               - ''
               - ''
           versatil: ''
@@ -596,10 +596,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.1004
+      coreVersion: '13.342'
       createdTime: 1666318097513
-      modifiedTime: 1749966530028
+      modifiedTime: 1667021570427
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null

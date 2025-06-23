@@ -44,10 +44,9 @@ items:
             - - pont
               - ''
               - ''
-            - - '+8'
+            - - '+10'
               - ''
               - ''
-          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -124,10 +123,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.203d2
+      coreVersion: '13.342'
       createdTime: 1664312773032
-      modifiedTime: 1749966529906
+      modifiedTime: 1700236274207
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.vaCe85lpdH10teLi
       duplicateSource: null
@@ -171,10 +170,9 @@ items:
             - - luta
               - ''
               - ''
-            - - '+7'
+            - - '+10'
               - ''
               - ''
-          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -285,10 +283,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.203d2
+      coreVersion: '13.342'
       createdTime: 1666318097513
-      modifiedTime: 1749966529916
+      modifiedTime: 1700236252656
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -336,10 +334,9 @@ items:
             - - pont
               - ''
               - ''
-            - - '+7'
+            - - '9'
               - ''
               - ''
-          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -416,10 +413,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.203d2
+      coreVersion: '13.342'
       createdTime: 1664312772395
-      modifiedTime: 1749966529926
+      modifiedTime: 1700236269633
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.E8czrmn4rH7Fqyea
       duplicateSource: null

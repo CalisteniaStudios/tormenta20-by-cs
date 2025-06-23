@@ -361,6 +361,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 						group: "equips",
 						icon,
 						classes: `${twoHanded || slotItem ? "flexrow" : ""}`,
+						condition: item.system.empunhadura !== "duas",
 						callback: () => this._onToggleItem(item, "hand", slot, slotItem?.id)
 					});
 				}
@@ -457,7 +458,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		if (currentId) {
 			updateItems.push({
 				_id: currentId,
-				"system.equipado2.slot": 0
+				"system.equipado2.slot": 0,
+				"system.equipado": false
 			});
 		}
 		if (item.id === currentId) {
@@ -465,29 +467,24 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		} else if (context === "hand") {
 			updateItems.push({
 				_id: item.id,
-				"system.equipado2.slot": index + 0.1
+				"system.equipado2.slot": index + 0.1,
+				"system.equipado": true
 			});
-			let oldItems = [];
-			if (index > 2) {
-				// Remove only current // Cant TwoHand
-			} else if (index === 12) {
-				// Remove one handed if equipping two handed
-				oldItems = this.actor.items.filter((it) => item.id != it.id && [1.1, 2.1].includes(it.system.equipado2?.slot));
-			} else {
-				// Remove two handed if equipping one handed
-				oldItems = this.actor.items.filter((it) => item.id != it.id && [12.1].includes(it.system.equipado2?.slot));
-			}
+			const slots = index === 12 ? [1.1, 2.1] : [12.1];
+			const oldItems = this.actor.items.filter((it) => item.id !== it.id && slots.includes(it.system.equipado2?.slot));
 
 			for (const oldItem of oldItems) {
 				updateItems.push({
 					_id: oldItem.id,
-					"system.equipado2.slot": 0
+					"system.equipado2.slot": 0,
+					"system.equipado": false
 				});
 			}
 		} else if (context === "body") {
 			updateItems.push({
 				_id: item.id,
-				"system.equipado2.slot": index + 0.2
+				"system.equipado2.slot": index + 0.2,
+				"system.equipado": true
 			});
 			let oldItems = this.actor.items.filter(
 				(it) =>

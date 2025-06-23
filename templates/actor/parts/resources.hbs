@@ -5,7 +5,7 @@
 		<span class="sep">/</span>
 		<input type="number" placeholder="0" name="system.attributes.pv.max" value="{{system.attributes.pv.max}}"
 			{{disabled autoCalcResources}}
-			{{#if isCharacter}}data-tooltip="{{fieldBonuses @root path='system.attributes.pv'}}"{{/if}}
+			{{#if isCharacter}}data-tooltip="{{fieldBonuses 'system.attributes.pv'}}"{{/if}}
 		>
 	</div>
 	<footer class="attribute-footer">
@@ -19,7 +19,7 @@
 		<span class="sep">/</span>
 		<input type="number" placeholder="0" name="system.attributes.pm.max" value="{{system.attributes.pm.max}}"
 			{{disabled autoCalcResources}}
-			{{#if isCharacter}}data-tooltip="{{fieldBonuses @root path='system.attributes.pm'}}"{{/if}}
+			{{#if isCharacter}}data-tooltip="{{fieldBonuses 'system.attributes.pm'}}"{{/if}}
 		>
 	</div>
 	<footer class="attribute-footer">

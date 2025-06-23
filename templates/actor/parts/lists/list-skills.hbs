@@ -28,12 +28,12 @@
 		<input type="text" class="skill-outros" data-dtype="Number" name="system.pericias.{{skill.key}}.outros" value="{{skill.outros}}"/>
 	</div>
 	{{#if @root.isNPC}}
-	<div class="item-total" data-tooltip="{{fieldBonuses @root path=(concat 'system.pericias.' skill.key '.bonus')}}" data-tooltip-direction="RIGHT">
+	<div class="item-total" data-tooltip="{{fieldBonuses (concat 'system.pericias.' skill.key '.bonus')}}" data-tooltip-direction="RIGHT">
 		<span>{{numberFormat skill.value sign=true}}</span>
 	</div>
 	{{/if}}
 	{{else}}
-	<div class="item-total" data-tooltip="{{fieldBonuses @root path=(concat 'system.pericias.' skill.key '.bonus')}}" data-tooltip-direction="RIGHT">
+	<div class="item-total" data-tooltip="{{fieldBonuses (concat 'system.pericias.' skill.key '.bonus')}}" data-tooltip-direction="RIGHT">
 		<span>{{numberFormat skill.value sign=true}}</span>
 	</div>
 	{{/if}}

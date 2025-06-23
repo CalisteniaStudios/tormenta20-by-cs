@@ -2406,13 +2406,12 @@ items:
             - - 1d20
               - ''
               - ''
-            - - luta
+            - - ''
               - ''
               - ''
-            - - '+28'
+            - - '+55'
               - ''
               - ''
-          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -2523,10 +2522,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.203d2
+      coreVersion: '13.342'
       createdTime: 1666318097513
-      modifiedTime: 1749966529735
+      modifiedTime: 1700004654113
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -2562,10 +2561,10 @@ items:
             - - 1d20
               - ''
               - weapon
-            - - luta
+            - - ''
               - ''
               - skill
-            - - '+23'
+            - - '+50'
               - ''
               - weaponbonus
         - name: Dano
@@ -2676,10 +2675,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
+      systemVersion: 1.4.1004
+      coreVersion: '13.342'
       createdTime: 1666318097513
-      modifiedTime: 1749966529794
+      modifiedTime: 1667026459909
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null

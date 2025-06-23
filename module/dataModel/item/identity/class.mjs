@@ -43,4 +43,10 @@ export default class ClassData extends IdentityData {
 			inicial: new fields.BooleanField({ label: "T20.ItemClassIsInitial", hint: "T20.ItemClassIsInitialHint" })
 		};
 	}
+
+	prepareDerivedData() {
+		super.prepareDerivedData();
+		const maxLvl = game.settings.get("tormenta20", "gameSystem") === "Skyfall" ? 10 : 20;
+		this.niveis = Math.clamp(this.niveis, 1, maxLvl);
+	}
 }

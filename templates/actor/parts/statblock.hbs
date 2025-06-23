@@ -92,7 +92,7 @@
 					{{#if (gt item.system.qtd 1)}}{{item.system.qtd}}{{/if}}
 					{{item.name}}
 					{{#if (gt item.system.ataques 1)}}{{item.system.ataques}}x{{/if}}
-					{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
+					{{t20-itemLabels item}}
 				</h4>
 				</span>
 			</div>
@@ -111,7 +111,7 @@
 			<div class="item-name">
 				<span class="rollable arma-rollable" data-item-id="{{item._id}}">
 				<h4 class="item-name" style="flex: 5;">{{item.name}}
-					{{item.labels.toHit}} ({{item.labels.dano}}, {{item.labels.critico}})
+					{{t20-itemLabels item}}
 				</h4>
 				</span>
 			</div>
@@ -127,9 +127,7 @@
 			<div class="item-name">
 				<span class="rollable poder-rollable" data-item-id="{{item._id}}">
 					<label>{{item.name}}
-						{{#if item.labels.ativacao}}
-						({{item.labels.ativacao}}{{ift item.labels.custoPM (concat ", " item.labels.custoPM) ""}})
-						{{/if}}
+						{{t20-itemLabels item}}
 					</label>
 				</span>
 				{{#if (or (eq item.system.description.value "") item.system.description.value ) }}
