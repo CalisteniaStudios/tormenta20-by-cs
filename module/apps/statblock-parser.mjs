@@ -529,7 +529,7 @@ export default class StatblockParser extends FormApplication {
 						skill.outros = skill.value - semTreino;
 					}
 				}
-				msg += `${CONFIG.T20.pericias[key]}: ${skill.value}; `;
+				msg += `${CONFIG.T20.pericias[key]}: ${skill.value + (skill.outros ?? 0)}; `;
 				schema.pericias[key] = skill;
 			}
 			log.push({ success: true, message: `Perícias: ${msg}` });
