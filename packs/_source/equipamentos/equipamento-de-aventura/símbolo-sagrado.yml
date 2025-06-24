@@ -70,7 +70,7 @@ effects:
     disabled: false
     _id: UYpiiWb9bIoCph6a
     changes:
-      - key: system.modificadores.pericias.resistencias
+      - key: system.modificadores.pericias.resistencia
         mode: 2
         value: '1'
         priority: null
