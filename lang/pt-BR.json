@@ -37,6 +37,7 @@
   "T20.Toggle": "Alternar",
   "T20.New": "Nova",
   "T20.Value": "Valor",
+  "T20.Condition": "Condição",
   "T20.Search": "Buscar",
   "T20.Custom": "Personalizado",
   "T20.Customize": "Personalizar",
@@ -76,7 +77,8 @@
   "T20.EffectNewLabel": "Novo Efeito",
   "T20.AlwaysApply": "Aplicar Sempre",
   "T20.EffectStatusType": "Modo de Efeito",
-  "T20.OnUseEffect": "Efeitos de Uso",
+  "T20.OnUseEffect": "Efeito de Uso",
+  "T20.OnUseEffects": "Efeitos de Uso",
   "T20.OnUseEffectTemporary": "Efeitos de Uso Temporários",
   "T20.EffectTemporary": "Efeitos Temporários",
   "T20.EffectPassive": "Efeitos Passivos",
@@ -247,6 +249,8 @@
   "T20.HitPoints": "Pontos de Vida",
   "T20.ManaPoints": "Pontos de Mana",
   "T20.HitManaPoints": "Pontos de Vida e de Mana",
+  "T20.Health": "Vida",
+  "T20.Mana": "Mana",
   "T20.HP": "PV",
   "T20.MP": "PM",
   "T20.HPInicial": "PV Inicial",
@@ -332,12 +336,19 @@
 
   "T20.DamExce": "Reduz todo o dano pelo valor, exceto este tipo.",
   "T20.DamImm": "Imunidade a Dano",
+  "T20.DamImmType": "Imunidade a {tipo}",
+  "T20.DamImmOf": "Imunidade a Dano de {tipo}",
   "T20.StatusImm": "Imunidade a Condições",
   "T20.StatusEffects": "Condições",
   "T20.DamRes": "Resistência a Dano",
+  "T20.DamResType": "Resistência a {tipo}",
+  "T20.DamResOf": "Resistência a Dano de {tipo}",
   "T20.DR": "RD",
   "T20.DamVuln": "Vulnerabilidade a Dano",
+  "T20.DamVulnType": "Vulnerabilidade a {tipo}",
+  "T20.DamVulnOf": "Vulnerabilidade a Dano de {tipo}",
   "T20.DamPerDie": "Dano extra por Dado",
+  "T20.DamPerDieOf": "Dano extra por Dado de {tipo}",
   "T20.DamageElemental": "Elemental",
   "T20.DamageElementalPlural": "Elementais",
   "T20.DamageType": "Tipo de Dano",
@@ -480,11 +491,16 @@
   "T20.AbbreviationKgs": "kgs",
   "T20.AbbreviationConc": "Sust.",
 
+  "T20.ResistancesWeaknesses": "Resistências e Vulnerabilidades",
+  "T20.Immunity": "Imunidade",
   "T20.Resistance": "Resistência",
   "T20.Resistances": "Resistências",
+  "T20.Weakness": "Vulnerabilidade",
 
   "T20.MovementConfig": "Configure o deslocamento e deslocamentos especiais dessa criatura.",
   "T20.Movement": "Deslocamento",
+  "T20.Movements": "Deslocamentos",
+  "T20.AllMovements": "Todos os Deslocamentos",
   "T20.MovementBurrow": "Escavar",
   "T20.MovementClimb": "Escalada",
   "T20.MovementFly": "Voo",
@@ -1234,6 +1250,28 @@
   "T20.SettingCarryWeightHint": "Calcula o limite de carga e aplica a condição Sobrecarregado quando acima do limite.",
   "T20.SettingCurrencyWeight": "Espaço de Moedas",
   "T20.SettingCurrencyWeightHint": "Calcula o espaço de moedas (1 espaço a cada mil moedas) caso a regra de Limites de Carga esteja ativa.",
+
+  "T20.Derived": "Derivados",
+  "T20.GlobalMod": {
+    "Label": "Modificadores Globais"
+  },
+  "T20.EffectWizard": {
+    "Add": "Criar Efeito",
+    "Preview": "Previsão",
+    "Change": "Mudança",
+    "Mode": "Modo",
+    "Value": "Valor",
+    "Changes": "Alterações",
+    "OtherStats": "Outros Valores",
+    "SelectAttribute": "Selecione um Atributo",
+    "EnterResistance": {
+      "Label": "Selecione um tipo de dano"
+    },
+    "EnterSkill": {
+      "Label": "Selecione uma Perícia",
+      "Hint": ""
+    }
+  },
 
   "T20.S80": "/* --------------- Bases --------------- */",
   "T20.Accomodations": "Acomodações",

@@ -325,6 +325,11 @@ export function registerHandlebarsHelpers() {
 		return new Handlebars.SafeString(desc.filterJoin(separator));
 	});
 
+	Handlebars.registerHelper("collapsible", function (states, id) {
+		const currentlyOpen = Boolean(states[id]);
+		return currentlyOpen ? "open" : "";
+	});
+
 	Handlebars.registerHelper("t20-itemLabels", function (item) {
 		const desc = [];
 		let separator = ", ";

@@ -163,67 +163,12 @@ export default class CreatureData extends Tormenta20TypeData {
 		return new fields.SchemaField(schema);
 	}
 
-	static schemaSkills(type = "character") {
-		let getSchema = (skill) => {
-			return new fields.SchemaField({
-				atributo: new fields.StringField({
-					required: true,
-					nullable: false,
-					blank: false,
-					choices: Object.keys(T20.atributos),
-					initial: "for"
-				}),
-				treinado: new fields.BooleanField(),
-				st: new fields.BooleanField(),
-				pda: new fields.BooleanField(),
-				size: new fields.BooleanField(),
-				value: new fields.NumberField({
-					required: true,
-					nullable: false,
-					initial: 0,
-					min: 0
-				}),
-				outros: new fields.NumberField({
-					required: true,
-					nullable: false,
-					initial: 0
-				}),
-				condi: new fields.NumberField({
-					required: true,
-					nullable: false,
-					initial: 0
-				}),
-				bonus: new fields.StringField({
-					required: true,
-					nullable: false,
-					initial: ""
-				}),
-				custom: new fields.BooleanField(),
-				label: new fields.StringField({
-					required: true,
-					nullable: false,
-					initial: ""
-				}),
-				nome: new fields.StringField({
-					required: true,
-					nullable: false,
-					initial: ""
-				})
-				// order: new fields.NumberField({ required: true, nullable:false, initial:0 }),
-			});
-		};
-
-		let schema = {};
-		Object.keys(T20.pericias).forEach((skill) => (schema[skill] = getSchema(skill)));
-		return new fields.SchemaField(schema);
-	}
-
 	static schemaDefense(type = "character") {
 		let schema = {
 			atributo: new fields.StringField({
 				required: true,
 				blank: false,
-				choices: Object.keys(T20.atributos),
+				choices: T20.atributos,
 				initial: "des",
 				label: "T20.DefenseAbilityBonus",
 				hint: "T20.DefenseAbilityBonusHint"
@@ -293,7 +238,7 @@ export default class CreatureData extends Tormenta20TypeData {
 				required: true,
 				nullable: false,
 				blank: false,
-				choices: Object.keys(T20.atributos),
+				choices: T20.atributos,
 				initial: "for"
 			}),
 			base: new fields.NumberField({
@@ -492,7 +437,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			}),
 			conjuracao: new fields.StringField({
 				blank: true,
-				choices: ["", ...Object.keys(T20.atributos)],
+				choices: T20.atributos,
 				initial: "int",
 				label: "T20.AttributeSpellcastingAbl",
 				hint: "T20.AttributeSpellcastingAblHint"
@@ -618,7 +563,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			}),
 			tipo: new fields.StringField({
 				required: true,
-				choices: Object.keys(T20.creatureTypes),
+				choices: T20.creatureTypes,
 				initial: "hum",
 				label: "T20.DetailsCreatureType",
 				hint: "T20.DetailsCreatureTypeHint"
@@ -1000,7 +945,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			tamanho: new fields.StringField({
 				required: true,
 				nullable: false,
-				choices: Object.keys(T20.actorSizes),
+				choices: T20.actorSizes,
 				initial: "med",
 				label: "T20.TraitActorSize",
 				hint: "T20.TraitActorSizeHint"
