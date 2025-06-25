@@ -290,7 +290,9 @@
     font-size: var(--font-size-14);
     // column-count: 2;
     // column-gap: 0px;
-
+    &:not(:hover) a#configure-skills {
+      visibility: hidden;
+    }
     li {
       &.skill {
         &.item-header {
@@ -298,10 +300,6 @@
 
           .item-name {
             font-size: 1.25em;
-          }
-
-          &:not(:hover) a#configure-skills {
-            visibility: hidden;
           }
         }
         &.create-skill,
