@@ -194,6 +194,10 @@
   }
 
   .statblock {
+    .rollable,
+    .rollable > * {
+      cursor: pointer;
+    }
     &.flexcol {
       // > .form-group, p, ol.item-list
       > * {
@@ -274,7 +278,9 @@
         }
       }
     }
-
+    .abl-line {
+      text-align: center;
+    }
     .skill {
       &:hover {
         font-weight: 700;
