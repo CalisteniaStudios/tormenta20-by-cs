@@ -929,13 +929,13 @@ export default class ItemT20 extends Item {
 		// Execute Rolls
 		options.rolls = [];
 		item.system.rolled = {};
-		if (item.system.rolls.find((r) => r.type === "ataque" && r.parts.length && r.parts[0][0])) {
+		if (item.system.rolls.some((r) => r.type === "ataque" && r.parts?.[0]?.[0])) {
 			await item.rollAttack({ options: options });
 		}
-		if (item.system.rolls.find((r) => r.type === "formula" && r.parts.length && r.parts[0][0])) {
+		if (item.system.rolls.some((r) => r.type === "formula" && r.parts?.[0]?.[0])) {
 			await item.rollFormula({ options: options });
 		}
-		if (item.system.rolls.find((r) => r.type === "dano" && r.parts.length && r.parts[0][0])) {
+		if (item.system.rolls.some((r) => r.type === "dano" && r.parts?.[0]?.[0])) {
 			await item.rollDamage({ options: options });
 		}
 
