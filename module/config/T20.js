@@ -50,7 +50,7 @@ T20.effectTypes = {
 	trevas: "T20.EffectTypeDarkness",
 	veneno: "T20.EffectTypePoison"
 };
-preLocalize("effectTypes");
+preLocalize("effectTypes", { sort: true });
 T20.conditionTypes = foundry.utils.mergeObject(
 	{ ...T20.effectTypes },
 	T20.statusEffectIcons.reduce(function (o, s) {
@@ -58,7 +58,7 @@ T20.conditionTypes = foundry.utils.mergeObject(
 		return o;
 	}, {})
 );
-preLocalize("conditionTypes");
+preLocalize("conditionTypes", { sort: true });
 /* ---------------------------------------- */
 /*  System Data                             */
 /* ---------------------------------------- */
@@ -118,12 +118,12 @@ T20.creatureTypes = {
 	mon: "T20.CreatureMonstrosity",
 	mor: "T20.CreatureUndead"
 };
-preLocalize("creatureTypes");
+preLocalize("creatureTypes", { sort: true });
 
 T20.creatureRoles = {
-	special: "T20.FoeRoleSpecial",
+	solo: "T20.FoeRoleSolo",
 	lackey: "T20.FoeRoleLackey",
-	solo: "T20.FoeRoleSolo"
+	special: "T20.FoeRoleSpecial"
 };
 preLocalize("creatureRoles");
 
@@ -385,7 +385,7 @@ T20.resistencias = {
 	refl: "T20.SkillRefl",
 	vont: "T20.SkillVont"
 };
-preLocalize("resistencias");
+preLocalize("resistencias", { sort: true });
 
 T20.skillCompendiumEntries = {
 	acro: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.mtIHFUZSK6xBFHqd",
@@ -600,7 +600,7 @@ T20.spellSchools = {
 	nec: "T20.SchoolNec",
 	tra: "T20.SchoolTra"
 };
-preLocalize("spellSchools");
+preLocalize("spellSchools", { sort: true });
 
 /* ---------------- Circle --------------- */
 
@@ -611,7 +611,7 @@ T20.spellLevels = {
 	4: "T20.SpellLevel4",
 	5: "T20.SpellLevel5"
 };
-preLocalize("spellLevels");
+preLocalize("spellLevels", { sort: true });
 
 /* ---------------------------------------- */
 /*  Weapon Data                             */
