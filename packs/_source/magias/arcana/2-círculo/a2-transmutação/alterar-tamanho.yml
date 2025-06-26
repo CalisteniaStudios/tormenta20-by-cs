@@ -76,7 +76,7 @@ effects:
         mode: 5
         value: 1 criatura
         priority: 0
-      - key: reistencia
+      - key: resistencia
         mode: 5
         value: Fortitude anula
         priority: 0
@@ -215,7 +215,7 @@ effects:
         value: 1 criatura
         mode: 5
         priority: null
-      - key: reistencia
+      - key: resistencia
         value: Fortitude Anula
         mode: 5
         priority: null
