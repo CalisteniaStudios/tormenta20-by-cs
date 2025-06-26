@@ -33,7 +33,6 @@ module.exports = defineConfig([
 				CONFIG: false,
 				CONST: false,
 				PIXI: false,
-				SYSTEMRULES: false,
 				T20: false,
 				ActiveEffect: false,
 				Actor: false,

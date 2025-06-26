@@ -3,7 +3,6 @@ import { T20Upgrades } from "../upgrades/upgrades.mjs";
 import { preLocalize } from "../utils.mjs";
 import { AMEACATYPES, CHALLENGELEVEL } from "./ameaca.js";
 export const T20 = {};
-export const SYSTEMRULES = {};
 
 /* ---------------------------------------- */
 /*  Compendium Indexing                     */
@@ -350,78 +349,36 @@ preLocalize("resources");
 /* ---------------- Skills ---------------- */
 
 T20.pericias = {
-	acro: "T20.SkillAcro",
-	ades: "T20.SkillAdes",
-	atle: "T20.SkillAtle",
-	atua: "T20.SkillAtua",
-	cava: "T20.SkillCava",
-	conh: "T20.SkillConh",
-	cura: "T20.SkillCura",
-	defe: "T20.SkillDefe",
-	dipl: "T20.SkillDipl",
-	enga: "T20.SkillEnga",
-	fort: "T20.SkillFort",
-	furt: "T20.SkillFurt",
-	guer: "T20.SkillGuer",
-	inic: "T20.SkillInic",
-	inti: "T20.SkillInti",
-	intu: "T20.SkillIntu",
-	inve: "T20.SkillInve",
-	joga: "T20.SkillJoga",
-	ladi: "T20.SkillLadi",
-	luta: "T20.SkillLuta",
-	mist: "T20.SkillMist",
-	ocul: "T20.SkillOcul",
-	nobr: "T20.SkillNobr",
-	ofic: "T20.SkillOfic",
-	perc: "T20.SkillPerc",
-	pilo: "T20.SkillPilo",
-	pont: "T20.SkillPont",
-	refl: "T20.SkillRefl",
-	reli: "T20.SkillReli",
-	sobr: "T20.SkillSobr",
-	vont: "T20.SkillVont"
+	acro: { abl: "des", systems: ["core"], armorPenalty: true, label: "T20.SkillAcro" },
+	ades: { abl: "car", systems: ["core"], trainedOnly: true, label: "T20.SkillAdes" },
+	atle: { abl: "for", systems: ["core"], label: "T20.SkillAtle" },
+	atua: { abl: "car", systems: ["core"], label: "T20.SkillAtua" },
+	cava: { abl: "des", systems: ["core"], label: "T20.SkillCava" },
+	conh: { abl: "int", systems: ["core"], trainedOnly: true, label: "T20.SkillConh" },
+	cura: { abl: "sab", systems: ["core"], label: "T20.SkillCura" },
+	dipl: { abl: "car", systems: ["core"], label: "T20.SkillDipl" },
+	enga: { abl: "car", systems: ["core"], label: "T20.SkillEnga" },
+	fort: { abl: "con", systems: ["core"], label: "T20.SkillFort" },
+	furt: { abl: "des", systems: ["core"], armorPenalty: true, sizeMod: true, label: "T20.SkillFurt" },
+	guer: { abl: "int", systems: ["core"], trainedOnly: true, label: "T20.SkillGuer" },
+	inic: { abl: "des", systems: ["core"], label: "T20.SkillInic" },
+	inti: { abl: "car", systems: ["core"], label: "T20.SkillInti" },
+	intu: { abl: "sab", systems: ["core"], label: "T20.SkillIntu" },
+	inve: { abl: "int", systems: ["core"], label: "T20.SkillInve" },
+	joga: { abl: "car", systems: ["core"], label: "T20.SkillJoga" },
+	ladi: { abl: "des", systems: ["core"], trainedOnly: true, armorPenalty: true, label: "T20.SkillLadi" },
+	luta: { abl: "for", systems: ["core"], label: "T20.SkillLuta" },
+	mist: { abl: "int", systems: ["core"], trainedOnly: true, label: "T20.SkillMist" },
+	nobr: { abl: "int", systems: ["core"], trainedOnly: true, label: "T20.SkillNobr" },
+	perc: { abl: "sab", systems: ["core"], label: "T20.SkillPerc" },
+	pilo: { abl: "des", systems: ["core"], trainedOnly: true, label: "T20.SkillPilo" },
+	pont: { abl: "des", systems: ["core"], label: "T20.SkillPont" },
+	refl: { abl: "des", systems: ["core"], label: "T20.SkillRefl" },
+	reli: { abl: "sab", systems: ["core"], trainedOnly: true, label: "T20.SkillReli" },
+	sobr: { abl: "sab", systems: ["core"], label: "T20.SkillSobr" },
+	vont: { abl: "sab", systems: ["core"], label: "T20.SkillVont" }
 };
-preLocalize("pericias");
-
-SYSTEMRULES.skills = {
-	acro: { abl: "des", systems: ["core"], armorPenalty: true },
-	ades: { abl: "car", systems: ["core"], trainedOnly: true },
-	atle: { abl: "for", systems: ["core"] },
-	atua: { abl: "car", systems: ["core"] },
-	cava: { abl: "des", systems: ["core"] },
-	conh: { abl: "int", systems: ["core"], trainedOnly: true },
-	cura: { abl: "sab", systems: ["core"] },
-	// "defe": {abl: 'con', systems: ['skyfall'] },
-	dipl: { abl: "car", systems: ["core"] },
-	enga: { abl: "car", systems: ["core"] },
-	fort: { abl: "con", systems: ["core"] },
-	furt: { abl: "des", systems: ["core"], armorPenalty: true, sizeMod: true },
-	guer: { abl: "int", systems: ["core"], trainedOnly: true },
-	inic: { abl: "des", systems: ["core"] },
-	inti: { abl: "car", systems: ["core"] },
-	intu: { abl: "sab", systems: ["core"] },
-	inve: { abl: "int", systems: ["core"] },
-	joga: { abl: "car", systems: ["core"] },
-	ladi: {
-		abl: "des",
-		systems: ["core"],
-		trainedOnly: true,
-		armorPenalty: true
-	},
-	luta: { abl: "for", systems: ["core"] },
-	mist: { abl: "int", systems: ["core"], trainedOnly: true },
-	nobr: { abl: "int", systems: ["core"], trainedOnly: true },
-	// "ocul": {abl: 'sab', systems: ['skyfall'], trainedOnly: true },
-	// "ofic": {abl: 'int', systems: ['core'], trainedOnly: true },
-	perc: { abl: "sab", systems: ["core"] },
-	pilo: { abl: "des", systems: ["core"], trainedOnly: true },
-	pont: { abl: "des", systems: ["core"] },
-	refl: { abl: "des", systems: ["core"] },
-	reli: { abl: "sab", systems: ["core"], trainedOnly: true },
-	sobr: { abl: "sab", systems: ["core"] },
-	vont: { abl: "sab", systems: ["core"] }
-};
+preLocalize("pericias", { key: "label", sort: true });
 
 T20.resistencias = {
 	fort: "T20.SkillFort",

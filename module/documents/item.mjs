@@ -396,7 +396,7 @@ export default class ItemT20 extends Item {
 		}
 
 		// Update labels
-		const skill = CONFIG.T20.pericias[resistencia.pericia];
+		const skill = CONFIG.T20.pericias[resistencia.pericia].label;
 		this.labels.resistencia = game.i18n.format("T20.SaveDC", {
 			cd: resistencia.cd || "",
 			pericia: skill

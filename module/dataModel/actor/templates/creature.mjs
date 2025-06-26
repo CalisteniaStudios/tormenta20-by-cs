@@ -21,7 +21,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
 			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
-				initialKeys: SYSTEMRULES.skills,
+				initialKeys: T20.pericias,
 				initialValue: this._initialSkillValue.bind(this),
 				initialKeysOnly: false
 			}),
@@ -100,25 +100,13 @@ export default class CreatureData extends Tormenta20TypeData {
 	}
 
 	static _initialSkillValue(key, initial, existing) {
-		const config = SYSTEMRULES.skills[key];
+		const config = T20.pericias[key];
 		if (config) {
 			initial.atributo = config.abl ?? initial.atributo;
 			initial.pda = config.trainedOnly ?? initial.pda;
 			initial.st = config.armorPenalty ?? initial.st;
 			initial.size = config.sizeMod ?? initial.size;
 		}
-		// if ( SYSTEMRULES.skills[key]?.abl ){
-		// 	initial.atributo = SYSTEMRULES.skills[key].abl;
-		// }
-		// if ( SYSTEMRULES.skills[key]?.trainedOnly ){
-		// 	initial.pda = SYSTEMRULES.skills[key].trainedOnly;
-		// }
-		// if ( SYSTEMRULES.skills[key]?.armorPenalty ){
-		// 	initial.st = SYSTEMRULES.skills[key].armorPenalty;
-		// }
-		// if ( SYSTEMRULES.skills[key]?.sizeMod ) {
-		// 	initial.size = SYSTEMRULES.skills[key].sizeMod;
-		// }
 		return initial;
 	}
 
@@ -994,7 +982,7 @@ export default class CreatureData extends Tormenta20TypeData {
 		atributo ??= skillData.atributo;
 		skillData.atributo = atributo;
 
-		skillData.label ||= CONFIG.T20.pericias[skillId] || skillId;
+		skillData.label ||= CONFIG.T20.pericias[skillId]?.label || skillId;
 
 		parts.push(`@${skillData.atributo}`);
 		if (skillData.treinado) parts.push("@treino");

@@ -151,7 +151,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 		for (const pericia of pericias) {
 			item.effects.push({
-				name: game.i18n.localize(CONFIG.T20.pericias[pericia] || pericia),
+				name: game.i18n.localize(CONFIG.T20.pericias[pericia]?.label || pericia),
 				icon: item.img,
 				disabled: false,
 				transfer: true,
@@ -180,7 +180,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		const pericias = this.actor.system.pericias || {};
 		const periciaList = Object.entries(pericias).map(([key, value]) => ({
 			key,
-			label: game.i18n.localize(CONFIG.T20.pericias[key] || key)
+			label: game.i18n.localize(CONFIG.T20.pericias[key]?.label || key)
 		}));
 		return new Promise((resolve) => {
 			const dialog = new PericiaSelection(periciaList, resolve);

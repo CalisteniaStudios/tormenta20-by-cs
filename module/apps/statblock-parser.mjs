@@ -472,7 +472,11 @@ export default class StatblockParser extends FormApplication {
 		let msg = "";
 		try {
 			const ndparams = T20.FoeParams(schema.detalhes.role, schema.attributes.nd);
-			let sks = foundry.utils.invertObject(T20.pericias);
+			let sks = Object.fromEntries(
+				Object.entries(T20.pericias)
+					.filter(([_, value]) => value.label)
+					.map(([key, value]) => [value.label, key])
+			);
 			sks.Fort = "fort";
 			sks.Ref = "refl";
 			sks.Von = "vont";
@@ -497,7 +501,7 @@ export default class StatblockParser extends FormApplication {
 					skill.outros = skill.value;
 					skill.value = 0;
 				} else {
-					skill.atributo = SYSTEMRULES.skills[key].abl;
+					skill.atributo = T20.pericias[key].abl;
 					let nd = schema.attributes.nd;
 					let nivel = 1;
 					if (["1/2", "1/4"].includes(nd)) nivel = 1;
@@ -529,7 +533,7 @@ export default class StatblockParser extends FormApplication {
 						skill.outros = skill.value - semTreino;
 					}
 				}
-				msg += `${CONFIG.T20.pericias[key]}: ${skill.value + (skill.outros ?? 0)}; `;
+				msg += `${CONFIG.T20.pericias[key].label}: ${skill.value + (skill.outros ?? 0)}; `;
 				schema.pericias[key] = skill;
 			}
 			log.push({ success: true, message: `Perícias: ${msg}` });

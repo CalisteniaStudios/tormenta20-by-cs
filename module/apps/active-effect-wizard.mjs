@@ -164,7 +164,7 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		const createSuggestions = (obj) => {
 			return Object.fromEntries(
 				Object.entries(obj)
-					.map(([key, skill]) => [key, skill.label ?? CONFIG.T20.pericias[key]])
+					.map(([key, skill]) => [key, skill.label ?? CONFIG.T20.pericias[key].label])
 					.filter(([_, label]) => label)
 					.sort((a, b) => a[1].localeCompare(b[1]))
 			);
