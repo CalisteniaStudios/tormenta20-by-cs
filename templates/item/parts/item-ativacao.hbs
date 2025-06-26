@@ -56,13 +56,7 @@
 		{{else}}
 			<input type="hidden" name="system.ativacao.special" value="" />
 		{{/if}}
-		{{#if
-			(or
-				(eq item.system.ativacao.execucao "minute")
-				(eq item.system.ativacao.execucao "hour")
-				(eq item.system.ativacao.execucao "day")
-			)
-		}}
+		{{#if (includes item.system.ativacao.execucao "minute" "hour" "day")}}
 			<div class="form-fields">
 				<input
 					type="text"
@@ -125,17 +119,7 @@
 <div class="form-group input-select">
 	<label>{{localize "T20.Duration"}}</label>
 	<div class="form-fields">
-		{{#if
-			(or
-				(eq item.system.duracao.units "round")
-				(eq item.system.duracao.units "turn")
-				(eq item.system.duracao.units "minute")
-				(eq item.system.duracao.units "hour")
-				(eq item.system.duracao.units "day")
-				(eq item.system.duracao.units "month")
-				(eq item.system.duracao.units "year")
-			)
-		}}
+		{{#if (includes item.system.duracao.units "round" "turn" "minute" "hour" "day" "month" "year")}}
 			<input
 				type="text"
 				name="system.duracao.value"
@@ -144,7 +128,7 @@
 			/>
 		{{/if}}
 		<select name="system.duracao.units">
-			{{selectOptions config.timePeriods selected=item.system.duracao.units localize=true blank=""}}
+			{{selectOptions config.timePeriods selected=item.system.duracao.units localize=true}}
 		</select>
 		{{#if (eq item.system.duracao.units "special")}}
 			<input

@@ -203,7 +203,9 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 				units: new fields.StringField({
 					required: true,
 					nullable: false,
-					initial: "",
+					blank: false,
+					initial: "inst",
+					choices: T20.timePeriods,
 					label: "T20.ItemDurationUnit",
 					hint: "T20.ItemDurationUnitHint"
 				}),
@@ -316,7 +318,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			delete schema.consume;
 			delete schema.target;
 			delete schema.alvo;
-			delete schema.area;
 			delete schema.ativacao.condicao;
 			delete schema.ativacao.execucao;
 			delete schema.ativacao.qtd;
