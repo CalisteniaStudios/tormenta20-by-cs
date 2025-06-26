@@ -173,8 +173,7 @@ export default class AttributesFields {
 			Object.entries(atributos)
 				.filter(([atr, value]) => value)
 				.forEach(([atr, value]) => {
-					const { base, racial } = this.atributos[atr];
-					soma += Number(base) + Number(racial);
+					soma += this.atributos[atr].value;
 				});
 			bonus.total.forEach((value) => (soma += Number(simplifyRollFormula(value, rollData))));
 			if (type === "pv") this.attributes[type].min = -Math.floor(soma / 2);
