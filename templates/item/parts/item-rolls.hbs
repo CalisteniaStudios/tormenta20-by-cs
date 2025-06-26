@@ -62,14 +62,14 @@
 						{{#select (lookup (lookup roll.parts 1) 0) }}
 							<!-- <option value="">{{ localize "T20.None" }}</option> -->
 							<optgroup label="{{localize "T20.DefaultPlural"}}">
-								<option value="atua">{{ localize (lookup ../config.pericias 'atua')}}</option>
-								<option value="luta">{{ localize (lookup ../config.pericias 'luta')}}</option>
-								<option value="pont">{{ localize (lookup ../config.pericias 'pont')}}</option>
+								<option value="atua">{{ localize "T20.SkillAtua"}}</option>
+								<option value="luta">{{ localize "T20.SkillLuta"}}</option>
+								<option value="pont">{{ localize "T20.SkillPont"}}</option>
 							</optgroup>
 							<optgroup label="Outras Perícias">
-								{{#each ../config.pericias as |name type|}}
+								{{#each ../config.pericias as |pericia type|}}
 									{{#unless (includes type "luta" "pont" "atua")}}
-										<option value="{{type}}">{{localize name}}</option>
+										<option value="{{type}}">{{pericia.label}}</option>
 									{{/unless}}
 								{{/each}}
 							</optgroup>
@@ -79,7 +79,7 @@
 						{{#select (lookup (lookup roll.parts 1) 1) }}
 							<option value="">{{localize 'T20.Default'}}</option>
 							{{#each ../config.atributos as |name type|}}
-								<option value="{{type}}">{{localize name}}</option>
+								<option value="{{type}}">{{name}}</option>
 							{{/each}}
 						{{/select}}
 					</select>
