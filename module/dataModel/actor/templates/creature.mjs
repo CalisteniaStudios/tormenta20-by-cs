@@ -93,6 +93,12 @@ export default class CreatureData extends Tormenta20TypeData {
 	static migrateData(data) {
 		if (data.pericias?.ofi0) delete data.pericias.ofi0;
 		if (data.pericias?._pc0) delete data.pericias._pc0;
+		if (data.pericias.acro?.st && data.pericias.reli?.pda && data.pericias.guer?.pda) {
+			const initial = new SkillData();
+			for (const [key, value] of Object.entries(data.pericias)) {
+				data.pericias[key] = this._initialSkillValue(key, initial, value);
+			}
+		}
 		if (!Object.keys(data.resources ?? {}).length) {
 			data.resources = foundry.utils.deepClone(this.schema.fields.resources.initial);
 		}
@@ -101,13 +107,13 @@ export default class CreatureData extends Tormenta20TypeData {
 
 	static _initialSkillValue(key, initial, existing) {
 		const config = T20.pericias[key];
-		if (config) {
-			initial.atributo = config.abl ?? initial.atributo;
-			initial.pda = config.trainedOnly ?? initial.pda;
-			initial.st = config.armorPenalty ?? initial.st;
-			initial.size = config.sizeMod ?? initial.size;
-		}
-		return initial;
+		if (!config) return existing ?? initial;
+		const target = existing ?? initial;
+		target.atributo = config.abl ?? initial.atributo;
+		target.pda = config.armorPenalty ?? initial.st;
+		target.st = config.trainedOnly ?? initial.pda;
+		target.size = config.sizeMod ?? initial.size;
+		return target;
 	}
 
 	/* ACTOR SCHEMAS */
