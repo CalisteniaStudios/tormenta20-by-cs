@@ -1,7 +1,7 @@
 import { simplifyRollFormula } from "../../../dice/dice.mjs";
 import Tormenta20TypeData from "../../base.mjs";
 
-import { ActorSkillsField, PenaltyField, SkillData } from "../../helpers.mjs";
+import { MappingField, PenaltyField, SkillData } from "../../helpers.mjs";
 
 const fields = foundry.data.fields;
 
@@ -20,7 +20,7 @@ export default class CreatureData extends Tormenta20TypeData {
 			detalhes: this.schemaDetails(type),
 			dinheiro: this.schemaCurrency(type),
 			modificadores: this.schemaModifiers(type),
-			pericias: new ActorSkillsField(new fields.EmbeddedDataField(SkillData), {
+			pericias: new MappingField(new fields.EmbeddedDataField(SkillData), {
 				initialKeys: T20.pericias,
 				initialValue: this._initialSkillValue.bind(this),
 				initialKeysOnly: false

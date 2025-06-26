@@ -124,35 +124,6 @@ class MappingField extends fields.ObjectField {
 	}
 }
 
-class ActorSkillsField extends MappingField {
-	/** @inheritdoc */
-	getInitialValue(data) {
-		let keys = this.initialKeys;
-		const initial = super.getInitialValue(data);
-		if (!keys || !foundry.utils.isEmpty(initial)) return initial;
-		if (!(keys instanceof Array)) keys = Object.keys(keys);
-		for (const key of keys) initial[key] = this._getInitialValueForKey(key);
-		return initial;
-	}
-
-	getInitialValue2(data) {
-		let keys = this.options.initialKeys;
-		if (!keys || !foundry.utils.isEmpty(this.initial())) return super.getInitialValue(data);
-		if (!(keys instanceof Array)) {
-			const gameSystem = game.settings.get("tormenta20", "gameSystem");
-			keys = Object.entries(keys)
-				.filter((f) => f[1].systems.some((s) => ["core", gameSystem].includes(s)))
-				.map((m) => m[0]);
-		}
-		const initial = {};
-		for (const key of keys) {
-			const modelInitial = this.model.getInitialValue();
-			initial[key] = this.initialValue?.(key, modelInitial) ?? modelInitial;
-		}
-		return initial;
-	}
-}
-
 /* ----------------------------- */
 
 class SkillData extends foundry.abstract.DataModel {
@@ -726,7 +697,6 @@ function getSaveItemData() {
 export {
 	_resourceSchema,
 	AbilitiesSchema,
-	ActorSkillsField,
 	FormulaField,
 	getActivationItemData,
 	getObjectBaseData,

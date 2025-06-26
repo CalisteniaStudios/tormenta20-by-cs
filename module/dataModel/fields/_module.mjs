@@ -1,7 +1,6 @@
 import {
 	_resourceSchema,
 	AbilitiesSchema,
-	ActorSkillsField,
 	FormulaField,
 	getActivationItemData,
 	getObjectBaseData,
@@ -18,7 +17,6 @@ export { default as Tormenta20DataModel } from "./data-tormenta20.mjs";
 export {
 	_resourceSchema,
 	AbilitiesSchema,
-	ActorSkillsField,
 	FormulaField,
 	getActivationItemData,
 	getObjectBaseData,
