@@ -79,10 +79,13 @@ export default function () {
 						}
 					}
 				};
-				ui.notifications.info("Iniciando conserto de resistências e ataques em Ameaças. Espere ", {
-					console: false,
-					permanent: true
-				});
+				ui.notifications.info(
+					"Iniciando conserto de resistências e ataques em Ameaças. Espere um momento e não feche o jogo",
+					{
+						console: false,
+						permanent: true
+					}
+				);
 				for (const pack of packs) {
 					const wasLocked = pack.locked;
 					try {
