@@ -46,6 +46,8 @@ export default class MenaceData extends CreatureData {
 
 		let baseFlags = { tormenta20: npcFlags };
 		if (!foundry.utils.isEmpty(npcFlags)) foundry.utils.mergeObject(flags, baseFlags);
+
+		this.prepareBaseAtributos();
 	}
 
 	prepareDerivedData() {
