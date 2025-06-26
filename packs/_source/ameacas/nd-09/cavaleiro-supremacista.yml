@@ -439,8 +439,8 @@ items:
           final da cena, sempre que faz um ataque, o cavaleiro rola dois dados e
           usa o melhor resultado</section><p>Voc&ecirc; amplia sua
           percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando
-          brechas em sua defesa. Quando fazum teste de ataque, voc&ecirc;
-          rola dois dados e usa o melhor resultado</p>
+          brechas em sua defesa. Quando fazum teste de ataque, voc&ecirc; rola
+          dois dados e usa o melhor resultado</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 185
       ativacao:
@@ -570,12 +570,12 @@ items:
           magias que estejam ativas, como se sua dura&ccedil;&atilde;o tivesse
           acabado. Note que efeitos de magias instant&acirc;neas n&atilde;o
           podem ser dissipados (n&atilde;o se pode dissipar uma <em>Bola de
-          Fogo</em> ou <em>Rel&acirc;mpago</em> depois que j&aacute;
-          causaram dano...). Se lan&ccedil;ar essa magia em uma criatura ou
-          &aacute;rea, fa&ccedil;a um teste de Misticismo; voc&ecirc; dissipa as
-          magias com CD igual ou menor que o resultado do teste. Se
-          lan&ccedil;ada contra um item m&aacute;gico, o transforma em um item
-          mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
+          Fogo</em> ou <em>Rel&acirc;mpago</em> depois que j&aacute; causaram
+          dano...). Se lan&ccedil;ar essa magia em uma criatura ou &aacute;rea,
+          fa&ccedil;a um teste de Misticismo; voc&ecirc; dissipa as magias com
+          CD igual ou menor que o resultado do teste. Se lan&ccedil;ada contra
+          um item m&aacute;gico, o transforma em um item mundano por 1d6 rodadas
+          (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 191
       ativacao:
@@ -1571,9 +1571,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+28'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -1650,10 +1651,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772407
-      modifiedTime: 1700237222280
+      modifiedTime: 1750973596490
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.Vl8EoLKtzI7wyT1V
       duplicateSource: null
@@ -1935,27 +1936,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -2077,7 +2078,7 @@ system:
     fort:
       value: 21
       atributo: con
-      outros: 21
+      outros: 13
       treinado: false
       st: false
       pda: false
@@ -2194,8 +2195,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 15
+      treinado: true
       st: false
       pda: false
       size: false
@@ -2285,7 +2286,7 @@ system:
     refl:
       value: 11
       atributo: des
-      outros: 11
+      outros: 5
       treinado: false
       st: false
       pda: false
@@ -2324,7 +2325,7 @@ system:
     vont:
       value: 17
       atributo: sab
-      outros: 17
+      outros: 13
       treinado: false
       st: false
       pda: false
@@ -2538,10 +2539,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997945892
-  modifiedTime: 1700237222280
+  modifiedTime: 1750973596634
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

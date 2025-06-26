@@ -457,9 +457,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+22'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -578,10 +579,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772409
-      modifiedTime: 1700237097110
+      modifiedTime: 1750973606645
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.XuObO7LzBBNoIsGv
       duplicateSource: null
@@ -2828,27 +2829,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -2970,7 +2971,7 @@ system:
     fort:
       value: 7
       atributo: con
-      outros: 7
+      outros: 4
       treinado: false
       st: false
       pda: false
@@ -3087,8 +3088,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 15
+      treinado: true
       st: false
       pda: false
       size: false
@@ -3178,7 +3179,7 @@ system:
     refl:
       value: 14
       atributo: des
-      outros: 14
+      outros: 9
       treinado: false
       st: false
       pda: false
@@ -3217,7 +3218,7 @@ system:
     vont:
       value: 20
       atributo: sab
-      outros: 20
+      outros: 13
       treinado: false
       st: false
       pda: false
@@ -3431,10 +3432,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997945953
-  modifiedTime: 1700237097110
+  modifiedTime: 1750973606817
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

@@ -120,6 +120,10 @@ export default class ActorT20 extends Actor {
 		}, 0);
 	}
 
+	get treino() {
+		return this.system.attributes?.treino;
+	}
+
 	/* -------------------------------------------- */
 	/*  Data Preparation                            */
 	/* -------------------------------------------- */

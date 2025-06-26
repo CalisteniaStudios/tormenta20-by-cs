@@ -1,5 +1,5 @@
 _id: Y2et7W3oI63C9xB9
-name: Dragão Rei
+name: Dragão-Rei
 type: npc
 img: systems/tormenta20/icons/ameacas/dragao-rei.png
 items:
@@ -262,7 +262,7 @@ items:
     system:
       description:
         value: >-
-          O dragão rei pode manter duas magias sustentadas simultaneamente com
+          O dragão-rei pode manter duas magias sustentadas simultaneamente com
           apenas uma ação livre (mas pagando o custo de cada uma)
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 38
@@ -442,7 +442,7 @@ items:
     img: icons/magic/symbols/runes-star-pentagon-orange.webp
     system:
       description:
-        value: O dragão rei lança magias como um conjurador de 20º nível (CD 50)
+        value: O dragão-rei lança magias como um conjurador de 20º nível (CD 50)
         unidentified: ''
       source: ''
       ativacao:
@@ -1029,8 +1029,8 @@ items:
       description:
         value: >-
           <section class="secret">Controlar o Tempo (Padrão, 15 PM) O dragão
-          controla o tempo ao seu redor (veja página 187)</section><p>Aquele
-          que controla o tempo controla o mundo. Escolha um dos efeitos a
+          controla o tempo ao seu redor (veja página 187)</section><p>Aquele que
+          controla o tempo controla o mundo. Escolha um dos efeitos a
           seguir.</p>
 
           <p><em>Congelar o tempo:</em> voc&ecirc; gera uma bolha na qual o
@@ -1190,12 +1190,12 @@ items:
           outras magias que estejam ativas, como se sua dura&ccedil;&atilde;o
           tivesse acabado. Note que efeitos de magias instant&acirc;neas
           n&atilde;o podem ser dissipados (n&atilde;o se pode dissipar uma
-          <em>Bola de Fogo</em> ou <em>Rel&acirc;mpago</em> depois que
-          j&aacute; causaram dano...). Se lan&ccedil;ar essa magia em uma
-          criatura ou &aacute;rea, fa&ccedil;a um teste de Misticismo;
-          voc&ecirc; dissipa as magias com CD igual ou menor que o resultado do
-          teste. Se lan&ccedil;ada contra um item m&aacute;gico, o transforma em
-          um item mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
+          <em>Bola de Fogo</em> ou <em>Rel&acirc;mpago</em> depois que j&aacute;
+          causaram dano...). Se lan&ccedil;ar essa magia em uma criatura ou
+          &aacute;rea, fa&ccedil;a um teste de Misticismo; voc&ecirc; dissipa as
+          magias com CD igual ou menor que o resultado do teste. Se
+          lan&ccedil;ada contra um item m&aacute;gico, o transforma em um item
+          mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 191
       ativacao:
@@ -2406,12 +2406,13 @@ items:
             - - 1d20
               - ''
               - ''
-            - - ''
+            - - luta
               - ''
               - ''
-            - - '+55'
+            - - '5'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -2522,10 +2523,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700004654113
+      modifiedTime: 1750973611057
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -2561,10 +2562,10 @@ items:
             - - 1d20
               - ''
               - weapon
-            - - ''
+            - - luta
               - ''
               - skill
-            - - '+50'
+            - - '0'
               - ''
               - weaponbonus
         - name: Dano
@@ -2675,10 +2676,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1667026459909
+      modifiedTime: 1750973611226
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -3359,27 +3360,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -3501,7 +3502,7 @@ system:
     fort:
       value: 34
       atributo: con
-      outros: 34
+      outros: 12
       treinado: false
       condi: 0
       st: false
@@ -3618,8 +3619,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 17
+      treinado: true
       condi: 0
       st: false
       pda: false
@@ -3709,7 +3710,7 @@ system:
     refl:
       value: 20
       atributo: des
-      outros: 20
+      outros: 10
       treinado: false
       condi: 0
       st: false
@@ -3748,7 +3749,7 @@ system:
     vont:
       value: 28
       atributo: sab
-      outros: 28
+      outros: 11
       treinado: false
       condi: 0
       st: false
@@ -3881,7 +3882,7 @@ ownership:
   default: 0
 prototypeToken:
   flags: {}
-  name: Dragão Rei
+  name: Dragão-Rei
   displayName: 50
   width: 6
   height: 6
@@ -3962,10 +3963,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997945975
-  modifiedTime: 1700004654113
+  modifiedTime: 1750973611384
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

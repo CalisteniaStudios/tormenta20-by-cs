@@ -153,9 +153,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+12'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -266,10 +267,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700236300938
+      modifiedTime: 1750973607364
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -477,27 +478,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -619,7 +620,7 @@ system:
     fort:
       value: 5
       atributo: con
-      outros: 5
+      outros: 4
       treinado: false
       st: false
       pda: false
@@ -736,8 +737,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 11
+      treinado: true
       st: false
       pda: false
       size: false
@@ -827,7 +828,7 @@ system:
     refl:
       value: 10
       atributo: des
-      outros: 10
+      outros: 6
       treinado: false
       st: false
       pda: false
@@ -1080,10 +1081,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997945956
-  modifiedTime: 1700236300938
+  modifiedTime: 1750973607492
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

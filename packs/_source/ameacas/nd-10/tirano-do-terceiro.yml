@@ -669,8 +669,8 @@ items:
           melhor resultado, e quando um oponente ataca o tirano, rola dois dados
           e usa o pior resultado</section><p>Voc&ecirc; amplia sua
           percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando
-          brechas em sua defesa. Quando fazum teste de ataque, voc&ecirc;
-          rola dois dados e usa o melhor resultado</p>
+          brechas em sua defesa. Quando fazum teste de ataque, voc&ecirc; rola
+          dois dados e usa o melhor resultado</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 185
       ativacao:
@@ -1032,9 +1032,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+29'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -1153,10 +1154,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312773032
-      modifiedTime: 1700237302164
+      modifiedTime: 1750973624604
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.v5HYdRxOsBcnXATP
       duplicateSource: null
@@ -1200,9 +1201,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+29'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -1313,10 +1315,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700237295301
+      modifiedTime: 1750973624748
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -1649,27 +1651,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -1791,7 +1793,7 @@ system:
     fort:
       value: 22
       atributo: con
-      outros: 22
+      outros: 11
       treinado: false
       st: false
       pda: false
@@ -1908,8 +1910,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 14
+      treinado: true
       st: false
       pda: false
       size: false
@@ -1999,7 +2001,7 @@ system:
     refl:
       value: 10
       atributo: des
-      outros: 10
+      outros: 5
       treinado: false
       st: false
       pda: false
@@ -2038,7 +2040,7 @@ system:
     vont:
       value: 16
       atributo: sab
-      outros: 16
+      outros: 10
       treinado: false
       st: false
       pda: false
@@ -2252,10 +2254,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997946036
-  modifiedTime: 1700237302164
+  modifiedTime: 1750973624889
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

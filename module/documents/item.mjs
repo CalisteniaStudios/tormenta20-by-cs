@@ -430,7 +430,7 @@ export default class ItemT20 extends Item {
 		const flags = this.actor.flags.tormenta20 || {};
 
 		// Add skill bonus
-		if (this.parent?.type !== "npc" && roll.parts[1][0]) {
+		if (roll.parts[1][0]) {
 			parts[1] = "@skill";
 			if (!foundry.utils.isEmpty(actorData.pericias)) {
 				rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;

@@ -270,9 +270,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+11'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -349,10 +350,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772404
-      modifiedTime: 1700236935038
+      modifiedTime: 1750973624175
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.P4MW0Ezhmya6Hm89
       duplicateSource: null
@@ -396,9 +397,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+20'
+            - - '9'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -509,10 +511,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700236930618
+      modifiedTime: 1750973624294
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -768,27 +770,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -910,7 +912,7 @@ system:
     fort:
       value: 15
       atributo: con
-      outros: 15
+      outros: 9
       treinado: false
       st: false
       pda: false
@@ -1027,8 +1029,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 1
+      treinado: true
       st: false
       pda: false
       size: false
@@ -1118,7 +1120,7 @@ system:
     refl:
       value: 11
       atributo: des
-      outros: 11
+      outros: 7
       treinado: false
       st: false
       pda: false
@@ -1374,10 +1376,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997945990
-  modifiedTime: 1700236935038
+  modifiedTime: 1750973624436
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

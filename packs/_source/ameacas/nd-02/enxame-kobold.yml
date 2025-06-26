@@ -485,27 +485,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -627,7 +627,7 @@ system:
     fort:
       value: 7
       atributo: con
-      outros: 7
+      outros: 6
       treinado: false
       st: false
       pda: false
@@ -835,7 +835,7 @@ system:
     refl:
       value: 13
       atributo: des
-      outros: 13
+      outros: 9
       treinado: false
       st: false
       pda: false
@@ -874,7 +874,7 @@ system:
     vont:
       value: 2
       atributo: sab
-      outros: 2
+      outros: 1
       treinado: false
       st: false
       pda: false
@@ -1088,10 +1088,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997945977
-  modifiedTime: 1699999463211
+  modifiedTime: 1750973611640
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

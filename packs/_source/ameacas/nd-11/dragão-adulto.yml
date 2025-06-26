@@ -868,12 +868,12 @@ items:
           outras magias que estejam ativas, como se sua dura&ccedil;&atilde;o
           tivesse acabado. Note que efeitos de magias instant&acirc;neas
           n&atilde;o podem ser dissipados (n&atilde;o se pode dissipar uma
-          <em>Bola de Fogo</em> ou <em>Rel&acirc;mpago</em> depois que
-          j&aacute; causaram dano...). Se lan&ccedil;ar essa magia em uma
-          criatura ou &aacute;rea, fa&ccedil;a um teste de Misticismo;
-          voc&ecirc; dissipa as magias com CD igual ou menor que o resultado do
-          teste. Se lan&ccedil;ada contra um item m&aacute;gico, o transforma em
-          um item mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
+          <em>Bola de Fogo</em> ou <em>Rel&acirc;mpago</em> depois que j&aacute;
+          causaram dano...). Se lan&ccedil;ar essa magia em uma criatura ou
+          &aacute;rea, fa&ccedil;a um teste de Misticismo; voc&ecirc; dissipa as
+          magias com CD igual ou menor que o resultado do teste. Se
+          lan&ccedil;ada contra um item m&aacute;gico, o transforma em um item
+          mundano por 1d6 rodadas (sem teste de resist&ecirc;ncia).</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 191
       ativacao:
@@ -1856,9 +1856,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+35'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -1969,10 +1970,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700237419930
+      modifiedTime: 1750973615576
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -2014,9 +2015,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+35'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -2127,10 +2129,10 @@ items:
     flags: {}
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1666318097513
-      modifiedTime: 1700237443426
+      modifiedTime: 1750973615746
       lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
@@ -2716,27 +2718,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -2858,7 +2860,7 @@ system:
     fort:
       value: 24
       atributo: con
-      outros: 24
+      outros: 11
       treinado: false
       st: false
       pda: false
@@ -2975,8 +2977,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 15
+      treinado: true
       st: false
       pda: false
       size: false
@@ -3066,7 +3068,7 @@ system:
     refl:
       value: 11
       atributo: des
-      outros: 11
+      outros: 5
       treinado: false
       st: false
       pda: false
@@ -3105,7 +3107,7 @@ system:
     vont:
       value: 18
       atributo: sab
-      outros: 18
+      outros: 9
       treinado: false
       st: false
       pda: false
@@ -3319,10 +3321,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1661997945999
-  modifiedTime: 1700237443426
+  modifiedTime: 1750973615947
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

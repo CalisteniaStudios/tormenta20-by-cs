@@ -263,9 +263,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+9'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -342,10 +343,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772413
-      modifiedTime: 1700236200795
+      modifiedTime: 1750973618735
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.fRe995zLI8GOydRo
       duplicateSource: null
@@ -392,9 +393,10 @@ items:
             - - luta
               - ''
               - ''
-            - - '+9'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -471,10 +473,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1665456459182
-      modifiedTime: 1700236207041
+      modifiedTime: 1750973618873
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.NFepeG0ojjq3Xggs
       duplicateSource: null
@@ -524,9 +526,10 @@ items:
             - - pont
               - ''
               - ''
-            - - '7'
+            - - '0'
               - ''
               - ''
+          versatil: ''
         - name: Dano
           key: dano1
           type: dano
@@ -603,10 +606,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.203d2
-      coreVersion: '13.342'
+      systemVersion: v1.5.003
+      coreVersion: '13.345'
       createdTime: 1664312772394
-      modifiedTime: 1700236214158
+      modifiedTime: 1750973619005
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.B1hiWU8eEI1NHwcv
       duplicateSource: null
@@ -955,27 +958,27 @@ system:
     primary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 1
     secondary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 2
     tertiary:
       value: 0
       max: 0
-      label: ''
+      label: Recurso 3
     deathsave:
       value: 0
       max: 3
-      label: ''
+      label: Falha na Morte
     shadow:
       value: 0
       max: 5
-      label: ''
+      label: Pontos de Sombra
     catarse:
       value: 0
       max: 3
-      label: ''
+      label: Catarse
   pericias:
     acro:
       value: 0
@@ -1097,7 +1100,7 @@ system:
     fort:
       value: 9
       atributo: con
-      outros: 9
+      outros: 6
       treinado: false
       condi: 0
       st: false
@@ -1214,8 +1217,8 @@ system:
     luta:
       value: 0
       atributo: for
-      outros: 0
-      treinado: false
+      outros: 2
+      treinado: true
       condi: 0
       st: false
       pda: false
@@ -1292,8 +1295,8 @@ system:
     pont:
       value: 0
       atributo: des
-      outros: 0
-      treinado: false
+      outros: 3
+      treinado: true
       condi: 0
       st: false
       pda: false
@@ -1305,7 +1308,7 @@ system:
     refl:
       value: 2
       atributo: des
-      outros: 2
+      outros: 0
       treinado: false
       condi: 0
       st: false
@@ -1344,7 +1347,7 @@ system:
     vont:
       value: 5
       atributo: sab
-      outros: 5
+      outros: 4
       treinado: false
       condi: 0
       st: false
@@ -1563,10 +1566,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.203d2
-  coreVersion: '13.342'
+  systemVersion: v1.5.003
+  coreVersion: '13.345'
   createdTime: 1664306185703
-  modifiedTime: 1700236214158
+  modifiedTime: 1750973619145
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
