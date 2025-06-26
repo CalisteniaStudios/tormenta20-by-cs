@@ -25,6 +25,77 @@ export default function () {
 				prototypeTokenOverrides.character.sight.enabled = true;
 				game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			}
+			if (game.settings.get("tormenta20", "systemMigrationVersion") < "v1.5.006") {
+				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
+				const consertaAtores = async (actors, pack) => {
+					for (const actor of actors) {
+						if (actor.type !== "npc") continue;
+						const treino = actor.treino;
+						const changes = {};
+						try {
+							for (const pericia of Object.keys(CONFIG.T20.resistencias)) {
+								const { outros, value } = actor.system.pericias[pericia];
+								const newBonus = 2 * outros - value;
+								changes[`system.pericias.${pericia}.outros`] = newBonus;
+							}
+							if (actor.items.size) {
+								const pericias = new Set();
+								const bonus = {};
+
+								for (const arma of actor.itemTypes.arma) {
+									const rolls = arma.toObject().system.rolls;
+									const index = rolls.findIndex((r) => r.type === "ataque");
+									if (index === -1) continue;
+									const ataque = rolls[index];
+									const pericia = ataque.parts[1][0];
+									pericias.add(pericia);
+									if (!bonus[pericia]) bonus[pericia] = [];
+									bonus[pericia].push(ataque.parts[2][0]);
+								}
+								for (const pericia of pericias) {
+									const value = actor.system.pericias[pericia].value;
+									const menorBonus = Math.min(...bonus[pericia]);
+									const newBonus = menorBonus - value - treino;
+									changes[`system.pericias.${pericia}.treinado`] = true;
+									changes[`system.pericias.${pericia}.outros`] = newBonus;
+								}
+								for (const arma of actor.itemTypes.arma) {
+									const rolls = arma.toObject().system.rolls;
+
+									const index = rolls.findIndex((r) => r.type === "ataque");
+									if (index === -1) continue;
+									const ataque = rolls[index];
+									const pericia = ataque.parts[1][0];
+									ataque.parts[2][0] = Number(ataque.parts[2][0]) - Math.min(...bonus[pericia]);
+									await arma.update({ [`system.rolls`]: rolls });
+								}
+							}
+							await actor.update(changes);
+						} catch (err) {
+							if (pack) {
+								err.message = `Falha ao migrar o ator ${actor.name} no compêndio ${pack.collection}: ${err.message}`;
+							} else err.message = `Falha ao migrar o ator ${actor.name}`;
+							console.error(err);
+						}
+					}
+				};
+				ui.notifications.info("Iniciando conserto de resistências e ataques em Ameaças. Espere ", {
+					console: false,
+					permanent: true
+				});
+				for (const pack of packs) {
+					const wasLocked = pack.locked;
+					try {
+						await pack.configure({ locked: false });
+						const actors = await pack.getDocuments();
+						consertaAtores(actors, pack);
+					} finally {
+						await pack.configure({ locked: wasLocked });
+					}
+				}
+				consertaAtores(game.actors.filter((a) => a.type === "npc"));
+				ui.notifications.info("Conserto concluído", { console: false, permanent: true });
+			}
 			game.actors
 				.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.5.000")
 				.forEach((actor) => {
