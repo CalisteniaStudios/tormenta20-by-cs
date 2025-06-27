@@ -452,7 +452,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			};
 			if (rolltype === "dano") {
 				r.parts = [["1d6", "dano"], [""]];
-				r.versatil = "";
+				r.adaptavel = "";
 			}
 			roll.push(r);
 			return this.item.update({ "system.rolls": roll });

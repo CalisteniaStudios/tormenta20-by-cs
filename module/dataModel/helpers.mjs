@@ -328,22 +328,18 @@ class RollData extends foundry.abstract.DataModel {
 				choices: ["ataque", "dano", "formula"],
 				initial: "dano"
 			}),
-			versatil: new fields.StringField({ nullable: false, initial: "" })
+			adaptavel: new fields.StringField({ nullable: false, initial: "" }),
+			// Unused
+			versatil: new fields.StringField({ nullable: false, initial: "", readonly: true })
 		};
-	}
-
-	/** @override */
-	validate(value, options = {}) {
-		return super.validate(value, options);
-	}
-
-	/** @override */
-	_validateType(value, options = {}) {
-		return super._validateType(value, options);
 	}
 
 	/** @inheritdoc */
 	static migrateData(data) {
+		if (data.versatil && !data.versatil) {
+			data.adaptavel = data.versatil;
+			delete data.versatil;
+		}
 		for (let [k, v] of Object.entries(data.parts)) {
 			if (v.length !== 3) {
 				data.parts[k] = [v[0] ?? "", v[1] ?? "", v[2] ?? ""];
@@ -388,7 +384,7 @@ function getRollData() {
 			choices: ["ataque", "dano", "formula"],
 			initial: "dano"
 		}),
-		versatil: new fields.StringField({ nullable: false, initial: "" })
+		adaptavel: new fields.StringField({ nullable: false, initial: "" })
 	};
 }
 

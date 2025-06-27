@@ -68,10 +68,10 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 
 	/**
-	 * Does the Item implement a versatile damage roll as part of its usage
+	 * Does the Item implement an adaptable damage roll as part of its usage
 	 * @type {boolean}
 	 */
-	get isVersatile() {
+	get isAdaptable() {
 		return !!(this.hasDamage && this.system.propriedades.ada);
 	}
 
@@ -836,16 +836,13 @@ export default class ItemT20 extends Item {
 		}
 		const id = this.system; // Item system data
 		const actor = this.actor;
-		const ad = actor.system; // Actor system data
 
 		let createMeasuredTemplate;
 		const resource = id.consume || {}; // Resource consumption
 
 		if (item.type === "arma" && (equipmentSlots ? parseInt(id.equipado2.slot) === 12 : id.equipado === 2)) {
 			item.system.rolls.forEach((r) => {
-				if (r.type === "dano" && r.versatil) {
-					r.parts[0][0] = r.versatil;
-				}
+				if (r.type === "dano" && r.adaptavel) r.parts[0][0] = r.adaptavel;
 			});
 		}
 

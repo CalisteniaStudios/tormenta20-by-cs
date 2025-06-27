@@ -36,7 +36,7 @@
 	{{!-- roll.key --}}
 	{{!-- roll.name --}}
 	{{!-- roll.type --}}
-	{{!-- roll.versatil --}}
+	{{!-- roll.adaptavel --}}
 	<div class="form-group">
 		<h4 class="roll-header flexrow">
 			<input type="text" class="flex-2" name="system.rolls.{{key}}.name" value="{{roll.name}}" title="Referência: {{roll.key}}" />
@@ -90,7 +90,7 @@
 	{{/if}}
 
 	{{!-- Dano --}}
-	{{!-- [ dado, versatil, atributo, ...parts, tipo ] --}}
+	{{!-- [ dado, adaptavel, atributo, ...parts, tipo ] --}}
 	{{#if (eq roll.type "dano" ) }}
 		<div class="form-group">
 			<ol class="roll-parts form-group flexcol">
@@ -99,9 +99,9 @@
 					<input type="text" name="system.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"
 					title="Dano" />
 					{{#if ../system.propriedades.ada }}
-					<input type="text" name="system.rolls.{{key}}.versatil" value="{{roll.versatil}}" placeholder="Adaptável" />
+					<input type="text" name="system.rolls.{{key}}.adaptavel" value="{{roll.adaptavel}}" placeholder="Adaptável" />
 					{{else}}
-					<input type="hidden" name="system.rolls.{{key}}.versatil" value="" />
+					<input type="hidden" name="system.rolls.{{key}}.adaptavel" value="" />
 					{{/if}}
 					{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
 					<select name="system.rolls.{{key}}.parts.1.0" title="Atributo">

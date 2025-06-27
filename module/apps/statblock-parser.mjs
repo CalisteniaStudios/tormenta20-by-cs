@@ -750,7 +750,7 @@ export default class StatblockParser extends FormApplication {
 						name: "Ataque",
 						key: "ataque0",
 						type: "ataque",
-						versatil: "",
+						adaptavel: "",
 						parts: [
 							["1d20", "", "weapon"],
 							["", "", "skill"],
@@ -776,7 +776,7 @@ export default class StatblockParser extends FormApplication {
 						name: "Dano",
 						key: "dano1",
 						type: "dano",
-						versatil: "",
+						adaptavel: "",
 						parts: [[wdmg[0], dmgtype, "weapon"], ["", dmgtype, "ability"], ...dmg]
 					};
 					rolls.push(damageRoll);
