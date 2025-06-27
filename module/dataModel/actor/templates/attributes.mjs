@@ -28,8 +28,8 @@ export default class AttributesFields {
 		parts.push(...defesa.bonus);
 		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
 		let atributo = this.atributos[defesa.atributo].value;
-		if (armor?.system.tipo !== "pesada" || Number.between(atributo, -Infinity, maxAtr)) {
-			atributo = Math.clamp(atributo, 0, maxAtr);
+		if (armor?.system.tipo !== "pesada" || Number.between(atributo, 0, maxAtr)) {
+			atributo = Math.min(atributo, maxAtr);
 			parts.push(`@${defesa.atributo}`);
 		}
 		if (armor) parts.push(armor.system.armadura.value);
