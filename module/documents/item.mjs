@@ -840,7 +840,11 @@ export default class ItemT20 extends Item {
 		let createMeasuredTemplate;
 		const resource = id.consume || {}; // Resource consumption
 
-		if (item.type === "arma" && (equipmentSlots ? parseInt(id.equipado2.slot) === 12 : id.equipado === 2)) {
+		if (
+			item.type === "arma"
+			&& item.system.propriedades.ada
+			&& (equipmentSlots ? parseInt(id.equipado2.slot) === 12 : id.equipado === 2)
+		) {
 			item.system.rolls.forEach((r) => {
 				if (r.type === "dano" && r.adaptavel) r.parts[0][0] = r.adaptavel;
 			});
