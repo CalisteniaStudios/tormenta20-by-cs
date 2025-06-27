@@ -55,13 +55,17 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	/* -------------------------------------------- */
 
+	get layout() {
+		return this.actor.type;
+	}
+
 	/** @override */
 	get template() {
 		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
 		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
-			return "systems/tormenta20/templates/actor/actor-sheet-limited.hbs";
+			return "systems/tormenta20/templates/actor/limited-sheet.hbs";
 		}
-		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.hbs`;
+		return `systems/tormenta20/templates/actor/${this.layout}-sheet.hbs`;
 	}
 
 	/**
@@ -313,7 +317,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			}
 		];
 		if (!item.isOwner) return options;
-		if (this.layout === "tabbed" && !["classe", "race"].includes(item.type)) {
+		if (this.layout === "character-tabbed" && !["classe", "race"].includes(item.type)) {
 			const favorito = item.getFlag("tormenta20", "favorito");
 			options.push({
 				name: favorito ? "T20.Unfavorite" : "T20.Favorite",

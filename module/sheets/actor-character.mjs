@@ -22,17 +22,8 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 	/* -------------------------------------------- */
 
-	layout = "base";
-
-	/* -------------------------------------------- */
-
-	/** @override */
-	get template() {
-		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
-		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
-			return "systems/tormenta20/templates/actors/limited-sheet.hbs";
-		}
-		return `systems/tormenta20/templates/actor/actor-sheet-${this.layout}.hbs`;
+	get layout() {
+		return "character-base";
 	}
 
 	/* -------------------------------------------- */
@@ -320,7 +311,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		actorData.magias = grimorio;
 		actorData.maiorCirculo = maiorCirculo;
 		actorData.race = this.actor.itemTypes.race[0];
-		if (this.layout === "base") {
+		if (this.layout === "character-base") {
 			inventario.itens = { label: "Itens", items: items };
 		}
 		actorData.inventario = inventario;

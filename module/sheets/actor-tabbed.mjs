@@ -10,7 +10,9 @@ export default class ActorSheetT20CharacterTabbed extends ActorSheetT20Character
 		});
 	}
 
-	layout = "tabbed";
+	get layout() {
+		return "character-tabbed";
+	}
 
 	async getData() {
 		const sheetData = await super.getData();
