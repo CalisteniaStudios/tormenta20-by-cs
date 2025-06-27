@@ -1286,7 +1286,7 @@ export default class ItemT20 extends Item {
 	 *
 	 * @return {Promise<Roll>}   A Promise which resolves to the created Roll instance
 	 */
-	async rollDamage({ critical = false, event = null, versatile = false, options = {} } = {}) {
+	async rollDamage({ critical = false, event = null, options = {} } = {}) {
 		const itemData = this.system;
 		const actorData = this.actor.system;
 		const flags = this.actor.flags.tormenta20 || {};
@@ -1299,58 +1299,34 @@ export default class ItemT20 extends Item {
 			lancinante = Object.values(itemData.upgrades)?.includes("lancinating");
 		}
 		for (let r of itemData.rolls.filter((i) => i.type === "dano")) {
-			// Get roll data
-			const parts = r.parts; // .map(d => d[0]);
-			const rollData = this.getRollData();
-			// Configure the damage roll
-			const title = this.name;
-			const rollConfig = {
-				rd: r.rd,
-				actor: this.actor,
-				critical: critical ?? false,
-				criticalMultiplier: itemData.criticoX,
-				lancinante: lancinante,
-				data: rollData,
-				event: event,
-				parts: parts,
-				title: title,
-				flavor: title
-			};
-
-			// Adjust damage from versatile usage
-			if (versatile && r.versatil) {
-				parts[0][0] = r.versatil;
-			}
-
-			const isHealing = parts.some((p) => p[1] === "curapv");
-			const perda = parts.some((p) => p[1] === "perda");
+			const isHealing = r.parts.some((p) => p[1] === "curapv");
+			const perda = r.parts.some((p) => p[1] === "perda");
 			const isSpell = this.type === "magia";
 			const isAlchemical = this.type === "consumivel" && this.system.tipo === "alchemy";
-			parts
-				.filter((part) => !["curatpv", "curapm", "curatpm", "perda"].includes(part[1]))
-				.forEach((part, i) => {
-					let [dano, tipo] = part;
-					if (dano === "padrao") {
-						const { empunhadura, proposito } = this.system;
-						const { for: forca, des } = actorData.atributos;
-						const usarAcuidade =
-							(game.settings.get("tormenta20", "lightFinesseWeapons") || flags?.acuidade) && des.value > forca.value;
-						switch (proposito) {
-							case "disparo":
-								dano = flags?.estiloDisparo ? "@des" : "";
-								break;
-							case "arremesso":
-								dano = usarAcuidade ? "@des" : "@for";
-								break;
-							case "corpo-a-corpo":
-							case "corpo-a-corpo-arremesso":
-							default: {
-								dano = usarAcuidade && empunhadura === "leve" ? "@des" : "@for";
-							}
-						}
+			const parts = r.parts.map(([dano, tipo, extra]) => {
+				if (["curatpv", "curapm", "curatpm", "perda"].includes(tipo)) {
+					return [dano, tipo, extra];
+				}
+				if (dano === "padrao") {
+					const { empunhadura, proposito } = this.system;
+					const { for: forca, des } = actorData.atributos;
+					const usarAcuidade =
+						(game.settings.get("tormenta20", "lightFinesseWeapons") || flags?.acuidade) && des.value > forca.value;
+					switch (proposito) {
+						case "disparo":
+							dano = flags?.estiloDisparo ? "@des" : "";
+							break;
+						case "arremesso":
+							dano = usarAcuidade ? "@des" : "@for";
+							break;
+						case "corpo-a-corpo":
+						case "corpo-a-corpo-arremesso":
+						default:
+							dano = usarAcuidade && empunhadura === "leve" ? "@des" : "@for";
 					}
-					parts[i] = [dano, tipo, part[2]];
-				});
+				}
+				return [dano, tipo, extra];
+			});
 			if (isHealing) {
 				const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
 				if (bonuses.geral.filter(Boolean).length) parts.push(["@curaGeral", "", ""]);
@@ -1367,9 +1343,19 @@ export default class ItemT20 extends Item {
 				else if (isAlchemical && bonuses.mag.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
 			}
 
-			// Call the roll helper utility
-			foundry.utils.mergeObject(rollConfig, options);
-			itemData.rolled[r.name] = await damageRoll(rollConfig);
+			itemData.rolled[r.name] = await damageRoll({
+				rd: r.rd,
+				actor: this.actor,
+				critical: critical ?? false,
+				criticalMultiplier: itemData.criticoX,
+				lancinante,
+				data: this.getRollData(),
+				event,
+				parts,
+				title: this.name,
+				flavor: this.name,
+				...options
+			});
 		}
 		// return result;
 	}
