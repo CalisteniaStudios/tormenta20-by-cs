@@ -59,7 +59,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	get template() {
 		const limitedSetting = game.settings.get("tormenta20", "limitedSheet");
 		if (!game.user.isGM && limitedSetting === "limited" && this.actor.limited) {
-			return "systems/tormenta20/templates/actors/limited-sheet.hbs";
+			return "systems/tormenta20/templates/actor/actor-sheet-limited.hbs";
 		}
 		return `systems/tormenta20/templates/actor/${this.actor.type}-sheet.hbs`;
 	}
