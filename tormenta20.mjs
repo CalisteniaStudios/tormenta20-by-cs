@@ -112,6 +112,7 @@ Hooks.once("init", async function () {
 	CONFIG.Token.documentClass = TokenDocumentT20;
 	CONFIG.Token.objectClass = TokenT20;
 	CONFIG.Token.rulerClass = TokenRulerT20;
+	CONFIG.Token.hudClass = TokenHUDT20;
 	["blink", "displace"].forEach((a) => (CONFIG.Token.movement.actions[a].canSelect = () => game.user.isGM));
 	["burrow", "fly"].forEach((a) => {
 		CONFIG.Token.movement.actions[a].canSelect = (token) => {
@@ -119,7 +120,6 @@ Hooks.once("init", async function () {
 			return game.user.isGM || movement[a];
 		};
 	});
-	CONFIG.Token.hudClass = TokenHUDT20;
 	CONFIG.time.roundTime = 6;
 
 	CONFIG.Canvas.layers.templates.layerClass = TemplateLayerT20;
