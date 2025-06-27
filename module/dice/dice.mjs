@@ -100,7 +100,7 @@ export async function damageRoll({
 			})
 			.filterJoin("+");
 		// Create the damage roll
-		const rollFormula = simplifyRollFormula(parts, data);
+		const rollFormula = simplifyRollFormula(parts, data, { preserveFlavor: true });
 		const roll = new Roll(rollFormula, data, { type: "damage", rd });
 
 		// Modify the damage formula for critical hits
