@@ -7,6 +7,7 @@ export default class ChatLogTormenta20 extends foundry.applications.sidebar.tabs
 			const message = game.messages.get(li.dataset.messageId);
 			return (
 				(li.querySelector(".roll--dano") || message?.isRoll)
+				&& message.rolls.some((r) => r.total)
 				&& message?.isContentVisible
 				&& canvas.tokens?.controlled.length
 			);
@@ -15,6 +16,7 @@ export default class ChatLogTormenta20 extends foundry.applications.sidebar.tabs
 			const message = game.messages.get(li.dataset.messageId);
 			return (
 				(li.querySelector(".mana-cost, .chat-spend-mana") || message?.isRoll)
+				&& message.rolls.some((r) => r.total)
 				&& message?.isContentVisible
 				&& canvas.tokens?.controlled.length
 			);
