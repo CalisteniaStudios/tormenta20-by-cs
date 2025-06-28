@@ -15,7 +15,7 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 	}
 
 	#actorMovementStyle(style, waypoint) {
-		if (waypoint.actionConfig.teleport) return style;
+		if (waypoint.actionConfig.teleport) return;
 		const colors = [0x33bc4e, 0xf1d836, 0xe72124];
 		const dtColors = [0x5d9b6a, 0xb3a85f, 0xae5557];
 
@@ -23,13 +23,11 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 		const { cost } = waypoint.measurement;
 		if (movement) {
 			let speed = movement[waypoint.action];
-			if ((!speed && ["climb", "swim"].includes(waypoint.action)) || waypoint.action === "jump") {
-				speed = movement.walk;
-			} else if (waypoint.action === "hover") {
-				speed = Math.max(movement.walk, movement.fly);
-			}
+			if (!speed && ["climb", "swim"].includes(waypoint.action)) speed = movement.walk;
+			else if (waypoint.action === "hover") speed = Math.max(movement.walk, movement.fly);
 			const index = Math.clamp(Math.floor((cost - 1) / speed), 0, 2);
-			style.color = waypoint.terrain?.difficulty > 1 ? dtColors[index] : colors[index];
+			if (waypoint.terrain?.difficulty > 1) style.color = dtColors[index] ?? 0xbfbfbf;
+			else style.color = colors[index] ?? 0xffffff;
 		}
 	}
 
@@ -61,10 +59,12 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 					img: "systems/tormenta20/icons/svg/fairy.svg",
 					order: 1,
 					canSelect: (token) => token.movementTypes.has("hover") && !token.hasStatusEffect("caido"),
-					deriveTerrainDifficulty: ({ fly }) => Math.max(fly)
+					deriveTerrainDifficulty: ({ fly }) => fly
 				},
 				jump: {
-					canSelect: (token) => !token.hasStatusEffect("caido")
+					canSelect: (token) => !token.hasStatusEffect("caido"),
+					deriveTerrainDifficulty: ({ fly }) => fly,
+					getCostFunction: () => (cost) => cost
 				},
 				swim: {
 					canSelect: (token) => !token.hasStatusEffect("caido"),
