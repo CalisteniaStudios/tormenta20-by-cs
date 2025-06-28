@@ -75,12 +75,16 @@ export default class ActiveEffectT20 extends ActiveEffect {
 			"system.pericias.*.condi",
 			"system.attributes.movement.*"
 		];
+		const filters = {
+			"system.attributes.movement": (key) => !["hover", "unit"].includes(key)
+		};
 		if (change.key.includes("*") && wildcardPatterns.includes(change.key)) {
 			// Replica `system.path.*.key` pra todas as chaves de `system.path`
 			let [fieldPath, field] = change.key.split(".*");
 			field ??= "";
 			const property = foundry.utils.getProperty(actor, fieldPath);
-			for (const key of Object.keys(property)) {
+			const filter = filters[fieldPath] ?? (() => true);
+			for (const key of Object.keys(property).filter(filter)) {
 				change.key = `${fieldPath}.${key}${field}`;
 				super.apply(actor, change);
 			}
