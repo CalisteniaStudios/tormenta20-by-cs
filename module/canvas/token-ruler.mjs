@@ -79,13 +79,5 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 			},
 			{ performDeletions: true }
 		);
-
-		// ["displace"].forEach((a) => (CONFIG.Token.movement.actions[a].canSelect = () => game.user.isGM));
-		// ["burrow", "fly"].forEach((a) => {
-		// 	CONFIG.Token.movement.actions[a].canSelect = (token) => {
-		// 		const movement = foundry.utils.getProperty(token, "actor.system.attributes.movement");
-		// 		return game.user.isGM || movement[a];
-		// 	};
-		// });
 	}
 }
