@@ -1,7 +1,7 @@
 <header class="sheet-header flexrow">
 	<section class="header-details flexcol">
 		<div class="general-information flexrow">
-			<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" style="height:60px; width:60px; flex: 0 0 60px;"/>
+			<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" style="height:60px; width:60px; flex: 0 0 60px;" />
 			<h1 class="charname">
 				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}" />
 			</h1>
@@ -26,14 +26,12 @@
 </header>
 
 <style>
-	.traits {
+	.tormenta20.simple .traits {
 		flex: 0 0 35%;
 		font-size: 14px;
 	}
-	.traits * {
-		display: inline!important;
-	}
-	.traits label {
+
+	.tormenta20.simple .traits label {
 		font-size: unset;
 	}
 </style>
