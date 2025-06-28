@@ -113,13 +113,7 @@ Hooks.once("init", async function () {
 	CONFIG.Token.objectClass = TokenT20;
 	CONFIG.Token.rulerClass = TokenRulerT20;
 	CONFIG.Token.hudClass = TokenHUDT20;
-	["blink", "displace"].forEach((a) => (CONFIG.Token.movement.actions[a].canSelect = () => game.user.isGM));
-	["burrow", "fly"].forEach((a) => {
-		CONFIG.Token.movement.actions[a].canSelect = (token) => {
-			const movement = foundry.utils.getProperty(token, "actor.system.attributes.movement");
-			return game.user.isGM || movement[a];
-		};
-	});
+	TokenRulerT20.applyMovementConfig();
 	CONFIG.time.roundTime = 6;
 
 	CONFIG.Canvas.layers.templates.layerClass = TemplateLayerT20;

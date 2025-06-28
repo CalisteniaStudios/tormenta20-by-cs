@@ -508,6 +508,7 @@
   "T20.MovementWalk": "Terrestre",
   "T20.MovementHover": "Pairar",
   "T20.MovementUnits": "Unidades",
+  "T20.MovementTeleport": "Teleporte",
 
   "T20.Rest": "Descanso",
 
