@@ -376,9 +376,19 @@ T20.pericias = {
 	refl: { abl: "des", systems: ["core"], label: "T20.SkillRefl" },
 	reli: { abl: "sab", systems: ["core"], trainedOnly: true, label: "T20.SkillReli" },
 	sobr: { abl: "sab", systems: ["core"], label: "T20.SkillSobr" },
-	vont: { abl: "sab", systems: ["core"], label: "T20.SkillVont" }
+	vont: { abl: "sab", systems: ["core"], label: "T20.SkillVont" },
+
+	// Ofícios
+	alfa: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillAlfa" },
+	alqu: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillAlqu" },
+	arme: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillArme" },
+	arte: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillArte" },
+	cozi: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillCozi" },
+	enge: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillEnge" }
 };
 preLocalize("pericias", { key: "label", sort: true });
+
+T20.oficios = new Set(Object.keys(T20.pericias).filter((key) => T20.pericias[key].crafting));
 
 T20.resistencias = {
 	fort: "T20.SkillFort",

@@ -122,6 +122,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			editMode: this.isEditable && this._mode === this.constructor.MODES.EDIT
 		};
 
+		// FLAGS
+		sheetData.isPreparationCaster = this.actor.getFlag("tormenta20", "mago");
+		sheetData.esconderPericias = this.actor.getFlag("tormenta20", "sheet.esconderPericias");
+		sheetData.esconderOficios = this.actor.getFlag("tormenta20", "sheet.esconderOficios");
+		sheetData.showResources = this.actor.getFlag("tormenta20", "sheet.showResources");
+
 		// Sort Owned Items
 		for (let i of sheetData.items) {
 			const item = this.actor.items.get(i._id);
@@ -137,21 +143,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		}
 
 		// Skills
-		if (sheetData.skills) {
-			for (let [s, skl] of Object.entries(sheetData.skills)) {
-				if (sheetData.isNPC && s === "inic") skl.order = -5;
-				else if (sheetData.isNPC && s === "perc") skl.order = -4;
-				else if (sheetData.isNPC && s === "fort") skl.order = -3;
-				else if (sheetData.isNPC && s === "refl") skl.order = -2;
-				else if (sheetData.isNPC && s === "vont") skl.order = -1;
-				skl.key = s;
-				skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
-			}
-			sheetData.skills = Object.values(sheetData.skills).sort((a, b) => {
-				if (a.order === b.order) return a.label.localeCompare(b.label);
-				return a.order - b.order;
-			});
-		}
+		if (sheetData.skills) this._prepareSkills(sheetData);
 
 		// Update traits
 		if (sheetData.system.tracos) this._prepareTraits(sheetData.system.tracos);
@@ -165,6 +157,23 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		sheetData.documentName = "Actor";
 		// Return data to the sheet
 		return sheetData;
+	}
+
+	_prepareSkills(data) {
+		for (let [s, skl] of Object.entries(data.skills)) {
+			if (data.isNPC && s === "inic") skl.order = -5;
+			else if (data.isNPC && s === "perc") skl.order = -4;
+			else if (data.isNPC && s === "fort") skl.order = -3;
+			else if (data.isNPC && s === "refl") skl.order = -2;
+			else if (data.isNPC && s === "vont") skl.order = -1;
+			skl.key = s;
+			skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
+			skl.exibir = true;
+		}
+		data.skills = Object.values(data.skills).sort((a, b) => {
+			if (a.order === b.order) return a.label.localeCompare(b.label);
+			return a.order - b.order;
+		});
 	}
 
 	async _prepareItems(data) {}

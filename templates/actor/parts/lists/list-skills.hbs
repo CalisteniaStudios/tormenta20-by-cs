@@ -53,9 +53,9 @@
 		</div>
 	</li>
 	{{#each skills as |skill|}}
-	{{#unless (and (and @root.esconderPericias (not @root.editMode)) (and skill.st (not skill.treinado)))}}
+	{{#if skill.exibir}}
 	{{> pericia skill=skill}}
-	{{/unless}}
+	{{/if}}
 	{{/each}}
 
 	{{#if editMode}}

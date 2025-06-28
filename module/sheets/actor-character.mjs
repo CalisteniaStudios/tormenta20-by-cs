@@ -40,11 +40,6 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData.disableExperience = game.settings.get("tormenta20", "disableExperience");
 		sheetData.disableJournal = game.settings.get("tormenta20", "disableJournal");
 
-		// FLAGS
-		sheetData.isPreparationCaster = this.actor.getFlag("tormenta20", "mago");
-		sheetData.esconderPericias = this.actor.getFlag("tormenta20", "sheet.esconderPericias");
-
-		sheetData.showResources = this.actor.getFlag("tormenta20", "sheet.showResources");
 		const levelConfig = this.actor.getFlag("tormenta20", "lvlconfig");
 		sheetData.autoCalcResources = levelConfig ? !levelConfig.manual : true;
 
@@ -58,6 +53,22 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		sheetData.htmlFields.diario3 = await this.enrichHTML(sheetData.system.detalhes.diario3.value, sheetData);
 		sheetData.htmlFields.diario4 = await this.enrichHTML(sheetData.system.detalhes.diario4.value, sheetData);
 		return sheetData;
+	}
+
+	/* -------------------------------------------- */
+
+	_prepareSkills(data) {
+		for (let [s, skl] of Object.entries(data.skills)) {
+			const somenteTreinada = !data.esconderPericias || !skl.st || skl.treinado;
+			const oficio = !data.esconderOficios || !CONFIG.T20.oficios.has(s) || skl.treinado;
+			skl.key = s;
+			skl.symbol = skl.treinado ? "fas fa-check" : "far fa-circle";
+			skl.exibir = data.editMode || (somenteTreinada && oficio);
+		}
+		data.skills = Object.values(data.skills).sort((a, b) => {
+			if (a.order === b.order) return a.label.localeCompare(b.label);
+			return a.order - b.order;
+		});
 	}
 
 	/* -------------------------------------------- */
