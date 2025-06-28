@@ -22,7 +22,7 @@ export default class ActiveEffectEdit extends FormApplication {
 	}
 
 	activateListeners(html) {
-		html.find(".effect-control").click((ev) => ActiveEffectT20.onManageActiveEffect(ev, this.object));
+		html.find(".effect-control").on("click contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.object));
 		html.find(".effect").on("contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.object));
 
 		html.on("click contextmenu", (ev) => {

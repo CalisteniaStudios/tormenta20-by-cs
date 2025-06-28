@@ -243,7 +243,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			.change(this._onQtyChange.bind(this));
 
 		// Active Effect management
-		html.find(".effect-control").click((ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
+		html.find(".effect-control").on("click contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
 		html.find(".effect").on("contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.actor));
 		// html.find('li.effect').on("dragstart", ev => this._onDragStart.bind(ev, this));
 		let handler = (ev) => this._onDragStart(ev);

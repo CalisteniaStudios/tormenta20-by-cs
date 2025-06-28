@@ -168,7 +168,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 			case "create": {
 				const isOnUse = type === "onuse";
 				const itemEffect = owner.documentName === "Item";
-				return new ActiveEffectWizard(owner, {
+				const effectData = {
 					name: isOnUse || !itemEffect ? game.i18n.localize("T20.EffectNewLabel") : owner.name,
 					img: isOnUse ? "icons/svg/upgrade.svg" : itemEffect ? owner.img : "icons/svg/aura.svg",
 					origin: owner.uuid,
@@ -177,7 +177,11 @@ export default class ActiveEffectT20 extends ActiveEffect {
 					"duration.rounds": type === "temporary" || temp ? 1 : undefined,
 					"duration.seconds": undefined,
 					disabled: ["inactive", "onuse"].includes(type)
-				}).render({ force: true });
+				};
+				if (event.type == "contextmenu") {
+					return owner.createEmbeddedDocuments("ActiveEffect", [effectData], { renderSheet: true });
+				}
+				return new ActiveEffectWizard(owner, effectData).render({ force: true });
 			}
 			case "create-status": {
 				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];

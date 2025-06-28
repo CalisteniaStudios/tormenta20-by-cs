@@ -209,9 +209,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			html.find(".effect-control-status").click((ev) => {
 				ActiveEffectT20.onManageActiveEffect(ev, this.item);
 			});
-			html.find(".effect-control").click((ev) => {
-				ActiveEffectT20.onManageActiveEffect(ev, this.item);
-			});
+			html.find(".effect-control").on("click contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.item));
 			if (this.item.system.enableAutoUpgrades) {
 				html.find(".tab.enhancements select").change(async (ev) => {
 					const { name, value } = ev.currentTarget;
