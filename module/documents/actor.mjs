@@ -543,6 +543,7 @@ export default class ActorT20 extends Actor {
 			heal: 0,
 			tempHP: 0,
 			mana: 0,
+			manaGain: 0,
 			tempMP: 0
 		};
 
@@ -558,10 +559,10 @@ export default class ActorT20 extends Actor {
 			}
 		}
 
-		const map = { curapv: "heal", curatpv: "tempHP", curapm: "mana", curatpm: "tempMP" };
+		const map = { curapv: "heal", curatpv: "tempHP", curapm: "manaGain", curatpm: "tempMP" };
 		Object.entries(map).forEach(([key, value]) => {
 			if (damage[key]) {
-				final[value] += damage[key].value;
+				final[value] += damage[key].value * -multiplier;
 				delete damage[key];
 			}
 		});
@@ -605,7 +606,7 @@ export default class ActorT20 extends Actor {
 		const mpt = Math.min(pm.temp, final.mana);
 		// Remaining goes to attr
 		const dhp = Math.clamp(pv.value + final.heal - (final.damage + final.loss - hpt), pv.min, pv.max);
-		const dmp = Math.clamp(pm.value - (final.mana - mpt), pm.min, pm.max);
+		const dmp = Math.clamp(pm.value + final.manaGain - (final.mana - mpt), pm.min, pm.max);
 
 		// Update the Actor
 		const updates = {

@@ -7,6 +7,20 @@ export default class ChatLogTormenta20 extends foundry.applications.sidebar.tabs
 			const message = game.messages.get(li.dataset.messageId);
 			return (
 				(li.querySelector(".roll--dano") || message?.isRoll)
+				&& message.rolls.some(
+					(r) =>
+						r.total
+						&& r.options?.type !== "attack"
+						&& r.terms.some((t) => !["curapv", "curatpv", "curapm", "curatpm"].includes(t.options?.flavor))
+				)
+				&& message?.isContentVisible
+				&& canvas.tokens?.controlled.length
+			);
+		};
+		const canApplyHeal = (li) => {
+			const message = game.messages.get(li.dataset.messageId);
+			return (
+				(li.querySelector(".roll--dano") || message?.isRoll)
 				&& message.rolls.some((r) => r.total)
 				&& message?.isContentVisible
 				&& canvas.tokens?.controlled.length
@@ -15,7 +29,11 @@ export default class ChatLogTormenta20 extends foundry.applications.sidebar.tabs
 		const canApplyMana = (li) => {
 			const message = game.messages.get(li.dataset.messageId);
 			return (
-				(li.querySelector(".mana-cost, .chat-spend-mana") || message?.isRoll)
+				(li.querySelector(".mana-cost, .chat-spend-mana")
+					|| (message?.isRoll
+						&& message.rolls.some(
+							(r) => r.total && r.options?.type !== "attack" && r.terms.every((t) => !t.options?.flavor)
+						)))
 				&& message.rolls.some((r) => r.total)
 				&& message?.isContentVisible
 				&& canvas.tokens?.controlled.length
@@ -45,7 +63,7 @@ export default class ChatLogTormenta20 extends foundry.applications.sidebar.tabs
 			{
 				name: "Aplicar Cura",
 				icon: '<i class="fas fa-user-plus" style="color: #00AA00;"></i>',
-				condition: canApply,
+				condition: canApplyHeal,
 				callback: (li) => applyChatCardDamage(li, -1, "curapv")
 			},
 			{

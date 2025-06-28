@@ -232,7 +232,7 @@ export function _onChatSpendMana(event) {
  * @param {Number} adjust A adjust value to apply to the cost.
  * @return {Promise}
  */
-export function applyChatManaSpend(message, adjust, recover = false) {
+export function applyChatManaSpend(message, adjust = 0, recover = false) {
 	if (canvas.tokens.controlled.length) {
 		const amount =
 			message.querySelector(".chat-spend-mana")?.value ?? game.messages.get(message.dataset.messageId).rolls[0].total;
