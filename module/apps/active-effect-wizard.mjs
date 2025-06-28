@@ -169,7 +169,7 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 					.sort((a, b) => a[1].localeCompare(b[1]))
 			);
 		};
-		const source = parent instanceof ActorT20 ? this.document.system.pericias : CONFIG.T20.pericias;
+		const source = parent instanceof ActorT20 ? parent.system.pericias : CONFIG.T20.pericias;
 		return { "*": "Todas as Perícias", ...createSuggestions(source) };
 	}
 
