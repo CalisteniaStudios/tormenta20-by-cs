@@ -1,6 +1,6 @@
 <form id="statblock-parser">
 	<div class="flexrow">
-		<article class="statblock">
+		<article style="flex: 2">
 			<textarea name="teste" id="statblock" cols="0" rows="20">{{statblock}}</textarea>
 		</article>
 		<aside>
@@ -10,22 +10,11 @@
 
 			<ul>
 				{{#each log as | l k | }}
-					<li class="{{#if l.success}}success{{else}}fail{{/if}}" >{{l.message}}</li>
+					<li style="{{#if l.success}}background-color: lightgreen;{{else}}background-color: lightcoral;{{/if}}" >
+						{{l.message}}
+					</li>
 				{{/each}}
 			</ul>
 		</aside>
 	</div>
 </form>
-
-<style>
-.statblock {
-	flex:2;
-}
-li.success {
-	background-color: lightgreen;
-}
-
-li.fail {
-	background-color: lightcoral;
-}
-</style>
