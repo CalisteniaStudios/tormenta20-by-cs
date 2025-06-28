@@ -31,7 +31,15 @@ system:
     value: 0
     penalidade: 0
     maxAtr: 0
-  rolls: []
+  rolls:
+    - name: Recuperação de Mana
+      key: dano0
+      type: dano
+      parts:
+        - - 1d4cs=4
+          - curapm
+      adaptavel: ''
+      versatil: ''
   origin: ''
   tags: []
   chatFlavor: ''
@@ -55,10 +63,10 @@ system:
   encantos: {}
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: v1.5.006
+  coreVersion: '13.346'
   createdTime: 1663377681721
-  modifiedTime: 1684809353177
+  modifiedTime: 1751090257731
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
