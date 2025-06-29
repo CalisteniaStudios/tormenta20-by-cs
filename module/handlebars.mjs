@@ -141,10 +141,10 @@ export function registerHandlebarsHelpers() {
 						tipo: i.system.tipo
 					}));
 				const armaduraPesada = armaduras.some((i) => i.tipo === "pesada");
-				const meioNivel = game.settings.get("tormenta20", "progressiveDefense") ? rollData.meionivel : 0;
+				const meioNivel = actor.type === "character" && game.settings.get("tormenta20", "progressiveDefense");
 				listEffects = [
 					{ label: "Base", value: defesa.base },
-					meioNivel ? { label: "Metade do Nível", value: meioNivel } : false,
+					meioNivel ? { label: "Metade do Nível", value: rollData.meionivel } : false,
 					defesa.atributo && !armaduraPesada
 						? {
 								label: CONFIG.T20.atributos[defesa.atributo],
