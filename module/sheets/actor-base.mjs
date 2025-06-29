@@ -262,9 +262,6 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			li.addEventListener("dragstart", handler, false);
 		});
 
-		// Open Compendium Entry
-		html.find(".compendium-entry").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
-
 		// Rollable abilities.
 		html.find(".rollable.atributo-rollable").click(this._onRollAtributo.bind(this));
 		// Rollable skills.
@@ -1042,7 +1039,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	 */
 	async _onOpenCompendiumEntry(event) {
 		const parent = event.currentTarget.closest("li") ?? event.currentTarget;
-		const skill = parent.dataset.itemId ?? null;
+		let skill = parent.dataset.itemId ?? null;
+		if (T20.oficios.has(skill)) skill = "ofic";
 		if (!skill || !T20.skillCompendiumEntries[skill]) return;
 		const entryKey = T20.skillCompendiumEntries[skill];
 		await Journal._showEntry(entryKey, true);

@@ -419,7 +419,7 @@ T20.skillCompendiumEntries = {
 	luta: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.LFvkUhrjgGP9Joqv",
 	mist: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.T5I0dWUuXFEyorJG",
 	nobr: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.oacoimyp8UfMD1o7",
-	ofíc: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.GcfpNnf0qsct6c36",
+	ofic: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.GcfpNnf0qsct6c36",
 	perc: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.IZDwoKmx3sd0MGDv",
 	pilo: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.RZGkvgBj943km7Ux",
 	pont: "Compendium.tormenta20.basico.gPPLzgFvC0JKi5UE.JournalEntryPage.FpCIRhlSUBciPvL1",
