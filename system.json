@@ -2,7 +2,7 @@
   "id": "tormenta20",
   "title": "Tormenta20",
   "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "v1.5.006",
+  "version": "1.5.007",
   "compatibility": {
     "minimum": "13",
     "verified": "13",

@@ -25,7 +25,7 @@ export default function () {
 				prototypeTokenOverrides.character.sight.enabled = true;
 				game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			}
-			if (game.settings.get("tormenta20", "systemMigrationVersion") < "v1.5.006") {
+			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.007") {
 				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
 				const consertaAtores = async (actors, pack) => {
 					for (const actor of actors) {
