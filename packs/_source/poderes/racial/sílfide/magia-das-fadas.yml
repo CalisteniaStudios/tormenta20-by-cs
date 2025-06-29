@@ -61,9 +61,8 @@ system:
       data-tooltip="Magia Item">Criar Ilus&atilde;o</a>, <a class="content-link"
       draggable="true" data-uuid="Compendium.tormenta20.magias.lJYJQFhk5oai46Ty"
       data-id="lJYJQFhk5oai46Ty" data-type="Item" data-pack="tormenta20.magias"
-      data-tooltip="Magia Item">Enfeiti&ccedil;ar</a>, <a
-      class="content-link" draggable="true"
-      data-uuid="Compendium.tormenta20.magias.eJcIYwz9CthoWZs4"
+      data-tooltip="Magia Item">Enfeiti&ccedil;ar</a>, <a class="content-link"
+      draggable="true" data-uuid="Compendium.tormenta20.magias.eJcIYwz9CthoWZs4"
       data-id="eJcIYwz9CthoWZs4" data-type="Item" data-pack="tormenta20.magias"
       data-tooltip="Magia Item">Luz</a> (como uma magia arcana) e <a
       class="content-link" draggable="true"

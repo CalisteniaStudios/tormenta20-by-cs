@@ -14,9 +14,9 @@ system:
       (&aacute;cido). Voc&ecirc; &eacute; imune a dano desse tipo. Se fosse
       sofrer dano m&aacute;gico desse tipo, em vez disso cura PV em quantidade
       igual &agrave; metade do dano. Por exemplo, se um golem com
-      esp&iacute;rito elemental de fogo &eacute; atingido por uma<em>Bola
-      de Fogo</em>que causa 30 pontos de dano, em vez de sofrer esse dano,
-      ele recupera 15 PV.</p>
+      esp&iacute;rito elemental de fogo &eacute; atingido por uma<em>Bola de
+      Fogo</em>que causa 30 pontos de dano, em vez de sofrer esse dano, ele
+      recupera 15 PV.</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, p. 27

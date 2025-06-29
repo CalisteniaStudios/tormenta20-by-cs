@@ -5,11 +5,9 @@ effects: []
 flags: {}
 system:
   description:
-    value: >-
+    value: |-
       <p><strong>[Item de Origem]</strong></p>
-
-      <p>um animal n&atilde;o combativo (como uma galinha, porco ou
-      ovelha).</p>
+      <p>um animal n&atilde;o combativo (como uma galinha, porco ou ovelha).</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, p. 90

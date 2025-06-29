@@ -3,9 +3,7 @@ type: tesouro
 img: systems/tormenta20/icons/itens/gerais/bolas-malabarista.webp
 system:
   description:
-    value: >-
-      <p><strong>[Item de Origem]</strong><br>+1 em
-      Atua&ccedil;&atilde;o</p>
+    value: <p><strong>[Item de Origem]</strong><br>+1 em Atua&ccedil;&atilde;o</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, p. 90

@@ -115,11 +115,11 @@ system:
       <p>Voc&ecirc; pode controlar os movimentos e comportamentos de massas de
       ar. Ao lan&ccedil;ar a magia, escolha um dos efeitos abaixo.</p>
 
-      <p><em>Ascender:</em>cria uma corrente de ar ascendente capaz de
-      erguer do ch&atilde;o uma criatura ou objeto m&eacute;dio, fazendo o alvo
-      ﬂutuar para cima e para baixo conforme sua vontade. Voc&ecirc; pode gastar
-      uma a&ccedil;&atilde;o de movimento para subir ou descer o alvo at&eacute;
-      6m por rodada, at&eacute; um m&aacute;ximo de 30m de altura. Voc&ecirc;
+      <p><em>Ascender:</em>cria uma corrente de ar ascendente capaz de erguer do
+      ch&atilde;o uma criatura ou objeto m&eacute;dio, fazendo o alvo ﬂutuar
+      para cima e para baixo conforme sua vontade. Voc&ecirc; pode gastar uma
+      a&ccedil;&atilde;o de movimento para subir ou descer o alvo at&eacute; 6m
+      por rodada, at&eacute; um m&aacute;ximo de 30m de altura. Voc&ecirc;
       n&atilde;o pode mover o alvo horizontalmente &mdash; mas o alvo pode, por
       exemplo, escalar uma colina ou se apoiar no teto para mover-se
       lateralmente (com metade de seu deslocamento normal). Uma criatura
@@ -132,14 +132,13 @@ system:
       fazer uma manobra derrubar contra uma criatura voadora dentro do alcance,
       usando seu atributo-chave no lugar de For&ccedil;a.</p>
 
-      <p><em>Sopro:</em>cria uma lufada de vento a partir de suas
-      m&atilde;os, que empurra qualquer criatura M&eacute;dia ou menor em um
-      cone de 4,5m &mdash; fa&ccedil;a uma
-      manobra<em>empurrar</em>usando seu atributo-chave ao
-      inv&eacute;s de for&ccedil;a, usando o mesmo resultado de sua rolagem para
-      todos os alvos. A lufada de vento tamb&eacute;m faz qualquer coisa que um
-      vento forte e s&uacute;bito faria, como levantar p&oacute;, dispersar
-      vapores, apagar chamas, espalhar pap&eacute;is ou mover uma
+      <p><em>Sopro:</em>cria uma lufada de vento a partir de suas m&atilde;os,
+      que empurra qualquer criatura M&eacute;dia ou menor em um cone de 4,5m
+      &mdash; fa&ccedil;a uma manobra<em>empurrar</em>usando seu atributo-chave
+      ao inv&eacute;s de for&ccedil;a, usando o mesmo resultado de sua rolagem
+      para todos os alvos. A lufada de vento tamb&eacute;m faz qualquer coisa
+      que um vento forte e s&uacute;bito faria, como levantar p&oacute;,
+      dispersar vapores, apagar chamas, espalhar pap&eacute;is ou mover uma
       embarca&ccedil;&atilde;o. Manter o sopro ativo exige uma
       a&ccedil;&atilde;o padr&atilde;o.</p>
 

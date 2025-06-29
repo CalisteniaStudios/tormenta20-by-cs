@@ -14,10 +14,10 @@ system:
       <p>Quando ataca um inimigo escolhido para sua habilidade Duelo que esteja
       @UUID[JournalEntry.s15J5SOYixL3Ajzr.JournalEntryPage.my1HxIcUGVr2Mbii]{Desprevenido}<span
       style="white-space: nowrap; background-color: rgb(221, 221,
-      221);"></span>ou flanqueado por voc&ecirc;, seus b&ocirc;nus
-      concedidos por essa habilidade em testes de ataque e rolagens de dano
-      contra ele s&atilde;o dobrados. <em>Pr&eacute;-requisitos:</em> Duelo,
-      N&atilde;o Tenho Nome.</p>
+      221);"></span>ou flanqueado por voc&ecirc;, seus b&ocirc;nus concedidos
+      por essa habilidade em testes de ataque e rolagens de dano contra ele
+      s&atilde;o dobrados. <em>Pr&eacute;-requisitos:</em> Duelo, N&atilde;o
+      Tenho Nome.</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Distinções, p. 18

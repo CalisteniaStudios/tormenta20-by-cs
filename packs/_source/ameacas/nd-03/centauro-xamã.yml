@@ -1671,7 +1671,7 @@ system:
       hover: false
       notes: ''
     defesa:
-      base: 21
+      base: 20
       value: 0
       outros: 0
       atributo: des
@@ -2414,10 +2414,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: v1.5.003
-  coreVersion: '13.345'
+  systemVersion: 1.5.007
+  coreVersion: '13.346'
   createdTime: 1661997946042
-  modifiedTime: 1750973626368
+  modifiedTime: 1751217549146
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

@@ -59,8 +59,7 @@ system:
   description:
     value: >-
       <p>Escolha uma escola de magia. A CD para resistir a suas magias dessa
-      escola aumenta em +2.<em>Pr&eacute;-requissito:</em>Bruxo ou
-      Mago.</p>
+      escola aumenta em +2.<em>Pr&eacute;-requissito:</em>Bruxo ou Mago.</p>
     chat: ''
     unidentified: ''
   source: Tormenta20 — Edição Jogo do Ano, p. 38
