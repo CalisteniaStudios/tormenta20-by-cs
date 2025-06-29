@@ -185,11 +185,9 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			if (ch.value == "roll") {
 				const itr = item.actor.items.get(ef.origin.split(".")[3]).system.rolls.find((r) => r.type == "dano");
 				r.parts.push(itr.parts[0]);
-			} else if (item.type == "pericia") {
-				item.bonus.push(Number(ch.value * qty) || ch.value);
-				continue;
-			} else if (item.type == "atributo") {
+			} else if (["pericia", "atributo"].includes(item.type)) {
 				r.parts.push(Number(ch.value * qty) || ch.value);
+				continue;
 			} // To add one extra dice from source 1d => 2d6 + 1d6
 			else if (ch.key == "dano" && ch.value.match(/^\dd$/)) {
 				let n = parseInt(ch.value) ?? 0;
