@@ -7,6 +7,7 @@ import ActorResistanceConfig from "../apps/resistance-config.mjs";
 import RestConfigDialog from "../apps/rest-config.mjs";
 import StatblockParser from "../apps/statblock-parser.mjs";
 import TraitSelector from "../apps/trait-selector.mjs";
+import { SkillData } from "../dataModel/helpers.mjs";
 
 /**
  * Extend the basic ActorSheet class to suppose system-specific logic and functionality.
@@ -958,18 +959,12 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			label = `${oficioLabel}: ${label}`;
 		}
 		const pericia = {
+			...new SkillData(),
 			label,
-			name: label,
 			custom: true,
-			value: 0,
 			atributo: oficio ? "int" : "for",
 			st: !!oficio,
-			pda: false,
-			treinado: oficio ? 1 : 0,
-			treino: 0,
-			outros: 0,
-			mod: 0,
-			bonus: 0
+			treinado: oficio ? 1 : 0
 		};
 
 		const actorData = foundry.utils.deepClone(this.actor);
