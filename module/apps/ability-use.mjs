@@ -15,11 +15,11 @@ const CHANGEMODES = CONST.ACTIVE_EFFECT_MODES;
  */
 const re = {
 	faces: /^d\d+$/,
-	die: /\d+d\d+[\+|\-]?[\d+]?/,
-	split: /(d)|([\+|\-])|(\d+)|(\@\w+)|\[(\w+)\]/g,
+	die: /\d+d\d+[+-]?[\d+]?/,
+	split: /(d)|([+-])|(\d+)|(@\w+)|\[(\w+)\]/g,
 	perd: /d\*\d+/,
-	dieGroup: /(?<die>(?<qty>\d+)(d)(?<faces>\d+)(?<bonus>[\+|\-]\d+)?(?<dmgType>\[\w+\]))?/,
-	dmgType: /(?<die>\d+d\d+)\s?\[?(?<dtype>\w+)?\]?/
+	dieGroup: /(?<die>(?<qty>\d+)(d)(?<faces>\d+)(?<bonus>[+-]\d+)?(?<dmgType>\[\w+\]))?/,
+	dmgType: /(?<die>\d+d\d+[+-]?[\d+]?)\s?\[?(?<dtype>\w+)?\]?/
 };
 
 /**
@@ -189,34 +189,9 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				r.parts.push(Number(ch.value * qty) || ch.value);
 				continue;
 			} // To add one extra dice from source 1d => 2d6 + 1d6
-			else if (ch.key == "dano" && ch.value.match(/^\dd$/)) {
+			else if (ch.key === "dano" && ch.value.match(/^\dd$/)) {
 				let n = parseInt(ch.value) ?? 0;
 				if (n) rollMods[r.key][p].extraDie = n;
-				continue;
-			} // To add term multipliable when critical
-			else if (["danoCritico", "danoMultiplicavel"].includes(ch.key)) {
-				if (r.type != "dano") continue;
-				const dmgTypeG = ch.value.match(re.dmgType);
-				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
-				let part = ch.value;
-				if (Number(ch.value)) {
-					part = Number(ch.value * qty);
-				} else {
-					part = ch.value.replace(/^\d+/, ($0) => $0 * qty);
-				}
-
-				r.parts.push([part, ch.key]);
-				rollMods[r.key].push({
-					die: null,
-					dmgStep: 0,
-					override: null,
-					addDie: 0,
-					addNum: 0,
-					perDie: 0,
-					extraDie: 0,
-					dmgType: dmgTypeG?.groups?.dtype ?? "",
-					src: sourceName ?? ""
-				});
 				continue;
 			} // To ignore part of Damage Reduction
 			else if (r.type === "dano" && ch.key === "ignoraRD") {
@@ -224,15 +199,24 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				r.rd += Math.abs(Number(ch.value * qty)) * -1;
 				continue;
 			} else {
-				const dmgTypeG = ch.value.match(re.dmgType);
-				const dicePattern = /^\dd\d+$/i;
-				let value = Number(ch.value * qty) || ch.value;
-				if (dicePattern.test(ch.value)) {
-					const dice = ch.value.split("d");
-					value = `${dice[0] * qty}d${dice[1]}`;
+				let { die, dtype } = ch.value.match(re.dmgType)?.groups ?? {};
+				if (r.type === "dano" && !dtype) {
+					dtype = r.parts.find((p) => p[1] in CONFIG.T20.damageTypes)[1];
 				}
-				// ch.value = dmgTypeG?.groups?.die ?? ch.value;
-				r.parts.push([value, ""]);
+				// To add term multipliable when critical
+				if (["danoCritico", "danoMultiplicavel"].includes(ch.key)) {
+					if (r.type !== "dano") continue;
+					const value = Number(ch.value * qty) || ch.value.replace(/^\d+/, ($0) => $0 * qty);
+					r.parts.push([value, ch.key]);
+				} else {
+					let value = Number(ch.value * qty) || ch.value;
+					if (die) {
+						// "1d6[damage]" -> ["1", "6[damage]"]
+						const [diceQty, size] = die.split(/d(.*)/i);
+						value = `${diceQty * qty}d${size}`;
+					}
+					r.parts.push([value, dtype ?? ""]);
+				}
 				rollMods[r.key].push({
 					die: null,
 					dmgStep: 0,
@@ -241,7 +225,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 					addNum: 0,
 					perDie: 0,
 					extraDie: 0,
-					dmgType: dmgTypeG?.groups?.dtype ?? "",
+					dmgType: dtype ?? "",
 					src: sourceName ?? ""
 				});
 				continue;
