@@ -70,6 +70,10 @@ export default function () {
 									await arma.update({ [`system.rolls`]: rolls });
 								}
 							}
+							if (actor.system.atributos.des.value !== 0) {
+								const defBase = actor.system.attributes.defesa.base;
+								changes["system.attributes.defesa.base"] = defBase - actor.system.atributos.des.value;
+							}
 							await actor.update(changes);
 						} catch (err) {
 							if (pack) {
