@@ -25,7 +25,7 @@ export default function () {
 				prototypeTokenOverrides.character.sight.enabled = true;
 				game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			}
-			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.007") {
+			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.006") {
 				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
 				const consertaAtores = async (actors, pack) => {
 					for (const actor of actors) {
@@ -70,10 +70,6 @@ export default function () {
 									await arma.update({ [`system.rolls`]: rolls });
 								}
 							}
-							if (actor.system.atributos.des.value !== 0) {
-								const defBase = actor.system.attributes.defesa.base;
-								changes["system.attributes.defesa.base"] = defBase - actor.system.atributos.des.value;
-							}
 							await actor.update(changes);
 						} catch (err) {
 							if (pack) {
@@ -90,6 +86,43 @@ export default function () {
 						permanent: true
 					}
 				);
+				for (const pack of packs) {
+					const wasLocked = pack.locked;
+					try {
+						await pack.configure({ locked: false });
+						const actors = await pack.getDocuments();
+						consertaAtores(actors, pack);
+					} finally {
+						await pack.configure({ locked: wasLocked });
+					}
+				}
+				consertaAtores(game.actors.filter((a) => a.type === "npc"));
+				ui.notifications.info("Conserto concluído", { console: false, permanent: true });
+			}
+			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.007") {
+				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
+				const consertaAtores = async (actors, pack) => {
+					for (const actor of actors) {
+						if (actor.type !== "npc") continue;
+						const changes = {};
+						try {
+							if (actor.system.atributos.des.value !== 0) {
+								const defBase = actor.system.attributes.defesa.base;
+								changes["system.attributes.defesa.base"] = defBase - actor.system.atributos.des.value;
+							}
+							await actor.update(changes);
+						} catch (err) {
+							if (pack) {
+								err.message = `Falha ao migrar o ator ${actor.name} no compêndio ${pack.collection}: ${err.message}`;
+							} else err.message = `Falha ao migrar o ator ${actor.name}`;
+							console.error(err);
+						}
+					}
+				};
+				ui.notifications.info("Iniciando conserto de defesas em Ameaças. Espere um momento e não feche o jogo", {
+					console: false,
+					permanent: true
+				});
 				for (const pack of packs) {
 					const wasLocked = pack.locked;
 					try {
