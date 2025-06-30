@@ -461,7 +461,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		return options;
 	}
 
-	_onToggleItem(item, context, index, currentId) {
+	async _onToggleItem(item, context, index, currentId) {
 		const updateItems = [];
 		if (currentId) {
 			updateItems.push({
@@ -508,7 +508,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				});
 			}
 		}
-		this.actor.updateEmbeddedDocuments("Item", updateItems);
+		await this.actor.updateEmbeddedDocuments("Item", updateItems);
 	}
 
 	/* -------------------------------------------- */
