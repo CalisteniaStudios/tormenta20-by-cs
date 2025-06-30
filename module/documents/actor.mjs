@@ -4,7 +4,6 @@ import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import { applyOnUseEffects } from "../apps/ability-use.mjs";
 import ChoicesDialog from "../apps/choices-dialog.mjs";
 import { d20Roll, simplifyRollFormula } from "../dice/dice.mjs";
-import { actorMigration } from "./migrations.mjs";
 
 /**
  * Extend the base Actor class to implement additional system-specific logic.
@@ -20,14 +19,6 @@ export default class ActorT20 extends Actor {
 			img = "systems/tormenta20/icons/svg/bases.svg";
 		}
 		return { img, texture: { src: img } };
-	}
-
-	/** @inheritdoc */
-	static migrateData(data) {
-		actorMigration.migrateCreatureType(data);
-		actorMigration.migrateCRLevel(data);
-		actorMigration.migrateResistances(data);
-		return super.migrateData(data);
 	}
 
 	/* -------------------------------------------- */

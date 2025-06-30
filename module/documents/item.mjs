@@ -2,7 +2,6 @@
 import AbilityUseDialog from "../apps/ability-use-dialog.mjs";
 import { applyOnUseEffects } from "../apps/ability-use.mjs";
 import { d20Roll, damageRoll, simplifyRollFormula } from "../dice/dice.mjs";
-import { itemMigration } from "./migrations.mjs";
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -31,18 +30,6 @@ export default class ItemT20 extends Item {
 		return { img: this.DEFAULT_ICON };
 	}
 
-	/** @inheritdoc */
-	static migrateData(data) {
-		itemMigration.migrateDuration(data);
-		itemMigration.migrateEquipStatus(data);
-		itemMigration.migrateProficiencyTypes(data);
-		itemMigration.migratePurposeTypes(data);
-		itemMigration.migrateWieldTypes(data);
-		itemMigration.migrateEquipAugments(data);
-		itemMigration.migrateEquipSlot(data);
-		itemMigration.migrateRollTags(data);
-		return super.migrateData(data);
-	}
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */
