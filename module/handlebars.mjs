@@ -134,7 +134,7 @@ export function registerHandlebarsHelpers() {
 				const defesa = actor.system.attributes.defesa;
 				const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
 				const armaduras = actor.itemTypes.equipamento
-					.filter((i) => (equipmentSlots ? i.system.equipado2.slot : i.system.equipado))
+					.filter((i) => i.system.armadura.value && (equipmentSlots ? i.system.equipado2.slot : i.system.equipado))
 					.map((i) => ({
 						label: i.name,
 						value: i.system.armadura.value,
