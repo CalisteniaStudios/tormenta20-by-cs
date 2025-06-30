@@ -260,7 +260,6 @@ export function simplifyRollFormula(formula, data = {}, { preserveFlavor = false
 	try {
 		roll = new Roll(formula, data);
 	} catch (err) {
-		console.log(formula, data);
 		console.warn(`Unable to simplify formula '${formula}': ${err}`);
 	}
 	Roll.validate(roll.formula);
