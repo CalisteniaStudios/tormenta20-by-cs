@@ -201,7 +201,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 			} else {
 				let { die, dtype } = ch.value.match(re.dmgType)?.groups ?? {};
 				if (r.type === "dano" && !dtype) {
-					dtype = r.parts.find((p) => p[1] in CONFIG.T20.damageTypes)[1];
+					dtype = r.parts.find((p) => p[1] in CONFIG.T20.damageTypes || p[1] in CONFIG.T20.healingTypes)?.[1] ?? "";
 				}
 				// To add term multipliable when critical
 				if (["danoCritico", "danoMultiplicavel"].includes(ch.key)) {
@@ -215,7 +215,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 						const [diceQty, size] = die.split(/d(.*)/i);
 						value = `${diceQty * qty}d${size}`;
 					}
-					r.parts.push([value, dtype ?? ""]);
+					r.parts.push([value, dtype]);
 				}
 				rollMods[r.key].push({
 					die: null,
