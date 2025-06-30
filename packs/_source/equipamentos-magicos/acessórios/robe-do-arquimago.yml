@@ -9,6 +9,17 @@ effects:
       tormenta20:
         onuse: false
         durationScene: false
+        self: false
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
     duration:
       startTime: null
       seconds: null
@@ -22,20 +33,20 @@ effects:
     changes:
       - key: system.attributes.defesa.bonus
         mode: 2
-        value: ''
+        value: 5 + @circulo
         priority: null
       - key: system.modificadores.pericias.resistencia
         mode: 2
-        value: ''
+        value: floor((5 + @circulo) / 2)
         priority: null
     transfer: true
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1751319228085
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -80,7 +91,7 @@ system:
   rd: 0
   tipo: acessorio
   armadura:
-    value: 5
+    value: 0
     penalidade: 0
     maxAtr: 0
   rolls: []
@@ -114,10 +125,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: v1.5.003
-  coreVersion: '13.345'
+  systemVersion: 1.5.007
+  coreVersion: '13.346'
   createdTime: 1664314000093
-  modifiedTime: 1750186436561
+  modifiedTime: 1751319234529
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
