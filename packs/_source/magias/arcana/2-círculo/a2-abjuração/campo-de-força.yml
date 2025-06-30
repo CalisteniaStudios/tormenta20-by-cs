@@ -18,6 +18,7 @@ effects:
         consumable: false
         items: ''
         durationScene: false
+        equipment: false
     changes:
       - key: execucao
         mode: 5
@@ -27,6 +28,10 @@ effects:
         mode: 5
         value: instantânea
         priority: 0
+      - key: system.tracos.resistencias.dano.bonus
+        mode: 2
+        value: '30'
+        priority: null
     disabled: true
     duration:
       startTime: null
@@ -40,12 +45,12 @@ effects:
     transfer: false
     tint: '#ffffff'
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1751258396220
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -70,12 +75,20 @@ effects:
         skill: false
         ability: false
         power: false
-        spell: false
+        spell: true
         consumable: false
         items: ''
         durationScene: false
         equipment: false
-    changes: []
+    changes:
+      - key: roll
+        mode: 5
+        value: '50'
+        priority: null
+      - key: system.tracos.resistencias.dano.bonus
+        mode: 4
+        value: '20'
+        priority: null
     disabled: true
     duration:
       startTime: null
@@ -89,12 +102,12 @@ effects:
     transfer: false
     tint: '#ffffff'
     _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1751258878112
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -251,15 +264,23 @@ effects:
       startTurn: null
     disabled: true
     _id: AlAqFpfO6DJ3EOio
-    changes: []
+    changes:
+      - key: roll
+        mode: 5
+        value: '70'
+        priority: null
+      - key: system.tracos.resistencias.dano.bonus
+        mode: 4
+        value: '20'
+        priority: null
     transfer: false
     _stats:
-      coreVersion: '13.342'
+      coreVersion: '13.346'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1751258907916
+      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -271,6 +292,53 @@ effects:
     statuses: []
     sort: 0
     _key: '!items.effects!BmiLj15LQW7f76j8.AlAqFpfO6DJ3EOio'
+  - name: Campo de Força
+    img: systems/tormenta20/icons/magias/campo-de-forca.webp
+    origin: Compendium.tormenta20.magias.Item.BmiLj15LQW7f76j8
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: false
+        durationScene: false
+        self: true
+        attack: false
+        skill: false
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: ''
+        aumenta: false
+        custo: ''
+    duration:
+      rounds: 99
+      startTime: null
+      combat: null
+      seconds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: pH2HB5mqyDM6Q1vL
+    type: base
+    system: {}
+    changes: []
+    description: ''
+    transfer: false
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1751258333339
+      modifiedTime: 1751258427917
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!BmiLj15LQW7f76j8.pH2HB5mqyDM6Q1vL'
 folder: rc0d3aktZW2bKQQV
 sort: 0
 flags: {}
@@ -314,7 +382,15 @@ system:
     atributo: int
     bonus: 0
     txt: ''
-  rolls: []
+  rolls:
+    - name: Pontos de Vida Temporários
+      key: dano0
+      type: dano
+      parts:
+        - - '30'
+          - curatpv
+      adaptavel: ''
+      versatil: ''
   tipo: arc
   circulo: '2'
   preparada: false
@@ -327,10 +403,10 @@ ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.5.007
+  coreVersion: '13.346'
   createdTime: 1664310461778
-  modifiedTime: 1684622830660
+  modifiedTime: 1751258909994
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
