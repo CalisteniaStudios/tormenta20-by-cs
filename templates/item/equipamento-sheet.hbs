@@ -44,12 +44,14 @@
 					<input type="number" name="system.armadura.value" value="{{item.system.armadura.value}}" data-dtype="Number" />
 				</div>
 			</div>
+			{{#if (eq item.system.tipo "pesada")}}
 			<div class="form-group">
 				<label>{{ localize "T20.ArmorMaxAblBonus" }}</label>
 				<div class="form-fields">
 					<input type="number" name="system.armadura.maxAtr" value="{{item.system.armadura.maxAtr}}" data-dtype="Number" />
 				</div>
 			</div>
+			{{/if}}
 			<div class="form-group">
 				<label>{{ localize "T20.ArmorPenalty" }}</label>
 				<div class="form-fields">
