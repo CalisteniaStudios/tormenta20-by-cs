@@ -21,17 +21,16 @@ export default class AttributesFields {
 		const accessories = items.filter((i) => !["escudo", "leve", "pesada"].includes(i.system.tipo));
 		const accDef = accessories.map((m) => m.system.armadura.value).reduce((sum, v) => sum + v, 0);
 		const accPda = accessories.map((m) => m.system.armadura.penalidade).reduce((sum, v) => sum + v, 0);
+		const maxAtr = armor ? armor.system.armadura.maxAtr : 0;
+		const atributo = Math.clamp(this.atributos[defesa.atributo].value, 0, maxAtr);
+
 		if (accDef) parts.push(accDef);
 		pda += armor ? armor.system.armadura.penalidade : 0;
 		pda += shield ? shield.system.armadura.penalidade : 0;
 		pda += accPda ?? 0;
 		parts.push(...defesa.bonus);
-		let maxAtr = armor ? armor.system.armadura.maxAtr : 0;
-		let atributo = this.atributos[defesa.atributo].value;
-		if (armor?.system.tipo !== "pesada" || Number.between(atributo, 0, maxAtr)) {
-			atributo = Math.min(atributo, maxAtr);
-			parts.push(`@${defesa.atributo}`);
-		}
+		if (armor?.system.tipo !== "pesada") parts.push(`@${defesa.atributo}`);
+		else if (atributo) parts.push(atributo);
 		if (armor) parts.push(armor.system.armadura.value);
 		if (shield) parts.push(shield.system.armadura.value);
 		if (defesa.outros) parts.push(defesa.outros);
