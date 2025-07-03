@@ -1,5 +1,38 @@
 # Lista de Mudanças
 
+# Versão 1.5.009
+- Alterado: Bônus Máximo de Atributo na ficha de Equipamentos só aparece se o equipamento for do tipo Armadura Pesada (o campo era ignorado caso não fosse).
+- Conserto: Protótipo de Token abre normalmente agora.
+- Conserto: Bônus Máximo de Atributo de armaduras pesadas usa o valor máximo definido em vez de usar o valor total do atributo.
+
+# Versão 1.5.008
+- Conserto na migração de atores da versão 1.5.007
+- Alterado: Ameaças agora usam o valor da Destreza no cálculo da armadura.
+- Alterado: Bônus de dano agora usam o mesmo tipo de dano original em vez de não terem tipo.
+- Conserto: Bônus de dano são exibidos após o dano original.
+- Conserto: Equipamentos equipados não se desequipam ao serem alterados.
+
+# Versão 1.5.007
+- Conserto na migração de atores da versão 1.5.006.
+- Adicionado: Perícias de Ofício do livro básico.
+- Conserto: Penalidade de Armadura na discriminação de Perícias aparecia como positiva.
+- Conserto: Efeitos de bônus de perícia funcionam corretamente.
+
+## Versão 1.5.006
+- Adicionado: Click direito no botão "Criar" na seção de Efeitos pula o Criador de Efeito.
+- Adicionado: Deslocamentos de tokens agora são baseados nos deslocamentos disponíveis ao personagem.
+- Alterado: Ameaças agora usam o valor das perícias em rolagens de ataque.
+- Conserto: dados das perícias estavam errados (Somente Treinadas com Penalidade de Armadura e vice-versa).
+- Conserto: Cálculo de PV/PM ignorava atributos adicionados (ex: Inteligência adicionada aos PM).
+- Conserto: Campo "Área" restaurado à ficha de Poderes.
+- Conserto: Cálculo de atributos de Ameaças.
+- Conserto: Armaduras Pesadas não são afetadas por Destreza negativa.
+- Conserto: Tipos de Dano não são mais concatenados.
+- Conserto: rolagens de dano com tipos de cura (PV, PM, PV Temp., etc) não falham mais.
+- Conserto: Ficha de PJ limitada agora abre.
+- Conserto: Recuperação de Mana recupera PM em vez de PM Temporário.
+- Conserto: Agora é possível aplicar Curas como dano (para facilitar a reversão da cura).
+
 ## Versão 1.5.005
 - Adicionado: Base agora tem um botão para transferir os bônus de Cômodos e Mobílias aos residentes.
 - Adicionado: Efeito ativo `passos` agora afeta magias.
