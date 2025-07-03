@@ -384,7 +384,7 @@ T20.pericias = {
 	arme: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillArme" },
 	arte: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillArte" },
 	cozi: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillCozi" },
-	enge: { abl: "int", systems: ["core"], trainedOnly: true, crafting: true, label: "T20.SkillEnge" }
+	enge: { abl: "int", systems: ["core"], armorPenalty: true, trainedOnly: true, crafting: true, label: "T20.SkillEnge" }
 };
 preLocalize("pericias", { key: "label", sort: true });
 
