@@ -206,21 +206,22 @@ export default class ActorT20 extends Actor {
 			return cn;
 		}, {});
 		// Set power type modifiers (ie.: tormenta, distinction)
-		const powers = {};
-		this.items
-			.map((m) => m.system.rolltags)
-			.flat()
-			.map((f) => f.capitalize())
-			.forEach((f) => (powers[f] = (powers[f] ?? 0) + 1));
+		const powers = this.items
+			.flatMap((item) => item.system.rolltags)
+			.map((tag) => tag.slugify().capitalize())
+			.reduce((acc, tag) => {
+				acc[tag] = (acc[tag] ?? 0) + 1;
+				return acc;
+			}, {});
 
-		for (let [k, v] of Object.entries(powers)) {
-			powers[`${k}2`] = Math.floor((v - 1) / 2);
-			powers[`${k}3`] = Math.floor((v - 1) / 3);
-			powers[`${k}4`] = Math.floor((v - 1) / 4);
-			powers[`${k.toLowerCase()}`] = v;
-			powers[`${k.toLowerCase()}2`] = Math.floor((v - 1) / 2);
-			powers[`${k.toLowerCase()}3`] = Math.floor((v - 1) / 3);
-			powers[`${k.toLowerCase()}4`] = Math.floor((v - 1) / 4);
+		for (const [k, v] of Object.entries(powers)) {
+			powers[k.slugify().toLowerCase()] = v;
+
+			for (const divisor of [2, 3, 4]) {
+				const val = Math.floor((v - 1) / divisor);
+				powers[`${k.slugify()}${divisor}`] = val;
+				powers[`${k.slugify().toLowerCase()}${divisor}`] = val;
+			}
 		}
 		foundry.utils.mergeObject(data, powers);
 
