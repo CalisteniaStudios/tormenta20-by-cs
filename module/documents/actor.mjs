@@ -206,21 +206,23 @@ export default class ActorT20 extends Actor {
 			return cn;
 		}, {});
 		// Set power type modifiers (ie.: tormenta, distinction)
-		const powers = this.items
-			.flatMap((item) => item.system.rolltags)
-			.map((tag) => tag.slugify().capitalize())
-			.reduce((acc, tag) => {
-				acc[tag] = (acc[tag] ?? 0) + 1;
-				return acc;
-			}, {});
+		const powers = {};
+		for (const item of this.items.values()) {
+			const tags = item.system?.rolltags ?? [];
+			for (const tag of tags) {
+				const key = tag.capitalize();
+				powers[key] = (powers[key] ?? 0) + 1;
+			}
+		}
 
 		for (const [k, v] of Object.entries(powers)) {
-			powers[k.slugify().toLowerCase()] = v;
+			const slug = k.slugify();
+			powers[slug.toLowerCase()] = v;
 
 			for (const divisor of [2, 3, 4]) {
 				const val = Math.floor((v - 1) / divisor);
-				powers[`${k.slugify()}${divisor}`] = val;
-				powers[`${k.slugify().toLowerCase()}${divisor}`] = val;
+				powers[`${slug}${divisor}`] = val;
+				powers[`${slug.toLowerCase()}${divisor}`] = val;
 			}
 		}
 		foundry.utils.mergeObject(data, powers);
