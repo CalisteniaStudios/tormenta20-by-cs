@@ -92,21 +92,23 @@ export default class CreatureData extends Tormenta20TypeData {
 	/** @inheritdoc */
 	static migrateData(data) {
 		// TODO: remover essas migrações na V14
-		if (data.pericias?.ofi0) delete data.pericias.ofi0;
-		if (data.pericias?._pc0) delete data.pericias._pc0;
-		if (data.pericias.acro?.st && data.pericias.reli?.pda && data.pericias.guer?.pda) {
-			const initial = new SkillData();
-			for (const [key, value] of Object.entries(data.pericias)) {
-				data.pericias[key] = this._initialSkillValue(key, initial, value);
+		if (data.pericias) {
+			if (data.pericias.ofi0) delete data.pericias.ofi0;
+			if (data.pericias._pc0) delete data.pericias._pc0;
+			if (data.pericias.acro?.st && data.pericias.reli?.pda && data.pericias.guer?.pda) {
+				const initial = new SkillData();
+				for (const [key, value] of Object.entries(data.pericias)) {
+					data.pericias[key] = this._initialSkillValue(key, initial, value);
+				}
+			}
+			if (!data.pericias.enge) {
+				const initial = new SkillData();
+				for (const key of CONFIG.T20.oficios) {
+					data.pericias[key] = this._initialSkillValue(key, initial, CONFIG.T20.pericias[key]);
+				}
 			}
 		}
-		if (!data.pericias.enge) {
-			const initial = new SkillData();
-			for (const key of CONFIG.T20.oficios) {
-				data.pericias[key] = this._initialSkillValue(key, initial, CONFIG.T20.pericias[key]);
-			}
-		}
-		if (!Object.keys(data.resources ?? {}).length) {
+		if (data.resources && !Object.keys(data.resources).length) {
 			data.resources = foundry.utils.deepClone(this.schema.fields.resources.initial);
 		}
 		return super.migrateData(data);
