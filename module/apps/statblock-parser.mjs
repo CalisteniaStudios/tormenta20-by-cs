@@ -60,6 +60,7 @@ export default class StatblockParser extends FormApplication {
 			system: this.object.schema
 		});
 		await actor.createEmbeddedDocuments("Item", this.object.items);
+		await actor.createEmbeddedDocuments("ActiveEffect", this.object.effects);
 		return this.close();
 	}
 
@@ -93,6 +94,7 @@ export default class StatblockParser extends FormApplication {
 		const log = [];
 		const itemsList = [];
 		this.object.items = [];
+		this.object.effects = [];
 		// const statblock2 = statblock.split("\n").filter(Boolean);
 		// const log2 = {
 		// 	name: { success: false, message: "Nome" },
@@ -344,18 +346,9 @@ export default class StatblockParser extends FormApplication {
 			// TODO converter para pegar a habilidade de criatura e alterar o valor do efeito
 			if (/resist[eê]ncia a magia \+\d/i.test(res[0])) {
 				const qtd = res[0].match(/resist[eê]ncia a magia \+(\d*)/i)[1];
-				const item = new Item({
-					img: "systems/tormenta20/icons/poderes/ameacas/resistencia-magia.webp",
-					name: "Resistência a Magia",
-					type: "poder",
-					tipo: "ability"
-				});
-				const eid = foundry.utils.randomID();
-				item.effects.set(
-					eid,
+				this.object.effects.push(
 					new ActiveEffect(
 						{
-							_id: eid,
 							img: "icons/svg/upgrade.svg",
 							name: "Resistência a Magia",
 							changes: [{ key: "roll", priority: null, value: qtd }],
@@ -368,10 +361,9 @@ export default class StatblockParser extends FormApplication {
 								}
 							}
 						},
-						{ parent: item }
+						{ parent: this.object.actor }
 					)
 				);
-				itemsList.push(item);
 			}
 			res =
 				res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-|\–]?\d+[,]?|Pontos de Vida)/gi, "").trim() || "";
