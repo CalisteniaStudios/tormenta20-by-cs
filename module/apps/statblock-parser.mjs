@@ -631,21 +631,22 @@ export default class StatblockParser extends FormApplication {
 
 			abilities = lines.filter(
 				(l) =>
-					!l.match(/ND (\d+|\d+\/\d+)$/i)
-					&& !l.match(/^Defesa \d+, Fort (\+|\-)\d+, Ref (\+|\-)\d+/i)
-					&& !l.match(/^Corpo a Corpo /i)
-					&& !l.match(/^À Distância /i)
-					&& !(l.match(/^Deslocamento /i) && l.match(/\d+m (\d+q)/))
-					&& !l.match(/^Iniciativa (\+|\-)\d+, Percepção (\+|\-)\d+/i)
-					&& !l.match(/^Deslocamento /i)
-					&& !l.match(/^Pontos de (Vida|Mana) \d+/i)
-					&& !l.match(/^Perícias \w+ (\+|\-) ?\d+/i)
-					&& !l.match(/^(Equipamento|Equipamentos|Tesouro)/i)
-					&& !l.match(/^Parceiro/i)
-					&& !l.match(/^For (\-?\d+|—)/i)
-					&& !(
-						l.match(/^(Animal|Humanoide|Construto|Morto-vivo|Mosntro|Espirito)/i)
-						&& l.match(/(Minusculo|Pequeno|Médio|Grande|Enorme|Colossal)/i)
+					!(
+						new RegExp(schema.name).test(l)
+						|| /ND (\d+|\d+\/\d+)$/i.test(l)
+						|| /^Defesa \d+, Fort [+-]?\d+, Ref [+-]?\d+/i.test(l)
+						|| /^Corpo a Corpo /i.test(l)
+						|| /^À Distância /i.test(l)
+						|| (/^Deslocamento /i.test(l) && /\d+m (\d+q)/i.test(l))
+						|| /^Iniciativa [+-]?\d+, Percepção [+-]?\d+/i.test(l)
+						|| /^Deslocamento /i.test(l)
+						|| /^Pontos de (Vida|Mana) \d+/i.test(l)
+						|| /^Perícias \w+ [+-]?\d+/i.test(l)
+						|| /^(Equipamento|Equipamentos|Tesouro)/i.test(l)
+						|| /^Parceiro/i.test(l)
+						|| /^For (\-?\d+|—)/i.test(l)
+						|| (new RegExp(`^${Object.values(CONFIG.T20.creatureTypes).join("|")}`, "i").test(l)
+							&& new RegExp(`(${Object.values(CONFIG.T20.actorSizes).join("|")})`, "i").test(l))
 					)
 			);
 			abilities = abilities.map((m) => {
