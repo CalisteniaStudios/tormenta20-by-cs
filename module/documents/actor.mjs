@@ -610,36 +610,33 @@ export default class ActorT20 extends Actor {
 		};
 
 		await this.update(updates);
-		let show = game.settings.get("tormenta20", "showDamageCards");
-		if (show != "none") {
-			this.displayDamageCard(damage, final, show);
-		}
+		await this.displayDamageCard(damage, final, multiplier);
 	}
 
-	async displayDamageCard(dmgParts, final, show) {
-		let label = {
+	async displayDamageCard(dmgParts, final, multiplier = 1) {
+		const show = game.settings.get("tormenta20", "showDamageCards");
+		if (show === "none") return;
+		multiplier = Math.sign(multiplier);
+		const label = {
 			damage: "T20.HP",
 			mana: "T20.MP",
 			tempHP: "T20.HealingTemp",
 			tempMP: "T20.ManaTemp"
 		};
-		let chatDamage = {};
-		for (let [type, value] of Object.entries(final)) {
-			if (type === "total") chatDamage.total = value * -1;
-			if (type != "total" && type != "damage" && value != 0) {
-				chatDamage.type = type;
-				chatDamage.label = label[type];
-				chatDamage.value = value *= -1;
-			} else if (type === "damage") {
+		const chatDamage = {};
+		for (const [type, value] of Object.entries(final)) {
+			if (type === "total") chatDamage.total = value * multiplier;
+			else if (value) {
 				chatDamage.label = label[type];
 				chatDamage.type = type;
-				chatDamage.value = value *= -1;
+				chatDamage.value = value * multiplier;
+				if (["heal", "damage"].includes(type)) chatDamage.value *= -1;
 			}
 		}
 
 		let color = "red";
 		if (chatDamage.type === "damage" && chatDamage.value <= 0) color = "health";
-		else if (chatDamage.type === "damage" && chatDamage.value > 0) color = "heal";
+		else if (["heal", "damage"].includes(chatDamage.type) && chatDamage.value > 0) color = "heal";
 		else if (chatDamage.type === "mana" && chatDamage.value != 0) color = "mana";
 		else if (chatDamage.type === "tempHP" && chatDamage.value != 0) color = "hptemp";
 		else if (chatDamage.type === "tempMP" && chatDamage.value != 0) color = "mptemp";
@@ -650,10 +647,10 @@ export default class ActorT20 extends Actor {
 			chatDMG: chatDamage,
 			setting: game.settings.get("tormenta20", "showDamageCards")
 		};
-		let template = "systems/tormenta20/templates/chat/chat-card-damage.hbs";
+		const template = "systems/tormenta20/templates/chat/chat-card-damage.hbs";
 		const html = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
-		let chatData = {
+		const chatData = {
 			user: game.user.id,
 			content: html,
 			speaker: ChatMessage.getSpeaker({ actor: this }),
@@ -667,7 +664,7 @@ export default class ActorT20 extends Actor {
 		};
 
 		let rollMode = "publicroll";
-		if (this.type === "npc" && show != "npcs") rollMode = "selfroll";
+		if (this.type === "npc" && show !== "npcs") rollMode = "selfroll";
 		ChatMessage.applyRollMode(chatData, rollMode);
 		ChatMessage.create(chatData, {});
 	}
@@ -745,10 +742,7 @@ export default class ActorT20 extends Actor {
 			"system.attributes.pm.value": spendMana
 		});
 
-		let show = game.settings.get("tormenta20", "showDamageCards");
-		if (show != "none") {
-			this.displayDamageCard({}, { mana: amount }, show);
-		}
+		await this.displayDamageCard({}, { mana: amount }, -1);
 	}
 
 	/* -------------------------------------------- */
