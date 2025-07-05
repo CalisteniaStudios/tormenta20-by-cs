@@ -165,8 +165,7 @@ export const SystemSettings = function () {
 		scope: "world",
 		config: true,
 		default: false,
-		type: Boolean,
-		requiresReload: true
+		type: Boolean
 	});
 
 	game.settings.register("tormenta20", "showDamageCards", {
@@ -180,8 +179,7 @@ export const SystemSettings = function () {
 			none: game.i18n.localize("T20.None"),
 			players: game.i18n.localize("T20.SettingDamageCardPlayers"),
 			npcs: game.i18n.localize("T20.SettingDamageCardNPCS")
-		},
-		requiresReload: true
+		}
 	});
 
 	/**
