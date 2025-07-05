@@ -47,7 +47,7 @@
 						<b>
 							{{#if (eq ap.cost "Truque")}}
 								{{localize 'T20.Cantrip'}}:
-							{{else if (ne ap.cost "0")}}
+							{{else if ap.cost}}
 								{{#if (gt ap.cost 0)}}+{{/if}}{{ap.cost}} PM{{#if (gt ap.qty 1)}} ({{ap.qty}}x){{/if}}:
 							{{/if}}
 						</b>
