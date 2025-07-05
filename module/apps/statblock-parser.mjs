@@ -1,17 +1,7 @@
 import ActorT20 from "../documents/actor.mjs";
 
 export default class StatblockParser extends FormApplication {
-	constructor(object = {}, options = {}) {
-		super(object, options);
-
-		this.object.packequipamentos = game.packs.get("tormenta20.equipamentos");
-		this.object.packsmagias = game.packs.get("tormenta20.magias");
-		this.object.packspoderes = game.packs.get("tormenta20.poderes");
-
-		this.object.packequipamentos.getDocuments();
-		this.object.packsmagias.getDocuments();
-		this.object.packspoderes.getDocuments();
-	}
+	static loadedCompendiums = false;
 
 	/** @override */
 	static get defaultOptions() {
@@ -56,7 +46,7 @@ export default class StatblockParser extends FormApplication {
 		return new RegExp(`(${j})`, "i");
 	}
 
-	_applyToActor(ev) {
+	async _applyToActor(ev) {
 		ev.preventDefault();
 		let actor = this.object.actor;
 		let acItems = actor.items.map((m) => m.id);
@@ -69,15 +59,31 @@ export default class StatblockParser extends FormApplication {
 			name: this.object.schema.name,
 			system: this.object.schema
 		});
-		actor.createEmbeddedDocuments("Item", this.object.items);
+		await actor.createEmbeddedDocuments("Item", this.object.items);
 		return this.close();
 	}
 
-	_parseStatblock(ev) {
+	async _parseStatblock(ev) {
 		ev.preventDefault();
+		if (!this.constructor.loadedCompendiums) {
+			this.constructor.packequipamentos = await game.packs
+				.get("tormenta20.equipamentos")
+				.getIndex({ fields: ["system.rolls", "system.criticoM", "system.criticoX", "system.qtd"] });
+			this.constructor.packsmagias = await game.packs
+				.get("tormenta20.magias")
+				.getIndex({ fields: ["system.ativacao"] });
+			this.constructor.packspoderes = await game.packs
+				.get("tormenta20.poderes")
+				.getIndex({ fields: ["system.ativacao"] });
+			this.constructor.npcFeatures = await game.packs
+				.get("tormenta20.habilidades-de-criaturas")
+				.getIndex({ fields: ["system.ativacao"] });
+
+			this.constructor.loadedCompendiums = true;
+		}
 		const statblock = ev.currentTarget
 			.closest("form")
-			.statblock.value.replace(/-\n/, "")
+			.statblock.value.replace(/-\n/g, "")
 			.replace(/([a-zA-Z0-9áâãàäéêèëíìïóôõòöúùüçñ,])(\n)([a-z0-9áâãàäéêèëíìïóôõòöúùüçñ\-+()])/g, "$1 $3")
 			.replaceAll(/–/g, "-");
 		const schema = new ActorT20({
@@ -335,6 +341,7 @@ export default class StatblockParser extends FormApplication {
 		// Extrai Resistências
 		try {
 			let res = statblock.replace(/\n/g, " ").match(/Defesa .* Pontos de Vida/i);
+			// TODO converter para pegar a habilidade de criatura e alterar o valor do efeito
 			if (/resist[eê]ncia a magia \+\d/i.test(res[0])) {
 				const qtd = res[0].match(/resist[eê]ncia a magia \+(\d*)/i)[1];
 				const item = new Item({
@@ -595,39 +602,35 @@ export default class StatblockParser extends FormApplication {
 			return { exists: true };
 		}
 		const packs = {
+			"*": "packequipamentos",
 			arma: "packequipamentos",
 			equipamento: "packequipamentos",
-			magia: "packsmagias",
-			poder: "packspoderes"
+			magia: "packsmagias"
 		};
 		names.sort((a, b) => b.length - a.length);
-		// let item = game.items.find( f => f.type == type && names.includes(f.name.slugify()) );
 		let item;
 
-		for (const n of names) {
-			if (type === "*") {
-				item = game.items.find((f) => !["poder", "magia", "arma", "classe"].includes(f.type) && f.name.slugify() == n);
-				if (item) continue;
-				item = this.object[packs.equipamento]
-					.filter((f) => !["poder", "magia", "arma", "classe"].includes(f.type))
-					.find((f) => f.name.slugify() === n);
-			} else {
-				item = game.items.find((f) => f.type === type && f.name.slugify() === n);
-				if (item) continue;
-				item = this.object[packs[type]].find((f) => f.type === type && f.name.slugify() === n);
-			}
+		const isGeneric = type === "*";
+		const typeFilter = (f) => (isGeneric ? !["poder", "magia", "arma", "classe"].includes(f.type) : f.type === type);
+		const itemDirList = game.items.filter(typeFilter);
+		let packList;
+		if (type === "poder") packList = [...this.constructor.packspoderes, ...this.constructor.npcFeatures];
+		else packList = this.constructor[packs[type]];
+
+		const pack = packList.filter(typeFilter);
+		for (const name of names) {
+			item = itemDirList.find((f) => f.name.slugify() === name) ?? pack.find((f) => f.name.slugify() === name);
 			if (item) break;
 		}
 
 		if (!item) {
-			type = type === "*" ? "tesouro" : type;
+			type = isGeneric ? "tesouro" : type;
 			item = new game.tormenta20.entities.ItemT20({
 				type: type,
 				name: words.join(" ")
-			});
+			}).toObject();
+			delete item._id;
 		}
-		item = item.toObject();
-		delete item._id;
 		return item;
 	}
 
