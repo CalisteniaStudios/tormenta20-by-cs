@@ -124,9 +124,7 @@
 		<li class="item flexrow" data-item-id="{{item._id}}">
 			<div class="item-name">
 				<span class="rollable poder-rollable" data-item-id="{{item._id}}">
-					<label>{{item.name}}
-						{{t20-itemLabels item}}
-					</label>
+					<label>{{item.name}} {{t20-itemLabels item start="(" end=")"}}</label>
 				</span>
 				{{#if (or (eq item.system.description.value "") item.system.description.value ) }}
 					{{{stripTagsInline item.system.description.value}}}

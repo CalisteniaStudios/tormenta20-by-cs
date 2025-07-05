@@ -168,7 +168,8 @@ export default class ItemT20 extends Item {
 
 		// Weapons
 		if (this.type === "arma") {
-			labels.critico = `${system.criticoM}/${system.criticoX}x`;
+			if (system.criticoX === 2) labels.critico = system.criticoM;
+			else labels.critico = `${system.criticoM}/${system.criticoX}x`;
 		}
 		// Spells
 		else if (this.type === "magia") {

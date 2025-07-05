@@ -261,7 +261,7 @@ export default class StatblockParser extends FormApplication {
 					});
 				}
 			}
-			if (!schema.detalhes.role) log.push({ success: false, message: "Papel em Combate" });
+			if (!schema.detalhes.role) log.push({ success: false, message: "Papel em Combate: Solo" });
 		} catch (error) {
 			console.warn(error);
 			log.push({

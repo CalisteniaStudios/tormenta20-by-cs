@@ -330,7 +330,8 @@ export function registerHandlebarsHelpers() {
 		return currentlyOpen ? "open" : "";
 	});
 
-	Handlebars.registerHelper("t20-itemLabels", function (item) {
+	Handlebars.registerHelper("t20-itemLabels", function (item, options) {
+		const { start = "", end = "" } = options.hash;
 		const desc = [];
 		let separator = ", ";
 		const { ativacao, custoPM, toHit, dano, critico, tipo, subtipo } = item.labels;
@@ -343,6 +344,8 @@ export function registerHandlebarsHelpers() {
 		} else {
 			desc.push(ativacao, custoPM);
 		}
-		return new Handlebars.SafeString(desc.filterJoin(separator));
+		const str = desc.filterJoin(separator);
+		if (str) return new Handlebars.SafeString(`${start}${str}${end}`.trim());
+		return "";
 	});
 }
