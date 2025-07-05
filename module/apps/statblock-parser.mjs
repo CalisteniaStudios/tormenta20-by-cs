@@ -342,31 +342,7 @@ export default class StatblockParser extends FormApplication {
 
 		// Extrai Resistências
 		try {
-			let res = statblock.replace(/\n/g, " ").match(/Defesa .* Pontos de Vida/i);
-			// TODO converter para pegar a habilidade de criatura e alterar o valor do efeito
-			if (/resist[eê]ncia a magia \+\d/i.test(res[0])) {
-				const qtd = res[0].match(/resist[eê]ncia a magia \+(\d*)/i)[1];
-				this.object.effects.push(
-					new ActiveEffect(
-						{
-							img: "icons/svg/upgrade.svg",
-							name: "Resistência a Magia",
-							changes: [{ key: "roll", priority: null, value: qtd }],
-							disabled: true,
-							flags: {
-								tormenta20: {
-									onuse: true,
-									skill: true,
-									items: "Fortitude;Reflexos;Vontade"
-								}
-							}
-						},
-						{ parent: this.object.actor }
-					)
-				);
-			}
-			res =
-				res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-|\–]?\d+[,]?|Pontos de Vida)/gi, "").trim() || "";
+			let res = statblock.match(/Von\s[+-]\d*,\s*(.*)\s*Pontos de Vida/i)[1];
 			schema.detalhes.resistencias = res;
 			log.push({
 				success: true,
@@ -375,7 +351,10 @@ export default class StatblockParser extends FormApplication {
 
 			res = res.replace(/ |,/g, "_").slugify().replace(/_/g, " ");
 			res = res
-				.replace(/imunidade|reducao|resistencia|vulnerabilidade/gi, (match) => `#${match}`)
+				.replace(
+					/imunidade (?!a magia)|redu[cç][ãa]o\s*.*\s*\d*|resist[eê]ncia|vulnerabilidade/gi,
+					(match) => `#${match}`
+				)
 				.split("#")
 				.filter(Boolean)
 				.map((m) => m.trim());
@@ -404,6 +383,29 @@ export default class StatblockParser extends FormApplication {
 					);
 				} else if (r.resistencia) {
 					// TODO criar mecanica de resistência
+					// TODO converter para pegar a habilidade de criatura e alterar o valor do efeito
+					if (/resist[eê]ncia a magia \+\d/i.test(r.resistencia.join(" "))) {
+						const qtd = r.resistencia.join(" ").match(/resist[eê]ncia a magia \+(\d*)/i)[1];
+						this.object.effects.push(
+							new ActiveEffect(
+								{
+									img: "icons/svg/upgrade.svg",
+									name: "Resistência a Magia",
+									changes: [{ key: "roll", priority: null, value: qtd }],
+									disabled: true,
+									flags: {
+										tormenta20: {
+											onuse: true,
+											skill: true,
+											items: "Fortitude;Reflexos;Vontade"
+										}
+									}
+								},
+								{ parent: this.object.actor }
+							)
+						);
+						log.push({ success: true, message: `Resistência a Magia +${qtd}` });
+					}
 				} else if (r.vulnerabilidade) {
 					dmgvuln = r.vulnerabilidade.filter((f) => CONFIG.T20.damageTypes[f]);
 				}
