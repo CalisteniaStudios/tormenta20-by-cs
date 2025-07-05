@@ -335,6 +335,37 @@ export default class StatblockParser extends FormApplication {
 		// Extrai Resistências
 		try {
 			let res = statblock.replace(/\n/g, " ").match(/Defesa .* Pontos de Vida/i);
+			if (/resist[eê]ncia a magia \+\d/i.test(res[0])) {
+				const qtd = res[0].match(/resist[eê]ncia a magia \+(\d*)/i)[1];
+				const item = new Item({
+					img: "systems/tormenta20/icons/poderes/ameacas/resistencia-magia.webp",
+					name: "Resistência a Magia",
+					type: "poder",
+					tipo: "ability"
+				});
+				const eid = foundry.utils.randomID();
+				item.effects.set(
+					eid,
+					new ActiveEffect(
+						{
+							_id: eid,
+							img: "icons/svg/upgrade.svg",
+							name: "Resistência a Magia",
+							changes: [{ key: "roll", priority: null, value: qtd }],
+							disabled: true,
+							flags: {
+								tormenta20: {
+									onuse: true,
+									skill: true,
+									items: "Fortitude;Reflexos;Vontade"
+								}
+							}
+						},
+						{ parent: item }
+					)
+				);
+				itemsList.push(item);
+			}
 			res =
 				res[0]?.replace(/((Defesa|For|Ref|Von|Fort|Refl|Vont) [\+|\-|\–]?\d+[,]?|Pontos de Vida)/gi, "").trim() || "";
 			schema.detalhes.resistencias = res;
