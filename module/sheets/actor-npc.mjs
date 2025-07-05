@@ -80,7 +80,8 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			if (sheetData.resistencias) sheetData.resistencias += `, ${resText.vulTxt}`;
 			else sheetData.resistencias += resText.vulTxt;
 		}
-		sheetData.manualSkills = ["luta", "pont", "fort", "refl", "vont"];
+		const excludedSkills = new Set(["luta", "pont", "perc", "inic", "fort", "refl", "vont"]);
+		sheetData.listedSkills = sheetData.skills.filter((s) => (s.treinado || s.outros) && !excludedSkills.has(s.key));
 		return sheetData;
 	}
 
@@ -206,7 +207,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 		for (let i of items) {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
-			i.espacosTotal = (i.system.qtd * i.system.espacos).toFixed(2);
+			i.espacosTotal = i.system.qtd * i.system.espacos;
 			if (i.type === "arma") {
 				i.melee = ["corpo-a-corpo", "corpo-a-corpo-arremesso"].includes(i.system.proposito);
 				i.ranged = ["arremesso", "disparo"].includes(i.system.proposito);

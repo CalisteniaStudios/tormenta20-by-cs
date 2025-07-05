@@ -1,3 +1,4 @@
+// TODO checar se os campos abaixo têm utilidade
 /**
  * Commom properties for ameacas
  */

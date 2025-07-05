@@ -335,7 +335,9 @@ export function registerHandlebarsHelpers() {
 		let separator = ", ";
 		const { ativacao, custoPM, toHit, dano, critico, tipo, subtipo } = item.labels;
 		if (item.type === "arma") {
-			desc.push(`${toHit} (${dano}, ${critico})`);
+			// Filtra armas sem dano, como a Rede
+			if (!dano) desc.push(toHit);
+			else desc.push(`${toHit} (${dano}, ${critico})`);
 		} else if (item.type === "magia") {
 			desc.push(ativacao);
 		} else {

@@ -1,6 +1,13 @@
 # Lista de Mudanças
 
 # Versão 1.5.009
+- Alterado: Melhorias no Importador de Bloco de Estatísticas
+  - Ignora quebras de linha que (provavelmente) não são parágrafos. Mais especificamente, linhas que não terminam com pontos cuja próxima linha não começa com letra maiúscula.
+  - Ignora a falta de papel de combate para pegar o tipo e tamanho.
+  - Defesa leva em consideração a Destreza.
+  - Encontra mais do que uma arma.
+  - Adiciona treinamento na perícia das armas.
+  - Encontra equipamentos, consumíveis e tesouros existentes corretamente.
 - Alterado: Bônus Máximo de Atributo na ficha de Equipamentos só aparece se o equipamento for do tipo Armadura Pesada (o campo era ignorado caso não fosse).
 - Conserto: Protótipo de Token abre normalmente agora.
 - Conserto: Bônus Máximo de Atributo de armaduras pesadas usa o valor máximo definido em vez de usar o valor total do atributo.

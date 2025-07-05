@@ -475,6 +475,15 @@ T20.actorSizes = {
 };
 preLocalize("actorSizes");
 
+T20.sizeModifiers = {
+	min: 5,
+	peq: 2,
+	med: 0,
+	gra: -2,
+	eno: -5,
+	col: -10
+};
+
 T20.tokenSizes = {
 	min: 0.5,
 	peq: 1,
@@ -1004,6 +1013,7 @@ T20.passosDano = [
 ];
 /* -------------------------------------------- */
 
+// TODO checar se os campos abaixo têm utilidade
 // NPC STATS
 T20.tableSize = {
 	size: ["min", "peq", "med", "gra", "eno", "col"],

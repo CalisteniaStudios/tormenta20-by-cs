@@ -21,7 +21,8 @@ export default class StatblockParser extends FormApplication {
 			title: game.i18n.localize("T20.StatblockParser"),
 			template: "systems/tormenta20/templates/apps/statblock-parser.hbs",
 			width: 900,
-			height: "auto"
+			height: "auto",
+			resizable: true
 		});
 	}
 
@@ -74,8 +75,11 @@ export default class StatblockParser extends FormApplication {
 
 	_parseStatblock(ev) {
 		ev.preventDefault();
-		console.groupCollapsed("Statblock Parser");
-		const statblock = ev.currentTarget.closest("form").statblock.value.replaceAll("–", "-");
+		const statblock = ev.currentTarget
+			.closest("form")
+			.statblock.value.replace(/-\n/, "")
+			.replace(/([a-zA-Z0-9áâãàäéêèëíìïóôõòöúùüçñ,])(\n)([a-z0-9áâãàäéêèëíìïóôõòöúùüçñ\-+()])/g, "$1 $3")
+			.replaceAll(/–/g, "-");
 		const schema = new ActorT20({
 			type: "npc",
 			name: "template"
@@ -83,27 +87,27 @@ export default class StatblockParser extends FormApplication {
 		const log = [];
 		const itemsList = [];
 		this.object.items = [];
-		const statblock2 = statblock.split("\n").filter(Boolean);
-		const log2 = {
-			name: { success: false, message: "Nome" },
-			cr: { success: false, message: "ND" },
-			type: { success: false, message: "Tipo" },
-			size: { success: false, message: "Tamanho" },
-			role: { success: false, message: "Papel em Combate" },
-			abilities: { success: false, message: "Atributos" },
-			hp: { success: false, message: "PV" },
-			mp: { success: false, message: "PM" },
-			defense: { success: false, message: "Defesa" },
-			immunities: { success: false, message: "Imunidades a Condições" },
-			dr: { success: false, message: "Reduções de Dano" },
-			movement: { success: false, message: "Deslocamentos" },
-			senses: { success: false, message: "Sentidos" },
-			skills: { success: false, message: "Perícias" },
-			powers: { success: false, message: "Poderes e Magias" },
-			weapons: { success: false, message: "Armas" },
-			equipment: { success: false, message: "Equipamentos" },
-			loot: { success: false, message: "ND" }
-		};
+		// const statblock2 = statblock.split("\n").filter(Boolean);
+		// const log2 = {
+		// 	name: { success: false, message: "Nome" },
+		// 	cr: { success: false, message: "ND" },
+		// 	type: { success: false, message: "Tipo" },
+		// 	size: { success: false, message: "Tamanho" },
+		// 	role: { success: false, message: "Papel em Combate" },
+		// 	abilities: { success: false, message: "Atributos" },
+		// 	hp: { success: false, message: "PV" },
+		// 	mp: { success: false, message: "PM" },
+		// 	defense: { success: false, message: "Defesa" },
+		// 	immunities: { success: false, message: "Imunidades a Condições" },
+		// 	dr: { success: false, message: "Reduções de Dano" },
+		// 	movement: { success: false, message: "Deslocamentos" },
+		// 	senses: { success: false, message: "Sentidos" },
+		// 	skills: { success: false, message: "Perícias" },
+		// 	powers: { success: false, message: "Poderes e Magias" },
+		// 	weapons: { success: false, message: "Armas" },
+		// 	equipment: { success: false, message: "Equipamentos" },
+		// 	loot: { success: false, message: "ND" }
+		// };
 		// console.log(statblock2);
 		// this.parseData2(statblock2, schema, itemsList, log2); //LINHA A LINHA
 		this.parseData(statblock, schema, itemsList, log);
@@ -116,7 +120,6 @@ export default class StatblockParser extends FormApplication {
 		this.object.items = itemsList;
 		this.object.log = log;
 		this.render(true);
-		console.groupEnd();
 	}
 
 	parseData2(statblock, schema, itemsList, log) {
@@ -226,7 +229,7 @@ export default class StatblockParser extends FormApplication {
 
 			let types = statblock
 				.capitalize()
-				.match(/.* (especial|solo|lacaio)/i)[0]
+				.match(/.*\s(especial|solo|lacaio|Iniciativa)/i)[0]
 				.replace(/Iniciativa|\(|\)/gi, "")
 				.trim()
 				.split(" ")
@@ -251,13 +254,14 @@ export default class StatblockParser extends FormApplication {
 						message: `Tamanho: ${CONFIG.T20.actorSizes[t]}`
 					});
 				} else {
-					schema.detalhes.raca = t;
+					schema.detalhes.raca = t.capitalize();
 					log.push({
 						success: true,
 						message: `Subtipo de Criatura: ${schema.detalhes.raca}`
 					});
 				}
 			}
+			if (!schema.detalhes.role) log.push({ success: false, message: "Papel em Combate" });
 		} catch (error) {
 			console.warn(error);
 			log.push({
@@ -320,12 +324,9 @@ export default class StatblockParser extends FormApplication {
 
 		// Extrai Defesa
 		try {
-			let def = statblock.match(/Defesa (?<value>\d+)/i).groups;
-			schema.attributes.defesa.base = def.value || 10;
-			log.push({
-				success: true,
-				message: `Defesa: ${schema.attributes.defesa.base}`
-			});
+			const { value } = statblock.match(/Defesa (?<value>\d+)/i).groups;
+			if (value) schema.attributes.defesa.base = Number(value) - schema.atributos.des.base;
+			log.push({ success: true, message: `Defesa: ${value}` });
 		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Defesa" });
@@ -397,7 +398,7 @@ export default class StatblockParser extends FormApplication {
 			}
 			log.push({
 				success: true,
-				message: `Imunidade a dano: ${dmgimuni.join(", ")}`
+				message: `Imunidade a dano: ${dmgimuni.join(", ") || "—"}`
 			});
 			for (let k of dmgvuln) {
 				schema.tracos.resistencias[k].vulnerabilidade = true;
@@ -461,7 +462,7 @@ export default class StatblockParser extends FormApplication {
 			sentidos = sentidos.split(",").map((m) => m.trim().slugify());
 			sentidos = sentidos.filter((f) => senses[f]).map((m) => senses[m]);
 			schema.attributes.sentidos.value = sentidos;
-			log.push({ success: true, message: `Sentidos: ${sentidos.join(", ")}` });
+			log.push({ success: true, message: `Sentidos: ${sentidos.join(", ") || "—"}` });
 		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Sentidos" });
@@ -471,7 +472,6 @@ export default class StatblockParser extends FormApplication {
 	parseSkills(statblock, schema, itemsList, log) {
 		let msg = "";
 		try {
-			const ndparams = T20.FoeParams(schema.detalhes.role, schema.attributes.nd);
 			let sks = Object.fromEntries(
 				Object.entries(T20.pericias)
 					.filter(([_, value]) => value.label)
@@ -494,53 +494,40 @@ export default class StatblockParser extends FormApplication {
 			skills = Object.assign({}, ...skills);
 			msg = "";
 			for (let [key, skill] of Object.entries(skills)) {
-				if (["luta", "pont"].includes(key)) {
-					skill.outros = ndparams.ataque;
-					skill.value = 0;
-				} else if (["fort", "refl", "vont"].includes(key)) {
-					skill.outros = skill.value;
-					skill.value = 0;
-				} else {
-					skill.atributo = T20.pericias[key].abl;
-					let nd = schema.attributes.nd;
-					let nivel = 1;
-					if (["1/2", "1/4"].includes(nd)) nivel = 1;
-					else if (["S", "S+"].includes(nd)) nivel = 20;
-					else nivel = Number(nd) || 1;
-
-					let sizeStealth = {
-						min: 5,
-						peq: 2,
-						med: 0,
-						gra: -2,
-						eno: -5,
-						col: -10
-					};
-					let meionivel = Math.floor(nivel / 2);
-					let treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
-					let atributo = schema.atributos[skill.atributo].base ?? "for";
-					let tamanho = key == "furt" ? sizeStealth[schema.tracos.tamanho] : 0;
-
-					let comTreino = meionivel + treino + atributo + tamanho;
-					let semTreino = meionivel + atributo + tamanho;
-					if (comTreino == skill.value) skill.treinado = true;
-					else if (semTreino == skill.value) skill.treinado = false;
-					else if (Math.abs(comTreino - skill.value) < Math.abs(semTreino - skill.value)) {
-						skill.treinado = true;
-						skill.outros = skill.value - comTreino;
-					} else if (Math.abs(comTreino - skill.value) > Math.abs(semTreino - skill.value)) {
-						skill.treinado = false;
-						skill.outros = skill.value - semTreino;
-					}
-				}
+				this.parseSkill(key, skill, schema);
 				msg += `${CONFIG.T20.pericias[key].label}: ${skill.value + (skill.outros ?? 0)}; `;
-				schema.pericias[key] = skill;
 			}
 			log.push({ success: true, message: `Perícias: ${msg}` });
 		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Perícias" });
 		}
+	}
+
+	parseSkill(key, skill, schema) {
+		skill.atributo ??= T20.pericias[key].abl;
+		const nd = schema.attributes.nd;
+		let nivel = 1;
+		if (["1/2", "1/4"].includes(nd)) nivel = 1;
+		else if (["S", "S+"].includes(nd)) nivel = 20;
+		else nivel = Number(nd) || 1;
+
+		const meionivel = Math.floor(nivel / 2);
+		const treino = nivel > 14 ? 6 : nivel > 6 ? 4 : 2;
+		const atributo = schema.atributos[skill.atributo].base;
+		const tamanho = T20.pericias[key].sizeMod ? CONFIG.T20.sizeModifiers[schema.tracos.tamanho] : 0;
+
+		const comTreino = meionivel + treino + atributo + tamanho;
+		const semTreino = meionivel + atributo + tamanho;
+		if (skill.value === comTreino) skill.treinado = true;
+		else if (skill.value === semTreino) skill.treinado = false;
+		else {
+			const treinado = Math.abs(comTreino - skill.value) < Math.abs(semTreino - skill.value);
+			skill.treinado = treinado;
+			skill.outros = skill.value - (treinado ? comTreino : semTreino);
+			skill.value -= skill.outros;
+		}
+		schema.pericias[key] = skill;
 	}
 
 	/**
@@ -584,23 +571,25 @@ export default class StatblockParser extends FormApplication {
 		};
 		names.sort((a, b) => b.length - a.length);
 		// let item = game.items.find( f => f.type == type && names.includes(f.name.slugify()) );
-		let item = false;
-		names.every((n) => {
-			if (type == "*") {
+		let item;
+
+		for (const n of names) {
+			if (type === "*") {
 				item = game.items.find((f) => !["poder", "magia", "arma", "classe"].includes(f.type) && f.name.slugify() == n);
-				if (item) return;
-				item = this.object[packs.equipamento].find((f) => f.type == type && f.name.slugify() == n);
+				if (item) continue;
+				item = this.object[packs.equipamento]
+					.filter((f) => !["poder", "magia", "arma", "classe"].includes(f.type))
+					.find((f) => f.name.slugify() === n);
 			} else {
-				item = game.items.find((f) => f.type == type && f.name.slugify() == n);
-				if (item) return;
-				item = this.object[packs[type]].find((f) => f.type == type && f.name.slugify() == n);
+				item = game.items.find((f) => f.type === type && f.name.slugify() === n);
+				if (item) continue;
+				item = this.object[packs[type]].find((f) => f.type === type && f.name.slugify() === n);
 			}
-			if (item) return;
-			return true;
-		});
+			if (item) break;
+		}
 
 		if (!item) {
-			type = type == "*" ? "tesouro" : type;
+			type = type === "*" ? "tesouro" : type;
 			item = new game.tormenta20.entities.ItemT20({
 				type: type,
 				name: words.join(" ")
@@ -701,12 +690,16 @@ export default class StatblockParser extends FormApplication {
 			let powers = abilities.filter((f) => f.type == "poder");
 			let spells = abilities.filter((f) => f.type == "magia");
 
-			msg = `Habilidades encontradas ${powers.length} `;
-			msg += `(${powers.map((m) => m.name).join(", ")})`;
-			log.push({ success: true, message: `${msg}` });
-			msg = `Magias encontradas ${spells.length} `;
-			msg += `(${spells.map((m) => m.name).join(", ")})`;
-			log.push({ success: true, message: `${msg}` });
+			if (powers.length) {
+				msg = `Habilidades encontradas (${powers.length}): `;
+				msg += `${powers.map((m) => m.name).join(", ")}`;
+				log.push({ success: true, message: `${msg}` });
+			}
+			if (spells.length) {
+				msg = `Magias encontradas (${spells.length}): `;
+				msg += `${spells.map((m) => m.name).join(", ")}`;
+				log.push({ success: true, message: `${msg}` });
+			}
 		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Poderes e Magias" });
@@ -717,83 +710,76 @@ export default class StatblockParser extends FormApplication {
 		let msg = "";
 		try {
 			// Filtra as Linhas de Corpo a Corpo|À Distância;
-			let armaData = statblock.match(/((Corpo a Corpo|À Distância) [^\.]*)/i);
-			if (!armaData[0]) return;
-			armaData = armaData[0];
-			const proposito = armaData.match(/Corpo a Corpo/i) ? "corpo-a-corpo" : "disparo";
-			const regexNumeral = /\b(dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez)\b\s+(\w+)/i;
+			const armaData = statblock.match(/((Corpo a Corpo|À Distância) [^\.]*)/gi);
+			if (!armaData.length) return;
+			const parsedSkills = new Set();
+			const itemNames = [];
+			for (let AD of armaData) {
+				const regexNumeral = /\b(dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez)\b\s+(\w+)/i;
 
-			// Limpa e separa as armas;
-			armaData = armaData
-				.replace(/Corpo a Corpo|À Distância/gi, "")
-				.replace(/\n/g, " ")
-				.replace(" e ", "|")
-				.replace(" ou ", "|")
-				.replace("), ", ")|")
-				.trim()
-				.split("|");
+				// Limpa e separa as armas;
+				AD = AD.replace(/Corpo a Corpo|À Distância/gi, "")
+					.replace(/\n/g, " ")
+					.replace(" e ", "|")
+					.replace(" ou ", "|")
+					.replace("), ", ")|")
+					.trim()
+					.split("|");
 
-			// Extrai os dados das armas
-			armaData = armaData.map((arma) => arma.match(/(?<name>.*[^\+|\-]) (?<atk>[+|-]\d+) \((?<dmg>.*)\)/).groups);
-			armaData.forEach((arma) => {
-				if (regexNumeral.test(arma.name)) {
-					arma.name = arma.name.replace(regexNumeral, (original, numero, palavra) => {
-						return game.tormenta20.utils.despluralizar(palavra).titleCase();
-					});
-				}
-				let item = this.searchItem(arma.name, "arma", itemsList);
-				if (!item) return;
-				let rolls = [];
-				// Prepara Rolagem de Ataque
-				if (arma.atk) {
-					let attackRoll = {
-						name: "Ataque",
-						key: "ataque0",
-						type: "ataque",
-						adaptavel: "",
-						parts: [
-							["1d20", "", "weapon"],
-							["", "", "skill"],
-							[arma.atk, "", "weaponbonus"]
-						]
-					};
-					rolls.push(attackRoll);
-				}
-				// Prepara Rolagem de Dano
-				if (arma.dmg) {
-					let [dmg, crit] = arma.dmg.split(",");
-					dmg = dmg.split("mais").map((rp) =>
-						rp
-							.trim()
-							.split(" ")
-							.map((t) => t.slugify())
-							.filter((m) => m.match(/\d+d\d+[\+|\-]?[\d+]?/) || CONFIG.T20.damageTypes[m])
-					);
-					let wdmg = dmg.shift();
-					let weaponDamage = item.system.rolls.find((r) => r.type == "dano");
-					let dmgtype = weaponDamage ? weaponDamage.parts[0][1] : wdmg[1] || "corte";
-					let damageRoll = {
-						name: "Dano",
-						key: "dano1",
-						type: "dano",
-						adaptavel: "",
-						parts: [[wdmg[0], dmgtype, "weapon"], ["", dmgtype, "ability"], ...dmg]
-					};
-					rolls.push(damageRoll);
-					crit = crit?.trim().match(/(?<margem>\d+)?\/?(?<multi>x\d)?/).groups || {};
-					item.system.criticoM = parseInt(crit.margem) || 20;
-					item.system.criticoX = parseInt(crit.multi) || 2;
-				}
-				item.system.rolls = rolls;
-				item.system.description.value = `<section class="secret">${arma.name}</section>${item.system.description.value}`;
-				item.system.proposito = proposito;
+				// Extrai os dados das armas
+				AD.forEach((arma) => {
+					let qtd = 1;
+					arma = arma.match(/(?<name>.*[^\+|\-]) (?<atk>[+|-]\d+) \((?<dmg>.*)\)/).groups;
+					if (regexNumeral.test(arma.name)) {
+						arma.name = arma.name.replace(regexNumeral, (_original, numero, palavra) => {
+							qtd = game.tormenta20.utils.wordToNumber(numero);
+							return game.tormenta20.utils.despluralizar(palavra).titleCase();
+						});
+					}
+					let item = this.searchItem(arma.name, "arma", itemsList);
+					if (!item) return;
+					// Prepara Rolagem de Ataque
+					const { rolls } = item.system;
+					const attack = rolls.find((r) => r.type === "ataque");
+					if (arma.atk && attack) {
+						const pericia = attack.parts[1][0];
+						if (!parsedSkills.has(pericia) && !schema.pericias[pericia].treinado) {
+							parsedSkills.add(pericia);
+							schema.pericias[pericia].value = Number(arma.atk);
+							this.parseSkill(pericia, schema.pericias[pericia], schema);
+						} else {
+							const { value, outros } = schema.pericias[pericia];
+							arma.atk = Number(arma.atk) - value - outros;
+							attack.parts[2][0] = arma.atk;
+						}
+					}
+					// Prepara Rolagem de Dano
+					const weaponDamage = rolls.find((r) => r.type === "dano");
+					if (arma.dmg && weaponDamage) {
+						let [dmg, crit] = arma.dmg.split(",");
+						dmg = dmg.split("mais").map((rp) =>
+							rp
+								.trim()
+								.split(" ")
+								.map((t) => t.slugify())
+								.filter((m) => m.match(/\d+d\d+[\+|\-]?[\d+]?/) || CONFIG.T20.damageTypes[m])
+						);
+						const [wdmg, ...restDmg] = dmg;
+						const dmgtype = weaponDamage?.parts?.[0]?.[1] ?? wdmg?.[1] ?? "corte";
+						const baseDmg = wdmg?.[0] ?? "";
+						weaponDamage.parts = [[baseDmg, dmgtype, "weapon"], ["", "", ""], ...restDmg];
+						const { margem, multi } = crit?.trim().match(/(?<margem>\d+)?\/?(?<multi>x\d)?/).groups || {};
+						if (margem) item.system.criticoM = parseInt(margem);
+						if (multi) item.system.criticoX = parseInt(multi);
+					}
+					if (qtd > 1) item.system.qtd = qtd;
+					item.system.description.value = `<section class="secret">${arma.name}</section>${item.system.description.value}`;
+					itemsList.push(item);
+					itemNames.push(qtd > 1 ? `${item.name} x${qtd}` : item.name);
+				});
+			}
 
-				arma.item = item;
-			});
-			itemsList.push(...armaData.map((arma) => arma.item).filter(Boolean));
-
-			msg += `Armas encontradas: ${armaData.length} `;
-			msg += `(${armaData.map((m) => m.name).join(", ")})`;
+			msg += `Armas encontradas (${itemNames.length}): ${itemNames.join(", ")}`;
 			log.push({ success: true, message: `${msg}` });
 		} catch (error) {
 			console.warn(error);
@@ -825,8 +811,8 @@ export default class StatblockParser extends FormApplication {
 				equipamentos = equipamentos.filter((f) => f.item).map((m) => m.item);
 				itemsList.push(...equipamentos);
 
-				msg += `Equipamentos encontrados: ${equipamentos.length} `;
-				msg += `(${equipamentos.map((m) => m.name).join(", ")})`;
+				msg += `Equipamentos encontrados (${equipamentos.length}): `;
+				msg += `${equipamentos.map((m) => (m.system.qtd > 1 ? `${m.name} x${m.system.qtd}` : m.name)).join(", ")}`;
 				log.push({ success: true, message: `${msg}` });
 			}
 		} catch (error) {

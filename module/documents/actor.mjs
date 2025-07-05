@@ -247,10 +247,9 @@ export default class ActorT20 extends Actor {
 		if (this.system.pericias) {
 			let skillMods = this.system.modificadores?.pericias || {};
 			const size = this.system.tracos.tamanho;
-			const sizeMod = { min: 5, peq: 2, med: 0, gra: -2, eno: -5, col: -10 };
 
 			data.treino = this.system.attributes?.treino || 0;
-			data.tamanho = sizeMod[size];
+			data.tamanho = CONFIG.T20.sizeModifiers[size];
 			data.pda = this.system.attributes?.defesa.pda || 0;
 
 			data.pericia = simplifyRollFormula(skillMods.geral?.filter(Boolean).join(" + "), data) || 0;

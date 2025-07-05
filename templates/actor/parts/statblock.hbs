@@ -89,7 +89,6 @@
 			<div class="item-name">
 				<span class="rollable arma-rollable" data-item-id="{{item._id}}">
 				<h4 class="item-name" style="flex: 5;">
-					{{#if (gt item.system.qtd 1)}}{{item.system.qtd}}{{/if}}
 					{{item.name}}
 					{{#if (gt item.system.ataques 1)}}{{item.system.ataques}}x{{/if}}
 					{{t20-itemLabels item}}
@@ -101,9 +100,8 @@
 		{{/each}}
 		{{/if}}
 		{{#if (gt actor.inventario.arma.ranged 0) }}
-		<label>{{localize 'T20.Ranged'}}:
+		<label>{{localize 'T20.Ranged'}}: </label>
 		{{#if system.detalhes.ataquesad }}{{system.detalhes.ataquesad}}{{/if}}
-		</label>
 		{{#each actor.inventario.arma.items as |item id|}}
 		{{#if item.ranged }}
 		<li class="item flexrow" data-item-id="{{item._id}}">
@@ -196,12 +194,8 @@
 {{#if (or (find skills "treinado" true) (find skills "outros" true) ) }}
 <div>
 	<label>{{localize 'T20.Skills'}}: </label>
-	{{#each skills as |skill key|}}
-		{{#unless (or (eq skill.key "perc") (eq skill.key "inic") (eq skill.key "fort") (eq skill.key "refl") (eq skill.key "vont"))}}
-			{{#if (or skill.treinado skill.outros) }}
-			<span class="skill rollable pericia-rollable" data-item-id="{{skill.key}}">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
-			{{/if}}
-		{{/unless}}
+	{{#each listedSkills as |skill key|}}
+		<span class="skill rollable pericia-rollable" data-item-id="{{skill.key}}">{{skill.label}} {{numberFormat skill.value sign=true}}</span>{{#unless @last}},{{/unless}}
 	{{/each}}
 </div>
 {{/if}}
@@ -211,7 +205,7 @@
 	{{system.detalhes.equipamento}}
 	{{#each actor.inventario as |list s| }}
 		{{#each list.items as |item i| }}
-			{{item.name}}{{ift (gt item.system.qtd 1) (concat " " item.system.qtd) "" }}{{ift @../last "" ","}}
+			{{item.name}}{{ift (gt item.system.qtd 1) (concat " x" item.system.qtd) "" }}{{ift @../last "" ","}}
 		{{/each}}
 	{{/each}}
 </div>
