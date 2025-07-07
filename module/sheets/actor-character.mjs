@@ -268,7 +268,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 					} else if (item.type === "magia") {
 						favoritos.magias[item.system.circulo].spells.push(item);
 						favoritos.qtdMagias++;
-					} else if (["consumivel", "equipamento"].includes(item.type)) {
+					} else if (["consumivel", "equipamento", "tesouro"].includes(item.type)) {
 						favoritos.itens.push(item);
 					}
 				}
