@@ -70,7 +70,7 @@ export default class ItemT20 extends Item {
 	 */
 	get hasSave() {
 		const resistencia = this.system?.resistencia || {};
-		return !!(resistencia.atributo && resistencia.value);
+		return !!((resistencia.atributo || this.parent?.type === "npc") && resistencia.txt);
 	}
 
 	/* -------------------------------------------- */
@@ -373,23 +373,21 @@ export default class ItemT20 extends Item {
 		const resistencia = this.system?.resistencia;
 
 		// Ability-score
-		resistencia.cd = null;
+		resistencia.cd = "";
 		if (this.isOwned) {
-			let atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
-			let nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value") / 2);
-			resistencia.cd = 10 + nvl + atr + resistencia.bonus;
-			if (this.actor.type === "npc") {
-				resistencia.cd = this.actor.system.attributes.cd;
-			}
+			const atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
+			const nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value") / 2);
+			if (this.actor.type === "npc") resistencia.cd = this.actor.system.attributes.cd;
+			else resistencia.cd = 10 + nvl + atr + resistencia.bonus;
 		}
 
 		// Update labels
-		const skill = CONFIG.T20.pericias[resistencia.pericia].label;
-		this.labels.resistencia = game.i18n.format("T20.SaveDC", {
-			cd: resistencia.cd || "",
-			pericia: skill
-		});
-		return resistencia.dc;
+		// const skill = CONFIG.T20.pericias[resistencia.pericia].label;
+		// this.labels.resistencia = game.i18n.format("T20.SaveDC", {
+		// 	cd: resistencia.cd,
+		// 	pericia: skill
+		// });
+		return resistencia.cd;
 	}
 
 	/* -------------------------------------------- */
