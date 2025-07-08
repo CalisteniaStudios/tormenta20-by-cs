@@ -11,6 +11,8 @@
 - Alterado: Bônus Máximo de Atributo na ficha de Equipamentos só aparece se o equipamento for do tipo Armadura Pesada (o campo era ignorado caso não fosse).
 - Conserto: Protótipo de Token abre normalmente agora.
 - Conserto: Bônus Máximo de Atributo de armaduras pesadas usa o valor máximo definido em vez de usar o valor total do atributo.
+- Conserto: Tesouros favoritados aparecem corretamente na seção de itens favoritos.
+- Conserto: CD exibida nas fichas de item.
 
 # Versão 1.5.008
 - Conserto na migração de atores da versão 1.5.007
