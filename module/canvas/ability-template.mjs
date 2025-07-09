@@ -163,8 +163,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 				templateData.angle = 54;
 				break;
 			case "rect": // T20 rectangular AoEs are always cubes
-				templateData.distance = Math.hypot(distance, distance);
-				templateData.width = distance;
+				templateData.distance = 2 * distance;
 				templateData.direction = 45;
 				break;
 			case "ray": {
