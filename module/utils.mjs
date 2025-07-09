@@ -198,8 +198,13 @@ export function simplifyBonus(bonus, data = {}) {
 	}
 }
 
+/**
+ * Convert strings formatadas como "1/4" em valores numéricos.
+ * @param {string|number} fraction
+ * @returns {number}
+ */
 export function parseFraction(fraction) {
-	let [num, denom] = fraction.split("/").map(Number);
+	let [num, denom] = String(fraction).split("/").map(Number);
 	denom = isNaN(denom) || denom === 0 ? 1 : denom;
 	return num / denom;
 }

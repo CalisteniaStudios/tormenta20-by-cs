@@ -38,7 +38,7 @@ export default class MenaceData extends CreatureData {
 		this.attributes.meionivel = Math.floor(this.attributes.nivel.value / 2);
 		// Experience Reward
 		this.attributes.defesa.condi = 0;
-		this.attributes.nivel.xp.value = Math.floor(parseFraction(nd) * 1000);
+		this.attributes.nivel.xp.value = Math.floor(parseFraction(nivel) * 1000);
 
 		if (this.biography?.value) {
 			this.detalhes.biography.value += this.biography.value;
