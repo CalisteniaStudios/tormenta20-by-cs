@@ -797,23 +797,24 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const label = a.parentElement.querySelector("label");
 		let choices = {};
 		if (a.dataset.options === "conditionTypes") {
-			let cdtypes = CONFIG.T20.conditions;
-			let eftypes = CONFIG.T20.effectTypes;
-			let ftypes = CONFIG.T20.conditionTypes;
-			let done = [];
-			for (let [fk, fv] of Object.entries(ftypes)) {
-				if (done.includes(fk)) continue;
-				if (Object.keys(eftypes).includes(fk)) {
-					choices[fk] = { label: fv, choices: {} };
-					let ch = Object.values(cdtypes).filter((i) => i.flags?.tormenta20?.category === fk);
-					if (ch) {
-						ch.map((i) => (choices[fk].choices[i.id] = { label: i.name }));
-						//  ch.map(i => {return {label:i.label}}) };
-						done = [...done, ...ch.map((i) => i.id)];
-					}
-				} else if (Object.keys(cdtypes).includes(fk) && !fv.flags?.tormenta20?.category) {
-					choices[fk] = { label: fv, choices: [] };
-				}
+			// const cdtypes = CONFIG.T20.conditions;
+			// const done = new Set();
+			// for (let [fk, fv] of Object.entries(CONFIG.T20.conditionTypes)) {
+			// 	if (done.has(fk)) continue;
+			// 	if (fk in CONFIG.T20.effectTypes) {
+			// 		choices[fk] = { label: fv, choices: {} };
+			// 		const ch = Object.values(cdtypes).filter((i) => i.flags?.tormenta20?.category === fk);
+			// 		for (const i of ch) {
+			// 			choices[fk].choices[i.id] = { label: i.name };
+			// 			done.add(i.id);
+			// 		}
+			// 	} else if (fk in cdtypes && !fv.flags?.tormenta20?.category) {
+			// 		choices[fk] = { label: fv, choices: [] };
+			// 	}
+			// 	choices[fk] = { label: fv, choices: [] };
+			// }
+			for (const [fk, fv] of Object.entries(CONFIG.T20.conditions)) {
+				choices[fk] = { label: fv.name, choices: [] };
 			}
 		} else {
 			choices = CONFIG.T20[a.dataset.options];

@@ -13,6 +13,7 @@
 - Conserto: Bônus Máximo de Atributo de armaduras pesadas usa o valor máximo definido em vez de usar o valor total do atributo.
 - Conserto: Tesouros favoritados aparecem corretamente na seção de itens favoritos.
 - Conserto: CD exibida nas fichas de item.
+- Conserto: lista de Imunidade a Condições exibe apenas as condições e não seus tipos (ex: "Mental", "Sentidos").
 
 # Versão 1.5.008
 - Conserto na migração de atores da versão 1.5.007

@@ -43,13 +43,13 @@ export default class TraitSelector extends FormApplication {
 			choices = foundry.utils.duplicate(this.options.choices);
 			for (let [k, v] of Object.entries(choices)) {
 				choices[k] = {
-					label: v.label ? v.label : v,
-					choices: v.choices ? v.choices : [],
+					label: v.label ?? v.label,
+					choices: v.choices ?? [],
 					chosen: attr ? attr.value.includes(k) : false
 				};
 				for (let [ck, cv] of Object.entries(choices[k].choices)) {
 					choices[k].choices[ck] = {
-						label: cv.label ? cv.label : cv,
+						label: cv.label ?? cv,
 						chosen: attr ? attr.value.includes(ck) : false
 					};
 				}
