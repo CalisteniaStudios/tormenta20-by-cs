@@ -531,7 +531,7 @@ export default class ActorT20 extends Actor {
 			return acc;
 		}, {});
 		const final = {
-			damage: -(rds.dano?.value ? rds.dano.value : 0),
+			damage: 0,
 			loss: 0,
 			heal: 0,
 			tempHP: 0,
@@ -573,6 +573,7 @@ export default class ActorT20 extends Actor {
 		}
 
 		if (rdIgnorada) ignoraRD("dano");
+		if (rds.dano?.value) final.damage -= rds.dano.value;
 		for (let [type, dmg] of Object.entries(damage)) {
 			let rd = 0;
 			// Apply Damage Reduction for each type of damage
