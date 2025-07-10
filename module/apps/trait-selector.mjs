@@ -39,11 +39,11 @@ export default class TraitSelector extends FormApplication {
 		// Populate choices
 		let choices = {};
 		let columns = 1;
-		if (this.options.choices != undefined) {
+		if (this.options.choices !== undefined) {
 			choices = foundry.utils.duplicate(this.options.choices);
 			for (let [k, v] of Object.entries(choices)) {
 				choices[k] = {
-					label: v.label ?? v.label,
+					label: v.label ?? v,
 					choices: v.choices ?? [],
 					chosen: attr ? attr.value.includes(k) : false
 				};
