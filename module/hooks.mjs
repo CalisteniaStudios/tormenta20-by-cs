@@ -18,14 +18,15 @@ export default function () {
 		ui.compendium.compileSearchIndex();
 
 		if (game.user.isGM) {
+			const systemMigrationVersion = game.settings.get("tormenta20", "systemMigrationVersion");
 			// Define o padrão dos token de PJ
-			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.000") {
+			if (systemMigrationVersion < "1.5.000") {
 				const prototypeTokenOverrides = game.settings.get("core", "prototypeTokenOverrides");
 				prototypeTokenOverrides.character.disposition = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
 				prototypeTokenOverrides.character.sight.enabled = true;
 				game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
 			}
-			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.006") {
+			if (systemMigrationVersion && systemMigrationVersion < "1.5.006") {
 				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
 				const consertaAtores = async (actors, pack) => {
 					for (const actor of actors) {
@@ -99,7 +100,7 @@ export default function () {
 				consertaAtores(game.actors.filter((a) => a.type === "npc"));
 				ui.notifications.info("Conserto concluído", { console: false, permanent: true });
 			}
-			if (game.settings.get("tormenta20", "systemMigrationVersion") < "1.5.007") {
+			if (systemMigrationVersion && systemMigrationVersion < "1.5.007") {
 				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
 				const consertaAtores = async (actors, pack) => {
 					for (const actor of actors) {
@@ -149,7 +150,7 @@ export default function () {
 				let updateData = {};
 				for (let [key, ability] of Object.entries(actor._source.system.atributos)) {
 					updateData[`system.atributos.${key}.base`] = Math.floor((ability.value - 10) / 2);
-					updateData[`system.atributos.${key}.bonus`] = ability.bonus != 0 ? ability.bonus / 2 : 0;
+					updateData[`system.atributos.${key}.bonus`] = ability.bonus !== 0 ? ability.bonus / 2 : 0;
 				}
 
 				if (actor.type === "npc") {
