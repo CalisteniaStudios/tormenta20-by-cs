@@ -12,7 +12,7 @@ O projeto usa rollup para empacotar os arquivos em uma build para distribuição
 
 - Dentro da pasta do clone, instale as dependências usando `npm ci`
 
-- Você precisa criar manualmente um link simbólico (symlink) entre a pasta da build ("dist") e a sua pasta "data" do Foundry.
+- Você precisa criar manualmente um link simbólico (symlink) entre a pasta da build ("dist") e a sua pasta "data/systems" do Foundry, nomeando-a `tormenta20`.
 
 - Execute `npm run build:ci` uma vez para criar a build com os compêndios. Nas próximas vezes, execute `npm run build` para criar a build sem recriar os compêndios.
 
