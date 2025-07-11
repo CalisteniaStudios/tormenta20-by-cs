@@ -6,6 +6,10 @@ Se você quer contribuir com o projeto, seja bem-vindo. Se você é (ou quer ser
 
 ## Começando
 
+>  **_ANTES DE COMEÇAR_**
+> Você não conseguirá criar compêndios com o FoundryVTT aberto, então feche-o quando for criar ou atualizar os compêndios.
+> Você não conseguirá extrair dados de compêndios se um mundo com o sistema estiver ativo, então volte ao Setup do Foundry antes de tentar extrair.
+
 O projeto usa rollup para empacotar os arquivos em uma build para distribuição. Se você quer tentar, siga estes passos:
 
 - Clone o repositório em uma pasta local usando `git clone https://gitlab.com/vizael/Tormenta20.git`
