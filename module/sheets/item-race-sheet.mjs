@@ -8,7 +8,7 @@ export default class RaceSheetT20 extends ItemSheetT20 {
 	}
 
 	get unsupportedItemTypes() {
-		return new Set(["comobodo", "mobilia", "race", "classe"]);
+		return new Set(["comodo", "mobilia", "race", "classe"]);
 	}
 
 	async getData() {
