@@ -22,9 +22,13 @@ export default function () {
 			// Define o padrão dos token de PJ
 			if (systemMigrationVersion < "1.5.000") {
 				const prototypeTokenOverrides = game.settings.get("core", "prototypeTokenOverrides");
-				prototypeTokenOverrides.character.disposition = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
-				prototypeTokenOverrides.character.sight.enabled = true;
-				game.settings.set("core", "prototypeTokenOverrides", prototypeTokenOverrides);
+				await game.settings.set(
+					"core",
+					"prototypeTokenOverrides",
+					foundry.utils.mergeObject(prototypeTokenOverrides.toObject(), {
+						character: { disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY, sight: { enabled: true } }
+					})
+				);
 			}
 			if (systemMigrationVersion && systemMigrationVersion < "1.5.006") {
 				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
