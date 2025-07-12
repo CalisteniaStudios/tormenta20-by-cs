@@ -31,13 +31,4 @@ export default class ConsumableData extends Tormenta20ItemData {
 
 		return schema;
 	}
-
-	/** @inheritdoc */
-	static migrateData(data) {
-		if (!isFinite(data.duracao.value) || data.duracao.value == null) {
-			data.duracao.value = 0;
-		}
-
-		return super.migrateData(data);
-	}
 }

@@ -64,20 +64,4 @@ export default class EquipmentData extends Tormenta20ItemData {
 			})
 		};
 	}
-
-	/** @inheritdoc */
-	static migrateData(data) {
-		if (!data.equipado2) {
-			data.equipado2 = {};
-			if (data.empunhadura || ["escudo", "esoterico", "ferramenta"].includes(data.tipo)) {
-				data.equipado2.type = "hand";
-			} else if (["leve", "pesada", "traje", "acessorio"].includes(data.tipo)) {
-				data.equipado2.type = "body";
-			} else if (["eng"].includes(data.tipo) && data.escola) {
-				data.equipado2.type = "both";
-			}
-			// data.equipado2.slot = data.equipado ?
-		}
-		return super.migrateData(data);
-	}
 }
