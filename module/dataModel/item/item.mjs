@@ -495,7 +495,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 						(equip2.type === "hand" ? 1.1 : 1.2) + Math.min(equips.indexOf(this.id), this.actor.equipamentos[limite]);
 				}
 			}
-		} else if (!item.isOwned && ["arma", "equipamento"].includes(this.type)) {
+		} else if (!item.isOwned && ["arma", "equipamento"].includes(this.parent.type)) {
 			this.system.equipado = false;
 		}
 	}
