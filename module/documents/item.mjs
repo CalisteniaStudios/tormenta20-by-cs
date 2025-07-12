@@ -164,155 +164,21 @@ export default class ItemT20 extends Item {
 	 */
 	prepareDerivedData() {
 		const system = this.system;
-		const labels = (this.labels = {});
 
-		// Weapons
-		if (this.type === "arma") {
-			if (system.criticoX === 2) labels.critico = system.criticoM;
-			else labels.critico = `${system.criticoM}/${system.criticoX}x`;
-		}
-		// Spells
-		else if (this.type === "magia") {
-			labels.tipo = T20.spellType[system.tipo];
-			labels.nivel = game.i18n.format("T20.SpellLevel", {
-				lvl: system.circulo
-			});
-			labels.escola = T20.spellSchools[system.escola];
-			// PRELOCALIZED
-			// labels.tipo = game.i18n.localize(T20.spellType[system.tipo]);
-			// labels.nivel = game.i18n.format("T20.SpellLevel", {lvl:system.circulo});
-			// labels.escola = game.i18n.localize(T20.spellSchools[system.escola]);
-			labels.materiais = system.meteriais?.value ?? null;
-		}
-		// Power
-		else if (this.type === "poder") {
-			labels.tipo = T20.powerType[system.tipo];
-			// PRELOCALIZED
-			// labels.tipo = game.i18n.localize(T20.powerType[system.tipo]);
-			labels.subtipo = system.subtipo;
-		}
-		// Equipment
-		else if (this.type === "equipamento") {
-			labels.armadura = system.armadura.valor ? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
-		}
-
+		// TODO move to Data Model
 		// Activation
 		if (foundry.utils.hasProperty(system, "ativacao")) {
-			let act = system.ativacao || {};
-			if (["minute", "hour", "day"].includes(act.execucao)) {
-				labels.ativacao = [act.qtd, T20.abilityActivationTypes[act.execucao]].join(" ");
-				// PRELOCALIZED
-				// labels.ativacao = [act.qtd, game.i18n.localize(T20.abilityActivationTypes[act.execucao])].join(" ");
-			} else if (["special"].includes(act.execucao)) {
-				labels.ativacao = act.special;
-			} else {
-				labels.ativacao = T20.abilityActivationTypes[act.execucao];
-				// PRELOCALIZED
-				// labels.ativacao = game.i18n.localize(T20.abilityActivationTypes[act.execucao]);
-			}
-
-			if (act && act.custo > 0) labels.custoPM = `${act.custo} PM`;
-
 			// Target
-			let tgt = system.target || {};
+			const tgt = system.target || {};
 			if (["none", "self"].includes(tgt.unidades)) tgt.value = null;
 			if (["none", "self"].includes(tgt.type)) {
 				tgt.value = null;
 				tgt.unidades = null;
 			}
-			labels.target = [tgt.value, T20.distanceUnits[tgt.unidades], T20.targetTypes[tgt.type]].filterJoin(" ") ?? "";
-			labels.alvo = system.alvo;
-			labels.area = system.area;
-
-			// Range
-			labels.range = T20.distanceUnits[system.alcance];
-			// PRELOCALIZED
-			// labels.range = game.i18n.localize(T20.distanceUnits[system.alcance]);
-			if (["m", "km"].includes(system.alcance)) {
-				labels.range = `${system.range.value}${system.alcance}`;
-			}
-
-			// Effect
-			labels.effect = system.efeito;
 
 			// Duration
-			let dur = system.duracao || {};
+			const dur = system.duracao || {};
 			if (["inst", "perm", "cena", "sust"].includes(dur.units)) dur.value = 0;
-			if (dur.value) {
-				labels.duration = [dur.value, T20.timePeriods[dur.units]].filterJoin(" ");
-				// PRELOCALIZED
-				// labels.duration = [dur.value, game.i18n.localize(T20.timePeriods[dur.units])].filterJoin(" ");
-			} else {
-				labels.duration = T20.timePeriods[dur.units];
-				// PRELOCALIZED
-				// labels.duration = game.i18n.localize(T20.timePeriods[dur.units]);
-			}
-			if (["special"].includes(dur.units)) {
-				labels.duration = system.duracao.special;
-			}
-		}
-
-		// Saving Throw
-		if (foundry.utils.hasProperty(system, "resistencia")) {
-			let save = system.resistencia || {};
-			const actorData = this.actor?.system ?? null;
-			const actorFlags = this.actor?.flags ?? null;
-			const nivel = actorData?.attributes?.nivel?.value ?? 0;
-			const atr = actorData?.atributos?.[save.atributo]?.value ?? 0;
-			let base = this.isOwned && actorData ? (Math.floor(nivel / 2) ?? 0) : 0;
-			let mod = this.isOwned && atr ? atr : 0;
-
-			let cd = 10 + base + mod + (Number(save.bonus) || 0);
-			if (this.actor?.type === "npc") {
-				cd = this.actor.system.attributes.cd;
-			}
-			if (this.isOwned && actorFlags) {
-				let showCD = actorFlags?.tormenta20?.showCD ?? true;
-				if (!showCD) cd = "??";
-			}
-			labels.save = save.txt ? `${save.txt} (CD ${cd})` : save.txt;
-		}
-
-		// Damage Types
-		if (system.rolls?.find((r) => r.type === "dano")) {
-			let dano = system.rolls.find((r) => r.type === "dano") || {};
-			if (dano.parts) {
-				labels.dano = dano.parts
-					.filter((p) => p[0] != "")
-					.map((d) => d[0])
-					.join(" + ")
-					.replace(/\+ -/g, "- ");
-				labels.damageTypes = dano.parts.map((d) => T20.damageTypes[d[1]]).join(", ");
-			}
-		}
-
-		// Progression
-		// if( !(system.progression instanceof Array) ) system.progression = [];
-
-		// Spellheader
-		if (this.type === "magia") {
-			// Execução: padrão; Alcance: curto; Alvo: 1 criatura; Area:; Efeito:; Duração: instantânea; Resistência: Vontade parcial.
-			const hTags = {
-				ativacao: "T20.ActivationCost",
-				range: "T20.Range",
-				target: "T20.Target",
-				area: "T20.Area",
-				effect: "T20.Effect",
-				duracao: "T20.Duration",
-				save: "T20.Resistance"
-			};
-
-			for (let [h, tag] of Object.entries(hTags)) {
-				hTags[h] = game.i18n.localize(tag);
-			}
-			labels.header = "";
-			labels.header += labels.ativacao ? `<b>${hTags.ativacao}:</b> ${labels.ativacao}; ` : "";
-			labels.header += labels.range ? `<b>${hTags.range}:</b> ${labels.range}; ` : "";
-			labels.header += labels.alvo ? `<b>${hTags.target}:</b> ${labels.alvo}; ` : "";
-			labels.header += labels.area ? `<b>${hTags.area}:</b> ${labels.area}; ` : "";
-			labels.header += labels.effect ? `<b>${hTags.effect}:</b> ${labels.effect}; ` : "";
-			labels.header += labels.duration ? `<b>${hTags.duracao}:</b> ${labels.duration}; ` : "";
-			labels.header += labels.save ? `<b>${hTags.save}:</b> ${labels.save}; ` : "";
 		}
 
 		// if this item is owned, we prepareFinalAttributes() at the end of actor init
@@ -326,69 +192,25 @@ export default class ItemT20 extends Item {
 	 */
 	prepareFinalAttributes() {
 		if (this.hasSave) {
-			// Saving throws
-			this.getSaveDC();
+			const resistencia = this.system?.resistencia;
+			resistencia.cd = 0;
+			if (this.isOwned) {
+				const atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
+				const nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value") / 2);
+				if (this.actor.type === "npc") resistencia.cd = this.actor.system.attributes.cd;
+				else resistencia.cd = 10 + nvl + atr + resistencia.bonus;
+			}
 		}
 
 		if (this.hasAttack) {
 			// To Hit
 			this.getAttackToHit();
 		}
-
-		if (this.hasDamage) {
-			// Damage Label
-			this.getDerivedDamageLabel();
-		}
 	}
 
 	/* -------------------------------------------- */
 	/*  Data Preparation Helpers                    */
 	/* -------------------------------------------- */
-
-	/**
-	 * Populate a label with the compiled and simplified damage formula
-	 * based on owned item actor system. This is only used for display
-	 *
-	 * @returns {Array} array of objects with `formula` and `damageType`
-	 */
-	getDerivedDamageLabel() {
-		const system = this.system;
-		if (!this.hasDamage || !system || !this.isOwned) return [];
-
-		const rollData = {}; // this.getRollData();
-		this.labels.dano = simplifyRollFormula(this.labels.dano, rollData, {
-			constantFirst: false
-		});
-		return this.labels.dano;
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Update the derived spell DC for an item that requires a saving throw
-	 * @returns {number|null}
-	 */
-	getSaveDC() {
-		if (!this.hasSave) return;
-		const resistencia = this.system?.resistencia;
-
-		// Ability-score
-		resistencia.cd = "";
-		if (this.isOwned) {
-			const atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
-			const nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value") / 2);
-			if (this.actor.type === "npc") resistencia.cd = this.actor.system.attributes.cd;
-			else resistencia.cd = 10 + nvl + atr + resistencia.bonus;
-		}
-
-		// Update labels
-		// const skill = CONFIG.T20.pericias[resistencia.pericia].label;
-		// this.labels.resistencia = game.i18n.format("T20.SaveDC", {
-		// 	cd: resistencia.cd,
-		// 	pericia: skill
-		// });
-		return resistencia.cd;
-	}
 
 	/* -------------------------------------------- */
 
@@ -484,11 +306,6 @@ export default class ItemT20 extends Item {
 
 		// Condense the resulting attack bonus formula into a simplified label
 		parts.shift();
-		let toHitLabel = simplifyRollFormula(parts.filterJoin("+"), rollData).trim() || "0";
-		if (toHitLabel.charAt(0) !== "-") {
-			toHitLabel = `+${toHitLabel}`;
-		}
-		this.labels.toHit = toHitLabel;
 		// Update labels and return the prepared roll data
 		return { rollData, parts };
 	}
@@ -1103,6 +920,132 @@ export default class ItemT20 extends Item {
 	}
 
 	/* -------------------------------------------- */
+
+	getLabels() {
+		const system = this.system;
+		const labels = {};
+		// Activation
+		if (foundry.utils.hasProperty(system, "ativacao")) {
+			const act = system.ativacao || {};
+			if (["minute", "hour", "day"].includes(act.execucao)) {
+				labels.ativacao = [act.qtd, T20.abilityActivationTypes[act.execucao]].join(" ");
+			} else if (["special"].includes(act.execucao)) {
+				labels.ativacao = act.special;
+			} else {
+				labels.ativacao = T20.abilityActivationTypes[act.execucao];
+			}
+
+			if (act && act.custo > 0) labels.custoPM = `${act.custo} PM`;
+
+			// Target
+			const tgt = system.target || {};
+			labels.target = [tgt.value, T20.distanceUnits[tgt.unidades], T20.targetTypes[tgt.type]].filterJoin(" ") ?? "";
+			labels.alvo = system.alvo;
+			labels.area = system.area;
+
+			// Range
+			labels.range = T20.distanceUnits[system.alcance];
+			// PRELOCALIZED
+			// labels.range = game.i18n.localize(T20.distanceUnits[system.alcance]);
+			if (["m", "km"].includes(system.alcance)) {
+				labels.range = `${system.range.value}${system.alcance}`;
+			}
+
+			// Effect
+			labels.effect = system.efeito;
+
+			// Duration
+			const dur = system.duracao || {};
+			if (dur.value) {
+				labels.duration = [dur.value, T20.timePeriods[dur.units]].filterJoin(" ");
+			} else {
+				labels.duration = T20.timePeriods[dur.units];
+			}
+			if (["special"].includes(dur.units)) {
+				labels.duration = system.duracao.special;
+			}
+		}
+
+		// Saving Throw
+		if (foundry.utils.hasProperty(system, "resistencia")) {
+			const save = system.resistencia || {};
+			const actorFlags = this.actor?.flags ?? null;
+
+			if (this.isOwned && actorFlags) {
+				const showCD = actorFlags?.tormenta20?.showCD ?? true;
+				if (!showCD) save.cd = "??";
+			}
+			labels.save = save.txt ? `${save.txt} (CD ${save.cd})` : save.txt;
+		}
+
+		if (this.hasAttack) {
+			const { rollData, parts } = this.getAttackToHit();
+			let toHitLabel = simplifyRollFormula(parts.filterJoin("+"), rollData).trim() || "0";
+			if (toHitLabel.charAt(0) !== "-") {
+				toHitLabel = `+${toHitLabel}`;
+			}
+			labels.toHit = toHitLabel;
+		}
+
+		// Damage Types
+		if (this.hasDamage) {
+			let dano = system.rolls.find((r) => r.type === "dano") || {};
+			if (dano.parts) {
+				const formula = dano.parts
+					.filter(([p]) => p !== "")
+					.map(([d]) => d)
+					.join(" + ")
+					.replace(/\+ -/g, "- ");
+				labels.dano = simplifyRollFormula(formula, {}, { constantFirst: false });
+				labels.damageTypes = dano.parts.map((d) => T20.damageTypes[d[1]]).join(", ");
+			}
+		}
+
+		// Weapons
+		if (this.type === "arma") {
+			if (system.criticoX === 2) labels.critico = system.criticoM;
+			else labels.critico = `${system.criticoM}/${system.criticoX}x`;
+		}
+		// Spells
+		else if (this.type === "magia") {
+			const hTags = {
+				ativacao: "T20.ActivationCost",
+				range: "T20.Range",
+				target: "T20.Target",
+				area: "T20.Area",
+				effect: "T20.Effect",
+				duracao: "T20.Duration",
+				save: "T20.Resistance"
+			};
+
+			for (let [h, tag] of Object.entries(hTags)) {
+				hTags[h] = game.i18n.localize(tag);
+			}
+			labels.header = "";
+			labels.header += labels.ativacao ? `<b>${hTags.ativacao}:</b> ${labels.ativacao}; ` : "";
+			labels.header += labels.range ? `<b>${hTags.range}:</b> ${labels.range}; ` : "";
+			labels.header += labels.alvo ? `<b>${hTags.target}:</b> ${labels.alvo}; ` : "";
+			labels.header += labels.area ? `<b>${hTags.area}:</b> ${labels.area}; ` : "";
+			labels.header += labels.effect ? `<b>${hTags.effect}:</b> ${labels.effect}; ` : "";
+			labels.header += labels.duration ? `<b>${hTags.duracao}:</b> ${labels.duration}; ` : "";
+			labels.header += labels.save ? `<b>${hTags.save}:</b> ${labels.save}; ` : "";
+			labels.tipo = T20.spellType[system.tipo];
+			labels.nivel = game.i18n.format("T20.SpellLevel", { lvl: system.circulo });
+			labels.escola = T20.spellSchools[system.escola];
+			labels.materiais = system.meteriais?.value ?? null;
+		}
+		// Power
+		else if (this.type === "poder") {
+			labels.tipo = T20.powerType[system.tipo];
+			labels.subtipo = system.subtipo;
+		}
+		// Equipment
+		else if (this.type === "equipamento") {
+			labels.armadura = system.armadura.valor ? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
+		}
+
+		return labels;
+	}
 
 	/* -------------------------------------------- */
 

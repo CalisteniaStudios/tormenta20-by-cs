@@ -12,7 +12,7 @@
 		<ul class="summary flexrow">
 			{{#if (eq item.type "poder")}}
 				<li style="flex-grow: 3;">
-					{{ localize (lookup ./config.powerType item.system.tipo) }} {{#if item.system.subtipo }}({{item.system.subtipo}}){{/if}}
+					{{labels.tipo}} {{#if labels.subtipo}}({{labels.subtipo}}){{/if}}
 				</li>
 			{{/if}}
 			{{#if (eq item.type "magia")}}
