@@ -1,5 +1,12 @@
 # Lista de Mudanças
 
+# Versão 1.5.010
+- Alterado: Melhorias no Importador de Bloco de Estatísticas
+  - CD de magias é lida corretamente.
+  - A descrição da habilidade Magias não é adicionada como um poder.
+  - Listas de magias compactas são lidas corretamente.
+- Conserto: Importador de Bloco de Estatísticas lê armas com multiplicador de crítico corretamente.
+
 # Versão 1.5.009
 - Alterado: Melhorias no Importador de Bloco de Estatísticas
   - Ignora quebras de linha que (provavelmente) não são parágrafos. Mais especificamente, linhas que não terminam com pontos cuja próxima linha não começa com letra maiúscula.
