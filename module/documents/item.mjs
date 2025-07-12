@@ -911,7 +911,8 @@ export default class ItemT20 extends Item {
 				const showCD = actorFlags?.tormenta20?.showCD ?? true;
 				if (!showCD) save.cd = "??";
 			}
-			labels.save = save.txt ? `${save.txt} (CD ${save.cd})` : save.txt;
+			if (save.txt && save.cd) labels.save = `${save.txt} (CD ${save.cd})`;
+			else labels.save = save.txt;
 		}
 
 		if (this.hasAttack) {
