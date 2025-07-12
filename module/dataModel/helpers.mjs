@@ -336,7 +336,7 @@ class RollData extends foundry.abstract.DataModel {
 
 	/** @inheritdoc */
 	static migrateData(data) {
-		if (data.versatil && !data.versatil) {
+		if (data.versatil) {
 			data.adaptavel = data.versatil;
 			delete data.versatil;
 		}
