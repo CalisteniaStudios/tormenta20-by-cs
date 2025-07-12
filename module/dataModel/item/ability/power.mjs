@@ -27,12 +27,4 @@ export default class PowerData extends Tormenta20ItemData {
 			})
 		};
 	}
-
-	/** @inheritdoc */
-	static migrateData(data) {
-		if (isNaN(data.duracao.value) || !isFinite(data.duracao.value)) {
-			data.duracao.value = 0;
-		}
-		return super.migrateData(data);
-	}
 }

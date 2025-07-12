@@ -86,6 +86,10 @@ export default class StatblockParser extends FormApplication {
 			.closest("form")
 			.statblock.value.replace(/-\n/g, "")
 			.replace(/([a-zA-Z0-9áâãàäéêèëíìïóôõòöúùüçñ,])(\n)([a-z0-9áâãàäéêèëíìïóôõòöúùüçñ\-+()])/g, "$1 $3")
+			.replace(
+				/\n(Magias\s*.*\.)\s*(\d[ºo][\s\S]*?\.)/,
+				(_, magias, spells) => `\n${magias} ${spells.replace(/\n/g, " ")}`
+			)
 			.replaceAll(/–/g, "-");
 		const schema = new ActorT20({
 			type: "npc",
@@ -566,6 +570,7 @@ export default class StatblockParser extends FormApplication {
 	 * Search for world collenction and compendiums for item @name and @type
 	 */
 	searchItem(name, type, itemsList) {
+		if (!name) return;
 		let idx = 5;
 		if (["magia", "poder"].includes(type)) {
 			if (name.split("(")[1]) {
@@ -578,6 +583,7 @@ export default class StatblockParser extends FormApplication {
 		}
 		let names = [];
 		let words = name.split(" ", idx);
+		if (!words.length) return;
 		let conc = "";
 		for (let i = 0; i <= words.length; i++) {
 			for (let j = 1; j < 6; j++) {
@@ -631,6 +637,7 @@ export default class StatblockParser extends FormApplication {
 	parseAbilities(statblock, schema, itemsList, log) {
 		let msg = "";
 		try {
+			const items = [];
 			let actions = Object.fromEntries(
 				Object.entries(CONFIG.T20.abilityActivationTypes).map(([key, value]) => [value, key])
 			);
@@ -657,67 +664,96 @@ export default class StatblockParser extends FormApplication {
 			// abilities = abilities.filter( m => !m.match(/(For ([\-|\–]?[\d|\—]+), Des)|(Perícias )|(Equipamento )|(Tesouro )/) );
 			// abilities = abilities.map( m =>  m.replace(/<abl>|<\/abl>/g,'').replace(/\n/g,' ').trim());
 
-			abilities = lines.filter(
-				(l) =>
-					!(
-						new RegExp(schema.name).test(l)
-						|| /ND (\d+|\d+\/\d+)$/i.test(l)
-						|| /^Defesa \d+, Fort [+-]?\d+, Ref [+-]?\d+/i.test(l)
-						|| /^Corpo a Corpo /i.test(l)
-						|| /^À Distância /i.test(l)
-						|| (/^Deslocamento /i.test(l) && /\d+m (\d+q)/i.test(l))
-						|| /^Iniciativa [+-]?\d+, Percepção [+-]?\d+/i.test(l)
-						|| /^Deslocamento /i.test(l)
-						|| /^Pontos de (Vida|Mana) \d+/i.test(l)
-						|| /^Perícias \w+ [+-]?\d+/i.test(l)
-						|| /^(Equipamento|Equipamentos|Tesouro)/i.test(l)
-						|| /^Parceiro/i.test(l)
-						|| /^For (\-?\d+|—)/i.test(l)
-						|| (new RegExp(`^${Object.values(CONFIG.T20.creatureTypes).join("|")}`, "i").test(l)
-							&& new RegExp(`(${Object.values(CONFIG.T20.actorSizes).join("|")})`, "i").test(l))
-					)
-			);
-			abilities = abilities.map((m) => {
-				return { desc: m };
-			});
-			abilities.forEach((ability) => {
-				let spell = !!ability.desc.match(/• /);
-				if (spell) ability.desc = ability.desc.replace("•", "").trim();
-
-				let item = this.searchItem(ability.desc, spell ? "magia" : "poder", itemsList);
-				if (item.exists) return;
-
-				ability.action = "";
-				ability.pm = 0;
-				ability.descOri = ability.desc;
-				ability.desc = ability.desc.replace(new RegExp(item.name, "i"), "").trim();
-				if (ability.desc[0] == "(") {
-					ability.action = ability.desc.match(/\(([^)]+)\)/);
-					if (ability.action) {
-						ability.desc = ability.desc.replace(ability.action[0], "").trim();
-						ability.action = ability.action[0].replace(/\(|\)/g, "");
-						ability.pm = ability.action.split(",")[1] ?? 0;
-						if (ability.pm) ability.pm = ability.pm.match(/\d+/)[0];
-						ability.action = ability.action.split(",")[0];
-						ability.action = actions[ability.action];
+			abilities = lines
+				.filter(
+					(l) =>
+						!(
+							new RegExp(schema.name).test(l)
+							|| /ND (\d+|\d+\/\d+)$/i.test(l)
+							|| /^Defesa \d+, Fort [+-]?\d+, Ref [+-]?\d+/i.test(l)
+							|| /^Corpo a Corpo /i.test(l)
+							|| /^À Distância /i.test(l)
+							|| (/^Deslocamento /i.test(l) && /\d+m (\d+q)/i.test(l))
+							|| /^Iniciativa [+-]?\d+, Percepção [+-]?\d+/i.test(l)
+							|| /^Deslocamento /i.test(l)
+							|| /^Pontos de (Vida|Mana) \d+/i.test(l)
+							|| /^Perícias \w+ [+-]?\d+/i.test(l)
+							|| /^(Equipamento|Equipamentos|Tesouro)/i.test(l)
+							|| /^Parceiro/i.test(l)
+							|| /^For (\-?\d+|—)/i.test(l)
+							|| (new RegExp(`^${Object.values(CONFIG.T20.creatureTypes).join("|")}`, "i").test(l)
+								&& new RegExp(`(${Object.values(CONFIG.T20.actorSizes).join("|")})`, "i").test(l))
+						)
+				)
+				.forEach((ability) => {
+					const magiaMatch = /(Magias\s*.*\.)\s*(\d+[ºo][\s\S]*?\.)/;
+					if (magiaMatch.test(ability)) {
+						const [_, cd, magias] = ability.match(magiaMatch);
+						const escolas = {};
+						const matches = [...cd.matchAll(/CD \d+, (\d+).*(\*+)/g)];
+						schema.attributes.cd = Number(cd.match(/\(CD (\d+)/)[1]);
+						for (const [_, CD, chave] of matches) {
+							escolas[chave] = Number(CD) - schema.attributes.cd;
+						}
+						magias
+							.replace(/\d+[ºo]\s*—\s*/g, "")
+							.split(/[,;.]/)
+							.forEach((magia) => {
+								const name = magia.trim();
+								const schoolExpert = new RegExp(
+									`(${Object.keys(escolas)
+										.reverse() // Revert order so "**"" comes before "*"
+										.map((k) => k.replace(/[*+]/g, "\\$&"))
+										.join("|")})`
+								);
+								const item = this.searchItem(name.replace(schoolExpert, ""), "magia", itemsList);
+								if (!item) return;
+								if (schoolExpert.test(name)) {
+									item.name = name;
+									// TODO increase CD based on schoolExpert's value
+								}
+								items.push(item);
+							});
+						return;
 					}
-				}
+					if (/Magias.*\(CD .*\)./.test(ability)) {
+						schema.attributes.cd = Number(ability.match(/\(CD (\d+)/)[1]);
+						return;
+					}
+					let spell = !!ability.match(/• /);
+					if (spell) ability = ability.replace("•", "").trim();
 
-				if (spell) {
-					item.system.description.value = `<section class="secret">${ability.descOri}</section>${item.system.description.value}`;
-				}
-				if (!spell) {
-					item.system.ativacao.custo = ability.pm;
-					item.system.ativacao.execucao = ability.action;
-					item.system.description.value = ability.desc;
-				}
-				ability.spell = spell;
-				ability.item = item;
-			});
-			abilities = abilities.filter((f) => f.item).map((m) => m.item);
-			itemsList.push(...abilities);
-			let powers = abilities.filter((f) => f.type == "poder");
-			let spells = abilities.filter((f) => f.type == "magia");
+					let item = this.searchItem(ability, spell ? "magia" : "poder", itemsList);
+					if (!item || item.exists) return;
+
+					let action = "";
+					let pm = 0;
+					const descOri = ability;
+					ability = ability.replace(new RegExp(item.name, "i"), "").trim();
+					if (ability[0] === "(") {
+						action = ability.match(/\(([^)]+)\)/);
+						if (action) {
+							ability = ability.replace(action[0], "").trim();
+							action = action[0].replace(/\(|\)/g, "");
+							pm = action.split(",")[1] ?? 0;
+							if (pm) pm = pm.match(/\d+/)[0];
+							action = action.split(",")[0];
+							action = actions[action];
+						}
+					}
+
+					if (spell) {
+						item.system.description.value = `<section class="secret">${descOri}</section>${item.system.description.value}`;
+					} else {
+						item.system.ativacao.custo = pm;
+						item.system.ativacao.execucao = action;
+						item.system.description.value = ability;
+					}
+					items.push(item);
+				});
+			itemsList.push(...items);
+			const powers = items.filter((f) => f.type === "poder");
+			const spells = items.filter((f) => f.type === "magia");
 
 			if (powers.length) {
 				msg = `Habilidades encontradas (${powers.length}): `;
@@ -797,9 +833,9 @@ export default class StatblockParser extends FormApplication {
 						const dmgtype = weaponDamage?.parts?.[0]?.[1] ?? wdmg?.[1] ?? "corte";
 						const baseDmg = wdmg?.[0] ?? "";
 						weaponDamage.parts = [[baseDmg, dmgtype, "weapon"], ["", "", ""], ...restDmg];
-						const { margem, multi } = crit?.trim().match(/(?<margem>\d+)?\/?(?<multi>x\d)?/).groups || {};
+						const { margem, multi } = crit?.trim().match(/(?<margem>\d+)?\/?(?<multi>x\d+)?/).groups || {};
 						if (margem) item.system.criticoM = parseInt(margem);
-						if (multi) item.system.criticoX = parseInt(multi);
+						if (multi) item.system.criticoX = parseInt(multi.slice(1));
 					}
 					if (qtd > 1) item.system.qtd = qtd;
 					item.system.description.value = `<section class="secret">${arma.name}</section>${item.system.description.value}`;
@@ -831,7 +867,7 @@ export default class StatblockParser extends FormApplication {
 				});
 				equipamentos.forEach((equip) => {
 					let item = this.searchItem(equip.desc, "*", itemsList);
-					if (item.exists) return;
+					if (!item || item.exists) return;
 					let qtd = equip.desc.match(/x(?<qtd>\d+)/);
 					if (qtd) item.system.qtd = qtd.groups?.qtd || 1;
 					item.system.description.value = `${equip.desc}<br>${item.system.description.value}`;
