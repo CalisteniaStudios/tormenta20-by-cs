@@ -5,7 +5,9 @@
   - CD de magias é lida corretamente.
   - A descrição da habilidade Magias não é adicionada como um poder.
   - Listas de magias compactas são lidas corretamente.
+- Alterado: Armas naturais não são mais equipáveis.
 - Conserto: Importador de Bloco de Estatísticas lê armas com multiplicador de crítico corretamente.
+- Conserto: Atalhos de caminho de dato com letras maiúsculas (ex: `@Tormenta2`).
 
 # Versão 1.5.009
 - Alterado: Melhorias no Importador de Bloco de Estatísticas
