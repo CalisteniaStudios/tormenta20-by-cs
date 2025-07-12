@@ -499,4 +499,14 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			this.system.equipado = false;
 		}
 	}
+
+	prepareDerivedData() {
+		if (!["arma", "equipamento"].includes(this.parent.type)) {
+			this.prepareDuration();
+		}
+	}
+
+	prepareDuration() {
+		if (["inst", "perm", "scene", "sust"].includes(this.duracao.units)) this.duracao.value = 0;
+	}
 }

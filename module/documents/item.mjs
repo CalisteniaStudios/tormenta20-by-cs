@@ -152,16 +152,6 @@ export default class ItemT20 extends Item {
 	 * Augment the basic Item data model with additional dynamic system.
 	 */
 	prepareDerivedData() {
-		const system = this.system;
-
-		// TODO move to Data Model
-		// Activation
-		if (foundry.utils.hasProperty(system, "ativacao")) {
-			// Duration
-			const dur = system.duracao || {};
-			if (["inst", "perm", "cena", "sust"].includes(dur.units)) dur.value = 0;
-		}
-
 		// if this item is owned, we prepareFinalAttributes() at the end of actor init
 		if (!this.isOwned) this.prepareFinalAttributes();
 	}
@@ -175,17 +165,11 @@ export default class ItemT20 extends Item {
 		if (this.hasSave) {
 			const resistencia = this.system?.resistencia;
 			resistencia.cd = 0;
-			if (this.isOwned) {
-				const atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
-				const nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value") / 2);
-				if (this.actor.type === "npc") resistencia.cd = this.actor.system.attributes.cd;
-				else resistencia.cd = 10 + nvl + atr + resistencia.bonus;
-			}
-		}
 
-		if (this.hasAttack) {
-			// To Hit
-			this.getAttackToHit();
+			const atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
+			const nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value") / 2);
+			if (this.actor.type === "npc") resistencia.cd = this.actor.system.attributes.cd;
+			else resistencia.cd = 10 + nvl + atr + resistencia.bonus;
 		}
 	}
 
