@@ -101,13 +101,12 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		const sheetData = await super.getData(options);
 		const item = sheetData.item;
 		const source = item.toObject();
-		const labels = this.item.getLabels();
 
 		foundry.utils.mergeObject(sheetData, {
 			rootId: this.id,
 			source: source.system,
 			system: item.system,
-			labels,
+			labels: this.item.labels,
 			isOwned: item.isOwned,
 			isCharacterOwned: item.isOwned && item.parent.type === "character",
 			isNPCOwned: item.isOwned && item.parent.type === "npc",
@@ -119,7 +118,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			// itemType: sheetData.item.type.capitalize(),
 			itemType: game.i18n.localize(`TYPES.Item.${item.type}`),
 			itemStatus: this._getItemStatus(),
-			itemProperties: this._getItemProperties(labels),
+			itemProperties: this._getItemProperties(),
 			isPhysical: foundry.utils.hasProperty(item.system, "qtd"),
 			// TextEditors
 			htmlFields: {
@@ -321,9 +320,9 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	 * @return {Array}
 	 * @private
 	 */
-	_getItemProperties(labels) {
+	_getItemProperties() {
 		const props = [];
-		labels ??= this.item.getLabels();
+		const labels = this.item.labels;
 		if (this.item.type === "arma") {
 			props.push(
 				...Object.entries(this.item.system.propriedades)

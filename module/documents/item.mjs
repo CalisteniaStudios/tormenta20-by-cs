@@ -145,6 +145,38 @@ export default class ItemT20 extends Item {
 	}
 
 	/* -------------------------------------------- */
+	/*  Data Initialization                         */
+	/* -------------------------------------------- */
+
+	clone(data = {}, options = {}) {
+		const item = super.clone(data, options);
+		if (item.parent) {
+			item.prepareFinalAttributes();
+		}
+		return item;
+	}
+
+	/* -------------------------------------------- */
+	/*  DataPreparation                             */
+	/* -------------------------------------------- */
+
+	prepareBaseData() {
+		this.labels = {};
+	}
+
+	prepareDerivedData() {
+		this.labels ??= {};
+		super.prepareDerivedData();
+		// Un-owned items can have their final preparation done here, otherwise this needs to happen in the owning Actor
+		if (!this.isOwned) this.prepareFinalAttributes();
+	}
+
+	prepareFinalAttributes() {
+		this.system.prepareFinalAttributes?.();
+		this._prepareLabels();
+	}
+
+	/* -------------------------------------------- */
 	/*  Data Preparation Helpers                    */
 	/* -------------------------------------------- */
 
@@ -554,14 +586,9 @@ export default class ItemT20 extends Item {
 	 * @return {Promise<ChatMessage|object|void>}
 	 */
 	async roll({ configureDialog = true, rollMode, createMessage = true, extra = {} } = {}) {
-		let item = this;
+		const item = this.clone({ keepId: true });
 		rollMode = game.settings.get("core", "rollMode");
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
-		// Hold to check later
-		if (true) {
-			item = this.clone({ keepId: true });
-			item.system.prepareFinalAttributes(); // Spell save DC, etc...
-		}
 		const id = this.system; // Item system data
 		const actor = this.actor;
 
@@ -846,48 +873,45 @@ export default class ItemT20 extends Item {
 
 	/* -------------------------------------------- */
 
-	getLabels() {
+	_prepareLabels() {
 		const system = this.system;
-		const labels = {};
 		// Activation
 		if (foundry.utils.hasProperty(system, "ativacao")) {
 			const act = system.ativacao || {};
 			if (["minute", "hour", "day"].includes(act.execucao)) {
-				labels.ativacao = [act.qtd, T20.abilityActivationTypes[act.execucao]].join(" ");
+				this.labels.ativacao = [act.qtd, T20.abilityActivationTypes[act.execucao]].join(" ");
 			} else if (["special"].includes(act.execucao)) {
-				labels.ativacao = act.special;
+				this.labels.ativacao = act.special;
 			} else {
-				labels.ativacao = T20.abilityActivationTypes[act.execucao];
+				this.labels.ativacao = T20.abilityActivationTypes[act.execucao];
 			}
 
-			if (act && act.custo > 0) labels.custoPM = `${act.custo} PM`;
+			if (act && act.custo > 0) this.labels.custoPM = `${act.custo} PM`;
 
 			// Target
-			const tgt = system.target || {};
-			labels.target = [tgt.value, T20.distanceUnits[tgt.unidades], T20.targetTypes[tgt.type]].filterJoin(" ") ?? "";
-			labels.alvo = system.alvo;
-			labels.area = system.area;
+			this.labels.alvo = system.alvo;
+			this.labels.area = system.area;
 
 			// Range
-			labels.range = T20.distanceUnits[system.alcance];
+			this.labels.range = T20.distanceUnits[system.alcance];
 			// PRELOCALIZED
 			// labels.range = game.i18n.localize(T20.distanceUnits[system.alcance]);
 			if (["m", "km"].includes(system.alcance)) {
-				labels.range = `${system.range.value}${system.alcance}`;
+				this.labels.range = `${system.range.value}${system.alcance}`;
 			}
 
 			// Effect
-			labels.effect = system.efeito;
+			this.labels.effect = system.efeito;
 
 			// Duration
 			const dur = system.duracao || {};
 			if (dur.value) {
-				labels.duration = [dur.value, T20.timePeriods[dur.units]].filterJoin(" ");
+				this.labels.duration = [dur.value, T20.timePeriods[dur.units]].filterJoin(" ");
 			} else {
-				labels.duration = T20.timePeriods[dur.units];
+				this.labels.duration = T20.timePeriods[dur.units];
 			}
 			if (["special"].includes(dur.units)) {
-				labels.duration = system.duracao.special;
+				this.labels.duration = system.duracao.special;
 			}
 		}
 
@@ -900,8 +924,8 @@ export default class ItemT20 extends Item {
 				const showCD = actorFlags?.tormenta20?.showCD ?? true;
 				if (!showCD) save.cd = "??";
 			}
-			if (save.txt && save.cd) labels.save = `${save.txt} (CD ${save.cd})`;
-			else labels.save = save.txt;
+			if (save.txt && save.cd) this.labels.save = `${save.txt} (CD ${save.cd})`;
+			else this.labels.save = save.txt;
 		}
 
 		if (this.hasAttack) {
@@ -910,7 +934,7 @@ export default class ItemT20 extends Item {
 			if (toHitLabel.charAt(0) !== "-") {
 				toHitLabel = `+${toHitLabel}`;
 			}
-			labels.toHit = toHitLabel;
+			this.labels.toHit = toHitLabel;
 		}
 
 		// Damage Types
@@ -923,15 +947,15 @@ export default class ItemT20 extends Item {
 					.map(([d]) => d)
 					.join(" + ")
 					.replace(/\+ -/g, "- ");
-				labels.dano = simplifyRollFormula(formula, rollData, { constantFirst: false });
-				labels.damageTypes = dano.parts.map((d) => T20.damageTypes[d[1]]).join(", ");
+				this.labels.dano = simplifyRollFormula(formula, rollData, { constantFirst: false });
+				this.labels.damageTypes = dano.parts.map((d) => T20.damageTypes[d[1]]).join(", ");
 			}
 		}
 
 		// Weapons
 		if (this.type === "arma") {
-			if (system.criticoX === 2) labels.critico = system.criticoM;
-			else labels.critico = `${system.criticoM}/${system.criticoX}x`;
+			if (system.criticoX === 2) this.labels.critico = system.criticoM;
+			else this.labels.critico = `${system.criticoM}/${system.criticoX}x`;
 		}
 		// Spells
 		else if (this.type === "magia") {
@@ -948,30 +972,30 @@ export default class ItemT20 extends Item {
 			for (let [h, tag] of Object.entries(hTags)) {
 				hTags[h] = game.i18n.localize(tag);
 			}
-			labels.header = "";
-			labels.header += labels.ativacao ? `<b>${hTags.ativacao}:</b> ${labels.ativacao}; ` : "";
-			labels.header += labels.range ? `<b>${hTags.range}:</b> ${labels.range}; ` : "";
-			labels.header += labels.alvo ? `<b>${hTags.target}:</b> ${labels.alvo}; ` : "";
-			labels.header += labels.area ? `<b>${hTags.area}:</b> ${labels.area}; ` : "";
-			labels.header += labels.effect ? `<b>${hTags.effect}:</b> ${labels.effect}; ` : "";
-			labels.header += labels.duration ? `<b>${hTags.duracao}:</b> ${labels.duration}; ` : "";
-			labels.header += labels.save ? `<b>${hTags.save}:</b> ${labels.save}; ` : "";
-			labels.tipo = T20.spellType[system.tipo];
-			labels.nivel = game.i18n.format("T20.SpellLevel", { lvl: system.circulo });
-			labels.escola = T20.spellSchools[system.escola];
-			labels.materiais = system.meteriais?.value ?? null;
+			this.labels.header = "";
+			this.labels.header += this.labels.ativacao ? `<b>${hTags.ativacao}:</b> ${this.labels.ativacao}; ` : "";
+			this.labels.header += this.labels.range ? `<b>${hTags.range}:</b> ${this.labels.range}; ` : "";
+			this.labels.header += this.labels.alvo ? `<b>${hTags.target}:</b> ${this.labels.alvo}; ` : "";
+			this.labels.header += this.labels.area ? `<b>${hTags.area}:</b> ${this.labels.area}; ` : "";
+			this.labels.header += this.labels.effect ? `<b>${hTags.effect}:</b> ${this.labels.effect}; ` : "";
+			this.labels.header += this.labels.duration ? `<b>${hTags.duracao}:</b> ${this.labels.duration}; ` : "";
+			this.labels.header += this.labels.save ? `<b>${hTags.save}:</b> ${this.labels.save}; ` : "";
+			this.labels.tipo = T20.spellType[system.tipo];
+			this.labels.nivel = game.i18n.format("T20.SpellLevel", { lvl: system.circulo });
+			this.labels.escola = T20.spellSchools[system.escola];
+			this.labels.materiais = system.meteriais?.value ?? null;
 		}
 		// Power
 		else if (this.type === "poder") {
-			labels.tipo = T20.powerType[system.tipo];
-			labels.subtipo = system.subtipo;
+			this.labels.tipo = T20.powerType[system.tipo];
+			this.labels.subtipo = system.subtipo;
 		}
 		// Equipment
 		else if (this.type === "equipamento") {
-			labels.armadura = system.armadura.valor ? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}` : "";
+			this.labels.armadura = system.armadura.valor
+				? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}`
+				: "";
 		}
-
-		return labels;
 	}
 
 	/* -------------------------------------------- */
@@ -999,7 +1023,7 @@ export default class ItemT20 extends Item {
 			item: this,
 			custo: manaCost,
 			system: await this.getChatData(),
-			labels: this.getLabels(),
+			labels: this._prepareLabels(),
 			truque: options.truque,
 			onUseEffects: options.onUseEffects,
 			effects: options.effects,
@@ -1049,7 +1073,7 @@ export default class ItemT20 extends Item {
 
 	async getChatData(htmlOptions = { async: true }) {
 		const system = foundry.utils.deepClone(this.system);
-		const labels = this.getLabels();
+		const labels = this._prepareLabels();
 
 		// Rich text description
 		system.description = system.description || {
