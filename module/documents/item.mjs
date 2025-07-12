@@ -145,35 +145,6 @@ export default class ItemT20 extends Item {
 	}
 
 	/* -------------------------------------------- */
-	/*  DataPreparation                             */
-	/* -------------------------------------------- */
-
-	/**
-	 * Augment the basic Item data model with additional dynamic system.
-	 */
-	prepareDerivedData() {
-		// if this item is owned, we prepareFinalAttributes() at the end of actor init
-		if (!this.isOwned) this.prepareFinalAttributes();
-	}
-
-	/* -------------------------------------------- */
-
-	/**
-	 * Compute item attributes which might depend on prepared actor system.
-	 */
-	prepareFinalAttributes() {
-		if (this.hasSave) {
-			const resistencia = this.system?.resistencia;
-			resistencia.cd = 0;
-
-			const atr = foundry.utils.getProperty(this.actor.system, `atributos.${resistencia.atributo}.value`);
-			const nvl = Math.floor(foundry.utils.getProperty(this.actor.system, "attributes.nivel.value") / 2);
-			if (this.actor.type === "npc") resistencia.cd = this.actor.system.attributes.cd;
-			else resistencia.cd = 10 + nvl + atr + resistencia.bonus;
-		}
-	}
-
-	/* -------------------------------------------- */
 	/*  Data Preparation Helpers                    */
 	/* -------------------------------------------- */
 
@@ -600,7 +571,7 @@ export default class ItemT20 extends Item {
 		// Hold to check later
 		if (true) {
 			item = this.clone({ keepId: true });
-			item.prepareFinalAttributes(); // Spell save DC, etc...
+			item.system.prepareFinalAttributes(); // Spell save DC, etc...
 		}
 		const id = this.system; // Item system data
 		const actor = this.actor;

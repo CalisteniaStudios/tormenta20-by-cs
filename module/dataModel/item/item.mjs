@@ -495,18 +495,33 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 						(equip2.type === "hand" ? 1.1 : 1.2) + Math.min(equips.indexOf(this.id), this.actor.equipamentos[limite]);
 				}
 			}
-		} else if (!item.isOwned && ["arma", "equipamento"].includes(this.parent.type)) {
+		} else if (!item.isOwned && ["arma", "equipamento"].includes(item.type)) {
 			this.system.equipado = false;
 		}
+		if (this.resistencia) this.resistencia.cd = 0;
 	}
 
 	prepareDerivedData() {
-		if (!["arma", "equipamento"].includes(this.parent.type)) {
+		const item = this.parent;
+		if (!["arma", "equipamento"].includes(item.type)) {
 			this.prepareDuration();
 		}
 	}
 
 	prepareDuration() {
 		if (["inst", "perm", "scene", "sust"].includes(this.duracao.units)) this.duracao.value = 0;
+	}
+
+	prepareFinalAttributes() {
+		const item = this.parent;
+		const actor = item.parent ?? {};
+		if (item.isOwned) {
+			if ((this.resistencia?.atributo || actor.type === "npc") && this.resistencia?.txt) {
+				const atr = foundry.utils.getProperty(actor.system, `atributos.${this.resistencia.atributo}.value`);
+				const nvl = Math.floor(foundry.utils.getProperty(actor.system, "attributes.nivel.value") / 2);
+				if (actor.type === "npc") this.resistencia.cd = actor.system.attributes.cd;
+				else this.resistencia.cd = 10 + nvl + atr + this.resistencia.bonus;
+			}
+		}
 	}
 }

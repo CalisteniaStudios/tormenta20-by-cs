@@ -124,7 +124,7 @@ export default class ActorT20 extends Actor {
 		super.prepareData();
 
 		// Iterate over owned items and recompute attributes that depend on prepared actor data
-		this.items.forEach((item) => item.prepareFinalAttributes());
+		this.items.forEach((item) => item.system.prepareFinalAttributes());
 	}
 
 	/* -------------------------------------------- */
