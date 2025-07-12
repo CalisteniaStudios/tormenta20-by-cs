@@ -239,26 +239,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 					hint: "T20.ItemRangeValueHint"
 				})
 			}),
-			// target
-			target: new fields.SchemaField({
-				type: new fields.StringField({
-					required: true,
-					nullable: false,
-					initial: "",
-					label: "T20.ItemTargetType",
-					hint: "T20.ItemTargetTypeHint"
-				}),
-				value: new fields.NumberField({
-					initial: 0,
-					label: "T20.ItemTargeValue",
-					hint: "T20.ItemTargeValueHint"
-				}),
-				width: new fields.NumberField({
-					initial: 0,
-					label: "T20.ItemTargeWidth",
-					hint: "T20.ItemTargeWidthHint"
-				})
-			}),
 
 			alcance: new fields.StringField({
 				required: true,
@@ -293,7 +273,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 		if (type === "arma") {
 			delete schema.duracao;
 			delete schema.range;
-			delete schema.target;
 			delete schema.alvo;
 			delete schema.area;
 			delete schema.efeito;
@@ -304,7 +283,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 		} else if (type === "equipamento") {
 			delete schema.duracao;
 			delete schema.range;
-			delete schema.target;
 			delete schema.alvo;
 			delete schema.area;
 			delete schema.alcance;
@@ -316,7 +294,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 			delete schema.ativacao.special;
 		} else if (type === "poder") {
 			delete schema.consume;
-			delete schema.target;
 			delete schema.alvo;
 			delete schema.ativacao.condicao;
 			delete schema.ativacao.execucao;

@@ -76,17 +76,6 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 
 	/**
-	 * Does the Item have a target
-	 * @type {boolean}
-	 */
-	get hasTarget() {
-		const target = this.system.target;
-		return target && !["none", ""].includes(target.type);
-	}
-
-	/* -------------------------------------------- */
-
-	/**
 	 * Does the Item have an area of effect target
 	 * @type {boolean}
 	 */
@@ -168,14 +157,6 @@ export default class ItemT20 extends Item {
 		// TODO move to Data Model
 		// Activation
 		if (foundry.utils.hasProperty(system, "ativacao")) {
-			// Target
-			const tgt = system.target || {};
-			if (["none", "self"].includes(tgt.unidades)) tgt.value = null;
-			if (["none", "self"].includes(tgt.type)) {
-				tgt.value = null;
-				tgt.unidades = null;
-			}
-
 			// Duration
 			const dur = system.duracao || {};
 			if (["inst", "perm", "cena", "sust"].includes(dur.units)) dur.value = 0;
