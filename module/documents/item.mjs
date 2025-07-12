@@ -915,6 +915,7 @@ export default class ItemT20 extends Item {
 
 		// Damage Types
 		if (this.hasDamage) {
+			const rollData = this.getRollData();
 			let dano = system.rolls.find((r) => r.type === "dano") || {};
 			if (dano.parts) {
 				const formula = dano.parts
@@ -922,7 +923,7 @@ export default class ItemT20 extends Item {
 					.map(([d]) => d)
 					.join(" + ")
 					.replace(/\+ -/g, "- ");
-				labels.dano = simplifyRollFormula(formula, {}, { constantFirst: false });
+				labels.dano = simplifyRollFormula(formula, rollData, { constantFirst: false });
 				labels.damageTypes = dano.parts.map((d) => T20.damageTypes[d[1]]).join(", ");
 			}
 		}
