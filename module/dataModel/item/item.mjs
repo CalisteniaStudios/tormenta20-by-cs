@@ -496,7 +496,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 				}
 			}
 		} else if (!item.isOwned && ["arma", "equipamento"].includes(item.type)) {
-			this.system.equipado = false;
+			this.equipado = false;
 		}
 		if (this.resistencia) this.resistencia.cd = 0;
 	}
