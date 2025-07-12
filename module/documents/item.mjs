@@ -264,18 +264,7 @@ export default class ItemT20 extends Item {
 				rollData.roll[key] = r.total;
 			}
 		}
-		const atributoChave = this.actor.system.attributes.conjuracao;
-		rollData.atributoChave = 0;
-		if (T20.atributos[atributoChave]) {
-			rollData.atributoChave = this.actor.system.atributos[atributoChave].value;
-		}
 
-		// Include an ability score modifier if one exists
-		const atr = this.system.atrBns;
-		if (atr) {
-			const atributo = rollData.atributos[atr];
-			rollData.abl = atributo.value || 0;
-		}
 		if (this.actor.system.pericias) {
 			for (let [key, skl] of Object.entries(this.actor.system.pericias)) {
 				rollData[key] = skl.value;
