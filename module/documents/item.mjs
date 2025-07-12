@@ -1072,7 +1072,7 @@ export default class ItemT20 extends Item {
 			item: this,
 			custo: manaCost,
 			system: await this.getChatData(),
-			labels: this.labels,
+			labels: this.getLabels(),
 			truque: options.truque,
 			onUseEffects: options.onUseEffects,
 			effects: options.effects,
@@ -1122,7 +1122,7 @@ export default class ItemT20 extends Item {
 
 	async getChatData(htmlOptions = { async: true }) {
 		const system = foundry.utils.deepClone(this.system);
-		const labels = this.labels;
+		const labels = this.getLabels();
 
 		// Rich text description
 		system.description = system.description || {
