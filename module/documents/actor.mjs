@@ -221,7 +221,7 @@ export default class ActorT20 extends Actor {
 
 			for (const divisor of [2, 3, 4]) {
 				const val = Math.floor((v - 1) / divisor);
-				powers[`${slug}${divisor}`] = val;
+				powers[`${slug.capitalize()}${divisor}`] = val;
 				powers[`${slug.toLowerCase()}${divisor}`] = val;
 			}
 		}
