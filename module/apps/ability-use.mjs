@@ -548,8 +548,7 @@ function applyRollModifiers(item, rollMods) {
  * @param {Object} rolledItem     Item being used;
  * @param {Object} configuration  Submited data from Ability Use Dialog.
  */
-function applyOnUseEffects(rolledItem, configuration = null) {
-	if (!configuration) return {};
+function applyOnUseEffects(rolledItem, configuration = {}) {
 	const item = rolledItem;
 	const id = item.system;
 	const actor = item.actor;
@@ -822,7 +821,7 @@ function applyOnUseEffects(rolledItem, configuration = null) {
 	});
 
 	// Brew Potion
-	options.brew = configuration.brew;
+	if (configuration.brew) options.brew = configuration.brew;
 	// Logs
 	// console.log(item, rollMods, changes, options);
 	return options;

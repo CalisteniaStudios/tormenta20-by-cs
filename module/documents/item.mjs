@@ -630,7 +630,7 @@ export default class ItemT20 extends Item {
 			// consumeQuantity = Boolean(configuration.consumeUse);
 			// consumeResource = Boolean(configuration.consumeResource);
 			// consumeMana = Boolean(configuration.consumeMana);
-			rollMode = configuration.rollMode;
+			rollMode = configuration.rollMode ?? rollMode;
 		} else {
 			let itActive = this.actor.effects.filter((ef) => ef.getFlag("tormenta20", "onuse") && !ef.disabled);
 			let acActive = this.effects.filter((ef) => ef.getFlag("tormenta20", "onuse") && !ef.disabled);
