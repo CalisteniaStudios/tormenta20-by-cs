@@ -1,0 +1,111 @@
+<form class="tormenta20 danger" autocomplete="off">
+
+	{{> "tormenta20.sheet-header-danger"}}
+
+	{{> "tormenta20.nav-bar"}}
+
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
+		{{!-- Attributes Tab --}}
+		<div class="tab attributes" data-group="primary" data-tab="attributes">
+			{{!-- Goal Section --}}
+			<div class="danger-section">
+				<div class="section-header">
+					<h3 class="rollable danger-goal-rollable" data-action="goal">
+						{{localize "T20.Goal"}}
+					</h3>
+				</div>
+				<div class="section-content">
+					<input type="text" name="system.goal" value="{{system.goal}}" />
+				</div>
+			</div>
+			{{!-- Effects Section --}}
+			<div class="danger-section">
+				<div class="section-header">
+					<h3 class="rollable danger-effects-rollable" data-action="effects">
+						{{localize "T20.Effect"}}
+					</h3>
+				</div>
+				<div class="section-content">
+					{{editor system.effects target="system.effects" button=true owner=owner editable=editable}}
+				</div>
+			</div>
+			{{!-- Actions Section --}}
+			<div class="danger-section">
+				<div class="section-header">
+					<h3 class="rollable danger-actions-rollable" data-action="actions">
+						{{localize "T20.ActionPl"}}
+					</h3>
+				</div>
+				<div class="section-content">
+					{{!-- Powers List --}}
+					<div class="powers-section">
+						<div class="powers-header ">
+							<div class="item-controls" style="text-align: right;">
+								<a class="item-control item-create" data-type="poder" title="Criar Ação">
+									<i class="fas fa-plus"></i>
+								</a>
+							</div>
+						</div>
+						<div class="powers-list">
+							{{#each actor.poderes as |item id|}}
+							<div class="item-group" data-item-id="{{item._id}}">
+								<div class="item flexrow" data-item-id="{{item._id}}">
+									<div class="item-name flexrow">
+										<div class="item-image">
+											<img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+										</div>
+										<h4 class="rollable poder-rollable" data-item-id="{{item._id}}">{{item.name}}</h4>
+									</div>
+									<div class="item-controls" style="text-align: right;">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Editar Item">
+											<i class="fas fa-edit"></i>
+										</a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Deletar Item">
+											<i class="fas fa-trash"></i>
+										</a>
+									</div>
+								</div>
+								{{#if item.system.description.value}}
+								<div class="item-description">
+									{{{item.system.description.value}}}
+								</div>
+								{{/if}}
+								{{#unless @last}}
+								<hr class="power-separator">{{/unless}}
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{{#if isGM}}
+		{{!-- GM Notes Tab --}}
+		<div class="tab gm-notes" data-group="primary" data-tab="gm-notes">
+			<div class="danger-section">
+				<div class="section-content">
+					{{editor htmlFields.biographyGM target="system.detalhes.biography.gm" button=true owner=owner
+					editable=editable}}
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+		{{!-- Biography Tab --}}
+		<div class="tab journal " data-group="primary" data-tab="journal">
+			{{editor htmlFields.biography target="system.detalhes.biography.value" button=true owner=owner editable=editable}}
+		</div>
+
+		{{!-- Modifiers Tab --}}
+		<div class="tab modifiers" data-group="primary" data-tab="modifiers">
+			{{> "tormenta20.modifiers"}}
+		</div>
+
+		{{!-- Effects Tab --}}
+		<div class="tab effects" data-group="primary" data-tab="effects">
+			{{> "tormenta20.active-effects"}}
+		</div>
+	</section>
+</form>

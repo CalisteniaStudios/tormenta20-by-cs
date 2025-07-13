@@ -1,0 +1,81 @@
+@import "./variables.less";
+
+/* ----------------------------------------- */
+/*  Danger Sheet Styles                      */
+/* ----------------------------------------- */
+
+&.danger {
+  min-width: 500px;
+  min-height: 680px;
+
+  /* ----------------------------------------- */
+  /*  Powers Section                           */
+  /* ----------------------------------------- */
+
+  .powers-section {
+    .powers-list {
+      .item-name {
+        &.flexrow {
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+        }
+
+        h4 {
+          flex: 1 1 auto;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin: 0;
+        }
+      }
+
+      .item-image {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+      }
+
+      .item-controls {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.25em;
+      }
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Item Descriptions                        */
+  /* ----------------------------------------- */
+
+  .item-description {
+    margin-top: 0.25em;
+    margin-left: 2.25em;
+    font-size: 0.9em;
+    color: colorOlive;
+    line-height: 1.4;
+  }
+
+  /* ----------------------------------------- */
+  /*  Power Separator                          */
+  /* ----------------------------------------- */
+
+  .power-separator {
+    margin: 0.75em 0;
+    border: none;
+    border-top: 1px solid @colorFaint;
+    opacity: 0.5;
+  }
+
+  /* ----------------------------------------- */
+  /*  Hover Effects                            */
+  /* ----------------------------------------- */
+
+  .item-group {
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+    }
+  }
+}

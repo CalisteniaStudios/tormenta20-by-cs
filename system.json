@@ -33,6 +33,9 @@
       },
       "bases": {
         "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
+      },
+      "danger": {
+        "htmlFields": ["detalhes.biography.gm", "detalhes.biography.public"]
       }
     },
     "Item": {

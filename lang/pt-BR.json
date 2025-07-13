@@ -5,7 +5,8 @@
       "character": "Personagem de Jogador",
       "npc": "Ameaça",
       "vehicle": "Veículos",
-      "simple": "Personagem do Mestre"
+      "simple": "Personagem do Mestre",
+      "danger": "Perigo Complexo"
     },
     "Item": {
       "arma": "Arma",
@@ -134,6 +135,8 @@
     "SlotsAbbr": "Esp.",
     "Carrying": "Carregando",
     "Container": "Recipiente",
+
+    "Goal": "Objetivo",
 
     "S4": "/* -------------- ABILITIES --------------- */",
     "Ability": "Atributo",
@@ -297,6 +300,7 @@
     "Sheet": "Ficha",
     "Statblock": "Estatísticas",
     "Notes": "Anotações",
+    "GMNotes": "Notas do Mestre",
     "Journal": "Diário",
     "Biography": "Biografia",
     "JournalEntry": "Entrada de Diário",
@@ -1197,6 +1201,7 @@
     "CharacterBuilderSheet": "Criação de Ameaça",
     "Sheets": "Fichas",
     "SettingSheetSettings": "Configurações das Fichas",
+    "DangerSheet": "Ficha de Perigo Complexo",
 
     "ActorTraitSelection": "Seleção de Características",
 
