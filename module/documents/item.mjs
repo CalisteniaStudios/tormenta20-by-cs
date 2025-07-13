@@ -1210,18 +1210,18 @@ export default class ItemT20 extends Item {
 			});
 			if (isHealing) {
 				const bonuses = foundry.utils.getProperty(actorData, "modificadores.cura") || {};
-				if (bonuses.geral.filter(Boolean).length) parts.push(["@curaGeral", "", ""]);
-				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@curaMagica", "", ""]);
-				else if (isAlchemical && bonuses.alq.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
+				if (bonuses.geral?.filter(Boolean).length) parts.push(["@curaGeral", "", ""]);
+				if (isSpell && bonuses.mag?.filter(Boolean).length) parts.push(["@curaMagica", "", ""]);
+				else if (isAlchemical && bonuses.alq?.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
 			} else if (!perda) {
 				const bonuses = foundry.utils.getProperty(actorData, "modificadores.dano") || {};
-				if (bonuses.geral.filter(Boolean).length) parts.push(["@dano", "", ""]);
+				if (bonuses.geral?.filter(Boolean).length) parts.push(["@dano", "", ""]);
 
-				if (pericia === "luta" && bonuses.cac.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
-				else if (pericia === "pont" && bonuses.ad.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
+				if (pericia === "luta" && bonuses.cac?.filter(Boolean).length) parts.push(["@danoCAC", "", ""]);
+				else if (pericia === "pont" && bonuses.ad?.filter(Boolean).length) parts.push(["@danoAD", "", ""]);
 
-				if (isSpell && bonuses.mag.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
-				else if (isAlchemical && bonuses.mag.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
+				if (isSpell && bonuses.mag?.filter(Boolean).length) parts.push(["@danoMagico", "", ""]);
+				else if (isAlchemical && bonuses.mag?.filter(Boolean).length) parts.push(["@danoALQ", "", ""]);
 			}
 
 			itemData.rolled[r.name] = await damageRoll({

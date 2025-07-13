@@ -1011,12 +1011,12 @@ export default class CreatureData extends Tormenta20TypeData {
 
 		// GET GLOBAL ACTOR MODIFIERS
 		const bonuses = foundry.utils.getProperty(this, "modificadores.pericias") || {};
-		if (bonuses.geral.filter(Boolean).length) parts.push("@pericia");
-		if (Object.keys(CONFIG.T20.resistencias).includes(skillId) && bonuses.resistencia.filter(Boolean).length) {
+		if (bonuses.geral?.filter(Boolean).length) parts.push("@pericia");
+		if (Object.keys(CONFIG.T20.resistencias).includes(skillId) && bonuses.resistencia?.filter(Boolean).length) {
 			parts.push("@resistencia");
 		}
-		else if (!["luta", "pont"].includes(skillId) && bonuses.semataque.filter(Boolean).length) parts.push("@semataque");
-		else if (["luta", "pont"].includes(skillId) && bonuses.ataque.filter(Boolean).length) parts.push("@ataque");
+		else if (!["luta", "pont"].includes(skillId) && bonuses.semataque?.filter(Boolean).length) parts.push("@semataque");
+		else if (["luta", "pont"].includes(skillId) && bonuses.ataque?.filter(Boolean).length) parts.push("@ataque");
 		if (bonuses.atr && bonuses.atr[skillData.atributo]?.filter(Boolean).length) {
 			parts.push(...bonuses.atr[skillData.atributo]);
 		}

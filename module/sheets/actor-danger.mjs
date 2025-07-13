@@ -113,12 +113,8 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 
 		if (!this.options.editable) return;
 
-		html.find(".danger-goal-rollable").click(this._onGoalRoll.bind(this));
 		html.find(".danger-effects-rollable").click(this._onEffectsRoll.bind(this));
 		html.find(".item-create").off("click").on("click", this._onItemCreate.bind(this));
-		html.find(".item-edit").off("click").on("click", this._onItemEdit.bind(this));
-		html.find(".item-delete").off("click").on("click", this._onItemDelete.bind(this));
-		html.find("[data-action='power']").click(this._onPowerRoll.bind(this));
 	}
 
 	/* -------------------------------------------- */
@@ -146,83 +142,6 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	}
 
 	/**
-	 * Handle editing an existing Owned Item for the Actor
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	_onItemEdit(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.items.get(li.dataset.itemId);
-		item.sheet.render(true);
-	}
-
-	/**
-	 * Handle deleting an existing Owned Item for the Actor
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	async _onItemDelete(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.items.get(li.dataset.itemId);
-
-		const confirmed = await Dialog.confirm({
-			title: "Deletar Item",
-			content: `<p>Tem certeza que deseja deletar <strong>${item.name}</strong>?</p>`,
-			defaultYes: false
-		});
-
-		if (confirmed) {
-			await item.delete();
-		}
-	}
-
-	/**
-	 * Handle clicking on a power to use it
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	async _onPowerRoll(event) {
-		event.preventDefault();
-		const li = event.currentTarget.closest(".item");
-		const item = this.actor.items.get(li.dataset.itemId);
-
-		if (item) {
-			return item.roll();
-		}
-	}
-
-	/**
-	 * Handle clicking on the Goal rollable area
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	async _onGoalRoll(event) {
-		event.preventDefault();
-		const goal = this.actor.system.attributes.goal;
-		console.log("Goal:", goal);
-
-		if (!goal || goal.trim() === "") {
-			ui.notifications.warn("Objetivo não definido!");
-			return;
-		}
-
-		const message = `
-			<div class="tormenta20 chat-card">
-        <header class="card-header flexrow">
-          <img src="${this.actor.img}" title="${this.actor.name}" width="36" height="36"/>
-          <h3>Objetivo</h3>
-        </header>
-        <p>
-          ${goal}
-        </p>
-      </div>`;
-
-		this._toChat(message);
-	}
-
-	/**
 	 * Handle clicking on the Effects rollable area
 	 * @param {Event} event   The originating click event
 	 * @private
@@ -236,17 +155,25 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 			return;
 		}
 
-		const message = `
-			<div class="tormenta20 chat-card">
-        <header class="card-header flexrow">
-          <img src="${this.actor.img}" title="${this.actor.name}" width="36" height="36"/>
-          <h3>Efeito</h3>
-        </header>
-        <p>
-        	${effects}
-        </p>
-      </div>`;
+		const content = {
+			item: {
+				name: this.actor.name,
+				img: this.actor.img
+			},
+			system: {
+				description: {
+					value: effects
+				}
+			}
+		};
 
-		this._toChat(message);
+		const template = "systems/tormenta20/templates/chat/chat-card.hbs";
+		const html = await foundry.applications.handlebars.renderTemplate(template, content);
+		const chatData = {
+			user: game.user.id,
+			type: CONST.CHAT_MESSAGE_STYLES.OTHER,
+			content: html
+		};
+		ChatMessage.create(chatData);
 	}
 }

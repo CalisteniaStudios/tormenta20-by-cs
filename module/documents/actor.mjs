@@ -873,10 +873,10 @@ export default class ActorT20 extends Actor {
 
 		// Add global actor bonus GERAL | FISICOS | MENTAIS | KEY
 		const bonuses = foundry.utils.getProperty(this.system, "modificadores.atributos") || {};
-		if (bonuses.geral.filter(Boolean).length) parts.push("@atributo");
-		if (["for", "des", "con"].includes(key) && bonuses.fisicos.filter(Boolean).length) parts.push("@fisicos");
-		if (["int", "sab", "car"].includes(key) && bonuses.mentais.filter(Boolean).length) parts.push("@mentais");
-		if (bonuses[key].filter(Boolean).length) parts.push(...bonuses[key]);
+		if (bonuses.geral?.filter(Boolean).length) parts.push("@atributo");
+		if (["for", "des", "con"].includes(key) && bonuses.fisicos?.filter(Boolean).length) parts.push("@fisicos");
+		if (["int", "sab", "car"].includes(key) && bonuses.mentais?.filter(Boolean).length) parts.push("@mentais");
+		if (bonuses[key]?.filter(Boolean).length) parts.push(...bonuses[key]);
 
 		// Add provided extra roll parts
 		if (options.parts?.length > 0) {
