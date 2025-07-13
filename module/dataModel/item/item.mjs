@@ -503,7 +503,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 
 	prepareDerivedData() {
 		const item = this.parent;
-		if (!["arma", "equipamento"].includes(item.type)) {
+		if (!["arma", "classe", "equipamento", "race"].includes(item.type)) {
 			this.prepareDuration();
 		}
 	}
