@@ -123,7 +123,7 @@ export default class TraitSelector extends HandlebarsApplicationMixin(Applicatio
 		for (let [k, v] of Object.entries(fd.object)) {
 			if (k !== "custom" && v) chosen.push(k);
 		}
-		updateData[`${this.attribute}.value`] = chosen;
+		updateData[`${this.attribute}.value`] = chosen.sort();
 
 		// Validate the number chosen
 		if (this.options.minimum && chosen.length < this.options.minimum) {
