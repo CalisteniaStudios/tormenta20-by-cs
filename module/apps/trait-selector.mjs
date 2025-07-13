@@ -1,23 +1,44 @@
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
 /**
  * A specialized form used to select from a checklist of attributes, traits, or properties
  * @implements {FormApplication}
  */
-export default class TraitSelector extends FormApplication {
-	/** @override */
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			id: "trait-selector",
-			classes: ["tormenta20", "trait-selector"],
-			title: game.i18n.localize("T20.ActorTraitSelection"),
-			template: "systems/tormenta20/templates/apps/trait-selector.hbs",
-			width: 350,
-			height: "auto",
-			choices: {},
-			allowCustom: true,
-			minimum: 0,
-			maximum: null
-		});
+export default class TraitSelector extends HandlebarsApplicationMixin(ApplicationV2) {
+	constructor(actor, options) {
+		super({ actor: actor.id, ...options });
+		this.object = actor;
 	}
+
+	// eslint-disable-next-line no-unused-private-class-members
+	#id;
+
+	static DEFAULT_OPTIONS = {
+		id: "{actor}-{trait}-trait-selector",
+		classes: ["tormenta20", "trait-selector"],
+		tag: "form",
+		position: {
+			height: "auto",
+			width: 400
+		},
+		form: {
+			closeOnSubmit: true,
+			handler: TraitSelector.#onCommitChanges
+		},
+		window: {
+			title: "T20.ActorTraitSelection",
+			contentClasses: ["standard-form"]
+		}
+	};
+
+	static PARTS = {
+		body: {
+			template: "systems/tormenta20/templates/apps/trait-selector.hbs"
+		},
+		footer: {
+			template: "templates/generic/form-footer.hbs"
+		}
+	};
 
 	/* -------------------------------------------- */
 
@@ -31,48 +52,75 @@ export default class TraitSelector extends FormApplication {
 
 	/* -------------------------------------------- */
 
+	_initializeApplicationOptions(options) {
+		const applicationOptions = super._initializeApplicationOptions(options);
+		applicationOptions.uniqueId = `${options.actor}-${options.id}`;
+		return applicationOptions;
+	}
+
 	/** @override */
-	getData() {
+	async _prepareContext(opt) {
 		// Get current values
-		let attr = foundry.utils.getProperty(this.object, this.attribute);
-		if (foundry.utils.getType(attr) !== "Object") attr = { value: [], custom: "" };
+		const { deepClone, getProperty } = foundry.utils;
+		const attr = deepClone(getProperty(this.object, this.attribute));
+		attr.value = new Set(attr.value);
 		// Populate choices
 		let choices = {};
-		let columns = 1;
+		const columns = Object.values(this.options.choices).some((c) => !!Object.keys(c.choices ?? {}).length) ? 2 : 1;
 		if (this.options.choices !== undefined) {
 			choices = foundry.utils.duplicate(this.options.choices);
 			for (let [k, v] of Object.entries(choices)) {
 				choices[k] = {
 					label: v.label ?? v,
 					choices: v.choices ?? [],
-					chosen: attr ? attr.value.includes(k) : false
+					chosen: attr.value.has(k)
 				};
 				for (let [ck, cv] of Object.entries(choices[k].choices)) {
 					choices[k].choices[ck] = {
 						label: cv.label ?? cv,
-						chosen: attr ? attr.value.includes(ck) : false
+						chosen: attr.value.has(ck),
+						disabled: attr.value.has(k)
 					};
 				}
-				columns = v.choices ? 2 : 1;
 			}
 		}
 		// Return data
 		return {
 			allowCustom: this.options.allowCustom,
-			choices: choices,
+			choices,
 			custom: attr ? attr.custom : "",
-			columns: columns
+			columns
 		};
+	}
+
+	/** @inheritDoc */
+	async _preparePartContext(partId, context, options) {
+		context = await super._preparePartContext(partId, context, options);
+		context.fields = [];
+		context.buttons = [{ type: "submit", icon: "fas fa-save", label: "Save Changes" }];
+		return context;
 	}
 
 	/* -------------------------------------------- */
 
-	/** @override */
-	_updateObject(event, formData) {
+	_onChangeForm(formConfig, event) {
+		super._onChangeForm(formConfig, event);
+		const target = event.target;
+		const subgroup = target.closest("li").querySelector("ul");
+		if (subgroup) {
+			for (const child of subgroup.querySelectorAll("input")) {
+				child.disabled = target.checked;
+			}
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	static async #onCommitChanges(event, form, fd) {
 		const updateData = {};
 		// Obtain choices
 		const chosen = [];
-		for (let [k, v] of Object.entries(formData)) {
+		for (let [k, v] of Object.entries(fd.object)) {
 			if (k !== "custom" && v) chosen.push(k);
 		}
 		updateData[`${this.attribute}.value`] = chosen;
@@ -87,7 +135,7 @@ export default class TraitSelector extends FormApplication {
 
 		// Include custom
 		if (this.options.allowCustom) {
-			updateData[`${this.attribute}.custom`] = formData.custom;
+			updateData[`${this.attribute}.custom`] = fd.object.custom;
 		}
 
 		// Update the object

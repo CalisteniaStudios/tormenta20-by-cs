@@ -376,7 +376,7 @@ export default class CreatureData extends Tormenta20TypeData {
 
 	static schemaSenses(type = "character") {
 		return new fields.SchemaField({
-			value: new fields.ArrayField(new fields.StringField(), {
+			value: new fields.SetField(new fields.StringField(), {
 				label: "T20.SensesList",
 				hint: "T20.SensesListHint"
 			}),
@@ -906,7 +906,7 @@ export default class CreatureData extends Tormenta20TypeData {
 	static schemaTraits(type = "character") {
 		let schema = {
 			ic: new fields.SchemaField({
-				value: new fields.ArrayField(new fields.StringField(), {
+				value: new fields.SetField(new fields.StringField(), {
 					label: "T20.TraitsConditionsImunitiesList",
 					hint: "T20.TraitsConditionsImunitiesListHint"
 				}),

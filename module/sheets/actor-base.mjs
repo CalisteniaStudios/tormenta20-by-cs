@@ -798,30 +798,25 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		const label = a.parentElement.querySelector("label");
 		let choices = {};
 		if (a.dataset.options === "conditionTypes") {
-			// const cdtypes = CONFIG.T20.conditions;
-			// const done = new Set();
-			// for (let [fk, fv] of Object.entries(CONFIG.T20.conditionTypes)) {
-			// 	if (done.has(fk)) continue;
-			// 	if (fk in CONFIG.T20.effectTypes) {
-			// 		choices[fk] = { label: fv, choices: {} };
-			// 		const ch = Object.values(cdtypes).filter((i) => i.flags?.tormenta20?.category === fk);
-			// 		for (const i of ch) {
-			// 			choices[fk].choices[i.id] = { label: i.name };
-			// 			done.add(i.id);
-			// 		}
-			// 	} else if (fk in cdtypes && !fv.flags?.tormenta20?.category) {
-			// 		choices[fk] = { label: fv, choices: [] };
-			// 	}
-			// 	choices[fk] = { label: fv, choices: [] };
-			// }
+			// Don't bother alphabetically sorting, it's worse UI/UX
 			for (const [fk, fv] of Object.entries(CONFIG.T20.conditions)) {
-				choices[fk] = { label: fv.name, choices: [] };
+				const cat = fv.flags?.tormenta20?.category;
+				if (cat in CONFIG.T20.effectTypes) {
+					if (!choices[cat]) choices[cat] = { label: CONFIG.T20.effectTypes[cat], choices: {} };
+					choices[cat].choices[fk] = fv.name;
+				} else {
+					choices[fk] = { label: fv.name, choices: [] };
+				}
 			}
 		} else {
 			choices = CONFIG.T20[a.dataset.options];
 		}
-		const options = { name: a.dataset.target, title: label.innerText, choices };
-		return new TraitSelector(this.actor, options).render(true);
+		return new TraitSelector(this.actor, {
+			name: a.dataset.target,
+			id: a.dataset.options,
+			title: label.innerText,
+			choices
+		}).render(true);
 	}
 
 	/* -------------------------------------------- */

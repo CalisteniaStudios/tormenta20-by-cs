@@ -1,4 +1,4 @@
-<form autocomplete="off" onsubmit="event.preventDefault();">
+<div>
 	<ul class="trait-list" style="columns:{{columns}};">
 		{{#each choices as |choice key|}}
 		<li>
@@ -6,19 +6,19 @@
 				<input type="checkbox" name="{{key}}" data-dtype="Boolean" {{checked choice.chosen}}>
 				{{localize choice.label}}
 			</label>
-		</li>
 			{{#if choice.choices }}
 			<ul class="trait-list">
 				{{#each choice.choices as |schoice skey|}}
 				<li>
 					<label class="checkbox">
-						<input type="checkbox" name="{{skey}}" data-dtype="Boolean" {{checked schoice.chosen}}>
+						<input type="checkbox" name="{{skey}}" data-dtype="Boolean" {{checked schoice.chosen}} {{disabled choice.chosen}}>
 						{{localize schoice.label}}
 					</label>
 				</li>
 				{{/each}}
 			</ul>
 			{{/if}}
+		</li>
 		{{/each}}
 	</ul>
 	{{#if allowCustom}}
@@ -27,5 +27,4 @@
 		<input type="text" name="custom" value="{{custom}}" data-dtype="String" />
 	</div>
 	{{/if}}
-	<button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{ localize 'T20.Submit' }}</button>
-</form>
+</div>

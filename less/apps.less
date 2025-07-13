@@ -654,8 +654,12 @@
       margin: 0;
       padding: 0;
 
-      li ol.trait-list {
-        margin-left: 1.5em;
+      li {
+        page-break-inside: avoid;
+
+        ul.trait-list {
+          padding-left: 20px;
+        }
       }
     }
 
