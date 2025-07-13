@@ -12,18 +12,20 @@
 	<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Details"}}</a>
 	<a class="item" data-tab="inventory"><i class="fa-solid fa-suitcase-rolling"></i> {{localize "T20.Inventory"}}</a>
 	<a class="item" data-tab="powers"><i class="fa-solid fa-bolt"></i> {{localize "T20.Powers"}}</a>
-	{{#if actor.maiorCirculo}}<a class="item" data-tab="spells"><i class="fa-solid fa-hurricane"></i> {{localize
-		"T20.Spells"}}</a>{{/if}}
+	{{#if actor.maiorCirculo}}<a class="item" data-tab="spells"><i class="fa-solid fa-hurricane"></i> {{localize "T20.Spells"}}</a>{{/if}}
 	{{else}}
 	<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
 	{{/if}}
 	<a class="item" data-tab="journal"><i class="fas fa-book"></i> {{localize "T20.Journal"}}</a>
 
-	{{#if (and isGM (eq actor.type "danger"))}}
+	{{#if (eq actor.type "danger")}}
+	{{#if isGM}}
 	<a class="item" data-tab="gm-notes"><i class="fas fa-user-shield"></i> {{localize "T20.GMNotes"}}</a>
 	{{/if}}
-
+	{{else}}
 	<a class="item" data-tab="effects"><i class="fas fa-wand-magic-sparkles"></i> {{localize "T20.Effects"}}</a>
+	{{/if}}
+
 	{{/if}}
 	{{#if (eq layout "vehicle")}}
 	<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>

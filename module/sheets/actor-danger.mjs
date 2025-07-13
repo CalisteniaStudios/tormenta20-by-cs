@@ -27,6 +27,10 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 		});
 	}
 
+	get unsupportedItemTypes() {
+		return new Set(Item.TYPES.filter((i) => !["base", "poder"].includes(i)));
+	}
+
 	/* -------------------------------------------- */
 	/*  Helper Functions                            */
 	/* -------------------------------------------- */
@@ -53,9 +57,9 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	/** @override */
 	async getData() {
 		const sheetData = await super.getData();
-		sheetData.htmlFields = sheetData.htmlFields || {};
-		sheetData.htmlFields.objetivo = await this.enrichHTML(sheetData.system.goal || "", sheetData);
-		sheetData.htmlFields.efeito = await this.enrichHTML(sheetData.system.effects || "", sheetData);
+		sheetData.htmlFields ??= {};
+		// sheetData.htmlFields.objetivo = await this.enrichHTML(sheetData.system.attributes.goal || "", sheetData);
+		sheetData.htmlFields.efeito = await this.enrichHTML(sheetData.system.detalhes.effects || "", sheetData);
 		sheetData.htmlFields.biography = await this.enrichHTML(
 			sheetData.system.detalhes?.biography?.value || "",
 			sheetData
@@ -67,9 +71,6 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 				sheetData
 			);
 		}
-
-		sheetData.isGM = game.user.isGM;
-		console.log("DangerSheetT20 | getData:", sheetData);
 
 		await this._prepareItems(sheetData);
 
@@ -108,11 +109,9 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
-		if (!this.options.editable) return;
+		html.find(".item .item-name > label, .item .item-description").click((event) => this._onItemSummary(event));
 
-		if (this.actor.isOwner) {
-			html.find(".poder-rollable").click((event) => this._onItemRoll(event));
-		}
+		if (!this.options.editable) return;
 
 		html.find(".danger-goal-rollable").click(this._onGoalRoll.bind(this));
 		html.find(".danger-effects-rollable").click(this._onEffectsRoll.bind(this));
@@ -201,7 +200,7 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	 */
 	async _onGoalRoll(event) {
 		event.preventDefault();
-		const goal = this.actor.system.goal;
+		const goal = this.actor.system.attributes.goal;
 		console.log("Goal:", goal);
 
 		if (!goal || goal.trim() === "") {
@@ -230,7 +229,7 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	 */
 	async _onEffectsRoll(event) {
 		event.preventDefault();
-		const effects = this.actor.system.effects;
+		const effects = this.actor.system.detalhes.effects;
 
 		if (!effects || effects.trim() === "") {
 			ui.notifications.warn("Efeito não definido!");

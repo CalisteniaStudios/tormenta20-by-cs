@@ -69,6 +69,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		return `systems/tormenta20/templates/actor/${this.layout}-sheet.hbs`;
 	}
 
+	get unsupportedItemTypes() {
+		return new Set();
+	}
+
 	/**
 	 * Determine whether an Owned Item will be shown based on the current set of filters
 	 * @return {boolean}
@@ -90,6 +94,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 		// Basic data
 		const sheetData = {
+			isGM: game.user.isGM,
 			actor: actorData,
 			source: source.system,
 			system: actorData.system,
@@ -643,6 +648,33 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/* -------------------------------------------- */
+
+	async _onDropFolder(event, data) {
+		if (!this.actor.isOwner) return [];
+		const folder = await Folder.implementation.fromDropData(data);
+		if (folder.type !== "Item") return [];
+		const droppedItemData = await Promise.all(
+			folder.contents.map(async (item) => {
+				if (!(item instanceof Item)) item = await foundry.utils.fromUuid(item.uuid);
+				if (this.unsupportedItemTypes.has(item.type)) return;
+				return item.toObject();
+			})
+		);
+		return this._onDropItemCreate(droppedItemData, event);
+	}
+
+	async _onDropItem(event, data) {
+		if (!this.actor.isOwner) return false;
+		const item = await Item.implementation.fromDropData(data);
+		if (this.unsupportedItemTypes.has(item.type)) return false;
+		const itemData = item.toObject();
+
+		// Handle item sorting within the same Actor
+		if (this.actor.uuid === item.parent?.uuid) return this._onSortItem(event, itemData);
+
+		// Create the owned item
+		return this._onDropItemCreate(itemData, event);
+	}
 
 	/** @override */
 	async _onDropItemCreate(itemData) {

@@ -10,11 +10,11 @@
 		{{!-- Mana Cost --}}
 		{{#if custo}}
 		<button class="chat-spend-mana" value="{{{custo}}}">
-			{{{custo}}} <br> {{localize 'T20.MP'}}
+			{{{custo}}} {{localize 'T20.MP'}}
 		</button>
 		{{/if}}
 		{{#if truque}}
-		<button class="chat-spend-mana" disabled style="background: unset;border: unset;cursor:unset">
+		<button class="chat-spend-mana truque" disabled>
 			{{localize 'T20.Cantrip'}}
 		</button>
 		{{/if}}

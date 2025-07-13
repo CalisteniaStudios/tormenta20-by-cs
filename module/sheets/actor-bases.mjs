@@ -11,6 +11,12 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 
 	/* -------------------------------------------- */
 
+	get unsupportedItemTypes() {
+		return new Set(["comodo", "mobilia"]);
+	}
+
+	/* -------------------------------------------- */
+
 	async getData(options) {
 		const sheetData = await super.getData(options);
 		sheetData.residentes = this.actor.system.residentes

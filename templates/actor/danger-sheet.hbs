@@ -1,6 +1,15 @@
 <form class="tormenta20 danger" autocomplete="off">
 
-	{{> "tormenta20.sheet-header-danger"}}
+	<header class="sheet-header flexrow">
+		<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+		<section class="header-details">
+			<div class="general-information">
+				<h1 class="charname">
+					<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}" />
+				</h1>
+			</div>
+		</section>
+	</header>
 
 	{{> "tormenta20.nav-bar"}}
 
@@ -8,15 +17,15 @@
 	<section class="sheet-body">
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
+			<div class="form-group">
+				<label>{{localize 'T20.AbbreviationCR'}}</label>
+				<input type="text" name="system.attributes.nd" value="{{system.attributes.nd}}">
+			</div>
 			{{!-- Goal Section --}}
-			<div class="danger-section">
-				<div class="section-header">
-					<h3 class="rollable danger-goal-rollable" data-action="goal">
-						{{localize "T20.Goal"}}
-					</h3>
-				</div>
-				<div class="section-content">
-					<input type="text" name="system.goal" value="{{system.goal}}" />
+			<div class="form-group">
+				<label>{{localize "T20.Goal"}}</label>
+				<div class="form-fields">
+					<input type="text" name="system.attributes.goal" value="{{system.attributes.goal}}">
 				</div>
 			</div>
 			{{!-- Effects Section --}}
@@ -27,55 +36,35 @@
 					</h3>
 				</div>
 				<div class="section-content">
-					{{editor system.effects target="system.effects" button=true owner=owner editable=editable}}
+					{{editor htmlFields.efeito target="system.detalhes.effects" button=true owner=owner editable=editable}}
 				</div>
 			</div>
 			{{!-- Actions Section --}}
 			<div class="danger-section">
-				<div class="section-header">
-					<h3 class="rollable danger-actions-rollable" data-action="actions">
-						{{localize "T20.ActionPl"}}
-					</h3>
-				</div>
+				{{!-- Powers List --}}
 				<div class="section-content">
-					{{!-- Powers List --}}
-					<div class="powers-section">
-						<div class="powers-header ">
-							<div class="item-controls" style="text-align: right;">
-								<a class="item-control item-create" data-type="poder" title="Criar Ação">
-									<i class="fas fa-plus"></i>
-								</a>
-							</div>
-						</div>
-						<div class="powers-list">
-							{{#each actor.poderes as |item id|}}
-							<div class="item-group" data-item-id="{{item._id}}">
-								<div class="item flexrow" data-item-id="{{item._id}}">
-									<div class="item-name flexrow">
-										<div class="item-image">
-											<img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-										</div>
-										<h4 class="rollable poder-rollable" data-item-id="{{item._id}}">{{item.name}}</h4>
-									</div>
-									<div class="item-controls" style="text-align: right;">
-										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Editar Item">
-											<i class="fas fa-edit"></i>
-										</a>
-										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Deletar Item">
-											<i class="fas fa-trash"></i>
-										</a>
-									</div>
-								</div>
-								{{#if item.system.description.value}}
-								<div class="item-description">
-									{{{item.system.description.value}}}
+					<div class="list-powers">
+						<ul class="item-list">
+							<li class="item flexrow item-header">
+								<div class="item-name flex2">{{localize 'T20.ActionPl'}}</div>
+								{{#if owner}}
+								<div class="item-controls">
+									<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Powers'}}" data-type="poder"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
 								</div>
 								{{/if}}
-								{{#unless @last}}
-								<hr class="power-separator">{{/unless}}
-							</div>
+							</li>
+							{{#each actor.poderes as |item id|}}
+							<li class="item flexrow" data-item-id="{{item._id}}">
+								<div class="item-name flexrow rollable flex2" data-label="{{item.name}}">
+									<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+									<label>{{item.name}}</label>
+								</div>
+								{{#if ../owner}}
+								{{> "tormenta20.actor-item-controls" item=item }}
+								{{/if}}
+							</li>
 							{{/each}}
-						</div>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -86,8 +75,7 @@
 		<div class="tab gm-notes" data-group="primary" data-tab="gm-notes">
 			<div class="danger-section">
 				<div class="section-content">
-					{{editor htmlFields.biographyGM target="system.detalhes.biography.gm" button=true owner=owner
-					editable=editable}}
+					{{editor htmlFields.biographyGM target="system.detalhes.biography.gm" button=true owner=owner editable=editable}}
 				</div>
 			</div>
 		</div>
@@ -104,8 +92,8 @@
 		</div>
 
 		{{!-- Effects Tab --}}
-		<div class="tab effects" data-group="primary" data-tab="effects">
+		{{!-- <div class="tab effects" data-group="primary" data-tab="effects">
 			{{> "tormenta20.active-effects"}}
-		</div>
+		</div> --}}
 	</section>
 </form>

@@ -492,6 +492,7 @@ export default class CreatureData extends Tormenta20TypeData {
 		} else if (type === "npc") {
 			schema.nd = new fields.StringField({
 				required: true,
+				nullable: false,
 				initial: "1",
 				label: "T20.FoeCRValue",
 				hint: "T20.FoeCRValueHint"
