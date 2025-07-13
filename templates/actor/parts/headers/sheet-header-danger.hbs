@@ -1,0 +1,15 @@
+<header class="sheet-header flexrow">
+	<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+	<section class="header-details">
+		<div class="general-information">
+			<h1 class="charname">
+				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}" />
+			</h1>
+			<hr>
+			<div class="form-group">
+				<label>{{localize 'T20.AbbreviationCR'}}</label>
+				<input type="text" name="system.attributes.nd" value="{{system.attributes.nd}}" placeholder="0">
+			</div>
+		</div>
+	</section>
+</header>

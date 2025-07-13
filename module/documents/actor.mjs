@@ -17,6 +17,8 @@ export default class ActorT20 extends Actor {
 			img = "systems/tormenta20/icons/svg/portrait.svg";
 		} else if (itemData.type === "bases") {
 			img = "systems/tormenta20/icons/svg/bases.svg";
+		} else if (itemData.type === "danger") {
+			img = "icons/svg/hazard.svg";
 		}
 		return { img, texture: { src: img } };
 	}
@@ -386,7 +388,7 @@ export default class ActorT20 extends Actor {
 		}
 		const sourceId = this._stats?.compendiumSource;
 		if (!sourceId?.startsWith("Compendium.")) {
-			if (["character", "bases"].includes(this.type)) {
+			if (["character", "bases", "danger"].includes(this.type)) {
 				updateData.prototypeToken = { actorLink: true };
 			}
 		}

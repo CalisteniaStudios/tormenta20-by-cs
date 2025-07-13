@@ -5,7 +5,8 @@
       "character": "Player Character",
       "npc": "Threats",
       "vehicle": "Vehicles",
-      "simple": "Simple Character"
+      "simple": "Simple Character",
+      "danger": "Complex Danger"
     },
     "Item": {
       "arma": "Weapon",
@@ -115,6 +116,8 @@
     "SlotsAbbr": "Slt.",
     "Carrying": "Loading",
     "Container": "Container",
+
+    "Goal": "Goal",
 
     "S4": "/* -------------- ABILITIES --------------- */",
     "Ability": "Attribute",
@@ -263,6 +266,7 @@
     "Sheet": "File",
     "Statblock": "Stat Block",
     "Notes": "Notes",
+    "GMNotes": "GM Notes",
     "Journal": "Diary",
     "Biography": "Biography",
     "JournalEntry": "Journal Entry",
@@ -1099,6 +1103,7 @@
     "NPCSheet": "NPC sheet",
     "CharacterBuilderSheet": "NPC creation",
     "SettingSheetSettings": "Sheet Settings",
+    "Dangersheet": "Complex Danger Sheet",
 
     "ActorTraitSelection": "Trait Selection",
 
