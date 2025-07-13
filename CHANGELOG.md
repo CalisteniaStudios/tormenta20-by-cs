@@ -1,6 +1,7 @@
 # Lista de Mudanças
 
 # Versão 1.5.010
+- Adicionado: Ficha de Perigos Complexos
 - Alterado: Melhorias no Importador de Bloco de Estatísticas
   - CD de magias é lida corretamente.
   - A descrição da habilidade Magias não é adicionada como um poder.

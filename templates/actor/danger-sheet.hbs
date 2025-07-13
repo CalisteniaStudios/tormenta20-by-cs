@@ -73,11 +73,7 @@
 		{{#if isGM}}
 		{{!-- GM Notes Tab --}}
 		<div class="tab gm-notes" data-group="primary" data-tab="gm-notes">
-			<div class="danger-section">
-				<div class="section-content">
-					{{editor htmlFields.biographyGM target="system.detalhes.biography.gm" button=true owner=owner editable=editable}}
-				</div>
-			</div>
+			{{editor htmlFields.biographyGM target="system.detalhes.biography.gm" button=true owner=owner editable=editable}}
 		</div>
 		{{/if}}
 
