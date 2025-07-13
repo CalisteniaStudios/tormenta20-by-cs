@@ -105,6 +105,7 @@ export class Tormenta20BaseSettings extends HandlebarsApplicationMixin(Applicati
 export class Tormenta20ActorSheetSettings extends Tormenta20BaseSettings {
 	/** @override */
 	static DEFAULT_OPTIONS = {
+		id: "t20-actor-sheet-config",
 		window: {
 			title: "T20.SettingSheetSettings"
 		}
@@ -146,6 +147,7 @@ export class Tormenta20ActorSheetSettings extends Tormenta20BaseSettings {
 export class Tormenta20OptionalRulesSettings extends Tormenta20BaseSettings {
 	/** @override */
 	static DEFAULT_OPTIONS = {
+		id: "t20-optional-rules-config",
 		window: {
 			title: "T20.SettingOptionalRulesSettings"
 		}
