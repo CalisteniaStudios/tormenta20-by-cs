@@ -130,6 +130,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		sheetData.showResources = this.actor.getFlag("tormenta20", "sheet.showResources");
 
 		// Sort Owned Items
+		for (let i of sheetData.items) {
+			const item = this.actor.items.get(i._id);
+			i.labels = item.labels;
+		}
 		sheetData.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
 		// Ability Scores
