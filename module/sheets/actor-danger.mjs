@@ -52,7 +52,7 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 			item.system.description.value = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 				item.system.description.value,
 				{
-					secrets: true,
+					secrets: this.actor.isOwner,
 					async: true,
 					relativeTo: item
 				}
