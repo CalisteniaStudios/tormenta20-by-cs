@@ -158,7 +158,9 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		await this._prepareItems(sheetData);
 
 		// Enrich HTML text
-		sheetData.htmlFields.biography = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
+		if (sheetData.system.detalhes?.biography) {
+			sheetData.htmlFields.biography = await this.enrichHTML(sheetData.system.detalhes.biography.value, sheetData);
+		}
 
 		sheetData.documentName = "Actor";
 		// Return data to the sheet
