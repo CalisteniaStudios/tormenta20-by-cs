@@ -26,25 +26,6 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	}
 
 	/* -------------------------------------------- */
-	/*  Helper Functions                            */
-	/* -------------------------------------------- */
-
-	/**
-	 * Helper function to send messages to chat
-	 * @param {string} message - The message content (HTML)
-	 * @private
-	 */
-	_toChat(message) {
-		let chatData = {
-			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_STYLES.OTHER,
-			content: message,
-			speaker: ChatMessage.getSpeaker({ actor: this.actor })
-		};
-		ChatMessage.create(chatData);
-	}
-
-	/* -------------------------------------------- */
 	/*  SheetPreparation                            */
 	/* -------------------------------------------- */
 
@@ -54,8 +35,6 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 		sheetData.htmlFields ??= {};
 		sheetData.htmlFields.objetivo = await this.enrichHTML(sheetData.system.detalhes.goal || "", sheetData);
 		sheetData.htmlFields.efeito = await this.enrichHTML(sheetData.system.detalhes.effects || "", sheetData);
-
-		await this._prepareItems(sheetData);
 
 		return sheetData;
 	}
@@ -96,7 +75,6 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 
 		if (!this.options.editable) return;
 
-		html.find(".danger-effects-rollable").click(this._onEffectsRoll.bind(this));
 		html.find(".item-create").off("click").on("click", this._onItemCreate.bind(this));
 	}
 
@@ -122,41 +100,5 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 			system: {}
 		};
 		return await Item.create(itemData, { parent: this.actor });
-	}
-
-	/**
-	 * Handle clicking on the Effects rollable area
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	async _onEffectsRoll(event) {
-		event.preventDefault();
-		const effects = this.actor.system.detalhes.effects;
-
-		if (!effects || effects.trim() === "") {
-			ui.notifications.warn("Efeito não definido!");
-			return;
-		}
-
-		const content = {
-			item: {
-				name: this.actor.name,
-				img: this.actor.img
-			},
-			system: {
-				description: {
-					value: effects
-				}
-			}
-		};
-
-		const template = "systems/tormenta20/templates/chat/chat-card.hbs";
-		const html = await foundry.applications.handlebars.renderTemplate(template, content);
-		const chatData = {
-			user: game.user.id,
-			type: CONST.CHAT_MESSAGE_STYLES.OTHER,
-			content: html
-		};
-		ChatMessage.create(chatData);
 	}
 }
