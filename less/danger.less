@@ -5,8 +5,8 @@
 /* ----------------------------------------- */
 
 &.danger {
-  min-width: 500px;
-  min-height: 680px;
+  min-width: 450px;
+  min-height: 650px;
 
   .sheet-header {
     img.profile {
@@ -14,16 +14,14 @@
       height: 80px;
       max-width: 80px;
     }
-  }
+    aside {
+      flex: 0 0 auto;
 
-  .tab.gm-notes {
-    align-items: flex-start;
-    flex-direction: row;
-    font-size: var(--font-size-12);
-  }
-
-  .editor {
-    min-height: 50px;
+      .danger-level {
+        text-align: center;
+        width: 60px;
+      }
+    }
   }
 
   .danger-effects-rollable {

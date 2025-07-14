@@ -3,94 +3,54 @@
 	<header class="sheet-header flexrow">
 		<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
 		<section class="header-details">
-			<div class="general-information">
+			<div class="general-information flexrow">
 				<h1 class="charname">
 					<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'T20.Name' }}" />
 				</h1>
+				<aside>
+					<h1 class="danger-level">
+						<input type="text" name="system.attributes.nd" value="{{system.attributes.nd}}" data-tooltip="{{localize 'T20.AbbreviationCR'}}">
+					</h1>
+				</aside>
 			</div>
 		</section>
 	</header>
 
-	{{> "tormenta20.nav-bar"}}
-
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
-		{{!-- Attributes Tab --}}
-		<div class="tab attributes" data-group="primary" data-tab="attributes">
-			<div class="form-group">
-				<label>{{localize 'T20.AbbreviationCR'}}</label>
-				<input type="text" name="system.attributes.nd" value="{{system.attributes.nd}}">
-			</div>
-			{{!-- Goal Section --}}
-			<div class="form-group">
-				<label>{{localize "T20.Goal"}}</label>
-				<div class="form-fields">
-					<input type="text" name="system.attributes.goal" value="{{system.attributes.goal}}">
-				</div>
-			</div>
-			{{!-- Effects Section --}}
-			<div class="danger-section">
-				<div class="section-header">
-					<h3>
-						{{localize "T20.Effect"}}
-						<i class="rollable danger-effects-rollable fa-solid fa-comments" data-action="effects" data-tooltip="Enviar no Chat"></i>
-					</h3>
-				</div>
-				<div class="section-content">
-					{{editor htmlFields.efeito target="system.detalhes.effects" button=true owner=owner editable=editable}}
-				</div>
-			</div>
-			{{!-- Actions Section --}}
-			<div class="danger-section">
-				{{!-- Powers List --}}
-				<div class="section-content">
-					<div class="list-powers">
-						<ul class="item-list">
-							<li class="item flexrow item-header">
-								<div class="item-name flex2">{{localize 'T20.ActionPl'}}</div>
-								{{#if owner}}
-								<div class="item-controls">
-									<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Powers'}}" data-type="poder"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
-								</div>
-								{{/if}}
-							</li>
-							{{#each actor.poderes as |item id|}}
-							<li class="item flexrow" data-item-id="{{item._id}}">
-								<div class="item-name flexrow rollable flex2" data-label="{{item.name}}">
-									<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-									<label>{{item.name}}</label>
-								</div>
-								{{#if ../owner}}
-								{{> "tormenta20.actor-item-controls" item=item }}
-								{{/if}}
-							</li>
-							{{/each}}
-						</ul>
+		{{!-- Goal Section --}}
+		<div>
+			<h3>{{localize "T20.Goal"}}</h3>
+			{{editor htmlFields.objetivo target="system.detalhes.goal" button=true owner=owner editable=editable}}
+		</div>
+		{{!-- Effects Section --}}
+		<div>
+			<h3>{{localize "T20.Effect"}}</h3>
+			{{editor htmlFields.efeito target="system.detalhes.effects" button=true owner=owner editable=editable}}
+		</div>
+		{{!-- Actions Section --}}
+		<div class="list-powers">
+			<ul class="item-list">
+				<li class="item flexrow item-header">
+					<div class="item-name flex2">{{localize 'T20.ActionPl'}}</div>
+					{{#if owner}}
+					<div class="item-controls">
+						<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Powers'}}" data-type="poder"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
 					</div>
-				</div>
-			</div>
+					{{/if}}
+				</li>
+				{{#each actor.poderes as |item id|}}
+				<li class="item flexrow" data-item-id="{{item._id}}">
+					<div class="item-name flexrow rollable flex2" data-label="{{item.name}}">
+						<div class="item-image" style="background-image: url('{{item.img}}')"></div>
+						<label>{{item.name}}</label>
+					</div>
+					{{#if ../owner}}
+					{{> "tormenta20.actor-item-controls" item=item }}
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
 		</div>
-
-		{{#if isGM}}
-		{{!-- GM Notes Tab --}}
-		<div class="tab gm-notes" data-group="primary" data-tab="gm-notes">
-			{{editor htmlFields.biographyGM target="system.detalhes.biography.gm" button=true owner=owner editable=editable}}
-		</div>
-		{{/if}}
-
-		{{!-- Biography Tab --}}
-		<div class="tab journal " data-group="primary" data-tab="journal">
-			{{editor htmlFields.biography target="system.detalhes.biography.value" button=true owner=owner editable=editable}}
-		</div>
-
-		{{!-- Modifiers Tab --}}
-		<div class="tab modifiers" data-group="primary" data-tab="modifiers">
-			{{> "tormenta20.modifiers"}}
-		</div>
-
-		{{!-- Effects Tab --}}
-		{{!-- <div class="tab effects" data-group="primary" data-tab="effects">
-			{{> "tormenta20.active-effects"}}
-		</div> --}}
 	</section>
 </form>

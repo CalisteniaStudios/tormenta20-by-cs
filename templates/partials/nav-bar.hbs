@@ -16,13 +16,10 @@
 	{{else}}
 	<a class="item" data-tab="attributes"><i class="fa-solid fa-file-invoice"></i> {{localize "T20.Sheet"}}</a>
 	{{/if}}
-	<a class="item" data-tab="journal"><i class="fas fa-book"></i> {{localize "T20.Journal"}}</a>
 
 	{{#if (eq actor.type "danger")}}
-	{{#if isGM}}
-	<a class="item" data-tab="gm-notes"><i class="fas fa-user-shield"></i> {{localize "T20.GMNotes"}}</a>
-	{{/if}}
 	{{else}}
+	<a class="item" data-tab="journal"><i class="fas fa-book"></i> {{localize "T20.Journal"}}</a>
 	<a class="item" data-tab="effects"><i class="fas fa-wand-magic-sparkles"></i> {{localize "T20.Effects"}}</a>
 	{{/if}}
 

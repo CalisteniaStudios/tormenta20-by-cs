@@ -8,13 +8,6 @@ export default class DangerData extends CreatureData {
 		const fields = foundry.data.fields;
 		return {
 			attributes: new fields.SchemaField({
-				goal: new fields.HTMLField({
-					required: false,
-					nullable: true,
-					initial: "",
-					label: "T20.DetailsGoal",
-					hint: "T20.DetailsGoalHint"
-				}),
 				nd: new fields.StringField({
 					required: true,
 					nullable: false,
@@ -25,29 +18,20 @@ export default class DangerData extends CreatureData {
 			}),
 
 			detalhes: new fields.SchemaField({
-				biography: new fields.SchemaField({
-					value: new fields.HTMLField({
-						required: true,
-						nullable: false,
-						initial: "",
-						label: "T20.DetailsBiography",
-						hint: "T20.DetailsBiographyHint"
-					}),
-					gm: new fields.HTMLField({
-						required: true,
-						nullable: false,
-						initial: "",
-						label: "T20.DetailsBiographyPublic",
-						hint: "T20.DetailsBiographyPublicHint"
-					})
-				}),
-
 				effects: new fields.HTMLField({
 					required: false,
 					nullable: true,
 					initial: "",
 					label: "T20.DetailsEffects",
 					hint: "T20.DetailsEffectsHint"
+				}),
+
+				goal: new fields.HTMLField({
+					required: false,
+					nullable: true,
+					initial: "",
+					label: "T20.DetailsGoal",
+					hint: "T20.DetailsGoalHint"
 				})
 			})
 		};

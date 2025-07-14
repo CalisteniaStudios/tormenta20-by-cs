@@ -14,15 +14,9 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["tormenta20", "sheet", "actor", "danger"],
-			tabs: [
-				{
-					navSelector: ".sheet-tabs",
-					contentSelector: ".sheet-body",
-					initial: "attributes"
-				}
-			],
+			tabs: [],
 			template: "systems/tormenta20/templates/actor/danger-sheet.hbs",
-			width: 550,
+			width: 540,
 			height: 700
 		});
 	}
@@ -58,19 +52,8 @@ export default class DangerSheetT20 extends ActorSheetT20 {
 	async getData() {
 		const sheetData = await super.getData();
 		sheetData.htmlFields ??= {};
-		// sheetData.htmlFields.objetivo = await this.enrichHTML(sheetData.system.attributes.goal || "", sheetData);
+		sheetData.htmlFields.objetivo = await this.enrichHTML(sheetData.system.detalhes.goal || "", sheetData);
 		sheetData.htmlFields.efeito = await this.enrichHTML(sheetData.system.detalhes.effects || "", sheetData);
-		sheetData.htmlFields.biography = await this.enrichHTML(
-			sheetData.system.detalhes?.biography?.value || "",
-			sheetData
-		);
-
-		if (game.user.isGM) {
-			sheetData.htmlFields.biographyGM = await this.enrichHTML(
-				sheetData.system.detalhes?.biography?.gm || "",
-				sheetData
-			);
-		}
 
 		await this._prepareItems(sheetData);
 
