@@ -21,36 +21,23 @@
 		{{!-- Goal Section --}}
 		<div>
 			<h3>{{localize "T20.Goal"}}</h3>
-			{{editor htmlFields.objetivo target="system.detalhes.goal" button=true owner=owner editable=editable}}
+			<div>
+				{{editor htmlFields.goal target="system.detalhes.goal" button=true owner=owner editable=editable}}
+			</div>
 		</div>
 		{{!-- Effects Section --}}
 		<div>
 			<h3>{{localize "T20.Effect"}}</h3>
-			{{editor htmlFields.efeito target="system.detalhes.effects" button=true owner=owner editable=editable}}
+			<div>
+				{{editor htmlFields.effects target="system.detalhes.effects" button=true owner=owner editable=editable}}
+			</div>
 		</div>
 		{{!-- Actions Section --}}
-		<div class="list-powers">
-			<ul class="item-list">
-				<li class="item flexrow item-header">
-					<div class="item-name flex2">{{localize 'T20.ActionPl'}}</div>
-					{{#if owner}}
-					<div class="item-controls">
-						<a class="item-control item-create" title="{{localize 'T20.Add'}} {{localize 'T20.Powers'}}" data-type="poder"><i class="fas fa-plus"></i> {{localize 'T20.Add'}}</a>
-					</div>
-					{{/if}}
-				</li>
-				{{#each actor.poderes as |item id|}}
-				<li class="item flexrow" data-item-id="{{item._id}}">
-					<div class="item-name flexrow rollable flex2" data-label="{{item.name}}">
-						<div class="item-image" style="background-image: url('{{item.img}}')"></div>
-						<label>{{item.name}}</label>
-					</div>
-					{{#if ../owner}}
-					{{> "tormenta20.actor-item-controls" item=item }}
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
+		<div>
+			<h3>{{localize "T20.ActionPl"}}</h3>
+			<div>
+				{{editor htmlFields.actions target="system.detalhes.actions" button=true owner=owner editable=editable}}
+			</div>
 		</div>
 	</section>
 </form>

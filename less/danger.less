@@ -5,7 +5,7 @@
 /* ----------------------------------------- */
 
 &.danger {
-  min-width: 450px;
+  min-width: 550px;
   min-height: 650px;
 
   .sheet-header {
@@ -24,11 +24,11 @@
     }
   }
 
-  .rollable {
-    &:hover {
-      color: red;
-      text-shadow: 0 0 10px red;
-      cursor: pointer;
+  .sheet-body {
+    height: calc(100% - 60px);
+
+    h3 {
+      margin: 0;
     }
   }
 }

@@ -18,6 +18,12 @@ export default class DangerData extends CreatureData {
 			}),
 
 			detalhes: new fields.SchemaField({
+				actions: new fields.HTMLField({
+					required: false,
+					nullable: true,
+					initial: ""
+				}),
+
 				effects: new fields.HTMLField({
 					required: false,
 					nullable: true,
