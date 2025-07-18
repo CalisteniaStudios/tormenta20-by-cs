@@ -1,7 +1,7 @@
 import Tormenta20TypeData from "../base.mjs";
 
 export default class HazardData extends Tormenta20TypeData {
-	static actorType = "danger";
+	static actorType = "hazard";
 
 	/** @inheritdoc */
 	static defineSchema() {

@@ -1,7 +1,7 @@
 import ActorSheetT20 from "./actor-base.mjs";
 
 /**
- * An Actor sheet for Danger (Complex Threat) type characters.
+ * An Actor sheet for Complex Hazard type characters.
  * Extends the base ActorSheetT20 class.
  * @extends {ActorSheetT20}
  */
@@ -13,8 +13,8 @@ export default class HazardSheetT20 extends ActorSheetT20 {
 	/** @override */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ["tormenta20", "sheet", "actor", "danger"],
-			template: "systems/tormenta20/templates/actor/danger-sheet.hbs",
+			classes: ["tormenta20", "sheet", "actor", "hazard"],
+			template: "systems/tormenta20/templates/actor/hazard-sheet.hbs",
 			width: 550,
 			height: 700
 		});
