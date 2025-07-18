@@ -6,7 +6,7 @@
       "npc": "Ameaça",
       "vehicle": "Veículos",
       "simple": "Personagem do Mestre",
-      "danger": "Perigo Complexo"
+      "hazard": "Perigo Complexo"
     },
     "Item": {
       "arma": "Arma",
@@ -1201,7 +1201,7 @@
     "CharacterBuilderSheet": "Criação de Ameaça",
     "Sheets": "Fichas",
     "SettingSheetSettings": "Configurações das Fichas",
-    "DangerSheet": "Ficha de Perigo Complexo",
+    "HazardSheet": "Ficha de Perigo Complexo",
 
     "ActorTraitSelection": "Seleção de Características",
 

@@ -13,7 +13,7 @@ export const preloadHandlebarsTemplates = async function () {
 		// Actor Sheet Partials
 		"systems/tormenta20/templates/actor/parts/headers/sheet-header-base.hbs",
 		"systems/tormenta20/templates/actor/parts/headers/sheet-header-bases.hbs",
-		"systems/tormenta20/templates/actor/parts/headers/sheet-header-danger.hbs",
+		"systems/tormenta20/templates/actor/parts/headers/sheet-header-hazard.hbs",
 		"systems/tormenta20/templates/actor/parts/headers/sheet-header-tabbed.hbs",
 		"systems/tormenta20/templates/actor/parts/headers/sheet-header-npc.hbs",
 		"systems/tormenta20/templates/actor/parts/headers/sheet-header-simple.hbs",

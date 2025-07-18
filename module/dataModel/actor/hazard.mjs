@@ -1,6 +1,6 @@
-import CreatureData from "./templates/creature.mjs";
+import Tormenta20TypeData from "../base.mjs";
 
-export default class DangerData extends CreatureData {
+export default class HazardData extends Tormenta20TypeData {
 	static actorType = "danger";
 
 	/** @inheritdoc */

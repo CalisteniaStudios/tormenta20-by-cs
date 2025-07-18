@@ -5,7 +5,7 @@ import ActorSheetT20 from "./actor-base.mjs";
  * Extends the base ActorSheetT20 class.
  * @extends {ActorSheetT20}
  */
-export default class DangerSheetT20 extends ActorSheetT20 {
+export default class HazardSheetT20 extends ActorSheetT20 {
 	/* -------------------------------------------- */
 	/*  Properties                                  */
 	/* -------------------------------------------- */

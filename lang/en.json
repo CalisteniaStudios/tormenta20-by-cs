@@ -6,7 +6,7 @@
       "npc": "Threats",
       "vehicle": "Vehicles",
       "simple": "Simple Character",
-      "danger": "Complex Danger"
+      "hazard": "Complex Hazard"
     },
     "Item": {
       "arma": "Weapon",
@@ -1103,7 +1103,7 @@
     "NPCSheet": "NPC sheet",
     "CharacterBuilderSheet": "NPC creation",
     "SettingSheetSettings": "Sheet Settings",
-    "Dangersheet": "Complex Danger Sheet",
+    "HazardSheet": "Complex Hazard Sheet",
 
     "ActorTraitSelection": "Trait Selection",
 

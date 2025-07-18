@@ -26,7 +26,7 @@ import TokenT20 from "./module/canvas/token.mjs";
 import ActiveEffectConfigT20 from "./module/sheets/active-effects.mjs";
 import ActorSheetT20Bases from "./module/sheets/actor-bases.mjs";
 import ActorSheetT20Character from "./module/sheets/actor-character.mjs";
-import DangerSheetT20 from "./module/sheets/actor-danger.mjs";
+import HazardSheetT20 from "./module/sheets/actor-hazard.mjs";
 import ActorSheetT20NPC from "./module/sheets/actor-npc.mjs";
 import ActorSheetT20Simple from "./module/sheets/actor-simple.mjs";
 import ActorSheetT20CharacterTabbed from "./module/sheets/actor-tabbed.mjs";
@@ -161,7 +161,7 @@ Hooks.once("init", async function () {
 	CONFIG.Actor.dataModels.character = tormenta20.data.models.CharacterData;
 	CONFIG.Actor.dataModels.npc = tormenta20.data.models.MenaceData;
 	CONFIG.Actor.dataModels.simple = tormenta20.data.models.SimpleData;
-	CONFIG.Actor.dataModels.danger = tormenta20.data.models.DangerData;
+	CONFIG.Actor.dataModels.hazard = tormenta20.data.models.HazardData;
 
 	CONFIG.Item.dataModels.arma = tormenta20.data.models.WeaponData;
 	CONFIG.Item.dataModels.classe = tormenta20.data.models.ClassData;
@@ -203,10 +203,10 @@ Hooks.once("init", async function () {
 		label: "T20.SimpleActorSheet" // "Ficha de Simple"
 	});
 
-	foundry.documents.collections.Actors.registerSheet("tormenta20", DangerSheetT20, {
-		types: ["danger"],
+	foundry.documents.collections.Actors.registerSheet("tormenta20", HazardSheetT20, {
+		types: ["hazard"],
 		makeDefault: true,
-		label: "T20.DangerSheet" // "Ficha de Perigos Complexos"
+		label: "T20.HazardSheet" // "Ficha de Perigos Complexos"
 	});
 
 	foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);

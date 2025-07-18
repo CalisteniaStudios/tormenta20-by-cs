@@ -34,7 +34,7 @@
       "bases": {
         "htmlFields": ["detalhes.biography.value", "detalhes.biography.public"]
       },
-      "danger": {
+      "hazard": {
         "htmlFields": ["detalhes.actions", "detalhes.effects", "detalhes.goal"]
       }
     },
