@@ -67,18 +67,43 @@ export default class StatblockParser extends FormApplication {
 	async _parseStatblock(ev) {
 		ev.preventDefault();
 		if (!this.constructor.loadedCompendiums) {
-			this.constructor.packequipamentos = await game.packs
-				.get("tormenta20.equipamentos")
-				.getIndex({ fields: ["system.rolls", "system.criticoM", "system.criticoX", "system.qtd"] });
-			this.constructor.packsmagias = await game.packs
-				.get("tormenta20.magias")
-				.getIndex({ fields: ["system.ativacao"] });
+			const commonFields = [
+				"system.alcance",
+				"system.area",
+				"system.ativacao",
+				"system.chatFlavor",
+				"system.duracao",
+				"system.efeito",
+				"system.resistencia",
+				"system.rolls",
+				"system.rolltags",
+				"system.tipo"
+			];
+			this.constructor.packequipamentos = await game.packs.get("tormenta20.equipamentos").getIndex({
+				fields: [
+					"system.alcance",
+					"system.chatFlavor",
+					"system.consume",
+					"system.criticoM",
+					"system.criticoX",
+					"system.empunhadura",
+					"system.proficiencia",
+					"system.proposito",
+					"system.propriedades",
+					"system.qtd",
+					"system.rolls",
+					"system.rolltags"
+				]
+			});
+			this.constructor.packsmagias = await game.packs.get("tormenta20.magias").getIndex({
+				fields: ["system.circulo", "system.consume", "system.escola", ...commonFields]
+			});
 			this.constructor.packspoderes = await game.packs
 				.get("tormenta20.poderes")
-				.getIndex({ fields: ["system.ativacao"] });
+				.getIndex({ fields: ["system.subtipo", commonFields] });
 			this.constructor.npcFeatures = await game.packs
 				.get("tormenta20.habilidades-de-criaturas")
-				.getIndex({ fields: ["system.ativacao"] });
+				.getIndex({ fields: ["system.subtipo", commonFields] });
 
 			this.constructor.loadedCompendiums = true;
 		}
@@ -631,7 +656,7 @@ export default class StatblockParser extends FormApplication {
 			}).toObject();
 			delete item._id;
 		}
-		return item;
+		return foundry.utils.deepClone(item);
 	}
 
 	parseAbilities(statblock, schema, itemsList, log) {
@@ -745,8 +770,8 @@ export default class StatblockParser extends FormApplication {
 					if (spell) {
 						item.system.description.value = `<section class="secret">${descOri}</section>${item.system.description.value}`;
 					} else {
-						item.system.ativacao.custo = pm;
-						item.system.ativacao.execucao = action;
+						if (item.system?.ativacao?.custo) item.system.ativacao.custo = pm;
+						if (item.system?.ativacao?.execucao) item.system.ativacao.execucao = action;
 						item.system.description.value = ability;
 					}
 					items.push(item);
