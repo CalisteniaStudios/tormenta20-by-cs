@@ -14,7 +14,9 @@ export default class PowerData extends Tormenta20ItemData {
 			tipo: new fields.StringField({
 				required: true,
 				nullable: false,
-				initial: "",
+				blank: false,
+				initial: "geral",
+				choices: CONFIG.T20.powerType,
 				label: "T20.ItemType",
 				hint: "T20.ItemTypeHint"
 			}),
