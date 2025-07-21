@@ -47,10 +47,13 @@
 
 	<span class="rollable pericia-rollable skill" data-item-id="vont" data-type="padrao">
 		<label>{{ localize 'T20.SkillVontAbbr'}}: </label>
-		{{numberFormat system.pericias.vont.value sign=true}}{{#if system.detalhes.resistencias}},{{/if}}
+		{{numberFormat system.pericias.vont.value sign=true}}
 	</span>
-	{{#if resistencias}}{{resistencias}}{{#if system.detalhes.resistencias}}, {{/if}}{{/if}}
-	{{#if system.detalhes.resistencias}}{{system.detalhes.resistencias}}{{/if}}
+	{{#if (or resistencias system.detalhes.resistencias)}}
+		<span>
+			, {{#if resistencias}}{{resistencias}}{{#if system.detalhes.resistencias}}, {{/if}}{{/if}}{{#if system.detalhes.resistencias}}{{system.detalhes.resistencias}}{{/if}}
+		</span>
+	{{/if}}
 </div>
 <div class="npc-line">
 	<label>{{ localize 'T20.HitPoints'}}: </label>
