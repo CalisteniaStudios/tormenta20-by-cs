@@ -964,7 +964,7 @@ items:
           metal.</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 154
-      equipado: false
+      equipado: true
       carregado: true
       peso: 10
       espacos: 2
@@ -1006,10 +1006,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
+      systemVersion: 1.5.007
+      coreVersion: '13.346'
       createdTime: 1664312772408
-      modifiedTime: 1667019489653
+      modifiedTime: 1753127515775
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.WgvSphAYGMovXy4w
       duplicateSource: null
@@ -1178,7 +1178,7 @@ system:
       hover: false
       notes: ''
     defesa:
-      base: 28
+      base: 25
       value: 0
       outros: 0
       atributo: des
@@ -1934,7 +1934,7 @@ _stats:
   systemVersion: 1.5.007
   coreVersion: '13.346'
   createdTime: 1661997945915
-  modifiedTime: 1751217546660
+  modifiedTime: 1753127521490
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

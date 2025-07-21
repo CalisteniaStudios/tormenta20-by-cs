@@ -2301,7 +2301,7 @@ items:
           que protege o peito e as costas, presa sobre um casaco de couro.</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 154
-      equipado: false
+      equipado: true
       carregado: true
       peso: 15
       espacos: 2
@@ -2343,10 +2343,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
+      systemVersion: 1.5.007
+      coreVersion: '13.346'
       createdTime: 1664312772401
-      modifiedTime: 1667021089375
+      modifiedTime: 1753127544915
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.JVB4JAaxPjf0PFFN
       duplicateSource: null
@@ -2368,7 +2368,7 @@ items:
           escudo, mas não manusear uma arma.</p>
         unidentified: ''
       source: Tormenta20 — Edição Jogo do Ano, p. 154
-      equipado: false
+      equipado: true
       carregado: true
       peso: 3
       espacos: 1
@@ -2447,10 +2447,10 @@ items:
       default: 0
     _stats:
       systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
+      systemVersion: 1.5.007
+      coreVersion: '13.346'
       createdTime: 1664312772389
-      modifiedTime: 1667021088528
+      modifiedTime: 1753127546558
       lastModifiedBy: t20builder000000
       compendiumSource: Compendium.tormenta20.equipamentos.0w1vZm2RGM40opxT
       duplicateSource: null
@@ -2693,7 +2693,7 @@ system:
       hover: false
       notes: ''
     defesa:
-      base: 27
+      base: 21
       value: 0
       outros: 0
       atributo: des
@@ -3435,7 +3435,7 @@ _stats:
   systemVersion: 1.5.007
   coreVersion: '13.346'
   createdTime: 1661997945953
-  modifiedTime: 1751217547295
+  modifiedTime: 1753127568206
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

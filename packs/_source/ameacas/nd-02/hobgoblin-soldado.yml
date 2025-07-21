@@ -554,7 +554,7 @@ system:
       hover: false
       notes: ''
     defesa:
-      base: 17
+      base: 11
       value: 0
       outros: 0
       atributo: des
@@ -1303,7 +1303,7 @@ _stats:
   systemVersion: 1.5.007
   coreVersion: '13.346'
   createdTime: 1661997945958
-  modifiedTime: 1753123558403
+  modifiedTime: 1753127608950
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
