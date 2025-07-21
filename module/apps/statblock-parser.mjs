@@ -640,7 +640,7 @@ export default class StatblockParser extends FormApplication {
 		let item;
 
 		const isGeneric = type === "*";
-		const typeFilter = (f) => (isGeneric ? !["poder", "magia", "arma", "classe"].includes(f.type) : f.type === type);
+		const typeFilter = (f) => (isGeneric ? !["poder", "magia", "classe"].includes(f.type) : f.type === type);
 		const itemDirList = game.items.filter(typeFilter);
 		let packList;
 		if (type === "poder") packList = [...this.constructor.packspoderes, ...this.constructor.npcFeatures];
