@@ -533,26 +533,29 @@ export default class StatblockParser extends FormApplication {
 	parseSkills(statblock, schema, itemsList, log) {
 		let msg = "";
 		try {
-			let sks = Object.fromEntries(
-				Object.entries(T20.pericias)
-					.filter(([_, value]) => value.label)
-					.map(([key, value]) => [value.label, key])
-			);
-			sks.Fort = "fort";
-			sks.Ref = "refl";
-			sks.Von = "vont";
-			// this.toRegExpOr(sks);
+			const sks = {
+				...Object.fromEntries(
+					Object.entries(T20.pericias)
+						.filter(([, value]) => value.label)
+						.map(([key, value]) => [value.label, key])
+				),
+				Fort: "fort",
+				Ref: "refl",
+				Von: "vont"
+			};
 			let skills = statblock
 				.replace(/\n/g, " ")
 				.replace("–", "-")
 				.match(
 					/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/gi
 				);
-			skills = skills.map((m) => {
-				const pericia = m.split(" ")[0].toLowerCase().capitalize();
-				return { [sks[pericia]]: { value: parseInt(m.split(" ")[1]) } };
-			});
-			skills = Object.assign({}, ...skills);
+			skills = Object.fromEntries(
+				skills.map((entry) => {
+					const [pericia, value] = entry.split(" ");
+					const skill = sks[pericia.toLowerCase().capitalize()];
+					return [skill, { value: parseInt(value) }];
+				})
+			);
 			msg = "";
 			for (let [key, skill] of Object.entries(skills)) {
 				this.parseSkill(key, skill, schema);
@@ -567,6 +570,7 @@ export default class StatblockParser extends FormApplication {
 
 	parseSkill(key, skill, schema) {
 		skill.atributo ??= T20.pericias[key].abl;
+		skill.outros = 0;
 		const nd = schema.attributes.nd;
 		let nivel = 1;
 		if (["1/2", "1/4"].includes(nd)) nivel = 1;
