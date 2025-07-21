@@ -285,9 +285,9 @@
     "ResourcePrimary": "Recurso 1",
     "ResourceSecondary": "Recurso 2",
     "ResourceTertiary": "Recurso 3",
-    "T20SK.ResourceDeathSave": "Falha na Morte",
-    "T20SK.ResourceShadow": "Pontos de Sombra",
-    "T20SK.ResourceCatarse": "Catarse",
+    "ResourceDeathSave": "Falha na Morte",
+    "ResourceShadow": "Pontos de Sombra",
+    "ResourceCatarse": "Catarse",
 
     "Attack": "Ataque",
     "Attacks": "Ataques",

@@ -251,9 +251,9 @@
     "ResourcePrimary": "Resource 1",
     "ResourceSecondary": "Resource 2",
     "ResourceTertiary": "Resource 3",
-    "T20SK.ResourceDeathSave": "Death Failed",
-    "T20SK.ResourceShadow": "Shadow Points",
-    "T20SK.ResourceCatarse": "Catharse",
+    "ResourceDeathSave": "Death Failed",
+    "ResourceShadow": "Shadow Points",
+    "ResourceCatarse": "Catharse",
 
     "Attack": "Attack",
     "Attacks": "Attacks",

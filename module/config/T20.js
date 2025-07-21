@@ -340,9 +340,9 @@ T20.resources = {
 	primary: "T20.ResourcePrimary",
 	secondary: "T20.ResourceSecondary",
 	tertiary: "T20.ResourceTertiary",
-	deathsave: "T20SK.ResourceDeathSave",
-	shadow: "T20SK.ResourceShadow",
-	catarse: "T20SK.ResourceCatarse"
+	deathsave: "T20.ResourceDeathSave",
+	shadow: "T20.ResourceShadow",
+	catarse: "T20.ResourceCatarse"
 };
 preLocalize("resources");
 
