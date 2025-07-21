@@ -82,12 +82,15 @@ export default class StatblockParser extends FormApplication {
 			this.constructor.packequipamentos = await game.packs.get("tormenta20.equipamentos").getIndex({
 				fields: [
 					"system.alcance",
+					"system.armadura",
 					"system.chatFlavor",
 					"system.consume",
 					"system.criticoM",
 					"system.criticoX",
 					"system.empunhadura",
+					"system.espacos",
 					"system.equipado",
+					"system.preco",
 					"system.proficiencia",
 					"system.proposito",
 					"system.propriedades",
@@ -153,6 +156,7 @@ export default class StatblockParser extends FormApplication {
 		this.parseAbilities(statblock, schema, itemsList, log);
 		this.parseWeapons(statblock, schema, itemsList, log);
 		this.parseTreasure(statblock, schema, itemsList, log);
+		this.parseDefense(statblock, schema, itemsList, log);
 		this.object.statblock = statblock;
 		this.object.schema = schema;
 		this.object.items = itemsList;
@@ -358,16 +362,6 @@ export default class StatblockParser extends FormApplication {
 				success: false,
 				message: "Pontos de Vida e/ou Pontos de Mana"
 			});
-		}
-
-		// Extrai Defesa
-		try {
-			const { value } = statblock.match(/Defesa (?<value>\d+)/i).groups;
-			if (value) schema.attributes.defesa.base = Number(value) - schema.atributos.des.base;
-			log.push({ success: true, message: `Defesa: ${value}` });
-		} catch (error) {
-			console.warn(error);
-			log.push({ success: false, message: "Defesa" });
 		}
 
 		// Extrai Resistências
@@ -937,6 +931,23 @@ export default class StatblockParser extends FormApplication {
 		} catch (error) {
 			console.warn(error);
 			log.push({ success: false, message: "Tesouro" });
+		}
+	}
+
+	parseDefense(statblock, schema, itemsList, log) {
+		try {
+			const { value } = statblock.match(/Defesa (?<value>\d+)/i).groups;
+			const armors = itemsList.filter((i) => i.type === "equipamento" && i.system.equipado);
+			const armor = armors.find((i) => ["leve", "pesada"].includes(i.system.tipo));
+			const totalArmor = armors.map((m) => m.system.armadura.value).reduce((sum, v) => sum + v, 0);
+			const maxAtr = armor ? armor.system.armadura.maxAtr : 0;
+			const atributo = Math.clamp(schema.atributos.des.base, 0, maxAtr);
+
+			if (value) schema.attributes.defesa.base = Number(value) - totalArmor - atributo;
+			log.push({ success: true, message: `Defesa: ${value}` });
+		} catch (error) {
+			console.warn(error);
+			log.push({ success: false, message: "Defesa" });
 		}
 	}
 }
