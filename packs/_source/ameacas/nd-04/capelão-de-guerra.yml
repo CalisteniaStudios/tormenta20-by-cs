@@ -1403,7 +1403,7 @@ system:
       climb: 0
       fly: 0
       swim: 0
-      walk: 6
+      walk: 9
       unit: m
       hover: false
       notes: ''
@@ -2147,10 +2147,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: v1.5.003
-  coreVersion: '13.345'
+  systemVersion: 1.5.007
+  coreVersion: '13.346'
   createdTime: 1661997945885
-  modifiedTime: 1750973595991
+  modifiedTime: 1753123584530
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

@@ -5,52 +5,44 @@ img: systems/tormenta20/icons/ameacas/tirano-do-terceiro.png
 items:
   - type: poder
     name: Dádiva Dracônica
-    img: icons/svg/item-bag.svg
+    img: systems/tormenta20/icons/svg/skills.svg
     system:
       description:
         value: >-
           O tirano do terceiro pode lançar magias arcanas cavalgando e/ou de
-          armadura sem precisar de testes de Misticismo
+          armadura sem precisar de testes de Misticismo.
         unidentified: ''
       source: ''
+      origin: ''
+      tags: []
+      rolltags: []
+      automationtags: []
+      chatFlavor: ''
+      chatGif: ''
       ativacao:
-        execucao: ''
         custo: 0
-        qtd: '0'
         condicao: ''
+        execucao: ''
+        qtd: ''
         special: ''
       duracao:
+        units: inst
         value: 0
-        units: ''
         special: ''
-      target:
-        value: null
-        width: null
-        type: ''
       range:
-        value: null
         units: ''
-      consume:
-        type: ''
-        target: ''
-        amount: null
-        mpMultiplier: false
-      efeito: ''
+        value: 0
       alcance: ''
-      alvo: ''
       area: ''
+      efeito: ''
       resistencia:
+        txt: ''
         pericia: ''
         atributo: ''
         bonus: 0
-        txt: ''
       rolls: []
-      tipo: ''
+      tipo: geral
       subtipo: ''
-      origin: ''
-      tags: []
-      chatFlavor: ''
-      chatGif: ''
     effects: []
     folder: null
     sort: 0
@@ -58,254 +50,33 @@ items:
       default: 0
     flags: {}
     _stats:
-      systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1667027746000
-      modifiedTime: 1667027746000
-      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _id: FB90C3BC6hIqvbFq
-    _key: '!actors.items!vZGGIFyhurCYpnNR.FB90C3BC6hIqvbFq'
-  - folder: 0V7x5o397UvG3xKP
-    name: Magias
-    type: poder
-    img: icons/magic/symbols/runes-star-magenta.webp
-    system:
-      description:
-        value: O tirano do terceiro lança magias como um mago de 10º nível (CD 30)
-        unidentified: ''
-      source: ''
-      ativacao:
-        execucao: ''
-        custo: 0
-        qtd: ''
-        condicao: ''
-        special: ''
-      duracao:
-        value: 0
-        units: ''
-        special: ''
-      target:
-        value: null
-        width: null
-        type: ''
-      range:
-        value: null
-        units: ''
-      consume:
-        type: ''
-        target: ''
-        amount: null
-        mpMultiplier: false
-      efeito: ''
-      alcance: none
-      alvo: ''
-      area: ''
-      resistencia:
-        pericia: ''
-        atributo: ''
-        bonus: 0
-        txt: ''
-      rolls: []
-      tipo: racial
-      subtipo: ''
-      origin: ''
-      tags: []
-      chatFlavor: ''
-      chatGif: ''
-    effects: []
-    sort: 3100000
-    ownership:
-      default: 0
-    flags: {}
-    _stats:
+      coreVersion: '13.346'
       systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1666319236120
-      modifiedTime: 1667027746000
+      systemVersion: 1.5.007
+      createdTime: 1753124716950
+      modifiedTime: 1753124716950
       lastModifiedBy: t20builder000000
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _id: ODFc7xB1emUfJFAb
-    _key: '!actors.items!vZGGIFyhurCYpnNR.ODFc7xB1emUfJFAb'
-  - name: Bola de Fogo
+    _id: xsdjw9NBUlNyQ96L
+    _key: '!actors.items!vZGGIFyhurCYpnNR.xsdjw9NBUlNyQ96L'
+  - _id: pSKvLmGjckOyHLTP
+    name: Bola de Fogo
     type: magia
     img: systems/tormenta20/icons/magias/bola-de-fogo.webp
-    effects:
-      - _id: UWydlNbe3IFFWSmJ
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '2'
-            aumenta: true
-        changes:
-          - key: dano
-            value: 2d6
-            mode: 0
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: aumenta o dano em +2d6.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.MpG3XIlHRsYp8pHg.UWydlNbe3IFFWSmJ
-      - _id: 54Cbq85qzDbWg4SB
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '2'
-            aumenta: false
-        changes:
-          - key: area
-            value: efeito de esfera flamejante com tamanho Médio
-            mode: 5
-            priority: null
-          - key: duracao
-            value: Cena
-            mode: 5
-            priority: null
-          - key: dano
-            value: 3d6
-            mode: 0
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: >-
-          muda a área para efeito de esfera flamejante com tamanho Médio e a
-          duração para cena. Em vez do normal, cria uma esfera flamejante com
-          1,5m de diâmetro que causa 3d6 pontos de dano a qualquer criatura no
-          mesmo espaço. Você pode gastar uma ação de movimento para fazer a
-          esfera voar 9m em qualquer direção. Ela é imune a dano, mas pode ser
-          apagada com água. Uma criatura só pode sofrer dano da esfera uma vez
-          por rodada.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.MpG3XIlHRsYp8pHg.54Cbq85qzDbWg4SB
-      - _id: EOLJ5ChVkU6V1DAg
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '3'
-            aumenta: false
-            attack: false
-            skill: false
-            ability: false
-            power: false
-            spell: false
-            consumable: false
-            durationScene: false
-            items: ''
-        changes:
-          - key: duracao
-            mode: 5
-            value: 1 dia ou até ser descarregada
-            priority: 0
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.gcjCsjzpk2OtClSt
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: >-
-          muda a duração para 1 dia ou até ser descarregada. Em vez do normal,
-          você cria uma pequena pedra flamejante, que pode detonar como uma
-          reação, descarregando a magia. A pedra pode ser usada como uma arma de
-          arremesso com alcance curto. Uma vez detonada, causa o dano da magia
-          numa área de esfera de 6m com raio.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.MpG3XIlHRsYp8pHg.EOLJ5ChVkU6V1DAg
-    flags: {}
+    folder: C4AaVHB8ALOWtksj
+    sort: 0
     system:
       description:
         value: >-
           <section class="secret">Bola de Fogo (Padrão, 9 PM) O tirano cria uma
           poderosa explosão em alcance médio que causa 12d6+5 pontos de dano de
           fogo em todas as criaturas em um raio de 6m (Reflexos reduz à
-          metade)</section><p>Esta famosa magia de ataque cria uma poderosa
+          metade).</section><p>Esta famosa magia de ataque cria uma poderosa
           explosão, causando 6d6 pontos de dano de fogo em todas as criaturas e
           objetos livres na área.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, p. 182
       ativacao:
         execucao: action
         custo: 3
@@ -316,13 +87,6 @@ items:
         value: 0
         units: inst
         special: ''
-      target:
-        value: null
-        width: null
-        type: ''
-      range:
-        value: null
-        units: ''
       consume:
         type: ''
         target: ''
@@ -330,7 +94,6 @@ items:
         mpMultiplier: false
       efeito: ''
       alcance: medium
-      alvo: ''
       area: esfera com 6m de raio
       resistencia:
         pericia: ''
@@ -346,333 +109,57 @@ items:
               - fogo
               - ''
           versatil: ''
+          adaptavel: ''
       tipo: arc
-      circulo: '2'
-      preparada: false
+      circulo: 2
       escola: evo
       chatFlavor: ''
-      origin: ''
       tags: []
+      source: ''
+      origin: ''
+      rolltags: []
+      automationtags: []
       chatGif: ''
+      range:
+        units: ''
+        value: 0
+      alvo: ''
+      preparada: false
+      equipado2:
+        slot: 0
+        type: ''
+    effects: []
     ownership:
       default: 0
+    flags: {}
     _stats:
-      systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1664310462779
-      modifiedTime: 1667027746002
-      lastModifiedBy: t20builder000000
-      compendiumSource: Item.LSj3INZ0KooRr5bs
+      compendiumSource: null
       duplicateSource: null
       exportSource: null
-    folder: IZ1QZMcdpiRqtF8O
-    sort: 0
-    _id: MpG3XIlHRsYp8pHg
-    _key: '!actors.items!vZGGIFyhurCYpnNR.MpG3XIlHRsYp8pHg'
-  - name: Concentração de Combate
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753124716950
+      modifiedTime: 1753124716950
+      lastModifiedBy: t20builder000000
+    _key: '!actors.items!vZGGIFyhurCYpnNR.pSKvLmGjckOyHLTP'
+  - _id: seBLgNqT6GaeTWix
+    name: Concentração de Combate
     type: magia
     img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
-    effects:
-      - _id: LvHT31M1UBY6eqIL
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '2'
-            aumenta: false
-        changes:
-          - key: execucao
-            value: padrão
-            mode: 5
-            priority: null
-          - key: duracao
-            value: Cena
-            mode: 5
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: muda a execução para padrão e a duração para cena. Requer 2º círculo.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.LvHT31M1UBY6eqIL
-      - _id: 2XHxvPBjrqijXw9I
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '5'
-            aumenta: false
-        changes: []
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: >-
-          além do normal, ao atacar você, um inimigo deve rolar dois dados e
-          usar o pior resultado. Requer 3º círculo.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.2XHxvPBjrqijXw9I
-      - _id: NrEAsxaqpXAWVZ5d
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '9'
-            aumenta: false
-        changes:
-          - key: execucao
-            value: padrão
-            mode: 5
-            priority: null
-          - key: alcance
-            value: curto
-            mode: 5
-            priority: null
-          - key: alvo
-            value: criaturas escolhidas
-            mode: 5
-            priority: null
-          - key: duracao
-            value: Cena
-            mode: 5
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: >-
-          muda a execução para padrão, o alcance para curto, o alvo para
-          criaturas escolhidas e a duração para cena. Requer 4º círculo.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.NrEAsxaqpXAWVZ5d
-      - _id: Q9xwXkqN6t3iEhBD
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '14'
-            aumenta: false
-        changes:
-          - key: execucao
-            value: padrão
-            mode: 5
-            priority: null
-          - key: duracao
-            value: 1 dia
-            mode: 5
-            priority: null
-          - key: condicao
-            value: surpreendido
-            mode: 0
-            priority: null
-          - key: condicao
-            value: desprevenido
-            mode: 0
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.lAsj1NrA2J6GbvDi
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: >-
-          muda a execução para padrão e a duração para 1 dia. Além do normal,
-          você recebe um sexto sentido que o avisa de qualquer perigo ou ameaça.
-          Você fica imune às condições surpreendido e desprevenido e recebe +10
-          em Defesa e Reflexos. Requer 5º círculo.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.Q9xwXkqN6t3iEhBD
-      - _id: WxhX0zABmEAJkQ13
-        changes: []
-        disabled: false
-        duration:
-          rounds: 1
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Item.jZYdLUCwQx3e9Odi
-        transfer: false
-        flags:
-          tormenta20:
-            onuse: false
-            durationScene: true
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: Concentração de Combate (Cena)
-        img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.WxhX0zABmEAJkQ13
-      - _id: 5QruiDpfvtxwupil
-        changes:
-          - key: system.pericias.refl.bonus
-            mode: 2
-            value: '10'
-            priority: null
-          - key: system.attributes.defesa.bonus
-            mode: 2
-            value: '10'
-            priority: null
-        disabled: false
-        duration:
-          rounds: 1
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Item.JbY4RCfiRXJEG8JU
-        transfer: false
-        flags:
-          tormenta20:
-            onuse: false
-            durationScene: true
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: Concentração de Combate (Aprimoramento +14 PM)
-        img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK.5QruiDpfvtxwupil
-    flags: {}
+    folder: zl8Wtl7gm1bEGc2W
+    sort: 0
     system:
       description:
         value: >-
           <section class="secret">Concentração de Combate (Padrão, 8 PM) Até o
           fim da cena, quando faz um ataque, o tirano rola dois dados e usa o
           melhor resultado, e quando um oponente ataca o tirano, rola dois dados
-          e usa o pior resultado</section><p>Voc&ecirc; amplia sua
-          percep&ccedil;&atilde;o, antecipando movimentos dos inimigos e achando
-          brechas em sua defesa. Quando fazum teste de ataque, voc&ecirc; rola
-          dois dados e usa o melhor resultado</p>
+          e usa o pior resultado.</section><p>Você amplia sua percepção,
+          antecipando movimentos dos inimigos e achando brechas em sua defesa.
+          Quando fazum teste de ataque, você rola dois dados e usa o melhor
+          resultado</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, p. 185
       ativacao:
         execucao: free
         custo: 1
@@ -683,13 +170,6 @@ items:
         value: 1
         units: round
         special: ''
-      target:
-        value: null
-        width: null
-        type: ''
-      range:
-        value: null
-        units: ''
       consume:
         type: ''
         target: ''
@@ -697,246 +177,61 @@ items:
         mpMultiplier: false
       efeito: ''
       alcance: self
-      alvo: Você
       area: ''
       resistencia:
         pericia: ''
-        atributo: ''
+        atributo: int
         bonus: 0
         txt: ''
       rolls: []
       tipo: arc
-      circulo: '1'
-      preparada: false
+      circulo: 1
       escola: adv
       chatFlavor: ''
-      origin: ''
       tags: []
+      source: ''
+      origin: ''
+      rolltags: []
+      automationtags: []
       chatGif: ''
+      range:
+        units: ''
+        value: 0
+      alvo: ''
+      preparada: false
+      equipado2:
+        slot: 0
+        type: ''
+    effects: []
     ownership:
       default: 0
+    flags: {}
     _stats:
-      systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1664310462798
-      modifiedTime: 1667027746003
-      lastModifiedBy: t20builder000000
-      compendiumSource: Item.1UBi6j1FJdnCdLH1
+      compendiumSource: null
       duplicateSource: null
       exportSource: null
-    folder: In6moJ7otV739bAV
-    sort: 0
-    _id: wOsiAJA0FAqocJQK
-    _key: '!actors.items!vZGGIFyhurCYpnNR.wOsiAJA0FAqocJQK'
-  - name: Velocidade
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753124716950
+      modifiedTime: 1753124716950
+      lastModifiedBy: t20builder000000
+    _key: '!actors.items!vZGGIFyhurCYpnNR.seBLgNqT6GaeTWix'
+  - _id: uofW8EdT4soAx8u3
+    name: Velocidade
     type: magia
     img: systems/tormenta20/icons/magias/velocidade.webp
-    effects:
-      - _id: lYxiSwCe3djsAOE6
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '7'
-            aumenta: false
-        changes:
-          - key: alvo
-            value: criaturas escolhidas no alcance
-            mode: 5
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.XWEJNZMs6Wb9uUHF
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: muda o alvo para criaturas escolhidas no alcance. Requer 4º círculo.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.lYxiSwCe3djsAOE6
-      - _id: wb7wmP9NbM1Q2Bxg
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            custo: '7'
-            aumenta: false
-            attack: false
-            skill: false
-            ability: false
-            power: false
-            spell: false
-            consumable: false
-            items: ''
-            durationScene: false
-        changes:
-          - key: alcance
-            mode: 5
-            value: pessoal
-            priority: 0
-          - key: alvo
-            mode: 5
-            value: você
-            priority: 0
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.tormenta20.magias.XWEJNZMs6Wb9uUHF
-        transfer: false
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: >-
-          muda o alcance para pessoal e o alvo para você. Você acelera sua
-          mente, além de seu corpo. A ação adicional pode ser usada para lançar
-          magias e ativar engenhocas. Requer 4º círculo.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.wb7wmP9NbM1Q2Bxg
-      - _id: 1GMNISQtXMIgnH78
-        changes: []
-        disabled: false
-        duration:
-          rounds: 1
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Item.bcI6qQ9HH1A8YCcu
-        transfer: false
-        flags:
-          tormenta20:
-            onuse: false
-            durationScene: true
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: Velocidade
-        img: systems/tormenta20/icons/magias/velocidade.webp
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.1GMNISQtXMIgnH78
-      - _id: H1gsE0MDcKksovuP
-        changes:
-          - key: duracao
-            mode: 5
-            value: sustentada
-            priority: 0
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Item.Lr2HLRTDMGrZB7eL
-        transfer: false
-        flags:
-          tormenta20:
-            onuse: true
-            self: true
-            attack: false
-            skill: false
-            ability: false
-            power: false
-            spell: false
-            consumable: false
-            aumenta: false
-            custo: '0'
-            durationScene: false
-            items: ''
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.342'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        name: >-
-          muda a duração para cena. A ação adicional que você pode fazer é
-          apenas de movimento. Uma criatura só pode receber uma ação adicional
-          por turno como efeito de Velocidade.
-        img: icons/svg/upgrade.svg
-        type: base
-        system: {}
-        description: ''
-        statuses: []
-        sort: 0
-        _key: >-
-          !actors.items.effects!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5.H1gsE0MDcKksovuP
-    flags: {}
+    folder: b44bXhHODNBi2LIx
+    sort: 0
     system:
       description:
         value: >-
           <section class="secret">Velocidade (Padrão, 3 PM, sustentada) O tirano
           pode executar uma ação padrão adicional por turno, que não pode ser
-          usada para lançar magias.</section><p>O alvo pode realizar uma
-          a&ccedil;&atilde;o padr&atilde;o ou de movimento adicional por turno.
-          Esta a&ccedil;&atilde;o n&atilde;o pode ser usada para lan&ccedil;ar
-          magias e ativar engenhocas.</p>
+          usada para lançar magias.</section><p>O alvo pode realizar uma ação
+          padrão ou de movimento adicional por turno. Esta ação não pode ser
+          usada para lançar magias e ativar engenhocas.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, p. 210
       ativacao:
         execucao: action
         custo: 3
@@ -947,13 +242,6 @@ items:
         value: 0
         units: sust
         special: ''
-      target:
-        value: null
-        width: null
-        type: ''
-      range:
-        value: null
-        units: ''
       consume:
         type: ''
         target: ''
@@ -961,66 +249,61 @@ items:
         mpMultiplier: false
       efeito: ''
       alcance: short
-      alvo: 1 criatura
       area: ''
       resistencia:
         pericia: ''
-        atributo: ''
+        atributo: int
         bonus: 0
         txt: ''
       rolls: []
       tipo: arc
-      circulo: '2'
-      preparada: false
+      circulo: 2
       escola: tra
       chatFlavor: ''
-      origin: ''
       tags: []
+      source: ''
+      origin: ''
+      rolltags: []
+      automationtags: []
       chatGif: ''
+      range:
+        units: ''
+        value: 0
+      alvo: ''
+      preparada: false
+      equipado2:
+        slot: 0
+        type: ''
+    effects: []
     ownership:
       default: 0
+    flags: {}
     _stats:
-      systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1664310462757
-      modifiedTime: 1667027746004
-      lastModifiedBy: t20builder000000
-      compendiumSource: Item.MtmFzJIsEiXnAzhU
+      compendiumSource: null
       duplicateSource: null
       exportSource: null
-    folder: Ij8j969PQz7g40yn
-    sort: 0
-    _id: u23XwKJvxOXwm9Z5
-    _key: '!actors.items!vZGGIFyhurCYpnNR.u23XwKJvxOXwm9Z5'
-  - name: Machado de batalha
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753124716950
+      modifiedTime: 1753124716950
+      lastModifiedBy: t20builder000000
+    _key: '!actors.items!vZGGIFyhurCYpnNR.uofW8EdT4soAx8u3'
+  - _id: tA0FxNJZlzXgt8u0
+    name: Machado de batalha
     type: arma
     img: systems/tormenta20/icons/itens/equipamentos/machado-de-batalha.webp
-    effects: []
-    flags: {}
+    folder: HkeRANb2t5R9UKLQ
+    sort: 1000000
     system:
       description:
         value: >-
           <section class="secret">Machado de batalha x2</section><p>Adaptado do
           machado de lenhador, este não é um instrumento para corte de árvores,
           mas sim uma arma capaz de causar ferimentos terríveis.</p>
-        chat: ''
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, p. 149
-      equipado: 0
-      equipado2:
-        slot: 0
-        type: hand
-      carregado: true
-      peso: 3
-      espacos: 1
+      equipado: 1
       qtd: 1
-      preco: 10
-      pv:
-        value: 0
-        min: 0
-        max: 0
-      rd: 0
       rolls:
         - name: Ataque
           key: ataque0
@@ -1035,6 +318,7 @@ items:
             - - '0'
               - ''
               - ''
+          adaptavel: ''
           versatil: ''
         - name: Dano
           key: dano1
@@ -1042,25 +326,20 @@ items:
           parts:
             - - 2d8+14
               - corte
-              - ''
+              - weapon
             - - ''
               - ''
               - ''
           versatil: ''
+          adaptavel: ''
       criticoM: 20
-      criticoX: 2
+      criticoX: 3
       alcance: ''
-      tipoUso: sim
       propriedades:
         ada: false
         agi: false
         alo: false
-        arr: false
-        dst: false
-        dms: false
         dup: false
-        lev: false
-        mun: false
         ver: false
         adaptavel: false
         agil: false
@@ -1073,227 +352,38 @@ items:
         municao: false
         versatil: false
         des: false
-        hib: false
-      encantos:
-        arremesso: false
-        lancinante: false
-        keen: null
-        bane: null
-        throwable: null
-        assassin: null
-        seeking: null
-        frost: null
-        caster: null
-        corrosive: null
-        dancing: null
-        defending: null
-        destructive: null
-        lacerating: null
-        draining: null
-        shock: null
-        energy: null
-        excruciating: null
-        flaming: null
-        formidable: null
-        lancinating: false
-        magnificent: null
-        merciful: null
-        unholy: null
-        holy: null
-        bloodthirsty: null
-        thundering: null
-        sepulchral: null
-        speed: null
-        poisonous: null
-      ativacao:
-        custo: null
-        condicao: ''
-        execucao: ''
-        qtd: ''
-        special: ''
       chatFlavor: ''
       consume:
         type: ''
         target: ''
         amount: null
         mpMultiplier: false
-      melhorias:
-        accurate: null
-        pungent: null
-        cruel: null
-        atrocious: null
-        balanced: null
-        harmonized: null
-        injection: null
-        massive: null
-        specialmaterial: null
-        scope: null
-        precise: null
-        golden: null
-        gems: null
-        discreet: null
-        macabre: null
-      origin: ''
       tags: []
-      chatGif: ''
-      upgrades:
-        melhoria1: cruel
-        melhoria2: atrocious
-        melhoria3: specialmaterial
-        melhoria4: ''
-        material: adamant
-        encanto1: ''
-        encanto2: ''
-        encanto3: ''
       proficiencia: marcial
       proposito: corpo-a-corpo
       empunhadura: uma
-      size: normal
-      ataques: 0
-    ownership:
-      default: 0
-    _stats:
-      systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
-      createdTime: 1664312773032
-      modifiedTime: 1750973624604
-      lastModifiedBy: t20builder000000
-      compendiumSource: Compendium.tormenta20.equipamentos.v5HYdRxOsBcnXATP
-      duplicateSource: null
-      exportSource: null
-    folder: brhICwdHcOUqvMPi
-    sort: 1000000
-    _id: ZzySfsmqvUKc4FFC
-    _key: '!actors.items!vZGGIFyhurCYpnNR.ZzySfsmqvUKc4FFC'
-  - folder: 38RRBscxCtcFC5s4
-    name: Garras
-    type: arma
-    img: icons/creatures/claws/claw-bear-paw-swipe-red.webp
-    system:
-      description:
-        value: <section class="secret">garras</section>
-        chat: ''
-        unidentified: ''
-      source: ''
-      equipado: 0
       equipado2:
-        slot: 0
         type: hand
+        slot: 0
+      source: ''
+      origin: ''
+      rolltags: []
+      automationtags: []
+      chatGif: ''
       carregado: true
-      peso: 0
       espacos: 0
-      qtd: 0
+      peso: 0
       preco: 0
       pv:
         value: 0
-        min: 0
         max: 0
       rd: 0
-      rolls:
-        - name: Ataque
-          key: ataque0
-          type: ataque
-          parts:
-            - - 1d20
-              - ''
-              - ''
-            - - luta
-              - ''
-              - ''
-            - - '0'
-              - ''
-              - ''
-          versatil: ''
-        - name: Dano
-          key: dano1
-          type: dano
-          parts:
-            - - 1d8+14
-              - corte
-              - ''
-            - - ''
-              - ''
-              - ''
-          versatil: ''
-      criticoM: 20
-      criticoX: 2
-      alcance: ''
-      tipoUso: sim
-      propriedades:
-        ada: false
-        agi: false
-        alo: false
-        arr: false
-        dst: false
-        dms: false
-        dup: false
-        lev: false
-        mun: false
-        ver: false
-        des: false
-        hib: false
-      origin: ''
-      tags: []
-      chatFlavor: ''
       ativacao:
-        custo: null
+        custo: 0
         condicao: ''
-        execucao: ''
+        execucao: passive
         qtd: ''
         special: ''
-      consume:
-        amount: null
-        mpMultiplier: false
-        type: ''
-        target: ''
-      encantos:
-        lancinante: false
-        keen: null
-        bane: null
-        throwable: null
-        assassin: null
-        seeking: null
-        frost: null
-        caster: null
-        corrosive: null
-        dancing: null
-        defending: null
-        destructive: null
-        lacerating: null
-        draining: null
-        shock: null
-        energy: null
-        excruciating: null
-        flaming: null
-        formidable: null
-        lancinating: false
-        magnificent: null
-        merciful: null
-        unholy: null
-        holy: null
-        bloodthirsty: null
-        thundering: null
-        sepulchral: null
-        speed: null
-        poisonous: null
-      melhorias:
-        accurate: null
-        pungent: null
-        cruel: null
-        atrocious: null
-        balanced: null
-        harmonized: null
-        injection: null
-        massive: null
-        specialmaterial: null
-        scope: null
-        precise: null
-        golden: null
-        gems: null
-        discreet: null
-        macabre: null
-      chatGif: ''
       upgrades:
         melhoria1: ''
         melhoria2: ''
@@ -1303,103 +393,210 @@ items:
         encanto1: ''
         encanto2: ''
         encanto3: ''
-      proficiencia: natural
+      enableAutoUpgrades: true
+      ataques: 0
+      tipoUso: sim
+      size: normal
+    effects: []
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753124716950
+      modifiedTime: 1753124716950
+      lastModifiedBy: t20builder000000
+    _key: '!actors.items!vZGGIFyhurCYpnNR.tA0FxNJZlzXgt8u0'
+  - type: arma
+    name: Garra
+    img: icons/svg/sword.svg
+    system:
+      description:
+        value: <section class="secret">garra</section>
+        unidentified: ''
+      source: ''
+      origin: ''
+      tags: []
+      rolltags: []
+      automationtags: []
+      chatFlavor: ''
+      chatGif: ''
+      carregado: true
+      espacos: 0
+      peso: 0
+      qtd: 1
+      preco: 0
+      pv:
+        value: 0
+        max: 0
+      rd: 0
+      ativacao:
+        custo: 0
+        condicao: ''
+        execucao: passive
+        qtd: ''
+        special: ''
+      consume:
+        amount: 0
+        mpMultiplier: false
+        target: ''
+        type: ''
+      alcance: ''
+      upgrades:
+        melhoria1: ''
+        melhoria2: ''
+        melhoria3: ''
+        melhoria4: ''
+        material: ''
+        encanto1: ''
+        encanto2: ''
+        encanto3: ''
+      enableAutoUpgrades: true
+      rolls:
+        - name: Ataque
+          key: ataque0
+          type: ataque
+          parts:
+            - - 1d20
+              - ''
+            - - luta
+              - ''
+            - - '0'
+              - ''
+          adaptavel: ''
+          versatil: ''
+        - name: Dano
+          key: dano1
+          type: dano
+          parts:
+            - - 1d8+14
+              - dano
+            - - ''
+              - ''
+          adaptavel: ''
+          versatil: ''
+      ataques: 0
+      equipado: 1
+      equipado2:
+        slot: 0
+        type: hand
+      tipoUso: sim
+      proficiencia: simples
       proposito: corpo-a-corpo
       empunhadura: leve
+      criticoM: 20
+      criticoX: 2
+      propriedades:
+        ada: false
+        agi: false
+        alo: false
+        des: false
+        dup: false
+        ver: false
+        hib: false
       size: normal
-      ataques: 0
     effects: []
+    folder: null
     sort: 0
     ownership:
       default: 0
     flags: {}
     _stats:
-      systemId: tormenta20
-      systemVersion: v1.5.003
-      coreVersion: '13.345'
-      createdTime: 1666318097513
-      modifiedTime: 1750973624748
-      lastModifiedBy: t20builder000000
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _id: gaUxxqxWXYIpSuj4
-    _key: '!actors.items!vZGGIFyhurCYpnNR.gaUxxqxWXYIpSuj4'
-  - _id: aC4NfBPzGYb7ON2y
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753124716950
+      modifiedTime: 1753125604136
+      lastModifiedBy: t20builder000000
+    _id: OmVqRdalTUyPm2li
+    _key: '!actors.items!vZGGIFyhurCYpnNR.OmVqRdalTUyPm2li'
+  - _id: 0ibS4CiwAFzbycjD
     name: Armadura completa
     type: equipamento
     img: systems/tormenta20/icons/itens/equipamentos/armadura-completa.webp
-    effects: []
-    flags: {}
+    folder: KTYYM7B9o8xVYRLQ
+    sort: 200000
     system:
       description:
         value: >-
-          <p>A mais forte e pesada das armaduras, formada por placas de metal
-          forjadas e encaixadas de modo a cobrir o corpo inteiro. Inclui
-          manoplas e grevas (luvas e botas metálicas, respectivamente), um elmo
-          com viseira e uma túnica acolchoada para ser usada sob as placas.
-          Correias e fivelas distribuem o peso da armadura pelo corpo inteiro.
-          </p><p>Esta armadura precisa ser feita sob medida para cada usuário;
-          um ferreiro cobra T$ 200 para adaptar uma armadura completa a um novo
-          usuário.</p>
+          Armadura completa de adamante<br /><p>A mais forte e pesada das
+          armaduras, formada por placas de metal forjadas e encaixadas de modo a
+          cobrir o corpo inteiro. Inclui manoplas e grevas (luvas e botas
+          metálicas, respectivamente), um elmo com viseira e uma túnica
+          acolchoada para ser usada sob as placas. Correias e fivelas distribuem
+          o peso da armadura pelo corpo inteiro. </p><p>Esta armadura precisa
+          ser feita sob medida para cada usuário; um ferreiro cobra T$ 200 para
+          adaptar uma armadura completa a um novo usuário.</p>
         unidentified: ''
-      source: Tormenta20 — Edição Jogo do Ano, p. 154
-      equipado: false
-      carregado: true
-      peso: 25
-      espacos: 5
+      equipado: true
       qtd: 1
-      preco: 3000
-      pv:
-        value: 0
-        min: 0
-        max: 0
-      rd: 0
       tipo: pesada
-      armadura:
-        value: 10
-        penalidade: -5
-        maxAtr: 0
       rolls: []
-      origin: ''
       tags: []
       chatFlavor: ''
+      source: ''
+      origin: ''
+      rolltags: []
+      automationtags: []
       chatGif: ''
+      carregado: true
+      espacos: 0
+      peso: 0
+      preco: 0
+      pv:
+        value: 0
+        max: 0
+      rd: 0
       ativacao:
         custo: 0
         condicao: ''
-        execucao: ''
+        execucao: passive
         qtd: ''
         special: ''
       upgrades:
-        melhoria1: specialmaterial
+        melhoria1: ''
         melhoria2: ''
         melhoria3: ''
         melhoria4: ''
-        material: adamant
+        material: ''
         encanto1: ''
         encanto2: ''
         encanto3: ''
-      melhorias: {}
-      encantos: {}
+      enableAutoUpgrades: true
+      equipado2:
+        slot: 0
+        type: body
+      armadura:
+        maxAtr: 0
+        penalidade: 0
+        value: 0
+    effects: []
     ownership:
       default: 0
+    flags: {}
     _stats:
-      systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1664312772395
-      modifiedTime: 1667027990998
-      lastModifiedBy: t20builder000000
-      compendiumSource: Compendium.tormenta20.equipamentos.CTeeKAq8zZlaJTpA
+      compendiumSource: null
       duplicateSource: null
       exportSource: null
-    folder: rsvFZjPiYXV5s7IN
-    sort: 200000
-    _key: '!actors.items!vZGGIFyhurCYpnNR.aC4NfBPzGYb7ON2y'
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753124716950
+      modifiedTime: 1753124716950
+      lastModifiedBy: t20builder000000
+    _key: '!actors.items!vZGGIFyhurCYpnNR.0ibS4CiwAFzbycjD'
 effects:
-  - name: +2 Resistência a Magia
-    origin: Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a
+  - name: Resistência a Magia
+    img: icons/svg/upgrade.svg
+    origin: Compendium.tormenta20.ameacas.Actor.vZGGIFyhurCYpnNR
     tint: '#ffffff'
     flags:
       tormenta20:
@@ -1417,39 +614,37 @@ effects:
         aumenta: false
         custo: ''
     duration:
-      startTime: 0
-      seconds: null
+      startTime: 6
       combat: null
+      startRound: 2
+      startTurn: 0
+      seconds: null
       rounds: null
       turns: null
-      startRound: null
-      startTurn: null
     disabled: true
-    _id: E0I81F0H3CaRUXAT
     changes:
       - key: roll
         mode: 2
         value: '2'
-        priority: 0
-    description: ''
-    transfer: true
-    statuses: []
-    _stats:
-      coreVersion: '13.342'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: >-
-        Compendium.tormenta20.ameacas.Actor.WMcZXuIIRzCPzr6a.ActiveEffect.MHuiS571FAZ5UH6Z
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/upgrade.svg
+        priority: null
+    _id: djX9A0BXsGjol1xF
     type: base
     system: {}
+    description: ''
+    transfer: false
+    statuses: []
     sort: 0
-    _key: '!actors.effects!vZGGIFyhurCYpnNR.E0I81F0H3CaRUXAT'
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753125508152
+      modifiedTime: 1753125530041
+      lastModifiedBy: t20builder000000
+    _key: '!actors.effects!vZGGIFyhurCYpnNR.djX9A0BXsGjol1xF'
 folder: 8B99i0ktklyWgfd1
 sort: 100001
 flags:
@@ -1492,10 +687,10 @@ system:
       base: 4
       racial: 0
   attributes:
-    cd: 10
+    cd: 30
     pv:
       value: 370
-      min: -500
+      min: 0
       max: 370
       temp: 0
     pm:
@@ -1508,13 +703,13 @@ system:
       climb: 0
       fly: 0
       swim: 0
-      walk: 6
+      walk: 9
       unit: m
       hover: false
       notes: ''
     defesa:
       base: 37
-      value: 0
+      value: 10
       outros: 0
       atributo: des
       pda: 0
@@ -1526,7 +721,7 @@ system:
       custom: ''
     conjuracao: int
     nivel:
-      value: 1
+      value: 0
       xp:
         value: 0
         pct: 0
@@ -1544,13 +739,13 @@ system:
     biography:
       value: ''
       public: ''
-    raca: humano
+    raca: Humano
     tipo: hum
     alinhamento: ''
     divindade: ''
     nd: ''
     equipamento: ''
-    resistencias: imunidade a atordoamento e medo, redução de dano 5, resistência a magia +2
+    resistencias: resistência a magia +2
     tesouro: Dobro.
     role: solo
     origem: ''
@@ -1631,17 +826,17 @@ system:
         imunidade: false
         vulnerabilidade: false
       dano:
-        value: 5
+        value: 0
         imunidade: false
         vulnerabilidade: false
+        base: 5
     ic:
       value:
         - atordoamento
         - medo
       custom: ''
     idiomas:
-      value:
-        - comum
+      value: []
   dinheiro:
     tl: 0
     to: 0
@@ -1663,15 +858,15 @@ system:
     deathsave:
       value: 0
       max: 3
-      label: Falha na Morte
+      label: T20SK.ResourceDeathSave
     shadow:
       value: 0
       max: 5
-      label: Pontos de Sombra
+      label: T20SK.ResourceShadow
     catarse:
       value: 0
       max: 3
-      label: Catarse
+      label: T20SK.ResourceCatarse
   pericias:
     acro:
       value: 0
@@ -1679,7 +874,7 @@ system:
       outros: 0
       treinado: false
       st: false
-      pda: false
+      pda: true
       size: false
       condi: 0
       bonus: []
@@ -1691,7 +886,7 @@ system:
       atributo: car
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -1717,7 +912,7 @@ system:
       atributo: car
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -1743,7 +938,7 @@ system:
       atributo: int
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -1791,10 +986,10 @@ system:
       label: ''
       nome: ''
     fort:
-      value: 22
+      value: 15
       atributo: con
-      outros: 11
-      treinado: false
+      outros: 7
+      treinado: true
       st: false
       pda: false
       size: false
@@ -1809,8 +1004,8 @@ system:
       outros: 0
       treinado: false
       st: false
-      pda: false
-      size: false
+      pda: true
+      size: true
       condi: 0
       bonus: []
       custom: false
@@ -1821,7 +1016,7 @@ system:
       atributo: int
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -1886,7 +1081,7 @@ system:
       atributo: car
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -1899,8 +1094,8 @@ system:
       atributo: des
       outros: 0
       treinado: false
-      st: false
-      pda: false
+      st: true
+      pda: true
       size: false
       condi: 0
       bonus: []
@@ -1908,7 +1103,7 @@ system:
       label: ''
       nome: ''
     luta:
-      value: 0
+      value: 15
       atributo: for
       outros: 14
       treinado: true
@@ -1938,7 +1133,7 @@ system:
       atributo: int
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -1977,7 +1172,7 @@ system:
       atributo: des
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -1999,10 +1194,10 @@ system:
       label: ''
       nome: ''
     refl:
-      value: 10
+      value: 9
       atributo: des
-      outros: 5
-      treinado: false
+      outros: 1
+      treinado: true
       st: false
       pda: false
       size: false
@@ -2016,7 +1211,7 @@ system:
       atributo: sab
       outros: 0
       treinado: false
-      st: false
+      st: true
       pda: false
       size: false
       condi: 0
@@ -2038,10 +1233,10 @@ system:
       label: ''
       nome: ''
     vont:
-      value: 16
+      value: 10
       atributo: sab
-      outros: 10
-      treinado: false
+      outros: 6
+      treinado: true
       st: false
       pda: false
       size: false
@@ -2063,60 +1258,48 @@ system:
       custom: false
       label: ''
       nome: ''
+    alfa:
+      label: ''
+    alqu:
+      label: ''
+    arme:
+      label: ''
+    arte:
+      label: ''
+    cozi:
+      label: ''
+    enge:
+      label: ''
   modificadores:
     atributos:
-      geral:
-        - ''
-      fisicos:
-        - ''
-      mentais:
-        - ''
-      for:
-        - ''
-      des:
-        - ''
-      con:
-        - ''
-      int:
-        - ''
-      sab:
-        - ''
-      car:
-        - ''
+      geral: []
+      fisicos: []
+      mentais: []
+      for: []
+      des: []
+      con: []
+      int: []
+      sab: []
+      car: []
     dano:
-      geral:
-        - ''
-      cac:
-        - ''
-      ad:
-        - ''
-      mag:
-        - ''
-      alq:
-        - ''
+      geral: []
+      cac: []
+      ad: []
+      mag: []
+      alq: []
     custoPM: '0'
     pericias:
-      geral:
-        - ''
-      semataque:
-        - ''
-      ataque:
-        - ''
-      resistencia:
-        - ''
+      geral: []
+      semataque: []
+      ataque: []
+      resistencia: []
       atr:
-        for:
-          - ''
-        des:
-          - ''
-        con:
-          - ''
-        int:
-          - ''
-        sab:
-          - ''
-        car:
-          - ''
+        for: []
+        des: []
+        con: []
+        int: []
+        sab: []
+        car: []
     ataque:
       geral: []
       cac: []
@@ -2254,10 +1437,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: tormenta20
-  systemVersion: v1.5.003
-  coreVersion: '13.345'
+  systemVersion: 1.5.007
+  coreVersion: '13.346'
   createdTime: 1661997946036
-  modifiedTime: 1750973624889
+  modifiedTime: 1753125539421
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

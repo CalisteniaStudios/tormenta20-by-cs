@@ -3,144 +3,6 @@ name: Cavaleiro Supremacista
 type: npc
 img: systems/tormenta20/icons/ameacas/cavaleiro-supremacista.png
 items:
-  - type: poder
-    name: Cavaleiro Místico
-    img: icons/magic/symbols/runes-star-magenta.webp
-    system:
-      description:
-        value: >-
-          <p>O cavaleiro lan&ccedil;a magias como um arcanista de 9&ordm;
-          n&iacute;vel (CD 28). Ele pode lan&ccedil;ar magias arcanas de
-          armadura sem precisar de testes de Misticismo.</p>
-
-          <p>Uma vez por rodada, quando usa a a&ccedil;&atilde;o agredir para
-          fazer ataques corpo a corpo, pode lan&ccedil;ar uma magia como
-          a&ccedil;&atilde;o livre (pagando seu custo normal em PM).</p>
-        unidentified: ''
-      source: ''
-      ativacao:
-        execucao: ''
-        custo: 0
-        qtd: ''
-        condicao: ''
-        special: ''
-      duracao:
-        value: 0
-        units: ''
-        special: ''
-      target:
-        value: null
-        width: null
-        type: ''
-      range:
-        value: null
-        units: ''
-      consume:
-        type: ''
-        target: ''
-        amount: null
-        mpMultiplier: false
-      efeito: ''
-      alcance: none
-      alvo: ''
-      area: ''
-      resistencia:
-        pericia: ''
-        atributo: ''
-        bonus: 0
-        txt: ''
-      rolls: []
-      tipo: ability
-      subtipo: ''
-      origin: ''
-      tags: []
-      chatFlavor: ''
-      chatGif: ''
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _stats:
-      systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1667011544313
-      modifiedTime: 1667011671850
-      lastModifiedBy: t20builder000000
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _id: tBa0MIXRTCjDD6Ho
-    _key: '!actors.items!4bdMgKDWlnZ7SaO1.tBa0MIXRTCjDD6Ho'
-  - type: poder
-    name: Uma vez por rodada, quando
-    img: icons/svg/item-bag.svg
-    system:
-      description:
-        value: >-
-          <p>Uma vez por rodada, quando usa a a&ccedil;&atilde;o agredir para
-          fazer ataques corpo a corpo, pode lan&ccedil;ar uma magia como
-          a&ccedil;&atilde;o livre (pagando seu custo normal em PM)</p>
-        unidentified: ''
-      source: ''
-      ativacao:
-        execucao: ''
-        custo: 0
-        qtd: ''
-        condicao: ''
-        special: ''
-      duracao:
-        value: 0
-        units: ''
-        special: ''
-      target:
-        value: null
-        width: null
-        type: ''
-      range:
-        value: null
-        units: ''
-      consume:
-        type: ''
-        target: ''
-        amount: null
-        mpMultiplier: false
-      efeito: ''
-      alcance: none
-      alvo: ''
-      area: ''
-      resistencia:
-        pericia: ''
-        atributo: ''
-        bonus: 0
-        txt: ''
-      rolls: []
-      tipo: ability
-      subtipo: ''
-      origin: ''
-      tags: []
-      chatFlavor: ''
-      chatGif: ''
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _stats:
-      systemId: tormenta20
-      systemVersion: 1.4.1004
-      coreVersion: '13.342'
-      createdTime: 1667011544313
-      modifiedTime: 1667011620346
-      lastModifiedBy: t20builder000000
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _id: ECpCfjnb8fVJPMLQ
-    _key: '!actors.items!4bdMgKDWlnZ7SaO1.ECpCfjnb8fVJPMLQ'
   - name: Concentração de Combate
     type: magia
     img: systems/tormenta20/icons/magias/concentracao-de-combate.webp
@@ -1735,6 +1597,67 @@ items:
     folder: rsvFZjPiYXV5s7IN
     sort: 200000
     _key: '!actors.items!4bdMgKDWlnZ7SaO1.NPr2oC1G6IgxXa3r'
+  - type: poder
+    name: Cavaleiro Místico
+    img: systems/tormenta20/icons/svg/skills.svg
+    system:
+      description:
+        value: >-
+          <p>O cavaleiro lança magias como um mago de 9º nível (CD 28). Ele pode
+          lançar magias arcanas de armadura sem precisar de testes de
+          Misticismo. Uma vez por rodada, quando usa a ação agredir para fazer
+          ataques corpo a corpo, pode lançar uma magia como ação livre (pagando
+          seu custo normal em PM).</p>
+        unidentified: ''
+      source: ''
+      origin: ''
+      tags: []
+      rolltags: []
+      automationtags: []
+      chatFlavor: ''
+      chatGif: ''
+      ativacao:
+        custo: 0
+        condicao: ''
+        execucao: passive
+        qtd: ''
+        special: ''
+      duracao:
+        units: inst
+        value: 0
+        special: ''
+      range:
+        units: ''
+        value: 0
+      alcance: none
+      area: ''
+      efeito: ''
+      resistencia:
+        txt: ''
+        pericia: ''
+        atributo: ''
+        bonus: 0
+      rolls: []
+      tipo: geral
+      subtipo: ''
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      compendiumSource: Actor.J0jmlsfvDzJ1oOqQ.Item.ExYqwwKubNrh6OIB
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1753123853872
+      modifiedTime: 1753123864169
+      lastModifiedBy: t20builder000000
+    _id: zcTK14p3rC7t2U0k
+    _key: '!actors.items!4bdMgKDWlnZ7SaO1.zcTK14p3rC7t2U0k'
 effects: []
 folder: YPb1nebqyAXykh08
 sort: 100001
@@ -1794,7 +1717,7 @@ system:
       climb: 0
       fly: 0
       swim: 0
-      walk: 9
+      walk: 12
       unit: m
       hover: false
       notes: ''
@@ -1835,7 +1758,7 @@ system:
     divindade: ''
     nd: ''
     equipamento: ''
-    resistencias: imunidade a medo
+    resistencias: ''
     tesouro: Padrão.
     role: solo
     origem: ''
@@ -2542,7 +2465,7 @@ _stats:
   systemVersion: 1.5.007
   coreVersion: '13.346'
   createdTime: 1661997945892
-  modifiedTime: 1751217546279
+  modifiedTime: 1753124451292
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

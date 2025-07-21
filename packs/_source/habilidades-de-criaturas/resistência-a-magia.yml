@@ -10,7 +10,7 @@ system:
     unidentified: ''
   source: ''
   ativacao:
-    execucao: ''
+    execucao: passive
     custo: 0
     qtd: ''
     condicao: ''
@@ -47,14 +47,65 @@ system:
   tags: []
   chatFlavor: ''
   chatGif: ''
-effects: []
+effects:
+  - name: Resistência a Magia
+    img: icons/svg/upgrade.svg
+    origin: Compendium.tormenta20.habilidades-de-criaturas.Item.jdqHPyKpb97cBDeW
+    tint: '#ffffff'
+    flags:
+      tormenta20:
+        onuse: true
+        durationScene: false
+        self: false
+        attack: false
+        skill: true
+        ability: false
+        power: false
+        equipment: false
+        spell: false
+        consumable: false
+        items: Fortitude;Reflexos;Vontade
+        aumenta: false
+        custo: ''
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: true
+    changes:
+      - key: roll
+        mode: 2
+        value: '2'
+        priority: null
+    _id: jvkYbSFwKKN2qpIy
+    type: base
+    system: {}
+    description: ''
+    transfer: true
+    statuses: []
+    sort: 0
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.346'
+      systemId: tormenta20
+      systemVersion: 1.5.007
+      createdTime: 1751705785178
+      modifiedTime: 1751705863612
+      lastModifiedBy: t20builder000000
+    _key: '!items.effects!jdqHPyKpb97cBDeW.jvkYbSFwKKN2qpIy'
 flags: {}
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.101
-  coreVersion: '13.342'
+  systemVersion: 1.5.007
+  coreVersion: '13.346'
   createdTime: 1666320415369
-  modifiedTime: 1668270615332
+  modifiedTime: 1751705820349
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

@@ -329,7 +329,7 @@ system:
       climb: 0
       fly: 0
       swim: 0
-      walk: 6
+      walk: 9
       unit: m
       hover: false
       notes: ''
@@ -1076,7 +1076,7 @@ _stats:
   systemVersion: 1.5.007
   coreVersion: '13.346'
   createdTime: 1661997945872
-  modifiedTime: 1751217546125
+  modifiedTime: 1753123591515
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

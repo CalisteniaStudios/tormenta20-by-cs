@@ -861,10 +861,10 @@ system:
       temp: 0
     movement:
       burrow: 0
-      climb: 18
+      climb: 21
       fly: 0
       swim: 0
-      walk: 18
+      walk: 21
       unit: m
       hover: false
       notes: ''
@@ -970,6 +970,7 @@ system:
         bonus: []
         imunidade: false
         vulnerabilidade: false
+        excecao: 10
       psiquico:
         value: 0
         base: 0
@@ -1613,7 +1614,7 @@ _stats:
   systemVersion: 1.5.007
   coreVersion: '13.346'
   createdTime: 1661997945988
-  modifiedTime: 1751217547979
+  modifiedTime: 1753125691457
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null
