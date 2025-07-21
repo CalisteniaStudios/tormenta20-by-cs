@@ -6,11 +6,13 @@
   - CD de magias é lida corretamente.
   - A descrição da habilidade Magias não é adicionada como um poder.
   - Listas de magias compactas são lidas corretamente.
+  - Defesa é calculada levando em conta os equipamentos equipados.
 - Alterado: Armas naturais não são mais equipáveis.
 - Conserto: Importador de Bloco de Estatísticas lê armas com multiplicador de crítico corretamente.
 - Conserto: Atalhos de caminho de dato com letras maiúsculas (ex: `@Tormenta2`).
 - Conserto: Importador de Bloco de Estatísticas não apaga atributos de itens que já existem no sistema.
 - Conserto: Importador de Bloco de Estatísticas não cria descrições aninhadas conforme o botão Validar é clicado.
+- Conserto: Deslocamento e Defesa de Ameaças com armaduras equipadas.
 
 # Versão 1.5.009
 - Alterado: Melhorias no Importador de Bloco de Estatísticas
