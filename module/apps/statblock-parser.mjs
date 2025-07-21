@@ -79,26 +79,28 @@ export default class StatblockParser extends FormApplication {
 				"system.rolltags",
 				"system.tipo"
 			];
-			this.constructor.packequipamentos = await game.packs.get("tormenta20.equipamentos").getIndex({
-				fields: [
-					"system.alcance",
-					"system.armadura",
-					"system.chatFlavor",
-					"system.consume",
-					"system.criticoM",
-					"system.criticoX",
-					"system.empunhadura",
-					"system.espacos",
-					"system.equipado",
-					"system.preco",
-					"system.proficiencia",
-					"system.proposito",
-					"system.propriedades",
-					"system.qtd",
-					"system.rolls",
-					"system.rolltags"
-				]
-			});
+			const equipmentFields = [
+				"system.alcance",
+				"system.armadura",
+				"system.chatFlavor",
+				"system.consume",
+				"system.criticoM",
+				"system.criticoX",
+				"system.empunhadura",
+				"system.espacos",
+				"system.equipado",
+				"system.preco",
+				"system.proficiencia",
+				"system.proposito",
+				"system.propriedades",
+				"system.qtd",
+				"system.rolls",
+				"system.rolltags"
+			];
+			this.constructor.packequipamentos = [
+				...(await game.packs.get("tormenta20.equipamentos").getIndex({ fields: equipmentFields })),
+				...(await game.packs.get("tormenta20.equipamentos-magicos").getIndex({ fields: equipmentFields }))
+			];
 			this.constructor.packsmagias = await game.packs.get("tormenta20.magias").getIndex({
 				fields: ["system.circulo", "system.consume", "system.escola", ...commonFields]
 			});
@@ -545,11 +547,14 @@ export default class StatblockParser extends FormApplication {
 					/(Acrobacia|Adestramento|Atletismo|Atuação|Cavalgar|Conhecimento|Cura|Defesa|Diplomacia|Enganação|Fortitude|Furtividade|Guerra|Iniciativa|Intimidação|Intuição|Investigação|Jogatina|Ladinagem|Luta|Misticismo|Ocultismo|Nobreza|Ofício|Percepção|Pilotagem|Pontaria|Reflexos|Religião|Sobrevivência|Vontade|Fort|Ref|Von) ([\+|\-]\d+)/gi
 				);
 			skills = Object.fromEntries(
-				skills.map((entry) => {
-					const [pericia, value] = entry.split(" ");
-					const skill = sks[pericia.toLowerCase().capitalize()];
-					return [skill, { value: parseInt(value) }];
-				})
+				skills
+					.map((entry) => {
+						const [pericia, value] = entry.split(" ");
+						const skill = sks[pericia.toLowerCase().capitalize()];
+						if (!skill) return [];
+						return [skill, { value: parseInt(value) }];
+					})
+					.filter((skill) => skill.length)
 			);
 			msg = "";
 			for (let [key, skill] of Object.entries(skills)) {
@@ -800,7 +805,7 @@ export default class StatblockParser extends FormApplication {
 		try {
 			// Filtra as Linhas de Corpo a Corpo|À Distância;
 			const armaData = statblock.match(/((Corpo a Corpo|À Distância) [^\.]*)/gi);
-			if (!armaData.length) return;
+			if (!armaData?.length) return;
 			const parsedSkills = new Set();
 			const itemNames = [];
 			for (let AD of armaData) {
