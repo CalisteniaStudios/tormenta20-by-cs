@@ -382,7 +382,7 @@ export default class StatblockParser extends FormApplication {
 			res = res.replace(/ |,/g, "_").slugify().replace(/_/g, " ");
 			res = res
 				.replace(
-					/imunidade (?!a magia)|redu[cç][ãa]o\s*.*\s*\d*|resist[eê]ncia|vulnerabilidade/gi,
+					/imunidade (?!a magia)|redu[cç][ãa]o\s*de\s*\w*\s*\d*|resist[eê]ncia|vulnerabilidade/gi,
 					(match) => `#${match}`
 				)
 				.split("#")
