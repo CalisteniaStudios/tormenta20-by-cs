@@ -59,7 +59,7 @@ export default class StatblockParser extends FormApplication {
 			name: this.object.schema.name,
 			system: this.object.schema
 		});
-		await actor.createEmbeddedDocuments("Item", this.object.items);
+		await actor.createEmbeddedDocuments("Item", this.object.items, { statblockParsing: true });
 		await actor.createEmbeddedDocuments("ActiveEffect", this.object.effects);
 		return this.close();
 	}
@@ -87,6 +87,7 @@ export default class StatblockParser extends FormApplication {
 					"system.criticoM",
 					"system.criticoX",
 					"system.empunhadura",
+					"system.equipado",
 					"system.proficiencia",
 					"system.proposito",
 					"system.propriedades",
@@ -867,6 +868,7 @@ export default class StatblockParser extends FormApplication {
 						if (multi) item.system.criticoX = parseInt(multi.slice(1));
 					}
 					if (qtd > 1) item.system.qtd = qtd;
+					item.system.equipado = 1;
 					item.system.description.value = `<section class="secret">${arma.name}</section>${item.system.description.value}`;
 					itemsList.push(item);
 					itemNames.push(qtd > 1 ? `${item.name} x${qtd}` : item.name);
@@ -900,6 +902,16 @@ export default class StatblockParser extends FormApplication {
 					let qtd = equip.desc.match(/x(?<qtd>\d+)/);
 					if (qtd) item.system.qtd = qtd.groups?.qtd || 1;
 					item.system.description.value = `${equip.desc}<br>${item.system.description.value}`;
+					if (item.type === "equipamento") {
+						item.system.equipado = true;
+						if (item.system.tipo === "pesada") {
+							for (let [key, value] of Object.entries(schema.attributes.movement)) {
+								if (Number.isNumeric(value) && value) {
+									schema.attributes.movement[key] += 3;
+								}
+							}
+						}
+					}
 					equip.item = item;
 				});
 				equipamentos = equipamentos.filter((f) => f.item).map((m) => m.item);

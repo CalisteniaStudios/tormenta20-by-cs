@@ -316,25 +316,27 @@ export default class ItemT20 extends Item {
 		const actorData = this.parent.system;
 		const isNPC = this.parent.type === "npc";
 		let updates = {};
-		switch (data.type) {
-			case "classe":
-				/* TODO */
-				break;
-			case "equipamento":
-				updates = this._onCreateOwnedEquipment(data, actorData, isNPC);
-				break;
-			case "arma":
-				updates = this._onCreateOwnedWeapon(data, actorData, isNPC);
-				break;
-			case "magia":
-				updates = this._onCreateOwnedSpell(data, actorData, isNPC);
-				break;
-			case "poder":
-				updates = this._onCreateOwnedPower(data, actorData, isNPC);
-				break;
-			case "race":
-				updates = await this._onCreateOwnedRace(data, actorData, isNPC);
-				break;
+		if (isNPC && !options.statblockParsing) {
+			switch (data.type) {
+				case "classe":
+					/* TODO */
+					break;
+				case "equipamento":
+					updates = this._onCreateOwnedEquipment(data, actorData, isNPC);
+					break;
+				case "arma":
+					updates = this._onCreateOwnedWeapon(data, actorData, isNPC);
+					break;
+				case "magia":
+					updates = this._onCreateOwnedSpell(data, actorData, isNPC);
+					break;
+				case "poder":
+					updates = this._onCreateOwnedPower(data, actorData, isNPC);
+					break;
+				case "race":
+					updates = await this._onCreateOwnedRace(data, actorData, isNPC);
+					break;
+			}
 		}
 		updates["flags.tormenta20.-=favorito"] = null;
 		if (updates) return this.updateSource(updates);

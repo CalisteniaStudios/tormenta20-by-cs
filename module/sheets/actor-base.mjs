@@ -303,6 +303,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	_getItemToggleContextOptions(item) {
 		const equipados = this.actor.items.filter((i) => i.system.equipado2?.slot > 0);
 		const equips = this.actor.system.equipamentos;
+		const canEquip = !!equips || this.actor.type === "npc";
 		const compendiumLocked = item.collection?.locked;
 
 		const options = [
@@ -396,7 +397,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 					});
 				}
 			}
-		} else if (item.type === "equipamento" && equips) {
+		} else if (item.type === "equipamento" && canEquip) {
 			let icon = "fa-shirt";
 			let icon2 = "";
 			if (item.system.equipado2.type === "hand") {
@@ -412,7 +413,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 				</span>`,
 				callback: this._onToggleArmor.bind(this)
 			});
-		} else if (item.type === "arma" && equips) {
+		} else if (item.type === "arma" && canEquip) {
 			options.push({
 				name: item.system.equipado !== 1 ? "T20.EquipOneHand" : "T20.Unequip",
 				group: "equips",
