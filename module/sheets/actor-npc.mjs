@@ -71,7 +71,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			sheetData.resistencias += resText.imuTxt;
 		}
 		if (!foundry.utils.isEmpty(resText.res)) {
-			resText.resTxt += `resistência a ${resText.res.join(", ")}`;
+			resText.resTxt += `redução de ${resText.res.join(", ")}`;
 			if (sheetData.resistencias) sheetData.resistencias += `, ${resText.resTxt}`;
 			else sheetData.resistencias += resText.resTxt;
 		}
