@@ -188,7 +188,7 @@
 </div>
 <hr>
 
-{{#if (or (find skills "treinado" true) (find skills "outros" true) ) }}
+{{#if listedSkills.length}}
 <div>
 	<label>{{localize 'T20.Skills'}}: </label>
 	{{#each listedSkills as |skill key|}}
