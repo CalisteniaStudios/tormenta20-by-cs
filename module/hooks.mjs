@@ -141,6 +141,59 @@ export default function () {
 				consertaAtores(game.actors.filter((a) => a.type === "npc"));
 				ui.notifications.info("Conserto concluído", { console: false, permanent: true });
 			}
+			if (systemMigrationVersion && systemMigrationVersion < "1.5.010") {
+				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
+				const consertaAtores = async (actors, pack) => {
+					for (const actor of actors) {
+						if (!actor.system.pericias) continue;
+						const changes = {};
+						try {
+							const initial = new tormenta20.data.fields.SkillData();
+							if (actor.system.pericias.ofi0) changes["system.pericias.-=ofi0"] = null;
+							if (actor.system.pericias._pc0) changes["system.pericias.-=_pc0"] = null;
+							if (
+								actor.system.pericias.acro?.st
+								&& actor.system.pericias.reli?.pda
+								&& actor.system.pericias.guer?.pda
+							) {
+								for (const [key, value] of Object.entries(actor.system.pericias)) {
+									changes[`system.pericias.${key}`] = this._initialSkillValue(key, initial, value);
+								}
+							}
+							for (const key of CONFIG.T20.oficios) {
+								if (!actor.system.pericias[key]) {
+									changes[`system.pericias.${key}`] = this._initialSkillValue(key, initial, CONFIG.T20.pericias[key]);
+								}
+							}
+							await actor.update(changes);
+						} catch (err) {
+							if (pack) {
+								err.message = `Falha ao migrar o ator ${actor.name} no compêndio ${pack.collection}: ${err.message}`;
+							} else err.message = `Falha ao migrar o ator ${actor.name}`;
+							console.error(err);
+						}
+					}
+				};
+				ui.notifications.info(
+					"Iniciando migração do sistema Tormenta20 1.5.010. Espere um momento e não feche o jogo",
+					{
+						console: false,
+						permanent: true
+					}
+				);
+				for (const pack of packs) {
+					const wasLocked = pack.locked;
+					try {
+						await pack.configure({ locked: false });
+						const actors = await pack.getDocuments();
+						consertaAtores(actors, pack);
+					} finally {
+						await pack.configure({ locked: wasLocked });
+					}
+				}
+				consertaAtores(game.actors.filter((a) => !!a.system.pericias));
+				ui.notifications.info("Migração concluída", { console: false, permanent: true });
+			}
 			game.actors
 				.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.5.000")
 				.forEach((actor) => {
