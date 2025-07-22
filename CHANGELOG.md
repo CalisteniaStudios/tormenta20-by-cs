@@ -7,6 +7,7 @@
   - A descrição da habilidade Magias não é adicionada como um poder.
   - Listas de magias compactas são lidas corretamente.
   - Defesa é calculada levando em conta os equipamentos equipados.
+  - Itens mágicos foram adicionados à lista de equipamentos lidos.
 - Alterado: Armas naturais não são mais equipáveis.
 - Conserto: Importador de Bloco de Estatísticas lê armas com multiplicador de crítico corretamente.
 - Conserto: Atalhos de caminho de dato com letras maiúsculas (ex: `@Tormenta2`).
