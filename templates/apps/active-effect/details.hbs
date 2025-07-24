@@ -24,7 +24,7 @@
 		<div class="form-group">
 			<label>{{ localize 'T20.SpecificItems'}}:</label>
 			<div class="form-fields">
-				<input type="text" name="flags.tormenta20.items" value="{{document.flags.tormenta20.items}}" data-dtype="String"/>
+				<input type="text" name="flags.tormenta20.items" value="{{document.flags.tormenta20.items}}" data-dtype="String" />
 			</div>
 		</div>
 
@@ -46,11 +46,20 @@
 	{{formGroup fields.disabled value=source.disabled rootId=rootId}}
 
 	{{#if isActorEffect}}
-	{{formGroup fields.origin value=source.origin rootId=rootId disabled=true}}
+		{{formGroup fields.origin value=source.origin rootId=rootId disabled=true}}
 	{{/if}}
 	{{#if isItemEffect}}
-	{{formGroup fields.transfer value=source.transfer rootId=rootId label=legacyTransfer.label hint=legacyTransfer.hint}}
+		{{formGroup fields.transfer value=source.transfer rootId=rootId label=legacyTransfer.label hint=legacyTransfer.hint}}
 	{{/if}}
 
 	{{formGroup fields.statuses value=source.statuses options=statuses rootId=rootId classes="statuses"}}
+
+	{{#if document.flags.tormenta20.condition}}
+		<div class="form-group">
+			<label for="">{{localize "T20.IgnoreEffectImunity"}}</label>
+			<div class="form-fields">
+				<input type="checkbox" name="flags.tormenta20.ignoreImunity" {{ checked document.flags.tormenta20.ignoreImunity }} />
+			</div>
+		</div>
+	{{/if}}
 </section>

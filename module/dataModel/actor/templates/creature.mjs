@@ -95,6 +95,10 @@ export default class CreatureData extends Tormenta20TypeData {
 		if (data.resources && !Object.keys(data.resources).length) {
 			data.resources = foundry.utils.deepClone(this.schema.fields.resources.initial);
 		}
+		if (data.tracos?.ic?.value?.includes('atordoamento')) {
+			data.tracos.ic.value = data.tracos.ic.value.filter(i => i != 'atordoamento');
+			data.tracos.ic.value.push('atordoado');
+		}
 		return super.migrateData(data);
 	}
 
@@ -968,12 +972,12 @@ export default class CreatureData extends Tormenta20TypeData {
 	}
 
 	prepareSkills({ rollData = {} } = {}) {
-		for ( const [id, skillData] of Object.entries(this.pericias) ) {
+		for (const [id, skillData] of Object.entries(this.pericias)) {
 			this.prepareSkill(id, { skillData, rollData });
 		}
 	}
 
-	prepareSkill(skillId, { skillData, rollData, atributo }={}) {
+	prepareSkill(skillId, { skillData, rollData, atributo } = {}) {
 		if (skillId === "ofic") return;
 
 		const parts = ["@meionivel"];

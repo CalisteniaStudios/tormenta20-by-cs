@@ -10,10 +10,17 @@
   - Itens mágicos foram adicionados à lista de equipamentos lidos.
 - Alterado: Armas naturais não são mais equipáveis.
 - Conserto: Importador de Bloco de Estatísticas lê armas com multiplicador de crítico corretamente.
-- Conserto: Atalhos de caminho de dato com letras maiúsculas (ex: `@Tormenta2`).
+- Conserto: Atalhos de caminho de variáveis com letras maiúsculas (ex: `@Tormenta2`).
 - Conserto: Importador de Bloco de Estatísticas não apaga atributos de itens que já existem no sistema.
 - Conserto: Importador de Bloco de Estatísticas não cria descrições aninhadas conforme o botão Validar é clicado.
 - Conserto: Deslocamento e Defesa de Ameaças com armaduras equipadas.
+- Alterado: Criação de Condições filhas.
+- Adicionado: Campo `ignorar imunidade` numa Condição.
+- Adicionado: Verificações para suprimir Condições:
+  - Condição duplicada;
+  - Ator possui a condição de acumulo;
+  - A condição pai estiver suprimida;
+  - O Ator possui imunidade;
 
 # Versão 1.5.009
 - Alterado: Melhorias no Importador de Bloco de Estatísticas

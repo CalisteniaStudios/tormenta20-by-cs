@@ -76,6 +76,7 @@
     "ApplyToSelf": "Self Item",
     "SpecificItems": "Specific Items",
     "AllowMultApply": "Allow multiple applications?",
+    "IgnoreEffectImunity": "Ignore Imunity",
 
     "Class": "Class",
     "Classes": "Classes",

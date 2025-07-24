@@ -45,7 +45,7 @@
 				<label><input type="checkbox" name="flags.tormenta20.onuse" {{ checked effect.flags.tormenta20.onuse }} /> <br> {{ localize 'T20.OnUseEffect' }}</label>
 				<label><input type="checkbox" name="disabled" {{ checked effect.disabled }} /> <br> {{ localize "EFFECT.Disabled" }}</label>
 				{{#if isItemEffect}}
-				<label><input type="checkbox" name="transfer" {{ checked effect.transfer }} /> <br> {{ localize "EFFECT.Transfer" }}</label>
+					<label><input type="checkbox" name="transfer" {{ checked effect.transfer }} /> <br> {{ localize "EFFECT.Transfer" }}</label>
 				{{/if}}
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 		<div class="form-group">
 			<label>{{ localize 'T20.SpecificItems'}}:</label>
 			<div class="form-fields">
-			<input type="text" name="flags.tormenta20.items" value="{{effect.flags.tormenta20.items}}" data-dtype="String"/>
+				<input type="text" name="flags.tormenta20.items" value="{{effect.flags.tormenta20.items}}" data-dtype="String" />
 			</div>
 		</div>
 
@@ -88,14 +88,16 @@
 		<div class="form-group hidden">
 			<label>{{ localize "EFFECT.Origin" }} ({{ _sourceName }})</label>
 			<div class="form-fields">
-			<input type="text" name="origin" value="{{ effect.origin }}" disabled />
+				<input type="text" name="origin" value="{{ effect.origin }}" disabled />
 			</div>
 		</div>
 
 
 		<div class="form-group stacked">
 			<label>{{ localize "EFFECT.Description" }}</label>
-			{{editor descriptionHTML target="description" compact=true button=false editable=editable engine="prosemirror" collaborate=false}}
+			<div class="form-fields">
+				{{editor descriptionHTML target="description" compact=true button=false editable=editable engine="prosemirror" collaborate=false}}
+			</div>
 		</div>
 	</section>
 
@@ -108,13 +110,13 @@
 			</div>
 		</div>
 		{{#if startTimeString}}
-		<div>
-			{{ startTimeString }}
-			{{#if durationString}}
-			->
-			{{durationString}}
-			{{/if}}
-		</div>
+			<div>
+				{{ startTimeString }}
+				{{#if durationString}}
+					->
+					{{durationString}}
+				{{/if}}
+			</div>
 		{{/if}}
 
 		<div class="form-group">
@@ -171,8 +173,8 @@
 		</header>
 		<ol class="changes-list">
 			{{#each effect.changes as |change i|}}
-			<li class="effect-change flexrow" data-index="{{i}}">
-				<!--
+				<li class="effect-change flexrow" data-index="{{i}}">
+					<!--
 				<div class="formgroup">
 					<div class="keylist">
 						<select name="selectedKey" data-dtype="String">
@@ -181,24 +183,24 @@
 					</div>
 				</div>
 				-->
-				<div class="key">
-					<input class="keyinput" type="text" name="changes.{{i}}.key" value="{{change.key}}" />
-				</div>
-				<div class="mode">
-					<select name="changes.{{i}}.mode" data-dtype="Number">
-						{{selectOptions ../modes selected=change.mode}}
-					</select>
-				</div>
-				<div class="value">
-					<input type="text" name="changes.{{i}}.value" value="{{change.value}}" />
-				</div>
-				<div style='flex:0 0 30px'class="priority">
-					<input type="text" name="changes.{{i}}.priority" value="{{change.priority}}" />
-				</div>
-				<div class="effect-controls">
-					<a class="effect-control" data-action="delete"><i class="fas fa-trash"></i></a>
-				</div>
-			</li>
+					<div class="key">
+						<input class="keyinput" type="text" name="changes.{{i}}.key" value="{{change.key}}" />
+					</div>
+					<div class="mode">
+						<select name="changes.{{i}}.mode" data-dtype="Number">
+							{{selectOptions ../modes selected=change.mode}}
+						</select>
+					</div>
+					<div class="value">
+						<input type="text" name="changes.{{i}}.value" value="{{change.value}}" />
+					</div>
+					<div style='flex:0 0 30px' class="priority">
+						<input type="text" name="changes.{{i}}.priority" value="{{change.priority}}" />
+					</div>
+					<div class="effect-controls">
+						<a class="effect-control" data-action="delete"><i class="fas fa-trash"></i></a>
+					</div>
+				</li>
 			{{/each}}
 		</ol>
 	</section>

@@ -8,25 +8,15 @@ export const endSegment = async function (app, html) {
 		button.addEventListener("click", async function () {
 			let historico = "";
 			for await (const token of canvas.tokens.placeables) {
-				if (!token.actorLink) {
-					let efeitos = token.actor.effects.filter((e) => e.getFlag("tormenta20", "durationScene")).map((e) => e.id);
-					let labels = token.actor.effects
-						.filter((e) => e.getFlag("tormenta20", "durationScene"))
-						.map((e) => `<i>${e.name}</i>`);
-					if (efeitos.length) {
-						historico += `<br><b>${token.actor.name}</b> ${labels.join(", ")}`;
-						await token.actor.deleteEmbeddedDocuments("ActiveEffect", efeitos);
-					}
-				} else {
-					let efeitos = token.actor.effects.filter((e) => e.getFlag("tormenta20", "durationScene")).map((e) => e.id);
-					let labels = token.actor.effects
-						.filter((e) => e.getFlag("tormenta20", "durationScene"))
-						.map((e) => `<i>${e.name}</i>`);
-					if (efeitos.length) {
-						historico += `<br><b>${token.actor.name}</b> ${labels.join(", ")}`;
-						const thisActor = game.actors.get(token.actor.id);
-						await thisActor.deleteEmbeddedDocuments("ActiveEffect", efeitos);
-					}
+				const actor = !token.actorLink ? token.actor : game.actors.get(token.actor.id);
+				if (actor.type != "character") continue;
+				let efeitos = token.actor.effects.filter((e) => e.getFlag("tormenta20", "durationScene")).map((e) => e.id);
+				let labels = token.actor.effects
+					.filter((e) => e.getFlag("tormenta20", "durationScene"))
+					.map((e) => `<i>${e.name}</i>`);
+				if (efeitos.length) {
+					historico += `<br><b>${token.actor.name}</b> ${labels.join(", ")}`;
+					await actor.deleteEmbeddedDocuments("ActiveEffect", efeitos);
 				}
 			}
 

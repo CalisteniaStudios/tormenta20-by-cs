@@ -28,6 +28,7 @@ CONFIG.ChatMessage.template = "systems/tormenta20/templates/chat/chat-message.hb
 /* ---------------------------------------- */
 /*  Effect Data                             */
 /* ---------------------------------------- */
+Object.freeze(T20Conditions);
 T20.conditions = T20Conditions;
 T20.statusEffectIcons = Object.values(T20Conditions);
 

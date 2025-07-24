@@ -717,7 +717,6 @@ function applyOnUseEffects(rolledItem, configuration = {}) {
 		if (T20.conditions[efl]) {
 			tempEffect = new ActiveEffect(T20.conditions[efl]);
 			tempEffect = tempEffect.toObject();
-			children = tempEffect.flags?.tormenta20?.childEffect?.map((ch) => T20.conditions[ch]) || [];
 		} else {
 			tempEffect.name ??= ef?.parent?.name ?? "Efeito";
 			tempEffect.img ??= ef?.parent?.img ?? "icons/svg/aura.svg";

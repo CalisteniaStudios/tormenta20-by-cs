@@ -90,6 +90,7 @@
     "ApplyToSelf": "Próprio Item",
     "SpecificItems": "Itens Específico",
     "AllowMultApply": "Múltiplas Aplicações",
+    "IgnoreEffectImunity": "Ignorar Imunidade",
 
     "Class": "Classe",
     "Classes": "Classes",

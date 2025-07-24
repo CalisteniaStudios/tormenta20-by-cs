@@ -21,13 +21,67 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		}
 	}
 
+	_onCreate(data, options, userId) {
+		super._onCreate(data, options, userId);
+		if (game.userId != userId) return;
+
+		if (this.isCondition && this.parent.documentName == "Actor") {
+			this._createChildEffects(data, options, userId);
+			/**
+			 * TODO: UPGRADE EFFECT
+			 * Ideally the one with shortest duration? (But we don't have the correct durations ^^')
+			 */
+		}
+	}
+
+	async _createChildEffects(data, options, userId) {
+		const childEffect = foundry.utils.getProperty(data, "flags.tormenta20.childEffect");
+		if (foundry.utils.isEmpty(childEffect)) return;
+		const effects = [];
+		for (const statusId of childEffect) {
+			effects.push({
+				...T20.conditions[statusId],
+				origin: this.uuid
+			});
+		}
+		if (foundry.utils.isEmpty(effects)) return;
+		await this.parent.createEmbeddedDocuments("ActiveEffect", effects);
+	}
+
+	/** @inheritdoc */
+	_onDelete(options, userId) {
+		super._onDelete(options, userId);
+		if (game.userId !== userId) return;
+		if (this.isCondition && this.parent.documentName == "Actor") {
+			this._deleteChildEffects();
+		}
+	}
+
+	_deleteChildEffects() {
+		const childEffect = foundry.utils.getProperty(this, "flags.tormenta20.childEffect");
+		if (foundry.utils.isEmpty(childEffect)) return;
+		const effects = this.parent.effects.filter((ef) => ef.origin == this.uuid).map((ef) => ef.id);
+		if (foundry.utils.isEmpty(effects)) return;
+		this.parent.deleteEmbeddedDocuments("ActiveEffect", effects);
+	}
+
 	/**
 	 * Is this active effect currently suppressed?
 	 * @type {boolean}
 	 */
 	get isSuppressed() {
-		if (super.isSuppressed) return true;
 		if (this.parent.documentName !== "Actor") return false;
+		let suppressed = super.isSuppressed ?? false;
+		if (!suppressed) suppressed = this.isSuppressedUnnequipped;
+		if (!suppressed) suppressed = this.isSuppressedInherited;
+		if (!suppressed) suppressed = this.isSuppressedDuplicated;
+		if (!suppressed) suppressed = this.isSuppressedUpgrade;
+		if (!suppressed) suppressed = this.isSuppressedImunity;
+		this._suppressed = suppressed;
+		return suppressed;
+	}
+
+	get isSuppressedUnnequipped() {
 		const [parentType, parentId, documentType, documentId, syntheticItem, syntheticItemId] =
 			this.origin?.split(".") ?? [];
 		let item;
@@ -43,6 +97,49 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		return false;
 	}
 
+	// If Parent is supressed, child will be supressed too
+	get isSuppressedInherited() {
+		if (this.origin) {
+			const id = this.origin.split(".").pop();
+			const origin = this.parent.effects.get(id);
+			if (origin) return origin._suppressed;
+		}
+		return false;
+	}
+
+	// If more than one of the same status are present, the oldest ones get supressed
+	get isSuppressedDuplicated() {
+		const statusId = this.statuses.first();
+		const duplicate = this.parent.effects.filter((ef) => ef.id != this.id && ef.statuses.has(statusId));
+		if (duplicate.length) {
+			const creation = duplicate.map((ef) => ef._stats.createdTime);
+			if (creation.find((i) => i > this._stats.createdTime)) return true;
+		}
+		return false;
+	}
+
+	// If upgraded version is present
+	get isSuppressedUpgrade() {
+		const upgrade = foundry.utils.getProperty(this, "flags.tormenta20.stack");
+		if (this.isCondition && upgrade) {
+			if (this.parent.statuses.has(upgrade)) return true;
+		}
+		return false;
+	}
+
+	// Actor is Imunine
+	get isSuppressedImunity() {
+		const statusImunities = foundry.utils.getProperty(this.parent, "system.tracos.ic.value");
+		if (this.isCondition && statusImunities && statusImunities.size) {
+			const statusId = this.statuses.first();
+			const category = this.getFlag("tormenta20", "category");
+			const ignore = this.getFlag("tormenta20", "ignoreImunity");
+			if (!ignore && statusId && statusImunities.has(statusId)) return true;
+			if (!ignore && category && statusImunities.has(category)) return true;
+		}
+		return false;
+	}
+
 	/** @override */
 	get active() {
 		return !this.disabled && !this.isSuppressed && !this.isUsage;
@@ -51,6 +148,10 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	/** @override */
 	get isUsage() {
 		return this.getFlag("tormenta20", "onuse");
+	}
+
+	get isCondition() {
+		return this.getFlag("tormenta20", "condition");
 	}
 
 	/**
