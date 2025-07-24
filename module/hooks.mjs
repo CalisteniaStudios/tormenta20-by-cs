@@ -149,6 +149,7 @@ export default function () {
 						const changes = {};
 						try {
 							const initial = new tormenta20.data.fields.SkillData();
+							const cls = CONFIG.Actor.dataModels[actor.type];
 							if (actor.system.pericias.ofi0) changes["system.pericias.-=ofi0"] = null;
 							if (actor.system.pericias._pc0) changes["system.pericias.-=_pc0"] = null;
 							if (
@@ -157,12 +158,12 @@ export default function () {
 								&& actor.system.pericias.guer?.pda
 							) {
 								for (const [key, value] of Object.entries(actor.system.pericias)) {
-									changes[`system.pericias.${key}`] = this._initialSkillValue(key, initial, value);
+									changes[`system.pericias.${key}`] = cls._initialSkillValue(key, initial, value);
 								}
 							}
 							for (const key of CONFIG.T20.oficios) {
 								if (!actor.system.pericias[key]) {
-									changes[`system.pericias.${key}`] = this._initialSkillValue(key, initial, CONFIG.T20.pericias[key]);
+									changes[`system.pericias.${key}`] = cls._initialSkillValue(key, initial, CONFIG.T20.pericias[key]);
 								}
 							}
 							await actor.update(changes);
