@@ -3,10 +3,14 @@
  * @extends {Token}
  */
 export default class TokenT20 extends foundry.canvas.placeables.Token {
-	/** @inheritdoc */
-	// toggleEffect(effect, options) {
-	// 	super.toggleEffect(effect, options);
-	// }
+	T20Ranges = [];
+
+	/** @override */
+	_applyRenderFlags(flags) {
+		super._applyRenderFlags(flags);
+		if (flags.refreshSize) this.drawRanges(true);
+		if (flags.refreshState) this.drawRanges();
+	}
 
 	/* -------------------------------------------- */
 
@@ -97,5 +101,52 @@ export default class TokenT20 extends foundry.canvas.placeables.Token {
 		// Set position
 		let posY = number === 0 ? this.h - h : 0;
 		bar.position.set(0, posY);
+	}
+
+	drawRanges(forceRedraw) {
+		const showRanges = ui.controls.controls.tokens.tools.range.active;
+		if (!showRanges || forceRedraw || !this.controlled) {
+			this.T20Ranges.forEach((r) => this.removeChild(r));
+			this.T20Ranges = [];
+		}
+		if (showRanges && !this.T20Ranges.length && this.controlled) {
+			const { units, size } = canvas.scene.grid;
+			const { height, width } = canvas.dimensions;
+			if (units != "m") return;
+			const ranges = [9, 30, 90];
+			for (const range of ranges) {
+				if (range * size > width || range * size > height) continue;
+				this._drawRange(range);
+			}
+		}
+	}
+
+	/**
+	 * Draw range circles, range starts at token border not center.
+	 */
+	_drawRange(range) {
+		const label = {
+			9: T20.distanceUnits.short,
+			30: T20.distanceUnits.medium,
+			90: T20.distanceUnits.long
+		}[range];
+		const { distance, size } = canvas.dimensions;
+		const squares = range / distance;
+		if (squares < 1) return;
+		// const bonusSize = (this.w > size ? this.w / 2 : 0);
+		const bonusSize = Math.max(this.w, size) / 2;
+		const circle = new PIXI.Graphics();
+		circle
+			.lineStyle(2, 0x000000, 1.0)
+			.drawCircle(this.bounds.width / 2, this.bounds.height / 2, size * (range / distance) + bonusSize);
+		this.T20Ranges.push(circle);
+		this.addChild(circle);
+		// Text
+		const { PreciseText } = foundry.canvas.containers;
+		const text = new PreciseText(`${range}m\n${label}`, CONFIG.canvasTextStyle.clone());
+		text.anchor.set(0.5, 0.5);
+		text.position.set((range / distance) * size + bonusSize * 2, this.bounds.width / 2);
+		this.T20Ranges.push(text);
+		this.addChild(text);
 	}
 }

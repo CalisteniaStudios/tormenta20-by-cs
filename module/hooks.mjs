@@ -308,6 +308,19 @@ export default function () {
 
 	// });
 
+	Hooks.on("getSceneControlButtons", (controls) => {
+		console.log(controls);
+		controls.tokens.tools.range = {
+			active: false,
+			icon: "fa-regular fa-circle-dot",
+			name: "range",
+			order: 5,
+			title: "Alcances",
+			visible: true,
+			toggle: true
+		};
+	});
+
 	Hooks.on("closeCompendiumT20", (compendium, html) => {
 		compendium.collection.apps = [new Compendium(compendium.collection)];
 	});
