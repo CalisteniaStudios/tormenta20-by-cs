@@ -291,7 +291,7 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 		for (let i of items) {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
-			i.espacosTotal = i.system.qtd * i.system.espacos;
+			i.espacosTotal = Math.round(i.system.qtd * i.system.espacos * 100) / 100;
 			// Equipament Slots.
 			this._itemSlotIcon(i);
 			inventario[i.type].items.push(i);

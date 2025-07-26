@@ -66,7 +66,7 @@ export default class ActorSheetT20Simple extends ActorSheetT20Character {
 		for (let i of items) {
 			i.system.qtd = i.system.qtd || 0;
 			i.system.espacos = i.system.espacos || 0;
-			i.espacosTotal = i.system.qtd * i.system.espacos;
+			i.espacosTotal = Math.round(i.system.qtd * i.system.espacos * 100) / 100;
 			inventario[i.type].items.push(i);
 		}
 
