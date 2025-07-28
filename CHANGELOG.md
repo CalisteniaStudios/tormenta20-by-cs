@@ -14,6 +14,10 @@
 - Conserto: Importador de Bloco de Estatísticas não apaga atributos de itens que já existem no sistema.
 - Conserto: Importador de Bloco de Estatísticas não cria descrições aninhadas conforme o botão Validar é clicado.
 - Conserto: Deslocamento e Defesa de Ameaças com armaduras equipadas.
+- Corrigido: Aplicação de dano.
+  - Dano negativo (Penalidades, como o efeito de Perdição) estava sendo somado ao invés de subtraído.
+  - Dano extra por dado (Ex. Sangue Frio do Trog) somava a quantidade de dados do primeiro termo de da rolagem.
+  - Dano extra por dado também somava termos numéricos.
 - Alterado: Criação de Condições filhas.
 - Adicionado: Campo `ignorar imunidade` numa Condição.
 - Adicionado: Verificações para suprimir Condições:

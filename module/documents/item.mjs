@@ -998,6 +998,7 @@ export default class ItemT20 extends Item {
 				? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}`
 				: "";
 		}
+		// return this.labels;
 	}
 
 	/* -------------------------------------------- */
@@ -1096,6 +1097,7 @@ export default class ItemT20 extends Item {
 				duracao: "T20.Duration",
 				save: "T20.Resistance"
 			};
+			console.log(labels);
 			const r = Object.entries(labels).map(function (t) {
 				if (foundry.utils.hasProperty(headerTags, t[0]) && t[1]) {
 					let tag = game.i18n.localize(headerTags[t[0]]);
