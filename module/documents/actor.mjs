@@ -549,11 +549,11 @@ export default class ActorT20 extends Actor {
 				const flavor = options?.flavor ?? roll.terms[0]?.options.flavor ?? type;
 				damage[flavor] ??= {
 					value: 0,
-					pordado: 0,
+					porDado: 0,
 					rd: Number(rds[flavor]?.value) || 0
 				};
 				damage[flavor].value += lastOperator == "+" ? total : total * -1;
-				if (faces) damage[flavor].pordado += number;
+				if (faces) damage[flavor].porDado += number;
 			} else lastOperator = operator;
 		}
 
@@ -581,7 +581,6 @@ export default class ActorT20 extends Actor {
 		if (rds.dano?.value) final.damage -= rds.dano.value;
 		for (let [type, dmg] of Object.entries(damage)) {
 			let rd = 0;
-			console.log(type, dmg);
 			// Apply Damage Reduction for each type of damage
 			if (type !== "dano") {
 				if (rdIgnorada) ignoraRD(type);
@@ -595,12 +594,11 @@ export default class ActorT20 extends Actor {
 			if (multiplier > 0) {
 				if (rds[type]?.imunidade) dmg.value = 0;
 				else if (rds[type]?.vulnerabilidade) dmg.value = Math.floor(dmg.value * 1.5);
-				else if (rds[type]?.danoPorDado) dmg.value += dmg.pordado;
+				else if (rds[type]?.danoPorDado) dmg.value += dmg.porDado;
 				final.damage += Math.max(dmg.value * multiplier - rd, 0);
 			} else final.heal += dmg.value;
 		}
 		final.damage = Math.max(final.damage, 0);
-		console.log(roll, damage, final);
 		// Deduct value from temp attr first
 		const hpt = Math.min(pv.temp, final.damage + final.loss);
 		const mpt = Math.min(pm.temp, final.mana);
