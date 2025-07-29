@@ -998,7 +998,6 @@ export default class ItemT20 extends Item {
 				? `${system.armadura.valor} ${game.i18n.localize("T20.Defesa")}`
 				: "";
 		}
-		// return this.labels;
 	}
 
 	/* -------------------------------------------- */
@@ -1026,7 +1025,7 @@ export default class ItemT20 extends Item {
 			item: this,
 			custo: manaCost,
 			system: await this.getChatData(),
-			labels: this._prepareLabels(),
+			labels: this.labels,
 			truque: options.truque,
 			onUseEffects: options.onUseEffects,
 			effects: options.effects,
@@ -1076,8 +1075,6 @@ export default class ItemT20 extends Item {
 
 	async getChatData(htmlOptions = { async: true }) {
 		const system = foundry.utils.deepClone(this.system);
-		const labels = this._prepareLabels();
-
 		// Rich text description
 		system.description = system.description || {
 			value: "",
@@ -1097,16 +1094,15 @@ export default class ItemT20 extends Item {
 				duracao: "T20.Duration",
 				save: "T20.Resistance"
 			};
-			console.log(labels);
-			const r = Object.entries(labels).map(function (t) {
-				if (foundry.utils.hasProperty(headerTags, t[0]) && t[1]) {
-					let tag = game.i18n.localize(headerTags[t[0]]);
-
-					return `<b>${tag}:</b> ${t[1]};`;
-				}
-			});
-			system.spellHeader = r.filter((t) => t != null).join(" ");
-			// Exec - Alcn - Alvo - Area - Dura - Resis
+			system.spellHeader = Object.entries(this.labels)
+				.reduce((acc, [key, value]) => {
+					if (value && foundry.utils.hasProperty(headerTags, key)) {
+						const tag = game.i18n.localize(headerTags[key]);
+						acc.push(`<b>${tag}:</b> ${value};`);
+					}
+					return acc;
+				}, [])
+				.join(" ");
 		}
 		return system;
 	}
