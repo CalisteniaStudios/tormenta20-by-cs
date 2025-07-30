@@ -310,7 +310,6 @@ export default function () {
 	// });
 
 	Hooks.on("getSceneControlButtons", (controls) => {
-		console.log(controls);
 		controls.tokens.tools.range = {
 			active: false,
 			icon: "fa-regular fa-circle-dot",
@@ -318,7 +317,10 @@ export default function () {
 			order: 5,
 			title: "Alcances",
 			visible: true,
-			toggle: true
+			toggle: true,
+			onChange: () => {
+				canvas.tokens.placeables.filter((t) => t.controlled).forEach((t) => t.refresh());
+			}
 		};
 	});
 
