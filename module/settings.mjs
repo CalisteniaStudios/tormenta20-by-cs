@@ -281,4 +281,11 @@ export const SystemSettings = function () {
 		default: true,
 		type: Boolean
 	});
+
+	game.settings.register("tormenta20", "drawRanges", {
+		scope: "user",
+		config: false,
+		default: false,
+		type: Boolean
+	});
 };

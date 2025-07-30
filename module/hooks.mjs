@@ -311,15 +311,16 @@ export default function () {
 
 	Hooks.on("getSceneControlButtons", (controls) => {
 		controls.tokens.tools.range = {
-			active: false,
+			active: game.settings.get("tormenta20", "drawRanges"),
 			icon: "fa-regular fa-circle-dot",
 			name: "range",
 			order: 5,
 			title: "Alcances",
 			visible: true,
 			toggle: true,
-			onChange: () => {
-				canvas.tokens.placeables.filter((t) => t.controlled).forEach((t) => t.refresh());
+			onChange: (_event, active) => {
+				canvas.tokens.controlled.forEach((t) => t.renderFlags.set({ refreshState: true }));
+				game.settings.set("tormenta20", "drawRanges", active);
 			}
 		};
 	});

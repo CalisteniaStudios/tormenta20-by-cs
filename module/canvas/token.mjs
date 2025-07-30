@@ -9,7 +9,7 @@ export default class TokenT20 extends foundry.canvas.placeables.Token {
 	_applyRenderFlags(flags) {
 		super._applyRenderFlags(flags);
 		if (flags.refreshSize) this.drawRanges(true);
-		if (flags.refreshState) this.drawRanges();
+		else if (flags.refreshState) this.drawRanges();
 	}
 
 	/* -------------------------------------------- */
