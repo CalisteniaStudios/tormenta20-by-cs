@@ -97,7 +97,9 @@ export default class AbilityUseDialog extends Dialog {
 				break;
 		}
 
-		if (!itemData.rolls.length && !aprimoramentos.length) return applyOnUseEffects(item, {});
+		if (!["atributo", "pericia"].includes(item.type) && !itemData.rolls?.length && !aprimoramentos.length) {
+			return applyOnUseEffects(item, {});
+		}
 
 		// TODO Check if Actor have sufficient MP
 		// TODO Include consume os Ammunition, Itens, Money?
