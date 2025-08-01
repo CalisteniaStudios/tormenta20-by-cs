@@ -1,5 +1,9 @@
 # Lista de Mudanças
 
+# Versão 1.5.011
+- Adicionado: o botão de Círculo de Alcance permanece ativado ao trocar de cenas ou recarregar o Foundry.
+- Conserto: rolagens de Atributos e Perícias funcionam corretamente.
+
 # Versão 1.5.010
 - Adicionado: Ficha de Perigos Complexos
 - Alterado: Melhorias no Importador de Bloco de Estatísticas
