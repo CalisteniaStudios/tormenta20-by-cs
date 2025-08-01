@@ -316,7 +316,7 @@ export default class ItemT20 extends Item {
 		const actorData = this.parent.system;
 		const isNPC = this.parent.type === "npc";
 		let updates = {};
-		if (isNPC && !options.statblockParsing) {
+		if (!isNPC || !options.statblockParsing) {
 			switch (data.type) {
 				case "classe":
 					/* TODO */
