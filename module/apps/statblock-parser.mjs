@@ -316,7 +316,7 @@ export default class StatblockParser extends FormApplication {
 
 		// Extrai atributos
 		try {
-			let abilities = statblock.match(/For ([\-|\–]?[\d|\—]+), *[^\n]*/i);
+			let abilities = statblock.match(/^For ([-|–]?[\d|—]+), *[^\n]*/im);
 			abilities = abilities[0]
 				.toLowerCase()
 				.match(/(\w+) ([\-|\–]?[\d|\—]+)/g)
@@ -368,7 +368,7 @@ export default class StatblockParser extends FormApplication {
 
 		// Extrai Resistências
 		try {
-			let res = statblock.match(/Von\s[+-]\d*,\s*(.*)\s*Pontos de Vida/i)[1];
+			let res = statblock.match(/Von\s[+-]\d*,\s*(.*)\s*Pontos de Vida/i)?.[1] ?? "";
 			schema.detalhes.resistencias = res;
 			log.push({
 				success: true,
@@ -804,13 +804,12 @@ export default class StatblockParser extends FormApplication {
 		let msg = "";
 		try {
 			// Filtra as Linhas de Corpo a Corpo|À Distância;
-			const armaData = statblock.match(/((Corpo a Corpo|À Distância) [^\.]*)/gi);
+			const armaData = statblock.match(/^((Corpo a Corpo|À Distância) [^.]*)/gim);
 			if (!armaData?.length) return;
 			const parsedSkills = new Set();
 			const itemNames = [];
+			const regexNumeral = /\b(dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez)\b\s+(\w+)/i;
 			for (let AD of armaData) {
-				const regexNumeral = /\b(dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez)\b\s+(\w+)/i;
-
 				// Limpa e separa as armas;
 				AD = AD.replace(/Corpo a Corpo|À Distância/gi, "")
 					.replace(/\n/g, " ")
@@ -831,7 +830,7 @@ export default class StatblockParser extends FormApplication {
 						});
 					}
 					let item = this.searchItem(arma.name, "arma", itemsList);
-					if (!item) return;
+					if (!item || item.exists) return;
 					// Prepara Rolagem de Ataque
 					const { rolls } = item.system;
 					const attack = rolls.find((r) => r.type === "ataque");

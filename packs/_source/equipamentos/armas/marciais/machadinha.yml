@@ -39,6 +39,8 @@ system:
           - ''
         - - '0'
           - ''
+      adaptavel: ''
+      versatil: ''
     - name: Dano
       key: dano1
       type: dano
@@ -47,6 +49,7 @@ system:
           - corte
         - - '@for'
           - ''
+      adaptavel: ''
       versatil: ''
   criticoM: 20
   criticoX: 3
@@ -69,6 +72,7 @@ system:
     municao: false
     versatil: false
     des: false
+    hib: false
   encantos:
     arremesso: false
     lancinante: false
@@ -100,17 +104,17 @@ system:
   melhorias: {}
   ataques: 0
   proficiencia: marcial
-  proposito: arremesso
+  proposito: corpo-a-corpo-arremesso
   empunhadura: leve
   size: normal
 ownership:
   default: 0
 _stats:
   systemId: tormenta20
-  systemVersion: 1.4.116
-  coreVersion: '13.342'
+  systemVersion: 1.5.010
+  coreVersion: '13.346'
   createdTime: 1664312772397
-  modifiedTime: 1684809353177
+  modifiedTime: 1754080917237
   lastModifiedBy: t20builder000000
   duplicateSource: null
   exportSource: null

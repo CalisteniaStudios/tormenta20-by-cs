@@ -1,5 +1,13 @@
 # Lista de Mudanças
 
+# Versão 1.5.012
+- Alterado: Melhorias no Importador de Bloco de Estatísticas:
+  - Não falha ao ler atributos em fichas com descrições de invocações que tenham atributos.
+  - Não falha ao ler resistências em fichas que não têm resistências.
+  - Não lê descrições de habilidades que contenham "corpo-a-corpo" e "à distância" como armas.
+- Conserto: Na Ficha de Ameaças, armas corpo-a-corpo arremessáveis agora também são consideradas arma à distância para a listagem de ataques.
+- Conserto: Machadinha é classificada como um item corpo-a-corpo arremessável.
+
 # Versão 1.5.011
 - Adicionado: o botão de Círculo de Alcance permanece ativado ao trocar de cenas ou recarregar o Foundry.
 - Conserto: rolagens de Atributos e Perícias funcionam corretamente.

@@ -210,7 +210,7 @@ export default class ActorSheetT20NPC extends ActorSheetT20 {
 			i.espacosTotal = Math.round(i.system.qtd * i.system.espacos * 100) / 100;
 			if (i.type === "arma") {
 				i.melee = ["corpo-a-corpo", "corpo-a-corpo-arremesso"].includes(i.system.proposito);
-				i.ranged = ["arremesso", "disparo"].includes(i.system.proposito);
+				i.ranged = ["arremesso", "corpo-a-corpo-arremesso", "disparo"].includes(i.system.proposito);
 			}
 			inventario[i.type].items.push(i);
 		}
