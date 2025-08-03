@@ -8,6 +8,7 @@
 - Conserto: Na Ficha de Ameaças, armas corpo-a-corpo arremessáveis agora também são consideradas arma à distância para a listagem de ataques.
 - Conserto: Machadinha é classificada como um item corpo-a-corpo arremessável.
 - Conserto: Automação de atributos de raças na ficha de PJ.
+- Conserto: Modificadores Globais, de Magia e de Arma no Criador de Efeito.
 
 # Versão 1.5.011
 - Adicionado: o botão de Círculo de Alcance permanece ativado ao trocar de cenas ou recarregar o Foundry.

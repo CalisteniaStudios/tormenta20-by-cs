@@ -253,85 +253,85 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 
 	#getGlobalModPresets() {
 		return [
-			{ name: "system.modificadores.atributos.for", label: "Testes de Força" },
+			{ key: "system.modificadores.atributos.for", label: "Testes de Força" },
 			{
-				name: "system.modificadores.atributos.des",
+				key: "system.modificadores.atributos.des",
 				label: "Testes de Destreza"
 			},
 			{
-				name: "system.modificadores.atributos.con",
+				key: "system.modificadores.atributos.con",
 				label: "Testes de Constituição"
 			},
 			{
-				name: "system.modificadores.atributos.int",
+				key: "system.modificadores.atributos.int",
 				label: "Testes de Inteligência"
 			},
 			{
-				name: "system.modificadores.atributos.sab",
+				key: "system.modificadores.atributos.sab",
 				label: "Testes de Sabedoria"
 			},
 			{
-				name: "system.modificadores.atributos.car",
+				key: "system.modificadores.atributos.car",
 				label: "Testes de Carisma"
 			},
 			{
-				name: "system.modificadores.atributos.geral",
+				key: "system.modificadores.atributos.geral",
 				label: "Testes de Atributos"
 			},
 			{
-				name: "system.modificadores.atributos.fisicos",
+				key: "system.modificadores.atributos.fisicos",
 				label: "Testes de Atributos Fisicos"
 			},
 			{
-				name: "system.modificadores.atributos.mentais",
+				key: "system.modificadores.atributos.mentais",
 				label: "Testes de Atributos Mentais"
 			},
-			{ name: "system.modificadores.custoPM", label: "Aumento de custo de PM" },
-			{ name: "system.modificadores.dano.geral", label: "Dano Geral" },
-			{ name: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo" },
-			{ name: "system.modificadores.dano.ad", label: "Dano A Distância" },
-			{ name: "system.modificadores.dano.mag", label: "Dano de Magias" },
-			{ name: "system.modificadores.cura.geral", label: "Cura Geral" },
-			{ name: "system.modificadores.cura.alq", label: "Cura Alquímica" },
-			{ name: "system.modificadores.cura.mag", label: "Cura Mágica" },
+			{ key: "system.modificadores.custoPM", label: "Aumento de custo de PM" },
+			{ key: "system.modificadores.dano.geral", label: "Dano Geral" },
+			{ key: "system.modificadores.dano.cac", label: "Dano Corpo a Corpo" },
+			{ key: "system.modificadores.dano.ad", label: "Dano A Distância" },
+			{ key: "system.modificadores.dano.mag", label: "Dano de Magias" },
+			{ key: "system.modificadores.cura.geral", label: "Cura Geral" },
+			{ key: "system.modificadores.cura.alq", label: "Cura Alquímica" },
+			{ key: "system.modificadores.cura.mag", label: "Cura Mágica" },
 			{
-				name: "system.modificadores.pericias.geral",
+				key: "system.modificadores.pericias.geral",
 				label: "Testes de Perícias"
 			},
 			{
-				name: "system.modificadores.pericias.ataque",
+				key: "system.modificadores.pericias.ataque",
 				label: "Testes de Perícias de Ataque"
 			},
 			{
-				name: "system.modificadores.pericias.semataque",
+				key: "system.modificadores.pericias.semataque",
 				label: "Testes de Perícias, exceto de Ataque"
 			},
 			{
-				name: "system.modificadores.pericias.resistencia",
+				key: "system.modificadores.pericias.resistencia",
 				label: "Testes de Perícias de Resistências"
 			},
 			{
-				name: "system.modificadores.pericias.atr.for",
+				key: "system.modificadores.pericias.atr.for",
 				label: "Testes de Perícias de Força"
 			},
 			{
-				name: "system.modificadores.pericias.atr.des",
+				key: "system.modificadores.pericias.atr.des",
 				label: "Testes de Perícias de Destreza"
 			},
 			{
-				name: "system.modificadores.pericias.atr.con",
+				key: "system.modificadores.pericias.atr.con",
 				label: "Testes de Perícias de Constituição"
 			},
 			{
-				name: "system.modificadores.pericias.atr.int",
+				key: "system.modificadores.pericias.atr.int",
 				label: "Testes de Perícias de Inteligência"
 			},
 			{
-				name: "system.modificadores.pericias.atr.sab",
+				key: "system.modificadores.pericias.atr.sab",
 				label: "Testes de Perícias de Sabedoria"
 			},
 			{
-				name: "system.modificadores.pericias.atr.car",
+				key: "system.modificadores.pericias.atr.car",
 				label: "Testes de Perícias de Carisma"
 			}
 		];
@@ -386,31 +386,31 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		if (!this.targetIsSpell) return [];
 		return [
 			{
-				name: "alcance",
+				key: "alcance",
 				label: "Alcance"
 			},
 			{
-				name: "area",
+				key: "area",
 				label: "Área"
 			},
 			{
-				name: "cd",
+				key: "cd",
 				label: "CD"
 			},
 			{
-				name: "dano",
+				key: "dano",
 				label: "Dano"
 			},
 			{
-				name: "duracao",
+				key: "duracao",
 				label: "Duração"
 			},
 			{
-				name: "execucao",
+				key: "execucao",
 				label: "Execução"
 			},
 			{
-				name: "passo",
+				key: "passo",
 				label: "Passo de Dano"
 			}
 		];
@@ -420,15 +420,15 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		if (!this.targetIsWeapon) return [];
 		return [
 			{
-				name: "criticoM",
+				key: "criticoM",
 				label: "Margem de Crítico"
 			},
 			{
-				name: "criticoX",
+				key: "criticoX",
 				label: "Multiplicador de Crítico"
 			},
 			{
-				name: "passo",
+				key: "passo",
 				label: "Passo de Dano"
 			}
 		];
