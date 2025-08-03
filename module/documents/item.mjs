@@ -670,7 +670,10 @@ export default class ItemT20 extends Item {
 						];
 					else if (!["", "0", undefined].includes(extra.atq)) r.parts.push([extra.atq, ""]);
 				} else if (r.type === "dano") {
-					if (!["", "0", undefined].includes(configuration.bonusdano)) r.parts.push([configuration.bonusdano, ""]);
+					const danoBase = r.parts[0][1] ?? "";
+					if (!["", "0", undefined].includes(configuration.bonusdano)) {
+						r.parts.push([configuration.bonusdano, danoBase]);
+					}
 					if (!["", "0", undefined].includes(extra.dadoDano)) r.parts[0][0] = extra.dadoDano;
 					if (!["", "0", undefined].includes(extra.atributoDano)) r.parts[1][0] = `@${extra.atributoDano}`;
 					if (extra?.dano?.match(/^=/)) r.parts = [[extra.dano.replace("=", ""), ""]];
