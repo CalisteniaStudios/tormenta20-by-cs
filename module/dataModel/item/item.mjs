@@ -515,13 +515,12 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 	prepareFinalAttributes() {
 		const item = this.parent;
 		const actor = item.parent ?? {};
-		if (item.isOwned) {
-			if ((this.resistencia?.atributo || actor.type === "npc") && this.resistencia?.txt) {
-				const atr = foundry.utils.getProperty(actor.system, `atributos.${this.resistencia.atributo}.value`);
-				const nvl = Math.floor(foundry.utils.getProperty(actor.system, "attributes.nivel.value") / 2);
-				if (actor.type === "npc") this.resistencia.cd = actor.system.attributes.cd;
-				else this.resistencia.cd = 10 + nvl + atr + this.resistencia.bonus;
-			}
+		if (item.isOwned) return;
+		if ((this.resistencia?.atributo || actor.type === "npc") && this.resistencia?.txt) {
+			const atr = foundry.utils.getProperty(actor.system, `atributos.${this.resistencia.atributo}.value`);
+			const nvl = Math.floor(foundry.utils.getProperty(actor.system, "attributes.nivel.value") / 2);
+			if (actor.type === "npc") this.resistencia.cd = actor.system.attributes.cd;
+			else this.resistencia.cd = 10 + nvl + atr + this.resistencia.bonus;
 		}
 	}
 }

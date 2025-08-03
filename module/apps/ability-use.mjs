@@ -687,6 +687,7 @@ function applyOnUseEffects(rolledItem, configuration = {}) {
 	// Prepare data from the item to update labels
 	if (item.type != "pericia" && item.type != "atributo") {
 		item.prepareDerivedData();
+		item.prepareFinalAttributes();
 		// Apply the modifications to the rolls data
 		id.rolls = applyRollModifiers(item, rollMods);
 	} else if (item.type == "pericia") {
