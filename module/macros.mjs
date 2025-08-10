@@ -88,7 +88,7 @@ export async function createT20Macro(data, slot) {
 			command = macroScripts.ITEM.replace("{name}", item.name);
 		}
 
-		let macro = game.macros.find((m) => m.name === item.name && m.command === command);
+		let macro = game.macros.find((m) => m.name === item.name && m.command === command && m.isAuthor);
 		if (!macro) {
 			macro = await Macro.create({
 				name: item.name,
