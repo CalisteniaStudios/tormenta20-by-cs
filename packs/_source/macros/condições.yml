@@ -173,7 +173,7 @@ command: |-
   </div>
   <script>
       function toChat(condicao = 'Abalado'){
-          game.tormenta20.macros.msgFromJournal(condicao, "tormenta20.condicoes");
+          game.tormenta20.macros.msgFromJournal(condicao, "tormenta20.basico", "Condições");
       }
   </script>
       `,
