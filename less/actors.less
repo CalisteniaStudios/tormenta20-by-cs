@@ -49,6 +49,7 @@
     .summary {
       height: 30px;
       border-bottom: @borderGroove;
+
       // font-size: 18px;
       select {
         position: relative;
@@ -176,16 +177,19 @@
         white-space: nowrap;
         font-size: var(--font-size-14);
       }
+
       // Defense panel
     }
   }
 
   .inventory-equipment ul.attributes {
     flex: 0 0 100px;
+
     h1 {
       border: unset;
       margin: unset;
     }
+
     footer select {
       // font-size: 1em;
       height: auto;
@@ -216,17 +220,21 @@
     h4.ability-name {
       text-transform: uppercase;
     }
+
     .atributo-value {
       font-size: var(--font-size-18);
     }
+
     .attribute-footer {
       font-size: var(--font-size-14);
     }
+
     h1 {
       // font-size: 1.5rem;
       border: none;
       margin: unset;
     }
+
     .ability {
       // height: 70px;
       text-align: center;
@@ -285,6 +293,7 @@
     color: @colorBeige;
     // font-size: 12px;
   }
+
   .proficient .proficiency-toggle {
     color: @colorOlive;
   }
@@ -324,6 +333,7 @@
       .counter-value {
         flex: none;
         text-align: right;
+
         > * {
           display: inline;
         }
@@ -337,6 +347,7 @@
         padding: 0;
         text-align: center;
       }
+
       input[type="checkbox"] {
         position: relative;
         width: 16px;
@@ -344,6 +355,7 @@
         margin: 0;
         top: 4px;
       }
+
       span.sep {
         // font-size: 12px;
       }
@@ -411,22 +423,27 @@
     div {
       display: flex;
     }
+
     .trait-list {
       list-style: none;
       margin: 0;
       padding: 0 0 0 0.5em;
+
       .tag {
         display: inline-flex;
         background-color: rgba(0, 0, 0, 0.05);
       }
+
       .speedtag {
         list-style: none;
         display: inline-flex;
         text-transform: lowercase;
+
         // background-color: rgba(0, 0, 0, .05);
         &:last-child::after {
           content: "";
         }
+
         &:after {
           content: ",";
         }
@@ -469,6 +486,7 @@
       &.flexrow {
         gap: 0.5rem;
       }
+
       .item-controls {
         flex: 0;
         align-content: center;
@@ -493,6 +511,7 @@
         align-items: center;
         font-size: 18px;
       }
+
       .currency-item {
         display: flex;
         align-items: center;
@@ -501,9 +520,11 @@
         padding: 0 0.25rem;
         line-height: 30px;
       }
+
       label {
         flex: unset;
       }
+
       input {
         margin-left: 0.25rem;
         border: 0;
@@ -532,6 +553,7 @@
         flex: 0 0 50px;
       }
     }
+
     .item {
       * {
         align-items: center;
@@ -550,6 +572,7 @@
           .item-tipo {
             color: var(--color-text-dark-3);
             font-size: var(--font-size-12);
+
             &:hover {
               cursor: default;
             }
@@ -560,6 +583,7 @@
       &:first-child {
         font-weight: bold;
       }
+
       &:not(.item-header) {
         &:not(:hover) {
           .item-controls {
@@ -577,26 +601,32 @@
       }
 
       align-items: center;
+
       .item-name {
         cursor: pointer;
+
         .item-image {
           flex: 0 0 @itemImageSize;
           height: @itemImageSize;
           background-size: cover;
           margin-right: 3px;
         }
+
         input.stored {
           opacity: 0.75;
         }
+
         &.rollable {
           label:hover {
             color: red;
             text-shadow: 0 0 10px red;
             cursor: pointer;
           }
+
           &:hover .item-image {
             background-image: url("../../icons/svg/d20-grey.svg") !important;
           }
+
           .item-image:hover {
             background-image: url("../../icons/svg/d20-black.svg") !important;
           }
@@ -618,6 +648,7 @@
       .item-def {
         flex: 0 0 70px;
       }
+
       // Charged
       .item-recharge {
         flex: 0 0 80px;
@@ -630,6 +661,7 @@
     // Inventory Header
     .item-header {
       line-height: 24px;
+
       .item-controls a.item-create {
         flex: 0 0 100%;
       }
@@ -644,12 +676,15 @@
       word-break: break-word;
       white-space: nowrap;
       overflow: hidden;
+
       &:last-child {
         border-right: none;
       }
+
       &.item-action {
         flex: 0 0 100px;
       }
+
       &.attunement {
         flex: 0 0 24px;
       }
@@ -697,6 +732,7 @@
       .item-toggle i {
         opacity: 0.5;
       }
+
       .item-toggle.active i {
         opacity: 1;
       }
@@ -731,48 +767,58 @@
       &.flexrow {
         gap: 5px;
       }
+
       &:not(.item-header, .create-skill):nth-child(odd) {
         background: #c9c7b8;
       }
 
       align-items: center;
       height: auto;
+
       .item-image {
         flex: 0 0 10px;
         margin: 0px 3px;
         font-size: 10px;
       }
+
       .item-name {
         flex: 1;
       }
+
       .item-total,
       .item-outros {
         text-align: center;
         flex: 0 0 @itemImageSize;
       }
+
       .item-abl {
         flex: 0 0 30px;
         text-transform: uppercase;
         font-size: 12px;
         text-align: center;
+
         span {
           color: var(--color-text-dark-3);
         }
+
         select {
           border: none;
           height: 15px;
           text-transform: inherit;
         }
       }
+
       .item-skill-create {
         flex: 0 0 60px;
       }
+
       input {
         border: @borderGroove;
         max-height: 17px;
       }
     }
   }
+
   // Especific rules
   .inventory-weapons .item-list {
     .item-qty,
@@ -814,9 +860,11 @@
       display: block;
       position: absolute;
       border: 4px solid transparent;
+
       &.encumbrance-30 {
         left: 30%;
       }
+
       &.encumbrance-50 {
         left: 50%;
       }
@@ -846,9 +894,11 @@
       .encumbrance-bar {
         background-color: rgb(108, 87, 25);
       }
+
       .arrow-up {
         border-bottom: 4px solid #000;
       }
+
       .arrow-down {
         border-top: 4px solid #000;
       }
@@ -862,14 +912,17 @@
   .spellcasting-ability {
     flex: 0 0 240px;
     margin: 0;
+
     label,
     span {
       flex: none;
     }
+
     input {
       flex: 0 0 28px;
       text-align: center;
     }
+
     select {
       margin: 0 5px;
       flex: 0 0 120px;
@@ -890,6 +943,7 @@
       display: inline;
       max-width: 20px;
     }
+
     .sep {
       // font-size: 13px;
       font-weight: normal;
@@ -914,6 +968,7 @@
 
   .spell-component {
     line-height: 14px;
+
     &.tag {
       display: inline-block;
       text-align: center;
@@ -939,6 +994,7 @@
   .features i.original-class {
     color: #4b4a44;
   }
+
   .features .item-detail select {
     max-width: 90%;
   }
@@ -986,6 +1042,7 @@
         border-block-start: 1px solid var(--color-border-light-2);
       }
     }
+
     span.fa-stack {
       margin-right: 8px;
 
@@ -995,9 +1052,11 @@
         }
       }
     }
+
     .context-group {
       border-bottom: none;
     }
+
     .context-item.flexrow {
       img {
         flex: 0;
@@ -1011,9 +1070,11 @@
   .window-content {
     overflow-y: hidden;
   }
+
   form {
     height: 100%;
   }
+
   .form-body {
     height: calc(100% - 40px);
     padding-right: 8px;
