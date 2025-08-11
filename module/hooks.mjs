@@ -195,6 +195,20 @@ export default function () {
 				consertaAtores(game.actors.filter((a) => !!a.system.pericias));
 				ui.notifications.info("Migração concluída", { console: false, permanent: true });
 			}
+			if (systemMigrationVersion && systemMigrationVersion < "1.5.012") {
+				// Fix Skills with Armor Penalty
+				const fixed = new CONFIG.Actor.dataModels.character();
+
+				const updateData = {};
+				Object.entries(fixed.pericias).reduce((acc, [key, value]) => {
+					acc[`system.pericias.${key}.pda`] = value.pda;
+					acc[`system.pericias.${key}.st`] = value.st;
+					return acc;
+				}, updateData);
+
+				const characters = game.actors.filter((i) => i.type == "character");
+				for (let character of characters) await character.update(updateData);
+			}
 			game.actors
 				.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.5.000")
 				.forEach((actor) => {
