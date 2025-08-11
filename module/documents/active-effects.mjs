@@ -39,8 +39,9 @@ export default class ActiveEffectT20 extends ActiveEffect {
 		if (foundry.utils.isEmpty(childEffect)) return;
 		const effects = [];
 		for (const statusId of childEffect) {
+			const effect = await ActiveEffect.fromStatusEffect(statusId);
 			effects.push({
-				...T20.conditions[statusId],
+				...effect.toObject(),
 				origin: this.uuid
 			});
 		}
@@ -262,7 +263,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	 * @param {ActorT20|ItemT20} owner  The owning document which manages this effect
 	 * @returns {Promise|null}          Promise that resolves when the changes are complete.
 	 */
-	static onManageActiveEffect(event, owner) {
+	static async onManageActiveEffect(event, owner) {
 		event.preventDefault();
 		const a = event.currentTarget;
 		const li = a.closest("li");
@@ -289,10 +290,10 @@ export default class ActiveEffectT20 extends ActiveEffect {
 				return new ActiveEffectWizard(owner, effectData).render({ force: true });
 			}
 			case "create-status": {
-				const statusEffect = CONFIG.T20.conditions[a.dataset.statusId];
+				const statusEffect = await ActiveEffect.fromStatusEffect(a.dataset.statusId);
 				if (!statusEffect) return false;
 				statusEffect.transfer = false;
-				return owner.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+				return owner.createEmbeddedDocuments("ActiveEffect", [statusEffect.toObject()]);
 			}
 			case "edit":
 				return effect.sheet.render(true);

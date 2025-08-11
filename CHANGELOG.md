@@ -9,6 +9,13 @@
 - Conserto: Machadinha é classificada como um item corpo-a-corpo arremessável.
 - Conserto: Automação de atributos de raças na ficha de PJ.
 - Conserto: Modificadores Globais, de Magia e de Arma no Criador de Efeito.
+- Alterado: Exibição de perícias Somente Treinadas `*` e Penalidade de Armadura `+`.
+- Alterado: Ícones de Descanso e Configuração de Nível sempre visíveis.
+- Corrigido: Macro Condições.
+- Corrigido: Perícias somando Penalidade de Armadura.
+- Corrigido: Erros ao aplicar Condições.
+  - Condições sumindo do Token Hud.
+  - Condições não aplicando ao clicar na hud.
 
 # Versão 1.5.011
 - Adicionado: o botão de Círculo de Alcance permanece ativado ao trocar de cenas ou recarregar o Foundry.

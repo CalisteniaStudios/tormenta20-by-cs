@@ -714,10 +714,9 @@ function applyOnUseEffects(rolledItem, configuration = {}) {
 		if (id.duracao?.units == "hour") duration.seconds = durValue * 60 * 60;
 		if (id.duracao?.units == "day") duration.seconds = durValue * 60 * 60 * 24;
 		if (id.duracao?.units == "month") duration.seconds = durValue * 60 * 60 * 24 * 30;
-		let efl = ef.name.slugify().replace("-", "");
-		if (T20.conditions[efl]) {
-			tempEffect = new ActiveEffect(T20.conditions[efl]);
-			tempEffect = tempEffect.toObject();
+		let statusName = ef.name.slugify().replace("-", "");
+		if (T20.conditions[statusName]) {
+			tempEffect = foundry.utils.deepClone(T20.conditions[statusName]);
 		} else {
 			tempEffect.name ??= ef?.parent?.name ?? "Efeito";
 			tempEffect.img ??= ef?.parent?.img ?? "icons/svg/aura.svg";

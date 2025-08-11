@@ -58,34 +58,6 @@ export default class AttributesFields {
 				}
 			}
 		}
-
-		// const statuses = this.parent.statuses;
-		// const noMovement = this.parent.hasConditionEffect("noMovement");
-		// const halfMovement = this.parent.hasConditionEffect("halfMovement");
-		// const encumbered = statuses.has("encumbered");
-		// const heavilyEncumbered = statuses.has("heavilyEncumbered");
-		// const exceedingCarryingCapacity = statuses.has("exceedingCarryingCapacity");
-		// const crawl = this.parent.hasConditionEffect("crawl");
-		// const units = this.attributes.movement.units ??= defaultUnits("length");
-		// let reduction = game.settings.get("dnd5e", "rulesVersion") === "modern"
-		// ? (this.attributes.exhaustion ?? 0) * (CONFIG.DND5E.conditionTypes.exhaustion?.reduction?.speed ?? 0) : 0;
-		// reduction = convertLength(reduction, CONFIG.DND5E.defaultUnits.length.imperial, units);
-		// for ( const type in CONFIG.DND5E.movementTypes ) {
-		// 	let speed = Math.max(0, this.attributes.movement[type] - reduction);
-		// 	if ( noMovement || (crawl && (type !== "walk")) ) speed = 0;
-		// 	else {
-		// 		if ( halfMovement ) speed *= 0.5;
-		// 		if ( heavilyEncumbered ) {
-		// 			speed = Math.max(0, speed - (CONFIG.DND5E.encumbrance.speedReduction.heavilyEncumbered[units] ?? 0));
-		// 		} else if ( encumbered ) {
-		// 			speed = Math.max(0, speed - (CONFIG.DND5E.encumbrance.speedReduction.encumbered[units] ?? 0));
-		// 		}
-		// 		if ( exceedingCarryingCapacity ) {
-		// 			speed = Math.min(speed, CONFIG.DND5E.encumbrance.speedReduction.exceedingCarryingCapacity[units] ?? 0);
-		// 		}
-		// 	}
-		// 	this.attributes.movement[type] = speed;
-		// }
 	}
 
 	static prepareEncumbrance(rollData) {

@@ -428,14 +428,15 @@ export default class ActorT20 extends Actor {
 		}
 	}
 
-	_checkEncumbered() {
+	async _checkEncumbered() {
 		if (this.type == "character") {
 			const ef = this.effects.find((ef) => ef.statuses.has("sobrecarregado"));
 			const wasEncumbered = Boolean(ef);
 			const isEncumbered = this.system.attributes?.carga?.encumbered;
 			if (isEncumbered != wasEncumbered) {
+				const effect = await ActiveEffect.fromStatusEffect("sobrecarregado");
 				if (isEncumbered && !ef) {
-					this.createEmbeddedDocuments("ActiveEffect", [T20.conditions.sobrecarregado]);
+					this.createEmbeddedDocuments("ActiveEffect", [effect.toObject()]);
 				} else if (!isEncumbered && ef) {
 					this.deleteEmbeddedDocuments("ActiveEffect", [ef._id]);
 				}
