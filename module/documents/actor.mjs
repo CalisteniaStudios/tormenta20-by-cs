@@ -16,7 +16,7 @@ export default class ActorT20 extends Actor {
 		} else if (itemData.type === "simple") {
 			img = "systems/tormenta20/icons/svg/portrait.svg";
 		} else if (itemData.type === "bases") {
-			img = "systems/tormenta20/icons/svg/bases.svg";
+			img = "systems/tormenta20/icons/svg/castle.svg";
 		} else if (itemData.type === "hazard") {
 			img = "icons/svg/hazard.svg";
 		}

@@ -245,7 +245,6 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 				nullable: false,
 				initial: "",
 				label: "T20.ItemRangeDescription",
-				hint: "T20.ItemRangeDescriptionHint"
 			}),
 			alvo: new fields.StringField({
 				required: true,
@@ -503,7 +502,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 
 	prepareDerivedData() {
 		const item = this.parent;
-		if (!["arma", "classe", "equipamento", "race"].includes(item.type)) {
+		if (!["arma", "classe", "equipamento", "race", "comodo", "mobilia"].includes(item.type)) {
 			this.prepareDuration();
 		}
 	}
@@ -515,7 +514,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 	prepareFinalAttributes() {
 		const item = this.parent;
 		const actor = item.parent ?? {};
-		if (item.isOwned) return;
+		if (!item.isOwned) return;
 		if ((this.resistencia?.atributo || actor.type === "npc") && this.resistencia?.txt) {
 			const atr = foundry.utils.getProperty(actor.system, `atributos.${this.resistencia.atributo}.value`);
 			const nvl = Math.floor(foundry.utils.getProperty(actor.system, "attributes.nivel.value") / 2);
