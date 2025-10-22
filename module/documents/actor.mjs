@@ -399,7 +399,6 @@ export default class ActorT20 extends Actor {
 
 	/** @inheritdoc */
 	async _preUpdate(changed, options, user) {
-		// console.log(foundry.utils.flattenObject(changed));
 		await super._preUpdate(changed, options, user);
 		if ("pv" in (this.system.attributes || {})) {
 			foundry.utils.setProperty(options, "tormenta20.pv", {
@@ -816,20 +815,20 @@ export default class ActorT20 extends Actor {
 			rConfig
 		);
 
-		let toInitiative = function () {
-			let combatente;
+		let toInitiative = function (actor) {
 			try {
 				let combate = game.combats.active;
 				if (pericia.label === "Iniciativa" && combate) {
 					let roll = rConfig.itemData.rolled;
-					let combatente = combate.combatants.find((combatant) => combatant.actor.id === this.id);
+					let combatente = combate.combatants.find((combatant) => combatant.actor.id === actor.id);
 					if (combatente && combatente.initiative === null) {
 						combate.setInitiative(combatente.id, roll.total);
 						console.log(`Foundry VTT | Iniciativa Atualizada para ${combatente._id} (${combatente.actor.name})`);
 					}
 				}
 			} catch (error) {
-				console.warn(`Foundry VTT | Erro ao adicionar a Iniciativa, ${combatente._id} (${combatente.actor.name})`);
+				console.error(error);
+				console.warn(`Foundry VTT | Erro ao adicionar a Iniciativa, ${actor._id} (${actor.name})`);
 			}
 		};
 
@@ -849,7 +848,7 @@ export default class ActorT20 extends Actor {
 			options = rConfig;
 			options.itemData.rolled = await d20Roll(rollConfig);
 			options.effects = configuration.effects ?? [];
-			toInitiative();
+			toInitiative(this);
 			return this.displayCard({ options, rollMode });
 		}
 		return await d20Roll(rollConfig);
