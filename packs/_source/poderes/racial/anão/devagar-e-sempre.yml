@@ -20,9 +20,17 @@ effects:
     disabled: false
     _id: WmFcjgmehMbaKWby
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 5
         value: '6'
+        priority: null
+      - key: system.attributes.movement.tags
+        mode: 2
+        value: 'ignora-armadura'
+        priority: null
+      - key: system.attributes.movement.tags
+        mode: 2
+        value: 'ignora-carga'
         priority: null
     transfer: true
     _stats:

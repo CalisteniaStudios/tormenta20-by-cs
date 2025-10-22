@@ -170,15 +170,19 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	apply(actor, change) {
 		if (change.key.match(/\.\?+\./)) return null;
 		if (change.key.startsWith("flags.tormenta20.")) change = this._prepareFlagChange(actor, change);
+		if (change.key.startsWith("system.attributes.movement") && change.key.match(/(walk|fly|burrow|climb|swim)$/)) {
+			change.key += change.mode == 2 ? ".bonus" : ".base";
+		}
 		const wildcardPatterns = [
 			"system.atributos.*.value",
 			"system.atributos.*.bonus",
 			"system.pericias.*.bonus",
 			"system.pericias.*.condi",
-			"system.attributes.movement.*"
+			"system.attributes.movement.*.base",
+			"system.attributes.movement.*.bonus",
 		];
 		const filters = {
-			"system.attributes.movement": (key) => !["hover", "unit"].includes(key)
+			"system.attributes.movement": (key) => T20.movementTypes[key]
 		};
 		if (change.key.includes("*") && wildcardPatterns.includes(change.key)) {
 			// Replica `system.path.*.key` pra todas as chaves de `system.path`

@@ -24,13 +24,16 @@ export default class ActorMovementConfig extends DocumentSheet {
 
 	/** @override */
 	getData(options) {
-		const sourceMovement = foundry.utils.getProperty(this.document._source, "system.attributes.movement") || {};
+		const system = this.document.system;
+		const sourceMovement = system.toObject(true).attributes.movement;
+		const schema = system.schema.getField("attributes.movement").fields;
 		const data = {
-			movement: foundry.utils.deepClone(sourceMovement)
+			movement: sourceMovement,
+			schema: schema,
 		};
-		for (let [k, v] of Object.entries(data.movement)) {
-			if (["hover"].includes(k)) continue;
-			data.movement[k] = Number.isNumeric(v) ? v.toNearest(0.1) : 0;
+		for (let [k, move] of Object.entries(data.movement)) {
+			if (!T20.movementTypes[k]) continue;
+			data.movement[k].value = Number.isNumeric(move.base) ? move.base.toNearest(0.1) : 0;
 		}
 		return data;
 	}

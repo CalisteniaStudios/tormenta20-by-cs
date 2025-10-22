@@ -107,23 +107,7 @@ effects:
         consumable: false
         durationScene: false
     changes:
-      - key: system.attributes.movement.walk
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.swim
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.dig
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.climb
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.fly
+      - key: system.attributes.movement.*.bonus
         mode: 2
         value: '3'
         priority: null
@@ -159,23 +143,7 @@ effects:
     _key: '!items.effects!8F0FVSRN1dAIrTwj.b0Nb7JycFEEJSMBh'
   - _id: WBbIZh4nMSf8VPRa
     changes:
-      - key: system.attributes.movement.walk
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.swim
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.dig
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.climb
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.fly
+      - key: system.attributes.movement.*.bonus
         mode: 2
         value: '3'
         priority: null

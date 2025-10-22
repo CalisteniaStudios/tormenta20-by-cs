@@ -43,6 +43,8 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 
 	currResistance = "dano";
 
+	currMovement = "walk";
+
 	document;
 
 	static DEFAULT_OPTIONS = {
@@ -119,6 +121,7 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			collapsibleStates: this.#collapsibleStates,
 			expirationOptions: this.#getExpirationOptions(),
 			skillSuggestions: this.#getSkillSuggestions(),
+			movementSuggestions: this.#getMovementSuggestions(),
 			resistanceSuggestions: this.#getResistanceSuggestions(),
 			resistancePresets: this.#getResistancePresets(),
 			derivedPresets: this.#getDerivedPresets(),
@@ -130,6 +133,7 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			attributes: { "*": "Todos os Atributos", ...CONFIG.T20.atributos },
 			currAttribute: this.currAttribute,
 			currSkill: this.currSkill,
+			currMovement: this.currMovement,
 			currResistance: this.currResistance,
 			changeModes: {
 				[foundry.CONST.ACTIVE_EFFECT_MODES.ADD]: "EFFECT.MODE_ADD",
@@ -251,6 +255,20 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 		];
 	}
 
+	#getMovementSuggestions() {
+		const parent = this.document.parent ?? this.document;
+		const createSuggestions = (obj) => {
+			return Object.fromEntries(
+				Object.entries(obj)
+					.map(([key, movement]) => [key, CONFIG.T20.movementTypes[key]])
+					.filter(([_, label]) => label)
+					.sort((a, b) => a[1].localeCompare(b[1]))
+			);
+		};
+		const source = CONFIG.T20.movementTypes;
+		return { "*": "Todos os Deslocamentos", ...createSuggestions(source) };
+	}
+
 	#getGlobalModPresets() {
 		return [
 			{ key: "system.modificadores.atributos.for", label: "Testes de Força" },
@@ -346,30 +364,6 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			{
 				label: game.i18n.localize("T20.SpellDC"),
 				key: "system.attributes.cd"
-			},
-			{
-				label: game.i18n.localize("T20.AllMovements"),
-				key: "system.attributes.movement.*"
-			},
-			{
-				label: `${game.i18n.localize("T20.Movement")} ${game.i18n.localize("T20.MovementWalk")}`,
-				key: "system.attributes.movement.walk"
-			},
-			{
-				label: `${game.i18n.localize("T20.Movement")} ${game.i18n.localize("T20.MovementBurrow")}`,
-				key: "system.attributes.movement.burrow"
-			},
-			{
-				label: `${game.i18n.localize("T20.Movement")} ${game.i18n.localize("T20.MovementClimb")}`,
-				key: "system.attributes.movement.climb"
-			},
-			{
-				label: `${game.i18n.localize("T20.Movement")} ${game.i18n.localize("T20.MovementFly")}`,
-				key: "system.attributes.movement.fly"
-			},
-			{
-				label: `${game.i18n.localize("T20.Movement")} ${game.i18n.localize("T20.MovementSwim")}`,
-				key: "system.attributes.movement.swim"
 			},
 			{
 				label: "Limite de Itens Empunháveis",
@@ -496,7 +490,11 @@ export default class ActiveEffectWizard extends HandlebarsApplicationMixin(Appli
 			}
 			label = game.i18n.format(str, { tipo: dano });
 			key = `system.tracos.resistencias.${target}.${keyPart}`;
+		} else if (category === "movement") {
+			label = `${tgt.options[tgt.selectedIndex].text} ${currentTarget.innerText}`.trim();
+			key = `system.attributes.movement.${target}.${keyPart}`;
 		}
+
 		if (!boolean) {
 			const property = foundry.utils.getProperty(this.templateActor, key);
 			boolean = typeof property === "boolean";

@@ -56,8 +56,8 @@ export default class MenaceData extends CreatureData {
 		AttributesFields.prepareDefense.call(this, rollData);
 		this.prepareSkills({ rollData });
 
-		AttributesFields.prepareMovement.call(this);
 		AttributesFields.prepareEncumbrance.call(this, rollData);
+		AttributesFields.prepareMovement.call(this);
 		AttributesFields.prepareDamageResistances.call(this, rollData);
 		this.attributes.pv.min = Math.floor(this.attributes.pv.max / 2) * -1;
 	}

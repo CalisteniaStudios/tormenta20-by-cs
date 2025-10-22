@@ -183,7 +183,7 @@ effects:
     _key: '!items.effects!z9cFTeixJ1wt1HyE.nb5IXMwsn8UPR1k4'
   - _id: ucTdFCjgr0EtdyfQ
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 5
         value: '15'
         priority: null

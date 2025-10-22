@@ -386,7 +386,7 @@ items:
     effects:
       - _id: CRX7wBp8q9Zkv9z2
         changes:
-          - key: system.attributes.movement.fly
+          - key: system.attributes.movement.fly.base
             mode: 2
             value: '12'
             priority: null

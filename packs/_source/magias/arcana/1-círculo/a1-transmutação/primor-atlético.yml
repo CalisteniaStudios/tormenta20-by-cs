@@ -211,7 +211,7 @@ effects:
     _key: '!items.effects!k8E2gbV1NwkI0ehs.xl42D6i5Tb1fGlXb'
   - _id: sx6R5Ibto2BmCPYe
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.*.bonus
         mode: 2
         value: '9'
         priority: null

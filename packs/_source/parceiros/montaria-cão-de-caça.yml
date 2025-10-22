@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: UogqmMIAGaSQkz20
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 5
         value: '9'
         priority: null
@@ -63,7 +63,7 @@ effects:
         mode: 2
         value: '2'
         priority: null
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 5
         value: '12'
         priority: null
@@ -107,7 +107,7 @@ effects:
         mode: 2
         value: '2'
         priority: null
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 2
         value: '12'
         priority: null

@@ -9,8 +9,8 @@ effects:
         mode: 2
         value: '5'
         priority: null
-      - key: system.attributes.movement.climb
-        mode: 2
+      - key: system.attributes.movement.climb.base
+        mode: 5
         value: '9'
         priority: null
     disabled: false

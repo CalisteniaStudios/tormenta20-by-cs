@@ -63,8 +63,9 @@ export default class CharacterData extends CreatureData {
 		AttributesFields.prepareDefense.call(this, rollData);
 		this.prepareSkills({ rollData });
 
-		AttributesFields.prepareMovement.call(this);
+		// Encumbrance affects movement
 		AttributesFields.prepareEncumbrance.call(this, rollData);
+		AttributesFields.prepareMovement.call(this, rollData);
 		AttributesFields.prepareDamageResistances.call(this, rollData);
 	}
 }

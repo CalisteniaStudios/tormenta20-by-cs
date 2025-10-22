@@ -13,7 +13,7 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 		}
 
 		getRanges(token) {
-			const baseSpeed = token.actor.system.attributes.movement.walk;
+			const baseSpeed = token.actor.system.attributes.movement.walk.base;
 			const enjoadoLento = token.actor.system.referencias?.find(
 				(condicao) => condicao.label === "Enjoado" || condicao.label === "Lento"
 			);

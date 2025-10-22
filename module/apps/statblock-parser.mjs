@@ -502,7 +502,7 @@ export default class StatblockParser extends FormApplication {
 					voo: "fly"
 				};
 				if (ms[move]) {
-					schema.attributes.movement[ms[move]] = parseInt(value);
+					schema.attributes.movement[ms[move]].base = parseInt(value);
 					msg += `${move} ${value}; `;
 				}
 			}
@@ -903,9 +903,9 @@ export default class StatblockParser extends FormApplication {
 					if (item.type === "equipamento") {
 						item.system.equipado = true;
 						if (item.system.tipo === "pesada") {
-							for (let [key, value] of Object.entries(schema.attributes.movement)) {
-								if (Number.isNumeric(value) && value) {
-									schema.attributes.movement[key] += 3;
+							for (let [key, move] of Object.entries(schema.attributes.movement)) {
+								if (Number.isNumeric(move.base) && move.base) {
+									schema.attributes.movement[key].base += 3;
 								}
 							}
 						}

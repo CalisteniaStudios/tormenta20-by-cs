@@ -19,12 +19,12 @@ export default class TokenDocumentT20 extends TokenDocument {
 		const movement = this.actor?.system.attributes?.movement ?? {};
 		if (this.hasStatusEffect("caido")) return CONFIG.Token.movement.defaultAction;
 		if (this.movementTypes.has("hover")) return "hover";
-		if (this.movementTypes.has("fly") && movement.fly > movement.walk) return "fly";
+		if (this.movementTypes.has("fly") && movement.fly.value > movement.walk.value) return "fly";
 		return CONFIG.Token.movement.defaultAction;
 	}
 
 	get movementTypes() {
 		const movement = this.actor?.system.attributes.movement ?? {};
-		return new Set(Object.keys(movement).filter((key) => key !== "unit" && movement[key]));
+		return new Set(Object.keys(movement).filter((key) => movement[key]?.value > 0 || (key == 'hover' && movement[key])));
 	}
 }

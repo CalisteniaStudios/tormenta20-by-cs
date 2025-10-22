@@ -99,7 +99,7 @@ effects:
     disabled: true
     _id: 8iLxhbmllGsz3fbv
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.bonus
         mode: 2
         value: '6'
         priority: 0
@@ -143,7 +143,7 @@ effects:
     disabled: false
     _id: 9mV68xAFSP5MmadE
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.bonus
         mode: 2
         value: '0'
         priority: null

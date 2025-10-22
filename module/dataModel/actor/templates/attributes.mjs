@@ -2,6 +2,7 @@ import { simplifyRollFormula } from "../../../dice/dice.mjs";
 
 export default class AttributesFields {
 	static prepareDefense(rollData) {
+		const actor = this.parent;
 		const defesa = this.attributes.defesa;
 		const parts = [defesa.base];
 
@@ -12,7 +13,7 @@ export default class AttributesFields {
 		}
 
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
-		const items = this.parent.itemTypes.equipamento.filter(
+		const items = actor.itemTypes.equipamento.filter(
 			(i) => (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
 		);
 
@@ -45,17 +46,27 @@ export default class AttributesFields {
 		rollData.pda = pda;
 	}
 
-	static prepareMovement() {
+	static prepareMovement(rollData) {
 		const equipmentSlots = game.settings.get("tormenta20", "equipmentSlots");
 		const items = this.parent.itemTypes.equipamento.filter(
 			(i) => (equipmentSlots ? i.system.equipado2.slot : i.system.equipado)
 		);
 		const armor = items.find((i) => i.system.tipo === "pesada");
-		if (armor) {
-			for (let [key, value] of Object.entries(this.attributes.movement)) {
-				if (Number.isNumeric(this.attributes.movement[key])) {
-					this.attributes.movement[key] = value - 3;
-				}
+		const encumbered = this.attributes?.carga?.encumbered ?? false;
+		const moveData = this.attributes.movement;
+		const ignoreArmor = moveData.tags.has('ignora-armadura');
+		const ignoreWeight = moveData.tags.has('ignora-carga');
+
+		for (const [key, move] of Object.entries(this.attributes.movement)) {
+			if (!T20.movementTypes[key]) continue;
+			if (move.base > 0) {
+				const parts = [move.base, ...move.bonus];
+				if (armor && !ignoreArmor) parts.push(-3);
+				if (encumbered && !ignoreWeight) parts.push(-3);
+				const total = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
+				move.value = Number(total);
+			} else {
+				move.value = 0;
 			}
 		}
 	}

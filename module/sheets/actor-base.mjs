@@ -184,7 +184,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		});
 	}
 
-	async _prepareItems(data) {}
+	async _prepareItems(data) { }
 
 	async enrichHTML(text, data) {
 		return await foundry.applications.ux.TextEditor.implementation.enrichHTML(text, {
@@ -529,10 +529,10 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 	 * @private
 	 */
 	_prepareMovementSpeed(actorData) {
-		const movement = foundry.utils.deepClone(actorData.system.attributes.movement) || {};
+		const movement = this.document.system.attributes.movement;
 		// Return an array of available movement speeds
 		return Object.entries(T20.movementTypes).reduce((speeds, [type, label]) => {
-			const value = movement[type];
+			const value = movement[type].value;
 			if (value > 0) {
 				const name = type === "walk" ? "" : label;
 				let speedStr = `${name} ${value}${movement.unit}`.trim();

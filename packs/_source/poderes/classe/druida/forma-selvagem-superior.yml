@@ -24,7 +24,7 @@ effects:
         mode: 2
         value: '6'
         priority: null
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.*.bonus
         mode: 2
         value: '6'
         priority: null
@@ -160,7 +160,7 @@ effects:
         mode: 2
         value: '6'
         priority: null
-      - key: system.attributes.movement.fly
+      - key: system.attributes.movement.fly.base
         mode: 5
         value: '18'
         priority: null

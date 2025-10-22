@@ -81,7 +81,7 @@ effects:
     disabled: false
     _id: RXOzxRIBBtW15uyE
     changes:
-      - key: system.attributes.movement.climb
+      - key: system.attributes.movement.climb.base
         mode: 5
         value: '9'
         priority: null
@@ -121,7 +121,7 @@ effects:
     disabled: false
     _id: adI49lWVBUWljR9M
     changes:
-      - key: system.attributes.movement.climb
+      - key: system.attributes.movement.climb.bonus
         mode: 2
         value: '3'
         priority: null

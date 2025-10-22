@@ -247,7 +247,7 @@ effects:
         consumable: false
         durationScene: false
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.*.base
         value: '3'
         mode: 2
         priority: null

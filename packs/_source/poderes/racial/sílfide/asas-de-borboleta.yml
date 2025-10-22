@@ -83,7 +83,7 @@ effects:
     type: base
     system: {}
     changes:
-      - key: system.attributes.movement.fly
+      - key: system.attributes.movement.fly.base
         mode: 5
         value: '12'
         priority: null

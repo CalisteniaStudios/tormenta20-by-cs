@@ -22,9 +22,9 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 		const movement = foundry.utils.getProperty(this, "token.actor.system.attributes.movement");
 		const { cost } = waypoint.measurement;
 		if (movement) {
-			let speed = movement[waypoint.action];
-			if (!speed && ["climb", "swim"].includes(waypoint.action)) speed = movement.walk;
-			else if (waypoint.action === "hover") speed = Math.max(movement.walk, movement.fly);
+			let speed = movement[waypoint.action].value;
+			if (!speed && ["climb", "swim"].includes(waypoint.action)) speed = movement.walk.value;
+			else if (waypoint.action === "hover") speed = Math.max(movement.walk.value, movement.fly.value);
 			const index = Math.clamp(Math.floor((cost - 1) / speed), 0, 2);
 			if (waypoint.terrain?.difficulty > 1) style.color = dtColors[index] ?? 0xbfbfbf;
 			else style.color = colors[index] ?? 0xffffff;
@@ -32,6 +32,7 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 	}
 
 	static applyMovementConfig() {
+		const sourceActions = CONFIG.Token.movement.actions;
 		foundry.utils.mergeObject(
 			CONFIG.Token.movement.actions,
 			{
@@ -56,7 +57,7 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 				},
 				hover: {
 					label: "T20.MovementHover",
-					icon: "fa-solid fa-person-fairy",
+					icon: sourceActions.fly.icon,
 					img: "systems/tormenta20/icons/svg/fairy.svg",
 					order: 1,
 					canSelect: (token) =>

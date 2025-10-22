@@ -20,8 +20,8 @@ effects:
     disabled: false
     _id: hhqKsZynz9bYIvP0
     changes:
-      - key: system.attributes.movement.swim
-        mode: 2
+      - key: system.attributes.movement.swim.base
+        mode: 5
         value: '12'
     transfer: true
     _stats:

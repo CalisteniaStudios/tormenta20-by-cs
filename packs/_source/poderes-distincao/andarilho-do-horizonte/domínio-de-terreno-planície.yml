@@ -80,7 +80,7 @@ effects:
     disabled: false
     _id: 7wmNrduxMUkqWEEg
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.bonus
         mode: 2
         value: '3'
         priority: null

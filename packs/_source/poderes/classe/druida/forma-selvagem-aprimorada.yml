@@ -78,7 +78,7 @@ effects:
         mode: 2
         value: '4'
         priority: null
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.*.bonus
         mode: 2
         value: '3'
         priority: null

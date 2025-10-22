@@ -86,7 +86,7 @@ T20Conditions.caido = {
 	changes: [
 		{ key: "system.pericias.luta.condi", mode: 3, value: -5 },
 		{ key: "system.attributes.defesa.outros", mode: 3, value: -5 },
-		{ key: "system.attributes.movement.*", mode: 3, value: 1.5 }
+		{ key: "system.attributes.movement.*.base", mode: 3, value: 1.5 }
 	]
 };
 
@@ -404,11 +404,11 @@ T20Conditions.imovel = {
 		tormenta20: { condition: true, durationScene: true, category: "movimento" }
 	},
 	changes: [
-		{ key: "system.attributes.movement.walk", mode: 3, value: 0 },
-		{ key: "system.attributes.movement.burrow", mode: 3, value: 0 },
-		{ key: "system.attributes.movement.climb", mode: 3, value: 0 },
-		{ key: "system.attributes.movement.fly", mode: 3, value: 0 },
-		{ key: "system.attributes.movement.swim", mode: 3, value: 0 }
+		{ key: "system.attributes.movement.walk.base", mode: 3, value: 0 },
+		{ key: "system.attributes.movement.burrow.base", mode: 3, value: 0 },
+		{ key: "system.attributes.movement.climb.base", mode: 3, value: 0 },
+		{ key: "system.attributes.movement.fly.base", mode: 3, value: 0 },
+		{ key: "system.attributes.movement.swim.base", mode: 3, value: 0 }
 	]
 };
 
@@ -461,7 +461,7 @@ T20Conditions.lento = {
 	flags: {
 		tormenta20: { condition: true, durationScene: true, category: "movimento" }
 	},
-	changes: [{ key: "system.attributes.movement.*", mode: 1, value: 0.5 }]
+	changes: [{ key: "system.attributes.movement.*.value", mode: 1, value: 0.5 }]
 };
 
 T20Conditions.morto = {
@@ -607,6 +607,6 @@ T20Conditions.sobrecarregado = {
 	},
 	changes: [
 		{ key: "system.attributes.defesa.pda", mode: 2, value: 5 },
-		{ key: "system.attributes.movement.*", mode: 2, value: -3 }
+		// { key: "system.attributes.movement.*.bonus", mode: 2, value: -3 }
 	]
 };

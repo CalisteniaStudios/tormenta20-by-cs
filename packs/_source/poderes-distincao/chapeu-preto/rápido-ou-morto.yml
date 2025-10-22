@@ -86,7 +86,7 @@ effects:
         mode: 2
         value: (@ChapeuPreto2*1)
         priority: null
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.bonus
         mode: 2
         value: '1.5'
         priority: null

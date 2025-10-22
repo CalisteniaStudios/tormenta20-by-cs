@@ -30,7 +30,7 @@ effects:
     disabled: false
     _id: vRhKOfk7jZ3Wj8m7
     changes:
-      - key: system.attributes.movement.climb
+      - key: system.attributes.movement.climb.base
         mode: 2
         value: '9'
         priority: null

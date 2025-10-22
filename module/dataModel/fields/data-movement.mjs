@@ -5,49 +5,35 @@ export default class MovementData extends Tormenta20DataModel {
 	/** @inheritDoc */
 	static defineSchema() {
 		const fields = foundry.data.fields;
-		return {
-			burrow: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementBurrowValue",
-				hint: "T20.MovementBurrowValueHint"
-			}),
-			climb: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementClimbValue",
-				hint: "T20.MovementClimbValueHint"
-			}),
-			fly: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementFlyValue",
-				hint: "T20.MovementFlyValueHint"
-			}),
-			swim: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementSwimValue",
-				hint: "T20.MovementSwimValueHint"
-			}),
-			walk: new fields.NumberField({
-				initial: 9,
-				min: 0,
-				integer: true,
-				label: "T20.MovementWalkValue",
-				hint: "T20.MovementWalkValueHint"
-			}),
-			hover: new fields.BooleanField({ label: "T20.MovementHoverStatus", hint: "T20.MovementHoverStatusHint" }),
-			unit: new fields.StringField({
-				initial: "m",
-				label: "T20.MovementUnitType",
-				hint: "T20.MovementUnitTypeHint"
-			})
-		};
+
+		const schema = {};
+		for (const move of Object.keys(T20.movementTypes)) {
+			schema[move] = new fields.SchemaField({
+				base: new fields.NumberField({
+					required: true,
+					initial: move == 'walk' ? 9 : 0,
+					min: 0,
+				}),
+				bonus: new fields.ArrayField(new fields.StringField(), {
+					required: true,
+					initial: [],
+				}),
+			}, {
+				label: `T20.Movement${move.titleCase()}`
+			});
+		}
+		schema.hover = new fields.BooleanField({
+			label: "T20.MovementHoverStatus", hint: "T20.MovementHoverStatusHint"
+		});
+		schema.unit = new fields.StringField({
+			initial: "m",
+			label: "T20.MovementUnitType",
+			hint: "T20.MovementUnitTypeHint"
+		});
+		schema.tags = new fields.SetField(new fields.StringField(), {
+			label: "T20.Tag",
+		})
+		return schema;
 	}
 
 	/* -------------------------------------------- */

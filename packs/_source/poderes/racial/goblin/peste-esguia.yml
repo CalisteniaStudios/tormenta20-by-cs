@@ -5,7 +5,7 @@ img: systems/tormenta20/icons/racas/goblin.webp
 effects:
   - _id: ehybDa2i9Kvt1dkd
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 5
         value: '9'
         priority: null

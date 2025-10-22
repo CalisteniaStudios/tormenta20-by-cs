@@ -66,11 +66,11 @@ export default class BasesData extends Tormenta20TypeData {
 			attributes: new fields.SchemaField({
 				movement: new fields.EmbeddedDataField(_fields.MovementData, {
 					initial: {
-						walk: 0,
-						climb: 0,
-						burrow: 0,
-						swim: 0,
-						fly: 0,
+						walk: { base: 0, bonus: [] },
+						climb: { base: 0, bonus: [] },
+						burrow: { base: 0, bonus: [] },
+						swim: { base: 0, bonus: [] },
+						fly: { base: 0, bonus: [] },
 						hover: false,
 						unit: "m"
 					}

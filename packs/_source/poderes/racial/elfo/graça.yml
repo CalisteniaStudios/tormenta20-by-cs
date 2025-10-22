@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: YdN4kksnYD2zbrpe
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 5
         value: '12'
         priority: null

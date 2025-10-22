@@ -348,23 +348,7 @@ effects:
         mode: 5
         value: '1'
         priority: null
-      - key: system.attributes.movement.walk
-        mode: 5
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.burrow
-        mode: 5
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.climb
-        mode: 5
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.fly
-        mode: 5
-        value: '3'
-        priority: null
-      - key: system.attributes.movement.swim
+      - key: system.attributes.movement.*.base
         mode: 5
         value: '3'
         priority: null

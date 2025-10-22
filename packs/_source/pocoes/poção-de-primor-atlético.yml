@@ -20,7 +20,7 @@ effects:
     disabled: false
     _id: oRa5tS8FMXWG6KZA
     changes:
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.bonus
         mode: 2
         value: '9'
         priority: null

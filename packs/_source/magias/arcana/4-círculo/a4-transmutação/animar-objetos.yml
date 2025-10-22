@@ -500,7 +500,7 @@ effects:
         mode: 2
         value: '2'
         priority: null
-      - key: system.attributes.movement.walk
+      - key: system.attributes.movement.walk.base
         mode: 5
         value: '15'
         priority: null

@@ -48,7 +48,7 @@ effects:
     _key: '!items.effects!LCW7DDP9CfY22wna.g6K9JgHk876dMWV6'
   - _id: uYkBdZYgfTImSzkG
     changes:
-      - key: system.attributes.movement.fly
+      - key: system.attributes.movement.fly.base
         mode: 2
         value: '18'
         priority: null

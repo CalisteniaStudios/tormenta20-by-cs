@@ -91,6 +91,7 @@ export default class CreatureData extends Tormenta20TypeData {
 
 	/** @inheritdoc */
 	static migrateData(data) {
+
 		// TODO: remover essas migrações na V14
 		if (data.resources && !Object.keys(data.resources).length) {
 			data.resources = foundry.utils.deepClone(this.schema.fields.resources.initial);
@@ -98,6 +99,15 @@ export default class CreatureData extends Tormenta20TypeData {
 		if (data.tracos?.ic?.value?.includes('atordoamento')) {
 			data.tracos.ic.value = data.tracos.ic.value.filter(i => i != 'atordoamento');
 			data.tracos.ic.value.push('atordoado');
+		}
+		if (data?.attributes?.movement) {
+			const movement = data.attributes.movement;
+			for (const move of Object.keys(T20.movementTypes)) {
+				const current = movement[move];
+				if (Number.isNumeric(current)) {
+					movement[move] = { base: current > 0 ? current : 0, bonus: [] };
+				}
+			}
 		}
 		return super.migrateData(data);
 	}
@@ -314,52 +324,6 @@ export default class CreatureData extends Tormenta20TypeData {
 		} else if (type === "simple") {
 		}
 		return new fields.SchemaField(schema);
-	}
-
-	static schemaMovement(type = "character") {
-		return new fields.SchemaField({
-			burrow: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementBurrowValue",
-				hint: "T20.MovementBurrowValueHint"
-			}),
-			climb: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementClimbValue",
-				hint: "T20.MovementClimbValueHint"
-			}),
-			fly: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementFlyValue",
-				hint: "T20.MovementFlyValueHint"
-			}),
-			swim: new fields.NumberField({
-				initial: 0,
-				min: 0,
-				integer: true,
-				label: "T20.MovementSwimValue",
-				hint: "T20.MovementSwimValueHint"
-			}),
-			walk: new fields.NumberField({
-				initial: 9,
-				min: 0,
-				integer: true,
-				label: "T20.MovementWalkValue",
-				hint: "T20.MovementWalkValueHint"
-			}),
-			hover: new fields.BooleanField({ label: "T20.MovementHoverStatus", hint: "T20.MovementHoverStatusHint" }),
-			unit: new fields.StringField({
-				initial: "m",
-				label: "T20.MovementUnitType",
-				hint: "T20.MovementUnitTypeHint"
-			})
-		});
 	}
 
 	static schemaSenses(type = "character") {

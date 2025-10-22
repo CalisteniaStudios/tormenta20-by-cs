@@ -19,7 +19,7 @@ effects:
     disabled: false
     _id: 8AMDXF1pgXomOd43
     changes:
-      - key: system.attributes.movement.fly
+      - key: system.attributes.movement.fly.base
         mode: 2
         value: '18'
         priority: null
@@ -59,7 +59,7 @@ effects:
     disabled: false
     _id: ukmsG02n34qW6QUy
     changes:
-      - key: system.attributes.movement.fly
+      - key: system.attributes.movement.fly.base
         mode: 2
         value: '18'
         priority: null
