@@ -45,7 +45,7 @@
 			<div class="form-group">
 				<label>{{ localize "T20.PMCost" }}</label>
 				<div class="form-fields">
-					<input type="number" data-dtype="Number" placeholder="0" name="system.ativacao.custo" value="{{item.system.ativacao.custo}}"/>
+					<input type="number" data-dtype="Number" placeholder="0" name="system.ativacao.custo" value="{{item.system.ativacao.custo}}" />
 				</div>
 			</div>
 			<div class="form-group input-select">
@@ -57,7 +57,7 @@
 					<select name="system.consume.target">
 						{{selectOptions abilityConsumptionTargets selected=item.system.consume.target blank=''}}
 					</select>
-					<input type="text" name="system.consume.amount" value="{{system.consume.amount}}" data-dtype="Number"/>
+					<input type="text" name="system.consume.amount" value="{{system.consume.amount}}" data-dtype="Number" />
 				</div>
 			</div>
 			<hr>
@@ -65,9 +65,9 @@
 			<div class="form-group stacked weapon-properties">
 				<label>{{ localize "T20.Properties" }}</label>
 				{{#each config.weaponProperties as |name prop|}}
-				<label class="checkbox">
-					<input type="checkbox" name="system.propriedades.{{prop}}" value="{{name}}" {{checked (lookup ../item.system.propriedades prop)}} data-dtype="Boolean" /> {{ localize name }}
-				</label>
+					<label class="checkbox">
+						<input type="checkbox" name="system.propriedades.{{prop}}" value="{{name}}" {{checked (lookup ../item.system.propriedades prop)}} data-dtype="Boolean" /> {{ localize name }}
+					</label>
 				{{/each}}
 
 			</div>
@@ -78,7 +78,7 @@
 			<div class="form-group">
 				<label>{{ localize "T20.Critical" }}</label>
 				<div class="form-fields">
-					<input type="number" title="{{ localize 'T20.CriticalHitThreshold' }}" name="system.criticoM" value="{{item.system.criticoM}}" data-dtype="Number" min="1" max="20" placeholder="ex.: 19"/>
+					<input type="number" title="{{ localize 'T20.CriticalHitThreshold' }}" name="system.criticoM" value="{{item.system.criticoM}}" data-dtype="Number" min="1" max="20" placeholder="ex.: 19" />
 					<input type="number" title="{{ localize 'T20.CriticalHitMultiplier' }}" name="system.criticoX" value="{{item.system.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
@@ -87,10 +87,10 @@
 				<div class="form-fields">
 					<select class="selectatr" name="system.alcance" value={{item.system.alcance}} data-type="String">
 						{{#select item.system.alcance}}
-						<option value=""></option>
-						<option value="short">{{localize "T20.DistShort"}}</option>
-						<option value="medium">{{localize "T20.DistMedium"}}</option>
-						<option value="long">{{localize "T20.DistLong"}}</option>
+							<option value=""></option>
+							<option value="short">{{localize "T20.DistShort"}}</option>
+							<option value="medium">{{localize "T20.DistMedium"}}</option>
+							<option value="long">{{localize "T20.DistLong"}}</option>
 						{{/select}}
 					</select>
 				</div>

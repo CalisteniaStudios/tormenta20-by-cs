@@ -289,7 +289,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 					disabled: ["inactive", "onuse"].includes(type)
 				};
 				if (event.type == "contextmenu") {
-					return owner.createEmbeddedDocuments("ActiveEffect", [effectData], { renderSheet: true });
+					return await owner.createEmbeddedDocuments("ActiveEffect", [effectData], { renderSheet: true });
 				}
 				return new ActiveEffectWizard(owner, effectData).render({ force: true });
 			}

@@ -254,11 +254,14 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			});
 			html.find(".effect-control").on("click contextmenu", (ev) => ActiveEffectT20.onManageActiveEffect(ev, this.item));
 			if (this.item.system.enableAutoUpgrades) {
-				html.find(".tab.enhancements select").change(async (ev) => {
-					const { name, value } = ev.currentTarget;
+				html.find(".tab.enhancements .updateUpgrades").change(async (ev) => {
+					const { value } = ev.currentTarget;
+					const { name } = ev.currentTarget.dataset;
 					const key = name.replace("system.upgrades.", "");
+					// TODO: Refactoring. Isso ta fazendo 5 updates em sequência.
 					if (this.item.system.upgrades[key]) await this._deleteEffect(this.item.system.upgrades[key]);
 					if (value) await this._createEffect(value);
+					await this.item.update({ [name]: value });
 				});
 			}
 
@@ -318,9 +321,16 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	 */
 	async _onDragStart(event) {
 		const target = event.currentTarget;
+		if ("link" in event.target.dataset) return;
+		let dragData;
+
+		// Active Effect
+		if (target.dataset.effectId) {
 			const effect = this.item.effects.get(target.dataset.effectId);
+			dragData = effect.toDragData();
 		}
 
+		// Set data transfer
 		if (!dragData) return;
 		event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
 	}
@@ -665,8 +675,8 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 
 		if (!effect) return;
 
-		if (effect.transfer) await this.item.actor?.createEmbeddedDocuments("ActiveEffect", [effect]);
-		await this.item.createEmbeddedDocuments("ActiveEffect", [effect]);
+		if (effect.transfer) await this.item.actor?.createEmbeddedDocuments("ActiveEffect", [effect], { render: false });
+		await this.item.createEmbeddedDocuments("ActiveEffect", [effect], { render: false });
 	}
 
 	async _deleteEffect(upgrade) {
@@ -682,8 +692,8 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			const actorEffectsToDelete = effectsToDelete.filter((e) => e.parent.id === this.item.actor?.id).map((e) => e.id);
 			const itemEffectsToDelete = effectsToDelete.filter((e) => e.parent.id === this.item.id).map((e) => e.id);
 
-			await this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete);
-			await this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete);
+			await this.item.actor?.deleteEmbeddedDocuments("ActiveEffect", actorEffectsToDelete, { render: false });
+			await this.item.deleteEmbeddedDocuments("ActiveEffect", itemEffectsToDelete, { render: false });
 		}
 	}
 
