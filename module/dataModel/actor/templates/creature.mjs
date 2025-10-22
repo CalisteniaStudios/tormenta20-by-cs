@@ -922,17 +922,17 @@ export default class CreatureData extends Tormenta20TypeData {
 	/** Calcula os atributos sem bônus, para cálculo de PV/PM */
 	prepareBaseAtributos() {
 		const flags = this.parent.flags.tormenta20 ?? {};
-		Object.entries(this.atributos).forEach(([key, atr]) => {
+		for (const [key, atr] of Object.entries(this.atributos)) {
 			atr.value = atr.base + atr.racial;
-		});
+		}
 	}
 
 	prepareAtributos({ rollData = {} } = {}) {
 		const flags = this.parent.flags.tormenta20 ?? {};
-		Object.entries(this.atributos).forEach(([key, atr]) => {
+		for (const [key, atr] of Object.entries(this.atributos)) {
 			atr.value += atr.bonus;
 			rollData[key] = atr.value;
-		});
+		}
 	}
 
 	prepareSkills({ rollData = {} } = {}) {
