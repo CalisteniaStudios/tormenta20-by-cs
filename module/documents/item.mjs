@@ -923,12 +923,6 @@ export default class ItemT20 extends Item {
 		// Saving Throw
 		if (foundry.utils.hasProperty(system, "resistencia")) {
 			const save = system.resistencia || {};
-			const actorFlags = this.actor?.flags ?? null;
-
-			if (this.isOwned && actorFlags) {
-				const showCD = actorFlags?.tormenta20?.showCD ?? true;
-				if (!showCD) save.cd = "??";
-			}
 			if (save.txt && save.cd) this.labels.save = `${save.txt} (CD ${save.cd})`;
 			else this.labels.save = save.txt;
 		}
@@ -962,8 +956,8 @@ export default class ItemT20 extends Item {
 			if (system.criticoX === 2) this.labels.critico = system.criticoM;
 			else this.labels.critico = `${system.criticoM}/${system.criticoX}x`;
 		}
-		// Spells
-		else if (this.type === "magia") {
+		// Spells and Abilities
+		else if (this.type === "magia" || this.type === "poder") {
 			const hTags = {
 				ativacao: "T20.ActivationCost",
 				range: "T20.Range",
@@ -985,10 +979,12 @@ export default class ItemT20 extends Item {
 			this.labels.header += this.labels.effect ? `<b>${hTags.effect}:</b> ${this.labels.effect}; ` : "";
 			this.labels.header += this.labels.duration ? `<b>${hTags.duracao}:</b> ${this.labels.duration}; ` : "";
 			this.labels.header += this.labels.save ? `<b>${hTags.save}:</b> ${this.labels.save}; ` : "";
-			this.labels.tipo = T20.spellType[system.tipo];
-			this.labels.nivel = game.i18n.format("T20.SpellLevel", { lvl: system.circulo });
-			this.labels.escola = T20.spellSchools[system.escola];
-			this.labels.materiais = system.meteriais?.value ?? null;
+			if (this.type === "magia") {
+				this.labels.tipo = T20.spellType[system.tipo];
+				this.labels.nivel = game.i18n.format("T20.SpellLevel", { lvl: system.circulo });
+				this.labels.escola = T20.spellSchools[system.escola];
+				this.labels.materiais = system.meteriais?.value ?? null;
+			}
 		}
 		// Power
 		else if (this.type === "poder") {

@@ -2,6 +2,7 @@ export default class ChatMessageTormenta20 extends ChatMessage {
 	async renderHTML({ canDelete, canClose = false, ...rest } = {}) {
 		const html = await super.renderHTML({ canDelete, canClose, ...rest });
 		this._highlightCriticalSuccessFailure(html);
+		this._hideDC(html);
 		return html;
 	}
 
@@ -38,5 +39,17 @@ export default class ChatMessageTormenta20 extends ChatMessage {
 				}
 			}
 		}
+	}
+
+	_hideDC(html) {
+		if (game.settings.get("tormenta20", "showFoeDc")) return;
+		if (game.user.isGM) return;
+		const actor = this.speakerActor;
+		if (!actor) return;
+		if (actor.type == "character") return;
+		const header = html.querySelector(".card-item-header");
+		if (!header) return;
+		let content = header.innerHTML.replace(/CD \d+/i, "CD ??");
+		header.innerHTML = content;
 	}
 }

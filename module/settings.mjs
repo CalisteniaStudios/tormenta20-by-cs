@@ -144,17 +144,16 @@ export const SystemSettings = function () {
 	});
 
 	/**
-	 * Option to show apply buttons inside chat
+	 * Option to show creatureDC to all players.
 	 */
-	// game.settings.register("tormenta20", "applyButtonsInsideChat", {
-	// 	name: game.i18n.localize("T20.SettingChatButtonsRule"),
-	// 	hint: game.i18n.localize("T20.SettingChatButtonsHint"),
-	// 	scope: "world",
-	// 	config: true,
-	// 	default: false,
-	// 	type: Boolean,
-	// 	requiresReload: true
-	// });
+	game.settings.register("tormenta20", "showFoeDc", {
+		name: "T20.ShowDC",
+		scope: "world",
+		config: true,
+		default: true,
+		type: Boolean,
+		requiresReload: false,
+	});
 
 	/**
 	 * Option to show apply buttons inside chat
