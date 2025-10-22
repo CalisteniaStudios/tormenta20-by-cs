@@ -115,7 +115,7 @@ export default class TokenT20 extends foundry.canvas.placeables.Token {
 			if (units != "m") return;
 			const ranges = [9, 30, 90];
 			for (const range of ranges) {
-				if (range * size > width || range * size > height) continue;
+				if (range * size > width && range * size > height) continue;
 				this._drawRange(range);
 			}
 		}

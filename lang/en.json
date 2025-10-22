@@ -298,17 +298,6 @@
     "ShowRD": "Show RD",
     "ShowResources": "Show Resources",
 
-    "Alignment": "Alignment",
-    "AlignmentCE": "Chaotic Evil",
-    "AlignmentCG": "Chaotic Good",
-    "AlignmentCN": "Chaotic and Neutral",
-    "AlignmentLE": "Legal Evil",
-    "AlignmentLG": "Legal Good",
-    "AlignmentLN": "Legal Neutral",
-    "AlignmentNE": "Neutral and Evil",
-    "AlignmentNG": "Neutral and Good",
-    "AlignmentTN": "Neutral",
-
     "S7": "/* ----------------- TYPES ---------------- */",
 
     "DamImm": "Damage Immunity",
@@ -1142,6 +1131,8 @@
     "SettingEmcumbrancreRuleSlots": "Spacing Rule, Dragão Brasil #171",
     "SettingsCampaignSettingRule": "Game Setting",
     "SettingsCampaignSettingHint": "Change rules according to Game scenarios.",
+    "SettingsOverrideMeasuredTemplates": "System Ability Templates",
+    "SettingsOverrideMeasuredTemplatesHint": "Measured Templates follow the Core Rulebook rules",
 
     "SettingEquipmentSlots": "Wrapped/Worn Items Control",
     "SettingEquipmentSlotsHint": "Changes how to control equipped items.",

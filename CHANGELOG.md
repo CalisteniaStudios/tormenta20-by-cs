@@ -1,5 +1,7 @@
 # Lista de Mudanças
 
+# Versão 1.5.013
+- Revertido: Configuração para desabilitar Área de Efeito do sistema foi trazida de volta.
 # Versão 1.5.012
 - Alterado: Melhorias no Importador de Bloco de Estatísticas:
   - Não falha ao ler atributos em fichas com descrições de invocações que tenham atributos.

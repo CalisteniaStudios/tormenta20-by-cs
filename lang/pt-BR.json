@@ -334,17 +334,6 @@
     "ShowRD": "Mostrar RD",
     "ShowResources": "Mostrar Recursos",
 
-    "Alignment": "Alinhamento",
-    "AlignmentCE": "Caótico e Mal",
-    "AlignmentCG": "Caótico e Bom",
-    "AlignmentCN": "Caótico e Neutro",
-    "AlignmentLE": "Leal e Mal",
-    "AlignmentLG": "Leal e Bom",
-    "AlignmentLN": "Leal e Neutro",
-    "AlignmentNE": "Neutro e Mal",
-    "AlignmentNG": "Neutro e Bom",
-    "AlignmentTN": "Neutro",
-
     "S7": "/* ----------------- TYPES ---------------- */",
 
     "DamExce": "Reduz todo o dano pelo valor, exceto este tipo.",
@@ -1239,6 +1228,8 @@
     "SettingEmcumbrancreRuleSlots": "Regra de Espaços, Dragão Brasil #171",
     "SettingsCampaignSettingRule": "Cenário de Jogo",
     "SettingsCampaignSettingHint": "Altera regras de acordo com cenários de Jogo.",
+    "SettingsOverrideMeasuredTemplates": "Áreas de Efeitos do Sistema",
+    "SettingsOverrideMeasuredTemplatesHint": "Áreas de efeito seguem as regras do Livro Básico.",
 
     "SettingEquipmentSlots": "Controlar Itens Equipáveis",
     "SettingEquipmentSlotsHint": "Itens empunháveis passam a ser limitados pela quantidade de mãos do personagem e itens vestidos passam a ser limitados pelo limite de itens vestidos.",

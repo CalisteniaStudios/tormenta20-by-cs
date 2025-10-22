@@ -13,16 +13,16 @@ export const SystemSettings = function () {
 	});
 
 	game.settings.registerMenu("tormenta20", "sheetSettings", {
-		name: game.i18n.localize("T20.SettingSheetSettings"),
-		label: game.i18n.localize("T20.SettingSheetSettings"),
+		name: "T20.SettingSheetSettings",
+		label: "T20.SettingSheetSettings",
 		icon: "fas fa-scroll",
 		type: Tormenta20ActorSheetSettings,
 		restricted: true
 	});
 
 	game.settings.registerMenu("tormenta20", "optionalRulesSettings", {
-		name: game.i18n.localize("T20.SettingOptionalRulesSettings"),
-		label: game.i18n.localize("T20.SettingOptionalRulesSettings"),
+		name: "T20.SettingOptionalRulesSettings",
+		label: "T20.SettingOptionalRulesSettings",
 		icon: "fas fa-cog",
 		type: Tormenta20OptionalRulesSettings,
 		restricted: true
@@ -40,8 +40,8 @@ export const SystemSettings = function () {
 	 * Option to define mechanics for Campaign Settings
 	 */
 	game.settings.register("tormenta20", "gameSystem", {
-		name: game.i18n.localize("T20.SettingsCampaignSettingRule"),
-		hint: game.i18n.localize("T20.SettingsCampaignSettingHint"),
+		name: "T20.SettingsCampaignSettingRule",
+		hint: "T20.SettingsCampaignSettingHint",
 		scope: "world",
 		config: true,
 		default: "Tormenta20",
@@ -57,8 +57,8 @@ export const SystemSettings = function () {
 	 * Option to define mechanics for Campaign Settings
 	 */
 	game.settings.register("tormenta20", "limitedSheet", {
-		name: game.i18n.localize("T20.SettingsLimitedSheet"),
-		hint: game.i18n.localize("T20.SettingsLimitedSheetHint"),
+		name: "T20.SettingsLimitedSheet",
+		hint: "T20.SettingsLimitedSheetHint",
 		scope: "world",
 		config: true,
 		default: "limited",
@@ -73,8 +73,8 @@ export const SystemSettings = function () {
 	 * Option to disable XP bar for session-based or story-based advancement.
 	 */
 	game.settings.register("tormenta20", "disableExperience", {
-		name: game.i18n.localize("T20.SettingDisableExperience"),
-		hint: game.i18n.localize("T20.SettingDisableExperienceHint"),
+		name: "T20.SettingDisableExperience",
+		hint: "T20.SettingDisableExperienceHint",
 		scope: "world",
 		config: false,
 		default: false,
@@ -86,8 +86,8 @@ export const SystemSettings = function () {
 	 * Register languages rule (Homebrew)
 	 */
 	game.settings.register("tormenta20", "enableLanguages", {
-		name: game.i18n.localize("T20.SettingEnableLanguages"),
-		hint: game.i18n.localize("T20.SettingEnableLanguagesHint"),
+		name: "T20.SettingEnableLanguages",
+		hint: "T20.SettingEnableLanguagesHint",
 		scope: "world",
 		config: false,
 		default: false,
@@ -98,8 +98,8 @@ export const SystemSettings = function () {
 	 * Option to disable sheet journals (TODO REMOVE?)
 	 */
 	game.settings.register("tormenta20", "disableJournal", {
-		name: game.i18n.localize("T20.SettingDisableJournal"),
-		hint: game.i18n.localize("T20.SettingDisableJournalHint"),
+		name: "T20.SettingDisableJournal",
+		hint: "T20.SettingDisableJournalHint",
 		scope: "world",
 		config: false,
 		default: false,
@@ -110,8 +110,8 @@ export const SystemSettings = function () {
 	 * Option to automatic spend mana on ability use
 	 */
 	game.settings.register("tormenta20", "automaticManaSpend", {
-		name: game.i18n.localize("T20.SettingAutomaticManaSpend"),
-		hint: game.i18n.localize("T20.SettingAutomaticManaSpendHint"),
+		name: "T20.SettingAutomaticManaSpend",
+		hint: "T20.SettingAutomaticManaSpendHint",
 		scope: "world",
 		config: true,
 		default: false,
@@ -122,8 +122,8 @@ export const SystemSettings = function () {
 	 * Option to automatic spend mana on ability use
 	 */
 	game.settings.register("tormenta20", "foeSheetCompactSpell", {
-		name: game.i18n.localize("T20.SettingFoeSheetCompactSpell"),
-		hint: game.i18n.localize("T20.SettingFoeSheetCompactSpellHint"),
+		name: "T20.SettingFoeSheetCompactSpell",
+		hint: "T20.SettingFoeSheetCompactSpellHint",
 		scope: "world",
 		config: true,
 		default: true,
@@ -134,8 +134,8 @@ export const SystemSettings = function () {
 	 * Option to automatically collapse Item Card descriptions
 	 */
 	game.settings.register("tormenta20", "autoCollapseItemCards", {
-		name: game.i18n.localize("T20.SettingCollapseItemDescRule"),
-		hint: game.i18n.localize("T20.SettingCollapseItemDescHint"),
+		name: "T20.SettingCollapseItemDescRule",
+		hint: "T20.SettingCollapseItemDescHint",
 		scope: "client",
 		config: true,
 		default: true,
@@ -160,8 +160,8 @@ export const SystemSettings = function () {
 	 * Option to show apply buttons inside chat
 	 */
 	game.settings.register("tormenta20", "showStatusCards", {
-		name: game.i18n.localize("T20.SettingStatusCardRule"),
-		hint: game.i18n.localize("T20.SettingStatusCardHint"),
+		name: "T20.SettingStatusCardRule",
+		hint: "T20.SettingStatusCardHint",
 		scope: "world",
 		config: true,
 		default: false,
@@ -169,16 +169,16 @@ export const SystemSettings = function () {
 	});
 
 	game.settings.register("tormenta20", "showDamageCards", {
-		name: game.i18n.localize("T20.SettingDamageCardRule"),
-		hint: game.i18n.localize("T20.SettingDamageCardRuleHint"),
+		name: "T20.SettingDamageCardRule",
+		hint: "T20.SettingDamageCardRuleHint",
 		scope: "world",
 		config: true,
 		default: "none",
 		type: String,
 		choices: {
-			none: game.i18n.localize("T20.None"),
-			players: game.i18n.localize("T20.SettingDamageCardPlayers"),
-			npcs: game.i18n.localize("T20.SettingDamageCardNPCS")
+			none: "T20.None",
+			players: "T20.SettingDamageCardPlayers",
+			npcs: "T20.SettingDamageCardNPCS",
 		}
 	});
 
@@ -186,8 +186,8 @@ export const SystemSettings = function () {
 	 * Option to item slots instead of boolean equipped status.
 	 */
 	game.settings.register("tormenta20", "equipmentSlots", {
-		name: game.i18n.localize("T20.SettingEquipmentSlots"),
-		hint: game.i18n.localize("T20.SettingEquipmentSlotsHint"),
+		name: "T20.SettingEquipmentSlots",
+		hint: "T20.SettingEquipmentSlotsHint",
 		scope: "world",
 		config: true,
 		default: false,
@@ -199,21 +199,21 @@ export const SystemSettings = function () {
 	 * Option to show Usage Effects Menu on Shift Use or Always
 	 */
 	game.settings.register("tormenta20", "UsageConfig", {
-		name: game.i18n.localize("T20.SettingUsageConfig"),
-		hint: game.i18n.localize("T20.SettingUsageConfigHint"),
+		name: "T20.SettingUsageConfig",
+		hint: "T20.SettingUsageConfigHint",
 		scope: "client",
 		config: true,
 		default: "default",
 		type: String,
 		choices: {
-			default: game.i18n.localize("T20.SettingUsageConfigDefault"),
-			shift: game.i18n.localize("T20.SettingUsageConfigShift")
+			default: "T20.SettingUsageConfigDefault",
+			shift: "T20.SettingUsageConfigShift",
 		}
 	});
 
 	game.settings.register("tormenta20", "invertUsageConfig", {
-		name: game.i18n.localize("T20.SettingInvertUsageConfig"),
-		hint: game.i18n.localize("T20.SettingInvertUsageConfigHint"),
+		name: "T20.SettingInvertUsageConfig",
+		hint: "T20.SettingInvertUsageConfigHint",
 		scope: "client",
 		config: true,
 		default: false,
@@ -224,21 +224,21 @@ export const SystemSettings = function () {
 	 * Define how Lancinante effect is applyed
 	 */
 	game.settings.register("tormenta20", "lancinatingVersion", {
-		name: game.i18n.localize("T20.SettingLancinatingVersion"),
-		hint: game.i18n.localize("T20.SettingLancinatingVersionHint"),
+		name: "T20.SettingLancinatingVersion",
+		hint: "T20.SettingLancinatingVersionHint",
 		scope: "world",
 		config: false,
 		default: "default",
 		type: String,
 		choices: {
-			default: game.i18n.localize("T20.SettingLancinatingDefault"),
-			revised: game.i18n.localize("T20.SettingLancinatingRevised")
+			default: "T20.SettingLancinatingDefault",
+			revised: "T20.SettingLancinatingRevised",
 		}
 	});
 
 	game.settings.register("tormenta20", "progressiveDefense", {
-		name: game.i18n.localize("T20.SettingProgressiveDefense"),
-		hint: game.i18n.localize("T20.SettingProgressiveDefenseHint"),
+		name: "T20.SettingProgressiveDefense",
+		hint: "T20.SettingProgressiveDefenseHint",
 		scope: "world",
 		config: false,
 		default: false,
@@ -247,8 +247,8 @@ export const SystemSettings = function () {
 	});
 
 	game.settings.register("tormenta20", "lightFinesseWeapons", {
-		name: game.i18n.localize("T20.SettingLightFinesseWeapons"),
-		hint: game.i18n.localize("T20.SettingLightFinesseWeaponsHint"),
+		name: "T20.SettingLightFinesseWeapons",
+		hint: "T20.SettingLightFinesseWeaponsHint",
 		scope: "world",
 		config: false,
 		default: false,
@@ -256,8 +256,8 @@ export const SystemSettings = function () {
 	});
 
 	game.settings.register("tormenta20", "openRaces", {
-		name: game.i18n.localize("T20.SettingOpenRaces"),
-		hint: game.i18n.localize("T20.SettingOpenRacesHint"),
+		name: "T20.SettingOpenRaces",
+		hint: "T20.SettingOpenRacesHint",
 		scope: "world",
 		config: false,
 		default: false,
@@ -265,8 +265,8 @@ export const SystemSettings = function () {
 	});
 
 	game.settings.register("tormenta20", "carryWeight", {
-		name: game.i18n.localize("T20.SettingCarryWeight"),
-		hint: game.i18n.localize("T20.SettingCarryWeightHint"),
+		name: "T20.SettingCarryWeight",
+		hint: "T20.SettingCarryWeightHint",
 		scope: "world",
 		config: false,
 		default: true,
@@ -274,13 +274,26 @@ export const SystemSettings = function () {
 	});
 
 	game.settings.register("tormenta20", "currencyWeight", {
-		name: game.i18n.localize("T20.SettingCurrencyWeight"),
-		hint: game.i18n.localize("T20.SettingCurrencyWeightHint"),
+		name: "T20.SettingCurrencyWeight",
+		hint: "T20.SettingCurrencyWeightHint",
 		scope: "world",
 		config: false,
 		default: true,
 		type: Boolean
 	});
+
+
+	game.settings.register("tormenta20", "overrideMeasuredTemplates", {
+		name: "T20.SettingsOverrideMeasuredTemplates",
+		hint: "T20.SettingsOverrideMeasuredTemplatesHint",
+		scope: "world",
+		config: true,
+		default: true,
+		type: Boolean,
+		requiresReload: true,
+	});
+
+
 
 	game.settings.register("tormenta20", "drawRanges", {
 		scope: "user",

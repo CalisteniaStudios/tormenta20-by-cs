@@ -298,18 +298,6 @@ export default function () {
 			.forEach((el) => el.addEventListener("click", chat._onChatSpendMana.bind(this)));
 	});
 
-	// Disabling the setting with a tooltip instead of removing it so we don't get users asking in core support why these core settings can't be found anywhere
-	Hooks.on("renderSettingsConfig", (app, html) => {
-		const disableSetting = (s) => {
-			const element = html.querySelector(`[name="core.${s}"]`);
-			element.disabled = true;
-			element.closest(".form-group").dataset.tooltipText =
-				"Configuração desativada porque o sistema não usa esta configuração.";
-			element.closest(".form-group").dataset.tooltipDirection = "CENTER";
-		};
-		disableSetting("gridTemplates");
-		disableSetting("coneTemplateType");
-	});
 
 	/* Add hook for End of Scene */
 	Hooks.on("renderCombatTracker", async (app, html) => endSegment(app, html));

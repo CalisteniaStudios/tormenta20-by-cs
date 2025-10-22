@@ -5,23 +5,45 @@ const { Ray } = foundry.canvas.geometry;
  * @extends {MeasuredTemplate}
  */
 export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredTemplate {
+
+	get overrideCoreShapes() {
+		return game.settings.get("tormenta20", 'overrideMeasuredTemplates');
+	}
+
+	_computeShape() {
+		if (!this.overrideCoreShapes || canvas.grid.type != 1) {
+			return super._computeShape();
+		}
+		const { t, distance, direction, angle, width } = this.document;
+		switch (t) {
+			case "circle":
+				return this.constructor.getCircleShapeT20(distance);
+			case "cone":
+				return this.constructor.getConeShapeT20(distance, direction, angle);
+			case "rect":
+				return this.constructor.getRectShapeT20(distance, direction);
+			case "ray":
+				return this.constructor.getRayShapeT20(distance, direction, width);
+		}
+	}
+
 	/** @override */
-	static getCircleShape(distance) {
+	static getCircleShapeT20(distance) {
 		return new PIXI.Polygon(canvas.grid.getCircle({ x: 0, y: 0 }, distance));
 	}
 
 	/** @override */
-	static getConeShape(distance, direction, angle) {
+	static getConeShapeT20(distance, direction, angle) {
 		if (canvas.grid.isSquare) {
 			const diagonal = [45, 135, 225, 315];
 			direction = Math.round(direction / 45) * 45;
-			if (diagonal.includes(direction)) return this.getDiagonalConeShape(distance, direction);
-			return this.getParallelConeShape(distance, direction);
+			if (diagonal.includes(direction)) return this.getDiagonalConeShapeT20(distance, direction);
+			return this.getParallelConeShapeT20(distance, direction);
 		}
 		return new PIXI.Polygon(canvas.grid.getCone({ x: 0, y: 0 }, distance, direction, angle));
 	}
 
-	static getParallelConeShape(distance, direction) {
+	static getParallelConeShapeT20(distance, direction) {
 		const distanceUnit = canvas.dimensions.distance;
 		const distancePixels = canvas.dimensions.distancePixels;
 		let points = [];
@@ -63,7 +85,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 		return new PIXI.Polygon(points);
 	}
 
-	static getDiagonalConeShape(distance, direction) {
+	static getDiagonalConeShapeT20(distance, direction) {
 		const distanceUnit = canvas.dimensions.distance;
 		const distancePixels = canvas.dimensions.distancePixels;
 		let points = [];
@@ -97,7 +119,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 	}
 
 	/** @override */
-	static getRayShape(distance, direction, width) {
+	static getRayShapeT20(distance, direction, width) {
 		const d = canvas.dimensions;
 		width *= d.distancePixels;
 		const p00 = Ray.fromAngle(0, 0, Math.toRadians(direction - 90), width / 2).B;
@@ -109,7 +131,7 @@ export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredT
 	}
 
 	/** @override */
-	static getRectShape(distance, direction) {
+	static getRectShapeT20(distance, direction) {
 		const endpoint = canvas.grid.getTranslatedPoint({ x: 0, y: 0 }, direction, distance);
 		return new PIXI.Rectangle(0, 0, endpoint.x, endpoint.y).normalize();
 	}
