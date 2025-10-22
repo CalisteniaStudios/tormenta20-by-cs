@@ -7,6 +7,7 @@
 - Alterado: Simplicação de Rolagem é chamada na exibição, não na criação do roll.
 - Adicionado: Tooltip exibindo a rolagem completa.
 - Adicionado: Soma do custo de mana ao usar habilidades.
+- Adicionado: Arrastar efeitos na ficha de item.
 # Versão 1.5.012
 - Alterado: Melhorias no Importador de Bloco de Estatísticas:
   - Não falha ao ler atributos em fichas com descrições de invocações que tenham atributos.

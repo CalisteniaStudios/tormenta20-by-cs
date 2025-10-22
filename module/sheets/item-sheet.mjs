@@ -272,6 +272,59 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 	/*  Interactions                                */
 	/* -------------------------------------------- */
 
+	async _onDrop(event) {
+		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
+		const item = this.item;
+		const allowed = Hooks.call("dropItemSheetData", item, this, data);
+		if (allowed === false) return;
+
+		// Dropped Documents
+		const documentClass = foundry.utils.getDocumentClass(data.type);
+		if (documentClass) {
+			const document = await documentClass.fromDropData(data);
+			await this._onDropDocument(event, document);
+		}
+	}
+
+	async _onDropDocument(event, document) {
+		switch (document.documentName) {
+			case "ActiveEffect":
+				return (await this._onDropActiveEffect(event, document)) ?? null;
+			case "Item":
+				return (await this._onDropItem(event, document)) ?? null;
+			default:
+				return null;
+		}
+	}
+
+	async _onDropActiveEffect(event, data) {
+		const effect = await ActiveEffect.implementation.fromDropData(data);
+		if (!this.item.isOwner || !effect) return false;
+		if (effect.target === this.item) return false;
+		return ActiveEffect.implementation.create(effect.toObject(), { parent: this.item });
+	}
+
+	// /** @override */
+	// _onDragStart(event) {
+	// 	console.log("onDragStart");
+	// 	super._onDragStart(event);
+	// }
+
+	/**
+	 * An event that occurs when a drag workflow begins for a draggable item on the sheet.
+	 * @param {DragEvent} event       The initiating drag start event
+	 * @returns {Promise<void>}
+	 * @protected
+	 */
+	async _onDragStart(event) {
+		const target = event.currentTarget;
+			const effect = this.item.effects.get(target.dataset.effectId);
+		}
+
+		if (!dragData) return;
+		event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+	}
+
 	/** @inheritdoc */
 	// async _onDrop(event) {
 	// 	const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
