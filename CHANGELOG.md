@@ -13,6 +13,8 @@
 - Corrigido: Armas perdem a descrição de ataque/dano, após editadas.
 - Corrigido: Atributos de Personagens Simples.
 - Corrigido: Rolar Iniciativa pela ficha;
+- Corrigido: Soma de destreza na defesa de Ameaças ao Importar Ficha.
+
 # Versão 1.5.012
 - Alterado: Melhorias no Importador de Bloco de Estatísticas:
   - Não falha ao ler atributos em fichas com descrições de invocações que tenham atributos.

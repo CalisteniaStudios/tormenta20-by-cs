@@ -944,9 +944,8 @@ export default class StatblockParser extends FormApplication {
 			const armors = itemsList.filter((i) => i.type === "equipamento" && i.system.equipado);
 			const armor = armors.find((i) => ["leve", "pesada"].includes(i.system.tipo));
 			const totalArmor = armors.map((m) => m.system.armadura.value).reduce((sum, v) => sum + v, 0);
-			const maxAtr = armor ? armor.system.armadura.maxAtr : 0;
+			const maxAtr = armor ? armor.system.armadura.maxAtr : 99;
 			const atributo = Math.clamp(schema.atributos.des.base, 0, maxAtr);
-
 			if (value) schema.attributes.defesa.base = Number(value) - totalArmor - atributo;
 			log.push({ success: true, message: `Defesa: ${value}` });
 		} catch (error) {
