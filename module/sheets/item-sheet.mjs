@@ -101,10 +101,53 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 		const sheetData = await super.getData(options);
 		const item = sheetData.item;
 		const source = item.toObject();
+		const rollOptions = {};
+		rollOptions.pericias = Object.entries(T20.pericias).reduce((acc, [k, v]) => {
+			const data = { value: k, label: v.label };
+			if (["atua", "luta", "pont"].includes(k)) {
+				data.group = "T20.DefaultPlural";
+				acc[0].push(data);
+			} else {
+				data.group = "Outras Perícias";
+				acc[1].push(data);
+			}
+			return acc;
+		}, [[], []]).flat();
+		rollOptions.atributos = Object.entries(T20.atributos).reduce((acc, [value, label]) => {
+			acc.push({ value, label });
+			return acc;
+		}, []);
+		rollOptions.atributosDano = rollOptions.atributos.map(i => {
+			i.value = `@${i.value}`
+			return i;
+		});
+		rollOptions.atributosDano.unshift({ value: 'padrao', label: 'T20.Default' });
+
+		const dT = [
+			"dano", "perda",
+			"corte", "impacto", "perfuracao",
+			"acido", "eletricidade", "essencia", "fogo", "frio", "luz", "psiquico", "trevas",
+			"curapv", "curatpv", "curapm", "curatpm"
+		];
+		rollOptions.damageTypes = dT.reduce((acc, value) => {
+			let group = "T20.DamageElementalPlural";
+			if (['dano', 'perda'].includes(value))
+				group = "T20.DefaultPlural";
+			else if (['curapv', 'curatpv', 'curapm', 'curatpm'].includes(value))
+				group = "T20.HealingPlural";
+			else if (['corte', 'impacto', 'perfuracao'].includes(value))
+				group = "T20.DamagePhysicalPlural";
+			acc.push({
+				value, group,
+				label: T20.damageTypes[value] ?? T20.healingTypes[value],
+			})
+			return acc;
+		}, []);
 
 		foundry.utils.mergeObject(sheetData, {
 			rootId: this.id,
 			source: source.system,
+			schema: item.system.schema,
 			system: item.system,
 			labels: this.item.labels,
 			isOwned: item.isOwned,
@@ -113,7 +156,7 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			isSimpleOwned: item.isOwned && item.parent.type === "simple",
 
 			itemUpgradeStatus: this._itemUpgradeStatus,
-
+			rollOptions,
 			config: CONFIG.T20,
 			// itemType: sheetData.item.type.capitalize(),
 			itemType: game.i18n.localize(`TYPES.Item.${item.type}`),
