@@ -16,6 +16,7 @@ import ChatMessageTormenta20 from "./module/documents/chat-message.mjs";
 import ItemT20 from "./module/documents/item.mjs";
 import RollT20 from "./module/documents/roll.mjs";
 import TokenDocumentT20 from "./module/documents/token.mjs";
+globalThis.Roll = RollT20;
 
 // Import Canvas
 import AbilityTemplate from "./module/canvas/ability-template.mjs";
@@ -150,10 +151,13 @@ Hooks.once("init", async function () {
 	Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
 	// Register Roll Extensions
+	Roll.CHAT_TEMPLATE = "systems/tormenta20/templates/chat/roll.hbs";
 	Roll.TOOLTIP_TEMPLATE = "systems/tormenta20/templates/chat/roll-breakdown.hbs";
+
+	CONFIG.Dice.rolls.push(RollT20);
+	CONFIG.Dice.rolls.RollT20 = RollT20;
 	CONFIG.Dice.rolls.D20Roll = dice.d20Roll;
 	CONFIG.Dice.rolls.DamageRoll = dice.damageRoll;
-	CONFIG.Dice.rolls.RollT20 = RollT20;
 
 	// DATA MODEL
 

@@ -46,7 +46,7 @@ export async function d20Roll({
 		);
 
 		// Execute the roll
-		let roll = new Roll(rollFormula, data);
+		let roll = new Roll(parts.join("+"), data);
 
 		try {
 			await roll.roll();
@@ -100,8 +100,8 @@ export async function damageRoll({
 			})
 			.filterJoin("+");
 		// Create the damage roll
-		const rollFormula = simplifyRollFormula(parts, data, { preserveFlavor: true });
-		const roll = new Roll(rollFormula, data, { type: "damage", rd });
+		// const rollFormula = simplifyRollFormula(parts, data, { preserveFlavor: true });
+		const roll = new Roll(parts, data, { type: "damage", rd });
 
 		// Modify the damage formula for critical hits
 		if (crit === true) {

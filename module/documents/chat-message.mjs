@@ -12,7 +12,7 @@ export default class ChatMessageTormenta20 extends ChatMessage {
 			const d0 = d20Roll.dice[0];
 			if (d0?.faces !== 20 || d0?.values.length !== 1) continue;
 
-			d20Roll = CONFIG.Dice.rolls.RollT20.fromRoll(d20Roll);
+			// d20Roll = CONFIG.Dice.rolls.RollT20.fromRoll(d20Roll);
 			const d = d20Roll.dice[0];
 
 			// Ensure it is an un-modified d20 roll

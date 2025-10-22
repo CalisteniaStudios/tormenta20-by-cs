@@ -1,28 +1,3 @@
-{{#*inline "optgroups"}}
-	<optgroup label="{{localize "T20.DefaultPlural"}}">
-		{{#if none}}<option value="">{{ localize "T20.None" }}</option>{{/if}}
-		<option value="dano">{{localize "T20.Damage"}}</option>
-		<option value="perda">{{localize "T20.DamageLoss"}}</option>
-	</optgroup>
-	<optgroup label="{{localize "T20.DamagePhysicalPlural"}}">
-		<option value="corte">{{localize "T20.DamageSlashing"}}</option>
-		<option value="impacto">{{localize "T20.DamageBludgeoning"}}</option>
-		<option value="perfuracao">{{localize "T20.DamagePiercing"}}</option>
-	</optgroup>
-	<optgroup label="{{localize "T20.DamageElementalPlural"}}">
-		{{#each @root.config.damageTypes as |name type|}}
-			{{#unless (includes type "dano" "perda" "corte" "impacto" "perfuracao")}}
-			<option value="{{type}}">{{localize name}}</option>
-			{{/unless}}
-		{{/each}}
-	</optgroup>
-	<optgroup label="{{localize "T20.HealingPlural"}}">
-		{{#each @root.config.healingTypes as |name type|}}
-			<option value="{{type}}">{{localize name}}</option>
-		{{/each}}
-	</optgroup>
-{{/inline}}
-
 <div class="rolls flexrow">
 	<h3>{{ localize "T20.Rolls" }}</h3>
 	<span class="rolls-controls">
@@ -57,31 +32,11 @@
 			<ol class="roll-parts form-group">
 				<li class="roll-part flexrow">
 					<input type="hidden" name="system.rolls.{{key}}.parts.0.0" value="1d20" />
-
 					<select name="system.rolls.{{key}}.parts.1.0">
-						{{#select (lookup (lookup roll.parts 1) 0) }}
-							<!-- <option value="">{{ localize "T20.None" }}</option> -->
-							<optgroup label="{{localize "T20.DefaultPlural"}}">
-								<option value="atua">{{ localize "T20.SkillAtua"}}</option>
-								<option value="luta">{{ localize "T20.SkillLuta"}}</option>
-								<option value="pont">{{ localize "T20.SkillPont"}}</option>
-							</optgroup>
-							<optgroup label="Outras Perícias">
-								{{#each ../config.pericias as |pericia type|}}
-									{{#unless (includes type "luta" "pont" "atua")}}
-										<option value="{{type}}">{{pericia.label}}</option>
-									{{/unless}}
-								{{/each}}
-							</optgroup>
-						{{/select}}
+						{{selectOptions @root.rollOptions.pericias selected=(lookup (lookup roll.parts 1) 0) localize=true}}
 					</select>
-					<select name="system.rolls.{{key}}.parts.1.1" title="Substituir Atributo da Perícia">
-						{{#select (lookup (lookup roll.parts 1) 1) }}
-							<option value="">{{localize 'T20.Default'}}</option>
-							{{#each ../config.atributos as |name type|}}
-								<option value="{{type}}">{{name}}</option>
-							{{/each}}
-						{{/select}}
+					<select name="system.rolls.{{key}}.parts.1.1" data-tooltip="Substituir Atributo da Perícia">
+						{{selectOptions @root.rollOptions.atributos selected=(lookup (lookup roll.parts 1) 1) blank="T20.Default" localize=true}}
 					</select>
 					<input type="text" name="system.rolls.{{key}}.parts.2.0" value="{{lookup (lookup roll.parts 2) 0}}" placeholder="Bônus" />
 				</li>
@@ -95,43 +50,33 @@
 		<div class="form-group">
 			<ol class="roll-parts form-group flexcol">
 				{{#if (eq ../item.type "arma") }}
-				<li class="roll-part flexrow" data-roll-part="{{i}}">
-					<input type="text" name="system.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"
-					title="Dano" />
-					{{#if ../system.propriedades.ada }}
-					<input type="text" name="system.rolls.{{key}}.adaptavel" value="{{roll.adaptavel}}" placeholder="Adaptável" />
-					{{else}}
-					<input type="hidden" name="system.rolls.{{key}}.adaptavel" value="" />
-					{{/if}}
-					{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
-					<select name="system.rolls.{{key}}.parts.1.0" title="Atributo">
-						{{#select (lookup (lookup roll.parts 1) 0)}}
-							<option value=""></option>
-							<option value="padrao">{{localize 'T20.Default'}}</option>
-							{{#each ../config.atributos as |name type|}}
-								<option value="@{{type}}">{{localize name}}</option>
-							{{/each}}
-						{{/select}}
-					</select>
-					{{else}}
-					<input type="hidden" name="system.rolls.{{key}}.parts.1.0" value="" />
-					{{/if}}
+					<li class="roll-part flexrow" data-roll-part="{{i}}">
+						<input type="text" name="system.rolls.{{key}}.parts.0.0" value="{{lookup (lookup roll.parts 0) 0}}"
+							title="Dano" />
+						{{#if ../system.propriedades.ada }}
+							<input type="text" name="system.rolls.{{key}}.adaptavel" value="{{roll.adaptavel}}" placeholder="Adaptável" />
+						{{else}}
+							<input type="hidden" name="system.rolls.{{key}}.adaptavel" value="" />
+						{{/if}}
+						{{#if (or (not @root.item.isOwned ) @root.isCharacterOwned) }}
+							<select name="system.rolls.{{key}}.parts.1.0" title="Atributo">
+								{{selectOptions @root.rollOptions.atributosDano selected=(lookup (lookup roll.parts 1) 0) blank=true localize=true}}
+							</select>
+						{{else}}
+							<input type="hidden" name="system.rolls.{{key}}.parts.1.0" value="" />
+						{{/if}}
 
-					<select name="system.rolls.{{key}}.parts.0.1" title="Tipo de Dano">
-						{{#select (lookup (lookup roll.parts 0) 1)}}
-							{{> "optgroups"}}
-						{{/select}}
-					</select>
-				</li>
+						<select name="system.rolls.{{key}}.parts.0.1" title="Tipo de Dano">
+							{{selectOptions @root.rollOptions.damageTypes selected=(lookup (lookup roll.parts 0) 1) blank="T20.None" localize=true}}
+						</select>
+					</li>
 				{{/if}}
 				{{#each roll.parts as |part i| }}
 					{{#unless (and (eq @root.item.type "arma") (lt i 2) )}}
 						<li class="roll-part flexrow" data-roll-part="{{i}}">
-							<input type="text" name="system.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this "0"}}"/ title="Dano">
+							<input type="text" name="system.rolls.{{key}}.parts.{{i}}.0" value="{{lookup this '0'}}" / title="Dano">
 							<select name="system.rolls.{{key}}.parts.{{i}}.1">
-								{{#select (lookup this "1") }}
-									{{> "optgroups" none=true }}
-								{{/select}}
+								{{selectOptions @root.rollOptions.damageTypes selected=(lookup this "1") blank="T20.None" localize=true}}
 							</select>
 							<a class="parts-control delete-part" data-roll-id="{{key}}" title="{{key}}">
 								<i class="fas fa-xmark"></i></a>
