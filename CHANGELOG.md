@@ -6,6 +6,7 @@
 - Adicionado: Tags de Deslocamento, atualmente com `ignora-armadura` e `ignora-carga`, para ignorar reduções de deslocamento.
 - Alterado: Simplicação de Rolagem é chamada na exibição, não na criação do roll.
 - Adicionado: Tooltip exibindo a rolagem completa.
+- Adicionado: Soma do custo de mana ao usar habilidades.
 # Versão 1.5.012
 - Alterado: Melhorias no Importador de Bloco de Estatísticas:
   - Não falha ao ler atributos em fichas com descrições de invocações que tenham atributos.

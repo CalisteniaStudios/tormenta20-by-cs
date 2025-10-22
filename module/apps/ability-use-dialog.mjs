@@ -21,6 +21,7 @@ export default class AbilityUseDialog extends Dialog {
 
 		// Add controles para números
 		html.find(".numCtrl").click(this.numberControl.bind(this));
+		html.find(".item-cost input").on("click", () => { this._onInputChange(html) });
 	}
 
 	numberControl(ev) {
@@ -34,9 +35,44 @@ export default class AbilityUseDialog extends Dialog {
 		let campo = $(target).siblings(".numInp")[0];
 		if ($(target).val() === "+") {
 			campo.value = parseInt(campo.value) + parseInt($(campo).prop("step"));
-		} else if ($(target).val() === "-") {
+		} else if ($(target).val() === "-" && campo.value > 0) {
 			campo.value = parseInt(campo.value) - parseInt($(campo).prop("step"));
 		}
+
+		this._onInputChange(this.element);
+	}
+
+	_onInputChange(html) {
+		html = html[0];
+		const effects = html.querySelectorAll(".aprimoramentos-list li input:not([type=hidden])");
+		let totalCost = 0;
+		let hasCost = false;
+		for (const input of effects) {
+			const cost = input.closest("div").querySelector("input[type=hidden]");
+			if (!cost) continue;
+			if (input.type == "checkbox") {
+				if (!input.checked) continue;
+				if (Number(cost.value)) {
+					totalCost += Number(cost.value);
+					hasCost = true;
+				}
+			} else {
+				if (input.value == 0) continue;
+				if (Number(cost.value)) {
+					totalCost += Number(cost.value) * input.value;
+					hasCost = true;
+				}
+			}
+		}
+		const span = html.querySelector(".total-cost .cost");
+		const { initialCost } = span.dataset;
+		totalCost += Number(initialCost);
+		const bonusCost = html.querySelector("input[name=ajustecusto]");
+		if (bonusCost) {
+			totalCost += Number(bonusCost.value);
+		}
+
+		span.value = hasCost ? Math.max(totalCost, 1) : 0;
 	}
 
 	/* -------------------------------------------- */
@@ -100,6 +136,13 @@ export default class AbilityUseDialog extends Dialog {
 		if (!["atributo", "pericia"].includes(item.type) && !itemData.rolls?.length && !aprimoramentos.length) {
 			return applyOnUseEffects(item, {});
 		}
+		let initialCost = 0;
+		initialCost += pmCost ? Number(itemData?.custo) : 0;
+		for (const ef of aprimoramentos) {
+			if (ef.disabled) continue;
+			const cost = ef.getFlag("tormenta20", "custo");
+			initialCost += Number.isNumeric(cost) ? Number(cost) : 0;
+		}
 
 		// TODO Check if Actor have sufficient MP
 		// TODO Include consume os Ammunition, Itens, Money?
@@ -110,6 +153,7 @@ export default class AbilityUseDialog extends Dialog {
 			title: game.i18n.format("T20.AbilityUseHint", item),
 			note: "",
 			custo: itemData?.custo ?? null,
+			initialCost,
 			formula:
 				["atributo", "pericia"].includes(item.type)
 				|| !!itemData.rolls?.find((r) => ["ataque", "formula"].includes(r.type)),
