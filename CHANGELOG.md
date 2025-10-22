@@ -8,6 +8,7 @@
 - Adicionado: Tooltip exibindo a rolagem completa.
 - Adicionado: Soma do custo de mana ao usar habilidades.
 - Adicionado: Arrastar efeitos na ficha de item.
+- Corrigido: Erro ao arrastar itens para Ficha de Bases.
 # Versão 1.5.012
 - Alterado: Melhorias no Importador de Bloco de Estatísticas:
   - Não falha ao ler atributos em fichas com descrições de invocações que tenham atributos.
