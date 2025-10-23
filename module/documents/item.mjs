@@ -986,11 +986,6 @@ export default class ItemT20 extends Item {
 				this.labels.materiais = system.meteriais?.value ?? null;
 			}
 		}
-		// Power
-		else if (this.type === "poder") {
-			this.labels.tipo = T20.powerType[system.tipo];
-			this.labels.subtipo = system.subtipo;
-		}
 		// Equipment
 		else if (this.type === "equipamento") {
 			this.labels.armadura = system.armadura.valor
