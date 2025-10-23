@@ -29,7 +29,7 @@ export default class ActorMovementConfig extends DocumentSheet {
 		const schema = system.schema.getField("attributes.movement").fields;
 		const data = {
 			movement: sourceMovement,
-			schema: schema,
+			schema: schema
 		};
 		for (let [k, move] of Object.entries(data.movement)) {
 			if (!T20.movementTypes[k]) continue;

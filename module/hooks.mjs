@@ -298,7 +298,6 @@ export default function () {
 			.forEach((el) => el.addEventListener("click", chat._onChatSpendMana.bind(this)));
 	});
 
-
 	/* Add hook for End of Scene */
 	Hooks.on("renderCombatTracker", async (app, html) => endSegment(app, html));
 

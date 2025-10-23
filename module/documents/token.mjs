@@ -25,6 +25,8 @@ export default class TokenDocumentT20 extends TokenDocument {
 
 	get movementTypes() {
 		const movement = this.actor?.system.attributes.movement ?? {};
-		return new Set(Object.keys(movement).filter((key) => movement[key]?.value > 0 || (key == 'hover' && movement[key])));
+		return new Set(
+			Object.keys(movement).filter((key) => movement[key]?.value > 0 || (key == "hover" && movement[key]))
+		);
 	}
 }

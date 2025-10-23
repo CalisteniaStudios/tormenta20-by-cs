@@ -152,7 +152,7 @@ export const SystemSettings = function () {
 		config: true,
 		default: true,
 		type: Boolean,
-		requiresReload: false,
+		requiresReload: false
 	});
 
 	/**
@@ -177,7 +177,7 @@ export const SystemSettings = function () {
 		choices: {
 			none: "T20.None",
 			players: "T20.SettingDamageCardPlayers",
-			npcs: "T20.SettingDamageCardNPCS",
+			npcs: "T20.SettingDamageCardNPCS"
 		}
 	});
 
@@ -206,7 +206,7 @@ export const SystemSettings = function () {
 		type: String,
 		choices: {
 			default: "T20.SettingUsageConfigDefault",
-			shift: "T20.SettingUsageConfigShift",
+			shift: "T20.SettingUsageConfigShift"
 		}
 	});
 
@@ -231,7 +231,7 @@ export const SystemSettings = function () {
 		type: String,
 		choices: {
 			default: "T20.SettingLancinatingDefault",
-			revised: "T20.SettingLancinatingRevised",
+			revised: "T20.SettingLancinatingRevised"
 		}
 	});
 
@@ -281,7 +281,6 @@ export const SystemSettings = function () {
 		type: Boolean
 	});
 
-
 	game.settings.register("tormenta20", "overrideMeasuredTemplates", {
 		name: "T20.SettingsOverrideMeasuredTemplates",
 		hint: "T20.SettingsOverrideMeasuredTemplatesHint",
@@ -289,10 +288,8 @@ export const SystemSettings = function () {
 		config: true,
 		default: true,
 		type: Boolean,
-		requiresReload: true,
+		requiresReload: true
 	});
-
-
 
 	game.settings.register("tormenta20", "drawRanges", {
 		scope: "user",

@@ -184,7 +184,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		});
 	}
 
-	async _prepareItems(data) { }
+	async _prepareItems(data) {}
 
 	async enrichHTML(text, data) {
 		return await foundry.applications.ux.TextEditor.implementation.enrichHTML(text, {

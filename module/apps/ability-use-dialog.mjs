@@ -21,7 +21,9 @@ export default class AbilityUseDialog extends Dialog {
 
 		// Add controles para números
 		html.find(".numCtrl").click(this.numberControl.bind(this));
-		html.find(".item-cost input").on("click", () => { this._onInputChange(html) });
+		html.find(".item-cost input").on("click", () => {
+			this._onInputChange(html);
+		});
 	}
 
 	numberControl(ev) {

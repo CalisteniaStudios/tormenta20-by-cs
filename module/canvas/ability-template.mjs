@@ -5,9 +5,8 @@ const { Ray } = foundry.canvas.geometry;
  * @extends {MeasuredTemplate}
  */
 export default class AbilityTemplate extends foundry.canvas.placeables.MeasuredTemplate {
-
 	get overrideCoreShapes() {
-		return game.settings.get("tormenta20", 'overrideMeasuredTemplates');
+		return game.settings.get("tormenta20", "overrideMeasuredTemplates");
 	}
 
 	_computeShape() {

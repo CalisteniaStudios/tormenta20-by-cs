@@ -244,7 +244,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 				required: true,
 				nullable: false,
 				initial: "",
-				label: "T20.ItemRangeDescription",
+				label: "T20.ItemRangeDescription"
 			}),
 			alvo: new fields.StringField({
 				required: true,

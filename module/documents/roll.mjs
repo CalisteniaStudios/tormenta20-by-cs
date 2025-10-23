@@ -5,7 +5,6 @@ import { simplifyRollFormula } from "../dice/dice.mjs";
 const { DiceTerm, Die, OperatorTerm, NumericTerm } = foundry.dice.terms;
 
 export default class RollT20 extends foundry.dice.Roll {
-
 	get formulaSimplified() {
 		return simplifyRollFormula(this.formula);
 	}
@@ -22,13 +21,12 @@ export default class RollT20 extends foundry.dice.Roll {
 		return {
 			formula: isPrivate ? "???" : this.formulaSimplified,
 			_formula: isPrivate ? "???" : this.formula,
-			flavor: isPrivate ? null : flavor ?? this.options.flavor,
+			flavor: isPrivate ? null : (flavor ?? this.options.flavor),
 			user: game.user.id,
 			tooltip: isPrivate ? "" : await this.getTooltip(),
 			total: isPrivate ? "?" : Math.round(this.total * 100) / 100
 		};
 	}
-
 }
 
 // export default class RollT20 extends Roll {

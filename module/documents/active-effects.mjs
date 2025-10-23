@@ -179,7 +179,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 			"system.pericias.*.bonus",
 			"system.pericias.*.condi",
 			"system.attributes.movement.*.base",
-			"system.attributes.movement.*.bonus",
+			"system.attributes.movement.*.bonus"
 		];
 		const filters = {
 			"system.attributes.movement": (key) => T20.movementTypes[key]

@@ -606,7 +606,7 @@ T20Conditions.sobrecarregado = {
 		tormenta20: { condition: true, durationScene: true, category: "movimento" }
 	},
 	changes: [
-		{ key: "system.attributes.defesa.pda", mode: 2, value: 5 },
+		{ key: "system.attributes.defesa.pda", mode: 2, value: 5 }
 		// { key: "system.attributes.movement.*.bonus", mode: 2, value: -3 }
 	]
 };

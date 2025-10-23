@@ -12,7 +12,7 @@ export default class ActorSheetT20Bases extends ActorSheetT20 {
 	/* -------------------------------------------- */
 
 	get unsupportedItemTypes() {
-		return new Set(Item.TYPES.filter(i => !["comodo", "mobilia"].includes(i)));
+		return new Set(Item.TYPES.filter((i) => !["comodo", "mobilia"].includes(i)));
 	}
 
 	/* -------------------------------------------- */
