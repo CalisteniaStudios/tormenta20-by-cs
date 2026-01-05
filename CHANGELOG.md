@@ -1,6 +1,7 @@
 # Lista de Mudanças
 
 # Versão 1.5.014
+- Corrigir. Variáveis de TAGS (Ex. @ChapeuPreto2) não estão funcionando. NOTA: A TAG deve ser escrita em PascalCase (Primeira letra de cada palavra em maíuscula Ex: `ChapeuPreto`, `ArqueiroDeLenorien`).
 - Corrigido: Alterar os campo de Atributo de Ataque quebrava a rolagem de ataque das Armas.
 
 # Versão 1.5.013

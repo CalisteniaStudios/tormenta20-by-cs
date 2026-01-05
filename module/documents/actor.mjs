@@ -217,14 +217,11 @@ export default class ActorT20 extends Actor {
 			}
 		}
 
-		for (const [k, v] of Object.entries(powers)) {
-			const slug = k.slugify();
-			powers[slug.toLowerCase()] = v;
-
+		for (const [key, v] of Object.entries(powers)) {
 			for (const divisor of [2, 3, 4]) {
 				const val = Math.floor((v - 1) / divisor);
-				powers[`${slug.capitalize()}${divisor}`] = val;
-				powers[`${slug.toLowerCase()}${divisor}`] = val;
+				// THE CONVENTION FOR TAGS IS PASCAL CASE `ChapeuPreto`.
+				powers[`${key}${divisor}`] = val;
 			}
 		}
 		foundry.utils.mergeObject(data, powers);
