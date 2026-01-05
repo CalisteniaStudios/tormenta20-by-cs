@@ -73,8 +73,7 @@
 			</div>
 			<hr>
 			{{!-- Rolls --}}
-			{{> "tormenta20.item-rolls"}}
-
+			{{> "systems/tormenta20/templates/item/parts/item-rolls.hbs"}}
 			<div class="form-group">
 				<label>{{ localize "T20.Critical" }}</label>
 				<div class="form-fields">
@@ -82,16 +81,13 @@
 					<input type="number" title="{{ localize 'T20.CriticalHitMultiplier' }}" name="system.criticoX" value="{{item.system.criticoX}}" data-dtype="Number" min="2" placeholder="2" />
 				</div>
 			</div>
+			{{log 'ARMA'}}
+			{{log selectOptions}}
 			<div class="form-group">
 				<label>{{ localize "T20.Range" }}</label>
 				<div class="form-fields">
 					<select class="selectatr" name="system.alcance" value={{item.system.alcance}} data-type="String">
-						{{#select item.system.alcance}}
-							<option value=""></option>
-							<option value="short">{{localize "T20.DistShort"}}</option>
-							<option value="medium">{{localize "T20.DistMedium"}}</option>
-							<option value="long">{{localize "T20.DistLong"}}</option>
-						{{/select}}
+						{{selectOptions selectOptions.range selected=item.system.alcance blank='' localize=true}}
 					</select>
 				</div>
 			</div>
@@ -103,10 +99,8 @@
 				<textarea name="system.chatFlavor">{{item.system.chatFlavor}}</textarea>
 			</div>
 		</div>
-
 		{{!-- Enhancements Tab --}}
 		{{> "tormenta20.item-enhancements"}}
-
 		<div class="tab effects" data-group="primary" data-tab="effects">
 			{{> "tormenta20.active-effects"}}
 		</div>

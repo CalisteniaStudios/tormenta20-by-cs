@@ -67,7 +67,9 @@ export const preloadHandlebarsTemplates = async function () {
 		// Development Partials
 		"systems/tormenta20/templates/actor/parts/teste.hbs"
 	];
+	foundry.applications.handlebars.loadTemplates(templatePaths);
 
+	// TODO: REMOVE THE FOLLOWING
 	const paths = {};
 	for (const path of templatePaths) {
 		const htmlPath = path.replace(".hbs", ".html");

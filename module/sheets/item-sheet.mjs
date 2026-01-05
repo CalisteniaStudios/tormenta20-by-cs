@@ -122,10 +122,10 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			acc.push({ value, label });
 			return acc;
 		}, []);
-		rollOptions.atributosDano = rollOptions.atributos.map((i) => {
-			i.value = `@${i.value}`;
-			return i;
-		});
+		rollOptions.atributosDano = Object.entries(T20.atributos).reduce((acc, [value, label]) => {
+			acc.push({ value: `@${value}`, label });
+			return acc;
+		}, []);
 		rollOptions.atributosDano.unshift({ value: "padrao", label: "T20.Default" });
 
 		const dT = [
@@ -159,7 +159,12 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			});
 			return acc;
 		}, []);
-
+		const selectOptions = {};
+		selectOptions.range = [
+			{ value: "short", label: "T20.DistShort" },
+			{ value: "medium", label: "T20.DistMedium" },
+			{ value: "long", label: "T20.DistLong" }
+		];
 		foundry.utils.mergeObject(sheetData, {
 			rootId: this.id,
 			source: source.system,
@@ -172,7 +177,8 @@ export default class ItemSheetT20 extends foundry.appv1.sheets.ItemSheet {
 			isSimpleOwned: item.isOwned && item.parent.type === "simple",
 
 			itemUpgradeStatus: this._itemUpgradeStatus,
-			rollOptions,
+			selectOptions: selectOptions,
+			rollOptions: rollOptions,
 			config: CONFIG.T20,
 			// itemType: sheetData.item.type.capitalize(),
 			itemType: game.i18n.localize(`TYPES.Item.${item.type}`),

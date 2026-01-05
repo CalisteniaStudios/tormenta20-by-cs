@@ -1,5 +1,8 @@
 # Lista de Mudanças
 
+# Versão 1.5.014
+- Corrigido: Alterar os campo de Atributo de Ataque quebrava a rolagem de ataque das Armas.
+
 # Versão 1.5.013
 - Revertido: Configuração para desabilitar Área de Efeito do sistema foi trazida de volta.
 - Alterado: Deslocamento, agora possui valor base e bonus. Valor bônus só é somado se houver um valor base.
