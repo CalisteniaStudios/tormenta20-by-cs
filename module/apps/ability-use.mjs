@@ -181,6 +181,7 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		}
 		// ADD CHANGES
 		else if (ch.mode == 2) {
+			console.log("DEBUG ignoraRD", ch);
 			// ADD ROLL FROM ITEM
 			if (ch.value == "roll") {
 				const itr = item.actor.items.get(ef.origin.split(".")[3]).system.rolls.find((r) => r.type == "dano");
@@ -194,9 +195,11 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 				if (n) rollMods[r.key][p].extraDie = n;
 				continue;
 			} // To ignore part of Damage Reduction
-			else if (r.type === "dano" && ch.key === "ignoraRD") {
-				r.rd ??= 0;
-				r.rd += Math.abs(Number(ch.value * qty)) * -1;
+			else if (ch.key === "ignoraRD") {
+				if (r.type === "dano") {
+					r.rd ??= 0;
+					r.rd += Math.abs(Number(ch.value * qty)) * -1;
+				}
 				continue;
 			} else {
 				let { die, dtype } = ch.value.match(re.dmgType)?.groups ?? {};
