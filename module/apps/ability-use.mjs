@@ -181,7 +181,6 @@ const applyRollChanges = (ch, qty, ef, item, id, rollMods, options) => {
 		}
 		// ADD CHANGES
 		else if (ch.mode == 2) {
-			console.log("DEBUG ignoraRD", ch);
 			// ADD ROLL FROM ITEM
 			if (ch.value == "roll") {
 				const itr = item.actor.items.get(ef.origin.split(".")[3]).system.rolls.find((r) => r.type == "dano");

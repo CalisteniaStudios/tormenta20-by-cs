@@ -1009,6 +1009,10 @@ export default class ItemT20 extends Item {
 		let rolls = [];
 
 		let manaCost = Math.max(this.system.ativacao?.custo, 0) || (options.hasManaCost ? 1 : null);
+		if (this.parent) {
+			const extraCost = this.parent.system.modificadores.custoPM;
+			manaCost += extraCost;
+		}
 		if (options.truque) manaCost = 0;
 		else if (options.halfCost) manaCost = Math.floor(manaCost / 2);
 
