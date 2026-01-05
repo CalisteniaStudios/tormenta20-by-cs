@@ -56,6 +56,8 @@ export default class AttributesFields {
 		const moveData = this.attributes.movement;
 		const ignoreArmor = moveData.tags.has('ignora-armadura');
 		const ignoreWeight = moveData.tags.has('ignora-carga');
+		const isSlowed = this.document?.statuses.has('lento');
+		const isProne = this.document?.statuses.has('caido');
 
 		for (const [key, move] of Object.entries(this.attributes.movement)) {
 			if (!T20.movementTypes[key]) continue;
@@ -65,10 +67,15 @@ export default class AttributesFields {
 				if (encumbered && !ignoreWeight) parts.push(-3);
 				const total = simplifyRollFormula(parts.join("+"), rollData, { constantFirst: true }).trim();
 				move.value = Number(total);
+				if (isSlowed) {
+					move.value = Math.max(1.5, (move.value / 2).toNearest(1.5, 'floor'));
+				}
+				if (isProne) move.value = Math.min(move.value, 1.5);
 			} else {
 				move.value = 0;
 			}
 		}
+
 	}
 
 	static prepareEncumbrance(rollData) {

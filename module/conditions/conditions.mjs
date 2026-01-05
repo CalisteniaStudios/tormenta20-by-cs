@@ -460,8 +460,7 @@ T20Conditions.lento = {
 	icon: "systems/tormenta20/icons/conditions/lento.svg",
 	flags: {
 		tormenta20: { condition: true, durationScene: true, category: "movimento" }
-	},
-	changes: [{ key: "system.attributes.movement.*.value", mode: 1, value: 0.5 }]
+	}
 };
 
 T20Conditions.morto = {

@@ -178,6 +178,7 @@ export default class ActiveEffectT20 extends ActiveEffect {
 			"system.atributos.*.bonus",
 			"system.pericias.*.bonus",
 			"system.pericias.*.condi",
+			"system.attributes.movement.*.value",
 			"system.attributes.movement.*.base",
 			"system.attributes.movement.*.bonus"
 		];

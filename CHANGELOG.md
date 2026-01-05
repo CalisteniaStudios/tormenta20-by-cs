@@ -5,7 +5,9 @@
 - Corrigido: Efeito de Uso `ignoraRD` estava somando aos ataques.
 - Corrigido: Penalidade de Armadura de equipamentos sobrescrevia alterações por ActiveEffects.
 - Corrigido: Erro na criação de Bases.
-- Corrigido. Campo `system.modificadores.custoPM` só funcionava com Gasto de Mana Automático ativo.
+- Corrigido: Campo `system.modificadores.custoPM` só funcionava com Gasto de Mana Automático ativo.
+- Corrigido: Condições `lento` e `caido` não alteravam o deslocamento.
+- Corrigido: Efeito `system.attributes.movement.*.value` não estava aplicando as alterações.
 - Corrigido: Alterar os campo de Atributo de Ataque quebrava a rolagem de ataque das Armas.
 
 # Versão 1.5.013
