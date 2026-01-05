@@ -72,6 +72,7 @@ export default class BasesData extends Tormenta20TypeData {
 						swim: { base: 0, bonus: [] },
 						fly: { base: 0, bonus: [] },
 						hover: false,
+						tags: [],
 						unit: "m"
 					}
 				})

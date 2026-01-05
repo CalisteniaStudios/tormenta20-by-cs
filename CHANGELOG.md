@@ -4,6 +4,7 @@
 - Corrigido: Variáveis de TAGS (Ex. @ChapeuPreto2) não estão funcionando. NOTA: A TAG deve ser escrita em PascalCase (Primeira letra de cada palavra em maíuscula Ex: `ChapeuPreto`, `ArqueiroDeLenorien`).
 - Corrigido: Efeito de Uso `ignoraRD` estava somando aos ataques.
 - Corrigido: Penalidade de Armadura de equipamentos sobrescrevia alterações por ActiveEffects.
+- Corrigido: Erro na criação de Bases.
 - Corrigido: Alterar os campo de Atributo de Ataque quebrava a rolagem de ataque das Armas.
 
 # Versão 1.5.013
