@@ -10,6 +10,7 @@
 - Corrigido: Deslocamento de salto não impede movimentação do personagem.
 - Corrigido: Efeito `system.attributes.movement.*.value` não estava aplicando as alterações.
 - Corrigido: Alterar os campo de Atributo de Ataque quebrava a rolagem de ataque das Armas.
+- Corrigido: Erro ao tentar abrir a Ficha de Perigo Complexo.
 
 # Versão 1.5.013
 - Revertido: Configuração para desabilitar Área de Efeito do sistema foi trazida de volta.

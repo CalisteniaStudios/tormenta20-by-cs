@@ -100,10 +100,7 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 			system: actorData.system,
 			uuid: this.actor.uuid,
 			// data: actorData.system.toObject(false),
-			skills: actorData.system.pericias,
 			items: actorData.items,
-			movement: this._prepareMovementSpeed(actorData),
-			senses: this._prepareSenses(actorData),
 			effects: ActiveEffectT20.prepareActiveEffectCategories(this.actor.effects),
 			owner: this.actor.isOwner,
 			limited: this.actor.limited,
@@ -149,11 +146,20 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		}
 
 		// Skills
+		if (foundry.utils.hasProperty(this.actor.system, "pericias")) {
+			sheetData.skills = actorData.system.pericias;
+		}
 		if (sheetData.skills) this._prepareSkills(sheetData);
 
 		// Update traits
 		if (sheetData.system.tracos) this._prepareTraits(sheetData.system.tracos);
 
+		if (foundry.utils.hasProperty(this.actor.system, "attributes.movement")) {
+			sheetData.movement = this._prepareMovementSpeed(actorData);
+		}
+		if (foundry.utils.hasProperty(this.actor.system, "attributes.sentidos")) {
+			sheetData.senses = this._prepareSenses(actorData);
+		}
 		// Prepare owned items
 		await this._prepareItems(sheetData);
 
