@@ -22,9 +22,10 @@ export default class TokenRulerT20 extends foundry.canvas.placeables.tokens.Toke
 		const movement = foundry.utils.getProperty(this, "token.actor.system.attributes.movement");
 		const { cost } = waypoint.measurement;
 		if (movement) {
-			let speed = movement[waypoint.action].value;
-			if (!speed && ["climb", "swim"].includes(waypoint.action)) speed = movement.walk.value;
-			else if (waypoint.action === "hover") speed = Math.max(movement.walk.value, movement.fly.value);
+			const action = waypoint.action == "jump" ? "walk" : waypoint.action;
+			let speed = movement[action].value;
+			if (!speed && ["climb", "swim"].includes(action)) speed = movement.walk.value;
+			else if (action === "hover") speed = Math.max(movement.walk.value, movement.fly.value);
 			const index = Math.clamp(Math.floor((cost - 1) / speed), 0, 2);
 			if (waypoint.terrain?.difficulty > 1) style.color = dtColors[index] ?? 0xbfbfbf;
 			else style.color = colors[index] ?? 0xffffff;

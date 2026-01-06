@@ -7,6 +7,7 @@
 - Corrigido: Erro na criação de Bases.
 - Corrigido: Campo `system.modificadores.custoPM` só funcionava com Gasto de Mana Automático ativo.
 - Corrigido: Condições `lento` e `caido` não alteravam o deslocamento.
+- Corrigido: Deslocamento de salto não impede movimentação do personagem.
 - Corrigido: Efeito `system.attributes.movement.*.value` não estava aplicando as alterações.
 - Corrigido: Alterar os campo de Atributo de Ataque quebrava a rolagem de ataque das Armas.
 
