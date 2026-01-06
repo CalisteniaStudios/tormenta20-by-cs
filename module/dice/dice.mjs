@@ -140,7 +140,7 @@ export async function damageRoll({
 			let _fterms = [];
 			roll.terms.forEach((term, i) => {
 				if (term.options.flavor === "danoCritico") {
-					if (_fterms[i - 1] instanceof OperatorTerm) {
+					if (_fterms[_fterms.length - 1] instanceof foundry.dice.terms.OperatorTerm) {
 						_fterms.pop();
 					}
 				} else {

@@ -11,6 +11,7 @@
 - Corrigido: Efeito `system.attributes.movement.*.value` não estava aplicando as alterações.
 - Corrigido: Alterar os campo de Atributo de Ataque quebrava a rolagem de ataque das Armas.
 - Corrigido: Erro ao tentar abrir a Ficha de Perigo Complexo.
+- Corrigido: Erro ao rolar dano com múltiplos efeitos de `danoCritico`.
 
 # Versão 1.5.013
 - Revertido: Configuração para desabilitar Área de Efeito do sistema foi trazida de volta.
