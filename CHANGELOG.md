@@ -2,6 +2,7 @@
 
 # Versão 1.5.015
 - Corrigido: Perda de Vida era afetada por RD;
+- Corrigido: Exibição de Tipo de Habilidade/Poder na ficha padrão.
 
 # Versão 1.5.014
 - Corrigido: Variáveis de TAGS (Ex. @ChapeuPreto2) não estão funcionando. NOTA: A TAG deve ser escrita em PascalCase (Primeira letra de cada palavra em maíuscula Ex: `ChapeuPreto`, `ArqueiroDeLenorien`).

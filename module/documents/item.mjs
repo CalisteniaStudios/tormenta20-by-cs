@@ -984,6 +984,9 @@ export default class ItemT20 extends Item {
 				this.labels.nivel = game.i18n.format("T20.SpellLevel", { lvl: system.circulo });
 				this.labels.escola = T20.spellSchools[system.escola];
 				this.labels.materiais = system.meteriais?.value ?? null;
+			} else if (this.type === "poder") {
+				this.labels.tipo = T20.powerType[system.tipo];
+				this.labels.subtipo = system.subtipo;
 			}
 		}
 		// Equipment
