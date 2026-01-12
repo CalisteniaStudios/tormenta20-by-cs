@@ -562,7 +562,7 @@ export default class ActorT20 extends Actor {
 			}
 		});
 		if (damage.perda) {
-			if (multiplier > 0) final.damage += damage.perda.value * multiplier;
+			if (multiplier > 0) final.loss += damage.perda.value * multiplier;
 			else final.heal += damage.perda.value;
 			delete damage.perda;
 		}
