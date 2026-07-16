@@ -15,8 +15,6 @@ do projeto original; os créditos e a licença original permanecem preservados.
 
 
 ## Colaboradores
-* Calistenia Studios — manutenção e atualização para o Foundry VTT v14
-* Neutropac — contribuidor da modificação
 * André Oliveira
 * Gustavo Reis
 * TheTruePortal
@@ -27,6 +25,9 @@ do projeto original; os créditos e a licença original permanecem preservados.
 * Alexandre Galdino
 * Vinicius Lima Silva
 * Gabriel Vieira
+
+## Colaboradores da Calistenia Studios
+* Neutropac
 
 ## Atribuições
 - [FoundryVTT](https://github.com/FoundryVTT/) pelo módulo [dnd5e](https://github.com/FoundryVTT/dnd5e), cujo código foi adaptado neste sistema.
