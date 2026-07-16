@@ -268,9 +268,8 @@
   },
   "primaryTokenAttribute": "attributes.pv",
   "secondaryTokenAttribute": "attributes.pm",
-  "url": "https://gitlab.com/vizael/Tormenta20",
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
+  "url": "https://github.com/CalisteniaStudios/tormenta20-by-cs",
+  "manifest": "https://raw.githubusercontent.com/CalisteniaStudios/tormenta20-by-cs/main/system.json",
   "changelog": "https://gitlab.com/vizael/Tormenta20/-/releases/",
   "license": "https://gitlab.com/vizael/Tormenta20/-/blob/master/LICENSE",
   "bugs": "https://gitlab.com/vizael/Tormenta20/-/issues"
