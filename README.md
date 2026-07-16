@@ -1,8 +1,17 @@
-# Tormenta20
+# Tormenta20 by @CS
 
 ## Descrição
-Este é um sistema NÃO OFICIAL feito e mantido por fãs, sem qualquer afiliação a Tormenta20 ou a Jambo Editora.
-Tormenta 20 é um RPG brasileiro e pertence a Jambo Editora.
+Este é um sistema NÃO OFICIAL feito e mantido por fãs, sem qualquer afiliação a Tormenta20 ou à Jambo Editora.
+Tormenta20 é um RPG brasileiro e pertence à Jambo Editora.
+
+Esta versão é uma modificação do sistema Tormenta20 originalmente criado por
+[Vitor Hugo Paiva](https://gitlab.com/vizael/Tormenta20). O projeto original pode
+ser encontrado no [repositório oficial do sistema](https://gitlab.com/vizael/Tormenta20).
+
+O **Tormenta20 by @CS** é um upgrade básico de compatibilidade, mantido por
+**Calistenia Studios**, que atualiza o sistema para que ele funcione no Foundry
+Virtual Tabletop v14.365. Não há intenção de substituir ou reivindicar a autoria
+do projeto original; os créditos e a licença original permanecem preservados.
 
 
 ## Colaboradores
