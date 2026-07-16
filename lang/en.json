@@ -2,11 +2,11 @@
   "TYPES": {
     "Actor": {
       "bases": "Base",
-      "character": "Player Character",
-      "npc": "Threats",
-      "vehicle": "Vehicles",
-      "simple": "Simple Character",
-      "hazard": "Complex Hazard"
+      "character": "Personagem de Jogador",
+      "npc": "Ameaça",
+      "vehicle": "Veículos",
+      "simple": "Personagem do Mestre",
+      "hazard": "Perigo Complexo"
     },
     "Item": {
       "arma": "Weapon",

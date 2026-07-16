@@ -2,13 +2,13 @@
   "id": "tormenta20",
   "title": "Tormenta20 by @CS",
   "description": "Modificação do sistema Tormenta20 criado por Vitor Hugo Paiva, atualizando o sistema para o Foundry VTT v14.",
-  "version": "1.6.003",
+  "version": "1.6.004",
   "compatibility": {
     "minimum": "13",
     "verified": "14.365",
     "maximum": "14"
   },
-  "download": "https://github.com/CalisteniaStudios/tormenta20-by-cs/releases/download/v1.6.003/tormenta20-by-cs-v1.6.003-foundry-v14.365.zip",
+  "download": "https://github.com/CalisteniaStudios/tormenta20-by-cs/releases/download/v1.6.004/tormenta20-by-cs-v1.6.004-foundry-v14.365.zip",
   "authors": [{ "name": "Calistenia Studios" }],
   "esmodules": ["tormenta20.mjs"],
   "styles": ["tormenta20.css"],
