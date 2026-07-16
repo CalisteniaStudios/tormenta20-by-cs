@@ -778,7 +778,7 @@ export default class ItemT20 extends Item {
 		// Define follow-up actions resulting from the item usage
 		createMeasuredTemplate = hasArea; // Trigger a template creation
 		// Initiate measured template creation
-		if (canvas.scene && createMeasuredTemplate) {
+		if (canvas.scene && createMeasuredTemplate && CONFIG.MeasuredTemplate) {
 			const template = game.tormenta20.canvas.AbilityTemplate.fromItem(item);
 			if (template) {
 				template.drawPreview();

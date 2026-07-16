@@ -1,6 +1,7 @@
 const { Ray } = foundry.canvas.geometry;
+const TemplateLayer = foundry.canvas?.layers?.TemplateLayer ?? class {};
 
-export default class TemplateLayerT20 extends foundry.canvas.layers.TemplateLayer {
+export default class TemplateLayerT20 extends TemplateLayer {
 	_onDragLeftMove(event) {
 		const interaction = event.interactionData;
 

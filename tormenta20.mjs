@@ -104,7 +104,9 @@ globalThis.tormenta20 = {
 Hooks.once("init", async function () {
 	console.log("T20 | Initializing the Tormenta20 Game System");
 	game.tormenta20 = tormenta20;
-	CONFIG.ActiveEffect.legacyTransferral = true;
+	// V14 uses the new Active Effects lifecycle. Keep the legacy transferral
+	// fallback only on versions which still expose it.
+	if ("legacyTransferral" in CONFIG.ActiveEffect) CONFIG.ActiveEffect.legacyTransferral = true;
 	// Record Cnfiguration Values
 	CONFIG.T20 = T20;
 	CONFIG.Actor.documentClass = ActorT20;
@@ -118,9 +120,13 @@ Hooks.once("init", async function () {
 	TokenRulerT20.applyMovementConfig();
 	CONFIG.time.roundTime = 6;
 
-	CONFIG.Canvas.layers.templates.layerClass = TemplateLayerT20;
-	CONFIG.MeasuredTemplate.defaults.angle = 90;
-	CONFIG.MeasuredTemplate.objectClass = AbilityTemplate;
+	// MeasuredTemplate was removed in Foundry V14 in favor of Region-based
+	// templates. Do not touch the old configuration when it is unavailable.
+	if (CONFIG.MeasuredTemplate && CONFIG.Canvas.layers.templates) {
+		CONFIG.Canvas.layers.templates.layerClass = TemplateLayerT20;
+		CONFIG.MeasuredTemplate.defaults.angle = 90;
+		CONFIG.MeasuredTemplate.objectClass = AbilityTemplate;
+	}
 
 	// Register T20 stuff
 	CONFIG.statusEffects = T20.statusEffectIcons;

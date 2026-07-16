@@ -1,14 +1,14 @@
 {
   "id": "tormenta20",
-  "title": "Tormenta20",
-  "description": "Sistema NÃO OFICIAL de Tormenta20 para FoundryVTT!",
-  "version": "1.5.015",
+  "title": "Tormenta20 by @CS",
+  "description": "Modificação do sistema Tormenta20 criado por Vitor Hugo Paiva, atualizando o sistema para o Foundry VTT v14.",
+  "version": "1.6.002",
   "compatibility": {
     "minimum": "13",
-    "verified": "13",
-    "maximum": "13"
+    "verified": "14.365",
+    "maximum": "14"
   },
-  "authors": [{ "name": "Vizael" }],
+  "authors": [{ "name": "Calistenia Studios" }],
   "esmodules": ["tormenta20.mjs"],
   "styles": ["tormenta20.css"],
   "documentTypes": {
