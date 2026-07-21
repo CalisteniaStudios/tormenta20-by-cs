@@ -209,6 +209,36 @@ export default function () {
 				const characters = game.actors.filter((i) => i.type == "character");
 				for (let character of characters) await character.update(updateData);
 			}
+			if (systemMigrationVersion && systemMigrationVersion < "1.6.005") {
+				const migrateSkills = async (actors, pack) => {
+					for (const actor of actors) {
+						if (!actor.system.pericias) continue;
+						const changes = {};
+						for (const [key, config] of Object.entries(CONFIG.T20.pericias)) {
+							if (!actor.system.pericias[key] || actor.system.pericias[key].custom) continue;
+							changes[`system.pericias.${key}.atributo`] = config.abl;
+							changes[`system.pericias.${key}.st`] = !!config.trainedOnly;
+							changes[`system.pericias.${key}.pda`] = !!config.armorPenalty;
+							changes[`system.pericias.${key}.size`] = !!config.sizeMod;
+						}
+						for (const key of ["ofic", "ofi0", "_pc0"]) {
+							if (actor.system.pericias[key]) changes[`system.pericias.-=${key}`] = null;
+						}
+						if (Object.keys(changes).length) await actor.update(changes);
+					}
+				};
+				const packs = game.packs.filter((p) => p.metadata.type === "Actor" && p.metadata.packageType !== "system");
+				for (const pack of packs) {
+					const wasLocked = pack.locked;
+					try {
+						await pack.configure({ locked: false });
+						await migrateSkills(await pack.getDocuments(), pack);
+					} finally {
+						await pack.configure({ locked: wasLocked });
+					}
+				}
+				await migrateSkills(game.actors);
+			}
 			game.actors
 				.filter((f) => !f._stats.systemVersion || f._stats.systemVersion < "1.5.000")
 				.forEach((actor) => {

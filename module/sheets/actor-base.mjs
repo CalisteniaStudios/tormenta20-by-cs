@@ -175,6 +175,20 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 
 	_prepareSkills(data) {
 		for (let [s, skl] of Object.entries(data.skills)) {
+			const config = T20.pericias[s];
+			if (config && !skl.custom) {
+				// Keep the sheet consistent with the system skill configuration even
+				// when an actor was created before the v14 data model migration.
+				skl.atributo = config.abl ?? skl.atributo;
+				skl.st = !!config.trainedOnly;
+				skl.pda = !!config.armorPenalty;
+				skl.size = !!config.sizeMod;
+				skl.label ||= game.i18n.localize(config.label);
+			} else if (!config && !skl.custom) {
+				// Discard obsolete aggregate skill entries such as "ofic".
+				skl.exibir = false;
+				continue;
+			}
 			if (data.isNPC && s === "inic") skl.order = -5;
 			else if (data.isNPC && s === "perc") skl.order = -4;
 			else if (data.isNPC && s === "fort") skl.order = -3;

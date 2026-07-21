@@ -117,8 +117,8 @@ export default class CreatureData extends Tormenta20TypeData {
 		if (!config) return existing ?? initial;
 		const target = foundry.utils.deepClone(existing ?? initial);
 		target.atributo = config.abl ?? initial.atributo;
-		target.pda = config.armorPenalty ?? initial.st;
-		target.st = config.trainedOnly ?? initial.pda;
+		target.pda = config.armorPenalty ?? initial.pda;
+		target.st = config.trainedOnly ?? initial.st;
 		target.size = config.sizeMod ?? initial.size;
 		target.custom = config.custom ?? initial.custom;
 		return target;
