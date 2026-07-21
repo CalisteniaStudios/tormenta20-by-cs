@@ -2,6 +2,12 @@ import { endSegment } from "./apps/time-segment.mjs";
 import * as chat from "./chat.mjs";
 import * as macros from "./macros.mjs";
 
+function addForcedDeletion(changes, fieldPath, key) {
+	const ForcedDeletion = foundry.data?.operators?.ForcedDeletion;
+	if (ForcedDeletion) foundry.utils.setProperty(changes, `${fieldPath}.${key}`, new ForcedDeletion());
+	else changes[`${fieldPath}-=${key}`] = null;
+}
+
 export default function () {
 	/**
 	 * Once the entire VTT framework is initialized, check to see if we should perform a data migration
@@ -150,8 +156,8 @@ export default function () {
 						try {
 							const initial = new tormenta20.data.fields.SkillData();
 							const cls = CONFIG.Actor.dataModels[actor.type];
-							if (actor.system.pericias.ofi0) changes["system.pericias.-=ofi0"] = null;
-							if (actor.system.pericias._pc0) changes["system.pericias.-=_pc0"] = null;
+							if (actor.system.pericias.ofi0) addForcedDeletion(changes, "system.pericias", "ofi0");
+							if (actor.system.pericias._pc0) addForcedDeletion(changes, "system.pericias", "_pc0");
 							if (
 								actor.system.pericias.acro?.st
 								&& actor.system.pericias.reli?.pda
@@ -222,7 +228,7 @@ export default function () {
 							changes[`system.pericias.${key}.size`] = !!config.sizeMod;
 						}
 						for (const key of ["ofic", "ofi0", "_pc0"]) {
-							if (actor.system.pericias[key]) changes[`system.pericias.-=${key}`] = null;
+							if (actor.system.pericias[key]) addForcedDeletion(changes, "system.pericias", key);
 						}
 						if (Object.keys(changes).length) await actor.update(changes);
 					}
