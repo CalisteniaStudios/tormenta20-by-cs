@@ -481,7 +481,7 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 	prepareBaseData() {
 		const item = this.parent;
 		// TODO move to another file
-		if (item.isOwned && item.parent === "character" && game.settings.get("tormenta20", "equipmentSlots")) {
+		if (item.isOwned && item.parent?.type === "character" && game.settings.get("tormenta20", "equipmentSlots")) {
 			if (this.equipado && this.equipado2.slot === 0) {
 				const equip2 = this.equipado2;
 				if (this.equipado2.type === "hand" && this.equipado === 2) {

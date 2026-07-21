@@ -948,6 +948,13 @@ export default class CreatureData extends Tormenta20TypeData {
 
 		skillData ??= foundry.utils.deepClone(this.pericias[skillId]);
 		rollData ??= this.parent.getRollData();
+		const config = T20.pericias[skillId];
+		if (config && !skillData.custom) {
+			skillData.atributo = config.abl ?? skillData.atributo;
+			skillData.st = !!config.trainedOnly;
+			skillData.pda = !!config.armorPenalty;
+			skillData.size = !!config.sizeMod;
+		}
 		atributo ??= skillData.atributo;
 		skillData.atributo = atributo;
 
