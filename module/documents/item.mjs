@@ -195,8 +195,8 @@ export default class ItemT20 extends Item {
 	getAttackToHit() {
 		const itemData = this.system;
 		const rollData = this.getRollData();
-		const roll = itemData.rolls.find((r) => r.type === "ataque");
-		if (!this.hasAttack || !itemData || roll.parts.length < 2) return;
+		const roll = itemData.rolls?.find((r) => r.type === "ataque");
+		if (!this.hasAttack || !itemData || !roll || roll.parts.length < 2) return;
 		// Define Roll bonuses
 		const parts = roll.parts.map((p) => p[0] ?? p); // ;
 
@@ -232,7 +232,7 @@ export default class ItemT20 extends Item {
 					}
 				}
 			}
-			if (atributo) {
+			if (atributo && skill) {
 				const abls = actorData.atributos;
 				const skillAtributo = abls[skill.atributo];
 				const attackAtributo = abls[atributo];

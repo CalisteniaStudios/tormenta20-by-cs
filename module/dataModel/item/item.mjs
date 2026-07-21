@@ -482,13 +482,18 @@ export default class Tormenta20ItemData extends Tormenta20TypeData {
 		const item = this.parent;
 		const actor = item.parent;
 		// TODO move to another file
-		if (item.isOwned && actor?.type === "character" && game.settings.get("tormenta20", "equipmentSlots")) {
-			if (this.equipado && this.equipado2.slot === 0) {
+		if (
+			item.isOwned
+			&& actor?.type === "character"
+			&& actor.system?.equipamentos
+			&& game.settings.get("tormenta20", "equipmentSlots")
+		) {
+			if (this.equipado && this.equipado2?.slot === 0) {
 				const equip2 = this.equipado2;
 				if (this.equipado2.type === "hand" && this.equipado === 2) {
 					this.equipado2.slot = 12.1;
 				} else {
-					let equips = actor.items.filter((it) => it.equipado && it.equipado2.type === equip2.type);
+					let equips = [...(actor.items ?? [])].filter((it) => it.equipado && it.equipado2?.type === equip2.type);
 					let limite = equip2.type === "hand" ? "limiteEmpunhado" : "limiteVestido";
 					equips = equips.map((it) => it.id);
 					this.equipado2.slot =
