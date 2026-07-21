@@ -91,6 +91,26 @@ export default class CreatureData extends Tormenta20TypeData {
 
 	/** @inheritdoc */
 	static migrateData(data) {
+		const sizeAliases = {
+			"minúsculo": "min",
+			minusculo: "min",
+			pequeno: "peq",
+			pequena: "peq",
+			medio: "med",
+			médio: "med",
+			media: "med",
+			média: "med",
+			grande: "gra",
+			enorme: "eno",
+			colossal: "col"
+		};
+		const tamanho = data.tracos?.tamanho;
+		if (tamanho && sizeAliases[tamanho]) data.tracos.tamanho = sizeAliases[tamanho];
+		if (data.tracos?.resistencias) {
+			for (const resistance of Object.values(data.tracos.resistencias)) {
+				if (!Array.isArray(resistance.bonus)) resistance.bonus = resistance.bonus == null ? [] : [String(resistance.bonus)];
+			}
+		}
 
 		// TODO: remover essas migrações na V14
 		if (data.resources && !Object.keys(data.resources).length) {

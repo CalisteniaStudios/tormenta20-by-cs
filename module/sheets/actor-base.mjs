@@ -259,10 +259,8 @@ export default class ActorSheetT20 extends foundry.appv1.sheets.ActorSheet {
 		html.find(".config-button").click(this._onConfigMenu.bind(this));
 		html.find("#configure-skills").click(async (ev) => {
 			const { MODES } = this.constructor;
-			const toggle = ev.currentTarget;
 			this._mode = this._mode === MODES.EDIT ? MODES.PLAY : MODES.EDIT;
-			await this.submit();
-			this.render();
+			await this.render(true);
 		});
 
 		// html.find("#ability-calculator").click(ev => {
