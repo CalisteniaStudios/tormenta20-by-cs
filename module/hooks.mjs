@@ -209,7 +209,7 @@ export default function () {
 				const characters = game.actors.filter((i) => i.type == "character");
 				for (let character of characters) await character.update(updateData);
 			}
-			if (systemMigrationVersion && systemMigrationVersion < "1.6.005") {
+			if (systemMigrationVersion && systemMigrationVersion < "1.6.006") {
 				const migrateSkills = async (actors, pack) => {
 					for (const actor of actors) {
 						if (!actor.system.pericias) continue;

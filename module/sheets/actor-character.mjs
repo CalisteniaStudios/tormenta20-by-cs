@@ -59,6 +59,17 @@ export default class ActorSheetT20Character extends ActorSheetT20 {
 
 	_prepareSkills(data) {
 		for (let [s, skl] of Object.entries(data.skills)) {
+			const config = T20.pericias[s];
+			if (config && !skl.custom) {
+				skl.atributo = config.abl ?? skl.atributo;
+				skl.st = !!config.trainedOnly;
+				skl.pda = !!config.armorPenalty;
+				skl.size = !!config.sizeMod;
+				skl.label ||= game.i18n.localize(config.label);
+			} else if (!config && !skl.custom) {
+				skl.exibir = false;
+				continue;
+			}
 			const somenteTreinada = !data.esconderPericias || !skl.st || skl.treinado;
 			const oficio = !data.esconderOficios || !CONFIG.T20.oficios.has(s) || skl.treinado;
 			skl.key = s;
