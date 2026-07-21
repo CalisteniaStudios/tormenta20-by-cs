@@ -162,7 +162,17 @@ export default class ActiveEffectT20 extends ActiveEffect {
 	get isTemporary() {
 		const scene = this.getFlag("tormenta20", "durationScene");
 		const duration = this.duration.seconds ?? (this.duration.rounds || this.duration.turns) ?? 0;
-		return scene || duration > 0 || this.statuses.size;
+		if (scene || duration > 0) return true;
+		if (!this.statuses.size) return false;
+
+		// Effects transferred from items are usually passive bonuses. They may
+		// carry an icon, but should not be treated as active scene conditions.
+		const inheritedPassive =
+			this.parent?.documentName === "Actor"
+			&& (this.transfer || this.origin?.includes(".Item."))
+			&& !this.isUsage
+			&& !this.isCondition;
+		return !inheritedPassive;
 	}
 	/* --------------------------------------------- */
 
