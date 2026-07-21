@@ -202,15 +202,16 @@ export default class ItemT20 extends Item {
 
 		// Take no further action for un-owned items
 		if (!this.isOwned) return { rollData, parts };
-		const actorData = this.actor.system;
-		const flags = this.actor.flags.tormenta20 || {};
+		const actor = this.actor ?? this.parent;
+		if (!actor?.system) return { rollData, parts };
+		const actorData = actor.system;
+		const flags = actor.flags.tormenta20 || {};
 
 		// Add skill bonus
 		if (roll.parts[1][0]) {
 			parts[1] = "@skill";
-			if (!foundry.utils.isEmpty(actorData.pericias)) {
-				rollData.skill = actorData.pericias[roll.parts[1][0]].value || 0;
-			}
+			const skill = actorData.pericias?.[roll.parts[1][0]];
+			if (skill && rollData) rollData.skill = skill.value || 0;
 			// Change Skill Ability modifier
 			let atributo = roll.parts[1][1];
 			if (!atributo) {
@@ -232,9 +233,12 @@ export default class ItemT20 extends Item {
 				}
 			}
 			if (atributo) {
-				const skill = actorData.pericias[roll.parts[1][0]];
 				const abls = actorData.atributos;
-				rollData.skill = skill.value - abls[skill.atributo].value + abls[atributo].value;
+				const skillAtributo = abls[skill.atributo];
+				const attackAtributo = abls[atributo];
+				if (skill && rollData && skillAtributo && attackAtributo) {
+					rollData.skill = skill.value - skillAtributo.value + attackAtributo.value;
+				}
 			}
 		}
 
@@ -247,7 +251,7 @@ export default class ItemT20 extends Item {
 		// else if( enchants?.formidavel ) parts.push(2);
 
 		// Actor-level global bonus to attack rolls
-		const bonuses = this.actor.system.modificadores?.ataque || {};
+		const bonuses = actor.system.modificadores?.ataque || {};
 		if (bonuses.geral) parts.push(...bonuses.geral);
 		if (bonuses.cac && roll.parts[1][0] !== "pont") {
 			parts.push(...bonuses.cac);
@@ -257,8 +261,8 @@ export default class ItemT20 extends Item {
 		}
 
 		// One-time bonus provided by consumed ammunition
-		if (itemData.consume?.type === "ammo" && this.actor.items) {
-			const ammoItemData = this.actor.items.get(itemData.consume.target)?.system;
+		if (itemData.consume?.type === "ammo" && actor.items) {
+			const ammoItemData = actor.items.get(itemData.consume.target)?.system;
 
 			if (ammoItemData) {
 				const ammoItemQuantity = ammoItemData.qtd;
@@ -287,8 +291,9 @@ export default class ItemT20 extends Item {
 	 * @private
 	 */
 	getRollData() {
-		if (!this.actor) return null;
-		const rollData = this.actor.getRollData();
+		const actor = this.actor ?? this.parent;
+		if (!actor?.getRollData) return null;
+		const rollData = actor.getRollData();
 		rollData.item = foundry.utils.deepClone(this.system);
 		if (this.system.rolled) {
 			if (!rollData.roll) rollData.roll = {};
@@ -297,8 +302,8 @@ export default class ItemT20 extends Item {
 			}
 		}
 
-		if (this.actor.system.pericias) {
-			for (let [key, skl] of Object.entries(this.actor.system.pericias)) {
+		if (actor.system.pericias) {
+			for (let [key, skl] of Object.entries(actor.system.pericias)) {
 				rollData[key] = skl.value;
 			}
 		}
@@ -879,6 +884,7 @@ export default class ItemT20 extends Item {
 	/* -------------------------------------------- */
 
 	_prepareLabels() {
+		this.labels ??= {};
 		const system = this.system;
 		// Activation
 		if (foundry.utils.hasProperty(system, "ativacao")) {
